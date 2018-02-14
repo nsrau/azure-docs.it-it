@@ -84,7 +84,7 @@ Il livello delle API REST di Azure Stack DNS eTag vengono specificati utilizzand
 
 | Intestazione | Comportamento|
 |--------|---------|
-| None   | PUT riesce sempre (nessun controllo di Etag)|
+| Nessuna   | PUT riesce sempre (nessun controllo di Etag)|
 | If-match| PUT riesce solo se la risorsa esiste e l'Etag corrisponde|
 | If-match *| PUT riesce solo se la risorsa esiste|
 | If-none-match *| PUT riesce solo se la risorsa non esiste|

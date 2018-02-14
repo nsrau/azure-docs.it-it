@@ -1,6 +1,6 @@
 # [Documentazione di Docker](index.md)
 # Guida introduttiva
-## [Modello di Marketplace per Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
+## [Modello del Marketplace per Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS)
 # Esercitazioni
 ## [Applicazione Web Python con Docker e PostgreSQL](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [Integrazione continua e distribuzione continua con Docker Swarm e VSTS](/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine)

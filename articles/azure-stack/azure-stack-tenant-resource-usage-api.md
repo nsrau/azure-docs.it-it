@@ -31,7 +31,7 @@ La richiesta ottiene i dettagli di utilizzo per le sottoscrizioni di richieste e
 
 | **Metodo** | **URI della richiesta** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-preview & continuationToken = {valore del token} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argomenti
 | **Argomento** | **Descrizione** |
@@ -41,10 +41,10 @@ La richiesta ottiene i dettagli di utilizzo per le sottoscrizioni di richieste e
 | *reportedStartTime* |Ora di inizio della query. Il valore per *DateTime* deve essere in formato UTC e all'inizio dell'ora, ad esempio, 13:00. Per l'aggregazione giornaliera, impostare questo valore alla mezzanotte ora UTC. Il formato è *escape* ISO 8601, ad esempio 2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z, due punti in cui viene sottoposta a escape a % 3a e più in modo che sia descrittivo URI alla versione 2b % di escape. |
 | *reportedEndTime* |Ora di fine della query. I vincoli che si applicano a *reportedStartTime* si applicano anche a questo argomento. Il valore per *reportedEndTime* non può essere in futuro. |
 | *aggregationGranularity* |Parametro facoltativo che dispone di due valori potenziali discreti: giornaliera e oraria. Come suggeriscono i valori, uno restituisce i dati nella granularità giornaliera e l'altro è una risoluzione oraria. L'opzione giornaliera è il valore predefinito. |
-| *versione dell'API* |Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2015-06-01-preview. |
+| *api-version* |Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2015-06-01-preview. |
 | *continuationToken* |Token recuperato dall'ultima chiamata al provider di API di utilizzo. Questo token è necessaria quando una risposta è maggiore di 1.000 righe e funge da un segnalibro per lo stato di avanzamento. Se non è presente, i dati vengono recuperati dall'inizio del giorno o ora, in base al livello di dettaglio passati. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = giornaliera & api-version = 1.0
 
 ```json
@@ -81,8 +81,8 @@ OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reporte
 | *usageStartTime* |UTC ora di inizio del bucket di utilizzo a cui appartiene questa aggregazione di utilizzo |
 | *usageEndTime* |UTC ora di fine dell'intervallo di utilizzo a cui appartiene questa aggregazione di utilizzo |
 | *instanceData* |Coppie chiave-valore di dettagli di istanze (in un nuovo formato):<br>  *resourceUri*: ID di risorsa, inclusi gruppi di risorse e il nome di istanza completo <br>  *percorso*: area in cui è stato eseguito il servizio <br>  *tag*: i tag delle risorse specificate dall'utente <br>  *additionalInfo*: ulteriori informazioni sulle risorse che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo |
-| *quantità* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo |
-| *ID misuratore* |ID univoco per la risorsa che è stata utilizzata (detto anche *ResourceID*) |
+| *quantity* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo |
+| *meterId* |ID univoco per la risorsa che è stata utilizzata (detto anche *ResourceID*) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [API di utilizzo delle risorse dei provider](azure-stack-provider-resource-api.md)

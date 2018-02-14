@@ -1,6 +1,6 @@
 ---
-title: Le raccolte AI raccolta Azure | Documenti Microsoft
-description: Individuare e condividere insiemi nella raccolta di Azure.
+title: Raccolte di Azure AI Gallery | Microsoft Docs
+description: Scoprire e condividere raccolte in Azure AI Gallery.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: b7850b55baa690df22d8ebe14e9fa17fd91e0bad
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Individuare e condividere insiemi nella raccolta di Azure
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Scoprire e condividere raccolte in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Raccolte
@@ -71,7 +71,7 @@ Ad esempio, è possibile usare una raccolta per raggruppare elementi su un argom
     ![Selezionare "Public" (Pubblica) o "Unlisted" (Non in elenco)](./media/gallery-collections/create-collection-page-3.png)
 7. Selezionare **Create**.
 
-La raccolta è ora nella raccolta di Azure. Le raccolte vengono elencate nella pagina del proprio account, all'interno della scheda **Raccolte**.
+La raccolta si trova ora in Azure AI Gallery. Le raccolte vengono elencate nella pagina del proprio account, all'interno della scheda **Raccolte**.
 
 ### <a name="add-items-to-a-collection"></a>Aggiungere elementi a una raccolta
 Per aggiungere elementi alla raccolta, aprirla, selezionare **Modifica** e quindi selezionare **Aggiungi elemento**.

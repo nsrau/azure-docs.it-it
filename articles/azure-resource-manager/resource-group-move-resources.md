@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
@@ -190,43 +190,29 @@ Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la ret
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 
-Quando si usano le app del servizio app non è possibile spostare solo un piano di servizio app. Per spostare le app del servizio app, le opzioni disponibili sono:
+Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
-* Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app.
-* Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
+### <a name="moving-within-the-same-subscription"></a>Spostamento all'interno della stessa sottoscrizione
 
-Per il corretto funzionamento dell'app non è necessario che il piano di servizio app risieda nello stesso gruppo di risorse in cui si trova l'app stessa.
+Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spostare i certificati SSL caricati. È comunque possibile spostare un'app Web nel nuovo gruppo di risorse senza spostare il relativo certificato SSL caricato mantenendo effettiva la funzionalità SSL dell'app. 
 
-Se ad esempio il gruppo di risorse contiene:
+Se si desidera spostare il certificato SSL con l'app Web, attenersi alla procedura seguente:
 
-* **web-a** che è associata a **plan-a**
-* **web-b** che è associata a **plan-b**
+1.  Eliminare il certificato caricato dall'app Web.
+2.  Spostare l'app Web.
+3.  Caricare il certificato nell'app Web spostata.
 
-Le opzioni possibili sono:
+### <a name="moving-across-subscriptions"></a>Spostamento tra sottoscrizioni
 
-* Spostare **web-a**, **plan-a**, **web-b** e **plan-b**
-* Spostare **web-a** e **web-b**
-* Spostare **web-a**
-* Spostare **web-b**
+Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni seguenti:
 
-Con tutte le altre combinazioni si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
-
-Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servizio app corrispondente ma si vuole spostare entrambi gli elementi in un nuovo gruppo di risorse, è necessario eseguire lo spostamento in due fasi. Ad esempio: 
-
-* **web-a** si trova in **web-group**
-* **plan-a** si trova in **plan-group**
-* Si vuole che **web-a** e **plan-a** risiedano in **combined-group**
-
-Per ottenere questo risultato è necessario eseguire due operazioni di spostamento distinte nell'ordine che segue:
-
-1. Spostare **web-a** in **plan-group**
-2. Spostare **web-a** e **plan-a** in **combined-group**.
-
-È possibile spostare un certificato del servizio app in un nuovo gruppo di risorse o una nuova sottoscrizione senza problemi. Se l'app Web include un certificato SSL acquistato esternamente e caricato nell'app, tuttavia, è necessario eliminare il certificato prima di spostare l'app Web. Ad esempio, è possibile eseguire i passaggi seguenti:
-
-1. Eliminare il certificato caricato dall'App Web
-2. Spostare l'App Web
-3. Caricare il certificato nell'App Web
+- Il gruppo di risorse di destinazione non deve contenere risorse del servizio app esistenti. Le risorse del servizio app includono:
+    - App Web
+    - Piani di servizio app
+    - Certificati SSL importati o caricati
+    - Ambienti del servizio app
+- Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
+- Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, deve essere spostata nuovamente in tale gruppo prima di poter essere spostata tra le sottoscrizioni. 
 
 ## <a name="classic-deployment-limitations"></a>Limitazioni della distribuzione classica
 

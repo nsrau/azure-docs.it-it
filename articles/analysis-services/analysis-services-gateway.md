@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: owend
-ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a0af2e0448d8ce991c9bcc138d6132d216715768
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale di Azure
 Il gateway dati locale svolge la funzione di ponte, garantendo il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a lavorare con più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, PowerApps e Microsoft Flow. È possibile associare più servizi nella stessa area con un singolo gateway. 
@@ -28,11 +28,11 @@ La configurazione iniziale del gateway è un processo in quattro fasi:
 
 - **Scaricare ed eseguire il programma di installazione**: questo passaggio consente di installare un servizio gateway in un computer dell'organizzazione. È anche possibile accedere ad Azure usando un account in Azure AD del [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Gli account Azure B2B (guest) non sono supportati.
 
-- **Registrare il gateway**: in questo passaggio, si specifica un nome e la chiave di ripristino per il gateway e si seleziona un'area, si registra il gateway con il servizio Cloud Gateway. La risorsa gateway **deve essere registrata nella stessa area** dei server di Analysis Services. 
+- **Registrare il gateway**: in questo passaggio vengono specificati un nome e una chiave di ripristino per il gateway, si seleziona un'area e si registra il gateway con il servizio cloud Gateway. La risorsa gateway può essere registrata in qualsiasi area, ma è consigliabile registrarla nella stessa area dei server Analysis Services. 
 
 - **Creare una risorsa per il gateway in Azure**: in questo passaggio, si crea una risorsa per il gateway nella sottoscrizione di Azure.
 
-- **Connettere i server per la risorsa per il gateway**: dopo aver creato una risorsa per il gateway nella sottoscrizione, è possibile iniziare a connettere i server. È possibile connettere più server e altre risorse purché si trovino nell'area.
+- **Connettere i server per la risorsa per il gateway**: dopo aver creato una risorsa per il gateway nella sottoscrizione, è possibile iniziare a connettere i server. È possibile connettere più server e altre risorse.
 
 Per iniziare subito, vedere [Installare e configurare il gateway dati locale](analysis-services-gateway-install.md).
 
@@ -67,7 +67,7 @@ Il gateway crea una connessione in uscita al bus di servizio di Azure. Comunica 
 
 Di seguito sono indicati i nomi di dominio completi usati dal gateway.
 
-| Nomi di dominio | Porte in uscita | Descrizione |
+| Nomi di dominio | Porte in uscita | DESCRIZIONE |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usato per scaricare il programma di installazione. |
 | *.powerbi.com |443 |HTTPS |
@@ -103,35 +103,35 @@ Di seguito sono indicati i nomi di dominio completi usati dal gateway.
 <a name="why-azure-work-school-account"></a>
 
 **D**: Perché è necessario utilizzare un account aziendale o dell'istituto di istruzione per accedere? <br/>
-**R**: È possibile usare solo un account dell'organizzazione aziendale o dell'istituto di istruzione quando si installa il gateway dati locale. E l'account deve essere dello stesso tenant della sottoscrizione in cui si sta configurando la risorsa per il gateway. L'account di accesso viene archiviato in un tenant gestito da Azure Active Directory (Azure AD). Il nome dell'entità utente (UPN) dell'account di Azure AD in genere corrisponde all'indirizzo di posta elettronica.
+**R**: È possibile usare solo un account aziendale o dell'istituto di istruzione quando si installa il gateway dati locale. E l'account deve essere dello stesso tenant della sottoscrizione in cui si sta configurando la risorsa per il gateway. L'account di accesso viene archiviato in un tenant gestito da Azure Active Directory (Azure AD). Il nome dell'entità utente (UPN) dell'account di Azure AD in genere corrisponde all'indirizzo di posta elettronica.
 
 **D**: Dove sono archiviate le credenziali? <br/>
-**R**: Le credenziali immesse per un'origine dati vengono crittografate e archiviate nel servizio cloud del gateway. Le credenziali vengono quindi decrittografate nel gateway dati locale.
+**R**: Le credenziali immesse per un'origine dati vengono crittografate e archiviate nel servizio cloud Gateway. Le credenziali vengono quindi decrittografate nel gateway dati locale.
 
 **D**: Sono previsti requisiti per la larghezza di banda della rete? <br/>
 **R**: È consigliabile che la connessione di rete abbia una buona velocità effettiva. Ogni ambiente è diverso e la quantità di dati inviati influisce sui risultati. L'uso di ExpressRoute può contribuire a garantire un livello di velocità effettiva tra i data center di Azure e quelli locali.
 Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocità effettiva.
 
 **D**: Qual è la latenza per l'esecuzione di query a un'origine dati dal gateway? Qual è l'architettura ottimale? <br/>
-**R**: Per ridurre la latenza di rete è consigliabile installare il gateway il più vicino possibile all'origine dati. Installando il gateway nell'origine dati effettiva, la latenza introdotta risulterà ridotta al minimo grazie a questa prossimità. Si considerino anche i data center. Se, ad esempio, il servizio usa il data center degli Stati Uniti occidentali e SQL Server è ospitato in una macchina virtuale di Azure, è opportuno che anche la macchina virtuale di Azure sia ubicata negli Stati Uniti occidentali. Grazie a questa prossimità la latenza è ridotta al minimo e si evitano addebiti relativi ai dati in uscita sulla macchina virtuale di Azure.
+**R**: Per ridurre la latenza di rete, installare il gateway il più vicino possibile all'origine dati. Installando il gateway nell'origine dati effettiva, la latenza introdotta risulterà ridotta al minimo grazie a questa prossimità. Si considerino anche i data center. Se, ad esempio, il servizio usa il data center degli Stati Uniti occidentali e SQL Server è ospitato in una macchina virtuale di Azure, è opportuno che anche la macchina virtuale di Azure sia ubicata negli Stati Uniti occidentali. Grazie a questa prossimità la latenza è ridotta al minimo e si evitano addebiti relativi ai dati in uscita sulla macchina virtuale di Azure.
 
 **D**: In che modo i risultati vengono inviati al cloud? <br/>
-**R**: I risultati vengono inviati tramite il Bus di servizio di Azure.
+**R**: I risultati vengono inviati tramite il bus di servizio di Azure.
 
 **D**: Esistono connessioni in ingresso al gateway dal cloud? <br/>
 **R**: No. Il gateway usa le connessioni in uscita al bus di servizio di Azure.
 
 **D**: Cosa accade se si bloccano le connessioni in uscita? Cosa fare per sbloccarle? <br/>
-**R**: Visualizzare le porte e gli host usati dal gateway.
+**R**: Vedere le porte e gli host usati dal gateway.
 
 **D**: Come viene chiamato il servizio Windows effettivo?<br/>
-**R**: Nei servizi, il gateway è denominato servizio Gateway dati locale.
+**R**: In Servizi il gateway è denominato servizio Gateway dati locale.
 
 **D**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
 **R**: No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
 
 **D**: Come si acquisisce la proprietà di un gateway? <br/>
-**R**: Per acquisire la proprietà di un gateway (selezionando Installa/Cambia in Pannello di controllo > Programmi), è necessario essere un proprietario per la risorsa gateway in Azure e avere la chiave di ripristino. I proprietari delle risorse gateway sono configurabili nel controllo di accesso.
+**R**: Per acquisire la proprietà di un gateway (selezionando Installa/Cambia in Pannello di controllo > Programmi), è necessario essere un proprietario della risorsa gateway in Azure e avere la chiave di ripristino. I proprietari delle risorse gateway sono configurabili nel controllo di accesso.
 
 ### <a name="high-availability"></a>Disponibilità elevata e ripristino di emergenza
 
@@ -144,7 +144,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 ## <a name="troubleshooting"> </a>Risoluzione dei problemi
 
 **D**: Perché il gateway non compare nell'elenco di istanze del gateway quando si tenta di creare la risorsa del gateway in Azure? <br/>
-**R**: Le ragioni possono essere due: La prima è che per il gateway è già stata creata una risorsa nella sottoscrizione corrente o in un'altra sottoscrizione. Per eliminare tale possibilità, enumerare le risorse del tipo **Gateway dati locali** dal portale. Assicurarsi di selezionare tutte le sottoscrizioni durante l'enumerazione di tutte le risorse. Si noti che dopo aver creato la risorsa, il gateway non verrà visualizzato nell'elenco di istanze del gateway nell'esperienza di creazione di una risorsa per il gateway del portale. La seconda possibilità è che l'identità di Azure AD dell'utente che ha installato il gateway sia diversa da quella dell'utente connesso al portale di Azure. Per risolvere questo problema, accedere al portale con lo stesso account dell'utente che ha installato il gateway.
+**R**: Le ragioni possono essere due. La prima è che per il gateway è già stata creata una risorsa nella sottoscrizione corrente o in un'altra sottoscrizione. Per eliminare tale possibilità, enumerare le risorse del tipo **Gateway dati locali** dal portale. Assicurarsi di selezionare tutte le sottoscrizioni durante l'enumerazione di tutte le risorse. Una volta creata la risorsa, il gateway non verrà visualizzato nell'elenco di istanze del gateway nell'esperienza di creazione di una risorsa gateway del portale. La seconda possibilità è che l'identità di Azure AD dell'utente che ha installato il gateway sia diversa da quella dell'utente connesso al portale di Azure. Per risolvere questo problema, accedere al portale con lo stesso account dell'utente che ha installato il gateway.
 
 **D**: Come è possibile visualizzare le query inviate all'origine dati locale? <br/>
 **R**: È possibile abilitare la funzione di tracciamento delle query, che include le query inviate. Dopo aver risolto il problema, ripristinare il valore originale per il tracciamento delle query. Se il tracciamento delle query non viene disabilitato, si creeranno dei log più grandi.
@@ -152,7 +152,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 È anche possibile usare gli strumenti per il tracciamento delle query di cui è dotata l'origine dati. Ad esempio, è possibile usare Eventi estesi o SQL Profiler per SQL Server e Analysis Services.
 
 **D**: Dove si trovano i log del gateway? <br/>
-**R**: Vedere la sezione Registri più avanti in questo articolo.
+**R**: Vedere la sezione Log più avanti in questo articolo.
 
 ### <a name="update"></a>Aggiornare alla versione più recente
 

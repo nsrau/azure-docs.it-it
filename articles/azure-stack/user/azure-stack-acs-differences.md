@@ -46,7 +46,7 @@ In questo articolo riepiloga le differenze di Stack di archiviazione di Azure no
 |Dimensioni di pagina pagina blob|512 byte|4 KB
 |Dimensione di chiave di riga e chiave di partizione di tabella|1.024 caratteri (2.048 byte)|400 caratteri (800 byte)
 
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 Esistono inoltre alcune differenze con le metriche di archiviazione:
 * I dati delle transazioni di metriche di archiviazione non viene applicata alcuna distinzione della larghezza di banda di rete interna o esterna.
 * I dati delle transazioni di metriche di archiviazione non include macchina virtuale di accedere ai dischi installati.

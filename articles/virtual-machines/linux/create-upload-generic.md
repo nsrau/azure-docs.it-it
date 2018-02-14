@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771b3ffa0ece10e7373011536a12ed4cb1a1dd6d
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ L' [agente Linux di Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual
 * L'agente Linux di Azure richiede Python 2.6 o versioni successive.
 * Inoltre, l'agente richiede il modulo python-pyasn1, che nella maggior parte delle distribuzioni viene fornito come pacchetto separato installabile.
 * In alcuni casi l'agente Linux di Azure potrebbe non essere compatibile con NetworkManager. Molti dei pacchetti RPM/Debian forniti dalle distribuzioni configurano NetworkManager come in conflitto con il pacchetto waagent, pertanto disinstalleranno NetworkManager quando si installa il pacchetto dell'agente Linux.
+* L'agente Linux di Azure deve avere una versione superiore a quella minima supportata. Vedere questo articolo per altri [dettagli](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Requisiti generali di sistema relativi a Linux
 

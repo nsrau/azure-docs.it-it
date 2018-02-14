@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/12/2017
-ms.openlocfilehash: e576d44a854159054d4f7886fe7859ae34875c8f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 128a4ae124f01a0514160450a3e9069b488274cd
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>Esempio di trasformazioni di colonna personalizzate (Python) 
 Il nome di questa trasformazione nel menu è **Add Column (Script)** (Aggiungi colonna - Script).
@@ -54,7 +54,7 @@ Numero di secondi trascorsi dal periodo Unix (presupponendo che Col1 sia già un
     row["Col1"] - datetime.datetime.utcfromtimestamp(0)).total_seconds()
 ```
 
-## <a name="hash-a-column-value-into-a-new-column"></a>Hash di un valore di colonna in una nuova colonna
+## <a name="hash-a-column-value-into-a-new-column"></a>Hash del valore di una colonna in una nuova colonna
 ```python
     import hashlib
     hash(row["MyColumnToHashCol1"])

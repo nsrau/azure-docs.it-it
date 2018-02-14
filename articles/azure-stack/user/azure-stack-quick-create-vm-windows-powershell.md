@@ -213,7 +213,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
  
-Utilizzare il comando seguente per creare una sessione Desktop remoto con la macchina virtuale. Sostituire l'indirizzo IP con publicIPAddress della macchina virtuale. Quando richiesto, immettere il nome utente e la password utilizzata durante la creazione della macchina virtuale.
+Utilizzare il comando seguente per creare una sessione Desktop remoto con la macchina virtuale. Sostituire l'indirizzo IP con l'indirizzo publicIPAddress della macchina virtuale. Quando richiesto, immettere il nome utente e la password utilizzata durante la creazione della macchina virtuale.
 
 ```powershell
 mstsc /v <publicIpAddress>

@@ -1,6 +1,6 @@
 ---
-title: Azure concorsi AI raccolta | Documenti Microsoft
-description: Individuare concorsi nella raccolta di Azure.
+title: Concorsi di Azure AI Gallery | Microsoft Docs
+description: Scoprire i concorsi in Azure AI Gallery.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 35f269f6d0dc55fd4a419ee1d7fe41b4f12ebb4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Individuare concorsi nella raccolta di Azure
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Scoprire i concorsi in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Concorsi di Cortana Intelligence
@@ -29,7 +29,7 @@ I **[concorsi](https://gallery.cortanaintelligence.com/competitions)** offrono l
 Per consultare le risposte alle domande frequenti sui concorsi, vedere l'articolo [Domande frequenti sui concorsi in Cortana Intelligence Gallery](competition-faq.md).
 
 ## <a name="discover"></a>Scoprire
-Il  **[concorsi](https://gallery.cortanaintelligence.com/competitions)**  pagina ([aka.ms/CIComp](http://aka.ms/CIComp)) Visualizza un elenco di concorsi i più diffusi.
+La pagina **[Competitions](https://gallery.cortanaintelligence.com/competitions)**(Concorsi) ([aka.ms/CIComp](http://aka.ms/CIComp)) contiene un elenco dei concorsi più seguiti.
 
 ![Selezionare Competitions (Concorsi) dalla home page di Gallery](./media/gallery-competitions/select-competitions-in-gallery.png)
 

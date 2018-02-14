@@ -1,6 +1,6 @@
 ---
 title: Mappa delle applicazioni in Azure Application Insights | Microsoft Docs
-description: Una rappresentazione visiva delle dipendenze tra i componenti di app, contrassegnati con avvisi e indicatori KPI.
+description: Monitorare topologie di applicazioni complesse con la mappa delle applicazioni
 services: application-insights
 documentationcenter: 
 author: SoubhagyaDash
@@ -13,23 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e1eb2177d6032142781e6e31af6c7f6313d38f4d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="application-map-in-application-insights"></a>Mappa delle applicazioni in Application Insights
-In [Azure Application Insights](app-insights-overview.md), Mappa delle applicazioni è un layout visivo delle relazioni di dipendenza dei componenti dell'applicazione. Ogni componente mostra gli indicatori KPI, ad esempio carico, prestazioni, errori e avvisi per individuare eventuali componenti che generano un errore o un problema di prestazioni. È possibile fare clic da qualsiasi componente per ottenere una diagnostica più dettagliata, ad esempio sugli eventi di Application Insights. Se l'app usa i servizi di Azure, è possibile anche fare clic sulla diagnostica di Azure, ad esempio per consigli di Advisor su database SQL.
+# <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: valutare le applicazioni distribuite
+La mappa delle applicazioni consente di individuare i colli di bottiglia delle prestazioni o le aree sensibili agli errori in tutti i componenti dell'applicazione distribuita. Ogni nodo nella mappa rappresenta un componente dell'applicazione o le relative dipendenze e ha un indicatore KPI dell'integrità e uno stato degli avvisi. È possibile fare clic da qualsiasi componente per ottenere una diagnostica più dettagliata, ad esempio sugli eventi di Application Insights. Se l'app usa i servizi di Azure, è possibile anche fare clic sulla diagnostica di Azure, ad esempio per consigli di Advisor su database SQL.
 
-Come altri tipi di grafico, è possibile aggiungere una mappa delle applicazioni al dashboard di Azure, in cui è completamente funzionale. 
+## <a name="what-is-a-component"></a>Cos'è un componente?
 
-## <a name="open-the-application-map"></a>Aprire la mappa delle applicazioni
-Aprire la mappa nel pannello di panoramica dell'applicazione:
+I componenti sono parti dell'applicazione distribuita o di microservizi, distribuibili autonomamente. Gli sviluppatori e i team delle operazioni hanno visibilità o accesso a livello di codice ai dati di telemetria generati dai componenti di queste applicazioni. 
 
-![aprire la mappa delle app](./media/app-insights-app-map/01.png)
+* I componenti sono diversi dalle dipendenze esterne "osservate" quali SQL, EventHub e così via, a cui il team o l'organizzazione potrebbero non avere accesso (codice o dati di telemetria).
+* I componenti vengono eseguiti su diverse istanze di ruolo, server o contenitore.
+* I componenti possono essere chiavi di strumentazione di Application Insights diverse tra loro (anche in caso di sottoscrizioni diverse) oppure ruoli diversi che creano report per una sola chiave di strumentazione di Application Insights. L'esperienza della mappa di anteprima mostra i componenti indipendentemente dalla loro configurazione.
 
-![mappa delle app](./media/app-insights-app-map/02.png)
+## <a name="composite-application-map-preview"></a>Mappa delle applicazioni composita (anteprima)
+*Questa mappa è in versione di anteprima e verranno aggiunte altre funzionalità. I commenti e i suggerimenti degli utenti relativi alla nuova esperienza saranno molto apprezzati. È possibile passare facilmente tra l'anteprima e l'esperienza classica.*
+
+Abilitare la mappa delle applicazioni composita dall'[elenco delle anteprime](app-insights-previews.md) oppure fare clic sul pulsante relativo alla mappa di anteprima nell'angolo in alto a destra. Il pulsante consente anche di tornare all'esperienza classica.
+![Abilitare la mappa di anteprima](media/app-insights-app-map/preview-from-classic.png)
+
+>[!Note]
+Questa versione di anteprima sostituisce la precedente anteprima della mappa delle applicazioni multiruolo. Per il momento, usare questa mappa per visualizzare l'intera topologia con più livelli di dipendenze dei componenti dell'applicazione. In base ai commenti e ai suggerimenti degli utenti verranno aggiunte ulteriori funzionalità analoghe a quelle supportate dalla mappa classica.
+
+È possibile visualizzare la topologia completa dell'applicazione con più livelli di componenti dell'applicazione correlati. I componenti possono essere risorse di Application Insights diverse o ruoli diversi in una singola risorsa. La mappa delle app consente di trovare i componenti seguendo le chiamate di dipendenza HTTP inviate tra i server con Application Insights SDK installato. 
+
+Questa esperienza inizia con la progressiva individuazione dei componenti. Quando si carica l'anteprima per la prima volta, viene avviato un set di query per individuare i componenti correlati a questo componente. Un pulsante nell'angolo superiore sinistro viene aggiornato con il numero di componenti dell'applicazione individuati. 
+![Mappa di anteprima](media/app-insights-app-map/preview.png)
+
+Quando si fa clic sul pulsante per aggiornare i componenti della mappa, la mappa viene aggiornata con tutti i componenti individuati fino a quel momento.
+![Anteprima della mappa caricata](media/app-insights-app-map/components-loaded-hierarchical.png)
+
+Se tutti i componenti sono ruoli all'interno di una singola risorsa di Application Insights, questo passaggio di individuazione non è necessario. Il caricamento iniziale per tale applicazione includerà tutti i relativi componenti.
+
+Uno dei principali obiettivi della nuova esperienza è quello di consentire di visualizzare le topologie complesse con centinaia di componenti. La nuova esperienza supporta lo zoom e prevede l'aggiunta di dettagli quando si fa zoom avanti. È possibile fare zoom indietro per visualizzare contemporaneamente più componenti e individuare comunque i componenti con percentuali di errore maggiori. 
+
+![Livelli di zoom](media/app-insights-app-map/zoom-levels.png)
+
+Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate correlate e passare all'esperienza di valutazione delle prestazioni e degli errori per il componente.
+
+![Riquadro a comparsa](media/app-insights-app-map/preview-flyout.png)
+
+
+## <a name="classic-application-map"></a>Mappa delle applicazioni classica
 
 La mappa mostra:
 
@@ -37,6 +66,8 @@ La mappa mostra:
 * Componente lato client (monitorato con JavaScript SDK)
 * Componente lato server
 * Dipendenze dei componenti client e server
+
+![mappa delle app](./media/app-insights-app-map/02.png)
 
 È possibile espandere e comprimere i gruppi di collegamento di dipendenza:
 
@@ -99,22 +130,6 @@ Per alcuni tipi di risorsa, l'integrità delle risorse viene visualizzata nella 
 
 È possibile fare clic sul nome della risorsa per visualizzare le metriche di panoramica standard per la risorsa.
 
-## <a name="end-to-end-system-app-maps"></a>Mappe delle app del sistema end-to-end
-
-*È necessaria la versione 2.3 o successive di SDK*
-
-Se l'applicazione include diversi componenti, ad esempio un servizio back-end oltre all'App Web, è anche possibile visualizzarli tutti in una mappa integrata delle app.
-
-![impostare i filtri](./media/app-insights-app-map/multi-component-app-map.png)
-
-La mappa dell'app consente di trovare i nodi del server seguendo le chiamate di dipendenza HTTP inviate tra i server con Application Insights SDK installato. Si presuppone che ogni risorsa di Application Insights contenga un server.
-
-### <a name="multi-role-app-map-preview"></a>Mappa con app multi-ruolo (anteprima)
-
-La funzionalità di anteprima della mappa dell'app multi-ruolo consente di usare la mappa dell'app con più server che inviano dati alla stessa risorsa o alla stessa chiave di strumentazione di Application Insights. I server nella mappa vengono segmentati in base alla proprietà cloud_RoleName negli elementi di telemetria. Impostare *Multi-role Application Map* (Mappa dell'applicazione multi-ruolo) su *On* (Attivo) nel pannello Anteprime per abilitare questa configurazione.
-
-Questo approccio potrebbe essere necessario in un'applicazione di micro-servizi o in altri scenari in cui si desidera correlare gli eventi tra più server all'interno di una singola risorsa di Application Insights.
-
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
@@ -127,4 +142,4 @@ Inviare commenti e suggerimenti tramite l'apposita opzione del portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Portale di Azure](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)

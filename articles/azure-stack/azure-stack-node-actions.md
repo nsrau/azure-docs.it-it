@@ -133,7 +133,7 @@ Per eseguire l'azione di ripresa tramite PowerShell:
   Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
   ````
 
-### <a name="repair"></a>Ripara
+### <a name="repair"></a>Ripristina
 
 Il **ripristino** azione consente di ripristinare un nodo. Utilizzarlo solo per uno dei seguenti scenari:
 

@@ -64,7 +64,7 @@ Eseguire applicazioni HPC personalizzate o commerciali in Azure. Per alcuni esem
 
 ### <a name="graphics-and-rendering"></a>Grafica e rendering
 
-* [Autodesk Maya, 3ds Max e Arnold](../articles/batch/batch-rendering-service.md) in Azure Batch (anteprima)
+* [Autodesk Maya, 3ds Max e Arnold](../articles/batch/batch-rendering-service.md) in Azure Batch 
 
 ### <a name="ai-and-deep-learning"></a>AI e apprendimento avanzato
 
@@ -103,11 +103,12 @@ I fornitori o sviluppatori di SaaS possono usare gli strumenti e gli SDK di Batc
 
 È possibile passare agli argomenti seguenti:
 
-* [Introduzione allo sviluppo con Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Introduzione allo sviluppo con Batch](../articles/batch/quick-run-dotnet.md)
 * [Usare gli esempi di codice per Azure Batch](https://github.com/Azure/azure-batch-samples)
 * [Usare le macchine virtuali con priorità bassa in Batch](../articles/batch/batch-low-pri-vms.md)
 * [Eseguire carichi di lavoro HPC inclusi in contenitori con Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Usare il linguaggio R con Batch](https://github.com/Azure/doAzureParallel)
+* [Eseguire Azure Distributed Data Engineering Toolkit in Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Gestori del carico di lavoro
 
@@ -127,6 +128,7 @@ I carichi di lavoro Batch e HPC su larga scala hanno richieste di archiviazione 
 Altre informazioni:
 
 * [File system paralleli per l'archiviazione HPC in Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* Soluzioni di archiviazione cloud a prestazioni elevate di [Avere](http://www.averesystems.com/about-us/about-avere) (ora [associata a Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## <a name="related-azure-services"></a>Servizi Azure correlati
@@ -139,11 +141,14 @@ Le macchine virtuali di Azure, i set di scalabilità di macchine virtuali, Batch
 * [Archiviazione file](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dati e analisi
-* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) per cluster Hadoop in Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [Database SQL](../articles/sql-database/sql-database-technical-overview.md)
+
+### <a name="ai-and-cognitive-services"></a>Intelligenza artificiale e servizi cognitivi
+* [Intelligenza artificiale per Batch](../articles/batch-ai/overview.md)
 
 ### <a name="networking"></a>Rete
 * [Rete virtuale](../articles/virtual-network/virtual-networks-overview.md)
