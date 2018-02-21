@@ -16,6 +16,8 @@
       href: time-series-insights-explorer.md
     - name: Attenuare la limitazione delle richieste
       href: time-series-insights-environment-mitigate-latency.md
+    - name: Informazioni sulla conservazione dei dati
+      href: time-series-insights-concepts-retention.md
     - name: Diagnosticare e risolvere i problemi
       href: time-series-insights-diagnose-and-solve-problems.md
     - name: Sviluppo
@@ -38,6 +40,8 @@
       href: time-series-insights-how-to-add-an-event-source-eventhub.md
     - name: Connettersi all'hub IoT
       href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Configurare la conservazione dei dati
+      href: time-series-insights-how-to-configure-retention.md
     - name: Creare un set di dati di riferimento
       href: time-series-insights-add-reference-data-set.md
     - name: Inviare eventi

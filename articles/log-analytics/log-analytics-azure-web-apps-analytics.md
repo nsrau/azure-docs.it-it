@@ -3,7 +3,7 @@ title: Visualizzare i dati di analisi di App Web di Azure | Microsoft Docs
 description: "È possibile usare la soluzione Analisi app Web di Azure per ottenere informazioni dettagliate su App Web di Azure, raccogliendo metriche diverse in tutte le risorse app Web di Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: banders
-ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.author: magoedte
+ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
 
@@ -44,7 +44,7 @@ A differenza della maggior parte delle altre soluzioni di Log Analytics, i dati 
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Per accedere alle informazioni relative alle metriche delle risorse app Web di Azure, è necessaria una sottoscrizione di Azure.
 
@@ -90,7 +90,7 @@ Quando si aggiunge la soluzione Analisi app Web di Azure all'area di lavoro, il 
 
 Fare clic sul riquadro **Analisi app Web di Azure** per aprire il dashboard di **Analisi app Web di Azure**. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a dieci elementi corrispondenti ai criteri del pannello per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Colonna | DESCRIZIONE |
 | --- | --- |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev;
-ms.openlocfilehash: 1ad4e8c117f93f2f085c01fae2a5ab38cdd10d2f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 7f3bf3bb5743bfb64489188d1016fb18d4967f79
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Eseguire attività di data science: esplorazione, modellazione e distribuzione
 
@@ -88,7 +88,7 @@ La distribuzione nell'ambiente di produzione consente di usare attivamente un mo
 Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produzione. Ecco alcune opzioni:
 
 
-- [Distribuzione di modelli in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+- [Distribuzione di modelli in Azure Machine Learning](../preview/model-management-overview.md)
 - [Distribuzione di un modello in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

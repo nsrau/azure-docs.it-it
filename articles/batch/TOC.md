@@ -43,6 +43,7 @@
 ## Creare e gestire i pool
 ### [Nodi di calcolo a scalabilità automatica](batch-automatic-scaling.md)
 ### [VM a elevato utilizzo di calcolo](batch-pool-compute-intensive-sizes.md)
+### [Configurare l'accesso ai nodi di calcolo](pool-endpoint-configuration.md)
 ### [Creare un pool con un'immagine personalizzata](batch-custom-images.md)
 ### [Creare un pool in una rete virtuale](batch-virtual-network.md)
 ### [Nodi di calcolo Linux](batch-linux-nodes.md)

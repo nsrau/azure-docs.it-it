@@ -17,6 +17,7 @@
 #### [Autorizzazioni in azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Procedura dettagliata per la soluzione di monitoraggio remoto](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connettere Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Connettere MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Usare C
 ###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -76,11 +77,11 @@
 ## Connected factory
 ### [Distribuire un gateway per connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ### [Personalizzare la factory connessa](iot-suite-connected-factory-customize.md)
-### [Usare il modulo di pubblicazione OPC per la fabbrica connessa](iot-suite-connected-factory-publisher.md)
+### [Usare il modulo di pubblicazione OPC per la fabbrica connessa](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configurare la soluzione di connected factory](iot-suite-connected-factory-configure.md)
 ## [Autorizzazioni in azureiotsuite.com](iot-suite-permissions.md)
 
-# Riferimenti
+# riferimento
 ## [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Architettura di sicurezza](iot-security-architecture.md)

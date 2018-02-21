@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c0011da9d7c57a532589b4b8ae19643ab554c35
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementare Oracle Golden Gate in una VM Linux di Azure 
 
@@ -50,7 +50,7 @@ Di seguito è riportato un riepilogo della configurazione dell'ambiente:
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
-Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login). Seguire quindi le istruzioni visualizzate sullo schermo.
+Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#az_login). Seguire quindi le istruzioni visualizzate sullo schermo.
 
 ```azurecli
 az login
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
 Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `westus`.
 
@@ -80,7 +80,7 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#create). 
+Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 Nell'esempio seguente vengono create due VM chiamate `myVM1` e `myVM2`. Creare le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: c8e023d68ec2c7e40675f985d3e13b0714cec8ea
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsione del carico di lavoro server in terabyte di dati
 
@@ -42,7 +42,7 @@ Prevedere il carico di lavoro dei server è un'esigenza aziendale comune per le 
 In questo scenario si analizza la stima del carico di lavoro per ogni computer (o server). In particolare vengono usati i dati della sessione in ogni server per stimare la classe di carico di lavoro del server in futuro. Il carico di ciascun server viene classificato nelle categorie bassa, media o alta usando il classificatore di foreste casuali in [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Le tecniche di apprendimento automatico e il flusso di lavoro in questo esempio possono essere facilmente estesi a problemi simili. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
@@ -51,7 +51,7 @@ I prerequisiti per eseguire questo esempio sono i seguenti:
 * Windows 10 (le istruzioni generali riportate in questo esempio sono le stesse per i sistemi macOS).
 * Una macchina virtuale di data science (DSVM) per Linux (Ubuntu), preferibilmente nell'area Stati Uniti orientali in cui si trovano i dati. È possibile eseguire il provisioning di una macchina virtuale di data science Ubuntu seguendo [queste istruzioni](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Si può anche vedere [questa Guida rapida](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). È consigliabile usare una macchina virtuale con almeno 8 core e 32 GB di memoria. 
 
-Seguire le [istruzioni](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) per abilitare l'accesso a sudoers senza password nella macchina virtuale per Azure Machine Learning Workbench.  È possibile scegliere di usare l'[autenticazione basata su chiave SSH per la creazione e l'uso della macchina virtuale in Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In questo esempio viene usata la password per accedere alla macchina virtuale.  Conservare la tabella seguente con le informazioni sulla macchina virtuale di data science per i passaggi successivi:
+Seguire le [istruzioni](known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) per abilitare l'accesso a sudoers senza password nella macchina virtuale per Azure Machine Learning Workbench.  È possibile scegliere di usare l'[autenticazione basata su chiave SSH per la creazione e l'uso della macchina virtuale in Azure Machine Learning Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In questo esempio viene usata la password per accedere alla macchina virtuale.  Conservare la tabella seguente con le informazioni sulla macchina virtuale di data science per i passaggi successivi:
 
  Nome campo| Valore |  
  |------------|------|
@@ -99,24 +99,24 @@ I dati utilizzati in questo esempio sono dati del carico di lavoro del server si
 
 La dimensione totale dei dati è circa 1 TB. Ogni file ha una dimensione di circa 1-3 GB ed è in formato CSV senza intestazione. Ogni riga di dati rappresenta il carico di una transazione in un determinato server. Le informazioni dettagliate dello schema dei dati sono le seguenti:
 
-Numero di colonna | Nome campo| Tipo | Descrizione |  
+Numero di colonna | Nome campo| type | DESCRIZIONE |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | DateTime |    Ora di inizio della sessione
 2  |`SessionEnd`    | DateTime | Ora di fine della sessione
 3 |`ConcurrentConnectionCounts` | Integer | Numero di connessioni simultanee
-4 | `MbytesTransferred` | A due righe | Dati normalizzati trasferiti in megabyte
+4 | `MbytesTransferred` | Double | Dati normalizzati trasferiti in megabyte
 5 | `ServiceGrade` | Integer |  Livello di servizio per la sessione
 6 | `HTTP1` | Integer|  La sessione usa HTTP1 o HTTP2
 7 |`ServerType` | Integer   |Tipo di server
-8 |`SubService_1_Load` | A due righe |   Carico servizio secondario 1
-9 | `SubService_2_Load` | A due righe |  Carico servizio secondario 2
-10 | `SubService_3_Load` | A due righe |     Carico servizio secondario 3
-11 |`SubService_4_Load` | A due righe |  Carico servizio secondario 4
-12 | `SubService_5_Load`| A due righe |      Carico servizio secondario 5
-13 |`SecureBytes_Load`  | A due righe | Carico byte sicuri
-14 |`TotalLoad` | A due righe | Carico totale nel server
-15 |`ClientIP` | Stringa|    Indirizzo IP client
-16 |`ServerIP` | Stringa|    Indirizzo IP del server
+8 |`SubService_1_Load` | Double |   Carico servizio secondario 1
+9 | `SubService_2_Load` | Double |  Carico servizio secondario 2
+10 | `SubService_3_Load` | Double |     Carico servizio secondario 3
+11 |`SubService_4_Load` | Double |  Carico servizio secondario 4
+12 | `SubService_5_Load`| Double |      Carico servizio secondario 5
+13 |`SecureBytes_Load`  | Double | Carico byte sicuri
+14 |`TotalLoad` | Double | Carico totale nel server
+15 |`ClientIP` | string|    Indirizzo IP client
+16 |`ServerIP` | string|    Indirizzo IP del server
 
 
 
@@ -127,7 +127,7 @@ I tipi di dati previsti sono elencati nella tabella precedente. A causa di probl
 
 I file in questo esempio sono organizzati come indicato di seguito.
 
-| Nome file | Tipo | Descrizione |
+| Nome file | type | DESCRIZIONE |
 |-----------|------|-------------|
 | `Code` | Cartella | La cartella contenente tutto il codice dell'esempio. |
 | `Config` | Cartella | La cartella contenente i file di configurazione. |
@@ -158,7 +158,7 @@ Il codice in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-Big
 
 Si deve usare un contenitore per la sperimentazione sul set di dati di un mese e un altro per la sperimentazione sul set di dati completo. Poiché i dati e i modelli vengono salvati come file PARQUET, ogni file è in realtà una cartella nel contenitore, che include più BLOB. Il contenitore risultante è simile al seguente:
 
-| Nome di prefisso BLOB | Tipo | Descrizione |
+| Nome di prefisso BLOB | type | DESCRIZIONE |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | Modello di convertitore in scala standard per funzionalità numeriche. |
 | stringIndexModel | Parquet | Modello di indicizzatore di stringa per funzionalità numeriche.|
@@ -184,13 +184,13 @@ Il file [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/
 
 Il primo argomento, `configFilename`, è un file di configurazione locale in cui si archiviano le informazioni dell'archiviazione BLOB e si specifica dove caricare i dati. Per impostazione predefinita è [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) e verrà usato per l'esecuzione sui dati di un mese. Si include anche [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), che deve essere usato per l'esecuzione sul set di dati completo. Il contenuto della configurazione è il seguente: 
 
-| Campo | Tipo | Descrizione |
+| Campo | type | DESCRIZIONE |
 |-----------|------|-------------|
-| storageAccount | Stringa | Nome dell'account di archiviazione di Azure |
-| storageContainer | Stringa | Contenitore nell'account di archiviazione di Azure per archiviare i risultati intermedi |
-| storageKey | Stringa |Chiave di accesso dell'account di archiviazione di Azure |
-| dataFile|Stringa | File dell'origine dati  |
-| duration| Stringa | Durata dei dati nei file dell'origine dati|
+| storageAccount | string | Nome dell'account di archiviazione di Azure |
+| storageContainer | string | Contenitore nell'account di archiviazione di Azure per archiviare i risultati intermedi |
+| storageKey | string |Chiave di accesso dell'account di archiviazione di Azure |
+| dataFile|string | File dell'origine dati  |
+| duration| string | Durata dei dati nei file dell'origine dati|
 
 Modificare sia `Config/storageconfig.json` che `Config/fulldata_storageconfig.json` per configurare l'account di archiviazione, la chiave di archiviazione e il contenitore BLOB per l'archiviazione dei risultati intermedi. Per impostazione predefinita, il contenitore BLOB per l'esecuzione sui dati di un mese è `onemonthmodel` e il contenitore BLOB per l'esecuzione sul set di dati completo è `fullmodel`. Assicurarsi di creare questi due contenitori nell'account di archiviazione. Il campo `dataFile` in [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) determina quali dati vengono caricati in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). Il campo `duration` determina l'intervallo che i dati includono. Se la durata è impostata su ONE_MONTH, i dati caricati devono corrispondere a uno solo dei sette file .csv dei dati di giugno 2016. Se la durata è FULL, viene caricato il set di dati completo, con dimensione di 1 TB. Non è necessario modificare `dataFile` e `duration` in questi due file di configurazione.
 
@@ -330,7 +330,7 @@ Sulla barra laterale destra di Workbench passare a **Esecuzioni** per visualizza
 
 In questa sezione si operazionalizza il modello creato nei passaggi precedenti come servizio Web. Si vedrà anche come usare il servizio Web per stimare il carico di lavoro. Usare le interfacce della riga di comando di operazionalizzazione di Machine Language per creare un pacchetto del codice e le dipendenze come immagini Docker e per pubblicare il modello come servizio Web in contenitori.
 
-È possibile usare il prompt della riga di comando nell'area di Machine Learning Workbench per eseguire l'interfaccia della riga di comando.  È anche possibile eseguire le interfacce della riga di comando in Ubuntu Linux seguendo la [guida di installazione](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
+È possibile usare il prompt della riga di comando nell'area di Machine Learning Workbench per eseguire l'interfaccia della riga di comando.  È anche possibile eseguire le interfacce della riga di comando in Ubuntu Linux seguendo la [guida di installazione](./deployment-setup-configuration.md#using-the-cli). 
 
 > [!NOTE]
 > In tutti i comandi seguenti sostituire qualsiasi variabile di argomento con il valore effettivo. Per il completamento di questa sezione sono necessari circa 40 minuti.
@@ -416,7 +416,7 @@ Scegliere una stringa univoca come ambiente per l'operazionalizzazione. In quest
 
 8. Ridimensionare il servizio Web. 
 
-   Per altre informazioni, vedere [How to scale operationalization on your Azure Container Service cluster](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/how-to-scale.md) (Come scalare l'operazionalizzazione nel cluster del servizio contenitore di Azure).
+   Per altre informazioni, vedere [How to scale operationalization on your Azure Container Service cluster](how-to-scale-clusters.md) (Come scalare l'operazionalizzazione nel cluster del servizio contenitore di Azure).
  
 
 ## <a name="next-steps"></a>Passaggi successivi

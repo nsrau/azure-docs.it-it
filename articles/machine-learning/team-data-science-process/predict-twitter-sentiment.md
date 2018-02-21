@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 9bae3971f438659c121bfc18a23746a016e5ef97
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Prevedere il sentiment in Twitter con rappresentazioni distribuite delle parole usando Team Data Science Process
 
@@ -131,7 +131,7 @@ Il passaggio finale consiste nella distribuzione del modello di previsione del s
 
 ![Dashboard Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Per altre informazioni sul processo di operazionalizzazione, vedere [Distribuzione di un modello di Machine Learning come servizio Web](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
+Per altre informazioni sul processo di operazionalizzazione, vedere [Distribuzione di un modello di Machine Learning come servizio Web](../preview/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusioni
 
@@ -143,8 +143,8 @@ In questo articolo si è appreso come eseguire il training di un modello di rapp
 * [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml) (Come usare Team Data Science Process, TDSP, in Azure Machine Learning)
 * [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo) (Modello di progetto di TDSP per Azure Machine Learning)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Azure Machine Learning Workbench](../preview/index.yml)
 * [Set di dati sul reddito degli Stati Uniti del repository UCI per l'apprendimento automatico](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)](../preview/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems" (Rappresentazioni distribuite di parole e frasi e composizionalità. Progressi nei sistemi neurali di elaborazione delle informazioni) 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification" (Apprendimento della rappresentazione distribuita delle parole specifica del sentiment per la classificazione del sentiment in Twitter) ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

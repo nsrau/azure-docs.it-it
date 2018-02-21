@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/01/2018
+ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d873fe37ba2c4e851df35b9d5afe69b4adbf001c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizzare l'utilizzo dei dati in Log Analytics
 Log Analytics include informazioni sulla quantità di dati raccolti, sui diversi tipi di dati inviati e sui sistemi che li hanno inviati.  È possibile usare dashboard **Utilizzo in Log Analytics** per visualizzare la quantità di dati inviata al servizio Log Analytics. Il dashboard mostra la quantità di dati raccolti da ogni soluzione e la quantità di dati inviata dai computer.
@@ -36,7 +36,9 @@ Il dashboard **Utilizzo di Log Analytics** visualizza le informazioni seguenti:
 - Offerte
     - Nodi di informazioni dettagliate e analisi
     - Nodi di automazione e controllo
-    - Nodi di sicurezza
+    - Nodi di sicurezza  
+- Prestazioni
+    - Tempo impiegato per raccogliere e indicizzare i dati  
 - Elenco di query
 
 ![dashboard di utilizzo](./media/log-analytics-usage/usage-dashboard01.png)
@@ -151,19 +153,6 @@ Fare clic su **Visualizza tutto...** per visualizzare l'elenco completo dei comp
 
 Usare il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
 
-## <a name="check-if-there-is-ingestion-latency"></a>Verificare se è presente la latenza dell'inserimento
-Log Analytics comporta una latenza anticipata con l'inserimento dei dati raccolti.  Il tempo assoluto tra l'indicizzazione dei dati e il momento in cui risultano disponibili per la ricerca può essere imprevedibile. In precedenza è stato incluso nel dashboard un grafico sulle prestazioni che mostrava il tempo impiegato per raccogliere e indicizzare i dati. Questo grafico è stato rimosso temporaneamente in seguito all'introduzione del nuovo linguaggio di query.  Come soluzione temporanea, fino al rilascio di metriche aggiornate per la latenza dell'inserimento dei dati, è possibile usare la query seguente per ottenere un valore approssimativo della latenza per ogni tipo di dati.  
-
-    search *
-    | where TimeGenerated > ago(8h)
-    | summarize max(TimeGenerated) by Type
-    | extend LatencyInMinutes = round((now() - max_TimeGenerated)/1m,2)
-    | project Type, LatencyInMinutes
-    | sort by LatencyInMinutes desc
-
-> [!NOTE]
-> La query per la latenza di inserimento non mostra la latenza cronologica ed è limitata esclusivamente alla restituzione dei risultati relativi all'ora corrente.  Il valore per *TimeGenerated* viene popolato a livello dell'agente per i log degli schemi comuni e viene popolato a livello di endpoint della raccolta per i log personalizzati.  
->
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come usare il linguaggio di ricerca, vedere [Ricerche nei log in Log Analytics](log-analytics-log-searches.md). È possibile usare le query di ricerca per eseguire ulteriori analisi sui dati di utilizzo.

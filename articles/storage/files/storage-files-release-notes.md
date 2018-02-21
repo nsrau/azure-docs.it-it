@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1db3fef17e24022bff59665558f4a354f8c37d1d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 74f926743713bfd71eb524fdc2794cd7e187166e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-file-sync-agent-release-notes"></a>Note sulla versione dell'agente di Sincronizzazione file di Azure
 Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -30,7 +30,8 @@ Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Numero di versione dell'agente | Data di rilascio | Ultima versione supportata |
 |----------------------|--------------|------------------|
-| 1.1.0.0 | 2017-09-26 | Versione corrente |
+| 2.0.11.0 | 2018-02-08 | Versione corrente |
+| 1.1.0.0 | 2017-09-26 | 2018-07-30 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 221af59c211cc6ce0471718908db1544ca2d75ed
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a2abe0733f52c1e032a718fd8f870c3ec9686a41
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud. 
@@ -202,6 +202,9 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
 2. Creare un runtime di integrazione self-hosted. 
 
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    ``` 
     Di seguito è riportato l'output di esempio:
 
     ```json
@@ -210,7 +213,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : onpremdf0914
     Name              : myonpremirsp0914
-    Description       :
+    Description       : selfhosted IR description
     ```
 
 3. Eseguire questo comando per recuperare lo stato del runtime di integrazione creato:

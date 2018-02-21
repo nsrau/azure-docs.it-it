@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 10497097bfda36a0a8a2b6b677ac26394217d8b4
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procedura dettagliata per la soluzione preconfigurata di connected factory
 
@@ -121,7 +121,7 @@ L'hub IoT nella soluzione esegue anche le operazioni seguenti:
 ## <a name="azure-storage"></a>Archiviazione di Azure
 La soluzione usa Archiviazione BLOB di Azure come spazio di archiviazione su disco per la macchina virtuale e per i dati di distribuzione.
 
-## <a name="web-app"></a>App Web
+## <a name="web-app"></a>app Web
 L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita da un client OPC UA integrato, elaborazione degli avvisi e visualizzazione dei dati di telemetria.
 
 ## <a name="telemetry-data-flow"></a>Flusso di dati di telemetria
@@ -233,7 +233,7 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
 
 * [Autorizzazioni per il sito azureiotsuite.com][lnk-permissions]
 * [Distribuire un gateway in Windows o Linux per la soluzione preconfigurata di connected factory](iot-suite-connected-factory-gateway-deployment.md)
-* [OPC Publisher reference implementation (Implementazione di riferimento del modulo di pubblicazione OPC)](iot-suite-connected-factory-publisher.md).
+* [OPC Publisher reference implementation (Implementazione di riferimento del modulo di pubblicazione OPC)](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
