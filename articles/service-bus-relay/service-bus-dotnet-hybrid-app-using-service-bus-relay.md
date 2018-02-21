@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Applicazione ibrida cloud/locale (.NET) usando il servizio d'inoltro WCF di Azure
 
@@ -58,7 +58,7 @@ Prima di iniziare a sviluppare applicazioni Azure, è necessario scaricare gli s
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
 
-Per usare le funzionalità del servizio d'inoltro di Azure, è prima necessario creare uno spazio dei nomi del servizio. Uno spazio dei nomi funge da contenitore di ambito in cui indirizzare le risorse di Azure nell'applicazione. Seguire [queste istruzioni](relay-create-namespace-portal.md) per creare uno spazio dei nomi di inoltro.
+Per usare le funzionalità del servizio d'inoltro di Azure, è prima necessario creare uno spazio dei nomi del servizio. Uno spazio dei nomi funge da contenitore di ambito in cui indirizzare le risorse di Azure nell'applicazione. Seguire le [istruzioni qui](relay-create-namespace-portal.md) per creare uno spazio dei nomi di inoltro.
 
 ## <a name="create-an-on-premises-server"></a>Creare un server locale
 
@@ -231,7 +231,7 @@ In questa sezione si creerà una semplice applicazione ASP.NET per visualizzare 
     ![][18]
 
 7. Nella finestra di dialogo **Nuova applicazione Web ASP.NET** fare clic su **OK** per creare l'app MVC.
-8. A questo punto è necessario configurare le risorse di Azure per una nuova app Web. Seguire i passaggi nella sezione [Pubblicazione in Azure di questo articolo](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure). Tornare quindi a questa esercitazione e procedere al passaggio successivo.
+8. A questo punto è necessario configurare le risorse di Azure per una nuova app Web. Seguire i passaggi nella sezione [Pubblicazione in Azure di questo articolo](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Tornare quindi a questa esercitazione e procedere al passaggio successivo.
 10. In Esplora soluzioni fare clic con il pulsante destro del mouse su **Modelli**, scegliere **Aggiungi** e infine fare clic su **Classe**. Nella casella **Nome** digitare il nome **Product.cs**. Fare quindi clic su **Aggiungi**.
 
     ![][17]

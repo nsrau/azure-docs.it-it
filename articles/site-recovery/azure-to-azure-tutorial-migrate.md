@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
 ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di macchine virtuali di Azure a un'altra area
+# <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di VM di Azure a un'altra area
 
 Oltre a usare il servizio [Azure Site Recovery](site-recovery-overview.md) per gestire e orchestrare il ripristino di emergenza di computer locali e di macchine virtuali di Azure ai fini della continuità aziendale e del ripristino di emergenza (BCDR), è anche possibile usare Site Recovery per gestire la migrazione di macchine virtuali di Azure in un'area secondaria. Per eseguire la migrazione di macchine virtuali di Azure, è necessario abilitare la replica ed eseguirne il failover dall'area primaria all'area secondaria scelta.
 
@@ -32,7 +32,7 @@ Per questa esercitazione si presuppone che sia già disponibile una sottoscrizio
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, sono necessarie macchine virtuali di Azure un'area di Azure da cui si vuole eseguire la migrazione. Prima di iniziare è inoltre necessario verificare un certo numero di impostazioni.
 

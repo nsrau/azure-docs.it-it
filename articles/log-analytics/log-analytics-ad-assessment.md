@@ -3,7 +3,7 @@ title: Ottimizzare l'ambiente Active Directory con Log Analytics di Azure|Docume
 description: "È possibile usare la soluzione Controllo integrità Active Directory per valutare i rischi e l'integrità degli ambienti a intervalli regolari."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Log Analytics
 
@@ -41,7 +41,7 @@ Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Co
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* La soluzione Controllo integrità Active Directory richiede l'installazione di una versione supportata di .NET Framework 4.5.2 o successiva in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, oltre che dal servizio Log Analytics. 
+* La soluzione Controllo integrità Active Directory richiede l'installazione di una versione supportata di .NET Framework 4.5.2 o successiva in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, oltre che dal servizio Log Analytics.
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * Area di lavoro di Log Analytics per aggiungere la soluzione Controllo integrità Active Directory da Azure Marketplace al portale di Azure.  Non è richiesta alcuna ulteriore configurazione.
 
@@ -62,13 +62,13 @@ L'agente nel controller di dominio che invia i contenuti a un gruppo di gestione
 
 Controllo integrità Active Directory raccoglie i dati dalle origini seguenti usando l'agente abilitato:
 
-- Registro 
-- LDAP 
+- Registro
+- LDAP
 - .NET Framework
-- Registro eventi 
+- Registro eventi
 - Active Directory Service Interfaces (ADSI)
 - Windows PowerShell
-- Dati dei file 
+- Dati dei file
 - Strumentazione gestione Windows (WMI)
 - API dello strumento DCDIAG
 - API di File Replication Service (NTFRS)
@@ -109,7 +109,7 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
 3. Fare clic sul riquadro **Panoramica** dell'area di lavoro Log Analytics nel portale di Azure.
-4. Nella pagina **Panoramica** fare clic sul riquadro di **Controllo integrità Active Directory**. 
+4. Nella pagina **Panoramica** fare clic sul riquadro di **Controllo integrità Active Directory**.
 5. Nella pagina **Controllo integrità** esaminare le informazioni di riepilogo in uno dei pannelli delle aree di interesse e quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
 6. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.<br><br> ![Immagine delle raccomandazioni di Controllo integrità](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicano che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
@@ -133,7 +133,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 2. Incollare o digitare ciascun ID raccomandazione per ogni raccomandazione che Log Analytics dovrà ignorare in una riga separata e quindi salvare e chiudere il file.
 3. Inserire il file nella cartella seguente in ogni computer in cui si vuole che Log Analytics ignori le raccomandazioni.
    * Nei computer con Microsoft Monitoring Agent, connesso direttamente o tramite Operations Manager, *SystemDrive*:\Programmi\Microsoft Monitoring Agent\Agent
-   * Nel server di gestione di Operations Manager 2012 R2, *UnitàSistema*:\Programmi\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * Nel server di gestione di Operations Manager 2012 R2, *UnitàSistema*:\Programmi\Microsoft System Center 2012 R2\Operations Manager\Server
    * Nel server di gestione di Operations Manager 2016, *UnitàSistema*:\Programmi\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Per verificare che le raccomandazioni vengano ignorate

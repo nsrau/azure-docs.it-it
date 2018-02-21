@@ -84,22 +84,6 @@ sql-database-elastic-pool.md
 | Spazio di archiviazione massimo per database (GB)* | 1024 | 1024 | 1024 | 1024 | 1024 | 
 ||||||||
 
-### <a name="premium-rs-elastic-pool-limits"></a>Limiti del pool elastico Premium RS
-
-| eDTU per pool | **125** | **250** | **500** | **1000** |
-|:---|---:|---:|---:| ---: | ---: | 
-| Risorse di archiviazione incluse per pool (GB) | 250 | 500 | 750 | 750 |
-| Opzioni per lo spazio di archiviazione massimo per pool (GB)* | 250, 500, 750, 1024 | 500, 750, 1024 | 750, 1024 | 1024 | 
-| Spazio di archiviazione OLTP in memoria massimo per pool (GB) | 1 | 2 | 4 | 10 |
-| Numero massimo di database per pool | 50 | 100 | 100 | 100 |
-| Numero massimo di ruoli di lavoro simultanei (richieste) per pool | 200 | 400 | 800 | 1600 |
-| Numero massimo di accessi simultanei per pool | 200 | 400 | 800 | 1600 |
-| Numero massimo di sessioni simultanee per pool | 30000 | 30000 | 30000 | 30000 |
-| Opzioni per il numero minimo di eDTU per database | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 |
-| Opzioni per il numero massimo di eDTU per database | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 
-| Spazio di archiviazione massimo per database (GB)* | 1024 | 1024 | 1024 | 1024 | 
-||||||||
-
 > [!IMPORTANT]
 > \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per informazioni dettagliate, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per informazioni dettagliate, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 >

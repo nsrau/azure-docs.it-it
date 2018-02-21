@@ -117,12 +117,11 @@
 ### [Analizzare il carico di lavoro](analyze-your-workload.md)
 
 ## Scalabilità orizzontale
-### [Gestire il calcolo - API REST](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatizzare i livelli di calcolo](manage-compute-with-azure-functions.md)
 
 
-# Riferimenti
-
+# riferimento
 
 ## T-SQL
 ### [Informazioni di riferimento complete](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -130,6 +129,7 @@
 ### [Istruzioni di SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)
 ## [Viste di sistema](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Cmdlet di PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [API REST](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=databases)

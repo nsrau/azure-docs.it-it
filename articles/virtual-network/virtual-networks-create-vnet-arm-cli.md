@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 72ed9ecd7a4c8e846818f7a19ad25c566fa57f64
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -45,9 +45,9 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 
 Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure, seguire questa procedura:
 
-1. Installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) più aggiornata e accedere a un account di Azure usando il comando [az login](/cli/azure/#login).
+1. Installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) più aggiornata e accedere a un account di Azure usando il comando [az login](/cli/azure/#az_login).
 
-2. Creare un gruppo di risorse per la rete virtuale usando il comando [az group create](/cli/azure/group#create) con gli argomenti `--name` e `--location`:
+2. Creare un gruppo di risorse per la rete virtuale usando il comando [az group create](/cli/azure/group#az_group_create) con gli argomenti `--name` e `--location`:
 
     ```azurecli
     az group create --name TestRG --location centralus

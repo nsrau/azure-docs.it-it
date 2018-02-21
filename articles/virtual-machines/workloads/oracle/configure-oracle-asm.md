@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurare Oracle ASM su una macchina virtuale Linux in Azure  
 
@@ -41,7 +41,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per creare un gruppo di risorse, usare il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio, un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
+Per creare un gruppo di risorse, usare il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. In questo esempio, un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Per creare una macchina virtuale basata sull'immagine del database Oracle e configurarla per l'utilizzo di Oracle ASM, utilizzare il comando [az vm create](/cli/azure/vm#create). 
+Per creare una macchina virtuale basata sull'immagine del database Oracle e configurarla per l'utilizzo di Oracle ASM, utilizzare il comando [az vm create](/cli/azure/vm#az_vm_create). 
 
 Nell'esempio seguente viene creata una macchina virtuale denominata myVM che ha una dimensione Standard_DS2_v2 con quattro dischi dati collegati da 50 GB ciascuno. Crea anche le chiavi SSH se non esistono già nella posizione predefinita.  Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.  
 
@@ -62,7 +62,7 @@ Nell'esempio seguente viene creata una macchina virtuale denominata myVM che ha 
     --data-disk-sizes-gb 50 50 50 50
    ```
 
-In seguito alla creazione della VM, l'interfaccia della riga di comando di Azure visualizza informazioni simili a quelle dell'esempio seguente. Notare il valore di `publicIpAddress`. Questo indirizzo verrà usato per accedere alla VM.
+In seguito alla creazione della VM, l'interfaccia della riga di comando di Azure visualizza informazioni simili a quelle dell'esempio seguente. Notare il valore di `publicIpAddress`. Questo indirizzo verrà usato per accedere alla macchina virtuale.
 
    ```azurecli
    {

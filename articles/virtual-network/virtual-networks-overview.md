@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2017
 ms.author: jdial
-ms.openlocfilehash: 55aece3f20ee98d21d7bb2b96cb3d039d4849f8f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 892aa03bd058b50fc4868a225dfe602624ff19ef
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-virtual-network"></a>Rete virtuale di Azure
 
@@ -44,7 +44,7 @@ Per altre informazioni sulle funzionalità di Rete virtuale di Azure riportate d
 - Usare la risoluzione dei nomi fornita da Azure oppure specificare un server DNS personalizzato destinato all'uso da parte delle risorse in una rete virtuale. Per altre informazioni sulla risoluzione dei nomi nelle reti virtuali, vedere l'articolo [Risoluzione dei nomi per le risorse nelle reti virtuali](virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name = "internet"></a>Comunicazione Internet
-Tutte le risorse in una rete virtuale possono comunicare verso l'esterno con Internet. Per impostazione predefinita, l'indirizzo IP privato della risorsa viene convertito (con Source Network Address Translation, SNAT) in un indirizzo IP pubblico selezionato dall'infrastruttura di Azure. Per altre informazioni sulla connettività Internet in uscita, vedere l'articolo [Informazioni sulle connessioni in uscita in Azure](..\load-balancer\load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address). Per impedire la connettività Internet in uscita, è possibile implementare route personalizzate o il filtro del traffico.
+Tutte le risorse in una rete virtuale possono comunicare verso l'esterno con Internet. Per impostazione predefinita, l'indirizzo IP privato della risorsa viene convertito (con Source Network Address Translation, SNAT) in un indirizzo IP pubblico selezionato dall'infrastruttura di Azure. Per altre informazioni sulla connettività Internet in uscita, vedere l'articolo [Informazioni sulle connessioni in uscita in Azure](..\load-balancer\load-balancer-outbound-connections.md). Per impedire la connettività Internet in uscita, è possibile implementare route personalizzate o il filtro del traffico.
 
 Per la comunicazione in ingresso verso le risorse di Azure da Internet o la comunicazione in uscita verso Internet senza SNAT, è necessario che a una risorsa sia assegnato un indirizzo IP pubblico. Per altre informazioni sugli indirizzi IP pubblici, vedere l'articolo [Indirizzi IP pubblici](virtual-network-public-ip-address.md).
 

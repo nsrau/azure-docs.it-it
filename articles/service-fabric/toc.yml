@@ -93,6 +93,8 @@
         - name: Reliable Services
           href: service-fabric-reliable-services-introduction.md
           items:
+            - name: Ciclo di vita dell'istanza e della replica
+              href: service-fabric-concepts-replica-lifecycle.md
             - name: 'Ciclo di vita di Reliable Services: C#'
               href: service-fabric-reliable-services-lifecycle.md
             - name: 'Ciclo di vita di Reliable Services: Java'
@@ -144,8 +146,6 @@
           href: service-fabric-concepts-scalability.md
         - name: Disponibilità dei servizi
           href: service-fabric-availability-services.md
-        - name: Ciclo di vita dell'istanza e della replica
-          href: service-fabric-concepts-replica-lifecycle.md
         - name: Riconfigurazione
           href: service-fabric-concepts-reconfiguration.md
         - name: Comunicazione con i servizi
@@ -544,7 +544,7 @@
           items:
             - name: Monitoraggio delle prestazioni con Diagnostica di Microsoft Azure
               href: service-fabric-diagnostics-perf-wad.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.servicefabric/

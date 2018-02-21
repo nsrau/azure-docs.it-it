@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: yushwang
-ms.openlocfilehash: bb6f9f4df9afa9d0c1a75fbb1166798a2aef4bb4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informazioni sui dispositivi VPN e sui parametri IPsec/IKE per connessioni del Gateway VPN da sito a sito
 
@@ -57,6 +57,7 @@ Per agevolare la configurazione del dispositivo VPN, vedere i collegamenti corri
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Esempi di configurazione](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Guida alla configurazione*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Esempi di configurazione](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Esempi di configurazione](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Esempi di configurazione](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Esempi di configurazione**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |Meraki |N/D |Non compatibile |Non compatibile |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e versioni successive |[Guida alla configurazione](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatibile |
 | F5 |Serie BIG-IP |12.0 |[Guida alla configurazione](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guida alla configurazione](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 |  |[Guida alla configurazione](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
@@ -138,7 +139,7 @@ Nelle tabelle seguenti:
 | Algoritmi di crittografia e di hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
 | Durata dell'associazione di sicurezza (tempo)            |3.600 secondi  |27.000 secondi                                |
 | Durata dell'associazione di sicurezza (byte)           |102.400.000 KB | -                                           |
-| Perfect Forward Secrecy (PFS) |No             |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
+| Perfect Forward Secrecy (PFS) |No              |[Offerte per associazioni di sicurezza QM basate su route](#RouteBasedOffers) |
 | Rilevamento peer inattivo     |Non supportate  |Supportato                                    |
 
 
@@ -150,24 +151,24 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 
 |-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          |---               |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
-| 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
+| 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
+| 2 |AES256        |SHA1              |Nessuna         |
+| 3 |3DES          |SHA1              |Nessuna         |
+| 4 |AES256        |SHA256            |Nessuna         |
+| 5 |AES128        |SHA1              |Nessuna         |
+| 6 |3DES          |SHA256            |Nessuna         |
 
 #### <a name="azure-gateway-as-responder"></a>Gateway Azure come risponditore
 
 |-  |**Crittografia**|**Autenticazione**|**Gruppo PFS**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
-| 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
-| 7 |DES           |SHA1              |None         |
+| 1 |GCM AES256    |GCM (AES256)      |Nessuna         |
+| 2 |AES256        |SHA1              |Nessuna         |
+| 3 |3DES          |SHA1              |Nessuna         |
+| 4 |AES256        |SHA256            |Nessuna         |
+| 5 |AES128        |SHA1              |Nessuna         |
+| 6 |3DES          |SHA256            |Nessuna         |
+| 7 |DES           |SHA1              |Nessuna         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -182,7 +183,7 @@ La tabella seguente elenca le offerte per associazioni di sicurezza IPsec (IKE M
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |None         |
+| 22|AES128        |SHA256            |Nessuna         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

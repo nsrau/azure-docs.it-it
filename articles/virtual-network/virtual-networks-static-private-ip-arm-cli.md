@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c936518c3cc431bb74dcdfe7f967687d3dc71e42
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurare indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -41,9 +41,9 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 
 Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire la procedura seguente:
 
-1. Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#login). 
+1. Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#az_login). 
 
-2. Creare un IP pubblico per la VM con il comando [azure network public-ip create](/cli/azure/network/public-ip#create). Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+2. Creare un IP pubblico per la VM con il comando [azure network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). Nell'elenco riportato dopo l'output sono indicati i parametri usati.
 
     > [!NOTE]
     > Potrebbe essere possibile o necessario usare valori diversi per gli argomenti in questo passaggio e nei passaggi successivi, a seconda dell'ambiente.
@@ -74,7 +74,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
    * `--name`: nome dell'indirizzo IP pubblico.
    * `--location`: area di Azure in cui creare l'indirizzo IP pubblico.
 
-3. Eseguire il comando [az network nic create](/cli/azure/network/nic#create) per creare una scheda di interfaccia di rete con indirizzo IP privato statico. Nell'elenco riportato dopo l'output sono indicati i parametri usati. 
+3. Eseguire il comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) per creare una scheda di interfaccia di rete con indirizzo IP privato statico. Nell'elenco riportato dopo l'output sono indicati i parametri usati. 
    
     ```azurecli
     az network nic create \
@@ -126,7 +126,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
     * `--vnet-name`: nome della rete virtuale in cui creare la scheda di interfaccia di rete.
     * `--subnet`: nome della subnet in cui creare la scheda di interfaccia di rete.
 
-4. Eseguire il comando [azure vm create](/cli/azure/vm/nic#create) per creare la VM usando l'indirizzo IP pubblico e il gruppo NIC creati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
+4. Eseguire il comando [azure vm create](/cli/azure/vm/nic#az_vm_nic_create) per creare la VM usando l'indirizzo IP pubblico e il gruppo NIC creati in precedenza. Nell'elenco riportato dopo l'output sono indicati i parametri usati.
    
     ```azurecli
     az vm create \
@@ -154,7 +154,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
     }
     ```
    
-   Parametri diversi dai parametri di base [az vm create](/cli/azure/vm#create).
+   Parametri diversi dai parametri di base [az vm create](/cli/azure/vm#az_vm_create).
 
    * `--nics`: nome della scheda di interfaccia di rete a cui è collegata la VM.
    

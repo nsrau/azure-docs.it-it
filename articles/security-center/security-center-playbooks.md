@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 15257e6ee8744b11fd3965e365cf4fb0e1d429ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook di sicurezza nel Centro sicurezza di Azure (anteprima)
 Questo documento illustra come usare i playbook di sicurezza nel Centro sicurezza di Azure per rispondere ai problemi correlati alla sicurezza.
@@ -35,7 +35,7 @@ Per creare un nuovo playbook di sicurezza dal Centro sicurezza, seguire questa p
 1.  Aprire il dashboard del **Centro sicurezza**.
 2.  Nella sezione **Automazione e orchestrazione** nel riquadro a sinistra fare clic su **Playbook (anteprima)**.
 
-    ![App per la logica](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+    ![App per la logica](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. Nella pagina **Centro sicurezza - Playbook (anteprima)** fare clic sul pulsante **Aggiungi**.
 
@@ -95,7 +95,7 @@ In questo flusso di lavoro è possibile visualizzare il tempo necessario per l'e
 > Per altre informazioni su come creare un playbook usando App per la logica di Azure, vedere [Creare il primo flusso di lavoro di app per la logica per automatizzare i processi tra app cloud e servizi cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento è stato descritto come usare playbook nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
