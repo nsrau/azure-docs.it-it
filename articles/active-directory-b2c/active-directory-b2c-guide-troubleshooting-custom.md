@@ -16,7 +16,7 @@ ms.date: 05/07/2017
 ms.author: joroja
 ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

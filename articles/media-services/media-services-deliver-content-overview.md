@@ -133,7 +133,7 @@ Per eseguire il download progressivo di contenuti, usare un localizzatore di tip
 
 Per eseguire il download progressivo è necessario decrittografare qualsiasi asset di archiviazione crittografato che si desideri trasmettere in streaming dal servizio di origine.
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 Per scaricare i contenuti in un dispositivo client, è necessario creare un localizzatore SAS. Il localizzatore SAS offre l'accesso al contenitore di archiviazione di Azure in cui si trova il file. Per compilare l'URL di download, è necessario incorporare il nome di file tra l'host e la firma SAS.
 
 Il seguente esempio mostra l'URL basato sul localizzatore SAS:
@@ -154,7 +154,7 @@ Un endpoint di streaming rappresenta un servizio di streaming in grado di distri
 
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Modifiche alla versione del manifesto Smooth Streaming
-Prima della versione del servizio di luglio 2016, quando gli asset prodotti da Media Encoder Standard, dal flusso di lavoro Premium del codificatore multimediale o dalla versione precedente di Azure Media Encoder venivano trasmessi con la creazione dinamica dei pacchetti, il manifesto Smooth Streaming restituito era conforme alla versione 2.0. Nella versione 2.0 le durate dei frammenti non usano i cosiddetti tag di ripetizione ("r"). ad esempio:
+Prima della versione del servizio di luglio 2016, quando gli asset prodotti da Media Encoder Standard, dal flusso di lavoro Premium del codificatore multimediale o dalla versione precedente di Azure Media Encoder venivano trasmessi con la creazione dinamica dei pacchetti, il manifesto Smooth Streaming restituito era conforme alla versione 2.0. Nella versione 2.0 le durate dei frammenti non usano i cosiddetti tag di ripetizione ("r"). Ad esempio: 
 
 <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
@@ -167,7 +167,7 @@ Prima della versione del servizio di luglio 2016, quando gli asset prodotti da M
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming generato è conforme alla versione 2.2, con durate di frammento che usano i tag di ripetizione, ad esempio:
+Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming generato è conforme alla versione 2.2, con durate di frammento che usano i tag di ripetizione, Ad esempio: 
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
@@ -179,7 +179,7 @@ Nella versione del servizio di luglio 2016, il manifesto Smooth Streaming genera
 
 È possibile che alcuni client Smooth Streaming legacy non supportino i tag di ripetizione e non carichino il manifesto. Per attenuare il problema è possibile usare il parametro del formato manifesto legacy, **(format=fmp4-v20)** o aggiornare il client alla versione più recente che supporta i tag di ripetizione. Per altre informazioni, vedere [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

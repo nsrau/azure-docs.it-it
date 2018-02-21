@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: barbkess
 ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

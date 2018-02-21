@@ -68,7 +68,7 @@ Login-AzureRmAccount
 ```
 
 >[!NOTE]
- Se si usa un'istanza specifica di Azure, usare il parametro -Environment, ad esempio: 
+ Se si usa un'istanza specifica di Azure, usare il parametro -Environment, Ad esempio:  
  ```powershell
  Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
@@ -142,7 +142,7 @@ Si può fare riferimento a una chiave creata o caricata in Azure Key Vault usand
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importazione di un file PFX esistente in Azure Key Vault
 
-Se si vogliono caricare in Azure Key Vault chiavi esistenti archiviate in un file PFX, la procedura è diversa. Ad esempio:
+Se si vogliono caricare in Azure Key Vault chiavi esistenti archiviate in un file PFX, la procedura è diversa. Ad esempio: 
 - Se una chiave protetta tramite software esistente è contenuta in un file PFX
 - Il file PFX è denominato softkey.pfx 
 - Il file è archiviato nell'unità C
@@ -216,7 +216,7 @@ Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire
 - **ID applicazione** 
 - **Chiave di autenticazione**, detta anche segreto condiviso 
 
-L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. La configurazione dell'applicazione per eseguire questa operazione dipende dall'applicazione. Per l'[applicazione di esempio per Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), il proprietario dell'applicazione imposta questi valori nel file app.config.
+L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. La configurazione dell'applicazione per eseguire questa operazione dipende dall'applicazione. Per l'[applicazione di esempio per l'insieme di credenziali delle chiavi](https://www.microsoft.com/download/details.aspx?id=45343), il proprietario dell'applicazione imposta questi valori nel file app.config.
 
 
 Per registrare l'applicazione in Azure Active Directory:
@@ -311,8 +311,8 @@ Altri comandi che potrebbero essere utili per la gestione dell'insieme di creden
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
+- Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 - Per informazioni sull'uso dell'insieme di credenziali delle chiavi, vedere [Registrazione dell'insieme di credenziali delle chiavi di Azure](key-vault-logging.md).
 - Per un'esercitazione successiva sull'uso dell'insieme di credenziali delle chiavi di Azure in un'applicazione Web, vedere [Usare l'insieme di credenziali delle chiavi di Azure da un'applicazione Web](key-vault-use-from-web-application.md).
-- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
+- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 - Per un elenco dei cmdlet di Azure PowerShell più recenti per l'insieme di credenziali delle chiavi di Azure, vedere [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault) (Cmdlet per l'insieme di credenziali delle chiavi di Azure).

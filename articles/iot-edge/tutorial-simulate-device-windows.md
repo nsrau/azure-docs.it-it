@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 Il dispositivo simulato creato in questa esercitazione è un monitor in turbina eolica che genera dati di temperatura, umidità e pressione. L'utente è interessato a questo tipo di dati poiché le turbine funzionano a diversi livelli di efficienza, a seconda delle condizioni meteorologiche. Le altre esercitazioni di Azure IoT Edge si basano sulle operazioni eseguite qui tramite la distribuzione di moduli che consentono di analizzare i dati per ottenere informazioni aziendali accurate. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questa esercitazione presuppone che si usi un computer o una macchina virtuale che esegue Windows per simulare un dispositivo di Internet delle cose. 
 

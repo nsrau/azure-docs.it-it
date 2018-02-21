@@ -36,7 +36,7 @@ Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active D
 -   Condizioni per l'utilizzo specifiche basate sull'accesso ad app a elevato impatto aziendale, come Salesforce.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Seguire questa procedura per configurare Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory):
 
 1. Accedere ad Azure AD usando un amministratore globale, l'amministratore della sicurezza o un amministratore di accesso condizionale per la directory in cui si desidera configurare Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory).

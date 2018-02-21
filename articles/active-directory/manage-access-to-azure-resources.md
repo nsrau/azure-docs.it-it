@@ -16,7 +16,7 @@ ms.date: 10/05/2017
 ms.author: skwan
 ms.openlocfilehash: eee4353c183aeec19f72f8e1dec6c20b6c5bb226
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

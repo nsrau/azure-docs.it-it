@@ -1,5 +1,5 @@
 ---
-title: Usare il server di pubblicazione OPC di fabbrica connessa ad Azure IoT Suite | Microsoft Docs
+title: Usare il server di pubblicazione OPC di fabbrica connessa per Azure IoT Suite | Microsoft Docs
 description: Come creare e distribuire l'implementazione di riferimento del server di pubblicazione OPC di fabbrica connessa.
 services: 
 suite: iot-suite
@@ -25,12 +25,12 @@ ms.lasthandoff: 11/14/2017
 Questo articolo descrive come usare l'implementazione di riferimento del server di pubblicazione OPC. L'implementazione di riferimento illustra come usare Azure IoT Edge per:
 
 - Connettersi ai server OPC UA esistenti.
-- Pubblicare i dati di telemetria codificati JSON da questi server nel formato *Pub/Sub* OPC UA, usando un payload JSON, nell'hub IoT di Azure. È possibile usare uno dei protocolli di trasporto che supporti Azure IoT Edge.
+- Pubblicare i dati di telemetria codificati JSON da questi server nel formato *Pub/Sub* OPC UA, usando un payload JSON, nell'hub IoT di Azure. È possibile usare uno dei protocolli di trasporto supportati da Azure IoT Edge.
 
 Questa applicazione di riferimento include:
 
-- Un *client* OPC UA per la connessione al server OPC UA esistente nella rete.
-- Un *server* OPC UA in ascolto sulla porta 62222 che è possibile usare per gestire i contenuti pubblicati.
+- Un *client* OPC UA per la connessione ai server OPC UA esistenti nella rete.
+- Un *server* OPC UA in ascolto sulla porta 62222 che è possibile usare per gestire i dati pubblicati.
 
 L'applicazione viene implementata usando .NET Core e può essere eseguita sulle piattaforme supportate da .NET Core.
 
@@ -38,13 +38,13 @@ Il server di pubblicazione implementa la logica di ripetizione dei tentativi qua
 
 Per ogni singolo intervallo di pubblicazione in un server OPC UA, crea una sottoscrizione separata in cui vengono aggiornati tutti i nodi con questo intervallo di pubblicazione.
 
-Per ridurre il carico di rete, il server di pubblicazione supporta l'invio in batch dei dati inviati all'hub IoT. Un batch viene inviato all'hub IoT solo quando vengono raggiunte la dimensioni del pacchetto configurato.
+Per ridurre il carico di rete, il server di pubblicazione supporta l'invio in batch dei dati all'hub IoT. Un batch viene inviato all'hub IoT solo quando vengono raggiunte la dimensioni del pacchetto configurato.
 
-Questa applicazione usa stack di riferimento OPC UA della Fondazione OPC e pertanto si applicano le restrizioni di licenza. Consultare la documentazione OPC UA e i termini di licenza alla pagina http://opcfoundation.github.io/UA-.NETStandardLibrary/.
+Questa applicazione usa stack di riferimento OPC UA di OPC Foundation e pertanto si applicano le restrizioni di licenza. Consultare la documentazione OPC UA e i termini di licenza alla pagina http://opcfoundation.github.io/UA-.NETStandardLibrary/.
 
 È possibile trovare il codice sorgente del server di pubblicazione OPC nel repository GitHub del [server di pubblicazione OPC per Azure IoT Edge](https://github.com/Azure/iot-edge-opc-publisher).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per compilare l'applicazione, è necessario [.NET Core SDK 1.1.](https://docs.microsoft.com/dotnet/core/sdk) per il sistema operativo usato.
 
@@ -133,7 +133,7 @@ OpcPublisher.exe <applicationname> [<IoT Hubconnectionstring>] [<options>]
 
 `applicationname` è il nome dell'applicazione OPC UA da usare. Questo parametro è obbligatorio. Il nome dell'applicazione viene anche usato per registrare il server di pubblicazione nel registro di sistema del dispositivo hub IoT.
 
-`IoT Hubconnectionstring` è la stringa di connessione dell'hub IoT. Questo parametro è facoltativo e,
+`IoT Hubconnectionstring` è la stringa di connessione del proprietario dell'hub IoT. Questo parametro è facoltativo e,
 
 Sono supportate le opzioni seguenti:
 
@@ -310,14 +310,14 @@ Sono supportate le opzioni seguenti:
 ```
 
 È possibile usare le seguenti variabili di ambiente per controllare l'applicazione:
-- `_HUB_CS`: imposta la stringa di connessione dell'hub IoT
+- `_HUB_CS`: imposta la stringa di connessione del proprietario dell'hub IoT
 - `_GW_LOGP`: imposta il nome del file di log da usare
 - `_TPC_SP`: imposta il percorso in cui archiviare i certificati delle stazioni attendibili
 - `_GW_PNFP`: imposta il nome file del file di configurazione del server di pubblicazione
 
 Gli argomenti della riga di comando ignorano le impostazioni della variabile di ambiente.
 
-In genere, specificare la stringa di connessione proprietaria dell'hub IoT solo al primo avvio dell'applicazione. La stringa di connessione è crittografata e archiviata nell'archivio certificati della piattaforma.
+In genere, specificare la stringa di connessione del proprietario dell'hub IoT solo al primo avvio dell'applicazione. La stringa di connessione è crittografata e archiviata nell'archivio certificati della piattaforma.
 
 Per le chiamate successive, la stringa di connessione viene letta dall'archivio certificati della piattaforma e viene usata di nuovo. Se si specifica la stringa di connessione a ogni avvio, il dispositivo nel registro di sistema del dispositivo hub IoT viene rimosso e ricreato ogni volta.
 
@@ -359,11 +359,11 @@ docker run -p 62222:62222 microsoft/iot-edge-opc-publisher <applicationname> [<I
 
 Per abilitare la risoluzione dei nomi all'interno di un contenitore per altri contenitori, è necessario:
 
-- Creare una rete bridge del docker definito dall'utente.
+- Creare una rete bridge del docker definita dall'utente.
 - Collegare il contenitore alla rete usando l'opzione `--network`.
 - Assegnare un nome al contenitore usando l'opzione `--name`.
 
-L'esempio seguente mostra alcune di queste opzioni di configurazione:
+L'esempio seguente mostra queste opzioni di configurazione:
 
 ```cmd/sh
 docker network create -d bridge iot_edge
@@ -372,7 +372,7 @@ docker run --network iot_edge --name publisher microsoft/iot-edge-opc-publisher 
 
 Il contenitore può ora essere raggiunto da altri contenitori in rete tramite il nome `publisher`.
 
-#### <a name="assign-a-hostname"></a>assegnare un nome host
+#### <a name="assign-a-hostname"></a>Assegnare un nome host
 
 Il server di pubblicazione usa il nome host del computer in cui è in esecuzione per generare il certificato e l'endpoint. Docker sceglie un nome host casuale a meno che l'utente non ne imposti uno con l'opzione `-h`. Di seguito è riportato un esempio su come impostare il nome host interno del contenitore in `publisher`:
 
@@ -380,9 +380,9 @@ Il server di pubblicazione usa il nome host del computer in cui è in esecuzione
 docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT Hubconnectionstring>] [options]
 ```
 
-#### <a name="using-bind-mounts-shared-filesystem"></a>Uso dei montaggi di associazione (file system condiviso)
+#### <a name="using-bind-mounts-shared-filesystem"></a>Uso di bind mount (file system condiviso)
 
-In alcuni scenari, si desidera leggere le informazioni di configurazione, o scrivere i file di log nell'host anziché nel file system del contenitore. Per configurare questo comportamento, usare l'opzione `-v` di `docker run` nella modalità montaggio di associazione. ad esempio:
+In alcuni scenari, si desidera leggere le informazioni di configurazione, o scrivere i file di log nell'host anziché nel file system del contenitore. Per configurare questo comportamento, usare l'opzione `-v` di `docker run` nella modalità montaggio di associazione. Ad esempio: 
 
 ```cmd/sh
 -v //D/docker:/build/out/Logs

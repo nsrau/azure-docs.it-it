@@ -103,7 +103,7 @@ Jeff scopre che il [Microsoft Security Response Center (MSRC)](../security/azure
 Infine, Jeff esamina le raccomandazioni con priorità bassa **Remediate OS vulnerabilities** (Correggi le vulnerabilità del sistema operativo) e decide che questa raccomandazione non è applicabile. Vuole ignorare la raccomandazione. Jeff seleziona i tre puntini che appaiono a destra, quindi seleziona **Ignora**.
    ![Ignorare la raccomandazione][7]
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Il monitoraggio delle raccomandazioni nel Centro sicurezza PC può contribuire a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. È possibile evitare problemi di sicurezza applicando e gestendo le protezioni con i criteri di protezione nel Centro sicurezza.
 
 ## <a name="next-steps"></a>Passaggi successivi

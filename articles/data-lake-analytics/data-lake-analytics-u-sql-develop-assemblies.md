@@ -31,7 +31,7 @@ Il modo più semplice per usare codice personalizzato consiste nello sfruttare g
 
 Per risolvere questi problemi, è possibile attivare code-behind in assembly e registrare gli assembly nel catalogo di Data Lake Analytics.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Visual Studio 2017, Visual Studio 2015, Visual Studio 2013 aggiornamento 4 o Visual Studio 2012 con Visual C++ installato
 * Microsoft Azure SDK per .NET versione 2.5 o successiva.  Eseguire l'installazione usando il programma di installazione della piattaforma Web o il programma di installazione di Visual Studio
 * Un account di Analisi Data Lake.  Vedere [Introduzione ad Azure Data Lake Analytics con il Portale di Azure](data-lake-analytics-get-started-portal.md).
@@ -73,7 +73,7 @@ Vedere [Usare il catalogo Data Lake Analytics(U-SQL)](data-lake-analytics-use-u-
 
 Vedere [Usare gli strumenti di Azure Data Lake per Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Introduzione ad Analisi Data Lake di Azure mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introduzione ad Analisi Data Lake mediante il portale di Azure](data-lake-analytics-get-started-portal.md)
 * [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

@@ -16,7 +16,7 @@ ms.date: 9/06/2017
 ms.author: parja
 ms.openlocfilehash: b28a1bb6287a0e30eda21d9a7c03abbf14b5d8d9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

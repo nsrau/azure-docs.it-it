@@ -26,7 +26,7 @@ Questa guida introduttiva mostra come usare .NET e l'[API Cassandra](cassandra-i
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
@@ -147,7 +147,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Premere CTRL+F5 per eseguire l'applicazione. L'app viene visualizzata nella finestra della console. 
+3. Premere CTRL + F5 per eseguire l'applicazione. L'app viene visualizzata nella finestra della console. 
 
     ![Visualizzare e verificare l'output](./media/create-cassandra-dotnet/output.png)
 

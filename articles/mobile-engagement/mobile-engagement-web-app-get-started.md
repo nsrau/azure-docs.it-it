@@ -36,7 +36,7 @@ Per completare questa esercitazione, è necessario disporre di:
 Web SDK è in anteprima e per il momento supporta solo l'analisi e non supporta ancora l'invio di notifiche push con il browser o in-app. 
 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 > 
 > 
 
@@ -103,7 +103,7 @@ Ecco tutti i metodi attualmente disponibili con Web SDK che è possibile usare p
    
         engagement.agent.startActivity(name);
         engagement.agent.endActivity();
-2. Events
+2. Eventi
    
         engagement.agent.sendEvent(name, extras);
 3. Errori

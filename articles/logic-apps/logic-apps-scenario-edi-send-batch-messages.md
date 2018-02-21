@@ -38,7 +38,7 @@ Questo argomento mostra come elaborare messaggi X12 come batch tramite l'esecuzi
 * [Creare un'app per la logica che invia elementi a un batch](#sender). L'app per la logica "mittente" specifica la destinazione a cui inviare gli elementi per l'invio in batch, che deve essere un'app per la logica destinataria esistente.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per seguire questo esempio, è necessario disporre di questi elementi:
 

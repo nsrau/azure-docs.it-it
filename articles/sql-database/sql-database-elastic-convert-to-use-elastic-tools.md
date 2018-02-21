@@ -150,7 +150,7 @@ Per ogni tenant eseguire Add-ListMapping (opzione 1).
     Get-Shards -ShardMap $ShardMap 
     Get-Mappings -ShardMap $ShardMap 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Dopo aver completato l'installazione, è possibile iniziare a usare la libreria client di database elastici. È anche possibile usare il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) e le [query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

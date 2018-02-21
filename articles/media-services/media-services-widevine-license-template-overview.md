@@ -58,7 +58,7 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
     }
 
 ## <a name="json-message"></a>Messaggio JSON
-| Nome | Valore | Descrizione |
+| NOME | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. |
 | content_id |Stringa con codifica Base64 |Identificatore usato per derivare l'ID chiave e la chiave simmetrica per ogni content_key_specs.track_type. |
@@ -76,16 +76,16 @@ In presenza di criteri pre-esistenti, non è necessario specificare alcun valore
 
 Ogni valore content_key_specs deve essere specificato per tutte le singole tracce, indipendentemente dall'opzione use_policy_overrides_exclusively. 
 
-| Nome | Valore | Descrizione |
+| NOME | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | content_key_specs track_type |stringa |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non possono essere riprodotti gli ultimi 10 secondi. |
 | content_key_specs  <br/> security_level |Valore UInt32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> - È richiesta una soluzione di crittografia white box basata su software. <br/> - Sono necessari una soluzione di crittografia software e un decodificatore offuscato. <br/> - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> - Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> - Le operazioni di crittografia, decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
 | content_key_specs <br/> required_output_protection.hdc |Stringa, uno di HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se è necessario il protocollo HDCP. |
-| content_key_specs <br/>chiave |Base64<br/>codifica Base64 |Chiave simmetrica da usare per la traccia. Se specificato, è necessario immettere il valore track_type o key_id Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
+| content_key_specs <br/>key |Base64<br/>codifica Base64 |Chiave simmetrica da usare per la traccia. Se specificato, è necessario immettere il valore track_type o key_id Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
 
 ## <a name="policy-overrides"></a>Override dei criteri
-| Nome | Valore | Descrizione |
+| NOME | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | policy_overrides can_play |Booleano: true o false |Indica che è consentita la riproduzione del contenuto. Il valore predefinito è false. |
 | policy_overrides can_persist |Booleano: true o false |Indica che la licenza può essere mantenuta in una memoria non volatile per l'uso offline. Il valore predefinito è false. |
@@ -100,7 +100,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | policy_overrides renew_with_usage |Booleano: true o false |Indica che la licenza viene inviata per il rinnovo nel momento in cui si inizia a usarla. Questo campo viene usato solo se can_renew è true. |
 
 ## <a name="session-initialization"></a>Inizializzazione della sessione
-| Nome | Valore | Descrizione |
+| NOME | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | provider_session_token |Stringa con codifica Base64 |Questo token di sessione viene restituito alla licenza e persiste nei rinnovi successivi, ma non in altre sessioni. |
 | provider_client_token |Stringa con codifica Base64 |Token client da restituire nella risposta di licenza. Se la richiesta di licenza contiene un token client, questo valore viene ignorato. Il token client persiste anche in altre sessioni della licenza. |

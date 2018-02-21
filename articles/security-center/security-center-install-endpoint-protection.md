@@ -75,7 +75,7 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
 
 4. **Endpoint protection not installed on Azure VMs** (Protezione endpoint non installata sulle macchine virtuali di Azure) contiene un elenco di macchine virtuali di Azure su cui non è installato un antimalware.  È possibile scegliere di installare l'antimalware su tutte le macchine virtuali dell'elenco oppure selezionare singole macchine virtuali su cui installare l'antimalware facendo clic sulla macchina virtuale specifica.
 5. In **Seleziona Endpoint Protection** selezionare la soluzione di Endpoint Protection da usare. In questo esempio selezionare **Microsoft Antimalware**.
-6. Vengono visualizzate altre informazioni sulla soluzione di Endpoint Protection selezionata. Selezionare **Crea**.
+6. Vengono visualizzate altre informazioni sulla soluzione di Endpoint Protection selezionata. Selezionare **Create**.
 
 ## <a name="install-antimalware-on-non-azure-computers"></a>Installare l'antimalware sui computer che non hanno Azure
 

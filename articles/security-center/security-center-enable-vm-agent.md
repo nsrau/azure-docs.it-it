@@ -36,7 +36,7 @@ Per impostazione predefinita, l'agente di macchine virtuali è installato nelle 
 2. Verrà aperto il pannello **L'agente di macchine virtuali non è presente o non risponde**. Questo pannello elenca le VM che richiedono l'agente di macchine virtuali. Seguire le istruzioni nel pannello per installare l'agente.
    ![L'agente di macchine virtuali non è present][2]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md): informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.

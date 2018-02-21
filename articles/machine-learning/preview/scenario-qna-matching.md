@@ -17,7 +17,7 @@ ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,7 +39,7 @@ I passaggi principali necessari per creare questa soluzione sono i seguenti:
 4. Eseguire il training dei modelli di classificazione del testo e valutare le prestazioni dei modelli.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I prerequisiti per eseguire questo esempio sono i seguenti:
 

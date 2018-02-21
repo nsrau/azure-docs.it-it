@@ -117,7 +117,7 @@ L’elaborazione EDI di BizTalk Server costituisce il concetto di "accordo di fa
 ### <a name="routing-to-multiple-destinations"></a>Routing a più destinazioni
 I bridge dei servizi BizTalk nello stato attuale non supportano il routing dei messaggi a più destinazioni tramite il modello pubblicazione-sottoscrizione. Tuttavia, è possibile instradare i messaggi da un bridge dei servizi BizTalk a un argomento del bus di servizio che può avere più sottoscrizioni per ricevere il messaggio su più endpoint.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 I servizi BizTalk di Microsoft Azure vengono aggiornati a intervalli regolari per aggiungere ulteriori funzionalità e capacità. A ogni aggiornamento, viene offerto il supporto per le funzionalità migliorate in modo da facilitare la creazione di soluzioni end-to-end con i servizi BizTalk e le altre tecnologie Azure.
 
 ## <a name="see-also"></a>Vedere anche

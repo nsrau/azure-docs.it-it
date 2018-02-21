@@ -17,7 +17,7 @@ ms.date: 05/22/2017
 ms.author: anhoh
 ms.openlocfilehash: aa545a9fbaac0686a0a29482c8dcd3379ee4db8f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

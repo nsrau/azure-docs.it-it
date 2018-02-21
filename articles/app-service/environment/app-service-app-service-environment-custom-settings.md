@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2017
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Impostazioni di configurazione personalizzate per gli ambienti del servizio app
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Gli ambienti del servizio app sono specifici di un singolo cliente. Per questo motivo alcune impostazioni di configurazione possono essere applicate esclusivamente ad ambienti del servizio app. Questo articolo descrive le diverse personalizzazioni disponibili per gli ambienti del servizio app.
 
 Se non è disponibile un ambiente del servizio app, vedere [Come creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md).
@@ -91,7 +91,7 @@ Un'altra domanda dei clienti riguarda la possibilità di modificare l'elenco del
 > 
 > 
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 Il sito dei modelli di avvio rapido di Azure Resource Manager include un modello con la definizione di base per la [creazione di un ambiente del servizio app](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->

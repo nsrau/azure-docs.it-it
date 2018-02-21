@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/21/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: de6b3dcd77132154e583d7333983d6745c4aa3bd
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Strumento per l'analisi di simulazione dell'accesso condizionale di Azure Active Directory - Anteprima
 
@@ -78,14 +78,14 @@ Il valore predefinito di questa impostazione è **Tutte le app cloud**. Con l'im
 
 ### <a name="ip-address"></a>Indirizzo IP
 
-L'indirizzo IP è un singolo indirizzo IPv4 necessario per simulare la [condizione di posizione](active-directory-conditional-access-azure-portal.md#locations). Rappresenta l'indirizzo per Internet del dispositivo usato dall'utente per eseguire l'accesso. È possibile verificare l'indirizzo IP di un dispositivo accedendo, ad esempio, al sito Web [What is my IP address](https://whatismyipaddress.com).    
+L'indirizzo IP è un singolo indirizzo IPv4 necessario per simulare la [condizione di posizione](active-directory-conditional-access-locations.md). Rappresenta l'indirizzo per Internet del dispositivo usato dall'utente per eseguire l'accesso. È possibile verificare l'indirizzo IP di un dispositivo accedendo, ad esempio, al sito Web [What is my IP address](https://whatismyipaddress.com).    
 
 ### <a name="device-platforms"></a>Piattaforme del dispositivo
 
-Questa impostazione simula la [condizione di piattaforme del dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)**. 
+Questa impostazione simula la [condizione di piattaforme del dispositivo](active-directory-conditional-access-conditions.md#device-platforms) ed equivale all'opzione **Tutte le piattaforme (incluse quelle non supportate)**. 
 ### <a name="client-apps"></a>App client
 
-Questa impostazione simula la [condizione di app client](active-directory-conditional-access-azure-portal.md#client-apps).
+Questa impostazione simula la [condizione di app client](active-directory-conditional-access-conditions.md#client-apps).
 Per impostazione predefinita, esegue la valutazione di tutti i criteri per i quali è selezionato **Browser** o **App per dispositivi mobili e client desktop** o sono selezionate entrambe le opzioni. Rileva anche i criteri che applicano **Exchange ActiveSync (EAS)**. Per restringere l'ambito di questa impostazione, selezionare:
 
 - **Browser** per valutare tutti i criteri per i quali è selezionata almeno l'opzione **Browser**. 
@@ -95,10 +95,10 @@ Per impostazione predefinita, esegue la valutazione di tutti i criteri per i qua
 
 ### <a name="sign-in-risk"></a>Rischio di accesso
 
-Questa impostazione simula la [condizione di rischio di accesso](active-directory-conditional-access-azure-portal.md#sign-in-risk).   
+Questa impostazione simula la [condizione di rischio di accesso](active-directory-conditional-access-conditions.md#sign-in-risk).   
 
 
-## <a name="evaluation"></a>Valutazione 
+## <a name="evaluation"></a>Versione di valutazione 
 
 Per avviare una valutazione, fare clic su **Analisi di simulazione**. Al termine della valutazione, viene generato un report contenente gli elementi seguenti: 
 

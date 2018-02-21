@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be01d3104db04ebd759f2eab99505a2be4762c6c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entità servizio con il servizio contenitore di Azure
 
@@ -35,7 +35,7 @@ Quando si distribuisce un cluster del servizio contenitore di Azure con il coman
 Nell'esempio seguente viene creato un cluster del servizio contenitore di Azure e poiché non è specificata un'entità servizio, ne viene creata una per il cluster. Per completare questa operazione, l'account deve avere i diritti appropriati per la creazione di un'entità servizio.
 
 ```azurecli
-az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Usare un'entità servizio esistente
@@ -67,14 +67,14 @@ L'output è simile al seguente. Prendere nota dei valori di `appId` e `password`
 Quando si usa un'entità servizio già creata, specificare `appId` e `password` come valori di argomento nel comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
+az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
 ```
 
 Se si distribuisce un cluster del servizio contenitore di Azure tramite il portale di Azure, immettere il valore di `appId` nel campo **Service principal client ID** (ID client dell'entità servizio) e il valore di `password` nel campo **Service principal client secret** (Segreto client dell'entità servizio) nel modulo di configurazione del cluster del servizio contenitore di Azure.
 
 ![Immagine del passaggio ad Azure Vote](media/container-service-kubernetes-service-principal/sp-portal.png)
 
-## <a name="additional-considerations"></a>Considerazioni aggiuntive
+## <a name="additional-considerations"></a>Ulteriori considerazioni
 
 Quando si usano entità servizio del servizio contenitore di Azure e di Azure AD, ricordare le considerazioni seguenti.
 

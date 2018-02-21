@@ -15,7 +15,7 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.openlocfilehash: a3f2ceb6401bea0c0f2cd4f352e216ca5d7726a4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di 23 Video con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con 23 Video, sono necessari gli elementi seguenti:
 

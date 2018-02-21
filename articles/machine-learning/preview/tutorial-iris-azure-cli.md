@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 10/15/2017
 ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ Questa esercitazione illustra come usare gli strumenti di interfaccia della riga
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 - È necessario accedere a una sottoscrizione di Azure e disporre delle autorizzazioni per creare le risorse in tale sottoscrizione. 
 - È necessario installare l'applicazione Azure Machine Learning Workbench seguendo le istruzioni indicate in [Install and create Quickstart](quickstart-installation.md) (Avvio rapido all'installazione e alla creazione). 
 
@@ -265,7 +265,7 @@ A tale scopo, è sufficiente eliminare il gruppo di risorse che contiene tutte l
 az group delete --name <resource group name>
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione illustra come usare le funzionalità di anteprima di Azure Machine Learning per eseguire queste operazioni: 
 > [!div class="checklist"]
 > * Configurare un account di Sperimentazione e creare un'area di lavoro

@@ -264,7 +264,7 @@ Quando la tabella SYSTEM.CATALOG torna allo stato normale, il problema di connet
 
 ## <a name="what-causes-a-master-server-to-fail-to-start"></a>Causa dell'errore di avvio del server master
 
-### <a name="error"></a>Errore 
+### <a name="error"></a>Tipi di errore 
 
 Si verifica un errore di ridenominazione atomica.
 
@@ -286,7 +286,7 @@ In questo percorso potrebbe essere talvolta presente anche un file con un nome s
 
 Dopo l'esecuzione di questi comandi, HMaster dovrebbe essere avviato immediatamente. 
 
-### <a name="error"></a>Errore
+### <a name="error"></a>Tipi di errore
 
 In *hbase: meta* non è elencato alcun indirizzo del server per l'area xxx.
 
@@ -321,7 +321,7 @@ In un cluster Linux potrebbe essere visualizzato un messaggio che indica che la 
 [Impossibile elaborare la tabella HBase](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
-### <a name="error"></a>Errore
+### <a name="error"></a>Tipi di errore
 
 Si verifica il timeout di HMaster con un'eccezione irreversibile di tipo java.io.IOException, che indica un timeout di 300.000 millisecondi in attesa dell'assegnazione della tabella namespace.
 
@@ -422,4 +422,4 @@ A causa dell'arresto improvviso, la porta associata al processo potrebbe non ess
    ```
 
 ### <a name="see-also"></a>Vedere anche
-[Risolvere i problemi tramite Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Risolvere i problemi usando Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

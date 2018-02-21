@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---

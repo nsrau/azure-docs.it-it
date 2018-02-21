@@ -54,18 +54,18 @@ L'aggiornamento 1.0 corrisponde alla versione del software **10.0.10296.0**.
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| No. | Funzionalità | Problema |
+| di serie | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Autenticazione basata su Azure Active Directory| Questa versione contiene delle modifiche che consentono ad Azure Active Directory di eseguire l'autenticazione con Gestione dispositivi StorSimple.|
 | 2 |Garbage Collection| Questo problema è stato segnalato nel sito di un cliente in cui l'account del dispositivo e l'account di archiviazione sono in due aree diverse. Il cliente ha segnalato errori di rete intermittenti che hanno un impatto sulla fatturazione. In questa versione il problema è stato corretto. |
 | 3 |Prestazioni| Questa versione contiene modifiche che migliorano le prestazioni di ripristino, lettura nel cloud e suddivisione in livelli.|
-| 4 |Aggiornare| Nella versione precedente si verificava un problema con l'aggiornamento che causava errori di backup nel sito del cliente. Tale problema è stato corretto in questa versione.|
+| 4 |Aggiornamento| Nella versione precedente si verificava un problema con l'aggiornamento che causava errori di backup nel sito del cliente. Tale problema è stato corretto in questa versione.|
 
 ## <a name="known-issues-in-update-10"></a>Problemi noti nell'aggiornamento 1.0
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti.
 
-| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare gli array virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi array virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un array virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |

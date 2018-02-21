@@ -40,7 +40,7 @@ La tabella e il diagramma degli stati seguenti descrivono gli stati di un proces
 
 La tabella seguente descrive ogni stato in cui può trovarsi un processo.
 
-|Stato del processo|Descrizione|
+|Stato del processo|DESCRIZIONE|
 |---------------|-----------------|
 |`Creating`|Dopo avere chiamato l'operazione Put Job, viene creato un processo e il relativo stato viene impostato su `Creating`. Mentre il processo si trova nello stato `Creating`, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere nello stato `Creating` fino a due settimane; al termine di questo periodo viene automaticamente eliminato dal servizio.<br /><br /> Se si chiama l'operazione Update Job Properties mentre il processo si trova nello stato `Creating`, il processo rimane nello stato `Creating` e l'intervallo di timeout viene reimpostato su due settimane.|
 |`Shipping`|Dopo avere spedito il pacchetto, è necessario chiamare l'operazione Update Job Properties per aggiornare lo stato del processo in `Shipping`. Lo stato di spedizione può essere impostato solo se `DeliveryPackage` (spedizioniere e numero di tracciabilità) e le proprietà `ReturnAddress` sono state impostate per il processo.<br /><br /> Il processo rimarrà in questo stato per un massimo di due settimane. Se sono trascorse due settimane e le unità non sono state ricevute, gli operatori del servizio Importazione/Esportazione riceveranno una notifica.|
@@ -54,7 +54,7 @@ La tabella seguente descrive ogni stato in cui può trovarsi un processo.
 
 La tabella seguente descrive gli errori che possono verificarsi per ogni stato del processo e l'impatto sul processo in caso di errore.
 
-|Stato del processo|Evento|Risoluzione/passaggi successivi|
+|Stato del processo|Event|Risoluzione/passaggi successivi|
 |---------------|-----------|------------------------------|
 |`Creating or Undefined`|Sono state ricevute una o più unità per un processo, ma il processo non si trova nello stato `Shipping` oppure non esiste un record del processo nel servizio.|Il team operativo del servizio Importazione/Esportazione tenterà di contattare il cliente per creare o aggiornare il processo con le informazioni necessarie per far avanzare il processo.<br /><br /> Se il team non è in grado di contattare il cliente entro due settimane, tenterà di restituire le unità.<br /><br /> Nel caso in cui non sia possibile restituire le unità e il cliente non sia raggiungibile, le unità verranno distrutte in modo sicuro entro 90 giorni.<br /><br /> Si noti che un processo non può essere elaborato fino a quando il relativo stato non viene aggiornato a `Shipping`.|
 |`Shipping`|Il pacchetto per un processo non è arrivato per più di due settimane.|Il team operativo informerà il cliente che manca il pacchetto. In base alla risposta del cliente, il team prorogherà l'intervallo di attesa del pacchetto in arrivo o annullerà il processo.<br /><br /> Nel caso in cui il cliente non possa essere contattato o non risponda entro 30 giorni, il team operativo avvierà un'azione per passare il processo dallo stato `Shipping` direttamente allo stato `Closed`.|
@@ -69,7 +69,7 @@ La tabella e diagramma di seguito descrivono il ciclo di vita di una singola uni
 
 La tabella seguente descrive ogni stato in cui un processo può trovarsi.
 
-|Stato dell'unità|Descrizione|
+|Stato dell'unità|DESCRIZIONE|
 |-----------------|-----------------|
 |`Specified`|Per un processo di importazione, quando il processo viene creato con l'operazione Put Job, lo stato iniziale di un'unità è `Specified`. Per un processo di esportazione, lo stato iniziale dell'unità è `Received` perché non è stata specificata un'unità in fase di creazione del processo.|
 |`Received`|Le unità passano allo stato `Received` quando l'operatore del servizio Importazione/Esportazione avrà elaborato le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è `Received`.|
@@ -81,7 +81,7 @@ La tabella seguente descrive ogni stato in cui un processo può trovarsi.
 
 La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese corrispondenti.
 
-|Stato dell'unità|Evento|Risoluzione/passaggio successivo|
+|Stato dell'unità|Event|Risoluzione/passaggio successivo|
 |-----------------|-----------|-----------------------------|
 |`NeverReceived`|Un'unità contrassegnata come `NeverReceived` (perché non è stata ricevuta come parte della spedizione del processo) viene ricevuta con un'altra spedizione.|Il team operativo sposterà l'unità nello stato `Received`.|
 |`N/A`|Un'unità non inclusa nel processo viene ricevuta nel data center come parte di un altro processo.|L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente una volta completato il processo associato al pacchetto originale.|

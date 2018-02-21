@@ -56,7 +56,7 @@ Per completare questa operazione è necessario disporre dei componenti seguenti 
 
 Per l'ambiente di sviluppo sono necessari anche gli elementi seguenti:
 
-* Una sottoscrizione di Azure attiva. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+* Una sottoscrizione di Azure attiva. Se non si ha un account di Azure, [creare un account di Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Mac o PC che esegue Windows o Ubuntu.
 * Rete wireless a cui Feather HUZZAH ESP8266 deve connettersi.
 * Connessione Internet per scaricare lo strumento di configurazione.

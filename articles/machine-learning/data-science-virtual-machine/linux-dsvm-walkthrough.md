@@ -27,13 +27,13 @@ Le attività di analisi scientifica dei dati illustrate in questa procedura dett
 
 Questa procedura dettagliata illustra il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Si tratta di un set di messaggi di posta elettronica contrassegnati come posta indesiderata o ham, ovvero non indesiderata. Il set contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica che verranno illustrate più avanti in questa procedura dettagliata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di usare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere a disposizione quanto segue:
 
 * Una **sottoscrizione di Azure**. Se non è già disponibile, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
 * Una [**macchina virtuale Linux per l'analisi scientifica dei dati**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Per informazioni sul provisioning di questa macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md).
 * [X2Go](http://wiki.x2go.org/doku.php) installato nel computer con una sessione di XFCE aperta. Per informazioni sull'installazione e la configurazione di un **client X2Go**, vedere [Installazione e configurazione del client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-* Per un'esperienza di scorrimento più uniforme, attivare o disattivare il flag gfx.xrender.enabled in about:config nel browser FireFox delle macchine virtuali. [Altre informazioni sono disponibili qui.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considerare anche di impostare *mousewheel.enable_pixel_scrolling* su False. [Le istruzioni sono disponibili qui.](https://support.mozilla.org/en-US/questions/981140)
+* Per un'esperienza di scorrimento più uniforme, attivare o disattivare il flag gfx.xrender.enabled in about:config nel browser FireFox delle macchine virtuali. [Altre informazioni sono disponibili qui](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considerare anche di impostare *mousewheel.enable_pixel_scrolling* su False. [Le istruzioni sono disponibili qui.](https://support.mozilla.org/en-US/questions/981140)
 * Un **account Azure ML**. Se non è già disponibile, è possibile iscriversi e ottenere un nuovo account nella [home page di Azure ML](https://studio.azureml.net/). Il livello di utilizzo gratuito permette di iniziare.
 
 ## <a name="download-the-spambase-dataset"></a>Scaricare il set di dati spambase
@@ -407,7 +407,7 @@ Una delle funzionalità interessanti di Rattle è la possibilità di eseguire di
 Al termine della compilazione dei modelli, selezionare la scheda **Log** per visualizzare il codice R eseguito da Rattle durante la sessione. Per salvarlo, è possibile usare il pulsante **Export** (Esporta).
 
 > [!NOTE]
-> La versione corrente di Rattle contiene un bug. Per modificare lo script o usarlo per ripetere i passaggi in un secondo momento, è necessario inserire un carattere # davanti a *Export this log ... * (Esporta questo log) nel testo del log.
+> La versione corrente di Rattle contiene un bug. Per modificare lo script o usarlo per ripetere i passaggi in un secondo momento, è necessario inserire un carattere # davanti a *Export this log ...* (Esporta questo log) nel testo del log.
 >
 >
 

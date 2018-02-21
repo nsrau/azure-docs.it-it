@@ -69,7 +69,7 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 | [**Profiler**](app-insights-profiler.md)<br/>Ispezionare i profili di esecuzione delle richieste campionate. |![Profiler](./media/app-insights-overview/profiler.png) |
 | [**Analisi dell'utilizzo**](app-insights-usage-overview.md)<br/>Analizzare la segmentazione e la conservazione degli utenti.|![Strumento Conservazione](./media/app-insights-overview/retention.png) |
 | [**Ricerca diagnostica dei dati dell'istanza**](app-insights-diagnostic-search.md)<br/>Cercare e filtrare eventi come richieste, eccezioni, chiamate a dipendenze, tracce di log e visualizzazioni di pagina.  |![Ricerca nella telemetria](./media/app-insights-overview/search-tn.png) |
-| [**Esplora metriche per i dati aggregati**](app-insights-metrics-explorer.md)<br/>Esaminare, filtrare e segmentare dati aggregati come frequenza delle richieste, errori, eccezioni, tempi di risposta e tempi di caricamento delle pagine. |![Metrica](./media/app-insights-overview/metrics-tn.png) |
+| [**Esplora metriche per i dati aggregati**](app-insights-metrics-explorer.md)<br/>Esaminare, filtrare e segmentare dati aggregati come frequenza delle richieste, errori, eccezioni, tempi di risposta e tempi di caricamento delle pagine. |![Metriche](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboard**](app-insights-dashboards.md#dashboards)<br/>Combinare dati di più risorse e condividerli con altri utenti. Ideale per le applicazioni multi-componente e per la visualizzazione continua negli spazi del team. |![Esempio di dashboard](./media/app-insights-overview/dashboard-tn.png) |
 | [**Flusso di metriche in tempo reale**](app-insights-live-stream.md)<br/>Quando si distribuisce una nuova build, controllare questi indicatori delle prestazioni in tempo quasi reale per verificare che tutto funzioni come previsto. |![Esempio di metriche live](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analisi**](app-insights-analytics.md)<br/>Questo avanzato linguaggio di query consente di trovare risposta a domande approfondite sull'utilizzo e sulle prestazioni dell'app. |![Esempio di analisi](./media/app-insights-overview/analytics-tn.png) |
@@ -77,11 +77,11 @@ Application Insights è destinato al team di sviluppo, a cui consente di compren
 | [**Debugger di snapshot**](app-insights-snapshot-debugger.md)<br/>Eseguire il debug di snapshot campionati da operazioni attive, con i valori dei parametri.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Integrare le metriche di uso con altra business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**API REST**](https://dev.applicationinsights.io/)<br/>Scrivere codice per eseguire query su metriche e dati non elaborati.| ![API REST](./media/app-insights-overview/rest-tn.png) |
-| [**Esportazione continua**](app-insights-export-telemetry.md)<br/>Eseguire l'esportazione bulk dei dati non elaborati nell'archivio non appena arrivano. |![Esporta](./media/app-insights-overview/export-tn.png) |
+| [**Esportazione continua**](app-insights-export-telemetry.md)<br/>Eseguire l'esportazione bulk dei dati non elaborati nell'archivio non appena arrivano. |![Esportazione](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Come si usa Application Insights?
 
-### <a name="monitor"></a>Monitoraggio
+### <a name="monitor"></a>Monitorare
 Installare Application Insights nell'app, impostare i [test Web di disponibilità](app-insights-monitor-web-app-availability.md) e:
 
 * Impostare un [dashboard](app-insights-dashboards.md) per la chat team, in modo da controllare carico, velocità di risposta e prestazioni delle dipendenze, caricamenti di pagina e chiamate AJAX.
@@ -102,7 +102,7 @@ Quando si riceve un avviso o si individua un problema:
 * Scrivere dati di telemetria personalizzati nel codice.
 * Basare il ciclo di sviluppo successivo sulle salde prove derivate dai dati di telemetria.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 Application Insights è uno dei molti servizi ospitati in Microsoft Azure e riceve i dati di telemetria per l’analisi e la presentazione. Prima di eseguire qualsiasi altra operazione, è necessario ottenere una sottoscrizione a [Microsoft Azure](http://azure.com). L'iscrizione è gratuita e, se si sceglie il [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) Basic di Application Insights, la sottoscrizione resta gratuita finché l'applicazione non cresce fino a un uso sostanziale. Se l'organizzazione ha già una sottoscrizione, può aggiungervi l'account Microsoft dell'utente.
 
 È possibile iniziare in diversi modi. Iniziare con il metodo più adatto alle proprie esigenze. È possibile aggiungere gli altri in un secondo momento.
@@ -136,7 +136,7 @@ Introduzione in fase di sviluppo a:
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 * Domande e problemi:
   * [Risoluzione dei problemi][qna]
-  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Forum di MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Suggerimenti:
   * [UserVoice](https://visualstudio.uservoice.com/forums/357324)

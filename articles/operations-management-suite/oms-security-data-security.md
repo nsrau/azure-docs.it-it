@@ -52,7 +52,7 @@ La soluzione Sicurezza e controllo di OMS analizza i dati provenienti dalle macc
 > 
 > 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Questo documento illustra in che modo vengono gestiti e protetti i dati in OMS. Per altre informazioni sulla soluzione Sicurezza e controllo di OMS, vedere:
 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)

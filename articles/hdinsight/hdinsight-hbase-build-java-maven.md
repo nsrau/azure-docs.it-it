@@ -614,6 +614,6 @@ Dopo aver finito con l'esempio, usare il comando seguente dalla sessione di Azur
 
 Sostituire **hdinsightclustername** con il nome del cluster HDInsight.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="no-results-or-unexpected-results-when-using-start-hbaseexample"></a>Nessun risultato o risultati imprevisti quando si usa Start-HBaseExample
 Usare il parametro `-showErr` per visualizzare l'errore standard (STDERR) prodotto durante l'esecuzione del processo.

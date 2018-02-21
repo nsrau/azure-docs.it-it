@@ -27,7 +27,7 @@ ms.lasthandoff: 10/21/2017
 
 Per visualizzare le informazioni di monitoraggio per un dispositivo specifico, nel portale di Azure selezionare il servizio Gestione dispositivi di StorSimple. Selezionare il dispositivo dall'elenco dei dispositivi e passare a **Monitoraggio**. Sarà quindi possibile visualizzare i grafici **Capacità**, **Utilizzo** e **Prestazioni** per il dispositivo selezionato.
 
-## <a name="capacity"></a>Capacità
+## <a name="capacity"></a>Capacity
 Il grafico **Capacità** tiene traccia dello spazio disponibile e dello spazio restante sul dispositivo. La capacità residua viene quindi visualizzata come aggiunta in locale o a livelli.
 
 La capacità fornita e quella residua sono ulteriormente suddivise in volumi aggiunti in locale e a più livelli. Per ogni volume sono mostrate la capacità di cui è stato eseguito il provisioning e la capacità residua nel dispositivo.
@@ -36,7 +36,7 @@ La capacità fornita e quella residua sono ulteriormente suddivise in volumi agg
 
 
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 **Utilizzo** tiene traccia delle metriche correlate alla quantità di spazio di archiviazione di dati usato da volumi, contenitori del volume o dispositivo. È possibile creare report basati sull'utilizzo della capacità dell'archiviazione primaria, dell'archiviazione cloud o dell'archiviazione del dispositivo. L’utilizzo della capacità può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 Per impostazione predefinita, viene segnalato l'uso nelle ultime 24 ore. Per modificare l'intervallo di calcolo dell'uso nel grafico, effettuare una selezione tra:
 * Ultime 24 ore

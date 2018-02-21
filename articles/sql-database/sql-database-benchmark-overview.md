@@ -39,7 +39,7 @@ Il benchmark e la relativa metodologia sono descritti con maggiori dettagli più
 ## <a name="benchmark-summary"></a>Riepilogo del benchmark
 Il benchmark ASDB misura le prestazioni di una combinazione di operazioni di database di base che si verificano con maggiore frequenza con carichi di lavoro di elaborazione di transazioni online (OLTP). Benché il benchmark sia stato progettato tenendo conto del cloud computing, lo schema del database, il popolamento di dati e le transazioni sono stati progettati in modo da rappresentare a grandi linee gli elementi di base usati con maggiore frequenza con carichi di lavoro OLTP.
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 Lo schema è progettato in modo da prevedere una varietà e una complessità sufficienti per supportare una vasta gamma di operazioni. Il benchmark viene eseguito a fronte di un database costituito da sei tabelle. Le tabelle rientrano in tre categorie, ovvero a dimensione fissa, ridimensionabili ed espandibili. Sono presenti due tabelle a dimensione fissa, tre tabelle ridimensionabili e una tabella espandibile. Le tabelle a dimensione fissa includono un numero costante di righe. Le tabelle ridimensionabili prevedono una cardinalità proporzionale alle prestazioni del database che però non cambia durante l'esecuzione del benchmark. La tabella espandibile ha le dimensioni di una tabella ridimensionabile con carico iniziale, ma successivamente la cardinalità cambia nel corso dell'esecuzione del benchmark con l'inserimento e l'eliminazione di righe.
 
 Lo schema include una combinazione di tipi di dati, tra cui valori integer, valori numerici, caratteri e valori di data/ora. Sono incluse chiavi primarie e secondarie, ma non chiavi esterne e non esistono pertanto vincoli di integrità referenziale tra le tabelle.
@@ -51,7 +51,7 @@ Le dimensioni del database si basano su un "fattore di scala" (SF), che determin
 ## <a name="transactions"></a>Transazioni
 Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato nella tabella riportata di seguito. Ogni transazione è progettata per evidenziare un insieme specifico di caratteristiche di sistema nel motore di database e nell'hardware del sistema, con un contrasto elevato rispetto alle altre transazioni. Questo approccio consente di valutare l'impatto dei diversi componenti sulle prestazioni globali. La transazione "Operazioni lettura intense" ad esempio produce un numero significativo di operazioni di lettura dal disco.
 
-| Tipo di transazione | Descrizione |
+| Tipo di transazione | DESCRIZIONE |
 | --- | --- |
 | Operazioni lettura leggere |SELECT, in memoria, sola lettura |
 | Operazioni lettura medie |SELECT, principalmente in memoria, sola lettura |
@@ -60,7 +60,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Eliminazione |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ## <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -75,7 +75,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Eliminazione |2 |
+| Delete |2 |
 | Operazioni CPU intense |10 |
 
 ## <a name="users-and-pacing"></a>Utenti e velocità
@@ -123,7 +123,7 @@ La metrica di base del benchmark è rappresentata dalla velocità effettiva e da
 | Standard |Transazioni al minuto |90° percentile a 1,0 secondi |
 | Basic |Transazioni all'ora |80° percentile a 2,0 secondi |
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Il benchmark ASDB misura le prestazioni relative del database SQL di Azure in esecuzione con i diversi livelli di servizio e di prestazioni disponibili. Il benchmark testa una combinazione di operazioni di database di base che si verificano con maggiore frequenza con carichi di lavoro di elaborazione di transazioni online (OLTP). Misurando le prestazioni effettive, il benchmark fornisce una valutazione più significativa dell'impatto prodotto sulla velocità effettiva dalla modifica del livello di prestazioni rispetto alla valutazione che è possibile ottenere elencando semplicemente le risorse fornite da ogni livello, ad esempio la velocità della CPU, le dimensioni della memoria e le operazioni di input/output al secondo (IOPS). In futuro il benchmark verrà esteso in modo da ampliarne l'ambito ed espandere i dati forniti.
 
 ## <a name="resources"></a>Risorse

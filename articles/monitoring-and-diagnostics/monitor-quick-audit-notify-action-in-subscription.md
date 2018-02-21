@@ -22,7 +22,7 @@ Il **log attività di Azure** fornisce una cronologia degli eventi a livello di 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 

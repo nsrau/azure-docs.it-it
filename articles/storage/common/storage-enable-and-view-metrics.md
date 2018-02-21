@@ -130,7 +130,7 @@ Per accedere alle tabelle di analisi a livello di codice, si noti che non vengon
 * $MetricsMinutePrimaryTransactionsTable
 * $MetricsMinutePrimaryTransactionsQueue
 
-### <a name="capacity"></a>Capacità
+### <a name="capacity"></a>Capacity
 * $MetricsCapacityBlob
 
 È possibile trovare i dettagli completi degli schemi di queste tabelle in [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx). Le righe di esempio riportate di seguito mostrano solo un subset delle colonne disponibili, ma illustrano alcune importanti funzionalità relative al modo in cui Metriche di archiviazione salva queste metriche:

@@ -16,7 +16,7 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

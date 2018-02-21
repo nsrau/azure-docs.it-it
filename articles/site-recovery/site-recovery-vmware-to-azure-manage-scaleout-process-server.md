@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 Il server di elaborazione con scalabilità orizzontale funge da coordinatore per il trasferimento dei dati tra i servizi di Site Recovery e l'infrastruttura locale in uso. Questo articolo descrive come impostare, configurare e gestire i server di elaborazione con scalabilità orizzontale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 La tabella seguente elenca i requisiti minimi hardware, software e di rete richiesti per impostare un server di elaborazione con scalabilità orizzontale.
 
 > [!NOTE]

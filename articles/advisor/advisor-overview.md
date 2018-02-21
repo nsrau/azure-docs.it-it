@@ -77,7 +77,7 @@ Per posporre o ignorare un consiglio, fare clic sul collegamento **Posponi**. È
 
 Per altre informazioni sui consigli di Advisor, vedere:
 
-* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)

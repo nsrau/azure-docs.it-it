@@ -31,7 +31,7 @@ Uno spazio dei nomi è un contenitore di ambito per tutti i componenti di messag
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Congratulazioni. È stato creato uno spazio dei nomi per la messaggistica del bus di servizio.
+Congratulazioni! È stato creato uno spazio dei nomi per la messaggistica del bus di servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

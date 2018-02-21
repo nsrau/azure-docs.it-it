@@ -37,18 +37,18 @@ Publish-WebApplicationVM
 ### <a name="configuration"></a>Configurazione
 Percorso del file di configurazione JSON che descrive i dettagli della distribuzione.
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |true |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
 ### <a name="subscriptionname"></a>SubscriptionName
 Nome della sottoscrizione di Azure in cui creare la macchina virtuale.
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |false |
 | Posizione |denominata |
@@ -59,18 +59,18 @@ Nome della sottoscrizione di Azure in cui creare la macchina virtuale.
 ### <a name="webdeploypackage"></a>WebDeployPackage
 Percorso al pacchetto di distribuzione Web da pubblicare nella macchina virtuale. È possibile creare questo pacchetto usando la pubblicazione Web guidata di Visual Studio. Vedere [Procedura: Creare un pacchetto di distribuzione Web in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |false |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
 Se true, consente l'utilizzo di certificati che non sono firmati da un'autorità radice attendibile.
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |false |
 | Posizione |denominata |
@@ -81,29 +81,29 @@ Se true, consente l'utilizzo di certificati che non sono firmati da un'autorità
 ### <a name="vmpassword"></a>VMPassword
 Le credenziali per l'account della macchina virtuale. Esempio: -VMPassword @{Name = "admin"; Password = "password"}
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |false |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
 Le credenziali del database SQL in Azure. Esempio: -DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |false |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Se impostato su true, stampa i messaggi dallo script al flusso di output.
 
-| Alias | nessuno |
+| Alias | Nessuno |
 | --- | --- |
 | Obbligatorio? |false |
 | Posizione |denominata |

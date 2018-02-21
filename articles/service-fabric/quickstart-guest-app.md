@@ -24,7 +24,7 @@ ms.lasthandoff: 12/08/2017
 
 Questa guida introduttiva illustra come distribuire un'applicazione esistente, in questo esempio Node.js, in un cluster di Service Fabric in esecuzione in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo](service-fabric-get-started.md). Ciò include l'installazione di Service Fabric SDK e Visual Studio 2017 o 2015.
 
@@ -65,7 +65,7 @@ Premere **OK**.
 
 Visual Studio crea il progetto di applicazione e il progetto di servizio Actor e li visualizza in Esplora soluzioni.
 
-Il progetto di applicazione (**MyGuestApp**) non contiene direttamente codice, ma fa riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
+Il progetto di applicazione (**MyGuestApp**) non contiene direttamente codice, Fa invece riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
 
 * **Profili di pubblicazione**  
 Preferenze relative agli strumenti per diversi ambienti.
@@ -95,7 +95,7 @@ Aprire il file **ServiceManifest.xml** nel progetto. Nella parte inferiore del m
   </Resources>
 ```
 
-## <a name="deploy-to-azure"></a>Distribuzione in Azure
+## <a name="deploy-to-azure"></a>Distribuisci in Azure
 
 Se si preme **F5** e si esegue il progetto, questo viene distribuito nel cluster locale. Si eseguirà invece la distribuzione in Azure.
 
@@ -131,7 +131,7 @@ Controllare l'indirizzo del servizio nel pannello di panoramica. Usare il nome d
 
 Passare a tale indirizzo, in cui verrà visualizzata la risposta `HELLO WORLD`.
 
-## <a name="delete-the-cluster"></a>Eliminazione del cluster
+## <a name="delete-the-cluster"></a>Eliminare il cluster
 
 Non dimenticare di eliminare tutte le risorse create per questa guida introduttiva, perché verranno addebitate.
 

@@ -25,7 +25,7 @@ ms.lasthandoff: 12/05/2017
 
 Questa esercitazione in più parti illustra come creare una nuova app per le [API MongoDB](mongodb-introduction.md) con Express, Angular e Node.js (lo stack MEAN) e quindi connetterla al database di Azure Cosmos DB. Poiché Azure Cosmos DB supporta le connessioni client MongoDB, è possibile usare Azure Cosmos DB invece di MongoDB, usando però lo stesso codice usato per le app MongoDB, ma con più vantaggi. I vantaggi offerti da Azure Cosmos DB includono una distribuzione nel cloud, ridimensionamento, sicurezza, dati replicati a livello globale, supporto multimodello e operazioni di lettura e scrittura estremamente rapide. 
 
-Azure Cosmos DB è il servizio di database multimodello distribuito a livello globale di Microsoft. Consente di creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. Consente di creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
 Questa esercitazione in più parti illustra le attività seguenti:
 

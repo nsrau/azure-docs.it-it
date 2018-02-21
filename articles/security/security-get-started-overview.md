@@ -43,7 +43,7 @@ Il sito di informazioni sulla sicurezza di Azure attualmente include le categori
 * Gestione delle identità
 * Servizi PaaS
 * Settori specifici
-* Architettura
+* Architecture
 
 > [!NOTE]
 > Tutti gli articoli presenti nel sito di informazioni sulla sicurezza di Azure vengono visualizzati nel riquadro di navigazione sul lato sinistro della pagina. Per visualizzare tutti gli articoli, fare clic o toccare **Vedi altri** nella parte inferiore dell'elenco delle categorie.

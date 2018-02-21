@@ -41,19 +41,19 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs">Blob Encryption Samples</a> (Esempi di crittografia dei BLOB)</td>
 </tr> 
 <tr> 
-<td>Copia di BLOB</td>
+<td>Copy Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a> (Introduzione ai BLOB)</td>
 </tr> 
 <tr> 
-<td>Creazione contenitore</td>
+<td>Create Container</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a></td>
 </tr> 
 <tr> 
-<td>Eliminazione BLOB</td>
+<td>Delete Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a></td>
 </tr> 
 <tr> 
-<td>Eliminazione contenitore</td>
+<td>Delete Container</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a> (Introduzione ai BLOB)</td>
 </tr> 
 <tr> 
@@ -65,7 +65,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a></td>
 </tr> 
 <tr> 
-<td>Ottenere intervalli di pagine</td>
+<td>Get Page Ranges</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a> (Introduzione ai BLOB)</td>
 </tr> 
 <tr> 
@@ -89,7 +89,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a> (Introduzione ai BLOB)</td>
 </tr>           
 <tr> 
-<td>Snapshot di BLOB</td>
+<td>Snapshot Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Backup dei dischi delle macchine virtuali di Azure con snapshot incrementali</a></td>
 </tr> 
 <tr> 

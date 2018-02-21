@@ -181,7 +181,7 @@ Viene anche usata la funzionalità [Perfect Forward Secrecy](https://en.wikipedi
 
 I dati in transito sono sempre crittografati in [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). I dati, oltre a essere crittografati prima dell'archiviazione in supporti persistenti, vengono sempre protetti anche mentre sono in transito usando HTTPS. HTTPS è l'unico protocollo supportato per le interfacce REST di Data Lake Store.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 L'azienda può raggiungere il proprio obiettivo di proteggere i dati personali e la privacy di tali dati imponendo connessioni HTTPS con Archiviazione di Azure, usando firme di accesso condiviso e abilitando l'opzione Trasferimento sicuro obbligatorio negli account di archiviazione. Può anche proteggere i dati personali usando connessioni SMB 3.0 e implementando la crittografia lato client. Le connessioni VPN da sito a sito dalla rete aziendale alla rete virtuale di Azure e le connessioni VPN da punto a sito dai singoli utenti creeranno un tunnel sicuro che garantirà il trasferimento sicuro dei dati personali. La privacy dei dati personali sarà ulteriormente protetta dalle procedure di crittografia predefinite di Microsoft.
 

@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 * Annuncio di testo: una notifica che invita l'utente a esaminare una visualizzazione testo.
 * Annuncio Web: una notifica che incoraggia l'utente a esaminare una visualizzazione Web.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Reach - Procedure - Annunci][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Informazioni sugli annunci di visualizzazione Web:
@@ -109,7 +109,7 @@ Ogni ricorrenza del modello {deviceid} verrà automaticamente sostituita dall'id
 ### <a name="define-the-texts-of-your-announcement"></a>Definire il testo dell'annuncio
 Compilare il titolo, il contenuto e il testo dei pulsanti dell'annuncio. È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, abbiano eseguito un'azione o si siano scollegati.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
 ## <a name="content-of-polls"></a>Contenuto dei sondaggi
@@ -118,7 +118,7 @@ Compilare il titolo, il contenuto e il testo dei pulsanti dell'annuncio. È poss
 Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiungere quindi domande e opzioni per le risposte alle domande.
 È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati. La definizione dei destinatari può essere basata anche sul feedback di risposta ai sondaggi, dove domande e opzioni di risposta vengono usate come criteri.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Contenuto dei push di dati
@@ -134,7 +134,7 @@ Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiu
 * Se si seleziona il push dei dati binari o base64, usare il pulsante "carica il file" per caricare il file.
 * È possibile definire i destinatari di una campagna futura in base al feedback di copertura sulla risposta degli utenti alla campagna corrente. È possibile definire i destinatari a seconda che la campagna sia stata solo oggetto di push, che gli utenti abbiano risposto, eseguito un'azione o si siano scollegati.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>Contenuto dei riquadri (solo per Windows Phone)
@@ -144,7 +144,7 @@ Compilare il titolo, la descrizione e il testo dei pulsanti dell'annuncio. Aggiu
 Il payload dei riquadri è il testo da visualizzare nel riquadro dell'app sui dispositivi Windows Phone.
 Un push di riquadri è la versione Servizio di notifica Push di Microsoft (MPNS) di un push nativo per Windows Phone. Il tipo di push di riquadri è l'unico tipo di push che non ha risposta e pertanto non è possibile creare i destinatari delle campagne future in base ai risultati di una campagna di push di riquadri. 
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'API - API Reach - Push nativo][Link 4]
 
 <!--Image references-->

@@ -36,7 +36,7 @@ Per impostazione predefinita, solo il proprietario dell'account di archiviazione
 
 È possibile impostare le autorizzazioni per il contenitore usando gli strumenti seguenti:
 
-* [Portale di Azure](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Interfaccia della riga di comando di Azure 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * A livello di programmazione, usando una delle librerie client di archiviazione o l'API REST.

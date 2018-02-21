@@ -1,5 +1,5 @@
 ---
-title: Servizi e tecnologie per la sicurezza di Azure | Microsoft Docs
+title: Servizi e tecnologie per la sicurezza di Azure | Documentazione Microsoft
 description: L'articolo offre un elenco dettagliato dei servizi e delle tecnologie per la sicurezza di Azure.
 services: security
 documentationcenter: na

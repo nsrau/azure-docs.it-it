@@ -77,11 +77,11 @@ Il motore regole consente di personalizzare la modalità con cui vengono gestite
    > 
    > 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
 * [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
 * [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
-* [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
+* [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
 * [Vedere il video relativo alle nuove potenti funzionalità Premium della rete CDN di Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)

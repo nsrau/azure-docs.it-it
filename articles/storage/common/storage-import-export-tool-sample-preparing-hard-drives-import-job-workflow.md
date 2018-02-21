@@ -28,7 +28,7 @@ In questo articolo viene illustrato il processo completo di preparazione delle u
 
 In questo esempio verranno importati i seguenti dati di un account di archiviazione Azure denominato `mystorageaccount`:
 
-|Percorso|Descrizione|Dimensioni dei dati|
+|Località|DESCRIZIONE|Dimensioni dei dati|
 |--------------|-----------------|-----|
 |H:\Video\ |Una raccolta di video|12 TB|
 |H:\Photo\ |Una raccolta di foto|30 GB|

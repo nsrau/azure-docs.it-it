@@ -62,7 +62,7 @@ Il flusso di lavoro contiene due azioni:
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Workstation con Azure PowerShell**.
@@ -70,12 +70,12 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     > [!IMPORTANT]
     > Il supporto di Azure PowerShell per la gestione delle risorse HDInsight tramite Azure Service Manager è **deprecato** e verrà rimosso dal 1° gennaio 2017. La procedura descritta in questo documento usa i nuovi cmdlet HDInsight, compatibili con Azure Resource Manager.
     >
-    > Per installare la versione più recente, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet compatibili con Azure Resource Manager, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Per installare la versione più recente, seguire la procedura descritta in [Come installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs) . Se sono presenti script che devono essere modificati per l'uso dei nuovi cmdlet compatibili con Azure Resource Manager, per altre informazioni vedere [Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) .
 
 * **Un cluster HDInsight**. Per informazioni sulla creazione di un cluster HDInsight, vedere [Creare cluster HDInsight][hdinsight-provision] o [Introduzione a HDInsight][hdinsight-get-started]. Per completare l'esercitazione sono necessari i dati seguenti:
 
     <table border = "1">
-    <tr><th>Proprietà del cluster</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
+    <tr><th>Proprietà del cluster</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>DESCRIZIONE</th></tr>
     <tr><td>Nome del cluster HDInsight</td><td>$clusterName</td><td></td><td>Cluster HDInsight su cui si eseguirà questa esercitazione.</td></tr>
     <tr><td>Nome utente del cluster HDInsight</td><td>$clusterUsername</td><td></td><td>Nome utente del cluster HDInsight. </td></tr>
     <tr><td>Password utente del cluster HDInsight </td><td>$clusterPassword</td><td></td><td>La password utente del cluster HDInsight.</td></tr>
@@ -86,7 +86,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 * **Un database SQL di Azure**. È necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere l'[introduzione all'uso del database SQL di Azure][sqldatabase-get-started]. Questo articolo fornisce uno script di Windows PowerShell per consentire la creazione della tabella del database SQL di Azure necessaria per questa esercitazione.
 
     <table border = "1">
-    <tr><th>Proprietà del database SQL</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>
+    <tr><th>Proprietà del database SQL</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>DESCRIZIONE</th></tr>
     <tr><td>Nome del server di database SQL</td><td>$sqlDatabaseServer</td><td></td><td>Il server di database SQL in cui Sqoop esporterà i dati. </td></tr>
     <tr><td>Nome di accesso al database SQL</td><td>$sqlDatabaseLogin</td><td></td><td>Il nome di accesso al database SQL.</td></tr>
     <tr><td>Password di accesso al database SQL</td><td>$sqlDatabaseLoginPassword</td><td></td><td>La password di accesso al database SQL.</td></tr>
@@ -197,7 +197,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
     Variabili del flusso di lavoro
 
     <table border = "1">
-    <tr><th>Variabili del flusso di lavoro</th><th>Descrizione</th></tr>
+    <tr><th>Variabili del flusso di lavoro</th><th>DESCRIZIONE</th></tr>
     <tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. Usare <strong>jobtrackerhost:9010</strong> nel cluster HDInsight versione 3.0 e 2.0.</td></tr>
     <tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio <i>wasb://&lt;nomecontenitore&gt;@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net</i>.</td></tr>
     <tr><td>${queueName}</td><td>Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare l'<strong>impostazione predefinita</strong>.</td></tr>
@@ -206,7 +206,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
     Variabili dell'azione Hive
 
     <table border = "1">
-    <tr><th>Variabile azione Hive</th><th>Descrizione</th></tr>
+    <tr><th>Variabile azione Hive</th><th>DESCRIZIONE</th></tr>
     <tr><td>${hiveDataFolder}</td><td>La directory di origine per il comando Hive Create Table.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE.</td></tr>
     <tr><td>${hiveTableName}</td><td>Il nome della tabella di Hive che fa riferimento ai file di dati log4j.</td></tr>
@@ -215,7 +215,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
     Variabili dell'azione Sqoop
 
     <table border = "1">
-    <tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
+    <tr><th>Variabile azione Sqoop</th><th>DESCRIZIONE</th></tr>
     <tr><td>${sqlDatabaseConnectionString}</td><td>Stringa di connessione del database SQL.</td></tr>
     <tr><td>${sqlDatabaseTableName}</td><td>La tabella del database SQL di Azure in cui verranno esportati i dati.</td></tr>
     <tr><td>${hiveOutputFolder}</td><td>La cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>
@@ -241,7 +241,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
 
     Nel file di definizione vengono usate cinque variabili:
 
-   | Variabile | Descrizione |
+   | Variabile | DESCRIZIONE |
    | --- | --- |
    | ${coordFrequency} |Tempo di sospensione del processo. La frequenza è sempre espressa in minuti. |
    | ${coordStart} |Ora di inizio del processo. |

@@ -59,25 +59,25 @@ ms.lasthandoff: 10/11/2017
     }
 ````
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | --- | --- | --- |
-| senderPartnerName | String | Nome partner del mittente del messaggio AS2. Facoltativa |
-| receiverPartnerName | String | Nome partner del destinatario del messaggio AS2. Facoltativa |
-| as2To | String | Nome del destinatario del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
-| as2From | String | Nome del mittente del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
-| agreementName | String | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
-| direction | String | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
-| messageId | String | ID del messaggio AS2, dalle intestazioni del messaggio AS2. Facoltativa |
-| dispositionType |String | Valore del tipo di notifica sulla ricezione del messaggio (MDN). Facoltativa |
-| fileName | String | Nome di file, dall'intestazione del messaggio AS2. Facoltativa |
-| isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
-| isMessageSigned | Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
-| isMessageEncrypted | Boolean | Se il messaggio AS2 era crittografato. Obbligatoria |
-| isMessageCompressed |Boolean | Se il messaggio AS2 era compresso. Obbligatoria |
-| correlationMessageId | String | ID del messaggio AS2 per la correlazione dei messaggi con le notifiche MDN. Facoltativa |
+| senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
+| receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
+| as2To | string | Nome del destinatario del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
+| as2From | string | Nome del mittente del messaggio AS2, dalle intestazioni del messaggio AS2. Obbligatoria |
+| agreementName | string | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
+| direction | string | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
+| messageId | string | ID del messaggio AS2, dalle intestazioni del messaggio AS2. Facoltativa |
+| dispositionType |string | Valore del tipo di notifica sulla ricezione del messaggio (MDN). Facoltativa |
+| fileName | string | Nome di file, dall'intestazione del messaggio AS2. Facoltativa |
+| isMessageFailed |boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
+| isMessageSigned | boolean | Se il messaggio AS2 era firmato. Obbligatoria |
+| isMessageEncrypted | boolean | Se il messaggio AS2 era crittografato. Obbligatoria |
+| isMessageCompressed |boolean | Se il messaggio AS2 era compresso. Obbligatoria |
+| correlationMessageId | string | ID del messaggio AS2 per la correlazione dei messaggi con le notifiche MDN. Facoltativa |
 | incomingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in arrivo. Facoltativa |
 | outgoingHeaders |Dizionario di JToken | Dettagli dell'intestazione del messaggio AS2 in uscita. Facoltativa |
-| isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| isNrrEnabled | boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | isMdnExpected | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | mdnType | Enum | I valori consentiti sono **NotConfigured**, **Sync** e **Async**. Obbligatoria |
 
@@ -111,23 +111,23 @@ ms.lasthandoff: 10/11/2017
     }
 ````
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | --- | --- | --- |
-| senderPartnerName | String | Nome partner del mittente del messaggio AS2. Facoltativa |
-| receiverPartnerName | String | Nome partner del destinatario del messaggio AS2. Facoltativa |
-| as2To | String | Nome partner che riceve il messaggio AS2. Obbligatoria |
-| as2From | String | Nome partner che invia il messaggio AS2. Obbligatoria |
-| agreementName | String | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
-| direction |String | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
-| messageId | String | ID del messaggio AS2. Facoltativa |
-| originalMessageId |String | ID del messaggio originale AS2. Facoltativa |
-| dispositionType | String | Valore del tipo di gestione MDN. Facoltativa |
-| isMessageFailed |Boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
-| isMessageSigned |Boolean | Se il messaggio AS2 era firmato. Obbligatoria |
-| isNrrEnabled | Boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
+| senderPartnerName | string | Nome partner del mittente del messaggio AS2. Facoltativa |
+| receiverPartnerName | string | Nome partner del destinatario del messaggio AS2. Facoltativa |
+| as2To | string | Nome partner che riceve il messaggio AS2. Obbligatoria |
+| as2From | string | Nome partner che invia il messaggio AS2. Obbligatoria |
+| agreementName | string | Nome del contratto AS2 in base al quale vengono risolti i messaggi. Facoltativa |
+| direction |string | Direzione del flusso dei messaggi, ricezione o invio. Obbligatoria |
+| messageId | string | ID del messaggio AS2. Facoltativa |
+| originalMessageId |string | ID del messaggio originale AS2. Facoltativa |
+| dispositionType | string | Valore del tipo di gestione MDN. Facoltativa |
+| isMessageFailed |boolean | Se il messaggio AS2 non è riuscito. Obbligatoria |
+| isMessageSigned |boolean | Se il messaggio AS2 era firmato. Obbligatoria |
+| isNrrEnabled | boolean | Usare il valore predefinito se questo valore è sconosciuto. Obbligatoria |
 | statusCode | Enum | I valori consentiti sono **Accepted**, **Rejected** e **AcceptedWithErrors**. Obbligatoria |
 | micVerificationStatus | Enum | I valori consentiti sono **NotApplicable**, **Succeeded** e **Failed**. Obbligatoria |
-| correlationMessageId | String | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
+| correlationMessageId | string | ID correlazione. ID del messaggio originale, ovvero ID del messaggio per cui è configurata la notifica MDN. Facoltativa |
 | incomingHeaders | Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in arrivo. Facoltativa |
 | outgoingHeaders |Dizionario di JToken | Indica i dettagli dell'intestazione del messaggio in uscita. Facoltativa |
 

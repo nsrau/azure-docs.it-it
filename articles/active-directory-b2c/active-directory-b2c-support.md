@@ -16,7 +16,7 @@ ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: b37575d636356304ca94a55736e7f69605cf8218
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

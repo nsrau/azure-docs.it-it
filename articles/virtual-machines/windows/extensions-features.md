@@ -40,7 +40,7 @@ Sono disponibili numerose estensioni della macchina virtuale di Azure, ognuna co
 Oltre alle estensioni specifiche del processo, è disponibile un'estensione Script personalizzato per le macchine virtuali Linux e Windows. L'estensione Script personalizzato per Windows consente l'esecuzione di qualsiasi script PowerShell su una macchina virtuale. È utile per la progettazione di distribuzioni di Azure che richiedono una configurazione oltre a quella offerta dagli strumenti nativi di Azure. Per altre informazioni, vedere [Estensione Script personalizzato per macchine virtuali Windows](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Ogni estensione macchina virtuale può avere un insieme specifico di prerequisiti. Ad esempio, un prerequisito dell'estensione della macchina virtuale Docker è una distribuzione Linux supportata. La documentazione specifica dell'estensione illustra in dettaglio i requisiti delle singole estensioni.
 
@@ -279,7 +279,7 @@ Un'estensione può essere eliminata anche tramite il portale di Azure. A tale sc
 4. Selezionare **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | Descrizione | Altre informazioni |
+| Nome estensione | DESCRIZIONE | Altre informazioni |
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |

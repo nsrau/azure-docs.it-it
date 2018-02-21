@@ -17,7 +17,7 @@ ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: e4ed662c4dbe6da05582426f56e087020c05c6b8
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---

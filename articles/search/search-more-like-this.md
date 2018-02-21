@@ -23,7 +23,7 @@ ms.lasthandoff: 11/03/2017
 
 `moreLikeThis=[key]` è un parametro query nell'[API di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents). Specificando il parametro `moreLikeThis` in una query di ricerca è possibile trovare documenti che sono simili al documento specificato dalla chiave del documento. Quando viene effettuata una richiesta di ricerca con `moreLikeThis`, viene generata una query con i termini di ricerca estratti dal documento specificato che lo descrivono al meglio. La query generata viene quindi usata per eseguire la richiesta di ricerca. Per impostazione predefinita, viene considerato il contenuto di tutti i campi `searchable` a meno che non si usi il parametro `searchFields` per limitare i campi. Il parametro `moreLikeThis` non può essere usato con il parametro di ricerca `search=[string]`.
 
-## <a name="examples"></a>esempi 
+## <a name="examples"></a>Esempi 
 
 Di seguito è riportato un esempio di una query moreLikeThis. La query trova i documenti i cui campi di descrizione sono più simili al campo del documento di origine come specificato nel parametro `moreLikeThis`.
 

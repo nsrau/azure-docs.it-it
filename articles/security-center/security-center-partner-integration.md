@@ -44,10 +44,10 @@ L'esperienza di integrazione di Endpoint Protection può variare in base alla so
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, predefinito nel sistema operativo           | Sì                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Tramite estensione                | Sì                       |
 | Trend Micro – Tutte le versioni         | Famiglia Windows Server                 | Tramite estensione                | Sì                       |
-| Symantec v12.1.1100+                     | Famiglia Windows Server                 | No                           | Sì                        |
-| MacAfee                           | Famiglia Windows Server                 | No                           | No                        |
-| Kaspersky                         | Famiglia Windows Server                 | No                           | No                        |
-| Sophos                            | Famiglia Windows Server                 | No                           | No                        |
+| Symantec v12.1.1100+                     | Famiglia Windows Server                 | No                            | Sì                        |
+| MacAfee                           | Famiglia Windows Server                 | No                            | No                         |
+| Kaspersky                         | Famiglia Windows Server                 | No                            | No                         |
+| Sophos                            | Famiglia Windows Server                 | No                            | No                         |
 
 
 

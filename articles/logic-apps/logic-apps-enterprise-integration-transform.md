@@ -35,7 +35,7 @@ Dopo aver caricato il file della trasformazione/mappa nell'account di integrazio
 
 **Di seguito è riportata la procedura per l'uso di una trasformazione**:
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * Creare un account di integrazione e aggiungervi una mappa  
 

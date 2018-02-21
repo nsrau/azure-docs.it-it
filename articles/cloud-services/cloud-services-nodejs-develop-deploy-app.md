@@ -35,7 +35,7 @@ L'applicazione è una semplice applicazione "hello world":
 
 ![Finestra del browser in cui è visualizzata la pagina Web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 > [!NOTE]
 > Questa esercitazione usa Azure PowerShell, che richiede Windows.
 

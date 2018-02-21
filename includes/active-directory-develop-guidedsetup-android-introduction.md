@@ -10,7 +10,7 @@ Al termine della guida, l'applicazione potrà accettare accessi sia di account p
 
 L'applicazione di esempio creata in questa guida è basata su uno scenario in cui un'applicazione Android viene usata per eseguire query su un'API Web che accetta token dall'endpoint di Azure Active Directory v2 (in questo caso l'API Microsoft Graph). Per questo scenario, l'applicazione aggiunge il token acquisito alle richieste HTTP tramite l'intestazione dell'autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti automaticamente da Microsoft Authentication Library (MSAL).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Questa configurazione guidata è basata su Android Studio, ma è accettabile anche qualsiasi altro ambiente di sviluppo di applicazioni Android. 
 * È necessario Android SDK 21 o versione successiva (è consigliato SDK 25).
 * Per questa versione di MSAL per Android è necessario Google Chrome o un Web browser che usa schede personalizzate.

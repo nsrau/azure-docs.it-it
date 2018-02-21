@@ -67,7 +67,7 @@ Il completamento dell'installazione comporta l'esecuzione di Tomcat su una macch
 2. Fare clic su **Macchine virtuali (classico)**. Se necessario, fare clic su **Altri servizi** nell'angolo in basso a sinistra nelle categorie di servizi. La voce **Macchine virtuali (classico)** è elencata nel gruppo **Calcola**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
 4. Dopo aver avviato la macchina virtuale, è possibile eseguire le connessioni tramite un menu nella parte superiore del riquadro.
-5. Fare clic su **Connect**.
+5. Fare clic su **Connetti**.
 6. Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. In generale l'utente deve salvare o aprire il file con estensione RDP che contiene i dettagli della connessione. Potrebbe essere necessario copiare url:port nell'ultima parte della prima riga del file .rdp e incollarlo in un'applicazione di accesso remoto.
 
 ## <a name="to-install-a-java-application-server-on-your-virtual-machine"></a>Per installare un server applicazioni Java sulla macchina virtuale

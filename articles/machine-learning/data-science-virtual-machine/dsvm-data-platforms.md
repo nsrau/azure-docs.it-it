@@ -51,13 +51,13 @@ Il server del database è già preconfigurato e i servizi Windows correlati a SQ
        
 Per eseguire SQL Server Management Studio, è possibile cercare "SQL Server Management Studio" nell'elenco dei programmi o usare Windows Search per trovarlo ed eseguirlo. Quando vengono richieste le credenziali, scegliere "Autenticazione di Windows" e usare il nome del computer o ```localhost``` in Nome server SQL. 
 
-### <a name="how-to-use--run-it"></a>Come usarlo o eseguirlo?  
+### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?  
 
 Il server di database con l'istanza del database predefinito viene eseguito automaticamente per impostazione predefinita. È possibile usare strumenti quali SQL Server Management Studio nella macchina virtuale per accedere al database SQL Server in locale. L'account degli amministratori locali dispone di accesso come amministratore al database. 
 
 Anche la macchina virtuale per data science contiene i driver ODBC e JDBC per comunicare con SQL Server, database SQL di Azure e Azure SQL Data Warehouse da applicazioni scritte in più linguaggi inclusi Python, R. 
 
-### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Come viene configurato o installato sulla macchina virtuale per data science? 
+### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Come viene configurata o installata sulla macchina virtuale per data science? 
 
 SQL Server è installato nella modalità standard. È disponibile in `C:\Program Files\Microsoft SQL Server`. L'istanza In-database R si trova in `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. Nella macchina virtuale per data science è installata anche un'istanza del Server R autonomo in `C:\Program Files\Microsoft\R Server\R_SERVER`. Queste due istanze R non condividono le librerie.
 
@@ -96,7 +96,7 @@ Prima di eseguire nel contesto Spark in Microsoft R Server nella versione della 
 È possibile arrestare i servizi relativi a Hadoop quando non servono eseguendo ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````. Un esempio che illustra come sviluppare e verificare che MRS nel contesto di Spark remoto, ovvero l'istanza di Spark autonoma nella macchina virtuale per data science, sia implementato e disponibile nella directory `/dsvm/samples/MRS`. 
 
 
-### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Come viene configurato o installato sulla macchina virtuale per data science? 
+### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Come viene configurata o installata sulla macchina virtuale per data science? 
 |Piattaforma|Percorso di installazione ($SPARK_HOME)|
 |:--------|:--------|
 |Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|

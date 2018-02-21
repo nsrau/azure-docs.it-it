@@ -1,5 +1,5 @@
 ---
-title: 'Database SQL: Informazioni sulle DTU | Documentazione Microsoft'
+title: 'Database SQL: Informazioni sulle DTU | Microsoft Docs'
 description: "Informazioni sulle unità di transazione di database SQL di Azure."
 keywords: opzioni di database,prestazioni del database
 services: sql-database

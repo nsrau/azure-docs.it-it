@@ -64,7 +64,7 @@ Definire gruppi personalizzati di database SQL di Azure e pianificazioni per l'e
 > 
 > 
 
-## <a name="applications"></a>Applicazioni
+## <a name="applications"></a>APPLICAZIONI
 * Eseguire attività amministrative, quali la distribuzione di un nuovo schema.
 * Aggiornare i dati di riferimento, ad esempio informazioni di prodotto comuni tra tutti i database. Pianificare aggiornamenti automatici ogni giorno della settimana, dopo l'orario di lavoro.
 * Ricompilazione degli indici per migliorare le prestazioni delle query. La ricompilazione può essere configurata per essere eseguita in una raccolta di database su base periodica, ad esempio durante le fasce orarie non di punta.

@@ -216,7 +216,7 @@ Dopo la raccolta dei dati di diagnostica per un servizio cloud o una macchina vi
     In Cloud Explorer o Esplora server aprire l'account di archiviazione associato alla distribuzione.
 3. Aprire le tabelle di diagnostica nel visualizzatore di tabelle e quindi esaminare i dati raccolti. Per i log IIS e i log personalizzati sarà possibile aprire un contenitore BLOB. La tabella seguente elenca le tabelle o i contenitori di BLOB che contengono i dati per i diversi file di log. Oltre ai dati per tale file di log, le voci della tabella contengono **EventTickCount**, **DeploymentId**, **Role** e **RoleInstance** per semplificare l'identificazione della macchina virtuale e del ruolo che hanno generato i dati e quando. 
    
-   | Dati di diagnostica | Descrizione | Percorso |
+   | Dati di diagnostica | DESCRIZIONE | Località |
    | --- | --- | --- |
    | Log applicazioni |Log generati dal codice chiamando i metodi della classe **System.Diagnostics.Trace**. |WADLogsTable |
    | Log eventi |Dati tratti dai registri eventi di Windows nelle macchine virtuali. Windows archivia le informazioni in questi log, ma le applicazioni e i servizi li usano anche per segnalare errori o registrare informazioni. |WADWindowsEventLogsTable |

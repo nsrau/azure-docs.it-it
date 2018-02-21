@@ -15,7 +15,7 @@ ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 5e2f36b3de1dd04c1a3f36ae308af164d10654ea
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

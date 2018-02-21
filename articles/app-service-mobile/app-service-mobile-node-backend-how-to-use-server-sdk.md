@@ -16,7 +16,7 @@ ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---

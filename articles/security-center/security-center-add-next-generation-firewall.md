@@ -46,14 +46,14 @@ ms.lasthandoff: 10/11/2017
 Tornare al pannello **Raccomandazioni** . Dopo l'aggiunta di un firewall di nuova generazione tramite il Centro sicurezza, è stata generata la nuova voce **Indirizza il traffico solo tramite il firewall di nuova generazione**. Questa raccomandazione viene creata solo se il firewall di nuova generazione è installato tramite il Centro sicurezza PC. Se si dispone di endpoint con connessione Internet, il Centro sicurezza consiglia di configurare le regole dei gruppi di sicurezza di rete che indirizzano il traffico in ingresso alla macchina virtuale tramite il firewall di nuova generazione.
 
 1. Nel pannello **Raccomandazioni** selezionare **Indirizza il traffico solo tramite il firewall di nuova generazione**.
-   ![Indirizza il traffico solo tramite il firewall di nuova generazione][7]
+   ![Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione) (Indirizza il traffico solo tramite il firewall di nuova generazione)][7]
 2. Verrà visualizzato il pannello **Indirizza il traffico solo tramite il firewall di nuova generazione** in cui sono elencate le macchine virtuali su cui è possibile instradare il traffico. Selezionare una VM dall'elenco.
    ![Selezionare una macchina virtuale][8]
 3. Viene visualizzato un pannello per la VM selezionata con le regole in ingresso correlate. Una descrizione fornisce altre informazioni sui possibili passaggi successivi. Selezionare **Modifica le regole in ingresso** per procedere con la modifica di una regola in ingresso. È possibile che **Origine** non sia impostato su **Qualsiasi** per gli endpoint con connessione Internet collegati al firewall di nuova generazione. Per altre informazioni sulle proprietà della regola in ingresso, vedere [Regole NSG](../virtual-network/virtual-networks-nsg.md#nsg-rules).
    ![Configurare le regole per limitare l'accesso][9]
     ![Modificare la regola in ingresso][10]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Questo documento illustra come implementare la raccomandazione "Aggiungi un firewall di nuova generazione" del Centro sicurezza. Per ulteriori informazioni sui firewall di nuova generazione e la soluzione del partner Check Point, vedere gli argomenti seguenti:
 
 * [Firewall di nuova generazione](https://en.wikipedia.org/wiki/Next-Generation_Firewall)

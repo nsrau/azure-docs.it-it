@@ -22,7 +22,7 @@ DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavo
 Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come iniziare la distribuzione di contenitori con Marathon. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 
 * [Distribuire un cluster del servizio contenitore di Azure](container-service-deployment.md)
@@ -52,7 +52,7 @@ Per distribuire un nuovo contenitore con Marathon, fare clic sul pulsante **Crea
 | Image |nginx |
 | Network |Bridged |
 | Host Port |80 |
-| Protocol |TCP |
+| Protocollo |TCP |
 
 ![Interfaccia utente New Application--General](./media/container-service-mesos-marathon-ui/dcos4.png)
 

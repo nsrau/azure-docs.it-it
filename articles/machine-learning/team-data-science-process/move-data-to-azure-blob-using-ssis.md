@@ -36,7 +36,7 @@ Per informazioni sugli scenari classici che usano SSIS per soddisfare esigenze a
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire le attività illustrate in questo articolo, è necessario avere configurato una sottoscrizione di Azure e un account di archiviazione di Azure. Per caricare o scaricare dati, è necessario conoscere il nome dell'account di archiviazione di Azure e la chiave dell'account.
 
 * Per configurare una **sottoscrizione di Azure**, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ Per spostare i dati usando il Feature Pack di SSIS da una posizione locale a un 
 
 I parametri usati dall'attività sono descritti di seguito:
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | --- | --- |
 | **AzureStorageConnection** |Specifica un'istanza esistente di Gestione connessione dell'archiviazione di Azure o crea una nuova istanza che fa riferimento a un account di archiviazione di Azure che punta alla posizione in cui sono ospitati i file BLOB. |
 | **BlobContainer** |Specifica il nome del contenitore BLOB che includerà i file caricati come BLOB. |

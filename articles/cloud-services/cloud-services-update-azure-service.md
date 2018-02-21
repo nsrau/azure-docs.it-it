@@ -59,7 +59,7 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 | Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |Sì |Sì |
 | Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Sì |
 | Numero di istanze di un particolare ruolo |Sì |Sì |Sì |
-| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No |Sì |
+| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No  |Sì |
 | Nomi e i valori delle impostazioni di configurazione |Sì |Sì |Sì |
 | Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Sì |
 | Aggiungere nuovi certificati |Sì |Sì |Sì |

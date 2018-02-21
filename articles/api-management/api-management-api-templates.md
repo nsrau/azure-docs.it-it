@@ -84,7 +84,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Tipo|Descrizione|  
+|Proprietà|type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |API|Raccolta di entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|Le API visibili all'utente corrente.|  
   
@@ -339,14 +339,14 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Tipo|Descrizione|  
+|Proprietà|type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
-|apiId|string|ID dell'API corrente.|  
-|apiName|string|Nome dell'API.|  
-|apiDescription|string|Descrizione dell'API.|  
+|apiId|stringa|ID dell'API corrente.|  
+|apiName|stringa|Nome dell'API.|  
+|apiDescription|stringa|Descrizione dell'API.|  
 |api|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
 |operation|[Operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
-|sampleUrl|string|L'URL per l'operazione corrente.|  
+|sampleUrl|stringa|L'URL per l'operazione corrente.|  
 |operationMenu|[Menu dell'operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |consoleUrl|URI|L'URI per il pulsante **Prova**.|  
 |esempi|Raccolta di entità [Esempio di codice](api-management-template-data-model-reference.md#Sample).|Gli esempi di codice per l'operazione corrente.|  
@@ -1468,4 +1468,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).

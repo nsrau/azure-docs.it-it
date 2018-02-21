@@ -1,5 +1,5 @@
 ---
-title: Pubblicazione di un Servizio cloud con gli Strumenti di Azure | Microsoft Docs
+title: Pubblicazione di un Servizio cloud con gli Strumenti di Azure | Documentazione Microsoft
 description: Informazioni su come pubblicare progetti di servizi cloud di Azure tramite Visual Studio.
 services: visual-studio-online
 documentationcenter: na
@@ -28,7 +28,7 @@ Durante lo sviluppo e il test di un'applicazione Azure, è possibile utilizzare 
 
 Utilizzare le procedure seguenti per pubblicare l'applicazione Azure e per aggiornare un ruolo web tramite Distribuzione Web:
 
-* Pubblicare o assemblare un'applicazione Azure da Visual Studio
+* Pubblicare o Assemblare un'applicazione Azure da Visual Studio
 * Aggiornare un ruolo web come parte del ciclo di sviluppo e test
 
 ## <a name="publish-or-package-an-azure-application-from-visual-studio"></a>Pubblicare o assemblare un'applicazione Azure da Visual Studio
@@ -75,7 +75,7 @@ La procedura seguente presuppone che si stia utilizzando la procedura guidata **
 
 ### <a name="enable-web-deploy-when-you-publish-your-application"></a>Abilitare Distribuzione Web quando si pubblica l'applicazione
 
-1. Per abilitare la casella di controllo **Abilita Distribuzione Web per tutti i ruoli Web**, è innanzitutto necessario configurare le connessioni desktop remoto. Selezionare **Abilita Desktop remoto per tutti i ruoli** e quindi specificare le credenziali usate per connettersi in remoto nella casella **Configurazione Desktop remoto** visualizzata. Vedere [Utilizzo di Desktop remoto con i ruoli Azure](vs-azure-tools-remote-desktop-roles.md).
+1. Per abilitare **Abilita Distribuzione Web** per tutte la casella di controllo tutti i ruoli web, è innanzitutto necessario configurare le connessioni desktop remoto. Selezionare **Abilita Desktop remoto per tutti i ruoli** e quindi specificare le credenziali usate per connettersi in remoto nella casella **Configurazione Desktop remoto** visualizzata. Vedere [Utilizzo di Desktop remoto con i ruoli Azure](vs-azure-tools-remote-desktop-roles.md).
 1. Per abilitare Distribuzione Web per tutti i ruoli web nell'applicazione, selezionare **Abilita Distribuzione Web per tutti i ruoli web**.
 
     Viene visualizzato un triangolo giallo. Distribuzione Web utilizza un certificato autofirmato non attendibile per impostazione predefinita, che non è consigliato per il caricamento dei dati riservati. Se è necessario proteggere questo processo per i dati riservati, è possibile aggiungere un certificato SSL da usare per le connessioni di Distribuzione Web. Questo certificato deve essere un certificato attendibile. Per altre informazioni, vedere [Proteggere Distribuzione Web](#make-web-deploy-secure).

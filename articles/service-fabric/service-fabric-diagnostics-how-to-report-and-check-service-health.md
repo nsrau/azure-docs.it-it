@@ -33,7 +33,7 @@ Quando si verificano problemi nei servizi, la possibilità di rispondere e corre
 
 Questo articolo illustra un esempio in cui viene segnalato lo stato di integrità dal codice del servizio. L'esempio mostra anche come usare gli strumenti forniti da Service Fabric per verificare lo stato di integrità. Questo articolo può essere usato come breve introduzione alle funzionalità di monitoraggio dell'integrità di Service Fabric. Per informazioni più dettagliate, è possibile leggere la serie di articoli di approfondimento sull'integrità accessibili dal collegamento presente alla fine di questo documento.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È necessario che siano installati i seguenti elementi:
 
 * Visual Studio 2015 o Visual Studio 2017

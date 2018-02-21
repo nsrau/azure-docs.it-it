@@ -27,7 +27,7 @@ Il **menu** seguente collega ad argomenti che descrivono come usare gli strument
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -42,7 +42,7 @@ Questo articolo presuppone che l'utente abbia:
 3. Visualizzare i livelli in una colonna di categoria   
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
 4. Visualizzare il numero di livelli in una combinazione di due colonne di categoria `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Visualizzare la distribuzione per colonne numeriche   
+5. Visualizzare la distribuzione per colonne numeriche  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Estrarre i record dall'unione di due tabelle
    

@@ -25,7 +25,7 @@ Controllo di selezione con una riga di opzioni disponibili. Usare questo element
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

@@ -92,9 +92,9 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 | Risorsa | Dinamico | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
 | servizio cloud |Sì |Sì |Sì |
-| Istanza del ruolo PaaS o della macchine virtuale IaaS |Sì |No |No |
-| gateway VPN |Sì |No |No |
-| gateway applicazione |Sì |No |No |
+| Istanza del ruolo PaaS o della macchine virtuale IaaS |Sì |No  |No  |
+| gateway VPN |Sì |No  |No  |
+| gateway applicazione |Sì |No  |No  |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse Azure di comunicare con altre risorse in un servizio cloud, in una [rete virtuale](virtual-networks-overview.md)(VNet) o nella rete locale (tramite un gateway VPN o il circuito ExpressRoute), senza usare un indirizzo IP raggiungibile tramite Internet.
@@ -142,7 +142,7 @@ Nella tabella seguente viene illustrato ogni tipo di risorsa con i metodi di all
 | Risorsa | Dinamico | statico | Più indirizzi IP |
 | --- | --- | --- | --- |
 | Macchina virtuale (in una rete virtuale o un servizio cloud *autonomo*) |Sì |Sì |Sì |
-| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Sì |No |No |
+| Istanza del ruolo PaaS (in una rete virtuale o un servizio cloud *autonomo*) |Sì |No  |No  |
 | Front-end del servizio di bilanciamento del carico interno |Sì |Sì |Sì |
 | Front-end del gateway applicazione |Sì |Sì |Sì |
 

@@ -78,7 +78,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
@@ -116,7 +116,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_".|
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
@@ -154,7 +154,7 @@ when making changes in one don't forget the other two.
 
    ![Pagina Aggiungi processo Web](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Impostazione      | Valore di esempio   | Descrizione  |
+   | Impostazione      | Valore di esempio   | DESCRIZIONE  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |

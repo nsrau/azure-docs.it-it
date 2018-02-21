@@ -243,7 +243,7 @@ Per aggiungere un indirizzo IP a un bilanciamento del carico con il portale di A
    |**Porta back-end** |Usare lo stesso valore di **Porta**.
    |**Pool back-end** |Il pool che contiene le macchine virtuali con le istanze di SQL Server. 
    |**Probe di integrità** |Scegliere il probe che è stato creato.
-   |**Persistenza della sessione** |Nessuno
+   |**Persistenza della sessione** |Nessuna
    |**Timeout di inattività (minuti)** |Valore predefinito (4)
    |**IP mobile (Direct Server Return)** | Attivato
 

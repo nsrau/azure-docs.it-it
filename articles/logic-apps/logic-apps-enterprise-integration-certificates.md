@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Informazioni sui certificati ed Enterprise Integration Pack
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Enterprise Integration impiega i certificati per proteggere le comunicazioni B2B. È possibile usare due tipi di certificati nelle app di Enterprise Integration:
 
 * Certificati pubblici, che devono essere acquistati da un'autorità di certificazione (CA).

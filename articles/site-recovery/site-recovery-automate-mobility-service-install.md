@@ -47,7 +47,7 @@ In questo articolo viene fornito un esempio di come è possibile usare Automatio
 * Il servizio Mobility e l'agente VM di Azure vengano distribuiti ai computer Windows che si desidera proteggere.
 * Il servizio Mobility e l'agente VM di Azure siano sempre in esecuzione quando Azure è la destinazione della replica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Un repository per archiviare la configurazione necessaria
 * Un repository per archiviare la passphrase necessaria per la registrazione al server di gestione
 
@@ -355,7 +355,7 @@ Se i computer non sono connessi a Internet, è comunque possibile fare affidamen
 
 Notare che in questo esempio esiste un parametro aggiunto per il nome del computer. I file remoti si trovano ora in una condivisione remota che deve essere accessibile ai computer che si desidera proteggere. La fine dello script esegue la configurazione e quindi inizia ad applicare la configurazione DSC al computer di destinazione.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Assicurarsi che sia installato il modulo xPSDesiredStateConfiguration di PowerShell. Per i computer Windows su cui è installata la soluzione WMF 5.0, è possibile installare il modulo xPSDesiredStateConfiguration eseguendo il cmdlet seguente nei computer di destinazione:
 
 ```powershell

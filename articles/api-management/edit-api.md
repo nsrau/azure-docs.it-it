@@ -26,7 +26,7 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
 + È possibile modificare l'API aggiungendo, eliminando e rinominando operazioni nell'istanza di Gestione API. 
 + È possibile modificare lo swagger dell'API.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + [Importare e pubblicare la prima API](import-and-publish.md)

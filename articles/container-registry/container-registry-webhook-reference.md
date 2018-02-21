@@ -40,33 +40,33 @@ Webhook attivato quando viene eseguito il push di un'immagine del contenitore in
 
 ### <a name="push-event-payload"></a>Payload dell'evento push
 
-|Elemento|Type|Descrizione|
+|Elemento|type|DESCRIZIONE|
 |-------------|----------|-----------|
-|`id`|String|ID dell'evento del webhook.|
-|`timestamp`|DateTime|Ora in cui è stato attivato l'evento del webhook.|
-|`action`|String|Azione che ha attivato l'evento webhook.|
+|`id`|string|ID dell'evento del webhook.|
+|`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
+|`action`|string|Azione che ha attivato l'evento webhook.|
 |[target](#target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 |[request](#request)|Tipo complesso|Richiesta che ha generato l'evento del webhook.|
 
 ### <a name="target"></a>target
 
-|Elemento|Type|Descrizione|
+|Elemento|type|DESCRIZIONE|
 |------------------|----------|-----------|
-|`mediaType`|String|Tipo MIME dell'oggetto di riferimento.|
+|`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
 |`size`|Int32|Numero di byte del contenuto. Uguale al campo Length.|
-|`digest`|String|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
+|`digest`|string|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
 |`length`|Int32|Numero di byte del contenuto. Uguale al campo Size.|
-|`repository`|String|Nome del repository.|
-|`tag`|String|Nome del tag dell'immagine.|
+|`repository`|string|Nome del repository.|
+|`tag`|string|Nome del tag dell'immagine.|
 
 ### <a name="request"></a>richiesta
 
-|Elemento|Type|Descrizione|
+|Elemento|type|DESCRIZIONE|
 |------------------|----------|-----------|
-|`id`|String|ID della richiesta che ha avviato l'evento.|
-|`host`|String|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
-|`method`|String|Metodo di richiesta che ha generato l'evento.|
-|`useragent`|String|Intestazione agente utente della richiesta.|
+|`id`|string|ID della richiesta che ha avviato l'evento.|
+|`host`|string|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
+|`method`|string|Metodo di richiesta che ha generato l'evento.|
+|`useragent`|string|Intestazione agente utente della richiesta.|
 
 ### <a name="payload-example-push-event"></a>Esempio di payload: evento push
 
@@ -104,30 +104,30 @@ Webhook attivato quando viene eliminato un repository o un manifesto. Non attiva
 
 ### <a name="delete-event-payload"></a>Payload dell'evento delete
 
-|Elemento|Type|Descrizione|
+|Elemento|type|DESCRIZIONE|
 |-------------|----------|-----------|
-|`id`|String|ID dell'evento del webhook.|
-|`timestamp`|DateTime|Ora in cui è stato attivato l'evento del webhook.|
-|`action`|String|Azione che ha attivato l'evento webhook.|
+|`id`|string|ID dell'evento del webhook.|
+|`timestamp`|Datetime|Ora in cui è stato attivato l'evento del webhook.|
+|`action`|string|Azione che ha attivato l'evento webhook.|
 |[target](#delete_target)|Tipo complesso|Destinazione dell'evento che ha attivato l'evento del webhook.|
 |[request](#delete_request)|Tipo complesso|Richiesta che ha generato l'evento del webhook.|
 
 ### <a name="delete_target"></a> target
 
-|Elemento|Type|Descrizione|
+|Elemento|type|DESCRIZIONE|
 |------------------|----------|-----------|
-|`mediaType`|String|Tipo MIME dell'oggetto di riferimento.|
-|`digest`|String|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
-|`repository`|String|Nome del repository.|
+|`mediaType`|string|Tipo MIME dell'oggetto di riferimento.|
+|`digest`|string|Digest del contenuto, definito dalla specifica API HTTP del registro contenitori V2.|
+|`repository`|string|Nome del repository.|
 
 ### <a name="delete_request"></a> request
 
-|Elemento|Type|Descrizione|
+|Elemento|type|DESCRIZIONE|
 |------------------|----------|-----------|
-|`id`|String|ID della richiesta che ha avviato l'evento.|
-|`host`|String|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
-|`method`|String|Metodo di richiesta che ha generato l'evento.|
-|`useragent`|String|Intestazione agente utente della richiesta.|
+|`id`|string|ID della richiesta che ha avviato l'evento.|
+|`host`|string|Nome host accessibile esternamente dell'istanza del registro, specificato dall'intestazione host HTTP nelle richieste in ingresso.|
+|`method`|string|Metodo di richiesta che ha generato l'evento.|
+|`useragent`|string|Intestazione agente utente della richiesta.|
 
 ### <a name="payload-example-delete-event"></a>Esempio di payload: evento delete
 

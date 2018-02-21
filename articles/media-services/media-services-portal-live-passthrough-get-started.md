@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
 Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -119,7 +119,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Selezionare un canale a cui si vuole aggiungere un evento.
 2. Premere il pulsante **Evento live** .
 
-![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.

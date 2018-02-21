@@ -186,7 +186,7 @@ Per visualizzazione dei dati ancora più avanzate, è possibile [esportare in Po
 
 Da un grafico di metriche è possibile fare clic sull'icona di Analytics per passare direttamente alla query di Analytics equivalente.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 *All'interno del grafico non vengono visualizzati dati.*
 
 * I filtri si applicano a tutti i grafici del pannello. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico.

@@ -31,7 +31,7 @@ Questo articolo descrive come creare un'immagine del contenitore personalizzata 
 
 Questo articolo presuppone l'uso del protocollo Modbus TCP. Per altre informazioni su come configurare il modulo per supportare il protocollo Modbus RTU, vedere il progetto [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) (Modulo Modbus per Azure IoT Edge) in Github. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Un dispositivo Azure IoT Edge. Per una procedura dettagliata su come configurarne uno, vedere [Distribuire Azure IoT Edge su un dispositivo simulato in Windows](tutorial-simulate-device-windows.md) o [Distribuire Azure IoT Edge su un dispositivo simulato in Linux](tutorial-simulate-device-linux.md). 
 * La chiave primaria della stringa di connessione del dispositivo IoT Edge.
 * Un dispositivo Modbus fisico o simulato che supporta il protocollo Modbus TCP.
@@ -49,7 +49,7 @@ Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponi
 
 ## <a name="run-the-solution"></a>Eseguire la soluzione
 1. Nel [portale di Azure](https://portal.azure.com/) passare all'hub IoT.
-2. Passare a **IoT Edge (preview)** (IoT Edge - anteprima) e selezionare il dispositivo di IoT Edge.
+2. Passare a **IoT Edge (preview)** (IoT Edge - anteprima) e selezionare il dispositivo IoT Edge.
 3. Selezionare **Set modules** (Configura i moduli).
 4. Aggiungere il modulo Modbus:
    1. Selezionare **Add IoT Edge module** (Aggiungi il modulo di IoT Edge).
@@ -81,7 +81,7 @@ Se si vuole creare un modulo e quindi personalizzarlo per l'ambiente, è disponi
       }
       ```
 
-   6. Selezionare **Save** (Salva).
+   6. Selezionare **Salva**.
 5. Nel passaggio **Add Modules** (Aggiungi moduli) selezionare **Next** (Avanti).
 7. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. Questa route invia tutti i messaggi raccolti dal modulo Modbus all'hub IoT. In questa route "modbusOutput" è l'endpoint usato dal modulo Modbus per restituire i dati, mentre "upstream" è una destinazione speciale che indica all'hub Edge di inviare i messaggi all'hub IoT. 
    ```JSON

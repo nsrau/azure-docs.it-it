@@ -32,7 +32,7 @@ Cortana Intelligence è una famiglia di prodotti di analisi avanzata e Big Data 
 
 La soluzione viene implementata come un [modello di architettura lambda](https://en.wikipedia.org/wiki/Lambda_architecture), che mostra tutto il potenziale della piattaforma Cortana Intelligence per l'elaborazione batch e in tempo reale.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 L'architettura della soluzione di analisi dei dati di telemetria del veicolo è illustrata nel diagramma seguente:
 
 ![Diagramma dell'architettura della soluzione](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)

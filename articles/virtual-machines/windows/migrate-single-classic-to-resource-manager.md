@@ -32,7 +32,7 @@ Questa sezione illustra come eseguire la migrazione di una macchina virtuale di 
 Questa sezione consente di prendere le decisioni migliori sui tipi di macchina virtuale e disco.
 
 
-### <a name="location"></a>Percorso
+### <a name="location"></a>Località
 
 Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/#services).
 
@@ -72,7 +72,7 @@ Per impostazione predefinita, il criterio di memorizzazione nella cache su disco
 
 ### <a name="pricing"></a>Prezzi
 
-Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Il prezzo della versione Premium dei dischi gestiti è uguale a quello della versione Premium dei dischi non gestiti. Tuttavia, il prezzo di Managed Disks Standard è diverso da quello della versione Standard dei dischi non gestiti.
+Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Il prezzo della versione Premium dei dischi gestiti è uguale a quello della versione Premium dei dischi non gestiti. Tuttavia, il prezzo della versione Standard dei dischi gestiti è diverso da quello della versione Standard dei dischi non gestiti.
 
 
 ## <a name="checklist"></a>Elenco di controllo

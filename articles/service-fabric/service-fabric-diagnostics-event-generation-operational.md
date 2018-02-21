@@ -28,7 +28,7 @@ Il canale operativo è costituito da log di azioni di alto livello eseguite da S
 
 Di seguito è riportato un elenco completo dei log forniti da Service Fabric nel canale operativo. 
 
-| EventId | Nome | Origine (attività) | Level |
+| EventId | NOME | Origine (attività) | Level |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Informazioni |
 | 25621 | NodeOpenedSuccess | FabricNode | Informazioni |

@@ -1,7 +1,7 @@
 ## <a name="nic"></a>NIC
 La scheda di interfaccia di rete (o NIC) è una risorsa che fornisce la connettività di rete a una subnet esistente in una risorsa di rete virtuale. Sebbene sia possibile creare una scheda di interfaccia di rete come oggetto autonomo, è necessario associarla a un altro oggetto per fornire davvero la connettività. Una scheda di interfaccia di rete può essere usata per la connessione di una macchina virtuale a una subnet, a un indirizzo IP pubblico o a un servizio di bilanciamento del carico.  
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **virtualMachine** |VM alla quale è associata la scheda di interfaccia di rete. |/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1 |
 | **macAddress** |Indirizzo MAC della scheda di interfaccia di rete |qualsiasi valore compreso tra 4 e 30. |
@@ -15,7 +15,7 @@ La scheda di interfaccia di rete, o NIC, rappresenta un'interfaccia di rete che 
 ### <a name="ip-configurations"></a>Configurazioni IP
 Le schede di interfaccia di rete dispongono di un oggetto figlio denominato **ipConfigurations** contenente le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **subnet** |Subnet alla quale è connessa la scheda di interfaccia di rete. |/Subscriptions/{GUID}/../microsoft.Network/virtualNetworks/myvnet1/Subnets/mysub1 |
 | **privateIPAddress** |Indirizzo IP della scheda di interfaccia di rete nella subnet |10.0.0.8 |

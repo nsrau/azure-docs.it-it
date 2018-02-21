@@ -15,7 +15,7 @@ ms.date: 05/24/2017
 ms.author: gwallace
 ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -30,7 +30,7 @@ Lo stato della conformità è visibile nel portale di Azure o tramite PowerShell
 * Correlare lo stato della conformità negli account di Automazione
 * Visualizzare la cronologia della conformità dei nodi nel tempo
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per iniziare a inviare i report di Automation DSC a Log Analytics, sono necessari gli elementi seguenti:
 

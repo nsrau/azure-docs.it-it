@@ -114,7 +114,7 @@ topologyBuilder.SetJavaBolt(
 
 È possibile scaricare la versione completa del progetto creato in questa esercitazione da [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Sarà tuttavia necessario fornire le impostazioni di configurazione seguendo la procedura riportata in questa esercitazione.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * Un [cluster Apache Storm in HDInsight versione 3.5 o 3.6](apache-storm-tutorial-get-started-linux.md).
 
@@ -144,7 +144,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 1. Dopo avere creato l'hub eventi, visualizzare il pannello **Hub eventi** nel portale di Azure e selezionare **Criteri di accesso condivisi**. Selezionare **+ Aggiungi** per aggiungere i criteri seguenti:
 
-   | Nome | Autorizzazioni |
+   | NOME | Autorizzazioni |
    | --- | --- |
    | writer |Invio |
    | reader |Attesa |

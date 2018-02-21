@@ -79,7 +79,7 @@ Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicaz
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Come si forza la disabilitazione della modalità sicura di HDFS in un cluster?
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Come forzare la disabilitazione della modalità sicura di Hadoop Distributed File System in un cluster
 
 ### <a name="issue"></a>Problema
 

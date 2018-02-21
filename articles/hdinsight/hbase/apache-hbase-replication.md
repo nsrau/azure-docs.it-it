@@ -43,7 +43,7 @@ Di seguito sono illustrati i casi d'uso della replica HBase per due reti virtual
 
 È possibile replicare i cluster tramite gli script di [azione script](../hdinsight-hadoop-customize-cluster-linux.md) di [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Ottenere una versione di valutazione gratuita di Azure).
 
 ## <a name="set-up-the-environments"></a>Configurare gli ambienti
@@ -106,7 +106,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Valore |
 |----------|-------|
-| Percorso | Stati Uniti occidentali |
+| Località | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
 | Prefisso dello spazio degli indirizzi | 10.1.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -128,7 +128,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Valore |
 |----------|-------|
-| Percorso | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -182,7 +182,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 Argomenti obbligatori:
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -268,7 +268,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 - **Disabilitare la replica in tutte le tabelle**:
 
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
-  o
+  oppure
 
         --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 

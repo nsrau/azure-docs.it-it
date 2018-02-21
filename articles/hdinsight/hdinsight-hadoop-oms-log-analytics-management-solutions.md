@@ -27,7 +27,7 @@ HDInsight offre soluzioni di gestione specifiche per i cluster che è possibile 
 
 Questo articolo descrive come aggiungere soluzioni di gestione specifiche per i cluster in un'area di lavoro Operations Management Suite.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * È necessario aver configurato un cluster HDInsight per l'uso di Azure Log Analytics. Per istruzioni, vedere [Usare Azure Log Analytics con i cluster HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -63,7 +63,7 @@ In questa sezione si aggiunge una soluzione di gestione di cluster HBase in un'a
 
 * [Eseguire query in Azure Log Analytics per monitorare i cluster HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * [Uso di Log Analytics di Operations Management Suite](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Creare regole di avviso in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

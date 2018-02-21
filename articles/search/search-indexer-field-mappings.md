@@ -151,7 +151,7 @@ La tabella seguente confronta diverse codifiche Base64 della stringa `00>00?00`.
 | Base64 con spaziatura interna | `MDA+MDA/MDA=` | Usare caratteri sicuri per gli URL e rimuovere la spaziatura interna | Usare caratteri Base64 standard e aggiungere spaziatura interna |
 | Base64 senza spaziatura interna | `MDA+MDA/MDA` | Usare caratteri sicuri per gli URL | Usare caratteri Base64 standard |
 | Base64 sicura per gli URL con spaziatura interna | `MDA-MDA_MDA=` | Rimuovere la spaziatura interna | Aggiungere spaziatura interna |
-| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | Nessuno | Nessuno |
+| Base64 sicura per gli URL senza spaziatura interna | `MDA-MDA_MDA` | Nessuna | Nessuna |
 
 <a name="extractTokenAtPositionFunction"></a>
 

@@ -43,7 +43,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce un caso d'uso e una descrizione per l'utilizzo corretto degli amministratori per la distribuzione di esempio.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore fornisce un caso d'uso e una descrizione per l'utilizzo corretto degli amministratori per la distribuzione di esempio.|
 
 
 
@@ -56,7 +56,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore implementa Azure Active Directory e il controllo degli accessi in base al ruolo di Azure Active Directory per garantire che tutti gli utenti abbiano un ID univoco. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore implementa Azure Active Directory e il controllo degli accessi in base al ruolo di Azure Active Directory per garantire che tutti gli utenti abbiano un ID univoco. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
 
 
 
@@ -69,7 +69,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore implementa Azure Active Directory e il controllo degli accessi in base al ruolo di Azure Active Directory per garantire che tutti gli utenti abbiano un ID univoco. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore implementa Azure Active Directory e il controllo degli accessi in base al ruolo di Azure Active Directory per garantire che tutti gli utenti abbiano un ID univoco. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
 
 
 
@@ -82,7 +82,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilizza Azure Active Directory per la gestione utenti. La revoca degli utenti può essere eseguita in Active Directory.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore utilizza Azure Active Directory per la gestione utenti. La revoca degli utenti può essere eseguita in Active Directory.|
 
 
 
@@ -95,7 +95,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Azure Active Directory per la gestione utenti. È possibile impostare l'opzione `-enableADDomainPasswordPolicy` per assicurarsi che le password scadano entro 90 giorni.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Azure Active Directory per la gestione utenti. È possibile impostare l'opzione `-enableADDomainPasswordPolicy` per assicurarsi che le password scadano entro 90 giorni.|
 
 
 
@@ -110,7 +110,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha adottato criteri di sicurezza aziendali applicabili, inclusi criteri di sicurezza delle informazioni. I criteri sono stati approvati, pubblicati e comunicati a Microsoft Azure. In base ai criteri di sicurezza delle informazioni l'accesso agli asset di Microsoft Azure deve essere concesso in base a una motivazione aziendale, con l'autorizzazione del proprietario dell'asset e limitato secondo i principi "solo quando necessario" e "privilegi minimi". I criteri soddisfano anche i requisiti per il ciclo di vita della gestione degli accessi, inclusi provisioning degli accessi, autenticazione, autorizzazione di accesso, rimozione dei diritti di accesso e verifiche di accesso periodiche. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | La demo Contoso Webstore ha implementato Azure Active Directory e il controllo degli accessi in base al ruolo di Azure Active Directory per gestire l'accesso degli utenti all'installazione. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | La demo Contoso Webstore ha implementato Azure Active Directory e il controllo degli accessi in base al ruolo di Azure Active Directory per gestire l'accesso degli utenti all'installazione. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
 
 
 
@@ -123,7 +123,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore ha implementato una separazione netta dei compiti per tutti gli utenti della demo. Per altre informazioni, vedere "Azure Active Directory Identity Protection" in [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore ha implementato una separazione netta dei compiti per tutti gli utenti della demo. Per altre informazioni, vedere "Azure Active Directory Identity Protection" in [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).|
 
 
 
@@ -136,7 +136,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della creazione, dell'applicazione e del monitoraggio di criteri password conformi ai requisiti di PCI DSS.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della creazione, dell'applicazione e del monitoraggio di criteri password conformi ai requisiti di PCI DSS.|
 
 
 
@@ -149,7 +149,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della creazione, dell'applicazione e del monitoraggio di criteri password conformi ai requisiti di PCI DSS.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della creazione, dell'applicazione e del monitoraggio di criteri password conformi ai requisiti di PCI DSS.|
 
 
 
@@ -165,7 +165,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | L'implementazione di Contoso Webstore per l'autenticazione a più fattori è stata disabilitata per semplificare l'uso della demo. L'autenticazione a più fattori può essere implementata usando [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | L'implementazione di Contoso Webstore per l'autenticazione a più fattori è stata disabilitata per semplificare l'uso della demo. L'autenticazione a più fattori può essere implementata usando [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -178,7 +178,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha stabilito procedure di gestione delle chiavi per tutto il ciclo di vita (ad esempio, generazione, distribuzione, revoca). Microsoft Azure usa l'infrastruttura PKI aziendale di Microsoft. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Encryption](payment-processing-blueprint.md#encryption-and-secrets-management) (Linee guida per PCI - Crittografia).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Encryption](payment-processing-blueprint.md#encryption-and-secrets-management) (Linee guida per PCI - Crittografia).<br /><br />|
 
 
 
@@ -192,7 +192,7 @@ L'efficacia di una password dipende soprattutto dalla progettazione e dall'imple
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha stabilito procedure di gestione delle chiavi per tutto il ciclo di vita (ad esempio, generazione, distribuzione, revoca). Microsoft Azure usa l'infrastruttura PKI aziendale di Microsoft. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Encryption](payment-processing-blueprint.md#encryption-and-secrets-management) (Linee guida per PCI - Crittografia).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Encryption](payment-processing-blueprint.md#encryption-and-secrets-management) (Linee guida per PCI - Crittografia).|
 
 
 
@@ -208,7 +208,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione.|
 
 
 
@@ -221,7 +221,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Azure Active Directory per la gestione utenti. È possibile impostare l'opzione `-enableADDomainPasswordPolicy` per assicurarsi che le password scadano almeno una volta ogni 90 giorni.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Azure Active Directory per la gestione utenti. È possibile impostare l'opzione `-enableADDomainPasswordPolicy` per assicurarsi che le password scadano almeno una volta ogni 90 giorni.|
 
 
 
@@ -234,7 +234,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
 
 
 
@@ -247,7 +247,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore applica le password complesse, documentate nella guida alla distribuzione. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).<br /><br />|
 
 
 
@@ -264,7 +264,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Gli amministratori di Azure devono usare l'autenticazione a più fattori per accedere ai sistemi e ai server di Azure quando eseguono la manutenzione e l'amministrazione. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
 
 
 
@@ -280,7 +280,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Gli amministratori di Azure devono usare l'autenticazione a più fattori per accedere ai sistemi e ai server di Azure quando eseguono la manutenzione e l'amministrazione. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
 
 
 
@@ -294,7 +294,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Gli amministratori di Azure devono usare l'autenticazione a più fattori per accedere ai sistemi e ai server di Azure quando eseguono la manutenzione e l'amministrazione. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
 
 
 
@@ -311,7 +311,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti hanno la responsabilità di seguire le indicazioni e di documentare e comunicare a tutti gli utenti le procedure e i criteri di autenticazione.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti hanno la responsabilità di seguire le indicazioni e di documentare e comunicare a tutti gli utenti le procedure e i criteri di autenticazione.|
 
 
 
@@ -327,7 +327,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo.|
 
 
 
@@ -343,7 +343,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile per i clienti di Microsoft Azure. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Non applicabile per i clienti di Microsoft Azure.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Non applicabile per i clienti di Microsoft Azure.|
 
 
 
@@ -358,7 +358,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo. Ogni accesso viene gestito tramite [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), che consente di proteggere le chiavi crittografiche e i segreti usati da servizi e applicazioni cloud. |
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). L'autenticazione a più fattori non è implementata per la demo. Ogni accesso viene gestito tramite [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), che consente di proteggere le chiavi crittografiche e i segreti usati da servizi e applicazioni cloud. |
 
 
 
@@ -374,7 +374,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore protegge tutti i dati dei titolari di carte con Azure Key Vault. La crittografia dei record è illustrata nella documentazione della distribuzione. Per altre informazioni, vedere [PCI Guidance - Encryption](payment-processing-blueprint.md#encryption-and-secrets-management) (Linee guida per PCI - Crittografia).<br /><br />|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore protegge tutti i dati dei titolari di carte con Azure Key Vault. La crittografia dei record è illustrata nella documentazione della distribuzione. Per altre informazioni, vedere [PCI Guidance - Encryption](payment-processing-blueprint.md#encryption-and-secrets-management) (Linee guida per PCI - Crittografia).<br /><br />|
 
 
 
@@ -387,7 +387,7 @@ In alternativa, le password/passphrase devono avere complessità e attendibilit�
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti hanno la responsabilità di assicurarsi che i criteri di sicurezza e le procedure operative per l'identificazione e l'autenticazione siano documentati, applicati e noti a tutte le parti interessate.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti hanno la responsabilità di assicurarsi che i criteri di sicurezza e le procedure operative per l'identificazione e l'autenticazione siano documentati, applicati e noti a tutte le parti interessate.|
 
 
 

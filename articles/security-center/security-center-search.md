@@ -27,11 +27,11 @@ La ricerca è disponibile sia nel livello Standard che nel livello gratuito del 
 
 
 > [!NOTE]
-> Il Centro sicurezza non salva i dati di sicurezza per un'area di lavoro nel livello Gratuito. È possibile inviare diversi log a un'area di lavoro nel livello Gratuito ed eseguire una ricerca nei dati, ma i risultati della ricerca non includono i dati del Centro sicurezza. Il Centro sicurezza salva i dati solo in un'area di lavoro nel livello Standard.
+> Il Centro sicurezza non salva i dati di sicurezza per un'area di lavoro nel livello gratuito. È possibile inviare diversi log a un'area di lavoro nel livello gratuito ed eseguire una ricerca nei dati, ma i risultati della ricerca non includono i dati del Centro sicurezza. Il Centro sicurezza salva i dati solo in un'area di lavoro nel livello Standard.
 >
 >
 
-## <a name="access-search"></a>Ricerca di accesso
+## <a name="access-search"></a>Accedere alla ricerca
 1. Selezionare **Ricerca** nel menu principale del Centro sicurezza.
 
   ![Selezionare Ricerca log][1]
@@ -53,7 +53,7 @@ Consultare l'articolo sul [linguaggio di query di Log Analytics](../log-analytic
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato come accedere a una ricerca nel Centro sicurezza. Il Centro sicurezza usa la ricerca di Log Analytics. Per altre informazioni sulla ricerca di Log Analytics, vedere:
 
-- [Che cos'è Log Analytics?](../log-analytics/log-analytics-overview.md) : Panoramica di Log Analytics
+- [Che cos'è Log Analytics?](../log-analytics/log-analytics-overview.md) : panoramica di Log Analytics
 - [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search-new.md): descrive come vengono usate le ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di creare una ricerca log
 - [Trovare dati con ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md): esercitazione sull'uso della ricerca log
 - [Guida di riferimento alla ricerca in Log Analytics](../log-analytics/log-analytics-search-reference.md): descrive il linguaggio di query in Log Analytics

@@ -248,7 +248,7 @@ I processi sono usati per segnalare azioni con una durata. Di seguito sono ripor
 * Durata dei processi di acquisto
 * Visualizzazione di un video
 
-###### <a name="errors"></a>Errori
+###### <a name="errors"></a>Errors
 Gli errori sono usati per segnalare i problemi rilevati dall'app, ad esempio azioni utente non corrette o errori delle chiamate API.
 
 ###### <a name="application-information"></a>Informazioni sull'applicazione
@@ -302,7 +302,7 @@ Successivamente:
 
 Per altre informazioni su come eseguire la prima campagna di notifiche push, vedere [Come iniziare a usare e gestire le notifiche push per raggiungere gli utenti finali](mobile-engagement-how-tos.md).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 I programmi di interesse sono iterativi e devono essere continuamente migliorati man mano che si determina cosa funziona meglio con l'app. 
 
 All'inizio, durante lo sviluppo dell'esperienza con le strategie di interesse, non cercare di creare un'intera strategia di interesse completa. Adottare un approccio graduale che permetta di identificare gli indicatori KPI e di capire come usarli al meglio. La strategia di interesse sarà univoca per ogni app.

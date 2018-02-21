@@ -38,11 +38,11 @@ Non è consigliabile integrare il valore della chiave nelle applicazioni client 
 ## <a name="security-claims"></a>Attestazioni di sicurezza
 Analogamente ad altre entità, le operazioni degli hub di notifica sono consentite per tre attestazioni di sicurezza: ascolto, invio e gestione.
 
-| Attestazione | Descrizione | Operazioni consentite |
+| Attestazione | DESCRIZIONE | Operazioni consentite |
 | --- | --- | --- |
 | Attesa |Creare o aggiornare, leggere ed eliminare singole registrazioni |Creare o aggiornare una registrazione<br><br>Leggere una registrazione<br><br>Leggere tutte le registrazioni per un handle<br><br>Eliminare una registrazione |
 | Invio |Inviare messaggi all'hub di notifica |Send message |
-| Manage |CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Hub di notifica di creazione, aggiornamento, lettura ed eliminazione<br><br>Leggere le registrazioni per tag |
+| Gestisci |CRUD negli hub di notifica (incluso l'aggiornamento delle credenziali PNS e le chiavi di sicurezza) e lettura delle registrazioni basata sui tag |Hub di notifica di creazione, aggiornamento, lettura ed eliminazione<br><br>Leggere le registrazioni per tag |
 
 Gli hub di notifica accettano attestazioni concesse dai token del Controllo di accesso di Microsoft Azure e dai token di firma generati con chiavi condivise configurate direttamente nell’hub di notifica.
 

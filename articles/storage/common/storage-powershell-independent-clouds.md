@@ -61,7 +61,7 @@ Get-AzureRmLocation | select Location, DisplayName
 
 La tabella seguente mostra le località restituite per il cloud per la Germania.
 
-|Percorso | DisplayName |
+|Località | DisplayName |
 |----|----|
 | germanycentral | Germania centrale|
 | germanynortheast | Germania nord-orientale | 
@@ -83,7 +83,7 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 Questo comando restituisce i risultati seguenti.
 
-| Nome| StorageEndpointSuffix|
+| NOME| StorageEndpointSuffix|
 |----|----|
 |AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -101,7 +101,7 @@ I risultati sono simili a quanto segue:
 
 |Nome proprietà|Valore|
 |----|----|
-| Nome | AzureGermanCloud |
+| NOME | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

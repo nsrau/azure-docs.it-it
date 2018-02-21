@@ -17,7 +17,7 @@ ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: bd9f984a625ae951a16eb729c0a4565eea05e46b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -77,7 +77,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 ### <a name="worldwide-presence-and-high-availability"></a>Presenza a livello globale e disponibilità elevata
 **Azure AD è distribuito nei data center di tutto il mondo ed è gestito e monitorato 24 ore al giorno.**  Azure AD è il sistema di gestione delle identità per Microsoft Azure e Office 365 ed è distribuito in 28 data center nel mondo.  I dati della directory vengono replicati in almeno tre data center.  I servizi di bilanciamento del carico globali garantiscono che l'utente acceda alla copia di Azure AD che contiene i dati dell'utente più vicina e reindirizza automaticamente le richieste ad altri data center nel caso in cui vengono rilevati problemi.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 [Introduzione alla scrittura di codice](active-directory-developers-guide.md#get-started).
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)

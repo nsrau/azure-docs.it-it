@@ -46,7 +46,7 @@ Il database SQL di Azure fornisce risorse per limitare l'accesso, proteggere i d
 
 * Altre informazioni: [Protezione del database SQL](sql-database-security-overview.md).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 * Il database SQL di Azure supporta utenti e account di accesso per l'autenticazione di SQL Server e utenti e account di accesso per l' [autenticazione di Azure Active Directory](sql-database-aad-authentication.md) .
 * È necessario specificare un database particolare, invece di usare il database predefinito *master* .
 * Non è possibile usare l'istruzione **USE myDatabaseName;** di Transact-SQL sul database SQL per passare a un altro database.

@@ -66,7 +66,7 @@ Archivio Data Lake di Azure fornisce uno strumento da riga di comando, AdlCopy, 
 ## <a name="use-data-lake-store-with-azure-event-hubs"></a>Usare Data Lake Store con Hub eventi di Azure
 È possibile usare Azure Data Lake Store per archiviare e acquisire i dati ricevuti da Hub eventi di Azure. Per altre informazioni, vedere [Usare Data Lake Store con Hub eventi di Azure](data-lake-store-archive-eventhub-capture.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Panoramica di Data Lake Store di Azure](data-lake-store-overview.md)
 * [Introduzione a Data Lake Store mediante il portale](data-lake-store-get-started-portal.md)
 * [Introduzione a Data Lake Store mediante PowerShell](data-lake-store-get-started-powershell.md)  

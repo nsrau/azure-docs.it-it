@@ -16,7 +16,7 @@ ms.date: 08/24/2017
 ms.author: elioda
 ms.openlocfilehash: df0a319cdeabef8c854d7c60c7b90ef775be3ce1
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

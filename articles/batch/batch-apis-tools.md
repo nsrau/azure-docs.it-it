@@ -36,7 +36,7 @@ Quando si sviluppano soluzioni Batch, è necessario usare gli account seguenti i
 
 Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare una o più delle librerie client seguenti per eseguire e gestire i carichi di lavoro di Azure Batch.
 
-| API | Informazioni di riferimento sulle API | Scaricare | Esercitazione | Esempi di codice | Altre informazioni |
+| API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice | Altre informazioni |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/D |- |- | [Versioni supportate](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Esercitazione](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Note sulla versione](http://aka.ms/batch-net-dataplane-changelog) |
@@ -48,7 +48,7 @@ Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare
 
 Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di codice agli account Batch. Usando queste API, è possibile gestire a livello di codice gli account Batch, le quote e i pacchetti dell'applicazione.  
 
-| API | Informazioni di riferimento sulle API | Scaricare | Esercitazione | Esempi di codice |
+| API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice |
 | --- | --- | --- | --- | --- |
 | **REST di Resource Manager per Batch** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **.NET di Resource Manager per Batch** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Esercitazione](batch-management-dotnet.md) |[GitHub][api_sample_net] |

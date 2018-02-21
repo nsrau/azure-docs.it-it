@@ -16,7 +16,7 @@ ms.date: 04/24/2017
 ms.author: joroja
 ms.openlocfilehash: dfd33a9ecdce7b21f58660fb39a5f2d7b4ce6f43
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -37,7 +37,7 @@ Per l'esempio del profilo di convalida si userà il percorso utente di modifica 
 
 È possibile verificare che il nome fornito dall'utente nella modifica del profilo non faccia parte di un elenco di esclusione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un tenant di Azure AD B2C configurato per completare una procedura di iscrizione/accesso di un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 - Un endpoint API REST con il quale interagire. Per questa procedura dettagliata è stato configurato un sito demo denominato [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) con un servizio API REST.

@@ -31,7 +31,7 @@ ms.lasthandoff: 10/13/2017
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#create-supporting-resources): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](multiple-nics.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](multiple-nics.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 
 ## <a name="create-supporting-resources"></a>Creare risorse di supporto

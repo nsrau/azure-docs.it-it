@@ -16,7 +16,7 @@ ms.date: 04/29/2017
 ms.author: joroja
 ms.openlocfilehash: e9eb9fa941569c508c4dddc6b85786537a5a0fac
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 
 Questo articolo illustra come aggiungere una nuova voce specificata dall'utente, un'attestazione, al percorso utente di iscrizione.  La voce verrà configurata come elenco a discesa e verrà indicato se è obbligatoria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).  Prima di procedere, testare il percorso utente di iscrizione/accesso per l'iscrizione di un nuovo account locale.
 

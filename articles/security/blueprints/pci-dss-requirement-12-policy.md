@@ -39,7 +39,7 @@ Criteri di sicurezza rigidi definiscono il livello di sicurezza per l'intera ent
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a stabilire e gestire criteri di sicurezza delle informazioni.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a stabilire e gestire criteri di sicurezza delle informazioni.|
 
 
 
@@ -52,7 +52,7 @@ Criteri di sicurezza rigidi definiscono il livello di sicurezza per l'intera ent
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti ad aggiornare i propri criteri di sicurezza delle informazioni almeno una volta all'anno o in caso di modifiche all'ambiente dei dati dei titolari di carte (CDE, Cardholder Data Environment).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti ad aggiornare i propri criteri di sicurezza delle informazioni almeno una volta all'anno o in caso di modifiche all'ambiente dei dati dei titolari di carte (CDE, Cardholder Data Environment).|
 
 
 
@@ -69,7 +69,7 @@ Criteri di sicurezza rigidi definiscono il livello di sicurezza per l'intera ent
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a implementare un processo di valutazione dei rischi che gestisca tutte le minacce elencate nel requisito 12.2.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a implementare un processo di valutazione dei rischi che gestisca tutte le minacce elencate nel requisito 12.2.|
 
 
 
@@ -86,7 +86,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -99,7 +99,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -112,7 +112,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -125,7 +125,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -138,7 +138,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -151,7 +151,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -164,7 +164,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a determinare i percorsi di rete accettabili per le VM, le risorse di archiviazione e i servizi di supporto basati sul cloud.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a determinare i percorsi di rete accettabili per le VM, le risorse di archiviazione e i servizi di supporto basati sul cloud.|
 
 
 
@@ -177,7 +177,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a determinare i percorsi di rete accettabili per le VM, le risorse di archiviazione e i servizi di supporto basati sul cloud.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a determinare i percorsi di rete accettabili per le VM, le risorse di archiviazione e i servizi di supporto basati sul cloud.|
 
 
 
@@ -190,7 +190,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure usa funzionalità di blocco delle sessioni di AD aziendali Microsoft, che applicano il blocco delle sessioni dopo un determinato periodo di inattività. Le connessioni di rete vengono terminate dopo 30 minuti di inattività. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -203,7 +203,7 @@ Assicurarsi che questi criteri di utilizzo richiedano quanto riportato di seguit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -217,7 +217,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire che al personale che accede ai dati dei titolari di carte tramite tecnologie di accesso remoto siano proibiti la copia, lo spostamento e l'archiviazione dei dati dei titolari di carte su dischi rigidi locali e supporti elettronici rimovibili, a meno che ciò non sia stato espressamente autorizzato per un'esigenza aziendale specifica.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire che al personale che accede ai dati dei titolari di carte tramite tecnologie di accesso remoto siano proibiti la copia, lo spostamento e l'archiviazione dei dati dei titolari di carte su dischi rigidi locali e supporti elettronici rimovibili, a meno che ciò non sia stato espressamente autorizzato per un'esigenza aziendale specifica.|
 
 
 
@@ -230,7 +230,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -248,7 +248,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a documentare il proprio programma di conformità allo standard PCI.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a documentare il proprio programma di conformità allo standard PCI.|
 
 
 
@@ -261,7 +261,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a definire e assegnare ai propri dipendenti le responsabilità in relazione alla sicurezza delle informazioni.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a definire e assegnare ai propri dipendenti le responsabilità in relazione alla sicurezza delle informazioni.|
 
 
 
@@ -274,7 +274,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a definire e assegnare ai propri dipendenti le responsabilità in relazione alla sicurezza delle informazioni.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a definire e assegnare ai propri dipendenti le responsabilità in relazione alla sicurezza delle informazioni.|
 
 
 
@@ -287,7 +287,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a definire e assegnare ai propri dipendenti le responsabilità in relazione alla sicurezza delle informazioni.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a definire e assegnare ai propri dipendenti le responsabilità in relazione alla sicurezza delle informazioni.|
 
 
 
@@ -300,7 +300,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -313,7 +313,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -326,7 +326,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri che impongano procedure corrette di utilizzo, implementazione e autenticazione per le tecnologie critiche all'interno dell'ambiente CDE.|
 
 
 
@@ -339,7 +339,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri per la consapevolezza della sicurezza per il personale che ha accesso all'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a creare e gestire criteri per la consapevolezza della sicurezza per il personale che ha accesso all'ambiente CDE.|
 
 
 
@@ -355,7 +355,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire che il personale riceva e confermi di aver ricevuto formazione per la consapevolezza della sicurezza delle informazioni e dello standard PCI-DSS almeno una volta all'anno.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire che il personale riceva e confermi di aver ricevuto formazione per la consapevolezza della sicurezza delle informazioni e dello standard PCI-DSS almeno una volta all'anno.|
 
 
 
@@ -368,7 +368,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire che il personale riceva e confermi di aver ricevuto formazione per la consapevolezza della sicurezza delle informazioni e dello standard PCI-DSS almeno una volta all'anno.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire che il personale riceva e confermi di aver ricevuto formazione per la consapevolezza della sicurezza delle informazioni e dello standard PCI-DSS almeno una volta all'anno.|
 
 
 
@@ -384,7 +384,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire accurati controlli del background del personale che ha accesso all'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire accurati controlli del background del personale che ha accesso all'ambiente CDE.|
 
 
 
@@ -397,7 +397,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a monitorare la conformità allo standard PCI dei provider di servizi con cui vengono condivisi i dati dei titolari di carte o che potrebbero incidere sulla sicurezza dell'ambiente CDE. I clienti devono mantenere un elenco di tutti i provider di servizi usati nell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a monitorare la conformità allo standard PCI dei provider di servizi con cui vengono condivisi i dati dei titolari di carte o che potrebbero incidere sulla sicurezza dell'ambiente CDE. I clienti devono mantenere un elenco di tutti i provider di servizi usati nell'ambiente CDE.|
 
 
 
@@ -411,7 +411,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a monitorare la conformità allo standard PCI dei provider di servizi con cui vengono condivisi i dati dei titolari di carte o che potrebbero incidere sulla sicurezza dell'ambiente CDE. I clienti devono mantenere un elenco di tutti i provider di servizi usati nell'ambiente CDE.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a monitorare la conformità allo standard PCI dei provider di servizi con cui vengono condivisi i dati dei titolari di carte o che potrebbero incidere sulla sicurezza dell'ambiente CDE. I clienti devono mantenere un elenco di tutti i provider di servizi usati nell'ambiente CDE.|
 
 
 
@@ -427,7 +427,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a stipulare accordi scritti con cui i provider di servizi riconoscono la responsabilità di mantenere la sicurezza dei dati dei titolari di carte.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a stipulare accordi scritti con cui i provider di servizi riconoscono la responsabilità di mantenere la sicurezza dei dati dei titolari di carte.|
 
 
 
@@ -440,7 +440,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire l'esistenza di un processo definito per incaricare i provider di servizi che includa le attività di due diligence appropriate prima dell'incarico.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a garantire l'esistenza di un processo definito per incaricare i provider di servizi che includa le attività di due diligence appropriate prima dell'incarico.|
 
 
 
@@ -453,7 +453,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a gestire un programma per monitorare lo stato di conformità PCI DSS dei provider di servizi almeno una volta all'anno.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a gestire un programma per monitorare lo stato di conformità PCI DSS dei provider di servizi almeno una volta all'anno.|
 
 
 
@@ -466,7 +466,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a conservare una copia della [matrice di riepilogo delle responsabilità](https://aka.ms/pciblueprintcrm32), che descrive i requisiti PCI DSS che rientrano nelle responsabilità del cliente e quelli di cui è responsabile Microsoft Azure.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a conservare una copia della [matrice di riepilogo delle responsabilità](https://aka.ms/pciblueprintcrm32), che descrive i requisiti PCI DSS che rientrano nelle responsabilità del cliente e quelli di cui è responsabile Microsoft Azure.|
 
 
 
@@ -482,7 +482,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a riconoscere le proprie responsabilità per il rispetto della conformità allo standard PCI. |
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a riconoscere le proprie responsabilità per il rispetto della conformità allo standard PCI. |
 
 
 
@@ -495,7 +495,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -515,7 +515,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -529,7 +529,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -542,7 +542,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -555,7 +555,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -568,7 +568,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -581,7 +581,7 @@ Laddove è presente un'esigenza aziendale autorizzata, i criteri di utilizzo dev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono tenuti a sviluppare piani di risposta agli eventi imprevisti e test che considerino tutti i controlli del cliente correlati ai touch point condivisi e a tutte le applicazioni del cliente che sfruttano l'infrastruttura di Azure. È responsabilità del cliente fornire ad Azure informazioni di contatto accurate nel caso in cui debba segnalare un evento imprevisto che influisce sull'applicazione o sui dati.|
 
 
 
@@ -604,7 +604,7 @@ Le analisi devono coprire i processi seguenti:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a documentare le analisi dei processi per la verifica delle prestazioni dei controlli della conformità allo standard PCI.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a documentare le analisi dei processi per la verifica delle prestazioni dei controlli della conformità allo standard PCI.|
 
 
 
@@ -623,7 +623,7 @@ Le analisi devono coprire i processi seguenti:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a documentare le analisi dei processi per la verifica delle prestazioni dei controlli della conformità allo standard PCI.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti provider di servizi sono tenuti a documentare le analisi dei processi per la verifica delle prestazioni dei controlli della conformità allo standard PCI.|
 
 
 

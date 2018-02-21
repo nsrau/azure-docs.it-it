@@ -18,7 +18,7 @@ ms.lasthandoff: 11/09/2017
 # <a name="configure-server-parameters-in-azure-portal"></a>Configurare i parametri del server nel portale di Azure
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un database di Azure per PostgreSQL attraverso il portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per proseguire con questa guida, è richiesto:
 - [Un server di Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md)
 

@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -417,7 +417,7 @@ Scenari di integrazione
 
 -   [Integrazione degli avvisi del Centro sicurezza con l'integrazione dei log di Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) - Questo documento mostra come sincronizzare gli avvisi del Centro sicurezza di Azure, insieme agli eventi di sicurezza delle macchine virtuali raccolti da Diagnostica di Azure e dai log di controllo di Azure, con la propria soluzione SIEM o di analisi dei log.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Controllo e registrazione](https://www.microsoft.com/trustcenter/security/auditingandlogging)
 

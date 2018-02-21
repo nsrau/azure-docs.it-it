@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo articolo fornisce indicazioni per lo sviluppo di applicazioni a prestazioni elevate mediante l'Archiviazione Premium di Azure. È possibile usare le istruzioni disponibili in questo documento insieme alle procedure consigliate per le prestazioni applicabili alle tecnologie usate dall'applicazione. Per illustrare le indicazioni, è stato usato SQL Server in esecuzione nell'Archiviazione Premium come esempio nell'intero documento.
 
 In questo articolo vengono trattati scenari relativi alle prestazioni per il livello dell'archiviazione, ma sarà necessario ottimizzare il livello dell'applicazione. Ad esempio, se si ospita una farm SharePoint nell'Archiviazione Premium di Azure, è possibile usare gli esempi relativi a SQL Server di questo articolo per ottimizzare il server di database. È anche possibile ottimizzare il server Web e il server applicazioni della farm SharePoint per ottenere prestazioni migliori.
@@ -37,7 +37,7 @@ Come illustrato dalla formula seguente, esiste una relazione tra la velocità ef
 
 È quindi importante determinare i valori ottimali per la velocità effettiva e IOPS richiesti dall'applicazione. I tentativi di ottimizzazione di uno dei valori influiscono anche sull'altro. In una sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*, verrà illustrata in modo dettagliato l'ottimizzazione di IOPS e velocità effettiva.
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latenza
 La latenza è il tempo necessario perché un'applicazione riceva una singola richiesta, la invii ai dischi di archiviazione e restituisca la risposta al client. Si tratta di una misura essenziale delle prestazioni di un'applicazione, oltre a IOPS e velocità effettiva. La latenza di un disco di Archiviazione Premium è il tempo necessario per recuperare le informazioni per una richiesta e restituirle all'applicazione. L'Archiviazione Premium offre latenze uniformemente basse. Se si abilita la memorizzazione nella cache host ReadOnly nei dischi di Archiviazione Premium, sarà possibile ottenere una latenza di lettura molto più bassa. La memorizzazione nella cache dei dischi sarà illustrata in modo più dettagliato nella sezione successiva, *Ottimizzazione delle prestazioni dell'applicazione*.
 
 Quando si ottimizza l'applicazione per ottenere valori più elevati per IOPS e velocità effettiva, ciò influirà sulla latenza dell'applicazione. Dopo il perfezionamento delle prestazioni dell'app, è necessario valutare sempre la latenza dell'applicazione per evitare comportamenti imprevisti con latenza elevata.
@@ -61,7 +61,7 @@ Nella sezione precedente sono stati illustrati gli indicatori di prestazioni com
 | Dimensioni delle richieste I/O | | | |
 | Velocità effettiva media | | | |
 | Max. Velocità effettiva | | | |
-| Min Latency | | | |
+| Min Latenza | | | |
 | Latenza media | | | |
 | Max. CPU | | | |
 | Utilizzo medio CPU | | | |
@@ -83,7 +83,7 @@ Il modo migliore per misurare i requisiti relativi alle prestazioni per l'applic
 
 Sono disponibili contatori di PerfMon per il processore, la memoria e ogni disco logico e fisico del server. Quando si usano dischi di Archiviazione Premium con una VM, i contatori per dischi fisici sono relativi a ogni disco di Archiviazione Premium e i contatori per dischi logici sono relativi a ogni volume creato nei dischi di Archiviazione Premium. È necessario acquisire i valori per i dischi che ospitano il carico di lavoro dell'applicazione. Se è disponibile il mapping uno a uno tra i dischi logici e i dischi fisici, sarà possibile fare riferimento ai contatori per i dischi fisici. In caso contrario, fare riferimento ai contatori per i dischi logici. In Linux il comando iostat genera un report relativo all'utilizzo della CPU e dei dischi. Il report di utilizzo dischi fornisce statistiche relative al singolo dispositivo o alla singola partizione. Se è presente un server di database con dati e log in dischi separati, raccogliere questi dati per entrambi i dischi. La tabella seguente illustra i contatori per dischi, processore e memoria:
 
-| Contatore | Descrizione | PerfMon | Iostat |
+| Contatore | DESCRIZIONE | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **IOPS o transazioni al secondo** |Numero di richieste I/O rilasciate al disco di archiviazione a secondo. |Letture disco/sec  <br> Scritture disco/sec |tps  <br> r/s  <br> w/s |
 | **Letture e scritture del disco** |% di operazioni di lettura e scrittura eseguite sul disco. |% Tempo lettura disco  <br> % Tempo scrittura disco |r/s  <br> w/s |
@@ -236,13 +236,13 @@ Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog re
 | **Tipo di disco** | **Impostazione predefinita per la cache** |
 | --- | --- |
 | Disco del sistema operativo |ReadWrite |
-| Disco dati |None |
+| Disco dati |Nessuna |
 
 Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 
 | **Impostazione per la memorizzazione nella cache su disco** | **Indicazione sull'uso di questa impostazione** |
 | --- | --- |
-| None |Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
+| Nessuna |Configurare la cache host come None per dischi di sola scrittura e dischi con numero elevato di operazioni di scrittura. |
 | ReadOnly |Configurare la cache host come ReadOnly per dischi di sola lettura e di lettura-scrittura. |
 | ReadWrite |Configurare la cache host come ReadWrite solo se l'applicazione gestisce correttamente la scrittura di dati memorizzati nella cache in dischi persistenti, quando necessario. |
 
@@ -374,24 +374,24 @@ Seguire questa procedura per preparare la cache.
 
 1. Creare le specifiche di accesso con i valori seguenti.
 
-   | Nome | Dimensione della richiesta | % di casuali | % di letture |
+   | NOME | Dimensione della richiesta | % di casuali | % di letture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 2. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | Nome | Durata |
+   | Scenario | Volume di destinazione | NOME | Duration |
    | --- | --- | --- | --- |
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
 3. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | Nome | Durata |
+   | Scenario | Volume di destinazione | NOME | Durata |
    | --- | --- | --- | --- |
    | Preparare il disco della cache |CacheReads |RandomReads\_1MB |2 ore |
 
 Dopo la preparazione del disco della cache, procedere con gli scenari di test elencati di seguito. Per eseguire il test di Iometer, usare almeno tre thread di lavoro per **ogni** volume di destinazione. Per ogni thread di lavoro selezionare il volume di destinazione, impostare la profondità della coda e selezionare una delle specifiche di test salvate, come illustrato nella tabella seguente, per eseguire lo scenario di test corrispondente. La tabella illustra anche i risultati previsti per IOPS e velocità effettiva quando si eseguono questi test. Per tutti gli scenari vengono usati una dimensione di I/O ridotta pari a 8 KB e un valore elevato per la profondità della coda, pari a 128.
 
-| Scenario di test | Volume di destinazione | Nome | Risultato |
+| Scenario di test | Volume di destinazione | NOME | Risultato |
 | --- | --- | --- | --- |
 | Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
 | Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |

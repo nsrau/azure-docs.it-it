@@ -56,7 +56,7 @@ La maggior parte delle metriche mostrano le tendenze nel tempo, ma alcuni dati, 
 
 È inoltre possibile visualizzare le quote di utilizzo nel pannello per le risorse per cui sono previste quote:
 
-![Utilizzo](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
+![Uso](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
 Come per le metriche, è possibile usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931963.aspx) o [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) per accedere a livello di codice al set completo di quote di utilizzo.
 

@@ -26,7 +26,7 @@ Helm presenta due componenti:
 
 * **Tiller** è un server che viene eseguito sul cluster Kubernetes e gestisce il ciclo di vita delle applicazioni Kubernetes 
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Creare un cluster Kubernetes](container-service-kubernetes-walkthrough.md) nel servizio contenitore di Azure
 

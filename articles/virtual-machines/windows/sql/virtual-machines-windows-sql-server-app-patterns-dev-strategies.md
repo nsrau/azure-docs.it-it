@@ -40,7 +40,7 @@ Per ogni modello di applicazione sono disponibili uno scenario locale, la rispet
 
 Una tipica applicazione *a più livelli* include il livello presentazione, il livello business e il livello dati:
 
-| Livello | Description |
+| Livello | DESCRIZIONE |
 | --- | --- |
 | **Presentazione** |Il *livello presentazione* (livello Web, livello front-end) è il livello in cui gli utenti interagiscono con un'applicazione. |
 | **Business** |Il *livello business* (livello intermedio) è quello usato dal livello presentazione e dal livello dati per comunicare tra loro e include la funzionalità centrale del sistema. |

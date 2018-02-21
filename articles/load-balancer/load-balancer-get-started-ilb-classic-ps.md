@@ -62,7 +62,7 @@ Si noti che questo uso del cmdlet di Windows PowerShell [Add-AzureEndpoint](http
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Passaggio 2: Aggiungere endpoint all'istanza del bilanciamento del carico interno
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
 ```powershell
 $svc="mytestcloud"
@@ -87,7 +87,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è fornito un esempio:
+Per usare questi comandi, inserire i valori e rimuovere < and >. Di seguito è fornito un esempio: 
 
 ```powershell
 $svc="mytestcloud"
@@ -148,7 +148,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 Per usare questi comandi, inserire i valori rimuovendo < and >.
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
 ```powershell
 $svc="mytestcloud"
@@ -166,7 +166,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Per usare questi comandi, inserire il valore e rimuovere < and >.
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
 ```powershell
 $svc="mytestcloud"

@@ -66,7 +66,7 @@ Per vedere un elenco delle attività di trasformazione dei dati di Data Factory 
 > [!NOTE]
 > Attualmente, da Azure Data Factory è possibile creare solo cluster HDInsight versione 3.2.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per poter eseguire le istruzioni descritte nell'articolo è necessario disporre dei seguenti elementi:
 
 * [Sottoscrizione di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

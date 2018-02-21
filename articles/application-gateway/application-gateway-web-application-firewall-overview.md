@@ -72,7 +72,7 @@ Il gateway applicazione supporta due set di regole, ovvero CRS 3.0 e CRS 2.2.9. 
 
 Il set di regole principali 3.0 fornito offre 13 gruppi di regole come illustrato nella tabella seguente. Ognuno di questi gruppi di regole contiene più regole che possono essere disabilitate.
 
-|RuleGroup|Descrizione|
+|RuleGroup|DESCRIZIONE|
 |---|---|
 |**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Contiene le regole per la protezione da spammer noti o attività dannose.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contiene le regole per bloccare i metodi (PUT, PATCH< e così via)|
@@ -92,7 +92,7 @@ Il set di regole principali 3.0 fornito offre 13 gruppi di regole come illustrat
 
 Il set di regole principali 2.2.9 fornito offre 10 gruppi di regole come illustrato nella tabella seguente. Ognuno di questi gruppi di regole contiene più regole che possono essere disabilitate.
 
-|RuleGroup|Descrizione|
+|RuleGroup|DESCRIZIONE|
 |---|---|
 |**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Contiene le regole per la protezione da violazioni del protocollo, ovvero caratteri non validi, GET con un corpo di richiesta e così via.|
 |**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Contiene le regole per la protezione da informazioni di intestazione errate.|

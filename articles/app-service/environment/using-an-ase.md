@@ -72,7 +72,7 @@ Per creare un'app Web in un ambiente del servizio app:
     
     ![Piani tariffari isolati][2]
 
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
 ## <a name="how-scale-works"></a>Come funziona il ridimensionamento ##
 

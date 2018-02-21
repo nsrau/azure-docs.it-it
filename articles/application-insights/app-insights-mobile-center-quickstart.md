@@ -20,7 +20,7 @@ ms.lasthandoff: 11/15/2017
 
 Questa guida introduttiva illustra come eseguire la connessione dell'istanza App Center dell'app ad Application Insights. Con Application Insights è possibile eseguire query, segmentare, filtrare e analizzare i dati di telemetria con gli strumenti più potenti disponibili del servizio [Analytics](https://docs.microsoft.com/mobile-center/analytics/) di App Center.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
@@ -61,7 +61,7 @@ Per inviare eventi personalizzati da altre piattaforme di app, usare il metodo `
 
 Per assicurarsi che gli eventi personalizzati vengano ricevuti, passare alla scheda **Eventi** nella sezione **Analytics** in App Center. Dall'invio degli eventi dall'app fino alla visualizzazione potrebbero essere necessari un paio di minuti.
 
-## <a name="create-an-application-insights-resource"></a>Creare una risorsa Application Insights
+## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
 Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center, è necessario creare una risorsa di Application Insights di tipo App Center nel portale di Azure:
 
@@ -72,7 +72,7 @@ Quando l'app invia eventi personalizzati e questi vengono ricevuti da App Center
 
     Verrà visualizzata una finestra di configurazione. Usare la tabella seguente per completare i campi di input.
 
-    | Impostazioni        |  Valore           | Descrizione  |
+    | Impostazioni        |  Valore           | DESCRIZIONE  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Un valore univoco a livello globale, ad esempio "myApp-iOS" | Nome che identifica l'app da monitorare |
    | **Tipo di applicazione** | Applicazione App Center | Tipo di app da monitorare |

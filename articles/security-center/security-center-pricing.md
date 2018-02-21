@@ -42,7 +42,7 @@ Per ottenere il livello Standard:
 2. Selezionare la sottoscrizione che si desidera aggiornare al livello Standard.
 3. Nel pannello **Security policy** (Criteri di sicurezza) selezionare **Pricing tier** (Piano tariffario).
 4. Selezionare **Standard** per eseguire l'aggiornamento.
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
 ![Evento imprevisto della sicurezza][1]
 

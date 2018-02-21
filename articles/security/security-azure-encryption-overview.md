@@ -36,7 +36,7 @@ Per altre informazioni sulla crittografia di dati inattivi in Azure, vedere il d
 
 Azure supporta vari modelli di crittografia, tra cui la crittografia lato server usando chiavi gestite dal servizio, usando chiavi gestite dal cliente in Azure Key Vault o usando chiavi gestite dal cliente sull'hardware controllato dal cliente. La crittografia lato client consente di gestire e archiviare le chiavi in locale o in un'altra posizione protetta.
 
-### <a name="client-side-encryption"></a>Crittografia lato client
+### <a name="client-side-encryption"></a>crittografia lato client
 
 La crittografia lato client viene eseguita all'esterno di Azure. La crittografia lato client include:
 

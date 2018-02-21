@@ -17,7 +17,7 @@ ms.date: 6/2/2017
 ms.author: rclaus
 ms.openlocfilehash: aede44d964994bd2ef9b46a133b1f1ee303ef309
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

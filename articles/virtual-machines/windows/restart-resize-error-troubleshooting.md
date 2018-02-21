@@ -18,7 +18,7 @@ ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 482a194535cba8715b70ecff4679691515b206a9
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---

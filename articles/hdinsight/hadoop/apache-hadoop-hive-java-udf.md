@@ -52,7 +52,7 @@ Informazioni su come creare una funzione definita dall'utente (UDF) basata su Ja
     ```
 
    > [!NOTE]
-   > Se si utilizza PowerShell, è necessario racchiudere i parametri tra virgolette. Ad esempio: `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Se si utilizza PowerShell, è necessario racchiudere i parametri tra virgolette. Ad esempio, `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
     Questo comando crea una directory denominata **exampleudf**, che contiene un progetto Maven.
 

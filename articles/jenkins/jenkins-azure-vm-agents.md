@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure.
 * Un server master Jenkins. Se non è disponibile, consultare la [Guida introduttiva](install-jenkins-solution-template.md) per impostarne uno in Azure.

@@ -26,20 +26,20 @@ Informazioni su come usare Azure Cosmos DB per creare un database distribuito a 
 
 - [.NET](/azure/cosmos-db/create-sql-api-dotnet)
 - [Java](/azure/cosmos-db/create-sql-api-java)
-- [Node.js](/azure/cosmos-db/create-sql-api-nodejs)
+- [Node.JS](/azure/cosmos-db/create-sql-api-nodejs)
 - [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>API di MongoDB
 
 - [.NET](/azure/cosmos-db/create-mongodb-dotnet)
 - [Java](/azure/cosmos-db/create-mongodb-java)
-- [Node.js](/azure/cosmos-db/create-mongodb-nodejs)
+- [Node.JS](/azure/cosmos-db/create-mongodb-nodejs)
 
 ### <a name="graph-api"></a>API Graph
 
 - [.NET](/azure/cosmos-db/create-graph-dotnet)
 - [Java](/azure/cosmos-db/create-graph-java)
-- [Node.js](/azure/cosmos-db/create-graph-nodejs)
+- [Node.JS](/azure/cosmos-db/create-graph-nodejs)
 - [Gremlin](/azure/cosmos-db/create-graph-gremlin-console)
 
 ### <a name="graph-api"></a>API Graph

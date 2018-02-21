@@ -40,7 +40,7 @@ Dato che gli account utente e di gruppo di Windows nell'organizzazione sono univ
   
 Tempo previsto per il completamento della lezione: **15 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 10: Creare partizioni](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Creare ruoli  

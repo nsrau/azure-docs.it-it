@@ -44,7 +44,7 @@ Questo documento elenca e illustra il contenuto dell'archivio SDK.
 > 
 > 
 
-`src` 
+`src`
 
 > Controller di visualizzazione di Engagement e codice sorgente di Reach SDK (per utenti esperti che desiderano adattare le classi Engagement alle proprie esigenze).
 > 

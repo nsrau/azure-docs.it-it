@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continuata Jenkins
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 L'articolo seguente illustra come usare l'archiviazione BLOB come archivio di elementi di compilazione creati dalla soluzione di integrazione continua (CI) Jenkins o come origine di file scaricabili da usare in un processo di compilazione. Queste informazioni possono rivelarsi utili nel caso in cui si codifichi in un ambiente di sviluppo Agile (utilizzando Java o altri linguaggi), le compilazioni vengano eseguite in base all'integrazione continuata e sia necessario un archivio per gli elementi di compilazione, ad esempio per poterli condividere con altri membri dell'organizzazione o clienti oppure per gestire un archivio. Un altro scenario è quando il processo di compilazione stesso richiede altri file, ad esempio dipendenze da scaricare come parte dell'input di compilazione.
 
 In questa esercitazione si utilizzerà il plug-in di Archiviazione di Azure per l'Integrazione continuata Jenkins reso disponibile da Microsoft.
@@ -39,7 +39,7 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
 * Migliori prestazioni durante il download degli elementi di compilazione da parte di clienti e partner.
 * Controllo dei criteri di accesso da parte dell'utente, che prevede la possibilità di scelta tra accesso anonimo, accesso condiviso con scadenza, accesso con firma, accesso privato e così via.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per usare il servizio BLOB con la soluzione di Integrazione continuata Jenkins è necessario quanto segue:
 
 * Una soluzione di Integrazione continuata Jenkins.

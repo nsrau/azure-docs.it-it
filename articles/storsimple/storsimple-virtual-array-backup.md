@@ -57,7 +57,7 @@ L'array virtuale StorSimple dispone di un criterio di backup predefinito che si 
    
     ![passare a Criteri di backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 ### <a name="take-a-manual-backup"></a>Creazione di un backup manuale
 

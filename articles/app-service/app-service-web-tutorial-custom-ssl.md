@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > Se è necessario usare un certificato SSL personalizzato, è possibile ottenerlo direttamente nel portale di Azure e associarlo all'app Web. Seguire l'[esercitazione sui certificati del Servizio app](web-sites-purchase-ssl-web-site.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -220,7 +220,7 @@ Nel riquadro di spostamento a sinistra della pagina dell'app Web selezionare **D
 
 ![Applicare HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Al termine dell'operazione, scegliere uno degli URL HTTP che fanno riferimento all'applicazione. ad esempio:
+Al termine dell'operazione, scegliere uno degli URL HTTP che fanno riferimento all'applicazione. Ad esempio: 
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -274,7 +274,7 @@ New-AzureRmWebAppSSLBinding `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Aggiornare il piano tariffario dell'app

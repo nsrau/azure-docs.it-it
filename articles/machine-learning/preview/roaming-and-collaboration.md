@@ -21,7 +21,7 @@ Questo articolo descrive come usare Azure Machine Learning Workbench per configu
 
 Quando si crea un progetto di Azure Machine Learning con un collegamento a un repository Git remoto, i metadati e gli snapshot del progetto vengono archiviati nel cloud. È possibile usare il collegamento cloud per accedere al progetto da un altro computer (roaming). È anche possibile collaborare con i membri del team concedendo loro l'accesso al progetto. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. Installare l'app Machine Learning Workbench. Verificare di avere accesso a un account Sperimentazione di Azure Machine Learning. Per altre informazioni, vedere la [Guida all'installazione](quickstart-installation.md).
 
 2. Accedere a [Visual Studio Team Services](https://www.visualstudio.com) (Team Services) e creare un repository a cui collegare il progetto. Per altre informazioni, vedere [Using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md) (Uso di un repository Git con un progetto di Machine Learning Workbench).
@@ -30,9 +30,9 @@ Quando si crea un progetto di Azure Machine Learning con un collegamento a un re
 Aprire Machine Learning Workbench e creare un nuovo progetto (ad esempio, un progetto denominato iris). Nella casella **URL repository GIT Visualstudio.com** immettere un URL valido per un repository Git di Team Services. 
 
 > [!IMPORTANT]
-> Scegliendo il modello di progetto vuoto, il repository Git scelto potrebbe già includere un ramo master. Machine Learning clona semplicemente il ramo master in locale. Aggiunge la cartella aml_config e altri file di metadati del progetto alla cartella del progetto locale. 
+> Scegliendo il modello di progetto vuoto, il repository Git scelto potrebbe già includere un ramo master. Machine Learning clona semplicemente il ramo master in locale e aggiunge la cartella aml_config e altri file di metadati del progetto alla cartella del progetto locale. 
 >
-> Se si sceglie un altro modello di progetto, il repository Git *non* deve avere già un ramo master. In caso contrario, verrà visualizzato un errore. L'alternativa consiste nell'usare il comando `az ml project create` per creare il progetto con un commutatore `--force`. Questa operazione elimina i file nel ramo master originale e li sostituisce con i nuovi file nel modello scelto.
+> Se si sceglie un altro modello di progetto, il repository Git *non può* avere già un ramo master, altrimenti verrà visualizzato un errore. L'alternativa consiste nell'usare il comando `az ml project create` per creare il progetto, indicando un'opzione `--force`. Questa operazione elimina i file nel ramo master originale e li sostituisce con i nuovi file nel modello scelto.
 
 Dopo aver creato il progetto, avviare diverse esecuzioni di script presenti all'interno del progetto. Questa azione esegue il commit dello stato del progetto nel ramo della cronologia di esecuzione del repository Git. 
 

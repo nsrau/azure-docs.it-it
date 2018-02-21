@@ -29,7 +29,7 @@ ms.lasthandoff: 12/01/2017
 
 Informazioni su come eseguire esempi di MapReduce inclusi con Hadoop su HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Un cluster HDInsight**: vedere [Introduzione all'uso di Hadoop con Hive in HDInsight in Linux](apache-hadoop-linux-tutorial-get-started.md)
 

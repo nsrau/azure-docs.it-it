@@ -27,7 +27,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 * Chiamare un webhook.
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
-* [Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [Interfaccia della riga di comando (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -45,10 +45,10 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
    ![Form Aggiungi avviso per la metrica](./media/howto-alert-on-metric/2-add-rule-form.png)
 
-   | Impostazione | Description  |
+   | Impostazione | DESCRIZIONE  |
    |---------|---------|
-   | Nome | Specificare un nome per la regola di avviso. Questo valore viene inviato nel messaggio di posta elettronica di notifica di avviso. |
-   | Descrizione | Fornire una breve descrizione per la regola di avviso. Questo valore viene inviato nel messaggio di posta elettronica di notifica di avviso. |
+   | NOME | Specificare un nome per la regola di avviso. Questo valore viene inviato nel messaggio di posta elettronica di notifica di avviso. |
+   | DESCRIZIONE | Fornire una breve descrizione per la regola di avviso. Questo valore viene inviato nel messaggio di posta elettronica di notifica di avviso. |
    | Avviso per | Per questo tipo di avviso, scegliere **Metriche**. |
    | Sottoscrizione | Questo campo viene pre-popolato con la sottoscrizione che ospita Database di Azure per PostgreSQL. |
    | Gruppo di risorse | Questo campo viene pre-popolato con il gruppo di risorse di Database di Azure per PostgreSQL. |

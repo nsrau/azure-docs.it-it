@@ -18,7 +18,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -32,7 +32,7 @@ Per altre informazioni, vedere questi articoli correlati alle applicazioni HDIns
 * [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md). Informazioni su come installare un'applicazione HDInsight nei cluster.
 * [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md). Informazioni su come installare e testare applicazioni HDInsight personalizzate.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima dell'invio al Marketplace, è necessario [creare e testare l'applicazione personalizzata](hdinsight-apps-install-custom-applications.md).
 
 È anche necessario registrare l'account per sviluppatore. Per altre informazioni, vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) e [Creare un account di Microsoft Developer](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).

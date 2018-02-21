@@ -31,7 +31,7 @@ ms.lasthandoff: 01/10/2018
 Questo articolo illustra come usare Python SDK per eseguire l'autenticazione da servizio a servizio con Azure Data Lake Store. Per l'autenticazione dell'utente finale con Data Lake Store usando Python, vedere [Autenticazione dell'utente finale con Data Lake Store usando Python](data-lake-store-end-user-authenticate-python.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Python**. È possibile scaricare Python [qui](https://www.python.org/downloads/). Questo articolo fa riferimento a Python 3.6.2.
 

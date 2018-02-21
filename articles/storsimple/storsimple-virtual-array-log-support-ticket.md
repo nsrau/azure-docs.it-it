@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per registrare una richiesta di supporto per l'array virtuale StorSimple
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Gestione dispositivi StorSimple offre la possibilità di **registrare una nuova richiesta di supporto** all'interno del pannello di riepilogo servizio. Questo articolo illustra come è possibile registrare una nuova richiesta di supporto e gestire il ciclo di vita all'interno del portale.
 

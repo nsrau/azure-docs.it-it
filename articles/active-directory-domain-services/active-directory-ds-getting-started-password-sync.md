@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: abilitare la sincronizzazione password | Microsoft Docs'
-description: Introduzione a Servizi di dominio Azure Active Directory
+description: Introduzione ad Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan

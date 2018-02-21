@@ -36,7 +36,7 @@ Di seguito sono mostrati URL di esempio per i file di log di copia per un proces
 ## <a name="next-steps"></a>Passaggi successivi
  
  * [Configurazione dello strumento Importazione/Esportazione di Azure](storage-import-export-tool-setup-v1.md)   
- * [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+ * [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [Repairing an import job](../storage-import-export-tool-repairing-an-import-job-v1.md) (Riparazione di un processo di importazione)   
  * [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md) (Riparazione di un processo di esportazione)   
  * [Risoluzione dei problemi relativi allo strumento Importazione/Esportazione di Azure](storage-import-export-tool-troubleshooting-v1.md)

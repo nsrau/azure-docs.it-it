@@ -18,7 +18,7 @@ ms.date: 02/17/2017
 ms.author: xiaoyzhu
 ms.openlocfilehash: 7565efd82945f21b83471ee66098cd476b7bb59f
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

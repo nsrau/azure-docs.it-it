@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 In questo articolo viene illustrato come abilitare il monitoraggio per un processo di analisi di flusso. Per i processi di analisi di flusso creati tramite le API REST, Azure SDK o PowerShell, il monitoraggio non è abilitato per impostazione predefinita. È possibile attivare questa funzione manualmente nel portale di Azure passando alla pagina Monitoraggio del processo e facendo clic sul pulsante Attiva oppure è possibile automatizzare il processo seguendo la procedura descritta in questo articolo. I dati di monitoraggio verranno visualizzati nell'area Metrica del portale di Azure relativa al processo di analisi di flusso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per iniziare il processo è necessario disporre degli strumenti seguenti:
 
@@ -36,7 +36,7 @@ Per iniziare il processo è necessario disporre degli strumenti seguenti:
 ## <a name="create-a-project"></a>Creare un progetto
 
 1. Creare un'applicazione console .NET di Visual Studio C#.
-2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è l'SDK per .NET di Analisi di flusso di Azure. Il secondo è l'SDK di Monitoraggio di Azure, che verrà usato per abilitare il monitoraggio. L'ultimo è il client Azure Active Directory che verrà usato per l'autenticazione.
+2. Nella Console di Gestione pacchetti, eseguire i comandi seguenti per installare i pacchetti NuGet. Il primo è .NET SDK di gestione di Analisi di flusso di Azure. Il secondo è l'SDK di Monitoraggio di Azure, che verrà usato per abilitare il monitoraggio. L'ultimo è il client Azure Active Directory che verrà usato per l'autenticazione.
    
    ```
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -182,6 +182,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

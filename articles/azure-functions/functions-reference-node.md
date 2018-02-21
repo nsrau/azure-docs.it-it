@@ -116,7 +116,7 @@ context.log(message)
 Consente di scrivere nei log della console in streaming a livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che consentono di scrivere nel log della console ad altri livelli di traccia:
 
 
-| Metodo                 | Descrizione                                |
+| Metodo                 | DESCRIZIONE                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
 | **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
@@ -206,7 +206,7 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 Di seguito sono elencate le proprietà dell'oggetto `request`:
 
-| Proprietà      | Descrizione                                                    |
+| Proprietà      | DESCRIZIONE                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Oggetto che contiene il corpo della richiesta.               |
 | _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
@@ -221,7 +221,7 @@ Di seguito sono elencate le proprietà dell'oggetto `request`:
 
 Di seguito sono elencate le proprietà dell'oggetto `response`:
 
-| Proprietà  | Descrizione                                               |
+| Proprietà  | DESCRIZIONE                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
@@ -328,6 +328,6 @@ Dal momento che non è ancora disponibile il supporto diretto per la compilazion
 Per altre informazioni, vedere le seguenti risorse:
 
 * [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
+* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
 * [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 

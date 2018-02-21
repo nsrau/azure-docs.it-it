@@ -15,7 +15,7 @@ ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

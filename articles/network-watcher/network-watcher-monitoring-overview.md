@@ -66,7 +66,7 @@ Network Watcher fa uso del [modello di controllo degli accessi in base al ruolo]
 |Microsoft.Compute/virtualMachineScaleSets/ |Scrittura|
 |Microsoft.Network/networkWatchers/packetCaptures/ |Lettura|
 |Microsoft.Network/networkWatchers/packetCaptures/| Scrittura|
-|Microsoft.Network/networkWatchers/packetCaptures/| Elimina|
+|Microsoft.Network/networkWatchers/packetCaptures/| Delete|
 |Microsoft.Network/networkWatchers/ |Scrittura |
 |Microsoft.Network/networkWatchers/| Lettura |
 |Microsoft.Insights/alertRules/ |*|
@@ -88,7 +88,7 @@ Le operazioni eseguite come parte della configurazione delle reti vengono regist
 
 I log di controllo sono disponibili per le operazioni eseguite su tutte le risorse di rete.
 
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 
 Le metriche sono costituite da contatori e misurazioni delle prestazioni raccolti in un determinato periodo di tempo. Attualmente le metriche sono disponibili per il gateway applicazione. Le metriche possono essere usate per attivare avvisi in base a una soglia. Per informazioni su come usare le metriche per creare avvisi, vedere l'articolo relativo alla [diagnostica del gateway applicazione](../application-gateway/application-gateway-diagnostics.md).
 
@@ -104,7 +104,7 @@ Network Watcher offre una visualizzazione dei log di diagnostica contenente tutt
 
 ![logs][logs]
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="troubleshooting"></a>risoluzione dei problemi
 
 Il pannello di risoluzione dei problemi è un'esperienza del portale ora disponibile per le risorse di rete che permette di diagnosticare i problemi comuni associati a una singola risorsa. L'esperienza è disponibile per le risorse di rete seguenti: ExpressRoute, gateway VPN, gateway applicazione, log di sicurezza di rete, route, servizio DNS, servizio di bilanciamento del carico e Gestione traffico. Per altre informazioni sulla risoluzione dei problemi a livello di risorsa, vedere [Diagnose and resolve issues with Azure Troubleshooting](https://azure.microsoft.com/blog/azure-troubleshoot-diagonse-resolve-issues/) (Diagnosticare e risolvere problemi con la risoluzione dei problemi di Azure).
 

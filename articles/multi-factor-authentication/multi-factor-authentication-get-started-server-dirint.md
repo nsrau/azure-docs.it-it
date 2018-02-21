@@ -29,7 +29,7 @@ Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) 
 
 ![Impostazioni](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
-| Funzionalità | Descrizione |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Usa Active Directory |Selezionare l'opzione Usa Active Directory per usare Active Directory per l'importazione e la sincronizzazione.  Questa è l'impostazione predefinita. <br>Nota: per un corretto funzionamento dell'integrazione con Active Directory, è necessario aggiungere il computer a un dominio e accedere con un account di dominio. |
 | Includi domini trusted |Selezionare **Includi domini attendibili** per fare in modo che l'agente provi a connettersi ai domini ritenuti attendibili dal dominio corrente, a un altro dominio nella foresta o a domini coinvolti in un trust tra foreste.  Se non si importano o sincronizzano utenti da domini trusted, deselezionare la casella di controllo per migliorare le prestazioni.  La casella di controllo è selezionata per impostazione predefinita. |
@@ -39,7 +39,7 @@ Per impostazione predefinita, il server Azure Multi-Factor Authentication (MFA) 
 
 La tabella seguente illustra le impostazioni di configurazione per LDAP.
 
-| Funzionalità | Descrizione |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Server |Immettere il nome host o indirizzo IP del server che esegue la directory LDAP.  È anche possibile specificare un server di backup separato da un punto e virgola. <br>Nota: se per Tipo di binding è selezionato SSL, è necessario un nome host completo. |
 | Nome distinto di base |Immettere il nome distinto dell'oggetto directory di base da cui vengono avviate tutte le query su directory.  Ad esempio, dc=abc,dc=com. |
@@ -68,19 +68,19 @@ Gli attributi possono essere immessi manualmente e non devono corrispondere nece
 
 ![Attributi](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
-| Funzionalità | Descrizione |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Identificatore univoco |Immettere il nome dell'attributo da usare come identificatore univoco di record contenitori, gruppi di sicurezza e utenti.  In Active Directory si usa in genere objectGUID. In altre implementazioni LDAP è possibile usare entryUUID o un valore simile.  Il valore predefinito è objectGUID. |
 | Tipo di identificatore univoco |Selezionare il tipo di attributo dell'identificatore univoco.  In Active Directory l'attributo objectGUID è di tipo GUID. In altre implementazioni LDAP è possibile usare il tipo Stringa o Matrice di byte ASCII.  Il valore predefinito è GUID. <br><br>È importante impostare correttamente questo tipo, perché il relativo identificatore univoco fa riferimento agli elementi di sincronizzazione. Il tipo identificatore univoco viene usato per trovare direttamente l'oggetto nella directory.  Se si imposta questo tipo su Stringa mentre nella directory il valore viene archiviato come matrice di byte di caratteri ASCII, la sincronizzazione non può funzionare correttamente. |
 | Nome distinto |Immettere il nome dell'attributo che contiene il nome distinto per ogni record.  In Active Directory si usa in genere distinguishedName. In altre implementazioni LDAP è possibile usare entryDN o un valore simile.  Il valore predefinito è distinguishedName. <br><br>Se non esiste un attributo contenente solo il nome distinto, è possibile usare l'attributo adspath.  La parte "LDAP://\<server\>/" del percorso viene automaticamente rimossa lasciando solo il nome distinto dell'oggetto. |
-| Nome del contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
+| Nome contenitore |Immettere il nome dell'attributo che contiene il nome in un record contenitore.  Il valore di questo attributo viene visualizzato nella Gerarchia contenitori durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. <br><br>Se contenitori diversi usano attributi diversi per i relativi nomi, è possibile specificare più attributi del nome contenitore separati da un punto e virgola.  Il primo attributo del nome contenitore trovato in un oggetto contenitore viene usato per visualizzarne il nome. |
 | Nome gruppo di sicurezza |Immettere il nome dell'attributo che contiene il nome in un record gruppo di sicurezza.  Il valore di questo attributo viene visualizzato nell'elenco Gruppo di sicurezza durante l'importazione da Active Directory o l'aggiunta di elementi di sincronizzazione.  Il valore predefinito è name. |
-| Nome utente |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
+| Username |Immettere il nome dell'attributo che contiene il nome utente in un record utente.  Il valore di questo attributo viene usato come nome utente del server Multi-Factor Authentication.  È possibile specificare anche un secondo attributo come backup del primo.  Il secondo attributo viene usato solo se il primo non contiene un valore per l'utente.  I valori predefiniti sono userPrincipalName e sAMAccountName. |
 | Nome |Immettere il nome dell'attributo che contiene il nome in un record utente.  Il valore predefinito è givenName. |
 | Cognome |Immettere il nome dell'attributo che contiene il cognome in un record utente.  Il valore predefinito è sn. |
 | Indirizzo di posta elettronica |Immettere il nome dell'attributo che contiene l'indirizzo e-mail in un record utente.  L'indirizzo di posta elettronica viene usato per inviare all'utente messaggi di benvenuto e di aggiornamento.  Il valore predefinito è mail. |
 | Gruppo utenti |Immettere il nome dell'attributo che contiene il gruppo utenti in un record utente.  Il gruppo utenti consente di filtrare utenti nell'agente e nei report del portale di gestione del server Multi-Factor Authentication. |
-| Descrizione |Immettere il nome dell'attributo che contiene la descrizione in un record utente.  La descrizione viene usata solo per le ricerche.  Il valore predefinito è description. |
+| DESCRIZIONE |Immettere il nome dell'attributo che contiene la descrizione in un record utente.  La descrizione viene usata solo per le ricerche.  Il valore predefinito è description. |
 | Lingua telefonata |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per le chiamate vocali all'utente. |
 | Lingua SMS |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per i messaggi SMS inviati all'utente. |
 | Lingua app mobile |Immettere il nome dell'attributo che contiene il nome breve della lingua da usare per i messaggi SMS inviati dall'app telefono all'utente. |
@@ -112,7 +112,7 @@ Se la directory LDAP supporta ed è configurata per DirSync, il polling delle mo
 
 La tabella seguente contiene informazioni aggiuntive su ciascuna delle impostazioni della scheda Sincronizzazione.
 
-| Funzionalità | Descrizione |
+| Funzionalità | DESCRIZIONE |
 | --- | --- |
 | Abilita sincronizzazione con Active Directory |Se questa opzione è selezionata, il servizio del server Multi-Factor Authentication esegue periodicamente il polling delle modifiche ad Active Directory. <br><br>Nota: affinché il servizio del server Multi-Factor Authentication possa iniziare a elaborare le modifiche è necessario aggiungere almeno un elemento di sincronizzazione ed eseguire una sincronizzazione. |
 | Sincronizza ogni |Specificare l'intervallo di attesa tra il polling e l'elaborazione delle modifiche da parte del servizio del server Multi-Factor Authentication. <br><br> Nota: l'intervallo specificato corrisponde al lasso di tempo che intercorre tra l'inizio di ogni ciclo.  Se il tempo impiegato per l'elaborazione delle modifiche supera l'intervallo specificato, il servizio riesegue subito il polling. |

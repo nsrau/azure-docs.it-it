@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: asgang
 ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ Questo articolo spiega come creare una soluzione di ripristino di emergenza per 
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per l'implementazione del ripristino di emergenza per l'applicazione Dynamics AX con Site Recovery è necessario soddisfare i prerequisiti seguenti:
 

@@ -26,7 +26,7 @@ Questo articolo descrive come escludere dischi dalla replica, in modo da ottimiz
 ## <a name="supported-scenarios"></a>Scenari supportati
 **Funzionalità** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** | **Da Azure ad Azure**| **Da Hyper-V a Hyper-V** 
 --|--|--|--|--
-Esclusione disco | Sì | Sì | No | No
+Esclusione disco | Sì | Sì | No  | No 
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere dischi dalla replica
 Spesso è necessario escludere dischi dalla replica per i motivi riportati di seguito:

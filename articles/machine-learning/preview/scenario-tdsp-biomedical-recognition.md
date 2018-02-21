@@ -17,7 +17,7 @@ ms.date: 09/10/2017
 ms.author: bradsev
 ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -90,7 +90,7 @@ Di seguito viene fornito il collegamento al repository GitHub pubblico dello sce
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 * Una [sottoscrizione](https://azure.microsoft.com/free/) di Azure.
 * Azure Machine Learning Workbench. Vedere la [guida all'installazione](quickstart-installation.md). Attualmente Azure Machine Learning Workbench può essere installato solo nei sistemi operativi seguenti: 

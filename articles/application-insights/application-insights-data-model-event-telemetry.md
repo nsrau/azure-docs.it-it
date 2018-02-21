@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 A livello semantico gli eventi possono essere correlati o meno a richieste. Se usata correttamente, la telemetria degli eventi è tuttavia più importante delle richieste o delle tracce. Gli eventi rappresentano dati di telemetria business e devono essere oggetto di [campionamento](app-insights-api-filtering-sampling.md) separato, meno rigido.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 Nome evento. Per consentire un raggruppamento adeguato e metriche utili, limitare l'applicazione in modo che generi un numero ridotto di nomi di eventi distinti. Ad esempio, non usare un nome distinto per ogni istanza generata di un evento.
 

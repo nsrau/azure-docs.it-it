@@ -16,7 +16,7 @@ ms.date: 10/31/2017
 ms.author: saraford
 ms.openlocfilehash: 51f5643f0bd975beb939c2d5a8853810fb609ec9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,7 +27,7 @@ Azure Active Directory B2C consente la gestione delle identità del cloud per ga
 * L'uso del criterio **Iscrizione o accesso** per creare o accedere con un provider di identità basato su social network o un account locale tramite un indirizzo di posta elettronica. 
 * La **chiamata a un'API** per recuperare il nome visualizzato da una risorsa protetta di Azure AD B2C.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Installare [Visual Studio 2017](https://www.visualstudio.com/downloads/) con i carichi di lavoro seguenti:
     - **Sviluppo di applicazioni desktop .NET**

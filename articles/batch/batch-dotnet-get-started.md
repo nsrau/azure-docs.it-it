@@ -26,7 +26,7 @@ ms.lasthandoff: 12/18/2017
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
+> * [Node.JS](batch-nodejs-get-started.md)
 >
 >
 
@@ -34,7 +34,7 @@ Questo articolo consente di apprendere le nozioni di base di [Azure Batch][azure
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che si sia in grado di usare C# e Visual Studio e di soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per i servizi Batch e di archiviazione.
 
 ### <a name="accounts"></a>Account

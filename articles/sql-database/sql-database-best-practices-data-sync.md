@@ -157,7 +157,7 @@ Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazio
 
 È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **Out-of-date** (Non aggiornato), il gruppo smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
 
-#### <a name="avoid-out-of-date-databases"></a>Evitare database non aggiornati
+#### <a name="avoid-out-of-date-databases"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 
 Lo stato di un database viene impostato su **Out-of-date** (Non aggiornato) quando il database è offline da almeno 45 giorni. Per evitare che lo stato di un database venga impostato su **Out-of-date** (Non aggiornato), verificare che nessun database rimanga offline per 45 giorni o più.
 

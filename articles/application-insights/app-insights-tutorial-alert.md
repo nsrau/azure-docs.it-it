@@ -26,7 +26,7 @@ Azure Application Insights consente di monitorare l'applicazione e inviare avvis
 > * Usare un'app per la logica per inviare dati di telemetria riepilogati in una pianificazione.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 

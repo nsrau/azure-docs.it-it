@@ -1,5 +1,5 @@
 ---
-title: Autenticazione e autorizzazione nel servizio app di Azure | Microsoft Docs
+title: Autenticazione e autorizzazione nel servizio app di Azure | Documentazione Microsoft
 description: "Riferimento concettuale e panoramica della funzionalità di Autenticazione/Autorizzazione per il servizio app di Azure"
 services: app-service
 documentationcenter: 

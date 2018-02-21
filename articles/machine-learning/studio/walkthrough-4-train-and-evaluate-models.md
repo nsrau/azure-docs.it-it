@@ -109,7 +109,7 @@ Ora configurare il modulo [Normalize Data][normalize-data] (Normalizza dati):
 
 3. Fare clic sul segno più (+) a destra di questa riga per creare una nuova riga di elenchi a discesa. Selezionare **Escludi** nel primo elenco a discesa, selezionare **column names** (nomi colonna) nel secondo elenco a discesa e immettere "Rischio di credito" nel campo di testo. Questa impostazione specifica che la colonna Rischi di credito deve essere ignorata (è necessario farlo perché la colonna è numerica e pertanto, se non esclusa, verrebbe trasformata).
 
-4. Fare clic sul segno di spunta accanto a **OK**.  
+4. Fare clic sul segno di spunta **OK**.  
 
     ![Selezionare le colonne per il modulo Normalize Data (Normalizza dati)][5]
 

@@ -16,7 +16,7 @@ ms.date: 07/07/2017
 ms.author: robb
 ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---

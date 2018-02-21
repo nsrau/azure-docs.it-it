@@ -48,7 +48,7 @@ Un evento può essere correlato alla sessione corrente o a un processo in esecuz
 
 Un evento è identificato da un nome (costituito da un massimo di 64 caratteri) e può incorporare alcuni dati aggiuntivi (con un limite di 1024 byte).
 
-## <a name="error"></a>Errore
+## <a name="error"></a>Tipi di errore
 Gli errori vengono usati per segnalare problemi rilevati correttamente dall'applicazione, ad esempio azioni utente non corrette o errori delle chiamate API.
 
 Un errore può essere correlato alla sessione corrente o a un processo in esecuzione oppure può essere autonomo.

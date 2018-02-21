@@ -28,7 +28,7 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono inv
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 

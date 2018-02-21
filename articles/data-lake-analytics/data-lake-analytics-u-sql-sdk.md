@@ -30,7 +30,7 @@ Per capire come eseguire in locale manualmente ed eseguire il debug di uno scrip
 
 È possibile ottenere l'SDK U-SQL di Azure Data Lake [qui](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) su Nuget.org. Prima di usarlo, è necessario assicurarsi di avere le dipendenze indicate di seguito.
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 
@@ -68,7 +68,7 @@ Negli script U-SQL è possibile usare sia un percorso relativo sia un percorso a
 
 Quando si esegue lo script U-SQL localmente, durante la compilazione viene creata una directory di lavoro nella directory di lavoro corrente. Oltre agli output di compilazione, nella directory di lavoro verrà creata una copia shadow dei file di runtime necessari per l'esecuzione locale. La cartella radice della directory di lavoro è denominata "ScopeWorkDir" e i file nella directory di lavoro sono i seguenti:
 
-|Directory/File|Directory/File|Directory/File|Definizione|Descrizione|
+|Directory/File|Directory/File|Directory/File|Definizione|DESCRIZIONE|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Stringa di hash della versione di runtime|Copia shadow dei file di runtime necessari per l'esecuzione locale|
 | |Script_66AE4909AA0ED06C| |Nome di script + stringa hash del percorso dello script|Output di compilazione e registrazione del passaggio di esecuzione|
@@ -142,7 +142,7 @@ Il comando **run** viene usato per compilare lo script ed eseguire i risultati c
 Di seguito sono indicati gli argomenti facoltativi per **run**:
 
 
-|Argomento|Valore predefinito|Descrizione|
+|Argomento|Valore predefinito|DESCRIZIONE|
 |--------|-------------|-----------|
 |-CodeBehind|False|Lo script ha code-behind con estensione cs|
 |-CppSDK| |Directory CppSDK|
@@ -174,7 +174,7 @@ Il comando **compile** viene usato per compilare uno script di U-SQL in file ese
 Di seguito sono indicati gli argomenti facoltativi per il comando **compile**:
 
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 |--------|-----------|
 | -CodeBehind [valore predefinito 'False']|Lo script ha code-behind con estensione cs|
 | -CppSDK [valore predefinito '']|Directory CppSDK|
@@ -212,7 +212,7 @@ Il comando **execute** viene usato per eseguire i risultati compilati.
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **execute**:
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 |--------|-----------|
 |-DataRoot [valore predefinito '']|Radice dei dati per l'esecuzione dei metadati. Il valore predefinito è la variabile di ambiente **LOCALRUN_DATAROOT**.|
 |-MessageOut [valore predefinito '']|Esecuzione del dump dei messaggi della console in un file.|
@@ -337,39 +337,39 @@ LocalRunHelper.exe offre le interfacce di programmazione per la compilazione e l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|.|Tipo|Descrizione|
+|Parametro|type|DESCRIZIONE|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 **Proprietà**
 
-|Proprietà|Tipo|Descrizione|
+|Proprietà|type|DESCRIZIONE|
 |--------|----|-----------|
-|AlgebraPath|string|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
-|CodeBehindReferences|string|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
-|CppSdkDir|string|Directory CppSDK|
-|CurrentDir|string|La directory corrente|
-|DataRoot|string|Il percorso della radice dei dati|
-|DebuggerMailPath|string|Il percorso alla porta di inserimento/espulsione del debugger|
+|AlgebraPath|stringa|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
+|CodeBehindReferences|stringa|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
+|CppSdkDir|stringa|Directory CppSDK|
+|CurrentDir|stringa|La directory corrente|
+|DataRoot|stringa|Il percorso della radice dei dati|
+|DebuggerMailPath|stringa|Il percorso alla porta di inserimento/espulsione del debugger|
 |GenerateUdoRedirect|bool|Se si vuole generare il reindirizzamento di caricamento dell'assembly eseguire l'override della configurazione|
 |HasCodeBehind|bool|Indica se lo script ha code-behind|
-|InputDir|string|La directory per i dati di input|
-|MessagePath|string|Il percorso del file dump del messaggio|
-|OutputDir|string|La directory per i dati di output|
+|InputDir|stringa|La directory per i dati di input|
+|MessagePath|stringa|Il percorso del file dump del messaggio|
+|OutputDir|stringa|La directory per i dati di output|
 |Parallelismo|int|Il parallelismo per eseguire l'algebra|
 |ParentPid|int|Il PID dell'entità principale in cui il servizio esegue il monitoraggio per uscire, impostato su 0 o su un numero negativo se va ignorato|
-|ResultPath|string|Il percorso del file dump del risultato|
-|RuntimeDir|string|La directory di runtime|
-|ScriptPath|string|Indica dove trovare lo script|
+|ResultPath|stringa|Il percorso del file dump del risultato|
+|RuntimeDir|stringa|La directory di runtime|
+|ScriptPath|stringa|Indica dove trovare lo script|
 |Shallow|bool|Indica se la compilazione è superficiale o no|
-|TempDir|string|Directory Temp|
-|UseDataBase|string|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
-|WorkDir|string|La directory di lavoro preferita|
+|TempDir|stringa|Directory Temp|
+|UseDataBase|stringa|Specifica il database da usare per la registrazione di assembly temporanei code-behind; master per impostazione predefinita|
+|WorkDir|stringa|La directory di lavoro preferita|
 
 
 **Metodo**
 
-|Metodo|Descrizione|Return|.|
+|Metodo|DESCRIZIONE|Return|Parametro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Consente di compilare lo script U-SQL|Se l'esito è positivo, restituisce il valore true| |
 |public bool DoExec()|Esegue il risultato compilato|Se l'esito è positivo, restituisce il valore true| |

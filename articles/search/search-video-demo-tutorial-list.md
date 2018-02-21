@@ -28,7 +28,7 @@ Velocizzare le operazioni con i video, le demo, le esercitazioni e le applicazio
 
 Iniziare da qui se non si ha familiarità con Ricerca di Azure. La revisione di tutte le risorse richiede circa un'ora.
 
-| Titolo | Descrizione | Date |
+| Titolo | DESCRIZIONE | Data |
 |-------|-------------|------|
 | [Guardare questo video introduttivo](https://channel9.msdn.com/Events/Connect/2016/138) | Introduzione di 9 min e 38 sec alle funzioni, creazione di un servizio e query. | Novembre 2016 |
 | [Creare un servizio](search-get-started-portal.md) | Procedura per configurare la Ricerca di Azure nel portale. | Febbraio 2017 |
@@ -41,7 +41,7 @@ Iniziare da qui se non si ha familiarità con Ricerca di Azure. La revisione di 
 
 Esplorazione basata su codice tramite esempi e procedure dettagliate.
 
-| Esempio di codice | Descrizione |
+| Esempio di codice | DESCRIZIONE |
 |-------|-------------|
 | [Introduzione alla libreria client .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) | Applicazione ASP.NET MVC 5 con la libreria client .NET. |
 | [Introduzione ad API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) | Esempio di codice API REST. |
@@ -53,7 +53,7 @@ Per vedere altri esempi di codice per combinazioni di funzionalità e scenari sp
 ## <a name="online-demos"></a>Demo online
 Applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esperienza di ricerca. Questi collegamenti offrono un'esperienza pratica del funzionamento di un'app che usa Ricerca di Azure.
 
-| Collegamento | Descrizione |
+| Collegamento | DESCRIZIONE |
 |-------|-------------|
 |[Search Analyzer Demo](http://alice.unearth.ai) | Un sito Web demo in tempo reale che mostra il risultato della query dell'analizzatore Lucene Standard, dell'analizzatore per l'inglese Lucene e del processore del linguaggio naturale di Microsoft. Ogni volta che si inserisce un termine di ricerca, è possibile visualizzare un confronto laterale del risultato di ogni analizzatore. |
 |[Demo del portale delle offerte di lavoro per New York City (NYC) per Ricerca di Azure](http://aka.ms/azjobsdemo) | Un sito Web ASP.NET che illustra le funzionalità di Ricerca di Azure usando i dati di NYC Open Data Initiative. L'app usa la [sintassi di query semplice](https://msdn.microsoft.com/library/azure/dn798920.aspx). È possibile modificare il codice per provare la [sintassi Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx). |
@@ -64,7 +64,7 @@ Applicazioni Web completamente funzionali che usano Ricerca di Azure per l'esper
 
 Demo e laboratori multisessione per la Ricerca di Azure.
 
-| Collegamento | Descrizione | Date |
+| Collegamento | DESCRIZIONE | Data |
 |------|-------------|------|
 [Building Intelligent Cross-Platform Mobile Applications Using Xamarin and Azure Search](https://mva.microsoft.com/en-US/training-courses/building-intelligent-crossplatform-mobile-applications-using-xamarin-and-azure-search-16890) (Compilazione di applicazioni per dispositivi mobili multipiattaforma intelligenti tramite Xamarin e Ricerca di Azure) | Completamento automatico, ricerca per testo completo e suddivisione in pagine, applicazione di filtri, ricerca, moreLikeThis, machine learning, punteggio e ottimizzazione, analitica | Dicembre 2016 |
 [Using Windows Azure Search](https://mva.microsoft.com/en-US/training-courses/using-windows-azure-search-10540) (Uso di Ricerca di Azure di Windows) | Drill-down meno recente, ma ancora rilevante per scalabilità, ricerca geospaziale, analisi linguistica, riconoscimento vocale di Cortana | Maggio 2015 | 
@@ -91,7 +91,7 @@ Demo e laboratori multisessione per la Ricerca di Azure.
 
 ## <a name="tutorial-archive"></a>Archivio delle esercitazioni
 
-| Procedura dettagliata | Descrizione |
+| Procedura dettagliata | DESCRIZIONE |
 | --- | --- |
 | [Come utilizzare Ricerca di Azure con D3.js per creare visualizzazioni di dati interattivi](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/) |Post di blog e codice di esempio che illustra come aggiungere funzionalità di ricerca visiva all'app personalizzata. |
 | [Introduzione a Ricerca di Azure in NodeJS](search-get-started-nodejs.md) |Acquisire familiarità con la ricerca di Azure in NodeJS. |

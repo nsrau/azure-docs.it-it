@@ -67,7 +67,7 @@ Dopo aver selezionato la soluzione contenitore, verrà visualizzato il riquadro 
 
 ![](media/container-service-monitoring-oms/image8.png)
 
-### <a name="azure-portal"></a>portale di Azure 
+### <a name="azure-portal"></a>Portale di Azure 
 
 Accedere al portale di Azure all'indirizzo <https://portal.microsoft.com/>. Passare a **Marketplace**, selezionare **Monitoraggio + gestione** e fare clic su **Visualizza tutto**. Dopodiché, digitare `containers` nella ricerca per visualizzare "contenitori" nei risultati. Selezionare **Contenitori** e fare clic su **Crea**.
 

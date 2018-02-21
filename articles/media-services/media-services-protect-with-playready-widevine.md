@@ -34,9 +34,9 @@ ms.lasthandoff: 01/10/2018
 
 ## <a name="overview"></a>Panoramica
 
- È possibile usare Servizi multimediali per distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con [PlayReady DRM (Digital Rights Management)](https://www.microsoft.com/playready/overview/). È anche possibile distribuire flussi DASH crittografati con licenze Widevine DRM. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC). È possibile usare [Media Services SDK per .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partire dalla versione 3.5.1) o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine.
+ È possibile usare Servizi multimediali per distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con [PlayReady DRM (Digital Rights Management)](https://www.microsoft.com/playready/overview/). È anche possibile distribuire flussi DASH crittografati con licenze Widevine DRM. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC). È possibile usare [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) a partire dalla versione 3.5.1 o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine.
 
-Servizi multimediali rende disponibili servizi per la distribuzione di licenze PlayReady e Widevine DRM. Servizi multimediali fornisce anche API che è possibile usare per configurare i diritti e le restrizioni che il runtime di PlayReady o Widevine DRM deve applicare quando un utente riproduce contenuto protetto. Quando un utente richiede contenuto protetto tramite DRM, l'applicazione lettore richiede una licenza dal servizio licenze di Servizi multimediali. Se l'applicazione lettore viene autorizzata, il servizio licenze di Servizi multimediali rilascia una licenza per il lettore. Una licenza PlayReady o Widevine contiene la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
+Servizi multimediali rende disponibili servizi per la distribuzione di licenze DRM Widevine e PlayReady. Servizi multimediali fornisce anche API che è possibile usare per configurare i diritti e le restrizioni che il runtime di PlayReady o Widevine DRM deve applicare quando un utente riproduce contenuto protetto. Quando un utente richiede contenuto protetto tramite DRM, l'applicazione lettore richiede una licenza dal servizio licenze di Servizi multimediali. Se l'applicazione lettore viene autorizzata, il servizio licenze di Servizi multimediali rilascia una licenza per il lettore. Una licenza PlayReady o Widevine contiene la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
 
 Per distribuire le licenze Widevine, è anche possibile ricorrere ai partner di Servizi multimediali seguenti: 
 
@@ -114,9 +114,9 @@ Servizi multimediali supporta più modalità di autenticazione degli utenti che 
 Per altre informazioni, vedere [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
 ## <a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione degli asset
-Configurare i criteri di distribuzione degli asset. La configurazione dei criteri di distribuzione degli asset include:
+Configurare i criteri di distribuzione dell'asset. La configurazione dei criteri di distribuzione degli asset include:
 
-* URL di acquisizione della licenza DRM.
+* L'URL di acquisizione della licenza DRM.
 * Protocollo di recapito degli asset (ad esempio, MPEG-DASH, HLS, Smooth Streaming o tutti).
 * Tipo di crittografia dinamica (in questo caso, crittografia comune).
 

@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: maheshu
 ms.openlocfilehash: bd79644c6a13ccaab8eb7e14131465cc7c3165d3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -90,7 +90,7 @@ In precedenza è stato effettuato il provisioning di una macchina virtuale Windo
 >
 >
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 È stato configurato il proxy di applicazione di Azure AD ed è stato integrato con il dominio gestito di Azure AD Domain Services.
 
 * **Migrare applicazioni in macchine virtuali di Azure:** è possibile trasferire in modalità lift-and-shift le applicazioni da server locali in macchine virtuali di Azure aggiunte al dominio gestito. Questo permette di eliminare i costi di infrastruttura legati all'esecuzione di server locali.

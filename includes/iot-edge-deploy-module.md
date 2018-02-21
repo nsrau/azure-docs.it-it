@@ -1,7 +1,7 @@
 Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire i moduli nei dispositivi IoT Edge dal cloud. Un modulo di IoT Edge è un pacchetto eseguibile implementato come contenitore. In questa sezione si distribuisce un modulo che genera dati di telemetria per il dispositivo simulato. 
 
 1. Nel portale di Azure passare all'hub IoT.
-1. Passare a **IoT Edge (preview)** (IoT Edge - anteprima) e selezionare il dispositivo di IoT Edge.
+1. Passare a **IoT Edge (preview)** (IoT Edge - anteprima) e selezionare il dispositivo IoT Edge.
 1. Selezionare **Set Modules** (Configura i moduli).
 1. Selezionare **Add IoT Edge Module** (Aggiungi il modulo di IoT Edge).
 1. Nel campo **Nome** immettere `tempSensor`. 

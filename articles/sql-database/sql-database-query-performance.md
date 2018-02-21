@@ -31,7 +31,7 @@ La gestione e l'ottimizzazione delle prestazioni dei database relazionali è un'
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Per Informazioni dettagliate sulle prestazioni delle query è necessario che l' [archivio query](https://msdn.microsoft.com/library/dn817826.aspx) sia attivo nel database. Se l'archivio query non è in esecuzione, il portale richiede di attivarlo.
 
 ## <a name="permissions"></a>Autorizzazioni
@@ -62,7 +62,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com) :
 
 1. Passare a un database SQL e fare clic su **Tutte le impostazioni** > **Supporto e risoluzione dei problemi** > **Informazioni dettagliate prestazioni query**. 
    
-    ![Informazioni dettagliate sulle prestazioni delle query][1]
+    ![Informazioni dettagliate prestazioni query][1]
    
     Verrà aperta la visualizzazione relativa alle query principali e verrà mostrato l'elenco delle query principali a livello di utilizzo di CPU.
 2. Per informazioni dettagliate, fare clic nei vari punti del grafico.<br>La prima riga visualizza la percentuale di uso di DTU complessiva per il database, mentre le barre visualizzano la percentuale di CPU usata dalle query selezionate durante l'intervallo selezionato (ad esempio, se si seleziona **Settimana precedente** ogni barra rappresenta un giorno).
@@ -86,7 +86,7 @@ Eseguire le operazioni seguenti nel [portale](http://portal.azure.com) :
    * Numero di query.
    * Funzione di aggregazione.
      
-     ![Impostazioni](./media/sql-database-query-performance/custom-tab.png)
+     ![Scheda Impostazioni](./media/sql-database-query-performance/custom-tab.png)
 
 ## <a name="viewing-individual-query-details"></a>Visualizzazione dei dettagli delle singole query
 Per visualizzare i dettagli relativi alle query:
@@ -206,7 +206,7 @@ L'applicazione di queste impostazioni porterà l'archivio query a raccogliere nu
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Query Performance Insight semplifica la comprensione dell'impatto del carico di lavoro della query e la relativa correlazione all'utilizzo delle risorse del database. Questa funzionalità consente di ottenere informazioni sulle query principali a livello di utilizzo di risorse e di identificare facilmente le query da correggere prima che si verifichino problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi

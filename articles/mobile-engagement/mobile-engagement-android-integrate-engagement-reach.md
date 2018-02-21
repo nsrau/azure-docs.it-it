@@ -127,7 +127,7 @@ Se si vuole che l'applicazione sia in grado di ricevere push di dati del servizi
               </intent-filter>
             </receiver>
 
-Sarà quindi possibile eseguire l'override dei callback `onDataPushStringReceived` e `onDataPushBase64Received`. Di seguito è fornito un esempio:
+Sarà quindi possibile eseguire l'override dei callback `onDataPushStringReceived` e `onDataPushBase64Received`. Di seguito è fornito un esempio: 
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -415,7 +415,7 @@ Per apportare modifiche, è necessario ridefinire il metodo `EngagementDefaultNo
 ##### <a name="system-notifications"></a>Notifiche di sistema
 L'estensione di `EngagementDefaultNotifier` permette di eseguire l'override di `onNotificationPrepared` per modificare la notifica preparata dall'implementazione predefinita.
 
-ad esempio:
+Ad esempio: 
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)

@@ -25,7 +25,7 @@ Questo articolo elenca le proprietà che possono essere ottimizzate per ottenere
 
 ## <a name="performance-related-properties"></a>Proprietà correlate alle prestazioni
 
-| Proprietà            | Impostazione predefinita | Descrizione |
+| Proprietà            | Predefinito | DESCRIZIONE |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Questo parametro consente di scegliere il numero di thread paralleli per il caricamento o il download di ogni file. Questo valore rappresenta il numero massimo di thread che può essere allocato per ogni file, ma è possibile ottenere meno thread a seconda dello scenario (ad esempio, se si sta caricando un file da 1 KB, si ottiene un thread anche se si chiedono 20 thread).  |
 | ConcurrentFileCount | 10      | Questo parametro viene usato specificamente per il caricamento e il download delle cartelle. Questo parametro determina il numero di file che possono essere caricati o scaricati contemporaneamente. Questo valore rappresenta il numero massimo di file che possono essere caricati o scaricati contemporaneamente in una sola volta, ma è possibile ottenere un valore inferiore di concorrenza a seconda dello scenario (ad esempio, se si caricano due file, si ottiene il caricamento di due file contemporaneamente anche se ne vengono richiesti 15). |

@@ -16,7 +16,7 @@ ms.date: 11/29/2017
 ms.author: anoopkv
 ms.openlocfilehash: b99f0a2ff2521438bf543b010f688b13ad19f94c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -33,7 +33,7 @@ In questo articolo viene descritto un esempio di come è possibile usare System 
 > [!NOTE]
 > In questo articolo si usa System Center Configuration Manager 2012 R2 per illustrare l'attività di distribuzione. È anche possibile automatizzare l'installazione del servizio Mobility tramite [Automazione di Azure e la configurazione dello stato desiderato](site-recovery-automate-mobility-service-install.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. Uno strumento di distribuzione software come Configuration Manager già distribuito nell'ambiente.
   Creare due [Raccolte dispositivi](https://technet.microsoft.com/library/gg682169.aspx), una per tutti i **server Windows** e una per tutti i **server Linux** da proteggere con Site Recovery.
 3. Un server di configurazione già registrato con Site Recovery.
@@ -238,7 +238,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
 6. Copiare i file seguenti nella cartella **MobSvcLinux** nella condivisione di rete:
-   * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz
+   * Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz
    * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
    * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz

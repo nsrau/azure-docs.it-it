@@ -30,7 +30,7 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
@@ -58,7 +58,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
     * **Starter**
     * **Illimitato**   
-10. Selezionare **Crea**.
+10. Selezionare **Create**.
 
 ### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Testare la nuova API di Gestione API nel portale amministrativo
 

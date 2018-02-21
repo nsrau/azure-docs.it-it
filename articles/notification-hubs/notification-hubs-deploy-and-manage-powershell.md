@@ -31,7 +31,7 @@ Se si desidera anche creare un nuovo spazio dei nomi per l'hub di notifica, vede
 
 La gestione degli hub di notifica non è supportata direttamente tramite i cmdlet inclusi con Azure PowerShell. L'approccio migliore da PowerShell consiste nel fare riferimento all'assembly Microsoft.Azure.NotificationHubs.dll. L'assembly viene distribuito con il [pacchetto NuGet degli hub di notifica di Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * Una sottoscrizione di Azure. Azure è una piattaforma basata su sottoscrizione. Per altre informazioni su come ottenere una sottoscrizione, vedere [Opzioni di acquisto], [Offerte per i membri] oppure [Versione di valutazione gratuita].

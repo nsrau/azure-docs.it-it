@@ -27,7 +27,7 @@ La funzione finestra di progettazione Web di Azure Analysis Services (anteprima)
 
 Tenere presente che la finestra di progettazione Web è in versione di **anteprima**. Anche se vengono aggiunte continuamente nuove funzionalità, nell'anteprima le funzionalità sono limitate. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un server di Azure Analysis Services, livello Standard o Developer. I nuovi modelli creati usando la finestra di progettazione Web sono di tipo DirectQuery e sono supportati solo da questi livelli.
 - Un database SQL di Azure, Azure SQL Data Warehouse o un file di Power BI Desktop (con estensione pbix) come origine dati. I nuovi modelli creati a partire da file di Power BI Desktop supportano origini dati di database SQL di Azure, Azure SQL Data Warehouse, Oracle e Teradata.

@@ -46,7 +46,7 @@ Poiché la 0.6.22 non è una delle versioni disponibili nell'ambiente host, verr
 Se si ospita l'applicazione in un sito Web, è possibile impostare la variabile di ambiente **WEBSITE_NODE_DEFAULT_VERSION** sulla versione desiderata.
 
 ## <a name="versioning-cloud-services-with-powershell"></a>Controllo delle versioni dei servizi cloud con PowerShell
-Se l'applicazione è ospitata in un servizio cloud e si sta distribuendo l'applicazione utilizzando Azure PowerShell, è possibile sostituire la versione predefinita di Node.js utilizzando il cmdlet di PowerShell **Set-AzureServiceProjectRole** . Ad esempio:
+Se l'applicazione è ospitata in un servizio cloud e si sta distribuendo l'applicazione utilizzando Azure PowerShell, è possibile sostituire la versione predefinita di Node.js utilizzando il cmdlet di PowerShell **Set-AzureServiceProjectRole** . Ad esempio: 
 
     Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 

@@ -43,7 +43,7 @@ La sezione della fattura relativa alle informazioni sull'account, nella parte su
 
 ![Sezione della fattura relativa alle informazioni sull'account](./media/billing-understand-your-invoice/1.png)
 
-| Termine | Descrizione |
+| Termine | DESCRIZIONE |
 | --- | --- |
 | Numero d'ordine d'acquisto |Numero d'ordine d'acquisto, facoltativo, assegnato dall'utente per il monitoraggio |
 | N. fattura |Numero di fattura univoco, generato automaticamente da Microsoft, usato a scopo di monitoraggio |
@@ -64,7 +64,7 @@ Il nome della sottoscrizione ("Production Storage") è il nome della sottoscrizi
 #### <a name="understand-the-previous-charges"></a>Comprendere gli addebiti precedenti
 La sezione della fattura relativa a saldo precedente, pagamenti e saldo inevaso riepiloga le transazioni avvenute dall'ultimo periodo di fatturazione.
 
-| Termine | Descrizione |
+| Termine | DESCRIZIONE |
 | --- | --- |
 | Saldo precedente |Importo totale dovuto dall'ultimo periodo di fatturazione |
 | Pagamenti |Pagamenti e crediti totali applicati all'ultimo periodo di fatturazione |
@@ -73,7 +73,7 @@ La sezione della fattura relativa a saldo precedente, pagamenti e saldo inevaso 
 #### <a name="understand-the-current-charges"></a>Comprendere gli addebiti attuali
 La sezione Addebiti correnti della fattura riporta informazioni dettagliate sugli addebiti mensili per il periodo di fatturazione corrente.
 
-| Termine | Descrizione |
+| Termine | DESCRIZIONE |
 | --- | --- |
 | Addebiti per utilizzo |Gli addebiti per utilizzo sono gli addebiti mensili totali per una sottoscrizione per il periodo di fatturazione corrente|
 | Sconti |Sconti sui servizi applicati al periodo di fatturazione corrente|
@@ -83,7 +83,7 @@ La sezione Addebiti correnti della fattura riporta informazioni dettagliate sugl
 
 La tabella seguente descrive le istruzioni "venduto a" e di pagamento riportate nella seconda pagina della fattura.
 
-| Termine |Descrizione |
+| Termine |DESCRIZIONE |
 | --- | --- |
 | Venduto a |Indirizzo del profilo nell'account. <br/><br/>Se è necessario cambiare l'indirizzo, vedere [Modificare le informazioni sul profilo dell'account di Azure, ad esempio indirizzo di posta elettronica, indirizzo e numero di telefono di contatto](billing-how-to-change-azure-account-profile.md).|
 | Istruzioni per il pagamento |Istruzioni per l'esecuzione del pagamento in base al metodo di pagamento, ad esempio carta di credito o contro fattura. |
@@ -96,10 +96,10 @@ La sezione della fattura relativa agli addebiti per utilizzo riporta le informaz
 
 La tabella seguente descrive le intestazioni delle colonne relative agli addebiti per utilizzo presenti nella fattura.
 
-| Termine |Descrizione |
+| Termine |DESCRIZIONE |
 | --- | --- |
-| Nome |Identifica il servizio di primo livello per l'utilizzo |
-| Tipo |Definisce il tipo di servizio di Azure e può influire sulla tariffa |
+| NOME |Identifica il servizio di primo livello per l'utilizzo |
+| type |Definisce il tipo di servizio di Azure e può influire sulla tariffa |
 | Risorsa |Identifica l'unità di misura del contatore utilizzato |
 | Region |Identifica la posizione del centro dati per i servizi il cui prezzo dipende dalla posizione del centro dati stesso |
 | Consumato |La quantità riportata dal contatore utilizzata durante il periodo di fatturazione |
@@ -113,5 +113,5 @@ La tabella seguente descrive le intestazioni delle colonne relative agli addebit
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Come posso assicurarmi che gli addebiti nella fattura siano corretti?
 Se nella fattura è presente un addebito su cui si vogliono ricevere altre informazioni, vedere [Comprendere la fattura per Microsoft Azure](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-support"></a>Serve aiuto? Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

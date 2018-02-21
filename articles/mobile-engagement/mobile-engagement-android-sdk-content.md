@@ -35,7 +35,7 @@ Questo documento elenca e illustra il contenuto dell'archivio SDK.
 > 
 > 
 
-`src`
+`src` 
 
 > Codice sorgente di Engagement SDK.
 > 

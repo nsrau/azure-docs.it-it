@@ -50,7 +50,7 @@ Se il peering Microsoft non è stato creato, consultare uno qualsiasi dei seguen
 
 Verificare che il peering Microsoft sia abilitato e che i prefissi pubblici annunciati si trovino nello stato configurato.
 
-  * [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)
+  * [Azure portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
   * [Interfaccia della riga di comando di Azure](howto-routing-cli.md#getmsft)
 

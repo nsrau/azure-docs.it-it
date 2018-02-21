@@ -38,46 +38,46 @@ La tabella seguente descrive le eccezioni che Media Services SDK for .NET gestis
 | Eccezione | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Per altre informazioni, vedere la sezione [Codici di stato di WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus). |Sì |Sì |Sì |Sì |
-| DataServiceClientException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sì |Sì |Sì |
-| DataServiceQueryException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sì |Sì |Sì |
-| DataServiceRequestException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Sì |Sì |Sì |
-| DataServiceTransportException |No |No |Sì |Sì |
-| TimeoutException |Sì |Sì |Sì |No |
+| DataServiceClientException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No  |Sì |Sì |Sì |
+| DataServiceQueryException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No  |Sì |Sì |Sì |
+| DataServiceRequestException<br/> Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No  |Sì |Sì |Sì |
+| DataServiceTransportException |No  |No  |Sì |Sì |
+| TimeoutException |Sì |Sì |Sì |No  |
 | SocketException |Sì |Sì |Sì |Sì |
-| StorageException |No |Sì |No |No |
-| IOException |No |Sì |No |No |
+| StorageException |No  |Sì |No  |No  |
+| IOException |No  |Sì |No  |No  |
 
 ### <a name="WebExceptionStatus"></a> Codici di stato di WebException
 La tabella seguente mostra i codici di errore WebException per cui viene implementata la logica di ripetizione dei tentativi. L'enumerazione [WebExceptionStatus](http://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definisce i codici di stato.  
 
-| Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
+| Status | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
 | ConnectFailure |Sì |Sì |Sì |Sì |
 | NameResolutionFailure |Sì |Sì |Sì |Sì |
 | ProxyNameResolutionFailure |Sì |Sì |Sì |Sì |
 | SendFailure |Sì |Sì |Sì |Sì |
-| PipelineFailure |Sì |Sì |Sì |No |
-| ConnectionClosed |Sì |Sì |Sì |No |
-| KeepAliveFailure |Sì |Sì |Sì |No |
-| UnknownError |Sì |Sì |Sì |No |
-| ReceiveFailure |Sì |Sì |Sì |No |
-| RequestCanceled |Sì |Sì |Sì |No |
-| Timeout |Sì |Sì |Sì |No |
+| PipelineFailure |Sì |Sì |Sì |No  |
+| ConnectionClosed |Sì |Sì |Sì |No  |
+| KeepAliveFailure |Sì |Sì |Sì |No  |
+| UnknownError |Sì |Sì |Sì |No  |
+| ReceiveFailure |Sì |Sì |Sì |No  |
+| RequestCanceled |Sì |Sì |Sì |No  |
+| Timeout |Sì |Sì |Sì |No  |
 | ProtocolError <br/>La ripetizione dei tentativi in ProtocolError viene controllata mediante la gestione del codice di stato HTTP. Per altre informazioni, vedere [Codici di stato dell'errore HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Sì |Sì |Sì |Sì |
 
 ### <a name="HTTPStatusCode"></a> Codici di stato dell'errore HTTP
 Quando le operazioni di query e salvataggio di modifiche generano DataServiceClientException, DataServiceQueryException o DataServiceQueryException, nella proprietà StatusCode viene restituito il codice di stato dell'errore HTTP.  La tabella seguente mostra i codici di errore per cui viene implementata la logica di ripetizione dei tentativi.  
 
-| Stato | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
+| Status | Richiesta Web | Archiviazione | Query | Salvataggio di modifiche |
 | --- | --- | --- | --- | --- |
-| 401 |No |Sì |No |No |
-| 403 |No |Sì<br/>Gestione della ripetizione dei tentativi con attese più lunghe. |No |No |
+| 401 |No  |Sì |No  |No  |
+| 403 |No  |Sì<br/>Gestione della ripetizione dei tentativi con attese più lunghe. |No  |No  |
 | 408 |Sì |Sì |Sì |Sì |
 | 429 |Sì |Sì |Sì |Sì |
-| 500 |Sì |Sì |Sì |No |
-| 502 |Sì |Sì |Sì |No |
+| 500 |Sì |Sì |Sì |No  |
+| 502 |Sì |Sì |Sì |No  |
 | 503 |Sì |Sì |Sì |Sì |
-| 504 |Sì |Sì |Sì |No |
+| 504 |Sì |Sì |Sì |No  |
 
 Se si vuole esaminare l'implementazione effettiva della logica di ripetizione dei tentativi di Media Services SDK for .NET, vedere [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 

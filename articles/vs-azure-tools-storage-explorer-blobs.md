@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 [Archiviazione BLOB di Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS.
 L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer (anteprima) per l'utilizzo di contenitori BLOB e BLOB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
 * [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com)

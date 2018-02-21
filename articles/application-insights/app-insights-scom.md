@@ -73,7 +73,7 @@ Nel computer in cui è in esecuzione Operations Manager seguire questa procedura
      ![Nella scheda Impostazioni di Application Insights fare clic su 'accedi' e fornire le credenziali dell'account Microsoft per Azure. Quindi scegliere una sottoscrizione, gruppo di risorse e una risorse.](./media/app-insights-scom/060.png)
 3. Completare la procedura guidata.
    
-    ![Fare clic su Crea](./media/app-insights-scom/070.png)
+    ![Click Create](./media/app-insights-scom/070.png)
 
 Ripetere questa procedura per ogni app da monitorare.
 

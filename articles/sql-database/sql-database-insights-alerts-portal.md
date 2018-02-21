@@ -39,7 +39,7 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
 
-* [Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [interfaccia della riga di comando](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)

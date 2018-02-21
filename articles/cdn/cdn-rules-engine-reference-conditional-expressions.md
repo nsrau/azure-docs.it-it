@@ -25,7 +25,7 @@ Questo argomento offre descrizioni dettagliate delle espressioni condizionali di
 
 La prima parte di una regola è l'espressione condizionale.
 
-Espressione condizionale | Descrizione
+Espressione condizionale | DESCRIZIONE
 -----------------------|-------------
 IF | Un'espressione IF è sempre una parte della prima istruzione in una regola. Come tutte le altre espressioni condizionali, l'istruzione IF deve essere associata a una corrispondenza. Se non sono definite altre espressioni condizionali, questa corrispondenza determina il criterio che deve essere soddisfatto prima che sia possibile applicare un set di funzionalità a una richiesta.
 AND IF | Un'espressione AND IF può essere aggiunta solo dopo i tipi di espressioni condizionali seguenti: IF e AND IF. Indica che esiste un'altra condizione che deve essere soddisfatta per l'istruzione IF iniziale.

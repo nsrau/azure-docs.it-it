@@ -16,7 +16,7 @@ Per creare uno spazio dei nomi:
 ### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
 Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia associata di chiavi primaria e secondaria, ognuna delle quali concede il controllo completo su tutti gli aspetti dello spazio dei nomi. Per informazioni su come creare altre regole con diritti più limitati per mittenti e ricevitori normali, vedere [Autenticazione e autorizzazione del bus di servizio](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). Per copiare la regola iniziale seguire questa procedura: 
 
-1.  Fare clic su **tutte le risorse**, quindi fare clic sul nome di spazio dei nomi appena creato.
+1.  Fare clic su **Tutte le risorse**, quindi sul nome dello spazio dei nomi appena creato.
 2. Nella finestra dello spazio dei nomi fare clic su **Criteri di accesso condiviso**.
 3. Nella schermata **Criteri di accesso condiviso** fare clic su **RootManageSharedAccessKey**.
    

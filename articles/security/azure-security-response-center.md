@@ -1,5 +1,5 @@
 ---
-title: Microsoft Security Response Center | Microsoft Docs
+title: Microsoft Security Response Center | Documentazione Microsoft
 description: L'articolo fornisce un elenco completo di risorse di Microsoft Security Response Center (MSRC) che possono essere usate per ottenere altre informazioni sulle procedure e i suggerimenti di MSRC.
 services: security
 documentationcenter: na

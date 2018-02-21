@@ -2,7 +2,7 @@
 title: Caricare asset in Azure Media Clipper | Microsoft Docs
 description: Passaggi per caricare asset in Azure Media Clipper
 services: media-services
-keywords: clip;clip secondarie;codifica;file multimediali
+keywords: clip;clip secondaria;codifica;multimediale
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo

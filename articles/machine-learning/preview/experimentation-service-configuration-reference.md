@@ -76,7 +76,7 @@ Azure ML Workbench usa lo stesso ambiente conda senza eseguire la ricompilazione
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
 Questo file specifica il nome dell'applicazione Spark quando si invia uno script PySpark e i pacchetti Spark che devono essere installati. È possibile anche specificare qualsiasi archivo Maven pubblico e pacchetto Spark che può essere presente in questi archivi Maven.
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
 ```yaml
 configuration:

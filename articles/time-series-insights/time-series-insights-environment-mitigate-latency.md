@@ -37,7 +37,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
 1. Nel portale di Azure fare clic su **Metriche**. 
 
-   ![Metrica](media/environment-mitigate-latency/add-metrics.png)
+   ![Metriche](media/environment-mitigate-latency/add-metrics.png)
 
 2. Fare clic su **Aggiungi avviso per la metrica**.  
 
@@ -45,7 +45,7 @@ Gli avvisi consentono di diagnosticare e attenuare i problemi di latenza causati
 
 A questo punto è possibile configurare avvisi usando le metriche seguenti:
 
-|Metrica  |Descrizione  |
+|Metrica  |DESCRIZIONE  |
 |---------|---------|
 |**Ingress Received Bytes** (Byte ricevuti in ingresso)     | Numero di byte non elaborati letti dalle origini eventi. Include in genere il nome e il valore delle proprietà.  |  
 |**Ingress Received Invalid Messages** (Messaggi non validi ricevuti in ingresso)     | Numero dei messaggi non validi letti da tutte le origini eventi di Hub eventi di Azure o Hub IoT di Azure.      |
@@ -53,7 +53,7 @@ A questo punto è possibile configurare avvisi usando le metriche seguenti:
 |**Ingress Stored Bytes** (Byte archiviati in ingresso)     | Dimensioni totali degli eventi archiviati e disponibili per le query. Le dimensioni sono calcolate solo sul valore delle proprietà.        |
 |**Ingress Stored Events** (Eventi archiviati in ingresso)     |   Numero di eventi bidimensionali archiviati e disponibili per le query.      |
 
-![Latency](media/environment-mitigate-latency/latency.png)
+![Latenza](media/environment-mitigate-latency/latency.png)
 
 Una tecnica consiste nell'impostare un avviso **Ingress Stored Events** (Eventi archiviati in ingresso) per un valore maggiore o uguale a una soglia leggermente inferiore alla capacità totale dell'ambiente per un periodo di 2 ore.  Questo avviso consentirà di comprendere se si raggiunge costantemente la capacità e la probabilità di latenza è quindi elevata.  
 

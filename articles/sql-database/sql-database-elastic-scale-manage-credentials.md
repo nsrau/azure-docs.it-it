@@ -71,7 +71,7 @@ In questo esempio **smmUserConnectionString** contiene la stringa di connessione
 
 Come con le credenziali di amministratore, non usare valori nel formato "username@server". Usare invece solo "username".  Si noti inoltre che la stringa di connessione non contiene un nome di server e un nome di database, in quando la chiamata a **OpenConnectionForKey** reindirizzerà automaticamente la connessione alla partizione corretta in base alla chiave. Di conseguenza, non vengono forniti il nome del database e il nome del server. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 [Gestione di database e account di accesso in database SQL di Azure](sql-database-manage-logins.md)
 
 [Protezione del Database SQL](sql-database-security-overview.md)

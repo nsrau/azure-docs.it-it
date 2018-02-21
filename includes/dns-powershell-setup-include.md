@@ -23,7 +23,7 @@ Controllare le sottoscrizioni per l'account.
 Get-AzureRmSubscription
 ```
 
-Scegliere le sottoscrizioni ad Azure da usare.
+Scegliere quali sottoscrizioni Azure usare.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
@@ -31,7 +31,7 @@ Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una località. che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dato che tutte le risorse DNS sono globali, non regionali, la scelta del percorso del gruppo di risorse non ha alcun impatto sul servizio DNS di Azure.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Tuttavia, dato che tutte le risorse DNS sono globali, non regionali, la scelta del percorso del gruppo di risorse non ha alcun impatto sul servizio DNS di Azure.
 
 Se si usa un gruppo di risorse esistente, è possibile ignorare questo passaggio.
 

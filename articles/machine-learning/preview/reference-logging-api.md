@@ -39,7 +39,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-Per impostazione predefinita, tutte le metriche vengono inviate in maniera asincrona, in modo che l'invio non impedisca l'esecuzione del programma. Quando più metriche vengono inviate in casi limite, ciò può causare problemi di ordinamento. Un esempio è costituito da due metriche registrate contemporaneamente, ma per qualche motivo l'utente preferisce mantenere l'ordine esatto. Un altro caso si verifica quando la metrica deve essere rilevata prima di eseguire un codice che è noto per avere potenzialmente esito negativo in modo rapido. In entrambi i casi, la soluzione consiste nell’_attendere_ fino a quando la metrica non viene registrata completamente prima di procedere:
+Per impostazione predefinita, tutte le metriche vengono inviate in maniera asincrona, in modo che l'invio non impedisca l'esecuzione del programma. Quando più metriche vengono inviate in casi limite, ciò può causare problemi di ordinamento. Un esempio è costituito da due metriche registrate contemporaneamente, ma per qualche motivo l'utente preferisce mantenere l'ordine esatto. Un altro caso si verifica quando la metrica deve essere rilevata prima di eseguire un codice che è noto per fallire e rispondere potenzialmente immediatamente agli errori. In entrambi i casi, la soluzione consiste nell’_attendere_ fino a quando la metrica non viene registrata completamente prima di procedere:
 
 ```python
 # blocking call

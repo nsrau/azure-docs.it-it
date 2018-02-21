@@ -37,7 +37,7 @@ Il servizio di inoltro di Azure include due funzionalità.
 
 Sia le connessioni ibride che gli inoltri WCF consentono la connessione sicura ad asset presenti all'interno di una rete aziendale. L'uso dell'una o dell'altra funzionalità dipende dalle specifiche esigenze, come illustrato nella tabella seguente:
 
-|  | Inoltro WCF | Connessioni ibride |
+|  | Inoltro WCF | connessioni ibride |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
@@ -46,7 +46,7 @@ Sia le connessioni ibride che gli inoltri WCF consentono la connessione sicura a
 | **Protocollo aperto basato su standard** | |x |
 | **Più modelli di programmazione RPC** | |x |
 
-## <a name="hybrid-connections"></a>Connessioni ibride
+## <a name="hybrid-connections"></a>connessioni ibride
 
 La funzionalità [Connessioni ibride del servizio di inoltro di Azure](relay-hybrid-connections-protocol.md) è un'evoluzione sicura basata su protocolli aperti delle funzionalità di inoltro esistenti e può essere implementata in qualsiasi piattaforma e linguaggio con funzionalità WebSocket di base. Questo include esplicitamente l'API WebSocket dei comuni Web browser. La funzionalità Connessioni ibride è basata su HTTP e WebSocket.
 

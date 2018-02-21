@@ -29,7 +29,7 @@ Un **responsabile di progetto** gestisce le attività quotidiane dei singoli dat
 
 Questo argomento illustra attualmente le attività 1, 2 e 6 del flusso di lavoro per i responsabili dei progetti.
 
->[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente per il team TDSP per un progetto usando Visual Studio Team Services (VSTS). Viene specificato come eseguire queste attività con VSTS perché questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, ma sarà diverso il modo in cui queste attività vengono completate.
+>[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente per il team TDSP per un progetto usando Visual Studio Team Services (VSTS). Viene specificato come eseguire queste attività con VSTS dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, Sarà tuttavia diverso il modo in cui queste attività vengono completate.
 
 
 ## <a name="repositories-and-directories"></a>Repository e directory
@@ -42,7 +42,7 @@ Questa esercitazione usa nomi abbreviati per i repository e le directory. Questi
 - **D5**: la directory locale clonata da R5.
 
 
-## <a name="0-prerequisites"></a>0. Prerequisiti
+## <a name="0-prerequisites"></a>0. prerequisiti
 
 I prerequisiti vengono soddisfatti completando le attività assegnate al responsabile del gruppo delineate in [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md) e al responsabile del team delineate in [Team lead tasks for a data science team](team-lead-tasks.md) (Attività del responsabile del team per un team di data science). 
 

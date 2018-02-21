@@ -20,7 +20,7 @@ Il ridimensionamento automatico può essere abilitato quando si crea il set di s
 
 ![Abilitare il ridimensionamento automatico](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 
 La funzionalità di ridimensionamento automatico di Monitoraggio di Azure consente di aumentare o ridurre le prestazioni delle VM in esecuzione in base a [metriche](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Per impostazione predefinita, le VM offrono metriche a livello di host di base per l'utilizzo di CPU, rete e dischi. Quando si configura la raccolta di dati di diagnostica usando l'estensione di diagnostica, diventano disponibili altri contatori delle prestazioni del sistema operativo guest relativi a disco, CPU e memoria.
 

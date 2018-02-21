@@ -6,7 +6,7 @@ A seconda dell'ambiente e delle scelte effettuate, lo script può creare tutta l
 
 Per informazioni generali sulla pianificazione di un cluster HPC Pack, vedere la [valutazione e pianificazione del prodotto](https://technet.microsoft.com/library/jj899596.aspx) e l'[introduzione](https://technet.microsoft.com/library/jj899590.aspx) nella libreria TechNet per HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Sottoscrizione di Azure**: è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. I limiti della sottoscrizione riguardano il numero e il tipo di nodi del cluster che è possibile distribuire. Per informazioni, vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../articles/azure-subscription-service-limits.md).
 * **Computer client Windows in cui è stato installato e configurato Azure PowerShell 0.8.10 o versioni successive**. Vedere [Introduzione ad Azure PowerShell](/powershell/azureps-cmdlets-docs) per le istruzioni di installazione e le operazioni per la connessione alla sottoscrizione di Azure.
 * **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Controllare la versione dello script eseguendolo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione 4.5.2 dello script.
@@ -48,7 +48,7 @@ L'esempio seguente crea un cluster HPC Pack usando il file di configurazione *My
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 
-### <a name="additional-considerations"></a>Considerazione aggiuntive
+### <a name="additional-considerations"></a>Ulteriori considerazioni
 * Lo script può facoltativamente consentire l'invio di processi tramite il portale Web di HPC Pack o l'API REST HPC Pack.
 * Se si vuole installare altro software o configurare altre impostazioni, lo script può facoltativamente eseguire script di preconfigurazione e post-configurazione personalizzati nel nodo head.
 

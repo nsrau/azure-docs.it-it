@@ -31,7 +31,7 @@ Se non si ha ancora un [account Microsoft, è possibile ottenerne uno ora](http:
 
 Dopo aver ottenuto una sottoscrizione, accedere ad Application Insights all'indirizzo [http://portal.azure.com](https://portal.azure.com) usando il proprio Live ID.
 
-## <a name="create-an-application-insights-resource"></a>Creare una risorsa Application Insights
+## <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 In [portal.azure.com](https://portal.azure.com)aggiungere una nuova risorsa di Application Insights:
 
 ![Fare clic su Nuovo, Application Insights](./media/app-insights-create-new-resource/01-new.png)

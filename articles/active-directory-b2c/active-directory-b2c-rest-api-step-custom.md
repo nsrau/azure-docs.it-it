@@ -16,7 +16,7 @@ ms.date: 04/24/2017
 ms.author: joroja
 ms.openlocfilehash: 3e4f0bccf02c0332663a746d4ed8e5234c51f54e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -42,7 +42,7 @@ Lo scenario è che quando un utente esegue la modifica di un profilo, si desider
 2. Ottenere la città in cui tale utente è registrato.
 3. Restituire tale attributo all'applicazione come un'attestazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un tenant di Azure AD B2C configurato per completare una procedura di iscrizione/accesso di un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 - Un endpoint API REST con il quale interagire. Questa procedura dettagliata usa come esempio un webhook di app per le funzioni di Azure molto semplice.

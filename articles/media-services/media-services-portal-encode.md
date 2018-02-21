@@ -47,7 +47,7 @@ Per codificare il contenuto tramite Media Encoder Standard:
    Per una gestione più semplice delle risorse è possibile modificare il nome dell'asset di output e il nome del processo.
    
    ![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

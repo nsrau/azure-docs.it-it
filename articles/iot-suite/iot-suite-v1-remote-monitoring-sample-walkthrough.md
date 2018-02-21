@@ -45,7 +45,7 @@ Nella soluzione preconfigurata il dispositivo simulato rappresenta un dispositiv
 
 Ogni dispositivo simulato può inviare i messaggi seguenti all'hub IoT:
 
-| Message | Descrizione |
+| Message | DESCRIZIONE |
 | --- | --- |
 | Startup |Quando il dispositivo viene avviato, invia al back-end un messaggio di **informazioni sul dispositivo** contenente informazioni su se stesso. I dati includono l'ID dispositivo e un elenco dei comandi e dei metodi supportati dal dispositivo. |
 | Presenza |Un dispositivo invia periodicamente un messaggio di **presenza** per segnalare se il dispositivo può rilevare la presenza di un sensore. |
@@ -92,7 +92,7 @@ Nel dashboard della soluzione è possibile usare le *proprietà desiderate* per 
 
 I dispositivi simulati possono gestire i [metodi diretti][lnk-direct-methods] seguenti richiamati dal dashboard della soluzione tramite l'hub IoT:
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 | --- | --- |
 | InitiateFirmwareUpdate |Indica al dispositivo di eseguire un aggiornamento del firmware. |
 | Reboot |Indica al dispositivo di eseguire il riavvio. |
@@ -104,7 +104,7 @@ Alcuni metodi fanno uso delle proprietà segnalate per segnalare lo stato. Ad es
 
 I dispositivi simulati possono gestire i comandi seguenti, sotto forma di messaggi da cloud a dispositivo, inviati dal portale della soluzione tramite l'hub IoT:
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 | PingDevice |Invia un *ping* al dispositivo per verificare che sia attivo. |
 | StartTelemetry |Avvia l'invio dei dati di telemetria dal dispositivo. |
@@ -246,7 +246,7 @@ La soluzione usa un database Cosmos DB per archiviare le informazioni nei dispos
 
 Il portale della soluzione è un'app Web che viene distribuita come parte della soluzione preconfigurata. Le pagine principali nel portale della soluzione sono il dashboard e l'elenco dei dispositivi.
 
-### <a name="dashboard"></a>Dashboard
+### <a name="dashboard"></a>dashboard
 
 Questa pagina dell'app Web usa i controlli JavaScript di Power BI per visualizzare i dati di telemetria inviati dai dispositivi. Vedere in proposito il [repository PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals). La soluzione usa il processo di telemetria di Analisi di flusso di Azure per scrivere i dati di telemetria nell'archivio BLOB.
 

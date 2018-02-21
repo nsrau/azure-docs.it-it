@@ -21,7 +21,7 @@ ms.lasthandoff: 12/04/2017
 ---
 # <a name="import-an-openapi-specification"></a>Importare una specifica OpenAPI
 
-Questo articolo illustra come importare un'API back-end "Specifica OpenAPI" che si trova all'indirizzo http://conferenceapi.azurewebsites.net?format=json. Questa API back-end è fornita da Microsoft e ospitata in Azure. L'articolo illustra anche come testare l'API di Gestione API.
+Questo articolo illustra come importare un'API back-end "Specifica OpenAPI" che si trova all'indirizzo http://conferenceapi.azurewebsites.net?format=json. Questa API back-end è fornita da Microsoft e ospitata in Azure. e come testare l'API di Gestione API.
 
 In questo articolo viene spiegato come:
 
@@ -30,7 +30,7 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
@@ -45,7 +45,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
 
     ![Creare un'API](./media/api-management-get-started/create-api.png)
 
-    |Impostazione|Valore|Descrizione|
+    |Impostazione|Valore|DESCRIZIONE|
     |---|---|---|
     |**Specifica OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Fa riferimento al servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.|
     |**Nome visualizzato**|*Demo Conference API*|Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON. <br/>Questo nome viene visualizzato nel portale per sviluppatori.|
@@ -55,7 +55,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
     |**Schema URL**|*HTTPS*|Determina i protocolli da usare per l'accesso all'API. |
     |**Prodotti**|*Illimitato*| Pubblicare l'API associandola a un prodotto. Per aggiungere facoltativamente questa nuova API a un prodotto, digitare il nome del prodotto. Questo passaggio può essere ripetuto più volte per aggiungere l'API a più prodotti.<br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Unlimited**. |
 
-4. Selezionare **Crea**.
+4. Selezionare **Create**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 

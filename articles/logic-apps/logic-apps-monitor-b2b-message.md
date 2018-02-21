@@ -30,7 +30,7 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
 * Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come configurare la registrazione per l'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > Soddisfatto questo requisito, sarà disponibile un'area di lavoro in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Quando si configura la registrazione per l'account di integrazione è consigliabile usare la stessa area di lavoro di OMS. Se non si ha un'area di lavoro di OMS, vedere [come crearne una](../log-analytics/log-analytics-get-started.md).
+  > Soddisfatto questo requisito, sarà disponibile un'area di lavoro in [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Quando si configura la registrazione per l'account di integrazione è consigliabile usare la stessa area di lavoro di OMS. Se non si ha un'area di lavoro OMS, vedere [come crearne una](../log-analytics/log-analytics-get-started.md).
 
 * Un account di integrazione collegato all'app per la logica. Informazioni su [come creare un account di integrazione con un collegamento all'app per la logica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -111,7 +111,7 @@ Con Azure Log Analytics, è possibile usare in modo diverso i dati di diagnostic
 * [Archiviare i log di diagnostica di Azure in Archiviazione di Microsoft Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 * [Trasmettere i log di diagnostica di Azure a Hub eventi di Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../log-analytics/log-analytics-powerbi.md), ad esempio:
+È quindi possibile eseguire il monitoraggio in tempo reale usando i dati di telemetria e l'analisi da altri servizi, ad esempio [Analisi di flusso di Azure](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../log-analytics/log-analytics-powerbi.md), Ad esempio: 
 
 * [Trasmettere i dati da Hub eventi ad Analisi di flusso](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analizzare i dati di streaming con Analisi di flusso e creare un dashboard di analisi in tempo reale in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

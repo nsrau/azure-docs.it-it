@@ -17,7 +17,7 @@ ms.date: 07/17/2017
 ms.custom: it-pro
 ms.openlocfilehash: e5eafd4d25d2638ab5d9f904a7e0c00b36501d68
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

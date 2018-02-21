@@ -34,7 +34,7 @@ Usando i report principali da Verizon tramite il portale di gestione per i profi
 * Dati trasferiti IPv4/IPV6
 
 ## <a name="accessing-verizon-core-reports"></a>Accesso ai Report principali da Verizon
-1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
+1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
     ![Pulsante Manage (Gestisci) del profilo di rete CDN](./media/cdn-reports/cdn-manage-btn.png)
    

@@ -87,8 +87,8 @@ Esistono delle differenze tra i tipi supportati da JavaScript e dal linguaggio d
 Analisi dei flussi | JavaScript
 --- | ---
 bigint | Numero (per la precisione, JavaScript può rappresentare solo numeri interi fino a 2^53)
-DateTime | Data (JavaScript supporta solo millisecondi)
-double | Number
+Datetime | Data (JavaScript supporta solo millisecondi)
+Double | Number
 nvarchar(MAX) | string
 Record | Oggetto
 Array | Array
@@ -101,14 +101,14 @@ Ecco le conversioni da JavaScript ad Analisi di flusso:
 JavaScript | Analisi dei flussi
 --- | ---
 Number | Bigint (se il numero è arrotondato e compreso tra long.MinValue e long.MaxValue, in caso contrario è doppio)
-Date | DateTime
-String | nvarchar(MAX)
+Data | Datetime
+string | nvarchar(MAX)
 Oggetto | Record
 Array | Array
 Null, Undefined | NULL
 Qualsiasi altro tipo (ad esempio, una funzione o un errore) | Non supportato (risultati nell'errore di runtime)
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Gli errori di runtime in JavaScript sono considerati irreversibili ed esposti tramite il log attività. Per recuperare il log, nel portale di Azure passare al processo e selezionare **Log attività**.
 
 

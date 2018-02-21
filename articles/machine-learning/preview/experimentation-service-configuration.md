@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/28/2017
 ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -222,7 +222,7 @@ _**Panoramica dell'esecuzione della macchina virtuale remota per uno script di P
 HDInsight è una piattaforma comune per l'analisi dei big data che supporta Apache Spark. Workbench consente la sperimentazione sui Big Data tramite cluster HDInsight Spark. 
 
 >[!NOTE]
->Il cluster HDInsight è necessario usare Blob di Azure come archiviazione primaria. L'archiviazione in Azure Data Lake non è ancora supportata.
+>Il cluster HDInsight deve usare BLOB di Azure come risorsa di archiviazione primaria. L'archiviazione in Azure Data Lake non è ancora supportata.
 
 È possibile creare una destinazione del calcolo ed eseguire la configurazione per un cluster di HDInsight Spark usando il comando seguente:
 

@@ -39,7 +39,7 @@ Questa esercitazione illustra come caricare dati in SQL Data Warehouse mediante 
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire questa esercitazione, sono necessari:
 
 * Un database di SQL Data Warehouse.
@@ -51,7 +51,7 @@ Per eseguire questa esercitazione, sono necessari:
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Passaggio 1: Aggiungere dati di esempio all'archivio BLOB di Azure
 Per caricare dati, è necessario inserire dati di esempio in un archivio BLOB di Azure. In questo passaggio un BLOB di Archiviazione di Azure viene popolato con dati di esempio. In seguito verrà usato PolyBase per caricare i dati esempio nel database di SQL Data Warehouse.
 
-### <a name="a-prepare-a-sample-text-file"></a>A. Preparare un file di testo di esempio
+### <a name="a-prepare-a-sample-text-file"></a>R. Preparare un file di testo di esempio
 Per preparare un file di testo di esempio:
 
 1. Aprire il Blocco note e copiare le righe di dati seguenti in un nuovo file. Salvare il file nella directory temporanea locale come %temp%\DimDate2.txt.

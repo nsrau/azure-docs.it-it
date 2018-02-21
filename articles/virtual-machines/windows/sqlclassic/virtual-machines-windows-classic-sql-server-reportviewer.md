@@ -36,7 +36,7 @@ Per incorporare ReportViewer nel sito Web di Microsoft Azure, è necessario comp
 * **Configurare** l'autenticazione e l'autorizzazione
 * **Pubblicare** l'applicazione Web ASP.NET in Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Consultare la sezione "Indicazioni generali e procedure consigliate" in [SQL Server Business Intelligence in Macchine virtuali di Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]

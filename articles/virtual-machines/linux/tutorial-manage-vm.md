@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2e9324cbe7ae683a472ecc0ee93329773886f88
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure
 
@@ -93,7 +93,7 @@ exit
 
 Azure Marketplace include diverse immagini che possono essere usate per creare VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Ubuntu. In questo passaggio l'interfaccia della riga di comando di Azure viene usata per cercare nel marketplace un'immagine CentOS, che viene quindi usata per distribuire una seconda macchina virtuale.  
 
-Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image#list).
+Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
 ```azurecli-interactive 
 az vm image list --output table
@@ -150,7 +150,7 @@ La dimensioni di una macchina virtuale determinano la quantità di risorse di ca
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
 
-| Tipo                     | Dimensioni           |    Descrizione       |
+| type                     | Dimensioni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
@@ -162,7 +162,7 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 
 ### <a name="find-available-vm-sizes"></a>Trovare le dimensioni delle macchine virtuali disponibili
 
-Per visualizzare un elenco delle dimensioni delle VM disponibili in una determinata area, usare il comando [az vm list-sizes](/cli/azure/vm#list-sizes). 
+Per visualizzare un elenco delle dimensioni delle VM disponibili in una determinata area, usare il comando [az vm list-sizes](/cli/azure/vm#az_vm_list_sizes). 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -193,7 +193,7 @@ Output parziale:
 
 ### <a name="create-vm-with-specific-size"></a>Creare una macchina virtuale con dimensioni specifiche
 
-Nell'esempio precedente di creazione di una VM, non essendo state specificate le dimensioni, sono state usate le dimensioni predefinite. Le dimensioni di una VM possono essere selezionate in fase di creazione usando [az vm create](/cli/azure/vm#create) e l'argomento `--size`. 
+Nell'esempio precedente di creazione di una VM, non essendo state specificate le dimensioni, sono state usate le dimensioni predefinite. Le dimensioni di una VM possono essere selezionate in fase di creazione usando [az vm create](/cli/azure/vm#az_vm_create) e l'argomento `--size`. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,24 +206,24 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Ridimensionare una VM
 
-Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ridurre l'allocazione delle risorse. È possibile visualizzare la dimensione attuale di una macchina virtuale con [az vm show](/cli/azure/vm#show):
+Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ridurre l'allocazione delle risorse. È possibile visualizzare la dimensione attuale di una macchina virtuale con [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-Prima di ridimensionare una macchina virtuale, verificare se le dimensioni desiderate sono disponibili nel cluster di Azure corrente. Il comando [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) restituisce l'elenco di dimensioni. 
+Prima di ridimensionare una macchina virtuale, verificare se le dimensioni desiderate sono disponibili nel cluster di Azure corrente. Il comando [az vm list-vm-resize-options](/cli/azure/vm#az_vm_list_vm_resize_options) restituisce l'elenco di dimensioni. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-Se le dimensioni desiderate sono disponibili, la VM può essere ridimensionata mentre è accesa, ma durante l'operazione viene riavviata. Usare il comando [az vm resize]( /cli/azure/vm#resize) per eseguire il ridimensionamento.
+Se le dimensioni desiderate sono disponibili, la VM può essere ridimensionata mentre è accesa, ma durante l'operazione viene riavviata. Usare il comando [az vm resize]( /cli/azure/vm#az_vm_resize) per eseguire il ridimensionamento.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Se nel cluster corrente non sono disponibili le dimensioni desiderate, è necessario deallocare la VM prima di poter eseguire l'operazione di ridimensionamento. Usare il comando [az vm deallocate]( /cli/azure/vm#deallocate) per arrestare e deallocare la VM. Tenere presente che, quando la VM viene riaccesa, i dati sul disco temporaneo potrebbero essere rimossi. Anche l'indirizzo IP pubblico viene modificato a meno che non venga usato un indirizzo IP statico. 
+Se nel cluster corrente non sono disponibili le dimensioni desiderate, è necessario deallocare la VM prima di poter eseguire l'operazione di ridimensionamento. Usare il comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) per arrestare e deallocare la VM. Tenere presente che, quando la VM viene riaccesa, i dati sul disco temporaneo potrebbero essere rimossi. Anche l'indirizzo IP pubblico viene modificato a meno che non venga usato un indirizzo IP statico. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -247,11 +247,11 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="power-states"></a>Stati di alimentazione
 
-| Stato di alimentazione | Descrizione
+| Stato di alimentazione | DESCRIZIONE
 |----|----|
 | Avvio in corso | Indica che è in corso l'avvio della macchina virtuale. |
 | In esecuzione | Indica che la macchina virtuale è in esecuzione. |
-| Arresto in corso | Indica che è in corso l'arresto della macchina virtuale. | 
+| Stopping | Indica che è in corso l'arresto della macchina virtuale. | 
 | Arrestato | Indica che la macchina virtuale è stata arrestata. Alle macchine virtuali con stato arrestato continuano a essere addebitati i costi di calcolo.  |
 | Deallocazione | Indica che è in corso la deallocazione della macchina virtuale. |
 | Deallocato | Indica che la macchina virtuale è stata rimossa dall'hypervisor, ma è ancora disponibile nel piano di controllo. Alle macchine virtuali con stato deallocato non vengono addebitati i costi di calcolo. |
@@ -259,7 +259,7 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="find-power-state"></a>Trovare lo stato di alimentazione
 
-Per recuperare lo stato di una determinata VM, usare il comando [az vm get instance-view](/cli/azure/vm#get-instance-view). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
+Per recuperare lo stato di una determinata VM, usare il comando [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Assicurarsi di specificare un nome valido per una macchina virtuale e un gruppo di risorse. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

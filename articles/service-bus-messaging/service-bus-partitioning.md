@@ -53,7 +53,7 @@ Per altre informazioni sul partizionamento nel livello di messaggistica Premium,
 
 ### <a name="create-a-partitioned-entity"></a>Creare una tabella partizionata
 
-Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Come detto in precedenza, non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio:
+Sono disponibili vari modi per creare una coda o un argomento partizionato. Quando si crea la coda o l'argomento dalla propria applicazione, è possibile abilitare il partizionamento per la coda o l'argomento impostando, rispettivamente, la proprietà [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] o [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] su **true**. Queste proprietà devono essere impostate al momento della creazione della coda o dell'argomento. Come detto in precedenza, non è possibile modificare queste proprietà in una coda o in un argomento esistente. Ad esempio: 
 
 ```csharp
 // Create partitioned topic
@@ -89,7 +89,7 @@ Per concedere al bus di servizio tempo sufficiente per l'accodamento del messagg
 Tenere presente che una chiave di partizione "aggiunge" un messaggio a un frammento specifico. Se l'archivio di messaggistica contenente questo frammento non è disponibile, il bus di servizio restituisce un errore. In assenza di una chiave di partizione, il bus di servizio può scegliere un frammento diverso e l'operazione verrà completata correttamente. È quindi consigliabile non specificare una chiave di partizione, a meno che non sia necessario.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Argomenti avanzati: usare le transazioni con entità partizionate
-I messaggi inviati come parte di una transazione devono specificare una chiave di partizione. Tale chiave può essere una delle proprietà seguenti: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] o [BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Tutti i messaggi che vengono inviati come parte della stessa transazione devono specificare la stessa chiave di partizione. Se si prova a inviare un messaggio senza una chiave di partizione in una transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Se si prova a inviare più messaggi con chiavi di partizione diverse nella stessa transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Ad esempio:
+I messaggi inviati come parte di una transazione devono specificare una chiave di partizione. Tale chiave può essere una delle proprietà seguenti: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] o [BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Tutti i messaggi che vengono inviati come parte della stessa transazione devono specificare la stessa chiave di partizione. Se si prova a inviare un messaggio senza una chiave di partizione in una transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Se si prova a inviare più messaggi con chiavi di partizione diverse nella stessa transazione, il bus di servizio restituisce un'eccezione di operazione non valida. Ad esempio: 
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
@@ -108,7 +108,7 @@ Se le proprietà che fungono da chiave di partizione sono impostate, il bus di s
 ## <a name="using-sessions-with-partitioned-entities"></a>Uso delle sessioni con entità partizionate
 Per inviare un messaggio transazionale a un argomento o una coda in grado di riconoscere la sessione, per il messaggio la proprietà [BrokeredMessage.SessionId][BrokeredMessage.SessionId] deve essere impostata. Se è specificata anche la proprietà [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], quest'ultima deve avere un valore identico a quello della proprietà [SessionId][SessionId]. In caso contrario, il bus di servizio restituisce un'eccezione di operazione non valida.
 
-A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se è stato effettuato un tentativo, il bus di servizio restituirà un'eccezione di operazione non valida, ad esempio:
+A differenza delle code o degli argomenti normali (non partizionati), non è possibile usare una singola transazione per inviare più messaggi a sessioni diverse. Se è stato effettuato un tentativo, il bus di servizio restituirà un'eccezione di operazione non valida, Ad esempio: 
 
 ```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();

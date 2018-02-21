@@ -10,7 +10,7 @@ ms.topic: article
 ms.service: monitoring-and-diagnostics
 ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

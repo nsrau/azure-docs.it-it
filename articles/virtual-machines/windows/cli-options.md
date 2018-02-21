@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: nepeters
 ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -56,7 +56,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 Al termine, verrà avviata una sessione Bash precaricata con gli strumenti dell'interfaccia della riga di comando di Azure.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Esempio di interfaccia della riga di comando per macchine virtuali di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

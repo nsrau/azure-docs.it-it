@@ -31,11 +31,11 @@ Node.js SDK può monitorare automaticamente le richieste HTTP in ingresso e in u
 
 ![Grafici di monitoraggio delle prestazioni di esempio](./media/app-insights-nodejs/10-perf.png)
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
 Completare le attività seguenti per configurare il monitoraggio per un'app o un servizio.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [ottenerne una nuova gratuitamente][azure-free-offer]. Se l'organizzazione ha già una sottoscrizione di Azure, un amministratore può aggiungere l'utente alla sottoscrizione seguendo [queste istruzioni][add-aad-user].
 
@@ -49,7 +49,7 @@ Prima di iniziare, verificare di avere una sottoscrizione di Azure oppure [otten
 1. Accedere al [portale di Azure][portal].
 2. Selezionare **Nuovo** > **Strumenti di sviluppo** > **Application Insights**. La risorsa include un endpoint per la ricezione dei dati di telemetria, l'archiviazione di tali dati, dei report salvati e dei dashboard, la configurazione di regole e avvisi e altro ancora.
 
-  ![Creare una risorsa Application Insights](./media/app-insights-nodejs/03-new_appinsights_resource.png)
+  ![Creare una risorsa di Application Insights](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
 3. Nella pagina di creazione della risorsa scegliere **Applicazione Node.js** nella casella **Tipo di applicazione**. Il tipo di app determina i dashboard e i report predefiniti che vengono creati. Qualsiasi risorsa di Application Insights può raccogliere dati da qualsiasi linguaggio e piattaforma.
 

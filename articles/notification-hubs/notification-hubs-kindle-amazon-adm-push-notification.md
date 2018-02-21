@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 In questa esercitazione viene illustrato come usare Hub di notifica di Azure per inviare notifiche push a un'applicazione Kindle.
 Verrà creata un'app Kindle vuota che riceve notifiche push tramite Amazon Device Messaging (ADM).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione, è necessario disporre di:
 
 * Ottenere Android SDK (si presuppone che verrà utilizzato Eclipse) dal <a href="http://go.microsoft.com/fwlink/?LinkId=389797">sito Android</a>.

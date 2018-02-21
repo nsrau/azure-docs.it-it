@@ -17,7 +17,7 @@ ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_ste
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare le attività in questa guida, completare l'esempio disponibile in [Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) e usarlo come punto di partenza per questa esercitazione.
 
 ## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Aggiunta della libreria JspWriter al percorso della build e all'assembly di distribuzione

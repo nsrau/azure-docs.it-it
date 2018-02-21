@@ -28,7 +28,7 @@ Data factory di Azure offre un metodo completamente gestito per l'orchestrazione
 Data factory di Azure consente lo spostamento di dati tra origini locali e diversi servizi di Azure.  In generale, l'attuale integrazione con Data factory di Azure supporta lo spostamento dei dati da e verso le posizioni seguenti:
 
 * Archivio BLOB di Azure
-* Database SQL di Azure
+* database SQL di Azure
 * Server SQL locale
 * SQL Server in IaaS
 

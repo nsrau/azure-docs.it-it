@@ -35,7 +35,7 @@ In Servizi multimediali è possibile caricare i file digitali in un asset. L'ass
 
 [Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) usa l'archiviazione cloud come un'estensione della soluzione locale e organizza automaticamente i dati in livelli tra archiviazione locale e archiviazione cloud. Il dispositivo StorSimple elimina i duplicati e comprime i dati prima di inviarli al cloud, migliorando notevolmente l'efficienza dell'invio di file di grandi dimensioni nel cloud. Il servizio [gestore dati StorSimple](../storsimple/storsimple-data-manager-overview.md) include API che consentono di estrarre dati da StorSimple e presentarli come asset di Servizi multimediali di Azure.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
 1. [Creare un account Servizi multimediali](media-services-portal-create-account.md) in cui trasferire gli asset.
 2. Eseguire l'iscrizione per l'anteprima del gestore dati, come descritto nell'articolo relativo al [gestore dati StorSimple](../storsimple/storsimple-data-manager-overview.md).
@@ -44,7 +44,7 @@ In Servizi multimediali è possibile caricare i file digitali in un asset. L'ass
 
     Quando si avvia l'esecuzione del processo, viene creata una coda di archiviazione. Questa coda viene popolata con i messaggi relativi ai BLOB trasformati non appena pronti. Il nome di questa coda corrisponde a quello della definizione di processo. È possibile usare la coda per stabilire quando un asset è pronto e chiamare l'operazione di Servizi multimediali da eseguire sull'asset. Ad esempio, è possibile usare la coda per attivare una funzione di Azure contenente il codice di Servizi multimediali necessario.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Usare .Net SDK per attivare processi nel gestore dati](../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

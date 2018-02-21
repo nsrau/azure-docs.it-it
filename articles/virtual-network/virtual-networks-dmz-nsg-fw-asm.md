@@ -229,7 +229,7 @@ Modificare le variabili definite dall'utente secondo le esigenze. Eseguire lo sc
 In base alle variabili definite dall'utente, lo script consente di:
 
 1. Connettersi a una sottoscrizione di Azure
-2. Creare un nuovo account di archiviazione
+2. Creare un nuovo account di archiviazione.
 3. Creare una nuova rete virtuale e due subnet, come definito nel file di configurazione di rete.
 4. Creare 4 macchine virtuali di Windows Server.
 5. Configurare il gruppo di sicurezza di rete eseguendo queste operazioni:

@@ -18,7 +18,7 @@ ms.date: 12/20/2017
 ms.author: jgao
 ms.openlocfilehash: 1eaf55ea8e46598e261be43c646b5dbd48ac730b
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -32,7 +32,7 @@ Informazioni su come usare Azure PowerShell per eseguire processi Sqoop in HDIns
 > 
 > 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 * Workstation con Azure PowerShell.

@@ -31,7 +31,7 @@ La migrazione del contenuto dalle raccolte di aree di lavoro nel servizio Power 
 * I set di dati di cui è stato eseguito il push non possono essere scaricati e devono essere ricreati usando le API REST di Power BI per il servizio Power BI.
 * I file PBIX importati prima del 26 novembre 2016 non possono essere scaricati.
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 
 È possibile scaricare l'esempio di strumento di migrazione da [GitHub](https://github.com/Microsoft/powerbi-migration-sample). È possibile scaricare un file ZIP del repository oppure è possibile clonarlo localmente. Una volta eseguito il download, è possibile aprire *powerbi-migration-sample.sln* in Visual Studio per creare ed eseguire lo strumento di migrazione.
 
@@ -60,7 +60,7 @@ Un piano di migrazione è costituito dai metadati disponibili nelle raccolte di 
 
     ![Selezionare la sottoscrizione ad Azure](media/migrate-tool/migrate-tool-select-resource-group.png)
 
-5. Sotto l'elenco di sottoscrizioni, selezionare il**** gruppo di risorse che contiene le raccolte di aree di lavoro e scegliere **Select** (Seleziona).
+5. Sotto l'elenco di sottoscrizioni, selezionare il**gruppo di risorse** che contiene le raccolte di aree di lavoro e scegliere **Seleziona**.
 
     ![Selezionare il gruppo di risorse](media/migrate-tool/migrate-tool-select-resource-group2.png)
 
@@ -71,7 +71,7 @@ Un piano di migrazione è costituito dai metadati disponibili nelle raccolte di 
     > [!NOTE]
     > Il processo di analisi potrebbe richiedere alcuni minuti, a seconda del numero di raccolte di aree di lavoro e della quantità di contenuto presente nella raccolta di aree di lavoro.
 
-7. Al termine**** dell'analisi, verrà chiesto di salvare il piano di migrazione.
+7. Al termine**dell'analisi**, verrà chiesto di salvare il piano di migrazione.
 
 A questo punto, il piano di migrazione è stato connesso alla sottoscrizione di Azure. Leggere quanto riportato di seguito per comprendere il flusso per l'uso del piano di migrazione. Il flusso include l'analisi e la pianificazione della migrazione, il download, la creazione di gruppi e l'upload.
 

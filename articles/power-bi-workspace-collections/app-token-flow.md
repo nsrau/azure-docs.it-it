@@ -43,7 +43,7 @@ I token dell'app sono token JSON Web (JWT, JSON Web Token) firmati da una delle 
 
 Il token dell'app può contenere le attestazioni seguenti:
 
-| Attestazione | Descrizione |
+| Attestazione | DESCRIZIONE |
 | --- | --- |
 | **ver** |Versione del token dell'app. La versione corrente è 0.2.0. |
 | **aud** |Destinatario previsto per il token. Per le raccolte di aree di lavoro di Power BI usare: "https://analysis.windows.net/powerbi/api". |
@@ -99,7 +99,7 @@ Quando si usano token di incorporamento, può essere opportuno limitare l'uso de
 
 Di seguito sono riportati gli ambiti disponibili per le raccolte di aree di lavoro di Power BI.
 
-|Scope|Descrizione|
+|Scope|DESCRIZIONE|
 |---|---|
 |Dataset.Read|Concede l'autorizzazione per leggere il set di dati specificato.|
 |Dataset.Write|Concede l'autorizzazione per scrivere il set di dati specificato.|

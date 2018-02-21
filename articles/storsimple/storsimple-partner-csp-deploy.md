@@ -28,7 +28,7 @@ I partner Cloud Solution Provider (CSP) possono distribuire un array virtuale St
 
 In questo articolo viene descritto come un partner CSP può aggiungere un cliente o una nuova sottoscrizione a un cliente esistente e quindi creare un servizio per distribuire un array virtuale StorSimple in CSP.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di:
 

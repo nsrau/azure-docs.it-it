@@ -60,7 +60,7 @@ Per visualizzare le attività correnti correlate a identità e accesso, è neces
     
 Indipendentemente dal riquadro selezionato, il dashboard visualizzato è basato sulla query di ricerca log. L'unica differenza è costituita dal tipo di query e dal risultato. È comunque possibile selezionare un elemento, ad esempio un computer, e visualizzare i dati correlati. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo articolo si è appreso come monitorare identità e accesso nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

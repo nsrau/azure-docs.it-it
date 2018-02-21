@@ -16,7 +16,7 @@ ms.date: 10/29/2016
 ms.author: golive
 ms.openlocfilehash: f9957d745ed910fbdcbeeee7d9ddb24a51da141b
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

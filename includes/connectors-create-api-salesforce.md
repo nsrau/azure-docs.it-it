@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account [Salesforce](https://salesforce.com)  
 
 Prima di poter usare l'account Salesforce in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account Salesforce. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  

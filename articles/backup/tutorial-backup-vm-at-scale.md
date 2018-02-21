@@ -25,7 +25,7 @@ Quando si esegue il backup di dati in Azure, i dati vengono archiviati in una ri
 > * Applicare un criterio di backup per proteggere più macchine virtuali
 > * Attivare un processo di backup su richiesta per le macchine virtuali protette
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 

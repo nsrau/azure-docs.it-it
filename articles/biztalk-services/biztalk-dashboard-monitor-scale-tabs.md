@@ -80,7 +80,7 @@ Questa opzione ha la stessa funzione dell'opzione <strong>Crea contratti partner
 <td><strong>Chiavi di sincronizzazione</strong> nell'account di archiviazione</td>
 <td>Quando si crea un account di archiviazione, vengono create automaticamente una chiave primaria e una chiave secondaria. Queste chiavi di crittografia controllano l'accesso all'account di archiviazione. Il servizio BizTalk usa automaticamente la chiave primaria. L'opzione <strong>Chiavi di sincronizzazione</strong> consente agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.
 <br/><br/>
-Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, seguire questa procedura:
+Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, effettuare l'operazione seguente:
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
@@ -99,7 +99,7 @@ Questo processo è denominato "chiavi di rollover". Lo scopo è quello di consen
 </table>
 
 
-## <a name="dashboard"></a>Dashboard
+## <a name="dashboard"></a>dashboard
 A seconda dell'edizione di Servizi BizTalk, non tutte le opzioni elencate potrebbero essere disponibili. 
 
 Quando si seleziona il nome del servizio BizTalk, viene visualizzata la scheda Dashboard, in cui è possibile effettuare le operazioni seguenti:
@@ -148,7 +148,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 <td>Elenca l'edizione immessa al momento della creazione del servizio BizTalk.</td>
 </tr>
 <tr>
-<td><strong>Posizione</strong></td>
+<td><strong>Località</strong></td>
 <td>Visualizza l'area geografica in cui è ospitato il servizio BizTalk.</td>
 </tr>
 <tr>
@@ -202,7 +202,7 @@ Questa opzione ha la stessa funzione dell'opzione <strong>Crea contratti partner
 <td><strong>Chiavi di sincronizzazione</strong> nell'account di archiviazione</td>
 <td>Quando si crea un account di archiviazione, vengono create automaticamente una chiave primaria e una chiave secondaria. Queste chiavi di crittografia controllano l'accesso all'account di archiviazione. Il servizio BizTalk usa automaticamente la chiave primaria. L'opzione <strong>Chiavi di sincronizzazione</strong> consente agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.
 <br/><br/>
-Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, seguire questa procedura:
+Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di archiviazione nel servizio BizTalk. A tale scopo, effettuare l'operazione seguente:
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
@@ -221,7 +221,7 @@ Questo processo è denominato "chiavi di rollover". Lo scopo è quello di consen
 </table>
 
 
-## <a name="monitor"></a>Monitoraggio
+## <a name="monitor"></a>Monitorare
 Non si applica all'edizione gratuita.
 
 Quando si seleziona il nome del servizio BizTalk, la scheda Monitoraggio è disponibile e visualizza quanto indicato di seguito:

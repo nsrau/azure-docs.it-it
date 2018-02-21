@@ -14,7 +14,7 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -31,7 +31,7 @@ L'API dell'account di Gestione modelli di Azure Machine Learning implementa le o
 
 È possibile usare questa immagine per creare un servizio Web in locale o in un cluster del servizio contenitore di Azure remoto o un altro ambiente supportato da Docker di propria scelta.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Verificare di avere completato la procedura di installazione disponibile nel documento [Install and create Quickstart](quickstart-installation.md) (Avvio rapido per installare e creare).
 
 Prima di procedere, è necessario ottenere quanto segue:

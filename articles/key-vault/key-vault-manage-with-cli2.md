@@ -38,7 +38,7 @@ L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior part
 
 Per una panoramica di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione a Microsoft Azure. Se non si dispone di una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
@@ -75,13 +75,13 @@ Se invece si vuole accedere digitando in modo interattivo
 az login
 ```
 
-Se si dispone di più sottoscrizioni e se ne vuole specificare una in particolare da usare per l'insieme di credenziali delle chiavi di Azure, digitare quanto segue per visualizzare le sottoscrizioni per il proprio account:
+Se sono disponibili più sottoscrizioni e se ne vuole specificare una in particolare da usare per l'insieme di credenziali delle chiavi di Azure, digitare quanto segue per visualizzare le sottoscrizioni dell'account:
 
 ```azurecli-interactive
 az account list
 ```
 
-Quindi, per specificare la sottoscrizione da usare, digitare.
+Quindi, per specificare la sottoscrizione da usare, digitare:
 
 ```azurecli-interactive
 az account set --subscription <subscription name or ID>
@@ -121,7 +121,7 @@ Quest'operazione deve essere eseguita una volta sola per ogni sottoscrizione.
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 Usare il comando `az keyvault create` per creare un insieme di credenziali delle chiavi. Questo script ha tre parametri obbligatori: un nome del gruppo di risorse, un nome dell'insieme di credenziali delle chiavi e la località geografica.
 
-ad esempio:
+Ad esempio: 
 
 - Se si usa **ContosoKeyVault** come nome dell'insieme di credenziali
 - **ContosoResourceGroup** come nome del gruppo di risorse
@@ -189,7 +189,7 @@ Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire
 - **ID applicazione** 
 - **Chiave di autenticazione**, detta anche segreto condiviso 
 
-L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. La configurazione dell'applicazione per eseguire questa operazione dipende dall'applicazione. Per l'[applicazione di esempio per Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), il proprietario dell'applicazione imposta questi valori nel file app.config.
+L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. La configurazione dell'applicazione per eseguire questa operazione dipende dall'applicazione. Per l'[applicazione di esempio per l'insieme di credenziali delle chiavi](https://www.microsoft.com/download/details.aspx?id=45343), il proprietario dell'applicazione imposta questi valori nel file app.config.
 
 Per la procedura dettagliata per registrare un'applicazione in Azure Active Directory, vedere l'articolo [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) o [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md). Per registrare l'applicazione in Azure Active Directory:
 
@@ -306,6 +306,6 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 - Per informazioni di riferimento sull'interfaccia della riga di comando di Azure per i comandi di Key Vault, vedere [Key Vault CLI reference](/cli/azure/keyvault) (Riferimento dell'interfaccia della riga di comando di Key Vault).
 
-- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
+- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
 
 - Per informazioni su Azure Key Vault e i moduli di protezione hardware, vedere [Come generare e trasferire chiavi HSM protette per l'insieme di credenziali delle chiavi di Azure](key-vault-hsm-protected-keys.md).

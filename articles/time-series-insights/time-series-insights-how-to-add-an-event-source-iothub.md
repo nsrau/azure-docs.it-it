@@ -20,7 +20,7 @@ ms.lasthandoff: 11/22/2017
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Come aggiungere un'origine evento hub IoT a un ambiente Time Series Insights
 Questo articolo descrive come usare il portale di Azure per aggiungere all'ambiente Time Series Insights un'origine evento che legge dati da un hub IoT.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 - Creare un ambiente Time Series Insights Per altre informazioni, vedere [Creare un ambiente Azure Time Series Insights](time-series-insights-get-started.md). 
 - Creare un hub IoT. Per altre informazioni sugli hub IoT, vedere [Creare un hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md)
 - Lo hub IoT deve ricevere eventi messaggio attivi.
@@ -50,7 +50,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
    ![Dettagli hub eventi e sottoscrizione](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-   | Proprietà | Descrizione |
+   | Proprietà | DESCRIZIONE |
    | --- | --- |
    | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub IoT è stato creato.
    | Nome dell'hub IoT | Selezionare il nome dell'hub IoT.
@@ -62,12 +62,12 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 9. La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub IoT manualmente**:
 
-   | Proprietà | Descrizione |
+   | Proprietà | DESCRIZIONE |
    | --- | --- |
    | ID sottoscrizione | La sottoscrizione in cui l'hub IoT è stata creata.
    | Gruppo di risorse | Nome del gruppo di risorse in cui è stato creato questo hub IoT.
    | Nome dell'hub IoT | Il nome dell'hub IoT. Al momento della creazione, all'hub IoT è stato anche assegnato un nome specifico.
-   | Nome dei criteri dell'hub IoT | Il criterio di accesso condiviso che può essere creato nella scheda Impostazioni hub IoT. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
+   | Nome dei criteri dell'hub IoT | Il criterio di accesso condiviso che può essere creato nella scheda Impostazioni hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
    | Chiave dei criteri dell'hub IoT | Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio. Digitare la chiave primaria o secondaria qui.
    | Gruppo consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
    | Formato di serializzazione eventi | JSON è l'unico formato di serializzazione attualmente disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
@@ -75,7 +75,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 10. Selezionare **Crea** per aggiungere la nuova origine evento.
 
-   ![Fare clic su Crea](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    Dopo la creazione dell'origine evento, Time Series Insights inizierà automaticamente a trasmettere i dati nell'ambiente.
 

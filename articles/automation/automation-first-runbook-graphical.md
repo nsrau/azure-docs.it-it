@@ -32,7 +32,7 @@ ms.lasthandoff: 01/10/2018
 
 Questa esercitazione illustra la creazione di un [runbook grafico](automation-runbook-types.md#graphical-runbooks) in Automazione di Azure. Si inizia con un runbook semplice che esegue test e pubblicazioni, quindi viene illustrato come tenere traccia dello stato del processo del runbook. Si modifica quindi il runbook per gestire effettivamente le risorse di Azure, avviando in questo caso una macchina virtuale di Azure. Si completerà quindi l'esercitazione rendendo il runbook più affidabile con l'aggiunta di parametri e collegamenti condizionali.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 

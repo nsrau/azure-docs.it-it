@@ -17,7 +17,7 @@ ms.date: 08/21/2017
 ms.author: delhan
 ms.openlocfilehash: 70254d39b5c6326166f7e29fdfc99533835502f9
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---

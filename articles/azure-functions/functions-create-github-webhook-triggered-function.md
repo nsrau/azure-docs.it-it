@@ -28,7 +28,7 @@ Informazioni su come creare una funzione attivata da una richiesta di webhook HT
 
 ![Funzione attivata da un webhook GitHub nel portale di Azure](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Un account GitHub con almeno un progetto.
 + Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -77,7 +77,7 @@ Viene successivamente creato un webhook nel repository GitHub.
 
     ![Impostare l'URL del webhook e il segreto](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
-| Impostazione | Valore consigliato | Descrizione |
+| Impostazione | Valore consigliato | DESCRIZIONE |
 |---|---|---|
 | **Payload URL** (URL payload) | Valore copiato | Usare il valore restituito da **</> Get function URL** (Ottieni URL funzione). |
 | **Segreto**   | Valore copiato | Usare il valore restituito da **</> Get GitHub secret** (Ottieni segreto GitHub). |

@@ -72,7 +72,7 @@ Le persone a cui è assegnato il ruolo di collaboratore al monitoraggio possono 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Autorizzazioni per il monitoraggio e ruoli personalizzati nel Controllo degli accessi in base al ruolo
 Se i precedenti ruoli predefiniti non soddisfano le esigenze esatte del team, è possibile [creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-custom-roles.md) con autorizzazioni più granulari. Di seguito sono riportate le più comuni operazioni nel Controllo degli accessi in base al ruolo di monitoraggio di Azure con le relative descrizioni.
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Gruppi di azioni di lettura, scrittura ed eliminazione. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Avvisi del log attività di lettura, scrittura ed eliminazione. |

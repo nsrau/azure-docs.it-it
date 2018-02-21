@@ -96,7 +96,7 @@ Alcune informazioni da considerare:
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard con dati provenienti da altre fonti e Application Insights
 * [Esportare dati di telemetria in Power BI](app-insights-export-power-bi.md).
 
-Or
+Oppure
 
 * Usare SharePoint come dashboard, dove i dati vengono visualizzati in Web part di SharePoint. [Usare l'esportazione continua e l'analisi dei flussi per eseguire l'esportazione in SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Usare PowerView per esaminare il database e creare una Web part di SharePoint per PowerView.
 

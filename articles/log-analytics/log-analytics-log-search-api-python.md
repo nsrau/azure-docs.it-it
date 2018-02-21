@@ -25,7 +25,7 @@ L'[API di ricerca log Log Analytics](log-analytics-log-search-api.md) consente a
 >[!NOTE]
 > Questo articolo usa le API di ricerca log con il linguaggio di query legacy di Log Analytics.  A questo articolo verrà fornito un aggiornamento per le aree di lavoro aggiornate al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Questo script utilizza un'entità servizio in Azure Active Directory per l'autenticazione nell'area di lavoro.  Le entità servizio consentono a un'applicazione client di richiedere al servizio l'autenticazione di un account anche se il client non ha il nome dell'account. Prima di eseguire lo script, creare un'entità servizio utilizzando il processo di [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md).  È necessario fornire allo script l'ID applicazione, l'ID tenant e la chiave di autenticazione. 
 
 > [!NOTE]

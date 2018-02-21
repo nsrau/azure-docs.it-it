@@ -156,7 +156,7 @@ Scaricare lo strumento di configurazione più recente presente in [questo colleg
 
 ### <a name="set-password"></a>Impostare la password
 1. Nella pagina `Set up options` fare clic su `Enable Security`.
-2. Per la scheda Intel® Edison è possibile impostare un nome personalizzato. Facoltativo.
+2. Per la scheda Intel® Edison è possibile impostare un nome personalizzato. Questa operazione è facoltativa.
 3. Digitare una password per la scheda e quindi fare clic su `Set password`.
 4. Annotare la password per usarla in seguito.
 
@@ -172,7 +172,7 @@ Scaricare lo strumento di configurazione più recente presente in [questo colleg
 
    ![Connettersi al sensore temperatura](media/iot-hub-intel-edison-kit-node-get-started/12_configuration_tool.png)
 
-Congratulazioni. Edison è stato configurato.
+Congratulazioni! Edison è stato configurato.
 
 ## <a name="run-a-sample-application-on-intel-edison"></a>Eseguire un'applicazione di esempio in Intel Edison
 

@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 * [Modificare la password dell'amministratore di sistema](#password)
 * [Configurare connessioni remote](#remote)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 

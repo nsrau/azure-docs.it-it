@@ -29,12 +29,12 @@ Leggere tutte le informazioni di sicurezza e integrità in questo articolo che s
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone dove sono visualizzate le precauzioni di sicurezza da osservare durante l'installazione e l'esecuzione del dispositivo Microsoft Azure StorSimple.
 
-| Icona | Description |
+| Icona | DESCRIZIONE |
 |:--- |:--- |
 | ![Icona di pericolo](./media/storsimple-safety/IC740879.png) **PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
 | ![Icona di avviso](./media/storsimple-safety/IC740879.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
 | ![Icona di avviso](./media/storsimple-safety/IC740879.png)**ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
-| ![Icona di notifica](./media/storsimple-safety/IC740881.png) **NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
+| ![Icona di notifica](./media/storsimple-safety/IC740881.png)**NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**pericolo di scosse elettriche** |Voltaggio |
 | ![Icona peso elevato](./media/storsimple-safety/IC740883.png) **Pesante** | |
 | ![Nessuna icona di parti riparabili dall'utente](./media/storsimple-safety/IC740879.png) **Nessuna parte riparabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
@@ -51,7 +51,7 @@ Per ridurre il rischio di ferirsi:
 * Non sollevare lo chassis dagli handle sui moduli di potenza e di raffreddamento (PCM) che si trovano nella parte posteriore dell'unità. Questi non sono progettati per sostenere il peso.
 
 ## <a name="connection-precautions"></a>Precauzioni relative alla connessione
-![Icona di avviso](./media/storsimple-safety/IC740879.png) ![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png) **AVVISO!**
+![Icona di avviso](./media/storsimple-safety/IC740879.png)![Icona di scossa elettrica](./media/storsimple-safety/IC740882.png)**AVVISO!**
 
 Per ridurre la probabilità di ferite, scosse elettriche o morte:
 

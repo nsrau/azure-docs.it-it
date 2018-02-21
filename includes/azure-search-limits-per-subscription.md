@@ -2,7 +2,7 @@
 
 È possibile aumentare i limiti massimi del servizio su richiesta. Se sono necessari più servizi nella stessa sottoscrizione, contattare il supporto di Azure.
 
-| Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD <sup>1</sup> |
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD <sup>1</sup> |
 | --- | --- | --- | --- | --- | --- | --- |
 | Numero massimo di servizi |1 |12 |12 |6 |6 |6 |
 | Scalabilità massima in SU <sup>2</sup> |N/D <sup>3</sup> |3 SU <sup>4</sup> |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |36 unità di ricerca |

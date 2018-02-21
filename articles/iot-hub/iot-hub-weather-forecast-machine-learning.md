@@ -48,7 +48,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 - Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
-  - Un'applicazione client che invia messaggi all'hub IoT di Azure.
+  - Un'applicazione client che invia messaggi ad Azure IoT hub.
 - Un account di Azure Machine Learning Studio. ([Prova gratuita di Machine Learning Studio](https://studio.azureml.net/)).
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuire il modello di previsioni meteo come servizio Web
@@ -167,7 +167,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
    Sostituire `[YourOutputAlias]` con l'alias di output del processo.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
@@ -188,7 +188,7 @@ Eseguire l'applicazione client per avviare la raccolta e l'invio dei dati di tem
 
    ![Ottenere i risultati delle previsioni meteo con Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Azure Machine Learning è stato usato per stimare la probabilità di pioggia in base ai dati di temperatura e umidità ricevuti dall'hub IoT.
 

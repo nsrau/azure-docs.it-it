@@ -18,7 +18,7 @@ ms.date: 10/31/2016
 ms.author: saurinsh
 ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

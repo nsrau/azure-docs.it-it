@@ -40,10 +40,10 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 | [Eccezioni più dettagliate](app-insights-asp-net-exceptions.md) | |Sì |
 | [Diagnostica delle dipendenze](app-insights-asp-net-dependencies.md) |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
 | [Contatori delle prestazioni di sistema](app-insights-performance-counters.md) |Sì |Sì |
-| [API per telemetria personalizzata][api] |Sì |No |
-| [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì |No |
-| [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì |No |
-| Ricompilazione del codice necessaria |Sì | No |
+| [API per telemetria personalizzata][api] |Sì |No  |
+| [Integrazione log di traccia](app-insights-asp-net-trace-logs.md) |Sì |No  |
+| [Visualizzazione pagina e dati utente](app-insights-javascript.md) |Sì |No  |
+| Ricompilazione del codice necessaria |Sì | No  |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Monitorare un'app Web live di Azure

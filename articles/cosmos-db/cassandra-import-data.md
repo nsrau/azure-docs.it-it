@@ -31,7 +31,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Importazione di dati tramite il comando cqlsh COPY
 > * Importazione tramite il connettore Spark 
 
-# <a name="prerequisites"></a>Prerequisiti
+# <a name="prerequisites"></a>prerequisiti
 
 * Installare [Apache Cassandra](http://cassandra.apache.org/download/) e verificare che sia presente *cqlsh*.
 * Aumentare la velocità effettiva: la durata della migrazione dei dati dipende dalla velocità effettiva allocata per le tabelle. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel [portale di Azure](https://portal.azure.com), vedere [Impostare la velocità effettiva per i contenitori di Azure Cosmos DB](set-throughput.md).

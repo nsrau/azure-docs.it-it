@@ -18,7 +18,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -29,7 +29,7 @@ Informazioni su come usare Curl per l'esecuzione di processi Sqoop in un cluster
 
 Curl viene usato per illustrare come è possibile interagire con HDInsight tramite richieste HTTP non elaborate per eseguire, monitorare e recuperare i risultati di processi Sqoop. Ciò avviene mediante l'API REST WebHCat, nota in precedenza come Templeton, fornita dal cluster HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per seguire la procedura descritta in questo articolo, è necessario quanto segue:
 
 * Completare la procedura [Usare Sqoop con Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) per configurare un ambiente con un cluster HDInsight e un database SQL di Azure.

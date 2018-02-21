@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Le **raccolte di aree di lavoro di Power BI** consentono di integrare i report di Power BI direttamente nelle applicazioni Web o per dispositivi mobili. In questo articolo verrà presentato l'esempio introduttivo delle **raccolte di aree di lavoro di Power BI**.
 
 > [!IMPORTANT]
-> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto della raccolta di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Prima di continuare, è consigliabile salvare le risorse seguenti in quanto semplificano l'integrazione dei report di Power BI nell'app di esempio e nelle app personalizzate.
 
@@ -141,7 +141,7 @@ L'uso di attributi comuni di server e database ha esito negativo. Ad esempio: Se
 
 **Reports.cshtml**: esegue l'iterazione di **Model.Reports** per creare un elemento **ActionLink**. L'elemento **ActionLink** è costituito da:
 
-| Parte: | Descrizione |
+| Parte: | DESCRIZIONE |
 | --- | --- |
 | Titolo |Nome del report. |
 | QueryString |Collegamento al l'ID report. |
@@ -254,7 +254,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 > [!NOTE]
 > {tableName/fieldName} non può includere spazi o caratteri speciali. {fieldValue} accetta un singolo valore categorico.  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI](scenarios.md)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

@@ -39,7 +39,7 @@ La Parte 5 dell'esercitazione è basata sulla [Parte 4](tutorial-develop-mongodb
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 4](tutorial-develop-mongodb-nodejs-part4.md) dell'esercitazione.
 

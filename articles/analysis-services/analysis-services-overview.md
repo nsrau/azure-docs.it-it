@@ -95,7 +95,7 @@ Le attività di gestione delle risorse del server, ad esempio la creazione di se
 ## <a name="your-data-is-secure"></a>I dati sono protetti
 ![Visualizzazioni di dati](./media/analysis-services-overview/aas-overview-secure.png)
 
-#### <a name="authentication"></a>Autenticazione
+#### <a name="authentication"></a>Authentication
 L'autenticazione utente per Azure Analysis Services viene gestita da [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Quando si tenta di accedere a un database di Azure Analysis Services, gli utenti usano un'identità dell'account dell'organizzazione con accesso al database a cui si sta tentando di accedere. Queste identità utente devono essere membri dell'istanza predefinita di Azure Active Directory per la sottoscrizione in cui risiede il server Azure Analysis Services. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 
 #### <a name="data-security"></a>Sicurezza dei dati
@@ -121,7 +121,7 @@ Gli strumenti moderni per l'esplorazione e la visualizzazione dei dati come Powe
 I client usano le [librerie client](analysis-services-data-providers.md) MSOLAP, AMO o ADOMD per la connessione ai server di Analysis Services. Le applicazioni client di Microsoft, come ad esempio Power BI Desktop ed Excel, installano tutte e tre le librerie client. A seconda della versione o della frequenza degli aggiornamenti, le librerie client potrebbero tuttavia non essere le versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono in genere l'installazione manuale delle librerie come parte di un pacchetto.
 
 
-## <a name="get-help"></a>Supporto
+## <a name="get-help"></a>Ottenere aiuto
 
 #### <a name="documentation"></a>Documentazione
 La gestione e la configurazione di Azure Analysis Services sono semplici. In quest'area è possibile trovare tutte le informazioni necessarie per creare e gestire i servizi del server. La creazione di un modello dati per la distribuzione al server è analoga alla creazione di un modello dati distribuiti a un server locale. È disponibile una ricca libreria di articoli concettuali, procedurali, di esercitazioni e di riferimento nell'articolo di [informazioni su SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).

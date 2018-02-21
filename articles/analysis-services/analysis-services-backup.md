@@ -80,7 +80,7 @@ Prima di eseguire il backup, è necessario configurare le impostazioni di archiv
 ### <a name="powershell"></a>PowerShell
 Usare il cmdlet [Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet).
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Restore
 Durante il ripristino, il file di backup deve essere nell'account di archiviazione configurato per il server. Se è necessario spostare un file di backup da un percorso locale all'account di archiviazione, usare [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) o l'utilità della riga di comando [AzCopy](../storage/common/storage-use-azcopy.md). 
 
 

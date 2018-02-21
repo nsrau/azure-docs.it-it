@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 ![Risposta di operazione fittizia](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
@@ -52,7 +52,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 3. Selezionare **API vuota** dall'elenco.
 4. Immettere "*Test API*" in **Nome visualizzato**.
 5. Immettere "*Unlimited*" in **Prodotti**.
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
 ## <a name="add-an-operation-to-the-test-api"></a>Aggiungere un'operazione all'API di test
 
@@ -61,7 +61,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 
     ![Risposta di operazione fittizia](./media/mock-api-responses/mock-api-responses02.png)
 
-    |Impostazione|Valore|Descrizione|
+    |Impostazione|Valore|DESCRIZIONE|
     |---|---|---|
     |**URL** (verbo HTTP)|GET|È possibile scegliere tra uno dei verbi HTTP predefiniti.|
     |**URL** |*/test*|Percorso URL per l'API. |
@@ -108,7 +108,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un'API di test

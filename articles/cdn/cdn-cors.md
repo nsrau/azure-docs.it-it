@@ -35,7 +35,7 @@ Esistono due tipi di richieste CORS, le *richieste semplici* e le *richieste com
 
 2. Il server può rispondere con uno degli elementi seguenti:
 
-   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. ad esempio:
+   * Un'intestazione **Access-Control-Allow-Origin** presente nella risposta, per indicare il sito di origine consentito. Ad esempio: 
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

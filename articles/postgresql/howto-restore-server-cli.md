@@ -20,7 +20,7 @@ ms.lasthandoff: 11/28/2017
 
 Usare il database di Azure per PostgreSQL per ripristinare il database di un server a una data precedente che va dai 7 ai 35 giorni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida, è necessario:
 - Un [server e un database di Database di Azure per PostgreSQL](quickstart-create-server-database-azure-cli.md)
 
@@ -52,7 +52,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ```
 
 Il comando `az postgres server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mypgserver-restored | Il nome del nuovo server creato con il comando di ripristino. |

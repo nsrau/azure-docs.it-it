@@ -75,7 +75,7 @@ Per recuperare la configurazione del timeout di inattività, usare il comando se
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Impostazione del timeout TCP su un set di endpoint con carico bilanciato
 
-Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare il timeout TCP sul set di endpoint con carico bilanciato. ad esempio:
+Se gli endpoint fanno parte di un set di endpoint con carico bilanciato, è necessario impostare il timeout TCP sul set di endpoint con carico bilanciato. Ad esempio: 
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -118,7 +118,7 @@ Le modifiche al file .cscfg per l'impostazione di timeout negli indirizzi IP pub
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 ```xml
 <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">

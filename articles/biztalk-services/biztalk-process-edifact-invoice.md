@@ -16,7 +16,7 @@ ms.date: 05/31/2016
 ms.author: deonhe
 ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -53,7 +53,7 @@ Per ottenere questo scenario aziendale, Contoso usa le funzionalità fornite con
 
 Per completare lo scenario, vengono usate code di bus di servizio per inviare la fattura da Contoso a Northwind o ricevere un acknowledgement da Northwind. Queste code possono essere create usando un'applicazione client, disponibile come download e inclusa nel pacchetto di esempio fornito come parte dell'esercitazione.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
 * È necessario disporre di una sottoscrizione a Servizi BizTalk. Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
 * Registrare la propria sottoscrizione a Servizi BizTalk nel portale di Servizi BizTalk. Per istruzioni, vedere [Registrazione e aggiornamento di una distribuzione del servizio BizTalk nel portale dei servizi BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)

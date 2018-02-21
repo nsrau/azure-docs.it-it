@@ -48,8 +48,8 @@ Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. 
  | Fattura (PDF) | Dettagli di utilizzo (CSV)|
  | --- | --- |
 |Ciclo di fatturazione | Periodo di fatturazione |
- |Nome |Categoria misuratore |
- |Tipo |Sottocategoria contatore |
+ |NOME |Categoria misuratore |
+ |type |Sottocategoria contatore |
  |Risorsa |Nome misuratore |
  |Region |Area misuratore |
  |Consumato |Quantità consumata |
@@ -106,6 +106,6 @@ Se si [paga tramite fattura](billing-how-to-pay-by-invoice.md), inviare il pagam
 - [Impostare avvisi di fatturazione](billing-set-up-alerts.md).
 - [Controllare regolarmente utilizzo e costi nel portale di Azure](billing-getting-started.md#costs).
 
-## <a name="need-help-contact-support"></a>Serve aiuto? Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

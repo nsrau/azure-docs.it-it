@@ -185,7 +185,7 @@ Nella finestra **Log** del portale viene registrato un output simile al seguente
 ### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>Eseguire il test di un trigger del BLOB con Storage Explorer
 È possibile testare una funzione trigger del BLOB con [Esplora archivi di Azure](http://storageexplorer.com/).
 
-1. Nel [Portale di Azure] creare una funzione trigger del BLOB in C#, F# o JavaScript per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. ad esempio:
+1. Nel [Portale di Azure] creare una funzione trigger del BLOB in C#, F# o JavaScript per l'app Funzioni. Impostare il percorso da monitorare sul nome del contenitore BLOB. Ad esempio: 
 
         files
 2. Fare clic sul pulsante **+** per selezionare o creare l'account di archiviazione da usare. Fare quindi clic su **Crea**.

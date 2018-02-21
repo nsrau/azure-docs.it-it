@@ -293,7 +293,7 @@ Il dispositivo client ottiene ancora il relativo handle PNS e le proprietà di i
 
 
 #### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Codice di esempio per la registrazione con un hub di notifica da un dispositivo tramite un ID di registrazione
-Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle registrazioni. Ad esempio:
+Dal back-end dell'app è possibile eseguire operazioni CRUD di base sulle registrazioni. Ad esempio: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 

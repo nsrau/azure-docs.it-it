@@ -49,7 +49,7 @@ Non è necessario alcun cast aggiuntivo. Se si lavora con dati JSON ma non è st
 
 Il trigger della richiesta consente di immettere uno schema JSON per il payload che si prevede di ricevere. Questo schema consente alla finestra di progettazione di generare token per consentire di usare il contenuto della richiesta. Se non si dispone di uno schema pronto, selezionare **Usare il payload di esempio per generare lo schema** per generare uno schema JSON da un payload di esempio.
 
-![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
+![SCHEMA](./media/logic-apps-http-endpoint/manualtrigger.png)
 
 ### <a name="parse-json-action"></a>Azione di "analisi JSON"
 

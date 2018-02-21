@@ -46,7 +46,7 @@ La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 | Collaboratore alla sottoscrizione | X | X | X | X |
 | Proprietario del gruppo di risorse | -- | X | -- | X |
 | Collaboratore del gruppo di risorse | -- | X | -- | X |
-| Lettore | -- | -- | -- | X |
+| Reader | -- | -- | -- | X |
 | Amministratore della sicurezza | X | -- | X | X |
 | Ruolo con autorizzazioni di lettura per la sicurezza | -- | -- | -- | X |
 

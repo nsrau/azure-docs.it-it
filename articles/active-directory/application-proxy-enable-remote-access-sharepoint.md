@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ Questo articolo illustra come integrare un server SharePoint locale con il proxy
 
 Per abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD, seguire le istruzioni dettagliate riportate nelle sezioni di questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone che SharePoint 2013 o versione successiva sia già installato nell'ambiente. Tenere in considerazione anche i seguenti prerequisiti:
 

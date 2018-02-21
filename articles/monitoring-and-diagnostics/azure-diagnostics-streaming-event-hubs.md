@@ -16,7 +16,7 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -38,7 +38,7 @@ Questo articolo illustra le modalità di configurazione di Diagnostica di Azure 
 * Come visualizzare i dati di flusso di Hub eventi
 * Come risolvere i problemi di connessione  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 La ricezione di dati di Diagnostica di Azure in Hub eventi è supportata in Servizi cloud, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric a partire da Azure SDK 2.9 e dalla versione corrispondente di Strumenti di Azure per Visual Studio.
 
 * Estensione di Diagnostica Azure 1.6 ([SDK di Azure per .NET 2.9 o versione successiva](https://azure.microsoft.com/downloads/) ha questa destinazione per impostazione predefinita)

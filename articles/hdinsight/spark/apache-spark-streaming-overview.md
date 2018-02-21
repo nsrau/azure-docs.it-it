@@ -138,7 +138,7 @@ L'applicazione di esempio seguente è indipendente e di conseguenza può essere 
 
 L'output risultante è simile al seguente:
 
-| valore | time |
+| value | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -183,7 +183,7 @@ Nell'esempio seguente viene aggiornato il codice che usa DummySource per raccogl
 
 Dopo il primo minuto, l'esempio restituirà 12 voci, sei da ognuno dei due batch raccolti nella finestra.
 
-| valore | time |
+| value | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

@@ -1,7 +1,7 @@
 ## <a name="traffic-manager-profile"></a>Profilo di Gestione traffico
 Gestione traffico e la relativa risorsa endpoint figlio consentono il routing DNS agli endpoint all'interno e all'esterno di Azure. Questa distribuzione del traffico è regolata dai metodi dei criteri di routing. Gestione traffico consente anche il monitoraggio dell'integrità dell'endpoint e la corretta deviazione del traffico in base all'integrità di un endpoint. 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **trafficRoutingMethod** |i valori possibili sono *Prestazioni*, *Valore ponderato* e *Priorità* |
 | **dnsConfig** |FQDN per il profilo |
@@ -13,7 +13,7 @@ Gestione traffico e la relativa risorsa endpoint figlio consentono il routing DN
 ### <a name="endpoint"></a>Endpoint
 Un endpoint è una risorsa figlio di un profilo di Gestione traffico. Rappresenta un endpoint di servizio o Web al quale viene distribuito il traffico in base ai criteri configurati nella risorsa del profilo di Gestione traffico. 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Tipo** |il tipo di endpoint. I valori possibili sono *Endpoint di Azure*, *Endpoint esterno* e *Endpoint annidato*. |
 | **targetResourceId** |indirizzo IP pubblico di un endpoint di servizio o Web. Può trattarsi di un endpoint di Azure o esterno. |

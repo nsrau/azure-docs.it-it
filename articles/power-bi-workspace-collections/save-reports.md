@@ -131,7 +131,7 @@ var embedConfiguration = {
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Esempio introduttivo](get-started-sample.md)  
 [Incorporare un report](embed-report.md)  

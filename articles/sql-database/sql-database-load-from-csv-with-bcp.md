@@ -25,7 +25,7 @@ ms.lasthandoff: 10/31/2017
 È possibile usare l'utilità della riga di comando bcp per importare dati da un file CSV in un database SQL di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Per seguire la procedura descritta in questo articolo, sono necessari:
 
 * Un server logico e un database SQL di Azure

@@ -17,7 +17,7 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Attivare un evento
 > * Visualizzare le modifiche
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 

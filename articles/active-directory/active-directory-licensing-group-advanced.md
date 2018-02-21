@@ -18,7 +18,7 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cf18076c81ecf7471771674fe40d36dba3b9866d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -21,7 +21,7 @@ In questa guida introduttiva viene usata l'interfaccia cloud di Azure IoT Edge p
 
 Se non si ha una sottoscrizione di Azure attiva, creare un [account gratuito][lnk-account] prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questa esercitazione presuppone che si usi un computer o una macchina virtuale che esegue Windows per simulare un dispositivo di Internet delle cose. Se si esegue Windows in una macchina virtuale, abilitare la [virtualizzazione annidata][lnk-nested] e allocare almeno 2 GB di memoria. 
 
@@ -42,14 +42,14 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 >    * Windows Server 1709 (Build 16299) oppure
 >    * Windows IoT Core (Build 16299) su un dispositivo basato su x64
 >
-> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per usare i contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
+> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per l'uso dei contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Creare un hub IoT con l'interfaccia della riga di comando di Azure
 
-Creare un hub IoT nella sottoscrizione di Azure. Il livello Gratuito dell'hub IoT può essere usato per questa guida introduttiva. Se è già stato usato l'hub IoT ed è già stato creato un hub Gratuito, è possibile saltare questa sezione e passare a [Registrare un dispositivo di IoT Edge][anchor-register]. Ogni sottoscrizione può avere solo un hub IoT gratuito. 
+Creare un hub IoT nella sottoscrizione di Azure. Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se è già stato usato l'hub IoT ed è già stato creato un hub gratuito, è possibile saltare questa sezione e passare a [Registrare un dispositivo IoT Edge][anchor-register]. Ogni sottoscrizione può avere un solo hub IoT gratuito. 
 
 1. Accedere al [portale di Azure][lnk-portal]. 
 1. Selezionare il pulsante **Cloud Shell**. 

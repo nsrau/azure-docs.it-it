@@ -6,7 +6,7 @@ L'autenticazione RADIUS è supportata per gli SKU VpnGw1, VpnGw2 e VpnGw3. Se si
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>L'autenticazione RADIUS è supportata per il modello di distribuzione classica?
  
-No. L'autenticazione RADIUS non è supportata per il modello di distribuzione classica.
+di serie L'autenticazione RADIUS non è supportata per il modello di distribuzione classica.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>I server RADIUS di terze parti sono supportati?
 
@@ -18,7 +18,7 @@ Sì, i server RADIUS di terze parti sono supportati.
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>Il traffico a un server RADIUS locale (dal gateway VPN di Azure) può essere instradato tramite una connessione ExpressRoute?
 
-No. Può essere instradato solo tramite una connessione da sito a sito.
+di serie Può essere instradato solo tramite una connessione da sito a sito.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Il numero di connessioni SSTP supportate con l'autenticazione RADIUS è stato modificato? Qual il numero massimo di connessioni SSTP e IKEv2 supportate?
 

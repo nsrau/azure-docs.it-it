@@ -38,13 +38,13 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
 * Creare una tabella di database e crittografare le colonne.
 * Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per questa esercitazione occorrono:
 
 * Un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successive.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
-* [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## <a name="create-a-blank-sql-database"></a>Creare un database SQL vuoto
 1. Accedere al [portale di Azure](https://portal.azure.com/).
@@ -121,10 +121,10 @@ Verificare che l'**archivio certificati di Windows** sia selezionato e fare clic
 ### <a name="validation"></a>Convalida
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Riepilogo](./media/sql-database-always-encrypted/summary.png)
+![Summary](./media/sql-database-always-encrypted/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 Al termine della procedura guidata, il database è configurato per la crittografia sempre attiva. La procedura guidata esegue le azioni seguenti:

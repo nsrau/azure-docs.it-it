@@ -73,7 +73,7 @@ La tabella seguente fornisce le descrizioni di ogni piano.
 ## <a name="review-limits-per-tier"></a>Esaminare i limiti per ogni piano
 Il grafico seguente è un subset dei limiti tratto da [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md). Elenca i fattori che probabilmente influiranno maggiormente sulla decisione relativa allo SKU. È possibile fare riferimento a questo grafico quando si esaminano le domande seguenti.
 
-| Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Contratto di servizio (SLA) |No <sup>1</sup> |Sì |Sì |Sì |Sì |Sì |
 | Limiti per gli indici |3 |5 |50 |200 |200 |1000 <sup>2</sup> |

@@ -308,7 +308,7 @@ Le dimensioni del file usato per il test sono pari rispettivamente a 30 GB e 1 G
 
 **L'impostazione di configurazione per impostazione predefinita e per l'ottimizzazione è la seguente:**
 
-| Parametri | Default | Ottimizzazione |
+| Parametri | Predefinito | Ottimizzazione |
 | --- | --- | --- |
 | **innodb_buffer_pool_size** |Nessuna |7 GB |
 | **innodb_log_file_size** |5 MB |512 MB |

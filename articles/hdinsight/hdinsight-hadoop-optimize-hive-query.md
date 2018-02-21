@@ -113,7 +113,7 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
 Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tabelle partizionate).
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
-Hive supporta diversi formati di file. Ad esempio:
+Hive supporta diversi formati di file. Ad esempio: 
 
 * **Testo**: questo è il formato di file predefinito e funziona con la maggior parte degli scenari
 * **Avro**: funziona bene per scenari di interoperabilità
@@ -137,7 +137,7 @@ Per abilitare il formato ORC, creare innanzitutto una tabella con la clausola *A
     PARTITIONED BY(L_SHIPDATE STRING)
     STORED AS ORC;
 
-Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio:
+Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio: 
 
     INSERT INTO TABLE lineitem_orc
     SELECT L_ORDERKEY as L_ORDERKEY, 

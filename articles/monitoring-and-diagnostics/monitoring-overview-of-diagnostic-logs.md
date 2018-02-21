@@ -91,7 +91,7 @@ La raccolta dei log di diagnostica di risorsa può essere abilitata [durante la 
    
    !["Add diagnostic setting" (Aggiungi impostazione di diagnostica) - impostazioni esistenti](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-configure.png)
     
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log di diagnostica vengono inviati alle destinazioni specifiche non appena vengono generati nuovi dati di eventi.
 

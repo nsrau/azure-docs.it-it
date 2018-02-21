@@ -17,7 +17,7 @@ ms.date: 06/28/2017
 ms.author: ganesr
 ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

@@ -64,16 +64,16 @@ Quando si crea o modifica una regola di avviso nel portale di OMS, si lavora con
 ### <a name="alert-information"></a>Informazioni sull'avviso
 Si tratta di impostazioni di base per la regola di avviso e gli avvisi che questa crea.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
-| Nome | Nome univoco per identificare la regola di avviso. Questo nome è incluso in tutti gli avvisi creati dalla regola.  |
-| Descrizione | Descrizione facoltativa della regola di avviso. |
-| Severity |Livello di gravità di tutti gli avvisi creati da questa regola. |
+| NOME | Nome univoco per identificare la regola di avviso. Questo nome è incluso in tutti gli avvisi creati dalla regola.  |
+| DESCRIZIONE | Descrizione facoltativa della regola di avviso. |
+| Gravità |Livello di gravità di tutti gli avvisi creati da questa regola. |
 
 ### <a name="search-query-and-time-window"></a>Finestra della query di ricerca e dell'intervallo di tempo
 La finestra della query di ricerca e dell'intervallo di tempo che restituisce i record da valutare per determinare se è necessario creare avvisi.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Query di ricerca | La query che viene eseguita.  I record restituiti da questa query verranno usati per determinare se viene creato un avviso.<br><br>Selezionare **Usa query di ricerca corrente** per usare la query corrente o selezionare una ricerca salvata dall'elenco.  La sintassi della query è disponibile nella casella di testo dove può essere modificata, se necessario. |
 | Intervallo di tempo |Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore.  Deve essere maggiore o uguale alla frequenza degli avvisi.  <br><br> Ad esempio, se l'intervallo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15 , verranno restituiti solo i record creati tra 12.15 e le 13.15. |
@@ -83,7 +83,7 @@ Quando si specifica l'intervallo di tempo per la regola di avviso, verrà visual
 ### <a name="schedule"></a>Pianificazione
 Definisce la frequenza con cui viene eseguita la query di ricerca.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Frequenza di avviso | Specifica la frequenza con cui deve essere eseguita la query. Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Deve essere uguale o minore dell'intervallo di tempo.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br><br>Si considerino ad esempio un intervallo di tempo di 30 minuti e una frequenza pari a 60 minuti.  Una query eseguita alle 13:00 restituirà i record compresi tra le 12:30 e le 13:00.  La volta successiva, la query verrà eseguita alle 14:00 e restituirà i record compresi tra le 13:30 e le 14:00.  Qualsiasi record creato tra le 13:00 e 13:30 non verrà mai valutato. |
 
@@ -91,19 +91,19 @@ Definisce la frequenza con cui viene eseguita la query di ricerca.
 ### <a name="generate-alert-based-on"></a>Genera l'avviso in base a
 Definisce i criteri che verranno valutati rispetto ai risultati della query di ricerca per determinare se è necessario creare un avviso.  Questi dettagli saranno diversi a seconda del tipo di regola di avviso selezionato.  È possibile ottenere i dettagli per i differenti tipi di regole di avviso da [Informazioni sugli avvisi in Log Analytics](log-analytics-alerts.md).
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Elimina avvisi | Quando si attiva l'eliminazione per la regola di avviso, le azioni della regola vengono disabilitate per un periodo di tempo definito dopo la creazione di un nuovo avviso. La regola è ancora in esecuzione e, se i criteri vengono soddisfatti, creerà i record di avviso. In questo modo, l'utente ha il tempo necessario per risolvere il problema senza eseguire azioni duplicate. |
 
 #### <a name="number-of-results-alert-rules"></a>Regole di avviso Numero di risultati
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Numero di risultati |Viene creato un avviso se il numero di record restituiti dalla query è **superiore** o **inferiore** al valore fornito.  |
 
 #### <a name="metric-measurement-alert-rules"></a>Regole di avviso Unità di misura della metrica
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Valore di aggregazione | Valore soglia che ogni valore di aggregazione nei risultati deve superare per essere considerato una violazione. |
 | Attiva l'avviso in base a | Il numero di violazioni della sicurezza per creare un avviso.  È possibile specificare le **violazioni totali** per qualsiasi combinazione di violazioni nei set di risultati o le **violazioni consecutive** necessarie che devono verificarsi in campioni consecutivi. |
@@ -116,7 +116,7 @@ Le regole di avviso creano sempre un [record di avviso](#alert-records) quando v
 #### <a name="email-actions"></a>Azioni di posta elettronica
 Le azioni di posta elettronica inviano un messaggio di posta elettronica con i dettagli dell'avviso a uno o più destinatari.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Notifica tramite posta elettronica |Specificare **Sì** se si vuole inviare un messaggio di posta elettronica quando viene generato l'avviso. |
 | Oggetto |Oggetto nel messaggio di posta elettronica.  È possibile modificare il corpo del messaggio. |
@@ -125,7 +125,7 @@ Le azioni di posta elettronica inviano un messaggio di posta elettronica con i d
 #### <a name="webhook-actions"></a>Azioni webhook
 Le azioni Webhook consentono di richiamare un processo esterno tramite una singola richiesta HTTP POST.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | webhook |Specificare **Sì** se si vuole chiamare un webhook quando viene generato l'avviso. |
 | URL webhook |URL del webhook. |
@@ -139,7 +139,7 @@ Le azioni runbook avviano un runbook in Automazione di Azure.
 > È necessario che la soluzione Automazione sia installata nell'area di lavoro per poter abilitare questa azione. 
 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Runbook | Specificare **Sì** se si vuole avviare un runbook di Automazione di Azure quando viene generato l'avviso.  |
 | Account di Automazione | Specifica l'account di Automazione da cui vengono selezionati i runbook.  Si tratta dell'account Azione collegato all'area di lavoro. |

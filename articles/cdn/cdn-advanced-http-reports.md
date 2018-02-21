@@ -47,7 +47,7 @@ Proprio sotto la mappa vengono fornite informazioni dettagliate sul traffico e s
 
 Di seguito viene fornita una breve descrizione di ogni tipo di report geografico basato su mappa.
 
-| Nome report | Descrizione |
+| Nome report | DESCRIZIONE |
 | --- | --- |
 | Mappa del mondo |Questo report consente di visualizzare la domanda mondiale del contenuto della rete CDN. Sulla mappa del mondo ogni paese è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
 | Mappa Stati Uniti |Questo report consente di visualizzare la domanda del contenuto della rete CDN negli Stati Uniti. Su questa mappa ogni stato è contraddistinto dal colore per indicare la percentuale di riscontri originati da tale area. |
@@ -70,7 +70,7 @@ I dati usati per generare il grafico a barre possono essere visualizzati sotto i
 
 Per entrambi i tipi di report seguenti viene fornita una breve descrizione.
 
-| Nome report | Descrizione |
+| Nome report | DESCRIZIONE |
 | --- | --- |
 | Città principali |Questo report classifica le città in base al numero di riscontri originati da una determinata area. |
 | Paesi principali |Questo report classifica i paesi in base al numero di riscontri originati da una determinata area. |
@@ -198,7 +198,7 @@ Il lato sinistro del grafico (asse y) indica il nome file per ognuno dei primi 1
 
 Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per i primi 250 asset richiesti: il percorso relativo (incluso il nome file), il numero di richieste che hanno restituito un codice di stato 404 Non trovato, il numero totale di volte in cui l'asset è stato richiesto e la percentuale di richieste che hanno restituito un codice di stato 404 Non trovato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)

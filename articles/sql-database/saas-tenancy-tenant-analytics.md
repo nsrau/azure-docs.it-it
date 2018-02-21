@@ -68,7 +68,7 @@ Comprendendo quanto viene usato il servizio da ogni tenant è possibile creare p
 
 ## <a name="setup"></a>Configurazione
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
@@ -184,7 +184,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
 6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
 
-Congratulazioni. Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
+Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
 
 Per iniziare, si analizzano i dati relativi alle vendite di biglietti per individuare la variazione nell'utilizzo tra le diverse sedi. Selezionare le opzioni seguenti in Power BI per tracciare un grafico a barre del numero totale di biglietti venduti da ogni sede. A causa della variazione casuale nel generatore di biglietti, i risultati effettivi potrebbero essere diversi.
  
@@ -230,7 +230,7 @@ Sono state osservate le tendenze nei dati dei tenant dell'applicazione WingTip. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > - Distribuire un database di analisi dei tenant con tabelle predefinite di uno schema star
@@ -239,7 +239,7 @@ In questa esercitazione si è appreso come:
 > - Eseguire query su un database di analisi 
 > - Usare Power BI per la visualizzazione dei dati per osservare le tendenze nei dati dei tenant 
 
-Congratulazioni.
+Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

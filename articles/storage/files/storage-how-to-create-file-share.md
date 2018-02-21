@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 * [Come creare una condivisione file di Azure usando PowerShell](#Create file share using PowerShell)
 * [Come creare una condivisione file di Azure usando l'interfaccia della riga di comando](#create-file-share-using-command-line-interface-cli)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per creare una condivisione file di Azure, è possibile usare un account di archiviazione già esistente oppure [creare un nuovo account di archiviazione di Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Per creare una condivisione file di Azure con PowerShell, saranno necessari la chiave dell'account e il nome dell'account di archiviazione. La chiave dell'account di archiviazione sarà necessaria se si prevede di usare Powershell o l'interfaccia della riga di comando.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Creare la condivisione file tramite il portale di Azure
@@ -94,6 +94,6 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)   

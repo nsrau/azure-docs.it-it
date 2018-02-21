@@ -1,5 +1,5 @@
 ---
-title: "Eseguire attività in parallelo per usare le risorse di calcolo in modo efficiente: Azure Batch | Microsoft Docs"
+title: "Eseguire attività in parallelo per usare le risorse di calcolo in modo efficiente: Azure Batch | Documentazione Microsoft"
 description: "Aumenta l'efficienza e si riducono i costi usando meno nodi di calcolo ed eseguendo attività simultanee in ogni nodo dei pool di Azure Batch"
 services: batch
 documentationcenter: .net

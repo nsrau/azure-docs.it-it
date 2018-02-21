@@ -254,7 +254,7 @@ In ApplicationInsights.xml:
 
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 *Il filtro non funziona.*
 

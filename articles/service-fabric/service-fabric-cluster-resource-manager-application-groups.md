@@ -183,7 +183,7 @@ La query ApplicationLoad restituisce le informazioni di base sulla capacità del
 * Capacità dell'applicazione: valore massimo consentito di carico dell'applicazione.
 
 ## <a name="removing-application-capacity"></a>Rimozione della capacità dell'applicazione
-Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. ad esempio:
+Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. Ad esempio: 
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

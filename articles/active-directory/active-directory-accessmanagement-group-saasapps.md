@@ -18,7 +18,7 @@ ms.reviewer: piotrci
 ms.custom: it-pro
 ms.openlocfilehash: 49a2c86516f0882f341597876d2a44ea3a312ea8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -24,7 +24,7 @@ Questo argomento illustra la procedura per creare il primo modello di Azure Reso
 
 Per creare e modificare i modelli, è necessario un editor JSON. [Visual Studio Code](https://code.visualstudio.com/) è un editor di codice, leggero, open source e multipiattaforma. È consigliabile usare Visual Studio Code per la creazione di modelli di Resource Manager. Questo articolo presuppone che si usi Visual Studio Code. Se tuttavia si ha un altro editor JSON (ad esempio Visual Studio), è possibile usare tale editor.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Visual Studio Code. Se necessario, installarlo da [https://code.visualstudio.com/](https://code.visualstudio.com/).
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.

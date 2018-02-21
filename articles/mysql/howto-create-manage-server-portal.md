@@ -18,10 +18,10 @@ ms.lasthandoff: 10/11/2017
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Creare e gestire Database di Azure per il server MySQL con il portale di Azure
 Questo argomento descrive come creare rapidamente una nuova istanza di Database di Azure per il server MySQL. Include anche informazioni sulla gestione del server tramite il portale di Azure. La gestione del server include la visualizzazione di database e dettagli del server, la reimpostazione della password e l'eliminazione del server.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 Accedere al [Portale di Azure](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Creare un database di Azure per il server MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Creare un'istanza di Database di Azure per il server MySQL
 Seguire questi passaggi per creare un'istanza di Database di Azure per il server MySQL denominata "mysqlserver4demo".
 
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
@@ -42,7 +42,7 @@ Seguire questi passaggi per creare un'istanza di Database di Azure per il server
     | *Accesso amministratore server* | myadmin (configurare il nome dell'account amministratore) |
     | *Password* | Definire la password dell'account amministratore |
     | *Conferma password* | Confermare la password dell'account amministratore |
-    | *Posizione* | Europa settentrionale. La scelta è tra Europa settentrionale e Stati Uniti occidentali. |
+    | *Località* | Europa settentrionale. La scelta è tra Europa settentrionale e Stati Uniti occidentali. |
     | *Versione* | 5.6. Scegliere la versione di Database di Azure per il server MySQL |
 
 4. Fare clic su **Piano tariffario** per specificare il livello di servizio e il livello delle prestazioni per il nuovo server. Il numero delle unità di calcolo può essere configurato tra 50 e 100 nel piano Basic e tra 100 e 200 nel piano Standard. È possibile aggiungere spazio di archiviazione in base alla quantità inclusa. Per questa guida si sceglieranno 50 unità di calcolo e 50 GB. Fare clic su **OK** per salvare la selezione.

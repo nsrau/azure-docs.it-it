@@ -40,7 +40,7 @@ Questo articolo illustra due opzioni per distribuire un cluster HPC Pack in Azur
 
 Per altre informazioni sulle opzioni di distribuzione del cluster HPC Pack in Azure, vedere le [opzioni per creare e gestire un cluster HPC in Azure con Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * **Sottoscrizione di Azure** : è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 * **Quota di core** : potrebbe essere necessario aumentare la quota di core, soprattutto se si sceglie di distribuire più nodi del cluster con dimensioni delle macchine virtuali multicore. Per aumentare una quota, aprire una richiesta di assistenza clienti online gratuitamente.
 * **Distribuzioni Linux:** attualmente HPC Pack supporta le seguenti distribuzioni Linux per i nodi di calcolo. È possibile usare le versioni del Marketplace di queste distribuzioni, se disponibili, oppure fornire le proprie.
@@ -157,7 +157,7 @@ Modificare il file in base alle necessità dell'ambiente e della configurazione 
    
     d. Lo script inizia a distribuire il cluster HPC Pack e completa la configurazione senza ulteriori passaggi manuali. L'esecuzione dello script può richiedere diversi minuti.
    
-    ![Distribuisci][deploy]
+    ![Distribuire][deploy]
    
    > [!NOTE]
    > In questo esempio lo script genera automaticamente un file di log in quanto il parametro **-LogFile** non è specificato. I log non vengono scritti in tempo reale, ma vengono raccolti alla fine della convalida e della distribuzione. Se il processo di PowerShell viene arrestato mentre lo script è in esecuzione, alcuni log vengono persi.

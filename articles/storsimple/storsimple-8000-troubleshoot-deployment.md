@@ -138,7 +138,7 @@ Per registrare il dispositivo, utilizzare il servizio Gestione dispositivi StorS
 | 9 |Avviso: impossibile attivare il dispositivo. Le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. |Se la registrazione ha esito negativo, le password di amministratore dispositivo e Gestione snapshot StorSimple non sono state modificate. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Strumenti per la risoluzione dei problemi di distribuzioni di StorSimple
-StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. inclusi i seguenti:
+StorSimple include numerosi strumenti che è possibile utilizzare per risolvere i problemi della soluzione di StorSimple. incluse le seguenti:
 
 * Pacchetti di supporto e registri del dispositivo.
 * Cmdlet progettati appositamente per la risoluzione dei problemi.

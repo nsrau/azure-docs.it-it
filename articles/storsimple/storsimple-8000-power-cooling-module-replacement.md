@@ -60,7 +60,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    
      **Figura 1** Pannello anteriore del dispositivo  
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |Pulsante di disattivazione audio |
    | 2 |Alimentazione del sistema |
@@ -73,7 +73,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    
      **Figura 2** Parte posteriore del PCM con i LED degli indicatori
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |Guasto dell’alimentazione CA |
    | 2 |Guasto alla ventola |
@@ -87,7 +87,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    
      **Figura 3** Parte posteriore del dispositivo con moduli plug-in 
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

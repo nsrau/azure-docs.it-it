@@ -18,7 +18,7 @@ ms.author: iainfou
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9c3f47739f28e0b0b2a24fcea61b055071cba7d5
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---

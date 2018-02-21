@@ -17,7 +17,7 @@ ms.date: 11/16/2017
 ms.author: negat
 ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---

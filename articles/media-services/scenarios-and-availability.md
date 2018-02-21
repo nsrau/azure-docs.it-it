@@ -29,11 +29,11 @@ Questo argomento illustra scenari comuni per la distribuzione di contenuti [live
 
 ## <a name="overview"></a>Panoramica
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
-* Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
+* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
 * Un account di Servizi multimediali di Azure. Per altre informazioni, vedere [Creare un account](media-services-portal-create-account.md).
 * L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
@@ -173,7 +173,7 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome|Stato|Data center
+|NOME|Status|Data center
 |---|---|---|
 |Standard|GA|Tutti|
 |Premium|GA|Tutti|
@@ -190,7 +190,7 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Stato|Data center
+|Nome processore di contenuti multimediali|Status|Data center
 |---|---|---|
 |Codificatore multimediale standard|GA|Tutti|
 |Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
@@ -201,7 +201,7 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome processore di contenuti multimediali|Stato|Data center
+|Nome processore di contenuti multimediali|Status|Data center
 |---|---|---|
 |Rilevamento multimediale volti di Azure|Preview|Tutti|
 |Azure Media Hyperlapse|Preview|Tutti|
@@ -219,7 +219,7 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 #### <a name="availability"></a>Disponibilità
 
-|Crittografia|Stato|Data center|
+|Crittografia|Status|Data center|
 |---|---|---| 
 |Archiviazione|GA|Tutti|
 |Chiavi AES-128|GA|Tutti|
@@ -245,7 +245,7 @@ Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scali
 
 #### <a name="availability"></a>Disponibilità
 
-|Nome tipo di unità riservata|Stato|Data center
+|Nome tipo di unità riservata|Status|Data center
 |---|---|---|
 |S1|GA|Tutti|
 |S2|GA|Tutti tranne Brasile meridionale e India occidentale|

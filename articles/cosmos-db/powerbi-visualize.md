@@ -17,7 +17,7 @@ ms.date: 08/16/2017
 ms.author: mimig
 ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -40,7 +40,7 @@ Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle
 > [!NOTE]
 > Per connettere Azure Cosmos DB a Power BI usando l'API di MongoDB, è necessario usare il [driver ODBC per MongoDB di Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare di avere accesso alle risorse seguenti:
 
 * [La versione più recente di Power BI Desktop](https://powerbi.microsoft.com/desktop).

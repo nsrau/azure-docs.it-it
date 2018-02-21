@@ -50,9 +50,9 @@ L'aggiornamento 5 include i miglioramenti essenziali e le correzioni di bug desc
 
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 5.
 
-| No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No  | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
-| 1 |Comunicazione remota di Windows PowerShell |Nella versione precedente, gli utenti ricevevano un errore se provavano a stabilire una connessione remota all'appliance cloud StorSimple tramite Windows PowerShell. In questa versione il problema è stato corretto una volta individuata la causa radice. |No |Sì |
+| 1 |Comunicazione remota di Windows PowerShell |Nella versione precedente, gli utenti ricevevano un errore se provavano a stabilire una connessione remota all'appliance cloud StorSimple tramite Windows PowerShell. In questa versione il problema è stato corretto una volta individuata la causa radice. |No  |Sì |
 | 2 |Modelli di larghezza di banda |Nella versione precedente, un problema con i modelli di larghezza di banda determinava una larghezza di banda inferiore rispetto a quella per cui era stato configurato il dispositivo. Questo problema è stato risolto in questa versione. |Sì |Sì |
 | 3 |Failover |Nella versione precedente, quando veniva eseguito il failover di un dispositivo con un numero elevato di volumi su un altro dispositivo che eseguiva l'aggiornamento 4, il processo si interrompeva mentre provava ad applicare i record di controllo di accesso. Tale problema è stato corretto in questa versione. |Sì |Sì |
 

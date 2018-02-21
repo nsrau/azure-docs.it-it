@@ -111,7 +111,7 @@ Nella finestra **Riepilogo** esaminare le informazioni e fare clic su **Acquista
    > [!TIP]
    > Se SQL Server Management Studio non è installato, è possibile scaricarlo [qui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP pubblico della macchina virtuale. Aggiungere quindi una virgola e la porta personalizzata, **1401**, specificata durante la configurazione della nuova macchina virtuale. ad esempio `11.22.33.444,1401`.
+1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP pubblico della macchina virtuale. Aggiungere quindi una virgola e la porta personalizzata, **1401**, specificata durante la configurazione della nuova macchina virtuale. Ad esempio, `11.22.33.444,1401`.
 
 1. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 
@@ -119,7 +119,7 @@ Nella finestra **Riepilogo** esaminare le informazioni e fare clic su **Acquista
 
 1. Nella casella **Password** digitare la password dell'account di accesso.
 
-1. Fare clic su **Connect**.
+1. Fare clic su **Connetti**.
 
     ![connessione a ssms](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 

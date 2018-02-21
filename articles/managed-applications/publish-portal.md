@@ -12,7 +12,7 @@ ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/07/2017
 
 È possibile usare il portale di Azure per pubblicare [applicazioni gestite](overview.md) studiate per i membri della propria organizzazione. Un reparto IT può, ad esempio, pubblicare applicazioni gestite che garantiscano la conformità agli standard aziendali. Queste applicazioni gestite sono disponibili nel catalogo dei servizi, non in Azure Marketplace.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Quando si pubblica un'applicazione gestita, si specifica un'identità per la gestione delle risorse. È consigliabile specificare un gruppo di utenti Azure Active Directory. Per creare un gruppo di utenti Azure Active Directory, vedere [Creare un gruppo e aggiungere membri in Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
 

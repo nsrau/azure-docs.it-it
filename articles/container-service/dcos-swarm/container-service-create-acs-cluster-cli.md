@@ -23,12 +23,12 @@ Per informazioni sui comandi `az acs`, passare il parametro `-h` a qualsiasi com
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per creare un cluster del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure 2.0, è necessario:
 * Avere un account Azure ([versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/))
 * Avere installato e configurato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2)
 
-## <a name="get-started"></a>Introduzione 
+## <a name="get-started"></a>Attività iniziali 
 ### <a name="log-in-to-your-account"></a>Accedere all'account
 ```azurecli
 az login 
@@ -38,7 +38,7 @@ Seguire i prompt per accedere in modo interattivo. Per altri metodi di accesso, 
 
 ### <a name="set-your-azure-subscription"></a>Configurare la sottoscrizione di Azure
 
-Se si hanno più sottoscrizioni Azure, configurare la sottoscrizione predefinita. Ad esempio:
+Se si hanno più sottoscrizioni Azure, configurare la sottoscrizione predefinita. Ad esempio: 
 
 ```
 az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
@@ -46,7 +46,7 @@ az account set --subscription "f66xxxxx-xxxx-xxxx-xxx-zgxxxx33cha5"
 
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-È consigliabile creare un gruppo di risorse per ogni cluster. Specificare un'area di Azure in cui sia [disponibile](https://azure.microsoft.com/en-us/regions/services/) il servizio contenitore di Azure. Ad esempio:
+È consigliabile creare un gruppo di risorse per ogni cluster. Specificare un'area di Azure in cui sia [disponibile](https://azure.microsoft.com/en-us/regions/services/) il servizio contenitore di Azure. Ad esempio: 
 
 ```azurecli
 az group create -n acsrg1 -l "westus"

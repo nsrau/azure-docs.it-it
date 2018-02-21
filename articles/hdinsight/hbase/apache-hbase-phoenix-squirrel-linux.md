@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: 12791da56f32ffffa4b1131c408829f50f6e9124
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -32,7 +32,7 @@ Questo articolo fornisce informazioni su come usare [Apache Phoenix](http://phoe
 ## <a name="use-sqlline"></a>Usare SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) è un'utilità della riga di comando per eseguire SQL.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Per usare SQLLine sono necessari gli elementi seguenti:
 
 * **Un cluster HBase in HDInsight**. Per crearne uno, vedere [Introduzione ad Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).

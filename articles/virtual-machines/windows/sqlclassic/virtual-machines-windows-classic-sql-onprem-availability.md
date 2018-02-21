@@ -55,7 +55,7 @@ Questa sezione mostra come usare la **procedura guidata per l'aggiunta della rep
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742864.png)
 7. In questa pagina è necessario immettere in ciascun campo i valori richiesti che verranno usati per creare la macchina virtuale di Azure.
    
-   | Impostazione | Descrizione |
+   | Impostazione | DESCRIZIONE |
    | --- | --- |
    | **Immagine** |Selezionare la combinazione di sistema operativo e SQL Server desiderata. |
    | **Dimensioni macchina virtuale** |Selezionare le dimensioni della macchina virtuale più adatte alle esigenze aziendali. |

@@ -24,7 +24,7 @@ ms.lasthandoff: 11/03/2017
 Questo articolo è la documentazione di riferimento per `api-version=2016-09-01-Preview`. Questa versione di anteprima estende l'attuale versione disponibile a livello generale, [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx), includendo le funzionalità sperimentali seguenti:
 
 * [API di sinonimi](search-synonyms.md) per caricare le mappe di sinonimi ed espandere la ricerca.
-* Parametro di query ](search-more-like-this.md) [`moreLikeThis` per trovare documenti rilevanti per un documento specifico.
+* [`moreLikeThis`Parametro di query ](search-more-like-this.md) per trovare documenti rilevanti per un documento specifico.
 
 Verificare di avere come destinazione la versione API di anteprima `api-version=2016-09-01-Preview` per provare le funzionalità sperimentali. L'esempio seguente illustra come la versione API di anteprima sia specificata per eseguire una query more-like-this.
 

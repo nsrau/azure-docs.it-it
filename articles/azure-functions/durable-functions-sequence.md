@@ -24,7 +24,7 @@ ms.lasthandoff: 12/05/2017
 
 Il concatenamento di funzioni si riferisce al criterio di esecuzione di una sequenza di funzioni in un determinato ordine. Spesso l'output di una funzione deve essere applicato all'input di un'altra funzione. Questo articolo illustra un esempio che usa le [Funzioni permanenti](durable-functions-overview.md) per implementare il concatenamento di funzioni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Seguire le istruzioni in [Install Durable Functions](durable-functions-install.md) (Installare Funzioni permanenti) per impostare l'esempio.
 

@@ -26,9 +26,9 @@ Questo articolo descrive come escludere dischi dalla replica, in modo da ottimiz
 ## <a name="supported-scenarios"></a>Scenari supportati
 **Funzionalità** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** | **Da Azure ad Azure**| **Da Hyper-V a Hyper-V** 
 --|--|--|--|--
-Esclusione disco | Sì | Sì | No | No
+Esclusione disco | Sì | Sì | No  | No 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per impostazione predefinita, vengono replicati tutti i dischi presenti in un computer. Per escludere un disco dalla replica, è necessario installare manualmente il servizio Mobility nel computer prima di abilitare la replica, se si esegue la replica da VMware ad Azure.
 

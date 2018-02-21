@@ -145,9 +145,9 @@ Nei rapporti vengono evidenziate le differenze tra le due esecuzioni.
 
 ![Report di confronto][16]
 
-Congratulazioni. sono state eseguite le operazioni preliminari con il profiler.
+Congratulazioni! sono state eseguite le operazioni preliminari con il profiler.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 * Assicurarsi di eseguire la profilatura di una compilazione di rilascio e avviarla senza eseguire il debug.
 * Se l'opzione Connetti/Disconnetti non è abilitata nel menu Profiler, eseguire la Creazione guidata sessione di prestazioni.
 * Usare l'interfaccia utente dell'emulatore di calcolo per visualizzare lo stato dell'applicazione. 

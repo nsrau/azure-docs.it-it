@@ -23,10 +23,10 @@ ms.lasthandoff: 10/11/2017
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Come visualizzare e gestire i grafici dei dati relativi all'applicazione
 La sezione Dashboard dell'interfaccia utente consente ai clienti di creare grafici personalizzati. In questo modo, potranno sfruttare al meglio il tempo fornendo informazioni precise, invece di cercarle nella sezione delle analisi. Nel dashboard vengono visualizzate le tendenze dell'applicazione e il conteggio degli utenti attivi, suddivisi in base alle differenti versioni dell'applicazione e per un determinato periodo di tempo (ora, giorno, settimana, mese, personalizzato). Le tendenze visualizzate sono basate sugli ultimi 7 giorni.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Guida alla risoluzione dei problemi - Analytics][Link 21]
 
-## <a name="dashboard"></a>Dashboard
+## <a name="dashboard"></a>dashboard
 * È possibile aggiungere grafici a un dashboard vuoto selezionando l'azione "Invia a dashboard" dal menu ingranaggio di qualsiasi grafico presente nella sezione Analisi dell'interfaccia utente che si desidera visualizzare nel dashboard
 
 ## <a name="-add-a-dashboard"></a>+ (Aggiungi un dashboard)

@@ -25,7 +25,7 @@ ms.lasthandoff: 01/09/2018
 
 Questa guida introduttiva illustra come creare un'API REST, scritta con Node.js [Express](http://expressjs.com/), usando una definizione [Swagger](http://swagger.io/) e come distribuirla in Azure. Si creerà l'app usando gli strumenti da riga di comando, si configureranno le risorse con l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e si distribuirà l'app tramite Git.  Al termine, si avrà un'API REST di esempio in esecuzione in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Git](https://git-scm.com/)
 * [Node.js e NPM](https://nodejs.org/)

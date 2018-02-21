@@ -22,7 +22,7 @@ Questo articolo fornisce un'introduzione all'uso delle applicazioni gestite. È 
 
 Al termine, sono disponibili tre gruppi di risorse che includono diverse parti dell'applicazione gestita.
 
-| Gruppo di risorse | Contiene | Descrizione |
+| Gruppo di risorse | Contiene | DESCRIZIONE |
 | -------------- | -------- | ----------- |
 | appDefinitionGroup | Definizione dell'applicazione gestita. | L'autore crea questo gruppo di risorse e la definizione dell'applicazione gestita. Tutti gli utenti autorizzati ad accedere alla definizione dell'applicazione gestita possono distribuirla. |
 | applicationGroup | Istanza dell'applicazione gestita. | Il consumer crea questo gruppo di risorse e l'istanza dell'applicazione gestita. Il consumer può aggiornare l'applicazione gestita tramite questa istanza. |

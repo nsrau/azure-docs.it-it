@@ -17,7 +17,7 @@ ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -41,6 +41,6 @@ Per le domande frequenti, fare clic [qui](https://docs.microsoft.com/azure/activ
    * [Utilizzo delle informazioni di riferimento sull'API di controllo](active-directory-reporting-api-audit-reference.md) 
    * [Utilizzo delle informazioni di riferimento sull'API di creazione report sull'attività di accesso](active-directory-reporting-api-sign-in-activity-reference.md)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Se si desidera vedere tutti gli endpoint disponibili dell'API Graph di Azure AD, usare questo link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 

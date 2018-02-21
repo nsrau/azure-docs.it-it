@@ -17,7 +17,7 @@ ms.date: 06/28/2017
 ms.author: cephalin
 ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -29,7 +29,7 @@ Quando si esegue la migrazione di un sito live e del relativo nome di dominio DN
 
 Se i tempi di inattività non rappresentano un problema nella risoluzione DNS, vedere [Eseguire il mapping di un nome DNS personalizzato esistente alle app Web di Azure](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa procedura:
 

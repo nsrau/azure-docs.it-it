@@ -18,7 +18,7 @@ ms.date: 08/25/2017
 ms.author: sashan
 ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

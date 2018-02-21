@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 Questo documento descrive in dettaglio le piattaforme e le opzioni di distribuzione supportate per l'estensione macchina virtuale Network Watcher Agent per Linux.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 

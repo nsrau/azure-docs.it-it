@@ -30,7 +30,7 @@ Questa è la terza di una serie di esercitazioni. In questa esercitazione si app
 > * Informazioni sul failover del contenitore in un cluster di Service Fabric  
 > * Ridimensionamento dei contenitori front-end Web in un'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 L'applicazione della [parte 2](service-fabric-tutorial-package-containers.md) è ora in esecuzione nel cluster attivo di Service Fabric.
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>Effettuare il failover di un contenitore in un cluster

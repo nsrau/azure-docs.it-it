@@ -17,7 +17,7 @@ ms.devlang: na
 ms.author: delhan
 ms.openlocfilehash: 7f5718a7e1ab2b14902fa61ffb3053910e584ac6
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

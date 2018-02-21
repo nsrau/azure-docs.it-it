@@ -39,5 +39,5 @@ Questo articolo contiene istruzioni su come diventare partner Microsoft Azure Ce
 ## <a name="next-step"></a>Passaggio successivo
 Dopo aver ricevuto la pre-approvazione dal programma Microsoft Azure Certified, è possibile [registrare il proprio account Microsoft come venditore Microsoft](marketplace-publishing-accounts-creation-registration.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)

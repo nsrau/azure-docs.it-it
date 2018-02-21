@@ -31,7 +31,7 @@ ms.lasthandoff: 01/10/2018
 Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da servizio a servizio con Azure Data Lake Store. Per l'autenticazione dell'utente finale con Data Lake Store usando .NET SDK, vedere [Autenticazione dell'utente finale con Data Lake Store tramite .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Visual Studio 2013, 2015 o 2017**. Le istruzioni seguenti fanno riferimento a Visual Studio 2017.
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -47,7 +47,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da se
    | --- | --- |
    | Categoria |Templates/Visual C#/Windows |
    | Modello |Applicazione console |
-   | Nome |CreateADLApplication |
+   | NOME |CreateADLApplication |
 4. Fare clic su **OK** per creare il progetto.
 
 5. Aggiungere i pacchetti NuGet al progetto.

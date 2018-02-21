@@ -85,9 +85,9 @@ Quando l'immagine viene aggiornata, l'app Web viene aggiornata automaticamente c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Servizio app di Azure in Linux](./app-service-linux-intro.md)
+* [Che cos'è il Servizio app di Azure in Linux?](./app-service-linux-intro.md)
 * [Registro contenitori di Azure](https://azure.microsoft.com/services/container-registry/)
-* [Uso di .NET Core in Servizio app di Azure in Linux](quickstart-dotnetcore.md)
+* [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
 * [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-custom-docker-image.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](./app-service-linux-faq.md)

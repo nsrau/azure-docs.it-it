@@ -41,7 +41,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Passaggio 1: Completare l'installazione dell'interfaccia utente Web locale e registrare il dispositivo
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Per completare l'installazione e registrare il dispositivo
-1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare:
+1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare: 
    
    `https://<ip-address of network interface>`
    

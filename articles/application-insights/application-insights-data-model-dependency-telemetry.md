@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 
 In [Application Insights](app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardinalità basso. Esempi sono il nome della stored procedure e il modello di percorso URL.
 
@@ -34,7 +34,7 @@ Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la corre
 
 Comando avviato con questa chiamata delle dipendenze. Esempi sono l'istruzione SQL e l'URL HTTP con tutti i parametri di query.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>type
 
 Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento logico delle dipendenze e l'interpretazione di altri campi come commandName e resultCode. Esempi sono SQL, tabelle di Azure e HTTP.
 
@@ -42,7 +42,7 @@ Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento 
 
 Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](application-insights-correlation.md).
 
-## <a name="duration"></a>Durata
+## <a name="duration"></a>Duration
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a `1000` giorni.
 

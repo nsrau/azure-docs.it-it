@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Creare un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]
 >
-> * [Panoramica](search-what-is-an-index.md)
+> * [Overview](search-what-is-an-index.md)
 > * [Portale](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)

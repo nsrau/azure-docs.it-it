@@ -17,7 +17,7 @@ ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ Quando si crea un set di scalabilità, definire il numero di istanze di macchine
 Questo articolo illustra come creare regole di scalabilità automatica con Azure PowerShell per monitorare le prestazioni delle istanze di macchine virtuali nel set di scalabilità. Queste regole di scalabilità automatica aumentano o diminuiscono il numero di istanze di macchine virtuali in risposta a queste metriche delle prestazioni. È anche possibile completare questa procedura con l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md) o nel [portale di Azure](virtual-machine-scale-sets-autoscale-portal.md).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchina virtuale esistente. È possibile creare un set di scalabilità con il [portale di Azure](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Per rendere più semplice la creazione delle regole di scalabilità automatica, definire alcune variabili per il set di scalabilità. L'esempio seguente definisce le variabili per il set di scalabilità denominato *myScaleSet* nel gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti orientali*. Ottenere l'ID della propria sottoscrizione con [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Se si hanno più sottoscrizioni associate all'account, viene restituita solo la prima sottoscrizione. Modificare i nomi e l'ID sottoscrizione nel modo seguente:

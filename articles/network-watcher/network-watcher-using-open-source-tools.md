@@ -32,7 +32,7 @@ Una semplice applicazione Web è distribuita in una macchina virtuale in Azure e
 
 ![scenario][1]
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Passaggi
 
 ### <a name="install-capanalysis"></a>Installare CapAnalysis
 
@@ -87,7 +87,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
     Per altre informazioni su tutte le funzionalità di CapAnalysis, vedere [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about).
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 La funzionalità di acquisizione pacchetti di Network Watcher permette di acquisire i dati necessari per eseguire l'analisi della rete e comprendere meglio il traffico di rete. In questo scenario è stato illustrato come integrate facilmente le acquisizioni pacchetti di Network Watcher con strumenti di visualizzazione open source. L'uso di strumenti open source come CapAnalysis per visualizzare le acquisizioni pacchetti permette di eseguire ispezioni approfondite dei pacchetti e di identificare rapidamente le tendenze all'interno del traffico di rete.
 

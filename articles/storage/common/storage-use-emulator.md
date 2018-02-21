@@ -168,7 +168,7 @@ A partire dalla versione 3.0, quando si avvia l'emulatore di archiviazione viene
 ### <a name="options"></a>Opzioni
 Per visualizzare l'elenco di opzioni, digitare `/help` al prompt dei comandi.
 
-| Opzione | Descrizione | Comando | Argomenti |
+| Opzione | DESCRIZIONE | Comando | Argomenti |
 | --- | --- | --- | --- |
 | **Inizia** |Avvia l'emulatore di archiviazione. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: consente di avviare l'emulatore nel processo corrente anziché creare un nuovo processo. |
 | **Stop** |Interrompe l'emulatore di archiviazione. |`AzureStorageEmulator.exe stop` | |

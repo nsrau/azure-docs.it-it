@@ -25,7 +25,7 @@ Questo articolo illustra come configurare un indicizzatore di BLOB di Ricerca di
 
 I BLOB JSON in Archiviazione BLOB di Azure consistono in genere in un singolo documento JSON o in una matrice JSON. L'indicizzatore di BLOB di Ricerca di Azure è in grado di analizzare entrambi i tipi di costruzione, a seconda dell'impostazione del parametro **parsingMode** nella richiesta.
 
-| Documento JSON | parsingMode | Descrizione | Disponibilità |
+| Documento JSON | parsingMode | DESCRIZIONE | Disponibilità |
 |--------------|-------------|--------------|--------------|
 | Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di Ricerca di Azure. | Disponibile a livello generale nelle API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
 | Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, dove ogni elemento della matrice diventa un documento separato di Ricerca di Azure.  | In anteprima, in [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) e nella [versione di anteprima di .NET SDK](https://aka.ms/search-sdk-preview). |
@@ -216,7 +216,7 @@ L'esempio seguente mostra un payload di indicizzatore completo con mapping dei c
 ## <a name="help-us-make-azure-search-better"></a>Come contribuire al miglioramento di Ricerca di Azure
 Se si hanno domande sulle funzionalità o idee per apportare miglioramenti, contattare Microsoft sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 + [Indicizzatori in Ricerca di Azure](search-indexer-overview.md)
 + [Indicizzazione di Archiviazione BLOB di Azure con Ricerca di Azure](search-howto-index-json-blobs.md)

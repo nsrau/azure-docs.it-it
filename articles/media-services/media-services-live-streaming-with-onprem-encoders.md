@@ -184,7 +184,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | **Avvio** |**Avvio** |No (stato temporaneo) |
 | **Running** |**Pronto** (nessun programma in esecuzione)<p><p>oppure<p>**Streaming** (almeno un programma in esecuzione) |Sì |
 | **Arresto** |**Arresto** |No (stato temporaneo) |
-| **Stopped** |**Stopped** |No |
+| **Stopped** |**Stopped** |No  |
 
 ## <a id="cc_and_ads"></a>Sottotitoli codificati e inserimento di annunci
 La tabella seguente illustra gli standard supportati per i sottotitoli codificati e l'inserimento di annunci.

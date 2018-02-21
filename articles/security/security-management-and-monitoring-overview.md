@@ -37,7 +37,7 @@ Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 
 * Controllo degli accessi in base al ruolo
 * Antimalware
-* Autenticazione a più fattori
+* Multi-Factor Authentication
 * ExpressRoute
 * Gateway di rete virtuale
 * Privileged Identity Management
@@ -69,7 +69,7 @@ Altre informazioni:
 * [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [Nuove opzioni antimalware per la protezione di macchine virtuali di Azure: McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. MFA consente di proteggere l'accesso ai dati e alle applicazioni dell'utente, garantendo al tempo stesso una procedura di accesso semplice. Offre autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica dell'app per dispositivi mobili o un codice di verifica e token OATH di terze parti.
 
 Altre informazioni:

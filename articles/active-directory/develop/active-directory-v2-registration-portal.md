@@ -17,7 +17,7 @@ ms.author: lenalepa
 ms.custom: aaddev
 ms.openlocfilehash: 3340df3fcc2456a355e523bfcf09978a16966036
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

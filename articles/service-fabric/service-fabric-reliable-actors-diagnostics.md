@@ -31,7 +31,7 @@ Alcuni esempi di strumenti e tecnologie che consentono di raccogliere e/o visual
 ### <a name="keywords"></a>Parole chiave
 Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a una o più parole chiave. Questo consente di filtrare gli eventi che vengono raccolti. Sono definiti i bit delle parole chiave seguenti:
 
-| Bit | Descrizione |
+| Bit | DESCRIZIONE |
 | --- | --- |
 | 0x1 |Set di eventi importanti che riepilogano il funzionamento del runtime di Fabric Actors. |
 | 0x2 |Set di eventi che descrivono le chiamate ai metodi degli attori. Per altre informazioni, vedere l' [argomento introduttivo sugli attori](service-fabric-reliable-actors-introduction.md). |
@@ -41,7 +41,7 @@ Tutti gli eventi appartenenti a EventSource di Reliable Actors sono associati a 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Actors definisce le categorie di contatori delle prestazioni seguenti.
 
-| Categoria | Descrizione |
+| Categoria | DESCRIZIONE |
 | --- | --- |
 | Service Fabric Actor |Contatori specifici degli attori di Azure Service Fabric, ad esempio per il tempo necessario per salvare lo stato di un attore |
 | Service Fabric Actor Method |Contatori specifici dei metodi implementati dagli attori di Service Fabric, ad esempio per la frequenza con cui viene richiamato un metodo di un attore |
@@ -91,7 +91,7 @@ Nell'esempio precedente `ivoicemailboxactor.leavemessageasync` è il nome del me
 ### <a name="actor-method-events-and-performance-counters"></a>Eventi dei metodi degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi ai [metodi degli attori](service-fabric-reliable-actors-introduction.md).
 
-| Nome evento | ID evento | Level | Parole chiave | Descrizione |
+| Nome evento | ID evento | Level | Parole chiave | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | ActorMethodStart |7 |Dettagliato |0x2 |Il runtime di Actors sta per richiamare un metodo di un attore. |
 | ActorMethodStop |8 |Dettagliato |0x2 |È terminata l'esecuzione di un metodo di un attore, ovvero la chiamata asincrona del runtime al metodo ha restituito il controllo e l'attività restituita dal metodo stesso è stata completata. |
@@ -99,7 +99,7 @@ Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi ai 
 
 Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi all'esecuzione dei metodi degli attori.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome categoria | Nome contatore | DESCRIZIONE |
 | --- | --- | --- |
 | Service Fabric Actor Method |Invocations/Sec |Numero di volte in cui il metodo del servizio attore viene richiamato al secondo |
 | Service Fabric Actor Method |Average milliseconds per invocation |Tempo necessario per eseguire il metodo del servizio attore in millisecondi |
@@ -108,13 +108,13 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="concurrency-events-and-performance-counters"></a>Eventi di concorrenza e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [concorrenza](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Nome evento | ID evento | Level | Parole chiave | Descrizione |
+| Nome evento | ID evento | Level | Parole chiave | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | ActorMethodCallsWaitingForLock |12 |Dettagliato |0x8 |Questo evento viene scritto all'inizio di ogni nuovo turno in un attore. Include il numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni. |
 
 Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi alla concorrenza.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome categoria | Nome contatore | DESCRIZIONE |
 | --- | --- | --- |
 | Service Fabric Actor |# of actor calls waiting for actor lock |Numero di chiamate dell'attore in sospeso, in attesa di acquisire il blocco per attore che applica la concorrenza basata su turni. |
 | Service Fabric Actor |Average milliseconds per lock wait |Tempo richiesto (in millisecondi) per acquisire il blocco per attore che applica la concorrenza basata su turni. |
@@ -123,14 +123,14 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="actor-state-management-events-and-performance-counters"></a>Eventi di gestione dello stato degli attori e relativi contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi alla [gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md).
 
-| Nome evento | ID evento | Level | Parole chiave | Descrizione |
+| Nome evento | ID evento | Level | Parole chiave | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | ActorSaveStateStart |10 |Dettagliato |0x4 |Il runtime di Actors sta per salvare lo stato di un attore. |
 | ActorSaveStateStop |11 |Dettagliato |0x4 |Il runtime di Actors ha finito di salvare lo stato di un attore. |
 
 Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi alla gestione dello stato degli attori.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome categoria | Nome contatore | DESCRIZIONE |
 | --- | --- | --- |
 | Service Fabric Actor |Average milliseconds per save state operation |Tempo necessario per salvare lo stato dell'attore in millisecondi |
 | Service Fabric Actor |Average milliseconds per load state operation |Tempo richiesto per caricare lo stato dell'attore in millisecondi |
@@ -138,7 +138,7 @@ Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti re
 ### <a name="events-related-to-actor-replicas"></a>Eventi relativi alle repliche di attori
 Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi alle [repliche di attori](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nome evento | ID evento | Level | Parole chiave | Descrizione |
+| Nome evento | ID evento | Level | Parole chiave | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | ReplicaChangeRoleToPrimary |1 |Informazioni |0x1 |Il ruolo della replica dell'attore è cambiato e la replica è diventata primaria. Ciò significa che gli attori per questa partizione verranno creati all'interno della replica. |
 | ReplicaChangeRoleFromPrimary |2 |Informazioni |0x1 |Il ruolo della replica dell'attore è cambiato e la replica non è più primaria. Ciò significa che gli attori per questa partizione non verranno più creati all'interno della replica. Non verranno recapitate nuove richieste agli attori già creati all'interno della replica. Gli attori verranno distrutti dopo il completamento di qualsiasi richiesta in corso. |
@@ -146,21 +146,21 @@ Il runtime di Reliable Actors rende disponibili gli eventi seguenti relativi all
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Eventi di attivazione e disattivazione degli attori e contatori delle prestazioni
 Il runtime di Reliable Actors emette gli eventi seguenti relativi all' [attivazione e disattivazione degli attori](service-fabric-reliable-actors-lifecycle.md).
 
-| Nome evento | ID evento | Level | Parole chiave | Descrizione |
+| Nome evento | ID evento | Level | Parole chiave | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | ActorActivated |5 |Informazioni |0x1 |Un attore è stato attivato. |
 | ActorDeactivated |6 |Informazioni |0x1 |Un attore è stato disattivato. |
 
 Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi all’attivazione e alla disattivazione degli attori.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome categoria | Nome contatore | DESCRIZIONE |
 | --- | --- | --- |
 | Service Fabric Actor |Average OnActivateAsync milliseconds |Tempo necessario per eseguire il metodo OnActivateAsync in millisecondi |
 
 ### <a name="actor-request-processing-performance-counters"></a>Contatori delle prestazioni di elaborazione delle richieste degli attori
 Quando un client richiama un metodo tramite un oggetto proxy di attore, viene generato un messaggio di richiesta inviato in rete al servizio attore. Il servizio elabora il messaggio di richiesta e invia una risposta al client. Il runtime di Reliable Actors pubblica i contatori delle prestazioni seguenti relativi all’elaborazione delle richieste degli attori.
 
-| Nome categoria | Nome contatore | Descrizione |
+| Nome categoria | Nome contatore | DESCRIZIONE |
 | --- | --- | --- |
 | Service Fabric Actor |# of outstanding requests |Numero di richieste elaborate nel servizio |
 | Service Fabric Actor |Average milliseconds per request |Tempo richiesto (in millisecondi) dal servizio per elaborare una richiesta |

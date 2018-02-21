@@ -133,7 +133,7 @@ Include contratti TPM</td>
 <tr>
 <td align="left"><strong>Protocolli/sistemi supportati:</strong>
 <ul>
-<li>http</li>
+<li>HTTP</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>

@@ -29,7 +29,7 @@ Servizi BizTalk di Azure implementa la limitazione del servizio sulla base di du
 ## <a name="throttling-thresholds"></a>Soglie di limitazione
 Nella tabella seguente sono elencate le origini e le soglie di limitazione:
 
-|  | Descrizione | Soglia inferiore | Soglia superiore |
+|  | DESCRIZIONE | Soglia inferiore | Soglia superiore |
 | --- | --- | --- | --- |
 | Memoria |Percentuale di memoria totale del sistema disponibile/byte file di paging. <p><p>I byte totali disponibili del file di paging sono il doppio della RAM del sistema. |60% |70% |
 | Elaborazione di messaggi |Numero di messaggi elaborati simultaneamente |40 * numero di memorie centrali |100 * numero di memorie centrali |
@@ -41,10 +41,10 @@ Servizi BizTalk di Azure registra lo stato di limitazione (normale o limitato) e
 ## <a name="runtime-behavior"></a>Comportamento in fase di esecuzione
 Quando Servizi BizTalk di Azure entra nello stato di limitazione, si verifica quanto segue:
 
-* La limitazione viene applicata a ogni istanza del ruolo, Ad esempio:<br/>
+* La limitazione viene applicata a ogni istanza del ruolo, Ad esempio: <br/>
   IstanzaRuoloA è limitata. IstanzaRuoloB non è limitata. In questa situazione, i messaggi in IstanzaRuoloB vengono elaborati come previsto. I messaggi in IstanzaRuoloA vengono rimossi e non vengono eseguiti con l'errore seguente:<br/><br/>
   **Il server è occupato. Riprovare più tardi.**<br/><br/>
-* Nessuna origine di pull esegue il polling o scarica un messaggio, Ad esempio:<br/>
+* Nessuna origine di pull esegue il polling o scarica un messaggio, Ad esempio: <br/>
   Una pipeline effettua il pull dei messaggi da un'origine FTP esterna. L'istanza del ruolo che effettua il pull entra in stato limitato. In questa situazione, la pipeline interrompe il download di altri messaggi fino a quando l'istanza del ruolo non interrompe la limitazione.
 * Al client viene inviata una risposta in modo che possa inviare di nuovo il messaggio.
 * È necessario attendere che la limitazione sia risolta. In particolare, occorre attendere che venga raggiunta la soglia inferiore.

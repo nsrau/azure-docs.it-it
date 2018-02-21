@@ -270,7 +270,7 @@ che dovrebbe definire l'associazione di output in `function.json`:
 
 Talvolta una funzione deve disporre di controllo dettagliato sui dati di input e output. I tipi specializzati nel pacchetto `azure-functions-java-core` sono disponibili al fine di modificare le informazioni sulla richiesta e di personalizzare lo stato restituito di un trigger HTTP:
 
-| Tipo specializzato      |       Target        | Uso tipico                  |
+| Tipo specializzato      |       Destinazione        | Uso tipico                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Trigger HTTP     | Metodo Get, intestazioni o query |
 | `HttpResponseMessage<T>` | Associazione di output HTTP | Stato restituito diverso da 200   |

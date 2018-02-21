@@ -83,7 +83,7 @@ Il risultato finale è costituito da un set di regole di sicurezza che blocca l'
 
 ![Regole di sicurezza di rete predefinite][DefaultNetworkSecurityRules]
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
 Per informazioni dettagliate su come controllare il traffico in ingresso all'ambiente del servizio app, vedere [Controllo del traffico in ingresso a un ambiente del servizio app][ControlInboundASE]

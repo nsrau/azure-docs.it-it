@@ -44,7 +44,7 @@ La configurazione guidata non esegue le operazioni correlate alla raccolta della
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>Errori che si verificano durante le esecuzioni successive della configurazione guidata
 Nella tabella seguente vengono descritti gli errori che potrebbero verificarsi quando si esegue l'installazione guidata su un dispositivo operativo, le cause di errori e le azioni consigliate per la risoluzione. 
 
-| No. | Messaggio di errore o condizione | Possibili cause | Azione consigliata |
+| di serie | Messaggio di errore o condizione | Possibili cause | Azione consigliata |
 |:--- |:--- |:--- |:--- |
 | 1 |Errore 350032: il dispositivo è già stato disattivato. |Questo errore verrà visualizzato se si esegue la configurazione guidata su un dispositivo disattivato. |[Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per i passaggi successivi. Un dispositivo disattivato non può essere messo in servizio. Prima di poter attivare nuovamente il dispositivo, potrebbe essere necessario un ripristino delle impostazioni predefinite. |
 | 2 |Invoke-HcsSetupWizard: ERROR_INVALID_FUNCTION (eccezione da HRESULT: 0x80070001) |L'aggiornamento del server DNS in corso ha esito negativo. Le impostazioni DNS sono impostazioni globali e vengono applicate a tutte le interfacce di rete abilitate. |Abilitare l'interfaccia e applicare nuovamente le impostazioni DNS. Siccome queste impostazioni sono globali, ciò potrebbe interferire con la rete per le altre interfacce abilitate. |

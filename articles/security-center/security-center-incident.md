@@ -52,7 +52,7 @@ Le informazioni visualizzate in questo pannello variano in base all'avviso. Per 
 * Un nuovo filtro consente di personalizzare la visualizzazione in modo che contenga solo l'evento imprevisto, solo gli avvisi o entrambi.
 * Lo stesso avviso può essere incluso in un evento imprevisto (se applicabile) ed essere anche visibile come avviso autonomo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento è stato descritto come usare le funzionalità relative agli eventi imprevisti della sicurezza nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)

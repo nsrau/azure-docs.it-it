@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: jeannt
 ms.openlocfilehash: 15e68e9b4e6432d14c403e3532b934bfad58b35b
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---

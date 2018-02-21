@@ -90,7 +90,7 @@ Seguire questa procedura per modificare un record di controllo di accesso.
 
     ![Modificare i record di controllo di accesso](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. Fare clic su **Salva**. Alla richiesta di conferma fare clic su **Sì**. 
+4. Fare clic su **Save**. Alla richiesta di conferma fare clic su **Sì**. 
 
     ![Modificare i record di controllo di accesso](./media/storsimple-8000-manage-acrs/editacr3.png)
 

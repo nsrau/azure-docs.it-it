@@ -12,7 +12,7 @@ ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---

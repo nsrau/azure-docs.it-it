@@ -29,7 +29,7 @@ Il nozzle di Log Analytics di Azure (da qui in avanti il nozzle) è un component
 
 Questo documento illustra come distribuire il nozzle nell'ambiente Cloud Foundry e come accedere ai dati dalla console OMS di Log Analytics di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I passaggi seguenti sono prerequisiti per la distribuzione del nozzle.
 
@@ -175,7 +175,7 @@ Dal portale di OMS, passare a **Visualizza finestra di progettazione** > **Impor
 
 È possibile [creare avvisi](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts) e personalizzare le query e i valori di soglia come necessario. Di seguito è riportato un set di avvisi consigliati.
 
-| Query di ricerca                                                                  | Genera l'avviso in base a | Descrizione                                                                       |
+| Query di ricerca                                                                  | Genera l'avviso in base a | DESCRIZIONE                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Numero di risultati < 1   | **bbs.Domain.cf-apps** segnala se il dominio cf-apps è aggiornato. Ciò significa che le richieste di app Cloud Foundry dal controller cloud vengono sincronizzate con bbs.LRPsDesired (Diego-desired AIs) per l'esecuzione. Nessun dato ricevuto significa che il dominio cf-apps non è stato aggiornato nell'intervallo di tempo specificato. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Numero di risultati > 0   | Per le celle Diego, 0 indica uno stato di integrità e 1 uno stato di non integrità. Impostare l'avviso se più celle Diego non integre vengono rilevate nell'intervallo di tempo specificato. |
@@ -201,7 +201,7 @@ Per aumentare le istanze del nozzle, usare Apps Manager o l'interfaccia della ri
 Il loggregator invia il messaggio di log **LGR** per indicare problemi con il processo di registrazione. È possibile monitorare l'avviso per determinare se è necessario ridimensionare il loggregator.
 Per ridimensionare il loggregator, aumentare le dimensioni del buffer Doppler o aggiungere altre istanze del server Doppler nel manifesto di Cloud Foundry. Per altre informazioni vedere [il materiale sussidiario per il ridimensionamento di loggregator](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
-## <a name="update"></a>Aggiornare
+## <a name="update"></a>Aggiornamento
 
 Per aggiornare il nozzle a una versione più recente, scaricare la nuova versione, seguire i passaggi nella sezione precedente "Distribuire il nozzle" ed eseguire di nuovo il push dell'applicazione.
 

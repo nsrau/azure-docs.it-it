@@ -36,7 +36,7 @@
 
     9. Fare clic su **Crea**. Verrà creato un volume con le impostazioni specificate.
 
-        ![Fare clic su Crea](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+        ![Click Create](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
         > [!NOTE]
         > Tenere presente che il volume creato non è protetto. Sarà necessario creare e associare criteri di backup a questo volume per eseguire backup pianificati. 

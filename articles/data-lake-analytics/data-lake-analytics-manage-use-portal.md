@@ -58,7 +58,7 @@ Prima di eliminare un account di Data Lake Analytics, eliminare il relativo acco
 
 Data Lake Analytics supporta le origini dati seguenti:
 
-* Data Lake Store
+* Archivio Data Lake
 * Archiviazione di Azure
 
 Per esplorare le origini dati ed eseguire operazioni di gestione dei file di base è possibile usare Esplora dati. 
@@ -178,7 +178,7 @@ Per modificare il numero di AU per l'account di Data Lake Analytics:
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Numero massimo di AU** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 > [!NOTE]
 > Se è necessario impostare un numero di AU superiore al valore predefinito (250), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di AU disponibili nell'account di Data Lake Analytics può essere incrementato.
@@ -192,7 +192,7 @@ Per modificare il numero di processi che possono essere eseguiti contemporaneame
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Numero massimo di processi in esecuzione** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo. 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 > [!NOTE]
 > Se è necessario eseguire un numero di processi superiore al valore predefinito (20), nel portale fare clic su **Guida e supporto** per inviare una richiesta di supporto. Il numero di processi che possono essere eseguiti contemporaneamente nell'account di Data Lake Analytics può essere incrementato.
@@ -206,7 +206,7 @@ Per modificare il tempo di archiviazione delle risorse e dei metadati dei proces
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
 2. Fare clic su **Proprietà**.
 3. In **Giorni di conservazione delle query del processo** spostare il dispositivo di scorrimento per selezionare un valore o immettere il valore nella casella di testo.  
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 ### <a name="job-level-policies"></a>Criteri a livello di processo
 Con i criteri a livello di processo è possibile controllare il numero massimo di AU e la massima priorità che i singoli utenti (o i membri di specifici gruppi di sicurezza) possono impostare per i processi che inviano. Ciò consente di controllare i costi sostenuti dagli utenti e l'effetto che i processi pianificati possono avere sui processi di produzione ad alta priorità in esecuzione nello stesso account di Data Lake Analytics.

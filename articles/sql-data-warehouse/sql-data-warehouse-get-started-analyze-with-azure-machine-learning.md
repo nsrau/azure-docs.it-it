@@ -37,7 +37,7 @@ Questa esercitazione usa Azure Machine Learning per creare un modello predittivo
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire questa esercitazione, è necessario:
 
 * Un'istanza di SQL Data Warehouse in cui sia precaricato il database di esempio AdventureWorksDW. Per effettuarne il provisioning, vedere [Creare un Azure SQL Data Warehouse][Create a SQL Data Warehouse] e scegliere di caricare i dati di esempio. Se si ha già un data warehouse, ma non i dati di esempio, è possibile [caricare manualmente i dati di esempio][load sample data manually].
@@ -79,7 +79,7 @@ Dopo aver concluso con successo l’esperimento, per visualizzare i dati importa
 ![Visualizzare i dati importati][3]
 
 ## <a name="2-clean-the-data"></a>2. Pulire i dati
-Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, seguire questa procedura:
+Per pulire i dati, eliminare alcune colonne non rilevanti per il modello. A tale scopo, effettuare l'operazione seguente:
 
 1. Trascinare il modulo **Project Columns** nell'area di disegno.
 2. Fare clic su **Launch column selector** nel riquadro Proprietà per specificare le colonne da eliminare.

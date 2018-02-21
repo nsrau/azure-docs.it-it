@@ -16,7 +16,7 @@ ms.date: 8/7/2017
 ms.author: sromeroz
 ms.openlocfilehash: 7f551a7ba9b7ddbb373e6b6418ab43fe7ce9be36
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

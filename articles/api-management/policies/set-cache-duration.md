@@ -23,7 +23,7 @@ ms.lasthandoff: 12/04/2017
 
 Questo articolo descrive un esempio di criteri di Gestione API di Azure che spiega come impostare la durata della cache della risposta usando il valore maxAge nell'intestazione Cache-Control inviata dal back-end. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Criterio
 
 Incollare il codice nel blocco **inbound**.
 

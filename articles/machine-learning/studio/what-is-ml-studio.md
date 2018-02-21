@@ -63,7 +63,7 @@ Se si fa clic su **Studio**, viene visualizzato **Azure Machine Learning Studio*
 * **TRAINED MODELS** - modelli sottoposti a training durante gli esperimenti e salvati in Studio.
 * **SETTINGS** : insieme di impostazioni che è possibile usare per configurare l'account e le risorse.
 
-### <a name="gallery"></a>Raccolta
+### <a name="gallery"></a>Gallery
 Fare clic sulla scheda **Gallery**. Verrà visualizzata la **[raccolta per intelligenza artificiale di Azure](http://gallery.cortanaintelligence.com/)**. La raccolta è un'area in cui una community di sviluppatori e data scientist condivide le soluzioni create usando i componenti di Cortana Intelligence Suite.
 
 Per altre informazioni sulla raccolta, vedere [Condividere e trovare soluzioni nella raccolta per intelligenza artificiale di Azure](gallery-how-to-use-contribute-publish.md).

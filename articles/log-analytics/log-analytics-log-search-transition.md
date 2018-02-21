@@ -40,7 +40,7 @@ Sul [sito della documentazione per il linguaggio di query di Log Analytics](http
 
 La tabella seguente mette a confronto i comandi equivalenti di svariate query comuni per il linguaggio di query legacy e nuovo di Azure Log Analytics.
 
-| Descrizione | Legacy | Nuovo |
+| DESCRIZIONE | Legacy | Nuovo |
 |:--|:--|:--|
 | Ricerca in tutte le tabelle      | error | ricerca di "error" (senza distinzione tra maiuscole/minuscole) |
 | Selezione di dati da una tabella | Type=Event |  Event |
@@ -50,7 +50,7 @@ La tabella seguente mette a confronto i comandi equivalenti di svariate query co
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (senza distinzione tra maiuscole/minuscole)<br>Event &#124; where Computer contains_cs "Contoso" (con distinzione tra maiuscole/minuscole) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Confronto di date        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | Confronto booleano     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | Ordinamento                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinzione               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |

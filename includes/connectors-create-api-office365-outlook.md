@@ -1,4 +1,4 @@
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
 * Un account [Office 365](https://office365.com)  
 

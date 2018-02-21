@@ -10,7 +10,7 @@ Le reti virtuali e le risorse subnet consentono di definire un limite di sicurez
 
 Le reti virtuali contengono le proprietà seguenti.
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **addressSpace** |Raccolta di prefissi di indirizzi che costituiscono la rete virtuale nella notazione CIDR |192.168.0.0/16 |
 | **subnet** |Raccolta di subnet che costituiscono la rete virtuale |vedere [subnet](#Subnets) di seguito. |
@@ -21,7 +21,7 @@ Una subnet è una risorsa figlio di una rete virtuale e consente di definire i s
 
 Le subnet contengono le proprietà seguenti. 
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **addressPrefix** |Singolo prefisso di indirizzo che costituisce la subnet nella notazione CIDR |192.168.1.0/24 |
 | **networkSecurityGroup** |NSG applicato alla subnet |vedere [NSG](#Network-Security-Group) |

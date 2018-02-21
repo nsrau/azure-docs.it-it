@@ -1,5 +1,5 @@
 ---
-title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure | Microsoft Docs
+title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azure | Documentazione Microsoft
 description: Panoramica delle transazioni atomiche del bus di servizio di Azure e invia tramite
 services: service-bus-messaging
 documentationcenter: .net
@@ -46,7 +46,7 @@ Per abilitare il passaggio transazionale dei dati da una coda a un processore e 
 L'efficacia di questa funzionalità transazionale diventa evidente quando la coda di trasferimento stessa è l'origine dei messaggi di input del mittente. In altri termini, il bus di servizio può trasferire il messaggio alla coda di destinazione "tramite" la coda di trasferimento, durante l'esecuzione di un'operazione di completamento (o rinvio o non recapitabilità) nel messaggio di input, il tutto in una singola operazione atomica. 
 
 ### <a name="see-it-in-code"></a>Codice di esempio
-Per impostare tali trasferimenti, si crea un mittente del messaggio che fa riferimento alla coda di destinazione tramite la coda di trasferimento. È inoltre disponibile un destinatario che estrae i messaggi dalla stessa coda. ad esempio:
+Per impostare tali trasferimenti, si crea un mittente del messaggio che fa riferimento alla coda di destinazione tramite la coda di trasferimento. È inoltre disponibile un destinatario che estrae i messaggi dalla stessa coda. Ad esempio: 
 
 ```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);

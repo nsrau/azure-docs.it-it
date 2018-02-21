@@ -25,7 +25,7 @@ Questo documento è complementare all'articolo [Come integrare Mobile Engagement
 
 Se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `PhoneApplicationPage` ereditino dalla classe `EngagementPage`.
 
-Se invece si hanno esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementPage`, è necessario usare l'API di Engagement.
+Se invece si hanno esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementPage` , è necessario usare l'API di Engagement.
 
 L'API di Engagement viene fornita dalla classe `EngagementAgent` . È possibile accedere a questi metodi tramite `EngagementAgent.Instance`.
 
@@ -55,7 +55,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
             EngagementAgent.Instance.StartActivity("main", new Dictionary<object, object>() {{"example", "data"}});
 
 ### <a name="user-ends-his-current-activity"></a>L'utente termina l'attività corrente
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void EndActivity()
 
 È necessario chiamare `EndActivity()` almeno una volta quando l'utente termina la sua ultima attività. In questo modo, si indica all'SDK di Engagement che l'utente è attualmente inattivo e che la sessione utente deve essere chiusa allo scadere del timeout. Se si chiama `StartActivity()` prima dello scadere del timeout, la sessione rimane semplicemente attiva.
@@ -65,7 +65,7 @@ Le *attività* possono tuttavia essere controllate anche manualmente usando l'AP
 
 ## <a name="reporting-jobs"></a>Segnalazione di processi
 ### <a name="start-a-job"></a>Avviare un processo
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void StartJob(string name, Dictionary<object, object> extras = null)
 
 È possibile utilizzare il processo per tenere traccia delle attività in un determinato periodo di tempo.
@@ -155,7 +155,7 @@ Diversamente dagli errori di sessione, gli errori autonomi possono verificarsi a
             EngagementAgent.Instance.SendError("errorName", extras);
 
 ### <a name="session-errors"></a>Errori di sessione
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendSessionError(string name, Dictionary<object, object> extras = null)
 
 Gli errori di sessione vengono in genere usati per segnalare gli errori che hanno impatto sull'utente durante la sua sessione.
@@ -212,7 +212,7 @@ Questo metodo terminerà **SEMPRE** la sessione di Engagement e i processi dopo 
             }
 
 ## <a name="onactivated"></a>OnActivated
-### <a name="reference"></a>riferimento
+### <a name="reference"></a>Riferimenti
             void OnActivated(ActivatedEventArgs e)
 
 Quando l'utente procede con la navigazione, lontano da un'applicazione, una volta generato l'evento di disattivazione il sistema operativo tenterà di mettere l'applicazione in stato di inattività. Quindi, l'applicazione viene rimossa definitivamente. In questo processo viene terminata un'applicazione, ma alcuni dati relativi allo stato dell'applicazione e alle singole pagine all'interno dell'applicazione vengono mantenute.

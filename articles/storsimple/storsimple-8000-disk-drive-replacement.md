@@ -45,7 +45,7 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
    
     **Figura 1** Blocco antimanomissione attivato
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |Apertura indicatore |
    | 2 |Blocco antimanomissione |

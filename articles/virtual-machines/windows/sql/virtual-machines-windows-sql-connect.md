@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: jroth
 ms.openlocfilehash: 6d90904315e5d0a99ead193d1f95b504e796d587
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -143,7 +143,7 @@ La tabella seguente elenca i requisiti per la connessione a SQL Server in esecuz
 > [!TIP]
 > I passaggi indicati nella tabella seguente vengono eseguiti automaticamente durante la configurazione della connettività nel portale. Usare questi passaggi solo per confermare la configurazione o per configurare manualmente la connettività per SQL Server.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per la procedura di configurazione della connettività e del provisioning, vedere [Provisioning di una macchina virtuale di SQL Server in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 

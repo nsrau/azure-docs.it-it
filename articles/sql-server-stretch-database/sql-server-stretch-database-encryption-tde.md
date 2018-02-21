@@ -16,7 +16,7 @@ ms.date: 06/14/2016
 ms.author: douglasl
 ms.openlocfilehash: ceb355d2ba872ed5d3886c6dc82ca75b1854db0a
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

@@ -16,7 +16,7 @@ ms.author: asteen
 ms.reviewr: japere
 ms.openlocfilehash: 7ff6817bafdfe1943d70639c7f3c69c417f5f94a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

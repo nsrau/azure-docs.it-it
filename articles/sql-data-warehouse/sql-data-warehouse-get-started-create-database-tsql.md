@@ -32,7 +32,7 @@ ms.lasthandoff: 12/18/2017
 
 Questo articolo illustra come creare un'istanza di SQL Data Warehouse usando T-SQL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per iniziare, è necessario:
 
 * **Account Azure**: per creare un account, vedere la [versione di valutazione gratuita][Azure Free Trial] o [MSDN Azure Credits][MSDN Azure Credits] (Crediti Azure MSDN).

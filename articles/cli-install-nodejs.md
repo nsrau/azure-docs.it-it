@@ -17,7 +17,7 @@ ms.date: 03/20/2017
 ms.author: rasquill
 ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

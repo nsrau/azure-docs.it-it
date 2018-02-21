@@ -18,7 +18,7 @@ ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

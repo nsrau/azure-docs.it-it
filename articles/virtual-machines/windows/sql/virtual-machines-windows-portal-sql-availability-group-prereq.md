@@ -189,7 +189,7 @@ La tabella seguente descrive le impostazioni per queste due macchine:
 | **Indirizzo IP pubblico** |*Lo stesso nome della VM* |
 | **Gruppo di sicurezza di rete** |*Lo stesso nome della VM* |
 | **Set di disponibilità** |adavailabilityset </br>**Domini di errore**:2</br>**Domini di aggiornamento**:2|
-| **Diagnostica** |Enabled |
+| **Diagnostica** |Attivato |
 | **Account di archiviazione di diagnostica** |*Creato automaticamente* |
 
    >[!IMPORTANT]
@@ -261,7 +261,7 @@ Dopo aver creato il primo controller di dominio e attivato il DNS sul primo serv
 
 3. Fare clic su **Personalizzato** e digitare l'indirizzo IP privato del controller di dominio primario.
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configurare il secondo controller di dominio
 Dopo il riavvio del controller di dominio primario, è possibile configurare il secondo controller di dominio. Questo passaggio facoltativo serve a garantire una disponibilità elevata. Seguire questi passaggi per configurare il secondo controller di dominio:

@@ -47,7 +47,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345
 ```
 
-| Parametro |  | Descrizione |
+| Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | tenant |Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione.  I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
 | client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. ed è reperibile nel portale di Azure. Fare clic su **Active Directory** e quindi sulla directory, sull'applicazione e infine su **Configura** |
@@ -55,10 +55,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app.  Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL.  Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Consigliato |Specifica il metodo da usare per restituire il token risultante all'app.  Può essere `query` o `form_post`. |
 | state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Per [evitare gli attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente.  Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-| resource |facoltativo |L'URI ID app dell'API Web (risorsa protetta). Per trovare l'URI ID app dell'API Web, nel portale di Azure fare clic su **Active Directory**, fare clic sulla directory e sull'applicazione e quindi su **Configura**. |
-| prompt |facoltativo |Indica il tipo di interazione obbligatoria dell'utente.<p> I valori validi sono: <p> *login*: all'utente deve essere chiesto di ripetere l'autenticazione. <p> *consent*: il consenso dell'utente è stato concesso, ma deve essere aggiornato. All'utente deve essere chiesto di indicare il consenso. <p> *admin_consent*: a un amministratore deve essere chiesto di indicare il consenso per conto di tutti gli utenti dell'organizzazione |
-| login_hint |facoltativo |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente.  Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
-| domain_hint |facoltativo |Offre un suggerimento relativo al tenant o al dominio che l'utente deve usare per accedere. Il valore di domain_hint è un dominio registrato per il tenant. Se il tenant è federato a una directory locale, AAD reindirizza al server federativo tenant specificato. |
+| resource |Facoltativo |L'URI ID app dell'API Web (risorsa protetta). Per trovare l'URI ID app dell'API Web, nel portale di Azure fare clic su **Active Directory**, fare clic sulla directory e sull'applicazione e quindi su **Configura**. |
+| prompt |Facoltativo |Indica il tipo di interazione obbligatoria dell'utente.<p> I valori validi sono: <p> *login*: all'utente deve essere chiesto di ripetere l'autenticazione. <p> *consent*: il consenso dell'utente è stato concesso, ma deve essere aggiornato. All'utente deve essere chiesto di indicare il consenso. <p> *admin_consent*: a un amministratore deve essere chiesto di indicare il consenso per conto di tutti gli utenti dell'organizzazione |
+| login_hint |Facoltativo |Consente di pre-compilare il campo nome utente/indirizzo di posta elettronica dell'utente nella pagina di accesso, se già si conosce il nome utente.  Le app usano spesso questo parametro durante la riautenticazione, dopo aver estratto il nome utente da un accesso precedente tramite l'attestazione `preferred_username`. |
+| domain_hint |Facoltativo |Offre un suggerimento relativo al tenant o al dominio che l'utente deve usare per accedere. Il valore di domain_hint è un dominio registrato per il tenant. Se il tenant è federato a una directory locale, AAD reindirizza al server federativo tenant specificato. |
 
 > [!NOTE]
 > Se l'utente fa parte di un'organizzazione, un amministratore dell'organizzazione può acconsentire o rifiutare per conto dell'utente oppure permettere all'utente di dare il consenso. L'utente ha la possibilità di dare il consenso solo se l'amministratore lo permette.
@@ -75,12 +75,12 @@ GET  HTTP/1.1 302 Found
 Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrqqf_ZT_p5uEAEJJ_nZ3UmphWygRNy2C3jJ239gV_DBnZ2syeg95Ki-374WHUP-i3yIhv5i-7KU2CEoPXwURQp6IVYMw-DjAOzn7C3JCu5wpngXmbZKtJdWmiBzHpcO2aICJPu1KvJrDLDP20chJBXzVYJtkfjviLNNW7l7Y3ydcHDsBRKZc3GuMQanmcghXPyoDg41g8XbwPudVh7uCmUponBQpIhbuffFP_tbV8SNzsPoFz9CLpBCZagJVXeqWoYMPe2dSsPiLO9Alf_YIe5zpi-zY4C3aLw5g9at35eZTfNd0gBRpR5ojkMIcZZ6IgAA&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF&state=D79E5777-702E-4260-9A62-37F75FF22CCE
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | admin_consent |Il valore è True se un amministratore ha acconsentito a una richiesta di consenso. |
 | code |Codice di autorizzazione richiesto dall'applicazione. L'applicazione può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. |
 | session_state |Valore univoco che identifica la sessione utente corrente. Questo valore è un GUID, ma deve essere trattato come un valore opaco passato senza alcun controllo. |
-| stato |Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. È consigliabile che l'applicazione verifichi che i valori dello stato nella richiesta e nella risposta siano identici, prima di usare la risposta. Ciò consente di rilevare gli [attacchi di richiesta intersito falsa (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) contro il client. |
+| state |Se un parametro di stato è incluso nella richiesta, lo stesso valore viene visualizzato nella risposta. È consigliabile che l'applicazione verifichi che i valori dello stato nella richiesta e nella risposta siano identici, prima di usare la risposta. Ciò consente di rilevare gli [attacchi di richiesta intersito falsa (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) contro il client. |
 
 ### <a name="error-response"></a>Risposta di errore
 Le risposte di errore possono essere inviate anche a `redirect_uri` , in modo che l'applicazione possa gestirle adeguatamente.
@@ -91,16 +91,16 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | error |Valore del codice di errore definito nella sezione 5.2 del [framework di autorizzazione di OAuth 2.0](http://tools.ietf.org/html/rfc6749). La tabella successiva descrive i codici errore restituiti da Azure AD. |
 | error_description |Descrizione più dettagliata dell'errore. Questo messaggio non vuole essere semplice da usare. |
-| stato |Il valore di state è un valore non riutilizzato generato casualmente che viene inviato nella richiesta e restituito nella risposta per impedire attacchi di tipo richiesta intersito falsa. |
+| state |Il valore di state è un valore non riutilizzato generato casualmente che viene inviato nella richiesta e restituito nella risposta per impedire attacchi di tipo richiesta intersito falsa. |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Codici per gli errori dell'endpoint di autorizzazione
 La tabella seguente descrive i diversi codici errore che possono essere restituiti nel parametro `error` della risposta di errore.
 
-| Codice errore | Descrizione | Azione client |
+| Codice di errore | DESCRIZIONE | Azione client |
 | --- | --- | --- |
 | invalid_request |Errore del protocollo, ad esempio un parametro obbligatorio mancante. |Correggere e inviare di nuovo la richiesta. Si tratta di un errore di sviluppo rilevato in genere durante il test iniziale. |
 | unauthorized_client |All'applicazione client non è consentito richiedere un codice di autorizzazione. |Si verifica in genere quando l'applicazione client non è registrata in Azure AD o non è stata aggiunta al tenant di Azure AD dell'utente. L'applicazione può chiedere all'utente di installare l'applicazione e di aggiungerla ad Azure AD. |
@@ -129,7 +129,7 @@ grant_type=authorization_code
 //NOTE: client_secret only required for web apps
 ```
 
-| Parametro |  | Descrizione |
+| Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | tenant |Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione.  I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
 | client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. Questo è reperibile nel portale di Azure. L'ID applicazione è visualizzato nelle impostazioni della registrazione dell'app.  |
@@ -162,7 +162,7 @@ Una risposta con esito positivo può avere un aspetto simile al seguente:
 
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | access_token |Il token di accesso richiesto come token JSON Web (JWT) firmato. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web. |
 | token_type |Indica il valore del tipo di token. L'unico tipo supportato da Azure AD è Bearer. Per altre informazioni sui token di connessione, vedere [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
@@ -202,7 +202,7 @@ Per altre informazioni sui token Web JSON, vedere la [bozza della specifica di J
 
 Il parametro `id_token` include i tipi di attestazione seguenti:
 
-| Tipo di attestazione | Descrizione |
+| Tipo di attestazione | DESCRIZIONE |
 | --- | --- |
 | aud |Destinatari del token. Quando il token viene rilasciato a un'applicazione client, il destinatario è il `client_id` del client. |
 | exp |Scadenza. Data e ora in cui scade il token. Perché il token sia valido, il valore di data/ora corrente deve essere minore o uguale al valore di `exp` . L'ora è rappresentata come numero di secondi dal 1° gennaio 1970 (1970-01-01T0:0:0Z) UTC fino all'ora in cui scade la validità del token.|
@@ -236,7 +236,7 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
   "correlation_id": "a8125194-2dc8-4078-90ba-7b6592a7f231"
 }
 ```
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -248,7 +248,7 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 #### <a name="http-status-codes"></a>Codici di stato HTTP
 La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di rilascio dei token. In alcuni casi il codice di errore è sufficiente a descrivere la risposta, ma in caso di errori sarà necessario analizzare il documento JSON associato ed esaminare il codice errore.
 
-| Codice HTTP | Descrizione |
+| Codice HTTP | DESCRIZIONE |
 | --- | --- |
 | 400 |Codice HTTP predefinito. Usato nella maggior parte dei casi, è in genere causato da una richiesta in formato non valido. Correggere e inviare di nuovo la richiesta. |
 | 401 |Autenticazione non riuscita. Ad esempio, nella richiesta manca il parametro client_secret. |
@@ -256,7 +256,7 @@ La tabella seguente elenca i codici di stato HTTP restituiti dall'endpoint di ri
 | 500 |Si è verificato un errore interno nel servizio. ripetere la richiesta. |
 
 #### <a name="error-codes-for-token-endpoint-errors"></a>Codici per gli errori degli endpoint di token
-| Codice errore | Descrizione | Azione client |
+| Codice di errore | DESCRIZIONE | Azione client |
 | --- | --- | --- |
 | invalid_request |Errore del protocollo, ad esempio un parametro obbligatorio mancante. |Correggere e inviare di nuovo la richiesta. |
 | invalid_grant |Il codice di autorizzazione non è valido o è scaduto. |Provare una nuova richiesta all'endpoint `/authorize` |
@@ -288,7 +288,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 ```
 
 #### <a name="error-parameters"></a>Parametri dell'errore
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | authorization_uri |URI (endpoint fisico) del server di autorizzazione. Questo valore viene usato anche come chiave di ricerca per ottenere altre informazioni sul server da un endpoint di individuazione. <p><p> Il client deve convalidare l'attendibilità del server di autorizzazione. Quando la risorsa è protetta da Azure AD, è sufficiente verificare che l'URL inizi con https://login.microsoftonline.com o con un altro nome host supportato da Azure AD. Una risorsa specifica del tenant deve sempre restituire un URI di autorizzazione specifico del tenant. |
 | error |Valore del codice di errore definito nella sezione 5.2 del [framework di autorizzazione di OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
@@ -298,7 +298,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="bearer-scheme-error-codes"></a>Codici errore dello schema di connessione
 La specifica RFC 6750 definisce gli errori seguenti per le risorse che usano l'intestazione WWW-Authenticate e lo schema di connessione nella risposta.
 
-| Codice di stato HTTP | Codice di errore | Descrizione | Azione client |
+| Codice di stato HTTP | Codice di errore | DESCRIZIONE | Azione client |
 | --- | --- | --- | --- |
 | 400 |invalid_request |Richiesta non ben formata. Ad esempio, potrebbe mancare un parametro o essere usato lo stesso parametro due volte. |Correggere l'errore e ripetere la richiesta. Questo tipo di errore dovrebbe verificarsi solo durante lo sviluppo ed essere rilevato nel test iniziale. |
 | 401 |invalid_token |Il token di accesso è mancante, non valido o è stato revocato. Il valore del parametro error_description fornisce dettagli aggiuntivi. |Richiedere un nuovo token al server di autorizzazione. Se il nuovo token ha esito negativo, si è verificato un errore imprevisto. Inviare un messaggio di errore all'utente e riprovare dopo alcuni ritardi casuali. |
@@ -341,7 +341,7 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | token_type |Tipo di token. L'unico valore supportato è **bearer**. |
 | expires_in |Durata residua del token, in secondi. Un valore tipico è 3600 (un'ora). |
@@ -367,7 +367,7 @@ Una risposta di errore di esempio può avere un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e correggerli. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |

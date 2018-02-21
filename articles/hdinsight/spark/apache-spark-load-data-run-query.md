@@ -32,7 +32,7 @@ Gli oggetti Jupyter Notebook nei cluster HDInsight supportano tre kernel: **PySp
 
 In questa esercitazione viene eseguita una query dei dati in un file csv. È necessario caricare prima i dati in Spark come frame di dati. È quindi possibile eseguire query sul frame di dati usando il notebook di Jupyter. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Cluster Azure HDInsight Spark**. Per le istruzioni, vedere [Creare un cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Notebook di Jupyter con PySpark**. Per le istruzioni, vedere [Creare un notebook di Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).

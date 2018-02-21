@@ -106,7 +106,7 @@ AD FS è protetto da Azure Multi-Factor Authentication.
 
 Assicurarsi che gli utenti siano stati importati da Active Directory nel Server. Per inserire nell'elenco elementi consentiti gli indirizzi IP interni in modo che non sia necessaria la verifica in due passaggi quando si accede al sito Web da tali percorsi, vedere la sezione IP attendibili.
 
-## <a name="trusted-ips"></a>IP attendibili
+## <a name="trusted-ips"></a>Indirizzi IP attendibili
 Gli IP attendibili consentono agli utenti di ignorare Azure Multi-Factor Authentication per le richieste del sito Web provenienti da specifici indirizzi IP o subnet. Ad esempio, è consigliabile fare in modo che gli utenti non debbano eseguire la verifica in due passaggi quando accedono dall'ufficio. A tale scopo, specificare la subnet dell'ufficio come voce di Indirizzi IP attendibili.
 
 ### <a name="to-configure-trusted-ips"></a>Per configurare indirizzi IP attendibili

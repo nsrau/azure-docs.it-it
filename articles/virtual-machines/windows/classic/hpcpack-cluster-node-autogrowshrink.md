@@ -35,7 +35,7 @@ Attualmente è possibile solo aumentare e ridurre automaticamente i nodi di calc
 
 
 ## <a name="set-the-autogrowshrink-cluster-property"></a>Impostare la proprietà del cluster AutoGrowShrink
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * **Cluster HPC Pack 2012 R2 Update 2 o versione successiva** : il nodo head del cluster può essere distribuito in locale o in una macchina virtuale di Azure. Vedere [Configurare un cluster ibrido con HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) per iniziare con un nodo head locale e i nodi "burst" di Azure. Vedere lo [script di distribuzione IaaS di HPC Pack](hpcpack-cluster-powershell-script.md) per distribuire velocemente un cluster HPC Pack in macchine virtuali di Azure.
 
@@ -181,7 +181,7 @@ Per impostazione predefinita HPC Pack aumenta di 1% i nodi aggiuntivi per i proc
 Per impostazione predefinita, **SoaJobGrowThreshold** è impostata su 50000 e **SoaRequestsPerCore** è impostato su 20000. Se si invia un processo SOA con 70000 richieste, ci sarà una sola attività in coda e le richieste in ingresso saranno 70000. In questo caso HPC Pack aumenta 1 core per l'attività in coda e per le richieste in ingresso aumenta (70000 - 50000)/20000 = 1 core, in modo da aumentare in totale 2 core per questo processo SOA.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Eseguire lo script AzureAutoGrowShrink.ps1
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * **Cluster HPC Pack 2012 R2 Update 1 o versione successiva**: lo script **AzureAutoGrowShrink.ps1** è installato nella cartella %CCP_HOME%bin. Il nodo head del cluster può essere distribuito in locale o in una macchina virtuale di Azure. Vedere [Configurare un cluster ibrido con HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md) per iniziare con un nodo head locale e i nodi "burst" di Azure. Vedere lo [script di distribuzione IaaS di HPC Pack](hpcpack-cluster-powershell-script.md) per distribuire velocemente un cluster HPC Pack in macchine virtuali di Azure o usare un [modello di avvio rapido di Azur](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/).
 * **Azure PowerShell 1.4.0**: lo script attualmente dipende da questa versione specifica di Azure PowerShell.

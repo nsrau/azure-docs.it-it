@@ -29,7 +29,7 @@ WCF Data Services si basa su [Open Data Protocol](http://go.microsoft.com/fwlink
 ## <a name="comparison-operators"></a>Operatori di confronto
 Gli operatori logici seguenti sono supportati per tutti i tipi di proprietà:
 
-| Operatore logico | Descrizione | Stringa di filtro di esempio |
+| Operatore logico | DESCRIZIONE | Stringa di filtro di esempio |
 | --- | --- | --- |
 | eq |Uguale |Città eq "Redmond" |
 | gt |Maggiore di |Prezzo gt 20 |
@@ -38,7 +38,7 @@ Gli operatori logici seguenti sono supportati per tutti i tipi di proprietà:
 | le |Minore o uguale |Prezzo le 100 |
 | ne |Diverso |Città ne "Londra" |
 | e |e |Prezzo le 200 and Prezzo gt 3,5 |
-| oppure |oppure |Prezzo le 3,5 or Prezzo gt 200 |
+| oppure |Oppure |Prezzo le 3,5 or Prezzo gt 200 |
 | not |not |not isAvailable |
 
 Quando si crea una stringa di filtro, tenere presente le regole seguenti:

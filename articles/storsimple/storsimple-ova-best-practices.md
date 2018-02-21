@@ -210,7 +210,7 @@ Non è possibile modificare le impostazioni di frequenza e conservazione associa
 * Pianificare i backup per le ore non di punta. L'ora di inizio del backup non deve coincidere con numerose operazioni di I/O dell'host.
 * Avviare un backup manuale su richiesta quando si prevede di eseguire un failover del dispositivo o prima della finestra di manutenzione, per proteggere i dati nell'array virtuale.
 
-### <a name="restore"></a>Ripristino
+### <a name="restore"></a>Restore
 È possibile eseguire il ripristino da un set di backup in due modi: eseguire il ripristino in un altro volume o un'altra condivisione file o eseguire un ripristino a livello di elemento, disponibile solo in un array virtuale configurato come file server. Il ripristino a livello di elemento consente un ripristino granulare di file e cartelle da un backup cloud di tutte le condivisioni nel dispositivo StorSimple. Per altre informazioni, vedere [Ripristinare da un backup dell'array virtuale StorSimple](storsimple-virtual-array-clone.md).
 
 Quando si esegue un ripristino, tenere presenti queste linee guida:
@@ -282,6 +282,6 @@ Può essere necessario distribuire più array virtuali per tenere conto di un wo
 * Se si distribuiscono più array virtuali, dal punto di vista del bilanciamento del carico è consigliabile distribuire l'array in host hypervisor diversi.
 * Più array virtuali, se configurati come file server o server iSCSI, possono essere distribuiti in uno spazio dei nomi del file system distribuito. Per i passaggi dettagliati, vedere [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507)(Guida alla distribuzione di una soluzione per lo spazio dei nomi del file system distribuito con archiviazione cloud ibrida). L'uso di Replica DFS con l'array virtuale non è attualmente consigliato. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Informazioni su come [amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md) usando il servizio StorSimple Manager.
 

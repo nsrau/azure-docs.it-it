@@ -26,7 +26,7 @@ ms.lasthandoff: 01/09/2018
 
 Questa guida illustra come consentire agli utenti di accedere da un account Google+ tramite l'utilizzo di [criteri personalizzati](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 

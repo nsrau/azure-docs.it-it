@@ -314,7 +314,7 @@ Quando si utilizza JMS su AMQP 1.0 con il bus di servizio esistono le seguenti r
 * Le destinazioni temporanee, ad esempio **TemporaryQueue** e **TemporaryTopic**, non sono attualmente supportate, così come le API **QueueRequestor** e **TopicRequestor** da cui vengono usate.
 * Le sessioni transazionali non sono supportate e le transazioni distribuite non sono supportate.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questa guida dettagliata ha illustrato come accedere alle funzionalità di messaggistica negoziata (code e pubblicazione/sottoscrizione di argomenti) del bus di servizio da Java usando la diffusa API JMS e AMQP 1.0.
 
 È anche possibile utilizzare AMQP 1.0 per il bus di servizio da altri linguaggi, tra cui .NET, C, Python e PHP. I componenti creati con questi linguaggi possono scambiare messaggi in modo affidabile e con la massima fedeltà grazie al supporto per AMQP 1.0 nel bus di servizio.

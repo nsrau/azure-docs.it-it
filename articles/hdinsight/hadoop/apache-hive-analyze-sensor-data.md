@@ -39,7 +39,7 @@ In questo esempio, usare Hive per elaborare i dati cronologici e identificare i 
 
 ![Diagramma dell'architettura della soluzione](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Cluster HDInsight (Hadoop) - Per informazioni sulla creazione di un cluster, vedere [Creare cluster Hadoop in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Microsoft Excel 2013

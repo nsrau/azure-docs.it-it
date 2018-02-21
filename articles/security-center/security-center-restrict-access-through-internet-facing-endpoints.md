@@ -51,7 +51,7 @@ Questa raccomandazione viene generata per qualsiasi porta Web con "any" come ori
 
    ![Modificare la regola in ingresso][6]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Questo articolo illustra come implementare la raccomandazione "Restrict access through Internet facing endpoint" (Limita accesso tramite endpoint con connessione Internet) del Centro sicurezza. Per altre informazioni sull'abilitazione dei gruppi di sicurezza di rete e delle regole, vedere gli articoli seguenti:
 
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)

@@ -43,7 +43,7 @@ Ecco alcune funzionalità degli strumenti e innovazioni, solo per citarne alcune
 
 La tabella seguente contiene collegamenti importanti per iniziare a usare Threat Modeling Tool:
 
-| Passaggio  | Descrizione                                                                                   |
+| Passaggio  | DESCRIZIONE                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Scaricare Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
 | **2** | [Vedere la Guida introduttiva](./azure-security-threat-modeling-tool-getting-started.md)    |

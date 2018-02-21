@@ -17,7 +17,7 @@ ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

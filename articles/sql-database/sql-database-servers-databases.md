@@ -117,7 +117,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 
 Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShell, usare i cmdlet di PowerShell seguenti. Se è necessario installare o aggiornare PowerShell, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). Per creare e gestire i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 
-| Cmdlet | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Crea un database |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Recupera uno o più database|
@@ -142,7 +142,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShe
 
 Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia della riga di comando di Azure](/cli/azure/overview), usare i comandi seguenti dell'[interfaccia della riga di comando di Azure per il database SQL](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 
-| Cmdlet | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Crea un database|
 |[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Elenca tutti i database e i data warehouse in un server o tutti i database in un pool elastico|
@@ -176,7 +176,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 > Non è possibile creare o eliminare un server con Transact-SQL.
 >
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 |[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Crea un nuovo database. Per creare un nuovo database è necessario essere connessi al database master.|
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica un database SQL di Azure. |
@@ -202,7 +202,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 
 Per creare e gestire server SQL, database e firewall usare queste richieste API REST.
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 |[Servers - Create Or Update](/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
 |[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un server SQL.|
@@ -211,7 +211,7 @@ Per creare e gestire server SQL, database e firewall usare queste richieste API 
 |[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
 |[Servers - Update](/rest/api/sql/servers/update)|Aggiorna un server esistente.|
 |[Servers - Sql](/rest/api/sql/servers%20-%20sql)|Determina se è possibile creare una risorsa con il nome specificato.|
-|[Databases - Create Or Update](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
+|[Database: crea o aggiorna](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
 |[Databases - Get](/rest/api/sql/databases/get)|Ottiene un database.|
 |[Database: ottieni da pool elastico](/rest/api/sql/databases/getbyelasticpool)|Ottiene un database all'interno di un pool elastico.|
 |[Database: ottieni da pool elastico consigliato](/rest/api/sql/databases/getbyrecommendedelasticpool)|Ottiene un database all'interno di un pool elastico consigliato.|

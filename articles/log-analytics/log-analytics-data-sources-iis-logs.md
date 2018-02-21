@@ -41,7 +41,7 @@ Log Analytics raccoglie le voci dei log di IIS da ogni origine connessa a interv
 ## <a name="iis-log-record-properties"></a>Proprietà dei record del log di IIS
 I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive le loro proprietà:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Computer |Nome del computer da cui è stato raccolto l'evento. |
 | cIP |Indirizzo IP del client. |
@@ -68,7 +68,7 @@ I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive
 ## <a name="log-searches-with-iis-logs"></a>Ricerche nei log con i log di IIS
 La tabella seguente mostra alcuni esempi di query nei log che recuperano i record dei log di IIS.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |:--- |:--- |
 | W3CIISLog |Tutti i record del log di IIS. |
 | W3CIISLog &#124; where scStatus==500 |Tutti i record del log IIS con stato restituito pari a 500. |

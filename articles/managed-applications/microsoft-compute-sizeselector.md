@@ -25,7 +25,7 @@ Controllo per la selezione di una dimensione per una o più istanze di macchina 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

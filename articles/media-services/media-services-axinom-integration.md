@@ -174,7 +174,7 @@ Naturalmente è possibile ottenere l'ID chiave in molti modi. Ad esempio, è pos
         return key_id;
     }
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 La recente aggiunta del supporto per Widevine nella protezione del contenuto di Servizi multimediali di Azure e in Azure Media Player consente di implementare lo streaming di DASH + DRM multi-native (PlayReady + Widevine) con il server licenze PlayReady nei Servizi multimediali di Azure e un server licenze Widevine di Axinom per i browser moderni seguenti:
 
 * Chrome

@@ -29,14 +29,14 @@ Prima di creare un processo di esportazione, è necessario scegliere un set di B
 
 Quando si usa il comando `PreviewExport` dello strumento Importazione/Esportazione, è possibile usare i parametri seguenti.
 
-|Parametro della riga di comando|Descrizione|  
+|Parametro della riga di comando|DESCRIZIONE|  
 |--------------------------|-----------------|  
-|**/logdir:**&lt;DirectoryLog\>|Facoltativa. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
-|**/sn:**<NomeAccountArchiviazione\>|Obbligatorio. Nome dell'account di archiviazione per il processo di esportazione.|  
+|**/logdir:**&lt;DirectoryLog\>|facoltativo. Directory dei log. in cui verranno scritti file di log dettagliati. Se non è specificata alcuna directory dei log, verrà usata la directory corrente.|  
+|**/sn:**<NomeAccountArchiviazione\>|Richiesto. Nome dell'account di archiviazione per il processo di esportazione.|  
 |**/sk:**&lt;ChiaveAccountArchiviazione\>|Obbligatorio solo se non è specificata una firma di accesso condiviso del contenitore. Chiave dell'account per l'account di archiviazione per il processo di esportazione.|  
 |**/csas:**&lt;FirmaAccessoCondivisoContenitore\>|Obbligatorio solo se non è specificata una chiave dell'account di archiviazione. Firma di accesso condiviso del contenitore per l'elenco dei BLOB da esportare nel processo di esportazione.|  
-|**/ExportBlobListFile:**&lt;FileElencoBlobEsportazione\>|Obbligatorio. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) dell'API REST del servizio Importazione/Esportazione.|  
-|**/DriveSize:**<DimensioneUnità\>|Obbligatorio. Dimensione delle unità da usare per un processo di esportazione, *ad es.* 500 GB, 1,5 TB.|  
+|**/ExportBlobListFile:**&lt;FileElencoBlobEsportazione\>|Richiesto. Percorso del file XML contenente l'elenco dei percorsi o dei prefissi dei percorsi BLOB per i BLOB da esportare. Formato di file usato nell'elemento `BlobListBlobPath` nell'operazione [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) dell'API REST del servizio Importazione/Esportazione.|  
+|**/DriveSize:**<DimensioneUnità\>|Richiesto. Dimensione delle unità da usare per un processo di esportazione, *ad es.* 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Esempio di riga di comando
 

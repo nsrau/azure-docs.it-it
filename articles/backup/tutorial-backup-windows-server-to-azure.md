@@ -102,7 +102,7 @@ L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea un'associazione
  
 4. Quando richiesto, specificare una passphrase di crittografia per crittografare i backup da Windows Server. Salvare la passphrase in una posizione sicura perché Microsoft non può recuperarla in caso di perdita.
 
-5. Fare clic su **Finish**. 
+5. Fare clic su **Fine**. 
 
 ## <a name="configure-backup-and-retention"></a>Configurare il backup e la conservazione
 

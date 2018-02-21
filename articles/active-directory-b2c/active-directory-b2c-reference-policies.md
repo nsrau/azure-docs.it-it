@@ -16,7 +16,7 @@ ms.date: 01/26/2017
 ms.author: sama
 ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

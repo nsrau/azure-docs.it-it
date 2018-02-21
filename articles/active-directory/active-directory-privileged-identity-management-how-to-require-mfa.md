@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

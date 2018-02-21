@@ -78,8 +78,8 @@ Nei risultati di questo log viene visualizzato il tipo di regola baseline non ri
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Accesso ai computer senza valutazione baseline
 OMS supporta il profilo baseline dei membri di dominio e del controller di dominio in Windows Server 2008 R2 fino a Windows Server 2012 R2. La baseline di Windows Server 2016 non è ancora definitiva e verrà aggiunta non appena pubblicata. Tutti i sistemi operativi analizzati tramite la valutazione baseline della Sicurezza e controllo di OMS vengono visualizzati nella sezione **Computer senza valutazione baseline**.
 
-## <a name="see-also"></a>Vedere anche
-In questo documento sono disponibili informazioni sulla valutazione baseline della Sicurezza e controllo di OMS. Per altre informazioni sulle funzionalità di sicurezza di OMS, vedere gli articoli seguenti:
+## <a name="see-also"></a>Vedere anche 
+In questo documento sono disponibili informazioni sulla valutazione baseline della Sicurezza e controllo di OMS. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)
 * [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Operations Management Suite per la sicurezza e il controllo](oms-security-responding-alerts.md)

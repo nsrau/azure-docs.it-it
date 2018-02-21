@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Panoramica
 Questo articolo consente di configurare un'istanza di Docker predefinita usando Docker Machine e VirtualBox. Se si utilizza il [Docker per Windows beta](http://beta.docker.com/), questa configurazione non è necessaria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È necessario installare gli strumenti seguenti.
 
 * [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)

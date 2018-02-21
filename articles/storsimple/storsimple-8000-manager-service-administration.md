@@ -65,8 +65,8 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 | Visualizzare i dettagli dei processi</br>Annullare un processo |[Gestire i processi](storsimple-8000-manage-jobs-u2.md) |
 | Ricevere notifiche di avviso</br>Gestisci avvisi</br>Esaminare gli avvisi |[Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md) |
 | Creare grafici di monitoraggio |[Monitoraggio del dispositivo StorSimple](storsimple-monitor-device.md) |
-| Aggiungere un contenitore del volume</br>Modificare un contenitore di volumi</br>Eliminare un contenitore di volumi |[Gestisci contenitori dei volumi](storsimple-8000-manage-volume-containers.md) |
-| Aggiungere un volume</br>Modificare un volume</br>Portare un volume offline</br>Eliminare un volume</br>Monitorare un volume |[Gestire i volumi](storsimple-8000-manage-volumes-u2.md) |
+| Aggiungere un contenitore di volumi</br>Modificare un contenitore di volumi</br>Eliminare un contenitore di volumi |[Gestisci contenitori dei volumi](storsimple-8000-manage-volume-containers.md) |
+| Aggiungere un volume</br>Modificare un volume</br>Portare un volume offline</br>Eliminare un volume</br>Monitorare a volume |[Gestire i volumi](storsimple-8000-manage-volumes-u2.md) |
 | Modificare le impostazioni del dispositivo</br>Modificare le impostazioni di tempo</br>Modificare le impostazioni DNS.md</br>Configurare le interfacce di rete |[Modificare la configurazione per il dispositivo StorSimple](storsimple-8000-modify-device-config.md) |
 | Visualizzare le impostazioni del proxy web |[Configurare il proxy Web per il dispositivo](storsimple-8000-configure-web-proxy.md) |
 | Modificare la password amministratore del dispositivo</br>Modificare la password di Gestione snapshot StorSimple |[Modificare le password di StorSimple](storsimple-8000-change-passwords.md) |

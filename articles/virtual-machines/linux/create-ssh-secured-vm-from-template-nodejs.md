@@ -35,7 +35,7 @@ Questo articolo illustra come distribuire rapidamente una macchina virtuale Linu
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-command-summary): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](create-ssh-secured-vm-from-template.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](create-ssh-secured-vm-from-template.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 ## <a name="quick-command-summary"></a>Breve riepilogo del comando
 ```azurecli

@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 Le **raccolte di aree di lavoro di Power BI** sono un servizio di Azure che consente agli sviluppatori di applicazioni di aggiungere report interattivi di Power BI alle proprie applicazioni. Le **raccolte di aree di lavoro di Power BI** interagiscono con le applicazioni esistenti senza che sia necessario riprogettarle o modificare la modalità di accesso da parte degli utenti.
 
 > [!IMPORTANT]
-> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto della raccolta di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Il provisioning delle risorse per le **raccolte di aree di lavoro di Microsoft Power BI** viene effettuato tramite le [API di Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). In questo caso, la risorsa di cui si effettua il provisioning è una **Raccolta di aree di lavoro di Power BI**.
 
@@ -52,7 +52,7 @@ Di seguito è descritta la procedura per compilare una **Raccolta di aree di lav
 5. In **Raccolta di aree di lavoro** immettere le informazioni necessarie.
    
    ![Creazione della raccolta di aree di lavoro](media/get-started/create-workspace-2.png)
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 
 Il provisioning della **Raccolta di aree di lavoro** richiede alcuni istanti. Al termine viene visualizzata la **Raccolta di aree di lavoro**.
 
@@ -106,7 +106,7 @@ Dopo aver salvato il lavoro in **Power BI Desktop**viene creato un file PBIX. Qu
 
 ## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Creare set di dati e report di Power BI usando le API
 
-### <a name="datasets"></a>DATASETS
+### <a name="datasets"></a>Set di dati
 
 È possibile creare set di dati all'interno delle raccolte di aree di lavoro di Power BI usando l'API REST. ed effettuare poi il push dei dati nel set di dati. In questo modo è possibile usare i dati senza Power BI Desktop. Per altre informazioni, vedere [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx) (Pubblica set di dati).
 

@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
 ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -46,7 +46,7 @@ L'estensione di Server dei criteri di rete gestisce automaticamente la ridondanz
 
 I server VPN indirizzano le richieste di autenticazione, quindi è necessario essere a conoscenza dei nuovi Server dei criteri di rete abilitati per Azure MFA.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 L'estensione di Server dei criteri di rete è progettata per funzionare con l'infrastruttura esistente. Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili.
 

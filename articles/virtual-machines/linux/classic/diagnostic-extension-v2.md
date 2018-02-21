@@ -59,12 +59,12 @@ Questo articolo illustra come abilitare e configurare l'estensione usando i coma
 
 Si noti che i metodi di configurazione descritti qui non funzioneranno per il portale di Azure. Per visualizzare e configurare i dati di sistema e prestazioni direttamente dal portale di Azure, l'estensione deve essere abilitata con il portale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Agente Linux di Azure 2.0.6 o versione successiva**.
 
   Si noti che la maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.0.6 o successive. È possibile eseguire **WAAgent -version** per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente alla 2.0.6, è possibile seguire queste [istruzioni in GitHub](https://github.com/Azure/WALinuxAgent "istruzioni") per aggiornarla.
-* **Interfaccia della riga di comando di Azure**. Seguire le linee guida in [Installare l'interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile usare il comando **azure** nell'interfaccia della riga di comando (Bash, terminale o prompt dei comandi) per accedere ai relativi comandi. Ad esempio:
+* **Interfaccia della riga di comando di Azure**. Seguire le linee guida in [Installare l'interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) per configurare l'ambiente dell'interfaccia della riga di comando di Azure nella macchina virtuale. Dopo l'installazione dell'interfaccia della riga di comando di Azure, sarà possibile usare il comando **azure** nell'interfaccia della riga di comando (Bash, terminale o prompt dei comandi) per accedere ai relativi comandi. Ad esempio: 
 
   * Eseguire **azure vm extension set --help** per informazioni della Guida dettagliate.
   * Eseguire **azure login** per accedere ad Azure.

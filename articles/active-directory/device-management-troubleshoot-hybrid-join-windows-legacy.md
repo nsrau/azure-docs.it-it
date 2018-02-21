@@ -16,7 +16,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -59,7 +59,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Di seguito sono elencate le istruzioni che eseguono queste azioni:
+    Le istruzioni eseguono queste azioni:
 
    * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
    * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.
@@ -79,7 +79,7 @@ Una volta connessi al desktop per il cluster HDInsight, seguire questa procedura
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    Di seguito sono elencate le istruzioni che eseguono queste azioni:
+    Le istruzioni eseguono queste azioni:
 
    * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL** , questa è una tabella interna che viene archiviata nel data warehouse di Hive e gestita completamente da Hive.
 

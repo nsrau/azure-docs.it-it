@@ -18,7 +18,7 @@ ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

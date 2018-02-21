@@ -204,7 +204,7 @@ La deduplicazione riduce la quantità complessiva di dati archiviati eliminando 
 ## <a name="storsimple-workload-summary"></a>Riepilogo dei carichi di lavoro di StorSimple
 Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
 | Collaborazione |Condivisione di file |Sì | |Tutte le versioni |
 | Collaborazione |Condivisione di file distribuita |Sì | |Tutte le versioni |
@@ -216,7 +216,7 @@ Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati
 | Backup |Backup di destinazione primario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 | Backup |Backup di destinazione secondario |Sì* |Supportata quando il dispositivo StorSimple è dedicato solo a questo carico di lavoro |Aggiornamento 3 e successivi |
 
-*Sì&#42; - devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple della serie 8000. Se distribuiti in StorSimple, questi carichi di lavoro comportano una configurazione non supportata.
 
@@ -231,7 +231,7 @@ I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple dell
 
 Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati da StorSimple.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+| Scenario | Carico di lavoro | Supportato | Restrizioni | Version |
 | --- | --- | --- | --- | --- |
 | Generale |Express Route |Sì | |Tutte le versioni |
 | Generale |DataCore FC |Sì* |Supportato con DataCore SANsymphony |Tutte le versioni |
@@ -239,7 +239,7 @@ Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati 
 | Generale |Indicizzazione |Sì* |Per i volumi a più livelli, è supportata solo l'indicizzazione dei metadati (nessun dato).<br>Per i volumi aggiunti in locale, è supportata l'indicizzazione completa. |Tutte le versioni |
 | Generale |Anti-virus |Sì* |Per i volumi a più livelli, è supportata solo l'analisi in apertura e in chiusura.<br> Per i volumi aggiunti in locale, è supportata l'analisi completa. |Tutte le versioni |
 
-*Sì&#42; - devono essere applicate le restrizioni e le linee guida per la soluzione.*
+*Sì&amp;#42;: devono essere applicate le restrizioni e le linee guida per la soluzione.*
 
 Di seguito è riportato un elenco di altri prodotti software che vengono usati con StorSimple per compilare soluzioni.
 
@@ -254,7 +254,7 @@ Di seguito è riportato un elenco di altri prodotti software che vengono usati c
 Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile esaminare i seguenti termini e definizioni.
 
 ### <a name="key-terms-and-definitions"></a>Termini e definizioni chiave
-| Termine (acronimo o abbreviazione) | Descrizione |
+| Termine (acronimo o abbreviazione) | DESCRIZIONE |
 | --- | --- |
 | record di controllo di accesso |Record associato a un volume sul dispositivo Microsoft Azure StorSimple che determina quali host vi si possono connettere. Per determinarli, viene usato il nome qualificato iSCSI (IQN) degli host (contenuto nel record di controllo di accesso) che si connettono al dispositivo StorSimple. |
 | AES-256 |Algoritmo AES (Advanced Encryption Standard) a 256 bit per la crittografia dei dati in entrata e in uscita dal cloud. |
@@ -299,7 +299,7 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 | archiviazione di Azure |Set di credenziali di accesso collegato all'account di archiviazione di un determinato provider di servizi cloud. |
 | Adattatore StorSimple per SharePoint |Componente di Microsoft Azure StorSimple che estende in modo trasparente l'archiviazione e la protezione dei dati di StorSimple a farm di SharePoint Server. |
 | Servizio Gestione dispositivi StorSimple |Estensione del portale di Azure che consente di gestire i dispositivi Azure StorSimple locali e virtuali. |
-| Gestione snapshot StorSimple |Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple. |
+| Gestione snapshot StorSimple  |Snap-in di Microsoft Management Console (MMC) per la gestione di operazioni di backup e ripristino in Microsoft Azure StorSimple. |
 | Esegui backup |Funzionalità che consente all'utente di eseguire un backup interattivo di un volume. È un'alternativa al backup manuale di un volume invece del backup automatizzato con un criterio definito. |
 | Thin provisioning |Metodo per ottimizzare l'efficienza con cui lo spazio di archiviazione disponibile viene utilizzato nei sistemi di archiviazione. Nel thin provisioning lo spazio di archiviazione viene allocato tra più utenti in base allo spazio minimo richiesto da ogni utente in un determinato momento. Vedere anche *fat provisioning*. |
 | suddivisione in livelli |Disposizione dei dati in raggruppamenti logici basati sull'utilizzo corrente, l'età e relazioni con altri dati. StorSimple organizza automaticamente i dati in livelli. |
