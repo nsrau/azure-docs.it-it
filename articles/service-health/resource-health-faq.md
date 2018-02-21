@@ -16,7 +16,7 @@ ms.date: 07/05/2017
 ms.author: BernardoAMunoz
 ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---

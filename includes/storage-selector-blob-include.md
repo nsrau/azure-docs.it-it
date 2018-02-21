@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
 > * [.NET](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
-> * [Node.JS](../articles/storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+> * [Node.js](../articles/storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
 > * [Java](../articles/storage/blobs/storage-java-how-to-use-blob-storage.md)
 > * [C++](../articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 > * [PHP](../articles/storage/blobs/storage-php-how-to-use-blobs.md)

@@ -35,7 +35,7 @@ In questa esercitazione viene illustrato come gestire Servizi multimediali di Az
 
 Questa esercitazione descrive l'utilizzo di AAC. Tuttavia, per impostazione predefinita FMLE non supporta AAC. È necessario acquistare un plug-in per codificare AAC come da MainConcept: [plug-in AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * [Creare un account Servizi multimediali di Azure](media-services-portal-create-account.md)
 * Verificare che sia presente un endpoint di streaming in esecuzione. Per altre informazioni, vedere [Gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md)
 * Installare la versione più recente dello strumento [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .

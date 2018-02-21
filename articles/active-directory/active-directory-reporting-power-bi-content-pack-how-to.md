@@ -25,7 +25,7 @@ Comprendere in che modo gli utenti adottano e usano le funzionalità di Azure Ac
 
 Questo argomento offre istruzioni dettagliate su come installare e usare il pacchetto di contenuto nel proprio ambiente.
 
-## <a name="installation"></a>Installare  
+## <a name="installation"></a>Installazione  
 
 **Per installare il pacchetto di contenuto di Power BI:**
 

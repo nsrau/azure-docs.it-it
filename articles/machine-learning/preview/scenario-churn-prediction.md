@@ -17,7 +17,7 @@ ms.date: 09/17/2017
 ms.author: miprasad
 ms.openlocfilehash: 7db93786b71fb7876ae02fd8fd006a1e8e0c2271
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -55,7 +55,7 @@ Alcuni dei fattori che contribuiscono all'abbandono da parte dei clienti nel set
 
 In questa soluzione verrà usato un esempio concreto di creazione di un modello predittivo per l'abbandono dei clienti per le aziende di telecomunicazioni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 

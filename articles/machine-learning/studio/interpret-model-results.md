@@ -28,8 +28,8 @@ Questo argomento illustra come visualizzare e interpretare risultati di stima in
 In Azure Machine Learning esistono quattro tipi principali di modelli di apprendimento automatico:
 
 * classificazione
-* clustering
-* regressione
+* Clustering
+* Regressione
 * sistemi di raccomandazione
 
 I moduli usati per eseguire stime sulla base di questi modelli sono:
@@ -177,7 +177,7 @@ Eseguendo il servizio Web si otterrà un risultato simile a quello della figura 
 
 Figura 14. Risultato del servizio Web del problema di regressione relativo al prezzo di un'automobile
 
-## <a name="clustering"></a>clustering
+## <a name="clustering"></a>Clustering
 **Esperimento di esempio**
 
 Per creare un esperimento di clustering verrà usato di nuovo il set di dati Iris. In questo caso è possibile escludere dal set di dati le etichette di classe, in modo che sia composto solo dalle caratteristiche e possa essere usato per il clustering. Verrà inoltre specificato che dovranno essere due i cluster da usare nel processo di training, ovvero i fiori verranno raggruppati in due classi. L'esperimento è illustrato nella figura 15.

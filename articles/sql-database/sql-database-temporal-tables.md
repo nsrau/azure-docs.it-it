@@ -29,7 +29,7 @@ Questo articolo illustra la procedura per l'utilizzo delle tabelle temporali in 
 
 Il modello di database per questo scenario è molto semplice: la metrica dell'attività utente è rappresentata con un singolo campo integer, **PageVisited**, e viene acquisita insieme alle informazioni di base sul profilo utente. Per l'analisi basata sul tempo si usa anche una serie di righe per ogni utente e ogni riga rappresenta il numero di pagine visitate da un determinato utente all'interno di un arco di tempo specifico.
 
-![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
+![SCHEMA](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
 Per mantenere le informazioni sulle attività non è necessario eseguire alcuna operazione nell'app. Con le tabelle temporali questo processo è automatizzato e offre piena flessibilità in fase di progettazione del sito Web e più tempo da dedicare all'analisi dei dati vera e propria. L'unica cosa da fare è assicurarsi che la tabella **WebSiteInfo** sia configurata come [temporale con controllo delle versioni di sistema](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Di seguito sono descritti i passaggi necessari per usare le tabelle temporali in questo scenario.
 

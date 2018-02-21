@@ -42,7 +42,7 @@ Se il controllo probe predefinito non riesce per il server A, il gateway applica
 
 ### <a name="default-health-probe-settings"></a>Impostazioni del probe di integrità predefinito
 
-| Proprietà probe | Valore | Descrizione |
+| Proprietà probe | Valore | DESCRIZIONE |
 | --- | --- | --- |
 | URL probe |http://127.0.0.1:\<porta\>/ |Percorso URL |
 | Interval |30 |Intervallo di probe in secondi |
@@ -62,12 +62,12 @@ I probe personalizzati consentono un controllo più granulare sul monitoraggio d
 
 La tabella seguente fornisce le definizioni delle proprietà di un probe di integrità personalizzato.
 
-| Proprietà probe | Descrizione |
+| Proprietà probe | DESCRIZIONE |
 | --- | --- |
-| Nome |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
-| Protocol |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
+| NOME |Nome del probe. Questo nome viene usato per fare riferimento al probe nelle impostazioni HTTP back-end |
+| Protocollo |Protocollo usato per inviare il probe. Il probe usa il protocollo definito nelle impostazioni HTTP del back-end. |
 | Host |Nome host per inviare il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM. |
-| Path |Percorso relativo del probe. Il percorso valido inizia da "/". |
+| path |Percorso relativo del probe. Il percorso valido inizia da "/". |
 | Interval |Intervallo di probe in secondi. Questo valore è l'intervallo di tempo tra due probe consecutivi. |
 | Timeout |Timeout del probe in secondi. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito.  |
 | Soglia non integra |Numero di tentativi di probe. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |

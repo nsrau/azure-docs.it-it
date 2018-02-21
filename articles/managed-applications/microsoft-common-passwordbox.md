@@ -25,7 +25,7 @@ Controllo che può essere usato per fornire e confermare una password. Usare que
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

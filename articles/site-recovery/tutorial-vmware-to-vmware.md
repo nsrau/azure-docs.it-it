@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 9de0cb3d22a4e500b66640f70f936ae955bbadb8
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/13/2017
 InMage Scout in [Azure Site Recovery](site-recovery-overview.md) consente la replica in tempo reale tra siti VMware locali. InMage Scout è incluso nelle sottoscrizioni del servizio Azure Site Recovery. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 

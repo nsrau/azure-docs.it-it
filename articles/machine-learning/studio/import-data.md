@@ -77,12 +77,12 @@ Se si importano dati in un formato quale TSV o CSV che non include metadati, Mac
 
 I seguenti **tipi di dati** vengono riconosciuti da Machine Learning Studio:
 
-* String
+* string
 * Integer
 * Double
-* Boolean
-* DateTime
-* TimeSpan
+* boolean
+* Datetime
+* Intervallo di tempo
 
 Machine Learning Studio usa un tipo di dati interno denominato ***Tabella dati*** per passare i dati tra i moduli. È possibile convertire in modo esplicito i dati in formato Tabella dati tramite il modulo [Convertire in set di dati][convert-to-dataset].
 

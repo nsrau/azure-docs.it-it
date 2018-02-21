@@ -15,7 +15,7 @@ ms.date: 06/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/23/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di Lesson.ly con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Lesson.ly, sono necessari gli elementi seguenti:
 
@@ -143,7 +143,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | urn:oid:2.5.4.42 |user.givenname |
     | urn:oid:2.5.4.4  |user.surname |
     | urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
-    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |User.ObjectId |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |user.objectid |
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 

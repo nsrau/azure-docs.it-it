@@ -10,7 +10,7 @@ In questo passaggio si creerà una regola del firewall per aprire la porta probe
 
 5. Nella pagina **Azione** mantenere selezionata l'opzione **Consenti la connessione** e quindi fare clic su **Avanti**.
 
-6. Nella pagina **Profilo** accettare le impostazioni predefinite e quindi fare clic su **Avanti**.
+6. Nella pagina **Profilo** accettare le impostazioni predefinite e fare clic su **Avanti**.
 
 7. Nella pagina **Nome** specificare nella casella di testo **Nome** un nome per la regola, ad esempio **Porta probe del listener AlwaysOn** e quindi fare clic su **Fine**.
 

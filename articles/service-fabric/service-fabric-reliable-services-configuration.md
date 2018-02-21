@@ -27,7 +27,7 @@ Esistono due set di impostazioni di configurazione per i servizi Reliable Servic
 La configurazione globale dei servizi Reliable Services viene specificata nel manifesto del cluster per il cluster nella sezione KtlLogger. Consente di configurare il percorso di log condiviso e la dimensione oltre i limiti di memoria globali utilizzati dal logger. Il manifesto del cluster è un unico file XML che contiene le impostazioni e le configurazioni applicabili a tutti i nodi e ai servizi del cluster. Il file tipicamente si chiama ClusterManifest.xml. È possibile visualizzare il manifesto del cluster utilizzando il comando Powershell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| Nome | Unità | Valore predefinito | Osservazioni |
+| NOME | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Nessun limite |Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger. |
@@ -103,7 +103,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| Nome | Unità | Valore predefinito | Osservazioni |
+| NOME | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
 | ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per ulteriori informazioni sulla definizione delle risorse dell'endpoint in un manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |

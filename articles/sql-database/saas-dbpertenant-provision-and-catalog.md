@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > * Effettuare il provisioning di un batch di altri tenant
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 * È stata distribuita l'app SaaS di database per tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database per tenant Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)

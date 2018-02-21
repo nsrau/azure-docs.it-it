@@ -52,7 +52,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Regole per risorsa, Basic | 150 | 250 |
 | Regole per risorsa, Standard | 1250 | 1500 |
 | Regole per configurazione IP | 299 |299 |
-| Configurazioni IP front-end, Basic | 10 | contattare il supporto tecnico |
+| Configurazioni IP front-end, Basic | 10 | 200 |
 | Configurazioni IP front-end, Standard | 10 | 600 |
 | Pool back-end, Basic | 100, singolo set di disponibilità | - |
 | Pool back-end, Standard | 1000, singola rete virtuale | - |

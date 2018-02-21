@@ -41,10 +41,10 @@ Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile
 
 Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestazioni nelle categorie seguenti:
 
-| Impatto | Descrizione |
+| Impatto | DESCRIZIONE |
 |:--- |:--- |
 | Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
-| Medio |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
+| Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
 | Basso |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
 
@@ -120,13 +120,13 @@ Le raccomandazioni con stato **In sospeso**, **Verifica** o **Operazione complet
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
 L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portale fornisce dettagli sullo stato della raccomandazione. Di seguito sono indicati gli stati possibili di un indice:
 
-| Stato | Descrizione |
+| Status | DESCRIZIONE |
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
 | Verifica |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
-| Operazione riuscita |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
-| Errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
+| Success |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
+| Tipi di errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |
 
@@ -147,7 +147,7 @@ Dopo aver implementato correttamente le raccomandazioni, attualmente, solo racco
 
 ![Monitorare l'impatto sulle prestazioni](./media/sql-database-advisor-portal/query-insights.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi

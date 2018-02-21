@@ -73,7 +73,7 @@ Il servizio Gateway applicazione è attualmente disponibile in tre dimensioni: *
 
 La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione con offload SSL abilitato:
 
-| Risposta della pagina di back-end | Small | Media | Large |
+| Risposta della pagina di back-end | Piccolo | Media | Grande |
 | --- | --- | --- | --- |
 | 6K |7,5 Mbps |13 Mbps |50 Mbps |
 | 100.000 |35 Mbps |100 Mbps |200 Mbps |
@@ -95,7 +95,7 @@ Quando viene configurato, il gateway applicazione può usare per l'endpoint un I
 
 I prezzi sono basati su una tariffa oraria per istanza del gateway e una tariffa di elaborazione dei dati. I prezzi orari del gateway per lo SKU WAF sono diversi dalle tariffe dello SKU standard. Per informazioni sui prezzi, vedere i [dettagli sui prezzi del gateway applicazione](https://azure.microsoft.com/pricing/details/application-gateway/). Le tariffe di elaborazione dei dati rimangono invariate.
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 Per le domande frequenti sul gateway applicazione, vedere [Domande frequenti sul gateway applicazione](application-gateway-faq.md).
 

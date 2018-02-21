@@ -138,7 +138,7 @@ Le viste sono particolarmente adatte per l'analisi dello stato corrente dell'amb
 #### <a name="dashboards"></a>Dashboard
 I dashboard nella Console operatore usano per lo più gli stessi dati delle viste, ma sono più personalizzabili e possono includere visualizzazioni più avanzate.  È disponibile un set di dashboard standard che è possibile personalizzare facilmente per le proprie esigenze.  È anche possibile usare un widget di PowerShell che può visualizzare i dati restituiti da una query di PowerShell.
 
-![Dashboard](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
+![dashboard](media/operations-management-suite-monitoring-product-comparison/scom-dashboard.png)
 
 Gli sviluppatori hanno la possibilità di aggiungere componenti personalizzati ai dashboard inclusi nei Management Pack.  Possono essere altamente specializzati per una particolare applicazione, ad esempio il dashboard nel Management Pack di SQL illustrato sotto.  Questo dashboard può anche essere usato come modello per le versioni personalizzate.
 

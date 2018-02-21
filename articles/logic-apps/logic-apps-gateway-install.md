@@ -205,7 +205,7 @@ Il firewall può anche bloccare le connessioni tra il bus di servizio e i data c
 
 Il gateway crea una connessione in uscita al [Bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672, 9350 attraverso 9354. Non sono richieste porte in ingresso. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
 
-| NOMI DI DOMINIO | PORTE IN USCITA | Descrizione |
+| NOMI DI DOMINIO | PORTE IN USCITA | DESCRIZIONE |
 | --- | --- | --- |
 | *. analysis.windows.net | 443 | HTTPS | 
 | *.login.windows.net | 443 | HTTPS | 
@@ -291,7 +291,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 **D**: Esistono piani per l'abilitazione di scenari a disponibilità elevata con il gateway? <br/>
 **R**: Questi scenari verranno implementati in futuro, ma non è ancora stato definito quando.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 

@@ -30,7 +30,7 @@ Dopo aver eseguito la sequenza di argomenti in questa esercitazione, saranno dis
 
 I tre passaggi finali descrivono come creare un'applicazione client, configurare l'applicazione client e creare e usare un client in grado di accedere alla funzionalità dell'host.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -417,7 +417,7 @@ Il passaggio successivo consiste nel creare un'applicazione client e nel definir
       <br />
 2. In Esplora soluzioni fare doppio clic sul file Program.cs nel progetto **EchoClient** per aprirlo nell'editor, se non è già aperto.
 3. Modificare il nome dello spazio dei nomi da nome predefinito di `EchoClient` a `Microsoft.ServiceBus.Samples`.
-4. Installare il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus): in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **EchoClient** e scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e cercare `Microsoft Azure Service Bus`. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
+4. Installare il [pacchetto NuGet del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus): in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **EchoClient** e scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e quindi cercare `Microsoft Azure Service Bus`. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
 
     ![][3]
 5. Aggiungere un'istruzione `using` per lo spazio dei nomi [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) nel file Program.cs.

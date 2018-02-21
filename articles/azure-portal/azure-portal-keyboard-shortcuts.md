@@ -17,7 +17,7 @@ ms.author: micflan
 ms.custom: accessibility
 ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

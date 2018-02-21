@@ -18,7 +18,7 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 1e85300676eeee9259e40faa0e0ede94a36f6167
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

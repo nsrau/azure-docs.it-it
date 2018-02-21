@@ -109,7 +109,7 @@ Per identificare le singole risorse, viene usata una chiave di strumentazione (i
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Impostare il monitoraggio di diagnostica Azure con PowerShell](app-insights-powershell-azure-diagnostics.md) 
 * [Impostare avvisi tramite PowerShell](app-insights-powershell-alerts.md)

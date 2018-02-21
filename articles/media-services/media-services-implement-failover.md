@@ -55,7 +55,7 @@ Si applicano le considerazioni seguenti:
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'articolo relativo alla [creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
 * Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
 * .NET Framework 4.5 o .NET Framework 4.
@@ -942,7 +942,7 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile usare uno strumento di gestione del traffico per instradare le richieste tra i due data center e quindi il failover in caso di guasti.
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

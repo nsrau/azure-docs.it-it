@@ -33,7 +33,7 @@ Quando si crea una connessione, è necessario specificare un *tipo di connession
 
 I cmdlet della tabella seguente vengono usati per creare e gestire connessioni di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](/powershell/azure/overview) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
-|Cmdlet|Descrizione|
+|Cmdlet|DESCRIZIONE|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una connessione. Include una tabella hash con i valori dei campi della connessione.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una nuova connessione.|
@@ -44,7 +44,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire connessioni d
 
 Le attività incluse nella tabella seguente vengono usate per accedere alle connessioni in un Runbook o configurazione DSC.
 
-|attività|Descrizione|
+|attività|DESCRIZIONE|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Ottiene una connessione da usare. Restituisce una tabella hash con le proprietà della connessione.|
 
@@ -55,7 +55,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 ## <a name="python2-functions"></a>Funzioni Python2 
 La funzione nella tabella seguente viene usata per accedere alle connessioni in un runbook Python2. 
 
-| Funzione | Descrizione | 
+| Funzione | DESCRIZIONE | 
 |:---|:---| 
 | automationassets.get_automation_connection | Recupera una connessione. Restituisce un dizionario con le proprietà della connessione. | 
 

@@ -30,7 +30,7 @@ Questa esercitazione illustra come aggiungere un servizio back-end basato sul cl
 
 Il completamento di questa esercitazione è un prerequisito per tutte le altre esercitazioni Apache Cordova relative all'uso della funzionalità delle app per dispositivi mobili nel Servizio app di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Un PC con installato [Visual Studio Community 2017] o versione successiva.

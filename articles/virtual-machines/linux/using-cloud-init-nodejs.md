@@ -32,7 +32,7 @@ Questo articolo illustra come creare script cloud-init per impostare il nome hos
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#quick-commands): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Creare uno script cloud-init.txt che consente di impostare il nome host, aggiornare tutti i pacchetti e aggiungere un utente sudo per Linux.
@@ -97,14 +97,14 @@ Per inserire script in qualsiasi momento dopo l'avvio:
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Disponibilità di cloud-init negli alias delle immagini a creazione rapida della VM di Azure:
-| Alias | Autore | Offerta | SKU | Versione | Cloud-init |
+| Alias | Editore | Offerta | SKU | Version | Cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7,2 |più recenti |no |
-| CoreOS |CoreOS |CoreOS |Stabile |più recenti |sì |
+| CoreOS |CoreOS |CoreOS |Stabile |più recenti |Sì |
 | Debian |credativ |Debian |8 |più recenti |no |
 | openSUSE |SUSE |openSUSE |13.2 |più recenti |no |
 | RHEL |Redhat |RHEL |7,2 |più recenti |no |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |più recenti |sì |
+| UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |più recenti |Sì |
 
 Microsoft collabora con i partner per promuovere l'inclusione di cloud-init e utilizza le immagini da essi fornite per Azure.
 

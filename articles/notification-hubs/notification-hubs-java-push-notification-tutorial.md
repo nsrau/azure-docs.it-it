@@ -58,7 +58,7 @@ Per creare:
     hub.setWindowsCredential(new WindowsCredential("sid","key"));
     hub = namespaceManager.createNotificationHub(hub);
 
- OPPURE
+ Oppure
 
     hub = new NotificationHub("connection string", "hubname");
 

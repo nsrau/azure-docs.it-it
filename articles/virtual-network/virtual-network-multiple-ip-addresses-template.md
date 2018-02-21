@@ -34,9 +34,9 @@ La distribuzione di un modello consente di creare rapidamente e in modo coerente
 
 <a name="resources"></a>La distribuzione del modello consente di creare le risorse seguenti:
 
-|Risorsa|Nome|Descrizione|
+|Risorsa|NOME|DESCRIZIONE|
 |---|---|---|
-|Interfaccia di rete|*myNic1*|Le tre configurazioni IP descritte nella sezione scenario di questo articolo vengono create e assegnate a questa NIC.|
+|interfaccia di rete|*myNic1*|Le tre configurazioni IP descritte nella sezione scenario di questo articolo vengono create e assegnate a questa NIC.|
 |Risorsa indirizzo IP pubblico|ne vengono creati 2: *myPublicIP* e *myPublicIP2*|A queste risorse vengono assegnati indirizzi IP pubblici statici e vengono assegnate le configurazioni IP descritte nello scenario *IPConfig-1* e *IPConfig-2*.|
 |VM|*myVM1*|Macchina virtuale Standard DS3.|
 |Rete virtuale|*myVNet1*|Rete virtuale con una subnet denominata *mySubnet*.|
@@ -44,7 +44,7 @@ La distribuzione di un modello consente di creare rapidamente e in modo coerente
 
 <a name="parameters"></a>Quando si distribuisce il modello, è necessario specificare i valori dei parametri seguenti:
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |adminUsername|Nome utente amministratore. Il nome utente deve essere conforme ai [requisiti per il nome utente di Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |adminPassword|Password amministratore. La password deve essere conforme ai [requisiti per la password di Azure](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|

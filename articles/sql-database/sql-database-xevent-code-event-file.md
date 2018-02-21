@@ -38,7 +38,7 @@ Questo argomento presenta un esempio di codice in due fasi:
   * per assegnare il contenitore di Archiviazione di Azure a una destinazione del file evento.
   * Per creare e avviare la sessione dell'evento e così via.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.

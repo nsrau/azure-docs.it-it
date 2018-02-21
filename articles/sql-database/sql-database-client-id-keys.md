@@ -71,7 +71,7 @@ Lo script di PowerShell seguente permette di creare l'applicazione Active Direct
 
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Usare C# per creare un database SQL](sql-database-get-started-csharp.md)
 * [Connettersi al Database SQL utilizzando l’autenticazione di Azure Active Directory](sql-database-aad-authentication.md)
 

@@ -34,11 +34,11 @@ Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile 
 * [Flusso di lavoro AMS Live Streaming](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 * [Flusso di lavoro dello streaming on demand di AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
-* Un account Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
+* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
 * Un account di Servizi multimediali di Azure. Per altre informazioni, vedere [Creare un account](media-services-portal-create-account.md).
 * (Facoltativo) Configurare l'ambiente di sviluppo. Scegliere .NET o API REST per l'ambiente di sviluppo. Per altre informazioni, vedere [Configurare l'ambiente](media-services-dotnet-how-to-use.md).
 
@@ -56,7 +56,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
 * Strumenti esistenti:
-    * [Portale di Azure](https://portal.azure.com/)
+    * [Azure portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
 > [!NOTE]

@@ -12,14 +12,14 @@
    * Streaming in un hub eventi
    * Invia a Log Analytics
 1. Scegliere le operazioni che si vuole monitorare e abilitare i log per tali operazioni. Le operazioni per cui le impostazioni di diagnostica possono inviare report sono:
-   * Connessioni
+   * connessioni
    * Telemetria dei dispositivi
    * Messaggi da cloud a dispositivo
    * Operazioni relative alle identità dei dispositivi
    * Caricamenti di file
    * Routing dei messaggi
    * Operazioni da cloud a dispositivi gemelli
-   * Operazioni da dispositivi gemelli a cloud
+   * Operazioni da dispositivo gemello a cloud
    * Operazioni di dispositivo gemello
    * Operazioni di processo
    * Metodi diretti  

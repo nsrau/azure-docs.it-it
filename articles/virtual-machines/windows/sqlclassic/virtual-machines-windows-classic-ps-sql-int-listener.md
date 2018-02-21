@@ -17,7 +17,7 @@ ms.date: 05/02/2017
 ms.author: mikeray
 ms.openlocfilehash: fea70b389b1f1d6af963e3f14fdc48e8d857dd53
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

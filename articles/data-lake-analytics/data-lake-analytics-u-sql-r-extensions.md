@@ -212,5 +212,5 @@ Innanzitutto, creare un modulo personalizzato R fare lo zip e quindi caricare il
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Sviluppare script U-SQL con Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)

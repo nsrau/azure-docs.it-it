@@ -90,9 +90,9 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
    
     ![Configurare le colonne](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Colonna risultati | Descrizione |
+   | Colonna risultati | DESCRIZIONE |
    |:--- |:--- |
-   |  Nome |Il **colonna** Nome, contiene la lettera di unità assegnata a ogni volume individuato. |
+   |  NOME |Il **colonna** Nome, contiene la lettera di unità assegnata a ogni volume individuato. |
    |  Dispositivo |La **colonna** dispositivo contiene l'indirizzo IP del dispositivo connesso al computer. |
    |  Nome Dispositivo Volume |La **Colonna** Nome Dispositivo Volume contiene il nome del volume del dispositivo a cui appartiene il volume selezionato. Questo è il nome del volume definito nel portale di Azure per il volume specifico. |
    |  Percorsi di accesso |La **colonna** Percorsi di Accesso mostra il percorso di accesso al volume. Si tratta del punto di montaggio o lettera di unità in cui il volume è accessibile nel computer. |
@@ -129,7 +129,7 @@ Per ripetere l'analisi dei volumi connessi a StorSimple Snapshot Manager, seguir
 ## <a name="configure-and-back-up-a-basic-volume"></a>Configurare ed eseguire il backup di un volume di base
 Utilizzare la procedura seguente per configurare il backup di un volume di base e avviare immediatamente un backup o creare un criterio per i backup programmati.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare:
 
 * Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
@@ -157,7 +157,7 @@ Per configurare il backup di un volume con mirroring dinamico, seguire questa pr
 * Passaggio 1: Usare Gestione disco per creare un volume con mirroring dinamico. 
 * Passaggio 2: Usare StorSimple Snapshot Manager per configurare il backup.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare:
 
 * Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).

@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

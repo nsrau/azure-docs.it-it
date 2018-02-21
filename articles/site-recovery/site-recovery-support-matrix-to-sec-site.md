@@ -70,15 +70,15 @@ Windows Server 2016 a 64 bit, Windows Server 2012 R2, Windows Server 2012, Windo
 Gruppo NIC | Sì | Sì
 VLAN | Sì | Sì
 IPv4 | Sì | Sì
-IPv6 | No | No
+IPv6 | No  | No 
 
 ### <a name="guest-vms"></a>VM guest
 
 **Configurazione** | **Server fisico/VMware** | **Hyper-V (con VMM)**
 --- | --- | ---
-Gruppo NIC | No | No
+Gruppo NIC | No  | No 
 IPv4 | Sì | Sì
-IPv6 | No | No
+IPv6 | No  | No 
 IP statico (Windows) | Sì | Sì
 IP statico (Linux) | Sì | Sì
 Più NIC | Sì | Sì
@@ -102,16 +102,16 @@ Percorsi multipli (MPIO) | Sì | Sì
 VMDK | Sì | N/D
 VHD/VHDX | N/D | Sì (fino a 16 dischi)
 VM di seconda generazione | N/D | Sì
-Disco cluster condiviso | Sì  | No
-Disco crittografato | No | No
+Disco cluster condiviso | Sì  | No 
+Disco crittografato | No  | No 
 UEFI| Sì | N/D
-NFS | No | No
-SMB 3.0 | No | No
+NFS | No  | No 
+SMB 3.0 | No  | No 
 RDM | Sì | N/D
 Disco superiore a 1 TB | Sì | Sì
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì | Sì
-Spazi di archiviazione | No | Sì
-Aggiunta/rimozione a caldo disco | Sì | No
+Spazi di archiviazione | No  | Sì
+Aggiunta/rimozione a caldo disco | Sì | No 
 Esclusione disco | Sì | Sì
 Percorsi multipli (MPIO) | N/D | Sì
 
@@ -119,8 +119,8 @@ Percorsi multipli (MPIO) | N/D | Sì
 
 **Azione** | **Server fisico/VMware** | **Hyper-V (con VMM)**
 --- | --- | ---
-Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No | No
-Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No | No
+Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  | No 
+Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  | No 
 
 ## <a name="provider-and-agent"></a>Provider e agente
 

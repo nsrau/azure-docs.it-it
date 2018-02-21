@@ -18,7 +18,7 @@ ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
 ms.openlocfilehash: 331dafc9164e315c84036fa0af11820e89066f36
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -16,7 +16,7 @@ ms.date: 11/10/2017
 ms.author: mazha
 ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -81,7 +81,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 ## <a name="testing-the-cache-control-header"></a>Test dell'intestazione Cache-Control
 È possibile verificare facilmente le impostazioni di durata (TTL) del contenuto web. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il contenuto web includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](http://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Vedere informazioni dettagliate sull'elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Vedere la documentazione sulla classe **HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  

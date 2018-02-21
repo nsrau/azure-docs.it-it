@@ -39,8 +39,8 @@ Questa esercitazione in più parti illustra le attività seguenti:
 
 Per compilare questa stessa app con Angular, vedere la [serie di video di esercitazione su Angular](tutorial-develop-mongodb-nodejs.md).
 
-## <a name="prerequisites"></a>Prerequisiti
-* [Node.js](https://www.nodejs.org)
+## <a name="prerequisites"></a>prerequisiti
+* [Node.JS](https://www.nodejs.org)
 
 ### <a name="finished-project"></a>Progetto finito
 Ottenere l'applicazione completata [da GitHub](https://github.com/Azure-Samples/react-cosmosdb).

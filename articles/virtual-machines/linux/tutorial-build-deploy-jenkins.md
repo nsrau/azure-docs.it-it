@@ -16,7 +16,7 @@ ms.author: ahomer
 ms.custom: mvc
 ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

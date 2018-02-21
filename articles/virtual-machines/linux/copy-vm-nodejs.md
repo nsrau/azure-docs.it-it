@@ -29,7 +29,7 @@ Questo articolo descrive come creare una copia di una macchina virtuale (VM) di 
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - Interfaccia della riga di comando di Azure 1.0: interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Accertarsi che prima di iniziare la procedura siano soddisfatti i prerequisiti seguenti:
@@ -41,9 +41,9 @@ Accertarsi che prima di iniziare la procedura siano soddisfatti i prerequisiti s
 | --- | --- |
 | Nome della VM |`azure vm list` |
 | Nome del gruppo di risorse |`azure vm list` |
-| Location |`azure vm list` |
+| Località |`azure vm list` |
 | Nome dell'account di archiviazione |`azure storage account list -g <resourceGroup>` |
-| Nome del contenitore |`azure storage container list -a <sourcestorageaccountname>` |
+| Nome contenitore |`azure storage container list -a <sourcestorageaccountname>` |
 | Nome del file VHD della VM di origine |`azure storage blob list --container <containerName>` |
 
 * Sarà necessario scegliere alcune informazioni sulla nuova VM:    <br> -Nome contenitore    <br> -Nome della VM    <br> -Dimensioni della VM    <br> -Nome della vNet    <br> -Nome della SubNet    <br> -Nome dell'IP    <br> -Nome NIC

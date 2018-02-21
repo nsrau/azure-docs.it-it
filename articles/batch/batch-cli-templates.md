@@ -13,7 +13,7 @@ ms.date: 12/18/2017
 ms.author: markscu
 ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---

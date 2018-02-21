@@ -83,7 +83,7 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 2. Nella parte inferiore della pagina fare clic su **Arresto**.
    
     ![arresto del dispositivo 1](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Verrà visualizzato un avviso per segnalare che l'arresto del dispositivo interromperà ogni IO in corso, causando un periodo di inattività. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Verrà visualizzato un avviso per segnalare che l'arresto del dispositivo interromperà ogni IO in corso, causando un periodo di inattività. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![avviso di arresto del dispositivo](./media/storsimple-ova-web-ui-admin/image37.png)
    
@@ -98,7 +98,7 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 2. Nella parte inferiore della pagina fare clic su **Riavvia**.
    
     ![riavvio del dispositivo](./media/storsimple-ova-web-ui-admin/image36.png)
-3. Viene visualizzato un avviso in cui si informa che il riavvio del dispositivo interromperà ogni IO in corso, causando un tempo di inattività. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Viene visualizzato un avviso in cui si informa che il riavvio del dispositivo interromperà ogni IO in corso, causando un tempo di inattività. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-ova-web-ui-admin/image3.png).
    
     ![avviso di riavvio](./media/storsimple-ova-web-ui-admin/image37.png)
    

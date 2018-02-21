@@ -18,7 +18,7 @@ ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.openlocfilehash: 9cec1e9e63d6fa9cdb372c0df8f16376482bad71
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Disattivare ed eliminare un array virtuale StorSimple
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Quando si disattiva un array virtuale StorSimple, si interrompe la connessione tra il dispositivo e il servizio Gestione dispositivi StorSimple corrispondente. In questa esercitazione viene illustrato come:
 

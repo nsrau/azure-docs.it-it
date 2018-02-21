@@ -17,7 +17,7 @@ ms.author: kraigb
 ms.custom: aaddev
 ms.openlocfilehash: eccff00847968b4293b6e7142af0cceff0476c46
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

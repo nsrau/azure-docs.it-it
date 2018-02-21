@@ -28,14 +28,14 @@ Servizi connessi di Visual Studio consente agli sviluppatori di connettere facil
 
 È anche possibile usare Esplora dati nel servizio connesso per creare stored procedure, funzioni definite dall'utente e trigger per eseguire la logica di business sul lato server. Esplora dati espone tutti i tipi di accesso ai dati a livello di codice predefiniti disponibili nelle API, ma consente anche di accedere facilmente ai dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Assicurarsi di avere quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
 * Account Azure Cosmos DB. Se non è già presente, seguire la procedura illustrata in [Creazione di un account Azure Cosmos DB](create-sql-api-dotnet.md) per crearne uno nel portale di Azure o vedere [Creare un account Azure Cosmos DB nello strumento di servizio connesso](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Per usare un ambiente locale a fini di sviluppo, è possibile usare l'[emulatore di Azure Cosmos DB](local-emulator.md). L'ambiente emula il servizio Azure Cosmos DB.
-* [Visual Studio](http://www.visualstudio.com/)
+* [Visual Studio](http://www.visualstudio.com/).
 * Bit più recenti del servizio connesso Azure Cosmos DB. È possibile scaricare il servizio connesso Azure Cosmos DB dal marketplace di Visual Studio, come illustrato nello screenshot seguente. Aprire **Visual Studio** nel computer. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti** e quindi scegliere **Online** / **Visual Studio Marketplace**. Immettere **cosmosdb** per cercare i bit.
 
     È anche possibile installare il servizio connesso Azure Cosmos DB da [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).

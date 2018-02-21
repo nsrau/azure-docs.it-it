@@ -46,13 +46,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-basic|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |username|Specifica il nome utente della credenziale di base.|Sì|N/D|  
 |password|Specifica la password della credenziale di base.|Sì|N/D|  
@@ -81,13 +81,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Identificazione personale del certificato client.|Sì|N/D|  
   
@@ -103,6 +103,6 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

@@ -23,10 +23,10 @@ ms.lasthandoff: 11/29/2017
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Registrare i dati da Archivio Data Lake in Azure Data Catalog
 Questo articolo descrive come integrare Archivio Azure Data Lake con Azure Data Catalog per individuare i dati all'interno dell'organizzazione integrandoli con il catalogo dati. Per altre informazioni sulla catalogazione dei dati, vedere [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Per informazioni sugli scenari in cui è possibile usare il catalogo dati, vedere l'articolo relativo agli [scenari comuni di Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Abilitare la sottoscrizione di Azure** per l'anteprima pubblica di Data Lake Store. Vedere le [istruzioni](data-lake-store-get-started-portal.md).
 * **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md). Per questa esercitazione, viene creato un account Archivio Data Lake denominato **datacatalogstore**.
 
@@ -78,7 +78,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
     * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrazione di Data Lake Store con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)

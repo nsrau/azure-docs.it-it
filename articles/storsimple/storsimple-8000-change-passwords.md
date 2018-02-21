@@ -94,5 +94,5 @@ La password di StorSimple Snapshot Manager ora deve essere aggiornata.
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).
 * [Ulteriori informazioni su come modificare la configurazione del dispositivo](storsimple-8000-modify-device-config.md).
-* Altre informazioni sull'[utilizzo del servizio Gestione dispositivi StorSimple per la gestione del dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

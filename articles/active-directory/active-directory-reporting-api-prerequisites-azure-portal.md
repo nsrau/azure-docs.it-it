@@ -17,7 +17,7 @@ ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -190,7 +190,7 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
     d. Copiare il valore della chiave.
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Si desidera accedere ai dati dall'API di creazione report di Azure AD mediante il codice? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 

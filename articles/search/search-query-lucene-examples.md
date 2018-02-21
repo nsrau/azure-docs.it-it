@@ -134,6 +134,6 @@ Provare a specificare il parser di query Lucene nel codice. I collegamenti segue
 * [Eseguire query su un indice di Ricerca di Azure con .NET SDK](search-query-dotnet.md)
 * [Eseguire query su un indice di Ricerca di Azure con l'API REST](search-query-rest-api.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
  [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md)

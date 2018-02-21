@@ -116,7 +116,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 
 5. Selezionare o creare un piano di servizio app. Se si vuole creare un nuovo piano di servizio app, selezionare l'ambiente del servizio app in uso come località. Selezionare il pool di lavoro in cui si vuole creare il piano di servizio app. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come località e il pool di lavoro. Quando si specifica il nome dell'app, il dominio sotto il nome dell'app verrà sostituito con il dominio dell'ambiente del servizio app.
 
-6. Selezionare **Crea**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
+6. Selezionare **Create**. Se si vuole che l'app venga visualizzata nel dashboard, selezionare la casella di controllo **Aggiungi al dashboard**.
 
     ![Creazione del piano di servizio app][2]
 
@@ -219,7 +219,7 @@ Servizio App di Azure fornisce molte misure di sicurezza che proteggono il siste
 
 Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB con un dispositivo WAF, vedere [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app][ASEWAF]. Questo articolo spiega come usare un'appliance virtuale Barracuda con il proprio ambiente del servizio app. Un'altra opzione consiste nell'usare il gateway applicazione Azure. Il gateway applicazione usa le regole di base OWASP per proteggere le applicazioni associate allo stesso. Per altre informazioni sul gateway applicazione Azure, vedere [Web application firewall (WAF)][AppGW].
 
-## <a name="get-started"></a>Introduzione ##
+## <a name="get-started"></a>Attività iniziali ##
 
 * Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro].
  

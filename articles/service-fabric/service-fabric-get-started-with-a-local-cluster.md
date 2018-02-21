@@ -166,7 +166,7 @@ La nuova versione dell'applicazione ora conta solo le parole che iniziano con un
    
     ![Visualizzazione della nuova versione dell'applicazione nel browser][deployed-app-ui-v2]
 
-## <a name="cleaning-up"></a>+ Cleaning up
+## <a name="cleaning-up"></a>Cleaning up
 Prima di concludere, è importante ricordare che il cluster locale è reale. L'esecuzione delle applicazioni continua in background finché non vengono rimosse.  A seconda della natura delle app, un'app in esecuzione può richiedere risorse significative del computer. Sono disponibili diverse opzioni per gestire le applicazioni e il cluster:
 
 1. Per rimuovere una singola applicazione con tutti i dati, eseguire il comando seguente:

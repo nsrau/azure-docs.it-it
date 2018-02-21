@@ -131,14 +131,14 @@ Per ogni origine è possibile impostare i parametri seguenti:
 ## <a name="using-the-trace-api-directly"></a>Uso diretto dell'API di traccia
 È possibile chiamare direttamente l'API di traccia di Application Insights. Gli adattatori di registrazione usano questa API.
 
-Ad esempio:
+Ad esempio: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio, è possibile codificare dati POST.
 
-È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria, si possono aggiungere valori di proprietà che è possibile usare per filtrare o cercare set di tracce diversi, Ad esempio:
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria, si possono aggiungere valori di proprietà che è possibile usare per filtrare o cercare set di tracce diversi, Ad esempio: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -154,7 +154,7 @@ Nel pannello Panoramica dell'app nel [portale di Application Insights][portal] s
 
 ![In Application Insights scegliere Cerca](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Cerca](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Ricerca](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 Ad esempio, è possibile:
 
@@ -173,7 +173,7 @@ Ad esempio, è possibile:
 
 [Altre informazioni sulla ricerca][diagnostic].
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="how-do-i-do-this-for-java"></a>Come procedere per Java?
 Usare gli [adattatori log Java](app-insights-java-trace-logs.md).
 

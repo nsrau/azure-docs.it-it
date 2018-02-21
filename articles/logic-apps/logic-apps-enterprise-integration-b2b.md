@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 Dopo aver creato un account di integrazione con partner e contratti, si è pronti per creare un flusso di lavoro Business to Business (B2B) per l'app per la logica con [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare le azioni AS2 e X12, è necessario un account Enterprise Integration. Informazioni sulla [creazione di un account Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 

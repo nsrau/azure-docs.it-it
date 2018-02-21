@@ -15,7 +15,7 @@ ms.date: 07/14/2017
 ms.author: jeedes
 ms.openlocfilehash: 76e91c1a4f52337fe7e24d2c7dc727d1fb0ebef2
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di 10,000ft Plans con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con 10,000ft Plans, sono necessari gli elementi seguenti:
 

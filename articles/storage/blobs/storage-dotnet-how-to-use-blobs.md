@@ -99,7 +99,7 @@ container.SetPermissions(
 Chiunque acceda a Internet può visualizzare i BLOB di un contenitore pubblico. È tuttavia possibile modificarli o eliminarli solo se è disponibile la chiave di accesso dell'account appropriata o una firma di accesso condiviso.
 
 ## <a name="upload-a-blob-into-a-container"></a>Caricare un BLOB in un contenitore
-Nell'archivio BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine.  Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
+In Archiviazione BLOB di Azure sono supportati BLOB in blocchi e BLOB di pagine.  Nella maggior parte dei casi è consigliabile usare il tipo di BLOB in blocchi.
 
 Per caricare un file in un BLOB in blocchi, ottenere un riferimento a un contenitore e utilizzarlo per ottenere un riferimento a un BLOB in blocchi. Dopo aver ottenuto un riferimento al BLOB, sarà possibile caricarvi qualsiasi flusso di dati chiamando il metodo **UploadFromStream** . Questa operazione crea il BLOB, se non già esistente, o lo sovrascrive, se già esistente.
 
@@ -168,7 +168,7 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 
 Includendo le informazioni sul percorso nei nomi di BLOB, è possibile creare una struttura di directory virtuale che è possibile organizzare e attraversare come un file system tradizionale. La struttura di directory è solo virtuale, le uniche risorse disponibili nell'archivio BLOB sono i contenitori e i BLOB. Tuttavia, la libreria client di archiviazione offre un oggetto **CloudBlobDirectory** per fare riferimento a una directory virtuale e semplificare il processo di utilizzo dei BLOB organizzati in questo modo.
 
-Si consideri ad esempio il seguente set di BLOB in blocchi in un contenitore denominato *photos*:
+Si consideri, ad esempio, il seguente set di BLOB in blocchi in un contenitore denominato *photos*:
 
 ```
 photo1.jpg

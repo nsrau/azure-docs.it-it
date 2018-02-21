@@ -1,5 +1,5 @@
 ---
-title: Creare un hub eventi di Azure | Microsoft Docs
+title: Creare un hub eventi di Azure | Documentazione Microsoft
 description: Creare uno spazio dei nomi di Hub eventi di Azure e un hub eventi usando il Portale di Azure
 services: event-hubs
 documentationcenter: na

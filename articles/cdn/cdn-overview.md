@@ -41,7 +41,7 @@ L'uso di una rete CDN per memorizzare nella cache gli asset dei siti Web offre d
 3. L'origine restituisce il file al server perimetrale, comprese le intestazioni HTTP facoltative che descrivono la durata (TTL) del file.
 4. Il server perimetrale memorizza il file nella cache e lo restituisce al richiedente originale (Alice).  Il file rimane nella cache del server perimetrale fino alla scadenza del valore TTL.  Se l'origine ha specificato un valore TTL, il valore predefinito è di sette giorni.
 5. Altri utenti possono quindi richiedere lo stesso file usando lo stesso URL e anche essere indirizzati allo stesso POP.
-6. Se il valore TTL per il file non è ancora scaduto, il server perimetrale restituisce il file dalla cache. Questo processo offre un'esperienza utente più veloce ed efficiente.
+6. Se il valore TTL per il file non è ancora scaduto, il server perimetrale restituisce il file dalla cache, Questo processo offre un'esperienza utente più veloce ed efficiente.
 
 ## <a name="azure-cdn-features"></a>Funzionalità della rete CDN di Azure
 Per la rete CDN di Azure sono disponibili tre prodotti: **rete CDN Standard di Azure fornita da Akamai**, **rete CDN Standard di Azure fornita da Verizon** e **rete CDN Premium di Azure fornita da Verizon**.  La tabella seguente include l'elenco delle funzionalità disponibili con ogni prodotto.

@@ -16,14 +16,14 @@ ms.date: 07/17/2017
 ms.author: magoedte
 ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Soluzione Integrità agente in OMS
 La soluzione Integrità agente in OMS consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di OMS o a un gruppo di gestione di System Center Operations Manager connesso a OMS.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di distribuire questa soluzione, assicurarsi che l'invio di report da parte degli [agenti di Windows](../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di OMS o a un [gruppo di gestione di Operations Manager](../log-analytics/log-analytics-om-agents.md) integrato con l'area di lavoro di OMS sia attualmente supportato.    
 
 ## <a name="solution-components"></a>Componenti della soluzione

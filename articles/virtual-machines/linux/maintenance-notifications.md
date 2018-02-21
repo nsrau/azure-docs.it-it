@@ -87,7 +87,7 @@ az vm get-instance-view -g rgName -n vmName
 
 MaintenanceRedeployStatus restituisce i valori seguenti: 
 
-| Valore | Descrizione   |
+| Valore | DESCRIZIONE   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale ||
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||

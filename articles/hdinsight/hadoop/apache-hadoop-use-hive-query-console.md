@@ -53,7 +53,7 @@ Per seguire la procedura descritta in questo articolo, è necessario quanto segu
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    Di seguito sono elencate le istruzioni che eseguono queste azioni:
+    Le istruzioni eseguono queste azioni:
 
    * **DROP TABLE**: elimina la tabella e il file di dati, se la tabella esiste già.
    * **CREATE EXTERNAL TABLE**: crea una nuova tabella "external" in Hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati vengono lasciati nella posizione originale.

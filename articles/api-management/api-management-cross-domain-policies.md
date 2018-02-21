@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
-Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CrossDomainPolicies"></a> Criteri tra domini  
   
@@ -53,14 +53,14 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |cross-domain|Elemento radice. Gli elementi figlio devono essere conformi alla [specifica dei file di criteri tra domini Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sì|  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** globali  
   
 ##  <a name="CORS"></a> CORS  
@@ -122,28 +122,28 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |CORS|Elemento radice.|Sì|N/D|  
 |allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|  
 |origin|Il valore può essere `*` per consentire tutte le origini oppure un URI che specifichi una singola origine. L'URI deve includere uno schema, un host e una porta.|Sì|Se la porta viene omessa in un URI, vengono utilizzate la porta 80 per HTTP e la porta 443 per HTTPS.|  
-|allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati.|No|Se questa sezione non è presente, sono supportati i metodi GET e POST.|  
+|allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati.|No |Se questa sezione non è presente, sono supportati i metodi GET e POST.|  
 |statico|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/D|  
-|allowed-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni che è possibile includere nella richiesta.|No|N/D|  
-|expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No|N/D|  
+|allowed-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni che è possibile includere nella richiesta.|No |N/D|  
+|expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No |N/D|  
 |intestazione|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/D|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|allow-credentials|L'intestazione `Access-Control-Allow-Credentials` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|  
-|preflight-result-max-age|L'intestazione `Access-Control-Max-Age` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|  
+|allow-credentials|L'intestazione `Access-Control-Allow-Credentials` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No |false|  
+|preflight-result-max-age|L'intestazione `Access-Control-Max-Age` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No |0|  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** API, operazione  
   
 ##  <a name="JSONP"></a> JSONP  
@@ -167,13 +167,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |jsonp|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |callback-parameter-name|Funzione JavaScript tra domini che ha come prefisso il nome completo del dominio in cui si trova la funzione.|Sì|N/D|  
   
@@ -188,6 +188,6 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

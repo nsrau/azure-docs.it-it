@@ -32,11 +32,11 @@ Prima di tutto è necessario aprire la porta desiderata.
     ![Probe del servizio di bilanciamento del carico del servizio contenitore di Azure](./media/container-service-enable-public-access/add-probe.png)
 5. Compilare il form dei probe e fare clic su **OK**.
    
-   | Campo | Descrizione |
+   | Campo | DESCRIZIONE |
    | --- | --- |
-   | Nome |Nome descrittivo del probe. |
-   | Port |Porta del contenitore da testare. |
-   | Path |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
+   | NOME |Nome descrittivo del probe. |
+   | Porta |Porta del contenitore da testare. |
+   | path |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
    | Interval |Intervallo di tempo tra i tentativi del probe, in secondi. |
    | Soglia non integra |Numero di tentativi consecutivi del probe prima che il contenitore sia considerato non integro. |
 6. Tornare alle proprietà del servizio di bilanciamento del carico dell'agente, fare clic su **Regole di bilanciamento del carico** e quindi su **Aggiungi**.
@@ -44,9 +44,9 @@ Prima di tutto è necessario aprire la porta desiderata.
     ![Regole del servizio di bilanciamento del carico del servizio contenitore di Azure](./media/container-service-enable-public-access/add-balancer-rule.png)
 7. Compilare il modulo del servizio di bilanciamento del carico e fare clic su **OK**.
    
-   | Campo | Descrizione |
+   | Campo | DESCRIZIONE |
    | --- | --- |
-   | Nome |Nome descrittivo del servizio di bilanciamento del carico. |
+   | NOME |Nome descrittivo del servizio di bilanciamento del carico. |
    | Port |Porta pubblica in ingresso. |
    | Porta back-end |Porta pubblica interna del contenitore a cui instradare il traffico. |
    | Pool back-end |I contenitori in questo pool saranno la destinazione per questo servizio di bilanciamento del carico. |
@@ -67,13 +67,13 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
     ![Regole del gruppo di sicurezza di rete del servizio contenitore di Azure](./media/container-service-enable-public-access/add-firewall-rule.png)
 5. Compilare la regola del firewall per consentire la porta pubblica e fare clic su **OK**.
    
-   | Campo | Descrizione |
+   | Campo | DESCRIZIONE |
    | --- | --- |
-   | Nome |Nome descrittivo della regola del firewall. |
+   | NOME |Nome descrittivo della regola del firewall. |
    | Priorità |Classificazione di priorità per la regola. Più è basso il numero, maggiore sarà la priorità. |
    | Sorgente |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
    | Service |Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |
-   | Protocol |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
+   | Protocollo |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
    | Intervallo di porte |Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024-1500**. |
    | Azione |Consentire o negare il traffico che soddisfa i criteri. |
 

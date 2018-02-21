@@ -32,7 +32,7 @@ Se si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/li
 
 I passaggi descritti in questo articolo consentono di aggiungere rapidamente nodi di Azure a una VM del nodo head HPC Pack basato sul cloud per una distribuzione di test o con modello di verifica. La procedura di livello elevato è identica a quella per il "potenziamento in Azure" per aggiungere capacità di calcolo del cloud a un cluster HPC Pack locale. Per un'esercitazione, vedere [Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Per istruzioni dettagliate e considerazioni per le distribuzioni di produzione, vedere [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Distribuzione di un nodo head HPC Pack in una VM Azure** : è possibile utilizzare una VM del nodo head autonoma oppure una che fa parte di un cluster più esteso. Per creare un nodo head autonomo, vedere l'argomento su come [distribuire un nodo head HPC Pack in una VM Azure](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per conoscere le opzioni di distribuzione di un cluster HPC Pack, vedere [Opzioni per creare e gestire un cluster high performance computing (HPC) Windows in Azure con Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]

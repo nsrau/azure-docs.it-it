@@ -17,7 +17,7 @@ ms.date: 05/11/2017
 ms.author: cherylmc
 ms.openlocfilehash: b1bc18307227a728e2bc8fd95e30fdc1cbdb8c59
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

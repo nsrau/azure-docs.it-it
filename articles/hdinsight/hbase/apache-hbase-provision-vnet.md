@@ -31,7 +31,7 @@ Grazie all'integrazione con la rete virtuale, i cluster HBase possono essere dis
 * Miglioramento delle prestazioni, poiché il traffico non deve attraversare più gateway e servizi di bilanciamento del carico.
 * Possibilità di elaborare le informazioni sensibili in modo più sicuro, senza esporre un endpoint pubblico.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -41,7 +41,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 In questa sezione viene creato un cluster HBase basato su Linux con l'account di archiviazione di Azure dipendente in una rete virtuale di Azure tramite un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere l'articolo sulla [creazione di cluster HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di un modello per creare cluster Hadoop in HDInsight, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight tramite modelli di Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-> Alcune proprietà sono state impostate come hardcoded nel modello. Ad esempio:
+> Alcune proprietà sono state impostate come hardcoded nel modello. Ad esempio: 
 >
 > * **Location**: Stati Uniti orientali 2
 > * **Versione cluster**: 3.6
@@ -77,7 +77,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>Connettersi al cluster HBase tramite le API RPC Java di HBase
 1. Creare una macchina virtuale IaaS (Infrastructure as a Service) nella stessa rete virtuale di Azure e nella stessa subnet. Per le istruzioni su come creare una nuova macchina virtuale IaaS, vedere [Creare una macchina virtuale che esegue Windows Server](../../virtual-machines/windows/quick-create-portal.md). Quando si usa la procedura indicata in questo documento, è necessario inserire i valori seguenti per la configurazione di rete:
 
-   * **Virtual network**: &lt;Nome cluster>-vnet
+   * **Virtual network**: &lt;Nome cluster&gt;-vnet
    * **Subnet**: subnet1
 
    > [!IMPORTANT]
@@ -102,14 +102,14 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_name". Contiene il nome di dominio completo (FQDN) per i nodi nel cluster. ad esempio:
+     Nei dati JSON (JavaScript Object Notation) restituiti, trovare la voce "host_name". Contiene il nome di dominio completo (FQDN) per i nodi nel cluster. Ad esempio: 
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
          ...
 
      La porzione del nome di dominio che inizia con il nome del cluster è il suffisso DNS. Ad esempio, mycluster.b1.cloudapp.net.
-   * Uso di Azure PowerShell
+   * Usare Azure PowerShell
 
      Usare lo script di Azure PowerShell seguente per registrare la funzione **Get-ClusterDetail**, che può essere usata per restituire il suffisso DNS:
 
@@ -231,7 +231,7 @@ Per iniziare a lavorare con il nuovo cluster HBase, è possibile usare le proced
 
 Per verificare che la macchina virtuale possa comunicare con il cluster HBase, usare il comando `ping headnode0.<dns suffix>` dalla macchina virtuale. Ad esempio, eseguire il ping di headnode0.mycluster.b1.cloudapp.net
 
-Per usare queste informazioni in un'applicazione Java e creare un'applicazione, è possibile seguire i passaggi in [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) . Per fare in modo che l'applicazione si connetta a un server HBase remoto, modificare il file **hbase-site.xml** in questo esempio, in modo che usi il nome di dominio completo (FQDN) per Zookeeper. ad esempio:
+Per usare queste informazioni in un'applicazione Java e creare un'applicazione, è possibile seguire i passaggi in [Usare Maven per compilare applicazioni Java che usano HBase con HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) . Per fare in modo che l'applicazione si connetta a un server HBase remoto, modificare il file **hbase-site.xml** in questo esempio, in modo che usi il nome di dominio completo (FQDN) per Zookeeper. Ad esempio: 
 
     <property>
         <name>hbase.zookeeper.quorum</name>

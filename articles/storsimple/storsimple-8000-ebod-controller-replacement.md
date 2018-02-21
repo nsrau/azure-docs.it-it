@@ -53,7 +53,7 @@ Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple,
    
      **Figura 1** Parte posteriore del modulo EBOD
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |LED di errore |
    | 2 |LED di alimentazione |
@@ -85,7 +85,7 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
    
     **Figura 4**. Ricollegamento dei cavi
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |Enclosure principale |
    | 2 |PCM 0 |

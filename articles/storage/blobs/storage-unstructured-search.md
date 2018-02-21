@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-Un set di dati di esempio è stato preparato per l'utente. **Scaricare [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** e decomprimerlo nella relativa cartella.
+È disponibile un set di dati di esempio. **Scaricare [clinical-trials.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials.zip)** e decomprimerlo nella relativa cartella.
 
 L'esempio è costituito da file di testo ottenuti da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). È possibile usarli come file di testo di esempio per la ricerca con Azure.
 
@@ -61,7 +61,7 @@ Se non si ha familiarità con il processo di creazione dell'account di archiviaz
 
 7. Scegliere un percorso e selezionare **Crea.**
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/storagepanes2.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/storagepanes2.png)
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
@@ -79,7 +79,7 @@ Per questa esercitazione usare un solo contenitore per archiviare i file di test
 
 5. Fare clic su **OK** per creare il contenitore. 
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/storageactinfo.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>Caricare i dati di esempio
 
@@ -99,7 +99,7 @@ Il processo di caricamento potrebbe richiedere qualche istante.
 
 Al termine tornare al contenitore dati per verificare i file di testo caricati.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/clinicalfolder.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/clinicalfolder.png)
 
 ## <a name="create-a-search-service"></a>Creare un servizio di ricerca
 
@@ -123,7 +123,7 @@ Se non si ha familiarità con il processo di creazione del servizio di ricerca, 
 
 8. Selezionare **Crea** per creare il servizio di ricerca.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/createsearch2.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Collegare il servizio di ricerca al contenitore
 
@@ -149,7 +149,7 @@ Dopo aver creato il servizio di ricerca, è possibile collegarlo nell'archiviazi
     
     a. In altri scenari potrebbe essere necessario selezionare [altre modalità di analisi](../../search/search-howto-indexing-azure-blob-storage.md) in base al contenuto dei BLOB.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/datasources.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/datasources.png)
 
 3. Selezionare **Contenitore di archiviazione** per elencare gli account di archiviazione disponibili.
 
@@ -157,7 +157,7 @@ Dopo aver creato il servizio di ricerca, è possibile collegarlo nell'archiviazi
 
 5. Fare clic su **Seleziona** per tornare a **Nuova origine dati** e selezionare **OK** per continuare.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/datacontainer.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/datacontainer.png)
 
 ### <a name="configure-the-index"></a>Configurare l'indice
 
@@ -169,7 +169,7 @@ Dopo aver creato il servizio di ricerca, è possibile collegarlo nell'archiviazi
 
 3. Selezionare la casella di controllo dell'attributo **Recuperabile** in **metadata_storage_name**.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/valuestoselect.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/valuestoselect.png)
 
 4. Fare clic su **OK**; viene visualizzato **Crea un indicizzatore**.
 
@@ -178,7 +178,7 @@ I parametri dell'indice e gli attributi assegnati a tali parametri sono importan
 La colonna **NOME CAMPO** contiene i parametri. La tabella seguente contiene un elenco degli attributi disponibili e delle relative descrizioni.
 
 ### <a name="field-attributes"></a>Attributi dei campi
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |
@@ -188,13 +188,13 @@ La colonna **NOME CAMPO** contiene i parametri. La tabella seguente contiene un 
 | *Ricercabile* |Contrassegna il campo come disponibile per la ricerca full-text. |
 
 
-### <a name="create-an-indexer"></a>Crea un indicizzatore
+### <a name="create-an-indexer"></a>Creare un indicizzatore
     
   Un indicizzatore connette un'origine dati con un indice di ricerca e consente di pianificare una nuova indicizzazione dei dati.
 
 1. Immettere un nome per il campo **Nome** e selezionare **OK**.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/exindexer.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/exindexer.png)
 
 2. Verrà visualizzato nuovamente **Importa dati**, selezionare **OK** per completare il processo di connessione.
 
@@ -208,25 +208,25 @@ I passaggi seguenti illustrano dove trovare Esplora ricerche e indicano alcuni e
 
 1. Passare a tutte le risorse e individuare il servizio di ricerca appena creato.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/exampleurl.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/exampleurl.png)
 
 3. Selezionare l'indice per aprirlo. 
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/overview.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/overview.png)
 
 4. Selezionare **Esplora ricerche** per aprire Esplora ricerche e poter effettuare query in tempo reale sui dati.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/indexespane.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/indexespane.png)
 
 5. Selezionare **Cerca** quando il campo della stringa di query è vuoto. Una query vuota restituisce *tutti* i dati dei BLOB.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/emptySearch.png)
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="full-text-search"></a>Ricerca full-text 
 
 Immettere "Myopia" nel campo **Stringa di query** e selezionare **Cerca**. Viene avviata una ricerca dei contenuti dei file che ne restituisce un sottoinsieme contenente la parola "Myopia".
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/secondMyopia.png) 
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/secondMyopia.png) 
 
 ### <a name="system-properties-search"></a>Ricerca delle proprietà di sistema
 
@@ -236,7 +236,7 @@ La stringa di query modifica direttamente l'URL, pertanto non sono consentiti sp
     
 Il parametro `$select` può essere usato solo con i campi contrassegnati come recuperabili durante la definizione dell'indice.
 
-  ![Ricerca non strutturata](media/storage-unstructured-search/metadatasearchunstructured.png) 
+  ![Ricerca su dati non strutturati](media/storage-unstructured-search/metadatasearchunstructured.png) 
 
 Questa esercitazione è terminata e ha consentito all'utente di avere un set di dati non strutturati ricercabile.
 

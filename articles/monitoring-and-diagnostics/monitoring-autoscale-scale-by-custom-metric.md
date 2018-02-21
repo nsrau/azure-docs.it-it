@@ -16,7 +16,7 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.openlocfilehash: 72b6a68d0dbad4639f21aa701ec4865f36409f0a
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

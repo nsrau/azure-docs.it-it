@@ -36,7 +36,7 @@ Quando si tenta di eseguire un'azione durante la distribuzione, è possibile che
 }
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per recuperare i dettagli sui criteri bloccati nella distribuzione, usare uno dei metodi seguenti:
 

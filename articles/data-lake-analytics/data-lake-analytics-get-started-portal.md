@@ -25,9 +25,9 @@ ms.lasthandoff: 10/11/2017
 
 Informazioni su come usare il portale di Azure per creare account Azure Data Lake Analytics, definire processi in [U-SQL](data-lake-analytics-u-sql-get-started.md) e inviare processi al servizio Data Lake Analytics. Per altre informazioni su Data Lake Analytics, vedere [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Prima di iniziare questa esercitazione, è necessaria una **sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Prima di iniziare questa esercitazione, è necessaria una **sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 
@@ -66,12 +66,12 @@ OUTPUT @a
 
 1. Dall'account Data Lake Analytics fare clic su **Nuovo processo**.
 2. Incollare il testo dello script U-SQL illustrato in precedenza. 
-3. Fare clic su **Submit Job**.   
+3. Fare clic su **Invia processo**.   
 4. Attendere finché lo stato del processo non viene modificato in **Riuscito**.
 5. In caso di esito negativo del processo, vedere [Monitorare e risolvere i problemi dei processi di Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 6. Fare clic sulla scheda **Output** e quindi su `data.csv`. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).

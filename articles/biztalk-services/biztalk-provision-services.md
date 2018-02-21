@@ -87,7 +87,7 @@ L'account Azure può avere più sottoscrizioni e può essere gestito da qualsias
 </td>
 </tr>
 <tr>
-<td>Database SQL di Azure</td>
+<td>database SQL di Azure</td>
 <td>Archivia le tabelle, le visualizzazioni e le stored procedure usate dal servizio BizTalk, inclusi i dati di rilevamento.
 <br/><br/>
 Quando si crea un servizio BizTalk, è possibile usare un server di Azure SQL o un database SQL di Azure esistente oppure creare automaticamente un nuovo server o database.
@@ -154,7 +154,7 @@ Quando si crea un servizio BizTalk di Azure, viene creato anche un URL HTTPS che
 
 
 
-## <a name="hybrid-connections"></a>Connessioni ibride
+## <a name="hybrid-connections"></a>connessioni ibride
 Quando si crea un servizio BizTalk di Azure, è disponibile la scheda relativa alle **connessioni ibride** :
 
 ![scheda per le connessioni ibride][HybridConnectionTab]
@@ -166,7 +166,7 @@ Le connessioni ibride consentono la connessione di un sito Web o di un servizio 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con le diverse [schede Dashboard, Monitoraggio e Scalabilità di Servizi BizTalk](biztalk-dashboard-monitor-scale-tabs.md). Il servizio BizTalk è pronto per le applicazioni. Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)<br/>
 * [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)<br/>
 * [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md)<br/>

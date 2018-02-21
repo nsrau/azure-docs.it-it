@@ -39,7 +39,7 @@ Le sezioni seguenti descrivono i termini più importanti presenti nella versione
 
 Nella sezione superiore del file CSV di utilizzo dettagliato sono riportati i servizi usati durante il periodo di fatturazione mensile. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione.
 
-| Termine | Descrizione |
+| Termine | DESCRIZIONE |
 | --- | --- |
 |Periodo di fatturazione |Indica il periodo di fatturazione in cui sono stati usati i contatori |
 |Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo |
@@ -62,7 +62,7 @@ Nella sezione superiore del file CSV di utilizzo dettagliato sono riportati i se
 
 La sezione del file CSV sull'utilizzo giornaliero indica i dettagli di utilizzo che influiscono sulle tariffe di fatturazione. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione.
 
-| Termine | Descrizione |
+| Termine | DESCRIZIONE |
 | --- | --- |
 |Data utilizzo |Indica la data in cui è stato usato il contatore |
 |Categoria misuratore |Identifica il servizio di primo livello a cui si riferisce l'utilizzo |
@@ -87,5 +87,5 @@ Se nel file di utilizzo dettagliato è presente un addebito su cui si vogliono r
 ## <a name="external"></a>A cosa si riferiscono gli addebiti per servizi esterni?
 I servizi esterni, noti anche come ordini Marketplace, sono erogati da fornitori di servizi indipendenti e vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-support"></a>Serve aiuto? Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?) per ottenere una rapida risoluzione del problema.

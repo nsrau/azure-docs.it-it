@@ -35,7 +35,7 @@ Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di c
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per questa esercitazione è necessaria una macchina virtuale Linux protetta con Backup di Azure. Per simulare un processo di eliminazione accidentale e ripristino di un file, si elimina una pagina da un server Web. Se si necessita di una macchina virtuale Linux che esegue un server Web ed è protetta con Backup di Azure, vedere [Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando](quick-backup-vm-cli.md).
 
 

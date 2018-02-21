@@ -77,7 +77,7 @@ Ciascun log verrà scritto nel seguente formato:
 
 Nella tabella seguente vengono descritti i singoli attributi del nome del log:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | <service-name> |Nome del servizio di archiviazione. Ad esempio: BLOB, tabella o coda |
 | AAAA |Anno a quattro cifre per il log. Ad esempio: 2011 |
@@ -100,7 +100,7 @@ Quando viene registrata una richiesta di archiviazione, il nome log risultante �
 ### <a name="log-metadata"></a>Metadati dei log
 Tutti i BLOB dei log vengono archiviati con i metadati che possono essere utilizzati per identificare i dati di registrazione contenuti nei BLOB. Nella tabella seguente sono descritti i singoli attributi dei metadati:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | LogType |Descrive se il log contiene informazioni relative alle operazioni di lettura, scrittura o eliminazione. Questo valore può includere un solo tipo o una combinazione di tutti e tre, separati da virgola. Esempio 1: scrittura; Esempio 2: lettura, scrittura; Esempio 3: lettura, scrittura, eliminazione. |
 | StartTime |L'ora in cui è stata registrata la prima voce nel log, nel formato AAAA-MM-GGThh:mm:ssZ. Ad esempio: 31-07-2011T18:21:46Z |

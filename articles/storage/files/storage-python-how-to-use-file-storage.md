@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: tamram
 ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

@@ -33,7 +33,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Acquisisci configurazione**
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |**Numero massimo di byte per pacchetto (byte)** | Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte. Se è necessaria solo l'intestazione IPv4, indicare qui 34 |
 |**Numero massimo di byte per sessione (byte)** | Numero totale di byte acquisiti, quando viene raggiunto il valore di termine della sessione.|
@@ -41,7 +41,7 @@ Per limitare le informazioni acquisite alle sole informazioni desiderate, sono d
 
 **Filtro (facoltativo)**
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |**Protocollo** | Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Tutti.|
 |**Indirizzo IP locale** | Questo valore filtra l'acquisizione di pacchetti per ottenere i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore del filtro.|

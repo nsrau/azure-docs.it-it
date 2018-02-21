@@ -101,10 +101,10 @@ Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i r
 ## <a name="log-analytics-records"></a>Record di Log Analytics
 La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../key-vault/key-vault-logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Tipo |*AzureDiagnostics* |
-| SourceSystem |*Azzurro* |
+| type |*AzureDiagnostics* |
+| SourceSystem |*Azure* |
 | CallerIpAddress |Indirizzo IP del client che ha eseguito la richiesta |
 | Categoria | *AuditEvent* |
 | CorrelationId |GUID facoltativo che il client può passare per correlare i log sul lato client con quelli sul lato servizio (insieme di credenziali delle chiavi). |
@@ -147,7 +147,7 @@ Per utilizzare la soluzione aggiornata:
 
 I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È possibile continuare a eseguire query per questi dati utilizzando i nomi di campo e il tipo vecchi.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: "17"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt
@@ -75,10 +75,10 @@ L'elemento `Destinations` descrive una raccolta di RoleEndpoints con i quali è 
 ##  <a name="RoleEndpoint"></a>Elemento RoleEndpoint
 L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le comunicazioni tra i due. È possibile specificare più elementi `RoleEndpoint` se sono presenti più di un endpoint nel ruolo.
 
-| Attributo      | Tipo     | Descrizione |
+| Attributo      | type     | DESCRIZIONE |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Obbligatorio. Il nome dell'endpoint verso il quale consentire il traffico.|
-| `roleName`     | `string` | Obbligatorio. Il nome del ruolo Web con il quale consentire le comunicazioni.|
+| `endpointName` | `string` | Richiesto. Il nome dell'endpoint verso il quale consentire il traffico.|
+| `roleName`     | `string` | Richiesto. Il nome del ruolo Web con il quale consentire le comunicazioni.|
 
 ## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
 L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comunicare con gli endpoint definiti nel nodo `Destinations`.
@@ -86,16 +86,16 @@ L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comun
 ##  <a name="WhenSource"></a> Elemento WhenSource
 L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-| Attributo | Tipo     | Descrizione |
+| Attributo | type     | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Obbligatorio. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
+| `matches` | `string` | Richiesto. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
-| Attributo  | Tipo     | Descrizione |
+| Attributo  | type     | DESCRIZIONE |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Obbligatorio. Il nome del ruolo da cui consentire la comunicazione.|
+| `roleName` | `string` | Richiesto. Il nome del ruolo da cui consentire la comunicazione.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Schema di definizione di Servizi cloud - Versione classica)

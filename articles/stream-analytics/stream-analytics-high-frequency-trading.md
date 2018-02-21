@@ -446,7 +446,7 @@ L'output viene infine inserito in un dashboard di Power BI per la visualizzazion
 ![Profitti e perdite](./media/stream-analytics-high-frequency-trading/pnl.png)
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 È possibile implementare un modello di trading ad alta frequenza realistico con una query moderatamente complessa in Analisi di flusso di Azure. A causa dell'assenza di una funzione di regressione lineare predefinita, è necessario semplificare il modello passando da cinque variabili di input a due. Un utente determinato può tuttavia implementare anche algoritmi con dimensioni superiori e complessità maggiore come aggregazioni definite dall'utente di JavaScript. 
 
 È opportuno rilevare che la maggior parte della query, tranne l'aggregazione definita dall'utente di JavaScript, può essere testata e sottoposta a debug in Visual Studio tramite gli [strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-tools-for-visual-studio.md). Dopo aver scritto la query iniziale, l'autore ha impiegato meno di 30 minuti per il test e il debug della query in Visual Studio. 

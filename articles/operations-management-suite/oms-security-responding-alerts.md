@@ -96,7 +96,7 @@ Questo avviso e altri all'interno della stessa categoria sono generati tramite S
 
 ![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento è stato descritto come rispondere agli avvisi di sicurezza mediante la funzionalità **Threat Intelligence** (Intelligence per le minacce) disponibile nella soluzione OMS per la sicurezza e il controllo. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)

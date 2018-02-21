@@ -59,7 +59,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 11. Impostare **Metodo** su POST e **Uri** su un indirizzo Web di propria scelta.
 
-12. Fare clic su **Salva**.
+12. Fare clic su **Save**.
 
 ## <a name="view-metrics-for-your-logic-app"></a>Visualizzare le metriche per l'app per la logica
 

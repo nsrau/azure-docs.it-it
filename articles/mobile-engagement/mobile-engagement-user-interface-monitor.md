@@ -26,7 +26,7 @@ In questo articolo viene descritta la scheda **MONITORAGGIO** del portale **Mobi
 Nella sezione Monitoraggio dell'interfaccia utente vengono fornite informazioni di analisi in tempo reale ed è possibile impostare gli avvisi quando vengono raggiunte le soglie per la maggior parte delle informazioni cronologicamente disponibili anche nella sezione [ANALISI](mobile-engagement-user-interface-analytics.md) dell'interfaccia utente. Nella sezione **Glossario** nell'argomento [Concetti](http://go.microsoft.com/fwlink/?LinkId=525555) sono riportate le definizioni dei termini e delle abbreviazioni usati in Analisi e Monitoraggio, ad esempio: utente attivo, nuovo utente, utente assorbito, sessione, grafico percorso utenti, mapping utenti, URL di rilevamento, tendenze, attività, evento, processo, errore, informazioni supplementari, arresto anomalo e informazioni sull'app.
 
 > [!NOTE]
-> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA LA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 > 
 > 
 
@@ -56,7 +56,7 @@ Per altre informazioni, vedere [Documentazione SDK - Note di rilascio][Link 5]
 
 ![Monitor4][17]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Concetti][Link 6]
 * [Guida alla risoluzione dei problemi - Assistenza][Link 24]
 

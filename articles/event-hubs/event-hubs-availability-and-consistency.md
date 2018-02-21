@@ -40,7 +40,7 @@ Il modo più semplice per iniziare a usare l'Hub eventi è il comportamento pred
 
 Per i casi di uso che richiedono il massimo del tempo di attività, è preferibile usare questo modello.
 
-## <a name="consistency"></a>Coerenza
+## <a name="consistency"></a>Consistency
 In alcuni scenari, l'ordinamento degli eventi può essere importante. È ad esempio, potrebbe essere necessario che il sistema back-end elabori un comando di aggiornamento prima di un comando di eliminazione. In questo caso, è possibile impostare la chiave di partizione su un evento oppure usare un oggetto `PartitionSender` solo per inviare eventi a una determinata partizione. In tal modo, quando questi eventi vengono letti dalla partizione, vengono letti nell'ordine.
 
 Con questa configurazione, tenere presente che se la partizione specifica alla quale si esegue l'invio non è disponibile, si riceverà una risposta di errore. Per fare un confronto, se non è presente un'affinità a una singola partizione, il servizio dell'Hub eventi invia l'evento alla partizione successiva disponibile.

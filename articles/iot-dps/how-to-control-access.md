@@ -43,7 +43,7 @@ Per concedere le [autorizzazioni](#device-provisioning-service-permissions) è p
 > [!NOTE]
 > Per informazioni dettagliate, vedere [Autorizzazioni](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Servizio Device Provisioning in hub IoT di Azure concede l'accesso agli endpoint tramite la verifica di un token rispetto ai criteri di accesso condiviso. Le credenziali di sicurezza, ad esempio le chiavi asimmetriche, non vengono mai trasmesse in rete.
 
@@ -75,11 +75,11 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Valore | Descrizione |
+| Valore | DESCRIZIONE |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256.|
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
-| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host del servizio Device Provisioning in hub IoT senza il protocollo. ad esempio `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host del servizio Device Provisioning in hub IoT senza il protocollo. Ad esempio, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Nome del criterio di accesso condiviso a cui fa riferimento il token. |
 
 **Nota sul prefisso**: il prefisso dell'URI viene calcolato in base al segmento e non in base al carattere. Ad esempio `/a/b` è un prefisso per `/a/b/c` ma non per `/a/bc`.

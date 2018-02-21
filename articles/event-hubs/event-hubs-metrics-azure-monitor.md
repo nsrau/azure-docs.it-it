@@ -59,7 +59,7 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 
 Conta il numero di richieste di operazioni di dati e gestione.
 
-| Nome della metrica | Descrizione |
+| Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
 | Richieste in ingresso (anteprima) | Numero di richieste inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName |
 | Richieste completate (anteprima)   | Numero di richieste completate inviate al servizio Hub eventi di Azure in un periodo specificato. <br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName |
@@ -70,13 +70,13 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 ## <a name="throughput-metrics"></a>Metriche di elaborazione
 
-| Nome della metrica | Descrizione |
+| Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
 |Richieste limitate (anteprima)|Numero di richieste che sono state limitate perché è stato superato il limite di utilizzo di unità elaborate.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 
 ## <a name="message-metrics"></a>Metriche per i messaggi
 
-| Nome della metrica | Descrizione |
+| Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
 |Messaggi in ingresso (anteprima)|Numero di eventi o messaggi inviati agli hub eventi in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Messaggi in uscita (anteprima)|Numero di eventi o messaggi recuperati dagli hub eventi in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
@@ -85,7 +85,7 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
-| Nome della metrica | Descrizione |
+| Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
 |ActiveConnections (anteprima)|Numero di connessioni attive in uno spazio dei nomi e in un'entità.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Connessioni aperte (anteprima)|Numero di connessioni aperte.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
@@ -95,7 +95,7 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 È possibile monitorare le metriche di acquisizione degli hub eventi quando si abilita la funzionalità di acquisizione per gli hub di eventi. Le metriche seguenti descrivono ciò che è possibile monitorare con la funzionalità di acquisizione abilitata.
 
-| Nome della metrica | Descrizione |
+| Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
 |Backlog acquisiti (anteprima)|Numero di byte da acquisire nella destinazione selezionata.<br/><br/> Unità: byte <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
 |Messaggi acquisiti (anteprima)|Numero di messaggi o eventi acquisiti nella destinazione selezionata in un periodo specificato.<br/><br/> Unità: conteggio <br/> Tipo di aggregazione: totale <br/> Dimensione: EntityName|
@@ -105,7 +105,7 @@ Conta il numero di richieste di operazioni di dati e gestione.
 
 Hub eventi di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
-| Nome della metrica | Descrizione |
+| Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
 |EntityName| Hub eventi supporta le entità degli hub eventi nello spazio dei nomi.|
 

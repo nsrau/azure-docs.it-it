@@ -74,7 +74,7 @@ Si vuole concedere al collega Joe l'accesso per poter creare e gestire i ticket 
 
 3. Dopo avere selezionato il nome del ruolo, fare clic su "Aggiungi utenti" e immettere le credenziali di posta elettronica di Joe. Fare clic su "Seleziona"
 
-    ![Aggiungi utenti](./media/create-manage-support-requests-using-access-control/add-users.png)
+    ![Aggiungere utenti](./media/create-manage-support-requests-using-access-control/add-users.png)
 
 4. Fare clic su "OK" per procedere
 

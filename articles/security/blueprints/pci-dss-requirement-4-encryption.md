@@ -53,7 +53,7 @@ Le informazioni sensibili devono essere crittografate durante la trasmissione su
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore è una soluzione PaaS che implementa la crittografia avanzata per la distribuzione, come segue:<br /><br />Per soddisfare i requisiti dei dati crittografati inattivi, [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) usa quanto segue:<br /><br /><ul><li>[Crittografia del servizio di archiviazione di Azure per dati inattivi](/azure/storage/storage-service-encryption)</li><li>Database SQL: un'istanza di database SQL PaaS viene usata per presentare le misure di sicurezza del database. Per altre informazioni, vedere [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Linee guida per PCI - Database SQL di Azure).</li><li>[Crittografia dischi di Azure (BitLocker)](/azure/security/azure-security-disk-encryption)</li></ul>L'uso di Azure Key Vault è allineato ai requisiti di Azure per enti pubblici, PCI DSS e HIPAA.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore è una soluzione PaaS che implementa la crittografia avanzata per la distribuzione, come segue:<br /><br />Per soddisfare i requisiti dei dati crittografati inattivi, [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) usa quanto segue:<br /><br /><ul><li>[Crittografia del servizio di archiviazione di Azure per dati inattivi](/azure/storage/storage-service-encryption)</li><li>Database SQL: un'istanza di database SQL PaaS viene usata per presentare le misure di sicurezza del database. Per altre informazioni, vedere [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Linee guida per PCI - Database SQL di Azure).</li><li>[Crittografia dischi di Azure (BitLocker)](/azure/security/azure-security-disk-encryption)</li></ul>L'uso di Azure Key Vault è allineato ai requisiti di Azure per enti pubblici, PCI DSS e HIPAA.|
 
 
 
@@ -66,7 +66,7 @@ Le informazioni sensibili devono essere crittografate durante la trasmissione su
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Nella soluzione non vengono implementate funzionalità SNMP e wireless.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Nella soluzione non vengono implementate funzionalità SNMP e wireless.|
 
 
 
@@ -79,7 +79,7 @@ Le informazioni sensibili devono essere crittografate durante la trasmissione su
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | In Contoso Webstore non sono implementate soluzioni di messaggistica che possono inviare dati PAN (Primary Account Number).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | In Contoso Webstore non sono implementate soluzioni di messaggistica che possono inviare dati PAN (Primary Account Number).|
 
 
 
@@ -92,7 +92,7 @@ Le informazioni sensibili devono essere crittografate durante la trasmissione su
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della documentazione e della crittografia delle trasmissioni contenenti i dati dei titolari di carte.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della documentazione e della crittografia delle trasmissioni contenenti i dati dei titolari di carte.|
 
 
 

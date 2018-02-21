@@ -49,7 +49,7 @@ Se esiste già un'installazione di System Center, è possibile integrare questi 
 ## <a name="oms-services"></a>Servizi OMS
 Le funzionalità principali di OMS vengono fornite da un set di servizi eseguiti in Azure.  Ogni servizio fornisce una funzione di gestione specifica ed è possibile combinare i servizi per realizzare scenari di gestione diversi.
 
-|| Service | Descrizione |
+|| Service | DESCRIZIONE |
 |:--|:--|:--|
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | Monitora e analizza la disponibilità e le prestazioni di risorse diverse, inclusi i computer fisici e le macchine virtuali. |
 | ![Automazione di Azure](media/operations-management-suite-overview/icon-automation.png) | Automazione | Automatizza i processi manuali ed applica le configurazioni per i computer fisici e le macchine virtuali. |

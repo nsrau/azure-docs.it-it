@@ -16,7 +16,7 @@ ms.date: 03/27/2016
 ms.author: 
 ms.openlocfilehash: a88a04dcc83482813b8ada0e7dbff985e9f49aba
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

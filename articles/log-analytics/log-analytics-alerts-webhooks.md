@@ -103,7 +103,7 @@ In Slack viene visualizzato un messaggio simile al seguente.
 
 ![messaggio di esempio in Slack](media/log-analytics-alerts-webhooks/oms-webhooks09.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Con l'attivazione di questa regola, ogni volta che vengono soddisfatti determinati criteri viene inviato un messaggio a Slack.  
 
 Questo è solo un esempio delle varie azioni che è possibile creare in risposta a un avviso.  È possibile ad esempio creare un'azione webhook per chiamare un altro servizio esterno, un'azione runbook per avviare un runbook in Automazione di Azure o un'azione di posta elettronica per inviare un messaggio di posta a se stessi o ad altri destinatari.   

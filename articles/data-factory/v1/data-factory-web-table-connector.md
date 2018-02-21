@@ -36,7 +36,7 @@ Data Factory supporta attualmente solo lo spostamento di dati da una tabella Web
 > [!IMPORTANT]
 > Questo connettore Web attualmente supporta soltanto l'estrazione del contenuto della tabella da una pagina HTML. Per recuperare dati da un endpoint HTTP/s, usare invece il [connettore HTTP](data-factory-http-connector.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare questo connettore tabella Web, è necessario impostare un runtime di integrazione self-hosted (ovvero un gateway di gestione dati) e configurare la proprietà `gatewayName` nel servizio collegato sink. Ad esempio, per copiare dalla tabella Web all'archiviazione BLOB di Azure, configurare il servizio collegato di archiviazione di Azure come indicato di seguito:
 
@@ -53,7 +53,7 @@ Per usare questo connettore tabella Web, è necessario impostare un runtime di i
 }
 ```
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 
 
 - Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati. 
@@ -72,10 +72,10 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato Web.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **Web** |Sì |
-| URL |URL dell'origine Web |Sì |
+| Url |URL dell'origine Web |Sì |
 | authenticationType |Anonimo. |Sì |
 
 ### <a name="using-anonymous-authentication"></a>Uso dell'autenticazione anonima
@@ -100,10 +100,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **WebTable** presenta le proprietà seguenti
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
-| percorso |URL relativo della risorsa che contiene la tabella. |di serie Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| path |URL relativo della risorsa che contiene la tabella. |di serie Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
 | index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**

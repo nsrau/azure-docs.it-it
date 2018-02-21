@@ -21,9 +21,9 @@ ms.lasthandoff: 12/04/2017
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Instradare la richiesta in base alle dimensioni del corpo
 
-Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come instradare le richieste in base alle dimensioni del corpo della richiesta. Per impostare o modificare il codice dei criteri, seguire la procedura descritta in [Impostare o modificare un criterio](../set-edit-policies.md). Per altri esempi, vedere [Esempi di criteri](../policy-samples.md).
+Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come instradare le richieste in base alle dimensioni del corpo della richiesta. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Criterio
 
 Incollare il codice nel blocco **inbound**.
 

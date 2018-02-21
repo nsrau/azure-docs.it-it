@@ -146,7 +146,7 @@ Per modificare una configurazione di distribuzione esistente, usare il modello d
 
 Come descritto in precedenza, impostare l'elemento `LoadBalancerDistribution` su sourceIP per l'affinità a 2 tuple, sourceIPProtocol per l'affinità a 3 tuple o none per nessuna affinità (affinità a 5 tuple).
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>Risposta
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

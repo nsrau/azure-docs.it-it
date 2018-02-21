@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: anzaman
 ms.openlocfilehash: a85a68393f3dc946db651791de9efff0694f9989
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -172,6 +172,6 @@ az network express-route peering update --circuit-name MyCircuit -g ExpressRoute
 az network route-filter delete -n MyRouteFilter -g MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su ExpressRoute, vedere le [Domande frequenti su ExpressRoute](expressroute-faqs.md).

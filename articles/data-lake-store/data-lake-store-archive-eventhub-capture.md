@@ -23,11 +23,11 @@ ms.lasthandoff: 11/28/2017
 
 Informazioni su come usare Azure Data Lake Store per acquisire i dati ricevuti da Hub eventi di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Un account di Archivio Data Lake di Azure**. Per istruzioni su come crearne uno, vedere [Introduzione ad Azure Data Lake Store](data-lake-store-get-started-portal.md).
+* **Un account Azure Data Lake Store**. Per istruzioni su come crearne uno, vedere [Introduzione ad Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
 *  **Uno spazio dei nomi di Hub eventi**. Per istruzioni, vedere [Creare uno spazio dei nomi di Hub eventi](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Assicurarsi che l'account Data Lake Store e lo spazio dei nomi di Hub eventi si trovino nella stessa sottoscrizione di Azure.
 
@@ -120,6 +120,6 @@ In questa sezione si crea un hub eventi in uno spazio dei nomi di Hub eventi. Si
 Una volta che i dati si trovano in Data Lake Store, è possibile eseguire processi di analisi per elaborarli ed esaminarli. Vedere l'[esempio USQL Avro](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) relativo a come eseguire questa operazione usando Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 * [Copiare i dati da BLOB di archiviazione di Azure ad Archivio Data Lake](data-lake-store-copy-data-azure-storage-blob.md)

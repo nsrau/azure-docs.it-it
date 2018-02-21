@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per
 
 È possibile gestire le risorse del bus di servizio anche usando i modelli di Azure Resource Manager. Per altre informazioni, vedere l'articolo [Creare risorse del bus di servizio usando i modelli di Azure Resource Manager](service-bus-resource-manager-overview.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, verificare di disporre dei prerequisiti seguenti:
 

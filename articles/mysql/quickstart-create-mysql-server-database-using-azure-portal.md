@@ -24,7 +24,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](htt
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Aprire il Web browser e quindi passare al [portale di Azure](https://portal.azure.com/). Immettere le credenziali per accedere al portale. La visualizzazione predefinita è il dashboard del servizio.
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Creare un database di Azure per il server MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Creare un'istanza di Database di Azure per il server MySQL
 Si crea un database di Azure per il server MySQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
 Seguire questa procedura per creare un database di Azure per il server MySQL:
@@ -45,9 +45,9 @@ Seguire questa procedura per creare un database di Azure per il server MySQL:
     Accesso amministratore server | myadmin | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
     Password | *A scelta dell'utente* | Specificare una nuova password per l'account dell'amministratore del server. Deve avere una lunghezza compresa tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
-    Percorso | *Area più vicina ai propri utenti*| Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
-    Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
-    Piano tariffario  | **Basic**, **50 unità di calcolo**, **50 GB** | Scegliere il livello di servizio e il livello di prestazioni per il nuovo database. Selezionare **Piano Basic** nella parte superiore della scheda. Selezionare il lato sinistro del dispositivo di scorrimento **Unità di calcolo** per impostare il valore sulla quantità minima disponibile per questa guida introduttiva. Selezionare **OK** per salvare la selezione del piano tariffario. Per altre informazioni, vedere lo screenshot seguente.
+    Località | *Area più vicina ai propri utenti*| Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
+    Version | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
+    Piano tariffario | **Basic**, **50 unità di calcolo**, **50 GB** | Scegliere il livello di servizio e il livello di prestazioni per il nuovo database. Selezionare **Piano Basic** nella parte superiore della scheda. Selezionare il lato sinistro del dispositivo di scorrimento **Unità di calcolo** per impostare il valore sulla quantità minima disponibile per questa guida introduttiva. Selezionare **OK** per salvare la selezione del piano tariffario. Per altre informazioni, vedere lo screenshot seguente.
     Aggiungi al dashboard | Controllo | Selezionare questa opzione per tenere facilmente traccia del server nella pagina iniziale del dashboard del portale di Azure.
 
     > [!IMPORTANT]
@@ -122,7 +122,7 @@ Prima di tutto verrà usato lo strumento da riga di comando [mysql](https://dev.
     mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo -p
     ```
 
-    Parametro di mysql |Valore consigliato|Descrizione
+    Parametro di mysql |Valore consigliato|DESCRIZIONE
     ---|---|---
     --host | *Server name* (Nome server) | Valore del nome del server usato in precedenza al momento della creazione del database di Azure per il server MySQL. Il server dell'esempio è **myserver4demo.mysql.database.azure.com**. Usare il nome di dominio completo (**\*.mysql.database.azure.com**) come illustrato nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
     --user | *Nome di accesso amministratore del server* |Nome utente di accesso amministratore del server specificato in precedenza al momento della creazione del database di Azure per il server MySQL. Se non si ricorda il nome utente, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *username@servername*.

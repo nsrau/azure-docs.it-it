@@ -27,7 +27,7 @@ In questa lezione si usa Visual Studio con SQL Server Data Tools (SSDT) per crea
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Questo argomento è la prima lezione dell'esercitazione per la creazione di un modello tabulare. Per completare questa lezione, esistono alcuni prerequisiti che è necessario soddisfare. Per altre informazioni, vedere [Azure Analysis Services: esercitazione su Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Creare un nuovo progetto di modello tabulare  

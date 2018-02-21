@@ -45,7 +45,7 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| Nome | Unità | Valore predefinito | Osservazioni |
+| NOME | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
 | ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per sapere di più sulla definizione delle risorse dell'endpoint nel manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
@@ -62,7 +62,7 @@ La configurazione predefinita viene generata dal modello di Visual Studio e dovr
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomi delle configurazioni
-| Nome | Unità | Valore predefinito | Osservazioni |
+| NOME | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Millisecondi |200 |Intervallo massimo di invio in batch per i commit durevoli nell'archivio locale. |
 | MaxVerPages |Numero di pagine |16384 |Numero massimo di pagine della versione nel database dell'archivio locale. Determina il numero massimo di transazioni in sospeso. |

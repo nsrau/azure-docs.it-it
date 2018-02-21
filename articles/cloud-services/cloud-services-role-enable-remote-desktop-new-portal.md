@@ -16,7 +16,7 @@ ms.date: 11/28/2016
 ms.author: mmccrory
 ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

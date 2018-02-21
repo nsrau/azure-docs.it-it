@@ -29,7 +29,7 @@ Questa guida introduttiva illustra come effettuare le operazioni seguenti:
 - Connettere una soluzione di sicurezza al Centro sicurezza usando i log di CEF
 - Convalidare la connessione alla soluzione di sicurezza
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
 Per usare questa guida introduttiva è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni. La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
@@ -39,14 +39,14 @@ Per usare questa guida introduttiva è necessario il piano tariffario Standard d
 ## <a name="connect-solution-using-cef"></a>Connettere la soluzione usando CEF
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
-2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Si apre **Centro sicurezza - Panoramica**.
+2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 
     ![Selezionare Centro sicurezza](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
 
 3. Selezionare **Soluzioni di sicurezza** nel menu principale del Centro sicurezza.
 4. In **Aggiungi origini dati (3)** nella pagina Soluzioni di sicurezza, fare clic su **Aggiungi** nell'area **Common Event Format**.
 
-    ![Aggiungi origine dati](./media/quick-security-solutions/quick-security-solutions-fig2.png)
+    ![Aggiungere l'origine dati](./media/quick-security-solutions/quick-security-solutions-fig2.png)
 
 5. Nella pagina Log Common Event Format espandere il secondo passaggio, ovvero **Configurare l'inoltro Syslog per inviare i log necessari all'agente sulla porta UDP 25226**, e seguire queste istruzioni nel computer Linux:
 
@@ -75,7 +75,7 @@ L'esempio seguente mostra il risultato di questi passaggi: ![CommonSecurityLog](
 Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
 
 1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Si aprirà **Criteri di sicurezza**.
+2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Viene visualizzata la finestra **Criteri di sicurezza**.
 3. In **COMPONENTI DEI CRITERI** selezionare **Piano tariffario**.
 4. Selezionare **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
 5. Selezionare **Salva**.

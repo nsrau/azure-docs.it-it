@@ -53,7 +53,7 @@ L'Utilità di pianificazione di Azure permette di creare facilmente processi pia
 ## <a name="manage-and-monitor-jobs"></a>Gestire e monitorare i processi
 Un processo appena creato viene visualizzato nel dashboard principale di Azure. Fare clic sul processo per visualizzare una nuova finestra con le schede seguenti:
 
-1. Proprietà  
+1. Properties  
 2. Impostazioni azione  
 3. Pianificazione  
 4. Cronologia
@@ -61,7 +61,7 @@ Un processo appena creato viene visualizzato nel dashboard principale di Azure. 
    
    ![][job-overview]
 
-### <a name="properties"></a>Proprietà
+### <a name="properties"></a>Properties
 Queste proprietà di sola lettura descrivono i metadati di gestione per il processo dell'Utilità di pianificazione.
 
    ![][job-properties]
@@ -107,7 +107,7 @@ La scheda **Cronologia** mostra le metriche selezionate per ogni esecuzione di p
 ### <a name="users"></a>Utenti
 Il controllo degli accessi in base al ruolo di Azure consente una gestione degli accessi specifica per l'Utilità di pianificazione di Azure. Per informazioni sull'uso della scheda Utenti, vedere [Controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
  [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione](scheduler-concepts-terms.md)

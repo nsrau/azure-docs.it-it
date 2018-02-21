@@ -40,21 +40,21 @@ Creare un filtro dalla scheda **Filtri** quando si [modifica una vista](log-anal
 
 La tabella seguente descrive le impostazioni per un filtro.
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:---|:---|
 | Nome campo | Nome del campo usato per filtrare.  Deve corrispondere al campo summarize in **Esegui query per valori**. |
 | Esegui query per valori | Query da eseguire per popolare l'elenco a discesa relativo al filtro per l'utente.  Per la query è necessario usare l'opzione [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) o [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) per fornire valori univoci per un campo specifico e il campo deve corrispondere a **Nome campo**.  È possibile usare l'opzione [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) per ordinare i valori visualizzati dall'utente. |
 | Tag | Nome del campo usato nelle query che supportano il filtro e visualizzato dall'utente. |
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 La tabella seguente include alcuni esempi di filtri comuni.  
 
 | Nome campo | Esegui query per valori | Tag |
 |:--|:--|:--|
 | Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Computer |
-| EventLevelName | Event &#124; distinct EventLevelName | Severity |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
+| EventLevelName | Event &#124; distinct EventLevelName | Gravità |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Gravità |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

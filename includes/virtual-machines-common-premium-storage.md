@@ -234,7 +234,7 @@ Per raggiungere gli obiettivi di scalabilità per Archiviazione Premium per tutt
 
 Le seguenti distribuzioni Linux sono state convalidate per Archiviazione Premium di Azure. Per prestazioni e stabilità migliori con Archiviazione Premium si consiglia di aggiornare le VM ad almeno una di queste versioni (o versioni successive). Alcune versioni richiedono la versione più recente di Linux Integration Services (LIS) 4.0 per Azure. Per scaricare e installare una distribuzione, fare clic sul collegamento riportato nella tabella seguente. Nuove immagini vengono aggiunte all'elenco non appena viene completata la convalida. Si noti che le nostre convalide mostrano che le prestazioni variano per ogni immagine. Le prestazioni dipendono dalle caratteristiche del carico di lavoro e dalle impostazioni. Immagini diverse sono ottimizzate per tipi di carico di lavoro diversi.
 
-| Distribuzione | Versione | Kernel supportato | Dettagli |
+| Distribuzione | Version | Kernel supportato | Dettagli |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |

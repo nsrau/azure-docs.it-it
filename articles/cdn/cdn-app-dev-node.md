@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -359,7 +359,7 @@ Infine, eliminare il profilo.
 
 ![Eliminare il profilo](./media/cdn-app-dev-node/cdn-delete-profile.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'esempio](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
 Per informazioni su Azure CDN SDK per Node.js, vedere il [riferimento](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).

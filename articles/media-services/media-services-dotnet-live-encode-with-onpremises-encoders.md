@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: cenkdin;juliako
 ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/21/2017
 
 Questa esercitazione illustra come usare l'SDK di Servizi multimediali di Azure per .NET per creare un **canale** configurato per la distribuzione pass-through. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione è necessario quanto segue:
 
 * Un account Azure.

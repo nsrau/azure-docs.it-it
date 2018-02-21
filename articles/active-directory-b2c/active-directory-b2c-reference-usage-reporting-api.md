@@ -14,7 +14,7 @@ ms.date: 08/04/2017
 ms.author: joroja
 ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) fornisce l'autenticazione basata sull'
 Questo articolo si concentra sui report collegati all'attività di fatturazione, che si basa sul numero di utenti, di autenticazioni fatturabili basate su accesso e di autenticazioni a più fattori.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare è necessario completare i passaggi nei [prerequisiti per l'accesso alle API per la creazione di report di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Creare un'applicazione, ottenere il relativo segreto e concedere i diritti di accesso ai report del tenant di Azure AD B2C. Di seguito vengono riportati anche esempi di *script Bash* e *script Python*. 
 
 ## <a name="powershell-script"></a>Script di PowerShell

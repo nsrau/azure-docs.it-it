@@ -53,7 +53,7 @@ Le query di reporting e analisi vengono spesso classificate come di piccole, med
 
 * La pianificazione della capacità può essere un'attività complessa per un carico di lavoro con query miste, soprattutto se è necessario un lungo lead time per aggiungere capacità al data warehouse. Con SQL Data Warehouse la pianificazione della capacità non è più indispensabile, in quanto è possibile aumentare e ridurre la capacità di calcolo in qualsiasi momento e tale capacità e quella di archiviazione vengono dimensionate in modo indipendente.
 
-### <a name="data-management"></a>Gestione dati
+### <a name="data-management"></a>Gestione dei dati
 La gestione dati è importante, soprattutto quando si sa che a breve lo spazio su disco potrebbe esaurirsi. I data warehouse in genere suddividono i dati in intervalli significativi, che vengono archiviati come partizioni in una tabella. Tutti i prodotti basati su SQL Server consentono di spostare le partizioni all'interno e all'esterno della tabella. Tale spostamento delle partizioni consente di spostare i dati meno recenti in aree di archiviazione meno costose e di mantenere disponibili i dati più recenti nello spazio di archiviazione online.
 
 * Gli indici columnstore supportano le tabelle partizionate. Per questi indici, le tabelle partizionate vengono usate per la gestione e l'archiviazione dei dati. Per le tabelle archiviate riga per riga, le partizioni hanno un peso maggiore sulle prestazioni delle query.  

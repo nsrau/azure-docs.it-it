@@ -27,14 +27,14 @@ L’Utilità di pianificazione crea, gestisce e richiama il lavoro programmato. 
 
 L'Utilità di pianificazione pianifica i [processi](scheduler-concepts-terms.md), mantiene una cronologia dei risultati dell'esecuzione dei processi che è possibile esaminare e pianifica in modo deterministico e attendibile i carichi di lavoro da eseguire. Azure WebJobs (parte della funzionalità App Web in Servizio app di Azure) e altre funzionalità di programmazione di Azure utilizzano l’Utilità di pianificazione in background. L' [API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/mt629143.aspx) consente di gestire le comunicazioni per queste azioni. Quindi, l’Utilità di pianificazione supporta facilmente [pianificazioni complesse e operazioni ricorrenti avanzate](scheduler-advanced-complexity.md) .
 
-L'Utilità di pianificazione può essere usata in diversi scenari. Ad esempio:
+L'Utilità di pianificazione può essere usata in diversi scenari. Ad esempio: 
 
 * *Azioni ricorrenti delle applicazioni*: raccolta periodica di dati da Twitter in un feed.
 * *Manutenzione quotidiana*: eliminazione giornaliera dei registri, esecuzione di backup e altre attività di manutenzione. Ad esempio, un amministratore può scegliere di eseguire il backup del database alle ore 01:00 ogni giorno per i nove mesi successivi.
 
 Con l'Utilità di pianificazione è possibile creare, aggiornare, eliminare, visualizzare e gestire processi e [raccolte di processi](scheduler-concepts-terms.md) a livello di codice, tramite script e nel portale.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
  [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)

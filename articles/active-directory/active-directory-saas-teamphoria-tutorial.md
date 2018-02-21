@@ -15,7 +15,7 @@ ms.date: 04/07/2017
 ms.author: jeedes
 ms.openlocfilehash: 260c85b14032e17def01ded4a461e6337d66239b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ To enable single sign-on with Teamphoria, it must be configured to use Azure Act
 >This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Teamphoria, sono necessari gli elementi seguenti:
 

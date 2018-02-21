@@ -68,11 +68,11 @@ Per informazioni, vedere [Come tagliare video usando Media Encoder Standard](med
 ### <a name="create-overlays"></a>Creare sovrimpressioni
 Per informazioni, vedere [Come creare sovrimpressioni usando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 [Blog di Servizi multimediali](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Flusso di lavoro Premium del codificatore multimediale
-### <a name="overview"></a>Overview
+### <a name="overview"></a>Panoramica
 [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ### <a name="how-to-use"></a>Utilizzo

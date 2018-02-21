@@ -32,7 +32,7 @@ Le attività dei singoli collaboratori al progetto (data scientist) per configur
 
 Per istruzioni su come eseguire un progetto di data science con TDSP, vedere [Execution of Data Science Projects](project-execution.md) (Esecuzione di progetti di data science). 
 
->[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente per il team TDSP usando Visual Studio Team Services (VSTS). Viene specificato come eseguire queste attività con VSTS perché questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, ma sarà diverso il modo in cui queste attività vengono completate.
+>[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente per il team TDSP usando Visual Studio Team Services (VSTS). Viene specificato come eseguire queste attività con VSTS perché questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano, Sarà tuttavia diverso il modo in cui queste attività vengono completate.
 
 
 ## <a name="repositories-and-directories"></a>Repository e directory
@@ -59,7 +59,7 @@ Il secondo prerequisito, relativo al repository **TeamUtilities**, è facoltativ
 
 - Git deve essere installato nel computer. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
 - Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
-- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni su SSH, vedere la sezione **Create SSH public key** (Creare una chiave pubblica SSH) nell'[appendice in Platforms and tools](platforms-and-tools.md#appendix) (Piattaforme e strumenti). 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
 - Se il responsabile del team e/o del progetto ha creato una risorsa di archiviazione file di Azure che è necessario montare nella DSVM, è consigliabile chiedergli informazioni in proposito. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Passaggi 1-3: Clonare i repository del gruppo, del team e del progetto nel computer locale

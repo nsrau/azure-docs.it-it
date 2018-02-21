@@ -33,17 +33,17 @@ Attualmente, gli unici tipi di autenticazione supportati sono il modello `Client
 ## <a name="request-body-for-clientcertificate-authentication"></a>Corpo della richiesta per l'autenticazione ClientCertificate
 Quando si aggiunge un'autenticazione utilizzando il modello `ClientCertificate` , specificare i seguenti elementi aggiuntivi nel corpo della richiesta.  
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 |:--- |:--- |
 | *authentication (elemento padre)* |Oggetto di autenticazione per l'utilizzo di un certificato client SSL. |
-| *type* |Obbligatorio. Tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
-| *pfx* |Obbligatorio. I contenuti del file PFX in codifica Base64. |
-| *password* |Obbligatorio. La password per accedere al file PFX. |
+| *type* |Richiesto. Tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. |
+| *pfx* |Richiesto. I contenuti del file PFX in codifica Base64. |
+| *password* |Richiesto. La password per accedere al file PFX. |
 
 ## <a name="response-body-for-clientcertificate-authentication"></a>Corpo della risposta per l'autenticazione ClientCertificate
 Quando viene inviata una richiesta con le informazioni di autenticazione, la risposta contiene i seguenti elementi relativi all'autenticazione.
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 |:--- |:--- |
 | *authentication (elemento padre)* |Oggetto di autenticazione per l'utilizzo di un certificato client SSL. |
 | *type* |Tipo di autenticazione. Per i certificati client SSL, il valore è `ClientCertificate`. |
@@ -146,17 +146,17 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 ## <a name="request-body-for-basic-authentication"></a>Corpo della richiesta per l'autenticazione di Base
 Quando si aggiunge un'autenticazione utilizzando il modello `Basic` , specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 |:--- |:--- |
 | *authentication (elemento padre)* |Oggetto di autenticazione per l’utilizzo dell'autenticazione di Base. |
-| *type* |Obbligatorio. Tipo di autenticazione. Per l'autenticazione di Base, il valore deve essere `Basic`. |
-| *username* |Obbligatorio. Nome utente da autenticare. |
-| *password* |Obbligatorio. Password da autenticare. |
+| *type* |Richiesto. Tipo di autenticazione. Per l'autenticazione di Base, il valore deve essere `Basic`. |
+| *username* |Richiesto. Nome utente da autenticare. |
+| *password* |Richiesto. Password da autenticare. |
 
 ## <a name="response-body-for-basic-authentication"></a>Corpo della risposta per l'autenticazione di Base
 Quando viene inviata una richiesta con le informazioni di autenticazione, la risposta contiene i seguenti elementi relativi all'autenticazione.
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 |:--- |:--- |
 | *authentication (elemento padre)* |Oggetto di autenticazione per l’utilizzo dell'autenticazione di Base. |
 | *type* |Tipo di autenticazione. Per l'autenticazione di Base, il valore è `Basic`. |
@@ -256,14 +256,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 ## <a name="request-body-for-activedirectoryoauth-authentication"></a>Corpo della richiesta per l'autenticazione ActiveDirectoryOAuth
 Quando si aggiunge un'autenticazione utilizzando il modello `ActiveDirectoryOAuth` , specificare i seguenti elementi aggiuntivi nel corpo della richiesta.
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 |:--- |:--- |
 | *authentication (elemento padre)* |Oggetto di autenticazione per l'autenticazione basata su ActiveDirectoryOAuth. |
-| *type* |Obbligatorio. Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore deve essere `ActiveDirectoryOAuth`. |
-| *tenant* |Obbligatorio. L'identificatore del tenant di Azure AD. |
-| *audience* |Obbligatorio. È impostato su https://management.core.windows.net/. |
-| *clientId* |Obbligatorio. Fornisce l'identificativo del client per l'applicazione Active Directory di Azure. |
-| *secret* |Obbligatorio. Segreto del client che richiede il token. |
+| *type* |Richiesto. Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore deve essere `ActiveDirectoryOAuth`. |
+| *tenant* |Richiesto. L'identificatore del tenant di Azure AD. |
+| *audience* |Richiesto. È impostato su https://management.core.windows.net/. |
+| *clientId* |Richiesto. Fornisce l'identificativo del client per l'applicazione Active Directory di Azure. |
+| *secret* |Richiesto. Segreto del client che richiede il token. |
 
 ### <a name="determining-your-tenant-identifier"></a>Determinazione del l'identificatore del tenant
 È possibile trovare l'identificatore del tenant di Azure AD eseguendo `Get-AzureAccount` in Azure PowerShell.
@@ -271,7 +271,7 @@ Quando si aggiunge un'autenticazione utilizzando il modello `ActiveDirectoryOAut
 ## <a name="response-body-for-activedirectoryoauth-authentication"></a>Corpo della risposta per l'autenticazione ActiveDirectoryOAuth
 Quando viene inviata una richiesta con le informazioni di autenticazione, la risposta contiene i seguenti elementi relativi all'autenticazione.
 
-| Elemento | Descrizione |
+| Elemento | DESCRIZIONE |
 |:--- |:--- |
 | *authentication (elemento padre)* |Oggetto di autenticazione per l'autenticazione basata su ActiveDirectoryOAuth. |
 | *type* |Tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. |

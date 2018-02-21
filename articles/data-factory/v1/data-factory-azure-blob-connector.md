@@ -17,7 +17,7 @@ ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f66ddecd6b999400b05a4b00aa781ffef3f7887d
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -173,7 +173,7 @@ In questa sezione viene descritto il comportamento derivante dell'operazione di 
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Procedura dettagliata: Usare la copia guidata per copiare i dati in/da una risorsa di archiviazione BLOB
 Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di Azure. In questa procedura dettagliata gli archivi dati sia di origine che di destinazione sono di tipo archivio BLOB di Azure. La pipeline in questa procedura dettagliata copia i dati da una cartella a un'altra cartella nello stesso contenitore BLOB. Questa procedura dettagliata è volutamente semplice perché illustra le impostazioni o le proprietà quando si usa l'archivio BLOB come origine o come sink. 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 1. Creare un **account di archiviazione di Azure** per utilizzo generico, se necessario. In questa procedura dettagliata si usa l'archivio BLOB come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
 2. Creare un contenitore BLOB denominato **adfblobconnector** nell'account di archiviazione. 
 4. Creare una cartella denominata **input** nel contenitore **adfblobconnector**.

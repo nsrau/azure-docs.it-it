@@ -42,7 +42,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
     4. Per **Risorsa di destinazione** fare clic sul selettore **Scegli** per visualizzare un elenco delle risorse nella stessa sottoscrizione nel **pannello Risorse**. Nel pannello **Risorse** visualizzato selezionare il servizio da aggiungere come primo endpoint.
     5. In **Priorità** selezionare **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
     6. Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
-    7. Fare clic su **OK**
+    7. Fare clic su **OK**.
 6.  Ripetere i passaggi 4 e 5 per aggiungere l'endpoint di Azure successivo. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
 7.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 

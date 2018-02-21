@@ -118,7 +118,7 @@ Dopo aver completato la convalida, è possibile eseguire il commit della migrazi
 
 Il diagramma di flusso seguente mostra come procedere con la migrazione:
 
-![Schermata che mostra i passaggi di migrazione](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Conversione delle risorse dal modello di distribuzione classica ad Azure Resource Manager
 La tabella seguente mostra la rappresentazione delle risorse nel modello di distribuzione classica e Resource Manager. Le seguenti funzionalità e risorse non sono attualmente supportate.

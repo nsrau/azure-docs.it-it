@@ -48,7 +48,7 @@ La figura e i passaggi corrispondenti riportati di seguito descrivono le attivit
 Ogni circuito ExpressRoute prevede due stati:
 
 * Stato di provisioning del provider di servizi
-* Stato
+* Status
 
 Status rappresenta lo stato di provisioning di Microsoft. Questa proprietà è impostata su Enabled quando si crea un circuito Expressroute
 

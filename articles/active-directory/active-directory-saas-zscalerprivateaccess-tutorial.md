@@ -15,7 +15,7 @@ ms.date: 02/06/2017
 ms.author: jeedes
 ms.openlocfilehash: 9ac65791e8d50d5e5da5d36adee14cd0e88a3da8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di Zscaler Private Access (ZPA) con Azure AD offre i vantaggi seg
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Zscaler Private Access (ZPA), sono necessari gli elementi seguenti:
 

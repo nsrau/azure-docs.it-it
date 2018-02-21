@@ -25,7 +25,7 @@ Controllo casella di testo con convalida predefinita per i nomi utente di Window
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

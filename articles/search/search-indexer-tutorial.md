@@ -38,7 +38,7 @@ In questa esercitazione vengono usate le [librerie client .NET di Ricerca di Azu
 > * Eseguire ricerche nell'indice
 > * Visualizzare la configurazione dell'indicizzatore nel portale
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account Azure attivo. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/). 
 
@@ -113,7 +113,7 @@ In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popo
 
 In questo passaggio viene creata un'origine dati esterna che può essere sottoposta a ricerca per indicizzazione da un indicizzatore. Il file di dati per questa esercitazione è *hotels.sql*, disponibile nella cartella \DotNetHowToIndexers della soluzione. 
 
-### <a name="azure-sql-database"></a>Database SQL di Azure
+### <a name="azure-sql-database"></a>database SQL di Azure
 
 È possibile usare il portale di Azure e il file *hotels.sql* dall'esempio per creare il set di dati nel database SQL di Azure. Ricerca di Azure utilizza set di righe bidimensionali, come quello generato da una visualizzazione o una query. Il file SQL nella soluzione di esempio crea e popola una singola tabella.
 

@@ -129,7 +129,7 @@ Configurazione facoltativa:
 
 Il server Azure Multi-Factor Authentication offre diverse opzioni per il portale utenti. La tabella seguente include un elenco di queste opzioni e una spiegazione dell'uso a cui sono destinate.
 
-| Impostazioni del portale utenti | Descrizione |
+| Impostazioni del portale utenti | DESCRIZIONE |
 |:--- |:--- |
 | URL portale utenti | Immettere l'URL in cui viene ospitato il portale. |
 | Autenticazione primaria | Specificare il tipo di autenticazione da usare quando si accede al portale. Autenticazione di Windows, Radius o LDAP. |

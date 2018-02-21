@@ -152,7 +152,7 @@ Vedere [Panoramica di Rete virtuale](virtual-network/virtual-networks-overview.m
 ## <a name="web-app"></a>app Web
 Nome alternativo per [app del servizio app](#app-service-app).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * [Inizia a usare Azure](https://azure.microsoft.com/get-started/)
 * [Centro risorse cloud](https://azure.microsoft.com/resources/)  

@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: f21561269e90e3643ef5d8d48ee28712ee7f611c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/08/2017
 
 Nel presente documento si spiega la configurazione di un Service Fabric Linux su computer di sviluppo Windows. La configurazione di un cluster Linux è utile per testare rapidamente le applicazioni di destinazione per i cluster Linux che sono però sviluppate su un computer Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 I cluster di Service Fabric basati su Linux non vengono eseguiti in modo nativo in Windows. Per eseguire un cluster di Service Fabric locale, viene offerta un'immagine del contenitore Docker preconfigurata. Prima di iniziare, sono necessari:
 
 * Almeno 4 GB di RAM

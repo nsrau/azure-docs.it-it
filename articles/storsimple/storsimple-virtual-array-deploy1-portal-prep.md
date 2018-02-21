@@ -32,7 +32,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 
 Le informazioni pubblicate in questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure e nel cloud di Microsoft Azure per enti pubblici.
 
-### <a name="get-started"></a>Introduzione
+### <a name="get-started"></a>Attività iniziali
 Il flusso di lavoro di distribuzione consiste nella preparazione del portale, nel provisioning di un array virtuale nell'ambiente virtualizzato e nel completamento dell'installazione. Per iniziare la distribuzione dell'array virtuale StorSimple come file server o server iSCSI, è necessario fare riferimento alle seguenti risorse catalogate.
 
 #### <a name="deployment-articles"></a>Articoli sulla distribuzione
@@ -54,7 +54,7 @@ L'elenco di controllo configurazione descrive le informazioni che è necessario 
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come file server](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come server iSCSI](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Ecco i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple, l'array virtuale StorSimple e la rete del datacenter.
 

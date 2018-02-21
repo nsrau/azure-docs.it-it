@@ -16,7 +16,7 @@ ms.date: 11/13/2017
 ms.author: deguhath;bradsev;gokuma
 ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -70,7 +70,7 @@ L'esecuzione dei notebook Spark 2.0 sui dati dei taxi di NYC e sui ritardi dei v
 
 Per indicazioni sull'operazionalizzazione di un modello Spark 2.0 e di un modello di consumo per l'assegnazione del punteggio, vedere il [documento Spark 1.6 sul consumo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) per un esempio in cui viene mostrata la procedura. Per utilizzare questa procedura su Spark 2.0, sostituire il file del codice Python con [questo file](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Le procedure seguenti riguardano Spark 1.6. Per la versione Spark 2.0 usare i notebook le cui descrizioni e collegamenti sono riportati sopra. 
 
 1. È necessario avere una sottoscrizione di Azure. Se non è già disponibile, vedere l'articolo che illustra [come ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

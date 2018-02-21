@@ -1,6 +1,6 @@
 ---
 title: Pagare in anticipo le macchine virtuali di Azure per risparmiare | Microsoft Docs
-description: Informazioni su come acquistare istanze di macchine virtuali riservate di Azure per risparmiare sui costi per i servizi di calcolo.
+description: Informazioni su come acquistare istanze di macchina virtuale riservate di Azure per risparmiare sui costi per i servizi di calcolo.
 services: virtual-machines-windows
 documentationcenter: 
 author: vikramdesai01

@@ -192,7 +192,7 @@ Questo file config SSH include sezioni per ogni server, per consentire a ognuno 
 
 `User ahmet` = account utente remoto da usare quando si accede al server.
 
-`PubKeyAuthentication yes`: indica a SSH che si vuole usare una chiave SSH per l'accesso.
+`PubKeyAuthentication yes` : indica a SSH che si vuole usare una chiave SSH per l'accesso.
 
 `IdentityFile /home/ahmet/.ssh/id_id_rsa`: chiave privata SSH e chiave pubblica corrispondente da usare per l'autenticazione.
 

@@ -323,7 +323,7 @@ Richiesta di esempio per assegnare il ruolo Controllo degli accessi in base al r
 
 Nella richiesta vengono usati i valori seguenti:
 
-| Guid | Descrizione |
+| Guid | DESCRIZIONE |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |ID della sottoscrizione |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |ID oggetto dell'entità servizio dell'applicazione |

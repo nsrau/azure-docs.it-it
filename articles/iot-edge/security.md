@@ -30,7 +30,7 @@ Questo articolo offre una panoramica sul framework di sicurezza. Per altre infor
 
 Gli standard promuovo un controllo e un'implementazione semplice, che sono alla base della sicurezza.  Una soluzione di sicurezza ben strutturata si presta a controlli durante il processo di valutazione per creare affidabilità e non deve essere un ostacolo alla distribuzione.  La progettazione di framework per la protezione di Azure IoT Edge si diffonde da protocolli di sicurezza collaudati e testati nel settore per sfruttare la familiarità e il riutilizzo. 
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Conoscere gli attori, i dispositivi e i componenti che partecipano alla creazione del valore tramite una soluzione IoT end-to-end è fondamentale nella creazione dell'affidabilità.  Tale conoscenza offre una responsabilità sicura dei partecipanti all'abilitazione della base per l'ammissione.  Azure IoT Edge raggiunge questa conoscenza tramite l'autenticazione.  Il meccanismo principale per l'autenticazione della piattaforma di Azure IoT Edge è l'autenticazione basata su certificato.  Questo meccanismo deriva da un set di standard che regolano l'infrastruttura a chiave pubblica da IETF.     
 

@@ -32,4 +32,4 @@ ms.lasthandoff: 10/11/2017
 
 |Elemento|Tipo|Note|
 |-------------|----------|-----------|
-|id|String|ID del pool.|
+|id|string|ID del pool.|

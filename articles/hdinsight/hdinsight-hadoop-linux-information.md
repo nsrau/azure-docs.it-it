@@ -29,7 +29,7 @@ I cluster Azure HDInsight mettono a disposizione Hadoop in un ambiente Linux fam
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In molti passaggi di questo documento vengono usate le utilità seguenti che devono essere installate nel sistema.
 

@@ -321,7 +321,7 @@ Una tecnica efficace per deviare il traffico in ingresso in una data center a un
 
 Gestione traffico utilizza gli endpoint pubblici di Azure e può essere usato, ad esempio, per controllare/deviare il traffico alle VM di Azure e alle app Web nel data center virtuale appropriato. Gestione traffico è resiliente anche nel caso in cui si verifichino errori in un'intera area di Azure e può controllare la distribuzione del traffico degli utenti per gli endpoint di servizio in data center virtuali diversi in base a più criteri (ad esempio, errore di un servizio in un data center virtuale specifico o selezione del data center virtuale con la latenza di rete più bassa per il client).
 
-### <a name="conclusion"></a>Conclusione
+### <a name="conclusion"></a>Conclusioni
 Il data center virtuale è un approccio alla migrazione del data center nel cloud, che usa una combinazione di funzionalità e caratteristiche per creare un'architettura scalabile in Azure che ottimizzi l'uso delle risorse del cloud, riducendo i costi e semplificando la governance di sistema. Il concetto di data center virtuale si basa sulla topologia hub-spoke che prevede servizi condivisi comuni e applicazioni/carichi di lavoro specifici negli spoke. Un data center virtuale corrisponde alla struttura dei ruoli aziendali, in cui reparti diversi (IT centrale, DevOps, operazioni e manutenzione) collaborano tra loro, ognuno con un elenco specifico di ruoli e compiti. Un data center virtuale soddisfa i requisiti della migrazione "lift-and-shift", ma offre anche molti vantaggi per le distribuzioni cloud native.
 
 ## <a name="references"></a>Riferimenti

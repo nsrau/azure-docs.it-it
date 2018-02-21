@@ -15,7 +15,7 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.openlocfilehash: 7a073863a1e406c137364d1ad85a5c6c3db32777
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di Kudos con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Kudos, sono necessari gli elementi seguenti:
 

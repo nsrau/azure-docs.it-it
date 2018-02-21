@@ -27,7 +27,7 @@ In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite 
 > [!NOTE]
 > La funzionalità relativa ai sinonimi è attualmente disponibile in anteprima ed è supportata solo nelle versioni più recenti dell'anteprima di API e SDK (api-version=2016-09-01-Preview, SDK versione 4.x-anteprima). Non è attualmente disponibile alcun supporto nel portale di Azure. Le API disponibili in anteprima non rientrano nel Contratto di servizio e le funzionalità disponibili in anteprima possono subire modifiche, quindi non è consigliabile usarle nelle applicazioni di produzione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I requisiti per l'esercitazione includono i seguenti:
 

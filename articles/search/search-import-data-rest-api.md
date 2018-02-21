@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Caricare dati in Ricerca di Azure tramite l'API REST
 > [!div class="op_single_selector"]
 >
-> * [Panoramica](search-what-is-data-import.md)
+> * [Overview](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
 >
@@ -55,7 +55,7 @@ Quando si usa l'API REST, si inviano richieste HTTP POST con corpi delle richies
 
 Ogni oggetto JSON nella matrice "value" rappresenta un documento da indicizzare. Ognuno di questi oggetti contiene la chiave del documento e specifica l'azione di indicizzazione desiderata, ovvero caricamento, unione, eliminazione e così via. A seconda delle azioni scelte tra le seguenti, per ogni documento devono essere inclusi solo campi specifici:
 
-| @search.action | Descrizione | Campi necessari per ogni documento | Note |
+| @search.action | DESCRIZIONE | Campi necessari per ogni documento | Note |
 | --- | --- | --- | --- |
 | `upload` |L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. |chiave, oltre a tutti gli altri campi da definire |Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null. |
 | `merge` |Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. |chiave, oltre a tutti gli altri campi da definire |I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. Sono inclusi anche i campi di tipo `Collection(Edm.String)`. Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`. |

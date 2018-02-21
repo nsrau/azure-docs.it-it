@@ -25,7 +25,7 @@ Gruppo di controlli per la creazione di più account di archiviazione, con nomi 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Storage.MultiStorageAccountCombo](./media/managed-application-elements/microsoft.storage.multistorageaccountcombo.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

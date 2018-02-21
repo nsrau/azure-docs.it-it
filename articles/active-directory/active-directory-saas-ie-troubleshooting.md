@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

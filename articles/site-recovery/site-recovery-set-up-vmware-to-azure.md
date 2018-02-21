@@ -16,7 +16,7 @@ ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 Questo articolo descrive come configurare l'ambiente locale per avviare la replica di macchine virtuali in esecuzione su VMware in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Nell'articolo si presuppone che siano già stati creati gli elementi seguenti:
 - Insieme di credenziali di Servizi di ripristino nel [portale di Azure](http://portal.azure.com "Portale di Azure").

@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---

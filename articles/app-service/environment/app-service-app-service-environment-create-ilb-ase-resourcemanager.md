@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
 
 > [!NOTE] 
-> Questo articolo fa riferimento all'ambiente del servizio app (versione 1), una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1. una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](intro.md).
 >
 
 ## <a name="overview"></a>Panoramica

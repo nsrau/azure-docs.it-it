@@ -90,7 +90,7 @@ Per le VM di Azure, nel dashboard **Intelligence per le minacce** vengono visual
 - Eventi DNS (Type=DnsEvents)
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo articolo si è appreso come usare la funzionalità di intelligence per le minacce del Centro sicurezza per identificare le attività sospette. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.

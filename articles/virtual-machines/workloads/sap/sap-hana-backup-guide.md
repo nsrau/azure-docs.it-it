@@ -206,7 +206,7 @@ Per il sistema di test, l'output dell'istruzione SQL corrisponde quasi esattamen
 
 La console di backup HANA Studio consente di limitare la dimensione massima dei file di backup di HANA. Nell'ambiente di esempio tale funzionalità consente di ottenere più file di backup più piccoli invece di un file di backup di 230 GB. Le dimensioni ridotte del file hanno un impatto significativo sulle prestazioni (vedere l'articolo correlato [Backup di SAP HANA di Azure a livello di file](sap-hana-backup-file-level.md)).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In base ai risultati dei test, le tabelle seguenti mostrano i vantaggi e gli svantaggi delle soluzioni per eseguire il backup di un database SAP HANA in esecuzione su macchine virtuali di Azure.
 
@@ -233,4 +233,4 @@ In base ai risultati dei test, le tabelle seguenti mostrano i vantaggi e gli sva
 ## <a name="next-steps"></a>Passaggi successivi
 * [Backup di SAP HANA di Azure a livello di file](sap-hana-backup-file-level.md) descrive l'opzione di backup basato su file.
 * [Backup di SAP HANA basato su snapshot di archiviazione](sap-hana-backup-storage-snapshots.md) descrive l'opzione di backup basato su snapshot di archiviazione.
-* Per informazioni su come stabilire la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).

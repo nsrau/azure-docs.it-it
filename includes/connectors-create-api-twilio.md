@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account Twilio
 * Un numero di telefono Twilio verificato in grado di ricevere SMS
 * Un numero di telefono Twilio verificato in grado di inviare SMS
@@ -8,7 +8,7 @@
 > 
 > 
 
-Prima di poter usare l'account Twilio in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account Twilio. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure. 
+Prima di poter usare l'account Twilio in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account Twilio. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure. 
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Twilio:
 

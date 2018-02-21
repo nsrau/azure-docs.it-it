@@ -16,7 +16,7 @@ ms.date: 08/15/2017
 ms.author: sethm
 ms.openlocfilehash: 94b56fdd1ad350d861b27644c6bedcc59e1cefb0
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -30,7 +30,7 @@ Per altre informazioni, vedere [Panoramica di Hub eventi][Event Hubs overview].
 
 Questa esercitazione illustra come ricevere eventi in un Hub eventi usando un'applicazione console scritta in Java.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 

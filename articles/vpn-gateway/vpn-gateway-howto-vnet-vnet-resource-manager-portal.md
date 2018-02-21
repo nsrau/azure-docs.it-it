@@ -28,7 +28,7 @@ Questo articolo mostra come connettere reti virtuali tramite il tipo di connessi
 La procedura illustrata in questo articolo si applica al modello di distribuzione Resource Manager e usano il portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -142,7 +142,7 @@ Il server DNS non è necessario per le connessioni da rete virtuale a rete virtu
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. Creare un gateway di rete virtuale
-Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dell'SKU gateway selezionato. Se si crea questa configurazione come esercizio, è possibile fare riferimento alle [impostazioni di esempio](#values).
+Questo passaggio illustra come creare il gateway di rete virtuale per la rete virtuale. La creazione di un gateway spesso richiede anche più di 45 minuti di tempo a seconda dello SKU gateway selezionato. Se si crea questa configurazione come esercizio, è possibile fare riferimento alle [impostazioni di esempio](#values).
 
 ### <a name="to-create-a-virtual-network-gateway"></a>Per creare un gateway di rete virtuale
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
@@ -185,7 +185,7 @@ Quando inizia il flusso dei dati, vengono visualizzati i valori per Dati in entr
 
 Per aggiungere altre connessioni, passare al gateway di rete virtuale da cui si vuole creare la connessione, quindi fare clic su **Connessioni**. È possibile creare un'altra connessione da rete virtuale a rete virtuale o creare una connessione IPsec da sito a sito in un percorso locale. Assicurarsi di impostare **Tipo di connessione** in modo che corrisponda al tipo di connessione che si vuole creare. Prima di creare connessioni aggiuntive, verificare che lo spazio indirizzi della rete virtuale non si sovrapponga a nessuno degli spazi indirizzi a cui si vuole creare la connessione. Per la procedura per a una connessione da sito a sito, vedere [Creare una connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
+## <a name="faq"></a>Domande frequenti relative alla connessione di reti virtuali
 Visualizzare i dettagli delle frequenti per altre informazioni sulle connessioni da rete virtuale a rete virtuale.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: cgronlun
 ms.openlocfilehash: 79c66fe29c8d51a8cd1db24a024974f943e89e74
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---

@@ -28,7 +28,7 @@ Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-int
 
 Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 Per eseguire il backup dello stato del sistema di Windows Server, è necessario creare un insieme di credenziali di Servizi di ripristino nell'area in cui archiviare i dati. È anche necessario determinare la modalità di replica di archiviazione.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
@@ -53,7 +53,7 @@ Per eseguire il backup dello stato del sistema di Windows Server, è necessario 
 6. Nella sezione **Gruppo di risorse**:
 
     * Selezionare **Crea nuovo** se si vuole creare un gruppo di risorse.
-    Or
+    Oppure
     * Selezionare **Usa esistente** e fare clic sul menu a discesa per visualizzare l'elenco di gruppi di risorse disponibili.
 
   Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

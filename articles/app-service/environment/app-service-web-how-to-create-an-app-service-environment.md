@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="how-to-create-an-app-service-environment-v1"></a>Come creare un ambiente del servizio app (versione 1) 
 
 > [!NOTE]
-> Questo articolo fa riferimento all'ambiente del servizio app (versione 1), È disponibile una versione più recente dell'ambiente del servizio app più facile da usare ed eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](intro.md).
+> Questo articolo riguarda l'ambiente del servizio app v1. È disponibile una versione più recente dell'ambiente del servizio app più facile da usare ed eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione all'ambiente del servizio app](intro.md).
 > 
 
 ### <a name="overview"></a>Panoramica
@@ -32,7 +32,7 @@ L'ambiente del servizio app è un'opzione di servizio Premium del servizio app d
 ### <a name="before-you-create-your-ase"></a>Prima di creare l'ambiente del servizio app
 È importante notare che alcuni elementi non possono essere modificati. Dopo la creazione dell'ambiente del servizio app non è possibile modificare questi elementi:
 
-* Percorso
+* Località
 * Sottoscrizione
 * Gruppo di risorse
 * Rete virtuale usata
@@ -72,7 +72,7 @@ Per informazioni sulla scalabilità automatica, vedere la guida su [come configu
 
 Sono inoltre presenti altre dipendenze non disponibili per la personalizzazione, ad esempio il database e l'archiviazione. Questi sono gestiti da Azure e sono inclusi nel sistema. Il servizio di archiviazione del sistema supporta fino a 500 GB per l'intero ambiente del servizio app e il database viene rettificato da Azure in base alle esigenze, tramite il ridimensionamento del sistema.
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare l'ambiente del servizio app (versione 1), vedere [Introduzione all'ambiente del servizio app (versione 1)][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]

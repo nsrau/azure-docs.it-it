@@ -108,7 +108,7 @@ sudo ssh $JENKINS_USER@$JENKINS_SERVER sudo mkdir -m 777 /home/$JENKINS_USER/.ku
 
 ## <a name="create-a-jenkins-workflow"></a>Creare un flusso di lavoro Jenkins
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 - Account GitHub per il repository di codice.
 - Account Docker Hub per archiviare e aggiornare le immagini.

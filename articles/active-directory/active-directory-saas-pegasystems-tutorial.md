@@ -16,7 +16,7 @@ ms.date: 11/16/2017
 ms.author: jeedes
 ms.openlocfilehash: 924abe287b5e39bb77a418b56b5c33195095e07a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ L'integrazione di Pegasystems con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Pegasystems, sono necessari gli elementi seguenti:
 

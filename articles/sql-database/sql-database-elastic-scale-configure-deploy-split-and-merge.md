@@ -34,7 +34,7 @@ Lo strumento di divisione e unione sposta i dati tra database partizionati. Vede
 
 I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **contenuto\splitmerge\servizio** e gli script di PowerShell di divisione e unione, compresi i file DLL client necessari, si trovano nella sottodirectory **contenuto\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
    
@@ -133,7 +133,7 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 6. Assicurarsi che la casella di controllo **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Fare clic sul pulsante con il segno di spunta in basso a destra per avviare la distribuzione. Per il completamento dell'operazione sarà necessario attendere alcuni minuti.
 
-   ![Carica][4]
+   ![Caricamento][4]
 
 ## <a name="troubleshoot-the-deployment"></a>Risolvere i problemi relativi alla distribuzione
 Se la messa in linea del proprio ruolo Web non riesce, è probabile che si tratti di un problema relativo alla configurazione della sicurezza. Verificare che SSL sia configurato come descritto sopra.
@@ -169,7 +169,7 @@ I file di script inclusi sono i seguenti:
    <table style="width:100%">
      <tr>
        <th>File PowerShell</th>
-       <th>Passi</th>
+       <th>Passaggi</th>
      </tr>
      <tr>
        <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
@@ -191,7 +191,7 @@ I file di script inclusi sono i seguenti:
    <table style="width:100%">
      <tr>
        <th>File PowerShell</th>
-       <th>Passi</th>
+       <th>Passaggi</th>
      </tr>
    <tr>
        <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
@@ -317,7 +317,7 @@ Per eseguire un'operazione di divisione e unione, è necessario dichiarare le ta
 
 Il servizio di divisione e unione non crea automaticamente il database di destinazione (o lo schema per tutte le tabelle nel database). Questi devono essere creati precedentemente, prima di inviare richieste al servizio.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Quando si eseguono gli script di PowerShell di esempio, è possibile che venga visualizzato un messaggio simile a quello riportato di seguito:
 
    ```

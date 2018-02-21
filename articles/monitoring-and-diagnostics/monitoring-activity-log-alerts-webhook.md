@@ -131,20 +131,20 @@ Per i dettagli su schemi specifici relativi agli avvisi del log attività per le
 
 Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log attività, vedere [Panoramica del log attività di Azure](monitoring-overview-activity-logs.md).
 
-| Nome dell'elemento | Descrizione |
+| Nome dell'elemento | DESCRIZIONE |
 | --- | --- |
 | status |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
-| contesto |Contesto dell'evento. |
+| context |Contesto dell'evento. |
 | resourceProviderName |Provider della risorsa interessata. |
 | conditionType |Sempre "Event". |
-| nome |Nome della regola di avviso. |
+| name |Nome della regola di avviso. |
 | id |ID risorsa dell'avviso. |
-| descrizione |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
+| description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
 | timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
 | ResourceId |ID risorsa della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
-| proprietà |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
+| properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
 | event |Elemento contenente i metadati relativi all'evento. |
 | autorizzazione |Proprietà di controllo degli accessi in base al ruolo per l'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
@@ -157,7 +157,7 @@ Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log att
 | level |Uno dei valori seguenti: Critical, Error, Warning e Informational. |
 | operationId |In genere un GUID condiviso tra gli eventi corrispondenti a una singola operazione. |
 | operationName |Nome dell'operazione. |
-| proprietà |Proprietà dell'evento. |
+| properties |Proprietà dell'evento. |
 | status |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | subStatus |In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504). |
 

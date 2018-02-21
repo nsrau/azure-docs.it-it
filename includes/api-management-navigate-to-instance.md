@@ -3,7 +3,7 @@
 Per passare all'istanza di Gestione API, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. Selezionare ![freccia](./media/api-management-navigate-to-instance/arrow.png).
+2. Select ![freccia](./media/api-management-navigate-to-instance/arrow.png).
 3. Nella casella di ricerca digitare "api".
 4. Fare clic su **Servizi Gestione API**.
 

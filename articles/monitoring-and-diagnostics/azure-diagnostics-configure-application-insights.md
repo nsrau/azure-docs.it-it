@@ -16,7 +16,7 @@ ms.date: 03/19/2016
 ms.author: robb
 ms.openlocfilehash: 7dd8c6e1fbfba2587aadb3410c3a769b57e06001
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -219,7 +219,7 @@ Nella configurazione precedente, le righe riportate di seguito hanno i significa
 - **Il livello di log per un canale non può superare il livello di log relativo a quanto raccolto da Diagnostica di Azure.** Ad esempio, non è possibile raccogliere errori di log applicazioni nell'elemento Los e provare a inviare log Verbose al sink di Application Insight. L'attributo *scheduledTransferLogLevelFilter* deve sempre raccogliere un numero di log pari o superiore al numero di log che si sta tentando di inviare a un sink.
 - **Non è possibile inviare ad Application Insights dati BLOB raccolti dall'estensione Diagnostica di Azure.** Ad esempio qualsiasi elemento specificato nel nodo *Directories*. Per i dump di arresto anomalo, il dump effettivo di arresto anomalo viene inviato all'archiviazione BLOB e ad Application Insights viene inviata solo una notifica che attesta la creazione del dump di arresto anomalo.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [visualizzare le informazioni di diagnostica di Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) in Application Insights.
 * Usare [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) per abilitare l'estensione di Diagnostica di Azure per un'applicazione.
 * Usare [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) per abilitare l'estensione di Diagnostica di Azure per un'applicazione.

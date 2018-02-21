@@ -39,7 +39,7 @@ Nelle ore serali o nel fine settimana è possibile che la richiesta delle applic
 
 È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
-- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -82,11 +82,11 @@ Quando si creano regole di scalabilità automatica per monitorare una determinat
 | Massima          |
 | Totale            |
 | Last (Ultimo)             |
-| Numero            |
+| Conteggio            |
 
 Le regole di scalabilità automatica vengono attivate quando le metriche vengono confrontate con la soglia definita usando uno dei seguenti operatori:
 
-| operatore                 |
+| Operatore                 |
 |--------------------------|
 | Maggiore di             |
 | Maggiore o uguale a |
@@ -136,7 +136,7 @@ Di seguito sono riportati alcuni scenari di esempio che possono trarre vantaggio
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
-- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 

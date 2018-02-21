@@ -47,9 +47,9 @@ Tutte queste azioni sono disponibili anche nel riquadro **Azioni** .
 ## <a name="view-volume-groups"></a>Visualizzazione dei gruppi di volumi
 Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono mostrate le informazioni seguenti su ciascun gruppo di volumi, a seconda delle colonne selezionate. Le colonne nel riquadro **Risultati** sono configurabili. Fare clic con il pulsante destro del mouse sul nodo **Volumi**, selezionare **Visualizza**, quindi scegliere **Aggiungi/Rimuovi colonne**.
 
-| Colonna risultati | Descrizione |
+| Colonna risultati | DESCRIZIONE |
 |:--- |:--- |
-| Nome |La colonna **Nome** contiene il nome del gruppo di volumi. |
+| NOME |La colonna **Nome** contiene il nome del gruppo di volumi. |
 | Applicazione |La colonna **Applicazioni** mostra il numero di writer del Servizio snapshot del volume attualmente installati e in esecuzione sull'host Windows. |
 | Selezionato |La colonna **Selezionati** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
 | Importati |La colonna **Importati** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure e non è stato creato in StorSimple Snapshot Manager. |

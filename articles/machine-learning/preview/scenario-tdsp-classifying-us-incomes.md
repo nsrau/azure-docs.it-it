@@ -17,7 +17,7 @@ ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -48,7 +48,7 @@ Vedere [Team Data Science Process (TDSP) Lifecycle](https://github.com/Azure/Mic
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 ### <a name="required-subscription-hardware-software"></a>Requisiti obbligatori: sottoscrizione, hardware, software
 1. Una [sottoscrizione di Azure](https://azure.microsoft.com). È anche possibile ottenere una [sottoscrizione gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) per eseguire questo esempio.
 2. Una [macchina virtuale di data science di Azure con Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm). Dimensioni della macchina virtuale: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), con 4 CPU virtuali e 14 GB di RAM. Benché questo esempio sia stato testato su una macchina virtuale di data science di Azure, è probabile che funzionerà su qualsiasi computer Windows 10.
@@ -172,7 +172,7 @@ In questo esempio è stato mostrato come usare la struttura e i modelli di TDSP 
 
 Questa funzionalità di Azure Machine Learning può semplificare la standardizzazione e la collaborazione all'interno dei team di data science.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare, vedere i riferimenti seguenti:
 

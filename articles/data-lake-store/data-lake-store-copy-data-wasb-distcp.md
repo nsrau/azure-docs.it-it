@@ -29,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 
 Se è stato creato un cluster HDInsight con accesso a Data Lake Store, è possibile usare gli strumenti dell'ecosistema Hadoop, ad esempio DistCp, per copiare i dati **da e in** una risorsa di archiviazione del cluster HDInsight (WASB) in un account Data Lake Store. Questo articolo include istruzioni sull'uso dello strumento DistCp.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Store**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)

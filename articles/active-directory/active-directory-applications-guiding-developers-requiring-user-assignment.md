@@ -17,7 +17,7 @@ ms.author: kgremban
 robots: noindex
 ms.openlocfilehash: b02460435edca336325e472ea910b73e7895c948
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,5 +34,5 @@ ms.lasthandoff: 12/11/2017
 
 A questo punto è necessario assegnare utenti e gruppi all'applicazione. Vedere [Assegnazione di utenti a un'applicazione](active-directory-applications-guiding-developers-assigning-users.md) e [Assegnazione di gruppi a un'applicazione](active-directory-applications-guiding-developers-assigning-groups.md).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

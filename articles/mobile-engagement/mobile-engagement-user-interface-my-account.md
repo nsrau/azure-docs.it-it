@@ -57,7 +57,7 @@ Per utilizzare l'API Push o l'API dispositivo è necessario conoscere l'identifi
 ## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 * [Guida per la risoluzione dei problemi - Assistenza][Link 24]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Home page][Link 13]
 
 <!--Image references-->

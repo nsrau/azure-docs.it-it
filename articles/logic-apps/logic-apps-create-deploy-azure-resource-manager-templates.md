@@ -82,7 +82,7 @@ Il modello usa i valori del parametro per il nome dell'app per la logica (```log
 
 Di seguito sono riportate le descrizioni dei parametri disponibili nel modello:
 
-| Parametro | Descrizione | Esempio di definizione JSON | 
+| Parametro | DESCRIZIONE | Esempio di definizione JSON | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Definisce il nome dell'app per la logica creata dal modello. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
 | `testUri` | Definisce il percorso in cui effettuare il ping per il test. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 

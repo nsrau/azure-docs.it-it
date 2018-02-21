@@ -116,7 +116,7 @@ Una volta che i passaggi sopra riportati vengono confermati, è necessario elimi
 
 Procedere quindi con la creazione di un ambiente di servizio app.
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
 <!-- LINKS -->

@@ -30,7 +30,7 @@ Questa esercitazione mostra come eseguire il provisioning dei dispositivi per pi
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questa esercitazione si basa sulla precedente, [Provision device to a hub](tutorial-provision-device-to-hub.md) (Provisioning di un dispositivo in un hub).
 
@@ -58,7 +58,7 @@ Seguire questa procedura per impostare i criteri di allocazione:
 
 1. Per impostare i criteri di allocazione, nella pagina DPS fare clic su **Manage allocation policy** (Gestisci criteri di allocazione).
 2. Impostare i criteri di allocazione su **Evenly weighted distribution** (Distribuzione ponderata uniforme).
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
 ## <a name="link-the-new-iot-hub-to-dps"></a>Collegare il nuovo hub IoT a DPS
 
@@ -68,11 +68,11 @@ Collegare DPS e l'hub IoT in modo che il servizio possa registrare i dispositivi
 2. Nella pagina DPS fare clic su **Linked IoT hubs** (Hub IoT collegati).
 3. Fare clic su **Aggiungi**.
 4. Nella pagina **Add link to IoT hub** (Aggiungi collegamento all'hub IoT) usare i pulsanti di opzione per specificare se l'hub IoT collegato si trova nella sottoscrizione attuale o in una sottoscrizione diversa. Scegliere quindi il nome dell'hub IoT dalla casella **IoT Hub** (Hub IoT).
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Usare il portale di Azure per eseguire il provisioning di un secondo dispositivo in un secondo hub IoT 

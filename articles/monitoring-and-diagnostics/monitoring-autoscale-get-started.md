@@ -63,9 +63,9 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
 
    A questo punto si avrà un'impostazione di scalabilità che aumenta/riduce il numero di istanze in base all'utilizzo della CPU.
    ![Scalabilità in base alla CPU][8]
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
-Congratulazioni. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE] 
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.

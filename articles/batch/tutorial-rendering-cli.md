@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 02/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5a5c541f7a912a96547b6b3bec37f0e4066a54e6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c14f4d14584dad27e53504e2413e82764db9dca0
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
@@ -32,7 +32,7 @@ In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il
 
 ## <a name="prerequisites"></a>prerequisiti
 
-La scena 3ds Max di esempio per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), insieme a uno script Bash di esempio e ai file di configurazione JSON. La scena 3ds Max proviene dai [file di esempio di Autodesk 3ds Max](http:download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). I file di esempio di Autodesk 3ds Max sono disponibili con una licenza con dicitura "Attribuzione - Non commerciale - Condividi allo stesso modo" di Creative Commons. Copyright © Autodesk, Inc.
+La scena 3ds Max di esempio per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), insieme a uno script Bash di esempio e ai file di configurazione JSON. La scena 3ds Max proviene dai [file di esempio di Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). I file di esempio di Autodesk 3ds Max sono disponibili con una licenza con dicitura "Attribuzione - Non commerciale - Condividi allo stesso modo" di Creative Commons. Copyright © Autodesk, Inc.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -216,8 +216,8 @@ Modificare gli elementi `blobSource` e `containerURL` nel file JSON in modo che 
   "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 Robo_Dummy_Lo_Res.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/maxfile/Robo_Dummy_Lo_Res.max",
-        "filePath": "Robo_Dummy_Lo_Res.max"
+        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "filePath": "MotionBlur-DragonFlying.max"
     }
   ],
     "outputFiles": [
@@ -300,7 +300,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Visualizzare l'output dell'attività
 
-L'esecuzione dell'attività richiede pochi minuti. Usare il comando [az batch task list](/cli/azure/batch/task#az_batch_task_list) per visualizzare lo stato delle attività. Ad esempio:
+L'esecuzione dell'attività richiede pochi minuti. Usare il comando [az batch task list](/cli/azure/batch/task#az_batch_task_list) per visualizzare lo stato delle attività. Ad esempio: 
 
 ```azurecli-interactive
 az batch task list \
@@ -316,7 +316,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Le attività generano i file di output denominati *dragon0002.jpg* - *dragon0007.jpg* nei nodi di calcolo e li caricano nel contenitore *job-myrenderjob* all'interno dell'account di archiviazione. Per visualizzare l'output, scaricare i file in una cartella nel computer locale usando il comando [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch). Ad esempio:
+Le attività generano i file di output denominati *dragon0002.jpg* - *dragon0007.jpg* nei nodi di calcolo e li caricano nel contenitore *job-myrenderjob* all'interno dell'account di archiviazione. Per visualizzare l'output, scaricare i file in una cartella nel computer locale usando il comando [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch). Ad esempio: 
 
 ```azurecli-interactive
 az storage blob download-batch \

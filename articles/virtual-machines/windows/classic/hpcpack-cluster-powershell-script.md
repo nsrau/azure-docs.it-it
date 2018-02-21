@@ -256,7 +256,7 @@ Il file di configurazione seguente distribuisce un cluster HPC Pack in una fores
 </IaaSClusterConfig>
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 * **Errore di tipo "La rete virtuale non esiste"**: se si esegue lo script per distribuire più cluster contemporaneamente in una sottoscrizione di Azure, è possibile che una o più distribuzioni abbiano esito negativo con un errore di tipo "La rete virtuale *Nome\_rete virtuale* non esiste".
   Se si verifica questo errore, eseguire di nuovo lo script per la distribuzione non riuscita.
 * **Problemi di accesso a Internet dalla rete virtuale di Azure** : se si crea un cluster con un nuovo controller di dominio usando lo script di distribuzione oppure se si alza manualmente di livello la VM di un nodo head trasformandola in controller di dominio, è possibile che si verifichino problemi di connessione delle VM a Internet. Questo problema può verificarsi se un server DNS di inoltro viene configurato automaticamente nel controller di dominio e tale server non viene risolto correttamente.

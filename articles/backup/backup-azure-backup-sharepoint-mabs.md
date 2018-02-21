@@ -33,7 +33,7 @@ Backup di Azure per DPM supporta gli scenari seguenti:
 ## <a name="before-you-start"></a>Prima di iniziare
 È necessario verificare alcuni aspetti prima di eseguire il backup di una farm di SharePoint in Azure.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di procedere, assicurarsi di avere [installato e preparato il server di Backup di Azure](backup-azure-microsoft-azure-backup.md) per proteggere i carichi di lavoro.
 
 ### <a name="protection-agent"></a>Agente protezione
@@ -140,7 +140,7 @@ Dopo aver configurato MABS e la farm di SharePoint come descritto in precedenza,
     ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 13. Esaminare le impostazioni selezionate nella pagina di **riepilogo** e fare clic su **Crea gruppo**. Dopo aver creato il gruppo di protezione dati, viene visualizzato un messaggio di corretto completamento.
 
-    ![Riepilogo](./media/backup-azure-backup-sharepoint/summary.png)
+    ![Summary](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Ripristinare un elemento di SharePoint dal disco tramite MABS
 Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato accidentalmente eliminato e deve essere ripristinato.

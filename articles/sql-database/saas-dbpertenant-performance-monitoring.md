@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il provisioning di un secondo pool elastico per bilanciare il carico delle attività dei database
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 * È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)

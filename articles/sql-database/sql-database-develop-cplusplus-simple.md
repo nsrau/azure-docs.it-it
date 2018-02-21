@@ -75,7 +75,7 @@ In alternativa, è possibile creare un file DSN mediante la procedura guidata av
 
 ![Creare un file DSN](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-Congratulazioni. È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux. 
+Congratulazioni! È stata correttamente stabilita una connessione ad Azure SQL mediante C++ e ODBC in Windows. È possibile continuare la lettura per eseguire la stessa operazione sulla piattaforma Linux. 
 
 ## <a id="Linux"></a>Passaggio 5: Connessione da un'applicazione C/C++ per Linux
 Visual Studio ora consente di sviluppare anche applicazioni C++ per Linux. Per informazioni su questo nuovo scenario, vedere il blog [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) (Visual C++ per sviluppo di applicazioni Linux). Per la compilazione per Linux è necessario un computer remoto in cui è in esecuzione la distribuzione Linux. Se non si ha disponibile un computer remoto con Linux, è possibile configurarlo rapidamente seguendo i passaggi presenti nell'articolo [Linux Azure Virtual machines](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Macchine virtuali di Linux in Azure). 
@@ -119,7 +119,7 @@ Se la connessione è stata stabilita correttamente, viene visualizzato il nome d
 
 ![Output della finestra della console Linux](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-Congratulazioni. L'esercitazione è stata completata ed è ora possibile connettersi al database SQL di Azure da C++ nelle piattaforme Windows e Linux.
+Congratulazioni! L'esercitazione è stata completata ed è ora possibile connettersi al database SQL di Azure da C++ nelle piattaforme Windows e Linux.
 
 ## <a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su C/C++
 La soluzione GetStarted contenente tutti gli esempi riportati in questo articolo è disponibile su GitHub:

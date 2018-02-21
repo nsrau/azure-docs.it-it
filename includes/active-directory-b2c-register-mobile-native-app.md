@@ -4,7 +4,7 @@ Per registrare l'applicazione per dispositivi mobili o nativa, usare le impostaz
 
 ![Impostazioni di registrazione di esempio per una nuova applicazione per dispositivi mobili o nativa](./media/active-directory-b2c-register-mobile-native-app/b2c-new-mobile-native-app-settings.png)
 
-| Impostazione      | Valore di esempio  | Descrizione                                        |
+| Impostazione      | Valore di esempio  | DESCRIZIONE                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome** | App Contoso B2C | Immettere un **Nome** per l'applicazione che descriva l'applicazione agli utenti. |
 | **Client nativo** | Sì | Selezionare **Sì** per un'applicazione per dispositivi mobili o nativa. |

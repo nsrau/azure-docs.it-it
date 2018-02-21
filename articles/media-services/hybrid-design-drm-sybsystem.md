@@ -97,9 +97,9 @@ In base alle spiegazioni fornite nella sezione precedente, sono cinque gli scena
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sì|Sì|Esempio 1|
 |AMS|AMS|Terze parti|Sì|Sì|Esempio 2|
-|AMS|Terze parti|AMS|Sì|No|Esempio 3|
-|AMS|Terze parti|Esterno|No|No|Esempio 4|
-|Terze parti|Terze parti|AMS|Sì|No|    
+|AMS|Terze parti|AMS|Sì|No |Esempio 3|
+|AMS|Terze parti|Esterno|No |No |Esempio 4|
+|Terze parti|Terze parti|AMS|Sì|No |    
 
 Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Streaming. Gli URL del video mostrati di seguito sono URL Smooth Streaming. Per ottenere gli URL DASH corrispondenti, aggiungere semplicemente "(format=mpd-time-csf)". È possibile usare il [lettore multimediale di test di Azure](http://aka.ms/amtest) per effettuare il test nel browser. Consente di configurare il protocollo di streaming e specificare in quale tecnologia usarlo. IE11 e MS Edge in Windows 10 supportano PlayReady tramite EME. Per altre informazioni, vedere i [dettagli sullo strumento di test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
@@ -125,7 +125,7 @@ Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Strea
 * URL di origine: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
 * LA_URL di PlayReady (DASH e smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In sintesi, i componenti DRM di Servizi multimediali di Azure sono flessibili ed è possibile usarli in uno scenario ibrido configurando correttamente la chiave simmetrica e i criteri di distribuzione della licenza, come descritto in questo articolo.
 

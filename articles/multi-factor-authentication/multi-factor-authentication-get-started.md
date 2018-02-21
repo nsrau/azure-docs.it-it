@@ -70,7 +70,7 @@ La tabella seguente confronta le funzionalità disponibili con Multi-Factor Auth
 | Bypass monouso | | ● |
 | Messaggi di saluto personalizzati per le telefonate | ● | ● |
 | ID chiamante personalizzabile per le telefonate | ● | ● |
-| IP attendibili | ● | ● |
+| Indirizzi IP attendibili | ● | ● |
 | Memorizzazione di MFA per dispositivi attendibili | ● | |
 | Accesso condizionale | ● | ● |
 | Cache |  | ● |

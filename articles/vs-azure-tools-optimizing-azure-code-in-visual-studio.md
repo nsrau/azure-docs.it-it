@@ -30,7 +30,7 @@ Lo strumento di analisi del codice di Azure utilizza le regole seguenti per cont
 ### <a name="id"></a>ID
 AP0000
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Se si utilizza la modalità di stato sessione (in-process) predefinita per le applicazioni cloud, è possibile perdere lo stato della sessione.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -47,7 +47,7 @@ Una soluzione consigliata consiste nell'archiviare lo stato della sessione in un
 ### <a name="id"></a>ID
 AP1000
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Creare metodi asincroni, ad esempio [await](https://msdn.microsoft.com/library/hh156528.aspx), fuori dal metodo [Run ()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) e quindi chiamare i metodi asincroni da [Run ()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx). La dichiarazione del metodo [[Run ()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) come asincrona fa sì che il ruolo di lavoro immetta un ciclo di riavvio.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -92,7 +92,7 @@ public async Task RunAsync()
 ### <a name="id"></a>ID
 AP2000
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Uso della firma di accesso condiviso per l’autenticazione. Il servizio di controllo di accesso (ACS) è deprecato per l'autenticazione di bus di servizio.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -119,7 +119,7 @@ Per altre informazioni, vedere gli argomenti seguenti.
 ### <a name="id"></a>ID
 AP2002
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Per evitare di entrare in un "ciclo di ricezione" la chiamata al metodo **OnMessage** è una soluzione ottimale, poi chiamare il metodo **Receive**. Tuttavia, se è necessario utilizzare il metodo **Ricezione** e si specifica un tempo di attesa del server non predefinito, assicurarsi che il tempo di attesa del server sia più di un minuto.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -222,7 +222,7 @@ while (true)
 ### <a name="id"></a>ID
 AP2003
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Utilizzare i metodi asincroni del Bus di servizio per migliorare le prestazioni con la messaggistica negoziata.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -239,7 +239,7 @@ Per migliorare le prestazioni dell'infrastruttura di messaggistica di Azure, ved
 ### <a name="id"></a>ID
 AP2004
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Esegue il partizionamento delle code e degli argomenti del bus di servizio per ottenere prestazioni migliori con la messaggistica del bus di servizio.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -264,7 +264,7 @@ Per altre informazioni, vedere il blog di Microsoft Azure [Partitioned Service B
 ### <a name="id"></a>ID
 AP3001
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 È consigliabile evitare l'utilizzo di SharedAccessStartTimeset all'ora corrente per avviare immediatamente il criterio di accesso condiviso. È sufficiente impostare questa proprietà se si desidera avviare i criteri di accesso condivisi in un secondo momento.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -296,7 +296,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 ### <a name="id"></a>ID
 AP3002
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Può esistere una differenza di circa cinque minuti negli orologi tra i Data Center in posizioni diverse a causa di una condizione nota come "sfasamento." Per evitare che il token del criterio SAS scada prima del previsto, impostare l'ora di scadenza a più di cinque minuti.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -346,7 +346,7 @@ Per ulteriori informazioni, [Creare e usare una firma di accesso condiviso](http
 ### <a name="id"></a>ID
 AP4000
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Usando la classe [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager\(v=vs.110\).aspx) per progetti, come il sito Web di Azure e i servizi mobili di Azure, non si verificano problemi di runtime. Come procedura consigliata, tuttavia, è consigliabile usare Cloud [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager\(v=vs.110\).aspx) come modo unificato di gestione delle configurazioni per tutte le applicazioni Cloud di Azure.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -383,7 +383,7 @@ Di seguito è riportato un esempio di come archiviare l'impostazione di configur
 ### <a name="id"></a>ID
 AP4001
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Se si utilizzano stringhe di connessione hardcoded ed è necessario aggiornarle in un secondo momento, sarà necessario apportare modifiche al codice sorgente e ricompilare l'applicazione. Tuttavia, se si archiviano le stringhe di connessione in un file di configurazione, è possibile cambiarle successivamente semplicemente aggiornando il file di configurazione.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -404,7 +404,7 @@ Per informazioni sull'uso di file di configurazione, ad esempio web.config o app
 ### <a name="id"></a>ID
 AP5000
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Anziché configurare le impostazioni di diagnostica nel codice, ad esempio tramite l'API di programmazione della diagnostica di Microsoft.WindowsAzure, è necessario configurare le impostazioni di diagnostica nel file diagnostics wadcfg. (O, diagnostics.wadcfgx se si utilizza Azure SDK 2.5). In questo modo è possibile modificare le impostazioni di diagnostica senza dover ricompilare il codice.
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
@@ -429,7 +429,7 @@ Utilizzare la finestra di progettazione di configurazione di diagnostica per spo
 ### <a name="id"></a>ID
 AP6000
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Per conservare memoria, evitare di dichiarare gli oggetti DbContext come static
 
 Condividere le idee e i suggerimenti nei [Commenti e suggerimenti dell'analisi del codice di Azure](http://go.microsoft.com/fwlink/?LinkId=403771).

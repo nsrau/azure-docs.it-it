@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i
 
 Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in una piattaforma di analisi come [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) o un'altra soluzione di analisi di log.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire alcune delle operazioni descritte in questo documento vengono usati gli strumenti seguenti:
 
 * [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (correlata ai Servizi cloud di Azure, include alcune informazioni ed esempi utili)

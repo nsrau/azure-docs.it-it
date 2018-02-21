@@ -17,7 +17,7 @@ ms.date: 7/18/2017
 ms.author: markgal;trinadhk
 ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -83,7 +83,7 @@ Il processo di backup prova a completare un processo di backup il più velocemen
 ### <a name="backup-schedule"></a>Pianificazione dei backup
 Un altro aspetto che influisce sulle prestazioni è la **pianificazione dei backup**. Se si configurano i criteri in modo che venga eseguito il backup di tutte le macchine virtuali contemporaneamente, è stato pianificato un blocco del traffico. Il processo di backup tenta di eseguire il backup di tutti i dischi in parallelo. Per ridurre il traffico di backup da un account di archiviazione, eseguire il backup delle singole macchine virtuali in diverse ore del giorno, senza sovrapposizioni.
 
-## <a name="capacity-planning"></a>pianificazione della capacità
+## <a name="capacity-planning"></a>Pianificazione della capacità
 Combinando i fattori precedenti, è necessario pianificare le esigenze d'uso dell'account di archiviazione. Scaricare il [foglio di Excel per la pianificazione della capacità di backup delle macchine virtuali](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) per valutare l'impatto delle scelte relative alla pianificazione dei backup e dei dischi.
 
 ### <a name="backup-throughput"></a>Velocità effettiva del backup

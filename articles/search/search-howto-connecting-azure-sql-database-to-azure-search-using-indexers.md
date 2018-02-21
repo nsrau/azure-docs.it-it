@@ -295,7 +295,7 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) |
 | rowversion |N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportato |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportate |
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 L'indicizzatore SQL espone diverse impostazioni di configurazione:

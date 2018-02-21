@@ -23,7 +23,7 @@ ms.lasthandoff: 12/14/2017
 
 In questa guida introduttiva si apprenderà a usare la libreria client .NET per consentire ad Archiviazione di Azure di caricare, scaricare ed elencare BLOB in blocchi in un contenitore.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 

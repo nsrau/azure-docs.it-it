@@ -27,7 +27,7 @@ Questo approccio all'uso dei certificati SSL nel codice adotta la funzionalità 
 
 Quando si consente al servizio app di gestire i certificati SSL, è possibile tenere separati i certificati e il codice dell'applicazione e proteggere i dati sensibili.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida pratica:
 

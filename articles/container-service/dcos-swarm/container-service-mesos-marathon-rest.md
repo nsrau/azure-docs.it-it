@@ -19,7 +19,7 @@ ms.lasthandoff: 12/06/2017
 
 DC/OS offre un ambiente di distribuzione e ridimensionamento dei carichi di lavoro cluster con l'astrazione dell'hardware sottostante. In DC/OS è disponibile anche un framework che gestisce la pianificazione e l'esecuzione dei carichi di lavoro di calcolo. Sono disponibili framework per molti dei carichi di lavoro più comuni. Questo documento illustra come iniziare a creare e ridimensionare le distribuzioni di contenitori usando l'API REST di Marathon. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di eseguire questi esempi, è necessario avere un cluster DC/OS configurato nel servizio contenitore di Azure. È necessaria anche la connettività remota a questo cluster. Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 

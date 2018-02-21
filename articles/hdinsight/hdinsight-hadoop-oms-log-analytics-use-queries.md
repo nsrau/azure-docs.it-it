@@ -29,7 +29,7 @@ Informazioni sugli scenari relativi alle modalità d'uso di Azure Log Analytics 
 * [Cercare messaggi di log specifici nei cluster](#search-for-specific-log-messages)
 * [Creare avvisi di eventi](#create-alerts-for-tracking-events)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * È necessario aver configurato un cluster HDInsight per l'uso di Azure Log Analytics. Per istruzioni, vedere [Usare Azure Log Analytics con i cluster HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -150,7 +150,7 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 6. Nella pagina **Impostazioni** fare clic su **Avvisi** per vedere gli avvisi creati. È anche possibile abilitare o disabilitare un avviso, modificarlo o eliminarlo. Per altre informazioni, vedere [Utilizzo delle regole di avviso in Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * [Uso di Log Analytics di Operations Management Suite](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Creare regole di avviso in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

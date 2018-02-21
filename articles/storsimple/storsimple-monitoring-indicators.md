@@ -52,7 +52,7 @@ La differenza principale tra i LED del pannello anteriore del dispositivo e quel
 ## <a name="front-panel-led-status"></a>Stato dei LED sul pannello anteriore
 Utilizzare la seguente tabella per identificare lo stato indicato dai LED sul pannello anteriore per il dispositivo o lo chassis EBOD.  
 
-| Alimentazione del sistema | Errore del modulo | Errore logico | Allarme | Stato |
+| Alimentazione del sistema | Errore del modulo | Errore logico | Allarme | Status |
 | --- | --- | --- | --- | --- |
 | Rosso-ambra |DISATTIVA |DISATTIVA |N/D |Alimentazione CA persa, funzionamento con alimentazione di backup oppure alimentazione CA ATTIVA con i moduli di controllo rimossi. |
 | Verde |ATTIVA |ATTIVA |N/D |Stato del test di alimentazione del pannello delle operazioni acceso (5 sec) |
@@ -85,7 +85,7 @@ Legenda dei LED:
 Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del dispositivo dispone di sei LED. Quattro di tali LED visualizzano lo stato dell’alimentatore e della ventola. Idue LED restanti indicano lo stato del modulo della batteria di backup nel PCM. È possibile utilizzare le tabelle riportate di seguito per determinare lo stato del PCM.  
 
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Indicatori LED del PCM per l'alimentatore e la ventola
-| Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
+| Status | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
 | --- | --- | --- | --- | --- |
 | Alimentazione CA assente (allo chassis) |DISATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
 | Alimentazione CA assente (solo questo PCM) |DISATTIVA |ATTIVA |DISATTIVA |ATTIVA |
@@ -97,7 +97,7 @@ Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del d
 | Download firmware PCM |DISATTIVA |Intermittente |Intermittente |Intermittente |
 
 ### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Indicatori LED del PCM per la batteria di backup
-| Stato | Batteria integra (verde) | Errore batteria (ambra) |
+| Status | Batteria integra (verde) | Errore batteria (ambra) |
 | --- | --- | --- |
 | Batteria assente |DISATTIVA |DISATTIVA |
 | Batteria presente e carica |ATTIVA |DISATTIVA |
@@ -113,7 +113,7 @@ Lo chassis EBOD dispone di un PCM da 580 W senza batteria aggiuntiva. Il pannell
 
 È possibile utilizzare la tabella riportata di seguito per determinare lo stato del PCM.  
 
-| Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
+| Status | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
 | --- | --- | --- | --- | --- |
 | Alimentazione CA assente (allo chassis) |DISATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
 | Alimentazione CA assente (solo questo PCM) |DISATTIVA |ATTIVA |DISATTIVA |ATTIVA |
@@ -135,7 +135,7 @@ La figura seguente facilita l’identificazione dei LED sul controller primario.
 Utilizzare la tabella seguente per determinare se il modulo controller funziona correttamente.  
 
 ### <a name="controller-indicator-leds"></a>Indicatori LED del controller
-| LED | Descrizione |
+| LED | DESCRIZIONE |
 | --- | --- |
 | LED ID (blu) |Indica che è in corso l’identificazione del modulo. Se su un controller in esecuzione, il LED blu lampeggia, significa che tale controller è attivo mentre l'altro è in standby. Per ulteriori informazioni, vedere [Identificare un controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED errore (ambra) |Indica un errore nel controller. |
@@ -157,7 +157,7 @@ Ogni controller EBOD SAS 6 Gb/s dispone di LED che indicano lo stato, come illus
 Utilizzare la tabella seguente per determinare se il modulo controller EBOD funziona normalmente.  
 
 ### <a name="ebod-controller-module-indicator-leds"></a>Indicatori LED del modulo controller EBOD
-| Stato | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
+| Status | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
 | --- | --- | --- | --- |
 | Modulo controller OK |ATTIVA |DISATTIVA |- |
 | Errore del modulo controller |DISATTIVA |ATTIVA |- |
@@ -176,11 +176,11 @@ Per le unità disco, lo stato dell’unità è indicato da un LED verde e un LED
 Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che, a sua volta, influisce sullo stato generale del LED del pannello anteriore.  
 
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indicatori LED dell’unità disco per lo chassis EBOD
-| Stato | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
+| Status | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
 | --- | --- | --- | --- |
-| Nessuna unità installata |DISATTIVA |DISATTIVA |None |
-| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |None |
-| Set di identità del dispositivo servizi chassis SCSI (SES) |ATTIVA |Intermittenza 1 secondo accesa/1 secondo spenta |None |
+| Nessuna unità installata |DISATTIVA |DISATTIVA |Nessuna |
+| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |Nessuna |
+| Set di identità del dispositivo servizi chassis SCSI (SES) |ATTIVA |Intermittenza 1 secondo accesa/1 secondo spenta |Nessuna |
 | Set bit errore dispositivo SES |ATTIVA |ATTIVA |Errore logico (rosso) |
 | Errore circuito di controllo alimentazione |DISATTIVA |ATTIVA |Errore del modulo (rosso) |
 
@@ -203,8 +203,8 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 | --- | --- | --- |
 | S0 |Modalità normale: invisibile all'utente |Doppio segnale acustico |
 | S1 |Modalità errore: 1 secondo accesa/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
-| S2 |Modalità promemoria: segnale acustico intermittente |None |
-| S3 |Modalità disattivato: invisibile all'utente |None |
+| S2 |Modalità promemoria: segnale acustico intermittente |Nessuna |
+| S3 |Modalità disattivato: invisibile all'utente |Nessuna |
 | S4 |Modalità errore critico: allarme continuo |Non disponibile: disattivazione non attiva |
 
 > [!NOTE]
@@ -218,13 +218,13 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 Nella tabella seguente vengono descritte le varie condizioni di allarme.
 
 ### <a name="alarm-conditions"></a>Condizioni di allarme
-| Stato | Gravità | Allarme | LED pannello delle operazioni |
+| Status | Gravità | Allarme | LED pannello delle operazioni |
 | --- | --- | --- | --- |
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza assente |S1 |Errore del modulo |
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Guasto ventola del PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Errore PCM rilevato dal modulo SBB |Errore |S1 |Errore del modulo |
-| PCM rimosso |Errore di configurazione |None |Errore del modulo |
+| PCM rimosso |Errore di configurazione |Nessuna |Errore del modulo |
 | Errore di configurazione dello chassis |Errore - Critico |S1 |Errore del modulo |
 | Allerta temperatura di avviso bassa |Avviso |S1 |Errore del modulo |
 | Allerta temperatura di avviso alta |Avviso |S1 |Errore del modulo |
@@ -234,10 +234,10 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Errore del controller |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB - Moduli funzionanti rimanenti non presenti |Errore - Critico |S4 |Errore del modulo |
-| Modulo interfaccia SBB rimosso |Avviso |None |Errore del modulo |
+| Modulo interfaccia SBB rimosso |Avviso |Nessuna |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Avviso - Interruzione dell'alimentazione dell’unità assente |S1 |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Errore - Critico; interruzione dell'alimentazione unità |S1 |Errore del modulo |
-| Unità rimossa |Avviso |None |Errore del modulo |
+| Unità rimossa |Avviso |Nessuna |Errore del modulo |
 | Disponibilità alimentazione insufficiente |Avviso |None |Errore del modulo |
 
 ## <a name="next-steps"></a>Passaggi successivi

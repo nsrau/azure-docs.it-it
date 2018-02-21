@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 In questa esercitazione verrà sviluppata un'applicazione console Java che esegue operazioni comuni per Azure Data Lake.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Java Development Kit (JDK) 8** con Java versione 1.8.
 * **IntelliJ** o un altro ambiente di sviluppo Java adatto. Le istruzioni in questo documento sono relative a IntelliJ.
 * Creare un'applicazione Azure Active Directory (AAD) e recuperarne **ID client**, **ID tenant** e **chiave**. Per altre informazioni sulle applicazioni AAD e le istruzioni su come ottenere un ID client, vedere [Usare il portale per creare un'applicazione di Active Directory che acceda alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md). Dopo aver creato l'applicazione e generato la chiave, anche l'URI di risposta e la chiave saranno disponibili dal portale.

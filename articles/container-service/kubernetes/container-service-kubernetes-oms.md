@@ -19,7 +19,7 @@ ms.lasthandoff: 12/06/2017
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
 
 Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azure `az` e `kubectl` siano installati.
@@ -120,5 +120,5 @@ Per proteggere l'ID dell'area di lavoro OMS e la chiave è possibile usare il se
  
   - Creare il DaemonSet dell'agente OMS eseguendo l'istruzione ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
-### <a name="conclusion"></a>Conclusione
+### <a name="conclusion"></a>Conclusioni
 L'operazione è terminata. Dopo qualche minuto dovrebbe essere visualizzato il flusso di dati verso il dashboard OMS.

@@ -40,7 +40,7 @@ Il riquadro **Eventi** nel **Centro sicurezza** mostra il numero di eventi che p
 
 Il **dashboard Eventi** offre una panoramica del numero di eventi elaborati nel tempo e un elenco di eventi.
 
- ![Dashboard][2]
+ ![dashboard][2]
 
  La parte superiore del dashboard mostra tutti gli eventi elaborati nell'ultima settimana. La parte inferiore del dashboard elenca gli eventi rilevanti e tutti gli eventi per tipo:
 
@@ -118,7 +118,7 @@ Se la riga dell'area di lavoro:
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare il dashboard Eventi nel Centro sicurezza. Per altre informazioni sul funzionamento del dashboard e su come scrivere le proprie query di eventi, vedere:
 
-- [Che cos'è Log Analytics?](../log-analytics/log-analytics-overview.md) : Panoramica di Log Analytics
+- [Che cos'è Log Analytics?](../log-analytics/log-analytics-overview.md) : panoramica di Log Analytics
 - [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search-new.md): descrive come vengono usate le ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di creare una ricerca log
 - [Guida di riferimento alla ricerca in Log Analytics](../log-analytics/log-analytics-search-reference.md): informazioni su come scrivere le query di eventi usando il linguaggio di query in Log
 

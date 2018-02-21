@@ -40,7 +40,7 @@ Nell'esempio seguente viene creato un gruppo di risorse denominato `myresourcegr
 az group create --name myresourcegroup --location westus
 ```
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Creare un database di Azure per il server MySQL
+## <a name="create-an-azure-database-for-mysql-server"></a>Creare un'istanza di Database di Azure per il server MySQL
 Creare un database di Azure per il server MySQL con il comando **[az mysql server create](/cli/azure/mysql/server#az_mysql_server_create)**. Un server può gestire più database. In genere, viene usato un database separato per ogni progetto o per ogni utente.
 
 L'esempio seguente crea un database di Azure per il server MySQL disponibile in `westus` nel gruppo di risorse `myresourcegroup` con nome `myserver4demo`. Il server ha un account di accesso amministratore chiamato `myadmin` e la password `Password01!`. Il server viene creato con livello di prestazioni **Basic** e **50** unità di calcolo condivise tra tutti i database nel server. È possibile aumentare o ridurre le capacità di calcolo e archiviazione a seconda delle esigenze dell'applicazione.

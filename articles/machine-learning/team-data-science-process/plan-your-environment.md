@@ -28,13 +28,13 @@ Quali risorse è necessario pianificare quando si configura un ambiente per l'el
 ## <a name="logistic-questions-data-locations-and-movement"></a>Logistica: percorsi dei dati e spostamento
 Le domande di logistica riguardano la posizione dell'**origine dati**, la **destinazione** in Azure e i requisiti per lo spostamento dei dati, incluse la pianificazione, la quantità e le risorse coinvolte. Potrebbe essere necessario spostare i dati più volte durante il processo di analisi. Uno scenario frequente consiste nello spostamento di dati locali in una qualche forma di archiviazione in Azure e quindi in Machine Learning Studio.
 
-1. **Qual è l'origine dati?** È locale o nel cloud? ad esempio:
+1. **Qual è l'origine dati?** È locale o nel cloud? Ad esempio: 
    
    * I dati sono disponibili a un indirizzo HTTP.
    * I dati si trovano in un percorso locale/di rete.
    * I dati si trovano in un database di SQL Server.
    * I dati sono archiviati in un contenitore di archiviazione di Azure.
-2. **Qual è la destinazione di Azure?** Quale deve essere la destinazione per l'elaborazione o la modellazione? ad esempio:
+2. **Qual è la destinazione di Azure?** Quale deve essere la destinazione per l'elaborazione o la modellazione? Ad esempio: 
    
    * Archiviazione BLOB di Azure
    * Database SQL Azure

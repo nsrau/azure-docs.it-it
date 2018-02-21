@@ -1,5 +1,5 @@
 ---
-title: Configurare Ambiente del servizio app di Azure per il tunneling forzato
+title: Configurare l'ambiente del servizio app di Azure per il tunneling forzato
 description: "Abilitare Ambiente del servizio app per i casi in cui il traffico in uscita è sottoposto a tunneling forzato"
 services: app-service
 documentationcenter: na
@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
+# <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare l'ambiente del servizio app con il tunneling forzato tramite un tunnel
 
 Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in un'istanza del cliente di Rete virtuale di Azure. Molti clienti configurano le proprie reti virtuali come estensioni delle reti locali con VPN o connessioni ExpressRoute. A causa dei criteri aziendali o di altri vincoli di sicurezza, configurano le route in modo che inviino tutto il traffico in uscita alla rete locale prima che possa passare su Internet. La modifica del routing della rete virtuale in modo che il traffico in uscita dalla rete virtuali passi alla rete locale attraverso la VPN o la connessione ExpressRoute viene chiamata tunneling forzato. 
 
@@ -30,7 +30,7 @@ Le route sono un elemento critico del tunneling forzato e del modo in cui viene 
 
 * Route definita dall'utente
 * Route BGP (quando viene utilizzato ExpressRoute)
-* Route di sistema
+* La route di sistema
 
 Per altre informazioni sul routing in una rete virtuale, vedere [Route definite dall'utente e inoltro degli indirizzi IP][routes]. 
 

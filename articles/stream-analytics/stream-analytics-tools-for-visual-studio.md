@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: sujie
 ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -35,7 +35,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 * Usare il monitoraggio per risolvere i problemi.
 * Esportare i processi esistenti nei progetti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Completare i passaggi che precedono "Creare un processo di Analisi di flusso" nell'esercitazione [Compilare una soluzione IoT con Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 

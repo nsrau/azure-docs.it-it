@@ -120,7 +120,7 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 | 2.0.0-2.x.y |False/Non specificato |200 - OK |
 | 3.0.0-3.x.y |False/Non specificato |400 - Richiesta non valida |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire la migrazione di un servizio mobile al servizio app di Azure]
 
 [Client di Servizi mobili]: #MobileServicesClients

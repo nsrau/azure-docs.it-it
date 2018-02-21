@@ -30,11 +30,11 @@ Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole di sicurezza c
 ## <a name="nsg-resource"></a>Risorsa del gruppo di sicurezza di rete
 I gruppi di sicurezza di rete contengono le proprietà seguenti:
 
-| Proprietà | Descrizione | Vincoli | Considerazioni |
+| Proprietà | DESCRIZIONE | Vincoli | Considerazioni |
 | --- | --- | --- | --- |
-| Nome |Nome per il gruppo di sicurezza di rete |Deve essere univoco nell'area.<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e trattini.<br/>Deve iniziare con una lettera o un numero.<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura.<br/>Non può superare gli 80 caratteri. |Dato che potrebbe essere necessario creare diversi gruppi di sicurezza di rete, assicurarsi di usare una convenzione di denominazione che consenta di identificarne facilmente la funzione. |
+| NOME |Nome per il gruppo di sicurezza di rete |Deve essere univoco nell'area.<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e trattini.<br/>Deve iniziare con una lettera o un numero.<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura.<br/>Non può superare gli 80 caratteri. |Dato che potrebbe essere necessario creare diversi gruppi di sicurezza di rete, assicurarsi di usare una convenzione di denominazione che consenta di identificarne facilmente la funzione. |
 | Region |[Area](https://azure.microsoft.com/regions) di Azure in cui viene creato il gruppo di sicurezza di rete. |I gruppi di sicurezza di rete possono essere associati solo a risorse nella stessa area del gruppo. |Per informazioni sul numero di gruppi di sicurezza di rete consentito per area, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md#virtual-networking-limits-classic).|
-| Resource group |[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) in cui si trova il gruppo di sicurezza di rete. |Anche se un gruppo di sicurezza di rete si trova in un gruppo di risorse, può essere associato a risorse di qualsiasi gruppo di risorse, a condizione che la risorsa faccia parte della stessa area di Azure del gruppo di sicurezza di rete. |I gruppi di risorse vengono usati per gestire insieme più risorse come un'unità di distribuzione.<br/>È possibile raggruppare il gruppo di sicurezza di rete con le risorse a cui è associato. |
+| Gruppo di risorse |[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) in cui si trova il gruppo di sicurezza di rete. |Anche se un gruppo di sicurezza di rete si trova in un gruppo di risorse, può essere associato a risorse di qualsiasi gruppo di risorse, a condizione che la risorsa faccia parte della stessa area di Azure del gruppo di sicurezza di rete. |I gruppi di risorse vengono usati per gestire insieme più risorse come un'unità di distribuzione.<br/>È possibile raggruppare il gruppo di sicurezza di rete con le risorse a cui è associato. |
 | Regole |Regole in ingresso e in uscita che definiscono il traffico consentito o rifiutato. | |Vedere la sezione [regole NSG](#Nsg-rules) di questo articolo. |
 
 > [!NOTE]
@@ -44,7 +44,7 @@ I gruppi di sicurezza di rete contengono le proprietà seguenti:
 ### <a name="nsg-rules"></a>Regole NSG
 Le regole dei gruppi di sicurezza di rete contengono le proprietà seguenti:
 
-| Proprietà | Descrizione | Vincoli | Considerazioni |
+| Proprietà | DESCRIZIONE | Vincoli | Considerazioni |
 | --- | --- | --- | --- |
 | **Nome** |Nome della regola. |Deve essere univoco nell'area.<br/>Può contenere lettere, numeri, caratteri di sottolineatura, punti e trattini.<br/>Deve iniziare con una lettera o un numero.<br/>Deve terminare con una lettera, un numero o un carattere di sottolineatura.<br/>Non può superare gli 80 caratteri. |Dato che un gruppo di sicurezza di rete potrebbe contenere più regole, assicurarsi di seguire una convenzione di denominazione che consenta di identificare la funzione della regola. |
 | **Protocollo** |Protocollo per la regola. |TCP, UDP o * |L'uso di * come protocollo include ICMP (solo traffico orizzontale destra-sinistra), oltre a TCP e UDP, e può ridurre il numero delle regole necessarie.<br/>Al tempo stesso, l'uso di * potrebbe essere un approccio troppo ampio, quindi è consigliabile usare * solo quando necessario. |
@@ -79,19 +79,19 @@ Le regole predefinite consentono o rifiutano il traffico come illustrato di segu
 
 **Regole predefinite In ingresso**
 
-| Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
+| NOME | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | CONSENTI |
 | AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | CONSENTI |
-| DenyAllInBound |65500 | * | * | * | * | * | NEGA |
+| DenyAllInBound |65500 | * | * | * | * | * | Nega |
 
 **Regole predefinite In uscita**
 
-| Nome | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
+| NOME | Priorità | IP di origine | Porta di origine | IP di destinazione | Porta di destinazione | Protocollo | Accesso |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | CONSENTI |
 | AllowInternetOutBound | 65001 | * | * | Internet | * | * | CONSENTI |
-| DenyAllOutBound | 65500 | * | * | * | * | * | NEGA |
+| DenyAllOutBound | 65500 | * | * | * | * | * | Nega |
 
 ## <a name="associating-nsgs"></a>Associazione di gruppi di sicurezza di rete
 A seconda del modello di distribuzione usato, è possibile associare un gruppo di sicurezza di rete a VM, interfacce di rete e subnet, come illustrato di seguito.
@@ -123,11 +123,11 @@ A seconda del modello di distribuzione usato, è possibile associare un gruppo d
 
 | Documentazione di distribuzione | Classico | Gestione risorse |
 | --- | --- | --- |
-| Portale di Azure   | No | [Sì](virtual-networks-create-nsg-arm-pportal.md) |
+| Portale di Azure   | No  | [Sì](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Sì](virtual-networks-create-nsg-classic-ps.md) | [Sì](virtual-networks-create-nsg-arm-ps.md) |
 | Interfaccia della riga di comando di Azure **versione 1**   | [Sì](virtual-networks-create-nsg-classic-cli.md) | [Sì](virtual-networks-create-nsg-arm-cli.md) |
-| Interfaccia della riga di comando di Azure **versione 2**   | No | [Sì](virtual-networks-create-nsg-arm-cli.md) |
-| Modello di Azure Resource Manager   | No  | [Sì](virtual-networks-create-nsg-arm-template.md) |
+| Interfaccia della riga di comando di Azure **versione 2**   | No  | [Sì](virtual-networks-create-nsg-arm-cli.md) |
+| Modello di Azure Resource Manager   | No   | [Sì](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Pianificazione
 Prima di implementare i gruppi di sicurezza di rete, è necessario rispondere alle domande seguenti:
@@ -197,26 +197,26 @@ Tutti i requisiti da 1 a 6 (tranne i requisiti 3 e 4) sono limitati agli spazi d
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-HTTP-Internet | CONSENTI | 100 | Internet | * | * | 80 | TCP |
 | Allow-Inbound-RDP-Internet | CONSENTI | 200 | Internet | * | * | 3389 | TCP |
-| Deny-Inbound-All | NEGA | 300 | Internet | * | * | * | TCP |
+| Deny-Inbound-All | Nega | 300 | Internet | * | * | * | TCP |
 
 **Regole in uscita**
 
 | Regola | Accesso | Priorità | Intervallo di indirizzi di origine | Porta di origine | Intervallo di indirizzi di destinazione | Porta di destinazione | Protocollo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All |NEGA |100 | * | * | Internet | * | * |
+| Deny-Internet-All |Nega |100 | * | * | Internet | * | * |
 
 ### <a name="backend"></a>BackEnd
 **Regole in ingresso**
 
 | Regola | Accesso | Priorità | Intervallo di indirizzi di origine | Porta di origine | Intervallo di indirizzi di destinazione | Porta di destinazione | Protocollo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | NEGA | 100 | Internet | * | * | * | * |
+| Deny-Internet-All | Nega | 100 | Internet | * | * | * | * |
 
 **Regole in uscita**
 
 | Regola | Accesso | Priorità | Intervallo di indirizzi di origine | Porta di origine | Intervallo di indirizzi di destinazione | Porta di destinazione | Protocollo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Internet-All | NEGA | 100 | * | * | Internet | * | * |
+| Deny-Internet-All | Nega | 100 | * | * | Internet | * | * |
 
 I gruppi di sicurezza di rete seguenti vengono creati e associati alle interfacce di rete in queste VM:
 
@@ -238,7 +238,7 @@ I gruppi di sicurezza di rete seguenti vengono creati e associati alle interfacc
 
 | Regola | Accesso | Priorità | Intervallo di indirizzi di origine | Porta di origine | Intervallo di indirizzi di destinazione | Porta di destinazione | Protocollo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Deny-Inbound-RDP-Internet | NEGA | 100 | Internet | * | * | 3389 | TCP |
+| Deny-Inbound-RDP-Internet | Nega | 100 | Internet | * | * | 3389 | TCP |
 | Allow-Inbound-HTTP-Internet | CONSENTI | 200 | Internet | * | * | 80 | TCP |
 
 ### <a name="db-servers-management-nic"></a>Server DB (interfaccia di rete per gestione)

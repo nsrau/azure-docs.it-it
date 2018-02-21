@@ -16,7 +16,7 @@ ms.date: 06/30/2017
 ms.author: stewu
 ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

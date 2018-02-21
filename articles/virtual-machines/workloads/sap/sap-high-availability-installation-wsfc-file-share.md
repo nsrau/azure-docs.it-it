@@ -198,7 +198,7 @@ ms.lasthandoff: 11/17/2017
 
 Questo articolo descrive la procedura di installazione e configurazione del sistema SAP a disponibilità elevata con Windows Server Failover Clustering (WSFC) usando il file server di scalabilità orizzontale come opzione per il clustering delle istanze ASCS/SCS di SAP.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare l'installazione, esaminare gli articoli seguenti:
 

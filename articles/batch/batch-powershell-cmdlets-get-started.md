@@ -29,10 +29,10 @@ Per un elenco completo di cmdlet Batch e per la sintassi dettagliata dei cmdlet,
 
 Questo articolo si basa sui cmdlet di Azure PowerShell versione 3.0.0. È consigliabile eseguire di frequente l'aggiornamento di Azure PowerShell per sfruttare i vantaggi degli aggiornamenti e miglioramenti del servizio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Eseguire queste operazioni per usare Azure PowerShell per gestire le risorse di Batch.
 
-* [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
+* [Installare e configurare Azure PowerShell](/powershell/azure/overview)
 * Eseguire il cmdlet **Login-AzureRmAccount** per connettersi alla sottoscrizione. I cmdlet di Azure Batch sono disponibili nel modulo Azure Resource Manager:
   
     `Login-AzureRmAccount`
@@ -42,11 +42,11 @@ Eseguire queste operazioni per usare Azure PowerShell per gestire le risorse di 
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gestire gli account e le chiavi Batch
 ### <a name="create-a-batch-account"></a>Creare un account Batch
-**New-AzureRmBatchAccount** crea un account Batch in un gruppo di risorse specificato. Se non si ha già un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Specificare una delle aree di Azure nel parametro **location**, ad esempio "Stati Uniti centrali". Ad esempio:
+**New-AzureRmBatchAccount** crea un account Batch in un gruppo di risorse specificato. Se non si ha già un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Specificare una delle aree di Azure nel parametro **location**, ad esempio "Stati Uniti centrali". Ad esempio: 
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Creare quindi un account Batch nel gruppo di risorse, specificando il nome dell'account in <*account_name*> e la località e il nome del gruppo di risorse. La creazione dell'account Batch può richiedere tempo. ad esempio:
+Creare quindi un account Batch nel gruppo di risorse, specificando il nome dell'account in <*account_name*> e la località e il nome del gruppo di risorse. La creazione dell'account Batch può richiedere tempo. Ad esempio: 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
@@ -75,7 +75,7 @@ Creare quindi un account Batch nel gruppo di risorse, specificando il nome dell'
 > 
 
 ### <a name="delete-a-batch-account"></a>Eliminare un account Batch
-**Remove-AzureRmBatchAccount** elimina un account Batch. ad esempio:
+**Remove-AzureRmBatchAccount** elimina un account Batch. Ad esempio: 
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
@@ -134,7 +134,7 @@ In alternativa a un filtro OData, è possibile usare il parametro **Id** . Per e
 Il parametro **Id** supporta solo la ricerca di ID completi, senza caratteri jolly o filtri di tipo OData.
 
 ### <a name="use-the-maxcount-parameter"></a>Usare il parametro MaxCount
-Per impostazione predefinita, ogni cmdlet restituisce un massimo di 1000 oggetti. Se si raggiunge questo limite, perfezionare il filtro in modo da restituire meno oggetti o impostare esplicitamente un limite massimo tramite il parametro **MaxCount** . ad esempio:
+Per impostazione predefinita, ogni cmdlet restituisce un massimo di 1000 oggetti. Se si raggiunge questo limite, perfezionare il filtro in modo da restituire meno oggetti o impostare esplicitamente un limite massimo tramite il parametro **MaxCount** . Ad esempio: 
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 

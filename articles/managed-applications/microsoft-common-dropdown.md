@@ -25,7 +25,7 @@ Controllo di selezione con elenco a discesa. Usare questo elemento quando si [cr
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

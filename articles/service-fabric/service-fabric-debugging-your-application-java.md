@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: suhuruli;mikhegn
 ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

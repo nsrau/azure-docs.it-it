@@ -44,7 +44,7 @@ Per altre informazioni sulle metriche specifiche e gli eventi che Monitoraggio d
 
 Monitoraggio di Azure tiene traccia delle diverse operazioni che si verificano nell'hub IoT. Ogni categoria dispone di uno schema che definisce la modalità in cui vengono segnalati gli eventi in tale categoria. 
 
-#### <a name="connections"></a>Connessioni
+#### <a name="connections"></a>connessioni
 
 La categoria Connessioni tiene traccia degli errori che si verificano quando i dispositivi si connettono o disconnettono da un hub IoT. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
 

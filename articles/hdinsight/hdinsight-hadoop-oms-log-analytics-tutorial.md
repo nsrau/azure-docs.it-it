@@ -27,14 +27,14 @@ Informazioni su come usare Azure Log Analytics per monitorare le operazioni del 
 
 [Log Analytics](../log-analytics/log-analytics-overview.md) è un servizio di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) che consente di monitorare gli ambienti cloud e locali per garantirne la disponibilità e le prestazioni. Raccoglie i dati generati dalle risorse negli ambienti cloud e locali e da altri strumenti di monitoraggio per analizzare più origini. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Una sottoscrizione di Azure**. Prima di iniziare questa esercitazione, è necessario disporre di un abbonamento ad Azure. Vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/free).
 
 * **Un cluster HDInsight di Azure**. Attualmente, è possibile usare Azure Operations Management Suite con i tipi di cluster HDInsight seguenti:
 
     * Hadoop
-    * HBase
+    * hbase
     * Interactive Query
     * Kafka
     * Spark

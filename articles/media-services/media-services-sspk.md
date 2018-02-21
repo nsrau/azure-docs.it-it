@@ -28,7 +28,7 @@ Di seguito è riportata un'architettura di alto livello che include la casella I
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Descrizione
+## <a name="description"></a>DESCRIZIONE
 SSPK è concesso in licenza a condizioni che offrono un valore aziendale eccellente. La licenza SSPK offre al settore:
 
 * Codice sorgente di Smooth Streaming Porting Kit in C++ 

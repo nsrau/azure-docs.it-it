@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Il pannello **Processi** fornisce un unico portale centralizzato per la visualizzazione e la gestione dei processi avviati sugli array virtuali connessi al servizio Gestione dispositivi StorSimple. È possibile visualizzare i processi in esecuzione, completati e non riusciti per più dispositivi virtuali. I risultati vengono presentati in un formato tabulare.
 
 ![Pannello Processi](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)

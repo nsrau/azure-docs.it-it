@@ -36,7 +36,7 @@ Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Anc
 | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |
 | ReplicaCount |0 |1 |1 |
-| Numero |1 |1 |1 |
+| Conteggio |1 |1 |1 |
 
 Per i carichi di lavoro di base, le metriche predefinite forniscono una distribuzione ragionevole del lavoro nel cluster. L'esempio seguente illustra che cosa accade quando si creano due servizi e ci si affida alle metriche predefinite per il bilanciamento. Il primo è un servizio con stato con tre partizioni e dimensioni del set di repliche di destinazione pari a tre. Il secondo è un servizio senza stato con una partizione e un numero di istanze pari a tre.
 
@@ -141,7 +141,7 @@ Promemoria: se si vogliono usare solo le metriche predefinite, non è necessario
 Di seguito ognuna di queste impostazioni viene esaminata in modo più dettagliato; viene inoltre descritto il comportamento sul quale essa agisce.
 
 ## <a name="load"></a>Caricamento
-La definizione di metriche consiste essenzialmente nella rappresentazione di un carico. Il *carico* è la quantità di una determinata metrica che viene consumata da una replica o un'istanza del servizio in un nodo specifico. Il carico può essere configurato in qualsiasi momento, ad esempio:
+La definizione di metriche consiste essenzialmente nella rappresentazione di un carico. Il *carico* è la quantità di una determinata metrica che viene consumata da una replica o un'istanza del servizio in un nodo specifico. Il carico può essere configurato in qualsiasi momento, Ad esempio: 
 
   - Può essere definito quando viene creato un servizio. Si tratta in questo caso del _carico predefinito_.
   - Le informazioni sulla metrica, inclusi i carichi predefiniti per un servizio possono essere aggiornati dopo aver creato il servizio. Si tratta in questo caso di _aggiornamento di un servizio_. 

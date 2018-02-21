@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: anvang
 ms.openlocfilehash: ed26c2b386e08b76f78b4a05e12c46d2b97c20f2
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

@@ -33,7 +33,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cavi
-| Numero di serie | Casa automobilistica | Modello |
+| Numero di serie | Assicurarsi | Modello |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -41,7 +41,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Switch
-| Numero di serie | Casa automobilistica | Modello |
+| Numero di serie | Assicurarsi | Modello |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -69,7 +69,7 @@ Mellanox ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cavi e moduli supportati da Mellanox
 Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero di serie | Velocità | Modello | Descrizione | Assicurarsi |
+| Numero di serie | speed | Modello | DESCRIZIONE | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |Cavo in rame passivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |Cavo in rame passivo SFP+ 10 Gb/s 2 m |Arista |
@@ -110,7 +110,7 @@ Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. N
 ### <a name="switches-supported-by-mellanox"></a>Switch supportati da Mellanox
 Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| Numero di serie | Velocità | Modello | Descrizione | Assicurarsi |
+| Numero di serie | speed | Modello | DESCRIZIONE | Assicurarsi |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |Switch blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10GbE |538113-B21 |Modulo pass-through (PTM) HP 10GbE |HP |

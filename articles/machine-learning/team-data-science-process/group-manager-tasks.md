@@ -28,7 +28,7 @@ Il **responsabile del gruppo** è il responsabile dell'intera unità di data sci
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente per il gruppo TDSP usando VSTS. Viene specificato come eseguire queste attività con VSTS perché questa è la modalità di implementazione di TDSP in Microsoft. Se per il proprio gruppo viene usata un'altra piattaforma di hosting di codice, le attività che devono essere completate dal responsabile del gruppo in genere non cambiano, ma sarà diverso il modo in cui queste attività vengono completate.
+>[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente per il gruppo TDSP usando VSTS. Viene specificato come eseguire queste attività con VSTS dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se per il proprio gruppo viene usata un'altra piattaforma di hosting di codice, le attività che devono essere completate dal responsabile del gruppo in genere non cambiano, ma sarà diverso il modo in cui queste attività vengono completate.
 
 1. Configurare il **server Visual Studio Team Services (VSTS)** per il gruppo.
 2. Creare un **progetto team di gruppo** nel server Visual Studio Team Services (per gli utenti VSTS)

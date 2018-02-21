@@ -27,9 +27,9 @@ Le dimensioni predefinite del disco rigido virtuale per il sistema operativo son
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
 - [Interfaccia della riga di comando di Azure 1.0](#prerequisites): l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](expand-disks.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- [Interfaccia della riga di comando di Azure 2.0](expand-disks.md): interfaccia avanzata per il modello di distribuzione di gestione delle risorse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È necessario installare l'[interfaccia della riga di comando 1.0 di Azure più recente](../../cli-install-nodejs.md) e accedere a un [account di Azure](https://azure.microsoft.com/pricing/free-trial/) usando la modalità di Resource Manager nel modo seguente:
 
 ```azurecli

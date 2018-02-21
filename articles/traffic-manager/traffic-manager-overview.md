@@ -104,7 +104,7 @@ Il servizio DNS ricorsivo memorizza nella cache le risposte DNS ricevute. Il res
 
 Per informazioni sui prezzi, vedere [Prezzi per Gestione traffico](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 Per le domande frequenti su Gestione traffico, vedere le [domande frequenti su Gestione traffico](traffic-manager-FAQs.md)
 

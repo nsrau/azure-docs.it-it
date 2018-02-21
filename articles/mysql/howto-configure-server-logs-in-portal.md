@@ -17,9 +17,9 @@ ms.lasthandoff: 10/20/2017
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 
-È possibile configurare, elencare e scaricare i [log del server nel Database di Azure per MySQL](concepts-server-logs.md) dal portale di Azure.
+È possibile configurare, elencare e scaricare i [log del server di Database di Azure per PostgreSQL](concepts-server-logs.md) dal portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per proseguire con questa guida, si richiedono:
 - [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -56,7 +56,7 @@ Quando inizia la registrazione, è possibile visualizzare un elenco di log dispo
 
 2. Selezionare il server del Database di Azure per MySQL.
 
-3. Nella sezione **Monitoraggio** nella barra laterale selezionare **Log del server**. Nella pagina viene visualizzato un elenco di file di log, come illustrato:
+3. Nella sezione **Monitoraggio** della barra laterale selezionare **Log del server**. Nella pagina viene visualizzato un elenco di file di log, come illustrato:
 
    ![Elenco di log](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 

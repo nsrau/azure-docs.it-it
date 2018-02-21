@@ -30,7 +30,7 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + Verificare che nella sottoscrizione sia disponibile un'app per le funzioni. Per altre informazioni, vedere [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
@@ -54,7 +54,7 @@ In questo articolo viene spiegato come:
 
     * **Starter**
     * **Illimitato**   
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 

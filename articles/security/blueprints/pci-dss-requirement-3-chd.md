@@ -73,7 +73,7 @@ I dati di autenticazione sensibili includono i dati con le caratteristiche citat
 > Per le normali attività aziendali, potrebbe essere necessario conservare gli elementi dati seguenti dalla banda magnetica: 
 > - Nome del titolare 
 > - Numero della carta (PAN, Primary Account Number) 
-> - Data di scadenza 
+> - Expiration date 
 > - Codice di servizio 
 >
 > Per contenere i rischi, archiviare solo gli elementi dati necessari per l'attività.

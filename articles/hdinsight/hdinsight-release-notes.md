@@ -18,7 +18,7 @@ ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ Questo articolo include informazioni sugli aggiornamenti di versione di Azure HD
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Note per la versione di HDInsight rilasciata in data 01/08/2017
 
-| Titolo | DESCRIZIONE | Area interessata  | Tipo di cluster  | 
+| Title | DESCRIZIONE | Area interessata  | Tipo di cluster  | 
 | --- | --- | --- | --- | --- |
 | Versione di Microsoft R Server 9.1 in HDInsight |HDInsight supporta ora il provisioning dei cluster R Server 9.1 in HDInsight. Per altre informazioni sulla versione di Microsoft R Server 9.1, vedere [questo blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Service |R Server |
 | HDInsight 3.6 include ora le versioni più recenti dello stack di Hadoop|<ul><li>Per un elenco dettagliato delle versioni aggiornate, vedere [Componenti di Hadoop disponibili con diverse versioni di HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>Per un elenco di bug risolti nelle versioni più recenti dello stack di Hadoop, vedere la pagina relativa alle [informazioni delle patch Apache](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Per un elenco delle modifiche importanti in HDP 2.6.1 (ora disponibile in HDInsight 3.6), vedere [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>Per un elenco dei problemi noti di HDP 2.6.1, vedere la pagina relativa ai [problemi noti](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Service |Tutti |N/D |

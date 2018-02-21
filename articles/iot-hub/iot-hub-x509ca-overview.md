@@ -16,7 +16,7 @@ ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -81,7 +81,7 @@ Una connessione riuscita del dispositivo all'hub IoT completa il processo di aut
 
 Informazioni su come [completare questo passaggio di connessione del dispositivo](iot-hub-security-x509-get-started.md#authenticatedevice).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni sul [significato dell'autenticazione con il certificato della CA X.509](iot-hub-x509ca-concept.md) in IoT.
 

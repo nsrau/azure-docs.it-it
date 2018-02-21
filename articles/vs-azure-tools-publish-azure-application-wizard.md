@@ -40,7 +40,7 @@ Un'applicazione Web sviluppata in Visual Studio può essere pubblicata in un ser
 
 **Se si dispone di un progetto applicazione Web non abilitato per Azure:**
 
-1. Creare o aprire un progetto servizio cloud di Azure in Visual Studio.
+1. Creare o aprire un progetto del servizio cloud di Azure in Visual Studio.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Converti** > **Converti in progetto servizio cloud di Azure** dal menu di scelta rapida. 
 
@@ -102,7 +102,7 @@ La diagnostica consente di risolvere i problemi relativi a un servizio cloud di 
 
 ## <a name="summary-page"></a>Pagina Riepilogo
 
-![Riepilogo](./media/vs-azure-tools-publish-azure-application-wizard/summary.png)
+![Summary](./media/vs-azure-tools-publish-azure-application-wizard/summary.png)
 
 **Profilo di destinazione** - È possibile scegliere di creare un profilo di pubblicazione dalle impostazioni scelte. È ad esempio possibile creare un profilo per un ambiente di test e un altro per l'ambiente di produzione. Per salvare il profilo, fare clic sull'icona **Salva** . La procedura guidata crea e salva il profilo nel progetto Visual Studio. Per modificare il nome del profilo, aprire l'elenco **Profilo di destinazione**, quindi scegliere **<Gestisci…>**.
    

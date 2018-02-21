@@ -64,7 +64,7 @@ I nomi specificati per i repository e le directory in questa esercitazione sono 
 I responsabili dei team devono, in ogni caso, indicare ai membri dei rispettivi team quali repository di modelli e di utilità adottare quando configurano e clonano i repository del progetto e delle utilità. I responsabili di progetto devono eseguire le [attività di responsabile di progetto per un team di data science](project-lead-tasks.md) per creare i repository del progetto, indipendentemente che si sia scelto di usare progetti team separati o un progetto team singolo. 
 
 
-## <a name="0-prerequisites"></a>0. Prerequisiti
+## <a name="0-prerequisites"></a>0. prerequisiti
 
 I prerequisiti vengono soddisfatti completando le attività assegnate al responsabile del gruppo delineate in [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md). Di seguito vengono riepilogati i prerequisiti che è necessario soddisfare prima di iniziare le attività di responsabile del team: 
 

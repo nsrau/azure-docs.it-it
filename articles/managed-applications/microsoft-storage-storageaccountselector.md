@@ -25,7 +25,7 @@ Controllo per la selezione di un account di archiviazione nuovo o esistente. Usa
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

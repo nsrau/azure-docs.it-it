@@ -32,7 +32,7 @@ Una soluzione di ripristino di emergenza valida deve consentire la modellazione 
 Questo documento fornisce indicazioni dettagliate per la creazione di una soluzione di ripristino di emergenza per le distribuzioni Citrix XenApp locali in piattaforme Hyper-V e VMware vSphere. Questo documento illustra anche come eseguire un failover di test (esercitazione per il ripristino di emergenza) e un failover non pianificato in Azure usando piani di ripristino, configurazioni supportate e prerequisiti.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 

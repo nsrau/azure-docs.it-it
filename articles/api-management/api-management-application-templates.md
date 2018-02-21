@@ -76,11 +76,11 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Tipo|Descrizione|  
+|Proprietà|type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |Paging|Entità [Paging](api-management-template-data-model-reference.md#Paging).|Le informazioni di paging per la raccolta di applicazioni.|  
-|Applicazioni|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni visibili all'utente corrente.|  
-|CategoryName|string|La categoria dell'applicazione.|  
+|APPLICAZIONI|Raccolta di entità [Applicazione](api-management-template-data-model-reference.md#Application).|Le applicazioni visibili all'utente corrente.|  
+|CategoryName|stringa|La categoria dell'applicazione.|  
   
 ### <a name="sample-template-data"></a>Dati del modello di esempio  
   
@@ -220,4 +220,4 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).

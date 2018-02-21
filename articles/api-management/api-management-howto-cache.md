@@ -33,7 +33,7 @@ Contenuto dell'esercitazione:
 > * Aggiungere la memorizzazione delle risposte nella cache per l'API
 > * Verificare il funzionamento della memorizzazione nella cache
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -76,7 +76,7 @@ Per vedere il funzionamento della memorizzazione nella cache, chiamare l'operazi
 3. Selezionare l'API a cui sono stati aggiunti i criteri di memorizzazione nella cache.
 4. Selezionare l'operazione **GetSpeakers**.
 5. Fare clic sulla scheda **Test** nel menu in alto a destra.
-6. Premere **Invia**.
+6. Fare clic su **Invia**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sui criteri di caching, vedere [Caching policies][Caching policies] (Criteri di caching) nell'argomento [API Management policy reference][API Management policy reference] (Riferimento ai criteri di Gestione API).

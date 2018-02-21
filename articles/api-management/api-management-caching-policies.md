@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
-Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CachingPolicies"></a> Criteri di memorizzazione nella cache  
   
@@ -103,26 +103,26 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |cache-lookup|Elemento radice.|Sì|  
-|vary-by-header|Avviare la memorizzazione delle risposte nella cache per ogni valore dell'intestazione specificata, come ad esempio Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host e If-Match.|No|  
-|vary-by-query-parameter|Avvia risposte di memorizzazione nella cache per ogni valore dei parametri di query specificati. Immettere un singolo parametro o più parametri. Usare un punto e virgola (;) come separatore. Se non è specificato alcun nome, verranno usati tutti i parametri di query.|No|  
+|vary-by-header|Avviare la memorizzazione delle risposte nella cache per ogni valore dell'intestazione specificata, come ad esempio Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host e If-Match.|No |  
+|vary-by-query-parameter|Avvia risposte di memorizzazione nella cache per ogni valore dei parametri di query specificati. Immettere un singolo parametro o più parametri. Usare un punto e virgola (;) come separatore. Se non è specificato alcun nome, verranno usati tutti i parametri di query.|No |  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.|No|false|  
-|downstream-caching-type|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.|No|nessuno|  
-|must-revalidate|Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.|No|true|  
+|allow-private-response-caching|Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.|No |false|  
+|downstream-caching-type|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.|No |Nessuno|  
+|must-revalidate|Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.|No |true|  
 |vary-by-developer|Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.|Sì||  
 |vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|Sì||  
   
-### <a name="usage"></a>Utilizzo  
+### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
--   **Sezioni del criterio:** in ingresso  
+-   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** API, operazione, prodotto  
   
 ##  <a name="StoreToCache"></a> Archivia nella cache  
@@ -181,13 +181,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |cache-store|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |duration|Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.|Sì|N/D|  
   
@@ -223,15 +223,15 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |cache-lookup-value|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|default-value|Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.|No|`null`|  
+|default-value|Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.|No |`null`|  
 |key|Valore della chiave della cache da usare nella ricerca.|Sì|N/D|  
 |variable-name|Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.|Sì|N/D|  
   
@@ -265,13 +265,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |cache-store-value|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |duration|Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.|Sì|N/D|  
 |key|La chiave della cache in cui verrà archiviato il valore.|Sì|N/D|  
@@ -304,17 +304,17 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 #### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |cache-remove-value|Elemento radice.|Sì|  
   
 #### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |key|La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.|Sì|N/D|  
   
-#### <a name="usage"></a>Utilizzo  
+#### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
@@ -325,6 +325,6 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

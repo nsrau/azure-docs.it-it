@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

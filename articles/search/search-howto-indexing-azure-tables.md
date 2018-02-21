@@ -27,7 +27,7 @@ In questo articolo viene illustrato come usare Ricerca di Azure per indicizzare 
 
 È possibile configurare un indicizzatore dell'Archiviazione tabelle di Azure mediante queste risorse:
 
-* [Portale di Azure](https://ms.portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) Ricerca di Azure
 * [.NET SDK](https://aka.ms/search-sdk) Ricerca di Azure
 

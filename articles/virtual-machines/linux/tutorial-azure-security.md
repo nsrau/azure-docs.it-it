@@ -42,7 +42,7 @@ Per accedere al dashboard del Centro sicurezza, nel portale di Azure selezionare
 
 Il Centro sicurezza va oltre l'individuazione dei dati per offrire raccomandazioni sui problemi rilevati. Ad esempio, se una macchina virtuale è stata distribuita senza un gruppo di sicurezza di rete collegato, il Centro sicurezza consente di visualizzare una raccomandazione, con una procedura di correzione da eseguire. Offre la correzione automatica senza lasciare il contesto del Centro sicurezza.  
 
-![Consigli](./media/tutorial-azure-security/recommendations.png)
+![Raccomandazioni](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurare la raccolta dei dati
 
@@ -110,7 +110,7 @@ Per visualizzare un elenco di tutte le raccomandazioni:
 
 Il Centro sicurezza offre in molti casi le procedure pratiche per applicare una raccomandazione senza uscire dal Centro sicurezza. Nell'esempio seguente il Centro sicurezza rileva un gruppo di sicurezza di rete che dispone di una regola in entrata senza restrizioni. Nella pagina di raccomandazione è possibile selezionare il pulsante **Modifica le regole in ingresso**. Viene visualizzata l'interfaccia utente necessaria per modificare la regola. 
 
-![Consigli](./media/tutorial-azure-security/remediation.png)
+![Raccomandazioni](./media/tutorial-azure-security/remediation.png)
 
 Le raccomandazioni risolte vengono contrassegnate come tali. 
 
@@ -139,7 +139,7 @@ Selezionare un avviso per visualizzare le informazioni. Ad esempio, è possibile
 In questa esercitazione viene configurato il Centro sicurezza di Azure e vengono quindi esaminate le macchine virtuali nel Centro sicurezza. Si è appreso come:
 
 > [!div class="checklist"]
-> * configurare la raccolta dei dati
+> * Configurare la raccolta dei dati
 > * configurare i criteri di sicurezza
 > * visualizzare e risolvere i problemi di integrità della configurazione
 > * Esaminare le minacce rilevate

@@ -90,7 +90,7 @@ Mostra la velocità di push corrente dell'applicazione e consente di definire la
 ## <a name="commercial-pressure"></a>Pressione commerciale
 ![settings12][57]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Concetti][Link 6]
 * [Guida alla risoluzione dei problemi - Assistenza][Link 24]
 

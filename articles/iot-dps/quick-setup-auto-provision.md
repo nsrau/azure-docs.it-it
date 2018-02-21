@@ -25,7 +25,7 @@ Questa procedura illustra come configurare le risorse cloud di Azure nel portale
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 

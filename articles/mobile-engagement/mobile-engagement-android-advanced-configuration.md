@@ -16,7 +16,7 @@ ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 Questa procedura descrive come configurare le diverse opzioni di configurazione per le app Android di Azure Mobile Engagement.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="permission-requirements"></a>Requisiti di autorizzazione

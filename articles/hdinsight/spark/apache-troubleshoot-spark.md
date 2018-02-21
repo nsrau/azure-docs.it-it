@@ -229,5 +229,5 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
 
 
 ### <a name="see-also"></a>Vedere anche
-[Risolvere i problemi tramite Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+[Risolvere i problemi usando Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
 

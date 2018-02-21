@@ -52,7 +52,7 @@ Scaricare i due esempi seguenti:
 
 -   [Vista in OMS dei log di sincronizzazione dati](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Assicurarsi di avere configurato quanto segue:
 
@@ -74,9 +74,9 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
 3.  Selezionare **Importare un runbook esistente**.
 
-4.  In **File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
+4.  In **	File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
 
-5.  Selezionare **Crea**. È ora disponibile un runbook.
+5.  Selezionare **Create**. È ora disponibile un runbook.
 
 6.  In Account di Automazione di Azure selezionare la scheda**Variabili** in Risorse condivise.
 
@@ -114,7 +114,7 @@ Per pianificare il runbook:
 
 5.  Impostare **Ricorrenza** su Ricorrente e impostare l'intervallo desiderato. Usare lo stesso intervallo qui, nello script e in OMS.
 
-6.  Selezionare **Crea**.
+6.  Selezionare **Create**.
 
 ### <a name="check-the-automation"></a>Controllare l'automazione
 
@@ -126,7 +126,7 @@ Per creare un avviso che usa Log Analytics di OMS, eseguire le operazioni seguen
 
 1.  Nel portale di OMS selezionare **Ricerca log**.
 
-2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. ad esempio:
+2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio: 
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -140,7 +140,7 @@ Per creare un avviso che usa Log Analytics di OMS, eseguire le operazioni seguen
 
 5.  In **Azioni** impostare **Notifica di posta elettronica** su "Sì". Immettere i destinatari di posta elettronica desiderati.
 
-6.  Fare clic su **Salva**. I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
+6.  Fare clic su **Save**. I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
 
 ## <a name="create-an-oms-view-for-monitoring"></a>Creare una vista di OMS per il monitoraggio
 

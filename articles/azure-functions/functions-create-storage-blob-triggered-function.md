@@ -28,7 +28,7 @@ Informazioni su come creare una funzione attivata nel momento in cui vengono car
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Scaricare e installare [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 + Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.

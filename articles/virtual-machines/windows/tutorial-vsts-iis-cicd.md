@@ -33,7 +33,7 @@ Per automatizzare le fasi di compilazione, test e distribuzione dello sviluppo d
 > * creare una versione di definizione per pubblicare nuovi pacchetti di distribuzione in IIS
 > * Testare la pipeline CI/CD
 
-Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installare il modulo di Azure PowerShell).
+Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="create-project-in-team-services"></a>Creare un progetto in Team Services

@@ -44,7 +44,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 7. Elimina la destinazione del buffer circolare, per rilasciare le relative risorse.
 8. Elimina la sessione dell'evento e la tabella dimostrativa.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account e una sottoscrizione di Azure. È possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Qualsiasi database in cui è possibile creare una tabella.
@@ -58,7 +58,7 @@ In questo argomento viene presentato un esempio di codice Transact-SQL che:
 
 ## <a name="code-sample"></a>Esempio di codice
 
-Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. ad esempio:
+Con alcune lievi modifiche, è possibile eseguire il seguente esempio di codice di buffer circolare nel database SQL di Azure o in Microsoft SQL Server. La differenza è la presenza del nodo '_database' nel nome di alcune viste a gestione dinamica (DMV) nella clausola FROM nel passaggio 5. Ad esempio: 
 
 * sys.dm_xe**_database**_session_targets
 * sys.dm_xe_session_targets

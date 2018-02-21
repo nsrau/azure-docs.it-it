@@ -62,7 +62,7 @@ Se si usano i comandi `azure hdinsight job` per inviare processi al cluster HDIn
 
 Per informazioni su altri modi per eseguire MapReduce, Hive e Pig in modo interattivo, vedere [Usare MapReduce con Hadoop in HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usare Hive con Hadoop in HDInsight](hadoop/hdinsight-use-hive.md) e [Usare Pig con Hadoop in HDInsight](hadoop/hdinsight-use-pig.md).
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 **Creazione di un cluster**
 
 * Comando precedente (ASM): `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
@@ -152,7 +152,7 @@ Per altre informazioni sull'utilizzo, vedere [Personalizzare cluster HDInsight b
 
 * **Add-AzureRmHDInsightClusterIdentity**: aggiunge un'identità del cluster a un oggetto di configurazione del cluster per consentire al cluster HDInsight di accedere ad archivi Azure Data Lake. Vedere [Creare un cluster HDInsight con Archivio Data Lake tramite Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 **Creare cluster**
 
 Comando precedente (ASM): 
@@ -248,7 +248,7 @@ Questa sezione include i puntatori ad altre informazioni relative all'esecuzione
 | Trovare l'account di archiviazione predefinito per i cluster HDInsight con .NET SDK |Vedere la sezione su come trovare l'account di archiviazione predefinito in [Gestire cluster Hadoop in HDInsight tramite .NET SDK](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | Eliminare cluster HDInsight con .NET SDK |Vedere la sezione su come eliminare cluster in [Gestire cluster Hadoop in HDInsight tramite .NET SDK](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 Di seguito sono riportati alcuni esempi sulla modalità di esecuzione di un'operazione con l'SDK basato su ASM e il frammento di codice equivalente per l'SDK basato su ARM.
 
 **Creazione di un client CRUD del cluster**

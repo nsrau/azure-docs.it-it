@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---

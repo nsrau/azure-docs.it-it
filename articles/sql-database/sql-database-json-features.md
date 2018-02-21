@@ -28,7 +28,7 @@ JSON è un formato di dati diffuso usato per scambiare dati nelle moderne applic
 
 Il database SQL di Azure consente di lavorare facilmente con dati JSON e integrare il database con i servizi moderni.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Il database SQL di Azure fornisce le funzioni seguenti per lavorare con i dati JSON:
 
 ![Funzioni di JSON](./media/sql-database-json-features/image_1.png)
@@ -134,7 +134,7 @@ I dati JSON usati in questo esempio vengono rappresentati con il tipo NVARCHAR(M
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Qualsiasi lingua o raccolta client-side compatibile con i dati della stringa nel database SQL di Azure è compatibile anche con i dati JSON. I dati JSON possono essere archiviati in qualsiasi tabella che supporta il tipo NVARCHAR, ad esempio una tabella con ottimizzazione per la memoria o una tabella con controllo delle versioni del sistema. Il formato JSON non introduce alcun vincolo nel codice lato client o nel livello di database.
+Qualsiasi lingua o raccolta client-side compatibile con i dati della stringa nel database SQL di Azure è compatibile anche con i dati JSON. I dati JSON possono essere archiviati in qualsiasi tabella che supporta il tipo NVARCHAR, ad esempio una tabella ottimizzata per la memoria o una tabella con controllo delle versioni del sistema. Il formato JSON non introduce alcun vincolo nel codice lato client o nel livello di database.
 
 ## <a name="querying-json-data"></a>Query sui dati JSON
 Se si dispone di dati formattati come JSON archiviati in tabelle SQL di Azure, le funzioni JSON consentono di usare i dati in qualsiasi query SQL.

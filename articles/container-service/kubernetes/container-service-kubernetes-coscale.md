@@ -31,7 +31,7 @@ CoScale è una piattaforma di monitoraggio che raccoglie metriche ed eventi da t
 Come illustrato in questo articolo, è possibile installare gli agenti in un cluster Kubernetes per eseguire CoScale come soluzione SaaS. Se si vogliono conservare i dati in sede, CoScale è disponibile anche per le installazioni locali.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 È prima di tutto necessario [creare un account CoScale](https://www.coscale.com/free-trial).
 

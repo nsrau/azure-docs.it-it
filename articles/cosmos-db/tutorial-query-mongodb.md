@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

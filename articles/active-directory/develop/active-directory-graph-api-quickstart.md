@@ -18,7 +18,7 @@ ms.author: viviali
 ms.custom: aaddev
 ms.openlocfilehash: 2dc65598dd9a73e24a2f961027554bb10b961397
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

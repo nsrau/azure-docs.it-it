@@ -43,7 +43,7 @@ Il ripristino di emergenza viene gestito tramite la funzionalità di failover de
 
 ## <a name="prerequisites-for-device-failover"></a>Prerequisiti per il failover del dispositivo
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti seguenti:
 

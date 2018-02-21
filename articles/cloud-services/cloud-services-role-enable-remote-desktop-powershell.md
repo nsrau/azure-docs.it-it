@@ -16,7 +16,7 @@ ms.date: 07/18/2017
 ms.author: adegeo
 ms.openlocfilehash: ab99eaa10d232e244b17325188e83128c651caf6
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

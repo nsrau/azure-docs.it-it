@@ -30,7 +30,7 @@ Per altre informazioni sul failover del dispositivo e su come usarlo per il ripr
 
 Per effettuare il failover di un dispositivo fisico StorSimple su un altro dispositivo fisico, vedere [Fail over to a StorSimple physical device](storsimple-8000-device-failover-physical-device.md) (Failover su un dispositivo fisico StorSimple). Per eseguire il failover di un dispositivo su se stesso, passare a [Eseguire il failover sullo stesso dispositivo fisico StorSimple](storsimple-8000-device-failover-same-device.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Assicurarsi di aver esaminato le considerazioni relative al failover dei dispositivi. Per altre informazioni, vedere [Common considerations for device failover](storsimple-8000-device-failover-disaster-recovery.md) (Considerazioni comuni per il failover dei dispositivi).
 

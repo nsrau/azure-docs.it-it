@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
 * Un [account di archiviazione BLOB di Azure](../articles/storage/common/storage-create-storage-account.md), inclusi il nome dell'account di archiviazione e la relativa chiave di accesso. Queste informazioni sono riportate nelle proprietà dell'account di archiviazione nel portale di Azure. Altre informazioni sull'[archiviazione di Azure](../articles/storage/common/storage-introduction.md).
 

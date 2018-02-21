@@ -33,7 +33,7 @@ I commenti e suggerimenti inviati seriamente verranno presi in considerazione. S
 
 Il codice completo per questa esercitazione è disponibile su GitHub [qui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario aver già completato queste esercitazioni su Servizi mobili:
 
 * [Introduzione ad Hub di notifica]<br/>Creare il proprio hub di notifica, riservare il nome dell'app e registrarsi per ricevere le notifiche in questa esercitazione. In questa esercitazione si presuppone che siano già stati completati questi passaggi. In caso contrario, attenersi alla procedura riportata in [Introduzione ad Hub di notifica (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), con particolare riferimento alle sezioni [Registrare l'app di Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) e [Configurare l'hub di notifica](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). In particolare, assicurarsi di avere immesso i valori **SID pacchetto** e **Chiave privata client** nel portale, nella scheda **Configura** per l'hub di notifica. Questa procedura di configurazione è descritta nella sezione [Configurazione dell'hub di notifica](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Questo passaggio è importante: se le credenziali sul portale non corrispondono a quelle specificate per il nome di app scelto, la notifica push non riuscirà.
@@ -119,7 +119,7 @@ In questa sezione viene aggiornato il codice nel progetto completato per l’ese
         using Windows.Networking.PushNotifications;
         using Windows.UI.Popups;
         using System.Threading.Tasks;
-12. In **MainPage.xaml.cs**, per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)**, aggiungere il seguente membro alla classe `MainPage`. Assicurarsi di sostituire `<Enter Your Backend Endpoint>` con l'endpoint back-end effettivo ottenuto in precedenza: ad esempio `http://mybackend.azurewebsites.net`.
+12. In **MainPage.xaml.cs**, per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)**, aggiungere il seguente membro alla classe `MainPage`. Assicurarsi di sostituire `<Enter Your Backend Endpoint>` con l'endpoint back-end effettivo ottenuto in precedenza: Ad esempio, `http://mybackend.azurewebsites.net`.
     
         private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 13. Aggiungere il codice seguente alla classe MainPage in **MainPage.xaml.cs** per i progetti **(Windows 8.1)** e **(Windows Phone 8.1)**.

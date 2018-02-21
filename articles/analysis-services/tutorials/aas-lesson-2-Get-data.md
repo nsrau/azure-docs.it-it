@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2018
 ---
-# <a name="get-data"></a>Recupera dati
+# <a name="get-data"></a>Ottenere i dati
 
 In questa lezione si usa la funzionalità Recupera dati in SSDT per connettersi al database di esempio Adventure Works, selezionare i dati, visualizzarli in anteprima e filtrarli, quindi importarli nell'area di lavoro del modello.  
   
@@ -32,7 +32,7 @@ Con Recupera dati è possibile importare dati da un'ampia gamma di origini: data
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 1: Creare un nuovo progetto di modello tabulare](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Creare una connessione  

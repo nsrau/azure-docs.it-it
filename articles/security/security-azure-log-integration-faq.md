@@ -38,7 +38,7 @@ Eseguire il comando **azlog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>Come è possibile stabilire da quale sottoscrizione provengono i log di integrazione dei log di Azure?
 
-Nel caso dei log di controllo presenti nella directory **AzureResourcemanagerJson**, l'ID della sottoscrizione è il nome del file di log. Questo vale anche per i log nella cartella **AzureSecurityCenterJson**. ad esempio:
+Nel caso dei log di controllo presenti nella directory **AzureResourcemanagerJson**, l'ID della sottoscrizione è il nome del file di log. Questo vale anche per i log nella cartella **AzureSecurityCenterJson**. Ad esempio: 
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -75,14 +75,14 @@ L'XML dell'evento include i metadati seguenti, compreso l'ID sottoscrizione:
 
 ## <a name="error-messages"></a>messaggi di errore
 ### <a name="when-i-run-the-command-azlog-createazureid-why-do-i-get-the-following-error"></a>Durante l'esecuzione del comando **azlog createazureid**, perché viene visualizzato il seguente errore?
-Error:
+Errore:
 
   *Impossibile creare l'applicazione AAD - Tenant 72f988bf-86f1-41af-91ab-2d7cd011db37 - Motivo = "Accesso negato" - Messaggio = "Privilegi insufficienti per completare l'operazione".*
 
 Il comando **azlog createazureid** tenta di creare un'entità servizio in tutti i tenant di Azure AD per le sottoscrizioni a cui l'account di accesso di Azure può accedere. Se l'account di accesso di Azure è solo un utente guest nel tenant di Azure AD, il comando non riesce e mostra l'errore "I privilegi non sono insufficienti per completare l'operazione". Richiedere all'amministratore del tenant di aggiungere l'account come utente nel tenant.
 
 ### <a name="when-i-run-the-command-azlog-authorize-why-do-i-get-the-following-error"></a>Durante l'esecuzione del comando **azlog authorize**, perché viene visualizzato il seguente errore?
-Error:
+Errore:
 
   *Warning creating Role Assignment - AuthorizationFailed: The client janedo@microsoft.com' with object id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000'.* (Avviso durante la creazione dell'assegnazione del ruolo - Autorizzazione non riuscita: il client " con ID oggetto "fe9e03e4-4dad-4328-910f-fd24a9660bd2' non dispone di autorizzazione per eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000").
 

@@ -74,7 +74,7 @@ Per informazioni sui prezzi, vedere [Utilità di pianificazione prezzi](https://
 
  [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
 
- [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
+ [Introduzione all'uso dell'Utilità di pianificazione nel portale di Azure](scheduler-get-started-portal.md)
 
  [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
 

@@ -40,7 +40,7 @@ ms.lasthandoff: 12/07/2017
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Verificare di disporre della versione più recente dei moduli di PowerShell AzureRM.Compute e AzureRM.Network. Aprire un prompt dei comandi di PowerShell come Amministratore ed eseguire il comando seguente per installarli.
 

@@ -26,7 +26,7 @@ Il bus di servizio di Microsoft Azure supporta un set di tecnologie middleware o
 
 Le entità di messaggistica che costituiscono le funzionalità di messaggistica di base nel bus di servizio sono code, argomenti e sottoscrizioni e regole/azioni.
 
-## <a name="queues"></a>Code
+## <a name="queues"></a>Queues
 
 Le code consentono un recapito dei messaggi di tipo *FIFO (First In, First Out)* a uno o più consumer concorrenti. In altri termini, i messaggi in genere vengono ricevuti ed elaborati dai ricevitori secondo l'ordine temporale in cui sono stati aggiunti alla coda e ogni messaggio viene ricevuto ed elaborato da un solo consumer. Il vantaggio principale derivante dall'uso delle code è quello di ottenere un "disaccoppiamento temporale" dei componenti applicativi, ovvero non è necessario che i producer e i consumer inviino e ricevano i messaggi contemporaneamente perché i messaggi restano archiviati nella coda. Il producer inoltre non deve attendere la risposta del consumer per continuare a elaborare e inviare messaggi.
 
@@ -34,7 +34,7 @@ Un vantaggio correlato è quello del "livellamento del carico", che permette ai 
 
 L'uso di code da interporre tra producer e consumer di messaggi fornisce un accoppiamento intrinseco di tipo regime di controllo libero tra i componenti. Poiché producer e consumer sono indipendenti gli uni dagli altri, è possibile aggiornare un consumer senza causare alcun effetto sul producer.
 
-La creazione di una coda è un processo che prevede più passaggi.  Le operazioni di gestione per le entità di messaggistica del bus di servizio (code e argomenti) vengono eseguite tramite la classe [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) che viene costruita specificando l'indirizzo di base dello spazio dei nomi e le credenziali utente del bus di servizio. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) fornisce i metodi per creare, enumerare ed eliminare le entità di messaggistica. Dopo aver creato un oggetto [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) da un nome e una chiave di firma di accesso condiviso e un oggetto di gestione dello spazio dei nomi servizio, è possibile usare il metodo [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) per creare la coda. Ad esempio:
+La creazione di una coda è un processo che prevede più passaggi.  Le operazioni di gestione per le entità di messaggistica del bus di servizio (code e argomenti) vengono eseguite tramite la classe [Microsoft.ServiceBus.NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) che viene costruita specificando l'indirizzo di base dello spazio dei nomi e le credenziali utente del bus di servizio. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager#microsoft_servicebus_namespacemanager) fornisce i metodi per creare, enumerare ed eliminare le entità di messaggistica. Dopo aver creato un oggetto [Microsoft.ServiceBus.TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#microsoft_servicebus_tokenprovider) da un nome e una chiave di firma di accesso condiviso e un oggetto di gestione dello spazio dei nomi servizio, è possibile usare il metodo [Microsoft.ServiceBus.NamespaceManager.CreateQueue](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateQueue_System_String_) per creare la coda. Ad esempio: 
 
 ```csharp
 // Create management credentials
@@ -43,7 +43,7 @@ TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvid
 NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials);
 ```
 
-È quindi possibile creare un oggetto coda e una factory di messaggistica usando l'URI del bus di servizio come argomento. Ad esempio:
+È quindi possibile creare un oggetto coda e una factory di messaggistica usando l'URI del bus di servizio come argomento. Ad esempio: 
 
 ```csharp
 QueueDescription myQueue;
@@ -89,7 +89,7 @@ Diversamente dalle code, in cui ogni messaggio viene elaborato da un unico consu
 
 Ai fini di un confronto, la funzionalità di invio dei messaggi di una coda esegue il mapping direttamente a un argomento e la funzionalità di ricezione dei messaggi esegue il mapping a una sottoscrizione. Questo significa anche che le sottoscrizioni supportano gli stessi modelli descritti prima in questa sezione in merito alle code: consumer concorrente, disaccoppiamento temporale, livellamento del carico e bilanciamento del carico.
 
-La procedura per la creazione di un argomento è simile a quella per la creazione di una coda, come illustrato nell'esempio della sezione precedente. Creare l'URI del servizio e usare la classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) per creare il client dello spazio dei nomi. È quindi possibile creare un argomento usando il metodo [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_). Ad esempio:
+La procedura per la creazione di un argomento è simile a quella per la creazione di una coda, come illustrato nell'esempio della sezione precedente. Creare l'URI del servizio e usare la classe [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) per creare il client dello spazio dei nomi. È quindi possibile creare un argomento usando il metodo [CreateTopic](/dotnet/api/microsoft.servicebus.namespacemanager#Microsoft_ServiceBus_NamespaceManager_CreateTopic_System_String_). Ad esempio: 
 
 ```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
@@ -102,14 +102,14 @@ SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription
 SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
 ```
 
-Sarà quindi possibile creare un client dell'argomento. Ad esempio:
+Sarà quindi possibile creare un client dell'argomento. Ad esempio: 
 
 ```csharp
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
 TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
 ```
 
-Usando il mittente del messaggio, è possibile inviare messaggi all'argomento e riceverli, come illustrato nella sezione precedente. Ad esempio:
+Usando il mittente del messaggio, è possibile inviare messaggi all'argomento e riceverli, come illustrato nella sezione precedente. Ad esempio: 
 
 ```csharp
 foreach (BrokeredMessage message in messageList)

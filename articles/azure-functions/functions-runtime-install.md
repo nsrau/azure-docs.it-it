@@ -1,5 +1,5 @@
 ---
-title: Installazione del runtime di Funzioni di Azure | Microsoft Docs
+title: Installazione del runtime di Funzioni di Azure | Documentazione Microsoft
 description: Come installare l'anteprima del runtime di Funzioni di Azure 2
 services: functions
 documentationcenter: 
@@ -31,7 +31,7 @@ Se si desidera installare la versione di anteprima del runtime di Funzioni di Az
 1. Completare la configurazione dell'anteprima del runtime di Funzioni di Azure 2.
 1. Creare la prima funzione nell'anteprima del runtime di Funzioni di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di installare l'anteprima del runtime di Funzioni di Azure è necessario avere le risorse seguenti:
 

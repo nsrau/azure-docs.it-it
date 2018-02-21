@@ -41,7 +41,7 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
 3. Ora è possibile aggiungere altri profili e regole basati sulla pianificazione o su specifici requisiti. Viene creata un'impostazione di ridimensionamento automatico con tre profili. Per conoscere i profili e le regole nel ridimensionamento automatico, vedere [Procedure consigliate per il ridimensionamento automatico](insights-autoscale-best-practices.md).  
 
-    | Profili e regole | Description |
+    | Profili e regole | DESCRIZIONE |
     |--- | --- |
     | **Profilo** |**Basato su prestazioni/metrica** |
     | Regola |Numero di messaggi della coda del bus di servizio > x |

@@ -19,7 +19,7 @@ ms.lasthandoff: 11/29/2017
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
 È possibile scaricare i log del server di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure, l'utilità della riga di comando di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per proseguire con questa guida, si richiedono:
 - [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). In alternativa, è possibile usare Azure Cloud Shell nel browser.

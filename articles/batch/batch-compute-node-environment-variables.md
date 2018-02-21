@@ -37,7 +37,7 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-| Nome variabile                     | Descrizione                                                              | Disponibilità | Esempio |
+| Nome variabile                     | DESCRIZIONE                                                              | Disponibilità | Esempio |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nome dell'account Batch a cui appartiene l'attività.                  | Tutte le attività.   | mybatchaccount |
 | AZ_BATCH_CERTIFICATES_DIR       | Una directory all'interno della [directory di lavoro dell'attività][files_dirs] in cui sono archiviati i certificati i nodi di calcolo Linux. Si noti che questa variabile di ambiente non è applicabile a Windows i nodi di calcolo.                                                  | Tutte le attività.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |

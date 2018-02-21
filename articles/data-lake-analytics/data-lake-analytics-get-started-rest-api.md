@@ -25,8 +25,8 @@ ms.lasthandoff: 10/11/2017
 
 Informazioni sull'uso delle API REST WebHDFS e delle API REST di Data Lake Analytics per gestire gli account, i processi e il catalogo di Data Lake Analytics. 
 
-## <a name="prerequisites"></a>Prerequisiti
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+## <a name="prerequisites"></a>prerequisiti
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Creare un'applicazione di Azure Active Directory**. Usare l'applicazione Azure AD per autenticare l'applicazione Data Lake Analytics con Azure AD. Per l'autenticazione con Azure AD è possibile usare l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Eseguire l'autenticazione con Data Lake Analytics usando Azure Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 * [cURL](http://curl.haxx.se/). Questo articolo usa cURL per illustrare come eseguire chiamate API REST su un account Data Lake Analytics.
 
@@ -338,7 +338,7 @@ L'output è simile a:
     ]
     }
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Per iniziare a sviluppare applicazioni U-SQL, vedere [Sviluppare script U-SQL tramite Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Per informazioni su U-SQL, vedere [Introduzione al linguaggio U-SQL di Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).

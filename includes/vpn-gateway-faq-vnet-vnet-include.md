@@ -6,7 +6,7 @@ Il traffico da rete virtuale a rete virtuale nella stessa area è gratuito in en
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Il traffico da rete virtuale a rete virtuale viene trasmesso su Internet?
 
-No. Il traffico tra reti virtuali passa per il backbone di Microsoft Azure, non Internet.
+di serie Il traffico tra reti virtuali passa per il backbone di Microsoft Azure, non Internet.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Il traffico tra reti virtuali è sicuro?
 
@@ -14,19 +14,19 @@ Sì, è protetto mediante la crittografia IPsec/IKE.
 
 ### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>È necessario un dispositivo VPN per connettere le reti virtuali?
 
-No. Per il collegamento di più reti virtuali di Azure non è necessario un dispositivo VPN, a meno che non sia necessaria la connettività cross-premise.
+di serie Per il collegamento di più reti virtuali di Azure non è necessario un dispositivo VPN, a meno che non sia necessaria la connettività cross-premise.
 
 ### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>Le reti virtuali devono trovarsi nella stessa area?
 
-No. Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
+di serie Le reti virtuali possono essere nelle sottoscrizioni uguale o diverse.
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Se le reti virtuali non sono nella stessa sottoscrizione, è necessario che le sottoscrizioni siano associate allo stesso tenant di AD?
 
-No.
+di serie
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>È possibile usare la connettività da rete virtuale a rete virtuale per connettere reti virtuali in istanze separate di Azure? 
 
-No. La connettività da rete virtuale a rete virtuale supporta la connessione di reti virtuali nella stessa istanza di Azure. Non è ad esempio possibile creare una connessione tra istanze pubbliche di Azure e istanze di Azure cinesi/tedesche/US Gov. Per questi scenari, considerare la possibilità di usare una connessione VPN da sito a sito.
+di serie La connettività da rete virtuale a rete virtuale supporta la connessione di reti virtuali nella stessa istanza di Azure. Non è ad esempio possibile creare una connessione tra istanze pubbliche di Azure e istanze di Azure cinesi/tedesche/US Gov. Per questi scenari, considerare la possibilità di usare una connessione VPN da sito a sito.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>È possibile usare la connessione da rete virtuale a rete virtuale insieme alle connessioni multisito?
 
@@ -38,15 +38,15 @@ Vedere la tabella [Requisiti del gateway](../articles/vpn-gateway/vpn-gateway-ab
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>È possibile usare la connessione da rete virtuale a rete virtuale per connettere macchine virtuali o servizi cloud esterni a una rete virtuale?
 
-No. La connettività da VNet a VNet supporta la connessione di reti virtuali. Non supporta la connessione di macchine virtuali o servizi cloud non inclusi in una rete virtuale.
+di serie La connettività da VNet a VNet supporta la connessione di reti virtuali. Non supporta la connessione di macchine virtuali o servizi cloud non inclusi in una rete virtuale.
 
 ### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>È possibile estendere un servizio cloud o un endpoint del servizio di bilanciamento del carico in più reti virtuali?
 
-No. Un servizio cloud o un endpoint di bilanciamento del carico non può estendersi tra reti virtuali, anche se sono connesse tra loro.
+di serie Un servizio cloud o un endpoint di bilanciamento del carico non può estendersi tra reti virtuali, anche se sono connesse tra loro.
 
 ### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>È possibile usare una VPN di tipo PolicyBased per connessioni da rete virtuale a rete virtuale o multisito?
 
-No. La connettività tra reti virtuali e multisito richiede la presenza di gateway VPN con tipi VPN RouteBased (in precedenza denominato routing dinamico).
+di serie La connettività tra reti virtuali e multisito richiede la presenza di gateway VPN con tipi VPN RouteBased (in precedenza denominato routing dinamico).
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>È possibile connettere una rete virtuale con un tipo di VPN RouteBased a un'altra rete virtuale con un tipo di VPN PolicyBased?
 
@@ -62,11 +62,11 @@ I tunnel ridondanti tra una coppia di reti virtuali sono supportati quando un ga
 
 ### <a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>È consentita la sovrapposizione di spazi di indirizzi per configurazioni da rete virtuale a rete virtuale?
 
-No. Gli intervalli di indirizzi IP non possono sovrapporsi.
+di serie Gli intervalli di indirizzi IP non possono sovrapporsi.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-connected-virtual-networks-and-on-premises-local-sites"></a>Possono esistere spazi di indirizzi sovrapposti tra le reti virtuali connesse e i siti locali?
 
-No. Gli intervalli di indirizzi IP non possono sovrapporsi.
+di serie Gli intervalli di indirizzi IP non possono sovrapporsi.
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione a R Server in HDInsight | Microsoft Docs
+title: Introduzione a R Server in HDInsight | Documentazione Microsoft
 description: Informazioni su come usare R Server in HDInsight per creare applicazioni per l'analisi dei Big Data.
 services: hdinsight
 documentationcenter: 

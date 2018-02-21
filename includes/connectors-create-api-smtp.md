@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
 
 Prima di poter usare l'account SMTP in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account SMTP. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  

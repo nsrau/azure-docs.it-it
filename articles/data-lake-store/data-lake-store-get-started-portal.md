@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Questo articolo illustra come usare il portale di Azure per creare un account Azure Data Lake Store ed eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per altre informazioni, vedere [Panoramica di Azure Data Lake Store](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).

@@ -30,10 +30,10 @@ In questa esercitazione si userà il portale di Azure per imparare a:
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 Accedere al [Portale di Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Creare un database di Azure per PostgreSQL

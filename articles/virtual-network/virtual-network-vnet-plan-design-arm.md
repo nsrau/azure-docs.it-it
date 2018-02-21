@@ -58,7 +58,7 @@ Le risorse della rete virtuale e della subnet consentono di definire un limite d
 
 Le reti virtuali contengono le proprietà seguenti.
 
-| Proprietà | Descrizione | Vincoli |
+| Proprietà | DESCRIZIONE | Vincoli |
 | --- | --- | --- |
 | **nome** |Nome della rete virtuale |Stringa di massimo 80 caratteri. Può contenere lettere, numeri, caratteri di sottolineatura, punti o trattini. Deve iniziare con una lettera o un numero. Deve terminare con una lettera, un numero o un carattere di sottolineatura. Può contenere lettere maiuscole o minuscole. |
 | **location** |Località di Azure (nota anche come area). |Deve essere una delle località di Azure valide. |
@@ -71,7 +71,7 @@ Una subnet è una risorsa figlio di una rete virtuale e consente di definire i s
 
 Le subnet contengono le proprietà seguenti.
 
-| Proprietà | Descrizione | Vincoli |
+| Proprietà | DESCRIZIONE | Vincoli |
 | --- | --- | --- |
 | **nome** |Nome della subnet |Stringa di massimo 80 caratteri. Può contenere lettere, numeri, caratteri di sottolineatura, punti o trattini. Deve iniziare con una lettera o un numero. Deve terminare con una lettera, un numero o un carattere di sottolineatura. Può contenere lettere maiuscole o minuscole. |
 | **location** |Località di Azure (nota anche come area). |Deve essere una delle località di Azure valide. |
@@ -183,7 +183,7 @@ Si lavora per un'azienda con 2 data center in America del Nord e due data center
     Sì. Le applicazioni devono essere completamente isolate l'una dall'altra e anche ogni livello dell'applicazione deve essere isolato.
 6. È necessario controllare il flusso del traffico tramite appliance virtuali?
 
-    No. È possibile usare appliance virtuali per un maggiore controllo del flusso del traffico, tra cui una registrazione più dettagliata del piano dati.
+    di serie È possibile usare appliance virtuali per un maggiore controllo del flusso del traffico, tra cui una registrazione più dettagliata del piano dati.
 7. Gli utenti necessitano di diversi set di autorizzazioni per risorse diverse di Azure?
 
     Sì. Il team responsabile della rete deve avere controllo completo sulle impostazioni della rete virtuale, mentre gli sviluppatori devono solo essere in grado di distribuire le proprie VM a subnet preesistenti.

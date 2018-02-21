@@ -72,7 +72,7 @@ Query: *Type=SecurityBaseline BaselineType=Web AnalyzeResult=Failed*
 
 ![dashboard](./media/oms-security-web-baseline/oms-security-web-baseline-fig4.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento sono state fornite informazioni sulla valutazione baseline Web di Sicurezza e controllo di OMS. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)

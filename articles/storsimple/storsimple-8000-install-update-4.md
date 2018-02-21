@@ -73,16 +73,16 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 È necessario scaricare e installare gli hotfix seguenti nell'ordine indicato e nelle cartelle seguenti:
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4011839 |Aggiornamento software |Regolare  <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
-| 2A. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Regolare  <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
-| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 1. |KB4011839 |Aggiornamento software |Normale <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
+| 2A. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Normale <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
+| 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion` . Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` non è quindi necessario installare questi aggiornamenti.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
+| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Firmware del disco |Manutenzione  <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
 

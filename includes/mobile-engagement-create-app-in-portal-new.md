@@ -8,7 +8,7 @@
     ![](./media/mobile-engagement-create-app-in-portal-new/new-azme-app.png)
    
    * **Nome**: Nome of your *raccolta di applicazioni* 
-   * **Piattaforme**: selezionare le piattaforme di destinazione per l'app nel pannello Piattaforme che verrà aperto. Ad esempio, se è necessaria un'app sia per iOS che per Android, selezionare entrambe le piattaforme per creare due app in questa raccolta di app. 
+   * **Piattaforme**: selezionare le piattaforme di destinazione per l'app nel pannello Piattaforme che verrà aperto. ad esempio se è necessaria un'app sia per iOS che per Android, selezionare entrambe le piattaforme per creare due app in questa raccolta di app. 
      
       ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Sottoscrizione**: selezionare la sottoscrizione di Azure. 

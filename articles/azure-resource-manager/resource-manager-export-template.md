@@ -40,11 +40,11 @@ Per iniziare, distribuire in Azure risorse utilizzabili per l'esportazione come 
    
       ![Cercare App Web e SQL](./media/resource-manager-export-template/webapp-sql.png)
 
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 
       ![Selezionare Crea](./media/resource-manager-export-template/create.png)
 
-4. Specificare i valori necessari per l'app Web e il database SQL. Selezionare **Crea**.
+4. Specificare i valori necessari per l'app Web e il database SQL. Selezionare **Create**.
 
       ![Specificare i valori per Web e SQL](./media/resource-manager-export-template/provide-web-values.png)
 

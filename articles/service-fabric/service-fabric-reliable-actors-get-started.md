@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/21/2017
 
 Questo articolo illustra le nozioni fondamentali per creare ed eseguire il debug di una semplice applicazione Reliable Actors in Visual Studio. Per altre informazioni su Reliable Actors, vedere [Introduzione a Reliable Actors in Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi che nel computer sia configurato l'ambiente di sviluppo di Service Fabric, incluso Visual Studio. Per informazioni, vedere[Configurare l'ambiente di sviluppo](service-fabric-get-started.md).
 

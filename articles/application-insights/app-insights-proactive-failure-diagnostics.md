@@ -122,11 +122,11 @@ Il rilevamento intelligente delle anomalie degli errori integra altre funzionali
 
 *Il servizio implica l'accesso manuale ai dati da parte di Microsoft?*
 
-* No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
+* di serie Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
 
 *Va eseguita una sottoscrizione a questo avviso?*
 
-* No. In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
+* di serie In ogni applicazione che invia dati di telemetria della richiesta è presente la regola di avviso per il rilevamento intelligente.
 
 *È possibile annullare la sottoscrizione oppure ottenere le notifiche inviate ai colleghi?*
 

@@ -16,7 +16,7 @@ ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/21/2017
 
 Questo argomento descrive come segnalare la posizione per l'applicazione Android.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="location-reporting"></a>Segnalazione della posizione

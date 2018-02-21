@@ -33,7 +33,7 @@ Le attività specifiche per questo scenario di modello tabulare Adventure Works,
   
 Tempo previsto per il completamento della lezione: **30 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti.  
   
 ## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>Aggiungere la tabella DimSalesTerritory al progetto di modello tabulare AW Internet Sales  

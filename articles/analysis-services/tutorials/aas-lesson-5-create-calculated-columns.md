@@ -31,7 +31,7 @@ Questa è anche la prima lezione in cui si usano espressioni DAX (Data Analysis 
   
 Tempo previsto per il completamento della lezione: **15 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 4: Creare relazioni](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Creare colonne calcolate  

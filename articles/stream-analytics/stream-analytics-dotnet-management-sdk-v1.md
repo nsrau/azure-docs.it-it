@@ -17,7 +17,7 @@ ms.date: 03/06/2017
 ms.author: samacha
 ms.openlocfilehash: 7f434f1fe600877d1a12174ae84aaa47e878a055
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -31,7 +31,7 @@ Analisi dei flussi di Azure è un servizio completamente gestito che consente l'
 > [!NOTE]
 > Il codice di esempio in questo articolo usa ancora la versione legacy (1. x) di .NET SDK per la gestione di Analisi di flusso di Azure. Per il codice di esempio che usa la versione aggiornata di SDK, vedere [Usare Management .NET SDK per Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * Installare Visual Studio 2017 o 2015.

@@ -53,7 +53,7 @@ Ciò vale per TUTTE le password predefinite, incluse, solo a titolo di esempio, 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Le funzionalità SNMP e wireless non sono implementate nella soluzione.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Nella soluzione non vengono implementate funzionalità SNMP e wireless.|
 
 
 

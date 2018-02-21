@@ -17,7 +17,7 @@ ms.author: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

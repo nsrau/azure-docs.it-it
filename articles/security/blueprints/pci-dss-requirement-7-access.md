@@ -41,7 +41,7 @@ A seconda delle informazioni necessarie, vengono concessi i diritti di accesso s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure applica i criteri ISMS esistenti relativi all'accesso del personale di Azure ai componenti di sistema di Azure, alla verifica dell'efficacia del controllo di accesso, alla specifica dell'accesso amministrativo JIT, alla revoca dell'accesso quando non è più necessario e alla garanzia che solo il personale autorizzato per motivi professionali abbia accesso all'ambiente della piattaforma Azure. L'accesso di Azure agli ambienti dei clienti è soggetto a severe limitazioni e consentito solo su approvazione del cliente.<br /><br />Sono state stabilite procedure che limitano l'accesso fisico al data center a dipendenti, fornitori, terzisti e visitatori autorizzati. La verifica di sicurezza e la registrazione sono obbligatorie per il personale che richiede l'accesso temporaneo alla struttura interna del data center. I log di accesso fisico vengono esaminati ogni trimestre dai team di Azure. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | È responsabilità dei clienti limitare l'accesso ai componenti di sistema e ai dati dei titolari di carte solo alle persone che hanno bisogno di tale accesso per motivi professionali. I clienti devono anche stabilire limiti e restrizioni per l'accesso al portale di gestione di Azure, oltre a specificare gli account e i ruoli con l'autorizzazione necessaria per creare, modificare o eliminare i servizi PaaS.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | È responsabilità dei clienti limitare l'accesso ai componenti di sistema e ai dati dei titolari di carte solo alle persone che hanno bisogno di tale accesso per motivi professionali. I clienti devono anche stabilire limiti e restrizioni per l'accesso al portale di gestione di Azure, oltre a specificare gli account e i ruoli con l'autorizzazione necessaria per creare, modificare o eliminare i servizi PaaS.|
 
 
 
@@ -56,7 +56,7 @@ A seconda delle informazioni necessarie, vengono concessi i diritti di accesso s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della definizione e della documentazione di un processo di approvazione degli ID utente, della definizione dei privilegi minimi, della limitazione dell'accesso ai dati di titolari di carte, dell'uso di ID univoci, della separazione dei compiti e della revoca dell'accesso utente quando non è più necessario.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | I clienti sono responsabili della definizione e della documentazione di un processo di approvazione degli ID utente, della definizione dei privilegi minimi, della limitazione dell'accesso ai dati di titolari di carte, dell'uso di ID univoci, della separazione dei compiti e della revoca dell'accesso utente quando non è più necessario.|
 
 
 
@@ -69,7 +69,7 @@ A seconda delle informazioni necessarie, vengono concessi i diritti di accesso s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha adottato criteri di sicurezza aziendali applicabili, inclusi criteri di sicurezza delle informazioni. I criteri sono stati approvati, pubblicati e comunicati a Microsoft Azure. In base ai criteri di sicurezza delle informazioni di Microsoft Azure l'accesso agli asset di Microsoft Azure deve essere concesso in base a una motivazione aziendale, con l'autorizzazione del proprietario dell'asset e secondo i principi "solo quando necessario" e "privilegi minimi". I criteri soddisfano anche i requisiti per il ciclo di vita della gestione degli accessi, inclusi provisioning degli accessi, autorizzazione di accesso, rimozione dell'autenticazione per i diritti di accesso e verifiche di accesso periodiche. |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). I ruoli utente sono limitati ai compiti in base allo scenario demo documentato.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). I ruoli utente sono limitati ai compiti in base allo scenario demo documentato.|
 
 
 
@@ -82,7 +82,7 @@ A seconda delle informazioni necessarie, vengono concessi i diritti di accesso s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). I ruoli utente sono limitati ai compiti in base allo scenario demo documentato.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore crea tre account durante la distribuzione: admin, sqladmin ed edna (l'utente predefinito connesso all'app Web durante l'esecuzione demo). I ruoli utente sono limitati ai compiti in base allo scenario demo documentato.|
 
 
 
@@ -95,7 +95,7 @@ A seconda delle informazioni necessarie, vengono concessi i diritti di accesso s
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | È responsabilità dei clienti limitare l'accesso ai componenti di sistema e ai dati dei titolari di carte solo alle persone che hanno bisogno di tale accesso per motivi professionali. I clienti devono anche stabilire limiti e restrizioni per l'accesso al portale di gestione di Azure, oltre a specificare gli account e i ruoli con l'autorizzazione necessaria per creare, modificare o eliminare i servizi PaaS.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | È responsabilità dei clienti limitare l'accesso ai componenti di sistema e ai dati dei titolari di carte solo alle persone che hanno bisogno di tale accesso per motivi professionali. I clienti devono anche stabilire limiti e restrizioni per l'accesso al portale di gestione di Azure, oltre a specificare gli account e i ruoli con l'autorizzazione necessaria per creare, modificare o eliminare i servizi PaaS.|
 
 
 
@@ -112,7 +112,7 @@ Questo sistema di controllo di accesso deve includere quanto segue:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Azure Active Directory per limitare l'accesso solo agli utenti designati. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa Azure Active Directory per limitare l'accesso solo agli utenti designati. Per altre informazioni, vedere [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Linee guida per PCI - Gestione delle identità).|
 
 
 
@@ -125,7 +125,7 @@ Questo sistema di controllo di accesso deve includere quanto segue:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Non applicabile |
-| **Cliente<br />(piano&nbsp;PCI&#8209;DSS)** | La documentazione di Contoso Webstore contiene un caso d'uso e una descrizione relativa a chi usa i dati del titolare della carta e a come vengono usati tali dati.|
+| **Cliente<br />(progetto&nbsp;PCI&#8209;DSS)** | La documentazione di Contoso Webstore contiene un caso d'uso e una descrizione relativa a chi usa i dati del titolare della carta e a come vengono usati tali dati.|
 
 
 

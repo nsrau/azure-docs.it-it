@@ -83,7 +83,7 @@ Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace,
 
    ![Cercare la distribuzione del modello](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 
    ![Selezionare Crea](./media/resource-group-template-deploy-portal/show-template-option.png)
 

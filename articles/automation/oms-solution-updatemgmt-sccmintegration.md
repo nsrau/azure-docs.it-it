@@ -26,7 +26,7 @@ I clienti che hanno investito in System Center Configuration Manager per gestire
 
 Sfruttando l'integrazione esistente tra OMS e Configuration Manager, è possibile creare report e aggiornare i server Windows gestiti tramite la creazione e il pre-staging di distribuzioni di aggiornamenti software in Configuration Manager, oltre che ottenere lo stato dettagliato delle distribuzioni di aggiornamenti completate usando la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md). Se si usa Configuration Manager per creare report di conformità degli aggiornamenti, ma non per la gestione delle distribuzioni di aggiornamenti con i server Windows, è possibile continuare a creare report in Configuration Manager, mentre gli aggiornamenti della sicurezza vengono gestiti con la soluzione Gestione aggiornamenti OMS.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * È necessario che la [soluzione Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md) sia stata aggiunta all'area di lavoro di Log Analytics e collegata con l'account di Automazione nello stesso gruppo di risorse e nella stessa area.   
 * I server Windows attualmente gestiti dall'ambiente System Center Configuration Manager devono inoltre fare riferimento all'area di lavoro di Log Analytics in cui è abilitata la soluzione Gestione aggiornamenti.  

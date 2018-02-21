@@ -31,7 +31,7 @@ Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni. La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
 
 ## <a name="triage-security-alerts"></a>Valutare gli avvisi di sicurezza
@@ -79,7 +79,7 @@ Per eseguire una ricerca, aprire il dashboard del **Centro sicurezza**, fare cli
 Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
 
 1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Si aprirà **Criteri di sicurezza**.
+2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Viene visualizzata la finestra **Criteri di sicurezza**.
 3. In **COMPONENTI DEI CRITERI** selezionare **Piano tariffario**.
 4. Selezionare **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
 5. Selezionare **Salva**.

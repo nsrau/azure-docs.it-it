@@ -45,7 +45,7 @@ Le raccolte Reliable Collections supportano due livelli di isolamento:
 Le raccolte Reliable Collections scelgono automaticamente il livello di isolamento da usare per una determinata operazione di lettura a seconda dell'operazione stessa e del ruolo della replica al momento della creazione della transazione.
 La tabella seguente descrive i valori predefiniti del livello di isolamento per le operazioni Reliable Dictionary e Reliable Queue.
 
-| Operazione\Ruolo | Primario | Secondario |
+| Operazione\Ruolo | Primaria | Secondario |
 | --- |:--- |:--- |
 | Lettura di entità singola |Repeatable Read |Snapshot |
 | Enumerazione, conteggio |Snapshot |Snapshot |

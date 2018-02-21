@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 In questa esercitazione si usa un notebook Jupyter disponibile con i cluster HDInsight Spark per eseguire un processo che legge i dati da un account Data Lake Store.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Account di Azure Data Lake Store. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Store con il portale di Azure](../../data-lake-store/data-lake-store-get-started-portal.md).
 

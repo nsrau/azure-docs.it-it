@@ -41,7 +41,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 ## <a name="per-index-limits"></a>Limiti per indice
 Esiste una corrispondenza uno a uno tra i limiti sugli indici e sugli indicizzatori. Dato un limite di 200 indici, il limite massimo per gli indicizzatori è 200 per lo stesso servizio.
 
-| Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Indice: numero massimo di campi per indice |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
 | Numero massimo di profili di punteggio per indice |100 |100 |100 |100 |100 |100 |
@@ -58,7 +58,7 @@ Esiste una corrispondenza uno a uno tra i limiti sugli indici e sugli indicizzat
 <sup>3</sup> Il tempo di esecuzione massimo degli indicizzatori per il livello gratuito è di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati.
 
 ## <a name="document-size-limits"></a>Limiti per la dimensione dei documenti
-| Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
 | Dimensione individuale dei documenti per l'API di indice |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
 

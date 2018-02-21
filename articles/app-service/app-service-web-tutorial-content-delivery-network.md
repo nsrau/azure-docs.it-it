@@ -32,7 +32,7 @@ Contenuto dell'esercitazione:
 > * Usare stringhe di query per controllare le versioni memorizzate nella cache.
 > * Usare un dominio personalizzato per l'endpoint della rete CDN.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -51,7 +51,7 @@ Per completare il passaggio di questa esercitazione relativo al dominio personal
 
 Se non si ha ancora un nome di dominio, può essere opportuno seguire l'[esercitazione relativa ai domini nel servizio app](custom-dns-web-site-buydomains-web-app.md) per acquistare un dominio usando il portale di Azure. 
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Aprire un browser e passare al [portale di Azure](https://portal.azure.com).
 
@@ -69,7 +69,7 @@ Nella pagina **Rete per la distribuzione di contenuti di Azure** specificare le 
 
 ![Creare un profilo e un endpoint nel portale](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
 
-| Impostazione | Valore consigliato | Descrizione |
+| Impostazione | Valore consigliato | DESCRIZIONE |
 | ------- | --------------- | ----------- |
 | **Profilo CDN** | myCDNProfile | Selezionare **Crea nuovo** per creare un profilo di rete CDN. Un profilo di rete CDN è una raccolta di endpoint della rete CDN con lo stesso piano tariffario. |
 | **Piano tariffario** | Standard Akamai | Il [piano tariffario](../cdn/cdn-overview.md#azure-cdn-features) specifica il provider e le funzionalità disponibili. In questa esercitazione si userà Akamai standard. |

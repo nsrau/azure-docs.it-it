@@ -44,7 +44,7 @@ Restituisce la somma dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sì |int |Il primo numero da aggiungere. |
 |operand2 |Sì |int |Il secondo numero da aggiungere. |
@@ -90,7 +90,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -115,10 +115,10 @@ Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| loopName | No | string | Nome del ciclo per ottenere l'iterazione. |
-| offset |No |int |Il numero da aggiungere al valore di iterazione in base zero. |
+| loopName | No  | stringa | Nome del ciclo per ottenere l'iterazione. |
+| offset |No  |int |Il numero da aggiungere al valore di iterazione in base zero. |
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -161,7 +161,7 @@ Restituisce la divisione Integer dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere. Non può essere 0. |
@@ -207,7 +207,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -232,9 +232,9 @@ Converte il valore in un numero a virgola mobile. Usare questa funzione solo qua
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o int |Il valore da convertire in un numero a virgola mobile. |
+| arg1 |Sì |stringa o numero intero |Il valore da convertire in un numero a virgola mobile. |
 
 ### <a name="return-value"></a>Valore restituito
 Un numero a virgola mobile.
@@ -266,7 +266,7 @@ Converte il valore specificato in un numero intero.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sì |stringa o int |Il valore da convertire in numero intero. |
 
@@ -301,7 +301,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -326,7 +326,7 @@ Restituisce il valore massimo da una matrice di numeri interi o da un elenco di 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore massimo. |
 
@@ -364,7 +364,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -390,7 +390,7 @@ Restituisce il valore minimo di una matrice di numeri interi o di un elenco di n
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |matrice di numeri interi o elenco di numeri interi delimitato da virgole |La raccolta per ottenere il valore minimo. |
 
@@ -428,7 +428,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -454,7 +454,7 @@ Restituisce la parte rimanente della divisione Integer usando i due numeri inter
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da dividere. |
 | operand2 |Sì |int |Il numero usato per dividere; non può corrispondere a 0. |
@@ -499,7 +499,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -524,7 +524,7 @@ Restituisce la moltiplicazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il primo numero da moltiplicare. |
 | operand2 |Sì |int |Il secondo numero da moltiplicare. |
@@ -570,7 +570,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -595,7 +595,7 @@ Restituisce la sottrazione dei due numeri interi forniti.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sì |int |Il numero da cui sottrarre. |
 | operand2 |Sì |int |Il numero sottratto. |
@@ -640,7 +640,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

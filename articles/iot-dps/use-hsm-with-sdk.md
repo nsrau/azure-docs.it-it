@@ -21,7 +21,7 @@ ms.lasthandoff: 10/31/2017
 # <a name="how-to-use-different-hardware-security-modules-with-device-provisioning-service-client-sdk"></a>Come usare diversi moduli di protezione hardware con Device Provisioning Service Client SDK
 Queste procedure illustrano come usare un [modulo di protezione hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) diverso con Device Provisioning Service Client SDK in C con un dispositivo fisico e un simulatore.  Il servizio di provisioning supporta due modalità di autenticazione: X**.**509 e Trusted Platform Module (TPM).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Preparare l'ambiente di sviluppo in base alle indicazioni disponibili nella sezione "Preparare l'ambiente di sviluppo" nella Guida [Creare ed effettuare il provisioning di un dispositivo simulato] (./quick-create-simulated-device.md).
 

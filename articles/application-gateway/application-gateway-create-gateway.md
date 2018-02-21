@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Creare, avviare o eliminare un gateway applicazione con PowerShell 
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-gateway-portal.md)
+> * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [PowerShell per Azure classico](application-gateway-create-gateway.md)
 > * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
@@ -97,7 +97,7 @@ DnsName       :
 ```
 
 > [!NOTE]
-> Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
+> Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 
 *VirtualIPs* e *DnsName* vengono visualizzati vuoti perché il gateway non è stato ancora avviato. Questi valori vengono creati quando il gateway è in esecuzione.
 

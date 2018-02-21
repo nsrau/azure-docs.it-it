@@ -42,7 +42,7 @@ Questo articolo presenta due codici di esempio con cui vengono illustrate alcune
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questi esempi funzionano con la versione 2.3.0 o successive del modulo AzureRm.OperationalInsights.
 
 
@@ -189,7 +189,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configurazione di Log Analytics per indicizzare Diagnostica di Azure
 Per il monitoraggio senza agenti delle risorse di Azure, in queste ultime la diagnostica di Azure deve essere abilitata e configurata per la scrittura in un'area di lavoro di Log Analytics. Questo approccio permette di inviare i dati direttamente a Log Analytics e non ne richiede la scrittura in un account di archiviazione. Le risorse supportate includono:
 
-| Tipo di risorsa | Log | Metrica |
+| Tipo di risorsa | Log | Metriche |
 | --- | --- | --- |
 | Gateway applicazione    | Sì | Sì |
 | Account di Automazione     | Sì | |

@@ -27,7 +27,7 @@ Per importare un'API esistente, vedere la sezione [Argomenti correlati](#related
 
 In questo articolo viene creata un'API vuota e viene specificato [httpbin.org](http://httpbin.org) (un servizio di test pubblico) come API back-end.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 
@@ -51,7 +51,7 @@ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di
     |**Schema URL**|"*HTTPS*"|In questo caso, anche se il back end ha accesso HTTP non sicuro, viene specificato un accesso di Gestione API HTTPS sicuro al back-end. <br/>Questo tipo di scenario (da HTTPS a HTTP) viene chiamato terminazione HTTPS. È possibile eseguirlo se l'API esiste in una rete virtuale (dove è certo che l'accesso è sicuro anche se non viene usato HTTPS). <br/>È possibile usare la "terminazione HTTPS" per il salvataggio in alcuni cicli di CPU.|
     |**Suffisso dell'URL dell'API**|"*hbin*"| Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.|
     |**Prodotti**|"*Unlimited*" |Pubblicare l'API associandola a un prodotto. Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.<br/><br/>I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.<br/><br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Unlimited**.| 
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 A questo punto, non si hanno operazioni in Gestione API di cui viene eseguito il mapping alle operazioni nell'API back-end. Se si chiama un'operazione esposta tramite il back-end, ma non tramite Gestione API, viene visualizzato un errore **404**. 
 

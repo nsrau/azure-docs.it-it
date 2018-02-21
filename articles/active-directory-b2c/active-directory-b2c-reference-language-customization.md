@@ -163,7 +163,7 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 
 ### <a name="what-languages-are-supported"></a>Quali lingue sono supportate?
 
-| Lingua              | Codice lingua |
+| Linguaggio              | Codice lingua |
 |-----------------------|---------------|
 | Bengalese                | bn            |
 | Ceco                 | cs            |

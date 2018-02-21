@@ -35,7 +35,7 @@ Database di Azure per MySQL gestisce le risorse disponibili per un server usando
 ## <a name="security"></a>Sicurezza
 Database di Azure per MySQL fornisce risorse per limitare l'accesso, proteggere i dati, configurare gli utenti e i ruoli e monitorare le attività in un database MySQL.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Database di Azure per MySQL supporta l'autenticazione server degli utenti e degli account di accesso.
 
 ## <a name="resiliency"></a>Resilienza

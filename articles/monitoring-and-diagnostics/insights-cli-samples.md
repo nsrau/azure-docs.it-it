@@ -1,5 +1,5 @@
 ---
-title: Esempi di avvio rapido dell'interfaccia della riga di comando 1.0 per Monitoraggio di Azure. | Documentazione Microsoft
+title: Esempi di avvio rapido dell'interfaccia della riga di comando 1.0 per Monitoraggio di Azure. | Microsoft Docs
 description: "Comandi dell'interfaccia della riga di comando 1.0 di esempio per le funzionalità di Monitoraggio di Azure. Monitoraggio di Azure è un servizio di Microsoft Azure che permette di inviare notifiche di avviso, chiamare URL Web in base ai valori dei dati di telemetria configurati e ridimensionare automaticamente servizi cloud, macchine virtuali e app Web."
 author: kamathashwin
 manager: orenr
@@ -28,7 +28,7 @@ Questo articolo illustra i comandi dell'interfaccia della riga di comando di ese
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Se l'interfaccia della riga di comando di Azure non è stata ancora installata, vedere [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Se non si ha familiarità con l'interfaccia della riga di comando di Azure, è possibile trovare altre informazioni nell'articolo [Usare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 In Windows installare npm dal [sito Web Node.js](https://nodejs.org/). Dopo avere completato l'installazione, usando CMD.exe con i privilegi Esegui come amministratore, eseguire quanto segue dalla cartella di installazione di npm:

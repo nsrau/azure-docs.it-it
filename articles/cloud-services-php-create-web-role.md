@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Come creare ruoli Web e di lavoro PHP
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa guida illustrerà come creare ruoli Web o di lavoro PHP in un ambiente di sviluppo Windows, scegliere una versione specifica di PHP tra le versioni incorporate disponibili, modificare la configurazione di PHP, abilitare le estensioni e, infine, eseguire la distribuzione in Azure. Verrà inoltre descritto come configurare un ruolo Web o di lavoro per l'uso del runtime PHP (con configurazione ed estensioni personalizzate) fornito dall'utente.
 
 ## <a name="what-are-php-web-and-worker-roles"></a>Cosa sono i ruoli Web e di lavoro PHP?

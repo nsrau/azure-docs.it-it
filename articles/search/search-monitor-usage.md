@@ -63,7 +63,7 @@ La sezione Utilizzo include un indicatore che indica la quantità di risorse dis
 ### <a name="using-the-rest-api"></a>Utilizzo dell'API REST
 L'API REST di Ricerca di Azure e .NET SDK forniscono l'accesso a livello di codice alle metriche di servizio.  Se si usano [indicizzatori](https://msdn.microsoft.com/library/azure/dn946891.aspx) per caricare un indice dal database SQL di Azure o da Azure Cosmos DB, è disponibile un'API aggiuntiva per ottenere i numeri necessari.
 
-* [Ottenere le statistiche di indice](/rest/api/searchservice/get-index-statistics)
+* [Ottenere le statistiche di un indice](/rest/api/searchservice/get-index-statistics)
 * [Conteggio documenti](/rest/api/searchservice/count-documents)
 * [Ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
 
@@ -96,38 +96,38 @@ I BLOB dei log contengono i log di traffico del servizio di ricerca.
 Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
 Ogni BLOB contiene record su tutte le operazioni eseguite nell'arco della stessa ora.
 
-| Nome | Tipo | Esempio | Note |
+| NOME | type | Esempio | Note |
 | --- | --- | --- | --- |
-| time |datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
-| operationName |string |"Query.Search" |Nome dell'operazione |
-| operationVersion |string |"2015-02-28" |api-version usata |
-| category |string |"OperationLogs" |costante |
-| resultType |string |"Esito positivo" |Valori possibili: esito positivo o negativo |
+| time |Datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
+| ResourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |resourceId in uso |
+| operationName |stringa |"Query.Search" |Nome dell'operazione |
+| operationVersion |stringa |"2015-02-28" |api-version usata |
+| category |stringa |"OperationLogs" |costante |
+| resultType |stringa |"Esito positivo" |Valori possibili: esito positivo o negativo |
 | resultSignature |int |200 |Codice risultato HTTP |
 | durationMS |int |50 |Durata dell'operazione in millisecondi |
 | properties |object |Vedere la tabella seguente |Oggetto contenente dati specifici dell'operazione |
 
 **Schema delle proprietà**
-| Nome | Tipo | Esempio | Note |
+| NOME | type | Esempio | Note |
 | --- | --- | --- | --- |
-| Descrizione |string |"GET /indexes('content')/docs" |Endpoint dell'operazione |
-| Query |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Parametri della query |
+| DESCRIZIONE |stringa |"GET /indexes('content')/docs" |Endpoint dell'operazione |
+| Query |stringa |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Parametri della query |
 | Documenti |int |42 |Numero di documenti elaborati |
-| IndexName |string |"testindex" |Nome dell'indice associato all'operazione |
+| IndexName |stringa |"testindex" |Nome dell'indice associato all'operazione |
 
 #### <a name="metrics-schema"></a>Schema delle metriche
-| Nome | Tipo | Esempio | Note |
+| NOME | type | Esempio | Note |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
-| metricName |string |"Latenza" |Nome della metrica |
-| time |datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
+| ResourceId |stringa |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ID risorsa in uso |
+| metricName |stringa |"Latenza" |Nome della metrica |
+| time |Datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp dell'operazione |
 | average |int |64 |Valore medio degli esempi non elaborati nell'intervallo di tempo della metrica |
 | minimum |int |37 |Valore minimo degli esempi non elaborati nell'intervallo di tempo della metrica |
 | maximum |int |78 |Valore massimo degli esempi non elaborati nell'intervallo di tempo della metrica |
 | total |int |258 |Valore totale degli esempi non elaborati nell'intervallo di tempo della metrica |
 | count |int |4 |Numero degli esempi non elaborati usati per generare la metrica |
-| timegrain |string |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601 |
+| timegrain |stringa |"PT1M" |Intervallo di tempo della metrica nel formato ISO 8601 |
 
 Tutte le metriche vengono segnalate in intervalli di un minuto. Ogni metrica espone i valori minimi, massimi e medi al minuto.
 

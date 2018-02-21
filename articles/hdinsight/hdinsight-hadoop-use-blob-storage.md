@@ -39,9 +39,9 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalit
 > | Tipo di account di archiviazione | Livello di archiviazione | Supportato con HDInsight |
 > | ------- | ------- | ------- |
 > | Account di archiviazione di uso generico | Standard | __Sì__ |
-> | &nbsp; | Premium | No |
-> | Account di archiviazione BLOB | Accesso frequente | No |
-> | &nbsp; | Accesso sporadico | No |
+> | &nbsp; | Premium | No  |
+> | Account di archiviazione BLOB | Accesso frequente | No  |
+> | &nbsp; | Accesso sporadico | No  |
 
 Non è consigliabile usare il contenitore BLOB predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il contenitore BLOB predefinito dopo ogni uso per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
 
@@ -114,7 +114,7 @@ Durante la creazione di un cluster HDInsight dal portale, sono disponibili le op
 > L'uso di un account di archiviazione aggiuntivo in una località diversa rispetto al cluster HDInsight non è supportato.
 
 
-### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
+### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 Se [Azure PowerShell è stato installato e configurato][powershell-install], è possibile usare il comando seguente del prompt di Azure PowerShell per creare un account di archiviazione e un contenitore:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]

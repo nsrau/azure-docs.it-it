@@ -16,7 +16,7 @@ ms.date: 08/04/2017
 ms.author: saeda
 ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -113,6 +113,6 @@ Per altre informazioni sullo strumento Analytics, vedere [qui](https://docs.micr
 
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Esplorare i dati in Application Insights per capire il funzionamento di B2C sottostante del framework dell'esperienza di gestione delle identità per distribuire le proprie esperienze di gestione delle identità.

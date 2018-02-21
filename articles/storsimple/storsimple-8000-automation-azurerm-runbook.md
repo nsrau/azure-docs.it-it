@@ -29,7 +29,7 @@ Questo articolo descrive come usare i runbook di automazione di Azure per gestir
 
 In questa sezione viene usato un esempio di script di Windows PowerShell per StorSimple e vengono descritti in dettaglio i vari passaggi necessari per importare lo script in un runbook e quindi pubblicare ed eseguire il runbook.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di disporre di:
 

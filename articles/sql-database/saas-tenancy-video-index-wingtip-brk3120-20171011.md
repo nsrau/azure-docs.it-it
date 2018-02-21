@@ -6,7 +6,8 @@ ms.date: 12/06/2017
 ms.prod: sql-server
 ms.reviewer: billgib
 ms.suite: 
-ms.technology: database-engine
+ms.technology:
+- database-engine
 ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen

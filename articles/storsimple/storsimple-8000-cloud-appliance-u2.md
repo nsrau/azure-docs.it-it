@@ -43,7 +43,7 @@ L'appliance cloud StorSimple è disponibile in due modelli, Standard 8010 (in pr
 | --- | --- | --- |
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria)| Standard_DS3 (4 core, 14 GB di memoria)|
-| **Aree di disponibilità** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
+| **Disponibilità in base all'area geografica** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
 | **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br>Informazioni su come [creare un account di archiviazione Premium](../virtual-machines/windows/premium-storage.md) |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test basati su cloud <br></br>Bassa latenza e carichi di lavoro a prestazioni superiori<br></br>Dispositivo secondario per il ripristino di emergenza |
 

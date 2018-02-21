@@ -25,7 +25,7 @@ Il servizio Azure Data Lake Analytics archivia i processi inviati in un [archivi
 
 Per impostazione predefinita, il servizio Data Lake Analytics archivia i processi per 30 giorni. È possibile configurare il periodo di scadenza nel portale di Azure configurando un criterio di scadenza personalizzato. Non sarà possibile accedere alle informazioni sui processi dopo la scadenza. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Vedere [Prerequisiti di Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Aprire Job Browser
@@ -173,6 +173,6 @@ Mostra informazioni dettagliate sul processo, inclusi gli script, le risorse e l
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per registrare informazioni di diagnostica, vedere [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
-* Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Analisi Data Lake di Azure](data-lake-analytics-analyze-weblogs.md).
+* Per visualizzare una query più complessa, vedere [Analizzare i log del sito Web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 

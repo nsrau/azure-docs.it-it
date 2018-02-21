@@ -71,15 +71,15 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
 ## <a name="lasterror"></a>LastError  
  Quando si verifica un errore e il controllo passa alla sezione di criteri `on-error`, l'errore viene conservato nella proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables), accessibile dai criteri nella sezione `on-error` e dotata delle seguenti proprietà.  
   
-|Nome|Tipo|Descrizione|Obbligatorio|  
+|NOME|type|DESCRIZIONE|Obbligatoria|  
 |----------|----------|-----------------|--------------|  
-|Sorgente|string|Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.|Sì|  
-|Motivo|string|Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.|No|  
-|Message|string|Descrizione dell'errore leggibile dall'utente.|Sì|  
-|Scope|string|Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation"|No|  
-|Sezione|string|Nome della sezione in cui si è verificato l'errore. Può essere "inbound", "backend", "outbound" o "on-error".|No|  
-|Path|string|Specifica i criteri annidati, ad esempio "choose[3]/when[2]".|No|  
-|PolicyId|string|Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore|No|  
+|Sorgente|stringa|Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.|Sì|  
+|Motivo|stringa|Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.|No |  
+|Message|stringa|Descrizione dell'errore leggibile dall'utente.|Sì|  
+|Scope|stringa|Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation"|No |  
+|Sezione|stringa|Nome della sezione in cui si è verificato l'errore. Può essere "inbound", "backend", "outbound" o "on-error".|No |  
+|path|stringa|Specifica i criteri annidati, ad esempio "choose[3]/when[2]".|No |  
+|PolicyId|stringa|Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore|No |  
   
 > [!NOTE]
 >  Tutti i criteri dispongono di un attributo `id` facoltativo che è possibile aggiungere al loro elemento radice. Se questo attributo è presente in un criterio quando si verifica una condizione di errore, il valore dell'attributo può essere recuperato tramite la proprietà `context.LastError.PolicyId`.  
@@ -121,6 +121,6 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

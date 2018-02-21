@@ -34,7 +34,7 @@ Connettere Sparkfun ESP8266 Thing Dev a un hub IoT che l'utente creerà. Quindi 
 > [!NOTE]
 > Se si usano altre schede ESP8266, è comunque possibile seguire questi passaggi per connetterle all'hub IoT. A seconda della scheda ESP8266 in uso, potrebbe essere necessario riconfigurare il `LED_PIN`. Ad esempio, se si usa ESP8266 da AI-Thinker, è possibile modificarlo da `0` a `2`. Non si dispone ancora di un kit? Fare clic [qui](http://azure.com/iotstarterkits)
 
-## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
+## <a name="what-you-will-learn"></a>Concetti legati all'esercitazione
 
 * Come creare un hub IoT e registrare un dispositivo per Thing Dev.
 * Come connettere Thing Dev con il sensore e il computer.
@@ -52,7 +52,7 @@ Per completare questa operazione, è necessario disporre dei componenti seguenti
 
 Per l'ambiente di sviluppo sono necessari anche gli elementi seguenti:
 
-* Una sottoscrizione di Azure attiva. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+* Una sottoscrizione di Azure attiva. Se non si ha un account di Azure, [creare un account di Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Mac o PC che esegue Windows o Ubuntu.
 * Rete wireless per Sparkfun ESP8266 Thing Dev a cui connettersi.
 * Connessione Internet per scaricare lo strumento di configurazione.

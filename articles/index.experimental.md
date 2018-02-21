@@ -1,6 +1,6 @@
 ---
 layout: HubPage
-hide_bc: True
+hide_bc: 
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
@@ -727,7 +727,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/data-catalog/">
                                                 <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>Catalogo dati</p>
+                                                <p>Data Catalog</p>
                                             </a>
                                         </li>
                                         <li>
@@ -894,7 +894,7 @@ ms.lasthandoff: 12/11/2017
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Cerca</p>
+                                                <p>Ricerca</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1626,7 +1626,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cerca</h3>
+                                                    <h3>Ricerca</h3>
                                                     <p>Ricerca come servizio completamente gestita</p>
                                                 </div>
                                             </div>
@@ -2159,7 +2159,7 @@ ms.lasthandoff: 12/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Catalogo dati</h3>
+                                                    <h3>Data Catalog</h3>
                                                     <p>Individuazione self-service di origini dati nell'intera organizzazione</p>
                                                 </div>
                                             </div>

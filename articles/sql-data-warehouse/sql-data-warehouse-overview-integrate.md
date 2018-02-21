@@ -27,7 +27,7 @@ Oltre alle funzionalità di base, SQL Data Warehouse consente agli utenti di uti
 * Power BI
 * Data factory di Azure
 * Azure Machine Learning
-* Azure Stream Analytics
+* Analisi di flusso di Azure
 
 Stiamo lavorando per connettersi con altri servizi attraverso l'ecosistema di Azure.
 

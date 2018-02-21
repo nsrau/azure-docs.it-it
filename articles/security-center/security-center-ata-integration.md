@@ -39,7 +39,7 @@ Presupponendo che ATA sia già installato e che funzioni correttamente in locale
 
     ![Notifiche](./media/security-center-ata-integration/security-center-ata-integration-fig2.png)
 
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 6. Aprire il dashboard del **Centro sicurezza**.
 7. Nel riquadro sinistro fare clic su **Soluzioni di sicurezza**.
 8. In **Advanced Threat Analytics** fare clic su **AGGIUNGI**.

@@ -37,7 +37,7 @@ Questo articolo illustra come montare Archiviazione file di Azure in una VM Linu
 ## <a name="quick-commands"></a>Comandi rapidi
 Per eseguire rapidamente l'attività, seguire i passaggi in questa sezione. Per informazioni più dettagliate e di contesto, iniziare con la sezione ["Procedura dettagliata"](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough).
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un gruppo di risorse
 * Una rete virtuale di Azure
 * Un gruppo di sicurezza di rete con SSH in ingresso

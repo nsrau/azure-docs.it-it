@@ -16,7 +16,7 @@ ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: c95c1827d0433dcb61eace34e7a905a5610c7781
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

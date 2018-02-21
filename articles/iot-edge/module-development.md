@@ -52,7 +52,7 @@ Tuttavia,l'uso di input e output espliciti rende le regole di routing più sempl
 
 Infine, i messaggi da dispositivo a cloud gestiti dall'hub Edge vengono contrassegnati con le proprietà di sistema seguenti:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | -------- | ----------- |
 | $connectionDeviceId | L'ID dispositivo del client che ha inviato il messaggio |
 | $connectionModuleId | L'ID modulo del modulo che ha inviato il messaggio |

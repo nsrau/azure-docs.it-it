@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4ecef0526bcdc61d29ae0ee0ac0d55c5651a1b2b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI ha usato Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni
 ![Logo Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -91,7 +91,6 @@ Il database SQL di Azure non rappresenta solo un enorme vantaggio per i clienti 
 * Per altre informazioni sugli strumenti del database e sulla scalabilità elastica, vedere [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Per altre informazioni sulla migrazione di un database SQL Server, vedere [Migrare un database SQL Server in Azure](sql-database-cloud-migrate.md).
 * Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-geo-replication-overview.md).
-* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
 * Per altre informazioni sulla scalabilità automatica, vedere [Come configurare la scalabilità automatica di un servizio cloud](../cloud-services/cloud-services-how-to-scale-portal.md).
 

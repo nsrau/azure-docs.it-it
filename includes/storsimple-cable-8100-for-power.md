@@ -14,7 +14,7 @@
    
     **Cablaggio di alimentazione su un dispositivo 8100**
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |Controller 1 |

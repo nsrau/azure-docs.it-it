@@ -78,7 +78,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 * Esistono alcune limitazioni inerenti a una piattaforma che Azure Mobile Engagement non è in grado di controllare (ad esempio, come funziona il system center per le notifiche push out-of-app in Android e iOS).
 * In Azure Mobile Engagement viene pubblicato un elenco completo di riferimento relativo ai pacchetti interni utilizzati da Azure Mobile Engagement in iOS e Android. Tenere presente che alcune funzionalità di Azure Mobile Engagement sono specifiche di piattaforma (Android, iOS, Web, Windows e Windows Phone).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Guida alla risoluzione dei problemi - Push][Link 23] 
 * [Documentazione SDK - Note di rilascio][Link 5]
 * [Documentazione SDK - Guide all'aggiornamento][Link 5]
@@ -92,7 +92,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui Azure Mobile
 * È possibile trovare l'ID del dispositivo di test ed effettuare la stessa azione che ha causato l'arresto anomalo dell'applicazione. In questo modo, sarà possibile identificare la causa dell'arresto anomalo.
 * I problemi noti relativi all'SDK di Azure Mobile Engagement che hanno causato l'arresto anomalo dell'applicazione vengono spesso risolti aggiornando l'SDK all'ultima versione disponibile. Pertanto, consultare le note di rilascio della propria piattaforma, quando si analizza l'arresto anomalo.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione SDK - Note di rilascio][Link 5]
 * [Documentazione SDK - Guide all'aggiornamento][Link 5]
 

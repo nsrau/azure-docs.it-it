@@ -28,7 +28,7 @@ Azure Analysis Services supporta la [collaborazione B2B di Azure AD](../active-d
 
 ![Architettura dell'autenticazione di Azure Analysis Services](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Per connettersi a un server tutti gli strumenti e le applicazioni client usano una o più [librerie client](analysis-services-data-providers.md) di Analysis Services (AMO, MSOLAP, ADOMD). 
 
 Queste tre librerie client supportano sia il flusso interattivo di Azure AD sia i metodi di autenticazione non interattivi. I due metodi di autenticazione integrata di Active Directory e della password di Active Directory non interattive possono essere usati nelle applicazioni che adottano AMOMD e MSOLAP. Questi due metodi non aprono mai finestre di dialogo popup.

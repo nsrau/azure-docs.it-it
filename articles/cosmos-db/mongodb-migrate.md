@@ -38,7 +38,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Importazione di dati di MongoDB tramite mongoimport
 > * Importazione di dati di MongoDB tramite mongorestore
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Aumentare la velocità effettiva: la durata della migrazione dei dati dipende dalla quantità di velocità effettiva configurata per le raccolte. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel [portale di Azure](https://portal.azure.com), vedere [Livelli di prestazioni e piani tariffari in Azure Cosmos DB](performance-levels.md).
 
@@ -134,7 +134,7 @@ Esempio:
     |--------|-----|
     |batchSize| 24 |
     |Unità richiesta con provisioning | 10000 |
-    |Latency | 0,100 s |
+    |Latenza | 0,100 s |
     |Unità richiesta addebitate per la scrittura di 1 documento | 10 UR |
     |numInsertionWorkers | ? |
     

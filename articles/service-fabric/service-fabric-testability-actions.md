@@ -36,7 +36,7 @@ Le azioni di Testabilità sono classificate in due bucket principali:
 Per una convalida migliore in termini di qualità, eseguire il carico di lavoro del servizio e del business, includendo diversi errori normali e anomali. Gli errori anomali danno luogo a scenari in cui il processo di servizio si chiude improvvisamente nel corso di un flusso di lavoro. Ciò consente di verificare il percorso di ripristino una volta che Service Fabric ripristina la replica del servizio. Ciò consentirà di verificare la coerenza dei dati e se lo stato del servizio viene conservato correttamente dopo gli errori. L'altro set di errori, ovvero gli errori normali, verifica che il servizio risponda correttamente alle repliche spostate da Service Fabric. Ciò consente di verificare la gestione dell'annullamento nel metodo RunAsync. Il servizio deve controllare che il token di annullamento sia impostato, salvarne correttamente lo stato e chiudere il metodo RunAsync.
 
 ## <a name="testability-actions-list"></a>Elenco delle azioni di Testabilità
-| Azione | Descrizione | API gestita | Cmdlet di PowerShell | Errori normali/anomali |
+| Azione | DESCRIZIONE | API gestita | Cmdlet di PowerShell | Errori normali/anomali |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Rimuove lo stato di tutti i test dal cluster in caso di arresto anomalo del driver di test. |CleanTestStateAsync |Remove-ServiceFabricTestState |Non applicabile |
 | InvokeDataLoss |Provoca la perdita di dati in una partizione del servizio. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normale |

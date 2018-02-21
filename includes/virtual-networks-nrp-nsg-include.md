@@ -1,7 +1,7 @@
 ## <a name="network-security-group"></a>Gruppo di sicurezza di rete
 Una risorsa del gruppo di sicurezza di rete consente di creare un limite di sicurezza per i carichi di lavoro, implementando le regole di accesso consentito e negato. Tali regole possono essere applicate a una macchina virtuale, una scheda di rete o una subnet.
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **subnet** |Elenco di ID subnet a cui è collegato il gruppo di sicurezza di rete. |/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd |
 | **securityRules** |Elenco di regole di sicurezza che costituiscono il gruppo di sicurezza di rete |Vedere [Regola di sicurezza](#Security-rule) di seguito |
@@ -12,7 +12,7 @@ Una risorsa del gruppo di sicurezza di rete consente di creare un limite di sicu
 ### <a name="security-rule"></a>Regola di sicurezza
 Una regola di sicurezza è una risorsa figlio di un gruppo di sicurezza di rete contenente le proprietà seguenti.
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **description** |Descrizione della regola |Consentire il traffico in ingresso per tutte le macchine virtuali nella subnet X |
 | **protocol** |Protocollo per la regola |TCP, UDP o * |

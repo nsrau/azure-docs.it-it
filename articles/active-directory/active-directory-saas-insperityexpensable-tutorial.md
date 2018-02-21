@@ -15,7 +15,7 @@ ms.date: 06/13/2017
 ms.author: jeedes
 ms.openlocfilehash: bf73f4f851386a2b8fc361ca511dc52d2285f7e0
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di Insperity ExpensAble con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Insperity ExpensAble, sono necessari gli elementi seguenti:
 

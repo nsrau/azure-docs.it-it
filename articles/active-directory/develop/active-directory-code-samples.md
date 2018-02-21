@@ -17,7 +17,7 @@ ms.author: mbaldwin
 ms.custom: aaddev
 ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

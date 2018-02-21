@@ -16,7 +16,7 @@ ms.date: 09/07/2017
 ms.author: magoedte
 ms.openlocfilehash: 938e4f4fa3326db23ea4c2b499c783de78dcfa76
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -64,7 +64,7 @@ Per impostazione predefinita, i ruoli di lavoro ibridi per runbook di Linux rich
     sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <OMSworkspaceId>
     ```
    
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Esaminare [Esecuzione dei runbook per Hybrid Runbook Workers](automation-hrw-run-runbooks.md) per informazioni su come configurare i runbook per automatizzare i processi nel centro dati locale o un altro ambiente cloud.
 * Per istruzioni su come rimuovere i ruoli di lavoro ibridi per runbook, vedere [Remove Azure Automation Hybrid Runbook Workers](automation-remove-hrw.md) (Rimuovere i ruoli di lavoro ibridi per runbook di Automazione di Azure)

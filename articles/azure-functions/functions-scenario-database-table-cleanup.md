@@ -26,7 +26,7 @@ In questo argomento viene illustrato come usare Funzioni di Azure per creare un 
 
 Affinché la funzione elabori le singole operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) in una tabella di un'app per dispositivi mobili, è necessario usare invece le [associazioni di app per dispositivi mobili](functions-bindings-mobile-apps.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Questo argomento usa una funzione attivata da un timer. Completare i passaggi nell'argomento [Creare una funzione in Azure attivata da un timer](functions-create-scheduled-function.md) per creare una versione C# di questa funzione.   
 
@@ -64,7 +64,7 @@ Un'app per le funzioni ospita l'esecuzione delle funzioni in Azure. È consiglia
     | **Valore** | Stringa copiata  | Incollare la stringa di connessione copiata nella sezione precedente e quindi sostituire i segnaposto `{your_username}` e `{your_password}` con valori reali. |
     | **Tipo** | Database SQL | Usare la connessione al database SQL predefinita. |   
 
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
 A questo punto, è possibile aggiungere il codice della funzione C# che si connette al database SQL.
 
@@ -122,7 +122,7 @@ Ora si apprenderà come usare le funzioni con l'app per la logica per l'integraz
 
 Per altre informazioni sulle funzioni, vedere gli argomenti seguenti:
 
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
+* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
   Informazioni di riferimento per programmatori in merito alla codifica delle funzioni e alla definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
   Descrive diversi strumenti e tecniche per il test delle funzioni.  

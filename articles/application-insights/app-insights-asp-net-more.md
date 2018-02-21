@@ -1,5 +1,5 @@
 ---
-title: "Sfruttare al meglio le funzionalità di Azure Application Insights | Microsoft Docs"
+title: "Sfruttare al meglio le funzionalità di Azure Application Insights | Documentazione Microsoft"
 description: "Dopo l'introduzione a Application Insights, ecco un riepilogo delle funzionalità che è possibile esplorare."
 services: application-insights
 documentationcenter: .net

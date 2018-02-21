@@ -31,10 +31,10 @@ La macchina virtuale per data science è fornita con diversi linguaggi predefini
 | ------------- | ------------- |
 | Versioni di linguaggio supportate | 2.7 e 3.5 |
 | Edizioni supportate della macchina virtuale per data science      | Linux, Windows     |
-| Come viene configurato o installato sulla macchina virtuale per data science?  | Vengono creati due ambienti `conda` globali. <br /> L'ambiente * `root` disponibile all'indirizzo `/anaconda/` è Python 2.7. <br/> L'ambiente * `py35` disponibile all'indirizzo `/anaconda/envs/py35` è Python 3.5.       |
-| Collegamenti a esempi      | Sono inclusi Notebook di Jupyter di esempio per Python.     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Vengono creati due ambienti `conda` globali. <br /> L'ambiente * `root` disponibile all'indirizzo `/anaconda/` è Python 2.7. <br/> L'ambiente * `py35` disponibile all'indirizzo `/anaconda/envs/py35` è Python 3.5.       |
+| Collegamenti agli esempi      | Sono inclusi Notebook di Jupyter di esempio per Python.     |
 | Strumenti correlati nella macchina virtuale per data science      | PySpark, R, Julia      |
-### <a name="how-to-use--run-it"></a>Come usarlo o eseguirlo?    
+### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?    
 
 **Windows**:
 
@@ -101,10 +101,10 @@ Gli ambienti Python predefiniti nella macchina virtuale per data science sono am
 | ------------- | ------------- |
 | Versioni di linguaggio supportate | Microsoft R Open 3.x (compatibile al 100% con CRAN-R)<br /> Microsoft R Server 9.x Developer Edition (una piattaforma R di livello enterprise scalabile)|
 | Edizioni supportate della macchina virtuale per data science      | Linux, Windows     |
-| Come viene configurato o installato sulla macchina virtuale per data science?  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Windows: `C:\Program Files\Microsoft\R Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Collegamenti a esempi      | Sono inclusi i Notebook di Jupyter di esempio per R     |
 | Strumenti correlati nella macchina virtuale per data science      | SparkR, Python, Julia      |
-### <a name="how-to-use--run-it"></a>Come usarlo o eseguirlo?    
+### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?    
 
 **Windows**:
 
@@ -149,10 +149,10 @@ R è installato nella macchina virtuale per data science in un ambiente globale 
 | ------------- | ------------- |
 | Versioni di linguaggio supportate | 0,5 |
 | Edizioni supportate della macchina virtuale per data science      | Linux, Windows     |
-| Come viene configurato o installato sulla macchina virtuale per data science?  | Windows: installato in `C:\JuliaPro-VERSION`<br /> Linux: installato in `/opt/JuliaPro-VERSION`    |
-| Collegamenti a esempi      | Sono inclusi i Notebook di Jupyter di esempio per Julia     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Windows: installato in `C:\JuliaPro-VERSION`<br /> Linux: installato in `/opt/JuliaPro-VERSION`    |
+| Collegamenti agli esempi      | Sono inclusi i Notebook di Jupyter di esempio per Julia     |
 | Strumenti correlati nella macchina virtuale per data science      | Python, R      |
-### <a name="how-to-use--run-it"></a>Come usarlo o eseguirlo?    
+### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?    
 
 **Windows**:
 

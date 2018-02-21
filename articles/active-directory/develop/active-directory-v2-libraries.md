@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -53,7 +53,7 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 > [!IMPORTANT]
 > Le librerie di anteprima MSAL sono adatte per essere usate in ambienti di produzione. Per queste librerie viene fornito lo stesso supporto di livello produzione offerto per le librerie di produzione correnti (ADAL). In fase di anteprima è possibile apportare modifiche all'API MSAL, al formato della cache interna e ad altri meccanismi delle librerie senza preavviso, ma queste modifiche dovranno essere replicate durante le correzioni di bug o i miglioramenti delle funzionalità. Possono infatti incidere sull'applicazione. Una modifica al formato della cache, ad esempio, può incidere sugli utenti chiedendo loro di accedere di nuovo. Per aggiornare il codice è possibile che sia necessario modificare l'API. Quando si fornisce la release di disponibilità generale, agli utenti viene chiesto di eseguire l'aggiornamento alla versione di disponibilità generale entro sei mesi, poiché le applicazioni scritte usando una versione di anteprima possono non funzionare più.
 
-| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Riferimenti
+| Piattaforma | Libreria | Download | Codice sorgente | Esempio | riferimento
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS e Android | MSAL .NET (anteprima) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [App desktop](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (anteprima) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [App a pagina singola](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |

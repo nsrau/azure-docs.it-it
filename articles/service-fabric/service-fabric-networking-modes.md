@@ -179,11 +179,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Impostazione |Valore | |
    | --- | --- | --- |
    |Priorità |2000 | |
-   |Nome |Custom_Dns  | |
+   |NOME |Custom_Dns  | |
    |Sorgente |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
-   |Azione | Consenti  | |
+   |Azione | CONSENTI  | |
    | | |
 
 4. Specificare la modalità di rete nel manifesto dell'applicazione per ogni servizio: `<NetworkConfig NetworkType="Open">`. La modalità di rete **Open** consente al servizio di ottenere un indirizzo IP dedicato. Se non è specificata alcuna modalità, viene impostata la modalità predefinita **nat**. Nell'esempio di manifesto seguente, i servizi `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Se è specificata la modalità di rete Open, non è possibile specificare configurazioni `PortBinding`.

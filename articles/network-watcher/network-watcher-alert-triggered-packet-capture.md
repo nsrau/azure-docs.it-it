@@ -32,7 +32,7 @@ Usando Network Watcher, gli avvisi e le funzioni dall'ecosistema di Azure, è po
 
 ![Scenario][scenario]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * La versione più recente di [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Un'istanza esistente di Network Watcher. Se non è già presente, creare un'[istanza di Network Watcher](network-watcher-create.md).
@@ -145,7 +145,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
     ![File di PowerShell][functions7]
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Per usare i cmdlet PowerShell, è necessario eseguire l'autenticazione, L'autenticazione viene configurata nell'app per le funzioni. Per configurare l'autenticazione è necessario definire le variabili di ambiente e caricare un file di chiave crittografata nell'app per le funzioni.
 

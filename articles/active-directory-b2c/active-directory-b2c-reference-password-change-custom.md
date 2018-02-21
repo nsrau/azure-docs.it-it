@@ -15,7 +15,7 @@ ms.date: 09/05/2016
 ms.author: vigunase
 ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 Con la funzionalità di modifica della password i consumer connessi (che usano account locali) possono modificare le proprie password senza la necessità di dimostrare l'autenticità con verifica di posta elettronica, come descritto nel [self-service password reset flow](active-directory-b2c-reference-sspr.md) (Flusso di reimpostazione della password self-service) Se la sessione scade nel momento in cui il consumer arriva al flusso di modifica della password gli viene richiesto di accedere nuovamente. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Un tenant di Azure AD B2C configurato per completare una procedura di iscrizione/accesso di un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 

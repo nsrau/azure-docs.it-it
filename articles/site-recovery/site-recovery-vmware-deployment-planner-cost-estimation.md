@@ -154,7 +154,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Valute supportate
 Azure Site Recovery Deployment Planner può generare il report dei costi con una qualsiasi delle valute seguenti.
 
-|Valuta|Nome||Valuta|Nome||Valuta|Nome|
+|Valuta|NOME||Valuta|NOME||Valuta|NOME|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dollaro australiano ($)||BRL|Real brasiliano (R$)|
 |CAD|Dollaro canadese ($)||CHF|Franco svizzero (CHF)||DKK|Corona danese (kr)|

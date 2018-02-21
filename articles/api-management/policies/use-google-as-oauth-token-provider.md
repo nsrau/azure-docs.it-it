@@ -21,9 +21,9 @@ ms.lasthandoff: 12/04/2017
 ---
 # <a name="authorize-access-using-google-oauth-token"></a>Autorizzare l'accesso con token OAuth Google
 
-Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come autorizzare l'accesso agli endpoint usando Google come provider di token OAuth. Per impostare o modificare il codice dei criteri, seguire la procedura descritta in [Impostare o modificare un criterio](../set-edit-policies.md). Per altri esempi, vedere [Esempi di criteri](../policy-samples.md).
+Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come autorizzare l'accesso agli endpoint usando Google come provider di token OAuth. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Criterio
 
 Incollare il codice nel blocco **inbound**.
 

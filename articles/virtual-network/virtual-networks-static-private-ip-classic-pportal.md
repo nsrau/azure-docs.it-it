@@ -37,7 +37,7 @@ In questo articolo viene illustrato il modello di distribuzione classica. È ino
 La procedura di esempio seguente prevede che un ambiente semplice sia già creato. Se si desidera eseguire la procedura illustrata in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-classic-pportal.md).
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Come specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale.
-Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire la procedura seguente:
+Per creare una macchina virtuale denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire questa procedura:
 
 1. In un browser passare a http://portal.azure.com e, se necessario, accedere con l'account Azure.
 2. Fare clic su **NUOVO** > **Calcolo** > **Windows Server 2012 R2 Datacenter**; si noti che l'elenco **Selezionare un modello di distribuzione** mostra già **Classico**, quindi fare clic su **Crea**.

@@ -16,7 +16,7 @@ ms.date: 11/22/2016
 ms.author: richrund
 ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -77,7 +77,7 @@ Per ottenere visualizzazioni personalizzate dei dati, usare la funzionalità [da
 
 Per i report a livello esecutivo che riepilogano i dati nelle aree di lavoro è possibile usare l'integrazione tra Log Analytics e [PowerBI](log-analytics-powerbi.md). Se si richiede l'integrazione con un altro sistema di reporting, è possibile usare l'API di ricerca (tramite PowerShell o [REST](log-analytics-log-search-api.md)) per eseguire le query ed esportare i risultati della ricerca.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](log-analytics-template-workspace-configuration.md)
 * Automatizzare la creazione delle aree di lavoro usando [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Usare la funzione [Avvisi](log-analytics-alerts.md) per l'integrazione con i sistemi esistenti

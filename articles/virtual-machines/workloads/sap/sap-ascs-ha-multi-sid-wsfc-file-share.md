@@ -215,7 +215,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 
 Per informazioni sui limiti del servizio di bilanciamento del carico, vedere "IP front-end privato per ogni servizio di bilanciamento del carico" in [Limiti relativi alle reti - Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 È già stato configurato un cluster WSFC da usare per una istanza ASCS/SCS di SAP con la **condivisione file**, come illustrato nella figura seguente.
 

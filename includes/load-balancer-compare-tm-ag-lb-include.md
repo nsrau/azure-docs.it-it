@@ -18,7 +18,7 @@ La tabella seguente riepiloga le funzionalità offerte da ogni servizio:
 
 Azure Load Balancer e il gateway applicazione di Azure indirizzano il traffico di rete agli endpoint, ma presentano diversi scenari di uso in base al traffico da gestire. La tabella seguente consente di comprendere la differenza tra i due servizi di bilanciamento del carico:
 
-| Tipo | Azure Load Balancer | gateway applicazione |
+| type | Azure Load Balancer | gateway applicazione |
 | --- | --- | --- |
 | Protocolli |UDP/TCP |HTTP, HTTPS e WebSocket |
 | Prenotazione IP |Supportato |Non supportate |

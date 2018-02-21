@@ -1,5 +1,5 @@
 ---
-title: Specifica degli endpoint di servizio di Service Fabric | Microsoft Docs
+title: Specifica degli endpoint di servizio di Service Fabric | Documentazione Microsoft
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 services: service-fabric
 documentationcenter: .net
@@ -100,7 +100,7 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Esempio: specificare un endpoint HTTPS per il servizio
-Il protocollo HTTPS fornisce l'autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare il protocollo HTTPS nel servizio di Service Fabric, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
+Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare il protocollo HTTPS nel servizio di Service Fabric, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
 
 > [!NOTE]
 > Un protocollo del servizio non può essere modificato durante l'aggiornamento dell'applicazione. Se viene modificato durante l'aggiornamento, si tratta di una modifica importante.

@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
   > 
 * **Un cluster HDInsight di Azure**. Per istruzioni sul provisioning dei cluster, vedere [Introduzione a HDInsight][hdinsight-get-started] o [Effettuare il provisioning di cluster HDInsight][hdinsight-provision]. Per completare l'esercitazione sono necessari i dati seguenti:
   
-  | Proprietà del cluster | Nome variabile di Azure PowerShell | Valore | Descrizione |
+  | Proprietà del cluster | Nome variabile di Azure PowerShell | Valore | DESCRIZIONE |
   | --- | --- | --- | --- |
   |   Nome del cluster HDInsight |$clusterName | |Il nome del cluster HDInsight. |
   |   Nome utente cluster |$clusterUsername | |Nome utente del cluster specificato al momento della creazione. |
@@ -60,7 +60,7 @@ Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 ## <a name="jump-start"></a>Avvio rapido
 È possibile usare Ambari per monitorare cluster HDInsight in vari modi.
 
-**Usare Azure PowerShell**
+**Uso di Azure PowerShell**
 
 Lo script di Azure PowerShell seguente ottiene le informazioni di analisi del processo MapReduce *in un cluster HDInsight 3.5*.  La differenza principale consiste nel fatto che queste informazioni vengono estratte dal servizio YARN (anziché da MapReduce).
 
@@ -98,7 +98,7 @@ L'output è:
 
 ![Output di jobtracker][img-jobtracker-output]
 
-**Usare cURL**
+**Uso di cURL**
 
 L'esempio seguente ottiene informazioni sul cluster usando cURL:
 
@@ -128,7 +128,7 @@ Quando si usa l'endpoint Ambari, "https://{clusterDns}.azurehdinsight.net/ambari
 ## <a name="ambari-monitoring-apis"></a>API Ambari di monitoraggio
 La tabella seguente riporta alcune delle chiamate API Ambari di monitoraggio più comuni. Per altre informazioni, vedere le [informazioni di riferimento dell'API Ambari][ambari-api-reference].
 
-| Chiamata API di monitoraggio | URI | Descrizione |
+| Chiamata API di monitoraggio | URI | DESCRIZIONE |
 | --- | --- | --- |
 | Get clusters |`/api/v1/clusters` | |
 | Get cluster info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |cluster, servizi, hosts |

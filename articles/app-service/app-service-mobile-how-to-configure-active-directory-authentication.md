@@ -33,7 +33,7 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
    Fare clic sulla registrazione di app per selezionarla e fare clic su **OK**. Quindi, fare clic su **OK** nella pagina Impostazioni di Azure Active Directory.
    Per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app.
 5. (Facoltativo) Per consentire l'accesso al sito solo agli utenti autenticati da Azure Active Directory, impostare **Azione da eseguire quando la richiesta non è autenticata** su **Accedi con Azure Active Directory**. Per poter usare questa funzione, tuttavia, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 È ora possibile usare Azure Active Directory per l'autenticazione nell'applicazione dei servizi app.
 
@@ -47,7 +47,7 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
 4. Entro pochi secondi verrà visualizzata la registrazione della nuova app appena creata.
 5. Dopo aver aggiunto la registrazione dell'app, fare clic sul nome della registrazione dell'app, fare clic su **Impostazioni** nella parte superiore e quindi su **Proprietà** 
 6. Incollare l'URL dell'applicazione copiato nel passaggio 1 nella casella **URI ID app** e in **URL pagina iniziale**, quindi fare clic su **Salva**
-7. A questo punto fare ora clic su **URL di risposta**, modificare il valore nel campo **URL di risposta**, incollare l'URL dell'applicazione copiato nel passaggio 1, modificare il protocollo in modo che sia **https://** e non http://, quindi aggiungere */.auth/login/aad/callback* alla fine dell'URL, ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Fare clic su **Salva**.   
+7. A questo punto fare ora clic su **URL di risposta**, modificare il valore nel campo **URL di risposta**, incollare l'URL dell'applicazione copiato nel passaggio 1, modificare il protocollo in modo che sia **https://** e non http://, quindi aggiungere */.auth/login/aad/callback* alla fine dell'URL, ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Fare clic su **Save**.   
 8.  A questo punto, copiare l'**ID applicazione** dell'app per usarlo in seguito. Questo valore sarà necessario per configurare l'applicazione dei servizi app.
 9. Chiudere la pagina **App registrata**. Nella pagina **Registrazioni per l'app** fare clic sul pulsante **Endpoint** nella parte superiore e quindi copiare il valore nel campo **URL documento metadati federazione**. 
 10. Aprire una nuova finestra del browser, incollare l'URL e passare alla pagina XML. Nella parte superiore del documento saranno presenti un elemento **EntityDescriptor** e un attributo **entityID** nel formato `https://sts.windows.net/` seguito da un GUID specifico per il tenant (denominato "ID tenant"). Copiare questo valore, che verrà usato come **URL dell'autorità di certificazione**. L'applicazione verrà configurata per l'uso di questo valore più avanti.

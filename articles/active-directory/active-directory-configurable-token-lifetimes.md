@@ -18,7 +18,7 @@ ms.custom: aaddev
 ms.reviewer: anchitn
 ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -194,7 +194,7 @@ Gli esempi illustrano come:
 * Creare criteri per un'app nativa che chiama un'API Web
 * Gestire criteri avanzati
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](active-directory-howto-tenant.md) prima di procedere con questi esempi.  
 
 Per iniziare, seguire questa procedura:

@@ -61,18 +61,18 @@ Questo argomento fornisce un codice personalizzato che è possibile usare nei li
 
 ````
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | --- | --- | --- |
 | sourceType |   | Tipo dell'origine dell'esecuzione. I valori consentiti sono **Microsoft.Logic/workflows** e **custom**. Obbligatoria |
-| Source |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
-| systemId | String | ID di sistema dell'app per la logica. Obbligatoria |
-| runId | String | ID di esecuzione dell'app per la logica. Obbligatoria |
-| operationName | String | Nome dell'operazione, ad esempio azione o trigger. Obbligatoria |
-| repeatItemScopeName | String | Ripetere il nome dell'elemento se l'azione è all'interno di un loop `foreach` / `until`. Obbligatoria |
+| Sorgente |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
+| systemId | string | ID di sistema dell'app per la logica. Obbligatoria |
+| runId | string | ID di esecuzione dell'app per la logica. Obbligatoria |
+| operationName | string | Nome dell'operazione, ad esempio azione o trigger. Obbligatoria |
+| repeatItemScopeName | string | Ripetere il nome dell'elemento se l'azione è all'interno di un loop `foreach` / `until`. Obbligatoria |
 | repeatItemIndex | Integer | Se l'azione è all'interno di un loop `foreach`/`until`. Indica l'indice dell'elemento ripetuto. Obbligatoria |
-| trackingId | String | Indica l'ID di rilevamento per la correlazione dei messaggi. Facoltativa |
-| correlationId | String | ID di correlazione, per la correlazione dei messaggi. Facoltativa |
-| clientRequestId | String | Il client può popolare questo valore per la correlazione dei messaggi. Facoltativa |
+| trackingId | string | Indica l'ID di rilevamento per la correlazione dei messaggi. Facoltativa |
+| correlationId | string | ID di correlazione, per la correlazione dei messaggi. Facoltativa |
+| clientRequestId | string | Il client può popolare questo valore per la correlazione dei messaggi. Facoltativa |
 | eventLevel |   | Livello dell'evento. Obbligatoria |
 | eventTime |   | Ora dell'evento in formato UTC, ovvero AAAA-MM-GGTHH:MM:SS.00000Z Obbligatoria |
 | recordType |   | Tipo di record di rilevamento. Il valore consentito è **custom**. Obbligatoria |

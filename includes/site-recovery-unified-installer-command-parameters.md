@@ -1,4 +1,4 @@
-|Nome parametro| Tipo | Descrizione| Valori possibili|
+|Nome parametro| type | DESCRIZIONE| Valori possibili|
 |-|-|-|-|
 | /Modalità server|Mandatory|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
 |/InstallLocation|Mandatory|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|

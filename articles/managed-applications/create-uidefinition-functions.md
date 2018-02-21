@@ -22,19 +22,19 @@ ms.lasthandoff: 10/27/2017
 # <a name="createuidefinition-functions"></a>Funzioni di CreateUiDefinition
 Questa sezione contiene le firme per tutte le funzioni supportate di CreateUiDefinition.
 
-Per usare una funzione, racchiudere la dichiarazione tra parentesi quadre. ad esempio:
+Per usare una funzione, racchiudere la dichiarazione tra parentesi quadre. Ad esempio: 
 
 ```json
 "[function()]"
 ```
 
-È possibile fare riferimento a stringhe e altre funzioni come parametri per una funzione, ma le stringhe devono essere racchiuse tra virgolette singole. ad esempio:
+È possibile fare riferimento a stringhe e altre funzioni come parametri per una funzione, ma le stringhe devono essere racchiuse tra virgolette singole. Ad esempio: 
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Ove applicabile, si può fare riferimento alle proprietà dell'output di una funzione usando l'operatore punto. ad esempio:
+Ove applicabile, si può fare riferimento alle proprietà dell'output di una funzione usando l'operatore punto. Ad esempio: 
 
 ```json
 "[func().prop1]"
@@ -100,7 +100,7 @@ L'esempio seguente restituisce `"Everything is awesome!"`:
 "[replace('Everything is terrible!', 'terrible', 'awesome')]"
 ```
 
-### <a name="guid"></a>guid
+### <a name="guid"></a>GUID
 Genera una stringa univoca globale (GUID).
 
 L'esempio seguente può restituire `"c7bc8bdc-7252-4a82-ba53-7c468679a511"`:
@@ -525,7 +525,7 @@ L'esempio seguente restituisce `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>string
+### <a name="string"></a>stringa
 Converte il parametro in una stringa. Questa funzione supporta parametri di tutti i tipi di dati JSON.
 
 L'esempio seguente restituisce `"1"`:

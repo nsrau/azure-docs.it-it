@@ -104,7 +104,7 @@ Le procedure seguenti illustrano i passaggi necessari per configurare la distrib
     ![Modificare il percorso dello script][10]
 8. Nella casella **Argomenti script** immettere i parametri seguenti, su una sola riga. Quando si esegue lo script in Visual Studio, è possibile vedere come vengono usati i parametri nella finestra **Output** . Si può usare questa finestra come punto di partenza per impostare i valori dei parametri nell'istruzione di compilazione.
    
-   | Parametro | Descrizione |
+   | Parametro | DESCRIZIONE |
    | --- | --- |
    | -ResourceGroupLocation |Valore dell'area geografica in cui si trova il gruppo di risorse, ad esempio **eastus** o **'East US'**. Aggiungere virgolette singole se nel nome è presente uno spazio. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/en-us/regions/). |
    | -ResourceGroupName |Nome del gruppo di risorse usato per la distribuzione. |

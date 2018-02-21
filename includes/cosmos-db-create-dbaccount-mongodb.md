@@ -13,7 +13,7 @@
  
     ![Screenshot del pannello Nuovo Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-2.png)
    
-    Impostazione|Valore consigliato|Descrizione
+    Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
     ID|*Valore univoco*|Nome univoco scelto per identificare l'account Azure Cosmos DB. Poiché alI'ID fornito viene aggiunto *documents.azure.com* per creare l'URI, usare un ID univoco ma facilmente identificabile. L'ID può contenere solo lettere minuscole, numeri e il carattere '-' e deve avere una lunghezza compresa tra 3 e 50 caratteri.
     API|MongoDB|L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API per soddisfare le esigenze dell'applicazione, ovvero SQL (database di documenti) Gremlin (grafo), MongoDB, SQL (database di documenti), Tabella di Azure e Cassandra, per ognuna delle quali è attualmente necessario un account separato. <br><br>Selezionare **MongoDB** perché in questa guida introduttiva si crea un database di documenti su cui è possibile eseguire query usando MongoDB.<br><br>[Altre informazioni sull'API MongoDB](../articles/cosmos-db/mongodb-introduction.md)|

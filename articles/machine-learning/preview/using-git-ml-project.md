@@ -51,7 +51,7 @@ Nel [portale di Azure](https://portal.azure.com/) creare un nuovo progetto team:
     - **Controllo della versione**: selezionare **Git**.
     - **Sottoscrizione**: selezionare una sottoscrizione con un account di Sperimentazione di Machine Learning.
     - **Percorso**: scegliere idealmente un'area vicina alle proprie risorse di Sperimentazione di Machine Learning.
-4. Selezionare **Crea**. 
+4. Selezionare **Create**. 
 
 ![Creare un progetto team nel portale di Azure](media/using-git-ml-project/create_vsts_team.png)
 
@@ -129,7 +129,7 @@ Prestare attenzione quando si esegue questo comando. L'esecuzione di questo coma
 Potrebbe essere necessario usare Git per eseguire il commit delle modifiche nel ramo attuale prima di eseguire questa operazione.
 
 ## <a name="step-6-use-the-master-branch"></a>Passaggio 6. Usare il ramo master
-Un modo per evitare la perdita accidentale dello stato del progetto corrente consiste nell'eseguire il commit del progetto nel ramo master del repository Git o in un ramo qualsiasi creato dall'utente. È possibile usare Git dalla riga di comando o dallo strumento client Git preferito per operare sul ramo master, ad esempio:
+Un modo per evitare la perdita accidentale dello stato del progetto corrente consiste nell'eseguire il commit del progetto nel ramo master del repository Git o in un ramo qualsiasi creato dall'utente. È possibile usare Git dalla riga di comando o dallo strumento client Git preferito per operare sul ramo master, Ad esempio: 
 
 ```sh
 # Check status to make sure you are on the master branch (or branch of your choice).
@@ -147,7 +147,7 @@ $ git push origin master
 
 A questo punto, è possibile ripristinare in modo sicuro il progetto a uno snapshot precedente completando il passaggio 5. È sempre possibile tornare al commit appena eseguito sul ramo master.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Se si fa affidamento solo sulle funzioni della cronologia di esecuzione in Machine Learning per la creazione degli snapshot di progetto e il loro ripristino, non occorre preoccuparsi dell'autenticazione del repository Git. L'autenticazione è gestita dal livello del servizio Sperimentazione di Machine Learning.
 
 Tuttavia, se si usano i propri strumenti Git per gestire il controllo della versione, è necessario gestire l'autenticazione con il repository Git remoto in Team Services. In Machine Learning il repository Git remoto viene aggiunto al repository locale come un Git remoto usando il protocollo HTTPS. Ciò significa che quando si usano i comandi Git, come il push o il pull, in remoto, è necessario indicare nome utente e password o un token di accesso personale. Per creare un token di accesso personale in un repository Git di Team Services, seguire le istruzioni in [Use a personal access token to authenticate](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) (Usare un token di accesso personale per l'autenticazione).

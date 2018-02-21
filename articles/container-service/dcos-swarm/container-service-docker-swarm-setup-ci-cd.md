@@ -38,7 +38,7 @@ Una breve spiegazione dei passaggi:
 7. Docker Swarm nel cluster effettua il pull della versione più recente delle immagini 
 8. La nuova versione dell'applicazione viene distribuita mediante Docker Compose 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seguenti:
 

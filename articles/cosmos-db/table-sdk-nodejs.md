@@ -17,7 +17,7 @@ ms.author: yaronyg
 ms.custom: 
 ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

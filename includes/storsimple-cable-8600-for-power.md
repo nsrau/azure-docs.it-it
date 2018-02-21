@@ -27,7 +27,7 @@
     
     **Cablaggio di alimentazione**
     
-    | Etichetta | Descrizione |
+    | Etichetta | DESCRIZIONE |
     |:--- |:--- |
     | 1 |Enclosure principale |
     | 2 |PCM 0 |

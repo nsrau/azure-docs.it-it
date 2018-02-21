@@ -105,7 +105,7 @@ Dopo aver installato il gateway in un computer locale, è necessario creare il g
     Per aggiungere la risorsa del gateway al dashboard di Azure, scegliere **Aggiungi al dashboard**. 
     Al termine dell'operazione, scegliere **Crea**.
 
-    ad esempio:
+    Ad esempio: 
 
     ![Fornire i dettagli per creare il gateway dati locale](./media/logic-apps-gateway-connection/createblade.png)
 

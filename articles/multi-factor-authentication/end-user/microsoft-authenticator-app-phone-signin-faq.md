@@ -17,7 +17,7 @@ ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi dei ruoli che non vengono avviati | Microsoft Docs
+title: Risolvere i problemi dei ruoli che non vengono avviati | Documentazione Microsoft
 description: Informazioni su alcuni motivi comuni del mancato avvio di un ruolo del servizio cloud. Include anche soluzioni per questi problemi.
 services: cloud-services
 documentationcenter: 
@@ -77,7 +77,7 @@ Se si passa al sito Web, ora verranno restituiti messaggi di errore più esplici
 * Descrizione: Eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
 * Dettagli dell'eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
 
-Ad esempio:
+Ad esempio: 
 
 ![Errore esplicito del server nell'applicazione '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

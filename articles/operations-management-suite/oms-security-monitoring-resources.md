@@ -105,7 +105,7 @@ Questo dashboard consente all’IT di identificare rapidamente potenziali minacc
 
 Il report generato per questo computer fornisce importanti informazioni su questo modello. Nella colonna **ACCOUNT** viene indicato l'account utente utilizzato per tentare di accedere al sistema, nella colonna **TIMEGENERATED** viene indicato l'intervallo di tempo in cui è stato effettuato il tentativo e nella colonna **LOGONTYPENAME** viene indicata la posizione in cui è stato effettuato il tentativo. Se questi tentativi sono stati eseguiti localmente nel sistema da un programma, nella colonna **PROCESS** viene indicato il nome del processo. In scenari in cui il tentativo di accesso proviene da un programma, si dispone già del nome del processo ed è dunque possibile effettuare ulteriori indagini nel sistema di destinazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento è stato illustrato come utilizzare la soluzione Security and Audit di OMS per monitorare le risorse. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)

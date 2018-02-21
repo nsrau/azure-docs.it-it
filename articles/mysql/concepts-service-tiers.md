@@ -45,8 +45,8 @@ Per scegliere il piano tariffario, iniziare determinando se il proprio carico di
 | :------------------------ | :-------- | :----------- |
 | Unità di calcolo massime | 100 | 800 | 
 | Archiviazione massima totale | 1 TB | 1 TB | 
-| IOPS di archiviazione garantite | N/D  | Sì | 
-| Archiviazione IOPS massima | N/D  | 3,000 | 
+| IOPS di archiviazione garantite | N/D | Sì | 
+| Archiviazione IOPS massima | N/D | 3,000 | 
 | Periodo di conservazione dei backup dei database | 7 giorni | 35 giorni | 
 
 Durante il periodo di anteprima non è possibile modificare il piano tariffario dopo aver creato il server. In futuro sarà possibile effettuare l'upgrade o il downgrade di un server da un piano tariffario a un altro.

@@ -86,7 +86,7 @@ Dopo aver convertito i dati in formato CSV, è necessario caricarli in Machine L
 
 9. Aggiungere un'eventuale descrizione.
 
-10. Fare clic sul segno di spunta accanto a **OK**.  
+10. Fare clic sul segno di spunta **OK**.  
 
     ![Caricare il set di dati][3]
 

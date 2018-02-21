@@ -90,15 +90,15 @@ Nella tabella seguente sono riepilogate le operazioni contenitore che accettano 
 
 | Operazione | Restituisce il valore ETag del contenitore | Accetta intestazioni condizionali |
 |:--- |:--- |:--- |
-| Create Container |Sì |No |
-| Get Container Properties |Sì |No |
-| Get Container Metadata |Sì |No |
+| Create Container |Sì |No  |
+| Get Container Properties |Sì |No  |
+| Get Container Metadata |Sì |No  |
 | Set Container Metadata |Sì |Sì |
-| Get Container ACL |Sì |No |
+| Get Container ACL |Sì |No  |
 | Set Container ACL |Sì |Sì (*) |
-| Delete Container |No |Sì |
+| Delete Container |No  |Sì |
 | Lease Container |Sì |Sì |
-| List Blobs |No |No |
+| List Blobs |No  |No  |
 
 (*) Le autorizzazioni definite da SetContainerACL sono memorizzate nella cache e la propagazione degli aggiornamenti a queste autorizzazioni richiede 30 secondi durante i quali la coerenza degli aggiornamenti non è garantita.  
 
@@ -115,11 +115,11 @@ Nella tabella seguente sono riepilogate le operazioni BLOB che accettano intesta
 | Lease Blob (*) |Sì |Sì |
 | Snapshot Blob |Sì |Sì |
 | Copy Blob |Sì |Sì (per il BLOB di origine e destinazione) |
-| Abort Copy Blob |No |No |
-| Delete Blob |No |Sì |
-| Put Block |No |No |
+| Abort Copy Blob |No  |No  |
+| Delete Blob |No  |Sì |
+| Put Block |No  |No  |
 | Put Block List |Sì |Sì |
-| Get Block List |Sì |No |
+| Get Block List |Sì |No  |
 | Put Page |Sì |Sì |
 | Get Page Ranges |Sì |Sì |
 
@@ -241,13 +241,13 @@ Nella tabella seguente sono riepilogate le modalità in cui le operazioni delle 
 
 | Operazione | Restituisce il valore ETag | Richiede l'intestazione della richiesta If-Match |
 |:--- |:--- |:--- |
-| Query Entities |Sì |No |
-| Insert Entity |Sì |No |
+| Query Entities |Sì |No  |
+| Insert Entity |Sì |No  |
 | Update Entity |Sì |Sì |
 | Merge Entity |Sì |Sì |
-| Delete Entity |No |Sì |
-| Insert or Replace Entity |Sì |No |
-| Insert or Merge Entity |Sì |No |
+| Delete Entity |No  |Sì |
+| Insert or Replace Entity |Sì |No  |
+| Insert or Merge Entity |Sì |No  |
 
 SI noti che le operazioni **Insert or Replace Entity** e **Insert or Merge Entity** *non* eseguono alcun controllo di concorrenza perché non inviano un valore ETag al servizio tabelle.  
 

@@ -30,7 +30,7 @@ La macchina virtuale Linux per l'analisi scientifica dei dati è una macchina vi
 * JuliaPro: un'accurata distribuzione di linguaggio Julia con librerie scientifiche e dati di analitica diffuse
 * Istanza Spark univoca e un solo nodo Hadoop (HDFS, Yarn)
 * JupyterHub: un server notebook Jupyter multiutente che supporta kernel R, Python, PySpark e Julia
-* Azure Storage Explorer
+* Esplora archivi Azure
 * Interfaccia della riga di comando di Azure per la gestione delle risorse di Azure
 * Database PostgresSQL
 * Strumenti di Machine Learning
@@ -58,7 +58,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
 È disponibile anche un'immagine [Ubuntu](dsvm-ubuntu-intro.md), con molti degli stessi strumenti dell'immagine CentOS, oltre a framework di apprendimento avanzato. È disponibile anche un'immagine [Windows](provision-vm.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di creare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere gli elementi seguenti:
 
 * **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
@@ -151,7 +151,7 @@ Python 3.5 viene installato in */anaconda/envs/py35/bin*.
 
 Per richiamare la sessione interattiva di Python, è sufficiente digitare **python** nella shell. Se si usa un'interfaccia grafica o è installato l'inoltro X11, è possibile digitare il comando **pycharm** per avviare l'IDE di PyCharm Python.
 
-Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ````pip```` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. ad esempio:
+Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ````pip```` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. Ad esempio: 
 
     sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
     sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment

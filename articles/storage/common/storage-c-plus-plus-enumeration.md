@@ -39,7 +39,7 @@ La libreria Client di archiviazione fornisce un'ampia gamma di metodi per elenca
 Ognuno di questi metodi viene visualizzato utilizzando diversi overload per scenari diversi.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asincrono o sincrono
-Poiché la libreria client di archiviazione per C++ viene compilata sopra la [libreria REST C++](https://github.com/Microsoft/cpprestsdk), le operazioni asincrone sono intrinsecamente supportate tramite [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). ad esempio:
+Poiché la libreria client di archiviazione per C++ viene compilata sopra la [libreria REST C++](https://github.com/Microsoft/cpprestsdk), le operazioni asincrone sono intrinsecamente supportate tramite [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ad esempio: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;

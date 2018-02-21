@@ -95,7 +95,7 @@ Le attestazioni con restrizioni non possono essere modificate usando i criteri. 
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|posta elettronica|
+|email|
 |endpoint|
 |enfpolids|
 |exp|
@@ -175,7 +175,7 @@ Le attestazioni con restrizioni non possono essere modificate usando i criteri. 
 |unique_name|
 |upn|
 |user_setting_sync_url|
-|nome utente|
+|username|
 |uti|
 |ver|
 |verified_primary_email|
@@ -280,7 +280,7 @@ Se l'origine è transformation, anche l'elemento **TransformationID** deve esser
 L'elemento ID identifica la proprietà dell'origine che indica il valore per l'attestazione. La tabella seguente elenca i valori di ID validi per ogni valore di Source.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabella 3: Valori di ID validi per ogni Source
-|Sorgente|ID|Descrizione|
+|Sorgente|ID|DESCRIZIONE|
 |-----|-----|-----|
 |Utente|surname|Cognome|
 |Utente|givenname|Nome|
@@ -317,14 +317,14 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 |Utente|othermail|Posta elettronica alternativa|
 |Utente|country|Paese|
 |Utente|city|city|
-|Utente|stato|Stato|
+|Utente|state|Stato|
 |Utente|jobtitle|Posizione|
 |Utente|employeeid|ID dipendente|
 |Utente|facsimiletelephonenumber|Numero di telefono fax|
 |application, resource, audience|displayname|Nome visualizzato|
 |application, resource, audience|objected|ObjectID|
 |application, resource, audience|tags|Tag di entità servizio|
-|Società|tenantcountry|Paese del tenant|
+|Azienda|tenantcountry|Paese del tenant|
 
 **TransformationID:** l'elemento TransformationID è obbligatorio solo se l'elemento Source è impostato su "transformation".
 
@@ -353,7 +353,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 In base al metodo scelto è previsto un set di input e output. Questi vengono definiti usando gli elementi **InputClaims**, **InputParameters** e **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabella 4: Metodi di trasformazione e input/output previsti
-|TransformationMethod|Input previsto|Output previsto|Descrizione|
+|TransformationMethod|Input previsto|Output previsto|DESCRIZIONE|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Esegue il join di stringhe di input dividendole con un separatore. Ad esempio: stringa1: "foo@bar.com", stringa2: "sandbox", separatore: "." comporta in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Estrae la parte locale di un indirizzo di posta elettronica. Ad esempio: mail:"foo@bar.com" comporta in outputClaim:"foo". Se non è presente un segno @, la stringa di input originale viene restituita così come è.|
@@ -378,7 +378,7 @@ In base al metodo scelto è previsto un set di input e output. Questi vengono de
 **NameID e UPN di SAML:** gli attributi da cui hanno origine i valori NameID e UPN, e le trasformazioni di attestazioni consentite, presentano limitazioni.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabella 5: Attributi consentiti come origine dati per NameID di SAML
-|Sorgente|ID|Descrizione|
+|Sorgente|ID|DESCRIZIONE|
 |-----|-----|-----|
 |Utente|mail|Indirizzo di posta elettronica|
 |Utente|userprincipalname|Nome dell'entità utente|
@@ -403,7 +403,7 @@ In base al metodo scelto è previsto un set di input e output. Questi vengono de
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabella 6: Metodi di trasformazione consentiti per NameID di SAML
 |TransformationMethod|Restrizioni|
 | ----- | ----- |
-|ExtractMailPrefix|Nessuno|
+|ExtractMailPrefix|Nessuna|
 |Join|Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse.|
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
@@ -419,7 +419,7 @@ I criteri di mapping delle attestazioni possono essere assegnati solo a oggetti 
 
 In molti scenari di Azure AD è possibile personalizzare le attestazioni generate nei token per specifiche entità servizio. In questa sezione vengono illustrati alcuni scenari comuni che permettono di comprendere come usare il tipo di criteri di mapping delle attestazioni.
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le entità servizio. Se non si ha familiarità con Azure AD, è consigliabile capire come ottenere un tenant di Azure AD prima di procedere con questi esempi. 
 
 Per iniziare, seguire questa procedura:

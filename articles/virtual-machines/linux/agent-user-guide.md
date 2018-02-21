@@ -163,7 +163,7 @@ Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente wa
 Di seguito sono descritte le opzioni di configurazione disponibili in modo dettagliato. Le opzioni di configurazione sono di tre tipi: Boolean, String o Integer. Le opzioni di configurazione booleane possono essere specificate come "y" o "n". È possibile usare la parola chiave speciale "None" per alcune voci di configurazione di tipo stringa, come indicato di seguito.
 
 **Provisioning.Enabled:**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: y
 
 Consente all'utente di attivare o disattivare la funzionalità di provisioning nell'agente. I valori validi sono "y" o "n". Se il provisioning è disabilitato, le chiavi utente e host SSH nell'immagine vengono mantenute e qualsiasi configurazione specificata nell'API di provisioning di Azure viene ignorata.
@@ -174,13 +174,13 @@ Consente all'utente di attivare o disattivare la funzionalità di provisioning n
 > 
 
 **Provisioning.DeleteRootPassword:**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: n
 
 Se questa voce è impostata, la password radice nel file /etc/shadow viene cancellata durante il processo di provisioning.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: y
 
 Se questa voce è impostata, tutte le coppie di chiavi host SSH (ecdsa, dsa e rsa) vengono eliminate da /etc/ssh/ durante il processo di provisioning e viene generata un'unica coppia di chiavi aggiornata.
@@ -200,13 +200,13 @@ Predefinito: y
 Se questa voce è impostata, waagent monitorerà la macchina virtuale Linux per rilevare modifiche del nome host (come restituite dal comando "hostname") e aggiornerà automaticamente la configurazione di rete nell'immagine per riflettere la modifica. Per effettuare il push della modifica del nome ai server DNS, la funzionalità di rete nella macchina virtuale verrà riavviata, causando una breve interruzione nella connettività Internet.
 
 **Provisioning.DecodeCustomData**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: n
 
 Se impostato, waagent decodificherà CustomData da Base64.
 
 **Provisioning.ExecuteCustomData**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: n
 
 Se impostato, waagent eseguirà CustomData dopo il provisioning.
@@ -232,7 +232,7 @@ Valore predefinito: 10
 Lunghezza di salt casuale usata durante la generazione di hash della password.
 
 **ResourceDisk.Format:**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: y
 
 Se questa voce è impostata, il disco risorse fornito dalla piattaforma verrà formattato e montato da waagent se il tipo di file system richiesto dall'utente in "ResourceDisk.Filesystem" è diverso da "ntfs". Una singola partizione di tipo Linux (83) verrà resa disponibile nel disco. Si noti che la partizione non verrà formattata se è possibile montarla correttamente.
@@ -256,7 +256,7 @@ Predefinito: nessuno
 Specifica le opzioni di montaggio del disco da passare al comando. È un elenco di valori delimitato da virgole, ad esempio nodev,nosuid. Vedere montaggio(8) per informazioni dettagliate.
 
 **ResourceDisk.EnableSwap:**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: n
 
 Se questa voce è impostata, viene creato un file di scambio (/swapfile) nel disco risorse e aggiunto all'area di swap del sistema.
@@ -268,13 +268,13 @@ Predefinito: 0
 Dimensione del file di scambio in megabyte.
 
 **Logs.Verbose:**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: n
 
 Se questa voce è impostata, viene incrementato il livello di dettaglio del log. Waagent registra in /var/log/waagent.log e usufruisce della funzionalità logrotate del sistema per la rotazione dei log.
 
 **OS.EnableRDMA**  
-Tipo: booleano  
+Tipo: Boolean  
 Predefinito: n
 
 Se impostato, l'agente tenterà di installare e caricare un driver del kernel RDMA adatto alla versione del firmware nell'hardware sottostante.

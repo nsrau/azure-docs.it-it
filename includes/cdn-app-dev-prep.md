@@ -1,4 +1,4 @@
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di poter scrivere il codice di gestione della rete CDN, è necessario eseguire alcune operazioni preliminari per consentire al codice di interagire con Azure Resource Manager.  A tale scopo è necessario:
 
 * Creare un gruppo di risorse per includere il profilo di rete CDN che verrà creato in questa esercitazione.

@@ -35,7 +35,7 @@ Ricerca di Azure usa l'[analizzatore Lucene standard](https://lucene.apache.org/
 
 Nell'elenco seguente sono descritti gli analizzatori supportati in Ricerca di Azure.
 
-| Categoria | Descrizione |
+| Categoria | DESCRIZIONE |
 |----------|-------------|
 | [Analizzatore Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. Non è necessaria alcun specifica o configurazione. Questo uso generale funziona correttamente per la maggior parte dei linguaggi e degli scenari.|
 | Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è, con personalizzazione limitata. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](https://docs.microsoft.com/rest/api/searchservice/language-support) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Ricerca di Azure supporta 35 analizzatori di linguaggi Lucene e 50 analizzatori di elaborazione del linguaggio naturale Microsoft. |
@@ -53,7 +53,7 @@ Nell'elenco seguente sono descritti gli analizzatori supportati in Ricerca di Az
 
 3. L'aggiunta di un analizzatore a una definizione di campo comporta un'operazione di scrittura nell'indice. Se si aggiunge una proprietà **analyzer** a un indice esistente, considerare i passaggi seguenti:
  
- | Scenario | Impatto | Passi |
+ | Scenario | Impatto | Passaggi |
  |----------|--------|-------|
  | Aggiungere un nuovo campo | Minimo | Se il campo non esiste ancora nello schema, non occorre alcuna revisione perché il campo non è ancora presente fisicamente nell'indice. Usare la richiesta di [aggiornamento dell'indice](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per questa attività.|
  | Aggiungere un analizzatore a un campo indicizzato esistente. | Ricompilazione | L'indice invertito per il campo deve essere ricreato da zero e il contenuto per questi campi deve essere reindicizzato. <br/> <br/>Per gli indici in fase di sviluppo, [eliminare](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [creare](https://docs.microsoft.com/rest/api/searchservice/create-index) l'indice per selezionare la nuova definizione di campo. <br/> <br/>Per gli indici nell'ambiente di produzione, è necessario creare un nuovo campo per fornire la definizione modificata e iniziare a usarla. Usare la richiesta di [aggiornamento dell'indice](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per incorporare il nuovo campo. In un secondo momento, nell'ambito della manutenzione pianificata dell'indice, sarà possibile pulire l'indice per rimuovere i campi obsoleti. |
@@ -80,7 +80,7 @@ Se la ricerca non restituisce i risultati previsti, è molto probabile che esist
 
 [Search Analyzer Demo](http://alice.unearth.ai/) è un'app dimostrativa di terze parti che illustra un confronto tra l'analizzatore Lucene standard, l'analizzatore di lingua inglese Lucene e il processore di lingua inglese di Microsoft. L'indice è fisso e contiene testo da una storia comune. Per ogni input di ricerca fornito vengono visualizzati i risultati di ogni analizzatore in riquadri adiacenti, in modo da poter verificare come ogni analizzatore elabora la stessa stringa. 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Gli esempi seguenti mostrano le definizioni degli analizzatori per alcuni scenari chiave.
 
@@ -254,7 +254,7 @@ I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del
 
 + [Fare un confronto degli analizzatori standard e in lingua inglese](http://alice.unearth.ai/) su riquadri adiacenti in questo sito Web demo. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

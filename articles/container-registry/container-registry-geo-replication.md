@@ -10,7 +10,7 @@ ms.date: 10/24/2017
 ms.author: stevelas
 ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---

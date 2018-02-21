@@ -81,7 +81,7 @@ Per informazioni sulla creazione di un progetto Azure iniziale, vedere [Creazion
 Twilio fornisce un set di librerie helper .NET che copre vari aspetti di Twilio per fornire modi semplici e pratici per interagire con l'API REST di Twilio e il client Twilio per generare risposte TwiML.
 
 Twilio offre cinque librerie per sviluppatori .NET:
-Libreria|Descrizione
+Libreria|DESCRIZIONE
 ---|---
 Twilio.API|La libreria Twilio di base che include l'API REST Twilio in una libreria .NET intuitiva. Questa libreria è disponibile per .NET, Silverlight e Windows Phone 7.
 Twilio.TwiML|Fornisce un modo intuitivo per generare il markup TwiML in .NET.

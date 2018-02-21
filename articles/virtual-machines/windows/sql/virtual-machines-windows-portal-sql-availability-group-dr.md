@@ -163,7 +163,7 @@ Per testare la connettività del listener all'area remota, è possibile effettua
 
 Dopo avere testato la connettività, spostare di nuovo la replica primaria nel data center primario e configurare di nuovo la modalità di disponibilità sulle normali impostazioni operative. La tabella seguente indica le normali impostazioni operative per l'architettura descritta in questo documento:
 
-| Percorso | Istanza del server | Ruolo | Modalità di disponibilità | Modalità di failover
+| Località | Istanza del server | Ruolo | Modalità di disponibilità | Modalità di failover
 | ----- | ----- | ----- | ----- | -----
 | Data center primario | SQL-1 | Primario | Sincrono | Automatico
 | Data center primario | SQL-2 | Secondario | Sincrono | Automatico

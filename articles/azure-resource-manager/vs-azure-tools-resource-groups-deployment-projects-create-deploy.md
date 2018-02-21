@@ -53,7 +53,7 @@ In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un 
    
     Poiché per questo esempio è stato scelto il modello App Web e SQL, verranno visualizzati i file seguenti: 
    
-   | Nome file | Descrizione |
+   | Nome file | DESCRIZIONE |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Script di PowerShell che richiama i comandi di PowerShell per la distribuzione in Azure Resource Manager.<br />**Nota** : Visual Studio usa questo script di PowerShell per distribuire il modello. Eventuali modifiche apportate allo script influiscono sulla distribuzione in Visual Studio, quindi è opportuno prestare attenzione. |
    | WebSiteSQLDatabase.json |Modello di Resource Manager che definisce l'infrastruttura da distribuire in Azure e parametri che si possono specificare durante la distribuzione. Definisce anche le dipendenze tra le risorse, per consentire a Resource Manager di distribuire le risorse nell'ordine corretto. |

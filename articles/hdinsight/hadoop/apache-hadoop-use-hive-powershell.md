@@ -91,7 +91,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    >
    > Per altre informazioni su **Here-Strings**, vedere <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell "Here-Strings"</a> (Uso di Here-Strings di Windows PowerShell).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se al termine del processo non viene restituita alcuna informazione, visualizzare i log degli errori. Per visualizzare informazioni relative all'errore per questo processo, aggiungere quanto segue alla fine del file **hivejob.ps1** , salvare il file, quindi eseguirlo nuovamente.
 
@@ -106,7 +106,7 @@ Get-AzureRmHDInsightJobOutput `
 
 Questo cmdlet restituisce le informazioni scritte in STDERR durante l'esecuzione del processo.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Come è possibile notare, Azure PowerShell fornisce un modo semplice per eseguire query Hive in un cluster HDInsight, monitorare lo stato del processo e recuperare l'output.
 

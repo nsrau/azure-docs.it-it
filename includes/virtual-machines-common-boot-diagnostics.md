@@ -8,7 +8,7 @@ Per le macchine virtuali Linux, è possibile visualizzare facilmente l'output de
  
 Per le macchine virtuali sia Windows che Linux, Azure consente anche di visualizzare uno screenshot della VM dall'hypervisor:
 
-![Errore](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
+![Tipi di errore](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
 Entrambe le funzionalità sono supportate per Macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione degli screenshot e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
 

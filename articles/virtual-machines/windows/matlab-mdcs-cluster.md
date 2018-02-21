@@ -28,7 +28,7 @@ La piattaforma [MATLAB](http://www.mathworks.com/products/matlab/) è ottimizzat
 
 Con le macchine virtuali di Azure, è possibile creare cluster MATLAB Distributed Computing Server che presentano gli stessi meccanismi disponibili per inviare un lavoro parallelo come cluster locale, ad esempio processi interattivi, processi batch, attività indipendenti e attività di comunicazione. L'uso di Azure in combinazione con la piattaforma MATLAB presenta numerosi vantaggi rispetto al provisioning e all'uso di hardware locale tradizionale: una gamma di dimensioni di macchina virtuale, la creazione di cluster su richiesta per pagare solo per le risorse di calcolo usate e la possibilità di testare i modelli su larga scala.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Computer client** : è necessario un computer client basato su Windows per comunicare con Azure e il cluster MATLAB Distributed Computing Server dopo la distribuzione.
 * **Azure PowerShell** : per l'installazione nel computer client, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) .
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti. Per cluster di maggiori dimensioni, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto.

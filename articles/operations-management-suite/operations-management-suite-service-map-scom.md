@@ -29,7 +29,7 @@ Elenco dei servizi di Operations Management Suite individua automaticamente i co
 
 Con questa integrazione tra Elenco dei servizi e System Center Operations Manager è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Elenco dei servizi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Gruppo di gestione di Operations Manager (2012 R2 o successiva) che gestisce un set di server.
 * Area di lavoro di Operations Manager con la soluzione Elenco dei servizi abilitata.
 * Set di server (almeno uno) che vengono gestiti da Operations Manager e inviano dati a Elenco dei servizi. Sono supportati server Windows e Linux.

@@ -71,7 +71,7 @@ Tramite HDInsight eseguire script [Hive](http://blogs.msdn.com/b/bigdatasupport/
 Eseguire stime sulla vita utile rimanente di un determinato motore di aereo in base agli input ricevuti mediante il servizio [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orchestrato da Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Pubblicazione dei dati
-### <a name="azure-sql-database"></a>Database SQL di Azure
+### <a name="azure-sql-database"></a>database SQL di Azure
 Usare [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) per archiviare le stime ricevute dal servizio Azure Machine Learning che vengono poi usate nel dashboard di [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Utilizzo dei dati

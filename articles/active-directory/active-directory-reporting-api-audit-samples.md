@@ -17,7 +17,7 @@ ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b9e0fb21986b82f19d90f999f5d905fbf95d2cc9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ Vedere:
 Per domande, problemi o suggerimenti, contattare la [Guida per la creazione di report AAD](mailto:aadreportinghelp@microsoft.com).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="known-issue"></a>Problema noto

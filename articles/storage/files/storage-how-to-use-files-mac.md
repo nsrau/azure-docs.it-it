@@ -66,6 +66,6 @@ ms.lasthandoff: 10/11/2017
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
 * [Articolo del supporto Apple: Come connettersi con Condivisione file sul Mac](https://support.apple.com/HT204445)
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)    

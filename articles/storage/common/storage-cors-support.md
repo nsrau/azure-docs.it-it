@@ -131,7 +131,7 @@ Nell'esempio seguente viene illustrato il corpo di una richiesta parziale per un
 
 Successivamente, considerare le seguenti richieste CORS:
 
-| Richiesta |  |  | Response |  |
+| Richiesta |  |  | Risposta |  |
 | --- | --- | --- | --- | --- |
 | **Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Prima regola |Success |
@@ -165,16 +165,16 @@ Per le richieste che utilizzano metodi diversi da GET/HEAD, nei servizi di archi
 
 Nella tabella seguente viene indicata la risposta del servizio di archiviazione di Azure alle richieste GET/HEAD in base ai casi riportati in precedenza:
 
-| Richiesta | Impostazione account e risultato della valutazione della regola |  |  | Response |  |  |
+| Richiesta | Impostazione account e risultato della valutazione della regola |  |  | Risposta |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini (*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
-| No |No |No |No |No |No |No |
-| No |Sì |No |No |Sì |No |No |
-| No |Sì |Sì |No |No |Sì |Sì |
-| Sì |No |No |No |No |No |No |
-| Sì |Sì |No |Sì |Sì |No |Sì |
-| Sì |Sì |No |No |Sì |No |No |
-| Sì |Sì |Sì |No |No |Sì |Sì |
+| No  |No  |No  |No  |No  |No  |No  |
+| No  |Sì |No  |No  |Sì |No  |No  |
+| No  |Sì |Sì |No  |No  |Sì |Sì |
+| Sì |No  |No  |No  |No  |No  |No  |
+| Sì |Sì |No  |Sì |Sì |No  |Sì |
+| Sì |Sì |No  |No  |Sì |No  |No  |
+| Sì |Sì |Sì |No  |No  |Sì |Sì |
 
 ## <a name="billing-for-cors-requests"></a>Fatturazione per le richieste CORS
 Le richieste preliminari con esito positivo vengono fatturate qualora la condivisione CORS sia stata abilitata per i servizi di archiviazione dell'account, chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) o [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Per ridurre al minimo le spese, impostare l'elemento **MaxAgeInSeconds** nelle regole CORS su un valore elevato, in modo che la richiesta venga memorizzata nella cache dall'agente utente.

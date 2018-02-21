@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="power-bi-workspace-collections-faq"></a>Raccolte di aree di lavoro di Power BI - Domande frequenti
 
 > [!IMPORTANT]
-> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto della raccolta di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 ## <a name="what-is-microsoft-power-bi-workspace-collections"></a>Cosa sono le raccolte di aree di lavoro di Microsoft Power BI?
 Le raccolte di aree di lavoro di Power BI sono un servizio di Azure che consente agli sviluppatori di applicazioni di incorporare report e visualizzazioni straordinarie e completamente interattive nelle app a uso dei clienti senza la necessità di perdere tempo o spendere denaro per costruire controlli personalizzati da zero. Le raccolte di aree di lavoro di Power BI sono ora disponibili con un Contratto di servizio in 9 data center in tutto il mondo. Sono state anche migliorate le funzionalità del servizio, ad esempio il supporto per la sicurezza dei dati tramite la sicurezza a livello di riga nelle raccolte di aree di lavoro di Power BI per i filtri avanzati. È stato inoltre semplificato e aggiornato il modello tariffario delle raccolte di aree di lavoro di Power BI.
@@ -66,7 +66,7 @@ Per i dettagli su come usare il servizio delle raccolte di aree di lavoro di Pow
 Sì. È possibile usare una sottoscrizione di Azure esistente per ottenere e usare il servizio delle raccolte di aree di lavoro di Microsoft Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>L'utente finale dell'applicazione ha bisogno di una licenza Power BI?
-No. Gli utenti finali dell'applicazione non devono acquistare una sottoscrizione Power BI a parte per accedere alle visualizzazioni dei dati all'interno dell'app. Nel modello delle raccolte di aree di lavoro di Power BI all'utente, in quanto provider dell'applicazione, viene fatturato il servizio in base al consumo registrato di Azure. Vedere [Prezzi delle raccolte di aree di lavoro di Power BI](http://go.microsoft.com/fwlink/?LinkId=760527).
+di serie Gli utenti finali dell'applicazione non devono acquistare una sottoscrizione Power BI a parte per accedere alle visualizzazioni dei dati all'interno dell'app. Nel modello delle raccolte di aree di lavoro di Power BI all'utente, in quanto provider dell'applicazione, viene fatturato il servizio in base al consumo registrato di Azure. Vedere [Prezzi delle raccolte di aree di lavoro di Power BI](http://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Come funziona l'autenticazione degli utenti con le raccolte di aree di lavoro di Power BI?
 Il servizio delle raccolte di aree di lavoro di Power BI usa le chiavi e i token dell'app per l'autenticazione e l'autorizzazione anziché usare l'autenticazione esplicita dell'utente finale. Nel modello con token di applicazione è l'applicazione a gestire l'autenticazione e l'autorizzazione degli utenti finali. Quando necessario, quindi, l'app crea
@@ -87,7 +87,7 @@ Gli sviluppatori/dipendenti che lavorano all'applicazione devono avere un accoun
 ## <a name="how-do-i-get-started"></a>Come iniziare?
 Ora è possibile iniziare gratuitamente! Se si dispone di una sottoscrizione di Azure, è possibile ottenere le raccolte di aree di lavoro di Power BI direttamente dal portale di Azure. È anche possibile creare un [account di Azure gratuito](https://azure.microsoft.com/free/). Dopo aver ottenuto il servizio delle raccolte di aree di lavoro di Power BI, è possibile usare direttamente e con facilità le API REST di Power BI o usare l'SDK di programmazione disponibile su [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). Sono disponibili esempi di come sfruttare l'SDK di sviluppo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Cosa sono le raccolte di aree di lavoro di Microsoft Power BI?](what-are-power-bi-workspace-collections.md)
 [Introduzione alle raccolte di aree di lavoro di Microsoft Power BI](get-started.md)

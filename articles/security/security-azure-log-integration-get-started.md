@@ -37,7 +37,7 @@ Il computer fisico può essere eseguito in locale (o in un sito host). Se si sce
 
 La macchina fisica o virtuale che esegue il servizio Integrazione log di Azure richiede la connettività di rete per il cloud pubblico di Azure. I passaggi riportai in questo articolo forniscono i dettagli della configurazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Come minimo l'installazione di AzLog richiede i seguenti elementi:
 * Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/).
 * Un **account di archiviazione** che può essere usato per la registrazione diagnostica di Windows Azure (è possibile usare un account di archiviazione preconfigurato o crearne uno nuovo: più avanti in questo articolo è descritto come configurare l'account di archiviazione)

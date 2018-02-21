@@ -119,12 +119,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="content"></a>Content
 È possibile usare la sezione Contenuto per modificare il contenuto di annunci, sondaggi, push di dati e riquadri (solo per Windows Phone). L'impostazione del contenuto delle campagne di push è specifico per il tipo di campagna. 
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Reach - Push del contenuto][Link 29]
 
 ![Reach-Campaign5][24]
 
-## <a name="audience"></a>Destinatari
+## <a name="audience"></a>Audience
 È possibile usare la sezione Destinatari per definire un elenco standard di elementi per limitare la campagna in base a criteri personalizzati. L'insieme standard di opzioni per limitare i destinatari consente di effettuare il push solo per utenti nuovi, esistenti o nativi. È inoltre possibile impostare una quota per limitare il numero di utenti che ricevono il push. È possibile modificare manualmente l'espressione per la modalità di filtro della campagna in modo da includere uno o più criteri per gli utenti di destinazione. È possibile digitare manualmente un'espressione di destinatari. Tale espressione deve definire in modo esplicito la relazione tra i criteri. Un criterio viene descritto da un identificatore che deve iniziare con una lettera maiuscola e non può contenere spazi. La relazione tra i criteri può essere descritta usando gli operatori 'and', 'or', 'not' e '(',')'. Esempio: "Criterion1 or (Criterion1 and not Criterion2)".
 
 > [!NOTE]
@@ -135,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 * Eseguire il push solo per gli utenti attivi (casella di controllo "Effettua push solo degli utenti raggiungibili con Push nativo" e "Effettua push solo degli utenti attivi") in modo da individuare solo gli utenti che hanno l'app installata e che la usano ancora.
   Una volta definiti i destinatari, è possibile usare il pulsante di simulazione per scoprire quanti utenti riceveranno il push. Verrà calcolato il numero di utenti noti potenzialmente appartenenti al gruppo di destinatari (si tratta di una stima basata su un campione casuale di utenti). Tenere presente che anche gli utenti che hanno disinstallato l'applicazione fanno parte di questi destinatari, ma non possono essere raggiunti.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Reach - Nuovi criteri di push][Link 28]
 
 ![Reach-Campaign6][25]
@@ -157,7 +157,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > quando le campagne non hanno data di fine, i push possono essere memorizzati nella cache locale ed essere ancora visualizzati dopo aver completato manualmente la campagna. Per evitare questo comportamento, specificare un'ora di fine per le campagne.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Reach - Procedure - Pianificazione][Link 3] 
 
 ![Reach-Campaign8][27]
@@ -171,7 +171,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Non vengono registrati dati sul lato server quando si usa il pulsante per "testare" i push, vengono registrati solo i dati per le campagne di push reali.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente - Account personale][Link 14]
 
 ![Reach-Campaign9][28]

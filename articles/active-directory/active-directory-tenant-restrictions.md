@@ -16,7 +16,7 @@ ms.date: 05/10/2017
 ms.author: kgremban
 ms.openlocfilehash: 63e0fa54433a60fe7384d21cf7d215cc8283afca
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -58,7 +58,7 @@ Per usare Restrizioni dei tenant, i client devono potersi connettere ai seguenti
 
 La configurazione seguente è necessaria per abilitare Restrizioni dei tenant tramite l'infrastruttura del proxy. Questa guida è generica, pertanto è consigliabile consultare la documentazione del fornitore del proxy per i passaggi di implementazione specifici.
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 
 - Il proxy deve poter eseguire l'intercettazione SSL, inserire intestazioni HTTP e filtrare le destinazioni tramite URL/FQDN. 
 

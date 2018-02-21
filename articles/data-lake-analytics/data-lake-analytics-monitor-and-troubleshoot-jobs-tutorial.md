@@ -78,7 +78,7 @@ Il file di origine definito nello script è **/Samples/Data/SearchLog.tsv1**, ma
     "/Samples/Data/SearchLog.tsv"
 8. Fare clic su **Submit Job**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introduzione ad Azure Data Lake Analytics con Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introduzione ad Azure Data Lake Analytics e U-SQL con Visual Studio](data-lake-analytics-u-sql-get-started.md)

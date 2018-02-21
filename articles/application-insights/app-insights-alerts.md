@@ -98,7 +98,7 @@ Non dimenticare che la [diagnostica proattiva sulla frequenza errori](app-insigh
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Test Web di disponibilità](app-insights-monitor-web-app-availability.md)
 * [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
 * [Diagnostica proattiva](app-insights-proactive-diagnostics.md) 

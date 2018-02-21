@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 Per creare una soluzione di data warehouse end-to-end, è possibile scegliere tra una vasta gamma di strumenti leader nel settore.  Questo articolo evidenzia aziende partner di Microsoft con soluzioni di business intelligence (BI) che supportano Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>I nostri partner di business intelligence
-| Partner | Descrizione | Collegamenti | Video |
+| Partner | DESCRIZIONE | Collegamenti | Video |
 | --- | --- | --- | --- |
 | ![Birst][1] |**Birst**<br>Birst è un leader globale in business intelligence e analisi sul cloud. Le aziende possono creare un'origine dati attendibile entro il contesto di ogni utente aziendale principale. Gli utenti aziendali nell'organizzazione potranno quindi segnalare e analizzare le informazioni con strumenti di business intelligence di qualità elevata. |[Marketplace][birst_marketplace]<br>[Sito Web][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |
 | ![Dati clearStory][2] |**Dati clearStory**<br>ClearStory Data permette l'analisi a ciclo rapido in diversi dati archiviati in SQL Data Warehouse. La piattaforma basata su Spark e l'applicazione di analisi integrate di ClearStory velocizzano l'accesso ai dati e l'armonizzazione di set di dati diversi. Permettono l'esplorazione rapida e collaborativa, che consente agli utenti aziendali di essere autonomi per ottenere approfondimenti utili. |[Sito Web][clearstory_website]<br>[Foglio dati][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |

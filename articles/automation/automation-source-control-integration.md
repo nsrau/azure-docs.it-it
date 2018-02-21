@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: magoedte;sngun
 ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

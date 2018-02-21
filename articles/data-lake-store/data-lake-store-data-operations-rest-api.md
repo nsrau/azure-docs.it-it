@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Questo articolo fornisce informazioni per l'uso di API REST WebHDFS e API REST di Data Lake Store per eseguire operazioni del file system in Azure Data Lake Store. Per istruzioni su come eseguire le operazioni di gestione di account in Data Lake Store con l'API REST, vedere [Operazioni di gestione di account in Data Lake Store con l'API REST](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Store con il portale di Azure](data-lake-store-get-started-portal.md).

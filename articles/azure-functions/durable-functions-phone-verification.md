@@ -26,7 +26,7 @@ Questo esempio illustra come creare un'orchestrazione di [Funzioni permanenti](d
 
 L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tipi di flussi vengono spesso usati quando si verifica il numero di telefono di un cliente o per l'autenticazione a più fattori. L'esempio è particolarmente potente perché l'intera implementazione viene eseguita solo tramite un paio di brevi funzioni. Non è necessario alcun archivio dati esterno, ad esempio un database.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Seguire le istruzioni in [Install Durable Functions](durable-functions-install.md) (Installare Funzioni permanenti) per impostare l'esempio.
 * Questo articolo presuppone che l'utente abbia già eseguito la procedura dettagliata di esempio descritta in [Hello Sequence](durable-functions-sequence.md) (Sequenza di Hello).

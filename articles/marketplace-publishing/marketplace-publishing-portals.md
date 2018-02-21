@@ -26,7 +26,7 @@ Prima di iniziare il processo di pubblicazione di un’offerta, è necessario fo
 ## <a name="developer-center"></a>Centro per sviluppatori
 [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 La creazione dell'account del Centro per sviluppatori Microsoft è un'attività una-tantum. Assicurarsi che la società non possieda già un account per il Centro per sviluppatori prima di tentare di crearne uno. Durante il processo, Microsoft raccoglie le informazioni sul conto bancario, i dati fiscali e le informazioni sull'indirizzo dell'azienda.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Idealmente, questa è una lista di distribuzione o un gruppo di sicurezza (ad es
 ## <a name="publishing-portal"></a>Portale di pubblicazione
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Questo è il portale per lavorare sull'offerta e pubblicarla (marketing, prezzi, pubblicazione, eventuale certificazione e così via).
 
 ### <a name="identityaccount-used"></a>Identità/account usato
@@ -54,12 +54,12 @@ Il gruppo di protezione o l’elenco distribuzione precedente devono essere util
 ## <a name="azure-portal"></a>Portale di Azure
 [https://portal.azure.com](https://portal.azure.com)
 
-### <a name="description"></a>Descrizione
+### <a name="description"></a>DESCRIZIONE
 Questo è il portale in cui è possibile visualizzare le proprie offerte in gestione temporanea e pubblicate in Azure Marketplace (applicabile per VM, modelli di soluzioni e servizi per gli sviluppatori basati su Gestione risorse di Azure)
 
 ### <a name="identityaccount-used"></a>Identità/account usato
 Durante la gestione temporanea dell'offerta dal portale di pubblicazione, deve essere consentito un ID di sottoscrizione. La stessa sottoscrizione (sono associati un nome utente e una password) deve essere usata durante l'accesso a questo portale per testare l'offerta in gestione temporanea.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 

@@ -24,7 +24,7 @@ ms.lasthandoff: 01/10/2018
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Aggiungere azioni alle regole di avviso in Log Analytics
 Quando [viene creato un avviso in Log Analytics](log-analytics-alerts.md), è possibile scegliere di [configurare la regola di avviso](log-analytics-alerts.md) per eseguire una o più azioni.  Questo articolo descrive le diverse azioni disponibili e offre informazioni sulla configurazione di ogni tipologia di azione.
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 |:--|:--|
 | [Indirizzo di posta elettronica](#email-actions) | Inviare un messaggio di posta elettronica con i dettagli dell'avviso a uno o più destinatari. |
 | [Webhook](#webhook-actions) | Richiamare un processo esterno tramite una singola richiesta HTTP POST. |
@@ -36,7 +36,7 @@ Le azioni di posta elettronica inviano un messaggio di posta elettronica con i d
 
 Le azioni di posta elettronica includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Oggetto |Oggetto nel messaggio di posta elettronica.  È possibile modificare il corpo del messaggio. |
 | Destinatari |Indirizzi di tutti i destinatari di posta elettronica.  Se si specifica più di un indirizzo, separare ognuno con un punto e virgola (;). |
@@ -48,7 +48,7 @@ Le azioni Webhook consentono di richiamare un processo esterno tramite una singo
 
 Le azioni webhook includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | URL webhook |URL del webhook. |
 | Payload JSON personalizzato |Payload personalizzato da inviare insieme al webhook.  Vedere di seguito per altri dettagli. |
@@ -59,7 +59,7 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 >[!NOTE]
 > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), il payload del webhook è stato modificato.  Vedere [API REST di Azure Log Analytics](https://aka.ms/loganalyticsapiresponse) per informazioni dettagliate sul formato.  Nella sezione [Esempi](#sample-payload) viene illustrato un esempio.
 
-| Parametro | Variabile | Descrizione |
+| Parametro | Variabile | DESCRIZIONE |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nome della regola di avviso. |
 | AlertThresholdOperator |#thresholdoperator |Operatore di soglia per la regola di avviso.  *Maggiore di* o *Minore di*. |
@@ -105,7 +105,7 @@ Le azioni runbook avviano un runbook in Automazione di Azure.  Per usare questo 
 
 Le azioni runbook includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:---|
 | Runbook | Runbook da avviare quando viene creato un avviso. |
 | Esegui in | Specificare **Azure** per eseguire il runbook nel cloud.  Specificare **Ruolo di lavoro ibrido** per eseguire il runbook in un agente in cui è installato un [ruolo di lavoro ibrido per runbook](../automation/automation-hybrid-runbook-worker.md ).  |
@@ -117,11 +117,11 @@ Non è possibile popolare direttamente alcun parametro del runbook, ma il [param
 >[!NOTE]
 > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), il payload del runbook è stato modificato.  Vedere [API REST di Azure Log Analytics](https://aka.ms/loganalyticsapiresponse) per informazioni dettagliate sul formato.  Nella sezione [Esempi](#sample-payload) viene illustrato un esempio.  
 
-| Nodo | Descrizione |
+| Nodo | DESCRIZIONE |
 |:--- |:--- |
 | id |Percorso e GUID della ricerca. |
 | __metadata |Informazioni sull'avviso, inclusi il numero di record e lo stato dei risultati della ricerca. |
-| valore |Voce separata per ogni record nei risultati della ricerca.  I dettagli della voce corrisponderanno alle proprietà e ai valori del record. |
+| value |Voce separata per ogni record nei risultati della ricerca.  I dettagli della voce corrisponderanno alle proprietà e ai valori del record. |
 
 Ad esempio, i runbook seguenti estraggono i record restituiti dalla ricerca nel log e assegnano proprietà diverse in base al tipo di ogni record.  Si noti che il runbook converte prima di tutto **RequestBody** da JSON, in modo che possa essere usato come oggetto in PowerShell.
 

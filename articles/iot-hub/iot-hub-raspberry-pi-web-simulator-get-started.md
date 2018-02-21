@@ -50,7 +50,7 @@ Connettere il connettore Raspberry Pi simulato a un hub IoT creato. Eseguire un'
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-* Come creare un hub IoT di Azure e ottenere la stringa di connessione del nuovo dispositivo. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+* Come creare un hub IoT di Azure e ottenere la stringa di connessione del nuovo dispositivo. Se non si ha un account di Azure, [creare un account di Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Come utilizzare il simulatore online Raspberry Pi.
 * Come inviare i dati del sensore all'hub IoT.
 

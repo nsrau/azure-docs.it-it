@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account [MicrosoftTranslator](https://www.microsoft.com/translator)  
 
 Prima di poter usare l'account MicrosoftTranslator in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account MicrosoftTranslator. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  

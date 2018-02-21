@@ -97,6 +97,6 @@ Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -Des
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)    

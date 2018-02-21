@@ -31,7 +31,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |910011|Regola 910011|
 |910012|Regola 910012|
@@ -52,7 +52,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |911011|Regola 911011|
 |911012|Regola 911012|
@@ -66,7 +66,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |912100|Regola 912100|
 |912012|Regola 912012|
@@ -87,7 +87,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |913011|Regola 913011|
 |913012|Regola 913012|
@@ -105,7 +105,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |920011|Regola 920011|
 |920012|Regola 920012|
@@ -159,7 +159,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |921011|Regola 921011|
 |921012|Regola 921012|
@@ -182,7 +182,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |930011|Regola 930011|
 |930012|Regola 930012|
@@ -199,7 +199,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |931011|Regola 931011|
 |931012|Regola 931012|
@@ -216,7 +216,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |932011|Regola 932011|
 |932012|Regola 932012|
@@ -235,7 +235,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |933011|Regola 933011|
 |933012|Regola 933012|
@@ -259,7 +259,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |941011|Regola 941011|
 |941012|Regola 941012|
@@ -292,7 +292,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |942011|Regola 942011|
 |942012|Regola 942012|
@@ -320,7 +320,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |943011|Regola 943011|
 |943012|Regola 943012|
@@ -338,7 +338,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |960911|Riga della richiesta HTTP non valida|
 |981227|Errore Apache: URI non valido nella richiesta|
@@ -364,7 +364,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |960008|Richiesta senza intestazione host|
 |960007|Intestazione host vuota|
@@ -377,7 +377,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |960209|Nome argomento troppo lungo|
 |960208|Valore argomento troppo lungo|
@@ -388,7 +388,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |960032|Metodo non consentito da criteri|
 |960010|Tipo di contenuto della richiesta non consentito da criteri|
@@ -398,7 +398,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |990002|La richiesta indica che è stata eseguita l'analisi della sicurezza sul sito|
 |990901|La richiesta indica che è stata eseguita l'analisi della sicurezza sul sito|
@@ -407,7 +407,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs40"></a> crs_40_generic_attacks
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |960024|Avviso di rilevamento anomalie metacaratteri: caratteri non alfanumerici ripetitivi|
 |950008|Inserimento di tag ColdFusion non documentati|
@@ -436,7 +436,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |981231|Rilevata sequenza commenti SQL|
 |981260|Identificata codifica esadecimale SQL|
@@ -473,7 +473,7 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |973336|Filtro XSS, categoria 1: vettore tag script|
 |973338|Filtro XSS, categoria 3: vettore URI Javascript|
@@ -578,13 +578,13 @@ Nelle tabelle seguenti sono riportati le regole e i gruppi di regole disponibili
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |950103|Attacco di tipo Path Traversal|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|ID regola|Descrizione|
+|ID regola|DESCRIZIONE|
 |---|---|
 |950110|Accesso backdoor|
 |950921|Accesso backdoor|

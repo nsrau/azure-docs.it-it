@@ -35,9 +35,9 @@ Resource Manager include numerose funzioni per l'esecuzione di confronti nei mod
 
 Controlla se i valori di entrambi i parametri sono true.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -46,7 +46,7 @@ Controlla se i valori di entrambi i parametri sono true.
 
 Restituisce **True** se entrambi i valori sono true. In caso contrario, restituisce **False**.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
@@ -74,7 +74,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | False |
 | orExampleOutput | Booleano | True  |
@@ -99,14 +99,14 @@ Converte il parametro in un valore booleano.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa o numero intero |Valore da convertire in un valore booleano. |
+| arg1 |Sì |stringa o numero intero |Valore da convertire in un valore booleano. |
 
 ### <a name="return-value"></a>Valore restituito
 Valore booleano del valore convertito.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) seguente illustra come usare il parametro bool con un numero intero o una stringa.
 
@@ -138,7 +138,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | trueString | Booleano | True  |
 | falseString | Booleano | False |
@@ -164,7 +164,7 @@ Restituisce un valore in base a un condizione true o false.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | condition |Sì |boolean |Valore da controllare per verificare se è true. |
 | trueValue |Sì | string, int, object o array |Valore da restituire quando la condizione è true. |
@@ -220,7 +220,7 @@ Restituisce il secondo parametro, quando il primo parametro è **True**. In caso
 }
 ```
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) seguente illustra come usare la funzione `if`.
 
@@ -245,10 +245,10 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
-| yesOutput | String | sì |
-| noOutput | String | no |
+| yesOutput | string | Sì |
+| noOutput | string | no |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
@@ -267,9 +267,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Converte il valore booleano nel valore opposto.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Valore da convertire. |
 
@@ -277,7 +277,7 @@ Converte il valore booleano nel valore opposto.
 
 Restituisce **True** quando il parametro è **False**. Restituisce **False** quando il parametro è **True**.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
@@ -305,7 +305,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | False |
 | orExampleOutput | Booleano | True  |
@@ -341,7 +341,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | True  |
 
@@ -364,7 +364,7 @@ Controlla se il valore di uno dei due parametri è true.
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Tipo | Descrizione |
+| Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sì |boolean |Primo valore da controllare per verificare se è true. |
 | arg2 |Sì |boolean |Secondo valore da controllare per verificare se è true. |
@@ -373,7 +373,7 @@ Controlla se il valore di uno dei due parametri è true.
 
 Restituisce **True** se uno dei due valori è true. In caso contrario, restituisce **False**.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) seguente mostra come usare le funzioni logiche.
 
@@ -401,7 +401,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
 
 L'output dell'esempio precedente è:
 
-| Nome | Tipo | Valore |
+| NOME | type | Valore |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | False |
 | orExampleOutput | Booleano | True  |

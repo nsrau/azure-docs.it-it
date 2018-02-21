@@ -151,7 +151,7 @@ Questo scenario usa un'applicazione monolitica di esempio denominata [**sava**](
               webport: 8080/http # cluster endpoint, used for canary releasing
   ```
 
-4. Fare clic su **Salva**. Vamp avvia la distribuzione.
+4. Fare clic su **Save**. Vamp avvia la distribuzione.
 
 La distribuzione viene elencata nella pagina **Distribuzioni**. Fare clic sulla distribuzione per monitorarne lo stato.
 
@@ -212,7 +212,7 @@ Per unire il nuovo servizio sava 1.1 con la distribuzione in esecuzione:
               webport: 8080/http # cluster endpoint to update
   ```
   
-3. Fare clic su **Salva**. Il progetto viene archiviato ed elencato nella pagina **Blueprints** (Progetti).
+3. Fare clic su **Save**. Il progetto viene archiviato ed elencato nella pagina **Blueprints** (Progetti).
 
 4. Aprire il menu di azione nel progetto sava:1.1 e fare clic su **Merge to** (Unisci a).
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL Python API, SDK e risorse | Documenti Microsoft'
-description: Tutte le informazioni di SQL Python API e SDK tra date di rilascio, date di ritiro e le modifiche apportate tra ogni versione di Azure Cosmos DB Python SDK.
+title: 'Azure Cosmos DB: API Python, risorse e SDK per SQL | Microsoft Docs'
+description: Informazioni complete sull'SDK e sull'API Python per SQL, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB Python SDK.
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6801c5b62be08e4dcb32ad342b15e9ad3f3e20a8
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK per l'API di SQL: note sulla versione e le risorse
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Python SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -47,14 +47,14 @@ ms.lasthandoff: 01/05/2018
 
 <tr><td>**Contribuire all'SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 
-<tr><td>**Introduzione**</td><td>[Introduzione all'SDK di Python](sql-api-python-application.md)</td></tr>
+<tr><td>**Attività iniziali**</td><td>[Introduzione all'SDK di Python](sql-api-python-application.md)</td></tr>
 
 <tr><td>**Piattaforma attualmente supportata**</td><td>[Python 2.7](https://www.python.org/downloads/) e [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
 ### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
-* Documentazione aggiornata al riferimento DB Cosmos Azure anziché Azure DocumentDB.
+* Documentazione aggiornata con riferimento a Azure Cosmos DB anziché Azure DocumentDB.
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Questa versione dell'SDK richiede la versione più recente dell'emulatore di Azure Cosmos DB che è possibile scaricare dalla pagina https://aka.ms/cosmosdb-emulator.
@@ -97,7 +97,7 @@ ms.lasthandoff: 01/05/2018
 * Aggiunta del supporto per la funzionalità di durata (TTL) relativa ai documenti.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Correzioni di bug correlato al partizionamento sul lato server per consentire i caratteri speciali nel percorso della chiave di partizione.
+* Correzioni di bug relativi al partizionamento lato server per consentire caratteri speciali nel percorso partitionkey.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Implementazione delle [raccolte partizionate](partition-data.md) e dei [livelli di prestazioni definiti dall'utente](performance-levels.md). 
@@ -128,10 +128,10 @@ Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per a
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 
 
-Eventuali richieste di database di Cosmos usando un SDK ritirato vengono rifiutate dal servizio.
+Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni precedenti alla versione di SQL Azure SDK per Python **1.0.0** sono stati ritirati su **29 febbraio 2016**. 
+> Tutte le versioni dell'SDK per Python di Azure SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**. 
 > 
 > 
 
@@ -139,7 +139,7 @@ Eventuali richieste di database di Cosmos usando un SDK ritirato vengono rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.3.1](#2.3.1) |21 dicembre 2017. |--- |
+| [2.3.1](#2.3.1) |21 dicembre 2017 |--- |
 | [2.3.0](#2.3.0) |10 novembre 2017 |--- |
 | [2.2.1](#2.2.1) |29 settembre 2017 |--- |
 | [2.2.0](#2.2.0) |10 maggio 2017 |--- |

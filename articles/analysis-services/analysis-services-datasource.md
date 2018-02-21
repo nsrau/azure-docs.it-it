@@ -29,7 +29,7 @@ Sono attualmente supportate le origini dati seguenti:
 | Cloud  |
 |---|
 | Archiviazione BLOB di Azure*  |
-| Database SQL di Azure  |
+| database SQL di Azure  |
 | Azure Data Warehouse |
 
 
@@ -60,7 +60,7 @@ I provider di origine dati seguenti sono supportati per i modelli di dati Direct
 | **Origine dati** | **In-memory** | **DirectQuery** |
 |  --- | --- | --- |
 | Azure SQL Data Warehouse |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server |
-| Database SQL di Azure |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server | |
+| database SQL di Azure |Provider di dati .NET Framework per SQL Server |Provider di dati .NET Framework per SQL Server | |
 
 ### <a name="on-premises-via-gateway"></a>Locale (tramite gateway)
 |**Origine dati** | **In-memory** | **DirectQuery** |

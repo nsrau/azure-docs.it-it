@@ -35,8 +35,8 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 | Windows 8.1            | SMB 3.0     | Sì                   | Sì                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sì                   | Sì                  |
 | Windows Server 2012    | SMB 3.0     | Sì                   | Sì                  |
-| Windows 7              | SMB 2.1     | Sì                   | No                   |
-| Windows Server 2008 R2 | SMB 2.1     | Sì                   | No                   |
+| Windows 7              | SMB 2.1     | Sì                   | No                    |
+| Windows Server 2008 R2 | SMB 2.1     | Sì                   | No                    |
 
 <sup>1</sup>Windows Server versione 1709.  
 <sup>2</sup>Windows 10 versioni 1507, 1607, 1703 e 1709.
@@ -123,7 +123,7 @@ Per montare una condivisione file di Azure al di fuori dell'area di Azure in cui
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Articoli concettuali e video
@@ -142,6 +142,6 @@ Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 * [Introduzione al servizio File di Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migrating data to Azure File (Migrazione dei dati in File di Azure)](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
-### <a name="reference"></a>Riferimento
+### <a name="reference"></a>riferimento
 * [Informazioni di riferimento sulla libreria client di archiviazione per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Riferimento API REST del servizio File](http://msdn.microsoft.com/library/azure/dn167006.aspx)

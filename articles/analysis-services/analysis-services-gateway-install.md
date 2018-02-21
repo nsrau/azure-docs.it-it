@@ -24,7 +24,7 @@ ms.lasthandoff: 11/02/2017
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 **Requisiti minimi:**
 
 * .NET Framework 4.5
@@ -69,14 +69,14 @@ Per creare una risorsa per il gateway in Azure, è necessario registrare l'istan
 
 1.  Selezionare l'opzione che **consente di registrare un nuovo gateway in questo computer**.
 
-    ![Registra](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Register ](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Digitare un nome e la chiave di ripristino per il gateway. Per impostazione predefinita, il gateway usa l'area predefinita della sottoscrizione. Se è necessario selezionare un'area diversa, selezionare **Cambia area**.
 
     > [!IMPORTANT]
     > Salvare la chiave di ripristino in un luogo sicuro. La chiave di ripristino è necessaria per poter acquisire la proprietà, eseguire la migrazione o ripristinare un gateway. 
 
-   ![Registra](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Register ](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Creare una risorsa per il gateway di Azure

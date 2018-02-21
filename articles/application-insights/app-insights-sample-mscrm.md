@@ -101,7 +101,7 @@ Fare clic sul grafico per ottenere altri dettagli:
 
 ![Elenco delle eccezioni](./media/app-insights-sample-mscrm/18.png)
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 ![Utenti, sessioni e visualizzazioni pagine](./media/app-insights-sample-mscrm/19.png)
 
 ![Grafici della sessione](./media/app-insights-sample-mscrm/20.png)

@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 Questa esercitazione illustra il processo di creazione e pianificazione di un runbook in Automazione di Azure per l'invio di dati a Log Analytics.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo scenario richiede la configurazione delle risorse seguenti nella sottoscrizione di Azure.  Per entrambe è possibile usare un account gratuito.
 
 - [Area di lavoro di Log Analytics](../log-analytics/log-analytics-get-started.md).
@@ -57,7 +57,7 @@ PowerShell Gallery offre tuttavia un'opzione rapida per distribuire un modulo di
 ## <a name="2-create-automation-variables"></a>2. Creare variabili di Automazione
 Le [variabili di Automazione](..\automation\automation-variables.md) contengono valori che possono essere usati da tutti i runbook presenti nell'account di Automazione.  Rendono i runbook più flessibili perché consentono di modificare questi valori senza modificare il runbook vero e proprio. Ogni richiesta inviata dall'API di raccolta dati HTTP richiede l'ID e la chiave dell'area di lavoro OMS e gli asset di tipo variabile sono ideali per archiviare queste informazioni.  
 
-![Variabili](media/operations-management-suite-runbook-datacollect/variables.png)
+![variables](media/operations-management-suite-runbook-datacollect/variables.png)
 
 1. Nel portale di Azure passare all'account di Automazione.
 2. Selezionare **Variabili** in **Risorse condivise**.
@@ -65,10 +65,10 @@ Le [variabili di Automazione](..\automation\automation-variables.md) contengono 
 
 | Proprietà | Valore ID area di lavoro | Valore chiave area di lavoro |
 |:--|:--|:--|
-| Nome | WorkspaceId | WorkspaceKey |
-| Tipo | String | String |
+| NOME | WorkspaceId | WorkspaceKey |
+| type | string | string |
 | Valore | Incollare l'ID dell'area di lavoro di Log Analytics. | Incollare la chiave primaria o secondaria dell'area di lavoro di Log Analytics. |
-| Crittografato | No | Sì |
+| Crittografato | No  | Sì |
 
 
 
@@ -171,7 +171,7 @@ Per l'ambiente di test è stato possibile esaminare l'[output dettagliato](../au
 
 1. Nelle proprietà del runbook selezionare **Registrazione e traccia** in **Impostazioni del runbook**.
 2. Impostare **Registra record dettagliati** su **Sì**.
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
 ## <a name="8-schedule-runbook"></a>8. Pianificare il runbook
 Il modo più comune per avviare un runbook che raccoglie dati di monitoraggio è di pianificarne l'esecuzione automatica.  Per eseguire questa operazione, creare una [pianificazione in Automazione di Azure](../automation/automation-schedules.md) e associarla al runbook.
@@ -184,11 +184,11 @@ Il modo più comune per avviare un runbook che raccoglie dati di monitoraggio è
 
 | Proprietà | Valore |
 |:--|:--|
-| Nome | AutomationJobs-Hourly |
+| NOME | AutomationJobs-Hourly |
 | Inizia | Selezionare un orario successivo di almeno 5 minuti all'ora corrente. |
 | Ricorrenza | Ricorrente |
 | Ricorre ogni | 1 ora |
-| Imposta scadenza | No |
+| Imposta scadenza | No  |
 
 Dopo aver creato la pianificazione è necessario impostare i valori dei parametri che verranno usati ogni volta che la pianificazione avvia il runbook.
 

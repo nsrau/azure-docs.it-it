@@ -15,7 +15,7 @@ ms.date: 09/01/2017
 ms.author: adamab
 ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

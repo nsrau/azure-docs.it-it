@@ -19,7 +19,7 @@ ms.date: 12/20/2017
 ms.author: jgao
 ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -29,7 +29,7 @@ Informazioni su come usare gli strumenti HDInsight per IntelliJ per sviluppare a
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) è un ambiente di sviluppo integrato (IDE) Java per lo sviluppo di software per computer. Dopo aver sviluppato e testato le applicazioni su Hortonworks Sandbox, è possibile trasferirle in [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
 

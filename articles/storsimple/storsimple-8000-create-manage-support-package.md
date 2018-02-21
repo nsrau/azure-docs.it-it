@@ -71,10 +71,10 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
 
 Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 
-| Parametro | Obbligatorio/Facoltativo | Descrizione |
+| Parametro | Obbligatorio/Facoltativo | DESCRIZIONE |
 | --- | --- | --- |
-| `-Path` |Obbligatorio |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
-| `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
+| `-Path` |Obbligatoria |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
+| `-EncryptionPassphrase` |Obbligatoria |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
 | `-Credential` |Facoltativo |Consente di specificare le credenziali di accesso per la cartella di rete condivisa. |
 | `-Force` |Facoltativo |Consente di ignorare il passaggio di conferma della passphrase di crittografia. |
 | `-PackageTag` |Facoltativo |Consente di specificare una directory in cui inserire il pacchetto per il supporto in *Percorso* . Il valore predefinito è [nome dispositivo]-[data e ora correnti:aaaa-MM-gg-HH-mm-ss]. |

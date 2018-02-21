@@ -61,7 +61,7 @@ Le metriche più comunemente monitorate per le app Web sono
 * Tempo di risposta medio
 * Tempo CPU
 * Working set della memoria
-* Richieste
+* Requests
 
 ![monitorare le app Web per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 

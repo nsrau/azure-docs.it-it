@@ -25,7 +25,7 @@ Controllo che consente a un utente di specificare uno o più file da caricare. U
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

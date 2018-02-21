@@ -114,7 +114,7 @@ Come si può vedere sopra, il contenuto della notifica push include il marker ${
 La modalità di recapito "Solo all'esterno dell'app" fornisce la notifica push quando l'applicazione è chiusa. Questa è la notifica push standard.
 Quando si seleziona "Solo all'esterno dell'app", è necessario aver già fornito i certificati dalla piattaforma su cui si basa l'applicazione (servizio APN o GCM).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Apple Push Notification Service - Certificati](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging - Certificato](http://developer.android.com/google/gcm/index.html) 
 
 ### <a name="in-app-only-delivery-mode"></a>Modalità di recapito "Solo in-app"

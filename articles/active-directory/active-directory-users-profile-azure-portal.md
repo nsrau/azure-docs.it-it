@@ -17,7 +17,7 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.openlocfilehash: 1f82f0f867173da10907d06c6c093ddcc569565f
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---

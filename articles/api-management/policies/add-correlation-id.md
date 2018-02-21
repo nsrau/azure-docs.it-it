@@ -23,7 +23,7 @@ ms.lasthandoff: 12/04/2017
 
 Questo articolo illustra un esempio di criteri di gestione delle API di Azure che illustra come aggiungere un'intestazione con un ID di correlazione alla richiesta in ingresso. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Criterio
 
 Incollare il codice nel blocco **inbound**.
 

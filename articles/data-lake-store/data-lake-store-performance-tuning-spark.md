@@ -16,7 +16,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 3c8ef6fd200f67ebc216c967bb1a6250ddcc15d4
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/08/2017
 
 Per l'ottimizzazione delle prestazioni in Spark, è necessario considerare il numero di applicazioni che verranno eseguite nel cluster.  Per impostazione predefinita, nel cluster HDI è possibile eseguire 4 app simultaneamente (nota: l'impostazione predefinita è soggetta a modifiche).  È possibile decidere di usare un numero inferiore di app in modo da sostituire le impostazioni predefinite e usare una parte più ampia del cluster per tali applicazioni.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Store**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)

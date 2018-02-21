@@ -15,7 +15,7 @@ ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ Lo scenario in questa esercitazione prevede due attività principali:
 
 Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per configurare l'integrazione di Azure AD con Clarizen, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD

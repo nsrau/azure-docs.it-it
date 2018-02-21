@@ -55,7 +55,7 @@ Per installare R in un cluster HDInsight è disponibile uno [script di esempio](
 
     <table border='1'>
         <tr><th>Proprietà</th><th>Valore</th></tr>
-        <tr><td>Nome</td>
+        <tr><td>NOME</td>
             <td>Specificare un nome per l'azione script, ad esempio <b>Installa R</b>.</td></tr>
         <tr><td>URI script</td>
             <td>Specificare l'URI per lo script che viene richiamato per personalizzare il cluster, ad esempio <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
@@ -100,11 +100,11 @@ Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoo
 ## <a name="install-r-using-net-sdk"></a>Installare R usando .NET SDK
 Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). L'esempio illustra come installare Spark tramite .NET SDK. È necessario personalizzare lo script da usare [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Installare e usare R nei cluster Hadoop di HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 * [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md): informazioni generali sulla creazione di cluster HDInsight
 * [Personalizzare cluster HDInsight mediante l'azione script][hdinsight-cluster-customize]: informazioni generali sulla personalizzazione di cluster HDInsight tramite Azione script.
-* [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions.md)
+* [Sviluppare script di Azione di script per HDInsight](hdinsight-hadoop-script-actions.md)
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]: esempio di Azione script sull'installazione di Spark
 * [Installare e usare Spark nei cluster HDInsight](hdinsight-hadoop-giraph-install.md): esempio di Script azione sull'installazione di Giraph
 * [Installare Solr nei cluster HDInsight](hdinsight-hadoop-solr-install-linux.md): esempio di Azione di script sull'installazione di Solr.

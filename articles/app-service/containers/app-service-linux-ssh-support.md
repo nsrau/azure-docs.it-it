@@ -105,5 +105,5 @@ Per altre informazioni sull'app Web per i contenitori, vedere i collegamenti seg
 
 * [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-custom-docker-image.md)
 * [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
-* [Uso di Ruby nel Servizio app di Azure in Linux](quickstart-ruby.md)
+* [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)

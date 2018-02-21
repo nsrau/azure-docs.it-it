@@ -25,7 +25,7 @@ Si tratta di un gruppo di controlli con convalida predefinita per le chiavi pubb
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 Se `osPlatform` è **Windows**, viene usato lo schema seguente:
 ```json
 {

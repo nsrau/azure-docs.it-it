@@ -28,7 +28,7 @@ Usando i report personalizzati di Verizon tramite il portale di gestione per i p
 
 
 ## <a name="accessing-verizon-custom-reports"></a>Accesso ai report personalizzati di Verizon
-1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
+1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
     ![Pulsante Manage (Gestisci) del profilo di rete CDN](./media/cdn-reports/cdn-manage-btn.png)
    
@@ -67,7 +67,7 @@ Dopo aver selezionato l'intervallo di date, fare clic su **Go** (Vai) per genera
 
 ## <a name="edge-cnames-custom-report-fields"></a>Campi del report personalizzato Edge CNAMEs (CNAME perimetrali)
 
-| Campo                     | Descrizione   |
+| Campo                     | DESCRIZIONE   |
 |---------------------------|---------------|
 | 2xx                       | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP 2xx, ad esempio 200 OK. |
 | 3xx                       | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP 3xx, ad esempio 302 - Trovato oppure 304 - Non modificato. |
@@ -76,11 +76,11 @@ Dopo aver selezionato l'intervallo di date, fare clic su **Go** (Vai) per genera
 | Cache Hit % (Percentuale riscontri cache)               | Indica la percentuale di richieste inseribili nella cache fornite direttamente dalla cache al richiedente. |
 | Riscontri cache                | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un riscontro nella cache, ad esempio TCP_EXPIRED_HIT, TCP_HIT o TCP_PARTIAL_HIT. Un riscontro nella cache si verifica quando viene trovata una versione del contenuto richiesto memorizzata nella cache. |
 | Data Transferred (MB) (Dati trasferiti - MB)     | Indica la quantità totale di dati trasferiti (MB) dai server perimetrali ai client HTTP (Web browser) per il CNAME perimetrale. La quantità di dati trasferiti viene calcolata aggiungendo le intestazioni di risposta HTTP al corpo della risposta. La quantità di dati trasferiti per ogni asset è quindi maggiore delle dimensioni file effettive. |
-| Descrizione               | Identifica un CNAME perimetrale in base al nome host |
+| DESCRIZIONE               | Identifica un CNAME perimetrale in base al nome host |
 | Riscontri                      | Indica il numero totale di richieste inviate al CNAME perimetrale |
 | Misses (Mancati riscontri)                    | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un mancato riscontro nella cache, ad esempio TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS o TCP_MISS. Un mancato riscontro nella cache si verifica quando il contenuto richiesto non è stato memorizzato nella cache del server perimetrale che ha soddisfatto la richiesta. | 
 | No Cache (Nessuna cache)                  | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato cache CONFIG_NOCACHE.  |
-| Altre                     | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP che non rientra nell'intervallo 2xx - 5xx. |
+| Altri                     | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP che non rientra nell'intervallo 2xx - 5xx. |
 | Piattaforma                  | Indica la piattaforma che gestisce il traffico del CNAME perimetrale. |
 | Unassigned (Non assegnato)               | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale per il quale non è stato registrato il codice di stato cache o il codice di stato HTTP.  |
 | Uncacheable (Non inseribile nella cache)               | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato cache UNCACHEABLE.  |

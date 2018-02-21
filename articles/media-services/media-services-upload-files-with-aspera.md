@@ -36,7 +36,7 @@ Per un esempio che illustra come usare le funzioni di Azure con Aspera e Servizi
 >È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione con i processori di contenuti multimediali di Servizi multimediali di Azure. Vedere [questo](media-services-quotas-and-limitations.md) articolo per informazioni dettagliate sulla limitazione per le dimensioni dei file.
 >
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 Per completare questa esercitazione, sono necessari:
 

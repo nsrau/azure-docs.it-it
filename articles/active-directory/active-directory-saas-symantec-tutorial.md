@@ -16,7 +16,7 @@ ms.date: 07/27/2017
 ms.author: jeedes
 ms.openlocfilehash: 35427941a084e6750d66ccd3e135d7eef1767c6c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ L'integrazione di Symantec Web Security Service (WSS) con Azure AD offre i vanta
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Symantec Web Security Service (WSS), sono necessari gli elementi seguenti:
 

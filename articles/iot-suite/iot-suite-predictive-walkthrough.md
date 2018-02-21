@@ -47,7 +47,7 @@ Nella soluzione preconfigurata un dispositivo simulato rappresenta un motore di 
 
 I dispositivi simulati possono gestire i comandi seguenti inviati dall'hub IoT nella soluzione:
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 | StartTelemetry |Controlla lo stato della simulazione.<br/>Avvia il dispositivo che invia i dati di telemetria |
 | StopTelemetry |Controlla lo stato della simulazione.<br/>Arresta il dispositivo che invia i dati di telemetria |

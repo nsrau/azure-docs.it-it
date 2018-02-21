@@ -18,7 +18,7 @@ ms.reviewer: kairaz.contractor
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 8f1013419f7e54f5760636f169635b84c8bd118e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

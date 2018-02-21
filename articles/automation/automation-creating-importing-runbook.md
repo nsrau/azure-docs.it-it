@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: magoedte;bwren
 ms.openlocfilehash: 0484b1f230a8544e3de2388df2cbdab3b54f9d3d
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -104,7 +104,7 @@ Quando si crea o si importa un nuovo runbook, è necessario pubblicarlo prima di
     -Name $runbookName -ResourceGroupName $RGName
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come sfruttare al meglio le raccolte di runbook e moduli di PowerShell, vedere [Raccolte di runbook e moduli per l'automazione di Azure](automation-runbook-gallery.md)
 * Per altre informazioni sulla modifica di runbook di PowerShell e del flusso di lavoro PowerShell con un editor di testo, vedere [Modifica di runbook testuali in Automazione di Azure](automation-edit-textual-runbook.md)
 * Per altre informazioni sulla creazione grafica di runbook, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)

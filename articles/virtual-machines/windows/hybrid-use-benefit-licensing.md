@@ -16,7 +16,7 @@ ms.date: 11/22/2017
 ms.author: kmouss
 ms.openlocfilehash: 245bffbc208ce67d990a63e744c42dc671686b4b
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

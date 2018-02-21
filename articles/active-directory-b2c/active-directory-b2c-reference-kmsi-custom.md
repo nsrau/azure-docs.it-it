@@ -15,7 +15,7 @@ ms.date: 09/05/2016
 ms.author: vigunase
 ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -29,7 +29,7 @@ Azure Active Directory B2C consente ora alle applicazioni Web e native di abilit
 ![Immagine](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Un tenant di Azure AD B2C configurato per consentire l'iscrizione/accesso a un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 

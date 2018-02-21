@@ -133,6 +133,6 @@ FROM
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 [Introduzione al Database SQL](sql-database-technical-overview.md)
 

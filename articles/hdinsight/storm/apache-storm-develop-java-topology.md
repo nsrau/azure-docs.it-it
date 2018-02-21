@@ -35,7 +35,7 @@ Dopo aver completato i passaggi descritti in questo documento, è possibile dist
 > [!NOTE]
 > Una versione completa degli esempi di topologia Storm creati in questo documento è disponibile all'indirizzo [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Java Developer Kit (JDK) versione 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 

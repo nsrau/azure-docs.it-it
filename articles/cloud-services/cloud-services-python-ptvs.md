@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro Phyton con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Informazioni su come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * [Visual Studio 2013, 2015 o 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Strumenti di Azure SDK per VS 2013][Azure SDK Tools for VS 2013] o  

@@ -87,7 +87,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
       > Se si aggiunge il server iSCSI a un dominio, assicurarsi che l'array virtuale si trovi nella propria unità organizzativa (OU) per Microsoft Azure Active Directory e che ad esso non siano applicati oggetti Criteri di gruppo (GPO).
       > 
       > 
-   4. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull’icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
+   4. Viene visualizzata una finestra di dialogo. Immettere le credenziali di dominio nel formato specificato. Fare clic sull'icona del segno di spunta  ![icona del segno di spunta](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Le credenziali di dominio vengono verificate. Se le credenziali non sono valide, viene visualizzato un messaggio di errore.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Fare clic su **Apply**. Si applicano e convalidano così le impostazioni del dispositivo.
@@ -238,7 +238,7 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 1. Avviare l'iniziatore iSCSI di Microsoft sull’host di Windows.
 2. Nella scheda **Configurazione** della finestra delle **proprietà dell'iniziatore iSCSI** selezionare e copiare la stringa dal campo **Nome iniziatore**.
    
-    ![Proprietà dell'iniziatore iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
+    ![Proprietà iniziatore iSCSI](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. Salvare la stringa.
 
 <!--Reference link-->

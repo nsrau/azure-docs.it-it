@@ -28,7 +28,7 @@ I contatori vengono usati per tenere traccia delle prestazioni delle operazioni 
 
 **Per la versione più recente** , passare a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Vedere anche [Aggiornare un'app in modo da usare la libreria client dei database elastici più recente](sql-database-elastic-scale-upgrade-client-library.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Per creare la categoria e i contatori delle prestazioni, l'utente deve far parte del gruppo **Administrators** locale per il computer che ospita l'applicazione.  
 * Per creare un'istanza del contatore delle prestazioni e aggiornare i contatori, l'utente deve essere membro del gruppo **Administrators** o **Performance Monitor Users**. 
 

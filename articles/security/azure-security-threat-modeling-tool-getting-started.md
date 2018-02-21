@@ -16,7 +16,7 @@ ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -140,6 +140,6 @@ Se si intende eseguire la modellazione delle minacce per una casa, si può inizi
 
 L'approccio alla modellazione delle minacce che è stato presentato è sostanzialmente più semplice rispetto a ciò che Microsoft ha fatto in passato. È stato rilevato che l'approccio di progettazione del software funziona bene per molti team. Ci auguriamo che sia così anche per il lettore.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/tmtpreview)** Threat Modeling Tool per iniziare.

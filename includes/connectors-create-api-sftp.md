@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol)  
 
 Prima di poter usare l'account SFTP in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi a tale account. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.  

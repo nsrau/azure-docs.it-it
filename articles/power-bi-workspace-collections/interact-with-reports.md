@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 L'API JavaScript per Power BI consente di incorporare facilmente i report di Power BI nelle applicazioni. Con l'API, le applicazioni possono interagire a livello di codice con elementi diversi dei report, ad esempio pagine e filtri. Grazie a questa interattività i report di Power BI si integrano ancora meglio nell'applicazione.
 
 > [!IMPORTANT]
-> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto della raccolta di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Per incorporare un report di Power BI nell'applicazione, usare un iframe ospitato nell'ambito dell'applicazione. L'iframe viene usato come limite tra l'applicazione e il report, come si può osservare nell'immagine seguente:
 
@@ -83,7 +83,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 #### <a name="advanced-filters"></a>Filtri avanzati
 I filtri avanzati usano l'operatore logico AND o OR e accettano una o due condizioni, ognuna con il proprio operatore e valore. Le condizioni supportate sono:
 
-* None
+* Nessuna
 * LessThan
 * LessThanOrEqual
 * GreaterThan

@@ -158,4 +158,4 @@ Archiviare i file di backup di SAP HANA nei file di Azure può rappresentare un'
 ## <a name="next-steps"></a>Passaggi successivi
 * La [Guida del backup di SAP HANA in Macchine virtuali di Azure](sap-hana-backup-guide.md) offre una panoramica e informazioni introduttive.
 * [Backup di SAP HANA basato su snapshot di archiviazione](sap-hana-backup-storage-snapshots.md) descrive l'opzione di backup basato su snapshot di archiviazione.
-* Per informazioni su come stabilire la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).

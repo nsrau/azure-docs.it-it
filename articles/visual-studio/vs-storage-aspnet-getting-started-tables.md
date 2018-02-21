@@ -29,7 +29,7 @@ L’archiviazione tabelle di Azure consente di archiviare grandi quantità di da
 
 Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari comuni usando le entità di archiviazione tabelle di Azure. Questi scenari includono la creazione di una tabella, l'aggiunta, la creazione di query ed eliminazione di entità di tabella. 
 
-##<a name="prerequisites"></a>Prerequisiti
+##<a name="prerequisites"></a>prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)

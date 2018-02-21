@@ -17,7 +17,7 @@ ms.date: 10/19/2016
 ms.author: drewm
 ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2018
 ---

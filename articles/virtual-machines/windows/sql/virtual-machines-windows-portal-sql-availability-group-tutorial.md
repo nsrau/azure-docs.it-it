@@ -32,13 +32,13 @@ Il diagramma illustra le operazioni di compilazione nell'esercitazione.
 
 ![Gruppo di disponibilità](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Nell'esercitazione si presuppone una conoscenza di base dei gruppi di disponibilità di SQL Server AlwaysOn. Se sono necessarie altre informazioni, vedere [Panoramica di Gruppi di disponibilità AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 La tabella seguente elenca i prerequisiti da completare prima di iniziare l'esercitazione:
 
-|  |Requisito |Descrizione |
+|  |Requisito |DESCRIZIONE |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Due istanze di SQL Server | - In un set di disponibilità di Azure <br/> - In un dominio singolo <br/> - Con la funzionalità Clustering di failover installata |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Controllo di condivisione file per il cluster |  
@@ -284,7 +284,7 @@ A questo punto, è possibile procedere con la configurazione di un gruppo di dis
 4. Nella pagina **Specifica repliche** fare clic su **Aggiungi replica**.
 
    ![Creazione guidata nuovo gruppo di disponibilità: specificare le repliche](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/62-newagaddreplica.png)
-5. Viene visualizzata la finestra di dialogo **Connetti al server** . Digitare il nome del secondo server in **Nome server**. Fare clic su **Connect**.
+5. Viene visualizzata la finestra di dialogo **Connetti al server** . Digitare il nome del secondo server in **Nome server**. Fare clic su **Connetti**.
 
    Nella pagina **Specifica repliche** verrà ora visualizzato il secondo server elencato in **Repliche di disponibilità**. Configurare le repliche come segue.
 
@@ -355,7 +355,7 @@ Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede
    | **Tipo** |Interno |
    | **Rete virtuale** |Usare il nome della rete virtuale di Azure. |
    | **Subnet** |Usare il nome della subnet in cui si trova la macchina virtuale.  |
-   | **Assegnazione indirizzi IP** |Static |
+   | **Assegnazione indirizzi IP** |statico |
    | **Indirizzo IP** |Usare un indirizzo disponibile nella subnet. |
    | **Sottoscrizione** |Usare la stessa sottoscrizione della macchina virtuale. |
    | **Posizione** |Usare la stessa posizione della macchina virtuale. |
@@ -376,7 +376,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Pool back-end** e infine su **+Aggiungi**. Impostare il pool back-end come segue:
 
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Digitare un nome in formato testo | SQLLBBE
    | **Associato a** | Selezionare dall'elenco | Set di disponibilità
@@ -399,7 +399,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 
 1. Impostare il probe di integrità nel modo seguente:
 
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocollo** | Scegliere TCP | TCP |
@@ -414,7 +414,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Regole di bilanciamento del carico** e infine su **+Aggiungi**.
 
 1. Impostare le regole di bilanciamento del carico come segue.
-   | Impostazione | Descrizione | Esempio
+   | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
@@ -424,7 +424,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
-   | **IP mobile (Direct Server Return)** | |Enabled |
+   | **IP mobile (Direct Server Return)** | |Attivato |
 
    > [!WARNING]
    > Direct Server Return viene impostato durante la creazione. Non può essere modificato.

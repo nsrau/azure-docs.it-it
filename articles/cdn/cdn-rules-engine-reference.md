@@ -53,7 +53,7 @@ Un simbolo di percentuale viene utilizzato per indicare la codifica URL (ad esem
 ### <a name="wildcard-values"></a>Valori caratteri jolly
 Il testo che viene interpretato come un valore carattere jolly assegnerà un significato aggiuntivo ai caratteri speciali. Nella tabella seguente viene descritto come verrà interpretato il seguente set di caratteri.
 
-Character | Descrizione
+Character | DESCRIZIONE
 ----------|------------
 \ | Una barra rovesciata viene utilizzata per eseguire l'escape di ogni carattere specificato in questa tabella. Una barra rovesciata deve essere specificata direttamente prima del carattere speciale che deve essere sottoposto a escape.<br/>La sintassi seguente, ad esempio, ignora un asterisco: `\*`
 % | Un simbolo di percentuale viene utilizzato per indicare la codifica URL (ad esempio, `%20`).
@@ -65,7 +65,7 @@ Spazio | Un carattere di spazio indica che una condizione di corrispondenza può
 
 Le espressioni regolari definiscono un modello che verrà cercato all'interno di un valore di testo. La notazione delle espressioni regolari definisce un significato specifico per una varietà di simboli. La tabella seguente indica come vengono trattati i caratteri speciali dalle funzionalità e dalle condizioni di corrispondenza che supportano le espressioni regolari.
 
-Carattere speciale | Descrizione
+Carattere speciale | DESCRIZIONE
 ------------------|------------
 \ | Una barra rovesciata esegue l'escape del carattere che la segue. In questo modo il carattere deve essere trattato come un valore letterale anziché adottare il significato di espressione regolare. La sintassi seguente, ad esempio, ignora un asterisco: `\*`
 % | Il significato di un simbolo di percentuale dipende dal relativo utilizzo.<br/><br/> `%{HTTPVariable}`: questa sintassi identifica una variabile HTTP.<br/>`%{HTTPVariable%Pattern}`: questa sintassi usa un simbolo di percentuale per identificare una variabile HTTP e come delimitatore.<br />`\%`: l'escape di un simbolo di percentuale consente di utilizzare tale simbolo come valore letterale o per indicare la codifica URL (ad esempio, `\%20`).
@@ -78,5 +78,5 @@ Spazio | Un carattere di spazio in genere è considerato come un carattere lette
 * [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)
 * [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funzionalità del motore regole](cdn-rules-engine-reference-features.md)
-* [Override del comportamento HTTP predefinito mediante il motore di regole](cdn-rules-engine.md)
+* [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
 * [Panoramica della rete CDN di Azure](cdn-overview.md)

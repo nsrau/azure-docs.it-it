@@ -71,9 +71,9 @@ Il [portale di Azure](https://portal.azure.com) fornisce un'interfaccia utente p
 **Suggerimento:**  
 Per trovare la chiave di accesso dell'account di archiviazione per il montaggio, fare clic su **Visualizza chiavi di accesso per questo account di archiviazione** nella parte inferiore della pagina della connessione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti.
 
-* [Domande frequenti](../storage-files-faq.md)
+* [DOMANDE FREQUENTI](../storage-files-faq.md)
 * [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 * [Risoluzione dei problemi in Linux](storage-troubleshoot-linux-file-connection-problems.md)    

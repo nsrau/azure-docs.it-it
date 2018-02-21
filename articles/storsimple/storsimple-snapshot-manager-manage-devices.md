@@ -30,12 +30,12 @@ ms.lasthandoff: 10/11/2017
 
 A seconda delle selezioni di **Visualizza**, nel riquadro **Risultati** vengono mostrate le informazioni seguenti su ciascun dispositivo. (Per ulteriori informazioni sulla configurazione di una visualizzazione, andare a [Menu Visualizza](storsimple-use-snapshot-manager.md#view-menu).)
 
-| Colonna risultati | Descrizione |
+| Colonna risultati | DESCRIZIONE |
 |:--- |:--- |
-| Nome |Il nome del dispositivo come configurato nel portale di gestione di Azure classico |
+| NOME |Il nome del dispositivo come configurato nel portale di gestione di Azure classico |
 | Modello |Il numero di modello del dispositivo |
-| Versione |La versione software installata sul dispositivo |
-| Stato |Se il dispositivo è disponibile |
+| Version |La versione software installata sul dispositivo |
+| Status |Se il dispositivo è disponibile |
 | Ultima sincronizzazione |Data e ora dell'ultima sincronizzazione del dispositivo |
 | N. di serie |Il numero di serie del dispositivo |
 
@@ -84,7 +84,7 @@ Utilizzare la procedura seguente per aggiungere o sostituire un dispositivo Stor
 3. Nella casella di riepilogo a discesa **Dispositivo** , selezionare l'indirizzo IP del dispositivo o del dispositivo virtuale. 
 4. Nella casella di testo **Password** , digitare la password di Gestione snapshot StorSimple creata per il dispositivo nel portale di Azure classico. Fare clic su **OK**. Gestione snapshot StorSimple esegue la ricerca del dispositivo identificato. 
    
-   * Se il dispositivo è disponibile, Gestione snapshot StorSimple aggiunge una connessione.
+   * Se il dispositivo è disponibile, StorSimple Snapshot Manager aggiunge una connessione.
    * Se il dispositivo non è disponibile per qualsiasi motivo, Gestione snapshot StorSimple restituisce un messaggio di errore. Fare clic su **OK** per chiudere il messaggio di errore e quindi fare clic su **Annulla** per chiudere la finestra di dialogo **Configurare un dispositivo**.
 
 ## <a name="connect-a-device-and-verify-imports"></a>Connessione di un dispositivo e verifica delle importazioni
@@ -95,7 +95,7 @@ Utilizzare la procedura seguente per connettere un dispositivo StorSimple e veri
    
    * Se il dispositivo non è disponibile per qualsiasi motivo, Gestione snapshot StorSimple restituisce un messaggio di errore. 
    
-   * Se il dispositivo è disponibile, Gestione snapshot StorSimple aggiunge una connessione. Quando si seleziona il dispositivo, viene visualizzato nel riquadro **Risultati** e il campo relativo allo stato indica che il dispositivo è **Disponibile**. Gestione snapshot StorSimple importa i gruppi di volumi configurati per il dispositivo, purché dispongano di backup associati. I criteri di backup non vengono importati. I gruppi di volumi che non dispongono di backup associati non vengono importati.
+   * Se il dispositivo è disponibile, StorSimple Snapshot Manager aggiunge una connessione. Quando si seleziona il dispositivo, viene visualizzato nel riquadro **Risultati** e il campo relativo allo stato indica che il dispositivo è **Disponibile**. Gestione snapshot StorSimple importa i gruppi di volumi configurati per il dispositivo, purché dispongano di backup associati. I criteri di backup non vengono importati. I gruppi di volumi che non dispongono di backup associati non vengono importati.
 2. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 3. Fare clic con il pulsante destro del mouse nel riquadro **Ambito**, quindi fare clic su **Attiva/disattiva visualizzazione importazioni**.
    
@@ -187,7 +187,7 @@ Se un dispositivo StorSimple è guasto e viene sostituito da un dispositivo di s
 > Se il nuovo dispositivo StorSimple ha lo stesso indirizzo IP del precedente, potrebbe essere in grado di connettere la configurazione precedente.
 
 
-1. Arrestare il servizio di gestione di Microsoft StorSimple:
+1. Arrestare il servizio di gestione Microsoft StorSimple:
    
    1. Avviare Server Manager.
    2. Nel Dashboard di Server Manager, selezionare **Servizi** dal menu **Strumenti**.

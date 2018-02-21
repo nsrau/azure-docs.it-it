@@ -48,7 +48,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ![Diagramma di Visio][1]
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 1. Scaricare e aprire il [modello di log dei flussi Power BI di Network Watcher](https://aka.ms/networkwatcherpowerbiflowlogstemplate) nell'applicazione Power BI Desktop.
 1. Immettere i parametri di query obbligatori.
@@ -101,7 +101,7 @@ Questo modello include i filtri dei dati indicati di seguito, che permettono di 
 
 ![filtri dei dati][13]
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Questo scenario ha permesso di dimostrare come l'uso dei registri dei flussi dei gruppi di sicurezza di rete inclusi in Network Watcher e Power BI permetta di visualizzare e comprendere il traffico. Usando il modello incluso, Power BI scarica i log direttamente dall'archivio e li elabora in locale. Il tempo necessario a caricare il modello varia a seconda del numero di file richiesti e della dimensione totale dei file scaricati.
 

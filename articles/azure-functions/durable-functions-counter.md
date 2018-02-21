@@ -28,7 +28,7 @@ Sebbene non siano un'implementazione "attore" vera e propria, le funzioni di orc
 
 Questo articolo mostra come eseguire il *contatore* di esempio. L'esempio illustra un oggetto singleton che supporta le operazioni di *incremento* e *decremento* e aggiorna di conseguenza il proprio stato interno.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Seguire le istruzioni in [Install Durable Functions](durable-functions-install.md) (Installare Funzioni permanenti) per impostare l'esempio.
 * Questo articolo presuppone che l'utente abbia già eseguito la procedura dettagliata di esempio descritta in [Hello Sequence](durable-functions-sequence.md) (Sequenza di Hello).

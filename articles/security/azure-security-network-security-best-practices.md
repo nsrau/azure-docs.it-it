@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza della rete di Azure | Microsoft Docs
+title: Procedure consigliate per la sicurezza della rete di Azure | Documentazione Microsoft
 description: "Questo articolo fornisce una serie di procedure consigliate per la sicurezza di rete usando le funzionalità integrate di Azure."
 services: security
 documentationcenter: na

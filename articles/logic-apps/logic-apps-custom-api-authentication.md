@@ -190,7 +190,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Elemento | Obbligatorio | Descrizione | 
+| Elemento | Obbligatoria | DESCRIZIONE | 
 | ------- | -------- | ----------- | 
 | tenant | Sì | Il GUID per il tenant di Azure AD | 
 | audience | Sì | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
@@ -199,7 +199,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 | type | Sì | Il tipo di autenticazione. Per l'autenticazione ActiveDirectoryOAuth, il valore è `ActiveDirectoryOAuth`. | 
 |||| 
 
-ad esempio:
+Ad esempio: 
 
 ``` json
 {
@@ -236,7 +236,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Elemento | Obbligatorio | Descrizione | 
+| Elemento | Obbligatoria | DESCRIZIONE | 
 | ------- | -------- | ----------- | 
 | type | Sì | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
 | password | Sì | La password per accedere al certificato client (file PFX) | 
@@ -253,7 +253,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Elemento | Obbligatorio | Descrizione | 
+| Elemento | Obbligatoria | DESCRIZIONE | 
 | ------- | -------- | ----------- | 
 | type | Sì | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
 | username | Sì | Nome utente che si vuole usare per l'autenticazione | 

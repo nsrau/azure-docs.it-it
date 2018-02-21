@@ -38,10 +38,10 @@ Percorso del file di configurazione JSON che descrive i dettagli della distribuz
 
 | Parametro | Valore predefinito |
 | --- | --- |
-| Alias |nessuno |
+| Alias |Nessuno |
 | Obbligatorio? |true |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
@@ -50,10 +50,10 @@ Nome della sottoscrizione di Azure in cui si vuole creare il sito Web.
 
 | Parametro | Valore predefinito |
 | --- | --- |
-| Alias |nessuno |
+| Alias |Nessuno |
 | Obbligatorio? |false |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
@@ -62,10 +62,10 @@ Percorso al pacchetto di distribuzione Web da pubblicare nel sito Web. È possib
 
 | Parametro | Valore predefinito |
 | --- | --- |
-| Alias |nessuno |
+| Alias |Nessuno |
 | Obbligatorio? |false |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
@@ -74,10 +74,10 @@ Nome utente e password per il database SQL di Azure.
 
 | Parametro | Valore predefinito |
 | --- | --- |
-| Alias |nessuno |
+| Alias |Nessuno |
 | Obbligatorio? |false |
 | Posizione |denominata |
-| Valore predefinito |nessuno |
+| Valore predefinito |Nessuno |
 | Input pipeline accettato? |false |
 | Caratteri jolly accettati? |false |
 
@@ -86,7 +86,7 @@ Se impostato su true, stampa i messaggi dallo script al flusso di output.
 
 | Parametro | Valore predefinito |
 | --- | --- |
-| Alias |nessuno |
+| Alias |Nessuno |
 | Obbligatorio? |false |
 | Posizione |denominata |
 | Valore predefinito |false |

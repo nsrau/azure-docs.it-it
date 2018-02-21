@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.openlocfilehash: d31aa3b1399bab2b1dcfdb2eb6ece393610c769f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

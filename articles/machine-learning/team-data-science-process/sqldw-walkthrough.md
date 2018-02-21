@@ -876,7 +876,7 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 
 ![Pubblicazione di Azure ML][11]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza

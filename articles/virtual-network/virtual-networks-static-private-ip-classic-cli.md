@@ -76,7 +76,7 @@ Per creare una nuova VM denominata *DNS01* in un nuovo servizio cloud denominato
    * **adminuser**. Amministratore locale della VM di Windows.
    * **AdminP@ssw0rd**. Amministratore locale della password della VM di Windows.
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una macchina virtuale
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Come recuperare le informazioni relative all'indirizzo IP privato statico per una VM
 Per visualizzare le informazioni relative all'indirizzo IP interno statico per la VM creata con lo script precedente, eseguire il comando dell’interfaccia di riga di comando di Azure seguente e osservare i valori per *Network StaticIp*:
 
     azure vm static-ip show DNS01

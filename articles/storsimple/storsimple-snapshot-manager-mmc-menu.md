@@ -33,7 +33,7 @@ In Gestione snapshot StorSimple, le azioni seguenti verranno visualizzate elenca
 
 Queste azioni fanno parte di Microsoft Management Console (MMC) e non sono specifiche di Gestione snapshot StorSimple. In questa esercitazione vengono descritte tali azioni e viene illustrato come utilizzare ciascuna di esse in Gestione snapshot StorSimple.
 
-## <a name="view"></a>View
+## <a name="view"></a>Visualizza
 È possibile usare l'opzione **Visualizza** per modificare la visualizzazione del riquadro **Risultati** e quella della finestra della console. 
 
 #### <a name="to-change-the-results-pane-view"></a>Per modificare la visualizzazione del riquadro Risultati

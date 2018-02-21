@@ -32,7 +32,7 @@ In questa esercitazione viene illustrato come caricare automaticamente le soluzi
 > * Importare il runbook di caricamento
 > * Avviare il runbook
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, è necessario quanto segue:
 

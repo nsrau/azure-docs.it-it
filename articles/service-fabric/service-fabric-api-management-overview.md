@@ -26,7 +26,7 @@ Le applicazioni cloud necessitano in genere di un gateway front-end per garantir
 
 In questo articolo viene illustrata un'introduzione all'uso di Gestione API di Azure come gateway per le applicazioni Service Fabric. Gestione API si integra direttamente in Service Fabric, consentendo di pubblicare API con un ampio set di regole di routing nei servizi Service Fabric back-end. 
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 Un'architettura Service Fabric comune usa un'applicazione Web di una pagina che esegue chiamate HTTP ai servizi back-end che espongono API HTTP. L'[applicazione introduttive a Service Fabric di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) mostra un esempio di questa architettura.
 
 In questo scenario, un servizio Web senza stato funge da gateway nell'applicazione Service Fabric. Questo approccio richiede la scrittura di un servizio Web che possa inoltrare richieste HTTP a servizi back-end, come illustrato nel diagramma seguente:
@@ -78,7 +78,7 @@ Questo esempio illustra come creare una nuova istanza del servizio senza stato p
  
  - `fabric:/app/users/<username>`
 
- Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. ad esempio:
+ Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`
@@ -97,7 +97,7 @@ Questo esempio illustra come creare una nuova istanza del servizio con stato per
  
  - `fabric:/app/users/<username>`
 
- Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. ad esempio:
+ Ogni servizio dispone di un nome univoco, ma i nomi non sono noti in anticipo, poiché i servizi vengono creati in risposta all'input dell'utente o dell'amministratore e non possono quindi essere codificati in criteri APIM o regole di routing. Al contrario, il nome del servizio a cui inviare una richiesta viene generato nella definizione dei criteri back-end del valore `name` indicato nel percorso della richiesta dell'URL. Ad esempio: 
 
   - Una richiesta a `/api/users/foo` viene instradata all'istanza del servizio `fabric:/app/users/foo`
   - Una richiesta a `/api/users/bar` viene instradata all'istanza del servizio `fabric:/app/users/bar`

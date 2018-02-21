@@ -123,12 +123,12 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | statico |
 | --- | --- | --- | --- |
-| Macchine virtuali |interfaccia di rete |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Sì |Sì |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
-| Gateway VPN |Configurazione IP del gateway |Sì |No |
-| gateway applicazione |Configurazione front-end |Sì |No |
+| gateway VPN |Configurazione IP del gateway |Sì |No  |
+| gateway applicazione |Configurazione front-end |Sì |No  |
 
 ## <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono alle risorse di Azure di comunicare con altre risorse in una [rete virtuale](virtual-networks-overview.md) o in una rete locale tramite un gateway VPN o un circuito ExpressRoute, senza usare un indirizzo IP raggiungibile tramite Internet.
@@ -173,7 +173,7 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 
 | Risorse di livello superiore | Associazione di indirizzi IP | dinamico | statico |
 | --- | --- | --- | --- |
-| Macchine virtuali |interfaccia di rete |Sì |Sì |
+| Macchina virtuale |interfaccia di rete |Sì |Sì |
 | Bilanciamento del carico |Configurazione front-end |Sì |Sì |
 | gateway applicazione |Configurazione front-end |Sì |Sì |
 

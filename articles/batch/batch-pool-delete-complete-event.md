@@ -34,8 +34,8 @@ ms.lasthandoff: 10/11/2017
 
 |Elemento|Tipo|Note|
 |-------------|----------|-----------|
-|id|String|ID del pool.|
-|startTime|DateTime|Data e ora in cui è stata avviata l'eliminazione del pool.|
+|id|string|ID del pool.|
+|startTime|Datetime|Data e ora in cui è stata avviata l'eliminazione del pool.|
 |endTime|DateTime|Data e ora in cui è stata completata l'eliminazione del pool.|
 
 ## <a name="remarks"></a>Osservazioni

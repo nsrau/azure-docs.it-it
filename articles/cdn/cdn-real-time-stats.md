@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statistiche in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo documento illustra le statistiche in tempo reale nella rete CDN di Microsoft Azure.  Questa funzionalità fornisce dati in tempo reale, ad esempio la larghezza di banda, gli stati della cache e le connessioni simultanee al profilo della rete CDN per il recapito di contenuto ai client. In questo modo viene abilitato il monitoraggio continuo dell'integrità del servizio in qualsiasi momento, inclusi gli eventi di go-live.
 
 Sono disponibili i grafici seguenti:
@@ -37,7 +37,7 @@ Sono disponibili i grafici seguenti:
 1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.
    
     ![Pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
-2. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
+2. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
    
@@ -83,7 +83,7 @@ Direttamente sopra al grafico viene visualizzato un elenco di codici di stato de
 
 È possibile nascondere temporaneamente i dati registrati per un codice di stato specifico.  Nella legenda direttamente sotto il grafico selezionare il codice di stato che si vuole nascondere. Il codice di stato verrà nascosto immediatamente nel grafico. Se si seleziona di nuovo il codice di stato, l'opzione verrà visualizzata nuovamente.
 
-## <a name="connections"></a>Connessioni
+## <a name="connections"></a>connessioni
 ![Grafico Connessioni](./media/cdn-real-time-stats/cdn-connections.png)
 
 Questo grafico indica il numero di connessioni stabilite con i server perimetrali. Ogni richiesta per un asset che passa attraverso la rete CDN costituisce una connessione.

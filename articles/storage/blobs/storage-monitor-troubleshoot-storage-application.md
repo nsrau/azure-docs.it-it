@@ -36,11 +36,11 @@ Nella quarta parte della serie si apprenderà come:
 
 La registrazione e le metriche degli account di archiviazione vengono abilitate dalla scheda **Diagnostica** nel portale di Azure. Esistono due tipi di metriche. Le metriche **aggregate** raccolgono dati in ingresso/uscita, di disponibilità, latenza e percentuale di operazioni riuscite, che vengono aggregate per i servizi BLOB, di accodamento, tabelle e file. **Per API** raccolgono lo stesso set di metriche per ogni operazione di archiviazione nell'API del servizio Archiviazione di Azure. La registrazione di archiviazione consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle tabelle, code e BLOB di Azure. Consentono anche di visualizzare i motivi di fallimento delle richieste, ad esempio errori di timeout, limitazione e autorizzazione.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [portale di Azure](https://portal.azure.com)
 
-## <a name="turn-on-logging-and-metrics"></a>attivare le metriche e la registrazione
+## <a name="turn-on-logging-and-metrics"></a>Attivare le metriche e la registrazione
 
 Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
 
@@ -118,7 +118,7 @@ Quando il log si apre, è possibile visualizzare gli eventi di archiviazione. Co
 Nella quarta e ultima parte della serie è stato descritto come monitorare e risolvere i problemi relativi all'account di archiviazione, ad esempio come:
 
 > [!div class="checklist"]
-> * attivare le metriche e la registrazione
+> * Attivare le metriche e la registrazione
 > * attivare gli avvisi per gli errori di autorizzazione
 > * eseguire il traffico di test con token SAS non corretti
 > * scaricare e analizzare i log

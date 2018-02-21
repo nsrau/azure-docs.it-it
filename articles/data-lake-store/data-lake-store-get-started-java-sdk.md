@@ -33,7 +33,7 @@ Informazioni su come usare l'SDK Java con Azure Data Lake Store per eseguire le 
 
 Per la documentazione API dell'SDK Java per Azure Data Lake Store accedere a [Documentazione API Java di Azure Data Lake Store](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Kit di sviluppo Java (JDK 7 o versione successiva, usando Java versione 1.7 o successive)
 * Account di Azure Data Lake Store. Seguire le istruzioni fornite in [Introduzione ad Azure Data Lake Store con il portale di Azure](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Questa esercitazione usa Maven per compilare e progettare le dipendenze. Sebbene sia possibile compilare senza ricorrere a un sistema di compilazione come Maven o Gradle, questi sistemi semplificano la gestione delle dipendenze.
@@ -74,7 +74,7 @@ Il codice di esempio disponibile in [GitHub](https://azure.microsoft.com/documen
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 * Per l'autenticazione dell'utente finale per l'applicazione, vedere [End-user authentication with Data Lake Store using Java](data-lake-store-end-user-authenticate-java-sdk.md) (Autenticazione dell'utente finale con Data Lake Store tramite Java).
 * Per l'autenticazione da servizio a servizio per l'applicazione, vedere [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md) (Autenticazione da servizio a servizio con Data Lake Store tramite Java).

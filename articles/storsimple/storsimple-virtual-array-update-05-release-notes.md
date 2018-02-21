@@ -46,7 +46,7 @@ L'aggiornamento 0.5 è principalmente una build per la correzione di bug. I migl
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| No. | Funzionalità | Problema |
+| di serie | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Resilienza dei backup| Nelle versioni precedenti i backup vengono ritentati solo per determinate eccezioni. Questa versione include una correzione per aumentare la resilienza dei backup eseguendo nuovamente tutte le eccezioni di backup.|
 | 2 |Monitoraggio| La funzionalità di monitoraggio dell'utilizzo della memoria per Serie di dispositivi virtuali StorSimple verrà deprecata a partire dal 30 giugno 2017. Questa azione influisce sui grafici di monitoraggio del servizio Gestione dispositivi StorSimple in esecuzione negli array virtuali StorSimple (modello 1200). Questa versione include aggiornamenti che consentono all'utente di continuare a usare la funzionalità di monitoraggio dell'utilizzo della memoria negli array virtuali anche dopo il 30 giugno 2017.|
@@ -57,7 +57,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti.
 
-| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |

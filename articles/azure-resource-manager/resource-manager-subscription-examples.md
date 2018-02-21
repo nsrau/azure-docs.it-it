@@ -43,9 +43,9 @@ Contoso sta creando un sistema per la gestione dei codici sorgente (BitBucket) c
 ### <a name="naming-standards--resource-groups"></a>Standard di denominazione e gruppi di risorse
 Dave crea una sottoscrizione per supportare gli strumenti di sviluppo più diffusi nelle business unit. Deve creare nomi significativi per ila sottoscrizione e i gruppi di risorse (per l'applicazione e le reti). Crea le sottoscrizioni e i gruppi di risorse seguenti:
 
-| Item | Nome | Descrizione |
+| Elemento | NOME | DESCRIZIONE |
 | --- | --- | --- |
-| Subscription |Produzione di strumenti per gli sviluppatori Contoso ETS |Supporta gli strumenti di sviluppo più diffusi |
+| Sottoscrizione |Produzione di strumenti per gli sviluppatori Contoso ETS |Supporta gli strumenti di sviluppo più diffusi |
 | Gruppo di risorse |bitbucket-prod-rg |Contiene il server Web dell'applicazione e il server di database |
 | Gruppo di risorse |corenetworks-prod-rg |Contiene le reti virtuali e la connessione gateway da sito a sito |
 
@@ -54,7 +54,7 @@ Dopo aver creato la sottoscrizione, Dave desidera assicurarsi che le risorse sia
 
 Dave assegna i ruoli seguenti per la sottoscrizione:
 
-| Ruolo | Assegnato a | Descrizione |
+| Ruolo | Assegnato a | DESCRIZIONE |
 | --- | --- | --- |
 | [Proprietario](../active-directory/role-based-access-built-in-roles.md#owner) |ID gestito da Active Directory di Contoso |Questo ID è controllato con accesso Just in Time (JIT) tramite lo strumento di gestione delle identità di Contoso e assicura il totale controllo degli accessi dei proprietari delle sottoscrizioni |
 | [Gestore della sicurezza SQL](../active-directory/role-based-access-built-in-roles.md#security-manager) |Reparto di gestione dei rischi e della sicurezza |Questo ruolo consente agli utenti di esaminare il Centro sicurezza di Azure e lo stato delle risorse |
@@ -70,7 +70,7 @@ Dave dispone dei requisiti seguenti per gestire le risorse nella sottoscrizione:
 
 Crea i [criteri di Azure ](../azure-policy/azure-policy-introduction.md) seguenti:
 
-| Campo | Effetto | Descrizione |
+| Campo | Effetto | DESCRIZIONE |
 | --- | --- | --- |
 | location |audit |Controlla la creazione delle risorse in qualsiasi area |
 | type |deny |Nega la creazione di macchine virtuali serie G |
@@ -94,7 +94,7 @@ Il team di gestione dei rischi e della sicurezza delle informazioni di Contoso E
 
 Crea le risorse seguenti:
 
-| Tipo di risorsa | Nome | Descrizione |
+| Tipo di risorsa | NOME | DESCRIZIONE |
 | --- | --- | --- |
 | Rete virtuale |rete virtuale interna |Viene usata con l'applicazione BitBucket ed è connessa tramite ExpressRoute alla rete aziendale di Contoso.  Una subnet (`bitbucket`) fornisce all'applicazione uno spazio di indirizzi IP specifico |
 | Rete virtuale |rete virtuale esterna |È disponibile per le applicazioni future che richiedono endpoint pubblici |
@@ -105,7 +105,7 @@ Dave riconosce che la connettività dalla rete aziendale di Contoso alla rete vi
 
 Crea il [blocco risorsa](resource-group-lock-resources.md) seguente:
 
-| Tipo di blocco | Risorsa | Descrizione |
+| Tipo di blocco | Risorsa | DESCRIZIONE |
 | --- | --- | --- |
 | **CanNotDelete** |rete virtuale interna |Impedisce agli utenti di eliminare la rete virtuale o le subnet, ma non impedisce l'aggiunta di nuove subnet |
 
@@ -123,7 +123,7 @@ I responsabili aziendali della business unit della supply chain hanno identifica
 ### <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 Dave accede al portale aziendale di Azure e vede che il reparto della supply chain esiste già.  Tuttavia, poiché questo progetto è il primo progetto di sviluppo per il team della supply chain in Azure, Dave riconosce la necessità di un nuovo account per il team di sviluppo di Alice.  Crea l'account "R & D" per il team e assegna l'accesso ad Alice. Alice accede tramite il portale di Azure e crea due sottoscrizioni: una per i server di sviluppo e l'altra per i server di produzione.  Segue gli standard di denominazione stabiliti in precedenza durante la creazione di sottoscrizioni seguenti:
 
-| Uso della sottoscrizione | Nome |
+| Uso della sottoscrizione | NOME |
 | --- | --- |
 | Sviluppo. |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
 | Produzione |Contoso SupplyChain Operations LoyaltyCard Production |
@@ -133,7 +133,7 @@ Dave e Alice discutono dell'applicazione e concludono che è destinata solo ai c
 
 Per la **sottoscrizione di sviluppo**, creano i criteri seguenti:
 
-| Campo | Effetto | Descrizione |
+| Campo | Effetto | DESCRIZIONE |
 | --- | --- | --- |
 | location |audit |Controlla la creazione delle risorse in qualsiasi area |
 
@@ -141,7 +141,7 @@ Non stabiliscono un limite per il tipo di SKU che un utente può creare in fase 
 
 Per la **sottoscrizione di produzione**, creano i criteri seguenti:
 
-| Campo | Effetto | Descrizione |
+| Campo | Effetto | DESCRIZIONE |
 | --- | --- | --- |
 | location |deny |Impedisce la creazione di risorse all'esterno dei data center degli Stati Uniti |
 | tags |deny |Richiede il tag del proprietario dell'applicazione |
@@ -164,13 +164,13 @@ Il team di gestione dei rischi e della sicurezza delle informazioni di Contoso E
 
 Per la **sottoscrizione di sviluppo**, creano:
 
-| Tipo di risorsa | Nome | Descrizione |
+| Tipo di risorsa | NOME | DESCRIZIONE |
 | --- | --- | --- |
 | Rete virtuale |rete virtuale interna |È destinata all'ambiente di sviluppo della carta fedeltà di Contoso ed è connessa tramite ExpressRoute alla rete aziendale di Contoso |
 
 Per la **sottoscrizione di produzione**, creano:
 
-| Tipo di risorsa | Nome | Descrizione |
+| Tipo di risorsa | NOME | DESCRIZIONE |
 | --- | --- | --- |
 | Rete virtuale |rete virtuale esterna |Ospita l'applicazione Carta fedeltà e non è connessa direttamente a ExpressRoute di Contoso. Il codice viene trasmesso tramite il sistema di codice sorgente direttamente ai servizi PaaS |
 | Gruppo di sicurezza di rete |loyaltycard-nsg |Garantisce che la superficie di attacco di questo carico di lavoro sia ridotta al minimo consentendo la comunicazione in entrata solo su TCP 443.  Contoso sta indagando anche attraverso un firewall applicazione Web per protezione aggiuntiva |
@@ -180,7 +180,7 @@ Dave e Alice si consultano e decidono di aggiungere blocchi di risorse in alcune
 
 Creano il blocco seguente:
 
-| Tipo di blocco | Risorsa | Descrizione |
+| Tipo di blocco | Risorsa | DESCRIZIONE |
 | --- | --- | --- |
 | **CanNotDelete** |rete virtuale esterna |Per impedire agli utenti di eliminare la rete virtuale o le subnet. Il blocco non impedisce l'aggiunta di nuove subnet |
 

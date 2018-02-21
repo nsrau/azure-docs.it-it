@@ -119,13 +119,13 @@ Per preparare i dati meteo, creare un subset per le colonne necessarie per la mo
 
 Aggiungere quindi un codice aeroporto associato a una stazione meteo e convertire le misurazioni dall'ora locale in ora UTC.
 
-Iniziare creando un file per eseguire il mapping delle informazioni sulla stazione meteo (WBAN) al codice dell'aeroporto. È stato possibile ottenere questa correlazione dal file di mapping incluso con i dati meteo, eseguendo il mapping del campo *CallSign* (ad esempio, LAX) nel file di dati meteo con *Origin* nei dati relativi alle compagnie aeree. Tuttavia, si dispone di un altro mapping per il campo *WBAN* in *AirportID* (ad esempio, 12892 per LAX) che include il *fuso orario*, salvato in un file CSV denominato "wban-to-airport-id-tz.CSV", che è possibile usare. ad esempio:
+Iniziare creando un file per eseguire il mapping delle informazioni sulla stazione meteo (WBAN) al codice dell'aeroporto. È stato possibile ottenere questa correlazione dal file di mapping incluso con i dati meteo, eseguendo il mapping del campo *CallSign* (ad esempio, LAX) nel file di dati meteo con *Origin* nei dati relativi alle compagnie aeree. Tuttavia, si dispone di un altro mapping per il campo *WBAN* in *AirportID* (ad esempio, 12892 per LAX) che include il *fuso orario*, salvato in un file CSV denominato "wban-to-airport-id-tz.CSV", che è possibile usare. Ad esempio: 
 
 | AirportID | WBAN | TimeZone
 |-----------|------|---------
 | 10685 | 54831 | -6
 | 14871 | 24232 | -8
-| .. | .. | ..
+| . | . | .
 
 Il codice seguente legge ognuno dei file di dati relativi al meteo non elaborati per ora, crea i subset per le colonne necessari, unisce il file di mapping della stazione meteo, modifica orari e date dei valori in UTC e quindi scrive una nuova versione del file:
 
@@ -542,7 +542,7 @@ elapsed <- (proc.time() - t0)[3]
 logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo è stato illustrato come è possibile combinare l'uso di SparkR per manipolare i dati con ScaleR per lo sviluppo di modelli di Hadoop Spark. In questo scenario è necessario gestire sessioni di Spark separate eseguendo una sola sessione alla volta e scambiando i dati tramite file CSV. Anche se semplice, questo processo sarà ancora più semplice nella prossima versione di R Server in cui SparkR e ScaleR potranno condividere una sessione di Spark e pertanto i relativi DataFrame.
 

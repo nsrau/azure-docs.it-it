@@ -20,7 +20,7 @@ ms.lasthandoff: 11/29/2017
 
 Usare Database di Azure per MySQL per ripristinare il database di un server a una data precedente che va dai 7 ai 35 giorni.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida, è necessario:
 - Un [database di Azure per il database e il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -50,7 +50,7 @@ az mysql server restore --resource-group myResourceGroup --name myserver-restore
 ```
 
 Il comando `az mysql server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | myserver-restored | Il nome del nuovo server creato con il comando di ripristino. |

@@ -41,7 +41,7 @@ Oltre a proteggere le macchine virtuali di Azure, il Centro sicurezza offre funz
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per iniziare a usare il Centro sicurezza di Azure, è necessario conoscere e tenere in considerazione quanto segue:
 
 * È necessaria una sottoscrizione a Microsoft Azure. Per altre informazioni sui livelli gratuito e standard del Centro sicurezza, vedere [Centro sicurezza Prezzi](https://azure.microsoft.com/pricing/details/security-center/).
@@ -64,7 +64,7 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse di Azure. Quand
 
 Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificare le potenziali vulnerabilità. Le raccomandazioni vengono visualizzate sotto forma di tabella, in cui ogni riga rappresenta una particolare raccomandazione. La tabella seguente offre alcuni esempi di raccomandazioni per le VM di Azure che eseguono il sistema operativo Linux e descrive l'effetto della relativa applicazione. Quando di seleziona una raccomandazione, vengono visualizzate informazioni per l'implementazione della stessa nel Centro sicurezza.
 
-| Raccomandazione | Descrizione |
+| Raccomandazione | DESCRIZIONE |
 | --- | --- |
 | [Abilita la raccolta di dati per le sottoscrizioni](security-center-enable-data-collection.md) |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
 | [Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)](security-center-remediate-os-vulnerabilities.md) |Consiglia di allineare le configurazioni dei sistemi operativi alle regole di configurazione raccomandate, ad esempio non consentire il salvataggio delle password. |
@@ -100,7 +100,7 @@ Se si fa clic su questa raccomandazione, verranno visualizzati altri dettagli su
 ![Integrità della sicurezza 2](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig5.png)
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.

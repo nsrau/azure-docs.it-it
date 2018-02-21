@@ -16,7 +16,7 @@ ms.date: 07/05/2017
 ms.author: panarasi
 ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---

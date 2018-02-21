@@ -17,7 +17,7 @@ ms.date: 04/17/2017
 ms.author: charwen
 ms.openlocfilehash: 3aeddd03e0be548933775164ae790ba208fc13ae
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

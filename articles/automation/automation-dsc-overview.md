@@ -16,7 +16,7 @@ ms.date: 06/15/2017
 ms.author: gwallace
 ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

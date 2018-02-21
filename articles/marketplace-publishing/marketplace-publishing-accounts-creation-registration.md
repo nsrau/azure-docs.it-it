@@ -229,7 +229,7 @@ Se si viene aggiunti come coamministratore nel portale di pubblicazione, è poss
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere creato e registrato l'account, assicurarsi di completare o rispettare tutti i prerequisiti non tecnici per pubblicare l'offerta verificando i [prerequisiti non tecnici](marketplace-publishing-pre-requisites.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg

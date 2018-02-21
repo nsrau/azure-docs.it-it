@@ -23,7 +23,7 @@ ms.lasthandoff: 11/18/2017
 
 Questa esercitazione offre una simulazione delle operazioni necessarie per proteggere l'hub IoT di Azure usando l'*l'autenticazione del certificato X.509*. A scopo illustrativo, verrà descritta la procedura per usare lo strumento open source OpenSSL per creare i certificati in locale nel computer Windows. È consigliabile usare questa esercitazione solo a scopo di test. Per l'ambiente di produzione, è necessario acquistare i certificati da un'*autorità di certificazione (CA) radice*. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per questa esercitazione è necessario disporre delle risorse seguenti pronte:
 
 - Un hub IoT creato con la propria sottoscrizione di Azure. Vedere [Creare un hub IoT usando il portale di Azure](iot-hub-create-through-portal.md) per istruzioni dettagliate. 
@@ -80,7 +80,7 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 2. Fare clic su **Aggiungi** per aggiungere un nuovo dispositivo. 
 
-3. Specificare un nome visualizzato descrittivo per **ID dispositivo** e selezionare **_Firmato da CA X.509_** come **Tipo di autenticazione**. Fare clic su **Salva**.
+3. Specificare un nome visualizzato descrittivo per **ID dispositivo** e selezionare **_Firmato da CA X.509_** come **Tipo di autenticazione**. Fare clic su **Save**.
 
    ![Creare il dispositivo X.509 nel portale](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -170,7 +170,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
 7. Dato che l'applicazione accede a un file *PFX*, è necessario eseguirla in modalità di *amministrazione*. Compilare la soluzione di Visual Studio. Aprire una nuova finestra di comando come **amministratore** e passare alla cartella che contiene questa soluzione. Passare al percorso *bin/Debug* all'interno della cartella della soluzione. Eseguire l'applicazione **SimulateX509Device.exe** dalla finestra di comando dell'_amministratore_. Il dispositivo dovrebbe connettersi correttamente all'hub e inviare eventi. 
    ![Eseguire l'app per dispositivi](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Per altre informazioni sulla protezione della soluzione IoT, vedere:
 
 * [Procedure consigliate per la sicurezza IoT][lnk-security-best-practices]

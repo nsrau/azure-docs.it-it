@@ -162,7 +162,7 @@ Pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale fa
 
 * **Finestra di manutenzione (minuti)**: specificare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti.  In questo modo è possibile garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
-Dopo aver configurato la pianificazione, fare clic sul pulsante **Crea**. Viene nuovamente visualizzato il dashboard di stato.
+Dopo avere configurato la pianificazione, fare clic sul pulsante **Crea**. Viene nuovamente visualizzato il dashboard di stato.
 Si noti che la tabella **Pianificata** mostra la pianificazione della distribuzione creata.
 
 > [!WARNING]

@@ -38,8 +38,8 @@ Nella tabella seguente vengono illustrate le opzioni possibili:
   
 |Metodo di autenticazione|Valore dell'elemento `ImportExportStatesPath`|Posizione dei BLOB di log|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Chiave dell'account di archiviazione|Valore predefinito|Un contenitore denominato `waimportexport`, ovvero il contenitore predefinito. Ad esempio:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Chiave dell'account di archiviazione|Valore specificato dall'utente|Un contenitore denominato dall'utente. Ad esempio:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Chiave dell'account di archiviazione|Valore predefinito|Un contenitore denominato `waimportexport`, ovvero il contenitore predefinito. Ad esempio: <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Chiave dell'account di archiviazione|Valore specificato dall'utente|Un contenitore denominato dall'utente. Ad esempio: <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |Firma di accesso condiviso del contenitore|Valore predefinito|Una directory virtuale denominata `waimportexport`, ovvero il nome predefinito, sotto il contenitore specificato nella firma di accesso condiviso.<br /><br /> Ad esempio, se la firma di accesso condiviso specificata per il processo è `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, la posizione del log sarà `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Firma di accesso condiviso del contenitore|Valore specificato dall'utente|Una directory virtuale denominata dall'utente, sotto il contenitore specificato nella firma di accesso condiviso.<br /><br /> Ad esempio, se la firma di accesso condiviso specificata per il processo è `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` e la directory virtuale specificata è denominata `mylogblobs`, la posizione del log sarà `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
@@ -106,19 +106,19 @@ properties-status ::=
 
 Nella tabella seguente vengono illustrati gli elementi del file di log.  
   
-|Elemento XML|Tipo|Descrizione|  
+|Elemento XML|type|DESCRIZIONE|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Rappresenta un log di unità.|  
 |`Version`|Attributo, stringa|Versione del formato del log.|  
 |`DriveId`|string|Numero di serie dell'hardware dell'unità.|  
-|`Status`|String|Stato di elaborazione dell'unità. Per altre informazioni, vedere la tabella `Drive Status Codes` di seguito.|  
+|`Status`|string|Stato di elaborazione dell'unità. Per altre informazioni, vedere la tabella `Drive Status Codes` di seguito.|  
 |`Blob`|Elemento XML nidificato|Rappresenta un BLOB.|  
 |`Blob/BlobPath`|string|L'URI del BLOB.|  
-|`Blob/FilePath`|String|Il percorso relativo verso il file nell'unità.|  
-|`Blob/Snapshot`|DateTime|La versione dello snapshot del BLOB, solo per un processo di esportazione.|  
+|`Blob/FilePath`|string|Il percorso relativo verso il file nell'unità.|  
+|`Blob/Snapshot`|Datetime|La versione dello snapshot del BLOB, solo per un processo di esportazione.|  
 |`Blob/Length`|Integer|La lunghezza totale dei BLOB in byte.|  
-|`Blob/LastModified`|DateTime|Data e ora dell'ultima modifica al BLOB, solo per un processo di esportazione.|  
-|`Blob/ImportDisposition`|String|La disposizione di importazione del BLOB, solo per un processo di importazione.|  
+|`Blob/LastModified`|Datetime|Data e ora dell'ultima modifica al BLOB, solo per un processo di esportazione.|  
+|`Blob/ImportDisposition`|string|La disposizione di importazione del BLOB, solo per un processo di importazione.|  
 |`Blob/ImportDisposition/@Status`|Attributo, stringa|Lo stato della disposizione di importazione.|  
 |`PageRangeList`|Elemento XML nidificato|Rappresenta un elenco di intervalli di pagine per un BLOB di pagine.|  
 |`PageRange`|Elemento XML|Rappresenta un intervallo di pagine.|  
@@ -135,22 +135,22 @@ Nella tabella seguente vengono illustrati gli elementi del file di log.
 |`Block/@Status`|Attributo, stringa|Lo stato di elaborazione del blocco.|  
 |`Metadata`|Elemento XML nidificato|Rappresenta i metadati del BLOB.|  
 |`Metadata/@Status`|Attributo, stringa|Lo stato di elaborazione dei metadati del BLOB.|  
-|`Metadata/GlobalPath`|String|Il percorso relativo verso il file di metadati globale.|  
+|`Metadata/GlobalPath`|string|Il percorso relativo verso il file di metadati globale.|  
 |`Metadata/GlobalPath/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di metadati globale.|  
-|`Metadata/Path`|String|Il percorso relativo verso il file di metadati.|  
+|`Metadata/Path`|string|Il percorso relativo verso il file di metadati.|  
 |`Metadata/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di metadati.|  
 |`Properties`|Elemento XML nidificato|Rappresenta le proprietà del BLOB.|  
 |`Properties/@Status`|Attributo, stringa|Lo stato di elaborazione delle proprietà del BLOB, ad esempio file non trovato, completato e così via.|  
-|`Properties/GlobalPath`|String|Il percorso relativo verso il file di proprietà globale.|  
+|`Properties/GlobalPath`|string|Il percorso relativo verso il file di proprietà globale.|  
 |`Properties/GlobalPath/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di proprietà globale.|  
-|`Properties/Path`|String|Il percorso relativo verso il file di proprietà.|  
+|`Properties/Path`|string|Il percorso relativo verso il file di proprietà.|  
 |`Properties/Path/@Hash`|Attributo, stringa|L'hash MD5 codificato in base 16 del file di proprietà.|  
-|`Blob/Status`|String|Lo stato di elaborazione del BLOB.|  
+|`Blob/Status`|string|Lo stato di elaborazione del BLOB.|  
   
 # <a name="drive-status-codes"></a>Codici di stato per un'unità  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un'unità.  
   
-|Codice di stato|Descrizione|  
+|Codice di stato|DESCRIZIONE|  
 |-----------------|-----------------|  
 |`Completed`|L'unità ha completato l'elaborazione senza errori.|  
 |`CompletedWithWarnings`|L'unità ha completato l'elaborazione con avvisi di uno o più BLOB in base alle disposizioni di importazione specificate per i BLOB.|  
@@ -179,7 +179,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un'
 ## <a name="blob-status-codes"></a>Codici di stato per un BLOB  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un BLOB.  
   
-|Codice di stato|Descrizione|  
+|Codice di stato|DESCRIZIONE|  
 |-----------------|-----------------|  
 |`Completed`|Il BLOB ha completato l'elaborazione senza errori.|  
 |`CompletedWithErrors`|Il BLOB ha completato l'elaborazione con errori in uno o più intervalli di pagine o blocchi, metadati o proprietà.|  
@@ -198,7 +198,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un 
 ## <a name="import-disposition-status-codes"></a>Codici di stato per una disposizione di importazione  
 Nella tabella seguente sono elencati i codici di stato per la risoluzione di una disposizione di importazione.  
   
-|Codice di stato|Descrizione|  
+|Codice di stato|DESCRIZIONE|  
 |-----------------|-----------------|  
 |`Created`|Il BLOB è stato creato.|  
 |`Renamed`|Il BLOB è stato rinominato in base alla disposizione di importazione di ridenominazione. L'elemento `Blob/BlobPath` contiene l'URI per il BLOB rinominato.|  
@@ -209,7 +209,7 @@ Nella tabella seguente sono elencati i codici di stato per la risoluzione di una
 ## <a name="page-rangeblock-status-codes"></a>Codici di stato per un intervallo/blocco di pagine  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un intervallo di pagine o un blocco.  
   
-|Codice di stato|Descrizione|  
+|Codice di stato|DESCRIZIONE|  
 |-----------------|-----------------|  
 |`Completed`|L'intervallo di pagine o il blocco ha completato l'elaborazione senza errori.|  
 |`Committed`|È stato eseguito il commit del blocco, ma non per l'intero elenco di blocchi, dal momento che altri blocchi o l'intero elenco di blocchi hanno avuto esito negativo.|  
@@ -225,7 +225,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione di un 
 ## <a name="metadata-status-codes"></a>Codici di stato per i metadati  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione dei metadati del BLOB.  
   
-|Codice di stato|Descrizione|  
+|Codice di stato|DESCRIZIONE|  
 |-----------------|-----------------|  
 |`Completed`|I metadati hanno completato l'elaborazione senza errori.|  
 |`FileNameInvalid`|Il nome del file di metadati non è valido.|  
@@ -243,7 +243,7 @@ Nella tabella seguente sono elencati i codici di stato per l'elaborazione dei me
 ## <a name="properties-status-codes"></a>Codici di stato delle proprietà  
 Nella tabella seguente sono elencati i codici di stato per l'elaborazione delle proprietà del BLOB.  
   
-|Codice di stato|Descrizione|  
+|Codice di stato|DESCRIZIONE|  
 |-----------------|-----------------|  
 |`Completed`|Le proprietà hanno completato l'elaborazione senza errori.|  
 |`FileNameInvalid`|Il nome del file di proprietà non è valido.|  

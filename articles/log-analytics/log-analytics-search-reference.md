@@ -82,7 +82,7 @@ Esempi:
 These all are string literals
 ```
 
-Questa query cerca i risultati che contengono occorrenze di tutte le cinque parole. Per eseguire una ricerca di stringa complessa, racchiudere il valore letterale di stringa tra virgolette, ad esempio:
+Questa query cerca i risultati che contengono occorrenze di tutte le cinque parole. Per eseguire una ricerca di stringa complessa, racchiudere il valore letterale di stringa tra virgolette, Ad esempio: 
 
 ```
 "Windows Server"
@@ -135,7 +135,7 @@ yyyy-mm-dd
 ```
 
 
-ad esempio:
+Ad esempio: 
 
 ```
 TimeGenerated:2013-10-01T12:20
@@ -160,12 +160,12 @@ datetime/unit
 datetime[+|-]count unit
 ```
 
-| Operatore | Descrizione |
+| Operatore | DESCRIZIONE |
 | --- | --- |
 | / |La data/ora viene arrotondata all'unità specificata. Ad esempio, NOW/DAY arrotonda la data/ora corrente a mezzanotte del giorno corrente. |
 | + o - |Esegue l'offset della data/ora in base al numero specificato di unità. Ad esempio, NOW+1HOUR esegue l'offset della data/ora corrente di un'ora in avanti. 2013-10-01T12:00-10DAYS esegue l'offset del valore della data indietro di 10 giorni. |
 
-È possibile concatenare gli operatori matematici di data/ora. Ad esempio:
+È possibile concatenare gli operatori matematici di data/ora. Ad esempio: 
 
 ```
 NOW+1HOUR-10MONTHS/MINUTE
@@ -173,7 +173,7 @@ NOW+1HOUR-10MONTHS/MINUTE
 
 Nella tabella seguente vengono elencate le unità di data/ora supportate.
 
-| Unità di data/ora | Descrizione |
+| Unità di data/ora | DESCRIZIONE |
 | --- | --- |
 | YEAR, YEARS |Viene arrotondata all'anno corrente o viene eseguito l'offset in base al numero di anni specificato. |
 | MONTH, MONTHS |Viene arrotondata al mese corrente o viene eseguito l'offset in base al numero di mesi specificato. |
@@ -200,7 +200,7 @@ field=value
 
 Cerca il valore specifico nel campo. Il valore può essere un valore letterale stringa, un numero o una data/ora.
 
-Ad esempio:
+Ad esempio: 
 
 ```
 TimeGenerated:NOW
@@ -230,7 +230,7 @@ SampleValue:0.3
 
 Fornisce i confronti.
 
-ad esempio:
+Ad esempio: 
 
 ```
 TimeGenerated>NOW+2HOURS
@@ -246,7 +246,7 @@ field:[from..to]
 
 Fornisce il facet di intervallo.
 
-Ad esempio:
+Ad esempio: 
 
 ```
 TimeGenerated:[NOW..NOW+1DAY]
@@ -414,7 +414,7 @@ Esempio:
 
 Restituisce i primi 10 risultati corrispondenti a partire dal risultato 200.
 
-### <a name="select"></a>Selezionare
+### <a name="select"></a>Select
 Sintassi:
 
     select field1, field2, ...
@@ -441,7 +441,7 @@ Il comando *measure* viene usato per applicare funzioni statistiche ai risultati
 
 Aggrega i risultati per *groupField* e calcola i valori di misura aggregati tramite l'oggetto *aggregatedField*.
 
-| Funzione statistica di measure | Descrizione |
+| Funzione statistica di measure | DESCRIZIONE |
 | --- | --- |
 | *aggregateFunction* |Nome della funzione di aggregazione (senza distinzione tra maiuscole e minuscole). Sono supportate le funzioni di aggregazione seguenti: COUNT MAX MIN SUM AVG STDDEV COUNTDISTINCT PERCENTILE## o PCT## (## è un numero compreso tra 1 e 99). |
 | *aggregatedField* |Campo da aggregare. Questo campo è facoltativo per la funzione di aggregazione COUNT, ma deve essere un campo numerico esistente per SUM, MAX, MIN, AVG STDDEV, PERCENTILE## oppure PCT## (## è un numero compreso tra 1 e 99). Anche aggregatedField può essere una delle funzioni **Extend** supportate. |
@@ -616,7 +616,7 @@ Questo esempio restituisce un evento (l'ultimo) per ogni EventID.
 ### <a name="join"></a>Join
 Unisce i risultati di due query in modo da formare un unico set di risultati.  Supporta più tipi di join descritti nella tabella seguente.
 
-| Tipo di join | Descrizione |
+| Tipo di join | DESCRIZIONE |
 |:--|:--|
 | interno | Consente di restituire solo i record con un valore corrispondente in entrambe le query. |
 | esterno | Consente di restituire tutti i record da entrambe le query.  |
@@ -727,7 +727,7 @@ Calcola il numero massimo di operazioni di scrittura sul disco al minuto per ogn
 
 **Funzioni supportate**
 
-| Funzione | Descrizione | Esempi di sintassi |
+| Funzione | DESCRIZIONE | Esempi di sintassi |
 | --- | --- | --- |
 | abs |Restituisce il valore assoluto del valore o della funzione specificata. |`abs(x)` <br> `abs(-5)` |
 | acos |Restituisce l'arcocoseno di un valore o una funzione. |`acos(x)` |
@@ -777,14 +777,14 @@ Calcola il numero massimo di operazioni di scrittura sul disco al minuto per ogn
 ## <a name="search-field-and-facet-reference"></a>Riferimenti al campo Ricerca e ai facet
 Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari campi e facet. Alcune informazioni potrebbero non essere molto descrittive. Usare le informazioni seguenti per comprendere i risultati.
 
-| Campo | Tipo di ricerca | Descrizione |
+| Campo | Tipo di ricerca | DESCRIZIONE |
 | --- | --- | --- |
 | TenantId |Tutti |Usato per la partizione di dati. |
 | TimeGenerated |Tutti |Usato per gestire la sequenza temporale, selettori orari (in Ricerca e in altre schermate). Rappresenta quando i dati sono stati generati (in genere nell'agente). Il tempo viene espresso nel formato ISO ed è sempre UTC. Nel caso di tipi basati sulla strumentazione esistente, ad esempio gli eventi in un log, si tratta in genere del tempo reale in cui la voce, la riga o il record di log è stato registrato. Per altri tipi generati con Management Pack o nel cloud, ad esempio raccomandazioni o avvisi, rappresenta un valore diverso. Si tratta dell'ora in cui sono stati raccolti nuovi dati con uno snapshot di una configurazione di un certo tipo oppure è stata generata una raccomandazione o un avviso. |
-| EventID |Evento |ID evento nel registro eventi di Windows. |
-| EventLog |Evento |Registro eventi in cui l'evento è stato registrato da Windows. |
-| EventLevelName |Evento |Critico/avviso/informazioni/esito positivo |
-| EventLevel |Evento |Valore numerico per critico/avviso/informazioni/esito positivo; usare EventLevelName invece di query più semplici o più leggibili |
+| EventID |Event |ID evento nel registro eventi di Windows. |
+| EventLog |Event |Registro eventi in cui l'evento è stato registrato da Windows. |
+| EventLevelName |Event |Critico/avviso/informazioni/esito positivo |
+| EventLevel |Event |Valore numerico per critico/avviso/informazioni/esito positivo; usare EventLevelName invece di query più semplici o più leggibili |
 | SourceSystem |Tutti |Provenienza dei dati, in termini di modalità di "collegamento" al servizio, ad esempio Microsoft System Center Operations Manager e Archiviazione di Azure |
 | ObjectName |PerfHourly |Nome oggetto delle prestazioni di Windows |
 | InstanceName |PerfHourly |Nome dell'istanza del contatore delle prestazioni di Windows |
@@ -809,14 +809,14 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 | UpdateClassification |RequiredUpdate |Tipo di aggiornamento, ad esempio rollup aggiornamento, Service Pack |
 | KBID |RequiredUpdate |ID articolo della KB che descrive la procedura consigliata o l'aggiornamento |
 | WorkflowName |ConfigurationAlert |Nome della regola o del monitoraggio che ha generato l'avviso |
-| Severity |ConfigurationAlert |Gravità dell'avviso |
+| Gravità |ConfigurationAlert |Gravità dell'avviso |
 | Priorità |ConfigurationAlert |Priorità dell'avviso |
 | IsMonitorAlert |ConfigurationAlert |Questo avviso viene generato da un monitoraggio (true) o da una regola (false)? |
 | AlertParameters |ConfigurationAlert |XML con i parametri dell'avviso di Log Analytics |
 | Context |ConfigurationAlert |XML con il contesto dell'avviso di Log Analytics |
 | Carico di lavoro |ConfigurationAlert |Tecnologia o carico di lavoro a cui fa riferimento l'avviso |
 | AdvisorWorkload |Raccomandazione |Tecnologia o carico di lavoro a cui fa riferimento la raccomandazione |
-| Descrizione |ConfigurationAlert |Descrizione dell'avviso (breve) |
+| DESCRIZIONE |ConfigurationAlert |Descrizione dell'avviso (breve) |
 | DaysSinceLastUpdate |UpdateAgent |Quanti giorni fa (relativo a 'TimeGenerated' di questo record) questo agente ha installato un aggiornamento da Windows Server Update Service (WSUS)/Microsoft Update? |
 | DaysSinceLastUpdateBucket |UpdateAgent |In base a DaysSinceLastUpdate, una categorizzazione in "bucket orari" del tempo trascorso dall'ultima installazione di aggiornamenti da WSUS/Microsoft Update da parte di un computer |
 | AutomaticUpdateEnabled |UpdateAgent |Il controllo degli aggiornamenti automatici è abilitato o disabilitato su questo agente? |
@@ -824,19 +824,19 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 | WindowsUpdateAgentVersion |UpdateAgent |Numero di versione dell'agente di Microsoft Update |
 | WSUSServer |UpdateAgent |A quale server WSUS è destinato questo agente di aggiornamento? |
 | OSVersion |UpdateAgent |Versione del sistema operativo su cui è in esecuzione questo agente di aggiornamento |
-| Nome |Recommendation, ConfigurationObjectProperty |Nome/titolo della raccomandazione o nome della proprietà di valutazione configurazione di Log Analytics |
+| NOME |Recommendation, ConfigurationObjectProperty |Nome/titolo della raccomandazione o nome della proprietà di valutazione configurazione di Log Analytics |
 | Valore |ConfigurationObjectProperty |Valore di una proprietà di valutazione configurazione di Log Analytics |
 | KBLink |Raccomandazione |URL all'articolo della KB che descrive la procedura consigliata o l'aggiornamento |
 | RecommendationStatus |Raccomandazione |Le raccomandazioni sono tra i pochi tipi i cui record vengono aggiornati, non solo aggiunti all'indice di ricerca. Questo stato cambia se la raccomandazione è attiva/aperta o se Log Analytics rileva che è stata risolta. |
-| RenderedDescription |Evento |Descrizione con rendering (testo riutilizzato con parametri popolati) di un evento di Windows |
-| ParameterXml |Evento |XML con i parametri della sezione relativa ai dati di un evento di Windows, come illustrato nel visualizzatore eventi |
-| EventData |Evento |XML con l'intera sezione relativa ai dati di un evento di Windows, come illustrato nel visualizzatore eventi |
-| Sorgente |Evento |Origine del registro eventi che ha generato l'evento |
-| EventCategory |Evento |Categoria dell'evento, direttamente dal registro eventi di Windows |
-| UserName |Evento |Nome utente dell'evento di Windows, in genere, NT AUTHORITY\LOCALSYSTEM |
+| RenderedDescription |Event |Descrizione con rendering (testo riutilizzato con parametri popolati) di un evento di Windows |
+| ParameterXml |Event |XML con i parametri della sezione relativa ai dati di un evento di Windows, come illustrato nel visualizzatore eventi |
+| EventData |Event |XML con l'intera sezione relativa ai dati di un evento di Windows, come illustrato nel visualizzatore eventi |
+| Sorgente |Event |Origine del registro eventi che ha generato l'evento |
+| EventCategory |Event |Categoria dell'evento, direttamente dal registro eventi di Windows |
+| UserName |Event |Nome utente dell'evento di Windows, in genere, NT AUTHORITY\LOCALSYSTEM |
 | SampleValue |PerfHourly |Valore medio per l'aggregazione oraria di un contatore delle prestazioni |
 | Min |PerfHourly |Valore minimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni |
-| max |PerfHourly |Valore massimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni |
+| Max |PerfHourly |Valore massimo nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni |
 | Percentile95 |PerfHourly |Valore del 95° percentile nell'intervallo orario di un'aggregazione oraria del contatore delle prestazioni |
 | SampleCount |PerfHourly |Il numero di campioni di contatori delle prestazioni non elaborati usati per produrre questo record di aggregazione oraria |
 | Threat |ProtectionStatus |Nome del malware rilevato |
@@ -868,7 +868,7 @@ Quando si usa Ricerca log per trovare i dati, i risultati visualizzano vari camp
 | ChangeCategory |ConfigurationChange |Categoria di modifica (Modificato/Aggiunto/Rimosso) |
 | SoftwareType |ConfigurationChange |Tipo di software (Aggiornamento/Applicazione) |
 | SoftwareName |ConfigurationChange |Nome del software (applicabile solo alle modifiche del software) |
-| Autore |ConfigurationChange |Fornitore che pubblica il software (applicabile solo alle modifiche software) |
+| Editore |ConfigurationChange |Fornitore che pubblica il software (applicabile solo alle modifiche software) |
 | SvcChangeType |ConfigurationChange |Tipo di modifica applicata a un servizio Windows (Stato/Tipo avvio/Percorso/Account servizio) Applicabile solo alle modifiche del servizio Windows |
 | SvcDisplayName |ConfigurationChange |Nome visualizzato del servizio modificato |
 | SvcName |ConfigurationChange |Nome del servizio modificato |

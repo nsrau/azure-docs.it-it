@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: 768c32e30509c74a292b2355a249ec010af2cd1b
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come:
 > * Distribuire la soluzione preconfigurata
 > * Accedere alla soluzione preconfigurata
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
 

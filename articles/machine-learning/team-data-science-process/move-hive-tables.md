@@ -27,7 +27,7 @@ Questo **menu** si collega ad argomenti che descrivono come inserire dati in amb
 
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che l'utente abbia:
 
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
@@ -146,7 +146,7 @@ Di seguito sono presentate le descrizioni dei campi da collegare e altre configu
 * **<table name>**: il nome della tabella che si desidera creare nel database specificato. Se si desidera usare il database predefinito, è possibile fare direttamente riferimento alla tabella da *&#60;table name>* senza &#60;database name>.
 * **<field separator>**: il separatore che delimita i campi nel file di dati da caricare nella tabella Hive.
 * **&#60;line separator>**: il separatore che delimita le righe nel file di dati.
-* **<storage location>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION &#60;storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato*'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
+* **&#60;storage location>**: il percorso di archiviazione di Azure in cui salvare i dati delle tabelle Hive. Se il parametro *LOCATION &#60;storage location>* non viene specificato, il database e le tabelle vengono archiviati per impostazione predefinita nella directory *hive/warehouse/* nel contenitore predefinito del cluster Hive. Se si desidera specificare il percorso di archiviazione, questo deve trovarsi nel contenitore predefinito per database e tabelle. Questo percorso deve essere definito come percorso relativo per il contenitore predefinito del cluster nel formato*'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'* e così via. Dopo l'esecuzione della query, vengono create le relative directory nel contenitore predefinito.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: se il file di dati presenta una riga di intestazione, si deve aggiungere questa proprietà **alla fine** della query di *creazione della tabella*. In caso contrario, la riga di intestazione verrà caricata come un record nella tabella. Se il file di dati non presenta una riga di intestazione, questa configurazione può essere omessa nella query.
 
 ## <a name="load-data"></a>Caricare dati nelle tabelle Hive

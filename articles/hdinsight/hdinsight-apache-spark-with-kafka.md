@@ -91,7 +91,7 @@ Il codice per l'esempio illustrato in questo documento è disponibile all'indiri
 
 Per completare questo esempio, seguire i passaggi nel file `README.md`.
 
-## <a name="delete-the-cluster"></a>Eliminazione del cluster
+## <a name="delete-the-cluster"></a>Eliminare il cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

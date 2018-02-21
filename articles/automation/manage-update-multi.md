@@ -29,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 - Pianificare l'installazione degli aggiornamenti necessari.
 - Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la soluzione Gestione aggiornamenti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare Gestione aggiornamenti è necessario:
 
@@ -102,7 +102,7 @@ Per i computer abilitati di recente alla gestione degli aggiornamenti, è possib
 
 Dopo l'abilitazione di Gestione aggiornamenti, verrà visualizzata la finestra di dialogo **Gestione aggiornamenti**. È possibile visualizzare un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
 
-## <a name="collect-data"></a>Raccogli dati
+## <a name="collect-data"></a>Raccogliere i dati
 
 Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli aggiornamenti e li inviano a Gestione aggiornamenti di Azure.
 
@@ -110,12 +110,12 @@ Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli ag
 
 La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
 | Agenti di Windows |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
 | Gruppo di gestione di Operations Manager |Sì |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso. |
-| Account di archiviazione di Azure |No |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
+| Account di archiviazione di Azure |No  |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 

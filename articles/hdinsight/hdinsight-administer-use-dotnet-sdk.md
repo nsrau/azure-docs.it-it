@@ -18,7 +18,7 @@ ms.date: 12/15/2017
 ms.author: jgao
 ms.openlocfilehash: d881d47e26460d3fff89c01245bba4c608dc8b08
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---

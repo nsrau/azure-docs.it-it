@@ -12,7 +12,7 @@ Selezionare **Crea un nuovo tenant Azure AD B2C**. Le impostazioni specificate n
 
 ![Creazione di un tenant di Azure AD B2C con testo di esempio nei campi disponibili](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
-| Impostazione      | Valore di esempio  | Descrizione                                        |
+| Impostazione      | Valore di esempio  | DESCRIZIONE                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome organizzazione** | Contoso | Nome dell'organizzazione. | 
 | **Nome di dominio iniziale** |  ContosoB2CTenant | Nome di dominio per il tenant B2C. Per impostazione predefinita, il nome di dominio iniziale include .onmicrosoft.com. Se si sta creando un tenant di test, scegliere un nome non di produzione, ad esempio ContosoB2CTesting. |

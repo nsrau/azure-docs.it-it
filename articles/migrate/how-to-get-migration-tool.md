@@ -8,7 +8,7 @@ ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---

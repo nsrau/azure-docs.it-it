@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà:
 
 
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 
 * È stata distribuita l'app del database per tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Deploy and explore the Wingtip Tickets SaaS Database Per Tenant application](saas-dbpertenant-get-started-deploy.md) (Distribuire ed esplorare l'applicazione del database per tenant SaaS Wingtip Tickets)
@@ -189,7 +189,7 @@ In questa esercitazione si è appreso come:
 > * Distribuire un database di reporting ad hoc e aggiungervi lo schema per eseguire query distribuite.
 
 
-Provare ora l'[esercitazione sull'analisi dei tenant](saas-tenancy-tenant-analytics.md) per esplorare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
+Eseguire ora l'[esercitazione sull'analisi dei tenant](saas-tenancy-tenant-analytics.md) per esaminare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

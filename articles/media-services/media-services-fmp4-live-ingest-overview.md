@@ -96,7 +96,7 @@ In questo caso, il cliente sceglie di aggregare la traccia audio alla traccia vi
 
 ![Flussi - Tracce audio e video][image4]
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 Questo non è un elenco completo di tutte le possibili opzioni di inserimento applicabili all'esempio. In realtà, qualsiasi forma di raggruppamento di tracce in flussi è supportata dal processo di inserimento live. Clienti e fornitori di codificatori possono scegliere le proprie implementazioni in base alla complessità di progettazione, alla capacità del codificatore e a considerazioni sui livelli di ridondanza e failover. Tuttavia, nella maggior parte dei casi è presente solo una traccia audio per l'intera presentazione live. Di conseguenza, è importante garantire l'integrità del flusso di inserimento che contiene la traccia audio. Questa considerazione determina spesso la scelta di inserire la traccia audio in un flusso indipendente (come nell'opzione 2) o di aggregarla alla traccia video con velocità in bit minore (come nell'opzione 3). Inoltre, per ottenere ridondanza e tolleranza di errore migliori, l'invio della stessa traccia audio in due flussi diversi (opzione 2 con tracce audio ridondanti) o l'aggregazione della traccia audio con almeno due delle tracce video con velocità in bit minore (opzione 3 con audio aggregato in almeno due flussi video) rappresenta la scelta consigliata per l'inserimento live in Servizi multimediali.
 
 ## <a name="7-service-failover"></a>7. Failover del servizio

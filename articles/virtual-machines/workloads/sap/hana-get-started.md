@@ -29,7 +29,7 @@ Questa guida consente di configurare SAP HANA a istanza singola nelle macchine v
 >[!Note]
 >Questa guida descrive le distribuzioni di SAP HANA in macchine virtuali di Azure. Per informazioni sulla distribuzione di SAP HANA in istanze HANA di grandi dimensioni, vedere [Uso di SAP nelle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 La guida presuppone che l'utente abbia familiarità con le nozioni di base sull'infrastruttura distribuita come servizio (IaaS) come:
  * Come distribuire macchine virtuali o reti virtuali tramite il portale di Azure o PowerShell.
  * L'interfaccia della riga di comando multipiattaforma di Azure che include l'opzione per l'uso dei modelli JSON (JavaScript Object Notification).

@@ -1,6 +1,6 @@
 ---
 title: Supporto di Archiviazione tabelle di Azure in Azure Cosmos DB | Microsoft Docs
-description: Informazioni sull'interazione tra l'API Table di Azure Cosmos DB e le tabelle di Archiviazione di Azure.
+description: Informazioni sull'interazione tra l'API di tabella di Azure Cosmos DB e le tabelle di Archiviazione di Azure.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -19,11 +19,11 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Sviluppo con l'API Table di Azure Cosmos DB e Archiviazione tabelle di Azure
+# <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Sviluppo con l'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure
 
-L'API Table di Azure Cosmos DB e Archiviazione tabelle di Azure condividono lo stesso modello di dati di tabella ed espongono le stesse operazioni di creazione, eliminazione, aggiornamento ed esecuzione di query tramite i relativi SDK. 
+L'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure condividono lo stesso modello di dati di tabella ed espongono le stesse operazioni di creazione, eliminazione, aggiornamento ed esecuzione di query tramite i relativi SDK. 
 
-## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Sviluppo con l'API Table di Azure Cosmos DB
+## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Sviluppo con l'API di tabella di Azure Cosmos DB
 
 L'[API Table di Azure Cosmos DB](table-introduction.md) attualmente dispone di quattro SDK per lo sviluppo: 
 - [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. Questa libreria include le stesse classi e firme di metodi disponibili nella versione pubblica dell'[SDK di Archiviazione di Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage), ma permette anche di connettersi agli account Azure Cosmos DB tramite l'API Table. 
@@ -31,7 +31,7 @@ L'[API Table di Azure Cosmos DB](table-introduction.md) attualmente dispone di q
 - [Java SDK](table-sdk-java.md). Questo SDK di Archiviazione di Azure è in grado di connettersi agli account di Azure Cosmos DB tramite l'API Table.
 - [Node.js SDK](table-sdk-nodejs.md). Questo SDK di Archiviazione di Azure è in grado di connettersi agli account di Azure Cosmos DB tramite l'API Table.
 
-Per altre informazioni sull'uso dell'API Table, vedere l'articolo relativo alle [domande frequenti sullo sviluppo con l'API Table](faq.md#develop-with-the-table-api).
+Per altre informazioni sull'uso dell'API di tabella, vedere l'articolo relativo alle [domande frequenti sullo sviluppo con l'API di tabella](faq.md#develop-with-the-table-api).
 
 ## <a name="developing-with-the-azure-table-storage"></a>Sviluppo con Archiviazione tabelle di Azure
 

@@ -113,9 +113,9 @@ Trovare tutti gli elementi con lo stesso valore della proprietà:
 
 Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiudere i caratteri speciali.
 
-| string | *non* si trova con | ma si trova con |
+| stringa | *non* si trova con | ma si trova con |
 | --- | --- | --- |
-| ControllerHome.Info |home<br/>controller<br/>fo | controllerhome<br/>info<br/>"homecontroller.info"|
+| ControllerHome.Info |home<br/>controller<br/>fo | controllerhome<br/>about<br/>"homecontroller.info"|
 |Stati Uniti|Uni<br/>ti|uniti<br/>stati<br/>uniti AND stati<br/>"stati uniti"
 
 È possibile usare espressioni di ricerca quali le seguenti:

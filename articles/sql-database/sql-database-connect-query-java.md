@@ -15,17 +15,17 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ddf0f0be0acd86f3a2c3e241cbf8ebc81301bc21
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Usare Java per eseguire query su un database SQL di Azure
 
 Questa guida introduttiva illustra come usare [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query sui dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
@@ -57,7 +57,7 @@ Per completare questa esercitazione introduttiva, accertarsi di soddisfare i req
    <dependency>
        <groupId>com.microsoft.sqlserver</groupId>
        <artifactId>mssql-jdbc</artifactId>
-       <version>6.2.1.jre8</version>
+       <version>6.2.2.jre8</version>
    </dependency>
    ```
 

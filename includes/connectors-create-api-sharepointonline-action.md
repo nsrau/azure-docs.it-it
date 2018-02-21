@@ -2,7 +2,7 @@ Una volta aggiunto un trigger, è possibile svolgere delle operazioni interessan
 
 Per configurare questa azione, è necessario fornire le informazioni indicate di seguito. Dopo aver fornito queste informazioni, si noterà che è facile usare i dati generati dal trigger come input per alcune proprietà del nuovo file:
 
-| Creare proprietà file | Descrizione |
+| Creare proprietà file | DESCRIZIONE |
 | --- | --- |
 | Site URL |Si tratta dell'URL del sito di SharePoint Online in cui si desidera creare il nuovo file. Selezionare il sito dall'elenco visualizzato. |
 | Percorso della cartella |Questa è la cartella (all'URL del sito selezionato nel passaggio precedente) in cui verrà posizionato il nuovo file. Cercare e selezionare la cartella. |

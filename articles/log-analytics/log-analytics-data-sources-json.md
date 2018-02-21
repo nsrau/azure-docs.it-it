@@ -103,5 +103,5 @@ Sono supportate anche origini dati JSON annidate, che tuttavia vengono indicizza
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
  

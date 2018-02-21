@@ -115,7 +115,7 @@ PS C:\> docker-machine ip MyDockerHost
 
 ![Esecuzione di un contenitore ngnix](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Docker Machine consente di eseguire facilmente il provisioning di host Docker in Azure per le convalide di host Docker singoli.
 Per l'hosting di produzione di contenitori, vedere l'articolo sul [servizio contenitore di Azure](http://aka.ms/AzureContainerService)
 

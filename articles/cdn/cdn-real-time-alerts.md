@@ -23,19 +23,19 @@ ms.lasthandoff: 10/11/2017
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Avvisi in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft Azure. Questa funzionalità fornisce notifiche in tempo reale sulle prestazioni degli endpoint nel profilo della rete CDN.  È possibile configurare avvisi HTTP o di posta elettronica in base a quanto segue:
 
 * Larghezza di banda
 * Codici di stato
 * Stati della cache
-* Connessioni
+* connessioni
 
 ## <a name="creating-a-real-time-alert"></a>Creazione di un avviso in tempo reale
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo CDN.
    
     ![Profilo di rete CDN](./media/cdn-real-time-alerts/cdn-profile-blade.png)
-1. Dal pannello del profilo della rete CDN fare clic sul pulsante **Gestisci** .
+1. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
    
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    

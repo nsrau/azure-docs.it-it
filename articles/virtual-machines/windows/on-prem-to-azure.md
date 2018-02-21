@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
@@ -98,6 +98,6 @@ Per impostazione predefinita, il criterio di memorizzazione nella cache su disco
 Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Il prezzo della versione Premium dei dischi gestiti è uguale a quello della versione Premium dei dischi non gestiti. Tuttavia, il prezzo della versione Standard dei dischi gestiti è diverso da quello della versione Standard dei dischi non gestiti.
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 - Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -26,7 +26,7 @@ Hub eventi di Azure è una servizio di elaborazione degli eventi scalabile che i
 
 Questo articolo si basa sulle informazioni presenti nella [panoramica](event-hubs-what-is-event-hubs.md) e contiene dettagli tecnici e informazioni sull'implementazione relativi ai componenti e alle funzionalità di Hub eventi.
 
-## <a name="event-publishers"></a>Publisher di eventi
+## <a name="event-publishers"></a>Autori di eventi
 
 Qualsiasi entità che invia dati a un hub eventi è un produttore di eventi o *autore di eventi*. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0. Gli autori di eventi usano un token di firma di accesso condiviso per identificarsi con un hub eventi e possono avere un'identità univoca oppure usare un token di firma di accesso condiviso comune.
 
@@ -88,7 +88,7 @@ Hub eventi usa *firme di accesso condiviso*, disponibili a livello di spazio dei
 
 Qualsiasi entità che legge i dati dell'evento da un hub eventi è un *consumer eventi*. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili. Il client non deve eseguire il polling per la disponibilità dei dati.
 
-### <a name="consumer-groups"></a>Gruppi di utenti
+### <a name="consumer-groups"></a>Gruppi di consumer
 
 Il meccanismo di pubblicazione/sottoscrizione degli Hub eventi è abilitato tramite i *gruppi di consumer*. Un gruppo di consumer è una vista (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni costose di avere una visualizzazione separata del flusso di eventi e di leggere il flusso in modo indipendente in base alle proprie esigenze e con i propri gli offset.
 
@@ -138,7 +138,7 @@ Dati evento:
 
 L'utente è responsabile della gestione dell'offset.
 
-## <a name="capacity"></a>Capacità
+## <a name="capacity"></a>Capacity
 
 Hub eventi è un'architettura parallela a scalabilità elevata ed è necessario valutare alcuni fattori chiave durante il ridimensionamento.
 

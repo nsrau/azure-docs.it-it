@@ -46,7 +46,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|Descrizione|  
+    |Autorizzazione|DESCRIZIONE|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -73,7 +73,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 2. In **Crea ruolo** immettere il nome di un ruolo e una descrizione.
 
 3. Selezionare un'autorizzazione.
-   |Autorizzazione|Descrizione|  
+   |Autorizzazione|DESCRIZIONE|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -121,7 +121,7 @@ In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo a
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Per aggiungere ruoli e utenti usando PowerShell
 Il modulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti vengono usati per la gestione di utenti e ruoli del database.
   
-|Cmdlet|Descrizione|
+|Cmdlet|DESCRIZIONE|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Aggiunge un membro a un ruolo del database.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Rimuove un membro da un ruolo del database.|   
@@ -136,7 +136,7 @@ I filtri di riga possono essere definiti solo per i ruoli con le autorizzazioni 
   
 I filtri di riga si applicano alle righe specificate e alle righe correlate. Quando una tabella contiene più relazioni, i filtri applicano la sicurezza per la relazione che è attiva. I filtri di riga vengono intersecati con altri filtri di riga definiti per le tabelle correlate, ad esempio:  
   
-|Table|Espressione DAX|  
+|Tabella|Espressione DAX|  
 |-----------|--------------------|  
 |Region|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  

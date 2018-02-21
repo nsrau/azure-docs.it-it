@@ -40,7 +40,7 @@ Internamente, la procedura guidata configurare e richiama un *indicizzatore*, au
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Origini dati supportate dalla procedura guidata Importa dati
 La procedura guidata Importa dati supporta le origini dati seguenti: 
 
-* Database SQL di Azure
+* database SQL di Azure
 * Dati relazionali di SQL Server in una macchina virtuale di Azure
 * Azure Cosmos DB
 * Archivio BLOB di Azure
@@ -48,7 +48,7 @@ La procedura guidata Importa dati supporta le origini dati seguenti:
 
 Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'importazione solo da una singola tabella, di una vista di database o di una struttura dei dati equivalente. È necessario creare la struttura dei dati prima di eseguire la procedura guidata.
 
-## <a name="connect-to-your-data"></a>Definisci la connessione ai dati
+## <a name="connect-to-your-data"></a>Connettersi ai dati
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il dashboard del servizio. Per cercare i servizi di ricerca esistenti nella sottoscrizione corrente, è possibile fare clic su **Altri servizi** nell'indice. 
 2. Fare clic su **Importa dati** nella barra dei comandi per aprire il pannello corrispondente.  
 3. Fare clic su **Definisci la connessione ai dati** per specificare una definizione dell'origine dati usata da un indicizzatore. Per le origini dati all'interno della sottoscrizione, la procedura guidata può in genere rilevare e leggere le informazioni di connessione, riducendo al minimo i requisiti di configurazione complessivi.
