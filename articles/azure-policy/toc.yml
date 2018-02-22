@@ -25,6 +25,10 @@
   items:
     - name: Struttura delle definizioni di criteri di Azure
       href: policy-definition.md
+- name: Guide alle procedure
+  items:
+    - name: Creare criteri con l'API REST
+      href: policy-insights.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

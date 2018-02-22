@@ -254,6 +254,9 @@
     - name: Insieme di credenziali di chiave
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Servizi Location Based
+      tocHref: /azure/location-based-services/
+      topicHref: /azure/location-based-services/
     - name: Bilanciamento del carico
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
