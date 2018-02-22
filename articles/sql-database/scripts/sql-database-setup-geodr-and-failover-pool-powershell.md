@@ -18,7 +18,7 @@ ms.date: 11/29/2017
 ms.author: carlrab
 ms.openlocfilehash: b45e829b9f168e28530bc6237433463d4bfc1bed
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---

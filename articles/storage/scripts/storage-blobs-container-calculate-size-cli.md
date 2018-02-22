@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: tamram
-ms.openlocfilehash: 61a553e47a642aead323a19d0724fdccc94a6282
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: f9213018969ab47ce2e78d8c119f22dedaff9452
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calcolare le dimensioni di un contenitore di archiviazione BLOB
 
@@ -50,9 +50,9 @@ Lo script usa i comandi seguenti per calcolare le dimensioni del contenitore del
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage blob upload](/cli/azure/storage/account#create) | Carica file locali in un contenitore dell'Archiviazione BLOB di Azure. |
-| [az storage blob list](/cli/azure/storage/account/keys#list) | Elenca i BLOB in un contenitore dell'Archiviazione BLOB di Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage blob upload](/cli/azure/storage/account#az_storage_account_create) | Carica file locali in un contenitore dell'Archiviazione BLOB di Azure. |
+| [az storage blob list](/cli/azure/storage/account/keys#az_storage_account_keys_list) | Elenca i BLOB in un contenitore dell'Archiviazione BLOB di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

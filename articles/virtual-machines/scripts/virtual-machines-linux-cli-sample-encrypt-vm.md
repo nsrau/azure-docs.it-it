@@ -18,7 +18,7 @@ ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 36bbce089ef7626a3e4c433eb9fb2165e7fdcdd1
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---

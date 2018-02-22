@@ -42,4 +42,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-Per altri esempi di Azure PowerShell per Gestione API di Azure, vedere l'articolo relativo agli [esempi di Azure PowerShell](../powershell-samples.md).
+Per altri esempi di Azure PowerShell per Gestione API di Azure, vedere l'articolo relativo agli [esempi di PowerShell](../powershell-samples.md).

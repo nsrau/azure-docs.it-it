@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecaad702843a63bb82b781339d25fde10df0a0a4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 77c47809a01e9ff2bb851163f9adf987738f98f6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop basati su Windows in HDInsight tramite il portale di Azure
 
@@ -43,7 +43,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 1. Accedere a [https://portal.azure.com](https://portal.azure.com).
 2. Dopo avere aperto il portale, è possibile:
 
-   * Scegliere **Nuovo** dal menu di sinistra per creare un nuovo cluster:
+   * Scegliere **Crea una risorsa** dal menu di sinistra per creare un nuovo cluster:
 
        ![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
    * Scegliere **Cluster HDInsight** dal menu di sinistra.

@@ -4,7 +4,7 @@ description: Questo articolo illustra come creare l'istanza del cluster di failo
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 9fc761b1-21ad-4d79-bebc-a2f094ec214d
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurare l'istanza del cluster di failover di SQL Server nelle macchine virtuali di Azure
 
@@ -117,7 +117,7 @@ Dopo aver soddisfatto questi prerequisiti, è possibile procedere con la creazio
       >[!IMPORTANT]
       >Non è possibile impostare o modificare il set di disponibilità dopo che è stata creata una macchina virtuale.
 
-   Scegliere un'immagine da Azure Marketplace. È possibile usare un'immagine del Marketplace che include Windows Server e SQL Server o solo Windows Server. Per informazioni dettagliate, vedere [Panoramica di SQL Server in macchine virtuali di Azure](../../virtual-machines-windows-sql-server-iaas-overview.md).
+   Scegliere un'immagine da Azure Marketplace. È possibile usare un'immagine del Marketplace che include Windows Server e SQL Server o solo Windows Server. Per informazioni dettagliate, vedere [Panoramica di SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
    Le immagini ufficiali di SQL Server nella raccolta di Azure includono un'istanza installata di SQL Server, nonché il software di installazione di SQL Server e la chiave necessaria.
 

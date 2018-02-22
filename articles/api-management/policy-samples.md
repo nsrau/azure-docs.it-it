@@ -16,7 +16,7 @@ ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
