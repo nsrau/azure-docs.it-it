@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2afbc64519887f110c0213a4f565b4ef1317e26e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -134,7 +134,7 @@ Quando si crea un pool di Batch, è possibile specificare la configurazione dell
     I sistemi operativi disponibili per i pool Configurazione servizi cloud sono elencati in [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando si crea un pool contenente nodi di Servizi cloud, è necessario specificare dimensioni dei nodi e *Famiglia del sistema operativo*. La distribuzione di Servizi cloud in Azure è più veloce rispetto alle macchine virtuali che eseguono Windows. Se si vuole disporre di pool di nodi di calcolo di Windows, le prestazioni di Servizi cloud in termini di tempo di distribuzione potrebbero essere migliori.
 
     * La *famiglia del sistema operativo* determina anche le versioni di .NET installate con il sistema operativo.
-    * Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la sezione [Informazioni sui servizi cloud](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) in [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md).
+    * Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la [Panoramica dei Servizi cloud](../cloud-services/cloud-services-choose-me.md).
     * Analogamente ai ruoli di lavoro, è consigliabile specificare `*` per la *Versione sistema operativo*, in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
 
 Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo chiamando l'operazione di [elenco degli SKU degli agenti dei nodi supportati](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus).
@@ -479,6 +479,8 @@ In alcuni casi, le attività non riescono o vengono interrotte. È possibile che
 > Per connettersi a un nodo tramite RDP o SSH, è necessario creare prima di tutto un utente nel nodo. A questo scopo è possibile usare il Portale di Azure, [aggiungere un account utente a un nodo][rest_create_user] con l'API Batch REST, chiamare il metodo [ComputeNode.CreateComputeNodeUser][net_create_user] in Batch .NET o chiamare il metodo [add_user][py_add_user] nel modulo Batch Python.
 >
 >
+
+Se è necessario limitare o disabilitare l'accesso RDP o SSH ai nodi di calcolo, vedere [Configure or disable remote access to compute nodes in an Azure Batch pool](pool-endpoint-configuration.md) (Configurare o disabilitare l'accesso ai nodi di calcolo in un pool di Azure Batch).
 
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Risoluzione dei problemi dei nodi di calcolo
 Nei casi in cui alcune attività non riescono, il servizio o l'applicazione client Batch può esaminare i metadati delle attività non riuscite per identificare un nodo non correttamente funzionante. A ogni nodo di un pool viene assegnato un ID univoco e il nodo in cui viene eseguita un'attività viene incluso nei metadati dell'attività. Dopo avere identificato un "nodo problematico", è possibile intervenire in diversi modi:

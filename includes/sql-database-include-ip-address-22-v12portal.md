@@ -17,27 +17,27 @@ articles/sql-database/sql-database-connect-query.md
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Nell'elenco a sinistra, selezionare **Sfoglia**. 
+2. Nell'elenco a sinistra selezionare **Sfoglia**. 
 
-3. Scorrere e selezionare **istanze di SQL Server**. 
+3. Scorrere e selezionare **SQL Server**. 
    
     ![Trovare il server di Database SQL di Azure nel portale di][b21-FindServerInPortal]
-4. Per praticità, ridurre al minimo il **Sfoglia** blade.
+4. Per praticità, ridurre a icona il pannello **Sfoglia**.
 
 5. Nella casella di testo di filtro, iniziare a digitare il nome del server. Viene visualizzata la riga.
 
 6. Selezionare la riga per il server. Viene visualizzato un pannello per il server.
 
-7. Nel pannello del server, selezionare **impostazioni**. 
+7. Nel pannello del server, selezionare **Impostazioni**. 
 
 8. Selezionare **Firewall**. 
    
     ![Selezionare Impostazioni > Firewall][b31-SettingsFirewallNavig]
-9. Selezionare **aggiungere Client IP**. Digitare un nome per la nuova regola nella prima casella di testo.
+9. Selezionare **Aggiungi IP client**. Digitare un nome per la nuova regola nella prima casella di testo.
 
 10. Digitare i valori di indirizzo IP minimo e massimo per l'intervallo che si desidera abilitare.
     
-    * Può essere utile per l'elemento end con valore basso **,0** e il valore massimo che terminano con **.255**.
+    * Può essere utile impostare come fine del valore minimo **.0** e come fine del valore massimo su **.255**.
     
     ![Aggiungere un intervallo di indirizzi IP per consentire][b41-AddRange]
 11. Selezionare **Salva**.

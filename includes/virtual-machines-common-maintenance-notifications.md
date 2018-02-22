@@ -20,7 +20,7 @@ Dopo la pianificazione di un'ondata di manutenzione e l'invio delle relative not
       | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della VM. | 
       | Pianificato | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra della pianificazione automatica in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
       | Completed | La manutenzione della macchina virtuale è stata avviata e completata correttamente. | 
-      | Skipped| Si è scelto di avviare la manutenzione, ma senza successo. Non sarà in grado di utilizzare l'opzione di self-service di manutenzione. La macchina virtuale dovrà essere riavviato da Azure durante la fase di manutenzione pianificata. | 
+      | Skipped| Si è scelto di avviare la manutenzione, ma senza successo. Non sarà possibile usare l'usare di manutenzione self-service. e la macchina virtuale dovrà essere riavviata da Azure durante la fase di manutenzione pianificata. | 
 
    **Finestra Manutenzione - Attiva** - Mostra la finestra temporale in cui è possibile avviare autonomamente la manutenzione delle macchine virtuali.
    

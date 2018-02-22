@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 I processi di Analisi di flusso supportano numerosi metodi di output, tra cui [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Archivio Data Lake consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorizzare un account Archivio Data Lake
-1. Quando archivio Data Lake è selezionato come output nel portale di Azure, verrà richiesto di autorizzare l'uso dell'archivio Data Lake esistente o per richiedere l'accesso all'archivio Data Lake.
+1. Quando si seleziona Data Lake Store come output nel portale di Azure, verrà richiesto di autorizzare l'uso del Data Lake Store esistente o di richiedere l'accesso a Data Lake Store.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    

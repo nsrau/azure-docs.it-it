@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 210731ce2e792452650b7a92cfc542c78a0e8014
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 16db5bc948b1eac0ef996b449d89211fb210a91e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="process-emails-and-attachments-with-a-logic-app"></a>Elaborare messaggi di posta elettronica e allegati con un'app per la logica
 
@@ -69,11 +69,11 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | **Tipo di account** | Scopo generico | [Tipo di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Prestazioni** | Standard | Questa impostazione specifica i tipi di dati supportati e il supporto per l'archiviazione dei dati. Vedere [Tipi di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Replica](../storage/common/storage-introduction.md#replication). | 
-   | **Trasferimento sicuro necessario** | Disattivato | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). | 
+   | **Trasferimento sicuro necessario** | Disabled | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
-   | **Gruppo di risorse** | LA-Tutorial-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare e gestire le risorse correlate. <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi di questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. | 
+   | **Gruppo di risorse** | LA-Tutorial-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare e gestire le risorse correlate. <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi in questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. | 
    | **Posizione** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'account di archiviazione | 
-   | **Configurare reti virtuali** | Disattivato | Per questa esercitazione, mantenere l'impostazione **Disattivato**. | 
+   | **Configurare reti virtuali** | Disabled | Per questa esercitazione, mantenere l'impostazione **Disattivato**. | 
    |||| 
 
    È anche possibile usare [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) o l'[interfaccia della riga di comando di Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
@@ -136,7 +136,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
    | **Piano di hosting** | Piano a consumo | Questa impostazione determina la modalità di allocazione e scalabilità delle risorse, ad esempio la potenza di calcolo, per l'esecuzione dell'app per le funzioni. Vedere il [confronto tra piani di hosting](../azure-functions/functions-scale.md). | 
    | **Posizione** | Stati Uniti orientali 2 | La stessa area usata in precedenza | 
    | **Archiviazione** | cleantextfunctionstorageacct | Creare un account di archiviazione per l'app per le funzioni. Usare solo lettere minuscole e numeri. <p>**Nota:** questo account di archiviazione contiene le app per le funzioni ed è diverso dall'account di archiviazione creato in precedenza per gli allegati di posta elettronica. | 
-   | **Application Insights** | No | Attivare il monitoraggio delle applicazioni con [Application Insights](../application-insights/app-insights-overview.md), ma per questa esercitazione mantenere l'impostazione **No**. | 
+   | **Application Insights** | Off | Attivare il monitoraggio delle applicazioni con [Application Insights](../application-insights/app-insights-overview.md), ma per questa esercitazione mantenere l'impostazione **No**. | 
    |||| 
 
    Se l'app per le funzioni non si apre automaticamente dopo la distribuzione, individuare l'app nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>. Dal menu principale di Azure scegliere **Servizi app** e selezionare l'app per le funzioni.
@@ -219,7 +219,7 @@ Dopo aver controllato il funzionamento della funzione, creare l'app per la logic
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza | 
    | **Gruppo di risorse** | LA-Tutorial-RG | Lo stesso gruppo di risorse di Azure usato in precedenza |
    | **Posizione** | Stati Uniti orientali 2 | La stessa area usata in precedenza | 
-   | **Log Analytics** | No | Per questa esercitazione, mantenere l'impostazione **No**. | 
+   | **Log Analytics** | Off | Per questa esercitazione, mantenere l'impostazione **No**. | 
    |||| 
 
 3. Dopo che Azure distribuisce l'app, si apre Progettazione app per la logica, che mostra un video introduttivo e alcuni modelli di app per la logica comuni. In **Modelli** scegliere **App per la logica vuota**.

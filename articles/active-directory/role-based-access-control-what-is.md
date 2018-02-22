@@ -3,7 +3,7 @@ title: 'Gestire accessi e autorizzazioni con il controllo degli accessi in base 
 description: Introduzione alla gestione degli accessi con il Controllo degli accessi in base al ruolo di Azure nel portale di Azure. Usare le assegnazioni di ruolo per assegnare autorizzazioni nella directory.
 services: active-directory
 documentationcenter: 
-author: curtand
+author: rolyon
 manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/02/2018
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: ce9a9c95664a818919df756917180e102a5f1e0a
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: aa0f5be837daf70c8d9ede38b3fd9b4230f4e1c9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introduzione al controllo degli accessi in base al ruolo nel portale di Azure
 Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la quantità esatta di autorizzazioni di cui necessitano. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il Controllo degli accessi in base al ruolo di Azure (RBAC) aiuta a risolvere questo problema offrendo la gestione specifica degli accessi per Azure.
@@ -56,14 +56,14 @@ L'accesso che si concede all'ambito padre viene ereditato dall'ambito figlio. Ad
 * Si assegna il ruolo Collaboratore a un'applicazione nell'ambito del gruppo di risorse. Può gestire risorse di tutti i tipi in tale gruppo di risorse, ma non altri gruppi di risorse nella sottoscrizione.
 
 ## <a name="azure-rbac-vs-classic-subscription-administrators"></a>Controllo degli accessi in base al ruolo di Azure e Amministratore sottoscrizione classico
-[Gli amministratori delle sottoscrizioni classico e coamministratori](../billing/billing-add-change-azure-subscription-administrator.md) hanno accesso completo alla sottoscrizione di Azure. Essi possono gestire le risorse utilizzando il [portale di Azure](https://portal.azure.com), le API di gestione risorse di Azure e l'API del modello di distribuzione classica. Nel modello RBAC, agli amministratori classici viene assegnato il ruolo di Proprietario nell'ambito della sottoscrizione.
+I ruoli [di amministratore e coamministratore sottoscrizione classici](../billing/billing-add-change-azure-subscription-administrator.md) hanno accesso completo alla sottoscrizione di Azure e possono gestire le risorse con il [portale di Azure](https://portal.azure.com), con le API di Azure Resource Manager e con le API del modello di distribuzione classica. Nel modello RBAC, agli amministratori classici viene assegnato il ruolo di Proprietario nell'ambito della sottoscrizione.
 
-Solo il portale di Azure e le nuove API di Azure Resource Manager supportano il Controllo degli accessi in base al ruolo di Azure. Gli utenti e applicazioni che vengono assegnate ruoli RBAC non è possibile utilizzare l'API del modello di distribuzione classico di Azure.
+Solo il portale di Azure e le nuove API di Azure Resource Manager supportano il Controllo degli accessi in base al ruolo di Azure. Gli utenti e le applicazioni a cui vengono assegnati ruoli Controllo degli accessi in base al ruolo non possono usare le API del modello di distribuzione classica di Azure.
 
 ## <a name="authorization-for-management-vs-data-operations"></a>Autorizzazioni per le operazioni di gestione e per le operazioni sui dati
 Il Controllo degli accessi in base al ruolo di Azure supporta solo operazioni di gestione delle risorse di Azure nel portale di Azure e nelle API di Azure Resource Manager. Non tutte le operazioni a livello di dati svolte sulle risorse di Azure possono essere autorizzate tramite RBAC. È possibile ad esempio autorizzare un utente a gestire gli account di archiviazione, ma non i BLOB e le tabelle all'interno di un account di archiviazione. Analogamente, può essere gestito un database SQL, ma non le tabelle in esso contenute.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Introduzione al [Controllo degli accessi in base al ruolo di Azure nel portale di Azure](role-based-access-control-configure.md).
 * Vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](role-based-access-built-in-roles.md)
 * Definire i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md)

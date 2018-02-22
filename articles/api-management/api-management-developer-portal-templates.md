@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 8a2211e76150a90e4e10d79fd527decd3cbcc220
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
@@ -31,13 +31,7 @@ Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono 
 I modelli vengono usati per personalizzare il contenuto delle pagine del portale per sviluppatori generate dal sistema, ad esempio la documentazione delle API, i prodotti, l'autenticazione utente e così via. La sintassi [DotLiquid](http://dotliquidmarkup.org/), insieme a un set fornito di risorse stringa localizzate, icone e controlli di pagina, offre grande flessibilità nella configurazione del contenuto delle pagine nel modo opportuno.
 
 ## <a name="developer-portal-templates-overview"></a>Panoramica sui modelli del portale per sviluppatori
-La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per accedervi, aprire prima il Portale di Azure e fare clic su **Portale di pubblicazione** nella barra degli strumenti del servizio dell'istanza di Gestione API.
-
-![Portale di pubblicazione][api-management-management-console]
-
-Quindi fare clic su **Portale per sviluppatori** in alto a destra. 
-
-![Menu del portale per sviluppatori][api-management-developer-portal-menu]
+La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per accedervi, aprire prima il Portale di Azure e fare clic su **Portale per sviluppatori** nella barra degli strumenti del servizio dell'istanza di Gestione API.
 
 Per accedere ai modelli del portale per sviluppatori, fare clic sull'icona di personalizzazione a sinistra per visualizzare il menu di personalizzazione e quindi fare clic su **Templates**.
 
@@ -47,7 +41,7 @@ L'elenco dei modelli include varie categorie di modelli che coprono le diverse p
 
 ![Modelli del portale per sviluppatori][api-management-templates-menu]
 
-Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product list** . Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso. 
+Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product list** (Elenco prodotti). Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso. 
 
 ![Modello Product list][api-management-developer-portal-templates-overview]
 
@@ -65,7 +59,7 @@ Il riquadro **Template data** fornisce una guida al modello di dati per le entit
 
 ![Modello Template data][api-management-template-data]
 
-Nell'esempio precedente sono disponibili due prodotti visualizzati nel portale per gli sviluppatori che sono stati recuperati dai dati visualizzati nel riquadro **Template data** , come illustrato nell'esempio seguente.
+Nell'esempio precedente sono disponibili due prodotti visualizzati nel portale per gli sviluppatori che sono stati recuperati dai dati visualizzati nel riquadro **Template data** (Dati modello), come illustrato nell'esempio seguente:
 
 ```json
 {

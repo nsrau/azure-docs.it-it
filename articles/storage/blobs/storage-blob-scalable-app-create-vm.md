@@ -1,6 +1,6 @@
 ---
-title: Creare un account di archiviazione e di macchina virtuale per un'applicazione scalabile in Azure | Documenti Microsoft
-description: Informazioni su come distribuire una macchina virtuale da utilizzare per eseguire un'applicazione scalabile utilizza l'archiviazione blob di Azure
+title: Creare una VM e un account di archiviazione per un'applicazione scalabile in Azure | Microsoft Docs
+description: Informazioni su come distribuire una VM da usare per l'esecuzione di un'applicazione scalabile che usa un archivio BLOB di Azure
 services: storage
 documentationcenter: 
 author: georgewallace
@@ -16,20 +16,20 @@ ms.author: gwallace
 ms.custom: mvc
 ms.openlocfilehash: 0fd1cd93ca6faabcbe0007136fe427028e722733
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/23/2017
 ---
-# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Creare una macchina virtuale e l'account di archiviazione per un'applicazione scalabile
+# <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile
 
-Questa è la prima di una serie di esercitazioni. Questa esercitazione viene illustrato come che distribuire un'applicazione che consente di caricare e scarica grandi quantità di dati casuali con un account di archiviazione di Azure. Al termine, si dispone di un'applicazione console in esecuzione in una macchina virtuale caricare e scaricare grandi quantità di dati per un account di archiviazione.
+Questa è la prima di una serie di esercitazioni. Questa esercitazione illustra come distribuire un'applicazione che carica e scarica grandi quantità di dati casuali con un account di archiviazione di Azure. Al termine si avrà un'applicazione console in esecuzione in una macchina virtuale usata per il caricamento e il download di grandi quantità di dati in un account di archiviazione.
 
 Nella prima parte della serie si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione
 > * Creare una macchina virtuale
-> * Configurare un'estensione script personalizzato
+> * Configurare un'estensione di script personalizzata
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -47,7 +47,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
  
-L'esempio carica 50 file di grandi dimensioni in un contenitore blob in un account di archiviazione di Azure. Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Creare un account di archiviazione nel gruppo di risorse creato utilizzando il [New AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount) comando.
+L'esempio carica 50 file di grandi dimensioni in un contenitore BLOB in un account di archiviazione di Azure. Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Creare un account di archiviazione nel gruppo di risorse creato usando il comando [New-AzureRmStorageAccount](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccount).
 
 Nel comando seguente sostituire il segnaposto `<blob_storage_account>` con il nome globalmente univoco dell'account di archiviazione BLOB.
 
@@ -102,19 +102,19 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 Write-host "Your public IP address is $($pip.IpAddress)"
 ```
 
-## <a name="deploy-configuration"></a>Configurazione della distribuzione
+## <a name="deploy-configuration"></a>Distribuire la configurazione
 
-Per questa esercitazione, esistono prerequisiti che devono essere installati nella macchina virtuale. L'estensione script personalizzata viene utilizzata per eseguire uno script di PowerShell che completa le attività seguenti:
+Per questa esercitazione, è necessario che nella macchina virtuale siano installati alcuni prerequisiti. L'estensione di script personalizzata viene usata per eseguire uno script di PowerShell che completa le attività seguenti:
 
 > [!div class="checklist"]
-> * Installare i componenti di base di .NET 2.0
-> * Installazione chocolatey
-> * Installare GIT
-> * Clonare il repository di esempio
+> * Installazione di .NET Core 2.0
+> * Installazione di chocolatey
+> * Installazione di GIT
+> * Clonazione del repository di esempio
 > * Ripristino dei pacchetti NuGet
-> * Crea 50 file di 1 GB con dati casuali
+> * Creazione di 50 file da 1 GB con dati casuali
 
-Eseguire il cmdlet seguente per completare la configurazione della macchina virtuale. Questo passaggio richiede 5-15 minuti.
+Eseguire il cmdlet seguente per finalizzare la configurazione della macchina virtuale. Il completamento di questo passaggio richiede 5-15 minuti.
 
 ```azurepowershell-interactive
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
@@ -128,14 +128,14 @@ Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella prima parte della serie, illustrando la creazione di un account di archiviazione, la distribuzione di una macchina virtuale e configurazione della macchina virtuale con i prerequisiti necessari, ad esempio come:
+Nella prima parte della serie si è appreso come creare un account di archiviazione, distribuire una macchina virtuale e configurarla con i prerequisiti necessari, ad esempio come:
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione
 > * Creare una macchina virtuale
-> * Configurare un'estensione script personalizzato
+> * Configurare un'estensione di script personalizzata
 
-Passare alla seconda parte della serie per caricare grandi quantità di dati a un account di archiviazione tramite il parallelismo e tentativi esponenziali.
+Passare alla seconda parte della serie per caricare grandi quantità di dati in un account di archiviazione usando parallelismo e ripetizione esponenziale dei tentativi.
 
 > [!div class="nextstepaction"]
-> [Caricare grandi quantità di file di grandi dimensioni in parallelo a un account di archiviazione](storage-blob-scalable-app-upload-files.md)
+> [Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure](storage-blob-scalable-app-upload-files.md)

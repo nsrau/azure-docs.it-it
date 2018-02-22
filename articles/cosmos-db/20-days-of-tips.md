@@ -15,7 +15,7 @@ ms.author: mimig
 ms.custom: cda
 ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -177,7 +177,7 @@ Suggerimento 19: partizionamento Partizionamento Partizionamento Tutti i perché
 
 Suggerimento 20: i vecchi fogli riassuntivi sono ancora molto apprezzati. C'è n'è uno anche per Azure #CosmosDB. È disponibile all'indirizzo [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Foglio riassuntivo: [Azure DB Cosmos: foglio informativo tramite query SQL PDF](https://aka.ms/Nt01nl)
+Foglio informativo: [Foglio informativo PDF sulle query SQL di Azure Cosmos DB](https://aka.ms/Nt01nl)
 
 [![Retweet su Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![Condividi su LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

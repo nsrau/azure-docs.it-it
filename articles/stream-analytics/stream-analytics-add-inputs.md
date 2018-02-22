@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,7 +38,7 @@ Per aggiungere un input al processo di analisi di flusso:
 
 1. Nel Portale di Azure fare clic su **Input** e poi scegliere **Aggiungere un input** nel processo di analisi di flusso.
    
-    ![Portale di Azure - aggiungere un input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Portale di Azure: aggiungere input.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     Nel portale di Azure fare clic sul riquadro **Input** nel processo di analisi di flusso.  
    

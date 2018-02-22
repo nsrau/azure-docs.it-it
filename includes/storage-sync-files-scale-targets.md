@@ -8,4 +8,4 @@
 | Dimensioni endpoint | 4 TiB | No  |
 | Oggetti file system (directory e file) per gruppo di sincronizzazione | 6 milioni di oggetti | No  |
 | Dimensioni complete | 100 GiB | No  |
-| Dimensioni minime di un file in livelli | 64 KiB | Sì |
+| Dimensioni minime per un file da rendere a livelli | 64 KiB | Sì |

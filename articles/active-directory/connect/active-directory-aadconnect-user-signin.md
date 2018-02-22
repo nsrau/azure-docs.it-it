@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ Se si è già acquisita familiarità con il modello di identità di Azure AD e s
 * [SSO federato (con Active Directory Federation Services, AD FS)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 > [!NOTE] 
-> È importante ricordare che per configurare la federazione per Azure AD, si stabilisce trust tra il tenant di Azure AD e i domini federati. Con questo dominio federato trust gli utenti avranno accesso alle risorse di cloud di Azure Active Directory nel tenant.  
+> È importante ricordare che per configurare la federazione per Azure AD, si stabilisce una relazione di attendibilità tra il tenant di Azure AD e i domini federati. Con questo dominio federato attendibile gli utenti avranno accesso alle risorse cloud di Azure Active Directory nel tenant.  
 >
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Scelta di un metodo di accesso utente per l'organizzazione

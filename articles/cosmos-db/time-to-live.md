@@ -17,7 +17,7 @@ ms.date: 08/29/2017
 ms.author: arramac
 ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -151,9 +151,9 @@ Per disabilitare del tutto la durata (TTL) in una raccolta e impedire al process
 
 <a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interazione di durata (TTL) e indice
-Aggiunta o la modifica dell'impostazione di durata (TTL) in una raccolta di modifica dell'indice sottostante. Quando il valore TTL viene modificato da Off a On, è ricostruire la raccolta. Quando si apportano modifiche ai criteri di indicizzazione quando la modalità di indicizzazione è coerenza, gli utenti non noterà una modifica all'indice. Quando la modalità di indicizzazione è impostata su lazy, l'indice viene sempre aggiornato e se viene modificato il valore di durata (TTL), l'indice viene ricreato da zero. Quando viene modificato il valore di durata (TTL) e la modalità di indicizzazione è impostata su lazy, le query eseguite durante la ricompilazione dell'indice non restituiscono risultati completati o non corretti.
+L'aggiunta o la modifica dell'impostazione TTL in una raccolta comporta la modifica dell'indice sottostante. Quando il valore TTL viene modificato dallo stato inattivo a quello attivo, la raccolta viene reindicizzata. Quando si apportano modifiche ai criteri di indicizzazione e la modalità di indicizzazione è coerente, gli utenti non noteranno cambiamenti nell'indice. Quando la modalità di indicizzazione è impostata su lazy, l'indice viene sempre aggiornato e se viene modificato il valore TTL, l'indice viene ricreato da zero. Quando viene modificato il valore TTL e la modalità di indicizzazione è impostata su lazy, le query eseguite durante la ricompilazione dell'indice non restituiscono risultati completati o corretti.
 
-Se è necessario esattamente i dati restituiti, non modificare il valore di durata (TTL) quando la modalità di indicizzazione è impostata su lazy. In teoria coerente dell'indice deve essere scelte per garantire risultati coerenti di query. 
+Se è necessaria la restituzione di dati esatti, non modificare il valore TTL quando la modalità di indicizzazione è impostata su lazy. Per garantire risultati di query coerenti bisognerebbe scegliere sempre l'indice coerente. 
 
 ## <a name="faq"></a>Domande frequenti
 **Quanto costa la durata (TTL)?**

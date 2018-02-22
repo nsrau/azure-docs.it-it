@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -59,7 +59,7 @@ Creare una VM Ubuntu nel nuovo gruppo di risorse. L'interfaccia della riga di co
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> Per impostazione predefinita, le chiavi pubbliche e private usate per autenticare la VM vengono inserite in `/User/.ssh/id_rsa` e `/User/.ssh/id_rsa.pub` dall'interfaccia della riga di comando di Azure 2.0. La cartella con estensione ssh è persistente nell'immagine da 5 GB della condivisione File di Azure collegata.
+> Per impostazione predefinita, le chiavi pubbliche e private usate per autenticare la VM vengono inserite in `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub` dall'interfaccia della riga di comando di Azure 2.0. La cartella con estensione ssh è persistente nell'immagine da 5 GB della condivisione File di Azure collegata.
 
 Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 
@@ -72,7 +72,7 @@ Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benvenuto di Ubuntu. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
-## <a name="cleaning-up"></a>+ Cleaning up 
+## <a name="cleaning-up"></a>Cleaning up 
 Eliminare il gruppo di risorse e tutte le risorse al suo interno: <br>
 Eseguire `az group delete -n MyRG`
 

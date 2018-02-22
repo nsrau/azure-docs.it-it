@@ -17,7 +17,7 @@ ms.date: 06/19/2017
 ms.author: bradsev
 ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
@@ -43,25 +43,25 @@ Per visualizzare del materiale sussidiario sulla selezione dell'opzione di archi
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>Usare gli account di archiviazione BLOB di Azure con R Server
 
-Se è stato specificato più di un account di archiviazione durante la creazione del cluster di Server R, le istruzioni seguenti illustrano come utilizzare un account secondario per l'accesso ai dati e le operazioni nel Server di R. Si supponga il seguente account di archiviazione e il contenitore: **storage1** e un contenitore predefinito denominato **container1**, e **storage2**.
+Se durante la creazione del cluster R Server è stato specificato più di un account di archiviazione, le istruzioni seguenti illustrano come usare un account secondario per l'accesso ai dati e le operazioni in R Server. Si suppongano il contenitore e gli account di archiviazione seguenti: **storage1**, un contenitore predefinito denominato **container1** e **storage2**.
 
 > [!WARNING]
 > Per motivi di prestazioni, il cluster HDInsight viene creato nello stesso data center dell'account di archiviazione primario specificato. L'uso di un account di archiviazione in una località diversa rispetto al cluster HDInsight non è supportato.
 
-1. Utilizzo di un client SSH, connettersi al nodo del bordo del cluster come remoteuser.  
+1. Usando un client SSH, connettersi al nodo perimetrale del cluster come remoteuser.  
 
-  + Nel portale di Azure > pagina del servizio cluster HDI > Panoramica, fare clic su **Secure Shell (SSH)**.
-  + Nel nome host, selezionare il nodo di edge (include *ed ssh.azurehdinsight.net* nel nome).
+  + Nel portale di Azure > pagina del servizio cluster HDI > Panoramica fare clic su **Secure Shell (SSH)**.
+  + In Nome host selezionare il nodo perimetrale (include *ed-ssh.azurehdinsight.net* nel nome).
   + Copiare il nome host.
   + Aprire un client SSH come PutTY o SmartTY e immettere il nome host.
-  + Immettere il nome utente, seguito dalla password cluster remoteuser.
+  + Immettere remoteuser come nome utente, seguito dalla password del cluster.
   
 2. Copiare il file mycsv.csv nella directory /share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-3. Passa a R Studio o un'altra console di R e scrivere il codice R per impostare il nodo nome **predefinito** e il percorso del file di cui si desidera accedere.  
+3. Passare a R Studio o un'altra console R e scrivere il codice R per impostare il nodo dei nomi su **default** e il percorso del file a cui si vuole accedere.  
 
         myNameNode <- "default"
         myPort <- 0

@@ -18,7 +18,7 @@ ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -100,18 +100,18 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 ## <a name="policy-migration"></a>Migrazione dei criteri
 
-È consigliabile eseguire la migrazione di criteri che non è stato creato nel portale di Azure perché:
+È consigliabile eseguire la migrazione di criteri non creati nel portale di Azure per i motivi seguenti:
 
-- È possibile soddisfare gli scenari che non è possibile gestire prima.
+- È ora possibile gestire scenari che in precedenza non era possibile gestire.
 
 - Il consolidamento consente di ridurre il numero di criteri da gestire.   
 
-- È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centrale.
+- È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centralizzata.
 
-- Portale di Azure classico verrà ritirato.   
+- Il portale di Azure classico verrà ritirato.   
 
 
-Per ulteriori informazioni, vedere [classici criteri nel portale di Azure di eseguire la migrazione](active-directory-conditional-access-migration.md).
+Per altre informazioni, vedere [Migrare i criteri classici nel portale di Azure](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

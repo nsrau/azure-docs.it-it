@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/01/2017
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -88,7 +88,7 @@ Il pannello **Metriche** consente di rappresentare graficamente una metrica racc
 
 3. Nella parte superiore della schermata fare clic su **Visualizza dashboard** per tornare al dashboard.
 
-4. Il riquadro Panoramica sequenza temporale verrà aggiunto al dashboard.  Fare clic e trascinarlo in posizione e quindi fare clic su **Fine personalizzazione** e infine su **Pubblica modifiche**. 
+4. Il grafico delle metriche della sequenza temporale verrà aggiunto al dashboard. Fare clic e trascinarlo in posizione e quindi fare clic su **Fine personalizzazione** e infine su **Pubblica modifiche**. 
 
     ![Dashboard con metriche](media/app-insights-tutorial-dashboards/dashboard-03.png)
 

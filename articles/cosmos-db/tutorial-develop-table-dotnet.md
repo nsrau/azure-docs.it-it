@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: mvc
 ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -194,7 +194,7 @@ table.CreateIfNotExists(throughput: 800);
 
 Esiste una differenza importante nella creazione delle tabelle. Azure Cosmos DB riserva la velocità effettiva, a differenza del modello in base al consumo di Archiviazione di Azure per le transazioni. La velocità effettiva è dedicata/riservata. Non viene quindi mai limitata se la frequenza di richiesta è pari o inferiore alla velocità effettiva di provisioning.
 
-È possibile configurare la velocità effettiva predefinito includendolo come un parametro di CreateIfNotExists.
+È possibile configurare la velocità effettiva predefinita includendola come parametro di CreateIfNotExists.
 
 La lettura di un'entità di 1 KB viene normalizzata come 1 UR e le altre operazioni vengono normalizzate in una UR a valore fisso in base al consumo di CPU, memoria e IOPS. Altre informazioni sulle [unità richiesta in Azure Cosmos DB](request-units.md) e in particolare per gli [archivi di valori chiave](key-value-store-cost.md).
 

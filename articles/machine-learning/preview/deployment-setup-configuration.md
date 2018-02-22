@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 12/6/2017
 ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -25,7 +25,7 @@ Usando Gestione modelli di Machine Learning di Azure, è possibile distribuire e
 Alla fine di questo documento sarà possibile configurare l'ambiente di gestione dei modelli e renderlo pronto per la distribuzione dei modelli di Machine Learning.
 
 ## <a name="what-you-need-to-get-started"></a>Elementi necessari per iniziare
-Per sfruttare al meglio questa Guida, è necessario disporre di accesso di collaboratore a una sottoscrizione di Azure o un gruppo di risorse che è possibile distribuire i modelli.
+Per sfruttare al meglio questa guida, è necessario disporre dell'accesso come collaboratore ad una sottoscrizione di Azure o a un gruppo di risorse in cui è possibile distribuire i modelli.
 L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).
 
 ## <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
@@ -81,10 +81,10 @@ Per iniziare è necessario configurare l'ambiente di distribuzione. L'impostazio
 
 Una volta completata l'installazione dell'ambiente:
 - Viene visualizzata la richiesta di accedere ad Azure. Per accedere, usare un Web browser per aprire la pagina https://aka.ms/devicelogin e immettere il codice fornito per l'autenticazione.
-- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: Selezionare un account che dispone di autorizzazioni sufficienti per creare risorse nell'account e una sottoscrizione Azure valida. Quando il log è completata, le informazioni sulla sottoscrizione viene presentati e viene chiesto se si desidera continuare con l'account selezionato.
+- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
 
 ### <a name="environment-setup"></a>Configurazione dell'ambiente
-Per avviare il processo di installazione, è necessario registrare i provider di ambiente qualche immettendo i comandi seguenti:
+Per avviare il processo di installazione, è necessario registrare alcuni provider di ambiente immettendo il comando seguente:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
@@ -130,7 +130,7 @@ Il comando di configurazione dell'ambiente del cluster crea le seguenti risorse 
 - Un account di Application Insights
 
 >[!IMPORTANT]
-> Per creare correttamente un ambiente cluster, è necessario avere accesso collaboratore nella sottoscrizione di Azure o il gruppo di risorse.
+> Per creare correttamente un ambiente cluster, è necessario avere accesso come collaboratore alla sottoscrizione di Azure o al gruppo di risorse.
 
 Il gruppo di risorse, l'account di archiviazione e il record di controllo di accesso vengono creati rapidamente. La distribuzione di ACS può richiedere fino a 20 minuti. 
 

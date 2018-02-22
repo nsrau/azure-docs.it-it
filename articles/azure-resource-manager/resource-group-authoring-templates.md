@@ -16,7 +16,7 @@ ms.date: 12/14/2017
 ms.author: tomfitz
 ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -144,7 +144,7 @@ La sintassi di base del modello è JSON. Le espressioni e le funzioni estendono 
 
 Solitamente, si usano espressioni con funzioni per eseguire operazioni per la configurazione della distribuzione. Proprio come in JavaScript, le chiamate di funzione sono formattate come `functionName(arg1,arg2,arg3)`. Per i riferimenti alle proprietà si usano il punto e gli operatori [index].
 
-Nell'esempio seguente viene illustrato come utilizzare diverse funzioni durante la costruzione di un valore:
+L'esempio seguente illustra come usare diverse funzioni al momento di costruire un valore:
 
 ```json
 "variables": {
@@ -157,7 +157,7 @@ Per l’elenco completo delle funzioni del modello, vedere [Funzioni del modello
 ## <a name="parameters"></a>Parametri
 Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare i parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, località e proprietà.
 
-Nell'esempio seguente viene illustrata una definizione di parametro semplici:
+L'esempio seguente illustra la definizione di un parametro semplice:
 
 ```json
 "parameters": {
@@ -170,12 +170,12 @@ Nell'esempio seguente viene illustrata una definizione di parametro semplici:
 },
 ```
 
-Per informazioni sulla definizione dei parametri, vedere [sezione parametri di modelli di Azure Resource Manager](resource-manager-templates-parameters.md).
+Per informazioni sulla definizione di parametri, vedere [Sezione parameters dei modelli di Azure Resource Manager](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>variables
 Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili, che però permettono spesso di semplificare il modello riducendo le espressioni complesse.
 
-Nell'esempio seguente viene illustrata una definizione di variabile semplice:
+L'esempio seguente illustra la definizione di una variabile semplice:
 
 ```json
 "variables": {
@@ -183,7 +183,7 @@ Nell'esempio seguente viene illustrata una definizione di variabile semplice:
 },
 ```
 
-Per informazioni sulla definizione delle variabili, vedere [sezione variabili dei modelli di Azure Resource Manager](resource-manager-templates-variables.md).
+Per informazioni sulla definizione di variabili, vedere [Sezione variables dei modelli di Azure Resource Manager](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Risorse
 Nella sezione risorse è possibile definire le risorse da distribuire o aggiornare. Questa sezione può risultare complicata perché per specificare i valori corretti è necessario conoscere i tipi da distribuire.
@@ -202,7 +202,7 @@ Nella sezione risorse è possibile definire le risorse da distribuire o aggiorna
 ],
 ```
 
-Per ulteriori informazioni, vedere [sezione delle risorse dei modelli di Azure Resource Manager](resource-manager-templates-resources.md).
+Per altre informazioni, vedere [Sezione relativa alle risorse dei modelli di Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Output
 Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. Ad esempio, è possibile restituire l'URI per accedere a una risorsa distribuita.
@@ -216,7 +216,7 @@ Nella sezione dell'output è possibile specificare i valori restituiti dalla dis
 }
 ```
 
-Per ulteriori informazioni, vedere [genera una sezione dei modelli di Azure Resource Manager](resource-manager-templates-outputs.md).
+Per altre informazioni, vedere [Sezione outputs nei modelli di Azure Resource Manager](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Limiti del modello
 

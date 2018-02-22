@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ Usando le interfacce della riga di comando è possibile distribuire servizi Web 
 Di seguito sono indicati i passaggi di distribuzione:
 1. Usare il modello di Machine Learning salvato e sottoposto a training
 2. Creare uno schema per i dati di input e di output del servizio Web
-3. Creare un'immagine contenitore basato su Docker
+3. Creare un'immagine del contenitore basata su Docker
 4. Creare e distribuire il servizio Web
 
 ### <a name="1-save-your-model"></a>1. Salvare il modello

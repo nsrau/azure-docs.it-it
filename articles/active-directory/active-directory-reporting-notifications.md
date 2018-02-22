@@ -18,7 +18,7 @@ ms.custom: oldportal
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -42,7 +42,7 @@ Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del repo
 * Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>È possibile disattivare questi messaggi di posta elettronica?
-Sì, per disattivare le notifiche relative accessi anomali nel portale di Azure, fare clic su **configura**, quindi selezionare **disabilitato** sotto il **notifiche** sezione.
+Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del portale di Azure, fare clic su **Configura** e quindi selezionare **Disabilitato** nella sezione **Notifiche**.
 
 ## <a name="whats-next"></a>Passaggi successivi
 * Per informazioni sui report di sicurezza, controllo e attività disponibili, Vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)

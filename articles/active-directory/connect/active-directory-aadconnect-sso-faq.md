@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -32,23 +32,23 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 La funzionalità Accesso SSO facile è una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per usarla.
 
-## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>È disponibile in SSO trasparente il [cloud di Microsoft Azure in Germania](http://www.microsoft.de/cloud-deutschland) e [cloud di Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/)?
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L'accesso Single Sign-On facile è disponibile nel [cloud Microsoft Azure Germania](http://www.microsoft.de/cloud-deutschland) e nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/)?
 
-di serie SSO trasparente è disponibile solo nell'istanza di Azure AD in tutto il mondo.
+di serie L'accesso Single Sign-On facile è disponibile solo nell'istanza di Azure AD a livello mondiale.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quali applicazioni possono sfruttare le capacità dei parametri `domain_hint` o `login_hint` dell'accesso SSO facile?
 
-Attualmente è in corso la compilazione dell'elenco delle applicazioni che inviano tali parametri e di quelle che non lo fanno. Se si hanno applicazioni che si sono interessati, segnalarlo nella sezione dei commenti.
+Attualmente è in corso la compilazione dell'elenco delle applicazioni che inviano tali parametri e di quelle che non lo fanno. Se si è interessati a determinate applicazioni, segnalarlo nella sezione dei commenti.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'accesso SSO facile supporta `Alternate ID` come nome utente, anziché `userPrincipalName`?
 
 Sì. L'accesso SSO facile supporta `Alternate ID` come nome utente quando è configurato in Azure AD Connect, come illustrato [qui](active-directory-aadconnect-get-started-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento alla documentazione dell'applicazione specifica per sapere se è supportato.
 
-## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Quanto la differenza tra l'esperienza single sign-on fornita da [aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) e trasparente SSO?
+## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>Qual è la differenza tra l'esperienza Single Sign-On offerta da [Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) e dall'accesso Single Sign-On facile?
 
-[Aggiunta AD Azure](../active-directory-azureadjoin-overview.md) fornisce l'accesso SSO per gli utenti se i dispositivi sono registrati con Azure AD. Questi dispositivi non devono necessariamente appartenere a un dominio. SSO è fornita mediante *i token di aggiornamento principale* o *PRTs*e non Kerberos. L'esperienza utente è ottimale nei dispositivi Windows 10. SSO viene eseguito automaticamente nel browser Microsoft Edge. Funziona anche in Chrome con l'utilizzo di un'estensione del browser.
+[Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) offre l'accesso SSO agli utenti se i dispositivi sono registrati con Azure AD. Questi dispositivi non devono necessariamente essere aggiunti a un dominio. L'accesso SSO viene fornito usando *token di aggiornamento primari* o *PRT* e non Kerberos. L'esperienza utente è ottimale sui dispositivi Windows 10. L'accesso SSO viene eseguito automaticamente nel browser Microsoft Edge. Funziona anche in Chrome con l'uso di un'estensione del browser.
 
-È possibile utilizzare aggiunta ad Azure AD e SSO trasparente per il tenant. Queste due caratteristiche siano complementari. Se entrambe le funzionalità sono attivate, SSO da aggiunta ad Azure AD ha la precedenza su SSO senza problemi.
+È possibile usare sia Aggiunta ad Azure AD che Single Sign-On facile nel tenant. Queste due funzionalità sono complementari. Se entrambe le funzionalità sono attivate, l'accesso SSO di Aggiunta ad Azure AD ha la precedenza su Single Sign-On facile.
 
 ## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>Se si vuole registrare dispositivi non Windows 10 con Azure AD, senza l'uso di AD FS, è possibile usare l'accesso SSO facile?
 

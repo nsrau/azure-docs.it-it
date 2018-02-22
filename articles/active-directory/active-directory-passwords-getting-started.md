@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 88123cead40968ebf7327b81f94233529f97aa2f
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 34a6722fdd06cf0b198320e551daccc21956dc69
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Distribuzione rapida della reimpostazione della password self-service di Azure AD
 
@@ -33,7 +33,7 @@ Questa guida presuppone che sia già disponibile un tenant di valutazione o con 
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Abilitare la reimpostazione della password self-service per il tenant di Azure AD
 
-1. Nel tenant di Azure AD esistente, selezionare **Reimpostazione password**.
+1. Nel tenant di Azure AD esistente selezionare **Reimpostazione password** nel **portale di Azure** sotto **Azure Active Directory**.
 
 2. Nella pagina **Proprietà** scegliere una delle opzioni seguenti in **Reimpostazione password self-service abilitata**:
    * **Nessuno**: nessuno può usare la reimpostazione password self-service.

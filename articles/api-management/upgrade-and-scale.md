@@ -13,7 +13,7 @@ ms.date: 08/17/2017
 ms.author: apimpm
 ms.openlocfilehash: 6ae977344101c02222fd9930e26a083bf5e3f800
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -21,14 +21,14 @@ ms.lasthandoff: 12/12/2017
 
 I clienti possono ridimensionare un'istanza di Gestione API aggiungendo o rimuovendo unità. Un'**unità**, costituita da risorse di Azure dedicate, ha una capacità di carico specifica espressa sotto forma di numero di chiamate API al mese. Questo numero non rappresenta un limite di chiamate, ma piuttosto un valore della velocità effettiva massima per consentire la pianificazione della capacità approssimativa. La velocità e la latenza effettive variano in modo significativo a seconda di fattori quali il numero e la percentuale di connessioni simultanee, la tipologia e il numero di criteri configurati, le dimensioni delle richieste e delle risposte e la latenza del back-end.
 
-La capacità e il prezzo di ogni unità dipende dal **livello** a cui l'unità appartiene. È possibile scegliere tra quattro livelli: **Developer**, **base**, **Standard**, **Premium**. Se è necessario aumentare la capacità di un servizio all'interno di un livello, è consigliabile aggiungere un'unità. Se il livello attualmente selezionato nell'istanza di Gestione API non consente di aggiungere altre unità, è necessario eseguire l'aggiornamento a un livello superiore. 
+La capacità e il prezzo di ogni unità dipende dal **livello** a cui l'unità appartiene. È possibile scegliere tra quattro livelli: **Developer**, **Basic**, **Standard** e **Premium**. Se è necessario aumentare la capacità di un servizio all'interno di un livello, è consigliabile aggiungere un'unità. Se il livello attualmente selezionato nell'istanza di Gestione API non consente di aggiungere altre unità, è necessario eseguire l'aggiornamento a un livello superiore. 
 
 Il prezzo di ogni unità e le funzionalità disponibili (ad esempio, la distribuzione in più aree) dipendono dal livello scelto per l'istanza di Gestione API. L'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) illustra il prezzo unitario per ogni livello e le funzionalità disponibili corrispondenti. 
 
 >[!NOTE]
 >I valori relativi alla capacità unitaria per ogni livello indicati nell'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sono approssimativi. Per ottenere valori più precisi, è necessario esaminare uno scenario realistico per le API in uso. Vedere la sezione "Come pianificare la capacità" più avanti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -59,13 +59,13 @@ Come affermato in precedenza, il numero di richieste al secondo che l'unità Ges
 
 ## <a name="upgrade-and-scale"></a>Aggiornare e ridimensionare 
 
-Come accennato in precedenza, è possibile scegliere tra quattro livelli: **Developer**, **base**, **Standard** e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
+Come affermato in precedenza, è possibile scegliere tra quattro livelli: **Developer**, **Basic**, **Standard** e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
 
-**Base**, **Standard** e **Premium** livelli di produzione con contratto di servizio e possono essere ridimensionati. Il **base** livello è quello più basso con contratto di servizio e può essere scalato fino a 2 unità, **Standard** può essere aggiunto al livello massimo di quattro unità. Al livello **Premium** è possibile aggiungere un numero qualsiasi di unità.
+I livelli **Basic**, **Standard** e **Premium** sono livelli di produzione. Hanno un contratto di servizio e possono essere ridimensionati. Il livello **Basic** è il più conveniente con un contratto di servizio e può essere ridimensionato fino a un massimo di due unità, mentre il livello **Standard** può essere ridimensionato fino a un massimo di quattro unità. Al livello **Premium** è possibile aggiungere un numero qualsiasi di unità.
 
 Il livello **Premium** consente di distribuire un'unica istanza di Gestione API in un numero qualsiasi di aree di Azure. Nel momento in cui viene creato un servizio Gestione API, l'istanza contiene una sola unità e si trova in un'unica area di Azure. L'area iniziale viene designata come area **primaria**. È possibile aggiungere facilmente altre aree. Quando si aggiunge un'area, si specifica il numero di unità da allocare. È ad esempio possibile allocare una sola unità nell'area **primaria** e cinque unità in altre aree. È possibile personalizzare il numero di unità in base al traffico di ogni area. Per altre informazioni, vedere [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md).
 
-È possibile effettuare aggiornamenti e downgrade da e verso qualsiasi livello. Si noti che l'aggiornamento o downgrade possibile rimuovere alcune funzionalità, ad esempio, le reti virtuali o la distribuzione con più aree, quando il downgrade da Standard o Basic dal livello Premium.
+È possibile effettuare aggiornamenti e downgrade da e verso qualsiasi livello. L'aggiornamento o il downgrade può rimuovere alcune funzionalità. Se ad esempio si effettua il downgrade dal livello Premium al livello Standard o Basic, possono essere rimosse le reti virtuali o la distribuzione in più aree.
 
 >[!NOTE]
 >Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Al termine viene inviata una notifica.

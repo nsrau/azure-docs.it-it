@@ -16,7 +16,7 @@ ms.date: 10/30/2017
 ms.author: v-craic
 ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -58,7 +58,7 @@ I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esi
 1. Selezionare **OK** per chiudere il riquadro Subnet del lab.
 1. Selezionare **Salva** per chiudere il riquadro Rete virtuale.
 
-Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una VM. Per informazioni su come creare una macchina virtuale e specificare una rete virtuale, vedere l'articolo, [aggiungere una macchina virtuale a un lab](devtest-lab-add-vm.md). 
+Dopo aver configurato la rete virtuale, è possibile selezionarla quando si crea una VM. Per informazioni su come creare una VM e specificare una rete virtuale, vedere l'articolo [Aggiungere una VM a un lab](devtest-lab-add-vm.md). 
 
 La [Documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network) di Azure fornisce altre informazioni sull'uso delle reti virtuali, tra cui come impostare e gestire una rete virtuale e connetterla alla rete locale.
 

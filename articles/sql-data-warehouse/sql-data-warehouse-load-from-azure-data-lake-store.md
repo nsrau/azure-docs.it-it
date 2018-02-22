@@ -17,12 +17,12 @@ ms.date: 12/14/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Caricare dati da Azure Data Lake Store a SQL Data Warehouse
-Questo documento offre tutti i passaggi che necessari per caricare dati da Azure Data Lake archivio (ADLS) in SQL Data Warehouse con PolyBase.
+Questo documento illustra tutti i passaggi necessari per caricare dati da Azure Data Lake Store a SQL Data Warehouse usando PolyBase.
 Anche se è possibile eseguire query ad hoc sui dati archiviati in ADLS usando le tabelle esterne, è consigliabile importare i dati in SQL Data Warehouse.
 
 In questa esercitazione si apprenderà come:
@@ -42,9 +42,9 @@ Per eseguire questa esercitazione è necessario:
 
 * SQL Server Management Studio o SQL Server Data Tools. Per il download di SSMS e la connessione, vedere [Query con SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
 
-* Un Azure SQL Data Warehouse, per creare un seguire: _ https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Un'istanza di Azure SQL Data Warehouse. Per crearne una, vedere https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision_
 
-* Archivio un Azure Data Lake, per creare un seguire: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+* Un'istanza di Azure Data Lake Store. Per crearne una, vedere: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
 
 
 ###  <a name="create-a-credential"></a>Creare una credenziale
@@ -82,7 +82,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>Creare l'origine dati esterna
-Utilizzare questo [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] comando per archiviare il percorso dei dati. Per trovare l'URI ADL nel portale di Azure, individuare l'archivio Azure Data Lake Store, quindi esaminare il pannello Essentials.
+Usare il comando [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] per archiviare il percorso dei dati. Per trovare l'URI ADL nel portale di Azure, individuare l'archivio Azure Data Lake Store, quindi esaminare il pannello Essentials.
 
 ```sql
 -- C: Create an external data source
@@ -99,7 +99,7 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Configurare il formato dei dati
-Per importare i dati da ADLS, è necessario specificare il formato di File esterno. Questo comando ha opzioni specifiche del formato per descrivere i dati.
+Per importare i dati da ADLS è necessario specificare il formato file esterno. Questo comando ha opzioni specifiche del formato per descrivere i dati.
 Esaminare la documentazione di T-SQL per un elenco completo di [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
 
 ```sql
@@ -120,8 +120,8 @@ WITH
 );
 ```
 
-## <a name="create-the-external-tables"></a>Creare tabelle esterne
-Ora che sono stati specificati l’origine dei dati e il formato dei file, si è pronti per creare le tabelle esterne. Le tabelle esterne rappresentano la modalità di interazione con i dati esterni. Il parametro di percorso è possibile specificare un file o una directory. Se si specifica una directory, verranno caricati tutti i file all'interno della directory.
+## <a name="create-the-external-tables"></a>Creare le tabelle esterne
+Ora che sono stati specificati l’origine dei dati e il formato dei file, si è pronti per creare le tabelle esterne. Le tabelle esterne rappresentano la modalità di interazione con i dati esterni. Il parametro location può specificare un file o una directory. Se specifica una directory, verranno caricati tutti i file all'interno della directory.
 
 ```sql
 -- D: Create an External Table
@@ -153,9 +153,9 @@ WITH
 La creazione di una tabella esterna è semplice, ma esistono alcuni aspetti da considerare.
 
 Le tabelle esterne sono fortemente tipizzate. Ciò significa che ogni riga di dati inserita deve soddisfare la definizione dello schema tabella.
-Se una riga non corrisponde alla definizione dello schema, la riga viene rifiutata dal carico.
+Il caricamento di una riga non corrispondente alla definizione dello schema verrà rifiutato.
 
-Le opzioni REJECT_TYPE e REJECT_VALUE consentono di definire il numero di righe o la percentuale dei dati deve essere presente nella tabella finale. Durante il caricamento, se viene raggiunto il valore di rifiuto, il caricamento non riesce. La causa più comune del rifiuto delle righe è una mancata corrispondenza con la definizione dello schema. Se ad esempio a una colonna viene erroneamente assegnato lo schema di int quando i dati nel file sono in formato stringa, il caricamento di tutte le righe avrà esito negativo.
+Le opzioni REJECT_TYPE e REJECT_VALUE consentono di definire il numero di righe o la percentuale dei dati che dovranno essere presenti nella tabella finale. Se durante il caricamento viene raggiunto il valore rifiutato, il caricamento ha esito negativo. La causa più comune del rifiuto delle righe è una mancata corrispondenza con la definizione dello schema. Se ad esempio a una colonna viene erroneamente assegnato lo schema di int quando i dati nel file sono in formato stringa, il caricamento di tutte le righe avrà esito negativo.
 
  Azure Data Lake Store usa il controllo degli accessi in base al ruolo per controllare l'accesso ai dati. Questo significa che l'entità servizio deve avere autorizzazioni di lettura per le directory definite nel parametro location e per i figli della directory e dei file finali. Questo comportamento consente a PolyBase di autenticare, caricare e leggere i dati. 
 
@@ -200,7 +200,7 @@ L'esempio seguente è un buon punto di partenza per la creazione delle statistic
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
 I dati sono stati caricati correttamente in Azure SQL Data Warehouse. Ottimo lavoro.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Il caricamento dei dati è il primo passaggio per lo sviluppo di una soluzione di data warehouse con SQL Data Warehouse. Vedere le risorse di sviluppo in [Tabelle](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) e [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md).
 
 

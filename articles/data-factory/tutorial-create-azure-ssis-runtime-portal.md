@@ -13,11 +13,11 @@ ms.devlang:
 ms.topic: hero-article
 ms.date: 01/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 9e0b0efdf28e6d8b99d1cdf702dd0698ad87da7b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: abb5fd4953709198f6071bbdd4a1dc86900f0183
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="provision-an-azure-ssis-integration-runtime-by-using-the-azure-data-factory-ui"></a>Effettuare il provisioning di un runtime di integrazione SSIS di Azure tramite l'interfaccia utente di Azure Data Factory
 Questa esercitazione illustra la procedura per effettuare il provisioning di un runtime di integrazione SSIS di Azure in Azure Data Factory tramite il portale di Azure. È quindi possibile usare SQL Server Data Tools o SQL Server Management Studio per distribuire pacchetti SQL Server Integration Services (SSIS) in questo runtime in Azure. Per informazioni concettuali in proposito, vedere la [panoramica del runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -26,7 +26,7 @@ In questa esercitazione si completa la procedura seguente:
 
 > [!div class="checklist"]
 > * Creare una data factory.
-> * Creare e avviare un runtime di integrazione SSIS di Azure.
+> * Effettuare il provisioning di un runtime di integrazione SSIS di Azure.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione di Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -41,8 +41,9 @@ In questa esercitazione si completa la procedura seguente:
  
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).    
-2. Scegliere **Nuovo** dal menu a sinistra, selezionare **Dati e analisi** e quindi selezionare **Data Factory**. 
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
+2. Accedere al [portale di Azure](https://portal.azure.com/).    
+3. Scegliere **Nuovo** dal menu a sinistra, selezionare **Dati e analisi** e quindi selezionare **Data Factory**. 
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 3. Nella pagina **Nuova data factory** immettere **MyAzureSsisDataFactory** in **Nome**. 
@@ -69,7 +70,7 @@ In questa esercitazione si completa la procedura seguente:
 11. Al termine della creazione verrà visualizzata la pagina **Data factory**.
    
    ![Home page per la data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-12. Selezionare **Monitoraggio e gestione** per aprire un'interfaccia utente di Data Factory in una scheda separata. 
+12. Selezionare **Crea e monitora** per aprire l'interfaccia utente di Data Factory in una scheda separata. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Effettuare il provisioning di un runtime di integrazione SSIS di Azure
 
@@ -160,7 +161,7 @@ Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare una data factory.
-> * Creare e avviare un runtime di integrazione SSIS di Azure.
+> * Effettuare il provisioning di un runtime di integrazione SSIS di Azure.
 
 Passare all'esercitazione successiva per ottenere informazioni sulla copia di dati dall'ambiente locale al cloud: 
 

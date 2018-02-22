@@ -14,7 +14,7 @@ ms.date: 04/28/2017
 ms.author: jaboes
 ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 Questo documento elenca le operazioni disponibili per ciascun provider di risorse Microsoft Azure Resource Manager. Tali operazioni possono essere utilizzate nei ruoli personalizzati per fornire autorizzazioni RBAC (controllo degli accessi in base al ruolo) granulari alle risorse di Azure. L’elenco qui fornito non è da ritenersi completo e le operazioni potrebbero essere aggiunte o rimosse man mano che il provider viene aggiornato. Le stringhe di operazione seguono il formato di `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
 
 > [!NOTE]
-> Per un elenco completo e corrente utilizzare `Get-AzureRmProviderOperation` (in PowerShell) o `az provider operation list` (in Azure CLI v2) per le operazioni di elenco di provider di risorse di Azure.
+> Per un elenco completo e aggiornato delle operazioni dei provider di risorse di Azure usare `Get-AzureRmProviderOperation` (in PowerShell) o `az provider operation list` (nell'interfaccia della riga di comando di Azure versione 2).
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -2199,4 +2199,4 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 - Informazioni su come [creare un ruolo personalizzato](role-based-access-control-custom-roles.md).
 - [Ruoli RBAC incorporati](role-based-access-built-in-roles.md).
 - Informazioni sulla gestione delle assegnazioni di accesso [per utente](role-based-access-control-manage-assignments.md) o [per risorsa](role-based-access-control-configure.md) 
-- Informazioni su come [visualizzare i log di attività per controllare le azioni sulle risorse](~/articles/azure-resource-manager/resource-group-audit.md)
+- Informazioni su come [visualizzare i log attività per controllare le azioni sulle risorse](~/articles/azure-resource-manager/resource-group-audit.md)

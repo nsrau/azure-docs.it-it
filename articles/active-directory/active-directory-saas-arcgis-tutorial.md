@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: jeedes
 ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,18 +26,18 @@ Questa esercitazione descrive come integrare ArcGIS Online con Azure Active Dire
 
 L'integrazione di ArcGIS Online con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso a ArcGIS Online.
-- È possibile consentire agli utenti di automaticamente ottenere firmato a ArcGIS Online (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere ad ArcGIS Online.
+- È possibile abilitare gli utenti per l'accesso automatico ad ArcGIS Online (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con ArcGIS Online, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Sottoscrizione abilitata per ArcGIS Online single sign-on
+- Sottoscrizione di ArcGIS Online abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -70,23 +70,23 @@ Per configurare l'integrazione di ArcGIS Online in Azure AD, è necessario aggiu
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **ArcGIS Online**selezionare **ArcGIS Online** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **ArcGIS Online** selezionare **ArcGIS Online** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![ArcGIS Online nell'elenco dei risultati](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con ArcGIS Online in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ArcGIS Online usando un utente di test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di ArcGIS Online corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ArcGIS Online.
 
-In ArcGIS Online, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in ArcGIS Online assegnare il valore del **nome utente** in Azure AD come valore di **Username** (Nome utente).
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ArcGIS Online, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test Online ArcGIS](#create-a-arcgis-online-test-user)**  - disporre di un equivalente di Britta Simon in ArcGIS Online in cui è collegata la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di ArcGIS Online](#create-a-arcgis-online-test-user)**: per avere una controparte di Britta Simon in ArcGIS Online collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -104,16 +104,16 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
-3. Nel **ArcGIS Online dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio ArcGIS Online** seguire questa procedura:
 
-    ![URL e ArcGIS Online dominio single sign-on, informazioni](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+    ![Informazioni per l'accesso Single Sign-On su URL e dominio di ArcGIS Online](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.maps.arcgis.com`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `<companyname>.maps.arcgis.com`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Contatto [team di supporto di Client Online ArcGIS](http://support.esri.com/en/) per ottenere questi valori. 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ArcGIS Online](http://support.esri.com/en/). 
  
 
 
@@ -187,7 +187,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-arcgis-online-test-user"></a>Creare un utente test ArcGIS Online
+### <a name="create-a-arcgis-online-test-user"></a>Creare un utente di test di ArcGIS Online
 
 Per consentire agli utenti di Azure AD di accedere ad ArcGIS Online, è necessario effettuarne il provisioning in ArcGIS Online.  
 Nel caso di ArcGIS Online, il provisioning è un'attività manuale.
@@ -232,7 +232,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **ArcGIS Online**.
 
-    ![Il collegamento ArcGIS Online nell'elenco delle applicazioni](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
+    ![Collegamento di ArcGIS Online nell'elenco delle applicazioni](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

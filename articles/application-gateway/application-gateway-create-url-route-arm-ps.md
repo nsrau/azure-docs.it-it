@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: davidmu
-ms.openlocfilehash: e5c76ff84fc6409975ce6df076bfe220a092eeec
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 70973684445416d715c5b26d06613b31e0001395
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Creare un gateway applicazione con regole di routing basato su percorsi URL usando Azure PowerShell
 
@@ -352,7 +352,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Testare l'URL di base nel gateway applicazione](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Modificare l'URL in http://<indirizzo-IP>:8080/video/test.htm alla fine dell'URL di base come nell'esempio seguente:
+Modificare l'URL in http://<ip-address>:8080/video/test.htm sostituendo <ip-address> con l'indirizzo IP usato come nell'esempio seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 

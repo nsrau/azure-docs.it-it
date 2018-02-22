@@ -1,5 +1,5 @@
 ---
-title: L'aggiornamento di un insieme di credenziali di Backup a un insieme di credenziali di servizi di ripristino | Documenti Microsoft
+title: Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino | Microsoft Docs
 description: Istruzioni e informazioni di supporto per l'aggiornamento di un insieme di credenziali di Backup di Azure a un insieme di credenziali di Servizi di ripristino.
 services: backup
 documentationcenter: dev-center-name
@@ -15,7 +15,7 @@ ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
 ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -34,7 +34,7 @@ Quando si aggiorna un insieme di credenziali di Backup a un insieme di credenzia
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Modifiche all'automazione e agli strumenti dopo l'aggiornamento
 
 Durante la preparazione dell'infrastruttura per l'aggiornamento dell'insieme di credenziali, è necessario aggiornare l'automazione esistente o gli strumenti per verificare che continuino a funzionare dopo l'aggiornamento.
-Consultare i riferimenti di cmdlet di PowerShell per la [il modello di distribuzione di gestione risorse](backup-client-automation.md).
+Consultare i riferimenti ai cmdlet di PowerShell per il [modello di distribuzione di Resource Manager](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Prima dell'aggiornamento
@@ -60,10 +60,10 @@ Usare lo script seguente per aggiornare l'insieme di credenziali. Lo script di e
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID**: il numero ID della sottoscrizione dell'insieme di credenziali che si sta aggiornando.<br/>
-**VaultName** -il nome dell'insieme di credenziali di Backup che viene aggiornato.<br/>
-**Percorso** -percorso dell'insieme di credenziali da aggiornare.<br/>
-**ResourceType** -utilizzare BackupVault.<br/>
-**TargetResourceGroupName** : poiché si sta aggiornando l'insieme di credenziali per una distribuzione basata su Gestione risorse, specificare un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno inserendo un nome nuovo. Se si inserisce il nome sbagliato per un gruppo di risorse, è possibile creare un nuovo gruppo di risorse. Per altre informazioni sui gruppi di risorse, leggere questa [panoramica di gruppi di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**VaultName**: nome dell'insieme di credenziali di backup che si sta aggiornando.<br/>
+**Location**: percorso dell'insieme di credenziali che si sta aggiornando.<br/>
+**ResourceType**: usare BackupVault.<br/>
+**TargetResourceGroupName**: poiché si sta aggiornando l'insieme di credenziali a una distribuzione basata su Resource Manager, specificare un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno inserendo un nome nuovo. Se si inserisce il nome sbagliato per un gruppo di risorse, è possibile creare un nuovo gruppo di risorse. Per altre informazioni sui gruppi di risorse, leggere questa [panoramica di gruppi di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
 > I nomi dei gruppi di risorse hanno dei limiti. Assicurarsi di seguire le linee guida; in caso contrario, l'aggiornamento dell'insieme di credenziali potrebbe non riuscire.
@@ -155,4 +155,4 @@ In caso di errore di una parte dell'aggiornamento dell'insieme di credenziali, a
 Vedere l'articolo seguente per:</br>
 [Eseguire il backup di una macchina virtuale IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Eseguire il backup del server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</br>
-[Eseguire il backup di un Server Windows](backup-configure-vault.md).
+[Eseguire il backup di Windows Server](backup-configure-vault.md).

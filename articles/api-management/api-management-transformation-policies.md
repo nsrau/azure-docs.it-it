@@ -15,7 +15,7 @@ ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
@@ -264,7 +264,7 @@ In questo esempio il criterio indirizza la richiesta a un back-end dell'infrastr
 |sf-replica-type|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Controlla se la richiesta deve passare alla replica primaria o secondaria di una partizione. |No |N/D|    
 |sf-resolve-condition|Applicabile solo quando il back-end è un servizio di Service Fabric. Condizione che identifica se la chiamata al back-end di Service Fabric deve essere ripetuta con una nuova risoluzione.|No |N/D|    
 |sf-service-instance-name|Applicabile solo quando il back-end è un servizio di Service Fabric. Consente di modificare le istanze del servizio durante il runtime. |No |N/D|    
-|nome del listener SF|Questo campo è applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato utilizzando 'id back-end'. Servizi di Service Fabric affidabile consente di creare più listener in un servizio. Questo attributo viene utilizzato per selezionare un listener specifico quando un back-end affidabile di servizio ha più di un listener. Se questo attributo viene omesso, API Gestione tenterà di utilizzare un listener senza nome. Un listener senza nome è tipico di servizi affidabili con un solo listener. |No |N/D|  
+|sf-listener-name|Applicabile solo quando il back-end è un servizio di Service Fabric e viene specificato tramite "backend-id". Reliable Services di Service Fabric consente di creare più listener in un servizio. Questo attributo viene usato per selezionare un listener specifico quando un'istanza di Reliable Services back-end ha più di un listener. Se questo attributo non viene specificato, il servizio Gestione API tenterà di usare un listener senza nome. Un listener senza nome è tipico di un'istanza di Reliable Services con un solo listener. |No |N/D|  
 
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  

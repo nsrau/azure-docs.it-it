@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: jeedes
 ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,12 +32,12 @@ L'integrazione di Teamwork.com con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Teamwork.com sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Oggetto [Teamwork.com](https://www.teamwork.com/projects) sottoscrizione al piano di Pro o versione successiva
+- Una sottoscrizione di [Teamwork.com](https://www.teamwork.com/projects) al piano di Pro o versione successiva
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -78,7 +78,7 @@ Per configurare l'integrazione di Teamwork.com in Azure AD, è necessario aggiun
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Teamwork.com usando un utente test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Teamwork.com che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Teamwork.com.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere qual è l'utente di Teamwork.com che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Teamwork.com.
 
 Per stabilire la relazione di collegamento, in Teamwork.com assegnare il valore di **nome utente** in Azure AD come valore dell'attributo **Username**.
 

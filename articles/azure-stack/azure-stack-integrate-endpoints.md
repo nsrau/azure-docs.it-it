@@ -5,21 +5,18 @@ services: azure-stack
 author: jeffgilb
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/16/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: e368109adc7db4c589ac37b28c4891cb3ec5346f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure dello Stack di integrazione di datacenter: pubblicare endpoint
-
-*Si applica a: Azure Stack integrate di sistemi*
-
-Stack di Azure consente di impostare vari endpoint (gli indirizzi VIP - indirizzi IP virtuali) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di rete definita dal software. Gli ACL vengono usati anche tra i commutatori fisici (tori e BMC) per un'ulteriore protezione avanzata della soluzione. Una voce DNS viene creata per ogni endpoint nella zona DNS esterna che è stata specificata in fase di distribuzione.
+Stack di Azure consente di impostare vari virtuali indirizzi IP (VIP) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di rete definita dal software. Gli ACL vengono usati anche tra i commutatori fisici (tori e BMC) per un'ulteriore protezione avanzata della soluzione. Una voce DNS viene creata per ogni endpoint nella zona DNS esterna che è stata specificata in fase di distribuzione.
 
 
 Il diagramma dell'architettura seguente illustra i vari livelli della rete e gli ACL:
@@ -28,7 +25,7 @@ Il diagramma dell'architettura seguente illustra i vari livelli della rete e gli
 
 ## <a name="ports-and-protocols-inbound"></a>Porte e protocolli (in ingresso)
 
-Nella tabella seguente sono elencati i VIP infrastruttura necessari per una pubblicazione di endpoint Azure Stack a reti esterne. L'elenco Mostra ogni endpoint, la porta richiesta e protocollo. Gli endpoint necessari per i provider di risorse aggiuntive, come il provider di risorse SQL e altri, sono vedere la documentazione sulla distribuzione di provider di risorse specifico.
+Di seguito sono elencate gli indirizzi VIP infrastruttura necessari per una pubblicazione di endpoint Azure Stack a reti esterne. L'elenco Mostra ogni endpoint, la porta richiesta e protocollo. Gli endpoint necessari per i provider di risorse aggiuntive, come il provider di risorse SQL e altri, sono vedere la documentazione sulla distribuzione di provider di risorse specifico.
 
 Gli indirizzi VIP infrastruttura interna che non sono elencate perché non sono necessarie per la pubblicazione dello Stack di Azure.
 
@@ -52,7 +49,11 @@ Gli indirizzi VIP infrastruttura interna che non sono elencate perché non sono 
 |Tabella di archiviazione|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Archiviazione BLOB|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Provider di risorse SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Provider di risorse MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304
+|Provider di risorse MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Servizio app|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Gestione risorse di azure)|
+|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
 
 ## <a name="ports-and-urls-outbound"></a>Porte e gli URL (in uscita)
 

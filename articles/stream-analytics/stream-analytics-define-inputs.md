@@ -17,7 +17,7 @@ ms.date: 12/11/2017
 ms.author: sngun
 ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -37,9 +37,9 @@ Per informazioni su come creare input dei dati di riferimento, vedere [Uso dei d
 
 ## <a name="compression"></a>Compressione
 
-Analisi di flusso di Azure supporta la compressione in tutte le origini di input del flusso di dati (Hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. Attualmente supportati sono tipi riferimento - nessuno, GZip e la compressione Deflate. Supporto per la compressione non è disponibile per i dati di riferimento.
+Analisi di flusso di Azure supporta la compressione in tutte le origini di input del flusso di dati (Hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. I tipi di riferimento attualmente supportati sono Nessuno, GZip e Deflate. Il supporto per la compressione non è disponibile per i dati di riferimento.
 
-Non è necessario specificare il tipo di compressione con la serializzazione Avro. Se i dati di input Avro sono compresso, viene gestita in modo trasparente. 
+Non è necessario specificare il tipo di compressione con la serializzazione Avro. Se i dati di input Avro sono compressi, vengono gestiti in modo trasparente. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Creare un input del flusso dei dati dagli hub eventi
 

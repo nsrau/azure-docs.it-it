@@ -1,3 +1,26 @@
+---
+title: 'Analisi di flusso: rilevamento di illeciti in tempo reale | Documentazione Microsoft'
+description: Informazioni su come creare una soluzione per il rilevamento di illeciti in tempo reale con Analisi di flusso. Utilizzare un hub eventi per l'elaborazione di eventi in tempo reale.
+keywords: rilevamento anomalie, rilevamento delle frodi, rilevamento anomalie in tempo reale
+services: stream-analytics
+documentationcenter: 
+author: SnehaGunda
+manager: jhubbard
+editor: cgronlun
+ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 03/28/2017
+ms.author: sngun
+ms.openlocfilehash: cc581142ca2c75bbee80f9d980c4984b4863a6cf
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/14/2018
+---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale
 
 Questa esercitazione offre una spiegazione completa sull'uso di Analisi di flusso di Azure. Si apprenderà come: 
@@ -14,7 +37,7 @@ In questa esercitazione si userà l'esempio di rilevamento delle frodi in tempo 
 
 Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di frode, l'azienda deve esaminare i record delle chiamate in ingresso e cercare specifici modelli, in questo caso, chiamate più o meno alla stessa ora in paesi diversi. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione si simuleranno i dati di una chiamata telefonica usando un'app client che genera metadati di esempio di chiamate. Alcuni record prodotti dall'app hanno l'aspetto di chiamate fraudolente. 
 

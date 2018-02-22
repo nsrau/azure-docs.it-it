@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a4dc2ba7a356c26b75f5c9b519940b32f6763fa4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio
 
 ## <a name="overview"></a>Panoramica
 
-Archiviazione di Azure offre tre livelli di archiviazione per l'archivio di oggetti BLOB, per consentire di archiviare i dati nel modo economicamente più conveniente in base alla modalità d'uso. Il **livello di archiviazione ad accesso frequente** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di frequente. Il **livello di archiviazione ad accesso sporadico** di Azure è ottimizzato per l'archiviazione di dati a cui si accede poco frequentemente e che vengono archiviati per almeno 30 giorni. Il **livello di archiviazione archivio** di Azure è ottimizzato per l'archiviazione di dati a cui si accede raramente e che vengono archiviati per almeno 180 giorni con requisiti di latenza flessibili, nell'ordine di ore. Il livello di archiviazione archivio è disponibile solo a livello di BLOB e non a livello di account di archiviazione. I dati nel livello di archiviazione ad accesso sporadico possono tollerare una disponibilità leggermente più bassa, ma richiedono ugualmente una durabilità elevata e caratteristiche di velocità effettiva e tempo di accesso simili a quelle dei dati ad accesso frequente. Per i dati ad accesso sporadico, contratti di servizio con una disponibilità leggermente più bassa e costi di accesso più alti rispetto a quelli per i dati ad accesso frequente sono compromessi accettabili in cambio di costi di archiviazione più bassi. L'archiviazione archivio è offline e offre i costi di archiviazione più bassi, ma anche i costi di accesso più alti.
+Archiviazione di Azure offre tre livelli di archiviazione per l'archivio di oggetti BLOB, per consentire di archiviare i dati nel modo economicamente più conveniente in base alla modalità d'uso. Il **livello di archiviazione ad accesso frequente** di Azure è ottimizzato per l'archiviazione di dati a cui si accede di frequente. Il **livello di archiviazione ad accesso sporadico** di Azure è ottimizzato per l'archiviazione di dati a cui si accede poco frequentemente e che vengono archiviati per almeno 30 giorni. Il **livello di archiviazione archivio** di Azure è ottimizzato per l'archiviazione di dati a cui si accede raramente e che vengono archiviati per almeno 180 giorni con requisiti di latenza flessibili, nell'ordine di ore. Il livello di archiviazione archivio è disponibile solo a livello di BLOB e non a livello di account di archiviazione. I dati nel livello di archiviazione ad accesso sporadico possono tollerare una disponibilità leggermente più bassa, ma richiedono ugualmente una durabilità elevata e caratteristiche di velocità effettiva e tempo di accesso simili a quelle dei dati ad accesso frequente. Per i dati ad accesso sporadico, contratti di servizio con una disponibilità leggermente più bassa e costi di accesso più alti rispetto a quelli per i dati ad accesso frequente sono compromessi accettabili in cambio di costi di archiviazione più bassi. L'archiviazione archivio è offline e offre i costi di archiviazione più bassi, ma anche i costi di accesso più alti. È possibile impostare a livello di account solo i livelli di archiviazione ad accesso sporadico e ad accesso frequente, non il livello archivio. Tutti e tre i livelli possono essere impostati a livello di oggetto.
 
 La quantità di dati archiviati nel cloud è attualmente in crescita esponenziale. Per gestire i costi in base alle esigenze di archiviazione crescenti, può essere utile organizzare i dati in base ad attributi quali la frequenza di accesso e il periodo di conservazione pianificato, in modo da ottimizzare i costi. I dati archiviati nel cloud possono essere diversi dal punto di vista della generazione, dell'elaborazione e dell'accesso nel corso del tempo. Alcuni dati presentano accessi attivi e modifiche continue nel corso della rispettiva durata. Alcuni dati presentano un accesso frequente nelle fasi iniziali e l'accesso si riduce drasticamente con il passare del tempo. Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione.
 
@@ -59,7 +59,7 @@ Quando un BLOB si trova nel livello di archiviazione archivio, è offline e non 
 
 Gli scenari di utilizzo di esempio per il livello di archiviazione archivio includono:
 
-* Set di dati di backup, archiviazione e ripristino di emergenza a lungo termine
+* Set di dati di archiviazione, backup secondario e backup a lungo termine
 * Dati originali (non elaborati) che devono essere conservati, anche dopo che sono stati elaborati in un formato utilizzabile finale, *ad esempio*, file multimediali non elaborati dopo la transcodifica in altri formati.
 * Dati di conformità e di archiviazione che devono essere archiviati per un lungo periodo e a cui non si accede quasi mai, *ad esempio*, filmati di videocamere di sicurezza, vecchie radiografie/risonanze magnetiche per le organizzazioni sanitarie, registrazioni audio e trascrizioni di chiamate di clienti per i servizi finanziari.
 
@@ -83,7 +83,7 @@ Quando un BLOB viene spostato in un livello ad accesso più sporadico (frequente
 
 Se si attiva il livello di account da accesso frequente ad accesso sporadico, verrà addebitato l'importo per le operazioni di scrittura (ogni 10.000) per tutti i BLOB senza un livello impostato solo negli account per utilizzo generico v2. Non è previsto alcun addebito negli account di archiviazione BLOB. Verranno addebitate sia le operazioni di lettura (ogni 10.000) che il recupero dati (per GB) quando si attiva l'account di archiviazione BLOB o per utilizzo generico v2 dal livello accesso sporadico al livello accesso frequente. Possono essere addebitati anche i costi delle eliminazioni anticipate per i BLOB spostati al di fuori del livello di accesso sporadico o archivio.
 
-### <a name="cool-and-archive-early-deletion-effective-february-1-2018"></a>Eliminazione anticipata per accesso sporadico o archivio (in vigore dal 1° febbraio 2018)
+### <a name="cool-and-archive-early-deletion-effective-march-1-2018"></a>Eliminazione anticipata per accesso sporadico e archivio (a partire dal 1° marzo 2018)
 
 Oltre all'addebito mensile per GB, ogni BLOB che passa al livello ad accesso sporadico (solo account per utilizzo generico v2) è soggetto a un periodo di eliminazione anticipata ad accesso sporadico di 30 giorni e ogni BLOB che passa al livello archivio è soggetto a un periodo di eliminazione anticipata dell'archivio di 180 giorni. Questo addebito è ripartito proporzionalmente. Ad esempio, se un BLOB viene spostato al livello di accesso archivio e quindi eliminato o spostato al livello ad accesso frequente dopo 45 giorni, verrà addebitata una tariffa per eliminazione anticipata equivalente a 135 (180 meno 45) giorni di archiviazione del BLOB nel livello archivio.
 
@@ -177,7 +177,7 @@ Ogni BLOB viene sempre fatturato in base al livello indicato dalla proprietà BL
 
 **Come si determina se verranno addebitati i costi per un'eliminazione anticipata quando si elimina o si sposta un BLOB al di fuori del livello ad accesso sporadico o archivio?**
 
-Per i BLOB eliminati o spostati al di fuori del livello ad accesso sporadico (solo account per utilizzo generico v2) o archivio rispettivamente prima di 30 giorni e 180 giorni verranno addebitati i costi per un'eliminazione anticipata ripartita in modo proporzionale (in vigore dal 1° febbraio 2018). Per determinare per quanto tempo un BLOB è stato nel livello ad accesso sporadico o archivio, controllare la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso) che fornisce un indicatore dell'ultima modifica del livello. Per altre informazioni, vedere la sezione [Eliminazione anticipata per accesso sporadico o archivio](#cool-and-archive-early-deletion).
+Per i BLOB eliminati o spostati al di fuori del livello ad accesso sporadico (solo in caso di account per utilizzo generico v2) o del livello archivio rispettivamente prima di 30 giorni e 180 giorni verrà addebitato un costo per eliminazione anticipata ripartito proporzionalmente (a partire dal 1° marzo 2018). Per determinare per quanto tempo un BLOB è stato nel livello ad accesso sporadico o archivio, controllare la proprietà BLOB **Access Tier Change Time** (Ora modifica livello di accesso) che fornisce un indicatore dell'ultima modifica del livello. Per altre informazioni, vedere la sezione [Eliminazione anticipata per accesso sporadico o archivio](#cool-and-archive-early-deletion).
 
 **Quali SDK e strumenti di Azure supportano la risorsa di archiviazione e l'organizzazione a livello di BLOB?**
 

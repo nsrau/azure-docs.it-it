@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno #
 
@@ -33,7 +33,7 @@ In questo articolo viene illustrato come creare un ambiente del servizio app est
 Dopo avere creato l'ambiente del servizio app, non è possibile modificare quanto segue:
 
 - Località
-- Subscription
+- Sottoscrizione
 - Gruppo di risorse
 - Rete virtuale usata
 - Subnet usata
@@ -87,7 +87,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
     b. Immettere un nuovo nome di subnet.
 
-    c. Selezionare la dimensione della subnet. *Ricordare di selezionare dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app*. È consigliabile scegliere `/25`, che contiene 128 indirizzi e può gestire un ambiente del servizio app con dimensione massima. Non è consigliato, ad esempio, `/28`, perché sono disponibili solo 16 indirizzi. L'infrastruttura usa almeno cinque indirizzi. In una subnet `/28` il ridimensionamento massimo possibile è di 11 istanze.
+    c. Selezionare la dimensione della subnet. *Ricordare di selezionare dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app*. È consigliabile scegliere `/25`, che contiene 128 indirizzi e può gestire un ambiente del servizio app con dimensione massima. Non è consigliato, ad esempio, `/28`, perché sono disponibili solo 16 indirizzi. L'infrastruttura usa almeno sette indirizzi e Rete di Azure ne usa altri cinque. In una subnet `/28`, il ridimensionamento massimo possibile è di quattro istanze del piano di servizio app per un ambiente del servizio app esterno e di appena tre istante del piano di servizio app per un ambiente del servizio app con bilanciamento del carico interno.
 
     d. Selezionare l'intervallo IP della subnet.
 

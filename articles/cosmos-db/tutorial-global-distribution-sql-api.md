@@ -1,8 +1,8 @@
 ---
-title: Esercitazione di distribuzione globale di Azure DB Cosmos per l'API SQL | Documenti Microsoft
-description: Informazioni su come configurare Azure Cosmos DB distribuzione globale utilizzando l'API di SQL.
+title: Esercitazione sulla distribuzione globale in Azure Cosmos DB per l'API SQL | Microsoft Docs
+description: Informazioni su come configurare la distribuzione globale in Azure Cosmos DB usando l'API SQL.
 services: cosmos-db
-keywords: Distribuzione globale
+keywords: distribuzione globale
 documentationcenter: 
 author: rafats
 manager: jhubbard
@@ -17,31 +17,31 @@ ms.author: rafats
 ms.custom: mvc
 ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Come configurare Azure Cosmos DB distribuzione globale utilizzando l'API di SQL
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Come configurare la distribuzione globale in Azure Cosmos DB usando l'API SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-In questo articolo è illustrato come utilizzare il portale di Azure per la distribuzione globale di Azure Cosmos DB del programma di installazione e quindi connettersi usando l'API di SQL.
+In questo articolo viene illustrato come usare il portale di Azure per configurare la distribuzione globale di Azure Cosmos DB e quindi connettersi tramite l'API SQL.
 
 Questo articolo illustra le attività seguenti: 
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurazione distribuzione globale mediante il [API SQL](sql-api-introduction.md)
+> * Configurare la distribuzione globale tramite le [API SQL](sql-api-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Connessione a un'area geografica preferita tramite l'API di SQL
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Connessione a un'area preferita tramite l'API SQL
 
-Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. Sulla base della configurazione dell'account Azure Cosmos DB, disponibilità internazionali corrente e l'elenco delle preferenze specificato, l'endpoint ottimale verrà scelto dal SDK SQL per eseguire scrittura e operazioni di lettura.
+Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. A seconda della configurazione dell'account Azure Cosmos DB, della disponibilità corrente delle aree e dell'elenco delle preferenze specificato, l'SDK SQL sceglierà l'endpoint ottimale per eseguire le operazioni di scrittura e lettura.
 
-L'elenco delle preferenze viene specificato durante l'inizializzazione di una connessione tramite il SDK di SQL. Gli SDK accettano il parametro facoltativo "PreferredLocations", ovvero un elenco ordinato di aree di Azure.
+L'elenco delle preferenze viene specificato nella fase di inizializzazione di una connessione usando gli SDK SQL. Gli SDK accettano il parametro facoltativo "PreferredLocations", ovvero un elenco ordinato di aree di Azure.
 
 L'SDK invia automaticamente tutte le scritture all'area di scrittura corrente.
 
@@ -170,7 +170,7 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale mediante le API di SQL
+> * Configurare la distribuzione globale tramite le API SQL
 
 È ora possibile passare all'esercitazione successiva per imparare a sviluppare in locale usando l'emulatore locale di Azure Cosmos DB.
 

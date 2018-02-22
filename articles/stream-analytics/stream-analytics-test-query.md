@@ -17,7 +17,7 @@ ms.date: 04/20/2017
 ms.author: samacha
 ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ La funzione analisi di flusso di Azure consente di testare le query nel portale 
 
 ## <a name="test-the-input"></a>Testare l'input
 
-1. Per eseguire il test con dati di input di esempio, fare clic con il pulsante destro del mouse su uno degli input e quindi selezionare **Carica dati di esempio da file**. Attualmente è possibile caricare solo i dati in formato JSON. Se i dati sono in un formato diverso, ad esempio CSV, è necessario convertirlo in formato JSON prima del caricamento. È possibile utilizzare qualsiasi strumento di conversione Board Open Source, ad esempio [CSV per il convertitore JSON](http://www.convertcsv.com/csv-to-json.htm) per convertire i dati in formato JSON.
+1. Per eseguire il test con dati di input di esempio, fare clic con il pulsante destro del mouse su uno degli input e quindi selezionare **Carica dati di esempio da file**. Attualmente è possibile caricare solo dati in formato JSON. Se i dati sono in un formato diverso, ad esempio CSV, è necessario convertirli in formato JSON prima del caricamento. Per convertire i dati in formato JSON, è possibile usare qualsiasi strumento di conversione open source, ad esempio il [convertitore da CSV a JSON](http://www.convertcsv.com/csv-to-json.htm).
 
     ![Pulsante per il testo delle query nell'editor query della funzione di analisi di flusso](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

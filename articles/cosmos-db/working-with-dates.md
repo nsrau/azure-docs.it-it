@@ -16,7 +16,7 @@ ms.date: 05/25/2017
 ms.author: arramac
 ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -75,7 +75,7 @@ Le query di intervallo sono comuni con i valori DateTime. Ad esempio, sono neces
 Per altre informazioni su come configurare i criteri di indicizzazione, vedere i [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Esecuzione di query per i valori DateTime in LINQ
-il SDK di .NET SQL supporta automaticamente le query sui dati archiviati nel database di Azure Cosmos tramite LINQ. Ad esempio, il frammento seguente mostra una query LINQ che filtra gli ordini inviati negli ultimi tre giorni.
+SQL .NET SDK supporta automaticamente le query sui dati archiviati in Azure Cosmos DB tramite LINQ. Ad esempio, il frammento seguente mostra una query LINQ che filtra gli ordini inviati negli ultimi tre giorni.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -87,7 +87,7 @@ Per altre informazioni sul linguaggio di query SQL di Azure Cosmos DB e sul prov
 
 In questo articolo è stato descritto come archiviare, indicizzare ed eseguire query per valori DateTime in Azure Cosmos DB.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Scaricare ed eseguire gli [Esempi di codice su GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Altre informazioni, vedere [query SQL](sql-api-sql-query.md)
+* Altre informazioni sulle [Query SQL](sql-api-sql-query.md)
 * Altre informazioni sui [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md)

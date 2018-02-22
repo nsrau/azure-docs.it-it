@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -97,7 +97,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Query di istanza è attualmente supportata solo per le funzioni di orchestrator in c#.
+> Le query di istanza sono supportate attualmente solo per le funzioni dell'agente di orchestrazione di C#.
 
 ## <a name="terminating-instances"></a>Terminazione delle istanze
 
@@ -115,7 +115,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Chiusura dell'istanza è attualmente supportata solo per le funzioni di orchestrator in c#.
+> La terminazione delle istanze è supportata attualmente solo per le funzioni dell'agente di orchestrazione di C#.
 
 ## <a name="sending-events-to-instances"></a>Invio di eventi alle istanze
 
@@ -141,7 +141,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Generazione di eventi attualmente è supportata solo per le funzioni di orchestrator in c#.
+> La generazione di eventi è supportata attualmente solo per le funzioni dell'agente di orchestrazione di C#.
 
 > [!WARNING]
 > Se non è presente un'istanza di orchestrazione con l'*ID istanza* specificato o se l'istanza non è in attesa del *nome evento* specificato, il messaggio dell'evento viene eliminato. Per altre informazioni su questo comportamento, vedere il [problema GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

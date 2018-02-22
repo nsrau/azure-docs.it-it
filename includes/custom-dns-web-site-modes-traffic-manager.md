@@ -1,4 +1,4 @@
-Impostazione di un nome di dominio personalizzato in un'app web che è integrata con Traffic Manager è disponibile solo per il **Standard** piano tariffario.  
+La possibilità di impostare un nome di dominio personalizzato in un'app Web integrata con Gestione traffico è disponibile solo per il piano tariffario **Standard**.  
 
-Per ulteriori informazioni sul servizio App i livelli di prezzo, incluso come modificare l'applicazione del livello di prezzo, vedere [scalare in verticale un'app in Azure](../articles/app-service/web-sites-scale.md).
+Per altre informazioni sui piani tariffari del servizio app e su come modificare il piano tariffario di un'app, vedere [Aumentare le prestazioni di un'app in Azure](../articles/app-service/web-sites-scale.md).
 

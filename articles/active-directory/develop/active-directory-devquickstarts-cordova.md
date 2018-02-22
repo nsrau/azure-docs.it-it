@@ -17,11 +17,11 @@ ms.author: vittorib
 ms.custom: aaddev
 ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-cordova-getting-started"></a>Guida introduttiva Azure Cordova di Active Directory
+# <a name="azure-ad-cordova-getting-started"></a>Introduzione a Cordova per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +43,7 @@ Per apportare i miglioramenti, è necessario eseguire queste operazioni:
 3. Aggiungere codice per usare il token per eseguire query sull'API Graph e visualizzare i risultati.
 4. Creare il progetto di distribuzione di Cordova con tutte le piattaforme di destinazione desiderate e il plug-in ADAL per Cordova, quindi testare la soluzione negli emulatori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione, sono necessari:
 
 * Tenant di Azure AD nel quale è disponibile un account con diritti per lo sviluppo di app.
@@ -56,7 +56,7 @@ Se non è disponibile un tenant di Azure AD, vedere le [istruzioni su come otten
 Se nel computer in uso non è configurato Apache Cordova, installare quanto segue:
 
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [Node.js](https://nodejs.org/download/)
+* [Node.JS](https://nodejs.org/download/)
 * [Interfaccia della riga di comando di Cordova](https://cordova.apache.org/) (può essere installata facilmente tramite Gestione pacchetti NPM: `npm install -g cordova`)
 
 Le installazioni precedenti dovrebbero funzionare sia su PC che su Mac.

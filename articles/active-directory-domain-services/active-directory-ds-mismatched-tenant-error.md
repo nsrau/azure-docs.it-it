@@ -16,12 +16,12 @@ ms.date: 12/11/2017
 ms.author: maheshu
 ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
-Si dispone di un dominio gestito di servizi di dominio Active Directory di Azure esistente. Quando si passa al portale di Azure e visualizza il dominio gestito, è visualizzato il messaggio di errore seguente:
+Si dispone di un dominio gestito di Azure AD Domain Services. Quando si passa al portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:
 
 ![Errore della directory senza corrispondenza](.\media\getting-started\mismatched-tenant-error.png)
 

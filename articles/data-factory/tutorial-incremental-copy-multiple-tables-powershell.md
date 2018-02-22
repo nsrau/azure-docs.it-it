@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 9eeb265e063e6642b90dd641d41d0a54cbc6951e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 593894b33dfcab4bc03a6223e2fdee1ff9bd7d15
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -110,7 +110,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-destination-tables-in-your-sql-database"></a>Creare le tabelle di destinazione nel database SQL
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creare le tabelle di destinazione nel database SQL di Azure
 1. Aprire SQL Server Management Studio e connettersi al database di SQL Server.
 
 2. In **Esplora server** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
@@ -133,7 +133,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL per archiviare il valore del limite massimo
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL di Azure per archiviare il valore limite massimo
 1. Eseguire questo comando SQL sul database SQL per creare una tabella denominata `watermarktable` in cui archiviare il valore limite: 
     
     ```sql
@@ -155,7 +155,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Creare una stored procedure nel database SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creare una stored procedure nel database SQL di Azure 
 
 Eseguire questo comando per creare una stored procedure nel database SQL. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
 
@@ -173,7 +173,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Creare tipi di dati e stored procedure aggiuntive
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Creare tipi di dati e stored procedure aggiuntive nel database SQL di Azure
 Eseguire questa query per creare due stored procedure e due tipi di dati nel database SQL. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione.
 
 ```sql

@@ -18,7 +18,7 @@ ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -87,11 +87,11 @@ Dopo l'installazione del certificato SSL "CosmosDBEmulatorCertificate", l'applic
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Come usare il certificato in Python
 
-Per impostazione predefinita il [SDK(version 2.0.0 or higher) Python](sql-api-sdk-python.md) per l'API di SQL non tenta di utilizzare il certificato SSL per la connessione all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi della documentazione sui [wrapper per socket di Python](https://docs.python.org/2/library/ssl.html).
+Per impostazione predefinita, [Python SDK (2.0.0 o versione successiva)](sql-api-sdk-python.md) per l'API SQL non prova a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi della documentazione sui [wrapper per socket di Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Come usare il certificato in Node.js
 
-Per impostazione predefinita il [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) per l'API di SQL non tenta di utilizzare il certificato SSL per la connessione all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi nella [documentazione di Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Per impostazione predefinita, [Node.js SDK (1.10.1 o versione successiva)](sql-api-sdk-node.md) per l'API SQL non prova a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi nella [documentazione di Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

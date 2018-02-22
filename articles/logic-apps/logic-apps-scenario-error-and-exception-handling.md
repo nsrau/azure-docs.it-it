@@ -18,7 +18,7 @@ ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
 ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -107,7 +107,7 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
    Il trigger proveniente da CRM fornisce il **PatientID CRM**, il **tipo di record**, un **valore booleano new o update** che indica un record nuovo o aggiornato e **SalesforceId**. **SalesforceId** può essere Null perché viene usato solo per un aggiornamento.
    Per ottenere il record CRM si userà il **PatientID** di CRM e il **tipo di record**.
 
-2. Successivamente, è necessario aggiungere l'app per le API di SQL Azure Cosmos DB **InsertLogEntry** operazione, come illustrato di seguito in Progettazione applicazione logica.
+2. È quindi necessario aggiungere l'operazione **InsertLogEntry** dell'app per le API SQL di Azure Cosmos DB, come illustrato qui in Progettazione app per la logica.
 
    **Inserire una voce di log**
 
@@ -400,7 +400,7 @@ Dopo aver ottenuto la risposta, è possibile trasmetterla all'app per la logica 
 
 ## <a name="cosmos-db-repository-and-portal"></a>Portale e repository di Cosmos DB
 
-La soluzione aggiunta di funzionalità con [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
+La soluzione ha aggiunto funzionalità con [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portale di gestione degli errori
 
@@ -434,10 +434,10 @@ L'app per le API di gestione delle eccezioni delle App per la logica di Azure of
 * **LogController** inserisce un record di log (documento) in una raccolta di Azure Cosmos DB.
 
 > [!TIP]
-> Utilizzano entrambi i controller `async Task<dynamic>` operazioni, consentendo alle operazioni di risolvere in fase di esecuzione, affinché sia possibile creare lo schema di database di Azure Cosmos nel corpo dell'operazione. 
+> Entrambi i controller usano operazioni `async Task<dynamic>`, consentendo la risoluzione delle operazioni in fase di runtime. È quindi possibile creare lo schema di Azure Cosmos DB nel corpo dell'operazione. 
 > 
 
-Ogni documento nel database di Azure Cosmos deve avere un ID univoco. Viene usato `PatientId` e viene aggiunto un timestamp che sarà convertito in un valore di timestamp Unix (double). Il valore viene troncato per rimuovere il valore frazionario.
+Ogni documento in Azure Cosmos DB deve avere un ID univoco. Viene usato `PatientId` e viene aggiunto un timestamp che sarà convertito in un valore di timestamp Unix (double). Il valore viene troncato per rimuovere il valore frazionario.
 
 È possibile visualizzare il codice sorgente dell'API del controller degli errori [da GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ L'espressione nell'esempio di codice precedente verifica la presenza dello stato
 ## <a name="summary"></a>Summary
 
 * È possibile implementare facilmente la registrazione e la gestione degli errori in un'app per la logica.
-* È possibile utilizzare Azure Cosmos DB come repository per i record di log e di errore (documenti).
+* È possibile usare Azure Cosmos DB come repository per i record di log e di errore (documenti).
 * È possibile usare MVC per creare un portale per la visualizzazione dei record di log e di errore.
 
 ### <a name="source-code"></a>Codice sorgente

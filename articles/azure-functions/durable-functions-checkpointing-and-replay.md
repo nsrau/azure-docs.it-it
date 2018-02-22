@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -90,7 +90,7 @@ Di seguito vengono indicate alcune note sui valori di colonna.
     * **TaskScheduled**: funzione di attività pianificata. Il nome della funzione di attività viene acquisito nella colonna `Name`.
     * **TaskCompleted**: funzione di attività completata. Il risultato della funzione è nella colonna `Result`.
     * **TimerCreated**: timer permanente creato. La colonna `FireAt` contiene l'ora UTC pianificata per la scadenza del timer.
-    * **TimerFired**: viene generato un timer durevole.
+    * **TimerFired**: un timer permanente attivato.
     * **EventRaised**: evento esterno inviato all'istanza di orchestrazione. La colonna `Name` acquisisce il nome dell'evento, mentre la colonna `Input` ne acquisisce il payload.
     * **OrchestratorCompleted**: funzione dell'agente di orchestrazione in attesa.
     * **ContinueAsNew**: la funzione dell'agente di orchestrazione completata e riavviata con un nuovo stato. La colonna `Result` contiene il valore che viene usato come input nell'istanza riavviata.
@@ -98,7 +98,7 @@ Di seguito vengono indicate alcune note sui valori di colonna.
 * **Timestamp**: timestamp UTC dell'evento di cronologia.
 * **Name**: nome della funzione richiamata.
 * **Input**: input in formato JSON della funzione.
-* **Risultato**: l'output della funzione, vale a dire il relativo valore restituito.
+* **Result**: output della funzione, ovvero il valore restituito.
 
 > [!WARNING]
 > Benché sia utile come strumento di debug, usare con cautela questa tabella che può cambiare con l'evoluzione dell'estensione Funzioni permanenti.

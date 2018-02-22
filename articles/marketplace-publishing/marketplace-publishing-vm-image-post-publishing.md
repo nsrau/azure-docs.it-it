@@ -328,11 +328,11 @@ Per ripristinare l'impostazione di visibilità di uno SKU elencato al valore di 
     ![Visibilità](media/marketplace-publishing-vm-image-post-publishing/img10-04.png)
 5. Dopo aver terminato le modifiche, fare clic su **REQUEST APPROVAL TO PUSH TO PRODUCTION** (Richiedi approvazione per il push nella produzione) per ripubblicare l'offerta nel Marketplace.
 
-## <a name="see-also"></a>Vedere anche
-* [Come pubblicare e gestire un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
+## <a name="see-also"></a>Vedere anche 
+* [Introduzione: pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Informazioni sui report sui proventi di Azure Marketplace](marketplace-publishing-report-payout.md)
 * [Visualizzare e modificare il Cloud Solution Provider "Incentivi rivenditore" in Azure Marketplace](marketplace-publishing-csp-incentive.md)
-* [Come risolvere i problemi comuni degli editori in Azure Marketplace](marketplace-publishing-support-common-issues.md)
+* [Risolvere problemi di pubblicazione comuni in Marketplace](marketplace-publishing-support-common-issues.md)
 * [Ottenere supporto come editore](marketplace-publishing-get-publisher-support.md)
 * [Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace](marketplace-publishing-vm-image-creation-on-premise.md)
 * [Creare una macchina virtuale con Windows nel portale di anteprima di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

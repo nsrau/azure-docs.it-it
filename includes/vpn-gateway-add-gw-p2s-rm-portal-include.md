@@ -1,4 +1,4 @@
-1. Sul lato sinistro del portale fare clic su **+** e digitare "Gateway di rete virtuale" nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella pagina **Gateway di rete virtuale** fare clic su **Crea** nella parte inferiore per aprire la pagina **Crea gateway di rete virtuale**.
+1. Nel lato sinistro del portale fare clic su **+ Crea una risorsa** e digitare "gateway di rete virtuale" nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella pagina **Gateway di rete virtuale** fare clic su **Crea** nella parte inferiore per aprire la pagina **Crea gateway di rete virtuale**.
 2. Nella pagina **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.
 
   ![Campi nella pagina Crea gateway di rete virtuale](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Campi nella pagina Crea gateway di rete virtuale")

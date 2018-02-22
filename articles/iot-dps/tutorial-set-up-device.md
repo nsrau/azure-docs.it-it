@@ -14,7 +14,7 @@ ms.devlang: na
 ms.custom: mvc
 ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -28,7 +28,7 @@ Nell'esercitazione precedente è stato descritto come configurare il servizio De
 > * Estrarre gli elementi di sicurezza
 > * Impostare la configurazione del servizio Device Provisioning nel dispositivo
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di procedere, creare l'istanza del servizio Device Provisioning e un hub IoT seguendo le istruzioni indicate nell'esercitazione [Set up cloud for device provisioning](./tutorial-set-up-cloud.md) (Configurare il cloud per il provisioning dei dispositivi).
 
@@ -76,13 +76,13 @@ L'SDK client del servizio Device Provisioning non offre supporto predefinito per
 
 ### <a name="develop-your-custom-repository"></a>Sviluppare il repository personalizzato
 
-1. Sviluppare una libreria per accedere a modulo di protezione hardware. Questo progetto richiede che si produca una raccolta statica ad uso dell'SDK del servizio Device Provisioning.
-1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per TPM personalizzato, implementare le funzioni definite [documento personalizzato HSM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
-    b. Per x. 509 personalizzato, implementare le funzioni definite [documento personalizzato HSM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
+1. Sviluppare una libreria per accedere al modulo di protezione hardware. Questo progetto richiede che si produca una raccolta statica ad uso dell'SDK del servizio Device Provisioning.
+1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per il modulo TPM personalizzato, implementare le funzioni definite nel [documento HSM personalizzato](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    b. Per il certificato X.509 personalizzato, implementare le funzioni definite nel [documento HSM personalizzato](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Integrare con il client del servizio Device Provisioning
 
-Una volta che la libreria correttamente Compila nel proprio, è possibile spostare a IoThub C-SDK e con la libreria di collegamento:
+Dopo la creazione della raccolta è possibile passare a IoThub C-SDK e collegarlo alla raccolta:
 
 1. Specificare il repository GitHub del modulo di protezione hardware personalizzato, il percorso della raccolta e il relativo nome nel comando cmake seguente:
     ```cmd/sh
@@ -91,7 +91,7 @@ Una volta che la libreria correttamente Compila nel proprio, è possibile sposta
    
 1. Aprire l'SDK in Visual Studio e compilarlo. 
 
-    - Il processo di compilazione compilerà la libreria SDK.
+    - Il processo di compilazione creerà la libreria SDK.
     - L'SDK tenterà di collegarsi al modulo di protezione hardware personalizzato definito nel comando cmake.
 
 1. Eseguire l'esempio `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` per verificare se il modulo di protezione hardware è stato implementato correttamente.

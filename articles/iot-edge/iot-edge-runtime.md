@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -100,13 +100,13 @@ Ogni elemento nel dizionario dei moduli contiene informazioni specifiche su un m
    * Non integro: se il modulo si blocca o viene considerato non integro, l'agente di Edge lo riavvia.
    * Sempre: se il modulo si blocca, viene considerato non integro o si arresta, l'agente di Edge lo riavvia. 
 
-Agente IoT Edge Invia risposta runtime IoT Hub. Di seguito è riportato un elenco di possibili risposte:
+L'agente IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di risposte possibili:
   * 200 - OK
-  * 400 - la configurazione della distribuzione è in formato non valido o non valido.
-  * 417 - il dispositivo non impostare una configurazione di distribuzione.
-  * 412 - la versione dello schema nella configurazione della distribuzione non è valida.
-  * 406 - il dispositivo perimetrale è stato offline o non invia report.
-  * 500 - Errore durante il runtime di bordo.
+  * 400 - La configurazione della distribuzione è in formato non corretto o non valida.
+  * 417 - Il dispositivo non ha un set di configurazione di distribuzione.
+  * 412 - La versione dello schema nella configurazione della distribuzione non è valida.
+  * 406 - Il dispositivo Edge è offline o non invia report sullo stato.
+  * 500 - Si è verificato un errore del runtime Edge.
 
 ### <a name="security"></a>Sicurezza
 

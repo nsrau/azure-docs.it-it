@@ -2,30 +2,24 @@
 title: Guida introduttiva di Azure - Trasferire oggetti da e verso Archiviazione BLOB di Azure con Node.js | Microsoft Docs
 description: Apprendere rapidamente a trasferire oggetti da e verso Archiviazione BLOB di Azure con Node.js
 services: storage
-documentationcenter: storage
-author: georgewallace
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2017
-ms.author: gwallace
-ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.date: 02/06/2018
+ms.author: tamram
+ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con Node.js
 
 Questa guida introduttiva mostra come usare Node.js per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -109,9 +103,9 @@ Viene quindi descritto in dettaglio il codice di esempio, per consentire di comp
 
 ### <a name="get-references-to-the-storage-objects"></a>Ottenere i riferimenti agli oggetti di archiviazione
 
-La prima cosa da fare è creare il riferimento all'oggetto `BlobService` usato per accedere e gestire l'archiviazione BLOB. Questi oggetti si compilano a vicenda: ognuno di essi viene usato da quello successivo nell'elenco.
+La prima cosa da fare è creare il riferimento all'oggetto **BlobService** usato per accedere e gestire l'archiviazione BLOB. Questi oggetti si compilano a vicenda: ognuno di essi viene usato da quello successivo nell'elenco.
 
-* Creare un'istanza dell'oggetto **[BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor)** che punti al servizio BLOB nell'account di archiviazione.
+* Creare un'istanza dell'oggetto [BlobService](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService__ctor) che punti al servizio BLOB nell'account di archiviazione.
 
 * Creare un nuovo contenitore e quindi impostare le autorizzazioni nel contenitore in modo che i BLOB siano pubblici e accessibili solo con un URL. Il contenitore inizia con **quickstartcontainer-**.
 
@@ -199,4 +193,4 @@ In questa guida introduttiva è stato descritto il trasferimento di file tra il 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](storage-nodejs-how-to-use-blob-storage.md)
 
-Per altre informazioni su Azure Storage Explorer e i BLOB, vedere [Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni di riferimento su Node.js per Archiviazione di Azure, vedere [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest).

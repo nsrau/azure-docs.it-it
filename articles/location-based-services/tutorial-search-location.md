@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 791992028d11633fc20f55ae1a34e7fcd442bf3a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Cercare un punto di interesse vicino tramite Servizi Location Based di Azure
+# <a name="search-nearby-points-of-interest-using-azure-location-based-services"></a>Cercare punti di interesse vicini tramite Servizi Location Based di Azure
 
 Questa esercitazione illustra come configurare un account con Servizi Location Based di Azure e quindi usare le API fornite per cercare un punto di interesse. In questa esercitazione si apprenderà come:
 
@@ -26,11 +26,11 @@ Questa esercitazione illustra come configurare un account con Servizi Location B
 > * Creare un account con Servizi Location Based di Azure
 > * Conoscere la chiave primaria per l'account Servizi Location Based di Azure
 > * Creare una nuova pagina Web usando l'API del controllo mappa
-> * Usare il servizio di ricerca per trovare il punto di interesse più vicino
+> * Usare il servizio di ricerca per trovare un punto di interesse più vicino
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-# <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 Accedere al [Portale di Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
@@ -201,7 +201,7 @@ Questa sezione illustra come usare l'API del servizio di ricerca di Servizi Loca
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Questo frammento di codice usa l'API di base del servizio di ricerca, definita **ricerca fuzzy**. Supporta anche input con un basso livello di corrispondenza fuzzy gestendo qualsiasi combinazione di token di indirizzo o *punto di interesse*. Esegue la ricerca della **stazione di servizio** più vicina, per l'indirizzo con i valori di latitudine e longitudine indicati, e all'interno del raggio specificato. Usa la chiave primaria dell'account fornita in precedenza nel file di esempio per eseguire la chiamata a Servizi Location Based. Infine restituisce i risultati come coppie di latitudine e longitudine per le posizioni trovate. È possibile osservare i segnaposto di ricerca aprendo la pagina HTML nel browser. 
+    Questo frammento di codice usa l'API di base del servizio di ricerca, definita **ricerca fuzzy**. Supporta anche input con un basso livello di corrispondenza fuzzy gestendo qualsiasi combinazione di token di indirizzo o *punto di interesse*. Esegue la ricerca della **stazione di servizio** più vicina, per l'indirizzo con i valori di latitudine e longitudine indicati, e all'interno del raggio specificato. Usa la chiave primaria dell'account fornita in precedenza nel file di esempio per eseguire la chiamata a Servizi Location Based. e infine restituisce i risultati come coppie di latitudine e longitudine per le posizioni trovate. È possibile osservare i segnaposto di ricerca aprendo la pagina HTML nel browser. 
 
 3. Aggiungere le righe seguenti al blocco *script* per creare le finestre popup per i punti di interesse restituiti dal servizio di ricerca:
 

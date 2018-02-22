@@ -17,11 +17,11 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-java-web-app-getting-started"></a>App di Azure AD Java web Guida introduttiva
+# <a name="azure-ad-java-web-app-getting-started"></a>Introduzione alle app Web Java per Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Con poche righe di codice uniche sia per l'accesso che per la disconnessione, Azure Active Directory (Azure AD) facilita e semplifica l'outsourcing della gestione delle identità delle app Web. È possibile far accedere e disconnettere gli utenti da app Web Java usando l'implementazione Microsoft di Azure Active Directory Authentication Library for Java (ADAL4J) basata sulla community.

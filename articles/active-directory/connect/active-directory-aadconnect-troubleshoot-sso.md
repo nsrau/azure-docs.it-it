@@ -16,7 +16,7 @@ ms.date: 01/05/2018
 ms.author: billmath
 ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 ## <a name="known-problems"></a>Problemi noti
 
 - In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
-- Se si disabilitare e riabilitare SSO trasparente per il tenant, gli utenti non riceverà l'esperienza single sign-on fino a quando i ticket Kerberos memorizzati nella cache, in genere valido per 10 ore, scaduti.
+- Se si disabilita e si abilita di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache, validi in genere per 10 ore.
 - Non è disponibile il supporto per il browser Edge.
 - L'avvio dei client Office, soprattutto in scenari di computer condivisi, prevede procedure di accesso aggiuntive per gli utenti. Gli utenti devono immettere i nomi utente di frequente, ma non le relative password.
 - Se l'accesso SSO facile ha esito positivo, l'utente non ha la possibilità di scegliere **Mantieni l'accesso**. A causa di questo comportamento, gli scenari di mapping di SharePoint e OneDrive non funzionano.
@@ -69,7 +69,7 @@ Passare ad **Azure Active Directory** > **Accessi** nell'[interfaccia di amminis
 Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenco di controllo:
 
 - Verificare se l'accesso SSO facile è abilitato in Azure AD Connect. Se non è possibile abilitare la funzionalità, ad esempio a causa di una porta bloccata, verificare che tutti i [prerequisiti](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) siano soddisfatti.
-- Se è stata abilitata sia [aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) e SSO trasparente per il tenant, verificare che il problema non viene impostato con l'aggiunta di Azure AD. SSO da aggiunta ad Azure AD ha la precedenza su SSO trasparente se il dispositivo è registrato con Azure AD e dominio. Con SSO da Azure AD aggiungere l'utente visualizza un riquadro di accesso che afferma "Connessi a Windows".
+- Se nel tenant sono stati abilitati sia [Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) che l'accesso Single Sign-On facile, assicurarsi che il problema non dipenda da Aggiunta ad Azure AD. SSO da Aggiunta ad Azure AD ha la precedenza su SSO facile se il dispositivo è sia registrato con Azure AD che aggiunto a un dominio. Con SSO da Aggiunta ad Azure AD l'utente visualizza un riquadro di accesso con il messaggio "Connesso a Windows".
 - Verificare che entrambi gli URL di Azure AD https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net facciano parte delle impostazioni della zona Intranet dell'utente.
 - Verificare che il dispositivo aziendale sia aggiunto al dominio Active Directory.
 - Verificare che l'utente sia connesso al dispositivo tramite un account di dominio di Active Directory.
@@ -77,7 +77,7 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 - Verificare che il dispositivo sia connesso alla rete aziendale.
 - Verificare che l'ora del dispositivo sia sincronizzata con quella di Active Directory e dei controller di dominio e che si discosti al massimo di 5 minuti dalle stesse.
 - Indicare i ticket Kerberos presenti nel dispositivo usando il comando `klist` da un prompt dei comandi. Verificare se sono presenti i ticket emessi per l'account del computer `AZUREADSSOACCT`. I ticket Kerberos degli utenti sono in genere validi per 10 ore. È possibile che siano in uso impostazioni diverse in Active Directory.
-- Se è disabilitato e riabilitati SSO trasparente per il tenant, gli utenti non riceveranno l'esperienza single sign-on fino a quando i ticket Kerberos memorizzati nella cache sono scaduti.
+- Se si è disabilitato e abilitato di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache.
 - Eliminare i ticket Kerberos dal dispositivo usando il comando `klist purge` e riprovare.
 - Esaminare i log della console del browser (in **Strumenti di sviluppo**) per determinare se esistono problemi relativi a JavaScript.
 - Esaminare i [log del controller di dominio](#domain-controller-logs).

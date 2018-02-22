@@ -17,7 +17,7 @@ ms.author: v-craic
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -64,7 +64,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
     * **Password** : immettere o scegliere dall'elenco a discesa un valore associato al segreto (password) che si desidera usare per l'utente specificato. Per altre informazioni sui segreti, vedere [Azure DevTest Labs: Personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/) (Azure DevTest Labs: archivio personale dei segreti).
     * **Virtual machine disk type** (Tipo di disco della macchina virtuale) - Specificare l'unità disco rigido o l'unità SSD per indicare quale tipo di disco di archiviazione sia consentito per le macchine virtuali il cui provisioning è stato effettuato usando questa immagine di base.
     * **Dimensioni macchina virtuale** - Selezionare uno degli elementi predefiniti che specificano le memorie centrali del processore, le dimensioni della RAM e le dimensioni dell'unità disco rigido della macchina virtuale da creare. 
-    * **Elementi** - Selezionare questa opzione per aprire il pannello **Aggiungi elementi** nel quale è possibile selezionare e configurare gli elementi da aggiungere all'immagine di base. Per ulteriori informazioni su elementi, vedere [creare gli elementi personalizzati per la macchina virtuale di Azure DevTest Labs](devtest-lab-artifact-author.md).
+    * **Elementi** - Selezionare questa opzione per aprire il pannello **Aggiungi elementi** nel quale è possibile selezionare e configurare gli elementi da aggiungere all'immagine di base. Per altre informazioni sugli elementi, vedere [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md) (Creare elementi personalizzati per la macchina virtuale di Azure DevTest Labs).
     * **Impostazioni avanzate** - Selezionare questa opzione per aprire il pannello **Avanzate** in cui è possibile configurare le impostazioni seguenti:
         * **Rete virtuale** : specificare la rete virtuale desiderata.
         * **Subnet** : specificare la subnet desiderata.    

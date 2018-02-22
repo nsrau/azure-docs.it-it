@@ -19,7 +19,7 @@ ms.date: 11/27/2017
 ms.author: jgao
 ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -43,7 +43,7 @@ Per eseguire query Hive, sono disponibili le opzioni seguenti:
 
 * Usare Power BI
 
-    Vedere [visualizzare interattivo Query Hive dati con Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) vedere [visualizzare i dati di grandi dimensioni con Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+    Vedere [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) (Visualizzare i dati Hive di Interactive Query con Power BI in Azure HDInsight) Vedere [Visualize big data with Power BI in Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md) (Visualizzare i Big Data con Power BI in Azure HDInsight).
  
 * Usare Zeppelin
 

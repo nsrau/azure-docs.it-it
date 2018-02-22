@@ -145,7 +145,7 @@ Usare il cmdlet [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) 
 ### <a name="upload-a-vhd-by-using-the-command-line-tool-for-mac-and-linux"></a>Caricare un VHD utilizzando lo strumento da riga di comando per Mac e Linux
 Con lo [strumento da riga di comando per Linux](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2), usare il comando indicato di seguito: azure vm image create <image name> --location <Location of the data center> --OS Linux <LocationOfLocalVHD>
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 * [Configurazione di Azure PowerShell](marketplace-publishing-powershell-setup.md)
 

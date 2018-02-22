@@ -3,7 +3,7 @@ title: Accesso con privilegi elevati per l'amministratore tenat - Azure AD | Mic
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
-ms.author: andredm
-ms.openlocfilehash: 894ccd13684a79590b75821514ef6922abb8fdaf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: rolyon
+ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Accesso con privilegi elevati come amministratore tenant con il Controllo degli accessi in base al ruolo
 
@@ -101,7 +101,7 @@ Il processo di base funziona con i passaggi seguenti:
 
 Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi in modo da revocare i privilegi necessari per eliminare l'assegnazione.
 
-1.  Chiamare le definizioni di ruolo GET dove roleName = Amministratore Accesso utenti per determinare il GUID del nome del ruolo Amministratore Accesso utenti.
+1.  Chiamare GET roleDefinitions con roleName = User Access Administrator per determinare il nome GUID del ruolo Amministratore accessi utente.
     1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
 
         ```
@@ -129,7 +129,7 @@ Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi 
         >[!NOTE] 
         >Un amministratore di tenant non deve avere molte assegnazioni. Se la query precedente restituisce troppi assegnazioni, è anche possibile eseguire una query su tutte le assegnazioni solo a livello di ambito di tenant, quindi filtrare i risultati: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
         
-    2. Le suddette chiamate restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è "/" e RoleDefinitionId termina con il GUID del nome del ruolo presente nel passaggio 1 e PrincipalId corrisponde a ObjectId dell'amministratore del tenant. L'assegnazione del ruolo dovrebbe risultare simile alla seguente:
+    2. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è "/" e RoleDefinitionId termina con il GUID del nome del ruolo presente nel passaggio 1 e PrincipalId corrisponde a ObjectId dell'amministratore del tenant. L'assegnazione del ruolo dovrebbe risultare simile alla seguente:
 
         ```
         {"value":[{"properties":{

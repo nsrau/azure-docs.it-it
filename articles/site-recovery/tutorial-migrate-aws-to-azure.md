@@ -2,28 +2,22 @@
 title: Eseguire la migrazione di macchine virtuali da AWS ad Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come eseguire la migrazione di macchine virtuali in esecuzione in Amazon Web Services (AWS) ad Azure usando Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 4acdc540ca1a87a4545130eb5fbc096633b0605c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
-Questa esercitazione illustra come eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) a macchine virtuali di Azure usando Site Recovery. Quando la migrazione EC2 istanze in Azure, le macchine virtuali vengono trattati come se fossero fisici, computer locali. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) a macchine virtuali di Azure usando Site Recovery. Quando viene eseguita la migrazione di istanze EC2 ad Azure, le macchine virtuali vengono trattate come computer fisici locali. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Preparare le risorse di Azure

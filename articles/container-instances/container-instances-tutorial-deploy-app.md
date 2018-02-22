@@ -1,6 +1,6 @@
 ---
 title: Esercitazione di Istanze di contenitore di Azure - Distribuire un'app
-description: 'Esercitazione per istanze di contenitori di Azure parte 3 di 3: distribuire l''applicazione'
+description: Esercitazione di Istanze di contenitore di Azure - Parte 3 di 3 - Distribuire un'applicazione
 services: container-instances
 author: seanmck
 manager: timlt
@@ -11,32 +11,32 @@ ms.author: seanmck
 ms.custom: mvc
 ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Distribuire un contenitore in Istanze di contenitore di Azure
 
-Si tratta dell'esercitazione finale in una serie di tre parti. In precedenza in serie, [è stata creata un'immagine contenitore](container-instances-tutorial-prepare-app.md) e [inserito un registro di sistema di contenitore di Azure](container-instances-tutorial-prepare-acr.md). In questo articolo viene completata la serie di esercitazioni distribuendo il contenitore di istanze di contenitori di Azure.
+Questa è l'ultima esercitazione di una serie in tre parti. Nelle sezioni precedenti, [un'immagine del contenitore è stata creata](container-instances-tutorial-prepare-app.md) e [inserita in un'istanza di Registro contenitori di Azure](container-instances-tutorial-prepare-acr.md). Questo articolo completa la serie di esercitazioni distribuendo il contenitore in Istanze di contenitore di Azure.
 
 In questa esercitazione:
 
 > [!div class="checklist"]
-> * Distribuire il contenitore dal Registro di contenitore di Azure usando l'interfaccia CLI di Azure
-> * Visualizzare l'applicazione nel browser
-> * Visualizzare i log del contenitore
+> * Distribuzione del contenitore da Registro contenitori di Azure tramite l'interfaccia della riga di comando di Azure
+> * Visualizzazione dell'applicazione nel browser
+> * Visualizzazione dei log del contenitore
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione, è necessario che sia in esecuzione l'interfaccia CLI di Azure versione 2.0.23 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare Azure CLI 2.0][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.23 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli-install].
 
-Per completare questa esercitazione, è necessario un ambiente di sviluppo Docker installato localmente. Docker offre pacchetti che consente di configurare facilmente Docker in qualsiasi [Mac][docker-mac], [Windows][docker-windows], o [Linux] [ docker-linux] sistema.
+Per completare questa esercitazione è necessario un ambiente di sviluppo Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
-Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. Nel computer locale per completare questa esercitazione, è necessario installare l'ambiente di sviluppo CLI di Azure e Docker.
+Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È necessario installare l'interfaccia della riga di comando di Azure e l'ambiente di sviluppo Docker nel computer locale per completare questa esercitazione.
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Distribuire il contenitore tramite l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure consente di distribuire un contenitore in Istanze di contenitore di Azure con un unico comando. L'immagine del contenitore è ospitata nell'istanza privata di Registro contenitori di Azure, quindi è necessario includere le credenziali necessarie per l'accesso. Ottenere le credenziali con i seguenti comandi CLI di Azure.
+L'interfaccia della riga di comando di Azure consente di distribuire un contenitore in Istanze di contenitore di Azure con un unico comando. L'immagine del contenitore è ospitata nell'istanza privata di Registro contenitori di Azure, quindi è necessario includere le credenziali necessarie per l'accesso. Ottenere le credenziali con i comandi seguenti dell'interfaccia della riga di comando di Azure.
 
 Server di accesso del registro contenitori (sostituire con il nome del registro):
 
@@ -56,17 +56,17 @@ Per distribuire l'immagine del contenitore dal registro contenitori con una rich
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure Resource Manager. Per visualizzare lo stato della distribuzione, utilizzare [Mostra contenitore az][az-container-show]:
+Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure Resource Manager. Per visualizzare lo stato della distribuzione, usare il comando [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-Ripetere il [Mostra contenitore az] [ az-container-show] comando fino a quando lo stato cambia da *in sospeso* per *esecuzione*, l'operazione dovrebbe richiedere meno di un minuto. Quando il contenitore è *In esecuzione*, procedere al passaggio successivo.
+Ripetere il comando [az container show][az-container-show] fino a quando lo stato cambia da *In sospeso* a *In esecuzione*, operazione che dovrebbe richiedere meno di un minuto. Quando il contenitore è *In esecuzione*, procedere al passaggio successivo.
 
 ## <a name="view-the-application-and-container-logs"></a>Visualizzare l'applicazione e i log dei contenitori
 
-Dopo la distribuzione ha esito positivo, visualizzare l'indirizzo IP pubblico del contenitore con il [Mostra contenitore az] [ az-container-show] comando:
+Quando la distribuzione ha esito positivo, visualizzare l'indirizzo IP pubblico del contenitore con il comando [az container show][az-container-show]:
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
@@ -94,7 +94,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non è più necessario tutte le risorse a cui è stato creato in questa serie di esercitazioni, è possibile eseguire il [eliminazione gruppo az] [ az-group-delete] comando per rimuovere il gruppo di risorse e tutte le risorse che contiene. Questo comando elimina il registro del contenitore creato, nonché il contenitore in esecuzione e tutte le risorse correlate.
+Se non è più necessaria alcuna delle risorse create in questa serie di esercitazioni, è possibile eseguire il comando [az group delete][az-group-delete] per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Questo comando elimina il registro del contenitore creato, nonché il contenitore in esecuzione e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -105,9 +105,9 @@ az group delete --name myResourceGroup
 In questa esercitazione sono stati distribuiti contenitori in Istanze di contenitore di Azure. Sono stati completati i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Distribuire il contenitore dal Registro di contenitore di Azure usando l'interfaccia CLI di Azure
-> * Visualizzare l'applicazione nel browser
-> * Visualizzare i log del contenitore
+> * Il contenitore da Registro contenitori di Azure è stato distribuito tramite l'interfaccia della riga di comando di Azure
+> * L'applicazione è stata visualizzata nel browser
+> * I log del contenitore sono stati visualizzati
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

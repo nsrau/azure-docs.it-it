@@ -19,7 +19,7 @@ ms.author: tdykstra
 ms.custom: 
 ms.openlocfilehash: eeb8833470b2ba003ba74b1db57bbd2bbbb7f65d
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -34,13 +34,13 @@ Questo articolo illustra come usare trigger timer in Funzioni di Azure. Un trigg
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script c# (con estensione csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="c-example"></a>Esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che viene eseguito ogni cinque minuti:
+L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che viene eseguita ogni cinque minuti:
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -136,7 +136,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="attributes"></a>Attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
 Il costruttore dell'attributo accetta un'espressione CRON, come illustrato nell'esempio seguente:
 
@@ -150,7 +150,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 È possibile specificare un oggetto `TimeSpan` invece di un'espressione CRON se l'app per le funzioni viene eseguita in un piano di servizio app (non un piano a consumo).
 
-Per un esempio completo, vedere [esempio c#](#c-example).
+Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 ## <a name="configuration"></a>Configurazione
 

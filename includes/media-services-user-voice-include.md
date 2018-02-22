@@ -7,4 +7,4 @@ Usare il forum di [suggerimenti degli utenti](http://go.microsoft.com/fwlink/?li
 * [Analisi di contenuti multimediali](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Azure portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [API REST e piattaforma](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
-* [Video on Demand di streaming](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
+* [Streaming di video on demand](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

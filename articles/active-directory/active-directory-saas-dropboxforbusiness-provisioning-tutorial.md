@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff85b5c20d74bde476416bdd70d5a345f4a6fefb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 6b082127f74ff5f823506c0f75f40c4b4246dcfe
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Esercitazione: Configurare Dropbox for Business per il provisioning utenti automatico
 
@@ -88,13 +88,9 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 14. Fare clic su **Salva**.
 
-Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Dropbox for Business nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 20 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning per l'app Dropbox for Business.
+Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Dropbox for Business nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning per l'app Dropbox for Business.
 
-È ora possibile creare un account di test. Attendere 20 minuti per verificare che l'account sia stato sincronizzato con Dropbox for Business.
-
-Un ciclo di provisioning utenti completato correttamente è indicato da uno stato correlato.
-
-![Assegnare utenti](./media/active-directory-saas-dropboxforbusiness-provisioning-tutorial/IC769523.png "Assegnare utenti")
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

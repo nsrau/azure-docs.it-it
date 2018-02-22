@@ -29,7 +29,7 @@ Per completare questa lezione, è necessario che Excel sia installato nello stes
   
 Tempo previsto per il completamento della lezione: **cinque minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 11: Creare ruoli](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Esplorare il modello usando la prospettiva predefinita e la prospettiva Internet Sales  

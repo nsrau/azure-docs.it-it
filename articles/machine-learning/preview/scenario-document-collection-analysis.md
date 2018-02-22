@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -54,7 +54,7 @@ Le tecniche/algoritmi di machine learning utilizzati in questo scenario includon
 
 1. Rilevamento delle tendenze e delle anomalie degli argomenti
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
@@ -73,7 +73,7 @@ Creare un nuovo progetto usando questo esempio come modello:
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-Il set di dati utilizzati in questo scenario contiene riepiloghi di testo e i metadati associati per ogni azione legislativi congresso US. I dati vengono raccolti da [GovTrack.us](https://www.govtrack.us/) che tiene traccia delle attività del Congresso e aiuta gli americani a partecipare al loro processo legislativo nazionale. I dati in blocco possono essere scaricati tramite [questo collegamento](https://www.govtrack.us/data/congress/) usando uno script manuale, che non è incluso in questo scenario. È possibile trovare i dettagli su come scaricare i dati nella [documentazione dell'API GovTrack](https://www.govtrack.us/developers/api).
+Il set di dati usato in questo scenario contiene riepiloghi di testo e metadati associati per ogni azione legislativa del Congresso degli Stati Uniti. I dati vengono raccolti da [GovTrack.us](https://www.govtrack.us/) che tiene traccia delle attività del Congresso e aiuta gli americani a partecipare al loro processo legislativo nazionale. I dati in blocco possono essere scaricati tramite [questo collegamento](https://www.govtrack.us/data/congress/) usando uno script manuale, che non è incluso in questo scenario. È possibile trovare i dettagli su come scaricare i dati nella [documentazione dell'API GovTrack](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Origine dati
 

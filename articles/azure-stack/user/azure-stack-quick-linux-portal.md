@@ -7,14 +7,14 @@ author: vhorne
 manager: byronr
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Creare una macchina virtuale Linux con il portale di Azure Stack
 
@@ -59,7 +59,7 @@ Accedere al portale di Azure Stack. L'indirizzo del portale di Azure Stack varia
 
 ## <a name="create-the-virtual-machine"></a>Creare la macchina virtuale
 
-1. Fare clic su di **New** trovare il pulsante nell'angolo superiore sinistro del portale di Azure Stack.
+1. Fare clic su **creare una risorsa** nell'angolo superiore sinistro del portale di Azure Stack.
 
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
 3. Fare clic su **Crea**.

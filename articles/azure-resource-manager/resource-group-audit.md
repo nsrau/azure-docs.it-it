@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualizzare i log attività per controllare le azioni sulle risorse
 Con i log attività è possibile determinare:
@@ -29,7 +29,11 @@ Con i log attività è possibile determinare:
 * lo stato dell'operazione;
 * i valori delle altre proprietà che potrebbero essere utili per esaminare l'operazione.
 
-[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
+Il log di attività contiene tutte le operazioni di scrittura (PUT, POST, DELETE) eseguite sulle risorse. Non include le operazioni di lettura (GET). Per un elenco azioni risorsa, vedere [Operazioni di provider di risorse con Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md). È possibile usare i log di controllo per trovare un errore durante la risoluzione dei problemi o per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa.
+
+I registri attività vengono conservati per 90 giorni. È possibile eseguire query per qualsiasi intervallo di date, purché la data di inizio non risalga a più di 90 giorni prima.
+
+
 
 È possibile recuperare le informazioni dai log attività tramite il portale, PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Insights o la [libreria .NET di Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
@@ -38,10 +42,10 @@ Con i log attività è possibile determinare:
    
     ![Selezionare i log di attività](./media/resource-group-audit/select-monitor.png)
 
-   In alternativa, per filtrare automaticamente il registro attività per una determinata risorsa o un gruppo di risorse, selezionare **log attività**. Si noti che il log attività viene automaticamente filtrato in base alla risorsa selezionata.
+   In alternativa, per filtrare automaticamente il log attività per una determinata risorsa o uno specifico gruppo di risorse, selezionare **Log attività**. Si noti che il log attività viene automaticamente filtrato in base alla risorsa selezionata.
    
     ![filtrare in base alla risorsa](./media/resource-group-audit/filtered-by-resource.png)
-2. Nel **Log attività**, viene visualizzato un riepilogo delle operazioni recenti.
+2. Nel **Log attività** viene visualizzato un riepilogo delle operazioni recenti.
    
     ![visualizzare le azioni](./media/resource-group-audit/audit-summary.png)
 3. Per limitare il numero di operazioni visualizzate, selezionare condizioni diverse. Ad esempio, l'immagine seguente mostra i campi **Intervallo di tempo** ed **Evento avviato da** modificati per poter visualizzare le azioni eseguite da un determinato utente o applicazione il mese scorso. Selezionare **Applica** per visualizzare i risultati della query.
@@ -147,5 +151,5 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 * Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo in Azure](../active-directory/role-based-access-control-configure.md).
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](resource-group-lock-resources.md).
-* Per visualizzare l'elenco di operazioni disponibili per ogni provider di gestione risorse di Microsoft Azure, vedere [operazioni di Provider di risorse di gestione risorse di Azure](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Per visualizzare l'elenco delle operazioni disponibili per ogni provider Microsoft Azure Resource Manager, vedere [Operazioni di provider di risorse con Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

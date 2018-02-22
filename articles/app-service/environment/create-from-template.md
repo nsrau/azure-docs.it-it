@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
@@ -40,7 +40,7 @@ Per automatizzare la creazione dell'ambiente del servizio app:
 
 2. Dopo avere creato l'ambiente del servizio app con bilanciamento del carico interno, viene caricato un certificato SSL corrispondente al dominio dell'ambiente del servizio app con bilanciamento del carico interno.
 
-3. Il certificato SSL caricato viene assegnato all'ambiente del servizio app ILB come certificato "predefinito".  Questo certificato viene usato per il traffico SSL verso le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno quando usano il dominio radice comune assegnato all'ambiente del servizio app, ad esempio https://someapp.mycustomrootcomain.com.
+3. Il certificato SSL caricato viene assegnato all'ambiente del servizio app ILB come certificato "predefinito".  Questo certificato viene usato per il traffico SSL verso le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno quando usano il dominio radice comune assegnato all'ambiente del servizio app, ad esempio https://someapp.mycustomrootdomain.com.
 
 
 ## <a name="create-the-ase"></a>Creare l'ambiente del servizio app

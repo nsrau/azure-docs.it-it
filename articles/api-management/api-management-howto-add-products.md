@@ -16,7 +16,7 @@ ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 ![Prodotto aggiunto](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
@@ -59,7 +59,7 @@ In questa esercitazione si apprenderà come:
     |Note legali|È possibile includere le condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto.|
     |API|I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/> È possibile aggiungere un'API esistente durante la creazione di prodotto. È possibile aggiungere un'API al prodotto in un secondo momento, dalla pagina **Impostazioni** dei prodotti o durante la creazione di un'API.|<br/>Gli sviluppatori devono prima sottoscrivere un prodotto per avere accesso all'API. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto.<br/> Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.|
 
-3. Fare clic su **crea** per creare il nuovo prodotto.
+3. Fare clic su **Crea** per creare il nuovo prodotto.
 
 ### <a name="add-more-configurations"></a>Aggiungere altre configurazioni
 

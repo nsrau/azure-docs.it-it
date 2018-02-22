@@ -19,7 +19,7 @@ ms.date: 01/04/2018
 ms.author: larryfr
 ms.openlocfilehash: a0a63c414bc68f5125b65e288d78fb546c376c04
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -39,7 +39,7 @@ Informazioni su come usare Apache Sqoop per eseguire importazioni ed esportazion
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * Il [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) utilità
+> * Utilità [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)
 
 ## <a name="create-the-table-in-sql-database"></a>Creare la tabella nel database SQL
 
