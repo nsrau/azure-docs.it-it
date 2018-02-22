@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Approccio multilivello alla sicurezza delle password di Azure AD
 
@@ -46,7 +46,7 @@ Azure AD e il sistema di account Microsoft usano approcci di settore comprovati 
 * Password vietate in modo dinamico
 * Smart Password Lockout
 
-Per informazioni sulla gestione delle password in base alla ricerca corrente, vedere il white paper contenente le [indicazioni sulle password](http://aka.ms/passwordguidance).
+Per informazioni sulla gestione delle password in base alla ricerca corrente, vedere il white paper contenente le [indicazioni sulle password](https://aka.ms/passwordguidance).
 
 ### <a name="dynamically-banned-passwords"></a>Password vietate in modo dinamico
 
