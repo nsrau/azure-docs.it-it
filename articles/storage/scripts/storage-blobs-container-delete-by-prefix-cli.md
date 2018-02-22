@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: d14195abf1c17d11e259ed9edb5112626b063112
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3eab1878c2a5f6b1d031ef3208e30a4df19dc41e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminare i contenitori in base al prefisso del nome
 
@@ -47,11 +47,11 @@ Lo script usa i comandi seguenti per eliminare i contenitori in base al prefisso
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#create) | Crea un account di Archiviazione di Azure nel gruppo di risorse specificato. |
-| [az storage container create](/cli/azure/storage/container#create) | Crea un contenitore nell'Archiviazione BLOB di Azure. |
-| [az storage container list](/cli/azure/storage/container#list) | Elenca i contenitori nell'account di Archiviazione di Azure. |
-| [az storage container delete](/cli/azure/storage/container#delete) | Elimina i contenitori nell'account di Archiviazione di Azure. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di Archiviazione di Azure nel gruppo di risorse specificato. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Crea un contenitore nell'Archiviazione BLOB di Azure. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Elenca i contenitori nell'account di Archiviazione di Azure. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Elimina i contenitori nell'account di Archiviazione di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

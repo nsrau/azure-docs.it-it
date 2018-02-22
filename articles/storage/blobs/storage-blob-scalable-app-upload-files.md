@@ -1,28 +1,25 @@
 ---
-title: "Caricare grandi quantità di dati casuali in parallelo in archiviazione di Azure | Documenti Microsoft"
-description: "Imparare a usare Azure SDK per caricare grandi quantità di dati casuali in parallelo a un account di archiviazione di Azure"
+title: "Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure | Microsoft Docs"
+description: "Informazioni su come usare Azure SDK per caricare grandi quantità di dati casuali in parallelo in un account di archiviazione di Azure"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
-# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo nell'archiviazione di Azure
+# <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
-Questa è la seconda di una serie di esercitazioni. Questa esercitazione viene illustrato come che si distribuisce un'applicazione che carica una grande quantità di dati casuali a un account di archiviazione di Azure.
+Questa è la seconda di una serie di esercitazioni. Questa esercitazione illustra come distribuire un'applicazione che carica grandi quantità di dati casuali in un account di archiviazione di Azure.
 
 Nella seconda parte della serie si apprenderà come:
 
@@ -32,17 +29,17 @@ Nella seconda parte della serie si apprenderà come:
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 
-Archiviazione blob di Azure fornisce un servizio scalabile per l'archiviazione dei dati. Per garantire l'applicazione sia come garantendo così migliori prestazioni possibili, la comprensione del modo in cui è consigliabile works di archiviazione blob. È importante conoscere i limiti per i BLOB di Azure, per ulteriori informazioni su questi limiti, visitare: [obiettivi di scalabilità di archiviazione blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+L'archivio BLOB di Azure offre un servizio scalabile per l'archiviazione dei dati. Per garantire le migliori prestazioni possibili dell'applicazione, è consigliabile comprendere il funzionamento dell'archivio BLOB. È importante conoscere i limiti dei BLOB di Azure. Per altre informazioni su tali limiti, vedere gli [obiettivi di scalabilità di Archiviazione BLOB](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Partizione di denominazione](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) è un altro fattore importante quando si progetta un'applicazione elevata verrà eseguita tramite i BLOB. Archiviazione di Azure usa uno schema di partizionamento basato su intervallo per il bilanciamento del carico e scalabilità. Questa configurazione implica che i file con le convenzioni di denominazione simili o prefissi indirizzato alla stessa partizione. Questa logica include il nome del contenitore in cui i file vengono caricati. In questa esercitazione, utilizzare i file che dispongono di GUID per i nomi come contenuto anche come casuale. Questi vengono quindi caricati in cinque contenitori diversi con nomi casuali.
+Un altro fattore importante nella progettazione di un'applicazione ad alte prestazioni che usa BLOB è la [denominazione delle partizioni](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47). Per la scalabilità e il bilanciamento del carico, Archiviazione di Azure usa uno schema di partizionamento basato su intervalli. Con questa configurazione, i file con prefissi o convenzioni di denominazione simili vengono inseriti nella stessa partizione. Questa logica include il nome del contenitore in cui i file vengono caricati. In questa esercitazione si usano file con nomi costituiti da GUID e contenuto generato in modo casuale, che vengono quindi caricati in cinque diversi contenitori con nomi casuali.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, è necessario avere completato l'esercitazione di archiviazione precedente: [creare una macchina virtuale e l'account di archiviazione per un'applicazione scalabile][previous-tutorial].
+Per completare questa esercitazione è necessario aver completato la precedente esercitazione sull'archiviazione: [Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile][previous-tutorial].
 
-## <a name="remote-into-your-virtual-machine"></a>Remoto nella macchina virtuale
+## <a name="remote-into-your-virtual-machine"></a>Creare una sessione remota nella macchina virtuale
 
-Utilizzare il comando seguente nel computer locale per creare una sessione desktop remoto con la macchina virtuale. Sostituire l'indirizzo IP con publicIPAddress della macchina virtuale. Quando richiesto, immettere le credenziali utilizzate durante la creazione della macchina virtuale.
+Usare il comando seguente nel computer locale per creare una sessione Desktop remoto con la macchina virtuale. Sostituire l'indirizzo IP con l'indirizzo publicIPAddress della macchina virtuale. Quando richiesto, immettere le credenziali usate durante la creazione della macchina virtuale.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -50,36 +47,36 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Configurare la stringa di connessione
 
-Nel portale di Azure, passare all'account di archiviazione. Selezionare **le chiavi di accesso** in **impostazioni** nell'account di archiviazione. Copia il **stringa di connessione** dalla chiave primaria o secondaria. Accedere alla macchina virtuale creata nell'esercitazione precedente. Aprire un **prompt dei comandi** come amministratore ed eseguire il `setx` comando con il `/m` switch, questo comando consente di risparmiare una variabile di ambiente impostazione macchina. La variabile di ambiente non è disponibile fino a quando non si ricarica il **prompt dei comandi**. Sostituire  **\<storageConnectionString\>**  nell'esempio seguente:
+Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Accedere alla macchina virtuale creata nell'esercitazione precedente. Aprire il **prompt dei comandi** come amministratore ed eseguire il comando `setx` con l'opzione `/m`. Questo comando salva una variabile di ambiente di impostazione del computer. La variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi**. Sostituire **\<storageConnectionString\>** nell'esempio seguente:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-Al termine, aprire un'altra **prompt dei comandi**, passare a `D:\git\storage-dotnet-perf-scale-app` e tipo `dotnet build` per compilare l'applicazione.
+Al termine, aprire un altro **prompt dei comandi**, passare a `D:\git\storage-dotnet-perf-scale-app` e digitare `dotnet build` per compilare l'applicazione.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Accedere a `D:\git\storage-dotnet-perf-scale-app`.
 
-Digitare `dotnet run` per eseguire l'applicazione. Alla prima esecuzione `dotnet` popola la cache locale del pacchetto, per migliorare la velocità di ripristino e abilitare l'accesso offline. Questo comando richiede a un minuto per completare e si verifica solo una volta.
+Digitare `dotnet run` per eseguire l'applicazione. Alla prima esecuzione di `dotnet` viene popolata la cache pacchetti locale, per migliorare la velocità di ripristino e consentire l'accesso offline. Questo comando viene eseguito una sola volta e il completamento richiede fino a un minuto.
 
 ```
 dotnet run
 ```
 
-L'applicazione crea cinque contenitori denominati in modo casuale e inizia a caricare i file nella directory di gestione temporanea per l'account di archiviazione. L'applicazione imposta il minimo di thread a 100 e [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) a 100 per garantire che un numero elevato di connessioni simultanee è consentito quando esegue l'applicazione.
+L'applicazione crea cinque contenitori con nome casuale e inizia a caricare i file della directory di staging nell'account di archiviazione. L'applicazione imposta il numero minimo di thread su 100 e il valore di [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) su 100 in modo da consentire un elevato numero di connessioni simultanee durante l'esecuzione dell'applicazione.
 
-Oltre a impostare le impostazioni di limite di connessione e di threading di [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) per il [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) metodo sono configurati per utilizzare il parallelismo e disattivare la convalida dell'hash MD5. I file vengono caricati in blocchi di 100 mb, questa configurazione offre prestazioni migliori, ma può essere costosa se si utilizza un valore di esecuzione rete come se si è verificato un errore l'intero blocco di 100 mb viene ripetuta.
+Oltre alle impostazioni relative ai limiti per connessioni e threading, viene configurata la classe [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) per il metodo [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) in modo da usare il parallelismo e disabilitare la convalida dell'hash MD5. I file vengono caricati in blocchi di 100 MB. Questa configurazione offre prestazioni superiori, ma può risultare costosa se si usa una rete con prestazioni scarse perché in caso di errore viene eseguito un nuovo tentativo per l'intero blocco di 100 MB.
 
 |Proprietà|Valore|DESCRIZIONE|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| L'impostazione suddivide il blob in blocchi durante il caricamento. Per ottenere prestazioni più elevata, questo valore deve essere 8 volte il numero di core. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Questa proprietà Disabilita verifica l'hash MD5 del contenuto caricato. Disabilitare la convalida MD5 produce un trasferimento più veloce. Ma non conferma la validità o l'integrità dei file trasferiti.   |
-|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Questa proprietà determina se un hash MD5 viene calcolato e archiviato con il file.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| backoff 2 secondi con 10 massimo di tentativi |Determina i criteri di ripetizione delle richieste. Errori di connessione vengono ritentati, in questo esempio un [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) criterio è configurato con un backoff 2 secondi e un numero massimo di tentativi pari a 10. Questa impostazione è importante quando l'applicazione sta per raggiungere raggiunge il [obiettivi di scalabilità di archiviazione blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| Questa impostazione suddivide il BLOB in blocchi durante il caricamento. Per prestazioni ottimali, questo valore deve essere pari a 8 volte il numero di core. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Questa proprietà disabilita la verifica dell'hash MD5 del contenuto caricato. La disabilitazione della convalida MD5 produce un trasferimento più veloce. Non viene tuttavia confermata la validità o l'integrità dei file trasferiti.   |
+|[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Questa proprietà determina se un hash MD5 verrà calcolato e archiviato con il file.   |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Backoff di 2 secondi con un massimo di 10 nuovi tentativi |Determina i criteri di ripetizione delle richieste. In caso di errori di connessione vengono eseguiti nuovi tentativi. In questo esempio viene configurato un criterio [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) con un backoff di 2 secondi e un numero massimo di nuovi tentativi pari a 10. Questa impostazione è importante quando l'applicazione sta per raggiungere gli [obiettivi di scalabilità di Archiviazione BLOB](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
-Il `UploadFilesAsync` attività è illustrato nell'esempio seguente:
+L'attività `UploadFilesAsync` viene visualizzata nell'esempio seguente:
 
 ```csharp
 private static async Task UploadFilesAsync()
@@ -156,7 +153,7 @@ private static async Task UploadFilesAsync()
 }
 ```
 
-L'esempio seguente è un output troncato applicazione in esecuzione in un sistema di Windows.
+Di seguito è riportato un esempio di output troncato dell'applicazione in esecuzione in un sistema Windows.
 
 ```
 Created container https://mystorageaccount.blob.core.windows.net/9efa7ecb-2b24-49ff-8e5b-1d25e5481076
@@ -175,9 +172,9 @@ Starting upload of D:\git\storage-dotnet-perf-scale-app\upload\5129b385-5781-43b
 Upload has been completed in 142.0429536 seconds. Press any key to continue
 ```
 
-### <a name="validate-the-connections"></a>Convalida delle connessioni
+### <a name="validate-the-connections"></a>Convalidare le connessioni
 
-Mentre vengono caricati i file, è possibile verificare il numero di connessioni simultanee all'account di archiviazione. Aprire un **prompt dei comandi** e tipo `netstat -a | find /c "blob:https"`. Questo comando Mostra il numero di connessioni attualmente aperti con `netstat`. L'esempio seguente mostra un output simile a ciò che viene visualizzato quando si esegue manualmente l'esercitazione. Come si può notare nell'esempio, 800 connessioni aperte durante il caricamento di file casuali all'account di archiviazione. Questo valore cambia in tutta l'esecuzione del caricamento. Caricando in blocchi di blocco parallelo, la quantità di tempo necessaria per il trasferimento del contenuto è notevolmente ridotte.
+Durante il caricamento dei file, è possibile verificare il numero di connessioni simultanee all'account di archiviazione. Aprire il **prompt dei comandi** e digitare `netstat -a | find /c "blob:https"`. Questo comando consente di visualizzare il numero di connessioni attualmente aperte tramite `netstat`. L'esempio seguente mostra un output simile a ciò che viene visualizzato quando si esegue l'esercitazione. Come è possibile rilevare dall'esempio, durante il caricamento dei file casuali nell'account di archiviazione erano aperte 800 connessioni. Questo valore cambia nel corso dell'esecuzione del caricamento. Caricando blocchi in parallelo, la quantità di tempo necessaria per trasferire il contenuto si riduce considerevolmente.
 
 ```
 C:\>netstat -a | find /c "blob:https"
@@ -188,7 +185,7 @@ C:\>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella seconda parte della serie, illustrando il caricamento di grandi quantità di dati casuali in un account di archiviazione in parallelo, ad esempio come:
+Nella seconda parte della serie si è appreso come caricare grandi quantità di dati casuali in parallelo in un account di archiviazione, ad esempio come:
 
 > [!div class="checklist"]
 > * Configurare la stringa di connessione
@@ -196,9 +193,9 @@ Nella seconda parte della serie, illustrando il caricamento di grandi quantità 
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 
-Spostare la terza parte della serie per il download di grandi quantità di dati da un account di archiviazione.
+Passare alla terza parte della serie per scaricare grandi quantità di dati da un account di archiviazione.
 
 > [!div class="nextstepaction"]
-> [Caricare grandi quantità di file di grandi dimensioni in parallelo a un account di archiviazione](storage-blob-scalable-app-download-files.md)
+> [Scaricare grandi quantità di dati casuali da Archiviazione di Azure](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

@@ -18,7 +18,7 @@ ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: cd0128256e016a329b0940eec4be41426cdaf51a
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

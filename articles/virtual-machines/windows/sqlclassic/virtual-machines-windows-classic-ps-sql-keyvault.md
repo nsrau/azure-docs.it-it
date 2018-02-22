@@ -4,7 +4,7 @@ description: Informazioni su come automatizzare la configurazione della crittogr
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5fd0fb1f8ac9bb0132c64c195d4cc9c86ef8edd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]

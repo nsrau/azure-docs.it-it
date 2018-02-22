@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 
@@ -46,7 +46,7 @@ Connettendo i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, 
 1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione in uso. Se Java non è installato, vedere la documentazione sul [sito Web Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Scaricare il pacchetto binario corretto per il proprio sistema:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
     sudo dpkg -i elasticsearch-5.2.0.deb
     sudo /etc/init.d/elasticsearch start
@@ -56,13 +56,13 @@ Connettendo i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, 
 
 1. Verificare che Elasticsearch sia in esecuzione con questo comando:
 
-    ```
+    ```bash
     curl http://127.0.0.1:9200
     ```
 
     La risposta visualizzata sarà simile a questa:
 
-    ```
+    ```json
     {
     "name" : "Angela Del Toro",
     "cluster_name" : "elasticsearch",
@@ -83,13 +83,13 @@ Per altre istruzioni sull'installazione di Elasticsearch, vedere la pagina [Inst
 
 1. Per installare Logstash, eseguire questi comandi:
 
-    ```
+    ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 1. Successivamente è necessario configurare Logstash per accedere ai log dei flussi e analizzarli. Creare un file logstash.conf usando:
 
-    ```
+    ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
@@ -162,13 +162,13 @@ Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione u
 
 Questo plug-in Logstash consentirà di accedere direttamente ai log dei flussi dall'account di archiviazione designato. Per installare questo plug-in, nella directory di installazione Logstash predefinita (in questo caso /usr/share/logstash/bin) eseguire il comando:
 
-```
+```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
 Per avviare Logstash, eseguire questo comando:
 
-```
+```bash
 sudo /etc/init.d/logstash start
 ```
 
@@ -178,14 +178,14 @@ Per altre informazioni sul plug-in, vedere la documentazione [qui](https://githu
 
 1. Eseguire questi comandi per installare Kibana:
 
-  ```
+  ```bash
   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
   ```
 
 1. Per eseguire Kibana, usare questi comandi:
 
-  ```
+  ```bash
   cd kibana-5.2.0-linux-x86_64/
   ./bin/kibana
   ```

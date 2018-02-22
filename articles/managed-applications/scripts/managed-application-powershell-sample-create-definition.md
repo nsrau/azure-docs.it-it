@@ -31,7 +31,7 @@ Questo script pubblica una definizione di applicazione gestita in un catalogo di
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa il comando seguente per creare la definizione dell'applicazione gestita. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa il comando seguente per creare la definizione di applicazione gestita. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

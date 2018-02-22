@@ -4,7 +4,7 @@ description: Descrizione dei vari tipi di strategie HADR per SQL Server in esecu
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure
 
@@ -69,7 +69,7 @@ Le tecnologie HADR di SQL Server supportate in Azure includono:
 | Tecnologia | Architetture di esempio |
 | --- | --- |
 | **Gruppi di disponibilità** |Alcune repliche di disponibilità in esecuzione nelle macchine virtuali di Azure e altre in esecuzione in locale per il ripristino di emergenza tra siti. Il sito di produzione può essere locale o trovarsi in un data center di Azure.<br/>![Gruppi di disponibilità](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_alwayson.gif)<br/>Poiché tutte le repliche di disponibilità devono trovarsi nello stesso cluster di failover, tale cluster deve essere esteso a entrambe le reti (un cluster di failover su più subnet). Questa configurazione richiede una connessione VPN tra Azure e la rete locale.<br/><br/>Per il corretto ripristino di emergenza dei database, è inoltre opportuno installare un controller di dominio di replica nel sito di ripristino di emergenza.<br/><br/>È possibile usare la procedura guidata Aggiungi replica in SSMS per aggiungere una replica di Azure a un gruppo di disponibilità AlwaysOn esistente. Per altre informazioni, vedere l'esercitazione relativa all'estensione del gruppo di disponibilità AlwaysOn ad Azure. |
-| **Mirroring del database** |Un partner in esecuzione in una macchina virtuale di Azure e l'altro in esecuzione in locale per il ripristino di emergenza tra siti usando certificati del server. I partner non devono essere nello stesso dominio di Active Directory e non è richiesta alcuna connessione VPN.<br/>![Mirroring del database](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Un altro scenario di mirroring del database include un partner in esecuzione in una VM di Azure e l'altro in esecuzione in locale nello stesso dominio di Active Directory per il ripristino di emergenza tra siti. È necessaria una [connessione VPN tra la rete virtuale di Azure e la rete locale](../../../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Per il corretto ripristino di emergenza dei database, è inoltre opportuno installare un controller di dominio di replica nel sito di ripristino di emergenza. |
+| **Mirroring del database** |Un partner in esecuzione in una macchina virtuale di Azure e l'altro in esecuzione in locale per il ripristino di emergenza tra siti usando certificati del server. I partner non devono essere nello stesso dominio di Active Directory e non è richiesta alcuna connessione VPN.<br/>![Mirroring del database](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>Un altro scenario di mirroring del database include un partner in esecuzione in una VM di Azure e l'altro in esecuzione in locale nello stesso dominio di Active Directory per il ripristino di emergenza tra siti. È necessaria una [connessione VPN tra la rete virtuale di Azure e la rete locale](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).<br/><br/>Per il corretto ripristino di emergenza dei database, è inoltre opportuno installare un controller di dominio di replica nel sito di ripristino di emergenza. |
 | **Log shipping** |Un server in esecuzione in una macchina virtuale di Azure e l'altro in esecuzione in locale per il ripristino di emergenza tra siti. Il log shipping dipende dalla condivisione dei file di Windows, pertanto è richiesta una connessione VPN tra la rete virtuale di Azure e la rete locale.<br/>![Log shipping](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>Per il corretto ripristino di emergenza dei database, è inoltre opportuno installare un controller di dominio di replica nel sito di ripristino di emergenza. |
 | **Backup e ripristino con il servizio di archiviazione BLOB di Azure** |Il backup dei database di produzione locali viene eseguito direttamente nell'archiviazione BLOB di Azure per il ripristino di emergenza.<br/>![Backup e ripristino](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>Per altre informazioni, vedere [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replica e failover di SQL Server in Azure con Azure Site Recovery** |La replica dell'istanza di produzione locale di SQL Server viene eseguita direttamente in Archiviazione di Azure per il ripristino di emergenza.<br/>![Replica con Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>Per altre informazioni, vedere [Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
@@ -104,7 +104,7 @@ Sono disponibili due opzioni principali per la configurazione del listener: este
 Se il gruppo di disponibilità si estende su più subnet di Azure (ad esempio una distribuzione che attraversa aree di Azure), la stringa di connessione client deve includere "**MultisubnetFailover=True**". Di conseguenza, vengono eseguiti tentativi di connessione paralleli alle repliche nelle diverse subnet. Per istruzioni sull'impostazione di un listener, vedere
 
 * [Configurare un listener ILB per i gruppi di disponibilità in Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
-* [Configurare un listener esterno per i gruppi di disponibilità in Azure](../classic/ps-sql-ext-listener.md).
+* [Configurare un listener esterno per i gruppi di disponibilità in Azure](../sqlclassic/virtual-machines-windows-classic-ps-sql-ext-listener.md).
 
 È comunque possibile connettersi separatamente a ogni replica di disponibilità effettuando la connessione direttamente all'istanza del servizio. Inoltre, poiché i gruppi di disponibilità sono compatibili con le versioni precedenti dei client di mirroring del database, è possibile connettersi alle repliche di disponibilità come partner per il mirroring del database purché le repliche siano configurate in modo analogo al mirroring del database:
 

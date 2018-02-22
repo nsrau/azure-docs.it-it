@@ -14,13 +14,13 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/29/2018
-ms.author: ninarn
-ms.openlocfilehash: 63a16df5f36bba4ffb97529100b878f0a1591127
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/16/2018
+ms.author: carlrab
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creare un database SQL di Azure nel portale di Azure
 
@@ -38,7 +38,7 @@ Un database SQL di Azure viene creato con un set definito di [risorse di calcolo
 
 Seguire questi passaggi per creare un database SQL contenente i dati di esempio di Adventure Works LT.
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Database** dalla pagina **Nuovo**, quindi selezionare **Crea** in **Database SQL** nella pagina **Nuovo**.
 
@@ -84,7 +84,7 @@ Seguire questi passaggi per creare un database SQL contenente i dati di esempio 
    >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. Per questa esercitazione introduttiva selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **100 DTU (S3)** e **400** GB di archiviazione.
+7. Per questa esercitazione introduttiva selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **10 DTU (S0)** e **1** GB di archiviazione.
 
    ![Creare il database s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -138,17 +138,13 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 Ora che è stato creato un database di esempio in Azure, usare lo strumento di query predefinito nel portale di Azure per verificare la possibilità di connettersi al database ed eseguire query sui dati.
 
-1. Nella pagina del database SQL in uso individuare **Esplora dati (anteprima)** nel menu a sinistra e fare clic su questa opzione
+1. Nella pagina Database SQL del database fare clic su **Editor di query (anteprima)** nel menu a sinistra e quindi scegliere **Accedi**.
 
-   ![Cercare l'editor di query](./media/sql-database-get-started-portal/find-query-editor.PNG)
+   ![Accesso](./media/sql-database-get-started-portal/query-editor-login.png)
 
-2. Fare clic su **Accesso**, verificare le informazioni di accesso e quindi fare clic su **OK** per accedere usando l'autenticazione di SQL Server con l'account di accesso e la password dell'amministratore del server creati in precedenza.
+2. Selezionare l'autenticazione di SQL Server, specificare le informazioni necessarie per l'accesso e quindi fare clic su **OK** per accedere.
 
-   ![Accesso](./media/sql-database-get-started-portal/login-menu.png)
-
-3. Fare clic su **OK** per accedere.
-
-4. Dopo l'autenticazione come **ServerAdmin**, digitare la query seguente nel riquadro dell'editor di query.
+3. Dopo l'autenticazione come **ServerAdmin**, digitare la query seguente nel riquadro dell'editor di query.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -157,11 +153,11 @@ Ora che è stato creato un database di esempio in Azure, usare lo strumento di q
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-5. Fare clic su **Esegui** e quindi esaminare i risultati della query nel riquadro **Risultati**.
+4. Fare clic su **Esegui** e quindi esaminare i risultati della query nel riquadro **Risultati**.
 
    ![Risultati dell'Editor di query](./media/sql-database-get-started-portal/query-editor-results.png)
 
-6. Chiudere la pagina **Esplora dati** e fare clic su **OK** per rimuovere le modifiche non salvate.
+5. Chiudere la pagina **Esplora dati** e fare clic su **OK** per rimuovere le modifiche non salvate.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 935431783b08919049c5c24b56285647bc7b35ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c6efbc5da37a2ac500a575419263c0f21cca4b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorare i gateway VPN con la risoluzione dei problemi di Network Watcher
 
@@ -51,7 +51,7 @@ Prima di iniziare questo scenario, sono necessari i prerequisiti seguenti:
 
 ### <a name="create-the-runbook"></a>Creare il runbook
 
-Il primo passaggio per la configurazione dell'esempio consiste nel creare il runbook. Questo esempio usa un account RunAs. Per altre informazioni sugli account RunAs, vedere [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md).
+Il primo passaggio per la configurazione dell'esempio consiste nel creare il runbook. Questo esempio usa un account RunAs. Per altre informazioni sugli account RunAs, vedere [Autenticare runbook con account RunAs di Azure](../automation/automation-create-runas-account.md).
 
 ### <a name="step-1"></a>Passaggio 1
 

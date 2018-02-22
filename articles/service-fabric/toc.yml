@@ -529,7 +529,11 @@
         - name: Connettersi a un cluster sicuro
           href: service-fabric-connect-to-secure-cluster.md
         - name: Applicare patch ai nodi del cluster
-          href: service-fabric-patch-orchestration-application.md
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
     - name: Monitorare e diagnosticare
       items:
         - name: OMS
@@ -544,7 +548,7 @@
           items:
             - name: Monitoraggio delle prestazioni con Diagnostica di Microsoft Azure
               href: service-fabric-diagnostics-perf-wad.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.servicefabric/
@@ -599,7 +603,7 @@
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
     - name: Forum di MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calcolatore prezzi

@@ -1,21 +1,21 @@
 ---
 title: 'Script dell''interfaccia della riga di comando di Azure: Ripristinare un server di Database di Azure per PostgreSQL'
-description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare a un momento precedente un server di Database di Azure per MySQL e i relativi database.
+description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare un database di Azure per il server MySQL e i relativi database a un momento precedente.
 services: postgresql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: dfc53ae10055b0e8583fb0c705e605bbbb999760
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 242dd836a629d3accd0c43a72b4549e93145168f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Ripristinare un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure ripristina a un momento precedente un singolo server di Database di Azure per PostgreSQL.

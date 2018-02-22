@@ -3,22 +3,20 @@ title: "Scaricare grandi quantità di dati casuali da Archiviazione di Azure | M
 description: "Informazioni su come usare Azure SDK per scaricare grandi quantità di dati casuali da un account di Archiviazione di Azure"
 services: storage
 documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 3842860acb1c0fdd9e07f6d2f678ac5d5304003b
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 673dc8fc7fd5d08f9541595af16078d44c7f8308
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Scaricare grandi quantità di dati casuali da Archiviazione di Azure
 
@@ -31,7 +29,7 @@ Nella terza parte della serie si apprenderà come:
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, è necessario aver completato la precedente esercitazione sull'archiviazione: [Caricare grandi quantità di dati casuali in parallelo con Archiviazione di Azure][previous-tutorial].
 
@@ -104,7 +102,7 @@ dotnet run
 L'applicazione legge i contenitori nell'account di archiviazione specificato in **storageconnectionstring**. L'applicazione esegue quindi l'iterazione di 10 BLOB alla volta usando il metodo [ListBlobsSegmented](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmented?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_ListBlobsSegmented_System_String_System_Boolean_Microsoft_WindowsAzure_Storage_Blob_BlobListingDetails_System_Nullable_System_Int32__Microsoft_WindowsAzure_Storage_Blob_BlobContinuationToken_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) nei contenitori e li scarica nel computer locale tramite il metodo [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
 La tabella seguente mostra le proprietà [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) definite per ogni BLOB dopo il download.
 
-|Proprietà|Valore|Descrizione|
+|Proprietà|Valore|DESCRIZIONE|
 |---|---|---|
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Questa proprietà disabilita la verifica dell'hash MD5 del contenuto caricato. La disabilitazione della convalida MD5 produce un trasferimento più veloce. Non viene tuttavia confermata la validità o l'integrità dei file trasferiti. |
 |[StorBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Questa proprietà determina se un hash MD5 viene calcolato e archiviato.   |
