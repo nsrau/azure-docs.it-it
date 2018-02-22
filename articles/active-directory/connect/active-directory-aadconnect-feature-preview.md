@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7173c87dec980130992438954650227c16ad7292
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d4e76c85af7a9b90867d91a6290c4f4deea19a75
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="more-details-about-features-in-preview"></a>Altre informazioni sulle funzionalità in anteprima
 Questo argomento descrive come usare le funzionalità attualmente in anteprima.
@@ -26,7 +26,7 @@ Questo argomento descrive come usare le funzionalità attualmente in anteprima.
 ## <a name="group-writeback"></a>Writeback dei gruppi
 L'opzione per il writeback dei gruppi nelle funzionalità facoltative consente il writeback dei **gruppi di Office 365** in una foresta in cui è installato Exchange. Si tratta di un gruppo che viene sempre gestito nel cloud. Se Exchange è disponibile in locale, è possibile eseguire il writeback di questi gruppi in locale in modo che gli utenti con una cassetta postale di Exchange locale possano inviare e ricevere messaggi di posta elettronica da questi gruppi.
 
-Altre informazioni sui gruppi di Office 365 e su come usarli sono disponibili [qui](http://aka.ms/O365g).
+Altre informazioni sui gruppi di Office 365 e su come usarli sono disponibili [qui](https://aka.ms/O365g).
 
 Un gruppo di Office 365 viene rappresentato come gruppo di distribuzione in AD DS locale. Per riconoscere questo nuovo tipo di gruppo, nel server di Exchange locale deve essere installato l'aggiornamento cumulativo 8 di Exchange 2013 (rilasciato a marzo 2015) o Exchange 2016.
 

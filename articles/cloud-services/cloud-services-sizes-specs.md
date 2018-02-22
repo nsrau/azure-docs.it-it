@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 7bef7643a989caee846f8235e024deb482f4b0a0
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 542632dc61f1acecd8ca8ac45fb29bfa6aa839c2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -85,7 +85,7 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Molto piccola      | 1         | 0,768        | 20                   | 1/bassa |
 | Piccolo           | 1         | 1,75         | 225                  | 1/moderata |
-| Medio          | 2         | 3,5 GB       | 490                  | 1/moderata |
+| Media          | 2         | 3,5 GB       | 490                  | 1/moderata |
 | Grande           | 4         | 7            | 1000                 | 2/alta |
 | Molto grande      | 8         | 14           | 2040                 | 4/alta |
 | A5              | 2         | 14           | 490                  | 1/moderata |
@@ -147,23 +147,23 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 
 | Dimensione            | Core CPU | Memoria: GiB   | Unità SSD locale: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_D2_v3  | 2         | 8             | 16                   | 2/moderata |
-| Standard_D4_v3  | 4         | 16            | 32                   | 2/alta |
-| Standard_D8_v3  | 8         | 32            | 64                   | 4/alta |
-| Standard_D16_v3 | 16        | 64            | 128                  | 8/estremamente alta |
-| Standard_D32_v3 | 32        | 128           | 256                  | 8/estremamente alta |
-| Standard_D64_v3 | 64        | 256           | 512                  | 8/estremamente alta |
+| Standard_D2_v3  | 2         | 8             | 50                   | 2/moderata |
+| Standard_D4_v3  | 4         | 16            | 100                  | 2/alta |
+| Standard_D8_v3  | 8         | 32            | 200                  | 4/alta |
+| Standard_D16_v3 | 16        | 64            | 400                  | 8/estremamente alta |
+| Standard_D32_v3 | 32        | 128           | 800                  | 8/estremamente alta |
+| Standard_D64_v3 | 64        | 256           | 1600                 | 8/estremamente alta |
 
 ## <a name="ev3-series"></a>Serie Ev3
 
 | Dimensione            | Core CPU | Memoria: GiB   | Unità SSD locale: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_E2_v3  | 2         | 16            | 32                   | 2/moderata |
-| Standard_E4_v3  | 4         | 32            | 64                   | 2/alta |
-| Standard_E8_v3  | 8         | 64            | 128                  | 4/alta |
-| Standard_E16_v3 | 16        | 128           | 256                  | 8/estremamente alta |
-| Standard_E32_v3 | 32        | 256           | 512                  | 8/estremamente alta |
-| Standard_E64_v3 | 64        | 432           | 864                  | 8/estremamente alta |
+| Standard_E2_v3  | 2         | 16            | 50                   | 2/moderata |
+| Standard_E4_v3  | 4         | 32            | 100                  | 2/alta |
+| Standard_E8_v3  | 8         | 64            | 200                  | 4/alta |
+| Standard_E16_v3 | 16        | 128           | 400                  | 8/estremamente alta |
+| Standard_E32_v3 | 32        | 256           | 800                  | 8/estremamente alta |
+| Standard_E64_v3 | 64        | 432           | 1600                 | 8/estremamente alta |
 
 
 ## <a name="g-series"></a>Serie G

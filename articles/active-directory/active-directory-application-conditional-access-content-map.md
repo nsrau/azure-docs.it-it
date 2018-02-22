@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 955f8bdaf61658bfacfb5c751602a34510d275ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 34d375d62cd41acdbbaa8da5f6cc46605aebb81f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="problems-configuring-conditional-access-to-one-of-my-applications"></a>Problemi di configurazione dell'accesso condizionale a una delle applicazioni
 
@@ -29,9 +29,9 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="im-having-problems-setting-up-conditional-access"></a>Problemi di configurazione dell'accesso condizionale
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
-  * [Come e quando vengono applicate le regole al di fuori della rete aziendale?](http://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Come e quando vengono applicate le regole al di fuori della rete aziendale?](https://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Come si aumenta il numero di dispositivi che un utente può registrare in Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-setup/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-  * [Come si configura l'accesso condizionale per Exchange Online?](http://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Come si configura l'accesso condizionale per Exchange Online?](https://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Come si configura l'accesso condizionale per i dispositivi Windows 7?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access#device-based-conditional-access/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Quali applicazioni sono supportate con l'accesso condizionale?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-supported-apps/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 

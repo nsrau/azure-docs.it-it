@@ -34,7 +34,7 @@ Le istanze NCv2 sono la nuova generazione dei computer della serie NC, basate su
 | Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 |
 | Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 |
 | Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 |
-| Standard_NC24rs_v2* |24 |1448 | 1344 | 4 | 32 |
+| Standard_NC24rs_v2* |24 |448 | 1344 | 4 | 32 |
 
 1 GPU = Pari a una scheda P100.
 

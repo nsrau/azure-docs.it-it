@@ -5,15 +5,15 @@ services: backup
 keywords: backup di macchine virtuali; back up di macchine virtuali; back up di VM; backup di VM; backup di macchine virtuali di Azure; backup e ripristino di emergenza
 author: markgalioto
 ms.author: markgal
-ms.date: 09/16/2017
+ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -33,7 +33,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 L'insieme di credenziali dei Servizi di ripristino contiene i dati di backup e i criteri di backup applicati alle macchine virtuali protette. Il backup di macchine virtuali è un processo locale. Non è possibile eseguire il backup delle macchine virtuali da una località a un insieme di credenziali dei servizi di ripristino in un'altra località. In tal caso, in ogni località di Azure con macchine virtuali di cui eseguire il backup deve esistere almeno un insieme di credenziali dei Servizi di ripristino.
 
-1. Nel menu a sinistra, selezionare **Più servizi**, quindi, nell'elenco dei servizi, digitare *Servizi di ripristino*. Durante la digitazione verrà filtrato l'elenco di risorse. Quando vengono visualizzati gli insiemi di credenziali dei servizi di ripristino nell'elenco, selezionarli per aprire il relativo menu.
+1. Nel menu a sinistra selezionare **Tutti i servizi** e digitare *Servizi di ripristino* nell'elenco dei servizi. Durante la digitazione verrà filtrato l'elenco di risorse. Quando vengono visualizzati gli insiemi di credenziali dei servizi di ripristino nell'elenco, selezionarli per aprire il relativo menu.
 
     ![Aprire il menu dell'insieme di credenziali dei Servizi di ripristino](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 
