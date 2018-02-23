@@ -414,7 +414,7 @@ Di seguito sono indicati i controlli di disponibilità di rete:
 
 -   gateway applicazione
 
--   Gestione traffico
+-   servizio Gestione traffico
 
 **Azure Load Balancer**
 

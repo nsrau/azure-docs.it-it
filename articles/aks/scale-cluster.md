@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Ridimensionare un cluster del servizio contenitore di Azure
 
-Un cluster del servizio contenitore di Azure può essere facilmente ridimensionato in modo da passare a un diverso numero di nodi.  Selezionare il numero di nodi desiderato ed eseguire il comando `az aks scale`.  In caso di ridimensionamento verso il basso, i nodi saranno attentamente [cordoned e svuotate] [ kubernetes-drain] per ridurre al minimo le interruzioni di eseguire applicazioni.  In caso di aumento, il comando `az` attende finché i nodi non vengono contrassegnati come `Ready` dal cluster Kubernetes.
+Un cluster del servizio contenitore di Azure può essere facilmente ridimensionato in modo da passare a un diverso numero di nodi.  Selezionare il numero di nodi desiderato ed eseguire il comando `az aks scale`.  In caso di riduzione, i nodi verranno accuratamente [contrassegnati come non pianificabili e svuotati][kubernetes-drain] per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.  In caso di aumento, il comando `az` attende finché i nodi non vengono contrassegnati come `Ready` dal cluster Kubernetes.
 
 ## <a name="scale-the-cluster-nodes"></a>Ridimensionare i nodi del cluster
 
-Per ridimensionare i nodi del cluster, usare il comando `az aks scale`. L'esempio seguente ridimensiona un cluster denominato *myK8SCluster* passando a un singolo nodo.
+Per ridimensionare i nodi del cluster, usare il comando `az aks scale`. L'esempio seguente ridimensiona un cluster denominato *myAKSCluster* passando a un singolo nodo.
 
 ```azurecli-interactive
-az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
+az aks scale --name myAKSCluster --resource-group myResourceGroup --node-count 1
 ```
 
 Output:
 
 ```json
 {
-  "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
   "location": "eastus",
-  "name": "myK8sCluster",
+  "name": "myAKSCluster",
   "properties": {
     "accessProfiles": {
       "clusterAdmin": {
@@ -48,7 +48,7 @@ Output:
         "count": 1,
         "dnsPrefix": null,
         "fqdn": null,
-        "name": "myK8sCluster",
+        "name": "myAKSCluster",
         "osDiskSizeGb": null,
         "osType": "Linux",
         "ports": null,
@@ -88,7 +88,7 @@ Output:
 Altre informazioni sulla distribuzione e la gestione del servizio contenitore di Azure sono disponibili nelle relative esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Esercitazione AKS][aks-tutorial]
+> [Esercitazione sul servizio contenitore di Azure][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

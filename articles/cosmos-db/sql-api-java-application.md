@@ -1,7 +1,7 @@
 ---
 title: Esercitazione sullo sviluppo di un'applicazione Java tramite Azure Cosmos DB | Microsoft Docs
-description: In questa esercitazione di applicazione web Java viene illustrato come utilizzare il database di Cosmos Azure e l'API di SQL per archiviare e accedere ai dati da un'applicazione Java ospitata in siti Web di Azure.
-keywords: Sviluppo di applicazioni, esercitazione del database, applicazione java, esercitazione di applicazione web java, azure, Microsoft azure
+description: Questa esercitazione sull'applicazione Web Java spiega come usare Azure Cosmos DB e l'API di SQL per archiviare e accedere ai dati da un'applicazione Java ospitata nei siti Web di Azure.
+keywords: Sviluppo di applicazioni, esercitazione sul database, applicazione Java, esercitazione sull'applicazione Web Java, Azure, Microsoft Azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -17,11 +17,11 @@ ms.date: 08/22/2017
 ms.author: denlee
 ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilare un'applicazione web Java in Azure Cosmos DB e le API di SQL
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -88,8 +88,8 @@ Per creare l'applicazione JSP:
    
     ![Esercitazione sull’applicazione Java - Hello World](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>Passaggio 3: Installare il linguaggio SQL SDK
-Il modo più semplice per inserire il SDK per Java SQL e le relative dipendenze è tramite [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>Passaggio 3: Installare Java SDK SQL
+Il modo più semplice per inserire Java SDK SQL e le relative dipendenze è tramite [Apache Maven](http://maven.apache.org/).
 
 A tale scopo, sarà necessario convertire il progetto in un progetto Maven completando i passaggi seguenti:
 
@@ -103,12 +103,12 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
    * Nella casella **Artifact Id** immettere azure-documentdb.
    * Nella casella **Version** immettere 1.5.1.
      
-   ![Installare l'applicazione Java SQL SDK](./media/sql-api-java-application/image13.png)
+   ![Installare l'SDK dell’applicazione Java di SQL](./media/sql-api-java-application/image13.png)
      
    * Oppure aggiungere l'XML della dipendenza per Group Id e Artifact Id direttamente nel file pom.xml mediante un editor di testo:
      
         <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
-6. Fare clic su **OK** e Maven verrà installato il SDK di linguaggio SQL.
+6. Fare clic su **OK** e Maven installerà Java SDK SQL.
 7. Salvare il file pom.xml.
 
 ## <a id="UseService"></a>Passaggio 4: Uso del servizio Azure Cosmos DB in un'applicazione Java
@@ -281,7 +281,7 @@ A tale scopo, sarà necessario convertire il progetto in un progetto Maven compl
                 return null;
             }
         }
-7. È anche possibile utilizzare il DocumentClient per ottenere una raccolta o un elenco di TodoItems utilizzando SQL:
+7. È inoltre possibile usare il client DocumentClient per ottenere una raccolta o un elenco di elementi TodoItems mediante SQL:
    
         @Override
         public List<TodoItem> readTodoItems() {

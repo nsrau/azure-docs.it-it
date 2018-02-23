@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 150609a7bf326c243b1a0b5f10bfcfe9a426c2de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea7fe09c31d88cf2095b3a3777b6b1f9feb8df46
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Esercitazione: Integrazione di Azure Active Directory con EBSCO
 
@@ -32,7 +32,7 @@ L'integrazione di EBSCO con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con EBSCO, sono necessari gli elementi seguenti:
 
@@ -119,9 +119,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     o   **Elementi univoci:**  
 
-       **Custid** = Immettere l'ID cliente EBSCO univoco 
+    o   **Custid** = Immettere l'ID cliente EBSCO univoco 
 
-       **Profile** = I clienti possono personalizzare il collegamento in modo da indirizzare gli utenti a uno profilo specifico, in base al prodotto acquistato da EBSCO. È possibile immettere un ID di profilo specifico. I principali ID sono eds (EBSCO Discovery Service) ed ehost (database EBSCOhost). Istruzioni specifiche sull'argomento sono disponibili in [questa pagina](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o   **Profile** = I clienti possono personalizzare il collegamento in modo da indirizzare gli utenti a uno profilo specifico, in base al prodotto acquistato da EBSCO. È possibile immettere un ID di profilo specifico. I principali ID sono eds (EBSCO Discovery Service) ed ehost (database EBSCOhost). Istruzioni specifiche sull'argomento sono disponibili in [questa pagina](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
 5. L'applicazione EBSCO prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
     

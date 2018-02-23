@@ -17,7 +17,7 @@ ms.date: 07/16/2017
 ms.author: danis
 ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -27,10 +27,10 @@ L'estensione script personalizzata scarica ed esegue script sulle macchine virtu
 
 Questo documento descrive come usare l'estensione di script personalizzata con il modulo Azure PowerShell e i modelli di Azure Resource Manager e inoltre illustra i passaggi per la risoluzione dei problemi nei sistemi Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 > [!NOTE]  
-> Non utilizzare l'estensione dello Script personalizzata per eseguire l'aggiornamento AzureRmVM con la stessa macchina virtuale come parametro, poiché attenderà su se stesso.  
+> Non usare l'estensione script personalizzata per eseguire Update-AzureRmVM con la stessa macchina virtuale del relativo parametro, poiché attenderà se stessa.  
 >   
 > 
 

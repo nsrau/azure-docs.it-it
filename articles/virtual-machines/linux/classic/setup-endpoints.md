@@ -1,6 +1,6 @@
 ---
 title: Configurare gli endpoint in una VM Linux classica | Microsoft Docs
-description: Informazioni su come impostare gli endpoint per una VM Linux nel portale di Azure per consentire la comunicazione con una macchina virtuale di Linux in Azure
+description: Informazioni su come configurare gli endpoint per una macchina virtuale Linux nel portale di Azure per consentire la comunicazione con una VM Linux in Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -17,7 +17,7 @@ ms.date: 06/09/2017
 ms.author: cynthn
 ms.openlocfilehash: bb82bfc4c5c85b9cacce907578326cab4e518766
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

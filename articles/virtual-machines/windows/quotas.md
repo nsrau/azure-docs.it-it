@@ -1,6 +1,6 @@
 ---
-title: le quote di CPU virtuali per Azure | Documenti Microsoft
-description: Informazioni sulle quote di CPU virtuali per Azure.
+title: Quote vCPU per Azure | Documentazione Microsoft
+description: Informazioni sulle quote vCPU per Azure.
 keywords: 
 services: virtual-machines-windows
 documentationcenter: 
@@ -17,18 +17,18 @@ ms.date: 12/05/2016
 ms.author: drewm
 ms.openlocfilehash: b481299b62d452bc306c1f9c1fa2cdccd49b818e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Quote di CPU virtuali delle macchine virtuali
+# <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
 
-Le quote di CPU virtuali per le macchine virtuali e i set di scalabilità di macchine virtuali vengono disposte in due livelli per ogni sottoscrizione, in ogni area. Al primo livello è il totale internazionali Vcpu e il secondo livello è i vari VM dimensioni famiglia core, ad esempio Vcpu famiglia D Standard. Ogni volta che una nuova macchina virtuale è distribuita la Vcpu per la macchina virtuale appena distribuita non deve superare la quota di CPU virtuali per la famiglia di dimensioni di macchina virtuale specifica o la quota totale CPU virtuali regionali. Se una di queste quote vengono superata, quindi la distribuzione della macchina virtuale non sarà possibile. È inoltre disponibile una quota per il numero complessivo di macchine virtuali nell'area. I dettagli su ciascuna di queste quote possono essere visti nel **utilizzo + quote** sezione del **sottoscrizione** nella pagina di [portale di Azure](https://portal.azure.com), o è possibile eseguire query per i valori utilizzando PowerShell.
+Le quote vCPU per le macchine virtuali e i set di scalabilità di macchine virtuali vengono disposte in due livelli per ogni sottoscrizione, in ogni area. Il primo livello è costituito dalle vCPU regionali totali e il secondo livello contiene i vari core a livello di famiglia di dimensioni della macchina virtuale, ad esempio vCPU della famiglia D Standard. Ogni volta che viene distribuita una nuova macchina virtuale le relative vCPU non devono superare la quota di vCPU per la famiglia di dimensioni della macchina virtuale specifica o la quota vCPU regionale totale. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile. È inoltre disponibile una quota per il numero complessivo di macchine virtuali nell'area. I dettagli su ciascuna di queste quote sono disponibili nella sezione **Utilizzo e quote** della pagina **Sottoscrizione** nel [portale di Azure](https://portal.azure.com) o è possibile eseguire una ricerca dei valori utilizzando PowerShell.
 
  
 ## <a name="check-usage"></a>Controllare l'utilizzo
 
-È possibile utilizzare il [Get AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet per verificare l'utilizzo della quota.
+È possibile utilizzare il cmdlet [Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) per controllare l'utilizzo della quota.
 
 ```azurepowershell-interactive
 Get-AzureRmVMUsage -Location "East US"
@@ -79,10 +79,10 @@ Premium Storage Managed Disks                1 10000 Count
 
 
 ## <a name="reserved-vm-instances"></a>Istanze di macchina virtuale riservate
-Istanze riservate di macchina virtuale, nell'ambito di una singola sottoscrizione, verrà aggiunto un nuovo aspetto per le quote di CPU virtuali. Questi valori vengono descritti il numero di istanze della dimensione specificata deve essere distribuita nella sottoscrizione. Funzionano come segnaposto nel sistema di quote per assicurare che la quota è riservato per assicurarsi che le istanze riservate siano distribuibile nella sottoscrizione. Ad esempio, se una sottoscrizione specifica è riservato a Standard_D1 10 istanze limitare gli utilizzi per le istanze riservate Standard_D1 sarà 10. In questo modo Azure garantire che sono disponibili sempre almeno 10 Vcpu della quota di Vcpu totale internazionali da utilizzare per le istanze di Standard_D1 e sono disponibili almeno 10 Vcpu della quota di CPU virtuali famiglia D Standard da utilizzare per le istanze di Standard_D1.
+Le istanze di macchina virtuale riservate, nell'ambito di una singola sottoscrizione, daranno un nuovo aspetto alle quote vCPU. Questi valori descrivono il numero di istanze della dimensione specificata che deve essere distribuibile nella sottoscrizione. Hanno la funzione di segnaposto nel sistema di quote per assicurare che la quota sia riservata per garantire la distribuibilità delle istanze riservate nella sottoscrizione. Ad esempio, se una sottoscrizione specifica ha 10 istanze riservate Standard_D1, il limite di utilizzo per le istanze riservate Standard_D1 sarà 10. Azure dovrà quindi garantire che siano sempre disponibili almeno 10 vCPU nella quota vCPU regionale totale da utilizzare per le istanze Standard_D1 e almeno 10 vCPU nella quota vCPU della famiglia D Standard da utilizzare per le istanze Standard_D1.
 
-Se un aumento della quota è necessario per l'acquisto di un singolo RI di sottoscrizione, è possibile [richiedere un aumento della quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) nella sottoscrizione.
+Se è necessario un aumento della quota per acquistare un'istanza riservata di sottoscrizione singola, è possibile [richiedere un aumento di quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sulla sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla fatturazione e quote, vedere [sottoscrizione di Azure e limiti dei servizi, quote e vincoli](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Per altre informazioni su fatturazione e quote, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

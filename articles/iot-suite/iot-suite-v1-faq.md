@@ -17,7 +17,7 @@ ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -95,7 +95,7 @@ Attualmente non è possibile creare una soluzione preconfigurata con un account 
 
 È possibile attualmente creare una soluzione preconfigurata con una sottoscrizione di Cloud Solution Provider, ma è possibile creare facilmente un [account di valutazione gratuito per][lnk-30daytrial] che consente di creare una soluzione preconfigurata.
 
-### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Come è possibile eliminare un tenant di Azure AD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Come si elimina un tenant di Azure AD?
 
 Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di eliminazione di un tenant di Azure AD][lnk-delete-aad-tennant].
 

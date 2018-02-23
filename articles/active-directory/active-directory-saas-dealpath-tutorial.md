@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Dealpath | Documenti Microsoft'
-description: Informazioni su come configurare single sign-on tra Azure Active Directory e Dealpath.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Dealpath | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Dealpath.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 12/11/2017
 ms.author: jeedes
 ms.openlocfilehash: 268df1b91f458279b7d79d963fe1ab318d759f65
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Esercitazione: Integrazione di Azure Active Directory con Dealpath
 
-In questa esercitazione informazioni su come integrare Dealpath con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare Dealpath con Azure Active Directory (Azure AD).
 
-Integrazione Dealpath con Azure AD offre i vantaggi seguenti:
+L'integrazione di Dealpath con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al Dealpath.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato Dealpath (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a Dealpath.
+- È possibile abilitare gli utenti per l'accesso automatico a Dealpath (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per configurare l'integrazione di Azure AD con Dealpath, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con Dealpath, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Un Dealpath single sign-on abilitato sottoscrizione
+- Sottoscrizione di Dealpath abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -54,9 +54,9 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-dealpath-from-the-gallery"></a>Aggiunta di Dealpath dalla raccolta
-Per configurare l'integrazione di Dealpath in Azure AD, è necessario aggiungere all'elenco di App SaaS gestite Dealpath dalla raccolta.
+Per configurare l'integrazione di Dealpath in Azure AD, è necessario aggiungere Dealpath dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Dealpath dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere Dealpath dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -70,33 +70,33 @@ Per configurare l'integrazione di Dealpath in Azure AD, è necessario aggiungere
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **Dealpath**selezionare **Dealpath** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Dealpath**, selezionare **Dealpath** dal pannello dei risultati e fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Dealpath nell'elenco dei risultati](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_addfromgallery.png)
+    ![Dealpath nell'elenco risultati](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con Dealpath in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Dealpath usando un utente test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in Dealpath a un utente in Azure AD. In altre parole, una relazione di collegamento tra un utente AD Azure e l'utente correlato in Dealpath deve essere stabilito.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Dealpath che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Dealpath.
 
-In Dealpath, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in Dealpath assegnare il valore di **nome utente** in Azure AD come valore di **Username**.
 
-Per configurare e testare Azure AD single sign-on con Dealpath, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Dealpath, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test Dealpath](#create-a-dealpath-test-user)**  - disporre di un equivalente di Britta Simon in Dealpath collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di Dealpath](#create-a-dealpath-test-user)**: per avere una controparte di Britta Simon in Dealpath collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione Dealpath.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Dealpath.
 
-**Per configurare Azure AD single sign-on con Dealpath, eseguire la procedura seguente:**
+**Per configurare l'accesso Single Sign-On di Azure AD con Dealpath, seguire questa procedura:**
 
-1. Nel portale di Azure, sul **Dealpath** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **Dealpath** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,18 +104,18 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_samlbase.png)
 
-3. Nel **Dealpath dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio Dealpath** seguire questa procedura:
 
-    ![Dealpath informazioni domini e gli URL single sign-on](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Dealpath](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://app.dealpath.com/account/login`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://api.dealpath.com/saml/metadata/<ID>`
 
     > [!NOTE] 
-    > L'identificatore non è di tipo real. È necessario aggiornare questo valore con l'ID effettivo. Contatto [team di supporto Dealpath Client](mailto:kenter@dealpath.com) per ottenere il valore. 
+    > Il valore dell'identificatore non è reale. È necessario aggiornare questo valore con l'ID effettivo. Per ottenere tale valore, contattare il [team di supporto clienti Dealpath](mailto:kenter@dealpath.com). 
  
-4. Nel **certificato di firma SAML** fare clic su **certificato (Base64)** e quindi salvare il file del certificato nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** fare clic su **certificate(Base64)** e salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_certificate.png) 
 
@@ -123,27 +123,27 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-dealpath-tutorial/tutorial_general_400.png)
 
-6. Nel **Dealpath configurazione** fare clic su **configurare Dealpath** per aprire **Configura sign-on** finestra. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+6. Nella sezione **Configurazione di Dealpath** fare clic su **Configura Dealpath** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configurazione Dealpath](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_configure.png) 
 
-7. In una finestra del web browser, account di accesso Dealpath come amministratore.
+7. In un'altra finestra del Web browser accedere a Dealpath come amministratore.
 
-8. In alto a destra, fare clic su **strumenti di amministrazione** e passare a **integrazioni**, quindi nella **l'autenticazione di SAML 2.0** fare clic su sezione **le impostazioni di aggiornamento**:
+8. In alto a destra fare clic su **Admin Tools** e passare a **Integrazioni**. Nella sezione **Autenticazione SAML 2.0** fare clic su **Aggiorna impostazioni**:
 
     ![Configurazione Dealpath](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_admin.png)
 
-9. Nel **configurare l'autenticazione SAML 2.0** pagina, effettuare le seguenti operazioni:
+9. Nella pagina **Set up SAML 2.0 authentication** (Configura autenticazione SAML 2.0) seguire questa procedura:
 
     ![Configurazione Dealpath](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_saml.png) 
 
     a. Nella casella di testo **SAML SSO URL** (URL SSO SAML) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
 
-    b. Nel **Identity Provider Issuer** casella di testo, incollare il valore di **ID entità SAML**, che è stato copiato dal portale di Azure.
+    b. Nella casella di testo **Autorità di certificazione del provider di identità** incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
 
-    c. Copiare il contenuto di scaricato **certificate(Base64)** file nel blocco note e quindi incollarlo nella **certificato pubblico** casella di testo.
+    c. Copiare il contenuto del file **certificate(Base64)** scaricato nel Blocco note e incollarlo nella casella di testo **Certificato pubblico**.
 
-    d. Fare clic su **aggiornare le impostazioni di**.
+    d. Fare clic su **Aggiorna impostazioni**.
 
 
 > [!TIP]
@@ -184,23 +184,23 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
  
 ### <a name="create-a-dealpath-test-user"></a>Creare un utente test Dealpath
 
-In questa sezione si crea un utente denominato Britta Simon in Dealpath. Lavorare con [team di supporto Dealpath Client](mailto:kenter@dealpath.com) per aggiungere gli utenti nella piattaforma Dealpath. Gli utenti devono essere creati e attivati prima di utilizzare single sign-on
+In questa sezione viene creato un utente chiamato Britta Simon in Dealpath. Collaborare con il [team di supporto clienti di Dealpath](mailto:kenter@dealpath.com) per aggiungere gli utenti nella piattaforma Dealpath. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso a Dealpath.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Dealpath.
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon Dealpath, procedere come segue:**
+**Per assegnare Britta Simon a Dealpath, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **Dealpath**.
+2. Nell'elenco di applicazioni selezionare **Dealpath**.
 
-    ![Il collegamento Dealpath nell'elenco delle applicazioni](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_app.png)  
+    ![Collegamento di Dealpath nell'elenco delle applicazioni](./media/active-directory-saas-dealpath-tutorial/tutorial_dealpath_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -220,7 +220,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Dealpath nel Pannello di accesso, dovrebbe ottenere automaticamente firmato-on all'applicazione Dealpath.
+Quando si fa clic sul riquadro Dealpath nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Dealpath.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

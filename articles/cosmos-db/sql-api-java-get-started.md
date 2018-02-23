@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione NoSQL: API SQL per Azure SDK per Java DB Cosmos | Documenti Microsoft'
-description: "In questa esercitazione NoSQL che crea un database online e l'applicazione console Java utilizzando l'API di SQL di Azure Cosmos DB. SQL Azure è un database NoSQL per JSON."
+title: 'Esercitazione su NoSQL: API di SQL per Azure Cosmos DB Java SDK | Documentazione Microsoft'
+description: "Esercitazione su NoSQL che crea un database online e un'applicazione console Java con l'API di SQL per Azure Cosmos DB. SQL Azure è un database NoSQL per JSON."
 keywords: esercitazione su nosql, database online, applicazione console java
 services: cosmos-db
 documentationcenter: Java
@@ -17,16 +17,16 @@ ms.date: 05/22/2017
 ms.author: arramac
 ms.openlocfilehash: 9714234411e96074daae17b4711a52991768bd7b
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL esercitazione: creare un'applicazione console SQL API Java
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Esercitazione su NoSQL: Compilare un'applicazione console Java con l'API di SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js per MongoDB](mongodb-samples.md)
-> * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [C++](sql-api-cpp-get-started.md)
 >  
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Introduzione all'esercitazione NoSQL per l'API di SQL Azure SDK per Java DB Cosmos. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
+Esercitazione su NoSQL per l'API di SQL per Azure Cosmos DB Java SDK. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
 
 Argomenti trattati:
 
@@ -52,7 +52,7 @@ Argomenti trattati:
 
 Ecco come procedere.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Assicurarsi che sia disponibile quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
@@ -75,7 +75,7 @@ Per iniziare, è possibile clonare il repository GitHub per l'[introduzione ad A
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` che contiene il codice sorgente Java incluso `Program.java`, che mostra come eseguire semplici operazioni con Azure Cosmos DB, come la creazione di documenti e l'esecuzione di query sui dati all'interno di una raccolta. Il `pom.xml` include una dipendenza sul [Azure Cosmos DB SDK per Java su Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src` che contiene il codice sorgente Java incluso `Program.java`, che mostra come eseguire semplici operazioni con Azure Cosmos DB, come la creazione di documenti e l'esecuzione di query sui dati all'interno di una raccolta. L'oggetto `pom.xml` include una dipendenza per [Azure Cosmos DB Java SDK su Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>

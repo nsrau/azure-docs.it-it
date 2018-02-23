@@ -8,27 +8,27 @@ ms.date: 12/22/2017
 ms.author: raynew
 ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Ridefinire un gruppo usando il mapping delle dipendenze del gruppo
 
-In questo articolo viene descritto come migliorare un gruppo, la visualizzazione delle dipendenze di tutti i computer nel gruppo. È in genere possibile utilizzare questo metodo quando si desidera ridefinire il controllo incrociato delle dipendenze del gruppo, l'appartenenza di un gruppo esistente, prima di eseguire una valutazione. Modifica di un gruppo utilizzando la visualizzazione delle dipendenze può consentono di pianificare in modo efficace la migrazione a Azure.You può individuare tutti i sistemi interdipendenti necessari per eseguire la migrazione insieme. Consente di verificare che non vengono ignorate e sorpresa non si verificano interruzioni quando si esegue la migrazione in Azure. 
+In questo articolo viene descritto come ridefinire un gruppo visualizzando le dipendenze di tutti i computer nel gruppo. In genere si usa questo metodo quando si vogliono ridefinire le appartenenze di un gruppo esistente, controllando in modo incrociato le dipendenze del gruppo, prima di eseguire una valutazione. La ridefinizione di un gruppo mediante la visualizzazione delle dipendenze può aiutare a pianificare la migrazione a Azure in modo efficace, in quanto consente di individuare tutti i sistemi interdipendenti che dovranno essere migrati. Garantisce inoltre una migrazione completa e senza interruzioni a sorpresa. 
 
 
 > [!NOTE]
-> Gruppi per il quale si desidera visualizzare le dipendenze non devono contenere più di 10 macchine. Se si dispone più di 10 computer nel gruppo, è consigliabile suddividerlo in gruppi più piccoli per sfruttare la funzionalità di visualizzazione delle dipendenze.
+> I gruppi per i quali si vuole visualizzare le dipendenze non devono includere più di 10 computer. Se il gruppo contiene più di 10 computer, è consigliabile suddividerlo in gruppi più piccoli per sfruttare la funzionalità di visualizzazione delle dipendenze.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Preparare il gruppo per la visualizzazione di dipendenza
-Per visualizzare le dipendenze di un gruppo, è necessario scaricare e installare gli agenti in ogni computer locale che fa parte del gruppo. Inoltre, se si dispone di computer senza accesso a Internet, è necessario scaricare e installare il [gateway OMS](../log-analytics/log-analytics-oms-gateway.md).
+# <a name="prepare-the-group-for-dependency-visualization"></a>Preparare il gruppo per la visualizzazione delle dipendenze
+Per visualizzare le dipendenze di un gruppo, è necessario scaricare e installare gli agenti in ogni computer locale appartenente al gruppo. Inoltre, se si dispone di computer senza accesso a Internet, è necessario scaricare e installare il [gateway OMS](../log-analytics/log-analytics-oms-gateway.md).
 
 ### <a name="download-and-install-the-vm-agents"></a>Scaricare e installare gli agenti di macchine virtuali
-1. In **Panoramica**, fare clic su **Gestisci** > **gruppi**, passare al gruppo obbligatorio.
-2. Nell'elenco dei computer, nel **Dependency agent** colonna, fare clic su **richiede l'installazione** per visualizzare istruzioni su come scaricare e installare gli agenti.
-3. Nel **dipendenze** pagina, scaricare e installare Microsoft Monitoring Agent (MMA) e l'agente di dipendenza in ogni macchina virtuale che fa parte del gruppo.
-4. Copiare l'ID e la chiave dell'area di lavoro. Quando si installa il MMA nei computer locali, è necessario questi.
+1. In **Panoramica**, fare clic su **Gestisci** > **gruppi** e andare al gruppo desiderato.
+2. Nell'elenco di computer nella colonna **Dependency agent**, fare clic su **Richiede l'installazione** per visualizzare le istruzioni su come scaricare e installare gli agenti.
+3. Nella pagina **Dipendenze**, scaricare e installare Microsoft Monitoring Agent (MMA) e Dependency Agent in ogni macchina virtuale del gruppo.
+4. Copiare l'ID e la chiave dell'area di lavoro. Questi dati sono necessari quando si installa MMA nei computer locali.
 
 ### <a name="install-the-mma"></a>Installare MMA
 
@@ -57,23 +57,23 @@ Per installare l'agente in un computer Linux:
 
 Sono disponibili [altre informazioni](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) sui sistemi operativi supportati da Dependency Agent. 
 
-## <a name="refine-the-group-based-on-dependency-visualization"></a>Perfezionare il gruppo basato sulla visualizzazione di dipendenza
-Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile visualizzare le dipendenze del gruppo e ottimizzarli seguendo i passaggi seguenti.
+## <a name="refine-the-group-based-on-dependency-visualization"></a>Ridefinire il gruppo in base alla visualizzazione delle dipendenze
+Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile visualizzare le dipendenze e ridefinirle seguendo i passaggi seguenti.
 
 1. Nel progetto di Azure Migrate, in **Gestisci**, fare clic su  **Gruppi** e selezionare il gruppo.
 2. Nella pagina relativa al gruppo fare clic su  **Visualizza dipendenze** per aprire la mappa delle dipendenze del gruppo.
-3. La mappa di dipendenza per il gruppo Mostra i dettagli seguenti:
-    - In ingresso (client) e le connessioni TCP (server) in uscita a/da tutti i computer che fanno parte del gruppo
-        - Le macchine di dipendenti che non sono installato l'agente MMA e delle dipendenze verranno raggruppate i numeri di porta
-        - Le macchine dependenct che dispongono di MMA e installato l'agente di dipendenza vengono visualizzate come finestre separate 
-    - Processi in esecuzione all'interno della macchina, è possibile espandere ogni casella macchina per visualizzare i processi
-    - Proprietà come nome di dominio completo, sistema operativo, e così via. indirizzo MAC di ogni computer, è possibile fare clic su ogni casella macchina per visualizzare i dettagli
+3. La mappa delle dipendenze del gruppo mostra i dettagli seguenti:
+    - Connessioni TCP in entrata (client) e in uscita (server) a/da tutti i computer che fanno parte del gruppo
+        - Le macchine dipendenti su cui non sono installati l'agente MMA e l'agente Dependency Agent verranno raggruppate in base ai numeri di porta
+        - Le macchine dipendenti su cui sono installati l'agente MMA e l'agente Dependency Agent verranno visualizzate in caselle separate 
+    - Processi in esecuzione all'interno della macchina: è possibile espandere ogni casella macchina per visualizzare i processi
+    - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
 
      ![Visualizzazione delle dipendenze del gruppo](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Per visualizzare le dipendenze a un livello più dettagliato, fare clic sull'intervallo di tempo per modificarlo. Per impostazione predefinita, l'intervallo è un'ora. È possibile modificare l'intervallo di tempo oppure specificare le date di inizio e fine e la durata.
-4. Verificare che le macchine di dipendenti, il processo in esecuzione all'interno di ogni macchina e identificare i computer che devono essere aggiunto o rimosso dal gruppo.
-5. Utilizzare Ctrl + clic per selezionare le macchine virtuali sulla mappa per aggiungere o rimuovere dal gruppo.
+4. Verificare i computer dipendenti, i processi in esecuzione in ciascun computer e identificare i computer da aggiungere o rimuovere dal gruppo.
+5. Premere CTRL+clic per selezionare contemporaneamente più computer sulla mappa e aggiungerle o rimuoverle dal gruppo.
     - È possibile aggiungere solo i computer che sono stati individuati.
     - L'aggiunta e la rimozione dei computer di un gruppo invalidano le precedenti valutazioni eseguite per il gruppo.
     - Quando si modifica il gruppo, è possibile creare facoltativamente una nuova valutazione.

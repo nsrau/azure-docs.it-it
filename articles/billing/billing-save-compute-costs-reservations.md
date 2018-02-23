@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure 
 Le istanze di macchina virtuale riservate consentono il pagamento anticipato della capacità di calcolo per un intervallo di tempo di uno o tre anni e pertanto di ottenere uno sconto sulle macchine virtuali in uso. Ciò consente di ridurre in modo significativo i costi, ovvero fino al 72% rispetto ai prezzi con pagamento in base al consumo, con un impegno anticipato di uno o tre anni. Le istanze di macchina virtuale riservate rappresentano uno sconto a livello di fatturazione e non hanno alcuna ripercussione sullo stato di runtime delle macchine virtuali.
@@ -60,5 +60,14 @@ Le prenotazioni sono disponibili per la maggior parte delle dimensioni delle mac
 
 ## <a name="next-steps"></a>Passaggi successivi
 È possibile iniziare subito a risparmiare sui costi delle macchine virtuali con l'acquisto di un'[istanza di macchina virtuale riservata](https://go.microsoft.com/fwlink/?linkid=861721). 
+
+Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
 
 Se si necessita assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

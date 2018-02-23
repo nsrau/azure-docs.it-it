@@ -1,6 +1,6 @@
 ---
-title: 'Cosmos Azure DB: Esempi di .NET per l''API SQL | Documenti Microsoft'
-description: "Trovare esempi di Visual c# .NET su github per attività comuni utilizzando Azure Cosmos DB SQL API, comprese le operazioni CRUD."
+title: 'Azure Cosmos DB: esempi .NET dell''API SQL | Documentazione Microsoft'
+description: "Esempi C# .NET in GitHub per attività comuni utilizzando l'API SQL di Azure Cosmos DB, tra cui operazioni CRUD."
 keywords: Esempi di NoSQL
 services: cosmos-db
 author: rnagpal
@@ -17,11 +17,11 @@ ms.date: 02/22/2017
 ms.author: rnagpal
 ms.openlocfilehash: 42cdb21276886c9b728a2bf23ece946fa025a87d
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Cosmos Azure DB: Esempi di .NET per l'API di SQL
+# <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi .NET dell'API SQL
 > [!div class="op_single_selector"]
 > * [Esempi di .NET](sql-api-dotnet-samples.md)
 > * [Esempi di Node.js](sql-api-nodejs-samples.md)
