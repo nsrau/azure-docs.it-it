@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -55,13 +55,20 @@ Le porte di accesso alle app normali sono:
 
 Ciò vale se si usa un ambiente del servizio app esterno o con bilanciamento del carico. Se si è su un ambiente del servizio app esterno, tali porte possono essere raggiunte sul VIP pubblico. Se si è su un ambiente del servizio app con bilanciamento del carico interno, tali porte possono essere raggiunte sul servizio di bilanciamento del carico interno. Il blocco della porta 443 ha un possibile impatto su alcune funzionalità esposte nel portale. Per altre informazioni, vedere [Dipendenze per il portale](#portaldep).
 
+## <a name="ase-subnet-size"></a>Dimensioni della subnet dell'ambiente del servizio app ##
+
+Le dimensioni della subnet usata per ospitare un ambiente del servizio app non possono essere modificate dopo la distribuzione dell'ambiente.  L'ambiente del servizio app usa un indirizzo per ogni ruolo di infrastruttura e per ogni istanza del piano di servizio app Isolato.  Inoltre, la rete di Azure usa 5 indirizzi per ogni subnet creata.  Un ambiente del servizio app senza alcun piano di servizio app userà 12 indirizzi prima che venga creata un'app.  Un ambiente del servizio app ILB userà invece 13 indirizzi prima che venga creata un'app in tale ambiente. Per scalare orizzontalmente i piani di servizio app saranno necessari indirizzi aggiuntivi per ogni front-end aggiunto.  Per impostazione predefinita, i server front-end vengono aggiunti ogni 15 istanze di piani di servizio app totali. 
+
+   > [!NOTE]
+   > La subnet non può contenere altro oltre all'ambiente del servizio app. Assicurarsi di scegliere uno spazio di indirizzi che consente la crescita futura. Non è possibile modificare questa impostazione in un secondo momento. È consigliabile una dimensione pari a `/25` con 128 indirizzi.
+
 ## <a name="ase-dependencies"></a>Dipendenze dell'ambiente del servizio app ##
 
 Una dipendenza per l'accesso in ingresso dell'ambiente del servizio app è:
 
 | Uso | Da | A |
 |-----|------|----|
-| gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
+| Gestione | Indirizzi di gestione del servizio app | Subnet dell'ambiente del servizio app: 454, 455 |
 |  Comunicazione interna dell'ambiente del servizio app | Subnet dell'ambiente del servizio app: tutte le porte | Subnet dell'ambiente del servizio app: tutte le porte
 |  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: tutte le porte
 |  Indirizzi IP assegnati alle app | Indirizzi assegnati alle app | Subnet dell'ambiente del servizio app: tutte le porte
@@ -79,7 +86,7 @@ Per l'accesso in uscita, un ambiente del servizio app dipende da più sistemi es
 | Uso | Da | A |
 |-----|------|----|
 | Archiviazione di Azure | Subnet dell'ambiente del servizio app | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 necessaria solo per ASEv1.) |
-| Database SQL di Azure | Subnet dell'ambiente del servizio app | database.windows.net: 1433, 11000-11999, 14000-14999 (per altre informazioni, vedere [Porte successive alla 1433 per ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md))|
+| database SQL di Azure | Subnet dell'ambiente del servizio app | database.windows.net: 1433, 11000-11999, 14000-14999 (per altre informazioni, vedere [Porte successive alla 1433 per ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md))|
 | Gestione di Azure | Subnet dell'ambiente del servizio app | management.core.windows.net, management.azure.com: 443 
 | Verifica dei certificati SSL |  Subnet dell'ambiente del servizio app            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | Subnet dell'ambiente del servizio app            |  Internet: 443
@@ -150,7 +157,7 @@ In un ambiente del servizio app non si ha accesso alle macchine virtuali usate p
 
 I gruppi di sicurezza di rete possono essere configurati tramite il portale di Azure o PowerShell. Le informazioni riportate di seguito si riferiscono al portale di Azure. I gruppi di sicurezza di rete vengono creati e gestiti nel portale come risorsa di primo livello in **Rete**.
 
-Tenendo conto dei requisiti in ingresso e in uscita, i gruppi di sicurezza di rete dovrebbero avere un aspetto simile a quelli illustrati in questo esempio. L'intervallo di indirizzi della rete virtuale è _192.168.250.0/16_ e la subnet dell'ambiente del servizio app è inclusa in _192.168.251.128/25_.
+Tenendo conto dei requisiti in ingresso e in uscita, i gruppi di sicurezza di rete dovrebbero avere un aspetto simile a quelli illustrati in questo esempio. L'intervallo di indirizzi della rete virtuale è _192.168.250.0/23_ e la subnet dell'ambiente del servizio app è _192.168.251.128/25_.
 
 I primi due requisiti in ingresso per il funzionamento dell'ambiente del servizio app sono riportati all'inizio dell'elenco in questo esempio. e consentono la gestione dell'ambiente del servizio app oltre a consentire all'ambiente del servizio app di comunicare con se stesso. Le altre voci sono tutte configurabili a livello di tenant e consentono di regolare l'accesso alle applicazioni ospitate dall'ambiente del servizio app. 
 
@@ -168,13 +175,13 @@ Dopo aver definito i gruppi di sicurezza di rete, assegnarli alla subnet in cui 
 
 ## <a name="routes"></a>Route ##
 
-Le route diventano problematiche più di frequente quando si configura la rete virtuale con Azure ExpressRoute. Esistono tre tipi di route in una rete virtuale:
+Le route sono un elemento critico del tunneling forzato e del modo in cui viene gestito. In una rete virtuale di Azure il routing viene eseguito in base all'algoritmo LPM (Longest Prefix Match). Se è presente più di una route con la stessa corrispondenza LPM, viene selezionata la route in base all'origine nell'ordine seguente:
 
--   Route di sistema
--   Route BGP
--   Route definite dall'utente
+- Route definita dall'utente
+- Route BGP (quando viene utilizzato ExpressRoute)
+- La route di sistema
 
-Le route BGP sono prioritarie rispetto alle route di sistema. Le route definite dall'utente sono prioritarie rispetto alle route BGP. Per altre informazioni sulle route nelle reti virtuali di Azure, vedere [Panoramica delle route definite dall'utente][UDRs].
+Per altre informazioni sul routing in una rete virtuale, vedere [Route definite dall'utente e inoltro degli indirizzi IP][UDRs].
 
 Il database SQL di Azure che l'ambiente del servizio app usa per gestire il sistema è dotato di un firewall. Richiede che le comunicazioni provengano dall'indirizzo VIP pubblico dell'ambiente del servizio app. Le connessioni al database SQL dall'ambiente del servizio app verranno negate se vengono inviate alla connessione ExpressRoute e a un altro indirizzo IP.
 

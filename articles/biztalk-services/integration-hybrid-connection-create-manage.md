@@ -16,7 +16,7 @@ ms.date: 10/18/2016
 ms.author: ccompy
 ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -49,7 +49,7 @@ Questi passaggi sono illustrati in questo argomento.
 > 
 
 ## <a name="CreateHybridConnection"></a>Creare una connessione ibrida
-Una connessione ibrida può essere creata in [le connessioni ibride di servizio App di Azure](../app-service/app-service-hybrid-connections.md) **o** utilizzando [API REST di servizi BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+È possibile creare una connessione ibrida in [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) **o** tramite le [API REST di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -66,7 +66,7 @@ Dopo aver creato una connessione ibrida, installare Gestione connessioni ibride 
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
  
-[Le connessioni ibride di Azure App Service](../app-service/app-service-hybrid-connections.md) è anche un'ottima risorsa.
+Anche [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) è una risorsa utile.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -95,13 +95,13 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Le connessioni ibride di Azure App Service](../app-service/app-service-hybrid-connections.md) è anche un'ottima risorsa.
+Anche [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) è una risorsa utile.
 
 #### <a name="copyregenerate-the-hybrid-connection-strings"></a>Copiare/rigenerare le stringhe di connessione ibrida
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Le connessioni ibride di Azure App Service](../app-service/app-service-hybrid-connections.md) è anche un'ottima risorsa.
+Anche [Connessioni ibride del Servizio app di Azure](../app-service/app-service-hybrid-connections.md) è una risorsa utile.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Usare i Criteri di gruppo per controllare le risorse locali usate da una connessione ibrida
 1. Scaricare i [modelli amministrativi di Gestione connessioni ibride](http://www.microsoft.com/download/details.aspx?id=42963).

@@ -101,7 +101,7 @@ namespace csharp_db_test
 <a name="cs_2_createtables"/>
 ### <a name="c-block-2-t-sql-to-create-tables"></a>Blocco C# 2: T-SQL per la creazione di tabelle
 
-- [Indietro](#cs_1_connect) &nbsp; / &nbsp; [Avanti](#cs_3_insert)
+- [Indietro](#cs_1_connect)&nbsp; / &nbsp;[Avanti](#cs_3_insert)
 
 ```csharp
       static string Build_2_Tsql_CreateTables()
@@ -143,7 +143,7 @@ Il diagramma entità-relazione mostra la relazione tra le due tabelle. I valori 
 <a name="cs_3_insert"/>
 ### <a name="c-block-3-t-sql-to-insert-data"></a>Blocco C# 3: T-SQL per l'inserimento di dati
 
-- [Indietro](#cs_2_createtables) &nbsp; / &nbsp; [Avanti](#cs_4_updatejoin)
+- [Indietro](#cs_2_createtables)&nbsp; / &nbsp;[Avanti](#cs_4_updatejoin)
 
 
 ```csharp
@@ -175,7 +175,7 @@ INSERT INTO tabEmployee
 <a name="cs_4_updatejoin"/>
 ### <a name="c-block-4-t-sql-to-update-join"></a>Blocco C# 4: T-SQL per l'aggiornamento tramite join
 
-- [Indietro](#cs_3_insert) &nbsp; / &nbsp; [Avanti](#cs_5_deletejoin)
+- [Indietro](#cs_3_insert)&nbsp; / &nbsp;[Avanti](#cs_5_deletejoin)
 
 
 ```csharp
@@ -203,7 +203,7 @@ UPDATE empl
 <a name="cs_5_deletejoin"/>
 ### <a name="c-block-5-t-sql-to-delete-join"></a>Blocco C# 5: T-SQL per l'eliminazione tramite join
 
-- [Indietro](#cs_4_updatejoin) &nbsp; / &nbsp; [Avanti](#cs_6_selectrows)
+- [Indietro](#cs_4_updatejoin)&nbsp; / &nbsp;[Avanti](#cs_6_selectrows)
 
 
 ```csharp
@@ -299,7 +299,7 @@ Questo metodo è progettato per l'esecuzione dell'istruzione T-SQL SELECT compil
 <a name="cs_7_executenonquery"/>
 ### <a name="c-block-7-executenonquery"></a>Blocco C# 7: ExecuteNonQuery
 
-- [Indietro](#cs_6b_datareader) &nbsp; / &nbsp; [Avanti](#cs_8_output)
+- [Indietro](#cs_6b_datareader)&nbsp; / &nbsp;[Avanti](#cs_8_output)
 
 Questo metodo viene chiamato per operazioni che modificano il contenuto dei dati delle tabelle senza restituire alcuna riga di dati.
 

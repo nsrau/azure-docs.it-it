@@ -1,6 +1,6 @@
 ---
 title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure | Documentazione Microsoft
-description: Utilizzare un modello di gestione risorse di Azure per creare una nuova macchina virtuale Windows con estensione diagnostica di Azure.
+description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione Diagnostica di Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: sbtron
@@ -18,15 +18,15 @@ ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
-L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di gestione risorse di Azure. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
+L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Azure Resource Manager. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
 
 ## <a name="add-the-azure-diagnostics-extension-to-the-vm-resource-definition"></a>Aggiungere l'estensione Diagnostica di Azure alla definizione della risorsa della VM
-Per abilitare l'estensione di diagnostica in una macchina virtuale di Windows, è necessario aggiungere l'estensione come una risorsa di macchina virtuale nel modello di gestione risorse.
+Per abilitare l'estensione Diagnostica in una macchina virtuale Windows, è necessario aggiungere l'estensione come risorsa della macchina virtuale nel modello di Resource Manager.
 
 Per una semplice macchina virtuale basata su Gestione risorse, aggiungere la configurazione dell'estensione alla matrice *resources* per la macchina virtuale: 
 
@@ -62,7 +62,7 @@ Per una semplice macchina virtuale basata su Gestione risorse, aggiungere la con
 ]
 ```
 
-Un'altra convenzione comune consiste nell'aggiungere la configurazione dell'estensione nel nodo risorse radice del modello anziché definirla in nodo risorse della macchina virtuale. Con questo approccio, è necessario specificare in modo esplicito una relazione gerarchica tra l'estensione e la macchina virtuale con il *nome* e *tipo* valori. Ad esempio:  
+Un'altra convenzione comune consiste nell'aggiungere la configurazione dell'estensione al nodo delle risorse radice del modello, invece di definirla nel nodo delle risorse della macchina virtuale. Con questo approccio è necessario specificare esplicitamente una relazione gerarchica tra l'estensione e la macchina virtuale con i valori *name* e *type*. Ad esempio:  
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -75,16 +75,16 @@ Per i set di scalabilità di macchine virtuali, la configurazione delle estensio
 
 La proprietà *publisher* con valore **Microsoft.Azure.Diagnostics** e la proprietà *type* con valore **IaaSDiagnostics** identificano in modo univoco l'estensione Diagnostica di Azure.
 
-Il valore della proprietà *name* può essere usato per fare riferimento all'estensione nel gruppo di risorse. Impostarlo in modo specifico a **Microsoft.Insights.VMDiagnosticsSettings** consente di identificare facilmente dal portale di Azure, assicurando che il monitoraggio grafici Mostra backup correttamente nel portale di Azure.
+Il valore della proprietà *name* può essere usato per fare riferimento all'estensione nel gruppo di risorse. Se viene impostato esattamente su **Microsoft.Insights.VMDiagnosticsSettings**, l'identificazione da parte del portale di Azure risulterà semplificata. I grafici di monitoraggio saranno quindi visualizzati correttamente nel portale di Azure.
 
-Il valore *typeHandlerVersion* specifica la versione dell'estensione da usare. Impostazione *autoUpgradeMinorVersion* versione secondaria **true** consente di ottenere la versione secondaria più recente dell'estensione che è disponibile. È consigliabile impostare sempre *autoUpgradeMinorVersion* su **true** , in modo che venga usata sempre l'estensione Diagnostica più recente disponibile con tutte le nuove funzionalità e correzioni di bug. 
+Il valore *typeHandlerVersion* specifica la versione dell'estensione da usare. Se si imposta la versione secondaria *autoUpgradeMinorVersion* su **true**, si assicurerà di ottenere la versione secondaria più recente disponibile dell'estensione. È consigliabile impostare sempre *autoUpgradeMinorVersion* su **true** , in modo che venga usata sempre l'estensione Diagnostica più recente disponibile con tutte le nuove funzionalità e correzioni di bug. 
 
-L'elemento *settings* contiene proprietà di configurazione per l'estensione che possono essere impostate e lette dall'estensione e sono spesso definite configurazione pubblica. Il *xmlcfg* proprietà contiene una configurazione basata su xml per i log di diagnostica, i contatori delle prestazioni e così via che vengono raccolti dall'agente di diagnostica. Per altre informazioni sullo schema XML stesso, vedere [Schema di configurazione di diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) . Una procedura comune consiste nell'archiviare la configurazione XML effettiva come variabile nel modello di Gestione risorse di Azure e quindi concatenare le variabili e codificarle in Base 64 per impostare il valore per *xmlcfg*. Per altre informazioni su come archiviare il codice XML nelle variabili, vedere la sezione relativa alle [variabili di configurazione diagnostica](#diagnostics-configuration-variables) . Il *storageAccount* proprietà specifica il nome dell'account di archiviazione per la diagnostica quali dati vengono trasferiti. 
+L'elemento *settings* contiene proprietà di configurazione per l'estensione che possono essere impostate e lette dall'estensione e sono spesso definite configurazione pubblica. La proprietà *xmlcfg* contiene configurazione basata su XML per i log di diagnostica e i contatori delle prestazioni che verranno raccolti dall'agente di diagnostica. Per altre informazioni sullo schema XML stesso, vedere [Schema di configurazione di diagnostica](https://msdn.microsoft.com/library/azure/dn782207.aspx) . Una procedura comune consiste nell'archiviare la configurazione XML effettiva come variabile nel modello di Gestione risorse di Azure e quindi concatenare le variabili e codificarle in Base 64 per impostare il valore per *xmlcfg*. Per altre informazioni su come archiviare il codice XML nelle variabili, vedere la sezione relativa alle [variabili di configurazione diagnostica](#diagnostics-configuration-variables) . La proprietà *storageAccount* specifica il nome dell'account di archiviazione in cui sono trasferiti i dati di diagnostica. 
 
-Le proprietà in *protectedSettings* , a volte definite configurazione privata, possono essere impostate ma non possono essere lette dopo l'impostazione. La natura di sola scrittura di *protectedSettings* risulta utile per l'archiviazione di segreti, ad esempio la chiave di account di archiviazione in cui vengono scritti i dati di diagnostica.    
+Le proprietà in *protectedSettings* , a volte definite configurazione privata, possono essere impostate ma non possono essere lette dopo l'impostazione. La natura di sola scrittura di *protectedSettings* risulta utile per l'archiviazione di segreti quali la chiave dell'account di archiviazione in cui sono scritti i dati di diagnostica.    
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>Specificare l'account di archiviazione di diagnostica come parametro
-Il frammento json estensione diagnostica precedente presuppone che i due parametri *existingdiagnosticsStorageAccountName* e *existingdiagnosticsStorageResourceGroup* per specificare lo spazio di archiviazione di diagnostica account di archiviazione dati di diagnostica. Specifica l'account di archiviazione di diagnostica come parametro consente di modificare l'account di archiviazione di diagnostica in ambienti diversi, ad esempio si consiglia di utilizzare un account di archiviazione di diagnostica diverso per il test e uno per il distribuzione di produzione.  
+Il frammento di codice JSON dell'estensione Diagnostica precedente presuppone due parametri *existingdiagnosticsStorageAccountName* e *existingdiagnosticsStorageResourceGroup* per specificare l'account di archiviazione di diagnostica in cui sono archiviati i dati di diagnostica. Se si specifica l'account di archiviazione di diagnostica come parametro, sarà possibile modificare con maggiore facilità l'account di archiviazione di diagnostica in diversi ambienti. È ad esempio possibile usare un account di archiviazione di diagnostica per i test e un account di archiviazione diverso per la distribuzione di produzione.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {
@@ -104,7 +104,7 @@ Il frammento json estensione diagnostica precedente presuppone che i due paramet
 È consigliabile specificare un account di archiviazione di diagnostica in un gruppo di risorse diverso rispetto al gruppo di risorse per la macchina virtuale. Un gruppo di risorse può essere considerato come un'unità di distribuzione con una durata specifica. È possibile distribuire e ridistribuire una macchina virtuale ogni volta che vengono applicati aggiornamenti della configurazione, ma è consigliabile continuare ad archiviare i dati di diagnostica nello stesso account di archiviazione nelle distribuzioni della macchina virtuale. La disponibilità dell'account di archiviazione in una risorsa diversa consente all'account di archiviazione di accettare i dati da diverse distribuzioni di macchina virtuale, semplificando la risoluzione dei problemi nelle diverse versioni.
 
 > [!NOTE]
-> Se si crea un modello di macchina virtuale windows da Visual Studio, è possibile impostare l'account di archiviazione predefinito per utilizzare lo stesso account di archiviazione in cui viene caricato il VHD della macchina virtuale. Ciò consente di semplificare la configurazione iniziale della VM. Refactoring del modello per utilizzare un account di archiviazione diversi che può essere passato come parametro. 
+> Se si crea un modello di macchina virtuale Windows da Visual Studio, è possibile configurare l'account di archiviazione predefinito in modo che usi lo stesso account di archiviazione in cui è stato caricato il disco rigido virtuale della macchina virtuale. Ciò consente di semplificare la configurazione iniziale della VM. Effettuare il refactoring del modello in modo che usi un account di archiviazione diverso, che possa essere passato come parametro. 
 > 
 > 
 
@@ -128,7 +128,7 @@ L'esempio seguente illustra il codice XML di configurazione di diagnostica che r
 "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 ```
 
-Il nodo xml di definizione delle metriche nella configurazione precedente è un elemento di configurazione importanti poiché consente di definire come i contatori delle prestazioni definito in precedenza nel codice xml in *PerformanceCounter* nodo vengono aggregati e archiviati. 
+Il nodo XML della definizione Metrics nella configurazione precedente è un elemento di configurazione importante, perché definisce il modo in cui i contatori delle prestazioni specificati in precedenza nel codice XML nel nodo *PerformanceCounter* sono aggregati e archiviati. 
 
 > [!IMPORTANT]
 > Queste metriche guidano i grafici di monitoraggio e gli avvisi nel portale di Azure.  Il nodo **Metriche** con *resourceID* e **MetricAggregation** deve essere incluso nella configurazione di diagnostica per la macchina virtuale per visualizzare i dati di monitoraggio della macchina virtuale nel portale di Azure. 
@@ -146,7 +146,7 @@ L'esempio seguente illustra il codice XML per le definizioni delle metriche:
 
 L'attributo *resourceID* identifica in modo univoco la macchina virtuale nella sottoscrizione. Assicurarsi di usare le funzioni subscription() e resourceGroup(), in modo che il modello aggiorni automaticamente questi valori in base alla sottoscrizione e al gruppo di risorse in cui si effettua la distribuzione.
 
-Se si siano creando più macchine virtuali in un ciclo, è necessario popolare il *resourceID* valore con una funzione copyIndex() per distinguere correttamente ogni singole macchine Virtuali. Il valore *xmlCfg* può essere aggiornato per supportare questa operazione, in modo analogo al seguente:  
+Se si creano più macchine virtuali in un ciclo, è necessario popolare il valore *resourceID* con una funzione copyIndex(), in modo da distinguere correttamente ogni singola macchina virtuale. Il valore *xmlCfg* può essere aggiornato per supportare questa operazione, in modo analogo al seguente:  
 
 ```json
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
@@ -155,28 +155,28 @@ Se si siano creando più macchine virtuali in un ciclo, è necessario popolare i
 Il valore MetricAggregation impostato su *PT1H* e *PT1M* indica un'aggregazione pari a un'ora e un'aggregazione pari a un minuto.
 
 ## <a name="wadmetrics-tables-in-storage"></a>Tabelle WADMetrics nell'archiviazione
-La configurazione di metriche precedente genera tabelle nell'account di archiviazione di diagnostica con le convenzioni di denominazione seguente:
+La configurazione precedente relativa a Metrics consente di generare tabelle nell'account di archiviazione di diagnostica con le convenzioni di denominazione seguenti:
 
-* **WADMetrics**: prefisso Standard per tutte le tabelle WADMetrics
-* **PT1H** o **PT1M**: indica che la tabella contiene dati aggregati in 1 ora o 1 minuto
-* **P10D**: indica la tabella conterrà i dati di 10 giorni da quando la tabella iniziato a raccogliere i dati
-* **V2S**: costante di stringa
-* **aaaammgg**: la data in cui è iniziata la raccolta dei dati della tabella
+* **WADMetrics**: prefisso standard per tutte le tabelle WADMetrics
+* **PT1H** o **PT1M**: indica che la tabella contiene dati aggregati per un periodo pari a un'ora o un minuto
+* **P10D**: indica che la tabella conterrà dati per 10 giorni a partire dal momento in cui la tabella ha iniziato a raccogliere i dati
+* **V2S**: costante di tipo stringa
+* **yyyymmdd**: data a partire dalla quale la tabella ha iniziato a raccogliere i dati
 
 Esempio: *WADMetricsPT1HP10DV2S20151108* includerà i dati aggregati delle metriche per un periodo pari a un'ora per 10 giorni a partire dall'11 nov 2015    
 
 Ogni tabella WADMetrics includerà le colonne seguenti:
 
-* **PartitionKey**: la chiave di partizione viene costruita in base il *resourceID* per identificare in modo univoco la risorsa di macchina virtuale. Ad esempio: 002Fsubscriptions:<subscriptionID>: 002FresourceGroups:002F<ResourceGroupName>: 002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
-* **RowKey**: viene indicato il formato `<Descending time tick>:<Performance Counter Name>`. Il calcolo relativo ai tick temporali decrescenti corrisponde al numero massimo di tick temporali meno l'ora di inizio del periodo di aggregazione. Se il periodo di campionamento avviato nel novembre-10/2015 e sarebbe 00:00Hrs UTC quindi il calcolo, ad esempio: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Il contatore delle prestazioni la chiave di riga sarà simile per i byte di memoria disponibile:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: È il nome del contatore delle prestazioni. Corrisponde al valore *counterSpecifier* definito nel file di configurazione XML.
-* **Massimo**: il valore massimo del contatore delle prestazioni nel periodo di aggregazione.
-* **Minimo**: il valore minimo del contatore delle prestazioni nel periodo di aggregazione.
-* **Totale**: la somma di tutti i valori del contatore delle prestazioni segnalati nel periodo di aggregazione.
-* **Conteggio**: il numero totale di valori segnalati per il contatore delle prestazioni.
-* **Media**: il valore medio (totale) del contatore delle prestazioni nel periodo di aggregazione.
+* **PartitionKey**: la chiave di partizione viene costruita in base al valore di *resourceID* per identificare in modo univoco la risorsa di macchina virtuale, ad esempio: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **RowKey**: usa il formato `<Descending time tick>:<Performance Counter Name>`. Il calcolo relativo ai tick temporali decrescenti corrisponde al numero massimo di tick temporali meno l'ora di inizio del periodo di aggregazione. Ad esempio, se il periodo di campionamento è stato avviato il 10 novembre 2015 alle 00:00 UTC, il calcolo sarebbe: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Per il contatore delle prestazioni dei byte di memoria disponibili, la chiave di riga avrà un aspetto simile al seguente: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **CounterName**: nome del contatore delle prestazioni. Corrisponde al valore *counterSpecifier* definito nel file di configurazione XML.
+* **Maximum**: valore massimo del contatore delle prestazioni nel periodo di aggregazione.
+* **Minimum**: valore minimo del contatore delle prestazioni nel periodo di aggregazione.
+* **Total**: somma di tutti i valori del contatore delle prestazioni rilevati nel periodo di aggregazione.
+* **Count**: numero totale di valori rilevati per il contatore delle prestazioni.
+* **Average**: valore medio (totale/conteggio) del contatore delle prestazioni nel periodo di aggregazione.
 
-## <a name="next-steps"></a>Fasi successive
-* Per un modello di esempio completo di una macchina virtuale di Windows con l'estensione di diagnostica, vedere [201-vm-monitoraggio--estensione di diagnostica](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
-* Distribuire il modello di gestione risorse di Azure tramite [Azure PowerShell](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [riga di comando di Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## <a name="next-steps"></a>Passaggi successivi
+* Per un modello di esempio completo di macchina virtuale Windows con estensione Diagnostica, vedere [201-vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-monitoring-diagnostics-extension)   
+* Distribuire il modello di Azure Resource Manager con [Azure PowerShell](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o la [riga di comando di Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Altre informazioni sulla [Creazione di modelli di Gestione risorse di Azure](../../resource-group-authoring-templates.md)

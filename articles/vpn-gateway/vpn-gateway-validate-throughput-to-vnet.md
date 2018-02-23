@@ -17,7 +17,7 @@ ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -122,7 +122,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 È possibile che la copia dei file venga eseguita lentamente quando si usa Esplora risorse o il trascinamento della selezione tramite una sessione RDP. Questo problema è in genere dovuto a uno o a entrambi i fattori seguenti:
 
 - Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in Richcopy, fare clic su **Azione** > **Opzioni copia** > **Copia dei file**.<br><br>
-![Problemi di copia dei file lento](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+![Problemi di esecuzione lenta della copia dei file](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaccia con connessione rivolta all'esterno del dispositivo locale
@@ -132,7 +132,7 @@ Se l'indirizzo IP per Internet del dispositivo VPN locale è incluso nella defin
 Usare tracert per tenere traccia del dispositivo perimetrale di Microsoft Azure per determinare se sono presenti eventuali ritardi con oltre 100 ms tra hop.
 
 Dalla rete locale eseguire *tracert* all'indirizzo VIP del gateway o della macchina virtuale di Azure. Quando viene restituito solo un asterisco (*), vuol dire che è stato raggiunto il dispositivo periferico di Azure. Quando vengono restituiti nomi DNS che includono "MSN", vuol dire che è stata raggiunta la backbone di Microsoft.<br><br>
-![Verifica la latenza](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
+![Controllo della latenza](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:

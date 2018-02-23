@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,7 +27,7 @@ Quando si eseguono processi di codifica, spesso è necessario monitorarne l'avan
 
 Può essere necessario ascoltare le notifiche di Servizi multimediali quando, ad esempio, si sta sviluppando un sistema di gestione dei contenuti ed è necessario che il sistema effettui alcune attività aggiuntive dopo il completamento di un processo di codifica (ad esempio, deve attivare il passaggio successivo di un flusso di lavoro o pubblicare contenuti).
 
-In questo articolo viene illustrato come ottenere i messaggi di notifica dall'archiviazione di Accodamento.  
+Questo articolo illustra come ricevere messaggi di notifica dall'archiviazione code.  
 
 ## <a name="considerations"></a>Considerazioni
 Quando si sviluppano applicazioni di Servizi multimediali che usano l'archiviazione code, tenere presente quanto segue:
@@ -54,7 +54,7 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 9. Elimina la coda e l'endpoint di notifica.
 
 > [!NOTE]
-> Il metodo consigliato per monitorare lo stato di un processo è in attesa di messaggi di notifica, come illustrato nell'esempio seguente:
+> Il modo migliore per monitorare lo stato di un processo è quello di essere in ascolto dei messaggi di notifica, come illustrato nell'esempio seguente:
 >
 > In alternativa, è possibile controllare lo stato di un processo usando la proprietà **IJob.State** .  Un messaggio di notifica relativo al completamento del processo potrebbe essere ricevuto prima che lo stato in **IJob** sia impostato su **Operazione completata**. La proprietà **IJob.State** riflette lo stato esatto con un leggero ritardo.
 >
@@ -63,8 +63,8 @@ L'esempio di codice contenuto in questa sezione effettua quanto segue:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
 1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
-2. Creare una nuova cartella (cartella può essere un punto qualsiasi nell'unità locale) e copiare un file MP4 da codificare e trasmettere o eseguire il download progressivo. In questo esempio viene usato il percorso "C:\Media".
-3. Aggiungere un riferimento di **Serialization** libreria.
+2. Creare una nuova cartella, in un punto qualsiasi nell'unità locale, e copiare un file con estensione mp4 di cui si vuole eseguire codifica e streaming o il download progressivo. In questo esempio viene usato il percorso "C:\Media".
+3. Aggiungere un riferimento alla libreria **System.Runtime.Serialization**.
 
 ### <a name="code"></a>Codice
 
@@ -337,7 +337,7 @@ namespace JobNotification
 }
 ```
 
-Nell'esempio precedente viene generato il seguente output: variano i valori.
+L'esempio precedente ha generato l'output seguente: i valori possono variare.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

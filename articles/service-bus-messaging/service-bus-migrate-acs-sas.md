@@ -15,13 +15,13 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Eseguire la migrazione dall'autorizzazione del Servizio di controllo di accesso di Azure Active Directory all'autorizzazione con firma di accesso condiviso
 
-Applicazioni di Service Bus sono stati precedentemente scegliere di usare due modelli di autorizzazione diversi: il [firma di accesso condiviso (SAS)](service-bus-sas.md) modello token forniti direttamente dal Bus di servizio e un modello di federazione in cui la gestione di le regole di autorizzazione presiede all'interno di [Azure Active Directory](/azure/active-directory/) token ottenuto da ACS e servizio Access Control (ACS) vengono passati al Bus di servizio per autorizzare l'accesso alle funzionalità desiderata.
+Per le applicazioni del bus di servizio è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](service-bus-sas.md) fornito direttamente dal bus di servizio e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](/azure/active-directory/); i token ottenuti dal Servizio di controllo di accesso vengono passati al bus di servizio per autorizzare l'accesso alle funzionalità desiderate.
 
 Il modello di autorizzazione del Servizio di controllo di accesso è stato sostituito da tempo dall'[autorizzazione con firma di accesso condiviso](service-bus-authentication-and-authorization.md) come modello preferito e attualmente la documentazione, il materiale sussidiario e gli esempi usano l'autorizzazione con firma di accesso condiviso. Inoltre non è più possibile creare nuovi spazi dei nomi del bus di servizio associati al Servizio di controllo di accesso.
 

@@ -17,7 +17,7 @@ ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,9 +27,9 @@ ms.lasthandoff: 12/11/2017
 È possibile assegnare gli utenti dell'organizzazione a diversi ruoli amministrativi in Azure AD. Queste assegnazioni di ruolo controllano le attività, ad esempio l'aggiunta o la rimozione di utenti o la modifica delle impostazioni del servizio, che gli utenti possono eseguire in Azure AD, Office 365 e altri Microsoft Online Services e applicazioni connesse.  
 
 > [!IMPORTANT]
-> Si consiglia di gestione di Azure AD usando la [centro di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure.
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure.
 
-Un amministratore globale può aggiornare gli utenti che **definitivamente** assegnati ai ruoli in Azure AD, usando i cmdlet di PowerShell, ad esempio `Add-MsolRoleMember` e `Remove-MsolRoleMember`, o tramite il portale come descritto in [assegnazione ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Un amministratore globale può aggiornare gli utenti assegnati in modo **permanente** ai ruoli di Azure AD, usando i cmdlet di PowerShell, ad esempio `Add-MsolRoleMember` e `Remove-MsolRoleMember`, o il portale come descritto in [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) gestisce i criteri per l'accesso con privilegi per gli utenti in Azure AD. PIM assegna utenti a uno o più ruoli in Azure AD ed è possibile assegnare un utente in modo che sia permanente nel ruolo o idoneo per il ruolo. Quando a un utente viene assegnato in modo permanente a un ruolo o attiva un'assegnazione di idoneità al ruolo, può gestire Azure Active Directory, Office 365 e altre applicazioni con le autorizzazioni assegnate ai relativi ruoli.
 
@@ -75,14 +75,14 @@ In Azure AD non sono rappresentati neanche i gruppi di risorse e le sottoscrizio
 ## <a name="user-roles-and-signing-in"></a>Ruoli utente e accesso
 Per alcuni servizi e applicazioni Microsoft l'assegnazione di un utente a un ruolo potrebbe non essere sufficiente per abilitarlo al ruolo di amministratore.
 
-Accesso al portale di Azure richiede che l'utente di essere un amministratore del servizio o coamministratore di una sottoscrizione di Azure, anche se l'utente non è necessario gestire le sottoscrizioni di Azure.  Per gestire le impostazioni di configurazione per Azure AD, ad esempio, un utente deve essere un amministratore globale di Azure AD sia un coamministratore della sottoscrizione in una sottoscrizione di Azure.  Per informazioni su come aggiungere utenti alle sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+L'accesso al portale di Azure richiede che l'utente sia un amministratore del servizio o un coamministratore in una sottoscrizione di Azure, anche se l'utente non deve gestire le sottoscrizioni di Azure.  Ad esempio, per gestire le impostazioni di configurazione per Azure AD, un utente deve essere sia un amministratore globale di Azure AD sia un coamministratore della sottoscrizione in una sottoscrizione di Azure.  Per informazioni su come aggiungere utenti alle sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 L'accesso a Microsoft Online Services può richiedere che all'utente sia assegnata anche una licenza prima di poter aprire il portale del servizio o eseguire attività amministrative.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Assegnazione di una licenza a un utente in Azure AD
-1. Accedi al [portale di Azure](http://portal.azure.com) con un account amministratore globale o un coamministratore.
-3. Selezionare AD Azure e la directory in cui che si desidera utilizzare e che dispone di licenze è associate.
-4. Selezionare **licenze** a sinistra. Verrà visualizzato l'elenco delle licenze disponibili.
+1. Accedere al [portale di Azure](http://portal.azure.com) con un account di amministratore globale o di coamministratore.
+3. Selezionare Azure AD e la directory con cui si desidera lavorare e a cui sono associate licenze.
+4. Selezionare **Licenze** a sinistra. Verrà visualizzato l'elenco delle licenze disponibili.
 5. Fare clic sul piano di licenza che contiene le licenze da distribuire.
 6. Selezionare **Assegna utenti**.
 7. Selezionare l'utente a cui si desidera assegnare una licenza.

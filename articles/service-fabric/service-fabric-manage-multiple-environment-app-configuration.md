@@ -1,6 +1,6 @@
 ---
 title: "Gestire le applicazioni per più ambienti in Azure Service Fabric | Microsoft Docs"
-description: "Le applicazioni di Azure Service Fabric possono essere eseguite su cluster con dimensioni che variano da un solo computer a molte migliaia. In alcuni casi può essere opportuno configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente."
+description: "Le applicazioni di Azure Service Fabric possono essere eseguite su cluster con dimensioni che variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,"
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/09/2017
 ms.author: mikhegn
-ms.openlocfilehash: 959fdb4aceee48863f3914d1b91f2bec6e256d6b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6bc986236d50106485dce151f1f74622f56400c5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -55,8 +55,8 @@ Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti illustrano come applicare alcuni dei concetti descritti in questo articolo:
 
-- [Come specificare le variabili di ambiente per i servizi in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
-- [Come specificare tramite parametri il numero di porta di un servizio in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Come specificare le variabili di ambiente per i servizi in Service Fabric](service-fabric-how-to-specify-environment-variables.md)
+- [Come specificare tramite parametri il numero di porta di un servizio in Service Fabric](service-fabric-how-to-specify-port-number-using-parameters.md)
 - [Come aggiungere parametri ai file di configurazione](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [Documentazione di riferimento sulle variabili di ambiente](service-fabric-environment-variables-reference.md)

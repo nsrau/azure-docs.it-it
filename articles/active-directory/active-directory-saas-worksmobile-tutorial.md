@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con riga WORKS | Documenti Microsoft'
-description: Informazioni su come configurare single sign-on tra Azure Active Directory e il funzionamento di riga.
+title: 'Esercitazione: Integrazione di Azure Active Directory con LINE WORKS | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e LINE WORKS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 01/05/2018
 ms.author: jeedes
 ms.openlocfilehash: b15f5d02a7baff0bc56f2928f73822214c595ab0
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Esercitazione: Integrazione di Azure Active Directory con il funzionamento di riga
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Esercitazione: Integrazione di Azure Active Directory con LINE WORKS
 
-In questa esercitazione si informazioni su come integrare il funzionamento di riga con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare LINE WORKS con Azure Active Directory (Azure AD).
 
-Integrazione di riga funziona con Azure AD offre i vantaggi seguenti:
+L'integrazione di LINE WORKS con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al funzionamento di riga.
-- È possibile consentire agli utenti di automaticamente ottenere firmato-on per il funzionamento di riga (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a LINE WORKS.
+- È possibile abilitare gli utenti per l'accesso automatico a LINE WORKS (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per configurare l'integrazione di Azure AD con il funzionamento di riga, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con LINE WORKS, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Sottoscrizione abilitata per il funzionamento di riga single sign-on
+- Sottoscrizione di LINE WORKS abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -50,13 +50,13 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di funzionamento di riga dalla raccolta
+1. Aggiunta di LINE WORKS dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="adding-line-works-from-the-gallery"></a>Aggiunta di funzionamento di riga dalla raccolta
-Per configurare l'integrazione di riga funziona in Azure AD, è necessario aggiungere all'elenco di App SaaS gestite WORKS riga dalla raccolta.
+## <a name="adding-line-works-from-the-gallery"></a>Aggiunta di LINE WORKS dalla raccolta
+Per configurare l'integrazione di LINE WORKS in Azure AD, è necessario aggiungere LINE WORKS dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere il funzionamento di riga dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere LINE WORKS dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -70,33 +70,33 @@ Per configurare l'integrazione di riga funziona in Azure AD, è necessario aggiu
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **WORKS riga**selezionare **WORKS riga** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **LINE WORKS**, selezionare **LINE WORKS** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![FUNZIONAMENTO di riga nell'elenco dei risultati](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
+    ![LINE WORKS nell'elenco dei risultati](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con il funzionamento di riga in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con LINE WORKS con un utente di test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in linea funziona a un utente in Azure AD. In altre parole, è necessario stabilire una relazione di collegamento tra un utente AD Azure e il relativo utente in linea funziona.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di LINE WORKS che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in LINE WORKS.
 
-In linea funziona, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in LINE WORKS assegnare il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente).
 
-Per configurare e testare Azure single sign-on AD con il funzionamento di riga, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con LINE WORKS, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente di prova di funzionamento di riga](#create-a-line-works-test-user)**  : per hanno un equivalente di Britta Simon in linea funziona collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di LINE WORKS](#create-a-line-works-test-user)**: per avere una controparte di Britta Simon in LINE WORKS collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione riga WORKS.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione LINE WORKS.
 
-**Per configurare Azure AD single sign-on con il funzionamento di riga, eseguire la procedura seguente:**
+**Per configurare l'accesso Single Sign-On di Azure AD con LINE WORKS, seguire questa procedura:**
 
-1. Nel portale di Azure, sul **WORKS riga** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **LINE WORKS** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,16 +104,16 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_samlbase.png)
 
-3. Nel **riga funzionamento del dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio LINE WORKS** seguire questa procedura:
 
-    ![RIGA di funzionamento del dominio e gli URL single sign-on, informazioni](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di LINE WORKS](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
 
     b. Nella casella di testo **Identificatore** digitare il valore: `worksmobile.com`
 
     > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Contatto [team di supporto Client di riga funziona](mailto:dl_ssoinfo@worksmobile.com) per ottenere questo valore.
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto client di LINE WORKS](mailto:dl_ssoinfo@worksmobile.com).
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (base)** e quindi salvare il file del certificato nel computer.
 
@@ -123,11 +123,11 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-lineworks-tutorial/tutorial_general_400.png)
 
-6. Nel **riga WORKS configurazione** fare clic su **configurare WORKS riga** per aprire **Configura sign-on** finestra. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+6. Nella sezione **Configurazione di LINE WORKS** fare clic su **Configura LINE WORKS** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Configurazione di funzionamento di riga](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
+    ![Configurazione di LINE WORKS](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_configure.png) 
 
-7. Per configurare l'accesso single sign-on in **WORKS riga** lato, è necessario inviare scaricato **certificato file, URL Sign-Out, ID entità SAML e SAML Single Sign-On Service URL** a [supporta il funzionamento di riga Team](mailto:dl_ssoinfo@worksmobile.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+7. Per configurare l'accesso Single Sign-On sul lato **LINE WORKS**, è necessario inviare il **file di certificato scaricato, l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di LINE WORKS](mailto:dl_ssoinfo@worksmobile.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -165,25 +165,25 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-line-works-test-user"></a>Creare un utente di prova di funzionamento di riga
+### <a name="create-a-line-works-test-user"></a>Creare un utente di test di LINE WORKS
 
-In questa sezione si crea un utente denominato Britta Simon in linea funziona. Rivolgersi [team di supporto di riga funziona](mailto:dl_ssoinfo@worksmobile.com) per aggiungere gli utenti nella piattaforma di funzionamento di riga.
+In questa sezione viene creato un utente di nome Britta Simon in LINE WORKS. Per aggiungere gli utenti alla piattaforma LINE WORKS, collaborare con il [team di supporto di LINE WORKS](mailto:dl_ssoinfo@worksmobile.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso per il funzionamento di riga.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a LINE WORKS.
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon a riga, eseguire i passaggi seguenti:**
+**Per assegnare Britta Simon a LINE WORKS, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **WORKS riga**.
+2. Nell'elenco di applicazioni selezionare **LINE WORKS**.
 
-    ![Il collegamento di funzionamento di riga nell'elenco delle applicazioni](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
+    ![Collegamento di LINE WORKS nell'elenco delle applicazioni](./media/active-directory-saas-lineworks-tutorial/tutorial_lineworks_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -203,7 +203,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si sceglie la tessera di riga funziona nel Pannello di accesso, dovrebbe ottenere automaticamente firmato-on all'applicazione di funzionamento di riga.
+Quando si fa clic sul riquadro LINE WORKS nel riquadro di accesso, si dovrebbe accedere automaticamente all'applicazione LINE WORKS.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

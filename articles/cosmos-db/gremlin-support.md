@@ -17,7 +17,7 @@ ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -26,7 +26,7 @@ Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](htt
 
 Azure Cosmos DB offre funzionalità di livello aziendale per database a grafi. Questo include distribuzione globale, scalabilità indipendente di archiviazione e velocità effettiva, latenze stimabili in pochissimi millisecondi, indicizzazione automatica, contratti di servizio e disponibilità di lettura per gli account database che si estendono sue due o più aree Azure. Poiché Azure Cosmos DB supporta TinkerPop/Gremlin, è possibile eseguire facilmente la migrazione di applicazioni scritte usando un altro database a grafi senza dover apportare modifiche al codice. In più, grazie al supporto Gremlin, Azure Cosmos DB si integra facilmente con framework di analisi abilitati per TinkerPop come [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-In questo articolo è fornire un'esercitazione rapida di Gremlin ed enumerare Gremlin funzionalità e operazioni supportate dall'API Graph.
+Questo articolo illustra una procedura dettagliata di Gremlin ed enumera le funzionalità e gli step di Gremlin supportati dall'API Graph.
 
 ## <a name="gremlin-by-example"></a>Esempio di Gremlin
 Verrà ora usato un grafo di esempio per comprendere come le query possono essere espresse in Gremlin. La figura seguente illustra un'applicazione aziendale che gestisce i dati su utenti, interessi e dispositivi sotto forma di grafo.  
@@ -80,7 +80,7 @@ La tabella seguente elenca le funzionalità di TinkerPop implementate da Azure C
 
 | Categoria | Implementazione di Azure Cosmos DB |  Note | 
 | --- | --- | --- |
-| Funzionalità del grafo | Fornisce la persistenza e ConcurrentAccess. Progettata per supportare le transazioni | Metodi di calcolo possono essere implementati tramite il connettore Spark. |
+| Funzionalità del grafo | Offre persistenza e accesso simultaneo. Progettata per supportare le transazioni | Metodi di calcolo possono essere implementati tramite il connettore Spark. |
 | Funzionalità della variabile | Supporta Boolean, Integer, Byte, Double, Float, Integer, Long, String | Supporta i tipi primitivi, è compatibile con i tipi complessi tramite modello di dati |
 | Funzionalità del vertice | Supporta RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Supporta la creazione, la modifica e l'eliminazione di vertici |
 | Funzionalità della proprietà del vertice | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supporta la creazione, la modifica e l'eliminazione di proprietà di vertici |
@@ -204,6 +204,6 @@ Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per in
 
 Il motore ottimizzato per la scrittura di Azure Cosmos DB supporta l'indicizzazione automatica di tutte le proprietà all'interno di vertici e archi per impostazione predefinita. Pertanto, query con filtri, query di intervallo, ordinamento o aggregazioni in qualsiasi proprietà vengono elaborati dall'indice e serviti in modo efficiente. Per altre informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, vedere il documento sull'[indicizzazione senza schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Iniziare a creare un'applicazione Graph [tramite SDK](create-graph-dotnet.md) 
 * Altre informazioni sul [supporto Graph di Azure Cosmos DB](graph-introduction.md)

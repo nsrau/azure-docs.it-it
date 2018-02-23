@@ -5,18 +5,18 @@ services: location-based-services
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 11/28/2017
+ms.date: 02/05/2017
 ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Introduzione a Servizi Location Based di Azure (anteprima)
 Servizi Location Based di Azure è un portfolio di servizi geospaziali che include API di servizi per mappe, ricerca, pianificazione del percorso, informazioni sul traffico e fusi orari. Il portfolio di servizi conformi con Azure OneAPI consente di usare strumenti di sviluppo già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Servizi Location Based di Azure offre agli sviluppatori di qualsiasi settore potenti funzionalità geospaziali che includono dati delle mappe aggiornati, indispensabili per fornire il contesto geografico alle applicazioni Web e per dispositivi mobili. Questi servizi sono costituiti da un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo estremamente semplice, flessibile e compatibile con più supporti. 
@@ -65,7 +65,8 @@ Servizi Location Based di Azure è stato progettato per la mobilità e può esse
 
 Per Servizi Location Based di Azure viene usato uno schema di autenticazione basato su chiavi. Pertanto, per accedere ai servizi, è sufficiente passare al [portale di Azure](http://portal.azure.com) e creare uno specifico account, che viene fornito con due chiavi pre-generate automaticamente. È possibile iniziare a integrare queste funzionalità sulla posizione direttamente nelle applicazioni usando una delle proprie chiavi nelle richieste inviate a Servizi Location Based di Azure.
 
-**Relazione con Bing Mappe** - Si noti che la soluzione Servizi Location Based di Azure descritta in questo documento è diversa da Bing Mappe.  Anche se queste soluzioni condividono molte funzionalità, si tratta di due servizi diversi e non correlati.  La disponibilità di questo nuovo servizio di Azure, che verrà gestito separatamente, non ha alcun impatto sull'offerta o sugli sviluppi futuri di Bing Mappe.
+## <a name="relationship-with-bing-maps"></a>Relazione con Bing Mappe
+La soluzione Servizi Location Based di Azure descritta in questo documento è diversa da Bing Mappe.  Anche se queste soluzioni condividono molte funzionalità, si tratta di due servizi diversi e non correlati.  La disponibilità di questo nuovo servizio di Azure, che verrà gestito separatamente, non ha alcun impatto sull'offerta o sugli sviluppi futuri di Bing Mappe.
 
 L'obiettivo di Microsoft è quello di offrire alla community di sviluppatori la possibilità di scegliere tra servizi di posizione diversi.  Di seguito vengono fornite alcune indicazioni rapide per gli sviluppatori in merito al servizio da scegliere in base ai diversi casi d'uso e alle esigenze dei clienti.  Le indicazioni fornite fanno riferimento alla versione di anteprima di Servizi Location Based di Azure e verranno aggiornate quando il servizio sarà disponibile a livello generale, più avanti nel 2018.
 
@@ -79,7 +80,7 @@ L'obiettivo di Microsoft è quello di offrire alla community di sviluppatori la 
 | Contenuto delle mappe | Sono sufficienti mappe di superficie standard | Sono necessarie immagini satellitari, aeree e delle strade |
 | Fonte delle mappe sottostante | Si preferiscono i dati delle mappe TomTom | Si preferiscono i dati delle mappe HERE |
 
-Eseguendo l'iscrizione si otterrà [subito un account Servizi Location Based di Azure](http://aka.ms/azurelbsportal)
+Eseguendo l'iscrizione si otterrà [subito un account Servizi Location Based di Azure](http://aka.ms/azurelbsportal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

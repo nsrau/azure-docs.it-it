@@ -17,7 +17,7 @@ ms.date: 04/10/2017
 ms.author: carlrab
 ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -84,7 +84,7 @@ Si [configurerà un insieme di credenziali di Servizi di ripristino di Azure per
    ![definizione dei criteri di conservazione](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
    
    >[!NOTE]
-   >I nomi dei criteri di conservazione non alcuni caratteri, inclusi gli spazi.
+   >I nomi dei criteri di conservazione non consentono determinati caratteri, inclusi gli spazi.
 
 13. Nella pagina **Conservazione backup a lungo termine** del database in uso fare clic su **Salva** e quindi su **OK** per applicare i criteri di conservazione dei backup a lungo termine a tutti i database selezionati.
 

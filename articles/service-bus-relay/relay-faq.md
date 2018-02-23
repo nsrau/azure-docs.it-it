@@ -16,7 +16,7 @@ ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -32,7 +32,7 @@ Il [servizio di inoltro di Azure](relay-what-is-it.md) facilita le applicazioni 
 Uno [spazio dei nomi](relay-create-namespace-portal.md) è un contenitore di ambiti che è possibile usare per gestire le risorse di inoltro nell'applicazione. È necessario creare uno spazio dei nomi per usare l'inoltro. Questo è uno dei primi passaggi nella guida introduttiva.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Quali novità interessano il servizio di inoltro del bus di servizio?
-Il servizio di inoltro del Bus di servizio denominato in precedenza viene ora chiamato [inoltro WCF](relay-wcf-dotnet-get-started.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
+Il servizio in precedenza chiamato Inoltro del bus di servizio ora si chiama [Inoltro WCF](relay-wcf-dotnet-get-started.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
 
 ## <a name="pricing"></a>Prezzi
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].

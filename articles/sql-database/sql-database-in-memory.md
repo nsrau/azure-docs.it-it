@@ -17,7 +17,7 @@ ms.date: 11/16/2017
 ms.author: jodebrui
 ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -77,7 +77,7 @@ Video di approfondimento sulle tecnologie:
 
 OLTP in memoria include tabelle ottimizzate per la memoria che vengono usate per archiviare i dati utente. Queste tabelle devono rientrare nella memoria. Poiché la memoria è gestita direttamente nel servizio del database SQL, esiste il concetto di quota per i dati utente. Questo concetto è definito *archiviazione di OLTP in memoria*.
 
-Ogni piano tariffario relativo a database autonomi e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria. Al momento della redazione di questo articolo, è disponibile un gigabyte di spazio di archiviazione per ogni 125 unità di transazione di database (DTU) o unità di transazione di database elastico (eDTU). Per ulteriori informazioni, vedere [i limiti delle risorse](sql-database-resource-limits.md).
+Ogni piano tariffario relativo a database autonomi e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria. Al momento della redazione di questo articolo, è disponibile un gigabyte di spazio di archiviazione per ogni 125 unità di transazione di database (DTU) o unità di transazione di database elastico (eDTU). Per altre informazioni, vedere i [limiti delle ricorse](sql-database-resource-limits.md).
 
 Gli elementi seguenti rientrano nel limite di archiviazione di OLTP in memoria:
 

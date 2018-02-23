@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -129,6 +129,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
    
    ![Nuovo->DataFactory](./media/tutorial-control-flow-portal/new-azure-data-factory-menu.png)
@@ -241,8 +242,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
         - Nome data factory: passa il valore di `@{pipeline().DataFactory}`. È una variabile di sistema che consente di accedere al nome di data factory corrispondente. Per un elenco delle variabili di sistema, vedere l'articolo relativo alle [variabili di sistema](control-flow-system-variables.md).
         - Nome pipeline: passa il valore di `@{pipeline().Pipeline}`. È anche questa una variabile di sistema, che consente di accedere al nome di pipeline corrispondente. 
         - Destinatario: passa il valore di "@pipeline().parameters.receiver"), per l'accesso ai parametri della pipeline.
-    6. L'aspetto di **Impostazioni** deve essere simile all'immagine seguente: 
-
+    
         ![Impostazioni per la prima attività Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connettere l'attività **Copia** all'attività **Web** trascinando il pulsante verde accanto all'attività Copia e rilasciandolo sull'attività Web. 
 
@@ -266,8 +266,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
             "receiver": "@pipeline().parameters.receiver"
         }
         ```
-    6. L'aspetto di **Impostazioni** deve essere simile all'immagine seguente: 
-    
+
         ![Impostazioni per la seconda attività Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Selezionare l'attività **Copia** nella finestra di progettazione della pipeline e fare clic sul pulsante **+->**, quindi selezionare **Errore**.  
 
@@ -278,7 +277,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
 24. Per convalidare la pipeline, fare clic sul pulsante **Convalida** sulla barra degli strumenti. Chiudere la finestra **Pipeline Validation Output** (Output di convalida della pipeline) facendo clic sul pulsante **>>**.
 
     ![Convalidare la pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
-24. Per pubblicare entità (set di dati, pipeline e così via) nel servizio Data Factory, fare clic su **Pubblica**. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**.
+24. Per pubblicare le entità (set di dati, pipeline e così via) nel servizio Data Factory, selezionare **Pubblica tutti**. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**.
 
     ![Pubblica](./media/tutorial-control-flow-portal/publish-button.png)
  

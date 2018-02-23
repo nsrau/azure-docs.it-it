@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>Panoramica
 
-In questo articolo viene illustrato come creare un'attività di codifica che genera l'errore MP4 frammentato (fMP4) blocchi anziché file ISO MP4. Per generare blocchi fMP4, usare il codificatore **Media Encoder Standard** o **Flusso di lavoro Premium del codificatore multimediale** per creare un'attività di codifica e specificare anche l'opzione **AssetFormatOption.AdaptiveStreaming**, come illustrato nel frammento di codice seguente:  
+Questo articolo illustra come creare un'attività di codifica che genera blocchi MP4 frammentati (fMP4) anziché file ISO MP4. Per generare blocchi fMP4, usare il codificatore **Media Encoder Standard** o **Flusso di lavoro Premium del codificatore multimediale** per creare un'attività di codifica e specificare anche l'opzione **AssetFormatOption.AdaptiveStreaming**, come illustrato nel frammento di codice seguente:  
     
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 

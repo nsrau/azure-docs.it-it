@@ -1,6 +1,6 @@
 ---
 title: Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES | Microsoft Docs
-description: "In questo articolo viene descritto come è possibile utilizzare servizi multimediali di Azure per il recapito di licenze PlayReady e/o Widevine e chiavi AES si ma il resto (codificare, crittografare, il flusso) utilizzando il server locale."
+description: Questo articolo descrive come usare Servizi multimediali di Azure per distribuire licenze PlayReady e/o Widevine e chiavi AES, usando server locali per tutte le altre operazioni (codifica, crittografia, streaming).
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -16,37 +16,37 @@ ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 4032b0f2f72d6c45b9f2233ac0c315bc0db60ed8
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usare Servizi multimediali di Azure per distribuire licenze DRM o chiavi AES
-Servizi multimediali di Azure consente di inserire, codificare, aggiungere la protezione del contenuto e lo streaming del contenuto. Per ulteriori informazioni, vedere [usare PlayReady e/o Widevine crittografia comune dinamica](media-services-protect-with-playready-widevine.md). Alcuni clienti desiderano utilizzare i servizi di supporto solo per recapitare le licenze e/o le chiavi e codificare, crittografare e flusso usando i server locali. Questo articolo descrive come è possibile utilizzare servizi multimediali di recapitare licenze PlayReady e/o Widevine ma non il resto dei server locali. 
+Servizi multimediali di Azure consente di inserire, codificare e proteggere contenuti e di eseguirne lo streaming. Per altre informazioni, vedere [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md). Alcuni clienti vogliono usare Servizi multimediali solo per distribuire licenze e/o chiavi ed eseguire le operazioni di codifica, crittografia e streaming tramite server locali. Questo articolo descrive come usare Servizi multimediali per distribuire licenze PlayReady e/o Widevine, usando server locali per tutte le altre operazioni. 
 
 ## <a name="overview"></a>Panoramica
-Servizi multimediali fornisce un servizio per il recapito PlayReady e Widevine licenze di digital rights management (DRM) e chiavi AES-128. Servizi multimediali fornisce inoltre API che consentono di configurare i diritti e le limitazioni desiderati per il runtime DRM imporrà quando un utente viene riprodotto il contenuto protetto con DRM. Quando un utente richiede il contenuto protetto, l'applicazione di Windows Media player richiede una licenza dal servizio di licenza di servizi multimediali. Se la licenza è autorizzata, i servizi di supporto delle licenze problemi relativi al servizio le condizioni di licenza Windows Media player. Le licenze PlayReady e Widevine contengono la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
+Servizi multimediali fornisce un servizio per la distribuzione di licenze DRM (Digital Rights Management) PlayReady e Widevine e di chiavi AES-128. Fornisce anche le API che consentono di configurare i diritti e le restrizioni che il runtime DRM deve imporre quando un utente riproduce contenuto protetto da DRM. Quando un utente richiede il contenuto protetto, l'applicazione lettore richiede una licenza al servizio licenze di Servizi multimediali. Se la licenza viene autorizzata, il servizio licenze di Servizi multimediali la rilascia al lettore. Le licenze PlayReady e Widevine contengono la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono licenze o chiavi. Configurare i criteri di autorizzazione della chiave simmetrica. I criteri possono avere una o più restrizioni. Le opzioni sono restrizione token o aperti. I criteri di token con restrizioni devono essere accompagnato da un token rilasciato da un servizio token di sicurezza (STS). Servizi multimediali supporta i token nel formato (SWT) token web semplice e il formato JSON Web Token (JWT).
+Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono licenze o chiavi. Occorre configurare i criteri di autorizzazione della chiave simmetrica. I criteri possono avere una o più restrizioni. Le opzioni disponibili sono restrizione aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati Token Web semplice (SWT) e Token JSON Web (JWT).
 
-Il diagramma seguente illustra i passaggi principali che necessari per usare servizi multimediali recapitare licenze PlayReady e/o Widevine ma non il resto dei server locali:
+Il diagramma seguente mostra i passaggi principali necessari per usare Servizi multimediali per distribuire licenze PlayReady e/o Widevine, usando server locali per eseguire tutte le altre operazioni:
 
 ![Protezione con PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 ## <a name="download-sample"></a>Scaricare un esempio
-Per scaricare l'esempio descritto in questo articolo, vedere [usare servizi multimediali di Azure per offrire le licenze PlayReady e/o Widevine con .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
+Per scaricare l'esempio descritto in questo articolo, vedere [Use Azure Media Services to deliver PlayReady and/or Widevine licenses with .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses) (Usare Servizi multimediali di Azure per distribuire licenze PlayReady e/o Widevine con .NET).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app. config con informazioni di connessione, come descritto in [lo sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md).
+1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md).
 
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
-    Aggiungi chiave = valore "Issuer" = "http://testacs.com" /
+    add key="Issuer" value="http://testacs.com"/
     
-    Aggiungi chiave = valore "Audience" = "urn: test" /
+    add key="Audience" value="urn:test"/
 
 ## <a name="net-code-example"></a>Esempio di codice .NET
-L'esempio di codice seguente illustra come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per configurare il server locale, è necessario una chiave simmetrica, la chiave ID e l'URL di acquisizione della licenza. Dopo aver configurato il server locale, è possibile trasmettere dal proprio server di streaming. Poiché i punti di flusso crittografato da servizi multimediali di un server licenze, un lettore richiede una licenza da servizi multimediali. Se si sceglie l'autenticazione del token, il server licenze di servizi multimediali convalida il token che è stato inviato tramite HTTPS. Se il token è valido, il server licenze offre la licenza al lettore. Solo, il codice seguente viene illustrato come creare una chiave simmetrica comune e ottenere l'URL di acquisizione di licenze PlayReady o Widevine. Se si desidera distribuire chiavi AES-128, è necessario creare una chiave simmetrica di busta e ottenere un URL di acquisizione chiave. Per ulteriori informazioni, vedere [crittografia dinamica AES-128 utilizzare e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
+L'esempio di codice seguente illustra come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per configurare il server locale, sono necessari una chiave simmetrica, l'ID della chiave e l'URL di acquisizione della licenza. Dopo aver configurato il server locale, è possibile effettuare lo streaming dal server locale destinato a questo scopo. Poiché il flusso crittografato punta al server licenze di Servizi multimediali, il lettore richiederà una licenza da Servizi multimediali. Se si sceglie l'autenticazione tramite token, il server licenze di Servizi multimediali esegue la convalida del token inviato tramite HTTPS e, se questo è valido, distribuisce la licenza al lettore. L'esempio di codice seguente illustra solo come creare una chiave simmetrica comune e ottenere gli URL di acquisizione di una licenza PlayReady o Widevine. Per distribuire chiavi AES-128, è necessario creare una chiave simmetrica della busta e ottenere un URL di acquisizione della chiave. Per altre informazioni, vedere [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
 
 ```
 using System;
@@ -344,5 +344,5 @@ namespace DeliverDRMLicenses
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche 
-* [Usare la crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-playready-widevine.md)
-* [Utilizzare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md)
+* [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md)
+* [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md)

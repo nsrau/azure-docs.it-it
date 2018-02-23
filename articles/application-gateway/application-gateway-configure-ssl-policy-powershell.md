@@ -15,7 +15,7 @@ ms.date: 07/19/2017
 ms.author: davidmu
 ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -110,7 +110,7 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configurare criteri SSL personalizzati
 
-Quando si configura un criterio personalizzato di SSL, passare i parametri seguenti: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se si tenta di passare altri parametri, è visualizzato un errore durante la creazione o l'aggiornamento del Gateway applicazione. 
+Quando si configura un criterio SSL personalizzato, si passano i parametri seguenti: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione. 
 
 L'esempio seguente imposta criteri SSL personalizzati in un gateway applicazione. Imposta la versione minima del protocollo su `TLSv1_1` e abilita i pacchetti di crittografia seguenti:
 
@@ -142,7 +142,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Creare un gateway applicazione con criteri SSL personalizzati
 
-Quando si configura un criterio predefinito di SSL, passare i parametri seguenti: PolicyType PolicyName e ApplicationGateway. Se si tenta di passare altri parametri, è visualizzato un errore durante la creazione o l'aggiornamento del Gateway applicazione.
+Quando si configura un criterio SSL predefinito, si passano i parametri seguenti: PolicyType, PolicyName e ApplicationGateway. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
 
 L'esempio seguente crea un nuovo gateway applicazione con criteri SSL predefiniti.
 
@@ -181,11 +181,11 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Aggiornare un gateway di applicazione esistente con i criteri predefiniti di SSL
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Aggiornare un gateway applicazione con criteri SSL predefiniti
 
-Per impostare un criterio personalizzato di SSL, passare i parametri seguenti: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, e **ApplicationGateway**. Per impostare i criteri predefiniti SSL, passare i parametri seguenti: **PolicyType**, **PolicyName**, e **ApplicationGateway**. Se si tenta di passare altri parametri, è visualizzato un errore durante la creazione o l'aggiornamento del Gateway applicazione.
+Per impostare un criterio SSL personalizzato, passare i parametri seguenti: **PolicyType**, **MinProtocolVersion**, **CipherSuite** e **ApplicationGateway**. Per impostare un criterio SSL predefinito, passare i parametri seguenti: **PolicyType**, **PolicyName** e **ApplicationGateway**. Se si prova a passare altri parametri, viene visualizzato un errore quando si crea o si aggiorna il gateway applicazione.
 
-Nell'esempio seguente, sono disponibili esempi di codice per personalizzato sia criteri predefiniti. Rimuovere il criterio che si desidera utilizzare.
+Nell'esempio seguente sono disponibili esempi di codice sia per il criterio personalizzato che per il criterio predefinito. Rimuovere il commento dal criterio che si vuole usare.
 
 ```powershell
 # You have to change these parameters to match your environment.

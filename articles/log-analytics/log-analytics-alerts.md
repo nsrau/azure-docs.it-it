@@ -16,13 +16,13 @@ ms.date: 01/05/2018
 ms.author: bwren
 ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informazioni sugli avvisi in Log Analytics
 
-Gli avvisi in Log Analytics identificano informazioni importanti nel repository di Log Analytics.  In questo articolo vengono descritte alcune delle decisioni di progettazione che devono essere eseguite in base alla frequenza di raccolta dei dati da ritardi casuali, sottoposte a query con l'inserimento di dati, probabilmente a causa della latenza di rete o capacità di elaborazione e il commit dei dati nel Registro di Repository Analitica.  Inoltre, fornisce dettagli come regole di avviso in un Log Analitica e vengono descritte le differenze tra i diversi tipi di regole di avviso.
+Gli avvisi in Log Analytics identificano informazioni importanti nel repository di Log Analytics.  Questo articolo illustra alcune decisioni di progettazione da prendere in base alla frequenza di raccolta dei dati sottoposti a query, ai ritardi casuali di inserimento dati dovuti alla latenza di rete o alla capacità di elaborazione e al commit dei dati nel repository di Log Analytics.  Vengono fornite anche informazioni dettagliate sul funzionamento delle regole di avviso in Log Analytics e vengono descritte le differenze tra i diversi tipi di regole di avviso.
 
 Per il processo di creazione delle regole di avviso, vedere gli articoli seguenti:
 
@@ -32,11 +32,11 @@ Per il processo di creazione delle regole di avviso, vedere gli articoli seguent
 
 ## <a name="considerations"></a>Considerazioni
 
-I dettagli sulla frequenza di raccolta dati per diverse soluzioni e tipo di dati sono disponibili nel [dettagli sulla raccolta dei dati](log-analytics-add-solutions.md#data-collection-details) dell'articolo di panoramica soluzioni. Come indicato in questo articolo, frequenza di raccolta può essere di poco frequenti come una volta ogni sette giorni per *notifica*. È importante comprendere e valutare la frequenza di raccolta dati prima di configurare un avviso. 
+I dettagli sulla frequenza di raccolta dati per diversi tipi di dati e soluzioni sono disponibili nella sezione [Informazioni dettagliate sulla raccolta di dati](log-analytics-add-solutions.md#data-collection-details) dell'articolo di panoramica delle soluzioni. Come indicato in questo articolo, la frequenza di raccolta può essere anche solo di una volta ogni sette giorni oppure *su notifica*. È importante comprendere e valutare la frequenza di raccolta dati prima di configurare un avviso. 
 
-- La frequenza di raccolta determina la frequenza con cui l'agente OMS in computer invierà i dati a Log Analitica. Ad esempio, se la frequenza di raccolta è di 10 minuti e nessun altro ritardi nel sistema, quindi timestamp dei dati trasmessi potrebbe essere in qualsiasi punto compreso tra zero e 10 minuti precedenti prima di essere aggiunti al repository e di ricerca Log Analitica.
+- La frequenza di raccolta determina la frequenza con cui l'agente di OMS nei computer invia dati a Log Analytics. Se, ad esempio, la frequenza di raccolta è di 10 minuti e non ci sono altri ritardi nel sistema, i timestamp dei dati trasmessi possono risalire da zero a 10 minuti prima dell'aggiunta al repository e di quando diventano disponibili per la ricerca in Log Analytics.
 
-- Prima di un avviso può essere attivato, i dati necessario scrivere il repository in modo che sia disponibile quando esegue una query. A causa della latenza descritta in precedenza, la frequenza di raccolta non è lo stesso come il tempo in cui che i dati sono disponibili per le query. Ad esempio, mentre i dati possono essere raccolti precisamente ogni 10 minuti, i dati saranno disponibili nel repository dei dati in modo intermittente. Dati raccolti a intervalli zero, 10 e 20 minuti ipotetico, potrebbero essere disponibili per la ricerca in 25, 28 e 35 minuti rispettivamente o in un altro intervallo irregolare dipende dalla latenza di inserimento. Il caso peggiore per questi ritardi è documentato nel [contratto di servizio per Log Analitica](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), che non include un ritardo introdotto dalla latenza di rete o la frequenza della raccolta tra il computer e il servizio Registro Analitica.
+- Prima che un avviso possa essere attivato, i dati devono venire scritti nel repository, in modo da essere disponibili per le query. A causa della latenza descritta in precedenza, la frequenza di raccolta non corrisponde al momento in cui i dati sono disponibili per le query. I dati, ad esempio, possono essere raccolti precisamente ogni 10 minuti, ma saranno disponibili nel repository a intervalli irregolari. Ipoteticamente, i dati raccolti a intervalli di zero, 10 e 20 minuti potrebbero essere disponibili per la ricerca, rispettivamente a 25, 28 e 35 minuti o in base ad altri intervalli irregolari dipendenti dalla latenza di inserimento. Il caso peggiore per questi ritardi è documentato nel [contratto di servizio per Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1), che non include il ritardo introdotto dalla frequenza di raccolta o dalla latenza di rete tra il computer e il servizio Log Analytics.
 
 
 ## <a name="alert-rules"></a>Regole di avviso
@@ -45,26 +45,26 @@ Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricer
 
 ![Avvisi Log Analytics](media/log-analytics-alerts/overview.png)
 
-Poiché è presente una latenza prevista con l'inserimento di dati di log, il tempo assoluto tra l'indicizzazione di dati e quando è disponibile per la ricerca può essere imprevisto.  La disponibilità in tempo quasi reale dei dati raccolti deve essere prese in considerazione durante la definizione di regole di avviso.    
+Poiché è prevista una latenza per l'inserimento dei dati di log, il tempo assoluto tra l'indicizzazione dei dati e il momento in cui risultano disponibili per la ricerca può essere imprevedibile.  La disponibilità quasi in tempo reale dei dati raccolti deve essere presa in considerazione quando si definiscono le regole di avviso.    
 
-È un compromesso tra l'affidabilità di avvisi e la velocità di risposta di avvisi. È possibile scegliere di configurare i parametri di avviso per ridurre al minimo falsi allarmi e avvisi mancanti oppure è possibile scegliere i parametri di avviso per rispondere rapidamente alle condizioni che vengono monitorate, ma in alcuni casi genererà avvisi false o mancanti.
+C'è un compromesso tra l'affidabilità degli avvisi e la loro velocità di risposta. È possibile scegliere di configurare i parametri di avviso per ridurre al minimo i falsi allarmi e gli avvisi persi oppure è possibile scegliere parametri di avviso per rispondere rapidamente alle condizioni monitorate, ma che in alcuni casi possono generare falsi avvisi o comportare la perdita di avvisi.
 
 Le regole di avviso vengono definite dai dettagli seguenti:
 
 - **Ricerca log**.  La query eseguita ogni volta che viene attivata la regola di avviso.  I record restituiti da questa query vengono usati per determinare se viene creato un avviso.
-- **Intervallo di tempo**.  Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può trattarsi di qualsiasi valore compreso tra cinque minuti e 24 ore. L'intervallo deve essere sufficientemente ampia per contenere ragionevoli ritardi nell'inserimento. L'intervallo di tempo deve essere di due volte la lunghezza del ritardo più lungo di cui che si desidera essere in grado di gestire.<br> Ad esempio, se si desidera ricevere avvisi relativi affidabile di ritardi di 30 minuti, quindi l'intervallo deve essere un'ora.  
+- **Intervallo di tempo**.  Specifica l'intervallo di tempo per la query.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  Può essere un valore qualsiasi compreso tra cinque minuti e 24 ore. L'intervallo deve essere sufficientemente ampio per tenere in considerazione ritardi ragionevoli nell'inserimento. L'intervallo di tempo deve essere il doppio della lunghezza del ritardo più lungo che si vuole poter gestire.<br> Se, ad esempio, si vuole che gli avvisi rimangano affidabili con ritardi di 30 minuti, l'intervallo deve essere di un'ora.  
 
-    Esistono due sintomi che si potrebbero verificare se l'intervallo di tempo è troppo piccolo.
+    Se l'intervallo di tempo è troppo piccolo, possono verificarsi due situazioni.
 
-    - **Mancante avvisi**. Si supponga che il ritardo di inserimento è 60 minuti a volte, ma la maggior parte dei casi è 15 minuti.  Se l'intervallo di tempo è impostato su 30 minuti andrà perduto un avviso quando il ritardo è di 60 minuti perché i dati non sarà disponibili per la ricerca quando viene eseguita la query di avviso. 
+    - **Avvisi persi**. Si supponga che il ritardo di inserimento talvolta sia di 60 minuti, ma il più delle volte di 15 minuti.  Se l'intervallo di tempo è impostato su 30 minuti, quando il ritardo è di 60 minuti un avviso andrà perso, perché i dati non saranno disponibili per la ricerca quando la query di avviso viene eseguita. 
    
         >[!NOTE]
-        >Tenta di diagnosticare per quale motivo viene perso l'avviso è possibile eseguire. Ad esempio, nel caso precedente, i dati vengono scritti nel repository di 60 minuti dopo che è stata eseguita la query di avviso. Se si è notato il giorno successivo che un avviso non è stato completato e il giorno successivo periodo di tempo corretto viene eseguita la query, i criteri di ricerca log corrisponderebbe il risultato. Viene visualizzata che l'avviso dovrebbe sarebbe dovuta essere attivata. In realtà, l'avviso non è stata attivata perché i dati non è ancora disponibili quando è stata eseguita la query di avviso. 
+        >Diagnosticare il motivo della perdita dell'avviso è impossibile. Nel caso precedente, ad esempio, i dati vengono scritti nel repository 60 minuti dopo che la query di avviso è stata eseguita. Se il giorno successivo si nota che un avviso è andato perso e la query viene eseguita il giorno successivo nell'intervallo di tempo corretto, il risultato corrisponde ai criteri di ricerca log. Risulterebbe quindi che l'avviso avrebbe dovuto essere stato attivato. In realtà, l'avviso non è stato attivato perché i dati non erano ancora disponibili quando è stata eseguita la query di avviso. 
         >
  
-    - **Avvisi falsi**. Le query talvolta avviso sono progettate per identificare l'assenza di eventi. Un esempio di questo oggetto è rilevare quando una macchina virtuale non sia in linea eseguendo una ricerca di heartbeat mancanti. Come sopra, se l'heartbeat non è disponibile per la ricerca entro il tempo di avviso, quindi un avviso verrà generato in quanto i dati di heartbeat non è ancora possibile eseguire ricerche e pertanto assente. Questo è lo stesso risultato, come se la macchina virtuale è stata legittimamente non in linea e non sono disponibili dati heartbeat generati da questo. L'esecuzione della query del giorno rispetto alla finestra dell'ora corretta indicherà che si sono verificati gli heartbeat e di avviso non è riuscita. In effetti, degli heartbeat non sono ancora disponibili per la ricerca perché l'intervallo di tempo di avviso è stato impostato troppo piccolo.  
+    - **Falsi avvisi**. A volta le query di avviso sono progettate per identificare l'assenza di eventi. Ad esempio, per rilevare quando una macchina virtuale è offline cercando heartbeat mancanti. Come nel caso precedente, se l'heartbeat non è disponibile per la ricerca nell'intervallo di tempo di avviso, viene generato un avviso in quanto i dati dell'heartbeat non sono ancora disponibili per la ricerca e quindi sono assenti. Il risultato sarebbe lo stesso quando la macchina virtuale è legittimamente offline e non genera dati di heartbeat. Eseguendo la query il giorno successivo nell'intervallo di tempo corretto, risulterà che gli heartbeat erano presenti e si è verificato un errore dell'avviso. Gli heartbeat, di fatto, non erano ancora disponibili per la ricerca perché l'intervallo di tempo di avviso è stato impostato su un valore troppo piccolo.  
 
-- **Frequenza**.  Specifica la frequenza con cui la query deve essere eseguita e può essere utilizzata per migliorare la risposta per lo scenario normale avvisi. Il valore deve essere compreso tra cinque minuti e 24 ore e deve essere uguale o minore di intervallo di tempo di avviso.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br>Se l'obiettivo è affidabile per ritardi fino a 30 minuti e il ritardo normale è 10 minuti, l'intervallo di tempo deve essere un'ora e il valore della frequenza deve essere di 10 minuti. Questo verrà generato un avviso con i dati con un ritardo di 10 inserimento minuti compreso tra 10 e 20 minuti di quando è stati generati l'avviso dati.<br>Per evitare di creare più avvisi per gli stessi dati, perché l'intervallo di tempo è troppo grande, il [esclusione di avvisi](log-analytics-tutorial-response.md#create-alerts) possibile utilizzare l'opzione per eliminare gli avvisi per almeno fino a quando l'intervallo di tempo.
+- **Frequenza**.  Specifica la frequenza con cui la query deve essere eseguita e consente di creare avvisi con velocità di risposta maggiore. Il valore deve essere compreso tra cinque minuti e 24 ore e deve essere uguale o minore all'intervallo di tempo di avviso.  Se il valore è maggiore dell'intervallo di tempo, si rischia di omettere il record.<br>Se l'obiettivo è l'affidabilità con ritardi fino a 30 minuti e il ritardo normale è di 10 minuti, l'intervallo di tempo deve essere di un'ora e il valore della frequenza deve essere di 10 minuti. In questo modo verrà attivato un avviso con i dati con un ritardo di inserimento di 10 minuti tra 10 e 20 minuti da quando i dati dell'avviso sono stati generati.<br>Per evitare di creare più avvisi per gli stessi dati a causa di un intervallo di tempo troppo grande, è possibile usare l'opzione [Elimina avvisi](log-analytics-tutorial-response.md#create-alerts) per eliminare gli avvisi per un tempo corrispondente almeno all'intervallo di tempo.
   
 - **Soglia**.  Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log.  La soglia è diversa per i diversi tipi di regole di avviso.
 
@@ -123,7 +123,7 @@ Sebbene sia possibile usare qualsiasi query per una regola di avviso **Numero di
 
 - **Funzione di aggregazione**.  Determina il calcolo che viene eseguito e potenzialmente un campo numerico da aggregare.  Ad esempio, **count()** restituirà il numero di record nella query, **avg(CounterValue)** restituirà la media del campo CounterValue nell'intervallo.
 - **Campo Gruppo**.  Viene creato un record con un valore aggregato per ogni istanza di questo campo e può essere generato un avviso per ognuno di essi.  Ad esempio, se si desidera generare un avviso per ogni computer, si userà **dal Computer**.   
-- **Intervallo**.  Definisce l'intervallo di tempo in cui i dati vengono aggregati.  Ad esempio, se è stato specificato **5 minuti**, verrebbe creato un record per ogni istanza del campo gruppo aggregato a intervalli di 5 minuti in base l'intervallo di tempo specificato per l'avviso.
+- **Intervallo**.  Definisce l'intervallo di tempo in cui i dati vengono aggregati.  Ad esempio, se sono stati specificati **5 minuti**, viene creato un record per ogni istanza del campo Gruppo aggregato a intervalli di 5 minuti nell'intervallo di tempo specificato per l'avviso.
 
 #### <a name="threshold"></a>Soglia
 La soglia per le regole di avviso Unità di misurazione della metrica è definita da un valore di aggregazione e da un numero di violazioni della sicurezza.  Se qualsiasi punto dati in una ricerca di log supera questo valore, ciò viene considerato una violazione.  Se il numero di violazioni per un oggetto nei risultati supera il valore specificato, viene creato un avviso per l'oggetto.
@@ -133,9 +133,9 @@ Si consideri uno scenario in cui si desidera creare un avviso se l'uso del proce
 
 **Query:** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
 **Intervallo di tempo:** 30 minuti<br>
-**Avviso frequenza:** 5 minuti<br>
-**Valore di aggregazione:** superiore a 90<br>
-**Avviso di trigger in base a:** totale upera maggiore di 5<br>
+**Frequenza di avviso:** 5 minuti<br>
+**Valore di aggregazione:** maggiore di 90<br>
+**Attiva l'avviso in base a:** totale violazioni maggiore di 5<br>
 
 La query crea un valore medio per ogni computer a intervalli di 5 minuti.  Questa query verrebbe eseguita ogni 5 minuti per i dati raccolti nei 30 minuti precedenti.  Di seguito sono illustrati dati di esempio per tre computer.
 

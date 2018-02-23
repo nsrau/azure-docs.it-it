@@ -18,7 +18,7 @@ ms.date: 12/01/2017
 ms.author: larryfr
 ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ La procedura presentata in questo documento illustra come creare un cluster HDIn
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -117,7 +117,7 @@ I passaggi seguenti devono essere eseguiti dalla riga di comando, ad esempio Pow
     * Sostituire `sshuser` e `sshuserpassword` con il nome utente e la password da usare per l'accesso al cluster tramite SSH
 
     > [!IMPORTANT]
-    > In questo esempio viene creato un cluster con due nodi di lavoro. È inoltre possibile modificare il numero di nodi del ruolo di lavoro dopo la creazione del cluster eseguendo le operazioni di ridimensionamento. Se si prevede di usare più di 32 nodi del ruolo di lavoro, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM. È possibile impostare le dimensioni del nodo head usando il parametro `--headNodeSize` durante la creazione del cluster.
+    > L'esempio precedente crea un cluster con due nodi di ruolo di lavoro. È inoltre possibile modificare il numero di nodi del ruolo di lavoro dopo la creazione del cluster eseguendo le operazioni di ridimensionamento. Se si prevede di usare più di 32 nodi del ruolo di lavoro, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM. È possibile impostare le dimensioni del nodo head usando il parametro `--headNodeSize` durante la creazione del cluster.
     >
     > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

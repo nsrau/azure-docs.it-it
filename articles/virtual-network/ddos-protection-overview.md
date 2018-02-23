@@ -17,7 +17,7 @@ ms.date: 11/13/2017
 ms.author: jdial
 ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ Protezione DDoS di Azure, in combinazione con le procedure consigliate di proget
 ![Protezione DDoS di Azure Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Protezione DDoS di Azure Standard è attualmente in versione di anteprima. La protezione viene fornita per tutte le risorse di Azure a cui è stato assegnato un indirizzo IP pubblico di Azure, come le macchine virtuali, i bilanciamenti del carico e i gateway applicazione. È necessario [eseguire la registrazione](http://aka.ms/ddosprotection) per il servizio prima di abilitare Protezione DDoS Standard per la sottoscrizione. Dopo la registrazione, il team di Azure DDoS contatta e in modo semplificato il processo di abilitazione. Protezione DDoS Standard è disponibile negli Stati Uniti orientali, negli Stati Uniti orientali 2, negli Stati Uniti occidentali, negli Stati Uniti centro-occidentali, nell'Europa settentrionale, nell'Europa occidentale, nel Giappone occidentale, nel Giappone orientale, nell'Asia orientale e nell'Asia sud-orientale. Durante la fase di anteprima non verrà addebitato alcun costo per l'uso del servizio.
+> Protezione DDoS di Azure Standard è attualmente in versione di anteprima. La protezione viene fornita per tutte le risorse di Azure a cui è stato assegnato un indirizzo IP pubblico di Azure, come le macchine virtuali, i bilanciamenti del carico e i gateway applicazione. È necessario [eseguire la registrazione](http://aka.ms/ddosprotection) per il servizio prima di abilitare Protezione DDoS Standard per la sottoscrizione. Dopo la registrazione si verrà contattati dal team di Protezione DDoS di Azure che fornirà supporto per il processo di abilitazione. Protezione DDoS Standard è disponibile negli Stati Uniti orientali, negli Stati Uniti orientali 2, negli Stati Uniti occidentali, negli Stati Uniti centro-occidentali, nell'Europa settentrionale, nell'Europa occidentale, nel Giappone occidentale, nel Giappone orientale, nell'Asia orientale e nell'Asia sud-orientale. Durante la fase di anteprima non verrà addebitato alcun costo per l'uso del servizio.
 
 È consigliabile provare Protezione DDoS Standard in ambienti di sviluppo, test o produzione. Per inviare commenti e suggerimenti sulle proprie esperienze, usare le risorse seguenti:
 - [Protezione DDoS di Azure nel forum di Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection) 

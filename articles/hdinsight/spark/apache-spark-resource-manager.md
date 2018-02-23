@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: e37abf9bbcf8f98c969a32d8eb37b9a7a6ddeb14
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 914811812b7e01f7b58f92c85cb5a16580c45796
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight 
 
@@ -36,7 +36,7 @@ Informazioni su come accedere a interfacce associate al cluster Spark, come l'in
 
 ## <a name="open-the-spark-history-server"></a>Aprire il Server cronologia Spark
 
-Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione. Si tratta di un'estensione dell'interfaccia utente Web di Sparkl.
+Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione. Si tratta di un'estensione dell'interfaccia utente Web di Spark.
 
 **Per aprire l'interfaccia utente Web Server cronologia Spark**
 
@@ -175,7 +175,6 @@ Avviare l'interfaccia utente di Yarn, come illustrato all'inizio dell'articolo. 
 * [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)
 * [Eseguire processi in modalità remota in un cluster Spark usando Livy](apache-spark-livy-rest-interface.md)
 * [Usare il plug-in degli strumenti HDInsight per IntelliJ IDEA per creare e inviare applicazioni Spark in Scala](apache-spark-intellij-tool-plugin.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](apache-spark-eventhub-streaming.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely (Usare il plug-in Strumenti HDInsight per IntelliJ IDEA per eseguire il debug di applicazioni Spark in remoto)](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usare i notebook di Zeppelin con un cluster Spark in HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernel disponibili per notebook di Jupyter nel cluster Spark per HDInsight](apache-spark-jupyter-notebook-kernels.md)

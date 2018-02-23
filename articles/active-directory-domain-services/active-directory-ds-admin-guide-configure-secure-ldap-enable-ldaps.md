@@ -16,7 +16,7 @@ ms.date: 12/15/2017
 ms.author: maheshu
 ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
@@ -117,7 +117,7 @@ Nel caso di problemi di connessione al dominio gestito tramite il protocollo LDA
 * Verificare che il client LDAP (ad esempio ldp.exe) si connetta all'endpoint LDAP sicuro usando un nome DNS, non l'indirizzo IP.
 * Verificare che il nome DNS a cui si connette il client LDAP venga risolto nell'indirizzo IP pubblico per il protocollo LDAP sicuro nel dominio gestito.
 * Verificare che il certificato LDAP sicuro per il dominio gestito contenga il nome DNS nell'attributo soggetto o nell'attributo nomi alternativi del soggetto.
-* Se ci si connette tramite LDAP sicuro tramite internet, verificare che le impostazioni di gruppo per la rete virtuale consentono il traffico alla porta 636 da internet.
+* In caso di connessione usando l'accesso LDAP sicuro tramite Internet, verificare che le impostazioni del gruppo di sicurezza di rete per la rete virtuale consentano il traffico alla porta 636 da Internet.
 
 Se i problemi di connessione al dominio gestito con il protocollo LDAP sicuro persistono, [contattare il team di prodotto](active-directory-ds-contact-us.md) per assistenza. Includere le informazioni seguenti per agevolare la diagnostica del problema:
 * Schermata di ldp.exe che effettua la connessione con esito negativo.

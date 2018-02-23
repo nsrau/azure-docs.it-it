@@ -1,6 +1,6 @@
 ---
-title: "Eseguire la migrazione di criteri che richiede l'autenticazione a più fattori nel portale di Azure classico | Documenti Microsoft"
-description: "Questo articolo illustra come eseguire la migrazione di un criterio classico che richiede l'autenticazione a più fattori nel portale di Azure."
+title: "Eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori nel portale di Azure | Microsoft Docs"
+description: "Questo articolo illustra come eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori nel portale di Azure."
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -18,24 +18,24 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 77484dc3773736ea15c39ede5f9d49b6b694d960
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
-# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Eseguire la migrazione di un criterio classico che richiede l'autenticazione a più fattori nel portale di Azure 
+# <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Eseguire la migrazione di criteri classici che richiedono l'autenticazione a più fattori nel portale di Azure 
 
-In questo articolo viene illustrato come eseguire la migrazione di un criterio classico che richiede **multi-factor authentication** per un'applicazione cloud. Anche se non è un prerequisito, è consigliabile leggere [classici criteri nel portale di Azure di eseguire la migrazione](active-directory-conditional-access-migration.md) prima di iniziare la migrazione dei criteri classici.
+Questo articolo illustra come eseguire la migrazione di criteri classici che richiedono  **l'autenticazione a più fattori** per un'applicazione cloud. Anche se non è un prerequisito, è consigliabile leggere [Migrare i criteri classici nel portale di Azure](active-directory-conditional-access-migration.md) prima di iniziare la migrazione dei criteri classici.
 
 
  
 ## <a name="overview"></a>Panoramica 
 
-Lo scenario di questo articolo viene illustrato come eseguire la migrazione di un criterio classico che richiede **multi-factor authentication** per un'applicazione cloud. 
+Lo scenario in questo articolo illustra come eseguire la migrazione di criteri classici che richiedono  **l'autenticazione a più fattori** per un'applicazione cloud. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 
 
-Il processo di migrazione sono le seguenti operazioni:
+Il processo di migrazione è costituito dai passaggi seguenti:
 
 1. [Aprire il criterio classico](#open-a-classic-policy) per ottenere le impostazioni di configurazione.
 2. Creare un nuovo criterio di accesso condizionale di Azure Active Directory per sostituire il criterio classico. 
@@ -53,11 +53,11 @@ Il processo di migrazione sono le seguenti operazioni:
 
     ![Accesso condizionale](./media/active-directory-conditional-access-migration-mfa/02.png)
 
-3. Nel **Gestisci** fare clic su **criteri classica (anteprima)**.
+3. Nella sezione **Gestisci**, fare clic su **Criteri classici (anteprima)**.
 
     ![Criteri classici](./media/active-directory-conditional-access-migration-mfa/12.png)
 
-4. Nell'elenco dei criteri classici, fare clic sul criterio che richiede **multi-factor authentication** per un'applicazione cloud.
+4. Nell'elenco di criteri classici, fare clic sui criteri classici che richiedono l'**autenticazione a più fattori** per un'applicazione cloud.
 
     ![Criteri classici](./media/active-directory-conditional-access-migration-mfa/13.png)
 
@@ -136,9 +136,9 @@ Il processo di migrazione sono le seguenti operazioni:
 
 
 
-## <a name="disable-the-classic-policy"></a>Disattivare il criterio classico
+## <a name="disable-the-classic-policy"></a>Disabilitare i criteri classico
 
-Per disabilitare i criteri classico, fare clic su **disabilitare** nel **dettagli** visualizzazione.
+Per disabilitare i criteri classici, fare clic su **Disabilita** nella visualizzazione **Dettagli**.
 
 ![Criteri classici](./media/active-directory-conditional-access-migration-mfa/14.png)
 
@@ -146,7 +146,7 @@ Per disabilitare i criteri classico, fare clic su **disabilitare** nel **dettagl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sulla migrazione classico criteri, vedere [classici criteri nel portale di Azure di eseguire la migrazione](active-directory-conditional-access-migration.md).
+- Per altre informazioni sulla migrazione dei criteri classici, vedere [Migrare i criteri classici nel portale di Azure](active-directory-conditional-access-migration.md).
 
 
 - Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 936d3718c84cad49221e64b65e60bea7e37a523c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Estensioni della preparazione dati in Python
 Al fine di colmare i vuoti funzionali tra le funzioni incorporate, la preparazione dati di Azure Machine Learning include più livelli di estensibilità. In questo documento viene descritta l'estensibilità tramite lo script di Python. 
@@ -101,7 +101,7 @@ Per installare i pacchetti in una destinazione di calcolo, è necessario modific
 ### <a name="windows"></a>Windows 
 Per trovare il percorso in Windows, individuare l'installazione specifica dell'app di Python e la relativa directory degli script. Il percorso predefinito è:  
 
-`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts.` 
+`C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
 Quindi, eseguire uno dei comandi seguenti: 
 
@@ -114,7 +114,7 @@ oppure
 ### <a name="mac"></a>Mac 
 Per trovare il percorso in Mac, individuare l'installazione specifica dell'app di Python e la relativa directory degli script. Il percorso predefinito è: 
 
-`/Users/<user>/Library/Caches/AmlWorkbench>/Python/bin` 
+`/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
 Quindi, eseguire uno dei comandi seguenti: 
 

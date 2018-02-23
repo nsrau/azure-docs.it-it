@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente con Visual Studio Team Services
 
@@ -31,19 +31,19 @@ Questo scenario è costituito da due runbook di PowerShell che è possibile impo
 
 ### <a name="runbooks"></a>Runbook
 
-Runbook | Descrizione| 
+Runbook | DESCRIZIONE| 
 --------|------------|
 Sincronizzazione VSTS | Importare runbook o configurazioni dal controllo del codice sorgente VSTS al termine di un'archiviazione. Se eseguito manualmente, importerà e pubblicherà tutti i runbook o le configurazioni nell'account di automazione.| 
 Sincronizzazione VSTSGit | Importare runbook o configurazioni da VSTS nel controllo del codice sorgente Git al termine di un'archiviazione. Se eseguito manualmente, importerà e pubblicherà tutti i runbook o le configurazioni nell'account di automazione.|
 
-### <a name="variables"></a>Variabili
+### <a name="variables"></a>variables
 
-Variabile | Descrizione|
+Variabile | DESCRIZIONE|
 -----------|------------|
-VSToken | Protegge l'asset della variabile creato che contiene il token di accesso personale VSTS. È possibile imparare a creare un token di accesso personale VSTS nella [pagina di autenticazione VSTS](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview). 
+VSToken | Protegge l'asset della variabile creato che contiene il token di accesso personale VSTS. È possibile imparare a creare un token di accesso personale VSTS nella [pagina di autenticazione VSTS](/vsts/accounts/use-personal-access-tokens-to-authenticate).
 ## <a name="installing-and-configuring-this-scenario"></a>Installazione e configurazione dello scenario
 
-Creare un [token di accesso personale](https://www.visualstudio.com/en-us/docs/integrate/get-started/auth/overview) in VSTS, che verrà usato per sincronizzare i runbook o le configurazioni nell'account di automazione.
+Creare un [token di accesso personale](/vsts/accounts/use-personal-access-tokens-to-authenticate) in VSTS, che verrà usato per sincronizzare i runbook o le configurazioni nell'account di automazione.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
@@ -58,14 +58,14 @@ Importare il runbook che sincronizzerà i runbook o le configurazioni nell'accou
 È ora possibile [pubblicare](automation-creating-importing-runbook.md#publishing-a-runbook) questo runbook in modo da creare un webhook. 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Creare un [webhook](automation-webhooks.md) per questo runbook di sincronizzazione VSTS e inserire i parametri come illustrato di seguito. Assicurarsi di copiare l'url del webhook, poiché sarà necessario per un hook del servizio in VSTS. VSAccessTokenVariableName è il nome (VSToken) della variabile protetta creata in precedenza per contenere il token di accesso personale. 
+Creare un [webhook](automation-webhooks.md) per questo runbook di sincronizzazione VSTS e inserire i parametri come illustrato di seguito. Assicurarsi di copiare l'URL del webhook, poiché sarà necessario per un hook del servizio in VSTS. VSAccessTokenVariableName è il nome (VSToken) della variabile protetta creata in precedenza per contenere il token di accesso personale. 
 
-L'integrazione con VSTS (Sync-VSTS.ps1) richiederà i parametri seguenti.
+L'integrazione con VSTS (Sync-VSTS.ps1) richiederà i parametri seguenti:
 ### <a name="sync-vsts-parameters"></a>Parametri di sincronizzazione VSTS
 
-. | Descrizione| 
+Parametro | DESCRIZIONE| 
 --------|------------|
-WebhookData | Questo file conterrà le informazioni di archiviazione inviate dall'hook del servizio VSTS. È necessario lasciare vuoto questo parametro.| 
+WebhookData | Questo file contiene le informazioni di archiviazione inviate dall'hook del servizio VSTS. È necessario lasciare vuoto questo parametro.| 
 ResourceGroup | Nome del gruppo di risorse in cui si trova l'account di automazione.|
 AutomationAccountName | Nome dell'account di automazione che verrà sincronizzato con VSTS.|
 VSFolder | Nome della cartella in VSTS, in cui sono presenti i runbook e le configurazioni.|
@@ -77,7 +77,7 @@ VSAccessTokenVariableName | Nome della variabile protetta (VSToken) che contiene
 
 Se si usa VSTS con GIT (Sync-VSTSGit.ps1), saranno necessari i parametri seguenti.
 
-. | Descrizione|
+Parametro | DESCRIZIONE|
 --------|------------|
 WebhookData | Questo file conterrà le informazioni di archiviazione inviate dall'hook del servizio VSTS. È necessario lasciare vuoto questo parametro.| ResourceGroup | Nome del gruppo di risorse in cui si trova l'account di automazione.|
 AutomationAccountName | Nome dell'account di automazione che verrà sincronizzato con VSTS.|
@@ -90,13 +90,13 @@ VSAccessTokenVariableName | Nome della variabile protetta (VSToken) che contiene
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSGitWebhook.png)
 
-Creare un hook del servizio in VSTS per le archiviazioni alla cartella che attiva il webhook all'archiviazione del codice. Selezionare Web hook come servizio con cui eseguire l'integrazione quando si crea una nuova sottoscrizione. È possibile acquisire familiarità con gli hook del servizio nella [documentazione relativa agli hook del servizio VSTS](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
+Creare un hook del servizio in VSTS per le archiviazioni alla cartella che attiva il webhook all'archiviazione del codice. Selezionare **Web hook** come servizio con cui eseguire l'integrazione quando si crea una nuova sottoscrizione. È possibile acquisire familiarità con gli hook del servizio nella [documentazione relativa agli hook del servizio VSTS](https://www.visualstudio.com/en-us/docs/marketplace/integrate/service-hooks/get-started).
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSServiceHook.png)
 
 A questo punto si sarà in grado di eseguire tutte le archiviazioni dei runbook e delle configurazioni in VSTS e di sincronizzarle automaticamente nell'account di automazione.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSSyncRunbookOutput.png)
 
-Se si esegue manualmente questo runbook senza che sia attivato da VSTS, è possibile lasciare vuoto il parametro webhookdata in modo che sia eseguita una sincronizzazione completa dalla cartella VSTS specificata.
+Se si esegue manualmente questo runbook senza che sia attivato da VSTS, è possibile lasciare vuoto il parametro webhookdata in modo che venga eseguita una sincronizzazione completa dalla cartella VSTS specificata.
 
 Se si desidera disinstallare lo scenario, rimuovere l'hook del servizio da VSTS, eliminare il runbook e la variabile VSToken.

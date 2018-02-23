@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: shlo
-ms.openlocfilehash: 97a8fa1779cd11830781528527ddfe998e0548b6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 60d7897caebcb138180d99358ec754c1b9594fe5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
@@ -29,8 +29,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Monitorare le pipeline di data factory versione 2
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Passare al pannello della data factory creata nel portale di Azure e fare clic sul riquadro 'Monitoraggio e gestione'. Verrà avviata l'esperienza di monitoraggio visivo dei file di definizione dell'applicazione (ADF) versione 2.
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
+2. Accedere al [portale di Azure](https://portal.azure.com/).
+3. Passare al pannello della data factory creata nel portale di Azure e fare clic sul riquadro 'Monitoraggio e gestione'. Verrà avviata l'esperienza di monitoraggio visivo dei file di definizione dell'applicazione (ADF) versione 2.
 
 ## <a name="list-view-monitoring"></a>Monitoraggio vista elenco
 

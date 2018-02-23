@@ -19,7 +19,7 @@ ms.author: jlian
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7b9642eec0fd0f1e547f34de1077e551fbb61593
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -35,4 +35,4 @@ Aggiornare la [versione di valutazione gratuita](https://azure.microsoft.com/fre
    
     ![Schermata che mostra gli elementi da selezionare per confermare che si desidera aggiornare la sottoscrizione](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
- Quando esegue l'aggiornamento da una sottoscrizione di valutazione gratuita, mantenere il credito rimanente per completi 30 giorni dopo la creazione della sottoscrizione. È inoltre necessario avere accesso a servizi per 12 mesi.
+ Quando si esegue l'aggiornamento da una sottoscrizione di prova gratuita, conservare il credito rimanente per 30 giorni dopo la creazione della sottoscrizione. Si dispone inoltre dell'accesso ai servizi gratuiti per 12 mesi.

@@ -19,7 +19,7 @@ ms.date: 10/11/2017
 ms.author: carlrab
 ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -47,7 +47,7 @@ I tentativi di connessione da Internet e Azure devono prima superare il firewall
 **Indicazione:** è consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database. Usare le regole del firewall a livello di server per gli amministratori e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database.
 
 > [!Important]
-> Database SQL di Azure supporta un massimo di 128 regole firewall.
+> Database SQL di Windows Azure supporta un massimo di 128 regole del firewall.
 >
 
 > [!Note]

@@ -15,7 +15,7 @@ ms.date: 10/30/2017
 ms.author: apimpm
 ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -24,7 +24,7 @@ Gestione API offre la possibilità di proteggere l'accesso al servizio back-end 
 
 Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, vedere [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity] (Entità certificato dell'API REST di Gestione API di Azure).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"> </a>Prerequisiti
 In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire i passaggi indicati in questo argomento è necessario aver configurato il servizio back-end per l'autenticazione del certificato client ([per la configurazione dell'autenticazione del certificato client nei siti Web di Azure, vedere questo articolo ][to configure certificate authentication in Azure WebSites refer to this article]) e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
 
 ## <a name="step1"></a>Caricare un certificato client

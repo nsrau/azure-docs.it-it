@@ -16,13 +16,13 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
 
-È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format). È possibile inviare attività che producono solo immagini oppure combinare la generazione di anteprime con la codifica. Questo articolo fornisce alcuni esempio XML e JSON anteprima predefiniti per tali scenari. Alla fine dell'articolo, è un [codice di esempio](#code_sample) che viene illustrato come utilizzare Media Services .NET SDK per eseguire l'attività di codifica.
+È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format). È possibile inviare attività che producono solo immagini oppure combinare la generazione di anteprime con la codifica. Questo articolo offre alcuni set di impostazioni di anteprima XML e JSON di esempio per questi scenari. Nella sezione finale dell'articolo è disponibile un [codice di esempio](#code_sample) che illustra come usare SDK di Servizi multimediali di Azure per .NET per eseguire l'attività di codifica.
 
 Per altre informazioni sugli elementi usati nei set di impostazioni di esempio, è necessario rivedere l'argomento [Schema di Media Encoder Standard](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-gener
     
 ## <a name="example-of-a-single-png-file-preset"></a>Esempio di set di impostazioni per un singolo file PNG
 
-È possibile usare il set di impostazioni JSON e XML seguente per produrre un singolo file PNG di output dai primi secondi del video di input, in cui il codificatore tenta in tutti i modi di trovare un frame "interessante". Si noti che le dimensioni dell'immagine di output sono state impostate su 100%, vale a dire che queste corrispondono alle dimensioni del video di input. Si noti anche che è necessario che l'impostazione "Format" in "Outputs" corrisponda all'uso di "PngLayers" nella sezione "Codec". 
+È possibile usare il set di impostazioni JSON e XML seguente per produrre un singolo file PNG di output dai primi secondi del video di input, in cui il codificatore tenta in tutti i modi di trovare un frame "interessante". Osservare come le dimensioni dell'immagine di output siano state impostate su 100%, in modo da corrispondere alle dimensioni del video di input. Si noti anche che è necessario che l'impostazione "Format" in "Outputs" corrisponda all'uso di "PngLayers" nella sezione "Codec". 
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
@@ -138,7 +138,7 @@ Il set di impostazioni JSON e XML consente di produrre un set di 10 immagini in 
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Esempio di set di impostazioni per un'immagine in corrispondenza di un timestamp specifico
 
-Il set di impostazioni JSON e XML seguente consente di produrre una singola immagine JPEG in corrispondenza del segno di 30 secondi di video di input. Questa impostazione predefinita prevede che il video di input da più di 30 secondi di durata (in caso contrario il processo ha esito negativo).
+Il set di impostazioni JSON e XML seguente consente di produrre una singola immagine JPEG ogni 30 secondi di riproduzione del video di input. Questo set di impostazioni prevede che il video di input abbia una durata maggiore di 30 secondi. In caso contrario, il processo non riuscirà.
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
@@ -194,7 +194,7 @@ Il set di impostazioni JSON e XML seguente consente di produrre una singola imma
     
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Esempio di set di impostazioni per anteprime con risoluzioni diverse
 
-È possibile usare il set di impostazioni seguente per generare anteprime con risoluzioni diverse in un'unica attività. Nell'esempio, % 5 posizioni, 15%,..., 95% della sequenza temporale input, il codificatore genera due immagini: una al 100% della risoluzione video input e l'altro 50%.
+È possibile usare il set di impostazioni seguente per generare anteprime con risoluzioni diverse in un'unica attività. Nell'esempio, in corrispondenza delle posizioni 5%, 15%, …, 95% della sequenza temporale di input, il codificatore genera due immagini, una con risoluzione video di input al 100% e l'altra al 50%.
 
 Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore di usare la larghezza e l'altezza specificate nella sezioneEncoding del set di impostazioni durante la generazione del nome file delle immagini di output. In questo modo, è possibile distinguere facilmente tra le diverse immagini
 
@@ -398,7 +398,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 * Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 * Inviare il processo.
 
-Vedere il [lo sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md) articolo per informazioni su come configurare l'ambiente di sviluppo.
+Vedere l'articolo [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md) per istruzioni su come configurare l'ambiente di sviluppo.
 
 ```
 using System;
@@ -534,7 +534,7 @@ Si applicano le considerazioni seguenti:
   
   * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
-  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start": "00: 01:00"
+  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start" : "00:01:00"
     
     È possibile combinare e associare le notazioni a piacimento.
     

@@ -3,8 +3,8 @@ title: 'Distribuire il servizio App in un ambiente non in linea: Stack di Azure 
 description: Istruzioni dettagliate sulla distribuzione di servizio App in un ambiente Azure Stack disconnesso protetto da AD FS.
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
-manager: stefsch
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: anwestg
-ms.openlocfilehash: 2e527620825a3b419c0191244ba0baff4b74f0fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: anwestg
+ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*

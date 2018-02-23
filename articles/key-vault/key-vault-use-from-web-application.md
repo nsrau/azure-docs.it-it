@@ -13,7 +13,7 @@ ms.date: 09/15/2017
 ms.author: adhurwit
 ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -27,7 +27,7 @@ In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave d
 
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -36,7 +36,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Un'applicazione Web. Verranno mostrati i passaggi per un'applicazione ASP.NET MVC distribuita in Azure come app Web.
 
 >[!IMPORTANT]
->* Questo esempio dipende da una modalità meno recente di eseguire il provisioning manuale delle identità AAD. Attualmente esiste una nuova funzionalità in anteprima, denominata [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), che consente di eseguire automaticamente il provisioning di identità AAD. Consultare il seguente codice di esempio sul [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) per altri dettagli.
+>* Questo esempio dipende da una modalità meno recente di eseguire il provisioning manuale delle identità AAD. Attualmente esiste una nuova funzionalità in anteprima, denominata [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), che consente di eseguire automaticamente il provisioning di identità AAD. Per altri dettagli, fare riferimento all'esempio seguente in [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/).
 
 > [!NOTE]
 >* Per questa esercitazione è essenziale aver completato i passaggi elencati in [Introduzione all'insieme di credenziali chiave di Azure](key-vault-get-started.md) in modo da disporre dell'URI di un segreto e dell'ID client e del segreto client per un'applicazione Web.
@@ -46,7 +46,7 @@ L'applicazione Web che accederà all'insieme di credenziali chiave è quella reg
 
 Questa esercitazione è destinata agli sviluppatori Web che conoscono le nozioni di base della creazione di applicazioni Web in Azure. Per altre informazioni sulle app Web di Azure, vedere [Panoramica delle app Web](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Aggiungere pacchetti NuGet
+## <a id="packages"></a>Aggiungere i pacchetti NuGet
 
 Sono due i pacchetti che devono essere installati nell'applicazione Web.
 
@@ -151,7 +151,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Annotare la data di fine e la password per l'estensione pfx (in questo esempio: 31/07/2017 e test123). Saranno necessarie più avanti.
+Prendere nota della data finale e della password per il formato con estensione pfx (in questo esempio: 07/31/2017 e test123). Saranno necessarie più avanti.
 
 Per ulteriori informazioni sulla creazione di un certificato di prova, vedere [Procedura: creare il proprio certificato di prova](https://msdn.microsoft.com/library/ff699202.aspx)
 

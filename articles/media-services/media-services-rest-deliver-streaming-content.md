@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 9bcd7c099bb46795f6f33c073261c0b949ff536a
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/18/2017
 > 
 
 ## <a name="overview"></a>Panoramica
-È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. Il [codifica un asset](media-services-rest-encode-asset.md) articolo viene illustrato come effettuare la codifica in un set MP4 a velocità in bit adattiva. Se il contenuto viene crittografato, configurare criteri di distribuzione asset (come descritto in [questo](media-services-rest-configure-asset-delivery-policy.md) articolo) prima di creare un indicatore di posizione. 
+È possibile trasmettere in streaming un set MP4 a velocità in bit adattiva creando un localizzatore di streaming OnDemand e un URL di streaming. L'articolo relativo alla [codifica di un asset](media-services-rest-encode-asset.md) illustra come codificare un asset in un set MP4 a bitrate adattivo. Se il contenuto è crittografato, configurare i criteri di distribuzione degli asset (come descritto in [questo](media-services-rest-configure-asset-delivery-policy.md) articolo) prima di creare un localizzatore. 
 
 È inoltre possibile usare un localizzatore di streaming OnDemand per creare URL che puntano a file MP4 scaricabili in modo progressivo.  
 
-In questo articolo viene illustrato come creare un OnDemand streaming localizzatore per pubblicare l'asset e creare un formato Smooth Streaming, MPEG DASH e HLS gli URL di streaming. e come creare URL di download progressivo.
+Questo articolo illustra come creare un localizzatore di streaming OnDemand, per pubblicare l'asset e compilare URL di streaming Smooth, MPEG DASH e HLS, e come creare URL di download progressivo.
 
 La sezione [seguente](#types) mostra i tipi enum i cui valori vengono usati nelle chiamate REST.   
 
@@ -49,7 +49,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 >Dopo avere stabilito la connessione a https://media.windows.net, si riceverà un reindirizzamento 301 che indica un altro URI di Servizi multimediali. Le chiamate successive dovranno essere effettuate al nuovo URI.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Creare un localizzatore di streaming OnDemand
-Per creare il OnDemand localizzatore di streaming e ottenere l'URL, è necessario eseguire le operazioni seguenti:
+Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessario effettuare le seguenti operazioni:
 
 1. Se il contenuto viene crittografato, definire i criteri di accesso.
 2. Creare un localizzatore di streaming OnDemand.
@@ -57,12 +57,12 @@ Per creare il OnDemand localizzatore di streaming e ottenere l'URL, è necessari
    
    Se si pianifica il download progressivo, ottenere i nomi dei file MP4 nell'asset. 
 4. Creare URL che puntano al file manifesto o ai file MP4. 
-5. È possibile creare un localizzatore di streaming con un'entità AccessPolicy che include scrittura o eliminazione di autorizzazioni.
+5. Non è possibile creare un localizzatore di streaming usando un criterio di accesso che includa autorizzazioni alla scrittura o all'eliminazione.
 
 ### <a name="create-an-access-policy"></a>Creare i criteri di accesso
 
 >[!NOTE]
->È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Se si utilizzano sempre gli stessi giorni o le autorizzazioni di accesso, ad esempio, i criteri per i localizzatori che devono rimanere sul posto per un lungo periodo (non-caricamento criteri), utilizzare lo stesso ID di criteri. Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
 Richiesta:
 

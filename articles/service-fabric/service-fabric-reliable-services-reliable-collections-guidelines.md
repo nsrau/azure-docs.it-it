@@ -16,7 +16,7 @@ ms.date: 12/10/2017
 ms.author: mcoskun
 ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ Le linee guida sono organizzate come semplici consigli*su cosa fare* , *prendere
 * Non creare una transazione all'interno dell'istruzione `using` di un'altra transazione. Questa operazione può causare deadlock.
 * Verificare che l'implementazione di `IComparable<TKey>` sia corretta. Il sistema presenta dipendenze su `IComparable<TKey>` per l'unione di checkpoint e righe.
 * Usare il blocco di aggiornamento durante la lettura di un elemento con l'intenzione di aggiornarlo in modo da evitare una determinata classe di deadlock.
-* Si consideri mantenendo numero di raccolte affidabile per ogni partizione sia minore di 1000. Preferire affidabile raccolte con più elementi più affidabile raccolte con un minor numero di elementi.
+* Si consiglia di mantenere un numero di raccolte Reliable Collections per partizione inferiore a 1000. Preferire le raccolte Reliable Collections con più elementi.
 * Prendere in considerazione l'opportunità di mantenere gli elementi (ad esempio TKey + TValue per Reliable Dictionary) sotto gli 80 Kbyte: più sono piccoli, meglio è. In questo modo, è possibile ridurre l'uso di heap di oggetti di grandi dimensioni, oltre che i requisiti di dischi e I/O di rete. Spesso si riduce anche la replica dei dati duplicati quando viene aggiornata solo una piccola parte del valore. Un modo comune per ottenere questo in Reliable Dictionary è interrompere le righe in più righe.
 * Prendere in considerazione l'uso della funzionalità di backup e ripristino per il ripristino di emergenza.
 * Evitare di combinare nella stessa transazione le operazioni a singola entità e a più entità, ad esempio `GetCountAsync`, `CreateEnumerableAsync`, a causa dei diversi livelli di isolamento.

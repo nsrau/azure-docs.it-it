@@ -16,7 +16,7 @@ ms.date: 08/15/2016
 ms.author: deonhe
 ms.openlocfilehash: 9edd7261ca62f505ffb4854e3132fae916768f67
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -38,11 +38,11 @@ Quando si lavora con i servizi BizTalk di Microsoft Azure, esistono diversi comp
 | 5. |Developer |Installare l’SDK e creare il progetto Servizio BizTalk in Visual Studio. |[Installare Azure BizTalk Services SDK](https://msdn.microsoft.com/library/azure/hh689760.aspx) e [Creare endpoint di messaggistica avanzate in Azure](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
 | 6. |Developer |Distribuire il progetto dei Servizi BizTalk nel Servizio BizTalk ospitato in Azure. |[Distribuzione e Aggiornamento del progetto di Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |Amministratore |Si applica se usa EDI:  È possibile aggiungere partner e creare contratti nel portale Servizi BizTalk di Microsoft Azure Quando si crea un contratto, è possibile aggiungere il bridge e/o le trasformazioni create dallo sviluppatore per le impostazioni del contratto. |[Configurazione di EDI, AS2 ed EDIFACT nel portale dei Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Amministratore |Utilizzando [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitorare l'integrità di BizTalk Service, incluse le metriche delle prestazioni. |[Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 8. |Amministratore |Tramite [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx) monitorare l'integrità del servizio BizTalk, comprese le metriche delle prestazioni. |[Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
 | 9. |Amministratore |Tramite il portale di servizi BizTalk di Microsoft Azure, è possibile gestire gli elementi usati dai Servizi BizTalk e tenere traccia dei messaggi man mano che vengono elaborati dai file di bridge. |[Uso del portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
 | 10. |Amministratore |Creare un piano di backup per eseguire il backup del Servizio BizTalk. |[Continuità aziendale e ripristino di emergenza nei servizi BizTalk](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 [Esercitazioni ed esempi](https://msdn.microsoft.com/library/azure/hh689895.aspx)
 
 [Creare il progetto in Visual Studio](https://msdn.microsoft.com/library/azure/hh689811.aspx)

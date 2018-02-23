@@ -17,7 +17,7 @@ ms.date: 01/19/2017
 ms.author: yuaxu
 ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -179,14 +179,14 @@ Se non si ha un back-end, all'avvio dell'app nei dispositivi di destinazione vie
 Vi sarà un periodo di tempo in cui i dispositivi con app non aperte non riceveranno le notifiche.
 
 ### <a name="is-there-audit-log-capability"></a>È disponibile una funzionalità di log di controllo?
-Passare tutte le operazioni di gestione degli hub di notifica, che sono esposte nel log delle operazioni di [portale di Azure].
+Tutte le operazioni di gestione di Hub di notifica passano ai log delle operazioni, esposti nel [portale di Azure].
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Quali funzionalità di risoluzione dei problemi sono disponibili?
 Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei problemi, in particolare nello scenario frequente delle notifiche eliminate. Per informazioni dettagliate, vedere il white paper sulla [risoluzione dei problemi relativi a Hub di notifica].
 
 ### <a name="what-telemetry-features-are-available"></a>Sono disponibili le funzionalità di telemetria?
-Visualizzazione dei dati di telemetria in Azure consente di hub di notifica di [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
+Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
 
 > [!NOTE]
 > La riuscita delle notifiche indica solo che le notifiche push sono state recapitate al PNS esterno, ad esempio servizio APNS per Apple, GCM per Google e così via. È responsabilità del PNS inviare le notifiche ai dispositivi di destinazione. In genere il PNS non espone le metriche di recapito a terze parti.  

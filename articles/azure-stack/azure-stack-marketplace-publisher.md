@@ -3,8 +3,8 @@ title: Usare il toolkit di Marketplace per creare e pubblicare elementi del mark
 description: Informazioni su come creare rapidamente elementi del marketplace con la pubblicazione Toolkit
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: ByronR
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: helaw
-ms.openlocfilehash: 5b2c04d2cbc06e1572dc2e40712f6cf9d886aa1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Aggiungere elementi del marketplace tramite lo strumento di distribuzione
 Aggiungere il contenuto di [Stack Azure Marketplace](azure-stack-marketplace.md) rende disponibili le soluzioni e i tenant per la distribuzione.  Il Toolkit di Marketplace crea i file di Azure Marketplace pacchetti (.azpkg) in base i modelli di gestione risorse di Azure IaaS o estensioni di macchina virtuale.  È possibile utilizzare anche il Toolkit di Marketplace da pubblicare, creata con lo strumento o tramite file .azpkg [manuale](azure-stack-create-and-publish-marketplace-item.md) passaggi.  Questo argomento si descrive scaricare lo strumento, la creazione di un elemento del marketplace basato su un modello di macchina virtuale e pubblicare l'elemento dello Stack Azure Marketplace.     

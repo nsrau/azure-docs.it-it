@@ -1,6 +1,6 @@
 ---
 title: Configurare gli endpoint su una VM Windows classica | Microsoft Docs
-description: Informazioni su come configurare endpoint per una macchina virtuale Windows classica nel portale di Azure per consentire la comunicazione con una macchina virtuale Windows in Azure.
+description: Informazioni su come configurare gli endpoint per una macchina virtuale Windows classica nel portale di Azure per consentire la comunicazione con una macchina virtuale Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -17,7 +17,7 @@ ms.date: 06/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

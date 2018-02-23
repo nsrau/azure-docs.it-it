@@ -301,7 +301,7 @@ In questo passaggio viene creata una pipeline con un'attività stored procedure.
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 
-2. Eseguire **Get-AzureRmDataFactorySlice** per ottenere dettagli su tutte le sezioni del set di dati di output**, ovvero la tabella di output della pipeline.
+2. Eseguire **Get-AzureRmDataFactorySlice** per ottenere dettagli su tutte le sezioni del set di dati di output \**, ovvero la tabella di output della pipeline.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

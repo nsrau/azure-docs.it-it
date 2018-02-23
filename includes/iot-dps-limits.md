@@ -9,7 +9,7 @@ La tabella seguente elenca i limiti applicabili alle risorse del servizio Device
 | Numero massimo di autorità di certificazione | 10 |
 
 > [!NOTE]
-> Questi limiti sono relativi alla versione di anteprima pubblica. Quando il servizio sarà disponibile a livello generale, sarà possibile contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/) per aumentare il numero di istanze nella sottoscrizione.
+> È possibile contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/) per aumentare il numero di istanze nella sottoscrizione.
 
 Il servizio Device Provisioning limita le richieste quando vengono superate le quote seguenti:
 

@@ -148,7 +148,7 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Sostituire il `Notifications` definizione con il seguente codice di classe e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e il nome dell'hub (disponibile all'indirizzo [portale di Azure](http://portal.azure.com)):
+6. Sostituire la definizione di classe `Notifications` con il codice seguente e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub, disponibile nel [portale di Azure](http://portal.azure.com):
    
         public class Notifications
         {

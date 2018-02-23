@@ -16,14 +16,14 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile monitorare le notifiche dei processi di Servizi multimediali tramite webhook di Azure o [archiviazione code di Azure](media-services-dotnet-check-job-progress-with-queues.md). Questo articolo illustra come usare i webhook.
 
-Questo articolo illustra come
+Questo articolo illustra i passaggi da eseguire
 
 *  Definire una funzione di Azure personalizzata per rispondere ai webhook. 
     
@@ -33,11 +33,11 @@ Questo articolo illustra come
     >Prima di continuare, assicurarsi di comprendere come funzionano le [associazioni HTTP e webhook in Funzioni di Azure](../azure-functions/functions-bindings-http-webhook.md).
     >
     
-* Aggiungere un webhook all'attività di codifica e specificarne l'URL e la chiave privata a cui risponde. Si noterà un esempio che consente di aggiungere un webhook per l'attività di codifica alla fine dell'articolo.  
+* Aggiungere un webhook all'attività di codifica e specificarne l'URL e la chiave privata a cui risponde. Alla fine dell'articolo viene fornito un esempio per l'aggiunta di un webhook all'attività di codifica.  
 
-È possibile trovare le definizioni di funzioni varie Media Services .NET Azure (incluso quello illustrato in questo articolo) [qui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+È possibile trovare [qui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) le definizioni di varie funzioni di Servizi multimediali di Azure .NET (incluso quella mostrata in questo articolo).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione è necessario quanto segue:
 
@@ -54,7 +54,7 @@ Per completare l'esercitazione è necessario quanto segue:
 
 Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere variabili di ambiente che verranno usati nelle funzioni. Per configurare le impostazioni dell'app, fare clic sul collegamento Configurare le impostazioni dell'app. 
 
-Il [le impostazioni dell'applicazione](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) sezione definisce i parametri utilizzati nel webhook definito in questo articolo. Aggiungere anche i parametri seguenti alle impostazioni dell'app. 
+La sezione relativa alle [impostazioni dell'applicazione](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) indica i parametri usati nel webhook definito in questo articolo. Aggiungere anche i parametri seguenti alle impostazioni dell'app. 
 
 |NOME|Definizione|Esempio| 
 |---|---|---|
@@ -72,7 +72,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 ### <a name="files"></a>File
 
-La funzione di Azure viene associata ai file di codice e agli altri file descritti in questa sezione. Per impostazione predefinita, una funzione è associata ai file **function.json** e **run.csx** (C#). È necessario aggiungere un **Project** file. La parte successiva di questa sezione illustra le definizioni per questi file.
+La funzione di Azure viene associata ai file di codice e agli altri file descritti in questa sezione. Per impostazione predefinita, una funzione è associata ai file **function.json** e **run.csx** (C#). È necessario aggiungere un file **project.json**. La parte successiva di questa sezione illustra le definizioni per questi file.
 
 ![input](./media/media-services-azure-functions/media-services-azure-functions003.png)
 

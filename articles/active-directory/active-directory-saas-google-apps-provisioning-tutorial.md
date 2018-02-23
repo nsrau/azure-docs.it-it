@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 0a0dd38fda35b1eee1fdce196a3ed15f6e73dde6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Esercitazione: Configurare Google Apps per il provisioning utenti automatico
 
@@ -157,9 +157,9 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 
 20. Selezionare **Salva**.
 
-Questo processo avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi assegnati a Google Apps nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 20 minuti mentre il servizio è in esecuzione. 
+Questo processo avvia la sincronizzazione iniziale di tutti gli utenti o i gruppi assegnati a Google Apps nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti mentre il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning. Questi log descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Google Apps.
 
-È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning. Questi report descrivono tutte le azioni eseguite dal servizio di provisioning nell'app Google Apps.
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -16,14 +16,14 @@ ms.date: 09/26/2017
 ms.author: iainfou
 ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Creare e gestire una macchina virtuale Windows che ha più schede di interfaccia di rete
 Alle macchine virtuali (VM) in Azure possono essere collegate più schede di interfaccia di rete virtuale. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. Questo articolo illustra come creare una macchina virtuale a cui sono collegate più schede di interfaccia di rete e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Verificare di aver prima [installato e configurato la versione più recente di Azure PowerShell](/powershell/azure/overview).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
@@ -237,7 +237,7 @@ Per altre informazioni, vedere [Creazione di più istanze con *copy*](../../reso
 
 Azure assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito ad altre interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla subnet, ma i passaggi per abilitare la comunicazione variano a seconda del sistema operativo.
 
-1. Da un prompt dei comandi di Windows, eseguire il `route print` comando, che restituisce l'output simile al seguente output per una macchina virtuale con due interfacce di rete connesse:
+1. Da un prompt dei comandi Windows eseguire il comando `route print` che restituisce un output simile al seguente per una macchina virtuale con due interfacce di rete collegate:
 
     ```
     ===========================================================================

@@ -17,7 +17,7 @@ ms.date: 02/10/2017
 ms.author: trinadhk, sogup
 ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -71,7 +71,7 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 di serie I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
 **Qual è l'impatto di questo aggiornamento per gli strumenti esistenti?**</br>
-È necessario aggiornare l'automazione o gli strumenti esistenti al modello di distribuzione Resource Manager per accertarsi che continuino a funzionare anche dopo l'aggiornamento. Consultare i riferimenti di cmdlet di PowerShell per la [il modello di distribuzione di gestione risorse](backup-client-automation.md).
+È necessario aggiornare l'automazione o gli strumenti esistenti al modello di distribuzione Resource Manager per accertarsi che continuino a funzionare anche dopo l'aggiornamento. Consultare i riferimenti ai cmdlet di PowerShell per il [modello di distribuzione di Resource Manager](backup-client-automation.md).
 
 **È possibile eseguire il ripristino dello stato precedente dopo l'aggiornamento?**</br>
 di serie Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.

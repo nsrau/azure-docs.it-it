@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: mlandzic
 ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 I database con partizionamento verticale usano set di tabelle diversi su database diversi. Lo schema risulta quindi diverso nei diversi database. Ad esempio, tutte le tabelle per l'inventario si trovano in un database, mentre le tabelle correlate alla contabilità si trovano in un altro database. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * L'utente deve disporre dell'autorizzazione ALTER ANY origine dei dati esterni. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE.
 * Per il riferimento all'origine dati sottostante sono necessarie autorizzazioni ALTER ANY EXTERNAL DATA SOURCE.
 
@@ -155,14 +155,14 @@ La query seguente esegue un join a tre vie tra le due tabelle locali per gli ord
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Stored procedure per l'esecuzione remota di T-SQL: sp\_execute_remote
-Query elastico introduce inoltre una stored procedure che fornisce accesso diretto al database remoto. La stored procedure viene chiamata [sp\_eseguire \_remoto](https://msdn.microsoft.com/library/mt703714) e può essere usato per eseguire il codice di T-SQL o stored procedure remote sul database remoto. È necessario specificare i seguenti parametri: 
+La query elastica introduce anche una stored procedure che offre l'accesso diretto al database remoto. La stored procedure è denominata [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o il codice T-SQL nel database remoto. È necessario specificare i seguenti parametri: 
 
 * Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS. 
-* Query (nvarchar): query T-SQL da eseguire sul database remoto. 
+* Query (nvarchar): la query T-SQL da eseguire nel database remoto. 
 * Dichiarazione del parametro (nvarchar) - Facoltativo: stringa con definizioni del tipo di dati per i parametri usati nel parametro della query, ad esempio sp_executesql. 
 * Elenco di valori dei parametri (facoltativo): elenco delimitato da virgole di valori dei parametri, ad esempio sp_executesql.
 
-Sp\_eseguire\_remoto utilizza l'origine dati esterna fornito nei parametri di chiamata per eseguire l'istruzione T-SQL specificata nel database remoto. Usa le credenziali dell'origine dati esterna per la connessione al database remoto.  
+La stored procedure sp\_execute\_remote usa l'origine dati esterna specificata nei parametri di chiamata per eseguire l'istruzione T-SQL specificata nel database remoto. Usa le credenziali dell'origine dati esterna per connettersi al database remoto.  
 
 Esempio: 
 

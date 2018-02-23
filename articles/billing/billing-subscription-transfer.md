@@ -19,13 +19,13 @@ ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
-Trasferire la sottoscrizione a un altro utente nel centro Account di modificare l'amministratore dell'Account e passare la proprietà di fatturazione di sottoscrizione. Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](billing-how-to-switch-azure-offer.md).
+Trasferire la sottoscrizione a un altro utente nel Centro account per modificare l'amministratore dell'account e passare la proprietà della fatturazione della sottoscrizione. Per modificare la sottoscrizione passando a un'offerta diversa, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
@@ -37,7 +37,7 @@ Trasferire la sottoscrizione a un altro utente nel centro Account di modificare 
 >
 >
 
-1. Accedi a [centro Account Azure](https://account.windowsazure.com/Subscriptions) come l'amministratore Account. Per scoprire chi è l'amministratore dell'Account della sottoscrizione, vedere [domande frequenti](#faq).
+1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions) come amministratore account. Per individuare l'amministratore account della sottoscrizione, vedere [Domande frequenti](#faq).
 
 1. Selezionare la sottoscrizione da trasferire.
 
@@ -68,7 +68,7 @@ L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni n
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Passaggi successivi all'accettazione della proprietà di una sottoscrizione
 
-1. Sono ora l'amministratore Account. Rivedere e aggiornare gli altri ruoli RBAC l'amministratore del servizio e coamministratori. Per ulteriori informazioni, vedere [aggiungere o modificare ruoli di amministratore di Azure che gestiscono la sottoscrizione o servizi](billing-add-change-azure-subscription-administrator.md).
+1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
 1. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
    1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
@@ -100,7 +100,7 @@ Il trasferimento della sottoscrizione in modalità self-service è disponibile p
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
-### <a name="whoisaa"></a>Chi è l'amministratore dell'Account della sottoscrizione?
+### <a name="whoisaa"></a> Chi è l'amministratore account della sottoscrizione?
 
 L'amministratore account è la persona che ha eseguito l'iscrizione o ha acquistato la sottoscrizione di Azure. È autorizzato ad accedere al [Centro account](https://account.azure.com/Subscriptions) ed eseguire diverse attività di gestione, ad esempio creare e annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione oppure modificare l'amministratore del servizio. Se non si conosce l'amministratore account per una sottoscrizione, seguire questa procedura per individuarlo.
 
@@ -110,7 +110,7 @@ L'amministratore account è la persona che ha eseguito l'iscrizione o ha acquist
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Vengono trasferite tutte le risorse? Anche gruppi di risorse, macchine virtuali, dischi e altri servizi in esecuzione?
 
-Tutte le risorse come le macchine virtuali, dischi e trasferimento di siti Web per il nuovo proprietario. I [ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) e i criteri di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) eventualmente configurati, invece, non vengono trasferiti tra directory diverse. Inoltre, [registrazioni di app](../active-directory//develop/active-directory-integrating-applications.md) e altri servizi specifici del tenant non trasferire lungo.
+Tutte le risorse, come macchine virtuali, dischi e siti Web, vengono trasferite al nuovo proprietario. I [ruoli di amministratore](billing-add-change-azure-subscription-administrator.md) e i criteri di [controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md) eventualmente configurati, invece, non vengono trasferiti tra directory diverse. Inoltre, le [registrazioni per l'app](../active-directory//develop/active-directory-integrating-applications.md) e gli altri servizi specifici del tenant non vengono trasferiti.
 
 ### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 

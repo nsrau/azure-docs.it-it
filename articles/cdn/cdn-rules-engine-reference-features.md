@@ -16,14 +16,14 @@ ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
-In questo articolo elenca le descrizioni dettagliate delle funzionalità disponibili per Azure rete CDN (Content Delivery) [motore regole di business](cdn-rules-engine.md).
+Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
 
-La terza parte di una regola è la funzionalità. Una funzionalità definisce il tipo di azione che viene applicato al tipo di richiesta identificato da un set di condizioni di corrispondenza.
+La terza parte di una regola è la funzionalità. Una funzionalità definisce il tipo di azione che viene applicata al tipo di richiesta identificata da un set di condizioni di corrispondenza.
 
 ## <a name="access-features"></a>Funzionalità di accesso
 
@@ -32,11 +32,11 @@ Queste funzionalità sono progettate per controllare l'accesso al contenuto.
 
 NOME | Scopo
 -----|--------
-[Negare l'accesso (403)](#deny-access-403) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
-[Token Auth](#token-auth) | Determina se l'autenticazione basata su Token viene applicato a una richiesta.
-[Codice di autorizzazione di token di negazione](#token-auth-denial-code) | Determina il tipo di risposta restituito all'utente quando una richiesta viene negata a causa dell'autenticazione basata su Token.
-[Token Auth Ignora maiuscole/minuscole di URL](#token-auth-ignore-url-case) | Determina se i confronti di URL eseguiti dall'autenticazione basata su Token tra maiuscole e minuscole.
-[Parametro di token di autenticazione](#token-auth-parameter) | Determina se il parametro della stringa di query dell'autenticazione basata su token deve essere rinominato.
+[Deny Access (403)](#deny-access-403) (Nega accesso (403)) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
+[Token Auth](#token-auth) (Autenticazione token) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
+[Token Auth Denial Code](#token-auth-denial-code) (Codice rifiuto autenticazione token) | Determina il tipo di risposta che viene restituita a un utente quando una richiesta viene rifiutata a causa dell'autenticazione basata su token.
+[Token Auth Ignore URL Case](#token-auth-ignore-url-case) (Ignora maiuscole/minuscole URL autenticazione token) | Determina se viene applicata la distinzione tra maiuscole e minuscole nei confronti tra URL eseguiti dall'autenticazione basata su token.
+[Token Auth Parameter](#token-auth-parameter) (Parametro autenticazione token) | Determina se il parametro della stringa di query dell'autenticazione basata su token deve essere rinominato.
 
 
 ## <a name="caching-features"></a>Funzionalità di caching
@@ -45,29 +45,29 @@ Queste funzionalità sono progettate per personalizzare come e quando il contenu
 
 NOME | Scopo
 -----|--------
-[Parametri di larghezza di banda](#bandwidth-parameters) | Determina se i parametri di limitazione della larghezza di banda (ad esempio, ec_rate ed ec_prebuf) sono attivi.
-[La limitazione della larghezza di banda](#bandwidth-throttling) | Limita la larghezza di banda per la risposta fornita dal server di bordo.
-[Ignorare la Cache](#bypass-cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
-[Trattamento intestazione Cache-Control](#cache-control-header-treatment) | Controlla la generazione di `Cache-Control` intestazioni dal server quando è attiva la funzionalità esterne Max-Age edge.
-[Stringa di Query della chiave di cache](#cache-key-query-string) | Determina se la chiave della cache includerà o escluderà i parametri della stringa di query associati a una richiesta.
-[Riscrittura di chiave di cache](#cache-key-rewrite) | Riscrive la chiave della cache associata a una richiesta.
-[Riempimento Cache completa](#complete-cache-fill) | Determina ciò che accade quando una richiesta determina un mancato riscontro nella cache parziale in un server perimetrale.
-[Comprimi tipi di File](#compress-file-types) | Definisce i formati di file che verranno compressi nel server.
-[Max-Age interno predefinito](#default-internal-max-age) | Determina l'intervallo Max-Age predefinito per la riconvalida della cache dal server perimetrale al server di origine.
-[Scade il trattamento di intestazione](#expires-header-treatment) | Controlla la generazione di `Expires` intestazioni da un server perimetrale quando è attiva la funzionalità esterne Max-Age.
-[Max-Age esterno](#external-max-age) | Determina l'intervallo Max-Age per la riconvalida della cache dal browser al server perimetrale.
-[Forzare Max-Age interno](#force-internal-max-age) | Determina l'intervallo Max-Age per la riconvalida della cache dal server perimetrale al server di origine.
-[Supporto h. 264 (Download progressivo HTTP)](#h264-support-http-progressive-download) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
-[Onore No-Cache richiesta](#honor-no-cache-request) | Determina se le richieste no-cache di un client HTTP verranno inoltrate al server di origine.
-[Ignorare origine No-Cache](#ignore-origin-no-cache) | Determina se la rete CDN ignora alcune direttive servite da un server di origine.
-[Ignorare gli intervalli di situazione](#ignore-unsatisfiable-ranges) | Determina la risposta restituita al client quando una richiesta genera un codice di stato 416 richiesto non Impossibile attenersi all'intervallo.
-[Max-aggiornata interno](#internal-max-stale) | Controlla per quanto tempo dopo la normale scadenza un asset memorizzato nella cache può essere servito da un server perimetrale quando il server perimetrale non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
-[La condivisione della Cache parziali](#partial-cache-sharing) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
-[PreValidate contenuto memorizzato nella cache](#prevalidate-cached-content) | Determina se il contenuto memorizzato nella cache sarà idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
-[Aggiornare i file di Cache a Zero Byte](#refresh-zero-byte-cache-files) | Determina come richiesta di un client HTTP per un asset di 0 byte cache è gestito dai server edge.
-[Impostare i codici di stato memorizzabile nella cache](#set-cacheable-status-codes) | Definisce il set di codici di stato che possono generare contenuto memorizzato nella cache.
-[Distribuzione di contenuti non aggiornati in caso di errore](#stale-content-delivery-on-error) | Determina se il contenuto scaduto memorizzato nella cache verrà distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
-[Obsoleti durante Revalidate](#stale-while-revalidate) | Migliora le prestazioni, consentendo il server gestire i client non aggiornato al richiedente durante la riconvalida edge.
+[Bandwidth Parameters](#bandwidth-parameters) (Parametri larghezza di banda) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
+[Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dai server perimetrali.
+[Bypass Cache](#bypass-cache) (Ignora cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
+[Cache-Control Header Treatment](#cache-control-header-treatment) (Gestione intestazione Cache-Control) | Controlla la generazione di intestazioni `Cache-Control` dal server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+[Cache-Key Query String](#cache-key-query-string) (Stringa di query chiave cache) | Determina se la chiave della cache includerà o escluderà i parametri della stringa di query associati a una richiesta.
+[Cache-Key Rewrite](#cache-key-rewrite) (Riscrittura chiave cache) | Riscrive la chiave della cache associata a una richiesta.
+[Complete Cache Fill](#complete-cache-fill) (Riempimento completo della cache) | Determina ciò che accade quando una richiesta determina un mancato riscontro nella cache parziale in un server perimetrale.
+[Compress File Types](#compress-file-types) (Comprimi tipi di file) | Definisce i formati di file che verranno compressi nel server.
+[Default Internal Max-Age](#default-internal-max-age) (Validità massima interna predefinita) | Determina l'intervallo Max-Age predefinito per la riconvalida della cache dal server perimetrale al server di origine.
+[Expires Header Treatment](#expires-header-treatment) (Gestione intestazione Expires) | Controlla la generazione di intestazioni `Expires` da un server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+[External Max-Age](#external-max-age) (Validità massima esterna) | Determina l'intervallo Max-Age per la riconvalida della cache dal browser al server perimetrale.
+[Force Internal Max-Age](#force-internal-max-age) (Forza validità massima interna) | Determina l'intervallo Max-Age per la riconvalida della cache dal server perimetrale al server di origine.
+[H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) (Supporto H.264 (download progressivo HTTP)) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
+[Honor No-Cache Request](#honor-no-cache-request) (Rispetta richiesta no-cache) | Determina se le richieste no-cache di un client HTTP verranno inoltrate al server di origine.
+[Ignore Origin No-Cache](#ignore-origin-no-cache) (Ignora no-cache origine) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
+[Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) (Ignora gli intervalli che non è possibile soddisfare) | Determina la risposta che viene restituita ai client quando una richiesta genera un codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
+[Internal Max-Stale](#internal-max-stale) (Tempo di non aggiornamento massimo interno) | Controlla per quanto tempo dopo la normale scadenza un asset memorizzato nella cache può essere servito da un server perimetrale quando il server perimetrale non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
+[Partial Cache Sharing](#partial-cache-sharing) (Condivisione cache parziale) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
+[Prevalidate Cached Content](#prevalidate-cached-content) (Preconvalida contenuto memorizzato nella cache) | Determina se il contenuto memorizzato nella cache sarà idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
+[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) (Aggiorna file della cache con zero byte) | Determina come viene gestita dai server perimetrali una richiesta di un client HTTP di un asset della cache con 0 byte.
+[Set Cacheable Status Codes](#set-cacheable-status-codes) (Imposta codici di stato inseribili nella cache) | Definisce il set di codici di stato che possono generare contenuto memorizzato nella cache.
+[Stale Content Delivery on Error](#stale-content-delivery-on-error) (Distribuzione di contenuto non aggiornato in caso di errore) | Determina se il contenuto scaduto memorizzato nella cache verrà distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
+[Stale While Revalidate](#stale-while-revalidate) (Client non aggiornato durante la riconvalida) | Migliora le prestazioni consentendo ai server perimetrali di servire un client non aggiornato al richiedente mentre avviene la riconvalida.
 
 ## <a name="comment-feature"></a>Funzionalità di commento
 
@@ -75,7 +75,7 @@ Questa funzionalità è progettata per fornire informazioni aggiuntive all'inter
 
 NOME | Scopo
 -----|--------
-[Comment](#comment) | Consente una nota da aggiungere all'interno di una regola.
+[Comment](#comment) | Consente di aggiungere una nota all'interno di una regola.
  
 ## <a name="header-features"></a>Funzionalità di intestazione
 
@@ -83,11 +83,11 @@ Queste funzionalità sono progettate per aggiungere, modificare o eliminare le i
 
 NOME | Scopo
 -----|--------
-[Intestazione della risposta Age](#age-response-header) | Determina se un'intestazione di risposta Age verrà inclusa nella risposta inviata al richiedente.
-[Eseguire il debug di intestazioni di risposta della Cache](#debug-cache-response-headers) | Determina se una risposta può includere l'intestazione della risposta X-EC-Debug, che fornisce informazioni sui criteri della cache per la risorsa richiesta.
-[Modificare l'intestazione della richiesta Client](#modify-client-request-header) | Sovrascrive, aggiunge o elimina un'intestazione da una richiesta.
-[Modifica intestazione risposta Client](#modify-client-response-header) | Sovrascrive, aggiunge o elimina un'intestazione da una risposta.
-[Impostare l'intestazione personalizzata di IP Client](#set-client-ip-custom-header) | Consente di aggiungere l'indirizzo IP del client richiedente alla richiesta come un'intestazione personalizzata.
+[Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age verrà inclusa nella risposta inviata al richiedente.
+[Debug Cache Response Headers](#debug-cache-response-headers) (Intestazioni di risposta di debug per la cache) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
+[Modify Client Request Header](#modify-client-request-header) (Modifica intestazione richiesta client) | Sovrascrive, aggiunge o elimina un'intestazione da una richiesta.
+[Modify Client Response Header](#modify-client-response-header) (Modifica intestazione risposta client) | Sovrascrive, aggiunge o elimina un'intestazione da una risposta.
+[Set Client IP Custom Header](#set-client-ip-custom-header) (Imposta intestazione personalizzata IP client) | Consente di aggiungere l'indirizzo IP del client richiedente alla richiesta come un'intestazione personalizzata.
 
 
 ## <a name="logging-features"></a>Funzionalità di registrazione
@@ -96,8 +96,8 @@ Queste funzionalità sono progettate per personalizzare i dati archiviati nei fi
 
 NOME | Scopo
 -----|--------
-[Campo di Log personalizzato 1](#custom-log-field-1) | Determina il formato e il contenuto che verranno assegnati al campo di log personalizzato in un file di log non elaborato.
-[Stringa di Query log](#log-query-string) | Determina se una stringa di query verrà archiviata insieme all'URL nei log di accesso.
+[Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che verranno assegnati al campo di log personalizzato in un file di log non elaborato.
+[Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query verrà archiviata insieme all'URL nei log di accesso.
 
 
 <!---
@@ -150,42 +150,42 @@ Queste funzionalità sono progettate per controllare in che modo la rete CDN com
 
 NOME | Scopo
 -----|--------
-[Numero massimo di richieste Keep-Alive](#maximum-keep-alive-requests) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
-[Intestazioni di proxy speciali](#proxy-special-headers) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che verranno inoltrate da un server perimetrale a un server di origine.
+[Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
+[Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che verranno inoltrate da un server perimetrale a un server di origine.
 
 
-## <a name="specialty-features"></a>Funzionalità speciali
+## <a name="specialty-features"></a>Funzionalità specializzate
 
-Queste funzionalità forniscono funzionalità avanzate per gli utenti esperti.
+Queste funzionalità offrono caratteristiche avanzate per gli utenti esperti.
 
 NOME | Scopo
 -----|--------
-[Metodi HTTP memorizzabile nella cache](#cacheable-http-methods) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
-[Dimensione del corpo della richiesta memorizzabile nella cache](#cacheable-request-body-size) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
-[Variabile utente](#user-variable) | Solo per uso interno.
+[Cacheable HTTP Methods](#cacheable-http-methods) (Metodi HTTP inseribili nella cache) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
+[Cacheable Request Body Size](#cacheable-request-body-size) (Dimensioni corpo richiesta inseribile nella cache) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
+[User Variable](#user-variable) (Variabile utente) | Solo per uso interno.
 
  
-## <a name="url-features"></a>Funzionalità di URL
+## <a name="url-features"></a>Funzionalità URL
 
 Queste funzionalità consentono il reindirizzamento o la riscrittura di una richiesta in un URL diverso.
 
 NOME | Scopo
 -----|--------
-[Seguire i reindirizzamenti](#follow-redirects) | Determina se le richieste possono essere reindirizzate al nome host definito nell'intestazione Location restituita da un server di origine del cliente.
-[Reindirizzamento dell'URL](#url-redirect) | Reindirizza le richieste tramite l'intestazione Location.
-[Riscrittura URL](#url-rewrite)  | Riscrive l'URL della richiesta.
+[Follow Redirects](#follow-redirects) (Segui reindirizzamenti) | Determina se le richieste possono essere reindirizzate al nome host definito nell'intestazione Location restituita da un server di origine del cliente.
+[URL Redirect](#url-redirect) (Reindirizzamento URL) | Reindirizza le richieste tramite l'intestazione Location.
+[URL Rewrite](#url-rewrite) (Riscrittura URL)  | Riscrive l'URL della richiesta.
 
 
 
-## <a name="azure-cdn-rules-engine-features-reference"></a>Riferimento di funzionalità del motore regole di rete CDN di Azure
+## <a name="azure-cdn-rules-engine-features-reference"></a>Riferimento per le funzionalità del motore regole della rete CDN di Azure
 
 ---
 ### <a name="age-response-header"></a>Intestazione di risposta Age
-**Scopo**: determina se un'intestazione di risposta Age è incluso nella risposta inviata al richiedente.
+**Scopo**: determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Valore|Risultato
 --|--
-Attivato | L'intestazione della risposta Age è incluso nella risposta inviata al richiedente.
-Disabled | L'intestazione della risposta Age è escluso dalla risposta inviata al richiedente.
+Attivato | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
+Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata al richiedente.
 
 **Comportamento predefinito:**: Disabled.
 
@@ -201,8 +201,8 @@ I parametri di limitazione della larghezza di banda determinano se la velocità 
 
 Valore|Risultato
 --|--
-Attivato|Consente ai server perimetrale di soddisfa le richieste di limitazione della larghezza di banda.
-Disabled|Fa sì che il server edge ignorare i parametri di limitazione della larghezza di banda. I contenuti richiesti verranno serviti normalmente, ossia senza limitazione della larghezza di banda.
+Attivato|Consente ai server perimetrali di soddisfare le richieste di limitazione della larghezza di banda.
+Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti verranno serviti normalmente, ossia senza limitazione della larghezza di banda.
 
 **Comportamento predefinito:** Enabled.
  
@@ -212,14 +212,14 @@ Disabled|Fa sì che il server edge ignorare i parametri di limitazione della lar
 
 ---
 ### <a name="bandwidth-throttling"></a>Limitazione larghezza di banda
-**Scopo:** limita la larghezza di banda per la risposta fornita dal server di bordo.
+**Scopo**: limita la larghezza di banda per la risposta fornita dai server perimetrali.
 
 Per impostare correttamente la limitazione della larghezza di banda è necessario che siano definite entrambe le opzioni seguenti.
 
 Opzione|DESCRIZIONE
 --|--
 Kbytes per second (KB al secondo)|Impostare questa opzione sulla larghezza di banda massima (KB al secondo) che è possibile usare per inviare la risposta.
-Prebuf seconds (Secondi prebuf)|Impostare questa opzione per il numero di secondi per i server edge di attesa fino a quando non viene applicata una limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
+Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi che i server perimetrali devono attendere prima che sia attivata la limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
 
 **Comportamento predefinito:** Disabled.
 
@@ -229,7 +229,7 @@ Prebuf seconds (Secondi prebuf)|Impostare questa opzione per il numero di second
 
 ---
 ### <a name="bypass-cache"></a>Ignora cache
-**Scopo:** determina se la richiesta deve ignorare la memorizzazione nella cache.
+**Scopo**: determina se la richiesta deve ignorare la memorizzazione nella cache.
 
 Valore|Risultato
 --|--
@@ -251,15 +251,15 @@ Disabled|Fa sì che i server perimetrali memorizzino gli asset nella cache in ba
 
 ---
 ### <a name="cacheable-http-methods"></a>Metodi HTTP inseribile nella cache
-**Scopo:** determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
+**Scopo**: determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
 
 Informazioni chiave:
 
 - Questa funzionalità presuppone che le risposte GET vengano sempre memorizzate nella cache. Di conseguenza, è opportuno non includere il metodo GET HTTP quando si imposta questa funzionalità.
-- Questa funzionalità supporta solo il metodo HTTP POST. Abilitare la memorizzazione nella cache risposta POST tramite l'impostazione di questa funzionalità `POST`.
-- Per impostazione predefinita, solo le richieste il cui corpo è inferiore a 14 Kb vengono memorizzati nella cache. Usare la funzionalità Cacheable Request Body Size (Dimensioni corpo richiesta inseribile nella cache) per impostare le dimensioni massime del corpo della richiesta.
+- Questa funzionalità supporta solo il metodo POST HTTP. Per abilitare la memorizzazione nella cache della risposta POST, impostare questa funzionalità su `POST`.
+- Per impostazione predefinita, vengono memorizzate nella cache solo le richieste con un corpo di dimensioni inferiori a 14 Kb. Usare la funzionalità Cacheable Request Body Size (Dimensioni corpo richiesta inseribile nella cache) per impostare le dimensioni massime del corpo della richiesta.
 
-**Comportamento predefinito:** vengono memorizzati nella cache solo le risposte GET.
+**Comportamento predefinito**: vengono memorizzate nella cache solo le risposte GET.
 
 [Torna all'inizio](#azure-cdn-rules-engine-features)
 
@@ -289,16 +289,16 @@ Informazioni chiave:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Gestione intestazione Cache-Control
-**Scopo:** controlla la generazione di `Cache-Control` intestazioni dal server di bordo quando la funzione Max-Age esterno è attiva.
+**Scopo**: controlla la generazione di intestazioni `Cache-Control` dal server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Cache-Control Header Treatment (Gestione intestazioni Cache-Control) nella stessa istruzione.
 
 Valore|Risultato
 --|--
-Overwrite|Assicura che si verificano le azioni seguenti:<br/> -Sovrascrive il `Cache-Control` intestazione generati dal server di origine. <br/>-Aggiunge il `Cache-Control` intestazione generati dalla caratteristica di Max-Age esterno per la risposta.
-Pass-through|Assicura che il `Cache-Control` intestazione generati dalla funzionalità esterne Max-Age mai viene aggiunto alla risposta. <br/> Se il server di origine viene generato un `Cache-Control` intestazione, passa attraverso l'utente finale. <br/> Se il server di origine non produce un `Cache-Control` intestazione, quindi questa opzione può causare l'intestazione della risposta non contengono un `Cache-Control` intestazione.
-Add if Missing (Aggiungi se mancante)|Se un `Cache-Control` intestazione non è stata ricevuta dal server di origine, quindi questa opzione aggiunge il `Cache-Control` intestazione generati dalla funzionalità esterne Max-Age. Questa opzione è utile per garantire che tutte le risorse vengono assegnate un `Cache-Control` intestazione.
-Rimuovere| Questa opzione garantisce che un `Cache-Control` intestazione non è inclusa con la risposta di intestazione. Se un `Cache-Control` intestazione è già stata assegnata, quindi viene rimosso dalla risposta di intestazione.
+Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/> - Sovrascrivere l'intestazione `Cache-Control` generata dal server di origine. <br/>- Aggiungere alla risposta l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna).
+Pass-through|Assicura che l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna) non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un'intestazione `Cache-Control`, ne viene eseguito il pass-through all'utente finale. <br/> Se il server di origine non produce un'intestazione `Cache-Control`, è possibile che a causa di questa opzione l'intestazione della risposta non contenga un'intestazione `Cache-Control`.
+Add if Missing (Aggiungi se mancante)|Se un'intestazione `Cache-Control` non è stata ricevuta dal server di origine, questa opzione aggiunge l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna). Assicura quindi che a tutti gli asset venga assegnata un'intestazione `Cache-Control`.
+Rimuovere| Questa opzione assicura che con la risposta di intestazione non sia inclusa un'intestazione `Cache-Control`. Se è già stata assegnata un'intestazione `Cache-Control`, viene rimossa dalla risposta di intestazione.
 
 **Comportamento predefinito:** Overwrite.
 
@@ -383,7 +383,7 @@ Questo tipo di configurazione genera la chiave di cache del parametro della stri
 ### <a name="cache-key-rewrite"></a>Riscrittura chiave cache
 **Scopo:** riscrive la chiave di cache associata a una richiesta.
 
-Una chiave di cache è il percorso relativo che identifica un asset ai fini della memorizzazione nella cache. In altre parole, il server controlla una versione memorizzata nella cache di un asset in base al relativo percorso come definito in base alla chiave di cache.
+Una chiave di cache è il percorso relativo che identifica un asset ai fini della memorizzazione nella cache. In altre parole, i server cercano una versione memorizzata nella cache di un asset in base al relativo percorso, così come definito dalla chiave di cache.
 
 Per configurare questa funzionalità è necessario definire entrambe le opzioni seguenti:
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 In genere, un mancato riscontro nella cache parziale si verifica dopo che un utente interrompe un download o in caso di asset che vengono richiesti esclusivamente tramite richieste di intervallo HTTP. Questa funzionalità è particolarmente utile per gli asset di grandi dimensioni che gli utenti in genere non scaricano per intero, ad esempio i video. Ecco perché questa funzionalità è abilitata per impostazione predefinita nella piattaforma HTTP Large ed è disabilitata in tutte le altre piattaforme.
 
-Mantenere la configurazione predefinita per la piattaforma di grandi dimensioni HTTP, poiché riduce il carico sul server di origine cliente e aumenta la velocità con cui i clienti scaricare il contenuto.
+Mantenere la configurazione predefinita per la piattaforma HTTP Large, poiché riduce il carico sul server di origine del cliente e aumenta la velocità con cui i clienti possono scaricare i contenuti.
 
 In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: Edge, Cname, Request Header Literal (Valore letterale intestazione richiesta), Request Header Wildcard (Carattere jolly intestazione richiesta), URL Query Literal (Valore letterale query URL) e URL Query Wildcard (Carattere jolly query URL).
 
@@ -443,7 +443,7 @@ Disabled|Impedisce a un server perimetrale di eseguire il recupero in background
 ### <a name="compress-file-types"></a>Comprimi tipi di file
 **Scopo:** definisce i formati di file che verranno compressi nel server.
 
-Un formato di file può essere specificato usando il rispettivo tipo di elemento multimediale Internet, ad esempio Content-Type. Tipo di supporto Internet è metadati indipendenti dalla piattaforma che consente ai server di identificare il formato di file di una particolare attività. Di seguito è riportato un elenco dei tipi di elementi multimediali Internet.
+Un formato di file può essere specificato usando il rispettivo tipo di elemento multimediale Internet, ad esempio Content-Type. Il tipo di elemento multimediale Internet è costituito da metadati indipendenti dalla piattaforma che consentono ai server di identificare il formato di file di un asset specifico. Di seguito è riportato un elenco dei tipi di elementi multimediali Internet.
 
 Tipo di elemento multimediale Internet|DESCRIZIONE
 --|--
@@ -455,7 +455,7 @@ application/javascript|JavaScript
 Informazioni chiave:
 
 - È possibile specificare più tipi di elementi multimediali Internet delimitandoli ciascuno con uno spazio singolo. 
-- Questa funzionalità comprimerà solo asset con dimensioni inferiori a 1 MB. Non verrà compresso più grande asset dai server.
+- Questa funzionalità comprimerà solo asset con dimensioni inferiori a 1 MB. Gli asset con dimensioni superiori non verranno compressi dai server.
 - Alcuni tipi di contenuti, come le immagini e i contenuti multimediali audio e video, ad esempio JPG, MP3, MP4 e così via, sono già compressi. Un ulteriore compressione di questi tipi di asset, pertanto, non ne diminuirebbe in modo significativo le dimensioni. È consigliabile quindi non abilitare la compressione su questi tipi di asset.
 - Non sono supportati i caratteri jolly come gli asterischi.
 - Prima di aggiungere questa funzionalità a una regola, assicurarsi di impostare l'opzione di compressione disabilitata nella pagina di compressione relativa alla piattaforma su cui verrà applicata la regola.
@@ -468,9 +468,9 @@ Informazioni chiave:
 ### <a name="custom-log-field-1"></a>Campo 1 log personalizzato
 **Scopo:** determina il formato e i contenuti che verranno assegnati al campo di log personalizzato in un file di log non elaborato.
 
-Questo campo consente di determinare quali valori di intestazione di richiesta e risposta vengono archiviati nei file di registro.
+Questo campo personalizzato consente all'utente di determinare i valori delle intestazioni di richiesta e di risposta che vengono archiviati nei file di log.
 
-Per impostazione predefinita, il campo del log personalizzato è denominato "x-ec_custom-1". Tuttavia, il nome di questo campo può essere personalizzato dalla pagina delle impostazioni di registro non elaborati.
+Per impostazione predefinita, il campo del log personalizzato è denominato "x-ec_custom-1". Questo nome, tuttavia, può essere personalizzato dalla pagina delle impostazioni del file di log non elaborato.
 
 Di seguito è definita la formattazione da usare per specificare le intestazioni di richiesta e di risposta.
 
@@ -527,15 +527,15 @@ Disabled|L'intestazione di risposta X-EC-Debug verrà esclusa dalla risposta.
 
 Informazioni chiave:
 
-- Questa azione verrà eseguita soltanto per le risposte dal server di origine che non ha assegnato un'indicazione max-age il `Cache-Control` o `Expires` intestazione.
+- Questa azione viene eseguita solo per le risposte generate da un server di origine che non ha assegnato un'indicazione di validità massima nell'intestazione `Cache-Control` o `Expires`.
 - Questa azione non viene eseguita per gli asset che non sono considerati memorizzabili nella cache.
-- Questa azione non riguarda le riconvalide della cache dal browser al server perimetrale. Questi tipi di riconvalide sono determinati dalle `Cache-Control` o `Expires` intestazioni inviate al browser, che può essere personalizzato con la funzione Max-Age esterno.
+- Questa azione non riguarda le riconvalide della cache dal browser al server perimetrale. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` o `Expires` inviate al browser, che possono essere personalizzate con la funzionalità External Max-Age (Validità massima esterna).
 - I risultati di questa azione non producono alcun effetto osservabile sulle intestazioni di risposta e sui contenuti restituiti dai server periferici, ma possono influire sulla quantità di traffico di riconvalida inviato dai server periferici al server di origine.
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato per il quale può essere applicata una validità massima interna predefinita.
     - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo di validità massima interna predefinita.
 
-- Impostare l'unità di tempo in "Off" verrà assegnato un intervallo di max-age interno predefinito di 7 giorni per le richieste che non è stata assegnata un'indicazione max-age nella loro `Cache-Control` o `Expires` intestazione.
+- Impostare l'unità di tempo su "Off" per assegnare un intervallo di validità massima interna predefinito di 7 giorni per le richieste a cui non è stata assegnata un'indicazione di validità massima nella rispettiva intestazione `Cache-Control` o `Expires`.
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa funzionalità non possa essere associata alle seguenti condizioni di corrispondenza: 
     - Edge 
     - CNAME
@@ -552,7 +552,7 @@ Informazioni chiave:
 </br>
 
 ---
-### <a name="deny-access-403"></a>Negare l'accesso (403)
+### <a name="deny-access-403"></a>Deny Access (403) (Nega accesso (403))
 **Scopo**: determina se tutte le richieste vengono rifiutate con una risposta 403 - Accesso negato.
 
 Valore | Risultato
@@ -571,16 +571,16 @@ Disabled| Ripristina il comportamento predefinito. Il comportamento predefinito 
 
 ---
 ### <a name="expires-header-treatment"></a>Gestione intestazione Expires
-**Scopo:** controlla la generazione di `Expires` intestazioni da un server perimetrale quando è attiva la funzionalità esterne Max-Age.
+**Scopo**: controlla la generazione di intestazioni `Expires` da un server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 
 Il modo più semplice per ottenere questo tipo di configurazione è inserire le funzionalità External Max-Age (Validità massima esterna) e Expires Header Treatment (Gestione intestazioni Expires) nella stessa istruzione.
 
 Valore|Risultato
 --|--
-Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/>-Sovrascrive il `Expires` intestazione generati dal server di origine.<br/>-Aggiunge il `Expires` intestazione generati dalla caratteristica di Max-Age esterno per la risposta.
-Pass-through|Assicura che il `Expires` intestazione generati dalla funzionalità esterne Max-Age mai viene aggiunto alla risposta. <br/> Se il server di origine viene generato un `Expires` intestazione, passerà all'utente finale. <br/>Se il server di origine non produce un `Expires` intestazione, quindi questa opzione può causare l'intestazione della risposta non contengono un `Expires` intestazione.
-Add if Missing (Aggiungi se mancante)| Se un `Expires` intestazione non è stata ricevuta dal server di origine, quindi questa opzione aggiunge il `Expires` intestazione generati dalla funzionalità esterne Max-Age. Questa opzione è utile per garantire che tutti gli asset verranno assegnati un `Expires` intestazione.
-Rimuovere| Garantisce che un `Expires` intestazione non è inclusa con la risposta di intestazione. Se un `Expires` intestazione è già stata assegnata, quindi viene rimosso dalla risposta di intestazione.
+Overwrite|Garantisce che vengano eseguite le azioni seguenti:<br/>- Sovrascrivere l'intestazione `Expires` generata dal server di origine.<br/>- Aggiungere alla risposta l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna).
+Pass-through|Assicura che l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna) non venga mai aggiunta alla risposta. <br/> Se il server di origine produce un'intestazione `Expires`, ne verrà eseguito il pass-through all'utente finale. <br/>Se il server di origine non produce un'intestazione `Expires`, è possibile che a causa di questa opzione l'intestazione della risposta non contenga un'intestazione `Expires`.
+Add if Missing (Aggiungi se mancante)| Se un'intestazione `Expires` non è stata ricevuta dal server di origine, questa opzione aggiunge l'intestazione `Expires` prodotta dalla funzionalità External Max-Age (Validità massima esterna). Assicura quindi che a tutti gli asset verrà assegnata un'intestazione `Expires`.
+Rimuovere| Assicura che con la risposta di intestazione non sia inclusa un'intestazione `Expires`. Se è già stata assegnata un'intestazione `Expires`, viene rimossa dalla risposta di intestazione.
 
 **Comportamento predefinito:** Overwrite
 
@@ -592,14 +592,14 @@ Rimuovere| Garantisce che un `Expires` intestazione non è inclusa con la rispos
 ### <a name="external-max-age"></a>Max-Age esterno
 **Scopo:** determina l'intervallo di validità massima per la riconvalida della cache dal browser al server perimetrale. In altre parole, la quantità di tempo che deve trascorrere prima che un browser cerchi una nuova versione di un asset da un server periferico.
 
-Abilitazione di questa funzionalità genera `Cache-Control: max-age` e `Expires` intestazioni dai server edge e inviarli al client HTTP. Per impostazione predefinita, queste intestazioni sovrascriveranno quelle create dal server di origine. Per modificare questo comportamento, tuttavia, è possibile usare le funzionalità Cache-Control Header Treatment (Gestione intestazioni Cache-Control) e Expires Header Treatment (Gestione intestazioni Expires).
+Abilitando questa funzionalità, dai server perimetrali verranno generate intestazioni `Cache-Control: max-age` e `Expires` che saranno inviate al client HTTP. Per impostazione predefinita, queste intestazioni sovrascriveranno quelle create dal server di origine. Per modificare questo comportamento, tuttavia, è possibile usare le funzionalità Cache-Control Header Treatment (Gestione intestazioni Cache-Control) e Expires Header Treatment (Gestione intestazioni Expires).
 
 Informazioni chiave:
 
-- Questa azione non riguarda le riconvalide della cache dal server periferico al server di origine. Questi tipi di riconvalide sono determinati dalle `Cache-Control` e `Expires` intestazioni ricevute dal server di origine e può essere personalizzate con il predefinito interno Max-Age e le funzionalità interne Force Max-Age.
+- Questa azione non riguarda le riconvalide della cache dal server periferico al server di origine. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` e `Expires` ricevute dal server di origine e possono essere personalizzati con le funzionalità Default Internal Max-Age (Validità massima interna predefinita) e Force Internal Max-Age (Forza validità massima interna).
 - Configurare questa funzionalità specificando un valore intero e selezionando l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via.
-- L'impostazione di questa funzionalità su un valore negativo, server edge di inviare un `Cache-Control: no-cache` e `Expires` ora in cui è impostato in precedenza con ogni risposta per il browser. Anche se un client HTTP non verrà memorizzati nella cache la risposta, questa impostazione non influirà il possibilità dei server edge per memorizzare nella cache la risposta dal server di origine.
-- Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata. Il `Cache-Control` e `Expires` intestazioni memorizzate nella cache con la risposta del server di origine verranno passati al browser.
+- Se si imposta questa funzionalità su un valore negativo, i server perimetrali inviano una direttiva `Cache-Control: no-cache` e un valore temporale `Expires` impostato nel passato con ogni risposta inviata al browser. Anche nel caso in cui un client HTTP non memorizzi nella cache la risposta, questa impostazione non influisce sulla capacità dei server perimetrali di memorizzare nella cache la risposta ottenuta dal server di origine.
+- Impostando l'unità di tempo su "Off", questa funzionalità viene disabilitata. Delle intestazioni `Cache-Control` e `Expires` memorizzate nella cache con la risposta del server di origine viene eseguito il pass-through al browser.
 
 **Comportamento predefinito:** Off
 
@@ -632,9 +632,9 @@ Disabled|Le richieste non verranno reindirizzate.
 
 Informazioni chiave:
 
-- Questa funzionalità sostituiranno intervallo max-age definito nel `Cache-Control` o `Expires` intestazioni generate da un server di origine.
-- Questa funzionalità non riguarda le riconvalide della cache dal browser al server perimetrale. Questi tipi di riconvalide sono determinati dalle `Cache-Control` o `Expires` intestazioni inviate al browser.
-- Questa funzionalità non produce alcun effetto osservabile sulla risposta fornita da un server perimetrale al richiedente. Tuttavia, è un effetto sulla quantità di traffico riconvalida inviato dai server edge al server di origine.
+- Questa funzionalità sostituirà l'intervallo di validità massima definito nelle intestazioni `Cache-Control` o `Expires` generate da un server di origine.
+- Questa funzionalità non riguarda le riconvalide della cache dal browser al server perimetrale. Questi tipi di riconvalida vengono determinati dalle intestazioni `Cache-Control` o `Expires` inviate al browser.
+- Questa funzionalità non produce alcun effetto osservabile sulla risposta fornita da un server perimetrale al richiedente. Può tuttavia influire sulla quantità di traffico di riconvalida inviato dai server perimetrali al server di origine.
 - Per configurare questa funzionalità:
     - Selezionare il codice di stato per il quale verrà applicato un intervallo di validità massima interna.
     - Specificare un valore intero e quindi selezionare l'unità di tempo desiderata, ad esempio secondi, minuti, ore e così via. Questo valore definisce l'intervallo di validità massima della richiesta.
@@ -674,7 +674,7 @@ Informazioni chiave:
 ### <a name="honor-no-cache-request"></a>Rispetta richiesta No-Cache
 **Scopo:**: determina se le richieste no-cache di un client HTTP verranno inoltrate al server di origine.
 
-Una richiesta di no-cache si verifica quando il client HTTP invia un `Cache-Control: no-cache` e/o `Pragma: no-cache` intestazione nella richiesta HTTP.
+Una richiesta no-cache si verifica quando il client HTTP invia un'intestazione `Cache-Control: no-cache` e/o `Pragma: no-cache` nella richiesta HTTP.
 
 Valore|Risultato
 --|--
@@ -693,7 +693,7 @@ Lo stato della cache visualizzato per una richiesta che può essere inoltrata a 
 
 ---
 ### <a name="ignore-origin-no-cache"></a>Ignora origine No-Cache
-**Scopo:** determina se la rete CDN ignorerà le direttive seguenti servite da un server di origine:
+**Scopo**: determina se la rete CDN ignorerà le seguenti direttive gestite da un server di origine:
 
 - `Cache-Control: private`
 - `Cache-Control: no-store`
@@ -728,7 +728,7 @@ Per impostazione predefinita, questo codice di stato viene restituito quando la 
 
 Valore|Risultato
 -|-
-Attivato|Impedisce che il server di edge risponde a una richiesta di intervallo di byte non valido con un codice di stato 416 richiesto non Impossibile attenersi all'intervallo. I server verranno invece recapitare la risorsa richiesta e restituire un messaggio 200 OK al client.
+Attivato|Impedisce ai server perimetrali di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 - Impossibile attenersi all'intervallo richiesto. I server forniranno invece l'asset richiesto e restituiranno al client il codice 200 - OK.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rispettare il codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
 
 **Comportamento predefinito:** Disabled.
@@ -745,9 +745,9 @@ In genere, quando l'intervallo di validità massima di un asset scade, il server
 
 Se il server periferico non è in grado di stabilire una connessione con il server di origine durante il tentativo di riconvalida, la funzionalità Internal Max-Stale (Tempo di non aggiornamento massimo interno) controlla se e per quanto tempo il server periferico può continuare a servire l'asset non aggiornato.
 
-Questo intervallo di tempo inizia nel momento in cui scade la validità massima dell'asset, non quando la riconvalida ha esito negativo. Il periodo massimo durante il quale un asset può essere servito senza riconvalida corrisponde quindi alla quantità di tempo determinata dalla combinazione dei valori Max-Age (Validità massima) e Max-Stale (Tempo di non aggiornamento massimo). Ad esempio, se è stato memorizzato nella cache di un asset alle 9:00 con una durata massima di 30 minuti e aggiornata un numero massimo di 15 minuti, quindi un tentativo non riuscito riconvalida 9:44 restituirà un utente finale riceve l'asset memorizzati nella cache non aggiornata, durante un tentativo non riuscito riconvalida 9:46 comporterebbe en utente riceve un Timeout del Gateway 504 d.
+Questo intervallo di tempo inizia nel momento in cui scade la validità massima dell'asset, non quando la riconvalida ha esito negativo. Il periodo massimo durante il quale un asset può essere servito senza riconvalida corrisponde quindi alla quantità di tempo determinata dalla combinazione dei valori Max-Age (Validità massima) e Max-Stale (Tempo di non aggiornamento massimo). Se ad esempio un asset è stato memorizzato nella cache alle 9.00 con una validità massima di 30 minuti e un tempo di non aggiornamento massimo di 15 minuti, in caso di tentativo di riconvalida non riuscito alle 9.44 un utente finale riceverebbe l'asset memorizzato nella cache non aggiornato, mentre in caso di tentativo di riconvalida non riuscito alle 9.46 l'utente finale riceverebbe un codice di stato 504 - Timeout gateway.
 
-Qualsiasi valore configurato per questa funzionalità è stata sostituita da `Cache-Control: must-revalidate` o `Cache-Control: proxy-revalidate` intestazioni ricevute dal server di origine. Se una di queste intestazioni viene ricevuta dal server di origine all'inizio della procedura di memorizzazione dell'asset nella cache, il server periferico non servirà un asset memorizzato nella cache non aggiornato. In tal caso, se il server perimetrale non è in grado di riconvalida con l'origine quando l'intervallo di durata massima dell'asset è scaduto, il server perimetrale restituisce un errore di Timeout del Gateway 504.
+Qualsiasi valore configurato per questa funzionalità viene sostituito dall'intestazione `Cache-Control: must-revalidate` o `Cache-Control: proxy-revalidate` ricevuta dal server di origine. Se una di queste intestazioni viene ricevuta dal server di origine all'inizio della procedura di memorizzazione dell'asset nella cache, il server periferico non servirà un asset memorizzato nella cache non aggiornato. In questo caso, se il server perimetrale non è in grado di eseguire la riconvalida con il server di origine alla scadenza dell'intervallo di validità massima dell'asset, il server perimetrale restituisce un errore 504 - Timeout gateway.
 
 Informazioni chiave:
 
@@ -805,7 +805,7 @@ Informazioni chiave:
 
 ---
 ### <a name="modify-client-request-header"></a>Modifica intestazione richiesta client
-**Scopo:** ogni richiesta contiene un set di intestazioni di richiesta che lo descrivono. Questa funzionalità può:
+**Scopo**: ogni richiesta contiene un set di intestazioni di richiesta che la descrivono. Questa funzionalità può:
 
 - Aggiungere o sovrascrivere il valore assegnato a un'intestazione di richiesta. Se l'intestazione di richiesta specificata non esiste, questa funzionalità la aggiungerà alla richiesta.
 - Eliminare dalla richiesta un'intestazione di richiesta.
@@ -823,12 +823,12 @@ Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione ri
 Informazioni chiave:
 
 - Assicurarsi che il valore specificato nell'opzione Nome corrisponda esattamente all'intestazione di richiesta desiderata.
-- Ai fini dell'identificazione di un'intestazione non viene fatta distinzione tra maiuscole e minuscole. Ad esempio, uno dei seguenti variazioni del `Cache-Control` nome di intestazione è utilizzabile per facilitarne l'identificazione:
+- Ai fini dell'identificazione di un'intestazione non viene fatta distinzione tra maiuscole e minuscole. Per identificare l'intestazione `Cache-Control`, ad esempio, è possibile usare una delle varianti di nome seguenti:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
 - Quando si specifica un nome di intestazione, assicurarsi di usare solo caratteri alfanumerici, trattini o caratteri di sottolineatura.
-- L'eliminazione di un'intestazione ne impedirà inoltrati a un server di origine dai server edge.
+- L'eliminazione di un'intestazione impedisce che venga inoltrata a un server di origine dai server perimetrali.
 - Le intestazioni seguenti sono riservate e non possono essere modificate da questa funzionalità:
     - forwarded
     - host
@@ -843,12 +843,12 @@ Informazioni chiave:
 
 ---
 ### <a name="modify-client-response-header"></a>Modificare intestazione risposta client
-Ogni risposta contiene un set di intestazioni di risposta che lo descrivono. Questa funzionalità può:
+Ogni risposta contiene un set di intestazioni di risposta che la descrivono. Questa funzionalità può:
 
 - Aggiungere o sovrascrivere il valore assegnato a un'intestazione di risposta. Se l'intestazione di risposta specificata non esiste, questa funzionalità la aggiungerà alla risposta.
 - Eliminare dalla risposta un'intestazione di risposta.
 
-Per impostazione predefinita, i valori di intestazione di risposta vengono definiti da un server di origine e dai server edge.
+Per impostazione predefinita, i valori delle intestazioni di risposta vengono definiti da un server di origine e dai server perimetrali.
 
 Su un'intestazione di risposta è possibile eseguire una delle azioni seguenti:
 
@@ -861,11 +861,11 @@ Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione ris
 Informazioni chiave:
 
 - Assicurarsi che il valore specificato nell'opzione Nome corrisponda esattamente all'intestazione di risposta desiderata. 
-- Ai fini dell'identificazione di un'intestazione non viene fatta distinzione tra maiuscole e minuscole. Ad esempio, uno dei seguenti variazioni del `Cache-Control` nome di intestazione è utilizzabile per facilitarne l'identificazione:
+- Ai fini dell'identificazione di un'intestazione non viene fatta distinzione tra maiuscole e minuscole. Per identificare l'intestazione `Cache-Control`, ad esempio, è possibile usare una delle varianti di nome seguenti:
     - cache-control
     - CACHE-CONTROL
     - cachE-Control
-- L'eliminazione di un'intestazione in modo da essere inoltrato al richiedente.
+- L'eliminazione di un'intestazione impedisce che venga inoltrata al richiedente.
 - Le intestazioni seguenti sono riservate e non possono essere modificate da questa funzionalità:
     - accept-encoding
     - age
@@ -922,14 +922,14 @@ Informazioni chiave:
 
 ---
 ### <a name="proxy-special-headers"></a>Intestazioni speciali proxy
-**Scopo:** definisce il set di intestazioni di richiesta specifici della rete CDN che viene inoltrata a un server di origine da un server perimetrale.
+**Scopo**: definisce il set di intestazioni di richiesta specifiche della rete CDN che verranno inoltrate da un server perimetrale a un server di origine.
 
 Informazioni chiave:
 
 - Ogni intestazione di richiesta specifica della rete CDN definita nell'ambito di questa funzionalità verrà inoltrata a un server di origine.
 - Impedire che un'intestazione di richiesta specifica della rete CDN venga inviata a un server di origine rimuovendola dall'elenco.
 
-**Comportamento predefinito:** tutte le intestazioni di richiesta specifici della rete CDN verranno inoltrate al server di origine.
+**Comportamento predefinito**: tutte le intestazioni di richiesta specifiche della rete CDN verranno inoltrate al server di origine.
 
 [Torna all'inizio](#azure-cdn-rules-engine-features)
 
@@ -937,15 +937,15 @@ Informazioni chiave:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Aggiorna i file della cache con zero byte
-**Scopo:** determina la modalità di gestione di richiesta del client HTTP per un asset della cache di 0 byte per il server di edge.
+**Scopo**: determina come viene gestita dai server perimetrali una richiesta da parte di un client HTTP di un asset della cache con 0 byte.
 
 I valori validi sono:
 
 Valore|Risultato
 --|--
-Attivato|Fa sì che il server perimetrale di recupero di risorse dal server di origine.
+Attivato|Fa sì che il server perimetrale recuperi nuovamente l'asset dal server di origine.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rendere disponibili asset di cache validi su richiesta.
-Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai server periferici. Questi tipi di risposte vengono in genere memorizzati nella cache dai server edge. Presupponendo che una risposta con 0 byte non sia mai una risposta valida 
+Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai server periferici. Questi tipi di risposte, in genere, vengono memorizzati nella cache dai server perimetrali. Presupponendo che una risposta con 0 byte non sia mai una risposta valida 
 
 per questo tipo di contenuti, questa funzionalità può impedire che ai client vengano serviti questi tipi di asset.
 
@@ -979,7 +979,7 @@ Informazioni chiave:
 ### <a name="set-client-ip-custom-header"></a>Imposta intestazione personalizzata IP client
 **Scopo:** aggiunge un'intestazione personalizzata che identifica il client richiedente in base all'indirizzo IP della richiesta.
 
-L'opzione Nome intestazione definisce il nome dell'intestazione della richiesta personalizzato in cui è memorizzato l'indirizzo IP del client.
+L'opzione Nome intestazione definisce il nome dell'intestazione di richiesta personalizzata in cui viene archiviato l'indirizzo IP del client.
 
 Questa funzionalità consente a un server di origine del cliente di trovare gli indirizzi IP dei client tramite un'intestazione di richiesta personalizzata. Se la richiesta viene gestita dalla cache, al server di origine non verrà comunicato l'indirizzo IP del client. È consigliabile quindi usare questa funzionalità con reti ADN e asset che non verranno memorizzati nella cache.
 
@@ -1001,12 +1001,12 @@ Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei
 
 ---
 ### <a name="stale-content-delivery-on-error"></a>Distribuzione di contenuto non aggiornato in caso di errore
-**Scopo:** determina se il contenuto memorizzato nella cache scaduto verrà recapitato quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine cliente.
+**Scopo**: determina se il contenuto scaduto memorizzato nella cache verrà distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
 
 Valore|Risultato
 -|-
-Attivato|Contenuto aggiornato viene servito al richiedente quando si verifica un errore durante una connessione a un server di origine.
-Disabled|Errore del server di origine viene inoltrato al richiedente.
+Attivato|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
+Disabled|L'errore del server di origine viene inoltrato al richiedente.
 
 **Comportamento predefinito:** Disabled
 
@@ -1016,7 +1016,7 @@ Disabled|Errore del server di origine viene inoltrato al richiedente.
 
 ---
 ### <a name="stale-while-revalidate"></a>Client non aggiornato durante la riconvalida
-**Scopo:** migliora le prestazioni, consentendo il server edge fornire contenuto aggiornato al richiedente durante la riconvalida.
+**Scopo**: migliora le prestazioni consentendo ai server perimetrali di servire contenuti non aggiornati al richiedente mentre è in corso la riconvalida.
 
 Informazioni chiave:
 
@@ -1037,7 +1037,7 @@ Informazioni chiave:
 
 Se l'autenticazione basata su token è abilitata, verranno soddisfatte solo le richieste che forniscono un token crittografato e sono conformi ai requisiti specificati dal token.
 
-La chiave di crittografia utilizzato per crittografare e decrittografare i valori del token è la chiave primaria e le opzioni di Backup della chiave nella pagina autenticazione Token. Tenere presente che le chiavi di crittografia sono specifiche della piattaforma.
+La chiave di crittografia usata per crittografare e decrittografare i valori dei token viene determinata dalle opzioni relative alla chiave primaria e alla chiave di backup disponibili nella pagina di autenticazione del token. Tenere presente che le chiavi di crittografia sono specifiche della piattaforma.
 
 Valore | Risultato
 ------|---------
@@ -1097,7 +1097,7 @@ L'intestazione WWW-Authenticate può essere usata solo per i codici di risposta 
 
 ---
 ### <a name="token-auth-ignore-url-case"></a>Maiuscole/minuscole URL autenticazione token
-**Scopo:** determina se i confronti di URL eseguiti dall'autenticazione basata su Token tra maiuscole e minuscole.
+**Scopo**: determina se viene applicata la distinzione tra maiuscole e minuscole nei confronti tra URL eseguiti dall'autenticazione basata su token.
 
 I parametri interessati da questa funzionalità sono:
 
@@ -1109,7 +1109,7 @@ I valori validi sono:
 
 Valore|Risultato
 ---|----
-Attivato|Fa sì che il server perimetrale ignorare la distinzione quando si confrontano gli URL per i parametri di autenticazione basata su Token.
+Attivato|Fa sì che il server perimetrale non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL in base ai parametri dell'autenticazione basata su token.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di applicare la distinzioni tra maiuscole e minuscole durante i confronti di URL per l'autenticazione basata su token.
 
 **Comportamento predefinito:** Disabled.
@@ -1154,7 +1154,7 @@ Destination| Definire l'URL a cui verranno reindirizzate le richieste precedenti
 
 **Scenario di esempio**
 
-Questo esempio viene illustrato come reindirizzare un bordo URL CNAME corrispondente a questo URL di base della rete CDN: http://marketing.azureedge.net/brochures
+Questo esempio dimostra come reindirizzare un URL CNAME perimetrale che viene risolto nell'URL CDN di base http://marketing.azureedge.net/brochures
 
 Le richieste idonee verranno reindirizzate a questo URL CNAME periferico di base: http://cdn.mydomain.com/resources
 
@@ -1192,11 +1192,11 @@ Opzione|DESCRIZIONE
 -|-
  Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/>     - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. È costituito dalla sezione "/XXXX/" e dal nome dell'endpoint. <br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate. 
  Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezionando un punto di accesso dei contenuti che identifichi un server di origine. <br/>    2. Definendo di un percorso tramite: <br/>        - Un modello di espressione regolare <br/>        - Variabili HTTP <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore. 
- Questa funzionalità consente ai server edge di riscrittura URL senza eseguire un reindirizzamento tradizionale. In questo modo, il richiedente riceverà lo stesso codice di risposta come se fosse stato richiesto l'URL riscritto.
+ Questa funzionalità consente ai server perimetrali di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. In questo modo, il richiedente riceverà lo stesso codice di risposta come se fosse stato richiesto l'URL riscritto.
 
 **Scenario di esempio 1**
 
-Questo esempio viene illustrato come reindirizzare un bordo URL CNAME corrispondente a questo URL di base della rete CDN: http://marketing.azureedge.net/brochures/
+Questo esempio dimostra come reindirizzare un URL CNAME perimetrale che viene risolto nell'URL CDN di base http://marketing.azureedge.net/brochures/
 
 Le richieste idonee verranno reindirizzate a questo URL CNAME periferico di base: http://MyOrigin.azureedge.net/resources/
 
@@ -1204,7 +1204,7 @@ Questo reindirizzamento URL può essere ottenuto tramite la configurazione segue
 
 **Scenario di esempio 2**
 
-In questo esempio viene illustrato come reindirizzare l'URL di CNAME da maiuscolo a minuscolo tramite espressioni regolari un bordo.
+Questo esempio dimostra come reindirizzare un URL CNAME perimetrale da MAIUSCOLO a minuscolo mediante espressioni regolari.
 
 Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
@@ -1240,14 +1240,14 @@ Questa funzionalità include i criteri di corrispondenza che devono essere soddi
 </br>
 
 ---
-### <a name="user-variable"></a>Variabile utente
-**Scopo:** solo per uso interno.
+### <a name="user-variable"></a>User Variable (Variabile utente)
+**Scopo**: solo per uso interno.
 
 [Torna all'inizio](#azure-cdn-rules-engine-features)
 
 </br>
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md)
 * [Espressioni condizionali del motore regole](cdn-rules-engine-reference-conditional-expressions.md)
 * [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md)

@@ -17,7 +17,7 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: 2fb7ab906208a58c0b5cd3af8b53188fbab94029
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -39,7 +39,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione:
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Installare Visual Studio 2017](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
@@ -82,49 +82,49 @@ Una definizione di compilazione di Team Services descrive un flusso di lavoro co
 Una definizione di versione di Team Services descrive un flusso di lavoro che distribuisce un pacchetto di applicazione in un cluster. Se usate insieme, la definizione di compilazione e la definizione di versione eseguono l'intero flusso di lavoro a partire dai file di origine fino alla creazione di un'applicazione funzionante nel cluster. Sono disponibili maggiori informazioni sulle [definizioni di versione](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)di Team Services.
 
 ### <a name="create-a-build-definition"></a>Creare una definizione di compilazione
-Aprire un web browser e passare al nuovo progetto team in: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
+Aprire un Web browser e passare al nuovo progetto team all'indirizzo [https://&lt;account&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting). 
 
 Selezionare la scheda **Compilazione e versione**, **Compilazioni** e quindi **+ Nuova definizione**.  In **Seleziona un modello** selezionare il modello **Applicazione Azure Service Fabric** e quindi fare clic su **Applica**. 
 
 ![Scegliere il modello di compilazione][select-build-template] 
 
-In **attività**, immettere "Ospitato VS2017" come il **coda dell'agente**. 
+In **Attività** immettere "Hosted VS2017" come **Coda agente**. 
 
 ![Selezionare le attività][save-and-queue]
 
-In **trigger**, abilitare l'integrazione continua impostando **attivare lo stato**.  Selezionare **salvare e coda** per avviare manualmente una compilazione.  
+In **Trigger** abilitare l'integrazione continua impostando lo **Stato del trigger**.  Selezionare **Salva e accoda** per avviare manualmente una compilazione.  
 
 ![Selezionare i trigger][save-and-queue2]
 
-Si basa inoltre trigger push o check-in. Per controllare lo stato di avanzamento della compilazione, passare alla scheda **Compilazioni**.  Dopo aver verificato che la compilazione viene eseguita correttamente, definire una definizione di versione per la distribuzione dell'applicazione in un cluster. 
+Le compilazioni vengono attivate anche al momento del push o dell'archiviazione. Per controllare lo stato di avanzamento della compilazione, passare alla scheda **Compilazioni**.  Dopo aver verificato che la compilazione viene eseguita correttamente, definire una definizione di versione per la distribuzione dell'applicazione in un cluster. 
 
 ### <a name="create-a-release-definition"></a>Creare una definizione di versione  
 
-Selezionare la scheda **Compilazione e versione**, **Versioni** e quindi **+ Nuova definizione**.  In **selezionare un modello**, selezionare il **distribuzione dell'infrastruttura dei servizi Azure** modello dall'elenco e quindi **applica**.  
+Selezionare la scheda **Compilazione e versione**, **Versioni** e quindi **+ Nuova definizione**.  In **Seleziona un modello** selezionare il modello **Distribuzione di Azure Service Fabric** dall'elenco e quindi fare clic su **Applica**.  
 
-![Scegliere il modello di versione][select-release-template]
+![Scegliere un modello di versione][select-release-template]
 
-Selezionare **attività**->**1 ambiente** e quindi **+ nuovo** per aggiungere una nuova connessione di cluster.
+Selezionare **Attività**->**Ambiente 1** e quindi **+ Nuovo** per aggiungere una nuova connessione cluster.
 
 ![Aggiungere la connessione cluster][add-cluster-connection]
 
-Nel **Aggiungi nuova connessione al servizio Fabric** visualizzare selezionare **basata su certificati** o **Azure Active Directory** l'autenticazione.  Specificare un nome di connessione di "mysftestcluster" e un endpoint del cluster di "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" (o l'endpoint del cluster che a cui si sta distribuendo). 
+Nella visualizzazione **Add new Service Fabric Connection** (Aggiungi nuova connessione Service Fabric) selezionare l'autenticazione **Basato su certificato** o di **Azure Active Directory**.  Specificare "mysftestcluster" come nome della connessione e "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000" come endpoint del cluster oppure specificare l'endpoint del cluster in cui si esegue la distribuzione. 
 
-Per l'autenticazione basata su certificato, aggiungere il **identificazione personale del certificato Server** del certificato del server utilizzato per creare il cluster.  In **certificato Client**, aggiungere la codifica base 64 del file del certificato client. In tale campo per informazioni su come ottenere tale rappresentazione con codifica base 64 del certificato, vedere il finestra popup della Guida. Aggiungere anche il **Password** per il certificato.  È possibile utilizzare il certificato del server o del cluster se non si dispone di un certificato client separato. 
+Per l'autenticazione basata su certificato, aggiungere l'**Identificazione personale certificato del server** del certificato del server usato per creare il cluster.  In **Certificato client** aggiungere la codifica Base 64 del file del certificato client. Per informazioni su come ottenere la rappresentazione con codifica Base 64 del certificato, vedere la finestra di dialogo popup della Guida per il campo. Aggiungere anche la **Password** per il certificato.  È possibile usare il certificato del cluster o del server se non è disponibile un certificato client separato. 
 
-Per le credenziali di Azure Active Directory, aggiungere il **identificazione personale del certificato Server** del certificato del server utilizzato per creare il cluster e le credenziali da utilizzare per connettersi al cluster in cui si desidera il **Username** e **Password** campi. 
+Per le credenziali di Azure Active Directory aggiungere l'**Identificazione personale certificato del server** del certificato del server usato per creare il cluster e le credenziali da usare per connettersi al cluster nei campi **Nome utente** e **Password**. 
 
-Fare clic su **Aggiungi** per salvare la connessione del cluster.
+Fare clic su **Aggiungi** per salvare la connessione cluster.
 
-Successivamente, aggiungere un artefatto di compilazione alla pipeline, pertanto la definizione di versione è possibile trovare l'output di compilazione. Selezionare **Pipeline** e **elementi**->**+ Aggiungi**.  In **origine (definizione di compilazione)**, selezionare la definizione di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'artefatto di compilazione.
+Aggiungere quindi un elemento alla pipeline in modo da consentire alla definizione della versione di trovare l'output dalla compilazione. Selezionare **Pipeline** e **Elementi**->**+ Aggiungi**.  In **Origine (definizione di compilazione)** selezionare la definizione di compilazione creata in precedenza.  Fare clic su **Aggiungi** per salvare l'elemento di compilazione.
 
-![Aggiungere l'elemento][add-artifact]
+![Aggiungere un elemento][add-artifact]
 
-Abilitare un trigger di distribuzione continua in modo che una versione viene creata automaticamente al termine della compilazione. Fare clic sull'icona a forma di fulmine nell'elemento, abilitare il trigger e fare clic su **salvare** per salvare la definizione di versione.
+Abilitare il trigger di distribuzione continua in modo che la versione venga creata automaticamente al termine della compilazione. Fare clic sull'icona a forma di fulmine nell'elemento, abilitare il trigger e fare clic su **Salva** per salvare la definizione di versione.
 
-![Abilitare i trigger][enable-trigger]
+![Abilitare il trigger][enable-trigger]
 
-Selezionare **+Release** -> **Crea versione** -> **Crea** per creare manualmente una versione.  Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un web browser e passare a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080Esplora/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Si noti la versione dell'applicazione, in questo esempio è "1.0.0.20170616.3". 
+Selezionare **+Release** -> **Crea versione** -> **Crea** per creare manualmente una versione.  Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Si noti la versione dell'applicazione, in questo esempio è "1.0.0.20170616.3". 
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Eseguire commit e push delle modifiche, attivare la compilazione di una versione
 Per verificare che la pipeline di integrazione continua funzioni correttamente, è possibile archiviare alcune modifiche al codice in Team Services.    
@@ -143,7 +143,7 @@ Il push delle modifiche in Team Services attiva automaticamente una compilazione
 
 Per controllare lo stato di avanzamento della compilazione, passare alla scheda **Compilazioni** in **Team Explorer** in Visual Studio.  Dopo aver verificato che la compilazione viene eseguita correttamente, definire una definizione di versione per la distribuzione dell'applicazione in un cluster.
 
-Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un web browser e passare a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080Esplora/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Prendere nota della versione dell'applicazione, che in questo esempio è "1.0.0.20170815.3".
+Verificare che la distribuzione venga completata correttamente e che l'applicazione sia in esecuzione nel cluster.  Aprire un Web browser e passare a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Prendere nota della versione dell'applicazione, che in questo esempio è "1.0.0.20170815.3".
 
 ![Service Fabric Explorer][sfx1]
 

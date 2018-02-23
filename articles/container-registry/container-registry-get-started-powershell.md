@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/08/2017
+ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c7d74395b1c8b386ce190906aa5b63b48c1bb1bf
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Creare un Registro contenitori di Azure usando PowerShell
 
@@ -21,7 +21,7 @@ Registro contenitori di Azure è un servizio gestito di registri contenitori Doc
 
 Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -57,13 +57,13 @@ Prima di eseguire il push e il pull delle immagini del contenitore, è necessari
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Usare il comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) per accedere all'istanza record di controllo di accesso.
+Usare il comando [docker login][docker-login] per accedere all'istanza record di controllo di accesso.
 
 ```bash
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-Al termine, il comando restituisce un messaggio di accesso riuscito.
+Il comando restituisce `Login Succeeded` al termine dell'esecuzione. È possibile visualizzare un avviso di sicurezza in cui si consiglia l'uso del parametro `--password-stdin`. Sebbene il suo utilizzo non rientri nell'ambito di questo articolo, si raccomanda di seguire questa procedura consigliata. Per altri dettagli, vedere le informazioni di riferimento sul comando [docker login][docker-login].
 
 ## <a name="push-image-to-acr"></a>Eseguire il push di un'immagine nel record di controllo di accesso
 
@@ -79,13 +79,13 @@ L'immagine deve essere contrassegnata con il nome del server di accesso del reco
 Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Contrassegnare l'immagine usando il comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Sostituire *acrLoginServer* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire *acrLoginServer* con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Infine, usare [docker push](https://docs.docker.com/engine/reference/commandline/push/) per eseguire il push delle immagini nell'istanza del record di controllo di accesso. Sostituire *acrLoginServer* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+Infine, usare [docker push][docker-push] per eseguire il push delle immagini nell'istanza del record di controllo di accesso. Sostituire *acrLoginServer* con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -105,3 +105,11 @@ In questa Guida rapida è stato creato un Registro contenitori di Azure con l'in
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

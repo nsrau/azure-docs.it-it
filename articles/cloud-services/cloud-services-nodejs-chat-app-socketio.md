@@ -1,5 +1,5 @@
 ---
-title: Applicazione di Node.js tramite Socket.io - Azure
+title: Applicazione Node.js con Socket.io | Azure
 description: Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure.
 services: cloud-services
 documentationcenter: nodejs
@@ -16,19 +16,19 @@ ms.date: 08/17/2017
 ms.author: cshoe
 ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Compilare un'applicazione di chat Node.js con Socket.IO su un servizio Cloud di Azure
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creare un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
 
-Socket.IO fornisce la comunicazione in tempo reale tra i client e server node.js. In questa esercitazione viene illustrato l'hosting di un socket. Applicazione di chat in Azure basata sui / o. Per ulteriori informazioni su Socket.IO, vedere [socket.io](http://socket.io).
+Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su socket.IO in Azure. Per altre informazioni su Socket.IO, vedere [socket.io](http://socket.io).
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
 ![Finestra del browser con il servizio ospitato in Azure][completed-app]  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Assicurarsi che i seguenti prodotti e versioni siano installati per completare correttamente l'esempio in questo articolo:
 
 * Installare [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)

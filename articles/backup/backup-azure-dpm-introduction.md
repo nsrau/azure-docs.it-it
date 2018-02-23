@@ -17,7 +17,7 @@ ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -40,7 +40,7 @@ Questo articolo offre un'introduzione all'uso del servizio Backup di Microsoft A
 >
 >
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. Sono disponibili ulteriori informazioni sui carichi di lavoro supportati [qui](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). I dati sottoposti a backup su DPM possono essere archiviati su nastro, disco oppure sottoposti a backup in Azure usando il servizio Backup di Microsoft Azure. DPM interagisce con Backup di Azure nei modi seguenti:
+[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. Altre informazioni sui carichi di lavoro supportati sono disponibili [qui](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). I dati sottoposti a backup su DPM possono essere archiviati su nastro, disco oppure sottoposti a backup in Azure usando il servizio Backup di Microsoft Azure. DPM interagisce con Backup di Azure nei modi seguenti:
 
 * **DPM distribuito come server fisico o come macchina virtuale locale** : se DPM è distribuito come server fisico o come macchina virtuale Hyper-V locale, è possibile eseguire il backup dei dati in un insieme di credenziali dei servizi di ripristino oltre al backup su disco e su nastro.
 * **DPM distribuito come macchina virtuale di Azure** : a partire dalla versione di System Center 2012 R2 con aggiornamento 3, DPM può essere distribuito come macchina virtuale di Azure. Se DPM è distribuito come macchina virtuale di Azure, è possibile eseguire il backup dei dati sui dischi di Azure allegati alla macchina virtuale Azure di DPM oppure è possibile eseguire l'offload dell'archiviazione dei dati eseguendo il backup su un insieme di credenziali dei servizi di ripristino.
@@ -51,7 +51,7 @@ Di seguito sono elencati i vantaggi aziendali derivanti dall'uso del servizio Ba
 * Per la distribuzione DPM locale è possibile usare Azure come alternativa alla distribuzione a lungo termine su nastro.
 * Per le distribuzioni DPM in Azure, Backup di Azure consente di eseguire l'offload dell'archiviazione dal disco di Azure e aumentare le prestazioni archiviando i dati meno recenti in un insieme di credenziali dei servizi di ripristino e i dati nuovi sul disco.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuzione del backup dei dati DPM:
 
 1. **Creare un insieme di credenziali di Servizi di ripristino** : creare un insieme di credenziali nel portale di Azure.
@@ -111,7 +111,7 @@ Il file delle credenziali di insieme viene usato solo durante il flusso di lavor
 Il file delle credenziali di insieme viene scaricato dal portale di Azure tramite un canale sicuro. Il servizio Backup di Azure non è a conoscenza della chiave privata del certificato e la chiave privata non è persistente nel portale o nel servizio. Usare la procedura seguente per scaricare le credenziali di insieme in un computer locale.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Aprire l'insieme di credenziali di servizi di ripristino che si desidera registrare il computer Data Protection Manager.
+2. Aprire l'insieme di credenziali di Servizi di ripristino a cui si vuole registrare la macchina DPM.
 3. Per impostazione predefinita si apre il pannello Impostazioni. Se non si apre, fare clic su **Impostazioni** nel dashboard dell'insieme di credenziali per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
 
     ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -129,7 +129,7 @@ Il portale genererà una credenziale di insieme usando una combinazione del nome
 ### <a name="3-install-backup-agent"></a>3. Installare un agente di Backup
 Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario installare un agente su tutti i computer Windows (Windows Server, client Windows, server System Center Data Protection Manager o computer del server di Backup di Azure) per eseguire il backup dei dati e delle applicazioni in Azure.
 
-1. Aprire l'insieme di credenziali di servizi di ripristino che si desidera registrare il computer Data Protection Manager.
+1. Aprire l'insieme di credenziali di Servizi di ripristino a cui si vuole registrare la macchina DPM.
 2. Per impostazione predefinita si apre il pannello Impostazioni. Se non viene visualizzato, fare clic su **Impostazioni** per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
 
     ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -137,7 +137,7 @@ Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario inst
 
     ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Quando l'agente viene scaricato, eseguire il MARSAgentInstaller.exe per avviare l'installazione dell'agente di Backup di Azure. Scegliere la cartella di installazione e la cartella Scratch necessarie per l'agente. Il percorso della cache specificato deve disporre di uno spazio libero pari almeno al 5% dei dati di backup.
+   Dopo aver scaricato l'agente, eseguire il file MARSAgentInstaller.exe per avviare l'installazione dell'agente di Backup di Azure. Scegliere la cartella di installazione e la cartella Scratch necessarie per l'agente. Il percorso della cache specificato deve disporre di uno spazio libero pari almeno al 5% dei dati di backup.
 4. Se si usa un server proxy per connettersi a Internet, nella schermata **Configurazione proxy** immettere i dettagli del server proxy. Se si usa un proxy autenticato, immettere il nome utente e la password in questa schermata.
 5. Per completare l'installazione, l'agente Backup di Azure installerà .NET Framework 4.5 e Windows PowerShell (se non è già disponibile).
 6. Dopo aver installato l'agente, scegliere **Chiudi** per chiudere la finestra.

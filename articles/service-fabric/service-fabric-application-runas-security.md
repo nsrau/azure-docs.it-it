@@ -16,7 +16,7 @@ ms.date: 06/30/2017
 ms.author: mfussell
 ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ Per impostazione predefinita, le applicazioni di Service Fabric vengono eseguite
 È possibile definire e creare gruppi di utenti per aggiungere uno o più utenti a ogni gruppo e gestirli insieme. Questo aspetto è utile quando sono presenti più utenti per punti di ingresso del servizio differenti che devono avere determinati privilegi comuni disponibili a livello di gruppo.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configurare i criteri per il punto di ingresso dell'installazione del servizio
-Come descritto in [manifesti di applicazione e servizio](service-fabric-application-and-service-manifests.md), il punto di ingresso del programma di installazione, **SetupEntryPoint**, è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali Service Fabric (in genere il *NetworkService* account) prima di qualsiasi altro punto di ingresso. L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. Un punto di ingresso dell'installazione separato consente di evitare di dover eseguire l'eseguibile dell'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Il processo risultante viene monitorato e riavviato ed inizia di nuovo con **SetupEntryPoint**, se termina o si arresta in modo anomalo.
+Come descritto nel [Manifesto del servizio e dell'applicazione](service-fabric-application-and-service-manifests.md), il punto di ingresso dell'installazione, **SetupEntryPoint**, è un punto di ingresso con privilegi che viene eseguito con le stesse credenziali di Service Fabric, in genere l'account *NetworkService*, prima di qualsiasi altro punto di ingresso. L'eseguibile specificato da **EntryPoint** è in genere l'host del servizio a esecuzione prolungata. Un punto di ingresso dell'installazione separato consente di evitare di dover eseguire l'eseguibile dell'host del servizio con privilegi elevati per lunghi periodi di tempo. L'eseguibile specificato da **EntryPoint** viene eseguito dopo che **SetupEntryPoint** termina correttamente. Il processo risultante viene monitorato e riavviato ed inizia di nuovo con **SetupEntryPoint**, se termina o si arresta in modo anomalo.
 
 Il seguente è un semplice esempio di manifesto del servizio in cui sono presenti SetupEntryPoint e l'elemento EntryPoint principale per il servizio.
 

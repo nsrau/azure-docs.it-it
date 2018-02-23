@@ -18,7 +18,7 @@ ms.author: mblythe
 ms.custom: 
 ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -42,10 +42,10 @@ In questo argomento si apprenderà come:
 > * Aggiungere controlli per chiamare la funzione e visualizzare i dati.
 > * Eseguire l'app per determinare se una riparazione è conveniente.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Un [account PowerApps](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) attivo con le stesse credenziali di accesso dell'account Azure. 
-+ Excel e [file di Excel di esempio](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) da utilizzare come origine dati per l'app.
++ Excel e il [file di esempio di Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx), che verrà usato come origine dati per l'app.
 + Completare l'esercitazione [Creare una definizione OpenAPI per una funzione](functions-openapi-definition.md).
 
 [!INCLUDE [Export an API definition](../../includes/functions-export-api-definition.md)]
@@ -71,35 +71,35 @@ L'API personalizzata (nota anche come connettore personalizzato) è disponibile 
 ## <a name="create-an-app-and-add-data-sources"></a>Creare un'app e aggiungere origini dati
 A questo punto si è pronti per creare l'app in PowerApps e aggiungere i dati di Excel e l'API personalizzata come origini dati per l'app.
 
-1. In [web.powerapps.com](https://web.powerapps.com), scegliere **iniziale vuoto** > ![icona app Phone](media/functions-powerapps-scenario/icon-phone-app.png) (phone) > **rendere questa app**.
+1. In [web.powerapps.com](https://web.powerapps.com) scegliere **Inizia da zero** > ![icona app per telefono](media/functions-powerapps-scenario/icon-phone-app.png) (telefono) > **Crea questa app**.
 
-    ![Avviare da vuota - app telefono](media/functions-powerapps-scenario/create-phone-app.png)
+    ![Inizia da zero - app per telefono](media/functions-powerapps-scenario/create-phone-app.png)
 
     L'app viene aperta in PowerApps Studio per il Web. La figura seguente mostra le diverse parti di PowerApps Studio.
 
     ![PowerApps Studio](media/functions-powerapps-scenario/powerapps-studio.png)
 
-    **(A) barra di spostamento a sinistra**, in cui si vedere una visualizzazione gerarchica di tutti i controlli in ogni schermata
+    **(A) Barra di spostamento sinistra**, in cui è disponibile una visualizzazione gerarchica di tutti i controlli in ogni schermata
 
-    **(B) riquadro centrale di**, che viene visualizzata la schermata che si sta lavorando
+    **(B) Riquadro centrale**, che mostra la schermata in cui si sta lavorando
 
-    **Riquadro di destra (C)**, in cui è necessario impostare opzioni quali origini dati e layout
+    **(C) Riquadro destro**, dove è possibile impostare opzioni come il layout e le origini dati
 
-    **(D) proprietà** elenco a discesa, in cui si selezionano le proprietà che riguardano le formule
+    **(D) Proprietà**, elenco a discesa in cui si selezionano le proprietà a cui si applicano le formule
 
-    **(E) barra della formula.**, in cui è aggiungere formule (come in Excel) che definiscono il comportamento delle app
+    **(E) Barra della formula**, dove è possibile aggiungere formule (come in Excel) che definiscono il comportamento dell'app
     
-    **(F) barra multifunzione**, vengono aggiunti controlli e personalizzare gli elementi di progettazione
+    **(F) Barra multifunzione**, dove è possibile aggiungere i controlli e personalizzare gli elementi di progettazione
 
 1. Aggiungere il file di Excel come origine dati.
 
-    I dati da importare sono simile al seguente:
+    I dati importati saranno simili a quanto segue:
 
     ![Dati di Excel da importare](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Nell'area di disegno app, scegliere **connettersi ai dati**.
+    1. Nell'area di disegno dell'app scegliere **Connetti ai dati**.
 
-    1. Nel **dati** pannello, fare clic su **aggiungere dati statici all'app**.
+    1. Nel pannello **Dati** fare clic su **Aggiunge dati statici all'app**.
 
         ![Aggiungere l'origine dati](media/functions-powerapps-scenario/add-static-data.png)
 
@@ -112,7 +112,7 @@ A questo punto si è pronti per creare l'app in PowerApps e aggiungere i dati di
 
 1. Aggiungere l'API personalizzata come origine dati.
 
-    1. Nel **dati** pannello, fare clic su **Aggiungi origine dati**.
+    1. Nel pannello **Dati** fare clic su **Aggiungi origine dati**.
 
     1. Fare clic su **Turbine Repair**.
 
@@ -131,21 +131,21 @@ Ora che le origini dati sono disponibili nell'app, aggiungere una schermata all'
 
     ![Modificare il titolo e ridimensionare la raccolta](media/functions-powerapps-scenario/gallery-title.png)
 
-1. La raccolta selezionata, nel riquadro a destra, in **proprietà**, fare clic su **CustomGallerySample**.
+1. Con la raccolta selezionata, nel riquadro a destra in **Proprietà** fare clic su **CustomGallerySample**.
 
     ![Modificare l'origine dati](media/functions-powerapps-scenario/change-data-source.png)
 
-1. Nel **dati** Pannello di seleziona **turbine** dall'elenco.
+1. Nel pannello **Dati** selezionare **Turbines** nell'elenco.
 
     ![Selezionare l'origine dati](media/functions-powerapps-scenario/select-data-source.png)
 
     Il set di dati non contiene un'immagine, quindi si modifica il layout per adattarlo meglio ai dati. 
 
-1. Ancora nel **dati** pannello, modificare **Layout** a **titolo e sottotitolo corpo**.
+1. Sempre nel pannello **Dati** modificare **Layout** in **Titolo, sottotitolo e corpo**.
 
     ![Modificare il layout della raccolta](media/functions-powerapps-scenario/change-layout.png)
 
-1. Come l'ultimo passaggio il **dati** pannello, modificare i campi vengono visualizzati nella raccolta.
+1. Come ultimo passaggio, nel pannello **Dati** modificare i campi visualizzati nella raccolta.
 
     ![Modificare i campi della raccolta](media/functions-powerapps-scenario/change-fields.png)
     
@@ -165,7 +165,7 @@ Ora che le origini dati sono disponibili nell'app, aggiungere una schermata all'
 
     ![Eliminare la schermata](media/functions-powerapps-scenario/delete-screen.png)
 
-1. Fare clic su **File**e il nome dell'applicazione. Fare clic su **salvare** nel menu a sinistra, quindi fare clic su **salvare** nell'angolo inferiore destro.
+1. Fare clic su **File** e assegnare un nome all'app. Fare clic su **Salva** nel menu a sinistra e quindi fare clic su **Salva** nell'angolo inferiore destro.
 
 In un'app di produzione ci sarebbero molte altre opzioni di formattazione da impostare, ma al momento si passerà alla parte importante di questo scenario, la chiamata della funzione.
 

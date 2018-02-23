@@ -16,13 +16,13 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Eccezioni della messaggistica di Hub eventi
 
-In questo articolo sono elencate alcune delle eccezioni generate dalla libreria dell'API messaggistica Azure Service Bus, che includono le API di hub di eventi. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
+Questo articolo elenca alcune eccezioni generate dalla raccolta di API di messaggistica del bus di servizio di Azure, che include le API di Hub eventi. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
 
 ## <a name="exception-categories"></a>Categorie di eccezioni
 
@@ -80,13 +80,13 @@ Per questo errore, esistono due cause comuni: una configurazione errata o un err
 
 Questo errore può verificarsi per uno dei due motivi:
 
-1. Il carico non viene distribuito uniformemente tra tutte le partizioni nell'hub di eventi e una partizione raggiunge il limite di unità di velocità effettiva locale.
+1. Il carico non viene distribuito uniformemente su tutte le partizioni nell'Hub eventi e una partizione raggiunge il limite dell'unità di velocità effettiva locale.
     
     Risoluzione: rivedere la strategia di distribuzione della partizione o provare con [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_).
 
-2. Lo spazio dei nomi dell'hub eventi non dispone di unità di velocità effettiva sufficiente (è possibile controllare il **metriche** nell'evento schermata finestra dello spazio dei nomi degli hub di [portale di Azure](https://portal.azure.com) per confermare). Si noti che il portale mostra le informazioni aggregate (1 minuto), ma viene misurata la velocità effettiva in tempo reale, quindi si tratta solo di una stima.
+2. Lo spazio dei nomi di Hub eventi non dispone di unità di velocità effettiva sufficienti (per conferma, è possibile controllare la schermata **Metrica** nella finestra dello spazio dei nomi di Hub eventi nel [Portale di Azure](https://portal.azure.com)). Si noti che il portale mostra le informazioni aggregate (1 minuto), ma viene misurata la velocità effettiva in tempo reale, quindi si tratta solo di una stima.
 
-    Risoluzione: aumentare le unità di velocità effettiva nello spazio dei nomi. È possibile farlo nel portale, nel **scala** finestra dello schermo di spazio dei nomi di hub eventi.
+    Risoluzione: aumentare le unità di velocità effettiva nello spazio dei nomi. È possibile farlo nel portale, nella finestra **Scalabilità** della schermata dello spazio dei nomi di Hub eventi.
 
 ### <a name="error-code-50001"></a>Codice errore 50001
 

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 80974f7660696887783e97b674e2d9921fe2feac
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedure consigliate per il caricamento dei dati in Azure SQL Data Warehouse
 Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in Azure SQL Data Warehouse. 
@@ -120,15 +120,19 @@ Ai fini della sicurezza è consigliabile modificare regolarmente la chiave di ac
 
 Per ruotare le chiavi dell'account di archiviazione di Azure:
 
-1. Creare una seconda credenziale con ambito database basata sulla chiave di accesso alle risorse di archiviazione secondaria.
-2. Creare una seconda origine dati esterna in base a questa nuova credenziale.
-3. Rimuovere le tabelle esterne e crearle in modo che puntino alle nuove origini dati esterne. 
+Per ogni account di archiviazione la cui chiave ha subito modifiche, eseguire [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md).
 
-Al termine della migrazione delle tabelle esterne alla nuova origine dati, eseguire queste attività di pulizia:
+Esempio:
 
-1. Rimuovere la prima origine dati esterna.
-2. Rimuovere la prima credenziale con ambito database basata sulla chiave di accesso alle risorse di archiviazione primaria.
-3. Accedere ad Azure e rigenerare la chiave di accesso primaria affinché sia pronta per la rotazione successiva.
+Creazione della chiave originale
+
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1' 
+
+Rotazione della chiave dalla chiave 1 alla chiave 2
+
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+
+Non sono necessarie altre modifiche alle origini dati esterne.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

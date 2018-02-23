@@ -204,7 +204,7 @@ In questo esempio è presente una sottoscrizione che include le risorse seguenti
 - Un gruppo di sicurezza di rete applicato a entrambe le subnet
 - Un server Windows che rappresenta un server Web applicazioni ("IIS01")
 - Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-- Un server Windows che rappresenta un server DNS ("DNS01")
+- Un server Windows che rappresenta un server DNS ("DNS01").
 - Un IP pubblico associato al server Web dell'applicazione
 
 Per gli script e un modello di Azure Resource Manager, vedere le [istruzioni di creazione dettagliate][Example1].
@@ -253,7 +253,7 @@ In questo esempio è presente una sottoscrizione che include le risorse seguenti
 * Un'appliance virtuale di rete, in questo caso un firewall connesso alla subnet front-end
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01")
 * Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-* Un server Windows che rappresenta un server DNS ("DNS01")
+* Un server Windows che rappresenta un server DNS ("DNS01").
 
 Per gli script e un modello di Azure Resource Manager, vedere le [istruzioni di creazione dettagliate][Example2].
 
@@ -304,7 +304,7 @@ In questo esempio è presente una sottoscrizione che include le risorse seguenti
 * Un'appliance virtuale di rete, in questo caso un firewall connesso alla subnet "SecNet"
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01")
 * Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-* Un server Windows che rappresenta un server DNS ("DNS01")
+* Un server Windows che rappresenta un server DNS ("DNS01").
 
 Per gli script e un modello di Azure Resource Manager, vedere le [istruzioni di creazione dettagliate][Example3].
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 2131aa75dcfb975f11cff9800087c3e4e7170378
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72b0965e1fda733651baa04997da1242a73320f1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Aggiungere il runtime di integrazione (IR) SSIS di Azure a una rete virtuale (VNet) di Azure negli scenari seguenti: 
@@ -31,7 +31,13 @@ Aggiungere il runtime di integrazione (IR) SSIS di Azure a una rete virtuale (VN
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="access-on-premises-data-stores"></a>Accesso agli archivi dati locali
-Se i pacchetti SSIS permettono di accedere solo ad archivi dati cloud pubblici, non è necessario aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale. Se i pacchetti SSIS permettono di accedere ad archivi dati locali, è necessario aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale connessa alla rete locale. Se il catalogo SSIS è ospitato in un Database SQL di Azure che non è presente nella VNet, è necessario aprire le porte appropriate. Se il catalogo SSIS è ospitato nell'istanza SQL gestita di Azure che si trova in una rete virtuale classica o in una rete virtuale di Azure Resource Manager, è possibile aggiungere il runtime di integrazione Azure-SSIS nella stessa rete virtuale o in una rete virtuale diversa che abbia una connessione da rete virtuale a rete virtuale con la rete virtuale che include l'istanza SQL gestita di Azure. Per altre informazioni, vedere le sezioni seguenti.
+Se i pacchetti SSIS permettono di accedere solo ad archivi dati cloud pubblici, non è necessario aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale. Se i pacchetti SSIS permettono di accedere ad archivi dati locali, è necessario aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale connessa alla rete locale. 
+
+Se il catalogo SSIS è ospitato in un Database SQL di Azure che non è presente nella VNet, è necessario aprire le porte appropriate. 
+
+Se il catalogo SSIS è ospitato in un'istanza gestita di database SQL di Azure che si trova in una rete virtuale, è possibile aggiungere il runtime di integrazione SSIS di Azure nella stessa rete virtuale o in una rete virtuale diversa che abbia una connessione da rete virtuale a rete virtuale con la rete virtuale che include l'istanza gestita di database SQL di Azure. La rete virtuale può essere una rete virtuale classica o una rete virtuale di Gestione delle risorse di Azure. Se si prevede di unire il runtime di integrazione SSIS di Azure alla **stessa rete virtuale** che contiene l'istanza gestita di database SQL, verificare che il runtime di integrazione SSIS di Azure si trovi in una **subnet diversa** da quella che contiene l'istanza gestita di database SQL.   
+
+Per altre informazioni, vedere le sezioni seguenti.
 
 Ecco alcuni elementi importanti da considerare: 
 
@@ -58,10 +64,11 @@ Questa sezione illustra come aggiungere un runtime SSIS di Azure esistente a una
 ### <a name="use-portal-to-configure-a-classic-vnet"></a>Usare il portale per configurare una rete virtuale classica
 Prima di aggiungere un runtime di integrazione SSIS di Azure alla rete virtuale è necessario configurare quest'ultima.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Altri servizi**. Filtrare e selezionare **Reti virtuali (classiche)**.
-3. Filtrare e selezionare la propria **rete virtuale** dall’elenco. 
-4. Nella pagina Rete virtuale (classica), selezionare **Proprietà**. 
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
+2. Accedere al [portale di Azure](https://portal.azure.com).
+3. Fare clic su **Altri servizi**. Filtrare e selezionare **Reti virtuali (classiche)**.
+4. Filtrare e selezionare la propria **rete virtuale** dall’elenco. 
+5. Nella pagina Rete virtuale (classica), selezionare **Proprietà**. 
 
     ![ID di risorsa di rete virtuale classica](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 5. Fare clic sul pulsante copia per l’**ID RISORSA** per copiare l'ID di risorsa per la rete classica negli Appunti. Salvare l'ID dagli Appunti in OneNote o in un file.
@@ -93,13 +100,14 @@ Prima di aggiungere un runtime di integrazione SSIS di Azure alla rete virtuale 
 ### <a name="use-portal-to-configure-an-azure-resource-manager-vnet"></a>Usare il portale per configurare una rete virtuale di Azure Resource Manager
 Prima di aggiungere un runtime di integrazione SSIS di Azure alla rete virtuale è necessario configurare quest'ultima.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Altri servizi**. Filtrare e selezionare **Reti virtuali**.
-3. Filtrare e selezionare la propria **rete virtuale** dall’elenco. 
-4. Nella pagina Rete virtuale selezionare **Proprietà**. 
-5. Fare clic sul pulsante di copia per l'**ID RISORSA** per copiare l'ID risorsa per la rete virtuale negli Appunti. Salvare l'ID dagli Appunti in OneNote o in un file.
-6. Fare clic su **Subnet** nel menu a sinistra e assicurarsi che il numero di **indirizzi disponibili** sia maggiore dei nodi nel runtime di integrazione SSIS di Azure.
-5. Verificare che il provider di Azure Batch sia registrato nella sottoscrizione di Azure che ha la rete virtuale o registrare il provider di Azure Batch. Se si dispone già di un account Azure Batch nella sottoscrizione, allora la sottoscrizione viene registrata per Azure Batch.
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
+2. Accedere al [portale di Azure](https://portal.azure.com).
+3. Fare clic su **Altri servizi**. Filtrare e selezionare **Reti virtuali**.
+4. Filtrare e selezionare la propria **rete virtuale** dall’elenco. 
+5. Nella pagina Rete virtuale selezionare **Proprietà**. 
+6. Fare clic sul pulsante di copia per l'**ID RISORSA** per copiare l'ID risorsa per la rete virtuale negli Appunti. Salvare l'ID dagli Appunti in OneNote o in un file.
+7. Fare clic su **Subnet** nel menu a sinistra e assicurarsi che il numero di **indirizzi disponibili** sia maggiore dei nodi nel runtime di integrazione SSIS di Azure.
+8. Verificare che il provider di Azure Batch sia registrato nella sottoscrizione di Azure che ha la rete virtuale o registrare il provider di Azure Batch. Se si dispone già di un account Azure Batch nella sottoscrizione, allora la sottoscrizione viene registrata per Azure Batch.
     1. Nel portale di Azure, fare clic su **Sottoscrizioni** nel menu a sinistra. 
     2. Selezionare la propria **sottoscrizione**. 
     3. Fare clic su **Provider di risorse** a sinistra e verificare che `Microsoft.Batch` è un provider registrato. 
@@ -111,7 +119,8 @@ Prima di aggiungere un runtime di integrazione SSIS di Azure alla rete virtuale 
 ### <a name="join-the-azure-ssis-ir-to-a-vnet"></a>Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
 
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Data factory** nel menu a sinistra. Se la voce **Data factory** non è visualizzata nel menu, selezionare **Altri servizi**, **Data factory** nella sezione **INTELLIGENCE E ANALISI**. 
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
+2. Nel [portale di Azure](https://portal.azure.com) selezionare **Data factory** nel menu a sinistra. Se la voce **Data factory** non è visualizzata nel menu, selezionare **Altri servizi**, **Data factory** nella sezione **INTELLIGENCE E ANALISI**. 
     
     ![Elenco Data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 2. Selezionare la data factory con il runtime di integrazione SSIS di Azure nell'elenco. Verrà visualizzata la home page della data factory. Selezionare il riquadro **Creare e distribuire**. Verrà visualizzata l'interfaccia utente di Data Factory in una scheda separata. 

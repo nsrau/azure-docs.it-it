@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6b18f79b0ef50c30335218ef45ba6ed932cb586
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 5e94ba1a45bccefedfa0017ad0123942e66f70bb
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -124,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-L'uso di un file con estensione *.csx* condiviso è una prassi comune quando si vuole tipizzare fortemente i dati passati tra le funzioni usando un oggetto POCO. Nell'esempio semplificato seguente, un trigger HTTP e un trigger della coda condividono un oggetto POCO denominato `Order` per tipizzare fortemente i dati dell'ordine:
+L'uso di un file con estensione *csx* condiviso è una prassi comune quando si vuole tipizzare fortemente i dati passati tra le funzioni usando un oggetto POCO. Nell'esempio semplificato seguente, un trigger HTTP e un trigger della coda condividono un oggetto POCO denominato `Order` per tipizzare fortemente i dati dell'ordine:
 
 File *run.csx* di esempio per il trigger HTTP:
 

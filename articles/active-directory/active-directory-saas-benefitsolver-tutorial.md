@@ -16,7 +16,7 @@ ms.date: 08/30/2017
 ms.author: jeedes
 ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -32,7 +32,7 @@ L'integrazione di Benefitsolver con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Benefitsolver, sono necessari gli elementi seguenti:
 
@@ -150,7 +150,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Per configurare l'accesso single sign-on in **Benefitsolver** lato, è necessario inviare scaricato **Metadata XML** a [team di supporto Benefitsolver](https://www.businessolver.com/contact).
+8. Per configurare l'accesso Single Sign-On sul lato **Benefitsolver**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > Il team di supporto di Benefitsolver si occuperà dell'effettiva configurazione dell'accesso Single Sign-On. Una volta completata l'abilitazione dell'accesso Single Sign-On per la sottoscrizione, si riceverà una notifica.

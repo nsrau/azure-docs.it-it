@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 082b410c9375dbdfa7f95ccd4c176e7384dad0d7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
@@ -38,7 +38,7 @@ Con la funzionalità App per dispositivi mobili, è possibile:
 ## <a name="mobile-apps-features"></a>Funzionalità di App per dispositivi mobili
 Le funzionalità seguenti sono importanti per lo sviluppo per dispositivi mobili abilitati per il cloud:
 
-* **Autenticazione e autorizzazione**. È possibile scegliere da un elenco in costante crescita di provider di identità, tra cui Azure Active Directory per l'autenticazione aziendale, nonché provider di servizi di social networking come Facebook, Google, Twitter e account Microsoft. App per dispositivi mobili offre un servizio OAuth 2.0 per ogni provider. È anche possibile integrare l'SDK del provider di identità per funzionalità specifiche del provider.
+* **Autenticazione e autorizzazione**. Supporto provider di identità, tra cui Azure Active Directory per l'autenticazione aziendale, nonché provider di servizi di social networking come Facebook, Google, Twitter e account Microsoft. App per dispositivi mobili offre un servizio OAuth 2.0 per ogni provider. È anche possibile integrare l'SDK del provider di identità per funzionalità specifiche del provider.
 
     Altre informazioni sulle [funzionalità di autenticazione].
 
@@ -52,7 +52,7 @@ Le funzionalità seguenti sono importanti per lo sviluppo per dispositivi mobili
 
   Altre informazioni sulle [funzionalità di notifica push].
 
-* **SDK client**. Viene offerto un set completo di SDK client che coprono lo sviluppo nativo ([iOS], [Android] e [Windows]), multipiattaforma ([Xamarin.iOS, Xamarin.Android] e [Xamarin.Forms]) e di applicazioni ibride ([Apache Cordova]). Ogni SDK client è disponibile con una licenza MIT ed è open source.
+* **SDK client**. È disponibile un set completo di SDK client che coprono lo sviluppo nativo ([iOS], [Android] e [Windows]), multipiattaforma ([Xamarin.iOS, Xamarin.Android] e [Xamarin.Forms]) e di applicazioni ibride ([Apache Cordova]). Ogni SDK client è disponibile con una licenza MIT ed è open source.
 
 ## <a name="azure-app-service-features"></a>Funzionalità del servizio app di Azure
 Le funzionalità della piattaforma seguenti sono utili per i siti di produzione per dispositivi mobili:
@@ -65,7 +65,7 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 
   Altre informazioni sugli [ambienti di staging].
 
-* **Distribuzione continua**: il servizio app può integrarsi con i sistemi comuni per la gestione del controllo del codice sorgente e consente così di distribuire automaticamente una nuova versione del back-end eseguendo il push in un ramo del sistema per la gestione del controllo del codice sorgente.
+* **Distribuzione continua**. Il servizio app può integrarsi con i sistemi comuni per la gestione del _controllo del codice sorgente_ e consente così di distribuire facilmente una nuova versione del back-end.
 
   Altre informazioni sulle [opzioni di distribuzione](../app-service/app-service-deploy-local-git.md).
 
@@ -73,7 +73,7 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 
   Altre informazioni su [connessioni ibride], [reti virtuali] ed [ExpressRoute].
 
-* **Ambienti isolati e dedicati**. È possibile eseguire il servizio app in un ambiente completamente isolato e dedicato per l'esecuzione sicura delle app del servizio app di Azure su larga scala. Un ambiente di questo tipo è ideale per i carichi di lavoro delle applicazioni che richiedono scalabilità elevata, isolamento o accesso alla rete sicuro.
+* **Ambienti isolati e dedicati**. Per eseguire in modo sicuro le app del Servizio app di Azure, è possibile eseguire il servizio app in un ambiente completamente isolato e dedicato. Un ambiente di questo tipo è ideale per i carichi di lavoro delle applicazioni che richiedono scalabilità elevata, isolamento o accesso alla rete sicuro.
 
   Altre informazioni sugli [ambienti del servizio app].
 

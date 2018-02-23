@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -27,13 +27,13 @@ ms.lasthandoff: 12/18/2017
 > 
 > 
 
-A partire dalla versione 2.17, servizi multimediali consente di definire i filtri per le risorse. Questi filtri sono regole lato server che consentono ai clienti di scegliere di eseguire operazioni come: la riproduzione solo una sezione di un video (anziché la riproduzione del video intero), oppure specificare solo un subset di audio e video trasformate in grado di gestire i dispositivi del cliente (invece di tutte le copie trasformate associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
+A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene eseguito attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
 Per altre informazioni sui filtri e sul manifesto dinamico, vedere [Filtri e manifesti dinamici](media-services-dynamic-manifest-overview.md).
 
-In questo articolo viene illustrato come utilizzare Media Services .NET SDK per creare, aggiornare ed eliminare filtri. 
+Questo articolo illustra come usare Media Services .NET SDK per creare, aggiornare ed eliminare filtri. 
 
-Nota che se si aggiorna un filtro, potrebbe richiedere fino a due minuti per l'endpoint per aggiornare le regole di streaming. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento del filtro può determinare un errore del lettore. Cancellare la cache dopo l'aggiornamento del filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso. 
+Si noti che se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento del filtro può determinare un errore del lettore. Cancellare sempre la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso. 
 
 ## <a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
 Durante la creazione dei filtri vengono usati i tipi seguenti: 
@@ -44,7 +44,7 @@ Durante la creazione dei filtri vengono usati i tipi seguenti:
 * **FilterTrackSelectStatement** e **IFilterTrackPropertyCondition**. Questi tipi sono basati sulle seguenti API REST [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>Creare/aggiornare/leggere/eliminare filtri globali
-Il codice seguente viene illustrato come utilizzare .NET per creare, aggiornare, leggere ed eliminare filtri di asset.
+Il codice seguente illustra come usare .NET per creare, aggiornare, leggere ed eliminare filtri di asset.
 
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
@@ -73,7 +73,7 @@ Il codice seguente viene illustrato come utilizzare .NET per creare, aggiornare,
 
 
 ## <a name="createupdatereaddelete-asset-filters"></a>Creare/aggiornare/leggere/eliminare filtri di asset
-Il codice seguente viene illustrato come utilizzare .NET per creare, aggiornare, leggere ed eliminare filtri di asset.
+Il codice seguente illustra come usare .NET per creare, aggiornare, leggere ed eliminare filtri di asset.
 
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);

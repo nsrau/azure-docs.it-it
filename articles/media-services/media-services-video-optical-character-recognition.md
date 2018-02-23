@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -28,7 +28,7 @@ Se usato in combinazione con un motore di ricerca, è possibile indicizzare faci
 
 Il processore di contenuti multimediali **Azure Media OCR** è attualmente disponibile in anteprima.
 
-In questo articolo fornisce informazioni dettagliate sulle **Azure Media OCR** e viene illustrato come usarlo con Media Services SDK per .NET. Per ulteriori informazioni ed esempi, vedere [questo blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Questo articolo contiene informazioni dettagliate su **Azure Media OCR** e illustra come usare questa funzionalità con Media Services .NET SDK. Per altre informazioni ed esempi, vedere [questo blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>File di input OCR
 File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
@@ -116,7 +116,7 @@ L'output contiene gli attributi seguenti:
 | text |Il testo effettivo |
 
 ### <a name="json-output-example"></a>Esempio di output JSON
-Il seguente output contiene le informazioni generali del video e numerosi frammenti video. In ogni frammento video, contiene ogni area, che viene rilevato da MP OCR con la lingua e il relativo orientamento di testo. L'area contiene anche ogni riga di word in quest'area con il testo della riga, la posizione della riga e tutte le informazioni di word (il contenuto di word, posizione e confidenza) in questa riga. Di seguito è riportato un esempio, contenente anche alcuni commenti sulla riga.
+Il seguente output contiene le informazioni generali del video e numerosi frammenti video. In ogni frammento video, l'output contiene ogni area rilevata dal processore di contenuti multimediali OCR con la lingua e il relativo orientamento del testo. L'area contiene anche ogni riga di parole in questa area con il testo della riga, la posizione della riga e tutte le informazioni sulle parole (il contenuto, la posizione e la sicurezza delle parole) della riga. Di seguito è riportato un esempio, contenente anche alcuni commenti sulla riga.
 
     {
         "version": 1, 

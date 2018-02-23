@@ -16,7 +16,7 @@ ms.date: 11/15/2017
 ms.author: arramac
 ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -88,7 +88,7 @@ Attualmente le funzionalità di failover automatico e manuale sono esposte al li
 ### <a id="MultiHomingAPIs"></a>API multihosting in Azure Cosmos DB
 Azure Cosmos DB consente di interagire con il database tramite endpoint logici (indipendenti dall'area) o fisici (specifici dell'area). L'uso di endpoint logici garantisce che l'applicazione possa usufruire del multihoming in modo trasparente in caso di failover. Gli endpoint fisici, invece, offrono all'applicazione un controllo con granularità fine per reindirizzare le letture e le scritture ad aree specifiche.
 
-È possibile trovare informazioni su come configurare le preferenze di lettura per il [API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [API Graph](../cosmos-db/tutorial-global-distribution-graph.md), [tabella API](../cosmos-db/tutorial-global-distribution-table.md), e [API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) nella loro articoli collegati.
+Informazioni su come configurare le preferenze di lettura per le [API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [API Graph](../cosmos-db/tutorial-global-distribution-graph.md), [API Table](../cosmos-db/tutorial-global-distribution-table.md) e [API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) sono disponibili nei rispettivi articoli collegati.
 
 ### <a id="TransparentSchemaMigration"></a>Migrazione di indici e di schemi del database trasparente e coerente 
 Azure Cosmos DB è completamente [indipendente dallo schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). La struttura esclusiva del motore di database consente di indicizzare automaticamente e in modo sincrono tutti i dati inseriti senza richiedere all'utente schemi o indici secondari. In questo modo è possibile iterare rapidamente l'applicazione distribuita a livello globale senza preoccuparsi della migrazione dell'indice o dello schema del database o del coordinamento di implementazioni di modifiche dello schema dell'applicazione in più fasi. Azure Cosmos DB garantisce che qualsiasi modifica ai criteri di indicizzazione eseguita dall'utente non comporti un calo significativo di prestazioni o disponibilità.  

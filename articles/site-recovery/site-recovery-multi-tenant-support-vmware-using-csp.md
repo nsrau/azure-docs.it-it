@@ -16,22 +16,22 @@ ms.date: 12/14/2017
 ms.author: manayar
 ms.openlocfilehash: 273efe0bdef421d753ea51e01060d48351cbe6fc
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Supporto multi-tenant in Azure Site Recovery per replicare le macchine virtuali VMware in Azure tramite CSP
 
-Azure Site Recovery supporta ambienti multi-tenant per sottoscrizioni tenant. Supporta anche la multi-tenancy per le sottoscrizioni tenant create e gestite tramite il programma Microsoft Cloud Solution Provider (CSP). In questo articolo sono illustrate le indicazioni per implementare e gestire scenari multi-tenant da VMware ad Azure. Per ulteriori informazioni sulla creazione e gestione delle sottoscrizioni tenant vedere [la gestione di multi-tenancy con CSP](site-recovery-manage-multi-tenancy-with-csp.md) .
+Azure Site Recovery supporta ambienti multi-tenant per sottoscrizioni tenant. Supporta anche la multi-tenancy per le sottoscrizioni tenant create e gestite tramite il programma Microsoft Cloud Solution Provider (CSP). In questo articolo sono illustrate le indicazioni per implementare e gestire scenari multi-tenant da VMware ad Azure. Per informazioni dettagliate sulla creazione e sulla gestione delle sottoscrizioni tenant vedere [Gestione multi-tenancy con CSP](site-recovery-manage-multi-tenancy-with-csp.md).
 
 Queste indicazioni traggono molte informazioni dalla documentazione esistente per la replica di macchine virtuali VMware in Azure. Per altre informazioni, vedere [Replicare VM VMware in Azure con Site Recovery](site-recovery-vmware-to-azure.md).
 
 ## <a name="multi-tenant-environments"></a>Ambienti multi-tenant
 Esistono tre modelli multi-tenant principali:
 
-* **Provider di servizi di Hosting (HSP) condiviso**: il partner proprietario dell'infrastruttura fisica e utilizza le risorse (vCenter, Data Center, l'archiviazione fisica e così via) per ospitare macchine virtuali di più tenant sono condivise nella stessa infrastruttura. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario del ripristino di emergenza tramite una soluzione self-service.
+* **Provider di servizi di hosting condiviso**: il partner possiede l'infrastruttura fisica e usa risorse condivise, ad esempio vCenter, data center, archiviazione fisica e così via, per ospitare le macchine virtuali di più tenant nella stessa infrastruttura. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario del ripristino di emergenza tramite una soluzione self-service.
 
-* **Provider di servizi di Hosting dedicato**: il partner proprietario dell'infrastruttura fisica, ma utilizza risorse dedicate (più vCenter, archivi dati fisici e così via) per ospitare macchine virtuali di ogni tenant in un'infrastruttura separata. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario di un'apposita soluzione self-service.
+* **Provider di servizi di hosting dedicato**: il partner possiede l'infrastruttura fisica, ma usa risorse dedicate, ad esempio più vCenter, archivi dati fisici e così via, per ospitare le macchine virtuali di ogni tenant in un'infrastruttura separata. Il partner può fornire il ripristino di emergenza come servizio gestito oppure il tenant può essere proprietario di un'apposita soluzione self-service.
 
 * **Provider di servizi gestiti**: il cliente possiede l'infrastruttura fisica che ospita le macchine virtuali e il partner provvede ad abilitare e gestire il ripristino di emergenza.
 
@@ -45,9 +45,9 @@ L'architettura è illustrata nella figura seguente:
 ![Provider di servizi di hosting condiviso con un vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
 **Scenario di hosting condiviso con un vCenter**
 
-Come illustrato nel diagramma precedente, ogni cliente ha un server di gestione separato. Questa configurazione limita l'accesso dei tenant alle sole macchine virtuali specifiche dei tenant e implementa l'isolamento dei tenant stessi. Lo scenario di replica delle macchine virtuali VMware usa il server di configurazione per gestire gli account in modo da individuare le macchine virtuali e installare gli agenti. Gli stessi principi agli ambienti multi-tenant, con l'aggiunta di limitare l'individuazione di macchina virtuale tramite il controllo di accesso vCenter.
+Come illustrato nel diagramma precedente, ogni cliente ha un server di gestione separato. Questa configurazione limita l'accesso dei tenant alle sole macchine virtuali specifiche dei tenant e implementa l'isolamento dei tenant stessi. Lo scenario di replica delle macchine virtuali VMware usa il server di configurazione per gestire gli account in modo da individuare le macchine virtuali e installare gli agenti. Gli stessi principi valgono per gli ambienti multi-tenant, dove in aggiunta viene limitata l'individuazione delle macchine virtuali attraverso il controllo di accesso di vCenter.
 
-Il requisito di isolamento dei dati richiede che tutte le informazioni riservate dell'infrastruttura (ad esempio le credenziali di accesso) rimangono riservate ai tenant. Per questo motivo, è consigliabile che tutti i componenti del server di gestione rimangono sotto il controllo esclusivo del partner. I componenti del server di gestione sono i seguenti:
+Il requisito di isolamento dei dati richiede che tutte le informazioni sensibili dell'infrastruttura, ad esempio le credenziali di accesso, non vengano rese note ai tenant. Per questo motivo, è consigliabile che tutti i componenti del server di gestione rimangono sotto il controllo esclusivo del partner. I componenti del server di gestione sono i seguenti:
 * Server di configurazione
 * Server di elaborazione
 * Server di destinazione master
@@ -58,7 +58,7 @@ Il partner gestisce anche un server di elaborazione con scalabilità orizzontale
 
 - **Account di accesso vCenter**: usare questo account per individuare le macchine virtuali tenant. Ha autorizzazioni di accesso vCenter assegnate, come descritto nella sezione successiva. Per evitare la divulgazione accidentale delle credenziali di accesso, è consigliabile che i partner immettano personalmente queste credenziali nello strumento di configurazione.
 
-- **Account di accesso alla macchina virtuale**: usare questo account per installare l'agente di mobilità nelle macchine virtuali tenant tramite push automatico. In genere è un account di dominio che un tenant potrebbe fornire a un partner o che il partner può gestire direttamente. Se un tenant non desidera condividere i dettagli con il partner direttamente, può essere consentiti per immettere le credenziali tramite periodo di tempo limitato accesso SC oppure, con l'assistenza del partner, installare manualmente agenti di mobilità.
+- **Account di accesso alla macchina virtuale**: usare questo account per installare l'agente di mobilità nelle macchine virtuali tenant tramite push automatico. Si tratta in genere di un account di dominio che un tenant può fornire a un partner o che può essere gestito direttamente dal partner. Se un tenant non intende condividere i dettagli direttamente con il partner, può essere autorizzato a immettere le credenziali tramite un accesso limitato nel tempo al CS oppure può installare manualmente gli agenti di mobilità con il supporto del partner.
 
 ### <a name="requirements-for-a-vcenter-access-account"></a>Requisiti per l'account di accesso a vCenter
 
@@ -100,7 +100,7 @@ La procedura di accesso all'account vCenter è la seguente:
 >| Host e cluster host | Azure_Site_Recovery | Assicura nuovamente che l'accesso sia a livello di oggetto, in modo che solo gli host accessibili abbiano VM tenant prima del failover e dopo il failback. |
 >| Archivio dati e cluster archivio dati | Azure_Site_Recovery | Come sopra. |
 >| Rete | Azure_Site_Recovery |  |
->| Server di gestione | Azure_Site_Recovery | Include l'accesso a tutti i componenti (CS PS e MT) all'esterno della macchina. CS. |
+>| Server di gestione | Azure_Site_Recovery | Include l'accesso a tutti i componenti, CS, PS e MT, al di fuori della macchina CS. |
 >| Macchine virtuali tenant | Azure_Site_Recovery | Assicura che anche le eventuali nuove macchine virtuali tenant di un particolare tenant abbiano questo accesso, altrimenti non potranno essere rilevate attraverso il Portale di Azure. |
 
 L'accesso all'account vCenter è ora completato. Questo passaggio soddisfa i requisiti minimi di autorizzazione per completare le operazioni di failback. Queste autorizzazioni di accesso possono essere usate anche con i criteri esistenti. È sufficiente modificare il set di autorizzazioni esistente in modo che includa le autorizzazioni del ruolo descritte nel passaggio 2 precedente.
@@ -126,6 +126,6 @@ Come illustrato nel diagramma seguente, la differenza in termini di architettura
 **Scenario di servizi gestiti con più vCenter**
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo di accesso basato sui ruoli per gestire le distribuzioni di Azure Site Recovery.
+[Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery.
 
 [Gestire multi-tenancy con CSP](site-recovery-manage-multi-tenancy-with-csp.md)

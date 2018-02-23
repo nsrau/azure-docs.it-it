@@ -17,7 +17,7 @@ ms.date: 12/12/2017
 ms.author: genli
 ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -77,6 +77,6 @@ Poiché il servizio Cloud è una risorsa classica che non è direttamente compat
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Perché il portale di Azure richiede di specificare un account di archiviazione per la distribuzione? 
 
-Il pacchetto è stato caricato a livello di API di gestione direttamente nel portale classico, e quindi il livello API temporaneamente dovrà inserire il pacchetto in un account di archiviazione interna.  Questo processo può causare problemi di prestazioni e scalabilità perché il layer dell'API non è stato progettato per essere un servizio di caricamento file.  Nel portale di Azure (modello di distribuzione di gestione delle risorse), è stato ignorato il passaggio intermedio di caricare prima il layer dell'API, risultante in distribuzioni più veloci e affidabili. 
+Nel portale classico il pacchetto viene caricato direttamente nel livello API di gestione, pertanto il livello API deve inserire temporaneamente il pacchetto in un account di archiviazione interna.  Questo processo causa problemi di prestazioni e scalabilità perché il livello API non è stato progettato come servizio di caricamento file.  Nel portale di Azure (modello di distribuzione Resource Manager), il passaggio intermedio di caricamento nel livello API è stato tralasciato, per distribuzioni più veloci e affidabili. 
 
-Per quanto riguarda il costo, è molto piccolo ed è possibile riutilizzare lo stesso account di archiviazione in tutte le distribuzioni. È possibile utilizzare il [calcolatore dei costi di archiviazione](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) per determinare il costo per caricare il pacchetto del servizio (CSPKG), scaricare il CSPKG e quindi eliminare il CSPKG. 
+Per quanto riguarda i costi, sono molto limitati ed è possibile usare nuovamente lo stesso account di archiviazione in tutte le distribuzioni. È possibile usare il [calcolatore dei costi di archiviazione](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) per determinare i costi relativi al caricamento del pacchetto del servizio (CSPKG), al download del CSPKG e quindi all'eliminazione del CSPKG. 

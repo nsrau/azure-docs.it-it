@@ -17,7 +17,7 @@ ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -28,7 +28,7 @@ Se è stato creato un cluster HPC Pack 2012 R2 nelle macchine virtuali di Azure,
 > Questo articolo si applica solo ai cluster HPC Pack 2012 R2 in Azure creati con il modello di distribuzione classico. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 > Gli script di PowerShell descritti in questo articolo non sono disponibili in HPC Pack 2016.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Cluster HPC Pack 2012 R2 in macchine virtuali di Azure** - Creare un cluster HPC Pack 2012 R2 nel modello di distribuzione classico. È possibile automatizzare ad esempio la distribuzione usando l'immagine di macchina virtuale di HPC Pack 2012 R2 in Azure Marketplace e uno script di Azure PowerShell. Per informazioni e indicazioni sui prerequisiti, vedere [Creare un cluster HPC con lo script di distribuzione IaaS di HPC Pack](hpcpack-cluster-powershell-script.md).
   
     Dopo la distribuzione, trovare gli script di gestione dei nodi nella cartella %CCP\_HOME%bin nel nodo head. Eseguire ogni script come amministratore.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parametri
 * **ServiceName** - Nome del servizio cloud a cui vengono aggiunte le nuove macchine virtuali dei nodi di calcolo.
-* **ImageName**: nome dell'immagine di macchina virtuale di Azure, che può essere ottenuto tramite il portale di Azure o i cmdlet di Azure PowerShell **Get-AzureVMImage**. L'immagine deve soddisfare i seguenti requisiti:
+* **ImageName**: nome dell'immagine della macchina virtuale di Azure, che si può ottenere nel portale di Azure o con il cmdlet di Azure PowerShell **Get-AzureVMImage**. L'immagine deve soddisfare i seguenti requisiti:
   
   1. Deve essere installato un sistema operativo Windows.
   2. HPC Pack deve essere installato nel ruolo del nodo di calcolo.

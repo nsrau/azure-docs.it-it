@@ -9,13 +9,13 @@ ms.date: 12/31/2017
 ms.author: raynew
 ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
-In questa esercitazione viene illustrato come eseguire un'analisi di ripristino di emergenza per un computer locale in Azure, utilizzando un failover di test. Un'analisi convalida la strategia di replica senza perdita di dati. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come eseguire un'analisi di ripristino di emergenza per un computer locale in Azure tramite un failover di test. Un'analisi convalida la strategia di replica senza perdita di dati. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare una rete isolata per il failover di test
@@ -37,7 +37,7 @@ Prima di eseguire un failover di test, verificare le proprietà della macchina v
 3. In **Calcolo e rete** è possibile modificare il nome Azure, il gruppo di risorse, le dimensioni di destinazione, il [set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) e le impostazioni del disco gestito.
    
       >[!NOTE]
-      Il failback di macchine virtuali di Azure con dischi gestiti macchine Hyper-V locale non è attualmente supportato. Deve utilizzare solo l'opzione di dischi gestiti per il failover se si prevede di eseguire la migrazione di macchine virtuali locali in Azure, senza li failback.
+      Il failback a macchine Hyper-V locali da VM di Azure con i dischi gestiti non è attualmente supportato. Usare i dischi gestiti per il failover solo se si prevede di eseguire la migrazione di VM locali in Azure senza eseguirne il failback.
    
 4. È possibile visualizzare e modificare le impostazioni di rete, tra cui la rete/subnet in cui si troverà la macchina virtuale di Azure dopo il failover e l'indirizzo IP che le verrà assegnato.
 5. In **Dischi** è possibile vedere le informazioni sul sistema operativo e sui dischi dati della VM.
@@ -53,13 +53,13 @@ Quando si esegue un failover di test, si verifica quanto segue:
 Eseguire il failover di test come descritto di seguito:
 
 1. In **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale > **+Failover di test**.
-2. Selezionare il **più recenti elaborati** punto di ripristino per questa esercitazione. Questo viene eseguito il failover la macchina virtuale per il più recente punto nel tempo. Viene visualizzato il timestamp. Con questa opzione, non viene impiegato alcun tempo di elaborazione dati, pertanto viene fornito un RTO (Recovery Time Objective) basso.
+2. Per questa esercitazione, selezionare il punto di ripristino **elaborato più recente**. Verrà così eseguito il failover della VM al punto di ripristino più recente disponibile. Viene visualizzato il timestamp. Con questa opzione, non viene impiegato alcun tempo di elaborazione dati, pertanto viene fornito un RTO (Recovery Time Objective) basso.
 3. In **Failover di test** selezionare la rete di Azure di destinazione a cui vengono connesse le macchine virtuali di Azure dopo il failover.
 4. Fare clic su **OK** per iniziare il failover. È possibile tenere traccia dell'avanzamento facendo clic sulla macchina virtuale per visualizzarne le proprietà. In alternativa, è possibile fare clic sul processo **Failover di test** nel nome dell'insieme di credenziali, quindi su **Impostazioni** > **Processi** >
    **Site Recovery jobs** (Processi di Site Recovery).
 5. Al termine del failover, la macchina virtuale di Azure di replica viene visualizzata nel portale di Azure in **Macchine virtuali**. Verificare che la macchina virtuale sia delle dimensioni appropriate, che sia connessa alla rete corretta e che sia in esecuzione.
 6. Sarà ora possibile connettersi alla macchina virtuale replicata in Azure.
-7. Per eliminare le macchine virtuali di Azure creato durante il failover di test, fare clic su **il failover di test di pulizia** nella macchina virtuale. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test.
+7. Per eliminare le macchine virtuali di Azure create durante il failover di test, fare clic su **Pulisci failover di test** nella VM. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test.
 
 In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 

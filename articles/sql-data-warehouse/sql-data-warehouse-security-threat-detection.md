@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -62,7 +62,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
    
     ![Riquadro di spostamento][6]
 4. Nel pannello Auditing Records (Controllo record) fare clic su  **Apri in Excel** per aprire un modello Excel preconfigurato per importare ed eseguire un'analisi più approfondita del log di controllo sull'orario in cui si è verificato l'evento sospetto.<br/>
-   **Nota:** In Excel 2010 o versioni successive, Power Query e **combinazione rapida** impostazione è obbligatoria
+   **Nota:** in Excel 2010 o versione successiva, Power Query e l'impostazione **Combinazione rapida** sono obbligatori
    
     ![Riquadro di spostamento][7]
 5. Per configurare l'impostazione **Combinazione rapida**, nella scheda della barra multifunzione **POWER QUERY** selezionare **Opzioni** per visualizzare la finestra di dialogo Opzioni. Selezionare la sezione Privacy e scegliere la seconda opzione - "Ignora i livelli di privacy per un potenziale miglioramento delle prestazioni":

@@ -17,7 +17,7 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: bfff8ebff87b6c3c501202e95c463a0f4e235ffc
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -75,7 +75,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
    - **URL interno**: normalmente si indica l'URL che porta alla pagina di accesso dell'app quando ci si trova nella rete aziendale. Per questo scenario il connettore deve trattare il proxy PingAccess come prima pagina dell'app. Usare il formato seguente: `https://<host name of your PA server>:<port>`. La porta 3000 per impostazione predefinita, ma è possibile configurarla in PingAccess.
 
     > [!WARNING]
-    > Per questo tipo di SSO, l'URL interno deve utilizzare https e non è possibile utilizzare http.
+    > Per questo tipo di SSO, l'URL interno deve usare https e non può usare http.
 
    - **Metodo di autenticazione preliminare**: Azure Active Directory
    - **Tradurre URL nelle intestazioni**: No
@@ -139,7 +139,7 @@ Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettaglia
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Facoltativo: aggiornare GraphAPI per inviare campi personalizzati
 
-Per un elenco dei token di sicurezza che Azure AD invia per l'autenticazione, vedere [Riferimento al token di Azure AD](./develop/active-directory-token-and-claims.md). Se occorre un'attestazione personalizzata che invia altri token, utilizzare Esplora grafico o il manifesto dell'applicazione nel portale di Azure per impostare il campo app *acceptMappedClaims* a **True**.    
+Per un elenco dei token di sicurezza che Azure AD invia per l'autenticazione, vedere [Riferimento al token di Azure AD](./develop/active-directory-token-and-claims.md). Se è necessaria un'attestazione personalizzata che invia altri token, usare Graph explorer o il manifesto dell'applicazione nel portale di Azure per impostare il campo dell'app *acceptMappedClaims* su **True**.    
 
 In questo esempio viene usato Graph Explorer:
 
@@ -150,12 +150,12 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-Questo esempio viene utilizzato il [portale di Azure](https://portal.azure.com) per udpate di *acceptedMappedClaims* campo:
+Questo esempio usa il [portale di Azure](https://portal.azure.com) per aggiornare il campo *acceptedMappedClaims*:
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
-2. Selezionare **Azure Active Directory** > **registrazioni di App**.
-3. Selezionare l'applicazione > **manifesto**.
-4. Selezionare **modifica**, cercare il *acceptedMappedClaims* campo e modificare il valore di **true**.
-![Manifesto dell'applicazione](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+2. Passare ad **Azure Active Directory** > **Registrazioni per l'app**.
+3. Selezionare l'applicazione > **Manifesto**.
+4. Selezionare **Modifica**, cercare il campo *acceptedMappedClaims* e impostare il valore su **true**.
+![Manifesto dell'app](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
 1. Selezionare **Salva**.
 
 >[!NOTE]

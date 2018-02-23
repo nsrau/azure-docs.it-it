@@ -16,7 +16,7 @@ ms.date: 12/22/2017
 ms.author: genli
 ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/23/2017
 ---
@@ -51,7 +51,7 @@ Per rimuovere il limite di spesa, seguire questi passaggi:
 . Se la sottoscrizione è stata disabilitata a causa del raggiungimento del limite di spesa, fare clic sulla notifica che indica che la sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per impedire costi aggiuntivi. In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
 1. Seleziona l'opzione appropriata.
 
-![Selezionare un'opzione per la rimozione di limite di spesa](./media/billing-spending-limit/remove-spending-limit.PNG)
+![Selezione di un'opzione per la rimozione del limite di spesa](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Opzione|Effetto|
 |-------|-----|
@@ -82,7 +82,7 @@ Al momento non è possibile impostare limiti di spesa personalizzati. È tuttavi
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Il limite di spesa impedisce qualsiasi addebito da parte di Azure?
 
-[Alcuni servizi esterni pubblicati in Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) non può essere utilizzato con i crediti della sottoscrizione e possono incorrere in addebiti separati anche quando è impostato il limite di spesa. Sono esempi di licenze di Visual Studio, Azure Active Directory premium, piani di supporto e la maggior parte delle terze marchio servizi. Quando si esegue il provisioning di un nuovo servizio esterno, viene visualizzato un avviso per informare che i servizi vengono fatturati separatamente:
+[Alcuni servizi esterni pubblicati in Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) non possono essere usati con i crediti per la sottoscrizione e possono incorrere in addebiti separati anche quando è impostato il limite di spesa. Questo succede, ad esempio, per le licenze di Visual Studio, Azure Active Directory Premium, i piani di supporto e la maggior parte dei servizi personalizzati di terze parti. Quando si esegue il provisioning di un nuovo servizio esterno, viene visualizzato un avviso per informare che i servizi vengono fatturati separatamente:
 
 ![Avviso di acquisto di Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 

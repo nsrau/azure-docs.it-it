@@ -3,8 +3,8 @@ title: Delega offerte nello Stack di Azure | Documenti Microsoft
 description: Informazioni su come inserire altri utenti responsabile della creazione di offerte e iscrizione gli utenti per l'utente.
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 157f0207-bddc-42e5-8351-197ec23f9d46
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: alfredop
-ms.openlocfilehash: 1a1f2789076b610ee557bde5981a331c55cc1c95
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: brenduns
+ms.reviewer: alfredop
+ms.openlocfilehash: 06690d5251954b204b28928b3fe670669000aa7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegare offerte in Azure Stack
 

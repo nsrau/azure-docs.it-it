@@ -1,5 +1,5 @@
 ---
-title: Creare un Machine Learning Studio dell'area di lavoro | Documenti Microsoft
+title: Creare un'area di lavoro di Machine Learning Studio| Microsoft Docs
 description: Come creare un'area di lavoro per Azure Machine Learning Studio.
 services: machine-learning
 author: garyericson
@@ -14,7 +14,7 @@ ms.author: garye
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -37,9 +37,9 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 2. Fare clic su **+Nuovo**
 
-3. Nella casella di ricerca, digitare **area di lavoro di Machine Learning Studio** e selezionare l'elemento corrispondente. Selezionare quindi **crea** nella parte inferiore della pagina.
+3. Nella casella di ricerca, digitare **Area di lavoro di Machine Learning Studio** e selezionare l'elemento corrispondente. Selezionare quindi **Crea** nella parte inferiore della pagina.
 
-4. Immettere le informazioni dell'area di lavoro:
+4. Immettere le informazioni sull'area di lavoro:
 
     - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
     - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.

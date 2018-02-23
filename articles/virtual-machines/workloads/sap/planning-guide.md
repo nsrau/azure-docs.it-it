@@ -1635,7 +1635,7 @@ Le porte di comunicazione SAP tipiche sono elencate nella tabella seguente. Sost
 
 *) nn = numero istanza SAP
 
-**) sid = SAP-System-ID
+\**) sid = SAP-System-ID
 
 Informazioni più dettagliate sulle porte necessarie per i diversi prodotti o servizi SAP in base ai prodotti SAP sono disponibili qui: <http://scn.sap.com/docs/DOC-17124>.
 Questo documento fornisce informazioni che consentono di aprire nel dispositivo VPN le porte dedicate necessarie per gli scenari e i prodotti SAP specifici.

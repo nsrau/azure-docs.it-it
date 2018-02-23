@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: deb2572de363ca5d0dec0f78f2e30ad648e9b5f8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Controllare il traffico con un'app per la logica basata su utilità di pianificazione
 
@@ -67,7 +67,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
    | **Gruppo di risorse** | LA-TravelTime-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate | 
    | **Posizione** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'app per la logica | 
-   | **Log Analytics** | No | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
+   | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    |||| 
 
 3. Dopo che Azure distribuisce l'app, si apre Progettazione app per la logica, che mostra un video introduttivo e alcuni modelli di app per la logica comuni. In **Modelli** scegliere **App per la logica vuota**.
@@ -148,7 +148,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
    | **Unità distanza** | <*preferenza*> | Unità di distanza per l'itinerario. Questo articolo usa le miglia  | 
    | **Travel mode** (Modalità di viaggio) | Driving (Guida) | Modalità di viaggio lungo l'itinerario. Selezionare la modalità "Driving" (Guida) | 
    | **Transit Date-Time** (Data e ora transito) | Nessuna | Si applica solo alla modalità di transito | 
-   | **Transit Date-Time Type** (Tipo di data e ora transito) | Nessuna | Si applica solo alla modalità di transito | 
+   | **Date-Time Type** (Tipo di data e ora) | Nessuna | Si applica solo alla modalità di transito | 
    |||| 
 
    Per altre informazioni su questi parametri, vedere [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcolare un itinerario).

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91d4398589707e8007c4b93639ddb568e39f51a7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Distribuire un'applicazione in un cluster di entità in Azure
 Questa esercitazione è la seconda parte di una serie e illustra come distribuire un'applicazione di Azure Service Fabric in un cluster di entità in Azure.
@@ -59,14 +59,33 @@ Se si vuole, è possibile usare un proprio cluster anziché il cluster di entit�
 > [!NOTE]
 > I cluster di entità non sono protetti, quindi le applicazioni e tutti i dati inseriti negli stessi possono essere visibili ad altri utenti. Non distribuire elementi che gli altri utenti non devono vedere. Assicurarsi di leggere tutti i dettagli nelle Condizioni per l'utilizzo.
 
+Eseguire l'accesso e [aggiungere un cluster Windows](http://aka.ms/tryservicefabric). Scaricare il certificato PFX nel computer facendo clic sul collegamento **PFX**. Il certificato e il valore di **Endpoint connessione** vengono usati nei passaggi seguenti.
+
+![Certificato PFX ed endpoint connessione](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+In un computer Windows installare il certificato PFX nell'archivio certificati *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+
 ## <a name="deploy-the-app-to-the-azure"></a>Distribuire l'app in Azure
 Ora che l'applicazione è pronta, è possibile distribuirla nel cluster di entità direttamente da Visual Studio.
 
-1. Fare clic con il pulsante destro del mouse su **Voting** in Esplora soluzioni e scegliere **Pubblica**.
+1. Fare clic con il pulsante destro del mouse su **Voting** in Esplora soluzioni e scegliere **Pubblica**. 
 
-    ![Finestra di dialogo Pubblica](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+    ![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-containers/publish-app.png)
 
-2. Digitare l'endpoint della connessione del cluster di entità nel campo **Endpoint connessione** e fare clic su **Pubblica**.
+2. Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione**. Ad esempio, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Fare clic su **Parametri di connessione avanzati** e specificare le informazioni seguenti.  I valori di *FindValue* e *ServerCertThumbprint* devono corrispondere all'identificazione personale del certificato installato nel passaggio precedente. Fare clic su **Pubblica**. 
 
     Completata la pubblicazione, dovrebbe essere possibile inviare una richiesta all'applicazione usando un browser.
 
@@ -81,9 +100,9 @@ Service Fabric Explorer è un'interfaccia utente grafica che consente di esplora
 
 Per rimuovere l'applicazione dal cluster di entità:
 
-1. Passare a Service Fabric Explorer usando il collegamento indicato nella pagina di iscrizione al cluster di entità. Ad esempio, http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
+1. Passare a Service Fabric Explorer usando il collegamento indicato nella pagina di iscrizione al cluster di entità. Ad esempio, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
 
-2. In Service Fabric Explorer passare al nodo **fabric://Voting** nella visualizzazione struttura ad albero sul lato sinistro.
+2. In Service Fabric Explorer passare al nodo **fabric:/Voting** nella visualizzazione struttura ad albero sul lato sinistro.
 
 3. Fare clic sul pulsante **Azione** nel riquadro **Informazioni di base** a destra e scegliere **Elimina applicazione**. Confermare l'eliminazione dell'istanza di applicazione per rimuovere l'istanza dell'applicazione in esecuzione nel cluster.
 

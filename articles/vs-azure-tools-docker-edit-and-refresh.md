@@ -16,7 +16,7 @@ ms.date: 07/22/2016
 ms.author: mlearned
 ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -32,7 +32,7 @@ Illustra inoltre come impostare i punti di interruzione per il debug.
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È necessario che siano installati gli strumenti seguenti.
 
 * [Ultima versione di Visual Studio](https://www.visualstudio.com/downloads/)
@@ -54,7 +54,7 @@ Per eseguire rapidamente l'iterazione delle modifiche, è possibile avviare l'ap
 
 1. Impostare la configurazione della soluzione su `Debug` e premere **&lt;CTRL + F5>** per creare l'immagine Docker ed eseguirla localmente.
 
-    Una volta che l'immagine contenitore è stato compilato e viene eseguito in un contenitore Docker, Visual Studio avvia l'app Web nel browser predefinito.
+    Dopo che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, Visual Studio avvia l'app Web nel browser predefinito.
     Se si usa il browser Microsoft Edge o se si verificano problemi, vedere la sezione relativa alla [risoluzione dei problemi](vs-azure-tools-docker-troubleshooting-docker-errors.md) .
 2. Passare alla pagina About, da dove verranno apportate le modifiche.
 3. Tornare a Visual Studio e aprire `Views\Home\About.cshtml`.

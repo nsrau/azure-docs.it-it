@@ -11,59 +11,47 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ec560bbab3caf4cde090ed3c9a47ccc0afcb2492
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 228cbb103e13c478bea460bb04de43d6480bc60e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
-Gestione API consente di configurare notifiche per eventi specifici nonché di configurare modelli di posta elettronica da usare per comunicare con gli amministratori e gli sviluppatori di un'istanza di Gestione API. In questo argomento viene illustrato come configurare notifiche per gli eventi disponibili e viene offerta una panoramica sulla configurazione di modelli di posta elettronica usati per tali eventi.
+Gestione API consente di configurare notifiche per eventi specifici nonché di configurare modelli di posta elettronica da usare per comunicare con gli amministratori e gli sviluppatori di un'istanza di Gestione API. In questo articolo viene illustrato come configurare notifiche per gli eventi disponibili e viene offerta una panoramica sulla configurazione di modelli di posta elettronica usati per tali eventi.
 
-## <a name="publisher-notifications"> </a>Configurare le notifiche dell'editore
-Per configurare le notifiche, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
+## <a name="prerequisites"></a>prerequisiti
 
-![Portale di pubblicazione][api-management-management-console]
+Se non si dispone di un'istanza del servizio Gestione API, completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
-> [!NOTE] 
-> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance].
+## <a name="publisher-notifications"> </a>Configurare le notifiche
 
-Fare clic su **Notifiche** dal menu **Gestione API** a sinistra per visualizzare le notifiche disponibili.
+1. Selezionare l'istanza del servizio **Gestione API** in esecuzione.
+2. Fare clic su **Notifiche** per visualizzare le notifiche disponibili.
 
-![Notifiche dell'editore][api-management-publisher-notifications]
+    ![Notifiche dell'editore][api-management-publisher-notifications]
 
-L'elenco di eventi seguente può essere configurato per le notifiche.
+    L'elenco di eventi seguente può essere configurato per le notifiche.
 
-* **Richieste di sottoscrizione (che richiedono approvazione)** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle richieste di sottoscrizione per prodotti API che richiedono approvazione.
-* **Nuove sottoscrizioni** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle nuove sottoscrizioni a prodotti API.
-* **Richieste relative alla raccolta di applicazioni** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando nuove applicazioni vengono inviate alla raccolta di applicazioni.
-* **BCC** - I destinatari e gli utenti di posta elettronica specificati riceveranno copie per conoscenza nascosta di tutti i messaggi di posta elettronica inviati agli sviluppatori.
-* **Nuovo problema o commento** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando un nuovo problema o commento viene inviato al portale per sviluppatori.
-* **Messaggio di chiusura account** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando un account viene chiuso.
-* **Raggiungimento limite quota sottoscrizione** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando l'uso della sottoscrizione si avvicina al limite di quota di utilizzo.
+    * **Richieste di sottoscrizione (che richiedono approvazione)** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle richieste di sottoscrizione per prodotti API che richiedono approvazione.
+    * **Nuove sottoscrizioni** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica sulle nuove sottoscrizioni a prodotti API.
+    * **Richieste relative alla raccolta di applicazioni** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando nuove applicazioni vengono inviate alla raccolta di applicazioni.
+    * **BCC** - I destinatari e gli utenti di posta elettronica specificati riceveranno copie per conoscenza nascosta di tutti i messaggi di posta elettronica inviati agli sviluppatori.
+    * **Nuovo problema o commento** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando un nuovo problema o commento viene inviato al portale per sviluppatori.
+    * **Messaggio di chiusura account** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando un account viene chiuso.
+    * **Raggiungimento limite quota sottoscrizione** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando l'uso della sottoscrizione si avvicina al limite di quota di utilizzo.
 
-Per ogni evento, è possibile specificare i destinatari di posta elettronica usando la casella di testo per l'indirizzo di posta elettronica oppure è possibile selezionare gli utenti da un elenco.
+    Per ogni evento, è possibile specificare i destinatari di posta elettronica usando la casella di testo per l'indirizzo di posta elettronica oppure è possibile selezionare gli utenti da un elenco.
 
-Per specificare gli indirizzi di posta elettronica a cui inviare le notifiche, immettere tali indirizzi nella casella di testo relativa all'indirizzo di posta elettronica. Se ci sono più indirizzi di posta elettronica, separarli usando delle virgole.
+3. Per specificare gli indirizzi di posta elettronica a cui inviare le notifiche, immettere tali indirizzi nella casella di testo relativa all'indirizzo di posta elettronica. Se ci sono più indirizzi di posta elettronica, separarli usando delle virgole.
 
-![Destinatari delle notifiche][api-management-email-addresses]
+    ![Destinatari delle notifiche][api-management-email-addresses]
+4. Fare clic su **Aggiungi**.
 
-Per specificare gli utenti a cui inviare le notifiche, fare clic su **Aggiungi destinatario**, selezionare la casella di controllo corrispondente all'utente desiderato, quindi fare clic su **OK**.
-
-> [!NOTE] 
-> Solo gli amministratori vengono visualizzati nell'elenco.
-
-
-Dopo avere configurato i destinatari delle notifiche, fare clic su **Salva** per rendere effettivi i destinatari delle notifiche aggiornati.
-
-> [!NOTE] 
-> Se si esce dalla scheda **Notifiche dell'editore** , il portale di pubblicazione visualizza un avviso in caso di modifiche non salvate.
-
-
-## <a name="email-templates"> </a>Configurare modelli di posta elettronica
-Gestione API fornisce modelli di posta elettronica per i messaggi che vengono inviati durante l'amministrazione e l'uso del servizio. Sono forniti i modelli di posta elettronica indicati di seguito.
+## <a name="email-templates"> </a>Configurare i modelli di notifica
+Gestione API fornisce modelli di notifica per i messaggi di posta elettronica che vengono inviati durante l'amministrazione e l'uso del servizio. Sono forniti i modelli di posta elettronica indicati di seguito.
 
 * Invio alla raccolta di applicazioni approvato
 * Lettera di commiato sviluppatore
@@ -78,13 +66,9 @@ Gestione API fornisce modelli di posta elettronica per i messaggi che vengono in
 
 Questi modelli possono essere modificati a piacimento.
 
-Per visualizzare e configurare i modelli di posta elettronica per la propria istanza di Gestione API, fare clic su **Notifiche** dal menu **Gestione API** a sinistra, quindi selezionare la scheda **Modelli di posta elettronica**.
+Per visualizzare e configurare i modelli di messaggio di posta elettronica per l'istanza di Gestione API, fare clic su **Modelli di notifica**.
 
 ![Modelli di posta elettronica][api-management-email-templates]
-
-Per visualizzare o modificare un modello specifico, selezionarlo dall'elenco a discesa **Modelli** .
-
-![Elenco modelli di posta elettronica][api-management-email-templates-list]
 
 Ogni modello di posta elettronica ha un oggetto in testo normale e una definizione di corpo in formato HTML. Ogni elemento può essere personalizzato a piacimento.
 
@@ -92,12 +76,10 @@ Ogni modello di posta elettronica ha un oggetto in testo normale e una definizio
 
 L'elenco **Parametri** contiene un elenco di parametri che, quando inserito nell'oggetto o nel corpo, verrà sostituito dal valore designato quando viene inviato il messaggio di posta elettronica. Per inserire un parametro, posizionare il cursore dove si vuole inserire il parametro, quindi fare clic sulla freccia a sinistra del nome del parametro.
 
-Fare clic su **Anteprima** o **Invia test** per verificare l'aspetto del messaggio o per inviare un messaggio di prova.
-
 > [!NOTE] 
 > I parametri non vengono sostituiti con valori effettivi quando si visualizzano anteprime o si inviano messaggi di prova.
 
-Per salvare le modifiche al modello di posta elettronica, fare clic su **Salva** oppure, per annullare le modifiche, fare clic su **Annulla**.
+Per salvare le modifiche apportate al modello di posta elettronica, fare clic su **Salva** oppure, per annullare le modifiche, fare clic su **Ignora**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png

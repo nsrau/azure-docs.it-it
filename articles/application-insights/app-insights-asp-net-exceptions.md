@@ -15,7 +15,7 @@ ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: d6a0b945bad36842142d16a4840c9c3d69e1564e
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -57,7 +57,7 @@ Nel codice, si noti che CodeLens mostra i dati relativi alle eccezioni:
 ![Notifica CodeLens di eccezioni.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnosi degli errori con il portale di Azure
-Application Insights viene fornito con un'esperienza APM (Application Performance Monitoring) dedicata per semplificare la diagnosi degli errori nelle applicazioni monitorate. Per iniziare, scegliere l'opzione Failures (Errori) dal menu delle risorse di Application Insights, che si trova nella sezione Investigate (Analisi dei problemi). Apparirà una visualizzazione a schermo intero che mostra le tendenze in termini di frequenza degli errori per le richieste, indicando quante non sono riuscite e quanti sono gli utenti interessati. A destra verrà visualizzato alcune delle più utili distribuzioni specifiche per l'elemento selezionato in mancanza di operazione, inclusi i codici di risposta superiore a 3, primi 3 tipi di eccezione e 3 superiore in mancanza di tipi di dipendenza. 
+Application Insights viene fornito con un'esperienza APM (Application Performance Monitoring) dedicata per semplificare la diagnosi degli errori nelle applicazioni monitorate. Per iniziare, scegliere l'opzione Failures (Errori) dal menu delle risorse di Application Insights, che si trova nella sezione Investigate (Analisi dei problemi). Apparirà una visualizzazione a schermo intero che mostra le tendenze in termini di frequenza degli errori per le richieste, indicando quante non sono riuscite e quanti sono gli utenti interessati. A destra verranno visualizzate alcune delle distribuzioni più utili specifiche dell'operazione non riuscita selezionata, tra cui i primi tre codici di risposta, i primi tre tipi di eccezione e i primi tre tipi di dipendenza non riusciti. 
 
 ![Visualizzazione di valutazione degli errori (scheda delle operazioni)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 

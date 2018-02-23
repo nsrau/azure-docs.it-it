@@ -16,7 +16,7 @@ ms.date: 12/08/2017
 ms.author: yurid
 ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -31,10 +31,10 @@ Il test di penetrazione delle applicazioni non viene eseguito automaticamente, m
 
 Cosa fare?
 
-A partire da 15 giugno 2017, Microsoft non richiede l'approvazione per condurre un penetrazione test su risorse di Azure. I clienti che desiderano formalmente documento future del test di penetrazione appuntamenti in Microsoft Azure sono invitati a compilare il [modulo di notifica di test di penetrazione del servizio Azure](https://portal.msrc.microsoft.com/engage/pentest). Questo processo è correlato solo in Microsoft Azure e non è applicabile a qualsiasi altro servizio Cloud di Microsoft. 
+A partire dal 15 giugno 2017, Microsoft non richiede più alcuna approvazione preventiva per condurre un test di penetrazione su risorse di Azure. I clienti che desiderano documentare formalmente i test di penetrazione previsti su Microsoft Azure sono invitati a compilare il [modulo di notifica dei test di penetrazione sul servizio Azure](https://portal.msrc.microsoft.com/engage/pentest). Questo processo interessa esclusivamente Microsoft Azure e non è applicabile ad alcun altro servizio Microsoft Cloud. 
 
 >[!IMPORTANT] 
->Durante la notifica di Microsoft della penna le attività di test non è più necessario comunque devono conformarsi i clienti di [Microsoft Cloud unificata penetrazione test regole di comportamento](https://technet.microsoft.com/en-us/mt784683). 
+>Anche se la notifica dei test di penetrazione Microsoft non è più necessaria, i clienti devono comunque conformarsi alle [Regole unificate di partecipazione ai test di penetrazione di Microsoft Cloud](https://technet.microsoft.com/en-us/mt784683). 
 
 I test standard che è possibile eseguire includono:
 

@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ Queste restrizioni e note sono soggette a modifiche nel corso del miglioramento 
 ## <a name="using-the-open-in-power-bi-button"></a>Uso del pulsante "Apri in Power BI"
 Il modo più semplice per spostarsi tra SQL Data Warehouse e Power BI consiste nell'usare il pulsante Apri in Power BI. Questo pulsante permette di creare con facilità nuovi dashboard in Power BI.  
 
-1. Per iniziare a individuare l'istanza di SQL Data Warehouse nel portale di Azure.
+1. Per iniziare, passare all'istanza di SQL Data Warehouse nel portale di Azure.
 2. Fare clic sul pulsante Apri in Power BI.
 3. Se non è possibile accedere direttamente o se non si ha un account di Power BI, sarà necessario effettuare l'accesso.  
 4. Si verrà indirizzati alla pagina di connessione di SQL Data Warehouse, con le informazioni di SQL Data Warehouse pre-popolate.

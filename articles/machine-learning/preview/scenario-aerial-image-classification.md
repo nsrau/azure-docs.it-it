@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.date: 12/13/2017
 ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -46,14 +46,14 @@ In questo esempio i dati di immagine e i modelli pre-addestrati sono collocati i
 
 ![Schema per lo scenario reale di classificazione delle immagini aeree](media/scenario-aerial-image-classification/scenario-schematic.PNG)
 
-Queste istruzioni dettagliate iniziano le istruzioni necessarie per la creazione e la preparazione di un account di archiviazione di Azure e di un cluster Spark, inclusa l'installazione di trasferimento e delle dipendenze di dati. Quindi descrivono come avviare i processi di addestramento e confrontare le prestazioni dei modelli risultanti. Infine illustrano come applicare un modello scelto a un set di immagini di grandi dimensioni nel cluster Spark e analizzare i risultati predittivi in locale.
+Queste istruzioni passo per passo iniziano con la creazione e la preparazione di un account di archiviazione di Azure e di un cluster Spark, incluso il trasferimento dei dati e l'installazione delle dipendenze. Quindi descrivono come avviare i processi di addestramento e confrontare le prestazioni dei modelli risultanti. Infine illustrano come applicare un modello scelto a un set di immagini di grandi dimensioni nel cluster Spark e analizzare i risultati predittivi in locale.
 
 
 ## <a name="set-up-the-execution-environment"></a>Configurare l'ambiente di esecuzione
 
 Le istruzioni seguenti consentono di eseguire il processo di configurazione dell'ambiente di esecuzione per questo esempio.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 - Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
     - Si creerà un cluster HDInsight Spark con 40 nodi di lavoro (168 core in totale). Assicurarsi che l'account disponga di core sufficienti controllando la scheda "Utilizzo + quote" per la sottoscrizione nel portale di Azure.
        - Se si dispone di meno core, è possibile modificare il modello del cluster HDInsight per ridurre il numero di ruoli di lavoro di cui eseguire il provisioning. Le istruzioni per come procedere sono disponibili nella sezione "Creare il cluster HDInsight Spark".
@@ -159,14 +159,14 @@ Creare un nuovo progetto usando questo esempio come modello:
     AzCopy /Source:https://mawahsparktutorial.blob.core.windows.net/scripts /SourceSAS:"?sv=2017-04-17&ss=bf&srt=sco&sp=rwl&se=2037-08-25T22:02:55Z&st=2017-08-25T14:02:55Z&spr=https,http&sig=yyO6fyanu9ilAeW7TpkgbAqeTnrPR%2BpP1eh9TcpIXWw%3D" /Dest:https://%STORAGE_ACCOUNT_NAME%.file.core.windows.net/baitshare/scripts /DestKey:%STORAGE_ACCOUNT_KEY% /S
     ```
 
-    Prevedere il trasferimento di file per richiedere circa un'ora. Durante l'attesa, è possibile procedere con la seguente sezione: potrebbe essere necessario aprire un'altra interfaccia della riga di comando tramite l'area di lavoro e ridefinire il variabili temporanee.
+    Per il trasferimento dei file prevedere circa un'ora. Durante l'attesa, è possibile passare alla sezione successiva. Potrebbe essere necessario aprire un'altra interfaccia della riga di comando tramite Workbench e ridefinire le variabili temporanee.
 
 #### <a name="create-the-hdinsight-spark-cluster"></a>Creare il cluster HDInsight Spark
 
 Il metodo consigliato per creare un cluster HDInsight consiste nell'usare il modello di gestione delle risorse cluster HDInsight Spark incluso nella sottocartella "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" del progetto.
 
-1. Il modello di cluster HDInsight Spark è il file "template.json" nella sottocartella "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" del progetto. Per impostazione predefinita, il modello crea un cluster Spark con 40 nodi di lavoro. Se è necessario modificare questo numero, aprire il modello in un editor di testo e sostituire tutte le istanze di "40" con il numero di nodi di lavoro di propria scelta.
-    - Se il numero di nodi di lavoro che scelto è inferiore, è possibile riscontrare errori di memoria insufficiente in un secondo momento. Per evitare gli errori di memoria, è possibile eseguire gli script di training e operazionalizzazione su un subset dei dati disponibili, come descritto più avanti in questo documento.
+1. Il modello di cluster HDInsight Spark è il file "template.json" nella sottocartella "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" del progetto. Per impostazione predefinita, il modello crea un cluster Spark con 40 nodi di lavoro. Se è necessario modificare questo numero, aprire il modello nell'editor di testo preferito e sostituire tutte le istanze di "40" con il numero desiderato di nodi del ruolo di lavoro.
+    - Se il numero di nodi del ruolo di lavoro è inferiore, potrebbero verificarsi in seguito errori di memoria insufficiente. Per evitare gli errori di memoria, è possibile eseguire gli script di training e operazionalizzazione su un subset dei dati disponibili, come descritto più avanti in questo documento.
 2. Scegliere un nome univoco e una password per il cluster HDInsight e scriverli dove indicato nel comando seguente. Creare quindi il cluster eseguendo i comandi:
 
     ```
@@ -250,7 +250,7 @@ Se si desidera, è possibile verificare che il trasferimento dei dati è stato e
 
 #### <a name="create-a-batch-ai-cluster"></a>Creare un cluster Batch AI
 
-1. Creare il cluster eseguendo il comando seguente:
+1. Creare il cluster tramite il comando seguente:
 
     ```
     az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 

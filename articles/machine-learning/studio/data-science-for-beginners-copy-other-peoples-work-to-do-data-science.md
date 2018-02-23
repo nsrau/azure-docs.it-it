@@ -1,6 +1,6 @@
 ---
 title: Copiare gli esempi di data science di altre persone - Azure Machine Learning | Microsoft Docs
-description: 'Il segreto commerciale dell''analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di machine learning della raccolta di Azure AI.'
+description: 'Il segreto commerciale dell''analisi scientifica dei dati: far svolgere il proprio lavoro ad altre persone. Esempi di Machine Learning dalla raccolta di intelligenza artificiale per Azure.'
 keywords: esempi di analisi scientifica dei dati, esempio di Machine Learning, algoritmo di clustering
 services: machine-learning
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.date: 01/05/2018
 ms.author: cgronlun
 ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti
-Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. Trovare un esempio di algoritmo di clustering nella raccolta di Azure da utilizzare per la propria esperimento di machine learning.
+Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. È necessario individuare un esempio di algoritmo di clustering nella raccolta di intelligenza artificiale per Azure da usare per l'esperimento di Machine Learning.
 
 > [!IMPORTANT]
-> **Raccolta di Intelligence Cortana** è stato rinominato **raccolta di Azure AI**. Di conseguenza, testo e immagini in questa trascrizione variano leggermente dal video, che utilizza il nome precedente.
+> **Cortana Intelligence Gallery** è stato rinominato in **Raccolta di intelligenza artificiale per Azure**. Di conseguenza, il testo e le immagini di questa trascrizione possono variare leggermente rispetto al video, in cui è usato il nome precedente.
 >
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -52,13 +52,13 @@ In questo video si scoprirà dove trovare esempi che è possibile usare come pun
 
 Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone.
 
-## <a name="find-examples-in-the-azure-ai-gallery"></a>Trovare gli esempi nella raccolta di Azure
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Trovare gli esempi nella raccolta di intelligenza artificiale per Azure
 
-Microsoft dispone di un servizio basato su cloud denominato [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) che hai di prova gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
+Microsoft offre un servizio basato su cloud, chiamato [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), che può essere valutato gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
 
-Parte di questo servizio è un elemento denominato il  **[raccolta di Azure AI](https://gallery.cortanaintelligence.com/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
+Parte di questo servizio è un componente chiamato **[Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com/)**. Contiene risorse, come una raccolta di esperimenti di Azure Machine Learning, ovvero modelli, creati da persone che li hanno poi messi a disposizione di altri utenti. Questi esperimenti sono un ottimo modo per sfruttare le idee e il lavoro di altri utenti per iniziare a creare soluzioni personalizzate. La raccolta è disponibile per chiunque voglia prenderne visione.
 
-![Raccolta di Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
+![Raccolta di intelligenza artificiale per Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Se si fa clic su **Experiments** (Esperimenti) nella parte superiore, verranno visualizzati numerosi esperimenti tra i più recenti e diffusi disponibili nella raccolta. È possibile cercare nel resto degli esperimenti facendo clic su **Browse All** (Esplora tutto) nella parte superiore dello schermo e quindi immettere i termini di ricerca e scegliere i filtri di ricerca.
 
@@ -86,11 +86,11 @@ Si noti il collegamento **Open in Studio**(Apri in Studio).
 Ora è disponibile un punto di partenza. Si possono sostituire i dati esistenti con i propri e apportare le modifiche necessarie al modello. Questo approccio consente un avvio rapido e la possibilità di usare il lavoro di persone altamente competenti.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Trovare esperimenti che illustrano le tecniche di Machine Learning
-Esistono altri esperimenti nel [raccolta di Azure AI](https://gallery.cortanaintelligence.com) che sono stati forniti in modo specifico per fornire esempi pratici per utenti nuovi per l'analisi scientifica dei dati. Ad esempio, nella raccolta è disponibile un esperimento che illustra come gestire i valori mancanti ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)(Metodi per la gestione dei valori mancanti). Descrive 15 diversi modi per sostituire i valori vuoti e illustra i vantaggi di ogni metodo e quando usarlo.
+Esistono altri esperimenti in [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com) messi a disposizione appositamente per fornire esempi di procedure per gli utenti che non hanno familiarità con l'analisi scientifica dei dati. Ad esempio, nella raccolta è disponibile un esperimento che illustra come gestire i valori mancanti ([Methods for handling missing values](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)(Metodi per la gestione dei valori mancanti). Descrive 15 diversi modi per sostituire i valori vuoti e illustra i vantaggi di ogni metodo e quando usarlo.
 
 ![Esperimenti della raccolta aperti in Machine Learning Studio - Metodi per i valori mancanti](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Raccolta di Azure AI](https://gallery.cortanaintelligence.com) è possibile trovare gli esperimenti di lavoro che è possibile utilizzare come punto di partenza per soluzioni personalizzate.
+In [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com) è possibile trovare esperimenti funzionanti che si possono usare come punto di partenza per le proprie soluzioni.
 
 Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
 

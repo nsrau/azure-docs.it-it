@@ -18,19 +18,19 @@ ms.date: 06/01/2017
 ms.author: negat
 ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
-In questo articolo vengono illustrate considerazioni di progettazione per il set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
+Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando usare i set di scalabilità invece delle macchine virtuali?
-I set di scalabilità sono in genere utili per distribuire un'infrastruttura a disponibilità elevata che include un set di computer con una configurazione simile. Tuttavia, alcune funzionalità sono disponibili soltanto nei set di scalabilità, mentre altre sono disponibili solo nelle macchine virtuali. Per prendere una decisione consapevole su quando usare ogni tecnologia, è necessario innanzitutto esaminare alcune delle funzionalità di uso comune che sono disponibili in set di scalabilità ma non le macchine virtuali:
+I set di scalabilità sono in genere utili per distribuire un'infrastruttura a disponibilità elevata che include un set di computer con una configurazione simile. Tuttavia, alcune funzionalità sono disponibili soltanto nei set di scalabilità, mentre altre sono disponibili solo nelle macchine virtuali. Per prendere una decisione consapevole su quando usare una tecnologia, è consigliabile esaminare prima alcune delle funzionalità di uso comune disponibili nei set di scalabilità ma non nelle macchine virtuali:
 
 ### <a name="scale-set-specific-features"></a>Funzionalità specifiche dei set di scalabilità
 
-- Dopo aver specificato che la scala di imposta la configurazione, è possibile aggiornare la proprietà "capacity" per distribuire più macchine virtuali in parallelo. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
+- Dopo aver specificato la configurazione del set di scalabilità, è possibile aggiornare la proprietà "capacity" per distribuire in parallelo altre macchine virtuali. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
 - È possibile [usare il ridimensionamento automatico di Azure per la scalabilità automatica di un set di scalabilità](./virtual-machine-scale-sets-autoscale-overview.md) ma non di singole macchine virtuali.
 - È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ma [non delle singole macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - È possibile [eseguire il provisioning eccessivo](./virtual-machine-scale-sets-design-overview.md) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. Ciò non è possibile con le singole macchine virtuali, a meno che non si scriva un apposito codice personalizzato.
@@ -45,7 +45,7 @@ Alcune funzionalità sono attualmente disponibili solo nelle macchine virtuali:
 - È possibile acquisire uno snapshot di una singola macchina virtuale, ma non di una macchina virtuale in un set di scalabilità.
 - È possibile acquisire un'immagine da una singola macchina virtuale, ma non da una macchina virtuale in un set di scalabilità.
 - È possibile eseguire la migrazione di una singola macchina virtuale da dischi nativi a dischi gestiti, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità.
-- È possibile assegnare indirizzi IP pubblici IPv6 alle schede di interfaccia di rete di singole macchine virtuali, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità. È possibile assegnare indirizzi IP pubblici IPv6 per davanti a entrambe le macchine virtuali singoli servizi di bilanciamento del carico o set di scalabilità di macchine virtuali.
+- È possibile assegnare indirizzi IP pubblici IPv6 alle schede di interfaccia di rete di singole macchine virtuali, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità. È possibile assegnare indirizzi IP pubblici IPv6 ai servizi di bilanciamento del carico che si trovano davanti a singole macchine virtuali o a macchine virtuali di un set di scalabilità.
 
 ## <a name="storage"></a>Archiviazione
 

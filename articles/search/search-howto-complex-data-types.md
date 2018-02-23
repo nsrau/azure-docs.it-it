@@ -17,7 +17,7 @@ ms.date: 05/01/2017
 ms.author: liamca
 ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -66,7 +66,7 @@ I dati in questione si trovano in genere come set di documenti JSON o XML oppure
 Mentre per i campi denominati "id", "name" e "company" è possibile eseguire facilmente il mapping uno-a-uno come campi in un indice di Ricerca di Azure, il campo "locations" contiene una matrice di ubicazioni che include sia un set di ID ubicazione sia le descrizioni delle ubicazioni. Dato che Ricerca di Azure non ha un tipo di dati che supporta questa caratteristica, è necessario modellare i dati in modo diverso in Ricerca di Azure. 
 
 > [!NOTE]
-> Questa tecnica è descritto da Kirk Evans in un post di blog [indicizzazione Azure Cosmos DB con ricerca di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), che illustra una tecnica denominata "rendere bidimensionali i dati", che è un campo denominato `locationsID` e `locationsDescription` che sono entrambi [raccolte](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matrice di stringhe).   
+> Questa tecnica è descritta anche da Kirk Evans nel post di blog [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indicizzazione di Azure Cosmos DB con Ricerca di Azure), che illustra una tecnica per rendere flat i dati e ottenere così un campo denominato `locationsID` e un campo `locationsDescription`, che sono entrambi [raccolte](https://msdn.microsoft.com/library/azure/dn798938.aspx) o una matrice di stringhe.   
 > 
 > 
 

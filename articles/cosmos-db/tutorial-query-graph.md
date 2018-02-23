@@ -18,20 +18,20 @@ ms.author: lbosq
 ms.custom: mvc
 ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Come eseguire una query con l'API Graph?
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: procedura per l'esecuzione di query con l'API Graph
 
-Il database di Azure Cosmos [API Graph](graph-introduction.md) supporta [Gremlin](https://github.com/tinkerpop/gremlin/wiki) query. Questo articolo include esempi di documenti e query per iniziare. L'articolo relativo al [supporto Gremlin](gremlin-support.md) include riferimenti Gremlin dettagliati.
+L'[API Graph](graph-introduction.md) di Azure Cosmos DB supporta le query [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Questo articolo include esempi di documenti e query per iniziare. L'articolo relativo al [supporto Gremlin](gremlin-support.md) include riferimenti Gremlin dettagliati.
 
 Questo articolo illustra le attività seguenti: 
 
 > [!div class="checklist"]
 > * Esecuzione di query sui dati con Gremlin
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati grafo. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-graph-dotnet.md) o l'[esercitazione per sviluppatori](tutorial-query-graph.md) per creare un account e popolare il database. È possibile eseguire le query seguenti usando la [libreria .NET di grafi di Azure Cosmos DB](graph-sdk-dotnet.md), la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), o il driver Gremlin preferito.
 

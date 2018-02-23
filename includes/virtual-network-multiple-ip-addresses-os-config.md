@@ -22,7 +22,7 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
     * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
 
 6. Da un prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
-7. Configurare Windows per utilizzare l'indirizzo IP privato della configurazione IP primaria in Azure come l'indirizzo IP primario per Windows. Vedere [accesso a Internet non dalla macchina virtuale di Windows Azure che dispone di più indirizzi IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) per informazioni dettagliate. 
+7. Configurare Windows per usare l'indirizzo IP privato della configurazione IP primaria in Azure come indirizzo IP primario per Windows. Per i dettagli, vedere [Nessun accesso a Internet da una macchina virtuale Windows Azure che dispone di più indirizzi IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
 
 ### <a name="validation-windows"></a>Convalida (Windows)

@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: e8170eefb2e359719684e08749180a4e7784f9b6
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
@@ -27,7 +27,7 @@ Per sviluppare applicazioni per SQL Data Warehouse, è consigliabile usare la ve
 L'uso di Visual Studio con SSDT consentirà di usare Esplora oggetti di SQL Server per esplorare visivamente tabelle, viste, stored procedure e molti altri oggetti in SQL Data Warehouse, nonché eseguire query.
 
 > [!NOTE]
-> SQL Data Warehouse non supporta ancora i progetti di database di Visual Studio.  Questa funzionalità verrà aggiunta in una versione futura. Per ricevere gli aggiornamenti periodici su questa funzionalità, votare sulla [UserVoice].
+> SQL Data Warehouse non supporta ancora i progetti di database di Visual Studio.  Questa funzionalità verrà aggiunta in una versione futura. Per ricevere aggiornamenti periodici su questa funzionalità, votare in [UserVoice].
 > 
 > 
 

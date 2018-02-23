@@ -8,13 +8,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6df7d74d572a59c83105905fbe0a9e218aadc28f
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiare dati da Amazon Simple Storage Service usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,9 +37,9 @@ In particolare, il connettore Amazon S3 supporta la copia dei file così come so
 Per copiare i dati da Amazon S3, assicurarsi di avere le autorizzazioni indicate di seguito:
 
 - `s3:GetObject` e `s3:GetObjectVersion` per le operazioni di oggetto Amazon S3.
-- `s3:ListBucket` per le operazioni di bucket Amazon S3. Se si usa la copia guidata di Data Factory, è necessario anche `s3:ListAllMyBuckets`.
+- `s3:ListBucket` o `s3:GetBucketLocation` per le operazioni di bucket Amazon S3. Se si usa la copia guidata di Data Factory, è necessario anche `s3:ListAllMyBuckets`.
 
-Per informazioni dettagliate sull'elenco completo delle autorizzazioni di Amazon S3 con tutti i dettagli in [Specifying Permissions in a Policy](http://docs.aws.amazon.com/amazons3/latest/dev/using-with-s3-actions.html) (Specificare le autorizzazioni in un criterio).
+Per informazioni dettagliate sull'elenco completo delle autorizzazioni di Amazon S3 con tutti i dettagli in [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Specificare le autorizzazioni in un criterio).
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -55,7 +55,7 @@ Per il servizio collegato di Amazon S3 sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AmazonS3**. | Sì |
 | accessKeyId | ID della chiave di accesso segreta. |Sì |
-| secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString. |Sì |
+| secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 >[!NOTE]

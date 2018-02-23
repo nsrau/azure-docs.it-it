@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: cbc22721bbe06fdc5a8a9026b113071e1616bcb8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: 6be75035247f05995949734cd4f4f0d934e30685
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associazioni di output di Hub di notifica per Funzioni di Azure
 
@@ -266,7 +266,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="attributes"></a>Attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [hub di notifica](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs).
 
 I parametri e le proprietà del costruttore dell'attributo sono descritte nella sezione [Configurazione](#configuration).
 
@@ -320,6 +320,12 @@ Per configurare la stringa di connessione a un hub di notifica esistente:
 Il nome di questa impostazione applicazione corrisponde all'impostazione di connessione dell'associazione di output in *function.json* o nell'attributo .NET. Vedere la [sezione Configurazione](#configuration) più indietro in questo articolo.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
+
+| Associazione | riferimento |
+|---|---|
+| Hub di notifica | [Operations Guide](https://docs.microsoft.com/rest/api/notificationhubs/) (Guida operativa) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

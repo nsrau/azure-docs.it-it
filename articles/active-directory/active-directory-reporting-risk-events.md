@@ -16,7 +16,7 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2018
 ---
@@ -36,7 +36,7 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 
 ![Evento di rischio](./media/active-directory-reporting-risk-events/91.png)
 
-Le informazioni che viene visualizzato per un evento di rischio rilevati sono associata alla sottoscrizione di Azure AD. Con l'edizione di Azure AD Premium P2, sono disponibili le informazioni più dettagliate su tutti i rilevamenti sottostante. L'edizione di Azure AD Premium P1, rilevamenti non previste dalla licenza vengono visualizzate come l'evento di rischio **Accedi con maggiori rischi rilevato**.
+Le informazioni ottenute per un evento di rischio rilevato sono associate alla sottoscrizione di Azure AD in corso. Con l'edizione Azure AD Premium P2, si ottengono le informazioni più dettagliate su tutti i rilevamenti sottostanti. Con l'edizione Azure AD Premium P1, i rilevamenti non previsti dalla licenza in uso vengono visualizzati come evento di rischio di tipo **Rilevato accesso con rischi aggiuntivi**.
 
 
 In questo argomento viene fatta una panoramica dettagliata della definizione di eventi di rischio e di come è possibile usarli per proteggere le identità di Azure AD.
@@ -141,7 +141,7 @@ Il livello di rischio per questo tipo di evento di rischio è **Medio** perché 
 Il trasferimento impossibile indica in genere che un pirata informatico è riuscito a ottenere l'accesso. Possono, tuttavia, verificarsi falsi positivi quando un utente è in viaggio e usa un nuovo dispositivo o una VPN che non viene in genere usata da altri utenti nell'organizzazione. Un'altra origine di falsi positivi è costituita dalle applicazioni che passano in modo errato gli indirizzi IP di server come indirizzi IP di client. Questo può dare l'impressione che gli accessi si verifichino dal data center in cui è ospitato il back-end dell'applicazione. Spesso si tratta di data center Microsoft e gli accessi possono risultare eseguiti da indirizzi IP di proprietà di Microsoft. A causa di questi falsi positivi, il livello di rischio per questo evento di rischio è **Medio**.
 
 > [!TIP]
-> È possibile ridurre la quantità di segnalati falsi positivi per questo tipo di evento di rischio configurando [posizioni denominate](active-directory-named-locations.md). 
+> È possibile ridurre la quantità di falsi positivi segnalati per questo tipo di evento di rischio configurando le [località denominate](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Accessi da posizioni non note
 

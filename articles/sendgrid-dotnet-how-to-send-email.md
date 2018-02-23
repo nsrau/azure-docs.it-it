@@ -16,7 +16,7 @@ ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/23/2017
 ---
@@ -108,7 +108,7 @@ Per inviare email, è necessario specificare la chiave API di SendGrid. Per info
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-Nell'esempio seguente viene illustrato come inviare un messaggio di posta elettronica utilizzando l'API Web SendGrid con un'applicazione console.
+Gli esempi seguenti mostrano come inviare un messaggio di posta elettronica usando l'API Web SendGrid con un'applicazione console.
 
     using System;
     using System.Threading.Tasks;
@@ -141,13 +141,13 @@ Nell'esempio seguente viene illustrato come inviare un messaggio di posta elettr
         }
     }
     
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procedura: inviare posta elettronica dall'API di componenti di base ASP .NET utilizzando la classe MailHelper
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procedura: Inviare un messaggio di posta elettronica dall'API ASP .NET Core usando la classe MailHelper
 
-L'esempio seguente può essere utilizzato per inviare un messaggio singolo a più persone dall'API di ASP .NET Core utilizzando il `MailHelper` classe di `SendGrid.Helpers.Mail` dello spazio dei nomi. Per questo esempio viene usato ASP .NET Core 1.0. 
+L'esempio seguente può essere usato per inviare un singolo messaggio di posta elettronica a più persone dall'API ASP .NET Core usando la classe `MailHelper` dello spazio dei nomi `SendGrid.Helpers.Mail`. Per questo esempio viene usato ASP .NET Core 1.0. 
 
-In questo esempio, la chiave API è stata archiviata nel `appsettings.json` file potrà essere sostituito dal portale di Azure, come illustrato negli esempi precedenti.
+In questo esempio, la chiave API è stata archiviata nel file `appsettings.json`, il quale potrà essere sovrascritto dal portale di Azure come mostrato negli esempi precedenti.
 
-Il contenuto di `appsettings.json` file dovrebbe essere simile a:
+I contenuti del file `appsettings.json` dovrebbero essere simili a quelli riportati di seguito:
 
     {
        "Logging": {
@@ -161,7 +161,7 @@ Il contenuto di `appsettings.json` file dovrebbe essere simile a:
      "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
     }
 
-In primo luogo, è necessario aggiungere il codice in riportato di seguito il `Startup.cs` file del progetto di API di .NET Core. Questa operazione è necessaria in modo che sia possibile accedere il `SENDGRID_API_KEY` dal `appsettings.json` file mediante l'inserimento di dipendenze nel controller API. Il `IConfiguration` interfaccia può essere inserita nel costruttore del controller dopo averlo aggiunto nel `ConfigureServices` metodo seguente. Il contenuto di `Startup.cs` file avrà un aspetto simile al seguente dopo aver aggiunto il codice necessario:
+In primo luogo, è necessario aggiungere il codice seguente al file `Startup.cs` del progetto API .NET Core. Questa operazione è necessaria per poter a `SENDGRID_API_KEY` dal file `appsettings.json` usando l'inserimento delle dipendenze nel controller API. L'interfaccia di `IConfiguration` può essere inserita nel costruttore del controller dopo averla aggiunta nel metodo `ConfigureServices` di seguito. Il contenuto del file `Startup.cs` avrà un aspetto simile al seguente dopo aver aggiunto il codice necessario:
 
         public IConfigurationRoot Configuration { get; }
 
@@ -172,7 +172,7 @@ In primo luogo, è necessario aggiungere il codice in riportato di seguito il `S
             services.AddSingleton<IConfiguration>(Configuration);
         }
 
-Nel controller, dopo l'inserimento di `IConfiguration` interfaccia, è possibile utilizzare il `CreateSingleEmailToMultipleRecipients` metodo del `MailHelper` classe per inviare un messaggio di posta elettronica singolo a più destinatari. Il metodo accetta un parametro booleano aggiuntivo denominato `showAllRecipients`. Questo parametro può essere usata per controllare se i destinatari di posta elettronica saranno in grado di visualizzare i rispettivi posta elettronica nella sezione dell'intestazione di messaggio di posta elettronica a. Il codice di esempio per il controller deve essere simile al seguente 
+Nel controller, dopo aver inserito l'interfaccia di `IConfiguration`, è possibile usare il metodo `CreateSingleEmailToMultipleRecipients` della classe `MailHelper` per inviare un singolo messaggio di posta elettronica a più destinatari. Il metodo accetta un parametro booleano aggiuntivo denominato `showAllRecipients`. È possibile usare questo parametro per controllare se i destinatari di posta elettronica saranno in grado di visualizzare i rispettivi indirizzi nella sezione A dell'intestazione del messaggio. Il codice di esempio per il controller deve essere simile al seguente 
 
     using System;
     using System.Collections.Generic;

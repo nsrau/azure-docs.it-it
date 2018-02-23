@@ -1,9 +1,9 @@
 ---
-title: Creare ruoli di controllo di accesso basato sui ruoli personalizzati e assegnare agli utenti interni ed esterni in Azure | Documenti Microsoft
+title: Creare ruoli personalizzati di controllo degli accessi in base al ruolo e assegnarli a utenti interni ed esterni in Azure | Microsoft Docs
 description: Assegnare ruoli personalizzati di controllo degli accessi in base al ruolo creati con PowerShell e l'interfaccia della riga di comando per utenti interni ed esterni
 services: active-directory
 documentationcenter: 
-author: andreicradu
+author: rolyon
 manager: mtillman
 editor: kgremban
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: a-crradu
+ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Introduzione al controllo degli accessi in base al ruolo
 
@@ -28,7 +28,7 @@ La funzionalità di controllo degli accessi in base al ruolo, disponibile solo n
 
 Il controllo degli accessi in base al ruolo consente una migliore gestione della sicurezza nelle organizzazioni di grandi dimensioni e nelle piccole e medie imprese che si avvalgono di collaboratori esterni, fornitori o freelance che hanno necessità di accedere a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. Il controllo degli accessi in base al ruolo consente la flessibilità di possedere una sottoscrizione di Azure gestita dall'account di amministratore (ruolo di amministratore del servizio a livello di sottoscrizione) e di invitare più utenti a usare la stessa sottoscrizione ma senza i diritti amministrativi. Dal punto di vista della gestione e della fatturazione, la funzionalità di controllo degli accessi in base al ruolo è senza dubbio un'opzione molto efficiente in termini di gestione e tempo per l'uso di Azure in vari scenari.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 L'uso del controllo degli accessi in base al ruolo nell'ambiente di Azure richiede:
 
 * Una sottoscrizione di Azure autonoma assegnata all'utente come proprietario (ruolo di sottoscrizione)
@@ -37,7 +37,7 @@ L'uso del controllo degli accessi in base al ruolo nell'ambiente di Azure richie
 * Verificare che i provider di risorse seguenti siano registrati per la sottoscrizione dell'utente: **Microsoft.Authorization**. Per altre informazioni su come registrare i provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Le sottoscrizioni di Office 365 o di licenze di Azure Active Directory (ad esempio: accesso ad Azure Active Directory) fornito da Office 365 Admin, non si qualificano per l'utilizzo di RBAC center.
+> Gli abbonamenti di Office 365 o le licenze di Azure Active Directory, ad esempio Accesso ad Azure Active Directory, di cui viene effettuato il provisioning dall'interfaccia di amministrazione di Office 365 non danno diritto all'uso del controllo degli accessi in base al ruolo.
 
 ## <a name="how-can-rbac-be-used"></a>Modalità d'uso del controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo può essere applicato in tre ambiti diversi in Azure. Dal livello più alto al più basso, gli ambiti sono i seguenti:
@@ -59,7 +59,7 @@ Dopo avere eseguito l'accesso come amministratore dal portale di Azure seleziona
 ![Pannello delle sottoscrizioni nel portale di Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) Per impostazione predefinita, se l'utente amministratore ha acquistato la sottoscrizione di Azure, l'utente verrà visualizzato come **amministratore dell'account**, vale a dire con il ruolo di sottoscrizione. Per altri dettagli sui ruoli di sottoscrizione di Azure, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](/billing/billing-add-change-azure-subscription-administrator.md).
 
 In questo esempio l'utente "alflanigan@outlook.com" è **Proprietario** della sottoscrizione nella "versione di valutazione gratuita" nel tenant AAD "Default tenant Azure". Poiché questo utente ha creato la sottoscrizione di Azure con l'account Microsoft iniziale "Outlook" (account Microsoft = Outlook, Live e così via), il nome di dominio predefinito per tutti gli altri utenti aggiunti in questo tenant sarà **"@alflaniganuoutlook.onmicrosoft.com"**. Per impostazione predefinita, la sintassi del nuovo dominio è costituita dalla combinazione di nome utente e nome dominio dell'utente che ha creato il tenant con l'aggiunta dell'estensione **".onmicrosoft.com"**.
-Inoltre gli utenti possono accedere con un nome di dominio personalizzato nel tenant dopo averlo aggiunto e verificato per il nuovo tenant. Per altre informazioni su come verificare un nome di dominio personalizzato in un tenant di Azure Active Directory, vedere [Aggiungere un nome di dominio personalizzato alla directory](/active-directory/active-directory-add-domain).
+Gli utenti possono anche accedere con un nome di dominio personalizzato nel tenant dopo averlo aggiunto e verificato per il nuovo tenant. Per altre informazioni su come verificare un nome di dominio personalizzato in un tenant di Azure Active Directory, vedere [Aggiungere un nome di dominio personalizzato alla directory](/active-directory/active-directory-add-domain).
 
 In questo esempio la directory "Default tenant Azure" contiene solo gli utenti con il nome di dominio "@alflanigan.onmicrosoft.com".
 
@@ -104,7 +104,7 @@ Essendo esterno all'organizzazione, il nuovo utente non dispone degli attributi 
 
 ![messaggio di invito tramite posta elettronica per il ruolo di controllo degli accessi in base al ruolo](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Mostra l'utente esterno nel tenant di Azure Active Directory in come utente esterno e questo può essere visualizzata nel portale di Azure.
+L'utente esterno diventa visibile nel tenant di Azure Active Directory da questo momento in poi come utente esterno e può essere visualizzato nel portale di Azure.
 
 
 
@@ -114,12 +114,12 @@ Mostra l'utente esterno nel tenant di Azure Active Directory in come utente este
 
 
 
-Nel **utenti** vista, gli utenti esterni possono essere riconosciuti dal tipo di icona diversa nel portale di Azure.
+Nella visualizzazione **Utenti**, gli utenti esterni sono riconoscibili dal tipo di icona diverso nel portale di Azure.
 
-Tuttavia, la concessione dell'accesso come **Proprietario** o **Collaboratore** a un utente esterno nell'ambito della **sottoscrizione**, non consente l'accesso alla directory dell'utente amministratore, a meno che ciò non sia consentito dall'opzione di **amministrazione globale**. Nelle proprietà dell'utente è possibile identificare il **tipo di utente** che dispone di due parametri comuni, **Membro** e **Guest**. Un membro è un utente registrato nella directory, mentre un utente guest è un utente invitato nella directory da un'origine esterna. Per altre informazioni, vedere [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md).
+Tuttavia, la concessione dell'accesso come **Proprietario** o **Collaboratore** a un utente esterno nell'ambito della **sottoscrizione**, non consente l'accesso alla directory dell'utente amministratore, a meno che ciò non sia consentito dall'opzione di **amministrazione globale**. Nelle proprietà dell'utente è possibile identificare il **tipo di utente**, che dispone di due parametri comuni, **Membro** e **Guest**. Un membro è un utente registrato nella directory, mentre un utente guest è un utente invitato nella directory da un'origine esterna. Per altre informazioni, vedere [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
-> Assicurarsi che dopo avere immesso le credenziali nel portale, l'utente esterno selezioni la directory corretta a cui accedere. Lo stesso utente può avere accesso a più directory e selezionarne una facendo clic sul nome utente nella parte superiore destra nel portale di Azure e quindi scegliere la directory appropriata nell'elenco a discesa.
+> Assicurarsi che, dopo avere immesso le credenziali nel portale, l'utente esterno selezioni la directory corretta a cui accedere. Lo stesso utente può avere accesso a più directory e selezionarne una facendo clic sul nome utente nella parte superiore destra nel portale di Azure e quindi scegliere la directory appropriata nell'elenco a discesa.
 
 Pur essendo un utente guest nella directory, l'utente esterno può gestire tutte le risorse per la sottoscrizione di Azure, ma non è in grado di accedere alla directory.
 
@@ -129,7 +129,7 @@ Pur essendo un utente guest nella directory, l'utente esterno può gestire tutte
 
 ![accesso limitato ad Azure Active Directory nel portale di Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory e una sottoscrizione di Azure non hanno una relazione padre-figlio come quella che hanno altre risorse di Azure, ad esempio le macchine virtuali, le reti virtuali, le app Web, le risorse di archiviazione e così via, con una sottoscrizione di Azure. Tutte queste ultime vengono create, gestite e fatturate in una sottoscrizione di Azure, mentre una sottoscrizione di Azure viene usata per gestire l'accesso a una directory di Azure. Per altre informazioni, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](/active-directory/active-directory-how-subscriptions-associated-directory).
+Azure Active Directory e una sottoscrizione di Azure non hanno una relazione padre-figlio come quella che hanno altre risorse di Azure, ad esempio le macchine virtuali, le reti virtuali, le app Web, le risorse di archiviazione e così via, con una sottoscrizione di Azure. Tutte queste ultime vengono create, gestite e fatturate in una sottoscrizione di Azure, mentre una sottoscrizione di Azure viene usata per gestire l'accesso a una directory di Azure. Per altre informazioni, vedere [Come associare una sottoscrizione di Azure ad Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
 Da tutti i ruoli predefiniti di controllo degli accessi in base al ruolo, **Proprietario** e **Collaboratore** offrono l'accesso completo a livello di gestione a tutte le risorse nell'ambiente, ma il ruolo Collaboratore non può creare ed eliminare nuovi ruoli di controllo degli accessi in base al ruolo. Altri ruoli predefiniti, come **Collaboratore Macchina Virtuale**, offrono l'accesso completo a livello di gestione solo alle risorse indicate dal nome, indipendentemente dal **gruppo di risorse** in cui sono state create.
 
@@ -148,7 +148,7 @@ Per uno scenario diverso in questo test, l'utente esterno "alflanigan@gmail.com"
 
 ![ruolo predefinito collaboratore macchina virtuale](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Il comportamento normale per questo utente esterno con questo ruolo predefinito è visualizzare e gestire solo le macchine virtuali e solo le risorse di Resource Manager adiacenti necessarie durante la distribuzione. Per impostazione predefinita, questi ruoli limitati offrono l'accesso solo alle risorse corrispondenti creato nel portale di Azure.
+Il comportamento normale per questo utente esterno con questo ruolo predefinito è visualizzare e gestire solo le macchine virtuali e solo le risorse di Resource Manager adiacenti necessarie durante la distribuzione. Per impostazione predefinita, questi ruoli limitati consentono l'accesso solo alle risorse corrispondenti create nel portale di Azure.
 
 
 
@@ -158,10 +158,10 @@ Il comportamento normale per questo utente esterno con questo ruolo predefinito 
 Il flusso del processo è identico all'aggiunta di un utente esterno sia dal punto di vista dell'amministratore che concede il ruolo di controllo degli accessi in base al ruolo sia dal punto di vista dell'utente a cui viene concesso l'accesso al ruolo. La differenza è che l'utente invitato non riceverà gli inviti tramite posta elettronica e tutti gli ambiti di risorse nella sottoscrizione saranno disponibili nel dashboard dopo l'accesso.
 
 ## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Assegnare ruoli di controllo degli accessi in base al ruolo nell'ambito del gruppo di risorse
-L'assegnazione di un ruolo di controllo degli accessi in base al ruolo nell'ambito del **gruppo di risorse** prevede un processo identico per l'assegnazione del ruolo a livello di sottoscrizione per entrambi i tipi di utenti: esterni o interni (appartenenti alla stessa directory). Gli utenti a cui viene assegnato il ruolo di controllo degli accessi in base al ruolo vedono nel proprio ambiente solo il gruppo di risorse per cui gli è stato assegnato l'accesso dall'icona **Gruppi di risorse** nel portale di Azure.
+L'assegnazione di un ruolo di controllo degli accessi in base al ruolo nell'ambito del **gruppo di risorse** prevede un processo identico per l'assegnazione del ruolo a livello di sottoscrizione per entrambi i tipi di utenti: esterni o interni (appartenenti alla stessa directory). Gli utenti a cui viene assegnato il ruolo Controllo degli accessi in base al ruolo vedono nel proprio ambiente solo il gruppo di risorse per cui è stato loro assegnato l'accesso dall'icona **Gruppi di risorse** nel portale di Azure.
 
 ## <a name="assign-rbac-roles-at-the-resource-scope"></a>Assegnare ruoli di controllo degli accessi in base al ruolo nell'ambito delle risorse
-Il processo di assegnazione di un ruolo di controllo degli accessi in base al ruolo nell'ambito delle risorse in Azure è identico per l'assegnazione del ruolo a livello di sottoscrizione o di gruppo di risorse, seguendo lo stesso flusso di lavoro per entrambi gli scenari. Anche in questo caso, gli utenti assegnati al ruolo di controllo degli accessi in base al ruolo possono vedere solo gli elementi per cui gli è stato assegnato l'accesso nella scheda **Tutte le risorse** o direttamente nel dashboard.
+Il processo di assegnazione di un ruolo di controllo degli accessi in base al ruolo nell'ambito delle risorse in Azure è identico per l'assegnazione del ruolo a livello di sottoscrizione o di gruppo di risorse, seguendo lo stesso flusso di lavoro per entrambi gli scenari. Anche in questo caso, gli utenti assegnati al ruolo Controllo degli accessi in base al ruolo possono vedere solo gli elementi per cui è stato loro assegnato l'accesso nella scheda **Tutte le risorse** o direttamente nel dashboard.
 
 Un aspetto importante per il controllo degli accessi in base al ruolo nell'ambito del gruppo di risorse o delle risorse è che gli utenti devono eseguire l'accesso alla directory corretta.
 
@@ -191,7 +191,7 @@ Per la creazione di ruoli personalizzati è necessario usare un ruolo predefinit
 
 È importante comprendere i prerequisiti per la creazione di un ruolo personalizzato che può concedere l'accesso granulare a livello di sottoscrizione e consentire all'utente invitato la flessibilità di aprire richieste di supporto.
 
-In questo esempio è stato personalizzato il ruolo predefinito **Lettore**, che consente agli utenti di accedere di visualizzare tutti gli ambiti di risorse ma non di modificarli o di crearne uno nuovo, per consentire all'utente di aprire richieste di supporto.
+In questo esempio è stato personalizzato il ruolo predefinito **Lettore**, che consente agli utenti di accedere per visualizzare tutti gli ambiti delle risorse, ma non di modificarli o di crearne di nuovi, per consentire l'apertura di richieste di supporto.
 
 La prima azione di esportazione del ruolo **Lettore** deve essere completata in PowerShell con autorizzazioni elevate come amministratore.
 

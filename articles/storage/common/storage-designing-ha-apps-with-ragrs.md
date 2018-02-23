@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: tamram
 ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -26,7 +26,7 @@ Una funzionalità comune delle infrastrutture basate su cloud come Archiviazione
 
 Archiviazione di Azure offre quattro scelte per la ridondanza dei dati nell'account di archiviazione:
 
-- Ridondanza locale (archiviazione con ridondanza locale)
+- Archiviazione con ridondanza locale (LRS)
 - Archiviazione con ridondanza della zona (ZRS) 
 - Archiviazione con ridondanza geografica (GRS)
 - Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) 
@@ -238,7 +238,7 @@ static function OnBeforeResponse(oSession: Session) {
 
 Se le soglie per il passaggio dell'applicazione alla modalità di sola lettura sono state impostate come configurabili, sarà più semplice verificare il comportamento con volumi di transazioni non di produzione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sull'archiviazione con ridondanza geografica e accesso in lettura, incluso un altro esempio di impostazione di LastSyncTime, vedere [Windows Azure Storage Redundancy Options and Read Access Geo-Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Opzioni di ridondanza di Archiviazione di Microsoft Azure e archiviazione con ridondanza geografica e accesso in lettura).
 

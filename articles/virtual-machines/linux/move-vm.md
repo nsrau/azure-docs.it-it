@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -34,7 +34,7 @@ Questo articolo illustra come spostare una VM di Linux tra gruppi di risorse o s
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Usare l'interfaccia della riga di comando di Azure per spostare una VM
 
 
-Prima di poter spostare la macchina virtuale usando l'interfaccia CLI, è necessario assicurarsi che le sottoscrizioni di origine e di destinazione esistono all'interno dello stesso tenant. Per verificare che entrambe le sottoscrizioni contengono lo stesso ID tenant, utilizzare [mostra account az](/cli/azure/account#az_account_show).
+Prima di spostare la macchina virtuale usando l'interfaccia della riga di comando, assicurarsi che le sottoscrizioni di origine e di destinazione si trovino all'interno dello stesso tenant. Per verificare che entrambe le sottoscrizioni contengano lo stesso ID tenant, usare [az account show](/cli/azure/account#az_account_show).
 
 ```azurecli-interactive
 az account show --subscription mySourceSubscription --query tenantId
@@ -42,13 +42,13 @@ az account show --subscription myDestinationSubscription --query tenantId
 ```
 Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, per spostare le risorse in un nuovo tenant è necessario contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-Per spostare correttamente una VM, è necessario spostare la VM e tutte le relative risorse di supporto. Utilizzare il [elenco risorse az](/cli/azure/resource#az_resource_list) comando per elencare tutte le risorse in un gruppo di risorse e i relativi ID. Può essere utile inviare tramite pipe l'output di questo comando in un file, in modo da poter copiare e incollare gli ID in comandi successivi.
+Per spostare correttamente una VM, è necessario spostare la VM e tutte le relative risorse di supporto. Usare il comando [az resource list](/cli/azure/resource#az_resource_list) per elencare tutte le risorse in un gruppo di risorse e i relativi ID. Può essere utile inviare tramite pipe l'output di questo comando in un file, in modo da poter copiare e incollare gli ID in comandi successivi.
 
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-Per spostare una macchina virtuale e le relative risorse in un altro gruppo di risorse, usare [dello spostamento delle risorse az](/cli/azure/resource#az_resource_move). L'esempio seguente mostra come spostare una VM e la maggior parte delle risorse comuni richieste. Utilizzare il **-ID** parametro e passare un elenco delimitato da virgole (senza spazi) di ID per le risorse da spostare.
+Per spostare una macchina virtuale e le relative risorse in un altro gruppo di risorse, usare [az resource move](/cli/azure/resource#az_resource_move). L'esempio seguente mostra come spostare una VM e la maggior parte delle risorse comuni richieste. Usare il parametro **-ids** e poi passare in un elenco delimitato da virgole, senza spazi, degli ID per le risorse da spostare.
 
 ```azurecli-interactive
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
@@ -64,9 +64,9 @@ az resource move \
     --destination-group "myDestinationResourceGroup"
 ```
 
-Se si desidera spostare la macchina virtuale e le relative risorse per una sottoscrizione diversa, aggiungere il **-destinazione subscriptionId** parametro per specificare la sottoscrizione di destinazione.
+Se si desidera spostare la macchina virtuale e le relative risorse in una sottoscrizione diversa, aggiungere il parametro **--destination-subscriptionId** per specificare la sottoscrizione di destinazione.
 
-Se viene chiesto di confermare che si desidera spostare la risorsa specificata. Digitare **Y** per confermare lo spostamento delle risorse.
+Viene richiesto di confermare che si desidera spostare la risorsa specificata. Digitare **Y** per confermare lo spostamento delle risorse.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

@@ -17,7 +17,7 @@ ms.date: 06/05/2017
 ms.author: curtand
 ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Ottenere tutti gli utenti con errori di licenza in un gruppo
 
-Se un gruppo contiene alcuni errori correlati alle licenze, è ora possibile indicare tutti gli utenti interessati da tali errori. Un utente sono disponibili gli errori di altri gruppi. Tuttavia, in questo esempio i risultati vengono limitati solo agli errori relativi al gruppo in questione verificando la proprietà **ReferencedObjectId** di ogni voce **IndirectLicenseError** per l'utente.
+Se un gruppo contiene alcuni errori correlati alle licenze, è ora possibile indicare tutti gli utenti interessati da tali errori. Un utente può anche avere errori di altri gruppi. Tuttavia, in questo esempio i risultati vengono limitati solo agli errori relativi al gruppo in questione verificando la proprietà **ReferencedObjectId** di ogni voce **IndirectLicenseError** per l'utente.
 
 ```
 #a sample group with errors
