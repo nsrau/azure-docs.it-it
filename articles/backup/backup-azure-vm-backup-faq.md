@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 5ba381e366bea78e2d0ace3651c52b7c03e18275
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -52,8 +52,8 @@ Sì. Anche quando un computer è stato arrestato i backup vengono eseguiti e il 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>È possibile annullare un processo di backup in corso?
 Sì. È possibile annullare il processo di backup se è in fase di "Creazione dello snapshot". **Se è in corso il trasferimento di dati dallo snapshot non è possibile annullare un processo**. 
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Blocco del gruppo di risorse è abilitata sul backup gestito rigido macchine virtuali. I backup continueranno a funzionare?
-Se l'utente blocca il gruppo di risorse, il servizio di Backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non si avviano in quanto non esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco RG, attenersi alla seguente [procedura per rimuovere il ripristino scegliere raccolta](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>È stato abilitato il blocco del gruppo di risorse sulle VM con Managed Disks di cui è stato eseguito il backup. I backup continueranno a funzionare?
+Se l'utente blocca il gruppo di risorse, il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco del gruppo di risorse, seguire questa [procedura per rimuovere la raccolta di punti di ripristino](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Come scegliere tra il ripristino dei dischi e il ripristino completo della macchina virtuale?
@@ -69,6 +69,23 @@ Usare i dischi di ripristino per eseguire queste operazioni:
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>È possibile usare i backup della VM con dischi non gestiti per eseguire il ripristino dopo l'aggiornamento dei dischi personali a dischi gestiti?
 Sì, è possibile usare i backup eseguiti prima di eseguire la migrazione dei dischi da non gestiti a gestiti. Per impostazione predefinita, il processo di ripristino della VM creerà una VM con dischi non gestiti. Per ripristinare i dischi e usarli per creare una VM su dischi gestiti, è possibile usare la funzionalità di ripristino dei dischi. 
 
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Qual è la procedura da seguire per ripristinare una macchina virtuale in un punto di ripristino eseguito prima del passaggio da macchina virtuale con dischi non gestiti a una con dischi gestiti?
+In questo scenario, per impostazione predefinita il processo di ripristino della macchina virtuale creerà una macchina virtuale con dischi non gestiti. Per creare una macchina virtuale con dischi gestiti:
+1. [Eseguire il ripristino della macchina virtuale con dischi non gestiti](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Convertire i dischi ripristinati in dischi gestiti](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Creare una macchina virtuale con dischi gestiti](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Per i cmdlet di Powershell, vedere [qui](backup-azure-vms-automation.md#restore-an-azure-vm).
+
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Cosa accade quando si modificano criteri di backup in una o più macchine virtuali?
 Quando vengono applicati nuovi criteri a una o più macchine virtuali, vengono seguite la pianificazione e la conservazione stabilite dai nuovi criteri. Se il periodo di conservazione viene esteso, i punti di ripristino esistenti vengono contrassegnati in modo che vengano mantenuti in base ai nuovi criteri. Se il periodo di conservazione viene ridotto, vengono contrassegnati per l'eliminazione ed eliminati nel successivo processo di pulizia. 
+
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Come si può spostare una VM registrata in Backup di Azure tra gruppi di risorse?
+Seguire questa procedura per spostare le VM sottoposte a backup nel gruppo di risorse di destinazione 
+1. Interrompere temporaneamente il backup e conservare i dati di backup
+2. Spostare la VM nel gruppo di risorse di destinazione
+3. Riproteggerla con lo stesso insieme di credenziali o con un nuovo insieme di credenziali
+
+Gli utenti possono eseguire il ripristino dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
+
+

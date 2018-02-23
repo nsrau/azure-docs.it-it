@@ -16,7 +16,7 @@ ms.author: gwallace
 ms.custom: mvc
 ms.openlocfilehash: c43165e230a00b6a4408637fd2290a21800d07b9
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -33,7 +33,7 @@ Nella terza parte della serie si apprenderà come:
 
 [Archiviazione BLOB di Azure](../common/storage-introduction.md#blob-storage) è un servizio affidabile per l'archiviazione di file per le applicazioni. Questa esercitazione estende [l'argomento precedente][previous-tutorial] e spiega come proteggere l'accesso all'account di archiviazione da un'applicazione Web. Dopo il completamento le immagini vengono crittografate e l'app Web usa i token di firma di accesso condiviso sicuri per accedere alle immagini di anteprima.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione è necessario avere completato l'esercitazione di archiviazione precedente: [Automatizzare il ridimensionamento delle immagini caricate con la Griglia di eventi di Azure][previous-tutorial]. 
 

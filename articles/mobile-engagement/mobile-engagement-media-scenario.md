@@ -21,7 +21,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Implementare Mobile Engagement con app multimediali
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Mattia è un project manager impegnato in progetti per dispositivi mobili per una grande società di servizi multimediali. Ha recentemente lanciato una nuova app che sta registrando un numero molto elevato di download. Ha raggiunto i suoi obiettivi di download, ma il ritorno sugli investimenti (ROI) per utente non soddisfa ancora i requisiti stabiliti. 
 
 Mattia ha già scoperto perché il ritorno sugli investimenti è troppo basso. Molti degli utenti smettono di usare la sua app dopo sole due settimane e la maggior parte di essi non riprende più a usarla. Mattia vuole aumentare il tasso di conservazione della sua app.

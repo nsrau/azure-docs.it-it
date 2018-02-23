@@ -3,7 +3,7 @@ title: 'Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 description: Riferimento delle espressioni di provisioning dichiarativo nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -563,7 +563,7 @@ Se dn è "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", allora
 restituiscono entrambi US.
 
 - - -
-### <a name="error"></a>Errore
+### <a name="error"></a>Tipi di errore
 **Descrizione:**  
 La funzione Error viene usata per restituire un errore personalizzato.
 
@@ -609,7 +609,7 @@ Il risultato è "2007-12-25".
 Può restituire "20140905081453.0Z"
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Descrizione:**  
 La funzione Guid genera un nuovo GUID casuale
 
@@ -1068,7 +1068,7 @@ La funzione RemoveDuplicates accetta una stringa multivalore e verifica che ogni
 Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
 
 - - -
-### <a name="replace"></a>Sostituisci
+### <a name="replace"></a>Replace
 **Descrizione:**  
 La funzione Replace sostituisce tutte le occorrenze di una stringa in un'altra stringa.
 
@@ -1162,7 +1162,7 @@ La funzione RTrim rimuove gli spazi vuoti finali da una stringa.
 Restituisce "test".
 
 - - -
-### <a name="select"></a>Seleziona
+### <a name="select"></a>Select
 **Descrizione:**  
 Elabora tutti i valori in un attributo multivalore, o nell'output di un'espressione, in base alla funzione specificata.
 
@@ -1213,7 +1213,7 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 `str StringFromSid(bin ObjectSID)`  
 
 - - -
-### <a name="switch"></a>Passa a
+### <a name="switch"></a>Switch
 **Descrizione:**  
 La funzione Switch viene usata per restituire un singolo valore basato sulle condizioni valutate.
 
@@ -1287,7 +1287,7 @@ Restituisce un subset di valori di un attributo multivalore, o dell'output di un
 Restituisce i valori del certificato non scaduti nell'attributo multivalore userCertificate.
 
 - - -
-### <a name="with"></a>Con
+### <a name="with"></a>With
 **Descrizione:**  
 La funzione With consente di semplificare un'espressione complessa usando una variabile per rappresentare una sottoespressione che appare una o più volte nell'espressione complessa.
 

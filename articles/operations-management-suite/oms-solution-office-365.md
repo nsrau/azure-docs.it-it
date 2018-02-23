@@ -31,7 +31,7 @@ La soluzione Office 365 per Operations Management Suite (OMS) consente di monito
 - Dimostrazione di conformità e controllo. Ad esempio, è possibile monitorare le operazioni di accesso nei file riservati, favorendo così il processo di conformità e controllo.
 - Risoluzione dei problemi operativi usando la ricerca di OMS per i dati di attività di Office 365 dell'organizzazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di installare e configurare la soluzione, è richiesto quanto segue.
 
 - Sottoscrizione a Office 365 dell'organizzazione.
@@ -72,7 +72,7 @@ Fare clic sul riquadro **Office 365** per aprire la dashboard di **Office 365**.
 
 Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i primi dieci avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati. È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su Visualizza tutto nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 |:--|:--|
 | Operazioni | Fornisce informazioni sugli utenti attivi da tutte le sottoscrizioni Office 365 monitorate. Sarà inoltre possibile visualizzare il numero di attività che si verificano nel corso del tempo.
 | Exchange | Mostra i dettagli delle attività di Exchange Server, ad esempio Add-Mailbox Permission o Set-Mailbox. |
@@ -89,9 +89,9 @@ Tutti i record creati nell'area di lavoro Log Analytics dalla soluzione Office 3
 ### <a name="common-properties"></a>Proprietà comuni
 Le proprietà seguenti sono comuni a tutti i record di Office 365.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Tipo | *OfficeActivity* |
+| type | *OfficeActivity* |
 | ClientIP | L'indirizzo IP del dispositivo usato quando l'attività è stata registrata. L'indirizzo IP viene visualizzato in formato di indirizzo IPv4 o IPv6. |
 | OfficeWorkload | Servizio di Office 365 a cui il record fa riferimento.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operazione | Il nome dell'attività utente o l'attività dell'amministratore.  |
@@ -100,13 +100,13 @@ Le proprietà seguenti sono comuni a tutti i record di Office 365.
 | ResultStatus | Indica se l'azione (specificata nella proprietà Operation) è andata a buon fine o meno. I possibili valori sono Succeeded, PartiallySucceded o Failed. Per le attività dell'amministratore di Exchange, il valore è True o False. |
 | UserId | Il nome UPN (User Principal Name) dell'utente che ha eseguito l'azione ha generato la registrazione del record, ad esempio my_name@my_domain_name. Si noti che sono inclusi anche i record per l'attività eseguita dall'account di sistema (ad esempio SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un ID alternativo per l'utente identificato con la proprietà UserId.  Ad esempio, questa proprietà viene popolata con l'ID univoco passport (PUID) per gli eventi eseguiti dagli utenti in SharePoint, OneDrive for Business ed Exchange. Questa proprietà può inoltre specificare lo stesso valore della proprietà UserID per gli eventi che si verificano in altri servizi ed eventi eseguiti dall'account di sistema|
-| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Admin<br>Applicazione<br>DcAdmin<br>Regolare <br>Riservato<br>ServicePrincipal<br>Sistema |
+| UserType | Il tipo di utente che ha eseguito l'operazione.<br><br>Admin<br>Applicazione<br>DcAdmin<br>Normale<br>Riservato<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base di Azure Active Directory
 Le proprietà seguenti sono comuni a tutti i record di Azure Active Directory.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -117,7 +117,7 @@ Le proprietà seguenti sono comuni a tutti i record di Azure Active Directory.
 ### <a name="azure-active-directory-account-logon"></a>Accesso all'account di Azure Active Directory
 Questi record vengono creati quando un utente di Active Directory tenta di accedere.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -130,7 +130,7 @@ Questi record vengono creati quando un utente di Active Directory tenta di acced
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Questi record vengono creati quando vengono apportate modifiche o aggiunte agli oggetti di Azure Active Directory.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -147,7 +147,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte agli 
 ### <a name="data-center-security"></a>Sicurezza del centro dati
 Questi record vengono creati dai dati di controllo della sicurezza del centro dati.  
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | EffectiveOrganization | Il nome del tenant a cui l'elevazione/cmdlet sono destinati. |
 | ElevationApprovedTime | Il timestamp di quando è stata approvata l'elevazione. |
@@ -162,7 +162,7 @@ Questi record vengono creati dai dati di controllo della sicurezza del centro da
 ### <a name="exchange-admin"></a>Amministratore di Exchange
 Questi record vengono creati quando vengono apportate modifiche alla configurazione di Exchange.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -170,13 +170,13 @@ Questi record vengono creati quando vengono apportate modifiche alla configurazi
 | ModifiedObjectResolvedName |  Questo è il nome descrittivo dell'oggetto modificato dal cmdlet. Viene registrato solo se il cmdlet modifica l'oggetto. |
 | OrganizationName | Nome del tenant. |
 | OriginatingServer | Il nome del server da cui è stato eseguito il cmdlet. |
-| parameters | Nome e valore per tutti i parametri usati con il cmdlet identificato nella proprietà Operations. |
+| Parametri | Nome e valore per tutti i parametri usati con il cmdlet identificato nella proprietà Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Cassetta postale di Exchange
 Questi record vengono creati quando vengono apportate modifiche o aggiunte alle cassette postali di Exchange.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -198,7 +198,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte alle 
 ### <a name="exchange-mailbox-audit"></a>Controllo della cassetta postale di Exchange
 Questi record vengono creati quando viene creata una voce di controllo delle cassette postali.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -212,7 +212,7 @@ Questi record vengono creati quando viene creata una voce di controllo delle cas
 ### <a name="exchange-mailbox-audit-group"></a>Gruppo di controllo della cassetta postale di Exchange
 Questi record vengono creati quando vengono apportate modifiche o aggiunte ai gruppi di Exchange.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -230,7 +230,7 @@ Questi record vengono creati quando vengono apportate modifiche o aggiunte ai gr
 ### <a name="sharepoint-base"></a>Base SharePoint
 Queste proprietà sono comuni a tutti i record di SharePoint.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -246,7 +246,7 @@ Queste proprietà sono comuni a tutti i record di SharePoint.
 ### <a name="sharepoint-schema"></a>Schema di SharePoint
 Questi record vengono creati quando vengono apportate modifiche alla configurazione di SharePoint.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -258,7 +258,7 @@ Questi record vengono creati quando vengono apportate modifiche alla configurazi
 ### <a name="sharepoint-file-operations"></a>Operazioni sui file di SharePoint
 Questi record vengono creati in risposta alle operazioni sui file in SharePoint.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -278,7 +278,7 @@ Questi record vengono creati in risposta alle operazioni sui file in SharePoint.
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 La tabella seguente contiene esempi di ricerche log per i record di aggiornamento raccolti da questa soluzione.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 | --- | --- |
 |Conteggio di tutte le operazioni per la sottoscrizione di Office 365 |Type = OfficeActivity &#124; measure count() by Operation |
 |Uso di siti di SharePoint|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
@@ -288,11 +288,11 @@ La tabella seguente contiene esempi di ricerche log per i record di aggiornament
 
 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se la soluzione Office 365 non raccoglie i dati come previsto, controllare lo stato nel portale di OMS in **Impostazioni** -> **Origini connesse** -> **Office 365**. Nella tabella seguente sono descritti i singoli stati.
 
-| Stato | Descrizione |
+| Status | DESCRIZIONE |
 |:--|:--|
 | Attivo | La sottoscrizione di Office 365 è attiva e il carico di lavoro è connesso correttamente all'area di lavoro di OMS. |
 | In sospeso | La sottoscrizione di Office 365 è attiva ma il carico di lavoro non è ancora connesso correttamente all'area di lavoro di OMS. La prima volta che si connette la sottoscrizione di Office 365, tutti i carichi di lavoro passeranno in questo stato fino a quando non sono connessi correttamente. Attendere 24 ore perché tutti i carichi di lavoro passino allo stato Attivo. |

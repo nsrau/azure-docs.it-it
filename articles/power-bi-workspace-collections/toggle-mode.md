@@ -116,7 +116,7 @@ report.switchMode("edit");
 
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Esempio introduttivo](get-started-sample.md)  
 [Incorporare un report](embed-report.md)  

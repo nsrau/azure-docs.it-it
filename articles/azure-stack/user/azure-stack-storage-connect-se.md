@@ -86,8 +86,8 @@ A questo punto si è pronti per la connessione Esplora archivi a una sottoscrizi
     * **Environment name** (Nome ambiente): il campo può essere personalizzato dall'utente.
     * **ARM resource endpoint** (Endpoint risorse di Azure Resource Manager): esempi di endpoint di risorse di Azure Resource Manager:
 
-        * Per l'operatore cloud:<br> https://adminmanagement.Local.azurestack.External   
-        * Per tenant:<br> https://Management.Local.azurestack.External
+        * Per l'operatore cloud:<br> https://adminmanagement.local.azurestack.external   
+        * Per tenant:<br> https://management.local.azurestack.external
  
     * **Id tenant**: facoltativo. Il valore viene indicato solo quando deve essere specificata la directory.
 

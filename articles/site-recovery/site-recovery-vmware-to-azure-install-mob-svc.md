@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: backup-recovery
-ms.date: 10/30/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: aa7bb25387efbc603dac9aaa0a56b3e30d0bfb4d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 939115aedd624dde637f00c02865b1adab47c7c4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Installare il Servizio Mobility (VMware o fisico in Azure)
 Il Servizio Mobility di Azure Site Recovery acquisisce le scritture dei dati in un computer e le inoltra al server di elaborazione. Distribuire il servizio Mobility in ogni computer, ovvero macchina virtuale VMware o server fisico, di cui si vuole eseguire la replica in Azure. È possibile distribuire il Servizio Mobility per i server che si desidera proteggere tramite i metodi seguenti:
@@ -34,7 +29,7 @@ Il Servizio Mobility di Azure Site Recovery acquisisce le scritture dei dati in 
 >[!IMPORTANT]
 > A partire dalla versione 9.7.0.0, nelle macchine virtuali Windows il programma di installazione del Servizio Mobility installa anche l'[agente di macchine virtuali di Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) più recente. Quando un computer esegue il failover in Azure, il computer soddisfa i prerequisiti per l'installazione dell'agente per l'uso dell'estensione di una macchina virtuale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Completare questa procedura per i prerequisiti prima di iniziare a installare manualmente il Servizio Mobility nel server:
 1. Accedere al server di configurazione e quindi aprire una finestra del prompt dei comandi come amministratore.
 2. Cambiare la directory nella cartella bin e creare un file passphrase:
@@ -51,7 +46,7 @@ Completare questa procedura per i prerequisiti prima di iniziare a installare ma
 | Nome del modello del file del programma di installazione| Sistema operativo |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bit) </br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) </br> Windows Server 2016 (64 bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (solo a 64 bit) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (solo a 64 bit) |
+|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (solo a 64 bit) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (solo a 64 bit) |
 |Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (solo a 64 bit) </br> CentOS 7.0, 7.1, 7.2, 7.3 (solo a 64 bit) |
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (solo a 64 bit)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (solo a 64 bit)|
@@ -92,7 +87,7 @@ Dopo l'installazione del Servizio Mobility, nel portale di Azure, selezionare il
 ## <a name="update-mobility-service"></a>Aggiorna servizio Mobility
 
 > [!WARNING]
-> Verificare che il server di configurazione, i server di scalabilità orizzontale e i server di destinazione Master che sono parte della distribuzione siano aggiornati prima di iniziare l'aggiornamento del servizio di mobilità nei server protetti. Altre informazioni su [come aggiornare il server di configurazione](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server) e [come aggiornare i server di scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> Verificare che il server di configurazione, i server di scalabilità orizzontale e i server di destinazione Master che sono parte della distribuzione siano aggiornati prima di iniziare l'aggiornamento del servizio di mobilità nei server protetti.
 
 1. Nel portale di Azure sfoglia <Your Vault> -> Visualizzazione degli elementi replicati.
 2. Se il **server di configurazione** è già stato aggiornato alla versione più recente, è possibile vedere una notifica che riporta il seguente messaggio *New Site recovery replication agent update is available (Disponibile aggiornamento dell'agente di replica per il ripristino sito). Fare clic per l'installazione*

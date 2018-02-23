@@ -55,7 +55,7 @@ In questa esercitazione viene descritto come utilizzare il nodo del **catalogo d
 ## <a name="restore-a-volume"></a>Ripristino di un volume
 Utilizzare la procedura seguente per ripristinare un volume dal backup.
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 Se questa operazione non è già stata eseguita, creare un volume e un gruppo di volumi, quindi eliminare il volume. Per impostazione predefinita, StorSimple Snapshot Manager esegue il backup di un volume prima di consentirne l’eliminazione. Questa precauzione permette di evitare la perdita di dati se il volume viene eliminato involontariamente o se i dati devono essere recuperati per qualsiasi motivo. 
 
 Durante la creazione del backup precauzionale, in StorSimple Snapshot Manager viene visualizzato il messaggio seguente.
@@ -111,7 +111,7 @@ Utilizzare la procedura seguente per eliminare uno snapshot dal catalogo di back
 ## <a name="recover-a-file"></a>Recupero di un file
 Se un file viene accidentalmente eliminato da un volume, è possibile recuperare il file utilizzando uno snapshot che predata l’eliminazione per creare un clone del volume, quindi copiando il file dal volume clonato sul volume originale.
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di volumi. Quindi, eliminare un file archiviato in uno dei volumi del gruppo. Infine, utilizzare la procedura seguente per ripristinare il file eliminato dal backup. 
 
 #### <a name="to-recover-a-deleted-file"></a>Per recuperare un file eliminato
@@ -125,7 +125,7 @@ Prima di iniziare, assicurarsi di disporre di un backup corrente del gruppo di v
    1. Nella casella di testo **Nome** , digitare un nome per il volume clonato. Questo nome verrà visualizzato nel nodo **Volumi** . 
    2. (Facoltativo) Selezionare **Unità**, quindi selezionare la lettera di un’unità dall'elenco a discesa. 
    3. (Facoltativo) Selezionare **Cartella (NTFS)**, quindi digitare il percorso di una cartella o fare clic su **Sfoglia** e selezionare un percorso per la cartella. 
-   4. Fare clic su **Create**. 
+   4. Fare clic su **Crea**. 
 5. Al termine del processo di clonazione, è necessario inizializzare il volume clonato. Avviare Server Manager, quindi avviare Gestione disco. Per istruzioni dettagliate, vedere [Montaggio volumi](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Al termine dell'inizializzazione, il volume verrà elencato sotto il nodo **Volumi** nel riquadro **Ambito**. 
    
     Se non viene visualizzato il volume elencato, aggiornare l'elenco dei volumi (fare clic con il pulsante destro del mouse sul nodo **Volumi**, quindi fare clic su **Aggiorna**).

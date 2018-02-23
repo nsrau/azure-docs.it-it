@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: sdash
-ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b35f37b4599cdf6276bc82013dc2fdf1c7d12834
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -30,6 +30,12 @@ Sono disponibili due tipi di test di disponibilità:
 * [Test Web in più passi](#multi-step-web-tests): viene creato in Visual Studio Enterprise e caricato nel portale.
 
 È possibile creare fino a 100 test di disponibilità per ogni risorsa dell'applicazione.
+
+
+> [!NOTE] 
+> * I test di disponibilità sono stati recentemente trasferiti nei data center di Azure, per consentire di aggiungere posizioni con la rete in espansione di data center di Azure.  
+> * Non è necessario aggiornare i test. Tutti i test vengono trasferiti ed eseguiti dalle nuove posizioni. 
+>* Per altre informazioni, vedere l'[aggiornamento del servizio](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/).
 
 ## <a name="create"></a>Aprire una risorsa per i report dei test di disponibilità
 
@@ -108,6 +114,11 @@ Dal risultato di un test di disponibilità è possibile eseguire le operazioni s
 
 *Ha un aspetto corretto ma è segnalato come errore?* Vedere le [domande frequenti](#qna) per informazioni su come ridurre i risultati non significativi.
 
+
+> [!TIP]
+> È consigliabile eseguire test da almeno due località per assicurare un monitoraggio affidabile.
+>
+
 ## <a name="multi-step-web-tests"></a>Test Web in più passaggi
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
 
@@ -118,7 +129,8 @@ Dal risultato di un test di disponibilità è possibile eseguire le operazioni s
 Per creare un test in più passaggi, registrare lo scenario con Visual Studio Enterprise, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
 
 > [!NOTE]
-> Non è possibile usare funzioni codificate o cicli nei test. Il test deve essere interamente contenuto nello script con estensione webtest. È tuttavia possibile usare plug-in standard.
+> * Non è possibile usare funzioni codificate o cicli nei test. Il test deve essere interamente contenuto nello script con estensione webtest. È tuttavia possibile usare plug-in standard.
+> * I test Web in più passaggi supportano solo caratteri inglesi. Se si usa Visual Studio in altre lingue, aggiornare il file di definizione dei test Web per tradurre o escludere i caratteri non inglesi.
 >
 
 #### <a name="1-record-a-scenario"></a>1. Registrare uno scenario
@@ -269,7 +281,7 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
     Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](app-insights-sampling.md).
 * *È possibile chiamare codice da un test Web?*
 
-    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
+    di serie I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
 * *HTTPS è supportato?*
 
     Sono supportati TLS 1.1 e TLS 1.2.

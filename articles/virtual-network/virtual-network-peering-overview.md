@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
-Il peering di rete virtuale consente di connettere in tutta semplicità due [reti virtuali](virtual-networks-overview.md) di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. 
+Il peering di rete virtuale consente di connettere facilmente due [reti virtuali](virtual-networks-overview.md) di Azure. Dopo avere eseguito il peering, le reti virtuali vengono visualizzate come una sola per scopi di connettività. Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene instradato tramite l'infrastruttura backbone Microsoft, in modo simile all'instradamento del traffico tra macchine virtuali presenti nella stessa rete virtuale, solo tramite indirizzi IP *privati*. 
 
 Il peering reti virtuali include i vantaggi seguenti:
 
@@ -35,7 +35,7 @@ Il peering reti virtuali include i vantaggi seguenti:
 
 ## <a name="requirements-constraints"></a>Requisiti e vincoli
 
-* Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale e negli Stati Uniti occidentali 2. Prima di eseguire il peering di reti virtuali in aree diverse, è necessario [registrare la sottoscrizione](virtual-network-create-peering.md#register) per l'anteprima. Il tentativo di creare un peering tra reti virtuali di aree diverse non andrà a buon fine se non è stata completata la registrazione per l'anteprima.
+* Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale, negli Stati Uniti occidentali 2, Corea meridionale, Regno Unito meridionale, Regno Unito occidentale, Canada orientale, India meridionale, India centrale e India occidentale. Prima di eseguire il peering di reti virtuali in aree diverse, è necessario [registrare la sottoscrizione](virtual-network-create-peering.md#register) per l'anteprima. Il tentativo di creare un peering tra reti virtuali di aree diverse non andrà a buon fine se non è stata completata la registrazione per l'anteprima.
     > [!WARNING]
     > I peering di rete virtuale creati tra aree diverse non hanno lo stesso livello di disponibilità e affidabilità di quelli creati in una versione con disponibilità generale. I peering reti virtuali possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -106,7 +106,7 @@ Quando si esegue il peering di due reti virtuali create tramite Resource Manager
 * **Connesso**: stato visualizzato dopo aver creato il peering dalla seconda rete virtuale alla prima. Lo stato del peering per la prima rete virtuale cambia da *Avviato* a *Connesso*. Il peering di rete virtuale non è stato stabilito correttamente finché lo stato del peering per entrambe le reti virtuali non è *Connesso*.
 * **Disconnesso**: stato visualizzato se un peering da una rete virtuale a un'altra viene eliminato dopo aver stabilito un peering tra due reti virtuali.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Per verificare un peering di rete virtuale, è possibile [verificare le route valide](virtual-network-routes-troubleshoot-portal.md) per un'interfaccia di rete in una qualsiasi subnet di una rete virtuale. Se esiste un peering di rete virtuale, tutte le subnet all'interno della rete virtuale hanno route con tipo di hop successivo *Peering reti virtuali* per ogni spazio degli indirizzi di ogni rete virtuale con peering.
 
@@ -124,7 +124,7 @@ Esistono limiti al numero di peering consentiti per una singola rete virtuale. P
 
 * Completare un'esercitazione sul peering di reti virtuali. Un peering di reti virtuali viene generato tra reti virtuali create tramite modelli di distribuzione uguali o diversi esistenti in sottoscrizioni uguali o diverse. Completare un'esercitazione per uno degli scenari seguenti:
 
-    |Modello di distribuzione di Azure  | Subscription  |
+    |Modello di distribuzione di Azure  | Sottoscrizione  |
     |---------|---------|
     |Entrambi Resource Manager |[Uguale](virtual-network-create-peering.md)|
     | |[Diversa](create-peering-different-subscriptions.md)|

@@ -1,6 +1,6 @@
 ---
-title: Campi personalizzati in Log Analytics | Documentazione Microsoft
-description: "La funzionalità Campi personalizzati di Log Analytics consente di creare campi ricercabili personalizzati dai dati di OMS che vengono aggiunti alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio."
+title: Campi personalizzati in Azure Log Analytics | Microsoft Docs
+description: "La funzionalità Campi personalizzati di Log Analytics consente di creare campi ricercabili personalizzati dai record di Log Analytics che vengono aggiunti alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2016
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
-La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti nell'archivio di OMS con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
+La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti in Log Analytics con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
 ![Panoramica dei campi personalizzati](media/log-analytics-custom-fields/overview.png)
 
@@ -40,8 +40,7 @@ Quando si crea un campo personalizzato, è necessario specificare a Log Analytic
 Le sezioni seguenti illustrano la procedura per la creazione di un campo personalizzato.  Alla fine di questo articolo è disponibile una procedura dettagliata per l'estrazione di un campione.
 
 > [!NOTE]
-> Il campo personalizzato viene popolato man mano che record corrispondenti ai criteri specificati vengono aggiunti all'archivio dati di OMS. Verrà quindi visualizzato solo nei record raccolti dopo la sua creazione.  Il campo personalizzato non viene aggiunto ai record già presenti nell'archivio al momento della creazione.
-> 
+> Il campo personalizzato viene popolato man mano che vengono aggiunti a Log Analytics record corrispondenti ai criteri specificati, quindi verrà quindi visualizzato solo nei record raccolti dopo la sua creazione.  Il campo personalizzato non viene aggiunto ai record già presenti nell'archivio al momento della creazione.
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passaggio 1: Identificare i record che conterranno il campo personalizzato
@@ -72,7 +71,7 @@ Dopo aver eseguito l'estrazione iniziale, Log Analytics ne visualizza i risultat
 7. Il campo personalizzato può essere usato come le altre proprietà del record,  ad esempio per aggregare e raggruppare dati, ma anche per produrre nuove informazioni dettagliate.
 
 ## <a name="viewing-custom-fields"></a>Visualizzazione di campi personalizzati
-Per visualizzare un elenco di tutti i campi personalizzati nel gruppo di gestione è possibile usare il riquadro **Impostazioni** del dashboard di OMS.  Selezionare **Dati** e quindi **Campi personalizzati** per visualizzare un elenco di tutti i campi personalizzati nell'area di lavoro.  
+È possibile visualizzare un elenco di tutti i campi personalizzati nel gruppo di gestione dal menu **Impostazioni avanzate** dell'area di lavoro di Log Analytics nel portale di Azure.  Selezionare **Dati** e quindi **Campi personalizzati** per visualizzare un elenco di tutti i campi personalizzati nell'area di lavoro.  
 
 ![Campi personalizzati](media/log-analytics-custom-fields/list.png)
 

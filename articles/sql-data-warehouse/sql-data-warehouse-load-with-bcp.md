@@ -13,36 +13,29 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 10/31/2016
+ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 55211e29149cd334421bd8723d47278a19afbfbb
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="load-data-with-bcp"></a>Caricare i dati con BCP
-> [!div class="op_single_selector"]
-> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
-> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-> * [BCP](sql-data-warehouse-load-with-bcp.md)
-> 
-> 
+# <a name="load-data-with-bcp"></a>Caricare dati con bcp
 
-**[bcp][bcp]** è un'utilità di caricamento bulk da riga di comando che permette di copiare dati tra SQL Server, file di dati e SQL Data Warehouse. Usare bcp per importare numeri elevati di righe nelle tabelle di SQL Data Warehouse o per esportare i dati dalle tabelle di SQL Server ai file di dati. bcp richiede competenze in ambito di Transact-SQL solo quando viene usato con l'opzione queryout.
+**[bcp](/sql/tools/bcp-utility.md)** è un'utilità di caricamento bulk da riga di comando che permette di copiare dati tra SQL Server, file di dati e SQL Data Warehouse. Usare bcp per importare numeri elevati di righe nelle tabelle di SQL Data Warehouse o per esportare i dati dalle tabelle di SQL Server ai file di dati. bcp richiede competenze in ambito di Transact-SQL solo quando viene usato con l'opzione queryout.
 
-bcp costituisce un modo semplice e rapido per spostare set di dati di dimensioni ridotte da e verso un database di SQL Data Warehouse. La quantità esatta di dati che è consigliabile caricare/estrarre tramite bcp dipenderà dalla connessione di rete per il data center di Azure.  In genere, le tabelle delle dimensioni possono essere caricate ed estratte facilmente con bcp, tuttavia bcp non è consigliato per il caricamento o l'estrazione di grandi volumi di dati.  Lo strumento consigliato per il caricamento e l'estrazione di grandi volumi di dati è Polybase, perché offre risultati migliori con l'architettura MPP (Massively Parallel Processing, elaborazione parallela massiva) di SQL Data Warehouse.
+bcp costituisce un modo semplice e rapido per spostare set di dati di dimensioni ridotte da e verso un database di SQL Data Warehouse. La quantità esatta di dati che è consigliabile caricare/estrarre tramite bcp dipende dalla connessione di rete ad Azure.  Piccole tabelle delle dimensioni possono essere caricate ed estratte facilmente con bcp. Per il caricamento e l'estrazione di grandi volumi di dati, invece, lo strumento consigliato è Polybase, non bcp. PolyBase è progettato per l'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing) di SQL Data Warehouse.
 
 Con bcp è possibile:
 
-* Utilizzare una semplice utilità della riga di comando per caricare dati nell’SQL Data Warehouse.
-* Utilizzare una semplice utilità della riga di comando per estrarre dati dall’SQL Data Warehouse.
+* Usare un'utilità della riga di comando per caricare dati in SQL Data Warehouse.
+* Usare un'utilità della riga di comando per estrarre dati da SQL Data Warehouse.
 
-In questa esercitazione verranno illustrate le attività seguenti:
+Questa esercitazione:
 
-* Importare dati in una tabella tramite l'utilità bcp nel comando
-* Esportare dati da una tabella tramite l'utilità bcp dal comando
+* Importa dati in una tabella con il comando in di bcp
+* Esporta dati da una tabella con il comando out di bcp
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
@@ -52,13 +45,12 @@ In questa esercitazione verranno illustrate le attività seguenti:
 Per eseguire questa esercitazione, è necessario:
 
 * Un database di SQL Data Warehouse
-* Utilità della riga di comando bcp installata
-* Utilità della riga di comando SQLCMD installata
+* Utilità della riga di comando bcp e sqlcmd, scaricabili dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=36433) 
 
-> [!NOTE]
-> È possibile scaricare le utilità bcp e sqlcmd dall'[Area download Microsoft][Microsoft Download Center].
-> 
-> 
+### <a name="data-in-ascii-or-utf-16-format"></a>Dati in formato ASCII o UTF-16
+Se si prova a eseguire questa esercitazione con dati personalizzati, è necessario che i dati usino la codifica ASCII o UTF-16, perché bcp non supporta UTF-8. 
+
+PolyBase supporta UTF-8 ma non supporta ancora UTF-16. Per usare bcp per l'esportazione e quindi PolyBase per il caricamento di dati, è necessario trasformare i dati in UTF-8 dopo che sono stati esportati da SQL Server. 
 
 ## <a name="import-data-into-sql-data-warehouse"></a>Importare i dati in SQL Data Warehouse
 In questa esercitazione verrà creata una tabella in Azure SQL Data Warehouse e verranno importati dati nella tabella.
@@ -82,10 +74,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-> [!NOTE]
-> Per altre informazioni sulla creazione di una tabella in SQL Data Warehouse e sulle opzioni disponibili con la clausola WITH, vedere [Panoramica delle tabelle][Table Overview] o la [sintassi di CREATE TABLE][CREATE TABLE syntax].
-> 
-> 
+Per altre informazioni sulla creazione di una tabella, vedere la [panoramica delle tabelle](sql-data-warehouse-tables-overview.md) o la sintassi di [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse.md).
+ 
 
 ### <a name="step-2-create-a-source-data-file"></a>Passaggio 2: Creare un file di dati di origine
 Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di testo e quindi salvare il file nella directory temporanea locale, C:\Temp\DimDate2.txt.
@@ -106,7 +96,7 @@ Aprire il Blocco note, copiare le righe di dati seguenti in un nuovo file di tes
 ```
 
 > [!NOTE]
-> È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Usare i file ASCII o con codifica UTF-16 quando si usa bcp.exe.
+> È importante ricordare che bcp.exe non supporta la codifica UTF-8 del file. Quando si usa bcp.exe, usare file ASCII o con codifica UTF-16.
 > 
 > 
 
@@ -123,7 +113,7 @@ bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Use
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
 ```
 
-Dovrebbero essere visualizzati i risultati seguenti:
+La query restituirà i risultati seguenti:
 
 | DateId | CalendarQuarter | FiscalQuarter |
 | --- | --- | --- |
@@ -141,9 +131,8 @@ Dovrebbero essere visualizzati i risultati seguenti:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Passaggio 4: creare le statistiche sui dati appena caricati
-SQL Data Warehouse di Azure non supporta ancora le statistiche di creazione automatica o aggiornamento automatico. Per ottenere le migliori prestazioni dalle query, è importante creare statistiche per tutte le colonne di tutte le tabelle dopo il primo caricamento o dopo eventuali modifiche sostanziali dei dati. Per una spiegazione dettagliata delle statistiche, vedere l'argomento [Statistiche][Statistics] nel gruppo di argomenti sullo sviluppo. Di seguito è possibile vedere un rapido esempio di come creare statistiche nella tabella caricata in questo esempio.
+Dopo il caricamento dei dati, un passaggio finale consiste nel creare o aggiornare le statistiche. Questo consente di migliorare le prestazioni delle query. Per altre informazioni, vedere l'articolo relativo alle [statistiche](sql-data-warehouse-tables-statistics.md). L'esempio di sqlcmd seguente crea statistiche sulla tabella contenente i dati appena caricati.
 
-Da un prompt di sqlcmd, eseguire le istruzioni CREATE STATISTICS seguenti:
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -154,7 +143,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 ## <a name="export-data-from-sql-data-warehouse"></a>Esportare i dati da SQL Data Warehouse
-In questa esercitazione verrà creato un file di dati da una tabella in SQL Data Warehouse. I dati creati in precedenza verranno esportati in un nuovo file denominato DimDate2_export.txt.
+Questa esercitazione crea un file di dati da una tabella in SQL Data Warehouse. I dati importati nella sezione precedente vengono esportati e i risultati vengono inseriti in un file denominato DimDate2_export.txt.
 
 ### <a name="step-1-export-the-data"></a>Passaggio 1: Esportare i dati
 L'utilità bcp permette di connettersi ed esportare i dati usando il comando seguente, sostituendo i valori in base alla necessità:
@@ -162,7 +151,7 @@ L'utilità bcp permette di connettersi ed esportare i dati usando il comando seg
 ```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
-Per verificare che i dati siano stati esportati correttamente, aprire il nuovo file. I dati del file devono corrispondere al testo seguente:
+Per verificare che i dati siano stati esportati correttamente, aprire il nuovo file. I dati nel file dovrebbero corrispondere al testo seguente:
 
 ```
 20150301,1,3
@@ -185,21 +174,13 @@ Per verificare che i dati siano stati esportati correttamente, aprire il nuovo f
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una panoramica sul caricamento, vedere [Caricare i dati in SQL Data Warehouse][Load data into SQL Data Warehouse].
-Per altri suggerimenti sullo sviluppo, vedere [Panoramica sullo sviluppo per SQL Data Warehouse][SQL Data Warehouse development overview].
+Per progettare il processo di caricamento, vedere la [panoramica del caricamento](sql-data-warehouse-design-elt-data-loading].  
 
-<!--Image references-->
 
-<!--Article references-->
-
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
-[Table Overview]: ./sql-data-warehouse-tables-overview.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
-[bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+
+
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d3f4a83b654315a5ff9344594323c5dcb801e77
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -36,7 +36,7 @@ Questo articolo spiega come creare, modificare ed eliminare le reti virtuali tra
 
 Prima di iniziare le attività descritte in questo articolo, completare i prerequisiti seguenti:
 
-- Se non si ha familiarità con l'uso di reti virtuali, è consigliabile rivedere l'esercitazione [Creare la prima rete virtuale di Azure](virtual-network-get-started-vnet-subnet.md). Questa esercitazione consente di acquisire maggiore familiarità con le reti virtuali.
+- Se non si ha familiarità con l'uso di reti virtuali, è consigliabile rivedere l'esercitazione [Creare la prima rete virtuale di Azure](quick-create-portal.md). Questa esercitazione consente di acquisire maggiore familiarità con le reti virtuali.
 - Per altre informazioni sui limiti delle reti virtuali, rivedere i [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Accedere al portale di Azure, allo strumento da riga di comando, ovvero all'interfaccia della riga di comando di Azure, oppure ad Azure PowerShell con il proprio account di Azure. Se non si ha un account di Azure, registrarsi per ottenere un [account per la versione di valutazione gratuita](https://azure.microsoft.com/free).
 - Se per completare le attività descritte in questo articolo si prevede di usare i comandi di PowerShell, è prima necessario [installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assicurarsi che sia installata la versione più recente dei cmdlet di Azure PowerShell. Per le informazioni della Guida sui comandi di PowerShell usati negli esempi, immettere `get-help <command> -full`.
@@ -138,7 +138,7 @@ Per aggiungere o rimuovere uno spazio indirizzi
 5. Nel pannello dello spazio indirizzi eseguire una delle operazioni seguenti:
     - **Aggiungere uno spazio indirizzi**: immettere il nuovo spazio indirizzi. Lo spazio indirizzi non può sovrapporsi a uno spazio indirizzi esistente definito per la rete virtuale.
     - **Rimuovere uno spazio indirizzi**: fare clic con il pulsante destro del mouse su uno spazio indirizzi e quindi fare clic su **Rimuovi**. Se è presente una subnet nello spazio di indirizzi, non è possibile rimuovere lo spazio di indirizzi. Prima di rimuovere uno spazio indirizzi è necessario eliminare tutte le subnet presenti nello spazio stesso e tutte le risorse connesse a queste subnet.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 **Comandi**
 
@@ -162,7 +162,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
         - **Rimuovere un indirizzo**: fare clic sulla **X** accanto al server che si vuole rimuovere. Questa operazione rimuove il server solo dall'elenco della rete virtuale attiva. Il server DNS resta registrato in Azure in modo che venga usato dalle altre reti virtuali.
         - **Riordinare gli indirizzi dei server DNS**: è importante verificare che siano elencati nell'ordine corretto per l'ambiente. Gli elenchi di server DNS vengono usati nell'ordine in cui sono specificati e non rappresentano una configurazione di tipo round robin. Se il primo server DNS nell'elenco è raggiungibile, il client lo usa, indipendentemente dal fatto che funzioni correttamente o meno. Rimuovere tutti i server DNS elencati e quindi aggiungerli di nuovo nell'ordine desiderato.
         - **Modificare un indirizzo**: evidenziare il server DNS nell'elenco e quindi immettere il nuovo nome.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 7. Riavviare le macchine virtuali connesse alla rete virtuale in modo che vengano loro assegnate le nuove impostazioni del server DNS. Le VM continuano a usare le impostazioni DNS correnti finché non vengono riavviate.
 
 **Comandi**
@@ -194,7 +194,7 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per creare una macchina virtuale e quindi connetterla a una rete virtuale, vedere [Creare una rete virtuale e connettere macchine virtuali](virtual-network-get-started-vnet-subnet.md#create-vms).
+- Per creare una macchina virtuale e quindi connetterla a una rete virtuale, vedere [Creare una rete virtuale e connettere macchine virtuali](quick-create-portal.md#create-virtual-machines).
 - Per filtrare il traffico di rete tra subnet all'interno di una rete virtuale, vedere [Creare gruppi di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md).
 - Per effettuare il peering di una rete virtuale con un'altra, vedere [Create a virtual network peering](virtual-network-create-peering.md#portal) (Creare un peering di reti virtuali).
 - Per informazioni sulle opzioni per la connessione di una rete virtuale a una rete locale, vedere [Informazioni sul gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).

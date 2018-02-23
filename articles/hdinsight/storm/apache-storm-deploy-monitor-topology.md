@@ -33,7 +33,7 @@ Storm Dashboard e le funzionalità Storm di HDInsight Tools si basano sull'API R
 >
 > Per informazioni sulla distribuzione e gestione di topologie Storm con un cluster HDInsight che usa Linux, vedere [Distribuzione e gestione di topologie Apache Storm in HDInsight basato su Linux](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Apache Storm in HDInsight**: per i passaggi relativi alla creazione di un cluster, vedere [Introduzione ad Apache Storm con HDInsight](apache-storm-tutorial-get-started-linux.md).
 
@@ -171,7 +171,7 @@ Per altre informazioni, vedere l'articolo relativo all'[API REST dell'interfacci
 
 L'URI di base per l'API REST nei cluster HDInsight è **https://&lt;NomeCluster>.azurehdinsight.net/stormui/api/v1/**, dove **NomeCluster** è il nome del cluster Storm in HDInsight in uso.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 Le richieste all'API REST devono usare l' **autenticazione di base**con il nome e la password amministratore del cluster HDInsight.
 

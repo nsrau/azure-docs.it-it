@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: ade7f1d3c868c2ce6ccedbbf11aaf7dc54706cff
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -57,11 +57,11 @@ Con il criterio a due gate, gli amministratori non hanno la possibilità di usar
   
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione
 
-  o
+  oppure
 
 * È presente un dominio personale, ad esempio contoso.com
 
-  o
+  oppure
 
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
@@ -70,7 +70,7 @@ Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un 
 
 * Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione
 
-  o
+  oppure
 
 * Non è presente un dominio personale (*.onmicrosoft.com) 
 

@@ -107,7 +107,7 @@ Il grafico fornisce le informazioni seguenti:
 
 Il report fornisce le informazioni seguenti:
 
-| Elemento del report | Descrizione |
+| Elemento del report | DESCRIZIONE |
 | --- | --- |
 | ID utente |Mostra l'ID utente che è stato usato. Questo valore corrisponde a quanto digitato dall'utente, che a volte corrisponde all'uso di un ID utente non valido. |
 | Tentativi non riusciti |Mostra il numero totale di tentativi non riusciti per l'ID utente specifico. La tabella è riportata in ordine decrescente a partire dal numero maggiore di tentativi non riusciti. |

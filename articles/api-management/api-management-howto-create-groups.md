@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 1587243bcd5f2b9af98b8b529c152ba49ef676be
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: f377e1aadc126934fb47f6371f12435d2742efa6
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure
 In Gestione API i gruppi permettono di gestire quali prodotti sono visibili per gli sviluppatori. I prodotti vengono innanzitutto resi visibili ai gruppi, quindi gli sviluppatori in quei gruppi possono visualizzare e sottoscriversi ai prodotti associati ai gruppi. 
 
-In Gestione API sono inclusi i gruppi di sistema non modificabili seguenti.
+Gestione API include i gruppi di sistema non modificabili seguenti:
 
 * **Amministratori** : gli amministratori delle sottoscrizioni di Azure sono membri di questo gruppo. Gli amministratori gestiscono le istanze del servizio Gestione API e creano le API, le operazioni e i prodotti usati dagli sviluppatori.
 * **Sviluppatori** : gli utenti autenticati del portale per sviluppatori rientrano in questo gruppo. Gli sviluppatori sono i clienti che compilano applicazioni usando le API. Agli sviluppatori viene concesso di accedere al portale per sviluppatori e di creare applicazioni che chiamano le operazioni di un'API.
@@ -32,77 +32,69 @@ Oltre a questi gruppi di sistema, gli amministratori possono creare gruppi perso
 
 Questa guida illustra come gli amministratori di un'istanza di Gestione API possono aggiungere nuovi gruppi e associarli a prodotti e sviluppatori.
 
-> [!NOTE]
-> Oltre a creare e gestire gruppi nel portale di pubblicazione, è possibile creare e gestire i gruppi utilizzando l'entità API REST di gestione [Gruppo](https://msdn.microsoft.com/library/azure/dn776329.aspx) .
-> 
-> 
+Oltre a creare e gestire gruppi nel portale di pubblicazione, è possibile creare e gestire i gruppi utilizzando l'entità API REST di gestione [Gruppo](https://msdn.microsoft.com/library/azure/dn776329.aspx) .
 
-## <a name="create-group"> </a>Creare un gruppo
-Per creare un nuovo gruppo, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API. Verrà visualizzato il portale di pubblicazione di Gestione API.
+## <a name="prerequisites"></a>prerequisiti
 
-![Portale di pubblicazione][api-management-management-console]
+Completare le attività riportate in questo articolo: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
-> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance].
-> 
-> 
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Fare clic su **Gruppi** dal menu **Gestione API** sulla sinistra, quindi scegliere **Aggiungi gruppo**.
+## <a name="create-group"></a>Creare un gruppo
 
-![Aggiungere un nuovo gruppo][api-management-add-group]
+In questa sezione viene illustrato come aggiungere un nuovo gruppo all'account di Gestione API.
 
-Immettere un nome univoco per il gruppo e una descrizione facoltativa, quindi fare clic su **Salva**.
+1. Selezionare la scheda **Gruppi** a sinistra della schermata.
+2. Fare clic su **+Aggiungi**.
+3. Immettere un nome univoco per il gruppo e una descrizione facoltativa.
+4. Fare clic su **Crea**.
 
-![Aggiungere un nuovo gruppo][api-management-add-group-window]
+    ![Aggiungere un nuovo gruppo](./media/api-management-howto-create-groups/groups001.png)
 
-Il nuovo gruppo viene visualizzato nella scheda relativa ai gruppi. Per modificare il **Nome** o la **Descrizione** del gruppo, fare clic sul nome del gruppo nell'elenco. Per eliminare il gruppo, fare clic su **Elimina**.
-
-![Gruppo aggiunto][api-management-new-group]
+Dopo averlo creato, il gruppo viene aggiunto all'elenco **Gruppi**. <br/>Per modificare il **nome** o la **descrizione** del gruppo, fare clic sul nome del gruppo e quindi scegliere **Impostazioni**.<br/>Per eliminare il gruppo, fare clic sul nome del gruppo e premere **CANC**.
 
 Ora che il gruppo è stato creato, può essere associato a prodotti e sviluppatori.
 
 ## <a name="associate-group-product"></a>Associare un gruppo a un prodotto
-Per associare un gruppo a un prodotto, fare clic su **Prodotti** dal menu **Gestione API** a sinistra, quindi fare clic sul nome del prodotto desiderato.
 
-![Visibilità dei prodotti][api-management-add-group-to-product]
+1. Selezionare la scheda **Prodotti** a sinistra.
+2. Fare clic sul nome del prodotto desiderato.
+3. Premere **Controllo di accesso**.
+4. Fare clic su **+ Aggiungi gruppo**.
 
-Selezionare la scheda **Visibilità** per aggiungere e rimuovere gruppi e per visualizzare gli attuali gruppi associati al prodotto. Per aggiungere o rimuovere gruppi, selezionare o deselezionare le caselle di controllo per i gruppi desiderati, quindi fare clic su **Salva**.
+    ![Aggiungere un nuovo gruppo](./media/api-management-howto-create-groups/groups002.png)
+5. Selezionare il gruppo a cui che si vuole aggiungere.
 
-![Visibilità dei prodotti][api-management-add-group-to-product-visibility]
+    ![Aggiungere un nuovo gruppo](./media/api-management-howto-create-groups/groups003.png)
 
-> [!NOTE]
-> Per aggiungere gruppi di Azure Active Directory, vedere [Come autorizzare gli account per sviluppatore usando Azure Active Directory in Gestione API di Azure](api-management-howto-aad.md).
-> 
-> Per configurare gruppi dalla scheda **Visibilità** per un prodotto, fare clic su **Gestisci gruppi**.
-> 
-> 
+    Per rimuovere un gruppo dal prodotto, fare clic su **Elimina**.
+
+    ![Eliminare un gruppo](./media/api-management-howto-create-groups/groups004.png)
 
 Dopo che un prodotto è stato associato a un gruppo, gli sviluppatori in quel gruppo possono visualizzare il prodotto e sottoscriversi ad esso.
 
+> [!NOTE]
+> Per aggiungere gruppi di Azure Active Directory, vedere [Come autorizzare gli account per sviluppatore usando Azure Active Directory in Gestione API di Azure](api-management-howto-aad.md).
+
 ## <a name="associate-group-developer"> </a>Associare gruppi a sviluppatori
-Per associare gruppi a sviluppatori, fare clic su **Utenti** dal menu **Gestione API** a sinistra, quindi selezionare la casella di controllo accanto agli sviluppatori da associare a un gruppo.
 
-![Aggiungere uno sviluppatore a un gruppo][api-management-add-group-to-developer]
+In questa sezione viene illustrato come associare gruppi ai membri.
 
-Dopo aver selezionato gli sviluppatori desiderati, fare clic sul gruppo desiderato nel menu a discesa **Aggiungi gruppo** . È possibile rimuovere sviluppatori dai gruppi usando l'elenco a discesa **Rimuovi da gruppo** . 
+1. Selezionare la scheda **Gruppi** a sinistra della schermata.
+2. Selezionare **Membri**.
 
-![Sviluppatori][api-management-add-group-to-developer-saved]
+    ![Aggiungere un membro](./media/api-management-howto-create-groups/groups005.png)
+3. Premere **+Aggiungi** e selezionare un membro.
+
+    ![Aggiungere un membro](./media/api-management-howto-create-groups/groups006.png)
+4. Fare clic su **Seleziona**.
+
 
 Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visualizzarla nella scheda **Utenti** .
 
-## <a name="next-steps"> </a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 * Dopo che uno sviluppatore è stato associato a un gruppo, potrà visualizzare i prodotti associati a quel gruppo e sottoscriversi ad essi. Per altre informazioni, vedere [Come creare e pubblicare un prodotto in Gestione API di Azure][How create and publish a product in Azure API Management],
 * Oltre a creare e gestire gruppi nel portale di pubblicazione, è possibile creare e gestire i gruppi utilizzando l'entità API REST di gestione [Gruppo](https://msdn.microsoft.com/library/azure/dn776329.aspx) .
-
-[api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
-[api-management-add-group]: ./media/api-management-howto-create-groups/api-management-add-group.png
-[api-management-add-group-window]: ./media/api-management-howto-create-groups/api-management-add-group-window.png
-[api-management-new-group]: ./media/api-management-howto-create-groups/api-management-new-group.png
-[api-management-add-group-to-product]: ./media/api-management-howto-create-groups/api-management-add-group-to-product.png
-[api-management-add-group-to-product-visibility]: ./media/api-management-howto-create-groups/api-management-add-group-to-product-visibility.png
-[api-management-add-group-to-developer]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer.png
-[api-management-add-group-to-developer-saved]: ./media/api-management-howto-create-groups/api-management-add-group-to-developer-saved.png
-
-[api-management-]: ./media/api-management-howto-create-groups/api-management-.png
 
 [Create a group]: #create-group
 [Associate a group with a product]: #associate-group-product
@@ -113,4 +105,4 @@ Dopo l'aggiunta dell'associazione tra sviluppatore e gruppo, è possibile visual
 
 [Get started with Azure API Management]: get-started-create-service-instance.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
+[leverage external groups in associated Azure Active Directory tenants]: api-management-howto-aad.md

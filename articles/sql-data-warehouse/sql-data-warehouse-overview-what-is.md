@@ -1,5 +1,5 @@
 ---
-title: "Che cos'è SQL Data Warehouse di Azure? | Documentazione Microsoft"
+title: "Che cos'è SQL Data Warehouse di Azure? | Microsoft Docs"
 description: "Database distribuito di livello aziendale, in grado di elaborare volumi di dati relazionali e non relazionali anche nell'ordine di petabyte. Si tratta del primo data warehouse basato sul cloud del settore con possibilità di aumento, riduzione e sospensione in pochi secondi."
 services: sql-data-warehouse
 documentationcenter: NA

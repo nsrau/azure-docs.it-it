@@ -106,7 +106,7 @@ La protezione dei dati inizia con il controllo dell'accesso ai dati. Il data cen
 Argomenti trattati in questa sezione:
 
 -   Firewall e regole del firewall
--   Autenticazione
+-   Authentication
 -   Authorization
 
 #### <a name="firewall-and-firewall-rules"></a>Firewall e regole del firewall
@@ -115,14 +115,14 @@ Il database SQL di Microsoft Azure fornisce un servizio di database relazionale 
 
 Il servizio [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) è disponibile solo tramite la porta TCP 1433. Per accedere al database SQL dal computer, assicurarsi che il firewall del computer client consenta la comunicazione TCP in uscita sulla porta TCP 1433. Se non sono necessarie per altre applicazioni, bloccare le connessioni in ingresso sulla porta TCP 1433.
 
-#### <a name="authentication"></a>Autenticazione
+#### <a name="authentication"></a>Authentication
 
 Per autenticazione del database SQL si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:
 
 -   **Autenticazione SQL:** quando viene creata un'istanza logica di SQL, viene creato un singolo account di accesso, denominato account sottoscrittore del database SQL. Tale account, che effettua la connessione con l'[autenticazione di SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome utente e password), è un amministratore nell'istanza logica del server e in tutti i database utente collegati a tale istanza. Le autorizzazioni dell'account sottoscrittore non possono essere soggette a restrizioni. Può esistere un solo account di questo tipo.
 -   **Autenticazione di Azure Active Directory:** l'[autenticazione di Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) è un meccanismo di connessione al database SQL di Microsoft Azure e ad Azure SQL Data Warehouse tramite le identità di Azure Active Directory (Azure AD). Ciò consente di gestire in modo centralizzato le identità degli utenti del database.
 
-![Autenticazione](./media/azure-databse-security-overview/azure-database-fig2.png)
+![Authentication](./media/azure-databse-security-overview/azure-database-fig2.png)
 
  I vantaggi dell'autenticazione di Azure Active Directory includono:
   - Offre un'alternativa all'autenticazione di SQL Server.

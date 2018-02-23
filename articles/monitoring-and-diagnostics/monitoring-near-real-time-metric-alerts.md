@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: d3e88a98e0ba93a630d131c25ca4dd5cb16f1b1a
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Avvisi metriche near real time (anteprima)
 Monitoraggio di Azure supporta ora un nuovo tipo di avvisi delle metriche denominati Avvisi metriche near real time (anteprima). Questa funzionalità è attualmente in anteprima pubblica.
@@ -57,26 +57,72 @@ L'elenco completo dei tipi di risorse che sono supportati dagli avvisi delle met
 * Microsoft.StreamAnalytics/streamingjobs
 * Microsoft.CognitiveServices/accounts
 
-## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Avvisi di metrica in tempo reale vicino alle metriche con dimensioni
-Quasi in tempo reale metrica avvisi supporta gli avvisi sulle metriche delle dimensioni. Le dimensioni sono un modo per filtrare l'unità di misura per il corretto livello. Quasi in tempo reale metrica gli avvisi sulle metriche delle dimensioni sono supportati per i seguenti tipi di risorse
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Avvisi quasi in tempo reale per le metriche con dimensioni
+Gli avvisi quasi in tempo reale sono supportati per le metriche con dimensioni. Le dimensioni rappresentano un modo per filtrare le metriche al livello corretto. Gli avvisi quasi in tempo reale per le metriche con dimensioni sono supportati per i tipi di risorsa seguenti
 
 * Microsoft.ApiManagement/service
-* Microsoft.Storage/storageAccounts (supportato solo per gli account di archiviazione nelle aree Stati Uniti)
-* Microsoft.Storage/storageAccounts/services (supportato solo per gli account di archiviazione nelle aree Stati Uniti)
+* Microsoft.Storage/storageAccounts (supportato solo per gli account di archiviazione nelle aree degli Stati Uniti)
+* Microsoft.Storage/storageAccounts/services (supportato solo per gli account di archiviazione nelle aree degli Stati Uniti)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Creare un avviso delle metriche near real time
 Attualmente gli avvisi delle metriche near real time possono essere creati solo tramite il portale di Azure. Il supporto per la configurazione degli avvisi delle metriche near real time tramite PowerShell, l'interfaccia della riga di comando (CLI) e API REST di Monitoraggio di Azure sarà presto disponibile.
 
-L'esperienza di avviso create per l'avviso di metrica quasi in tempo reale è stato spostato nella nuova **Alerts(Preview)** esperienza. Anche se gli avvisi correnti pagina vengono visualizzati **avviso aggiungere quasi in tempo reale metrica**, si verrà reindirizzati alla nuova esperienza.
+L'esperienza di creazione per gli avvisi delle metriche quasi in tempo reale è passata nella nuova esperienza **Avvisi (anteprima)**. Anche se la pagina Avvisi corrente visualizza **Aggiungi Avviso delle metriche quasi in tempo reale**, l'utente viene reindirizzato alla nuova esperienza.
 
-È possibile creare un avviso di metriche in tempo reale quasi eseguendo la procedura descritta [qui](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+È possibile creare un avviso delle metriche quasi in tempo reale tramite la procedura descritta [qui](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Gestione degli avvisi delle metriche near real time
-Dopo aver creato un **avviso quasi in tempo reale metrica**, può essere gestita mediante i passaggi descritti [qui](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+Dopo averlo creato, è possibile gestire un **avviso delle metriche in tempo reale** tramite la procedura descritta [qui](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+## <a name="payload-schema"></a>Schema del payload
+
+L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli avvisi delle metriche quasi in tempo reale.
+
+```json
+{
+    "WebhookName": "Alert1510875839452",
+    "RequestBody": {
+        "status": "Activated",
+        "context": {
+            "condition": {
+                "metricName": "Percentage CPU",
+                "metricUnit": "Percent",
+                "metricValue": "17.7654545454545",
+                "threshold": "1",
+                "windowSize": "10",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan"
+            },
+            "resourceName": "ContosoVM1",
+            "resourceType": "microsoft.compute/virtualmachines",
+            "resourceRegion": "westus",
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/automationtest/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "timestamp": "2017-11-16T23:54:03.9517451Z",
+            "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/microsoft.insights/alertrules/VMMetricAlert1",
+            "name": "VMMetricAlert1",
+            "description": "A metric alert for the VM Win2012R2",
+            "conditionType": "Metric",
+            "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ContosoVM/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
+            "resourceGroupName": "ContosoVM"
+        },
+        "properties": {
+                "key1": "value1",
+                "key2": "value2"
+        }
+    },
+    "RequestHeader": {
+        "Connection": "Keep-Alive",
+        "Host": "s1events.azure-automation.net",
+        "User-Agent": "azure-insights/0.9",
+        "x-ms-request-id": "00000000-0000-0000-0000-000000000000"
+    }
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ulteriori informazioni sulla nuova esperienza di avvisi (anteprima)](monitoring-overview-unified-alerts.md)
-* [Informazioni sugli avvisi di Log negli avvisi di Azure (anteprima)](monitor-alerts-unified-log.md)
-* [Informazioni sugli avvisi di Azure](monitoring-overview-alerts.md)
+* [Altre informazioni sulla nuova esperienza di avvisi (anteprima)](monitoring-overview-unified-alerts.md)
+* [Informazioni sugli avvisi relativi ai log negli avvisi di Azure (anteprima)](monitor-alerts-unified-log.md)
+* [Informazioni sugli avvisi in Azure](monitoring-overview-alerts.md)

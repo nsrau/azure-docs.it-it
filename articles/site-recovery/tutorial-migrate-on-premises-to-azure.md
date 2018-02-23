@@ -9,10 +9,10 @@ ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -37,7 +37,7 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 Prima di iniziare è utile esaminare le architetture [VMware](concepts-vmware-to-azure-architecture.md) o [Hyper-V](concepts-hyper-v-to-azure-architecture.md) per il ripristino di emergenza.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I dispositivi esportati da driver paravirtualizzati non sono supportati.
 
@@ -108,7 +108,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 1. In **Impostazioni** > **Elementi replicati** fare clic su computer > **Failover**.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino.
 3. L'impostazione della chiave di crittografia non è rilevante per questo scenario.
-4. Selezionare **Shut down machine before beginning failover** (Arrestare la macchina prima di iniziare il failover). Site Recovery proverà ad arrestare le macchine virtuali di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
+4. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery proverà ad arrestare le macchine virtuali di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 5. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
 6. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
 

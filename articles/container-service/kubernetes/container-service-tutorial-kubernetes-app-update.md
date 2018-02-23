@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5ecaa3a79270e29ac002e91065f7df4f7e8914e7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 34b08111863df99dc05a7b269464ce65a916a171
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Aggiornare un'applicazione in Kubernetes
 
@@ -79,7 +79,7 @@ Passare a http://localhost:8080 per vedere l'applicazione aggiornata.
 
 Applicare il tag loginServer del registro contenitori all'immagine `azure-vote-front`. 
 
-Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/acr#list).
+Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

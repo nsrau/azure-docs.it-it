@@ -36,7 +36,7 @@ Se si vuole usare uno script di esempio, vedere [Script di esempio per caricare 
     ```powershell
     Install-Module AzureRM.Compute -RequiredVersion 2.6.0
     ```
-    Per altre informazioni, vedere [Azure PowerShell Versioning](/powershell/azure/overview) (Controllo delle versioni di Azure PowerShell).
+    Per altre informazioni, vedere [Controllo delle versioni di Azure PowerShell](/powershell/azure/overview).
 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizzare la macchina virtuale Windows con Sysprep

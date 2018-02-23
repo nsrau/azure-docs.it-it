@@ -80,9 +80,9 @@ Per raccogliere avvisi, seguire questa procedura nel server Nagios.
 
 Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su **Avviso** e **SourceSystem** su **Nagios**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Tipo |*Avviso* |
+| type |*Avviso* |
 | SourceSystem |*Nagios* |
 | AlertName |Nome dell'avviso. |
 | AlertDescription | Descrizione dell'avviso. |
@@ -96,9 +96,9 @@ Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su 
 ### <a name="zabbix-alert-records"></a>Record di avvisi Zabbix
 Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su **Avviso** e **SourceSystem** su **Zabbix**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Tipo |*Avviso* |
+| type |*Avviso* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome dell'avviso. |
 | AlertPriority | Gravità dell'avviso<br><br>non classificata<br>Informazioni<br>Avviso<br>average<br>elevata<br>emergenza  |
@@ -113,4 +113,4 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sugli [avvisi](log-analytics-alerts.md) in Log Analytics.
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 

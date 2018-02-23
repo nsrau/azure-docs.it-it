@@ -16,7 +16,7 @@ ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -56,7 +56,7 @@ Gli script di esempio seguenti sono disponibili per l'automazione di diversi pro
 
 Questa sezione prende in considerazione uno script di esempio e analizza in dettaglio i vari passaggi necessari per eseguire lo script.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di disporre di:
 

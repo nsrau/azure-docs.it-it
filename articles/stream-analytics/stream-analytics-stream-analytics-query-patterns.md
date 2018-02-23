@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: samacha
-ms.openlocfilehash: a27bae1828bd469d4439e0ce43098edd73f54243
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ac5d3ab2a4df63c429f8478e392d84ac0ea6fd7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 ## <a name="introduction"></a>Introduzione
@@ -31,14 +31,14 @@ Il peso dell'auto, ad esempio, viene immesso nel flusso di input come stringa e 
 
 **Input**:
 
-| Casa automobilistica | Tempo | Peso |
+| Assicurarsi | Tempo | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
 
 **Output**:
 
-| Casa automobilistica | Peso |
+| Assicurarsi | Peso |
 | --- | --- |
 | Honda |3000 |
 
@@ -61,7 +61,7 @@ Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per 
 
 **Input**:
 
-| Casa automobilistica | Targa | Tempo |
+| Assicurarsi | Targa | Tempo |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -69,7 +69,7 @@ Verificare, ad esempio, che il risultato restituisca le targhe che iniziano per 
 
 **Output**:
 
-| Casa automobilistica | Targa | Tempo |
+| Assicurarsi | Targa | Tempo |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -91,7 +91,7 @@ Fornire ad esempio una stringa descrittiva relativa al numero di automobili dell
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Assicurarsi | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -126,7 +126,7 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Assicurarsi | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -136,7 +136,7 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
 
 **Output1**:
 
-| Casa automobilistica | Tempo |
+| Assicurarsi | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -146,7 +146,7 @@ Analizzare, ad esempio, i dati per un avviso basato su soglie e archiviare tutti
 
 **Output2**:
 
-| Casa automobilistica | Tempo | Conteggio |
+| Assicurarsi | Tempo | Conteggio |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -178,7 +178,7 @@ La prima è una query pass-through dei dati ricevuti per un output denominato **
 La seconda query effettua una semplice aggregazione, filtra e invia i risultati a un sistema di avviso downstream.
 
 È anche possibile riusare i risultati delle espressioni di tabella comune (CTE), ovvero le istruzioni **WITH**, in più istruzioni di output. Questa opzione offre il vantaggio aggiuntivo di aprire un numero inferiore di lettori nell'origine di input.
-Ad esempio: 
+Ad esempio:  
 
     WITH AllRedCars AS (
         SELECT
@@ -197,7 +197,7 @@ Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Assicurarsi | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -207,7 +207,7 @@ Ad esempio, quante automobili appartenenti alla stessa casa automobilistica sono
 
 **Output:**
 
-| Conteggio | Tempo |
+| CountMake | Tempo |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -233,14 +233,14 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
 
 **Input**:
 
-| Casa automobilistica | Tempo |
+| Assicurarsi | Tempo |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Output**:
 
-| Casa automobilistica | Tempo |
+| Assicurarsi | Tempo |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -261,7 +261,7 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
 
 **Input**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Assicurarsi | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -273,7 +273,7 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
 
 **Output**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Assicurarsi | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | QYF 9358 |Honda |27-07-2015T00:12:02.0000000Z |
@@ -291,7 +291,7 @@ L'auto precedente passata dal casello autostradale, ad esempio, è della stessa 
 
 Si ridefinirà ora il problema per trovare la prima auto di una particolare casa automobilistica a intervalli di 10 minuti.
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Assicurarsi | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -315,7 +315,7 @@ Si ridefinirà ora il problema per trovare la prima auto di una particolare casa
 
 **Input**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Assicurarsi | Tempo |
 | --- | --- | --- |
 | DXE 5291 |Honda |27-07-2015T00:00:05.0000000Z |
 | YZK 5704 |Ford |27-07-2015T00:02:17.0000000Z |
@@ -327,7 +327,7 @@ Si ridefinirà ora il problema per trovare la prima auto di una particolare casa
 
 **Output**:
 
-| Targa | Casa automobilistica | Tempo |
+| Targa | Assicurarsi | Tempo |
 | --- | --- | --- |
 | VFE 1616 |Toyota |27-07-2015T00:09:31.0000000Z |
 | MDR 6128 |BMW |27-07-2015T00:13:45.0000000Z |
@@ -361,7 +361,7 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 **Input**:
 
-| Casa automobilistica | Targa | Tempo |
+| Assicurarsi | Targa | Tempo |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -370,7 +370,7 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 **Output**:
 
-| Casa automobilistica | Tempo | Targa auto corrente | Targa prima auto | Tempo prima auto |
+| Assicurarsi | Tempo | Targa auto corrente | Targa prima auto | Tempo prima auto |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -394,14 +394,14 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 **Input**:  
 
-| Utente | Funzionalità | Evento | Tempo |
+| Utente | Funzionalità | Event | Tempo |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Inizia |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Output**:  
 
-| Utente | Funzionalità | Durata |
+| Utente | Funzionalità | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -423,7 +423,7 @@ Si supponga, ad esempio, che un bug abbia generato un peso errato per tutte le a
 
 **Input**:
 
-| Casa automobilistica | Tempo | Peso |
+| Assicurarsi | Tempo | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -512,6 +512,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

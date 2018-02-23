@@ -3,20 +3,21 @@
 ## [Confrontare le opzioni di Azure IoT](iot-suite-options.md)
 ## [Panoramica delle soluzioni preconfigurate](iot-suite-what-are-preconfigured-solutions.md)
 
-# Introduzione
+# Attività iniziali
 ## Monitoraggio remoto
 ### [Distribuire la soluzione preconfigurata](iot-suite-remote-monitoring-deploy.md)
 ### [Gestire la soluzione preconfigurata](iot-suite-remote-monitoring-explore.md)
 
 ## Monitoraggio remoto (versione precedente)
 ### [Che cosa sono le soluzioni preconfigurate?](iot-suite-v1-what-are-preconfigured-solutions.md)
-### [Domande frequenti](iot-suite-v1-faq.md)
+### [DOMANDE FREQUENTI](iot-suite-v1-faq.md)
 
 ### Attività iniziali
 #### [Introduzione alle soluzioni preconfigurate](iot-suite-v1-getstarted-preconfigured-solutions.md)
 #### [Autorizzazioni in azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Procedura dettagliata per la soluzione di monitoraggio remoto](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connettere Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+#### [Connettere MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Usare C
 ###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -58,7 +59,9 @@
 ### [Usare le regole per rilevare problemi](iot-suite-remote-monitoring-automate.md)
 ### [Gestire i dispositivi](iot-suite-remote-monitoring-manage.md)
 ### [Risolvere i problemi dei dispositivi](iot-suite-remote-monitoring-maintain.md)
-### [Usare i dispositivi simulati](iot-suite-remote-monitoring-test.md)
+### [Informazioni sullo schema del modello dei dispositivi](iot-suite-remote-monitoring-device-schema.md)
+### [Informazioni sul comportamento del modello dei dispositivi](iot-suite-remote-monitoring-device-behavior.md)
+### [Creare un nuovo dispositivo simulato](iot-suite-remote-monitoring-test.md)
 ### [Personalizzare la soluzione](iot-suite-remote-monitoring-customize.md)
 ### [Distribuire usando l'interfaccia della riga di comando](iot-suite-remote-monitoring-deploy-cli.md)
 ### Connettere un dispositivo fisico
@@ -74,7 +77,7 @@
 ## Connected factory
 ### [Distribuire un gateway per connected factory](iot-suite-connected-factory-gateway-deployment.md)
 ### [Personalizzare la factory connessa](iot-suite-connected-factory-customize.md)
-### [Usare il modulo di pubblicazione OPC per la fabbrica connessa](iot-suite-connected-factory-publisher.md)
+### [Usare il modulo di pubblicazione OPC per la fabbrica connessa](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Configurare la soluzione di connected factory](iot-suite-connected-factory-configure.md)
 ## [Autorizzazioni in azureiotsuite.com](iot-suite-permissions.md)
 
@@ -87,7 +90,7 @@
 ## [Sicurezza sin dall'inizio](securing-iot-ground-up.md)
 
 # Risorse correlate
-## [Analisi di flusso](/azure/stream-analytics/)
+## [Analisi dei flussi](/azure/stream-analytics/)
 ## [Hub eventi](/azure/event-hubs/)
 ## [Hub IoT](/azure/iot-hub/)
 ## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
@@ -95,6 +98,6 @@
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
-## [Domande frequenti](iot-suite-faq.md)
+## [DOMANDE FREQUENTI](iot-suite-faq.md)
 ## [Domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md)
 ## [Percorso di apprendimento per IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

@@ -16,7 +16,7 @@ ms.date: 04/27/2017
 ms.author: bryanla
 ms.openlocfilehash: 27a884b89224ed5765e9fcef134e711e3952ff72
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

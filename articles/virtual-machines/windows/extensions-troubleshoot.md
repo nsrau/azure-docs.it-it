@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="viewing-extension-status"></a>Visualizzazione dello stato dell'estensione
 I modelli di Azure Resource Manager possono essere eseguiti da Azure PowerShell. Una volta che il modello viene eseguito, è possibile visualizzare lo stato dell'estensione da Esplora risorse di Azure o dagli strumenti da riga di comando.
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
 Azure PowerShell:
 

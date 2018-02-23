@@ -33,7 +33,7 @@ Dopo aver completato questo processo, è possibile registrarsi per le categorie 
 > [!NOTE]
 > I progetti creati con Windows Store e Windows Phone 8.1 e versioni precedenti non sono supportati in Visual Studio 2017. Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione a Hub di notifica][get-started]. Prima di iniziare l'esercitazione, è necessario completare l'esercitazione [Introduzione a Hub di notifica][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app

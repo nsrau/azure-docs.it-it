@@ -30,9 +30,9 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 | ------------- | ------------- |
 | Che cos'è?   | Motore di query SQL open source su Big data    |
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux  |
-| Come viene configurato o installato sulla macchina virtuale per data science?      |  Installato in `/dsvm/tools/drill*` solo in modalità incorporata   |
+| Come viene configurata o installata sulla macchina virtuale per data science?      |  Installato in `/dsvm/tools/drill*` solo in modalità incorporata   |
 | Usi tipici      |  Esplorazione dei dati locali senza la necessità di usare ETL. Esecuzione di query su origini dati e formati diversi tra cui CSV, JSON, tabelle relazionali, Hadoop     |
-| Come usarlo o eseguirlo?      | Collegamento sul desktop  <br/> [Introduzione a Drill in 10 minuti](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| Come usarla o eseguirla?      | Collegamento sul desktop  <br/> [Introduzione a Drill in 10 minuti](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Strumenti correlati nella macchina virtuale per data science      |   Rattle, Weka, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
@@ -61,6 +61,6 @@ Un passaggio fondamentale del data science consiste nel comprendere i dati. Gli 
 | Che cos'è?   | Strumento di visualizzazione dei dati interattivo e di BI    |
 | Versioni supportate della macchina virtuale per data science      | Windows  |
 | Usi tipici      |  Visualizzazione dei dati e creazione di dashboard   |
-| Come usarlo o eseguirlo?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Come usarla o eseguirla?      | Collegamento sul desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

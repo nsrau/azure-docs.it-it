@@ -38,16 +38,16 @@ Per creare un database di Azure per il server PostgreSQL, seguire questa procedu
 
 3. Compilare il modulo dei dettagli del nuovo server con le informazioni seguenti, come illustrato nell'immagine precedente:
 
-    Impostazione|Valore consigliato|Descrizione
+    Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
     Nome server |*mypgserver-20170401*|Nome univoco per identificare il database di Azure per il server PostgreSQL. Al nome del server specificato viene aggiunto il nome di dominio *postgres.database.azure.com*. Il server può contenere solo lettere minuscole, numeri e il segno meno (-). Deve contenere almeno da 3 a 63 caratteri.
     Sottoscrizione|Sottoscrizione in uso|Sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Gruppo di risorse|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
     Accesso amministratore server |*mylogin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** o **public**. Non può iniziare con **pg_**.
     Password |A scelta dell'utente | Nuova password per l'account amministratore del server. Deve avere una lunghezza compresa tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici (!, $, #, % e così via).
-    Percorso|Area più vicina ai propri utenti| Località più vicina agli utenti.
+    Località|Area più vicina ai propri utenti| Località più vicina agli utenti.
     Versione di PostgreSQL|Ultima versione| Versione più recente a meno che non si abbiano requisiti specifici.
-    Piano tariffario  | **Basic**, **50 unità di calcolo**, **50 GB** | Livello di servizio e livello di prestazioni per il nuovo database. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Basic**. Selezionare quindi l lato sinistro del dispositivo di scorrimento **Unità di calcolo** per impostare il valore sulla quantità minima disponibile per questa guida introduttiva. Per salvare la selezione del piano tariffario, selezionare **OK**. Per altre informazioni, vedere lo screenshot seguente. 
+    Piano tariffario | **Basic**, **50 unità di calcolo**, **50 GB** | Livello di servizio e livello di prestazioni per il nuovo database. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Basic**. Selezionare quindi l lato sinistro del dispositivo di scorrimento **Unità di calcolo** per impostare il valore sulla quantità minima disponibile per questa guida introduttiva. Per salvare la selezione del piano tariffario, selezionare **OK**. Per altre informazioni, vedere lo screenshot seguente. 
     Aggiungi al dashboard | Controllo | Consente di tenere facilmente traccia del server nella pagina iniziale del dashboard del portale.
 
     > [!IMPORTANT]
@@ -122,7 +122,7 @@ Sono diverse le applicazioni che è possibile usare per connettere il database d
     psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
     ```
 
-    Parametro psql |Valore consigliato|Descrizione
+    Parametro psql |Valore consigliato|DESCRIZIONE
     ---|---|---
     --host | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio visualizzato è **mypgserver-20170401.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
     --port | 5432 | Porta da usare quando ci si connette al database di Azure per il server PostgreSQL. 
@@ -131,7 +131,7 @@ Sono diverse le applicazioni che è possibile usare per connettere il database d
 
     Dopo avere eseguito il comando psql con i propri valori dei parametri, verrà richiesto di immettere la password amministratore server. Si tratta della stessa password specificata al momento della creazione del server. 
 
-    Parametro psql |Valore consigliato|Descrizione
+    Parametro psql |Valore consigliato|DESCRIZIONE
     ---|---|---
     password | Password amministratore dell'utente | I caratteri della password digitati non verranno visualizzati nel prompt di Bash. Dopo avere digitato tutti i caratteri, premere **INVIO** per eseguire l'autenticazione e la connessione.
 
@@ -185,7 +185,7 @@ Per connettersi al server PostgreSQL di Azure usando lo strumento dell'interfacc
 
    ![Scheda "Connection" (Connessione)](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    Parametro di pgAdmin |Valore consigliato|Descrizione
+    Parametro di pgAdmin |Valore consigliato|DESCRIZIONE
     ---|---|---
     Host Name/Address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mypgserver-20170401.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
     Porta | 5432 | Porta da usare quando ci si connette al database di Azure per il server PostgreSQL. 
@@ -193,7 +193,7 @@ Per connettersi al server PostgreSQL di Azure usando lo strumento dell'interfacc
     Username | Nome di accesso amministratore server | Nome utente di accesso amministratore del server specificato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Se non si ricorda il nome utente, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *username@servername*.
     Password | Password amministratore dell'utente | Password scelta in precedenza in questa guida introduttiva durante la creazione del server.
     Ruolo | Lasciare vuoto | Non è necessario specificare un nome di ruolo in questa fase. Lasciare vuoto questo campo.
-    SSL Mode (Modalità SSL) | Obbligatorio | Per impostazione predefinita, tutti i server PostgreSQL di Azure vengono creati con l'opzione di applicazione del protocollo SSL attivata. Per disattivare l'applicazione, vedere [Applicare SSL](./concepts-ssl-connection-security.md).
+    SSL Mode (Modalità SSL) | Obbligatoria | Per impostazione predefinita, tutti i server PostgreSQL di Azure vengono creati con l'opzione di applicazione del protocollo SSL attivata. Per disattivare l'applicazione, vedere [Applicare SSL](./concepts-ssl-connection-security.md).
     
 5. Selezionare **Salva**.
 

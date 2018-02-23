@@ -30,7 +30,7 @@ Questa esercitazione illustra come configurare il cloud per il provisioning auto
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
@@ -68,7 +68,7 @@ Il passaggio successivo consiste nel collegare il servizio Device Provisioning e
 2. Nella pagina Device Provisioning Service (Servizio Device Provisioning) fare clic su **Linked IoT hubs** (Hub IoT collegati).
 3. Fare clic su **Aggiungi**.
 4. Nella pagina **Add link to IoT hub** (Aggiungi collegamento all'hub IoT) usare i pulsanti di opzione per specificare se l'hub IoT collegato si trova nella sottoscrizione attuale o in una sottoscrizione diversa. Scegliere quindi il nome dell'hub IoT dalla casella **IoT Hub** (Hub IoT).
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
    ![Collegare il nome dell'hub da associare a DPS nel portale](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
@@ -93,7 +93,7 @@ Altre esercitazioni della raccolta si basano su questa. Se si prevede di continu
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Usare il portale di Azure per creare un servizio Device Provisioning in hub IoT e ottenere l'ambito ID

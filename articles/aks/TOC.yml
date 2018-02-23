@@ -35,30 +35,46 @@
       href: container-service-quotas.md
 - name: Guide alle procedure
   items:
-    - name: Ridimensionare un cluster del servizio contenitore di Azure
-      href: scale-cluster.md
-    - name: Aggiornare un cluster del servizio contenitore di Azure
-      href: upgrade-cluster.md
-    - name: Eseguire l'autenticazione con Registro contenitori di Azure
-      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Eseguire applicazioni con Helm
-      href: kubernetes-helm.md
-    - name: Sviluppare applicazioni con Draft
-      href: kubernetes-draft.md
-    - name: Eseguire l'integrazione con Azure tramite OSBA
-      href: integrate-azure.md
-    - name: Usare il dashboard Kubernetes
-      href: kubernetes-dashboard.md
-    - name: Creare un'entità servizio
-      href: kubernetes-service-principal.md
+    - name: Operazioni del cluster
+      items:
+        - name: Creare un cluster del servizio contenitore di Azure
+          href: create-cluster.md
+        - name: Ridimensionare un cluster del servizio contenitore di Azure
+          href: scale-cluster.md
+        - name: Aggiornare un cluster del servizio contenitore di Azure
+          href: upgrade-cluster.md
+        - name: Eliminare un cluster del servizio contenitore di Azure
+          href: delete-cluster.md
     - name: Configurare i volumi di dati
       items:
-        - name: Dischi di Azure - Volume permanente
+        - name: Dischi di Azure
           href: azure-disks-dynamic-pv.md
-        - name: File di Azure - Volume permanente
+        - name: File di Azure
           href: azure-files-dynamic-pv.md
-        - name: File di Azure - Volume
-          href: azure-files.md
+    - name: Configurare le impostazioni di rete
+      items:
+        - name: Indirizzo IP statico
+          href: static-ip.md
+    - name: Sicurezza e autenticazione
+      items:
+        - name: Creare un'entità servizio
+          href: kubernetes-service-principal.md
+        - name: Eseguire l'autenticazione con Registro contenitori di Azure
+          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Sviluppare ed eseguire applicazioni
+      items:
+        - name: Eseguire applicazioni con Helm
+          href: kubernetes-helm.md
+        - name: Sviluppare applicazioni con Draft
+          href: kubernetes-draft.md
+        - name: Open Service Broker for Azure
+          href: integrate-azure.md
+        - name: Distribuzione continua di Jenkins
+          href: jenkins-continuous-deployment.md
+    - name: Nozioni di base di Kubernetes
+      items:
+        - name: Usare il dashboard Kubernetes
+          href: kubernetes-dashboard.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -79,3 +95,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: Domande frequenti
+      href: faq.md

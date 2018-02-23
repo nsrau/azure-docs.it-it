@@ -42,7 +42,7 @@ Tra le altre cose, la panoramica delle applicazioni include:
 * **Sessioni**: una sessione indica un uso dell'applicazione da parte di un utente, dal momento in cui inizia a usarla fino a quando finisce.
 * **Tendenze delle sessioni**: l'evoluzione delle sessioni nelle ultime due settimane.
 
-Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. ad esempio:    
+Dopo avere fatto clic su un'applicazione, è possibile avviare il monitoraggio e la gestione delle app tramite l'interfaccia utente. Ad esempio:     
 
 * [Monitorare in tempo reale i dati relativi all'applicazione](mobile-engagement-user-interface-monitor.md)
 * [Analizzare i dati cronologici sull'applicazione](mobile-engagement-user-interface-analytics.md)
@@ -64,7 +64,7 @@ Fare clic su un progetto per visualizzare tutte le applicazioni che ne fanno par
 
 ![Home2][3]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Concetti][Link 6]
 * [Guida alla risoluzione dei problemi - Assistenza][Link 24]
 

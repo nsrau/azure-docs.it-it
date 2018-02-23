@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/28/2017
+ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
  Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime, l'SDK e gli strumenti. È anche necessario abilitare l'esecuzione di script Windows PowerShell inclusi nell'SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 ### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
 Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
@@ -41,9 +41,10 @@ Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 * Windows 10
 
 > [!NOTE]
-> Per impostazione predefinita, Windows 7 include solo Windows PowerShell 2.0. I cmdlet di PowerShell per Service Fabric richiedono PowerShell 3.0 o versione successiva. È possibile [scaricare Windows PowerShell 5.0][powershell5-download] dall'Area download Microsoft.
-> 
-> 
+> Supporto per Windows 7:
+> - Per impostazione predefinita, Windows 7 include solo Windows PowerShell 2.0. I cmdlet di PowerShell per Service Fabric richiedono PowerShell 3.0 o versione successiva. È possibile [scaricare Windows PowerShell 5.0][powershell5-download] dall'Area download Microsoft.
+> - Il proxy inverso di Service Fabric non è disponibile in Windows 7.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>Installare l'SDK e gli strumenti
 ### <a name="to-use-visual-studio-2017"></a>Per usare Visual Studio 2017
@@ -62,11 +63,10 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 Le versioni correnti sono:
-* Service Fabric SDK 2.8.232
-* Runtime di Service Fabric 6.0.232
-* Strumenti di Service Fabric per Visual Studio 2015 1.8.51024.1
-* Visual Studio 2017 Update 3 include Strumenti di Service Fabric per Visual Studio 1.7.20170817
-* Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) include Strumenti di Service Fabric per Visual Studio 1.7.20170721
+* SDK e strumenti di Service Fabric 3.0.456
+* Runtime di Service Fabric 6.1.456
+* Strumenti di Service Fabric per Visual Studio 2015 2.0.10124.2
+* Visual Studio 2017 15.5.6 include Strumenti di Service Fabric per Visual Studio 2.0.20180124.2 
 
 Per un elenco delle versioni supportate, vedere [Service Fabric support](service-fabric-support.md) (Supporto di Service Fabric)
 

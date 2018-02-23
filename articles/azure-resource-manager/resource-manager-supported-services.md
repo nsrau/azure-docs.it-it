@@ -243,7 +243,7 @@ West US
 ...
 ```
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 
 Per visualizzare tutti i provider di risorse in Azure e lo stato di registrazione di una sottoscrizione, selezionare **Sottoscrizioni**.
 

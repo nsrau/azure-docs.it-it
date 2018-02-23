@@ -38,7 +38,7 @@ In primo luogo, è necessario caricare il file di input desiderato in Servizi mu
 ### <a id="configuration"></a>Set di impostazioni di configurazione per Hyperlapse
 Dopo aver caricato il contenuto nel proprio account di Servizi multimediali, è necessario costruire il set di impostazioni di configurazione.  La tabella seguente illustra i campi specificati dall'utente:
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | --- | --- |
 | StartFrame |Il fotogramma a partire dal quale deve iniziare l'elaborazione di Microsoft Hyperlapse. |
 | NumFrames |Il numero di fotogrammi da elaborare |

@@ -45,7 +45,7 @@ L'integrazione di un cluster HPC Pack con Azure AD consente di raggiungere gli o
     ![Ambiente di Azure Active Directory](./media/hpcpack-cluster-active-directory/aad.png)
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Cluster HPC Pack 2016 distribuito nelle macchine virtuali di Azure**: per la procedura vedere [Distribuire un cluster HPC Pack 2016 in Azure](hpcpack-2016-cluster.md). Per completare la procedura descritta in questo articolo, sono necessari il nome DNS del nodo head e le credenziali di un amministratore del cluster.
 
   > [!NOTE]
@@ -70,7 +70,7 @@ L'integrazione di un cluster HPC Pack con Azure AD consente di raggiungere gli o
 5. Dopo aver aggiunto l'app, selezionarla nell'elenco **Registrazioni per l'app**. Quindi fare clic su **Impostazioni** > **proprietà**. Immettere le seguenti informazioni:
     * Selezionare **Sì** per **Multi-tenant**.
     * Cambiare **URI ID app** in `https://<Directory_name>/<application_name>`. Sostituire `<Directory_name`> con il nome completo del tenant di Azure AD, ad esempio `hpclocal.onmicrosoft.com` e sostituire `<application_name>` con il nome scelto in precedenza.
-6. Fare clic su **Salva**. Quando viene completato il salvataggio, nella pagina dell'app fare clic su **Manifesto**. Modificare il manifesto individuando l'impostazione `appRoles` e aggiungendo il ruolo dell'applicazione seguente, quindi fare clic su **Salva**:
+6. Fare clic su **Save**. Quando viene completato il salvataggio, nella pagina dell'app fare clic su **Manifesto**. Modificare il manifesto individuando l'impostazione `appRoles` e aggiungendo il ruolo dell'applicazione seguente, quindi fare clic su **Salva**:
 
   ```json
   "appRoles": [
@@ -99,7 +99,7 @@ L'integrazione di un cluster HPC Pack con Azure AD consente di raggiungere gli o
   ],
   ```
 7. In **Azure Active Directory** fare clic su **Applicazioni aziendali** > **Tutte le applicazioni**. Selezionare **HPCPackClusterServer** nell'elenco.
-8. Fare clic su **Proprietà** e cambiare **Assegnazione utenti obbligatoria** in **Sì**. Fare clic su **Salva**.
+8. Fare clic su **Proprietà** e cambiare **Assegnazione utenti obbligatoria** in **Sì**. Fare clic su **Save**.
 9. Fare clic su **Utenti e gruppi** > **Aggiungi utente**. Selezionare un utente e un ruolo, quindi fare clic su **Assegna**. Assegnare uno dei ruoli disponibili (HpcUsers o HpcAdminMirror) all'utente. Ripetere questo passaggio con altri utenti nella directory. Per informazioni generali sugli utenti del cluster, vedere [Gestione di utenti cluster](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0edec15c7f14ee5338555b03700b7be32c3a1023
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 437c45891d1d20f5fadca8a58954185a3aef56ac
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -27,7 +27,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Analizzare i dettagli delle visualizzazioni pagina usando il linguaggio di query
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -63,6 +63,14 @@ Application Insights raccoglie i dettagli sulle prestazioni per le diverse opera
 5.  In questo esempio si può notare che un numero significativo di richieste impiega oltre un secondo per l'elaborazione. È possibile visualizzare i dettagli di questa operazione facendo clic su **Dettagli dell'operazione**.
 
     ![Dettagli dell'operazione](media/app-insights-tutorial-performance/operation-details.png)
+
+    > [!NOTE]
+    Abilitare la [versione di anteprima](app-insights-previews.md) di "Unified details: E2E Transaction Diagnostics" (Dettagli unificati: diagnostica della transazione end-to-end) per visualizzare in un'unica vista tutti i relativi dati di telemetria sul lato server come richieste, dipendenze, eccezioni, tracce, eventi e così via. 
+
+    Con l'anteprima abilitata è possibile visualizzare il tempo impiegato nelle chiamate di dipendenza, insieme a eventuali errori o eccezioni in un'esperienza unificata. Per le transazioni tra componenti, il diagramma di Gantt e il riquadro dei dettagli consentono di diagnosticare rapidamente il componente, la dipendenza o l'eccezione che provoca il problema. È possibile espandere la sezione nella parte inferiore per visualizzare la sequenza temporale di tracce o eventi raccolti per il funzionamento del componente selezionato. [Altre informazioni sulla nuova esperienza](app-insights-transaction-diagnostics.md)  
+
+    ![Diagnostica delle transazioni](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
+
 
 6.  Le informazioni raccolte finora confermano semplicemente un rallentamento delle prestazioni, senza individuarne la causa radice.  Il **Profiler** può essere utile poiché visualizza il codice effettivo che è stato eseguito per l'operazione e il tempo richiesto per ogni passaggio. Alcune operazioni potrebbero non avere una traccia dal momento che il profiler viene eseguito periodicamente.  Nel corso del tempo dovrebbero essere disponibili tracce per più operazioni.  Per avviare il profiler per l'operazione, fare clic su **Tracce Profiler**.
 5.  La traccia mostra i singoli eventi per ogni operazione, in modo da poter diagnosticare la causa radice per la durata dell'operazione complessiva.  Fare clic su uno dei primi esempi, che hanno una durata maggiore.

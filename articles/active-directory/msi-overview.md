@@ -3,7 +3,7 @@ title: "Identità del servizio gestito per Azure Active Directory"
 description: "Panoramica dell'Identità del servizio gestito per le risorse di Azure."
 services: active-directory
 documentationcenter: 
-author: skwan
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/19/2017
-ms.author: bryanla
-ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.author: skwan
+ms.openlocfilehash: b28f5c7c90783c5abd933b50ddb9631739b8f421
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/29/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
 
@@ -63,6 +63,8 @@ Eseguire un'esercitazione relativa a Identità del servizio gestito per informaz
 |                    | [Accedere a una risorsa non Azure AD con l'identità del servizio gestito di una macchina virtuale Linux e con Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
 | Servizio app di Azure  | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
 | Funzione di Azure     | [Usare Identità del servizio gestito con Funzioni di Azure o Servizio app di Azure](/azure/app-service/app-service-managed-service-identity) |
+| Bus di servizio di Azure  | [Usare l'identità del servizio gestito con il bus di servizio di Azure](../service-bus-messaging/service-bus-managed-service-identity.md) |
+| Hub eventi di Azure   | [Usare l'identità del servizio gestito con Hub eventi di Azure](../event-hubs/event-hubs-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>Quali servizi di Azure supportano l'Identità del servizio gestito?
 
@@ -89,8 +91,8 @@ I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati 
 | Azure Key Vault | https://vault.azure.net/ | Disponibile | Settembre 2017 | |
 | Azure Data Lake | https://datalake.azure.net/ | Disponibile | Settembre 2017 | |
 | SQL di Azure | https://database.windows.net/ | Disponibile | Ottobre 2017 | |
-| Hub eventi di Azure | https://eventhubs.Azure.NET/ | Disponibile | 2017 dicembre | |
-| Bus di servizio di Azure | https://ServiceBus.Azure.NET/ | Disponibile | 2017 dicembre | |
+| Hub eventi di Azure | https://eventhubs.azure.net/ | Disponibile | Dicembre 2017 | |
+| Bus di servizio di Azure | https://servicebus.azure.net/ | Disponibile | Dicembre 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quanto costa Identità del servizio gestito?
 

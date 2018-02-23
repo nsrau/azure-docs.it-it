@@ -50,7 +50,7 @@ Nella tabella seguente viene riepilogata la configurazione di rete per entrambi 
 **Tabella di configurazione di rete**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Nome di rete virtuale     |RETE VIRTUALE-01|RETE VIRTUALE-02 |
+|Nome di rete virtuale     |VNET-01|VNET-02 |
 |Spazio degli indirizzi di rete virtuale |10.0.10.0/23|10.0.20.0/23|
 |Nome della subnet     |Subnet-01|Subnet-02|
 |Intervallo di indirizzi subnet|10.0.10.0/24 |10.0.20.0/24 |
@@ -94,13 +94,13 @@ Un amministratore del servizio può accedere con un tenant per testare i piani, 
     ![Crea nuova rete virtuale](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 3. Passare a **Marketplace**, quindi selezionare **rete**.
-4. Selezionare **rete virtuale**.
+4. Selezionare **Rete virtuale**.
 5. Per **nome**, **lo spazio degli indirizzi**, **nome Subnet**, e **intervallo di indirizzi di Subnet**, utilizzare i valori visualizzati in precedenza nella rete tabella di configurazione.
 6. In **sottoscrizione**, viene visualizzata la sottoscrizione creata in precedenza.
 7. Per **gruppo di risorse**, è possibile creare un gruppo di risorse o se si dispone già di uno, selezionare **utilizzare esistente**.
 8. Verificare la località predefinita.
 9. Selezionare **Aggiungi al dashboard**.
-10. Selezionare **Crea**.
+10. Selezionare **Create**.
 
 ### <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 1. Nel dashboard, aprire la risorsa di rete virtuale 01 / rete virtuale creata in precedenza.
@@ -125,7 +125,7 @@ Un amministratore del servizio può accedere con un tenant per testare i piani, 
 7. In **nome**, immettere **GW1 PiP**, quindi selezionare **OK**.
 8.  Per impostazione predefinita, per **tipo VPN**, **basato su Route** è selezionata.
     Mantenere il **basato su Route** tipo VPN.
-9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Crea**.
+9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
 
 ### <a name="create-the-local-network-gateway"></a>Creare il gateway di rete locale
 L'implementazione di un *gateway di rete locale* in questa distribuzione di valutazione di Azure Stack è un po' diversa da quella di una distribuzione di Azure effettiva.
@@ -184,13 +184,13 @@ Un amministratore del servizio può accedere con un tenant per testare i piani, 
 1. Accedi con un account del tenant.
 2. Nel portale per gli utenti, selezionare **New**.
 3. Passare a **Marketplace**, quindi selezionare **rete**.
-4. Selezionare **rete virtuale**.
+4. Selezionare **Rete virtuale**.
 5. Utilizzare le informazioni visualizzate in precedenza nella tabella di configurazione di rete per identificare i valori per il POC2 **nome**, **lo spazio degli indirizzi**, **nome Subnet**e **Intervallo di indirizzi di subnet**.
 6. In **sottoscrizione**, viene visualizzata la sottoscrizione creata in precedenza.
 7. Per **gruppo di risorse**, creare un nuovo gruppo di risorse o, se già presente, selezionare **utilizzare esistente**.
 8. Verificare il valore predefinito **percorso**.
 9. Selezionare **Aggiungi al dashboard**.
-10. Selezionare **Crea**.
+10. Selezionare **Create**.
 
 ### <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 1. Aprire la risorsa di rete virtuale creata (**rete virtuale-02**) dal dashboard.
@@ -211,7 +211,7 @@ Un amministratore del servizio può accedere con un tenant per testare i piani, 
 7. In **nome**, immettere **GW2 PiP**, quindi selezionare **OK**.
 8. Per impostazione predefinita, per **tipo VPN**, **basato su Route** è selezionata.
     Mantenere il **basato su Route** tipo VPN.
-9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Crea**.
+9. Verificare che la **Sottoscrizione** e la **Località** siano corrette. È possibile aggiungere la risorsa al dashboard. Selezionare **Create**.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Creare la risorsa di gateway di rete locale
 
@@ -365,4 +365,4 @@ Se si desidera conoscere la quantità di dati passa attraverso la connessione si
 2. Passare a **tutte le risorse**, quindi selezionare il **POC2 POC1** connessione. **Connessioni** viene visualizzato.
 4. Nel **connessione** blade, le statistiche per **dati** e **i dati in uscita** vengono visualizzati. Nella schermata seguente, con un numero elevato per il trasferimento di file aggiuntivi. Dovrebbe essere presente alcuni valori diversi da zero.
    
-    ![Dati in e out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![Dati in ingresso e in uscita](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)

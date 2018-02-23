@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4d0cbe09b1482221f88e57eed249fc2b56eec10d
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4d74d9c39a5ea22abf496666304249418079cc0d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creare un'app Web PHP nel Servizio app in Linux
 
@@ -31,7 +31,9 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 !![App di esempio in esecuzione in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
+È possibile seguire la procedura disponibile in questo articolo con un computer Mac, Windows o Linux.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -39,8 +41,6 @@ Per completare questa guida introduttiva:
 
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 * <a href="https://php.net" target="_blank">Installare PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -84,6 +84,8 @@ Passare al sito per visualizzare l'app Web con immagine incorporata appena creat
 ```bash
 http://<app_name>.azurewebsites.net
 ```
+
+Ecco l'aspetto che avrà la nuova app Web:
 
 ![Pagina dell'app Web vuota](media/quickstart-php/app-service-web-service-created.png)
 

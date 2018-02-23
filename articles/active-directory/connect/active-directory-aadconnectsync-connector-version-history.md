@@ -1,9 +1,9 @@
 ---
-title: Cronologia del rilascio delle versioni dei connettori | Documentazione Microsoft
+title: Cronologia del rilascio delle versioni dei connettori | Microsoft Docs
 description: Questo argomento include l'elenco di tutte le versioni dei connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM)
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
-ms.author: fimguy
-ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: billmath
+ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="connector-version-release-history"></a>Cronologia di rilascio delle versioni dei connettori
 I connettori per Forefront Identity Manager (FIM) e Microsoft Identity Manager (MIM) vengono aggiornati frequentemente.
@@ -44,7 +44,7 @@ Collegamenti correlati:
 
 * Lotus Notes:
   * Opzione filtro dei file di certificazione personalizzati
-  * Importazione della classe ImportOperations corretto la definizione di operazioni che possono essere eseguite in modalità 'Viste' e che in modalità 'Cerca'.
+  * Con l'importazione della classe ImportOperations è stata corretta la definizione di quali operazioni possono essere eseguite in modalità Viste e quali in modalità Ricerca.
 * Generic LDAP:
   * La directory Open LDAP usa DN come ancoraggio anziché entryUUI. Nuova opzione per il connettore GLDAP che consente di modificare l'ancoraggio
 * Generic SQL:
@@ -122,8 +122,8 @@ Data di rilascio: marzo 2017
 ### <a name="enhancements"></a>Miglioramenti
 
 * Generic SQL:</br>
-  **Sintomi di scenario:** è una limitazione nota con il connettore di SQL in cui è solo consentire un riferimento a un tipo di oggetto e richiedono un riferimento incrociato con membri. </br>
-  **Descrizione soluzione:** In fase di elaborazione per i riferimenti sono stati "*" viene scelto l'opzione, tutte le combinazioni di tipi di oggetto verranno restituite al motore di sincronizzazione.
+  **Sintomi dello scenario:** un limite noto del connettore SQL è quello di consentire il riferimento a un solo tipo di oggetto e richiedere un riferimento incrociato ai membri. </br>
+  **Descrizione della soluzione:** nella fase di elaborazione, per i riferimenti per i quali si è scelta l'opzione * saranno restituite al motore di sincronizzazione TUTTE le combinazioni di tipi di oggetto.
 
 >[!Important]
 - In questo modo vengono creati molti segnaposti
@@ -131,7 +131,7 @@ Data di rilascio: marzo 2017
 
 
 * Generic LDAP:</br>
- **Scenario:** se solo alcuni contenitori sono selezionati in una partizione specifica, quindi la ricerca ancora verrà eseguita in intera partizione. La partizione specifica sarà filtrata dal servizio di sincronizzazione ma non dal MA, il che potrebbe causare un calo delle prestazioni. </br>
+ **Scenario:** anche quando sono selezionati solo pochi contenitori della partizione specifica, la ricerca viene comunque eseguita nell'intera partizione. La partizione specifica sarà filtrata dal servizio di sincronizzazione ma non dal MA, il che potrebbe causare un calo delle prestazioni. </br>
 
  **Descrizione della soluzione:** il codice del connettore GLDAP modificato consente di esaminare tutti i contenitori e cercare oggetti in ciascuno di essi, anziché cercare nell'intera partizione.
 
@@ -139,7 +139,7 @@ Data di rilascio: marzo 2017
 * Lotus Domino:
 
   **Scenario:** supporto dell'eliminazione della posta di Domino per la rimozione di un utente durante un'esportazione. </br>
-  **Soluzione:** supporto di eliminazione di posta elettronica configurabile per la rimozione una persona durante l'esportazione.
+  **Soluzione:** supporto per l'eliminazione della posta configurabile per la rimozione di un utente durante un'esportazione.
 
 ### <a name="fixed-issues"></a>Problemi risolti:
 * Servizi Web generici:

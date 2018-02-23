@@ -51,7 +51,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
     ![Campi da compilare per creare la nuova capacità](media/create-capacity/azure-portal-create-power-bi-embedded.png)
 
-    |Impostazione |Descrizione |
+    |Impostazione |DESCRIZIONE |
     |---------|---------|
     |**Nome risorsa**|Nome che identifica la capacità. Il nome risorsa viene visualizzato nel portale di amministrazione di Power BI oltre che nel portale di Azure.|
     |**Sottoscrizione**|Sottoscrizione per la quale si vuole creare la capacità.|
@@ -60,7 +60,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
     |**Posizione**|Posizione in cui è ospitato Power BI per il tenant. Questa impostazione viene risolta automaticamente e non è possibile selezionare una posizione diversa.|
     |**Piano tariffario**|Selezionare lo SKU (numero vCore e dimensioni memoria) che soddisfa le proprie esigenze.  Per i dettagli, vedere [Prezzi di Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded/).|
 
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
 La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se è stata selezionata l'opzione **Aggiungi al dashboard**, passare al dashboard per visualizzare la nuova capacità. In alternativa, passare ad **Altri servizi** > **Power BI Embedded** per vedere se la capacità è pronta.
 

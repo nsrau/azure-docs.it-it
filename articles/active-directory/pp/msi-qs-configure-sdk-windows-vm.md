@@ -1,9 +1,9 @@
 ---
-title: Come configurare un file MSI assegnati dall'utente per una macchina virtuale di Azure utilizzando un SDK di Azure
-description: "Passaggio da istruzioni dettagliate per la configurazione di un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale di Azure, utilizzando un SDK di Azure."
+title: "Come configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite Azure SDK"
+description: "Istruzioni dettagliate per la configurazione di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite Azure SDK."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 19b6179803b8de4102818c1522b00e6b4881d0f0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 097304162b85599acd1f4591091f986a646ebc2a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>Configurare un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale con un SDK di Azure
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-sdk"></a>Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite Azure SDK
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Identità del servizio gestito fornisce servizi di Azure con un'identità gestita in Azure Active Directory. È possibile utilizzare questa identità di autenticazione ai servizi che supportano l'autenticazione di Azure AD, senza la necessità di credenziali nel codice. 
+L'identità del servizio gestito offre servizi di Azure con un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo informazioni su come attivare e rimuovere un file MSI assegnati dall'utente per una macchina virtuale di Azure, utilizzando un SDK di Azure.
+In questo articolo viene descritto come abilitare e rimuovere un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite Azure SDK.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -43,6 +43,6 @@ Azure supporta più piattaforme di programmazione tramite una serie di [Azure SD
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Articoli correlati in "Configurare MSI per una macchina virtuale di Azure", per informazioni su come configurare un file MSI assegnati dall'utente in una macchina virtuale di Azure, vedere.
+- Per informazioni su come configurare un'identità del servizio gestito assegnata dall'utente in una macchina virtuale di Azure, vedere gli articoli correlati relativi a questo argomento.
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.

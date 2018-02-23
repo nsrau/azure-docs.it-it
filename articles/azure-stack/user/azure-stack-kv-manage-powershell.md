@@ -111,7 +111,7 @@ Il **destinazione** parametro viene utilizzato per specificare che la chiave sia
 
 ![Nuova chiave](media/azure-stack-kv-manage-powershell/image5.png)
 
-È ora possibile fare riferimento la chiave creata utilizzando il relativo URI. Se si crea o si importa una chiave con stesso nome di una chiave esistente, la chiave originale viene aggiornata con i valori specificati in una nuova chiave. È possibile accedere alla versione precedente utilizzando l'URI specifico della versione della chiave. ad esempio: 
+È ora possibile fare riferimento la chiave creata utilizzando il relativo URI. Se si crea o si importa una chiave con stesso nome di una chiave esistente, la chiave originale viene aggiornata con i valori specificati in una nuova chiave. È possibile accedere alla versione precedente utilizzando l'URI specifico della versione della chiave. Ad esempio:  
 
 * Utilizzare "chiavi/https://vault10.vault.local.azurestack.external:443/key01" per ottenere sempre la versione corrente. 
 * Utilizzare "https://vault010.vault.local.azurestack.external:443/chiavi/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" per ottenere la versione specifica.

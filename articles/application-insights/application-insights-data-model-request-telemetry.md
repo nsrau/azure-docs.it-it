@@ -24,7 +24,7 @@ In [Application Insights](app-insights-overview.md), un elemento di telemetria d
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
@@ -50,7 +50,7 @@ Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo I
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="duration"></a>Durata
+## <a name="duration"></a>Duration
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere un valore positivo e inferiore a `1000` giorni. Questo campo è obbligatorio in quanto la telemetria delle richieste rappresenta l'operazione con un inizio e una fine.
 

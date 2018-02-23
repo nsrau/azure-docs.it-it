@@ -27,7 +27,7 @@ Questo menu contiene i collegamenti alle sezioni dello studio:
 
 La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le concessionarie, i produttori di automobili e le compagnie assicurative possono sfruttare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sull'integrità del veicolo e sulle abitudini di guida in modo da migliorare l'esperienza cliente, la ricerca e lo sviluppo e le campagne di marketing. Queste istruzioni dettagliate mostrano come configurare i report e il dashboard di Power BI dopo la distribuzione della soluzione nella sottoscrizione. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Distribuire la soluzione per l'[analisi dei dati di telemetria del veicolo](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Installare Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Ottenere una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/). Se non si dispone di una sottoscrizione di Azure, iniziare con la sottoscrizione gratuita di Azure.

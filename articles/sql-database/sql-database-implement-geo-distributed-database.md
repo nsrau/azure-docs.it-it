@@ -36,9 +36,9 @@ In questa esercitazione vengono configurati un database SQL di Azure e l'applica
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 - Installazione della versione più recente di [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
 - Installazione di un database SQL di Azure. Questa esercitazione usa il database di esempio AdventureWorksLT con il nome **mySampleDatabase** da una di queste guide introduttive:

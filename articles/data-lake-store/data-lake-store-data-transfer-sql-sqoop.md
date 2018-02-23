@@ -28,7 +28,7 @@ Le applicazioni Big Data sono una scelta naturale per l'elaborazione di dati non
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) è uno strumento progettato per trasferire dati tra database relazionali e un repository Big Data, ad esempio Data Lake Store. È possibile usarlo per importare dati da un sistema di gestione di database relazionali (RDBMS), ad esempio un database SQL di Azure, in Archivio Data Lake. È quindi possibile trasformare e analizzare i dati mediante carichi di lavoro Big Data e quindi esportarli nuovamente in un sistema RDBMS. In questa esercitazione viene usato un database SQL di Azure come database relazionale da cui importare/esportare dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).

@@ -42,7 +42,7 @@ La stringa di Universal Naming Convention (UNC) per il percorso deve essere un n
 
 La chiave di crittografia utilizzata per crittografare i dati di backup viene esportato in un archivio esterno. La chiave può essere generata utilizzando gli strumenti di AzureStack. 
 
-![Strumenti di AzureStack](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
 
 La chiave deve essere archiviata in una posizione sicura (ad esempio, segreto insieme credenziali chiavi Azure pubblica). Questa chiave deve essere utilizzata durante la ridistribuzione dello Stack di Azure. 
 

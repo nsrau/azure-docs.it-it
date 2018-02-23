@@ -29,7 +29,7 @@ Le **raccolte di aree di lavoro di Power BI** consentono di integrare i report d
 ![Diagramma applicazioni](media/what-are-power-bi-workspace-collections/what-is.png)
 
 > [!IMPORTANT]
-> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto della raccolta di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Le raccolte di aree di lavoro di Power BI sono un **servizio di Azure** che consente agli ISV e agli sviluppatori di app di sfruttare i vantaggi dell'esperienza dati di Power BI nelle proprie applicazioni. Gli sviluppatori creano applicazioni, ognuna delle quali ha utenti e set di funzionalità specifici. Queste app possono anche contenere alcuni elementi dati predefiniti, ad esempio grafici e report, ora supportati dalle raccolte di aree di lavoro di Microsoft Power BI. Per usare l'app non è necessario avere un account Power BI. È possibile continuare ad accedere all'applicazione come in precedenza, nonché visualizzare i report di Power BI e interagire con questi senza dover richiedere licenze aggiuntive.
 
@@ -81,7 +81,7 @@ Questi token vengono usati nelle varie fasi di interazione con le **raccolte di 
 
 È ora possibile modificare report esistenti o creare nuovi report direttamente nell'applicazione senza dover usare Power BI Desktop. A tale scopo è necessario che nell'area di lavoro sia presente un set di dati.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI](scenarios.md)  
 [Introduzione alle raccolte di aree di lavoro di Microsoft Power BI](get-started.md)  

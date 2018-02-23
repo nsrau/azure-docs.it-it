@@ -23,7 +23,7 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. In un computer connesso a Internet aprire SQL Server Management Studio (SSMS). Se SQL Server Management Studio non è installato, è possibile scaricarlo [qui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. ad esempio `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. Ad esempio, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 
@@ -31,6 +31,6 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. Nella casella **Password** digitare la password dell'account di accesso.
 
-1. Fare clic su **Connect**.
+1. Fare clic su **Connetti**.
 
     ![connessione a ssms](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

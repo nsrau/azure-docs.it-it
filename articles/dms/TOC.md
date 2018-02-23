@@ -16,3 +16,6 @@
 ## [Guida alla migrazione dei database](https://aka.ms/datamigration)
 ## [Data Migration Assistant](https://aka.ms/dma)
 ## [Prezzi](https://aka.ms/dms-pricing)
+## [Panoramica dei prerequisiti](pre-reqs.md)
+## [DOMANDE FREQUENTI](faq.md)
+

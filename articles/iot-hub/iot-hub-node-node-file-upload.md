@@ -16,7 +16,7 @@ ms.date: 06/28/2017
 ms.author: v-masebo
 ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---

@@ -1,57 +1,95 @@
+
+# [Documentazione di Batch](index.yml)
+
 # Panoramica
 ## [Informazioni su Azure Batch](batch-technical-overview.md)
-## [Panoramica delle funzionalità](batch-api-basics.md)
+
+# Guide introduttive
+## [Eseguire un processo di Batch - Interfaccia della riga di comando](quick-create-cli.md)
+## [Eseguire un processo di Batch - Portale](quick-create-portal.md)
+## [Eseguire un processo di Batch - .NET](quick-run-dotnet.md)
+## [Eseguire un processo di Batch - Python](quick-run-python.md)
+
+
+# Esercitazioni
+
+## [Elaborazione in parallelo dei file - .NET](tutorial-parallel-dotnet.md)
+## [Elaborazione in parallelo dei file - Python](tutorial-parallel-python.md)
+## [Rendering di scene con Arnold](tutorial-rendering-cli.md)
+## [Simulazione R in parallelo](tutorial-r-doazureparallel.md)
+
+# Esempi
+## Esempi di codice
+### [Esempi di codice per Azure](https://azure.microsoft.com/resources/samples/?service=batch)
+### [Repository di esempi di Batch](https://github.com/Azure/azure-batch-samples)
+## [Interfaccia della riga di comando di Azure](cli-samples.md)
+
+# Concetti
+## [Funzionalità per sviluppatori](batch-api-basics.md)
 ## [API e strumenti](batch-apis-tools.md)
 ## [Quote e limitazioni](batch-quota-limit.md)
-# Attività iniziali
-## [Creare un account Batch](batch-account-create-portal.md)
-## [Esercitazione su Batch .NET](batch-dotnet-get-started.md)
-## [Esercitazione su Python per Batch](batch-python-tutorial.md)
-## [Esercitazione su Batch Node.js](batch-nodejs-get-started.md)
-## [Servizio di rendering di Batch](batch-rendering-service.md)
-# Procedure
-## Sviluppare
-### [Pacchetti dell'applicazione](batch-application-packages.md)
+
+# Guide alle procedure
+## Gestire gli account Batch
+### [Gestire gli account Batch con il portale](batch-account-create-portal.md)
+### [Gestire gli account Batch con la gestione .NET per Batch](batch-management-dotnet.md)
+
+## Eseguire l'autenticazione con Azure AD
+### [Azure AD con il servizio Batch](batch-aad-auth.md)
+### [Azure AD con gestione Batch](batch-aad-auth-management.md)
+
+## [Creare pacchetti dell'applicazione](batch-application-packages.md)
+
+## Creare e gestire i pool
 ### [Nodi di calcolo a scalabilità automatica](batch-automatic-scaling.md)
-### Autenticazione di Azure AD
-#### [Azure AD con il servizio Batch](batch-aad-auth.md)
-#### [Azure AD con gestione Batch](batch-aad-auth-management.md)
 ### [VM a elevato utilizzo di calcolo](batch-pool-compute-intensive-sizes.md)
-### [Carichi di lavoro dei contenitori](batch-docker-container-workloads.md)
-### [Attività simultanee nei nodi](batch-parallel-node-tasks.md)
-### [Conteggio delle attività in base allo stato](batch-get-task-counts.md)
+### [Configurare l'accesso ai nodi di calcolo](pool-endpoint-configuration.md)
 ### [Creare un pool con un'immagine personalizzata](batch-custom-images.md)
 ### [Creare un pool in una rete virtuale](batch-virtual-network.md)
-### [Query di elenco efficienti](batch-efficient-list-queries.md)
-### [Attività di preparazione e completamento dei processi](batch-job-prep-release.md)
 ### [Nodi di calcolo Linux](batch-linux-nodes.md)
 ### [Macchine virtuali con priorità bassa](batch-low-pri-vms.md)
-### [Gestire gli account Batch con la gestione .NET per Batch](batch-management-dotnet.md)
-### [Rendere persistente l'output di processi e attività](batch-task-output.md)
-#### [Rendere persistente l'output con l'API batch](batch-task-output-files.md)
-#### [Rendere persistente l'output con la libreria File Conventions](batch-task-output-file-conventions.md)
-### [Eseguire processi MPI in Azure Batch](batch-mpi.md)
+
+## Gestire processi e attività
+### [Attività di preparazione e completamento dei processi](batch-job-prep-release.md)
+### [Attività simultanee nei nodi](batch-parallel-node-tasks.md)
+### [Conteggio delle attività in base allo stato](batch-get-task-counts.md)
 ### [Dipendenze dell'attività](batch-task-dependencies.md)
 ### [Account utente per l'esecuzione di attività](batch-user-accounts.md)
-### [Modelli di progetto di Visual Studio per Batch](batch-visual-studio-templates.md)
-## Gestisci
-### [Cmdlet di PowerShell per Batch](batch-powershell-cmdlets-get-started.md)
-### [Interfaccia della riga di comando di Azure](batch-cli-get-started.md)
-#### [Eseguire processi batch senza codice](batch-cli-templates.md)
-#### [Creare un account Batch](./scripts/batch-cli-sample-create-account.md)
-#### [Aggiungere un'applicazione](./scripts/batch-cli-sample-add-application.md)
-#### [Gestire i pool](./scripts/batch-cli-sample-manage-pool.md)
-#### [Eseguire un processo e le attività](./scripts/batch-cli-sample-run-job.md)
-# riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [Azure PowerShell](/powershell/module/azurerm.batch)
+### [Eseguire processi batch senza codice](batch-cli-templates.md)
+
+
+## [Rendere persistente l'output di processi e attività](batch-task-output.md)
+### [Rendere persistente l'output con l'API batch](batch-task-output-files.md)
+### [Rendere persistente l'output con la libreria File Conventions](batch-task-output-file-conventions.md)
+
+## Eseguire carichi di lavoro
+### [Processi MPI](batch-mpi.md)
+### [Carichi di lavoro dei contenitori](batch-docker-container-workloads.md)
+### [Rendering](batch-rendering-service.md)
+### [Elaborazione dati con Batch e Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+
+## Monitorare le risorse
+### [Registrazione diagnostica](batch-diagnostics.md)
+### [Query di elenco efficienti](batch-efficient-list-queries.md)
+
+## Usare gli strumenti per sviluppatori
+### [Usare .NET per Batch](batch-dotnet-get-started.md)
+### [Usare Python per Batch](batch-python-tutorial.md)
+### [Usare Node.js per Batch](batch-nodejs-get-started.md)
+### [Usare i cmdlet di PowerShell](batch-powershell-cmdlets-get-started.md)
+### [Usare l'interfaccia della riga di comando di Azure](batch-cli-get-started.md)
+
+# Riferimenti
+
 ## [Interfaccia della riga di comando di Azure](/cli/azure/batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.js](/nodejs/api/overview/azure/batch)
-## [Python SDK](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html)
-## [REST](/rest/api/batchservice)
-## [Log di diagnostica di Batch](batch-diagnostics.md)
+## [Node.JS](/nodejs/api/overview/azure/batch)
+## [Python](/python/api/overview/azure/batch)
+## REST
+### [Servizio Batch](/rest/api/batchservice)
+### [Gestione di Batch](/rest/api/batchmanagement/)
 ## [Analisi Batch](batch-analytics.md)
 ### [Evento di creazione pool](batch-pool-create-event.md)
 ### [Evento di avvio eliminazione pool](batch-pool-delete-start-event.md)
@@ -61,22 +99,17 @@
 ### [Evento di avvio attività](batch-task-start-event.md)
 ### [Evento di completamento attività](batch-task-complete-event.md)
 ### [Evento di attività non riuscita](batch-task-fail-event.md)
-## [Variabili di ambiente per i nodi di calcolo di Azure Batch](batch-compute-node-environment-variables.md)
-
-# Risorse correlate
-## [Intelligenza artificiale per Batch](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Elaborazione dati con Batch e Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Soluzioni Batch e HPC nel cloud di Azure](batch-hpc-solutions.md)
+## [Variabili di ambiente per i nodi di calcolo di Batch](batch-compute-node-environment-variables.md)
+### [Modello di Resource Manager](/templates/microsoft.batch/batchaccounts)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
+## [Forum di Batch](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
-## [Esempi di codice C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Soluzioni HPC in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/batch/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
-## [Esempi di codice Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=batch)

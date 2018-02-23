@@ -3,23 +3,23 @@ title: Eventi personalizzati per Griglia di eventi di Azure con il portale di Az
 description: Usare Griglia di eventi di Azure e PowerShell per pubblicare un argomento e sottoscrivere l'evento.
 services: event-grid
 keywords: 
-author: djrosanova
-ms.author: darosa
-ms.date: 10/11/2017
+author: tfitzmac
+ms.author: tomfitz
+ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 0fe498b7b6dcf59bc5caef8ff5a40053e0498f85
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creare e instradare eventi personalizzati con il portale di Azure e Griglia di eventi
 
-La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un URL che si limita a raccoglie i messaggi. L'URL viene creato con [RequestBin](https://requestb.in/), uno strumento open source di terze parti.
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un URL che si limita a raccoglie i messaggi. È possibile creare questo URL usando strumenti di terze parti da [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** è uno strumento open source non destinato all'utilizzo a velocità effettiva elevata. L'uso dello strumento in questo esempio è esclusivamente dimostrativo. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
+>**RequestBin** e **Hookbin** non sono destinati per un utilizzo con velocità effettiva elevata. L'uso di questi strumenti è esclusivamente dimostrativo. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
 
 Al termine, i dati dell'evento vengono inviati a un endpoint.
 
@@ -35,7 +35,7 @@ Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inse
 
    ![Creare un gruppo di risorse](./media/custom-event-quickstart-portal/create-resource-group.png)
 
-1. Impostare il nome del gruppo di risorse su *gridResourceGroup* e la posizione su *westus2*. Selezionare **Crea**.
+1. Impostare il nome del gruppo di risorse su *gridResourceGroup* e la posizione su *westus2*. Selezionare **Create**.
 
    ![Specificare i valori del gruppo di risorse](./media/custom-event-quickstart-portal/provide-resource-group-values.png)
 
@@ -51,7 +51,7 @@ Un argomento fornisce un endpoint definito dall'utente in cui vengono pubblicati
 
    ![Aggiungere un argomento di Griglia di eventi](./media/custom-event-quickstart-portal/add-topic.png)
 
-1. Specificare un nome per l'argomento. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Per la versione di anteprima, la griglia di eventi supporta le località **westus2** e **westcentralus**. Selezionare il gruppo di risorse creato in precedenza. Selezionare **Crea**.
+1. Specificare un nome per l'argomento. Il nome dell'argomento deve essere univoco perché è rappresentato da una voce DNS. Selezionare una delle [aree supportate](overview.md). Selezionare il gruppo di risorse creato in precedenza. Selezionare **Create**.
 
    ![Creare valori dell'argomento di Griglia di eventi](./media/custom-event-quickstart-portal/provide-topic-values.png)
 
@@ -61,7 +61,7 @@ Un argomento fornisce un endpoint definito dall'utente in cui vengono pubblicati
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
-Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin è uno strumento open source di terze parti che consente di creare un endpoint e visualizza le richieste che gli vengono inviate. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea un RequestBin).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
+Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin e Hookbin sono strumenti di terze parti che consentono di creare un endpoint e visualizzare le richieste che vengono inviate. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea RequestBin) o passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
 
 ## <a name="subscribe-to-a-topic"></a>Sottoscrivere un argomento
 
@@ -75,7 +75,7 @@ Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cu
 
    ![Aggiungere una sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/add-subscription.png)
 
-1. Specificare un nome univoco per la sottoscrizione di eventi. Per il tipo di argomento, selezionare **Argomenti di Griglia di eventi**. Per l'istanza, selezionare l'argomento personalizzato creato. Specificare l'URL di RequestBin come endpoint per la notifica degli eventi. Dopo avere specificato i valori, selezionare **Crea**.
+1. Specificare un nome univoco per la sottoscrizione di eventi. Per il tipo di argomento, selezionare **Argomenti di Griglia di eventi**. Per l'istanza, selezionare l'argomento personalizzato creato. Specificare l'URL di RequestBin o Hookbin come endpoint per la notifica degli eventi. Dopo avere specificato i valori, selezionare **Crea**.
 
    ![Specificare i valori della sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
@@ -100,13 +100,13 @@ body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-jso
 
 Eseguendo `echo "$body"` è possibile visualizzare l'evento completo. L'elemento `data` del JSON è il payload dell'evento. Questo campo accetta qualsiasi JSON ben formato. È anche possibile usare il campo oggetto per il filtro e il routing avanzato.
 
-CURL è una utilità che esegue richieste HTTP. In questo articolo CURL viene usato per inviare l'evento all'argomento. 
+CURL è una utilità che esegue richieste HTTP. In questo articolo CURL viene usato per inviare un evento all'argomento. 
 
 ```azurecli-interactive
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-È stato attivato l'evento e la griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Passare all'URL di RequestBin creato in precedenza. In alternativa, fare clic su Aggiorna nel browser di RequestBin aperto. Verrà visualizzato l'evento appena inviato.
+È stato attivato l'evento e la griglia di eventi ha inviato il messaggio all'endpoint configurato al momento della sottoscrizione. Passare all'URL dell'endpoint creato in precedenza. In alternativa, fare clic su Aggiorna nel browser aperto. Verrà visualizzato l'evento appena inviato.
 
 ```json
 [{
@@ -118,6 +118,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
     "make": "Ducati",
     "model": "Monster"
   },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
 }]
 ```

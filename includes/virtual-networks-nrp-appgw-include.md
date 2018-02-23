@@ -1,8 +1,8 @@
-## <a name="application-gateway"></a>Gateway applicazione
+## <a name="application-gateway"></a>gateway applicazione
 Il servizio Gateway applicazione fornisce una soluzione di bilanciamento del carico HTTP gestita da Azure basata sul bilanciamento del carico di livello 7. Il bilanciamento del carico applicazioni consente di usare le regole di routing per il traffico di rete basato su HTTP. 
 <BR>
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **backendAddressPools** |L’elenco di indirizzi IP dei server di back-end. Gli indirizzi IP elencati devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici o indirizzi IP privati. |
 | **backendHttpSettingsCollection** |Ogni pool ha impostazioni quali porta, protocollo e affinità basate sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool. |

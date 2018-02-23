@@ -4,22 +4,24 @@ description: Introduzione ad Azure Time Series Insights, un nuovo servizio per l
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: anshan, jasonh
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.date: 01/26/2018
+ms.openlocfilehash: e31cebfd027e93096e233f2963445e4fc50a7e9d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
 Time Series Insights è una soluzione che consente di archiviare, visualizzare ed eseguire query su grandi quantità di dati relativi a serie temporali, ad esempio i dati generati dai dispositivi IoT.  Se si desidera archiviare, gestire, eseguire query o visualizzare i dati delle serie temporali nel cloud, Time Series Insights rappresenta la soluzione ideale.  
+
+![Diagramma di flusso di Time Series Insights] (media/overview/time-series-insights-flowchart.png)
 
 Time Series Insights è caratterizzato da quattro processi chiavi:
 
@@ -67,7 +69,6 @@ Iniziare a usare Time Series Insights richiede meno di 5 minuti.
 
 ## <a name="time-series-insights-explorer"></a>Strumento di esplorazione di Time Series Insights
 In questo diagramma è illustrato un esempio di dati di Time Series Insights visualizzati tramite lo strumento di esplorazione: ![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Esplorare i dati tramite lo strumento di esplorazione di Time Series Insights in un ambiente demo](./time-series-quickstart.md)

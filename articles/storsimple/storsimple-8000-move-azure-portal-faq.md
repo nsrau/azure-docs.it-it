@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: ac57894e4f180f42f80479d2031f4dd5ddfdb1be
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-storsimple-device-manager-service-from-classic-to-azure-portal-frequently-asked-questions-faq"></a>Spostare il servizio Gestione dispositivi StorSimple dal portale classico al portale di Azure: domande frequenti
 

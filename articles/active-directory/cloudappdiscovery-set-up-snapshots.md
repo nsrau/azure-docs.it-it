@@ -18,7 +18,7 @@ ms.reviewer: nigu
 ms.custom: it-pro
 ms.openlocfilehash: 69a633b39e68596c536700dbb2c7c8d35f3b44bb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

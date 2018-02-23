@@ -53,7 +53,7 @@ Questo articolo descrive la procedura per creare una route definita dall'utente 
 
         |Impostazione|Valore|
         |-----|-----|
-        |Nome|Rete perimetrale|
+        |NOME|Rete perimetrale|
         |Intervallo di indirizzi (blocco CIDR)|10.0.2.0/24|
 
 6. Creare una macchina virtuale per l'appliance di rete virtuale:
@@ -63,12 +63,12 @@ Questo articolo descrive la procedura per creare una route definita dall'utente 
 
         |Impostazione|Valore|
         |---|---|
-        |Nome|myVm-Nva|
+        |NOME|myVm-Nva|
         |Nome utente|azureuser|
         |Password e Conferma password|Una password a scelta|
         |Sottoscrizione|Selezionare la propria sottoscrizione|
         |Gruppo di risorse|Fare clic su **Usa esistente**, quindi selezionare **myResourceGroup**|
-        |Percorso|Stati Uniti Orientali|
+        |Località|Stati Uniti orientali|
     - Nel pannello **Scegli una dimensione** fare clic su **DS1_V2 Standard** e quindi su **Seleziona**.
     - Nel pannello **Impostazioni** visualizzato fare clic su **Rete virtuale**. Nel pannello **Scegli rete virtuale** visualizzato fare clic su **myVnet**.
     - Nel pannello **Impostazioni** fare clic su **Subnet**. Fare clic su **DMZ** nel pannello **Scegli subnet** visualizzato. 
@@ -102,10 +102,10 @@ Questo articolo descrive la procedura per creare una route definita dall'utente 
 
         |Impostazione|Valore|
         |---|---|
-        |Nome|myRouteTable-Public|
+        |NOME|myRouteTable-Public|
         |Sottoscrizione|Selezionare la propria sottoscrizione|
         |Gruppo di risorse|Selezionare **Usa esistente** e quindi selezionare **myResourceGroup**|
-        |Percorso|Stati Uniti Orientali|
+        |Località|Stati Uniti orientali|
     
     - Completare di nuovo le fasi del passaggio 8 ma assegnare alla tabella di route il nome *myRouteTable-Private*.
 9. Aggiungere le route alla tabella di route *myRouteTable-Public* e associare la tabella di route alla subnet *Public* (pubblica):

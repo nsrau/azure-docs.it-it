@@ -23,7 +23,7 @@ App Web di Azure consente di creare e ospitare applicazioni Web nel linguaggio d
 Informazioni su come distribuire la prima applicazione nel cloud tramite App Web:
 
 - [.NET](/azure/app-service/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
+- [Node.JS](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)
 - [Python](/azure/app-service/app-service-web-get-started-python)

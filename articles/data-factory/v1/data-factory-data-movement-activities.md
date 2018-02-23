@@ -27,7 +27,7 @@ ms.lasthandoff: 12/05/2017
 > * [Versione 2 - Anteprima](../copy-activity-overview.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 di Data Factory, che è disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Attività di copia nella versione 2](../copy-activity-overview.md).
+> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Attività di copia nella versione 2](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Panoramica
 In Azure Data Factory è possibile usare l'attività di copia per copiare i dati da archivi dati locali e cloud. Dopo la copia, è possibile trasformare o analizzare ulteriormente i dati. L'attività di copia può essere usata anche per pubblicare risultati di trasformazione e analisi per Business Intelligence (BI) e l'uso delle applicazioni.

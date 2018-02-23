@@ -52,7 +52,7 @@ In SSMS, per generare il report:
 Per altre informazioni, vedere [Determinare se una tabella o una stored procedure deve essere trasferita a OLTP in memoria](http://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Passaggio 3: Creare un database di prova confrontabile
-Si supponga che il report indichi che il database include una tabella che può trarre vantaggio dalla conversione in una tabella con ottimizzazione per la memoria. È consigliabile verificare prima di tutto l'indicazione eseguendo il test.
+Si supponga che il report indichi che il database include una tabella che può trarre vantaggio dalla conversione in una tabella ottimizzata per la memoria. È consigliabile verificare prima di tutto l'indicazione eseguendo il test.
 
 È necessaria una copia di test del database di produzione. Il database di test deve avere lo stesso livello di servizio del database di produzione.
 
@@ -68,7 +68,7 @@ Per semplificare il test, perfezionare il database di test come segue:
    ```
 
 ## <a name="step-4-migrate-tables"></a>Passaggio 4: Eseguire la migrazione delle tabelle
-È necessario creare e popolare una copia con ottimizzazione per la memoria della tabella che si vuole testare. È possibile crearla usando:
+È necessario creare e popolare una copia ottimizzata per la memoria della tabella che si vuole testare. È possibile crearla usando:
 
 * La pratica Ottimizzazione guidata per la memoria di SSMS.
 * T-SQL manuale.
@@ -80,7 +80,7 @@ Per usare questa opzione di migrazione:
 2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sulla tabella e quindi fare clic su **Ottimizzazione guidata per la memoria**.
    
    * Verrà visualizzata l' **Ottimizzazione guidata per la memoria della tabella** .
-3. Nella procedura guidata fare clic su **Convalida della migrazione** o sul pulsante **Avanti** per verificare se la tabella include eventuali funzionalità non supportate nelle tabelle con ottimizzazione per la memoria. Per altre informazioni, vedere:
+3. Nella procedura guidata fare clic su **Convalida della migrazione** o sul pulsante **Avanti** per verificare se la tabella include eventuali funzionalità non supportate nelle tabelle ottimizzate per la memoria. Per altre informazioni, vedere:
    
    * *Elenco di controllo relativo all'ottimizzazione per la memoria* in [Ottimizzazione guidata per la memoria](http://msdn.microsoft.com/library/dn284308.aspx).
    * [Costrutti transact-SQL non supportati da OLTP in memoria](http://msdn.microsoft.com/library/dn246937.aspx).
@@ -98,8 +98,8 @@ Per usare questa opzione di migrazione:
 3. Nella finestra dello script aggiungere WITH (MEMORY_OPTIMIZED = ON) all'istruzione CREATE TABLE.
 4. Se esiste un indice CLUSTERED, modificarlo in NONCLUSTERED.
 5. Rinominare la tabella esistente in SP_RENAME.
-6. Creare la nuova copia della tabella con ottimizzazione per la memoria eseguendo lo script modificato CREATE TABLE.
-7. Copiare i dati nella tabella con ottimizzazione per la memoria usando l'istruzione INSERT...SELECT * INTO:
+6. Creare la nuova copia della tabella ottimizzata per la memoria eseguendo lo script modificato CREATE TABLE.
+7. Copiare i dati nella tabella ottimizzata per la memoria usando l'istruzione INSERT...SELECT * INTO:
 
 ```
 INSERT INTO <new_memory_optimized_table>

@@ -3,7 +3,7 @@ Le risorse di tabelle di route contengono le route usate per definire il flusso 
 
 Le tabella di route contengono le proprietà seguenti.
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **routes** |Raccolta di route definite dall'utente nella tabella di route |vedere [route definite dall'utente](#User-defined-routes) |
 | **subnet** |Raccolta di subnet a cui viene applicata la tabella di route |vedere [subnet](#Subnets) |
@@ -13,7 +13,7 @@ Le tabella di route contengono le proprietà seguenti.
 
 Le route definite dall'utente contengono le proprietà seguenti. 
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **addressPrefix** |Prefisso dell'indirizzo o indirizzo IP completo per la destinazione |192.168.1.0/24, 192.168.1.101 |
 | **nextHopType** |Tipo di dispositivo al quale verrà inviato il traffico. |VirtualAppliance, Gateway VPN, Internet |

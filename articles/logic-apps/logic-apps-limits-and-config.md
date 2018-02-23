@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limiti e configurazione per App per la logica
 
@@ -32,14 +32,14 @@ Questi limiti si applicano a una singola richiesta HTTP o a una chiamata di un c
 
 #### <a name="timeout"></a>Timeout
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Timeout richiesta | 120 secondi | La compensazione necessaria può essere offerta da un [modello asincrono](../logic-apps/logic-apps-create-api-app.md) o un [ciclo Until](logic-apps-loops-and-scopes.md) |
 |||| 
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Dimensioni dei messaggi | 100 MB | Alcuni connettori e API potrebbero non supportare 100 MB. | 
 | Limite per la valutazione delle espressioni | 131.072 caratteri | `@concat()`, `@base64()` e `string` non possono superare questo limite. | 
@@ -47,7 +47,7 @@ Questi limiti si applicano a una singola richiesta HTTP o a una chiamata di un c
 
 #### <a name="retry-policy"></a>Criteri di ripetizione
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Tentativi | 90 | Il valore predefinito è 4. Configurabile con il [parametro dei criteri per i tentativi](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Intervallo massimo tra i tentativi | 1 giorno | Configurabile con il [parametro dei criteri per i tentativi](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
@@ -58,7 +58,7 @@ Questi limiti si applicano a una singola richiesta HTTP o a una chiamata di un c
 
 Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 
-| Nome | Limite | 
+| NOME | Limite | 
 | ---- | ----- | 
 | Durata esecuzione | 90 giorni | 
 | Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 
@@ -72,7 +72,7 @@ Per superare i limiti di durata dell'esecuzione o di conservazione della risorsa
 
 Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Elementi ForEach | 100.000 | È possibile usare l'[azione di query](../connectors/connectors-native-query.md) per filtrare matrici di dimensioni maggiori in base alle esigenze. | 
 | Iterazioni Until | 5.000 | | 
@@ -84,13 +84,13 @@ Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 
 Questi limiti si applicano a una singola istanza di app per la logica.
 
-| Nome | Limite | Note | 
-| ---- | ----- | ----- | 
-| Esecuzioni di azioni per 5 minuti | 100.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| NOME | Limite | Note | 
+| ----- | ----- | ----- | 
+| Esecuzioni di azioni per 5 minuti | 100.000 |<p>Il limite può essere aumentato fino a 300.000 eseguendo un'app per la logica in modalità `High Througput`. Ciò è possibile impostando la proprietà `operationOptions` in `runtimeConfiguration` della risorsa del flusso di lavoro su `OptimizedForHighThroughput`. <p>Si noti che la modalità High Throughput è in anteprima. Un carico di lavoro può anche essere distribuito tra più app in base alle esigenze. | 
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
-| Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
-| Endpoint di runtime: lettura delle chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| Endpoint di runtime: chiamate in ingresso simultanee |~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
+| Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 |È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
 |||| 
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il supporto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
@@ -99,7 +99,7 @@ Per superare questi limiti nell'elaborazione normale o per eseguire test di cari
 
 Questi limiti si applicano a una singola definizione di un'app per la logica.
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Azioni per flusso di lavoro | 500 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. |
 | Livello di annidamento azioni consentito | 8 | Per estendere questo limite, è possibile aggiungere flussi di lavoro annidati in base alle esigenze. | 
@@ -121,7 +121,7 @@ Questi limiti si applicano a una singola definizione di un'app per la logica.
 
 Questi limiti si applicano ai connettori personalizzati che è possibile creare da API Web.
 
-| Nome | Limite | 
+| NOME | Limite | 
 | ---- | ----- | 
 | Numero di connettori personalizzati che è possibile creare | 1.000 per ogni sottoscrizione di Azure | 
 | Numero di richieste al minuto per ogni connessione creata da un connettore personalizzato | 500 richieste per ogni connessione creata dal connettore |
@@ -131,9 +131,9 @@ Questi limiti si applicano ai connettori personalizzati che è possibile creare 
 
 Questi limiti si applicano agli elementi che è possibile aggiungere a un account di integrazione.
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
-| Schema | 8 MB | È possibile usare l'[URI del BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md) per caricare file di dimensioni maggiori di 2 MB. | 
+| SCHEMA | 8 MB | È possibile usare l'[URI del BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md) per caricare file di dimensioni maggiori di 2 MB. | 
 | Mappa (file XSLT) | 2 MB | | 
 | Endpoint di runtime: lettura delle chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più account nel modo necessario. | 
 | Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più account nel modo necessario. | 
@@ -145,7 +145,7 @@ Questi limiti si applicano al numero di elementi che è possibile aggiungere a u
 
 #### <a name="free-pricing-tier"></a>Piano tariffario Gratuito
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Contratti | 10 | | 
 | Altri tipi di elementi | 25 |I tipi includono partner, schemi, certificati e mappe. Ogni tipo può avere fino al numero massimo di elementi. | 
@@ -153,7 +153,7 @@ Questi limiti si applicano al numero di elementi che è possibile aggiungere a u
 
 #### <a name="standard-pricing-tier"></a>Piano tariffario Standard
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Qualsiasi tipo di elemento | 500 | I tipi di elemento includono contratti, partner, schemi, certificati e mappe. Ogni tipo può avere fino al numero massimo di elementi. | 
 |||| 
@@ -162,7 +162,7 @@ Questi limiti si applicano al numero di elementi che è possibile aggiungere a u
 
 Questi limiti si applicano ai protocolli B2B.
 
-| Nome | Limite | Note | 
+| NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | AS2 | 50 MB | Applicabile alla decodifica e alla codifica | 
 | X12 | 50 MB | Applicabile alla decodifica e alla codifica | 
@@ -187,7 +187,7 @@ Le chiamate effettuate direttamente da un'app per la logica, ovvero tramite [HTT
 |India centrale|52.172.154.168, 52.172.186.159, 52.172.185.79|
 |Stati Uniti centrali|13.67.236.125, 104.208.25.27, 40.122.170.198|
 |Asia orientale|13.75.94.173, 40.83.127.19, 52.175.33.254|
-|Stati Uniti Orientali|13.92.98.111, 40.121.91.41, 40.114.82.191|
+|Stati Uniti orientali|13.92.98.111, 40.121.91.41, 40.114.82.191|
 |Stati Uniti orientali 2|40.84.30.147, 104.208.155.200, 104.208.158.174|
 |Giappone orientale|13.71.158.3, 13.73.4.207, 13.71.158.120|
 |Giappone occidentale|40.74.140.4, 104.214.137.243, 138.91.26.45|
@@ -237,7 +237,7 @@ Le chiamate effettuate dai [connettori](../connectors/apis-list.md) provengono d
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-* [Creare la prima app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md) (Esempi e scenari comuni)
 * [Video: Automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (Automatizzare processi aziendali con App per la logica) 
 * [Video: Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462) (Integrare i sistemi con App per la logica di Azure)

@@ -4,7 +4,7 @@ Per registrare l'applicazione Web, usare le impostazioni specificate nella tabel
 
 ![Impostazioni di registrazione di esempio per una nuova app Web](./media/active-directory-b2c-register-web-app/b2c-new-app-settings.png)
 
-| Impostazione      | Valore di esempio  | Descrizione                                        |
+| Impostazione      | Valore di esempio  | DESCRIZIONE                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome** | App Contoso B2C | Immettere un **Nome** per l'applicazione che descriva l'applicazione agli utenti. | 
 | **Includi app Web/API Web** | Sì | Selezionare **Sì** per un'applicazione Web. |

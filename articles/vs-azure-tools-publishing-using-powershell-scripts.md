@@ -26,7 +26,7 @@ Quando si crea un'applicazione web in Visual Studio, è possibile generare uno s
 
 Utilizzando questi script, è possibile eseguire il provisioning (noto anche come ambienti di sviluppo e test) di versioni personalizzate del sito per un utilizzo temporaneo. Ad esempio, si potrebbe impostare una particolare versione del sito Web in una macchina virtuale di Azure o in una slot di gestione temporanea in un sito Web per eseguire un gruppo di test, riprodurre un bug, testare una correzione di bug, una versione di valutazione di una modifica proposta o configurare un ambiente personalizzato per una dimostrazione o una presentazione. Dopo aver creato uno script che pubblica il progetto, è possibile ricreare ambienti identici eseguendo nuovamente lo script in base alle esigenze o eseguire lo script con la build dell'applicazione Web per creare un ambiente di test personalizzato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Azure SDK 2.3 o versioni successive Vedere [Download di Visual Studio](http://go.microsoft.com/fwlink/?LinkID=624384). Non è necessario Azure SDK per generare script per i progetti Web. Questa funzionalità è riservata ai progetti Web, non ai ruoli Web nei servizi cloud.
 * Azure PowerShell 0.7.4 o versione successiva Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
@@ -311,7 +311,7 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 **AzureWebAppPublishModule**
 
-| Nome della funzione | Description |
+| Nome della funzione | DESCRIZIONE |
 | --- | --- |
 | Aggiungere AzureSQLDatabase |Creare un nuovo database SQL Azure. |
 | Aggiungere AzureSQLDatabases |Crea database SQL di Azure da valori nel file di configurazione JSON generato da Visual Studio. |
@@ -340,7 +340,7 @@ Per visualizzare la Guida per le funzioni è possibile utilizzare il prompt dei 
 
 **Pubblicare-WebApplication**
 
-| Nome della funzione | Description |
+| Nome della funzione | DESCRIZIONE |
 | --- | --- |
 | Nuovo-AzureWebApplicationEnvironment |Crea risorse di Azure, ad esempio una macchina virtuale o un sito Web. |
 | Nuovo-WebDeployPackage |Questa funzione non è implementata. È possibile aggiungere comandi in questa funzione per compilare il progetto. |

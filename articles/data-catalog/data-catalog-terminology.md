@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 8cb24357bb24c48dceda714a040427fcc0c0ba4d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b88abd01c2dbc302bfc0e783d1715710c6f8397c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminologia del Catalogo dati di Azure
 ## <a name="catalog"></a>Catalogo
@@ -79,6 +79,6 @@ Un proprietario è un utente con privilegi aggiuntivi per la gestione di un asse
 ## <a name="registration"></a>Registrazione
 La registrazione è l'atto di estrazione dei metadati di asset di dati da un'origine dati e di copia nel servizio Catalogo dati di Azure. Gli asset di dati registrati possono essere annotati e individuati.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Che cos'è il Catalogo dei dati di Azure?](data-catalog-what-is-data-catalog.md) Questo articolo fornisce una panoramica del servizio Azure Data Catalog, del valore offerto dal servizio e degli scenari supportati.
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md), che contiene un'esercitazione end-to-end in cui viene spiegato come utilizzare Azure Data Catalog per individuare le origini dati.  

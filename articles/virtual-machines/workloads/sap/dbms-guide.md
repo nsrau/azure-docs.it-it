@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 87c4573ce3b688cdc63b3a342bbc0bebb416ad36
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione di DBMS in macchine virtuali di Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -345,7 +345,7 @@ Per informazioni sull'argomento relativo alle distribuzioni SAP in Azure sono di
 
 Le note seguenti su SAP sono correlate all'argomento relativo a SAP in Azure:
 
-| Numero della nota | Titolo |
+| Numero della nota | Title |
 | --- | --- |
 | [1928533] |Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure |
 | [2015553] |SAP in Microsoft Azure: prerequisiti per il supporto |
@@ -1334,7 +1334,7 @@ Poiché SAP liveCache usa in modo intensivo la potenza di elaborazione, per l'ut
 #### <a name="backup-and-restore"></a>Backup e ripristino
 Il backup e il ripristino, incluse le considerazioni sulle prestazioni, sono già stati illustrati nei capitoli pertinenti a SAP MaxDB, [Backup and Restore][dbms-guide-8.4.2] (Backup e ripristino) e [Performance Considerations for Backup and Restore][dbms-guide-8.4.3] (Considerazioni sulle prestazioni per backup e ripristino). 
 
-#### <a name="other"></a>Altre
+#### <a name="other"></a>Altri
 Tutti gli altri argomenti generali sono già illustrati in [questo][dbms-guide-8.4.4] capitolo su SAP MaxDB. 
 
 ## <a name="specifics-for-the-sap-content-server-on-windows"></a>Specifiche per SAP Content Server in Windows
@@ -1388,7 +1388,7 @@ Se si configura SAP Content Server per archiviare i file nel database SAP MaxDB,
 
 Se si configura SAP Content Server per archiviare i file nel file system, una possibilità consiste nell'eseguire il backup/ripristino manuale dell'intera struttura di file in cui si trovano i documenti. Come per il backup/ripristino di SAP MaxDB, è consigliabile avere un volume del disco dedicato per il backup. 
 
-#### <a name="other"></a>Altre
+#### <a name="other"></a>Altri
 Le altre impostazioni specifiche di SAP Content Server sono trasparenti per le VM di Azure e sono descritte in diversi documenti e note SAP:
 
 * <https://service.sap.com/contentserver> 

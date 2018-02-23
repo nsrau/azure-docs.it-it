@@ -63,7 +63,7 @@ Prima di spostare il piano ASP da un pool di lavoro a un altro, è importante as
 > 
 > 
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Come creare un ambiente del servizio app][HowtoCreateASE].
 
 <!--Image references-->

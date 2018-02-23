@@ -23,7 +23,7 @@ ms.lasthandoff: 12/04/2017
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Gestire un server VMware vCenter in Azure Site Recovery
 Questo articolo prende in esame le varie operazioni di Site Recovery che possono essere eseguite su un server VMware vCenter.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 **Supporto per host VMware vCenter e VMware vSphere ESX** | **Dettagli** |
 |--- | --- |

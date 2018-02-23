@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4f5bc49bf58773a1510b552ce6fc20aa61076348
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
@@ -26,7 +26,7 @@ ASP.NET Core è un nuovo framework open source e multipiattaforma per la compila
 
 Questo articolo è una guida dettagliata per l'hosting dei servizi ASP.NET Core in Reliable Services di Service Fabric mediante il set di pacchetti NuGet **Microsoft.ServiceFabric.AspNetCore.***.
 
-Per un'esercitazione introduttiva su ASP.NET Core in Service Fabric e istruzioni per la configurazione dell'ambiente di sviluppo, vedere [Compilare un front-end di servizio Web per l'applicazione tramite ASP.NET Core](service-fabric-add-a-web-frontend.md).
+Per un'esercitazione introduttiva su ASP.NET Core in Service Fabric e istruzioni per la configurazione dell'ambiente di sviluppo, vedere [Creare un'applicazione .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 La parte restante di questo articolo presuppone che si conosca il funzionamento di ASP.NET Core. In caso contrario è consigliabile vedere [ASP.NET Core fundamentals overview](https://docs.microsoft.com/aspnet/core/fundamentals/index) (Panoramica sulle nozioni fondamentali di ASP.NET Core).
 
@@ -310,7 +310,7 @@ Quando è esposto a Internet, un servizio senza stato deve usare un endpoint not
 | --- | --- | --- |
 | Server Web | Kestrel | Kestrel è il server Web preferito perché è supportato in Windows e Linux. |
 | Configurazione delle porte | Statica | È necessario configurare una porta statica nota nella configurazione `Endpoints` di ServiceManifest.xml, ad esempio 80 per HTTP o 443 per HTTPS. |
-| ServiceFabricIntegrationOptions | None | È necessario usare l'opzione `ServiceFabricIntegrationOptions.None` quando si configura il middleware di integrazione di Service Fabric, in modo che il servizio non provi a convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno a conoscenza delle informazioni di identificazione univoche usate dal middleware. |
+| ServiceFabricIntegrationOptions | Nessuna | È necessario usare l'opzione `ServiceFabricIntegrationOptions.None` quando si configura il middleware di integrazione di Service Fabric, in modo che il servizio non provi a convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno a conoscenza delle informazioni di identificazione univoche usate dal middleware. |
 | Conteggio istanze | -1 | In casi d'uso tipici, l'impostazione del numero di istanze deve essere "-1" in modo che un'istanza sia disponibile in tutti i nodi che ricevono il traffico da un servizio di bilanciamento del carico. |
 
 Se più servizi esposti all'esterno condividono lo stesso set di nodi, HttpSys può essere usato con un percorso URL univoco ma stabile, modificando l'URL specificato durante la configurazione di IWebHost. Ciò è valido solo per HttpSys.

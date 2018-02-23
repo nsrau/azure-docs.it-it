@@ -69,7 +69,7 @@ I "problemi di schema" rappresentano una classe di errori di sintassi in SQL Ser
 
 Le raccomandazioni relative alla "correzione di problemi di schema" vengono visualizzate quando il servizio del database SQL di Azure rileva un'anomalia nel numero di errori SQL correlati allo schema nel database SQL di Azure. La tabella seguente illustra gli errori correlati ai problemi di schema:
 
-| Codice di errore SQL | Messaggio |
+| Codice di errore SQL | Message |
 | --- | --- |
 | 201 |La procedura o funzione '*' richiede il parametro '*', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |

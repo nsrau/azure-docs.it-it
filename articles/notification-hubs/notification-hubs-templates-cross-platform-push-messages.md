@@ -114,7 +114,7 @@ I modelli sono limitati ai formati di documento XML o JSON. Inoltre, è possibil
 
 Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 
-| Espressione | Descrizione |
+| Espressione | DESCRIZIONE |
 | --- | --- |
 | $(prop) |Riferimento a una proprietà di evento con il nome specificato. I nomi delle proprietà non distinguono tra maiuscole e minuscole. Questa espressione viene risolta nel valore di testo della proprietà o in una stringa vuota se la proprietà non è presente. |
 | $(prop, n) |Come in precedenza, ma il testo viene esplicitamente troncato dopo n caratteri, ad esempio $(title, 20) tronca il contenuto della proprietà del riquadro dopo 20 caratteri. |
@@ -139,7 +139,7 @@ Ad esempio, il modello XML seguente non è valido:
     </tile>
 
 
-Come spiegato in precedenza, quando si utilizza la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio:
+Come spiegato in precedenza, quando si utilizza la concatenazione, le espressioni devono essere racchiuse tra parentesi graffe. Ad esempio: 
 
     <tile>
       <visual>

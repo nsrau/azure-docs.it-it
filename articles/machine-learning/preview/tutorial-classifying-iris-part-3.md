@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificare i dati Iris - Parte 3: Distribuire un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -32,7 +32,7 @@ Questa esercitazione è la terza di una serie in tre parti. In questa parte dell
 
  Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/iris_flower_data_set). Gli screenshot sono specifici di Windows, ma l'esperienza in Mac OS è quasi identica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Completare le prime due parti di questa serie di esercitazioni:
 
    * Seguire l'[esercitazione sulla preparazione dei dati](tutorial-classifying-iris-part-1.md) per creare le risorse di Machine Learning e installare l'applicazione Azure Machine Learning Workbench.
@@ -134,37 +134,7 @@ Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Doc
 
    Il prompt della riga di comando verrà aperto nel percorso della cartella di progetto corrente **c:\temp\myIris>**.
 
-2. Verificare che il provider di risorse di Azure **Microsoft.ContainerRegistry** sia registrato nella sottoscrizione. È necessario registrare questo provider di risorse prima di creare un ambiente nel passaggio 3. È possibile verificare se sia già registrato usando il comando seguente:
-   ``` 
-   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
-   ``` 
-
-   Verrà visualizzato un output simile al seguente: 
-   ```
-   Provider                                  Status 
-   --------                                  ------
-   Microsoft.Authorization                   Registered 
-   Microsoft.ContainerRegistry               Registered 
-   microsoft.insights                        Registered 
-   Microsoft.MachineLearningExperimentation  Registered 
-   ... 
-   ```
-   
-   Se **Microsoft.ContainerRegistry** non è registrato, è possibile registrarlo con il comando seguente:
-   ``` 
-   az provider register --namespace Microsoft.ContainerRegistry 
-   ```
-   La registrazione può richiedere alcuni minuti ed è possibile controllarne lo stato con il comando **az provider list** precedente oppure con il comando seguente:
-   ``` 
-   az provider show -n Microsoft.ContainerRegistry 
-   ``` 
-
-   Nella terza riga dell'output viene visualizzato **"registrationState": "Registering"**. Attendere alcuni istanti e ripetere il comando **show** fino a quando l'output non conterrà **"registrationState": "Registered"**.
-
-   >[!NOTE] 
-   In caso di distribuzione in un cluster ACS, è necessario registrare il provider di risorse **Microsoft.ContainerService** e usare l'approccio basato sul nome esatto.
-
-3. Creare l'ambiente. Questo passaggio deve essere eseguito una sola volta per ambiente, ad esempio una volta per l'ambiente di sviluppo e una per l'ambiente di produzione. Per questo primo ambiente usare la _modalità locale_. È possibile provare l'opzione `-c` o `--cluster` nel comando seguente per configurare un ambiente in _modalità cluster_ in un secondo momento.
+2. Creare l'ambiente. Questo passaggio deve essere eseguito una sola volta per ambiente, ad esempio una volta per l'ambiente di sviluppo e una per l'ambiente di produzione. Per questo primo ambiente usare la _modalità locale_. È possibile provare l'opzione `-c` o `--cluster` nel comando seguente per configurare un ambiente in _modalità cluster_ in un secondo momento.
 
    Si noti che per il comando di configurazione seguente è necessario avere l'accesso come collaboratore alla sottoscrizione. Se non si ha tale accesso, si deve avere almeno l'accesso come collaboratore al gruppo di risorse in cui viene eseguita la distribuzione. In questo secondo caso, è necessario specificare il nome del gruppo di risorse nel comando di configurazione usando il flag `-g`. 
 
@@ -176,25 +146,36 @@ Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Doc
    
    Il nome del cluster deve consentire di identificare l'ambiente. La località deve essere la stessa dell'account di Gestione modelli creato dal portale di Azure.
 
-4. Creare un account di Gestione modelli. Si tratta di un'attività una tantum.  
+   Per assicurarsi che l'ambiente sia impostato correttamente, usare il comando seguente per controllare lo stato:
+
+   ```azurecli
+   az ml env show -n <deployment environment name> -g <existing resource group name>
+   ```
+
+   Verificare che il valore di "Provisioning State" sia "Succeeded" (come illustrato di seguito) prima di impostare l'ambiente nel passaggio 5.
+
+   ![Stato del provisioning](media/tutorial-classifying-iris/provisioning_state.png)
+ 
+   
+3. Creare un account di Gestione modelli. Si tratta di un'attività una tantum.  
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-5. Impostare l'account di Gestione modelli.  
+4. Impostare l'account di Gestione modelli.  
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-6. Impostare l'ambiente.
+5. Impostare l'ambiente.
 
-   Al termine della configurazione, usare il comando seguente per impostare le variabili di ambiente necessarie per rendere operativo l'ambiente. Usare il nome di ambiente usato in precedenza nel passaggio 4. Usare lo stesso nome del gruppo di risorse che è stato restituito come output nella finestra di comando al termine del processo di configurazione.
+   Al termine della configurazione, usare il comando seguente per impostare le variabili di ambiente necessarie per rendere operativo l'ambiente. Usare il nome di ambiente usato in precedenza nel passaggio 2. Usare lo stesso nome del gruppo di risorse che è stato restituito come output nella finestra di comando al termine del processo di configurazione.
 
    ```azurecli
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-7. Per verificare di aver configurato correttamente l'ambiente reso operativo per la distribuzione del servizio Web in locale, immettere il comando seguente:
+6. Per verificare di aver configurato correttamente l'ambiente reso operativo per la distribuzione del servizio Web in locale, immettere il comando seguente:
 
    ```azurecli
    az ml env show
@@ -288,8 +269,9 @@ Per testare il servizio Web **irisapp** in esecuzione, usare un record con codif
 
 2. Per testare il servizio, eseguire il comando di esecuzione del servizio restituito:
 
+    
    ```azurecli
-   az ml service run realtime -i irisapp -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
    ```
    L'output è **"2"**, che corrisponde alla classe stimata. L'output effettivamente ottenuto potrebbe essere diverso. 
 

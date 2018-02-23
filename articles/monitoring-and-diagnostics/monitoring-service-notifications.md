@@ -35,7 +35,7 @@ Sono disponibili varie classi di notifiche sull'integrità del servizio:
 
 Ogni notifica sull'integrità del servizio contiene informazioni dettagliate sull'ambito e sull'effetto sulle risorse. I dettagli includono:
 
-Nome proprietà | Descrizione
+Nome proprietà | DESCRIZIONE
 -------- | -----------
 channels | Uno dei valori seguenti: **Admin** o **Operation**.
 correlationId | In genere un GUID in formato stringa. Gli eventi che appartengono alla stessa azione in genere condividono lo stesso correlationId.

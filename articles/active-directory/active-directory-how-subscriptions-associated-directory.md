@@ -46,7 +46,7 @@ Tutti gli utenti dispongono di una singola home directory che li autentica, ma p
 
     ![Screenshot che illustra l'interfaccia utente per cambiare la directory](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Fare clic su **Modifica**.
-6. Operazione riuscita. Passare alla nuova directory usando l'apposito controllo. Per la visualizzazione corretta di tutti gli elementi potrebbero essere necessari fino a 10 minuti.
+6. Completamento della procedura Passare alla nuova directory usando l'apposito controllo. Per la visualizzazione corretta di tutti gli elementi potrebbero essere necessari fino a 10 minuti.
 
     ![Screenshot che illustra la notifica dell'avvenuto cambio di directory](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

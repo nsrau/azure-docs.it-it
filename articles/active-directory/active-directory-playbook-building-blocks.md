@@ -16,7 +16,7 @@ ms.date: 05/04/2017
 ms.author: dstefan
 ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

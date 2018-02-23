@@ -17,7 +17,7 @@ ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ Oltre ai vantaggi descritti sopra, si ottiene anche il vantaggio che gli utenti 
 ### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>Abilitare gli utenti per l'aggiunta di dispositivi di proprietà della società direttamente ad Azure AD
 Le aziende possono fornire account di tipo solo cloud a organizzazioni e società partner. Questi partner possono quindi accedere facilmente alle app e alle risorse aziendali tramite l'accesso Single Sign-On. Questo scenario si applica agli utenti che accedono alle risorse principalmente nel cloud, ad esempio Office 365 e app SaaS che si basano su Azure AD per l'autenticazione.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 **A livello aziendale (amministratore)**
 
 * Sottoscrizione di Azure con Azure Active Directory  
@@ -59,7 +59,7 @@ Le aziende possono fornire account di tipo solo cloud a organizzazioni e societ�
 ## <a name="enable-byod-in-your-organization-for-windows-10"></a>Abilitare le funzionalità BYOD per Windows 10 nell'organizzazione
 È possibile configurare utenti e dipendenti in modo che usino i dispositivi Windows personali (BYOD, Bring Your Own Device) per accedere alle app e alle risorse aziendali. Gli utenti possono aggiungere i propri account Azure AD (account aziendali o dell'istituto di istruzione) a un dispositivo personale Windows per accedere alle risorse in totale sicurezza e conformità.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 **A livello aziendale (amministratore)**
 
 * Sottoscrizione di Azure AD

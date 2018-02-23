@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: be3fe7199308606aaab002290319df9c82149433
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a9136ebd15a995361a325804ca81ece0db30b3e6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
 
@@ -38,7 +38,7 @@ Questo articolo include gli argomenti seguenti:
 
 ## <a name="the-page-ui-customization-feature"></a>Funzionalità di personalizzazione dell'interfaccia utente della pagina
 
-È possibile personalizzare l'aspetto delle pagine di iscrizione, accesso, reimpostazione della password e modifica del profilo visualizzate dagli utenti, tramite la configurazione di [criteri](active-directory-b2c-reference-policies.md). Gli utenti possono usufruire di un'esperienza fluida durante lo spostamento tra l'applicazione e le pagine gestite da Azure AD B2C.
+È possibile personalizzare l'aspetto delle pagine di iscrizione, accesso (vedere la nota precedente per le eccezioni correlate al branding), reimpostazione della password e modifica del profilo, tramite la configurazione di [criteri](active-directory-b2c-reference-policies.md). Gli utenti possono usufruire di un'esperienza fluida durante lo spostamento tra l'applicazione e le pagine gestite da Azure AD B2C.
 
 A differenza di altri servizi con opzioni dell'interfaccia utente, Azure AD B2C utilizza un approccio moderno e semplice per la personalizzazione dell'interfaccia utente.
 

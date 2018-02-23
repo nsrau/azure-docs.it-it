@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [portale di Azure](../articles/iot-hub/iot-hub-configure-file-upload.md)
+> * [Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md)
 > * [PowerShell](../articles/iot-hub/iot-hub-configure-file-upload-powershell.md)
-> * [CLI](../articles/iot-hub/iot-hub-configure-file-upload-cli.md)
+> * [Interfaccia della riga di comando](../articles/iot-hub/iot-hub-configure-file-upload-cli.md)
 

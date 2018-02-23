@@ -105,7 +105,7 @@ Per usare questo metodo, creare un'applicazione Azure AD e l'entità servizio ne
 
 Dopo aver creato l'applicazione Azure AD, si otterranno i valori per le impostazioni riportate di seguito. Per l'autenticazione sono necessari i valori seguenti:
 
-- ID Client 
+- ID client 
 - Segreto client 
 
 Nel diagramma precedente i numeri rappresentano il flusso delle richieste in ordine cronologico:
@@ -135,7 +135,7 @@ Per altre informazioni su come usare l'autenticazione di Azure AD per comunicare
 
 Se non si usa l'SDK del client .NET di Servizi multimediali , è necessario creare manualmente una richiesta di token di Azure AD tramite i parametri descritti nel passaggio 1. Per altre informazioni, vedere [Come usare Azure AD Authentication Library per ottenere il token di Azure AD](../active-directory/develop/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Eccezione: "Il server remoto ha restituito un errore: (401) Non autorizzato."
 

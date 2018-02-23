@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/27/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: df2108a6e2a01195340a09eacf1c56f9d738c923
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understanding-cost-reports"></a>Informazioni sui report dei costi
 
@@ -38,11 +38,11 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
       - Cost Analysis (Analisi dei costi)
       - Allocation (Allocazione)
       - Asset Management (Gestione degli asset)
-      - Optimization (Ottimizzazione)
+      - Ottimizzazione
 
   Digitare un nome di filtro e quindi fare clic su **Save** (Salva).
 
-3. **Tags** (Tag)
+3. **Tag**
 
     Usare questa area per raggruppare i dati in base a categorie di tag. I tag elencati nel menu si riferiscono a centri di costo o reparti di Azure oppure a sottoscrizioni o entità di costo di Cloudyn. Selezionare i tag per filtrare i risultati. Per eseguire questa operazione è anche possibile digitare un nome di tag (parola chiave).
 
@@ -72,9 +72,9 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
   Ecco alcuni esempi:
      - Centro di costo
-     - Reparto
+     - department
      - Applicazione
-     - Ambiente
+     - Environment
      - Codice di costo
 
 5. **Filtri**
@@ -97,7 +97,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
   In Amortization (Ammortamento) selezionare **Amortized cost** (Costo ammortizzato) o **Actual Cost** (Costo effettivo).
 
-8. **Resolution** (Risoluzione)
+8. **Risoluzione**
 
     Usare questo elenco per selezionare la risoluzione dei dati temporali nell'intervallo di date selezionato. La risoluzione determina il numero di unità visualizzate nel report e può essere:
     - Giornaliera
@@ -128,7 +128,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
     Usare questa opzione per impostare il colore dei grafici nel report.
 
-14. **Actions** (Azioni)
+14. **Actions**
 
     Usare questa opzione per salvare, esportare o pianificare il report.
 

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 1/29/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 7018f0122ab1ef11d64cce8a9adf58419d0e9ba7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Sostituire un componente hardware in un nodo di unità di scala di Azure Stack
 
@@ -28,7 +28,7 @@ In questo articolo viene descritto il processo generale per sostituire i compone
 
 Di seguito sono indicati i componenti non collegabile a caldo:
 
-- CPU *
+- CPU*
 - Memoria *
 - (BMC) della scheda madre/baseboard management controller / video card
 - Disco controller/scheda bus host (HBA) / backplane
@@ -44,11 +44,11 @@ Il diagramma di flusso seguente viene illustrato il processo generale di FRU per
 
 * Questa operazione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
 
-* * Se il fornitore dell'hardware OEM esegue la sostituzione dei componenti e aggiornamento del firmware potrebbe variare in base supportate nel contratto.
+* * Se il fornitore dell'hardware OEM esegue la sostituzione dei componenti e degli aggiornamenti che potrebbe variare il firmware basato sul contratto di supporto.
 
 ## <a name="review-alert-information"></a>Rivedere le informazioni di avviso
 
-L'integrità di Azure Stack e un sistema di monitoraggio tenere traccia dell'integrità schede di rete e unità dati controllate da spazi di archiviazione diretta. Non rileva altri componenti hardware. Per tutti gli altri componenti hardware, vengono generati avvisi nell'hardware specifici del fornitore di soluzione che viene eseguito nell'host hardware del ciclo di vita di monitoraggio.
+L'integrità di Azure Stack e un sistema di monitoraggio tenere traccia dell'integrità schede di rete e unità dati controllate da spazi di archiviazione diretta. Non rileva altri componenti hardware. Per tutti gli altri componenti hardware, vengono generati avvisi nell'hardware specifici del fornitore di soluzione che viene eseguito nell'host hardware del ciclo di vita di monitoraggio.  
 
 ## <a name="component-replacement-process"></a>Processo di sostituzione del componente
 
@@ -60,7 +60,7 @@ I passaggi seguenti offrono una panoramica del processo di sostituzione di compo
    > In ogni caso, un solo nodo possa essere svuotato e lo spegnimento nello stesso momento, senza interrompere il S2D (spazi di archiviazione diretta).
 
 2. Dopo il nodo di unità di scala è in modalità manutenzione, utilizzare il [spegnere](azure-stack-node-actions.md#scale-unit-node-actions) azione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
- 
+
    > [!NOTE]
    > Nel caso improbabile in cui spegnimento azione non funziona, utilizzare l'interfaccia web di baseboard management controller (BMC).
 
@@ -74,4 +74,3 @@ I passaggi seguenti offrono una panoramica del processo di sostituzione di compo
 
 - Per informazioni sulla sostituzione di un disco fisico a caldo, vedere [sostituire un disco](azure-stack-replace-disk.md).
 - Per informazioni sulla sostituzione di un nodo fisico, vedere [sostituire un nodo di unità di scala](azure-stack-replace-node.md).
-- 

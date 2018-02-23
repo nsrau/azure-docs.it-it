@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
 * Un [database SQL di Azure](../articles/sql-database/sql-database-get-started.md) con relative informazioni di connessione, tra cui il nome del server, il nome del database, il nome utente e la password. Queste informazioni sono incluse nella stringa di connessione del database SQL:
   
@@ -35,7 +35,7 @@ Connettersi al database SQL di Azure attenendosi alla procedura seguente:
     Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e per l'accesso ai dati SQL. Al termine i dettagli della connessione saranno simili ai seguenti:  
    
     ![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Selezionare **Crea**. 
+4. Selezionare **Create**. 
 5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica: 
    
     ![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/table.png)

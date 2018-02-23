@@ -174,7 +174,7 @@ Ogni istanza di Gestione connessione ibrida può supportare più connessioni ibr
 Per consentire a un'entità esterna alla propria sottoscrizione di ospitare un'istanza di Gestione connessione ibrida per una connessione ibrida specificata, condividere con tale entità la stringa di connessione gateway per la connessione ibrida. Questa stringa è visibile nelle proprietà di una connessione ibrida nel [portale di Azure][portal]. Per usare tale stringa, selezionare **Immetti manualmente** in Gestione connessione ibrida e incollare la stringa di connessione gateway.
 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi ##
+## <a name="troubleshooting"></a>risoluzione dei problemi ##
 
 Lo stato "Connesso" indica che almeno un'istanza di Gestione connessione ibrida è configurata con quella specifica connessione ed è in grado di raggiungere Azure. Se lo stato della connessione ibrida non è **Connesso**, la connessione ibrida non è configurata in alcuna istanza di Gestione connessione ibrida con accesso ad Azure.
 

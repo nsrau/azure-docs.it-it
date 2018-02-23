@@ -1,9 +1,9 @@
 ---
-title: Come configurare un file MSI assegnati dall'utente per una macchina virtuale di Azure utilizzando un modello di Azure
-description: "Passaggio da istruzioni dettagliate per la configurazione di un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale di Azure, utilizzando un modello di gestione risorse di Azure."
+title: "Come configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite un modello di Azure"
+description: "Istruzioni dettagliate per la configurazione di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite un modello di Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,23 +12,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d97f0fa2d6c1c92aaa3d5c74dd6715de00d32438
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: e01e4c397e0d0a19280a32fc1e8341b57b47e4eb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configurare un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale, utilizzando un modello di Azure
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite un modello di Azure
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Identità del servizio gestito fornisce servizi di Azure con un'identità gestita in Azure Active Directory. È possibile utilizzare questa identità di autenticazione ai servizi che supportano l'autenticazione di Azure AD, senza la necessità di credenziali nel codice. 
+L'identità del servizio gestito offre servizi di Azure con un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo informazioni su come attivare e rimuovere un file MSI assegnati dall'utente per una macchina virtuale di Azure, utilizzando un modello di distribuzione Azure Resource Manager.
+In questo articolo viene descritto come abilitare e rimuovere un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure usando un modello di distribuzione di Azure Resource Manager.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -41,9 +41,9 @@ Analogamente al portale di Azure e all'esecuzione dello script, i modelli di ges
    - Usare un [editor JSON, ad esempio il codice di Visual Studio,](~/articles/azure-resource-manager/resource-manager-create-first-template.md) locale e di caricarlo e distribuirlo tramite PowerShell o l'interfaccia della riga di comando.
    - Usare il [progetto del gruppo di risorse di Azure](~/articles/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) di Visual Studio per creare e distribuire un modello.  
 
-Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. Creazione e l'assegnazione di un file MSI utente assegnato a una macchina virtuale nuova o esistente, viene eseguita nello stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) per le distribuzioni:
+Indipendentemente dall'opzione scelta, la sintassi dei modelli è la stessa durante la distribuzione iniziale e la ridistribuzione. La creazione e l'assegnazione di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale nuova o esistente vengono eseguite allo stesso modo. Per impostazione predefinita Azure Resource Manager esegue inoltre un [aggiornamento incrementale](~/articles/azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) per le distribuzioni:
 
-1. Se si accede a Azure localmente o tramite il portale di Azure, utilizzare un account che viene associato alla sottoscrizione di Azure che contiene i file MSI e macchina virtuale. Verificare inoltre che l'account appartiene a un ruolo che fornisce le autorizzazioni di scrittura nella sottoscrizione o le risorse (ad esempio, il ruolo di "proprietario").
+1. Che si acceda ad Azure in locale o tramite il portale di Azure, usare un account associato alla sottoscrizione di Azure che contiene l'identità del servizio gestito e la macchina virtuale. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura per la sottoscrizione o le risorse, ad esempio il ruolo di "proprietario".
 
 2. Dopo avere caricato il modello in un editor, individuare la risorsa `Microsoft.Compute/virtualMachines` interessata all'interno della sezione `resources`. Quelle in uso potrebbero avere un aspetto leggermente diverso da quelle mostrate nella schermata seguente, a seconda dell'editor usato o del fatto che si stia modificando un modello per una distribuzione nuova o esistente.
 

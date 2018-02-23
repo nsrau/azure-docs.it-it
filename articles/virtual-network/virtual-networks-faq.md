@@ -72,22 +72,22 @@ Sì. Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l�
 La subnet più piccola supportata è /29 e la più grande è /8 (usando le definizioni di subnet CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>È possibile trasferire le reti VLAN in Azure usando reti virtuali?
-No. Le reti virtuali sono sovrapposizioni di livello 3. Azure non supporta alcuna semantica di livello 2.
+di serie Le reti virtuali sono sovrapposizioni di livello 3. Azure non supporta alcuna semantica di livello 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>È possibile specificare criteri di routing personalizzati nelle reti virtuali e nelle subnet?
 Sì. È possibile usare User Defined Routing (UDR). Per altre informazioni su UDR, vedere [Route e inoltro IP definiti dall'utente](virtual-networks-udr-overview.md).
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>Le reti virtuali supportano la distribuzione multicast o broadcast?
-No. La distribuzione multicast o broadcast non è supportata.
+di serie La distribuzione multicast o broadcast non è supportata.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quali protocolli è possibile usare all'interno delle reti virtuali?
 All'interno delle reti virtuali è possibile usare i protocolli TCP, UDP e ICMP TCP/IP. I pacchetti incapsulati IP in IP, multicast e broadcast e i pacchetti Generic Routing Encapsulation (GRE) sono bloccati all'interno delle reti virtuali. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>È possibile eseguire il ping dei router predefiniti all'interno di una rete virtuale?
-No.
+di serie
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>È possibile usare tracert per diagnosticare la connettività?
-No.
+di serie
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>È possibile aggiungere subnet dopo la creazione della rete virtuale?
 Sì. Le subnet possono essere aggiunte alle reti virtuali in qualsiasi momento, purché l'indirizzo della subnet non faccia parte di un'altra subnet nella rete virtuale.
@@ -102,10 +102,10 @@ Sì. È possibile aggiungere, rimuovere e modificare i blocchi CIDR utilizzati d
 Sì. Tutti i servizi distribuiti all'interno di una rete virtuale possono effettuare la connessione a Internet. A ciascun servizio cloud distribuito in Azure viene assegnato un indirizzo VIP indirizzabile pubblicamente. Per abilitare tali servizi in modo che accettino le connessioni da Internet, sarà necessario definire gli endpoint di input per i ruoli PaaS e gli endpoint per le macchine virtuali.
 
 ### <a name="do-vnets-support-ipv6"></a>Le reti virtuali supportano IPv6?
-No. Al momento non è possibile usare IPv6 con le reti virtuali.
+di serie Al momento non è possibile usare IPv6 con le reti virtuali.
 
 ### <a name="can-a-vnet-span-regions"></a>Una rete virtuale può estendersi a più aree?
-No. Una rete virtuale è limitata a una singola area.
+di serie Una rete virtuale è limitata a una singola area.
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>È possibile connettere una rete virtuale a un'altra rete virtuale in Azure?
 Sì. È possibile connettere una rete virtuale a un'altra usando quanto segue:
@@ -138,7 +138,7 @@ Il DNS fornito da Azure è un servizio DNS multi-tenant offerto da Microsoft. Az
 Sì. È possibile impostare i server DNS in base al servizio cloud per ignorare le impostazioni di rete predefinite. Tuttavia, è consigliabile usare quanto più possibile DNS a livello di rete.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>È possibile trasferire il suffisso DNS personalizzato?
-No. Non è possibile specificare un suffisso DNS personalizzato per le reti virtuali.
+di serie Non è possibile specificare un suffisso DNS personalizzato per le reti virtuali.
 
 ## <a name="connecting-virtual-machines"></a>Connessione di macchine virtuali
 
@@ -150,7 +150,7 @@ Sì. Tutte le scheda di interfaccia di rete collegate a una macchina virtuale di
 * **Pubblico:** assegnato facoltativamente alle schede di interfaccia di rete collegate a macchine virtuali distribuite con il modello di distribuzione Azure Resource Manager. L'indirizzo può essere assegnato con il metodo di allocazione statica o dinamica. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica esistono all'interno di un servizio cloud, a cui viene assegnato un indirizzo IP virtuale (VIP) pubblico *dinamico*. Facoltativamente, è possibile assegnare un indirizzo IP pubblico *statico*, detto [indirizzo IP riservato](virtual-networks-reserved-public-ip.md), come indirizzo VIP. Gli indirizzi IP pubblici possono essere assegnati a singole macchine virtuali o istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica. Questi sono detti [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) e possono essere assegnati in modo dinamico.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>È possibile riservare un indirizzo IP privato per una macchina virtuale che verrà creata in un secondo momento?
-No. Non è possibile riservare un indirizzo IP privato. Se un indirizzo IP privato è disponibile, verrà assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP, indipendentemente dal fatto che tale macchina virtuale sia o meno quella a cui si vuole assegnare l'indirizzo IP privato. È possibile, tuttavia, cambiare l'indirizzo IP privato di una macchina virtuale già creata con qualsiasi indirizzo IP privato disponibile.
+di serie Non è possibile riservare un indirizzo IP privato. Se un indirizzo IP privato è disponibile, verrà assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP, indipendentemente dal fatto che tale macchina virtuale sia o meno quella a cui si vuole assegnare l'indirizzo IP privato. È possibile, tuttavia, cambiare l'indirizzo IP privato di una macchina virtuale già creata con qualsiasi indirizzo IP privato disponibile.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Gli indirizzi IP privati vengono modificati per le macchine virtuali in una rete virtuale?
 Dipende. Un indirizzo IP privato dinamico rimane assegnato a una macchina virtuale finché questa non viene arrestata, ovvero deallocata, o eliminata. Un indirizzo IP privato statico rimane associato a una macchina virtuale finché questa non viene eliminata.
@@ -165,7 +165,7 @@ Niente. Gli indirizzi IP, pubblici, privati o indirizzi VIP pubblici, rimangano 
 Sì. Per altre informazioni, vedere l'articolo [Come spostare una macchina virtuale o un'istanza del ruolo in un'altra subnet](virtual-networks-move-vm-role-to-subnet.md).
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>È possibile configurare un indirizzo MAC statico per la macchina virtuale?
-No. Un indirizzo MAC non può essere configurato in modo statico.
+di serie Un indirizzo MAC non può essere configurato in modo statico.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-it-has-been-created"></a>L'indirizzo MAC rimarrà invariato per la macchina virtuale dopo averla creata?
 Sì, l'indirizzo MAC rimane invariato sia che la macchina virtuale venga distribuita con il modello di distribuzione classica o Resource Manager, finché non viene eliminata. In precedenza se la macchina virtuale veniva arrestata, ovvero deallocata, l'indirizzo MAC veniva rilasciato. Ora viene mantenuto anche quando la macchina virtuale è in stato deallocato.
@@ -189,7 +189,7 @@ Sì. Facoltativamente, è possibile distribuire istanze del ruolo dei servizi cl
 Sì. È necessario connettere un set di scalabilità di macchine virtuali a una rete virtuale.
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all’interno e all’esterno delle reti virtuali?
-No. Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Sarà necessario eliminare e ridistribuire il servizio per spostarlo in un'altra rete virtuale.
+di serie Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Sarà necessario eliminare e ridistribuire il servizio per spostarlo in un'altra rete virtuale.
 
 ## <a name="security"></a>Sicurezza
 

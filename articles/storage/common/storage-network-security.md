@@ -1,5 +1,5 @@
 ---
-title: Configurare i firewall e le reti virtuali di Archiviazione di Azure (anteprima) | Microsoft Docs
+title: Configurare i firewall e le reti virtuali di Archiviazione di Azure | Microsoft Docs
 description: "Configurare la sicurezza di rete su più livelli per l'account di archiviazione."
 services: storage
 documentationcenter: 
@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure (anteprima)
+# <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
 
-## <a name="preview-availability-and-support"></a>Anteprima della disponibilità e del supporto
-I firewall e le reti virtuali di archiviazione sono funzionalità in anteprima.  Queste funzionalità sono attualmente disponibili per gli account di archiviazione nuovi o esistenti in tutte le aree del cloud pubblico di Azure.
-
-> [!NOTE]
-> I carichi di lavoro di produzione non sono supportati durante l'anteprima.
+> [!IMPORTANT]
+> L'attivazione di regole del firewall per l'account di archiviazione consente di bloccare l'accesso alle richieste di dati in ingresso, incluse quelle da altri servizi di Azure,  ad esempio il portale, la scrittura di log e così via.  Per i servizi partecipanti è possibile abilitare di nuovo la funzionalità tramite la sezione [Eccezioni](#Exceptions) più avanti.  Per accedere al portale, è necessario eseguire questa operazione da un computer all'interno del limite attendibile (IP o rete virtuale) configurato.
 >
 
 ## <a name="scenarios"></a>Scenari
@@ -55,9 +52,6 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
 
 #### <a name="azure-portal"></a>Portale di Azure
 1. Passare all'account di archiviazione che si vuole proteggere.  
-> [!NOTE]
-> Verificare che l'account di archiviazione si trovi in una delle aree supportate per l'anteprima pubblica.
->
 
 2. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
 3. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da "Reti selezionate".  Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da "Tutte le reti".
@@ -300,7 +294,6 @@ Quando è abilitata l'eccezione "Servizi Microsoft attendibili" i servizi seguen
 |Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/azure/event-grid/overview).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi.  [Altre informazioni](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|HDInsight di Azure|Microsoft.HDInsight|Provisioning e installazione di cluster.  [Altre informazioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete.  [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

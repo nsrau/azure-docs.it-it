@@ -3,7 +3,7 @@ title: "Raccogliere e analizzare i log attività di Azure in Log Analytics | Mic
 description: "È possibile usare la soluzione Log attività di Azure per analizzare e cercare i log attività di Azure in tutte le sottoscrizioni di Azure."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
-ms.author: banders
-ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.date: 01/24/2018
+ms.author: magoedte
+ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Raccogliere e analizzare i log attività di Azure in Log Analytics
 
@@ -50,14 +50,14 @@ Per gli utenti che rientrano nel piano tariffario gratuito, i log attività non 
 
 A differenza della maggior parte delle soluzioni di Log Analytics, i dati per i log attività non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| [Agenti di Windows](log-analytics-windows-agent.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | La soluzione non raccoglie le informazioni dall'Archiviazione di Azure. |
+| [Agenti di Windows](log-analytics-windows-agent.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni dall'Archiviazione di Azure. |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - L'accesso alle informazioni del log attività di Azure è consentito solo a chi dispone di una sottoscrizione di Azure.
 
@@ -88,12 +88,12 @@ Fare clic sul riquadro **Log attività di Azure** per aprire il dashboard **Log 
 
 Il log attività viene visualizzato solo *dopo* aver configurato i log attività per passare alla soluzione, così da non visualizzare i dati prima di allora.
 
-| Pannello | Descrizione |
+| Pannello | DESCRIZIONE |
 | --- | --- |
-| Voci del Log attività di Azure | Mostra un grafico a barre dei principali totali di record di voci del log attività di Azure per l'intervallo di date selezionato e un elenco dei primi 10 chiamanti attività. Fare clic sul grafico a barre per eseguire una ricerca di log per <code>Type=AzureActivity</code>. Fare clic su un elemento chiamante per eseguire una ricerca di log che restituisce tutte le voci di log attività per tale elemento. |
-| Log attività per stato | Mostra un grafico ad anello relativo allo stato del log attività di Azure per l'intervallo di date selezionato. Mostra anche un elenco dei primi dieci record di stato. Fare clic sul grafico per eseguire una ricerca di log per <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Fare clic su un elemento di stato per eseguire una ricerca di log che restituisce tutte le voci di log attività per il record di stato. |
-| Log attività per risorsa | Indica il numero totale di risorse con i log attività ed elenca le prime dieci risorse con conteggi dei record di ciascuna risorsa. Fare clic sull'area totale per eseguire una ricerca di log per <code>Type=AzureActivity &#124; measure count() by Resource</code>, che mostra tutte le risorse di Azure disponibili per la soluzione. Fare clic su una risorsa per eseguire una ricerca di log che restituisce tutti i record di attività per quella risorsa. |
-| Log attività per provider di risorse | Indica il numero totale di provider di risorse che producono log attività e ne elenca i primi dieci. Fare clic sull'area totale per eseguire una ricerca di log per <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>, che mostra tutti i provider di risorse di Azure. Fare clic su un provider di risorse per eseguire una ricerca di log che restituisce tutti i record di attività per quel provider. |
+| Voci del Log attività di Azure | Mostra un grafico a barre dei principali totali di record di voci del log attività di Azure per l'intervallo di date selezionato e un elenco dei primi 10 chiamanti attività. Fare clic sul grafico a barre per eseguire una ricerca di log per <code>AzureActivity</code>. Fare clic su un elemento chiamante per eseguire una ricerca di log che restituisce tutte le voci di log attività per tale elemento. |
+| Log attività per stato | Mostra un grafico ad anello relativo allo stato del log attività di Azure per l'intervallo di date selezionato. Mostra anche un elenco dei primi dieci record di stato. Fare clic sul grafico per eseguire una ricerca di log per <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code>. Fare clic su un elemento di stato per eseguire una ricerca di log che restituisce tutte le voci di log attività per il record di stato. |
+| Log attività per risorsa | Indica il numero totale di risorse con i log attività ed elenca le prime dieci risorse con conteggi dei record di ciascuna risorsa. Fare clic sull'area totale per eseguire una ricerca di log per <code>AzureActivity &#124; summarize AggregatedValue = count() by Resource</code>, che mostra tutte le risorse di Azure disponibili per la soluzione. Fare clic su una risorsa per eseguire una ricerca di log che restituisce tutti i record di attività per quella risorsa. |
+| Log attività per provider di risorse | Indica il numero totale di provider di risorse che producono log attività e ne elenca i primi dieci. Fare clic sull'area totale per eseguire una ricerca di log per <code>AzureActivity &#124; summarize AggregatedValue = count() by ResourceProvider</code>, che mostra tutti i provider di risorse di Azure. Fare clic su un provider di risorse per eseguire una ricerca di log che restituisce tutti i record di attività per quel provider. |
 
 ![Dashboard Log attività di Azure](./media/log-analytics-activity/activity-log-dash.png)
 

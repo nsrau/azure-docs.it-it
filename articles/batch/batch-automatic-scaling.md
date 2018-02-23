@@ -84,7 +84,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere e impostare i valori di queste variabili definite dal servizio per gestire il numero di nodi di calcolo in un pool:
 
-| Variabili in lettura/scrittura definite dal servizio | Descrizione |
+| Variabili in lettura/scrittura definite dal servizio | DESCRIZIONE |
 | --- | --- |
 | $TargetDedicatedNodes |Numero di destinazione dei nodi di calcolo dedicati per il pool. Il numero di nodi dedicati viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi dedicati di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. <br /><br /> Un pool in un account creato con la configurazione del servizio Batch potrebbe non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. Un pool in un account creato con la configurazione di sottoscrizione utente potrebbe non raggiungere il valore di destinazione se supera la quota condivisa di nodi per la sottoscrizione.|
 | $TargetLowPriorityNodes |Numero di destinazione dei nodi di calcolo con priorità bassa per il pool. Il numero di nodi con priorità bassa viene specificato come destinazione, perché un pool potrebbe non ottenere sempre il numero desiderato di nodi. Ad esempio, se il numero di nodi con priorità bassa di destinazione viene modificato da una valutazione di scalabilità automatica prima che il pool raggiunga il valore di destinazione iniziale, è possibile che il pool non raggiunga il numero di nodi di destinazione. Un pool potrebbe anche non raggiungere il valore di destinazione se supera la quota di nodi o core di un account Batch. <br /><br /> Per altre informazioni sui nodi calcolo con priorità bassa, vedere [Usare le VM con priorità bassa in Batch (anteprima)](batch-low-pri-vms.md). |
@@ -92,7 +92,7 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 
 È possibile ottenere il valore di queste variabili definite dal servizio per eseguire adeguamenti basati sulla metrica del servizio Batch:
 
-| Variabili di sola lettura definite dal servizio | Descrizione |
+| Variabili di sola lettura definite dal servizio | DESCRIZIONE |
 | --- | --- |
 | $CPUPercent |Percentuale media di utilizzo della CPU. |
 | $WallClockSeconds |Numero di secondi utilizzati. |
@@ -122,10 +122,10 @@ Le tabelle seguenti includono sia le variabili di lettura/scrittura che di sola 
 ## <a name="types"></a>Tipi
 Questi sono i tipi supportati in una formula:
 
-* double
+* Double
 * doubleVec
 * doubleVecList
-* string
+* stringa
 * timestamp, è una struttura composta che contiene i membri seguenti:
 
   * year
@@ -153,7 +153,7 @@ Queste operazioni sono consentite sui tipi elencati nella sezione precedente.
 
 | Operazione | Operatori supportati | Tipo di risultato |
 | --- | --- | --- |
-| double *operatore* double |+, -, *, / |double |
+| double *operatore* double |+, -, *, / |Double |
 | double *operatore* timeinterval |* |timeInterval |
 | doubleVec *operatore* double |+, -, *, / |doubleVec |
 | doubleVec *operatore* doubleVec |+, -, *, / |doubleVec |
@@ -162,42 +162,42 @@ Queste operazioni sono consentite sui tipi elencati nella sezione precedente.
 | timeinterval *operatore* timestamp |+ |timestamp |
 | timestamp *operatore* timeinterval |+ |timestamp |
 | timestamp *operatore* timestamp |- |timeInterval |
-| *operatoree*double |-, ! |double |
+| *operatoree*double |-, ! |Double |
 | *operatoree*timeInterval |- |timeInterval |
-| double *operatore* double |<, <=, ==, >=, >, != |double |
-| string *operatore* string |<, <=, ==, >=, >, != |double |
-| timestamp *operatore* timestamp |<, <=, ==, >=, >, != |double |
-| timeinterval *operatore* timeinterval |<, <=, ==, >=, >, != |double |
-| double *operatore* double |&&, &#124;&#124; |double |
+| double *operatore* double |<, <=, ==, >=, >, != |Double |
+| string *operatore* string |<, <=, ==, >=, >, != |Double |
+| timestamp *operatore* timestamp |<, <=, ==, >=, >, != |Double |
+| timeinterval *operatore* timeinterval |<, <=, ==, >=, >, != |Double |
+| double *operatore* double |&&, &#124;&#124; |Double |
 
 Durante il test di un valore double con un operatore ternario (`double ? statement1 : statement2`), diverso da zero è **true** e zero è **false**.
 
 ## <a name="functions"></a>Funzioni
 Queste **funzioni** predefinite sono disponibili per consentire la definizione di una formula di ridimensionamento automatico.
 
-| Funzione | Tipo restituito | Descrizione |
+| Funzione | Tipo restituito | DESCRIZIONE |
 | --- | --- | --- |
-| avg(doubleVecList) |double |Restituisce il valore medio per tutti i valori in doubleVecList. |
-| len(doubleVecList) |double |Restituisce la lunghezza del vettore creato da doubleVecList. |
-| lg(double) |double |Restituisce il logaritmo in base 2 di double. |
+| avg(doubleVecList) |Double |Restituisce il valore medio per tutti i valori in doubleVecList. |
+| len(doubleVecList) |Double |Restituisce la lunghezza del vettore creato da doubleVecList. |
+| lg(double) |Double |Restituisce il logaritmo in base 2 di double. |
 | lg(doubleVecList) |doubleVec |Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double). |
-| ln(double) |double |Restituisce il logaritmo naturale di double. |
+| ln(double) |Double |Restituisce il logaritmo naturale di double. |
 | ln(doubleVecList) |doubleVec |Restituisce il logaritmo in base 2 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il parametro. In caso contrario viene usata la versione double lg(double). |
-| log(double) |double |Restituisce il logaritmo in base 10 di double. |
+| log(double) |Double |Restituisce il logaritmo in base 10 di double. |
 | log(doubleVecList) |doubleVec |Restituisce il logaritmo in base 10 a livello di componente di doubleVecList. vec(double) deve essere passato in modo esplicito per il singolo parametro double. In caso contrario, viene usata la versione double log(double). |
-| max(doubleVecList) |double |Restituisce il valore massimo in doubleVecList. |
-| min(doubleVecList) |double |Restituisce il valore minimo in doubleVecList. |
-| norm(doubleVecList) |double |Restituisce la norma 2 del vettore creato da doubleVecList. |
-| percentile(doubleVec v, double p) |double |Restituisce l'elemento percentile del vettore v. |
-| rand() |double |Restituisce un valore casuale compreso tra 0,0 e 1,0. |
-| range(doubleVecList) |double |Restituisce la differenza tra i valori minimo e massimo in doubleVecList. |
-| std(doubleVecList) |double |Restituisce la deviazione standard del campione dei valori in doubleVecList. |
+| max(doubleVecList) |Double |Restituisce il valore massimo in doubleVecList. |
+| min(doubleVecList) |Double |Restituisce il valore minimo in doubleVecList. |
+| norm(doubleVecList) |Double |Restituisce la norma 2 del vettore creato da doubleVecList. |
+| percentile(doubleVec v, double p) |Double |Restituisce l'elemento percentile del vettore v. |
+| rand() |Double |Restituisce un valore casuale compreso tra 0,0 e 1,0. |
+| range(doubleVecList) |Double |Restituisce la differenza tra i valori minimo e massimo in doubleVecList. |
+| std(doubleVecList) |Double |Restituisce la deviazione standard del campione dei valori in doubleVecList. |
 | stop() | |Arresta la valutazione dell'espressione per il ridimensionamento automatico. |
-| sum(doubleVecList) |double |Restituisce la somma di tutti i componenti di doubleVecList. |
+| sum(doubleVecList) |Double |Restituisce la somma di tutti i componenti di doubleVecList. |
 | time(string dateTime="") |timestamp |Restituisce il timestamp dell'ora corrente se non vengono passati parametri oppure il timestamp della stringa dateTime, se è stata passata. I formati dateTime supportati sono W3C-DTF e RFC 1123. |
-| val(doubleVec v, double i) |double |Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero. |
+| val(doubleVec v, double i) |Double |Restituisce il valore dell'elemento nella posizione i nel vettore v con un indice iniziale pari a zero. |
 
-Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio:
+Alcune delle funzioni descritte nella tabella precedente possono accettare un elenco come argomento. L'elenco con valori delimitati da virgole è una combinazione qualsiasi di *double* e *doubleVec*. Ad esempio: 
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -210,13 +210,13 @@ Le formule di ridimensionamento automatico agiscono sui dati di metrica (campion
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 | --- | --- |
 | GetSample() |Il metodo `GetSample()` restituisce un vettore relativo ai campioni di dati.<br/><br/>Un campione rappresenta 30 secondi di dati di metrica. In altre parole i campioni vengono raccolti ogni 30 secondi, ma come indicato di seguito si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. Di conseguenza, i campioni per un determinato periodo di tempo potrebbero non essere tutti disponibili per la valutazione da parte di una formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifica il numero di campioni da ottenere tra quelli raccolti più di recente.<br/><br/>`GetSample(1)` restituisce l'ultimo campione disponibile. Per le metriche come `$CPUPercent` non deve tuttavia essere usato perché non è possibile sapere *quando* è stato raccolto il campione. Potrebbe essere recente o risultare molto meno recente a causa di problemi di sistema. In questi casi è preferibile usare un intervallo di tempo, come illustrato di seguito.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta di dati di esempio. Facoltativamente specifica anche la percentuale di campioni che deve essere disponibile nell'intervallo di tempo richiesto.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` restituisce 20 campioni se nella cronologia CPUPercent sono presenti tutti i campioni per gli ultimi 10 minuti. Se l'ultimo minuto della cronologia non è disponibile, vengono tuttavia restituiti solo 18 campioni. In questo caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` avrà esito negativo poiché è disponibile solo il 90% dei campioni.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` avrà esito positivo.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifica un intervallo di tempo per la raccolta dei dati, con un'ora di inizio e un'ora di fine.<br/><br/>Come indicato in precedenza, si verifica un ritardo tra il momento in cui un campione viene raccolto e il momento in cui è disponibile per una formula. È necessario tenere presente questo ritardo quando si usa il metodo `GetSample`. Vedere `GetSamplePercent` di seguito. |
 | GetSamplePeriod() |Restituisce il periodo dei campioni raccolti in un set di dati campione cronologici. |
 | Count() |Restituisce il numero totale di campioni nella cronologia dei dati di metrica. |
 | HistoryBeginTime() |Restituisce il timestamp del campione di dati disponibile meno recente per la metrica. |
-| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
+| GetSamplePercent() |Restituisce la percentuale di campioni disponibili per un determinato intervallo di tempo. Ad esempio: <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Poiché il metodo `GetSample` non riesce se la percentuale di campioni restituiti è minore del valore `samplePercent` specificato, è possibile eseguire prima il controllo con il metodo `GetSamplePercent`. È quindi possibile eseguire un'azione alternativa se non sono presenti campioni sufficienti, senza interrompere la valutazione del ridimensionamento automatico. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Campioni, percentuale di campioni e metodo *GetSample()*
 L'operazione di base per il funzionamento di una formula di ridimensionamento automatico consiste nell'ottenere i dati di metrica relativi a risorse ed attività e quindi l'adeguamento delle dimensioni del pool in base a tali dati. Di conseguenza, è importante conoscere a fondo la modalità di interazione delle formule di scalabilità automatica con i dati di metrica (campioni).
@@ -241,7 +241,7 @@ A tale scopo, usare `GetSample(interval look-back start, interval look-back end)
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio:
+Quando la riga precedente viene valutata da Batch, restituisce un intervallo di campioni come vettore di valori. Ad esempio: 
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -268,7 +268,7 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 <table>
   <tr>
     <th>Metrica</th>
-    <th>Descrizione</th>
+    <th>DESCRIZIONE</th>
   </tr>
   <tr>
     <td><b>Risorsa</b></td>
@@ -397,7 +397,7 @@ L'intervallo minimo è di 5 minuti e il massimo di 168 ore. Se viene specificato
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Abilitare la scalabilità automatica in un pool esistente
 
-Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, ad esempio:
+Ogni SDK per Batch offre un modo per abilitare la scalabilità automatica, Ad esempio: 
 
 * [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Abilitare la scalabilità automatica in un pool][rest_enableautoscale] (API REST)

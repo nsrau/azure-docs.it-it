@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 Man mano che Azure Data Lake Store viene reso disponibile in nuove aree, è possibile scegliere di eseguire una migrazione occasionale per sfruttare i vantaggi di una nuova area. Ecco gli aspetti da considerare per la pianificazione e il completamento della migrazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Una sottoscrizione di Azure**. Per altre informazioni, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Data Lake Store in due aree diverse**. Per altre informazioni, vedere l'[introduzione ad Azure Data Lake Store](data-lake-store-get-started-portal.md).
@@ -52,4 +52,4 @@ Ecco altri dettagli importanti da considerare durante la pianificazione della mi
 * **Posizione dei servizi di analisi**. Per prestazioni ottimali, i servizi di analisi, come Azure Data Lake Analytics o HDInsight, devono trovarsi nella stessa area dei dati.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
+* [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 818f6513625a2677668dd6b6869ef969fe015bf7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
@@ -80,10 +80,11 @@ Le proprietà che possono essere definite in un'acquisizione di pacchetti sono:
 
 **Acquisisci configurazione**
 
-- **Account di archiviazione**: determina se l'acquisizione di pacchetti viene salvata in un'account di archiviazione.
+- **Percorso file locale**: percorso locale nella macchina virtuale in cui viene salvata l'acquisizione di pacchetti (valido solo quando è selezionato **[file]**). È necessario specificare un percorso valido. Se si usa una macchina virtuale Linux, il percorso deve iniziare con /var/captures.
+- **Account di archiviazione**: determina se l'acquisizione di pacchetti viene salvata in un account di archiviazione.
 - **File**: determina se un'acquisizione di pacchetti viene salvata in locale nella macchina virtuale.
 - **Account di archiviazione**: account di archiviazione selezionato in cui salvare l'acquisizione di pacchetti. Il percorso predefinito è https://{nome account di archiviazione}.blob.core.windows.net/network-watcher-logs/subscriptions/{ID sottoscrizione}/resourcegroups/{nome gruppo di risorse}/providers/microsoft.compute/virtualmachines/{nome macchina virtuale}/{AA}/{MM}/{GG}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. È abilitato solo se viene selezionato **Archiviazione**.
-- **Percorso file locale**: percorso locale in una macchina virtuale in cui salvare l'acquisizione di pacchetti. È abilitato solo se viene selezionato **File**. È necessario specificare un percorso valido
+- **Percorso file locale**: percorso locale in una macchina virtuale in cui salvare l'acquisizione di pacchetti. È abilitato solo se viene selezionato **File**. È necessario specificare un percorso valido. Per una macchina virtuale Linux, il percorso deve iniziare con *var/captures*.
 - **Numero massimo di byte per pacchetto**: numero di byte acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte.
 - **Numero massimo di byte per sessione**: numero totale di byte acquisiti. Con il raggiungimento di questo valore l'acquisizione dei pacchetti si arresta.
 - **Limite di tempo (secondi)**: imposta un limite di tempo per l'arresto dell'acquisizione di pacchetti. Il valore predefinito è 18000 secondi.

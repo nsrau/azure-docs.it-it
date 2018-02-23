@@ -34,7 +34,7 @@ Informazioni su come modificare e aumentare i limiti di quota nell'account di Az
 
 **Numero massimo di unità di analisi per account:** 250
 
-Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il totale delle unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. ad esempio:
+Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il totale delle unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio: 
 
 * Se si ha un solo processo in esecuzione con 250 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
 * Se si dispone di cinque processi in esecuzione e ognuno usa 50 Australia, quando si invia un processo sesto necessarie 20 AUs è in attesa nella coda dei processi fino a quando non sono presenti 20 AUs disponibili.

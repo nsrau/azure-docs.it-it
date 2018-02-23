@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -31,21 +31,21 @@ Informazioni su come abilitare e disabilitare la protezione dall'attacco Distrib
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>Abilitare Protezione DDoS Standard - Nuova rete virtuale
 
 1. Accedere al portale di Azure all'indirizzo http://portal.azure.com. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-2. Fare clic su **creare una risorsa** nell'angolo superiore sinistro del portale di Azure.
+2. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 3. Selezionare **Rete** e quindi **Rete virtuale**.
-4. Creare una rete virtuale con le impostazioni scelte. Per altre informazioni sulle reti virtuali, vedere [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md). In **Protezione DDoS** fare clic su **Abilitato** e quindi su **Crea**. Se non viene visualizzato **protezione DDoS**, una causa probabile è che la sottoscrizione non è registrata per la funzionalità. È necessario completare [registrazione](http://aka.ms/ddosprotection)e ricevere una notifica che la sottoscrizione è stata abilitata per la funzionalità, prima di **protezione DDoS** viene visualizzato.
+4. Creare una rete virtuale con le impostazioni scelte. Per altre informazioni sulle reti virtuali, vedere [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md). In **Protezione DDoS** fare clic su **Abilitato** e quindi su **Crea**. Se **Protezione DDoS** non è presente, una causa probabile è che la sottoscrizione non sia registrata per la funzionalità. È necessario completare la [registrazione](http://aka.ms/ddosprotection) e ricevere la notifica dell'abilitazione della funzionalità per la sottoscrizione perché compaia **Protezione DDoS**.
 
     ![Creare una rete virtuale](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Quando si seleziona un'area, scegliere un'area supportata dall'elenco in [Panoramica di Protezione DDoS Standard di Azure](ddos-protection-overview.md). Se non si seleziona un'area non supportata, creazione della rete virtuale ha esito negativo.
+    > Quando si seleziona un'area, scegliere un'area supportata dall'elenco in [Panoramica di Protezione DDoS Standard di Azure](ddos-protection-overview.md). Se non si seleziona un'area supportata, la creazione della rete virtuale non riesce.
 
     Un messaggio di avviso indica che l'abilitazione di Protezione DDoS comporta addebiti. Durante la fase di anteprima non viene addebitato alcun costo per Protezione DDoS. Gli addebiti vengono applicati con la disponibilità generale del servizio. I clienti riceveranno un preavviso di 30 giorni prima dell'avvio di questa fase con il conseguente addebito dei costi.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>Abilitare Protezione DDoS Standard - Rete virtuale esistente 
 
 1. Fare clic su **Reti virtuali** nel menu del portale di Azure e quindi selezionare la rete virtuale.
-2. Fare clic su **Protezione DDoS**, fare clic su **Abilitato** nella schermata *Protezione DDoS* e quindi fare clic su **Salva**. Se non viene visualizzato **protezione DDoS**, una causa probabile è che la sottoscrizione non è registrata per la funzionalità. È necessario completare [registrazione](http://aka.ms/ddosprotection)e ricevere una notifica che la sottoscrizione è stata abilitata per la funzionalità, prima di **protezione DDoS** viene visualizzato. 
+2. Fare clic su **Protezione DDoS**, fare clic su **Abilitato** nella schermata *Protezione DDoS* e quindi fare clic su **Salva**. Se **Protezione DDoS** non è presente, una causa probabile è che la sottoscrizione non sia registrata per la funzionalità. È necessario completare la [registrazione](http://aka.ms/ddosprotection) e ricevere la notifica dell'abilitazione della funzionalità per la sottoscrizione perché compaia **Protezione DDoS**. 
 
     > [!WARNING]
     > La rete virtuale deve essere presente in un'area supportata. Per un elenco delle aree supportate, vedere [Panoramica di Protezione DDoS Standard di Azure](ddos-protection-overview.md).
@@ -72,7 +72,7 @@ Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile sel
 
     ![Avviso di attacco](./media/ddos-protection-manage-portal/ddos-alert.png) 
 
-È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) e alle [app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) per la creazione di avvisi.
+È anche possibile leggere altre informazioni relative alla [configurazione dei webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) e alle [app per la logica](../logic-apps/logic-apps-overview.md) per la creazione di avvisi.
 
 ## <a name="configure-logging-on-ddos-protection-standard-metrics"></a>Configurare la registrazione per le metriche di Protezione DDoS Standard
 

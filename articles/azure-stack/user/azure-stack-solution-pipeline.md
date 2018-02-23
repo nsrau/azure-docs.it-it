@@ -59,7 +59,7 @@ In questo argomento si presuppone inoltre che si dispone di conoscenza dello Sta
 
 ## <a name="create-app--push-to-vsts"></a>Creare app & push per Visual Studio Team Services
 
-### <a name="create-application"></a>Creare l'applicazione
+### <a name="create-application"></a>Crea applicazione
 In questa sezione un'applicazione ASP.NET semplice creare e inviare a Visual Studio Team Services.  Questi passaggi rappresentano il flusso di lavoro di sviluppo normale e può essere adattati per linguaggi e strumenti di sviluppo. 
 
 1.  Aprire Visual Studio.
@@ -114,7 +114,7 @@ Ora che hai creato una definizione di versione vuoto ed associato alla compilazi
     | Parametro | Valore |
     | ----- | ----- |
     |Metodo di autenticazione| Immettere le credenziali|
-    |URL del server | URL dell'App Web FTP recuperato dal portale di Azure |
+    |URL server | URL dell'App Web FTP recuperato dal portale di Azure |
     |Username | Nome utente configurato al momento della creazione di credenziali FTP per l'App Web |
     |Password | Password creata quando si stabiliscono le credenziali FTP per l'App Web|
     |Directory di origine | $(System.DefaultWorkingDirectory)\**\ |
@@ -144,7 +144,7 @@ Ora che hai testato CI/CD pipeline con la distribuzione in Azure, è necessario 
 
 1.  Nella definizione di versione, selezionare **+ Aggiungi ambiente** e **creare un nuovo ambiente**.
 2.  Selezionare **vuoto**, fare clic su **Avanti**.
-3.  Selezionare **utenti specifici** e specificare l'account.  Selezionare **Crea**.
+3.  Selezionare **utenti specifici** e specificare l'account.  Selezionare **Create**.
 4.  Rinominare l'ambiente selezionando il nome esistente e digitando *Azure Stack*.
 5.  A questo punto, quindi selezionare l'ambiente dello Stack di Azure, selezione **aggiungere attività**.
 6.  Selezionare il **FTP caricare** attività e selezionare **Aggiungi**, quindi selezionare **Chiudi**.
@@ -158,7 +158,7 @@ Dopo aver creato una versione, è possibile configurare i passaggi necessari per
     | Parametro | Valore |
     | -----     | ----- |
     |Metodo di autenticazione| Immettere le credenziali|
-    |URL del server | URL dell'App Web FTP recuperato dal portale di Azure Stack |
+    |URL server | URL dell'App Web FTP recuperato dal portale di Azure Stack |
     |Username | Nome utente configurato al momento della creazione di credenziali FTP per l'App Web |
     |Password | Password creata quando si stabiliscono le credenziali FTP per l'App Web|
     |Directory di origine | $(System.DefaultWorkingDirectory)\**\ |

@@ -35,7 +35,7 @@ In questo esempio è presente una sottoscrizione che include gli elementi seguen
 * Un dispositivo virtuale di rete, in questo esempio un firewall, connesso alla subnet SecNet.
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01").
 * Due server Windows che rappresentano server back-end applicazioni ("AppVM01", "AppVM02")
-* Un server Windows che rappresenta un server DNS ("DNS01")
+* Un server Windows che rappresenta un server DNS ("DNS01").
 
 Nella sezione Riferimenti alla fine dell'articolo è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto sopra. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento.
 
@@ -533,7 +533,7 @@ Tenere anche presente che per il traffico Internet in ingresso sulle subnet fron
 4. Infine, il routing definito dall'utente nella subnet front-end invia tutto il traffico in uscita da IIS01 al firewall come hop successivo. Il firewall lo considera come traffico asimmetrico ed elimina la risposta in uscita. Ci sono quindi tre livelli di difesa indipendenti tra Internet e IIS01 tramite il servizio cloud che impedisce l'accesso non autorizzato/non appropriato.
 
 #### <a name="denied-internet-to-backend-server"></a>(Negato) Da Internet al server back-end
-1. L'utente Internet prova ad accedere a un file su AppVM01 tramite il servizio BackEnd001.CloudApp.Net.
+1. L'utente Internet prova ad accedere a un file in AppVM01 tramite il servizio BackEnd001.CloudApp.Net.
 2. Non essendoci endpoint aperti per la condivisione file, il traffico non passa attraverso il servizio cloud e non raggiunge il server.
 3. In caso di apertura degli endpoint per qualunque motivo, il gruppo di sicurezza di rete (blocco Internet) bloccherà questo traffico.
 4. Infine, il routing definito dall'utente invia tutto il traffico in uscita da AppVM01 al firewall come hop successivo. Il firewall lo considera come traffico asimmetrico ed elimina la risposta in uscita. Ci sono quindi tre livelli di difesa indipendenti tra Internet e AppVM01 tramite il servizio cloud che impedisce l'accesso non autorizzato/non appropriato.

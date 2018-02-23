@@ -32,7 +32,7 @@ La soluzione preconfigurata per il monitoraggio remoto di Azure IoT Suite dimost
 
 La soluzione preconfigurata per il monitoraggio remoto usa l'[hub IoT di Azure][lnk-iot-hub] per consentire ai dispositivi di inviare dati al cloud. La soluzione archivia le informazioni sui dispositivi in tre posizioni diverse:
 
-| Percorso | Informazioni archiviate | Implementazione |
+| Località | Informazioni archiviate | Implementazione |
 | -------- | ------------------ | -------------- |
 | Registro delle identità | ID del dispositivo, chiavi di autenticazione, stato di abilitazione | Predefinito nell'hub IoT |
 | Dispositivi gemelli | Metadati: proprietà segnalate, proprietà desiderate, tag | Predefinito nell'hub IoT |

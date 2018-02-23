@@ -16,7 +16,7 @@ ms.date: 10/23/2017
 ms.author: v-deasim
 ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

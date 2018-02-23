@@ -35,7 +35,7 @@ Questo articolo illustra come usare Python SDK per eseguire l'autenticazione del
 
 Questo articolo descrive entrambe le opzioni. Per l'autenticazione da servizio a servizio con Data Lake Store tramite Python, vedere [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md) (Autenticazione da servizio a servizio con Data Lake Store tramite Python).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Python**. È possibile scaricare Python [qui](https://www.python.org/downloads/). Questo articolo fa riferimento a Python 3.6.2.
 

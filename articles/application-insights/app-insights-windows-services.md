@@ -111,7 +111,7 @@ In Visual Studio verrà visualizzato il conteggio degli eventi che sono stati in
 ## <a name="monitor"></a> Visualizzare i dati di telemetria
 Tornare al [portale di Azure](https://portal.azure.com/) e passare alla risorsa Application Insights.
 
-Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio:
+Cercare i dati nei grafici Panoramica. All'inizio si vedranno solo uno o due punti. Ad esempio: 
 
 ![Fare clic per visualizzare altri dati.](./media/app-insights-windows-services/12-first-perf.png)
 

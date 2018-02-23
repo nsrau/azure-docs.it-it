@@ -58,10 +58,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \Processor(_Total)\% Processor Time |Percentuale |
 | \Processor(_Total)\% Privileged Time |Percentuale |
 | \Processor(_Total)\% User Time |Percentuale |
-| \Processor Information(_Total)\Processor Frequency |Numero |
-| \System\Processes |Numero |
-| \Process(_Total)\Thread Count |Numero |
-| \Process(_Total)\Handle Count |Numero |
+| \Processor Information(_Total)\Processor Frequency |Conteggio |
+| \System\Processes |Conteggio |
+| \Process(_Total)\Thread Count |Conteggio |
+| \Process(_Total)\Handle Count |Conteggio |
 | \Memory\% Committed Bytes In Use |Percentuale |
 | \Memory\Available Bytes |Byte |
 | \Memory\Committed Bytes |Byte |
@@ -77,11 +77,11 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \PhysicalDisk(_Total)\Disk Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Read Bytes/sec |Byte al secondo |
 | \PhysicalDisk(_Total)\Disk Write Bytes/sec |Byte al secondo |
-| \PhysicalDisk(_Total)\Avg. Lunghezza coda disco |Numero |
-| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Numero |
-| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Numero |
+| \PhysicalDisk(_Total)\Avg. Lunghezza coda disco |Conteggio |
+| \PhysicalDisk(_Total)\Avg. Disk Read Queue Length |Conteggio |
+| \PhysicalDisk(_Total)\Avg. Disk Write Queue Length |Conteggio |
 | \LogicalDisk(_Total)\% Free Space |Percentuale |
-| \LogicalDisk(_Total)\Free Megabytes |Numero |
+| \LogicalDisk(_Total)\Free Megabytes |Conteggio |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Metriche del sistema operativo guest per le VM Linux
 Quando si crea una nuova VM in Azure, la diagnostica viene abilitata per impostazione predefinita con l'uso dell'estensione Diagnostica.
@@ -125,15 +125,15 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | \PhysicalDisk\AverageReadTime |Secondi |
 | \PhysicalDisk\AverageWriteTime |Secondi |
 | \PhysicalDisk\AverageTransferTime |Secondi |
-| \PhysicalDisk\AverageDiskQueueLength |Numero |
+| \PhysicalDisk\AverageDiskQueueLength |Conteggio |
 | \NetworkInterface\BytesTransmitted |Byte |
 | \NetworkInterface\BytesReceived |Byte |
-| \NetworkInterface\PacketsTransmitted |Numero |
-| \NetworkInterface\PacketsReceived |Numero |
+| \NetworkInterface\PacketsTransmitted |Conteggio |
+| \NetworkInterface\PacketsReceived |Conteggio |
 | \NetworkInterface\BytesTotal |Byte |
-| \NetworkInterface\TotalRxErrors |Numero |
-| \NetworkInterface\TotalTxErrors |Numero |
-| \NetworkInterface\TotalCollisions |Numero |
+| \NetworkInterface\TotalRxErrors |Conteggio |
+| \NetworkInterface\TotalTxErrors |Conteggio |
+| \NetworkInterface\TotalCollisions |Conteggio |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Metriche Web (server farm) usate comunemente
 È possibile eseguire la scalabilità automatica anche in base a metriche di server Web comuni, come la lunghezza della coda HTTP. Il nome della metrica è **HttpQueueLength**.  La sezione seguente riporta un elenco delle metriche di server farm (app Web) disponibili.
@@ -151,8 +151,8 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 | --- | --- |
 | CpuPercentage |Percentuale |
 | MemoryPercentage |Percentuale |
-| DiskQueueLength |Numero |
-| HttpQueueLength |Numero |
+| DiskQueueLength |Conteggio |
+| HttpQueueLength |Conteggio |
 | BytesReceived |Byte |
 | BytesSent |Byte |
 

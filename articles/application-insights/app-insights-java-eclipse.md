@@ -22,7 +22,7 @@ ms.lasthandoff: 11/01/2017
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introduzione ad Application Insights con Java in Eclipse
 SDK di Application Insights invia dati di telemetria dall'applicazione Web Java in modo da poter analizzare l'uso e le prestazioni. Il plug-in Eclipse per Application Insights installa automaticamente SDK nel progetto in modo da ottenere i dati di telemetria predefiniti, oltre a un'API che è possibile usare per scrivere dati di telemetria personalizzati.   
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Attualmente il plug-in funziona per progetti Mavern e progetti Dynamic Web in Eclipse.
 [Aggiungere Application Insights ad altri tipi di progetti Java][java].
 

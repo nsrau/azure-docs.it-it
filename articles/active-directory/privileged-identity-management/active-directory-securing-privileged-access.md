@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6611bd07ad4c65953349c62cae3ece735fd85e70
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protezione dell'accesso con privilegi in Azure AD
 La protezione dell'accesso con privilegi è il primo passaggio fondamentale per proteggere gli asset aziendali in un'organizzazione moderna. Gli account con privilegi sono gli account che amministrano e gestiscono i sistemi IT. Gli utenti malintenzionati usano questi account per ottenere l'accesso ai dati e ai sistemi di un'organizzazione. Per proteggere l'accesso con privilegi, è necessario isolare gli account e i sistemi dal rischio di esposizione a utenti malintenzionati.
@@ -50,7 +50,7 @@ Per altre informazioni, vedere [MFA for Office 365 and MFA for Azure](https://bl
 ## <a name="time-bound-privileges"></a>Privilegi con vincoli di tempo
 Per alcune organizzazioni, il numero di utenti assegnati a ruoli con privilegi elevati potrebbe essere ritenuto eccessivo. Un utente potrebbe essere stato aggiunto al ruolo per un'attività specifica, ad esempio l'iscrizione a un servizio, ma aver usato tali privilegi raramente in seguito.
 
-Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità del relativo utilizzo, limitare gli utenti a prendere solo i propri privilegi "just in time" (JIT), oppure ad assegnare questi ruoli per un periodo di tempo ridotto sapendo che i privilegi verranno revocati automaticamente. Per Azure Active Directory, Risorse di Azure (Anteprima) e Microsoft Online Services è possibile usare [Azure Active Directory Privileged Identity Management (PIM)](http://aka.ms/AzurePIM).
+Per ridurre il tempo di esposizione dei privilegi e aumentare la visibilità del relativo utilizzo, limitare gli utenti a prendere solo i propri privilegi "just in time" (JIT), oppure ad assegnare questi ruoli per un periodo di tempo ridotto sapendo che i privilegi verranno revocati automaticamente. Per Azure Active Directory, Risorse di Azure (Anteprima) e Microsoft Online Services è possibile usare [Azure Active Directory Privileged Identity Management (PIM)](https://aka.ms/AzurePIM).
 
 ![Dashboard di PIM][2]
 
@@ -68,7 +68,7 @@ Il controllo di accesso condizionale consente ad Azure Active Directory di contr
 * Abilitare [Azure AD Identity Protection](../active-directory-identityprotection.md)
 * Abilitare i [controlli di accesso condizionale](../active-directory-conditional-access-azure-portal.md)
 
-Per altre informazioni su come creare una guida di orientamento alla sicurezza completa, vedere la sezione "Customer responsibilities and roadmap" del documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) . Per altre informazioni sull'utilizzo dei servizi Microsoft illustrati in questi argomenti, contattare il rappresentante Microsoft oppure visitare la pagina relativa alle [soluzioni per la sicurezza informatica](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Per altre informazioni su come creare una guida di orientamento alla sicurezza completa, vedere la sezione "Customer responsibilities and roadmap" del documento [Microsoft Cloud Security for Enterprise Architects](https://aka.ms/securecustomer) . Per altre informazioni sull'utilizzo dei servizi Microsoft illustrati in questi argomenti, contattare il rappresentante Microsoft oppure visitare la pagina relativa alle [soluzioni per la sicurezza informatica](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 <!--Image references-->
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png

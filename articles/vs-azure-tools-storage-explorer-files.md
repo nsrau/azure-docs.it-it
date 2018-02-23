@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 Archiviazione file di Azure offre condivisioni file nel cloud usando il protocollo Server Message Block (SMB)standard. Sono supportati sia SMB 2.1 che SMB 3.0. Con Archiviazione file di Azure si può eseguire la migrazione ad Azure delle applicazioni legacy basate su condivisioni file velocemente e senza costose riscritture. È possibile usare Archiviazione file per esporre pubblicamente dati a livello mondiale o per archiviare privatamente dati applicazione. Questo articolo illustra come usare Storage Explorer (anteprima) per l'utilizzo con file e condivisioni file.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per seguire la procedura descritta in questo articolo, è necessario eseguire queste operazioni:
 
@@ -88,7 +88,7 @@ La procedura seguente illustra come eliminare una condivisione file all'interno 
 
 4. Fare clic con il pulsante destro del mouse sulla condivisione file da eliminare e scegliere **Elimina** dal menu di scelta rapida. È anche possibile premere **CANC** per eliminare la condivisione file attualmente selezionata.
 
-    ![Eliminazione](media/vs-azure-tools-storage-explorer-files/image6.png)
+    ![Delete](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 5. Fare clic su **Sì** nella finestra di dialogo di conferma.
     

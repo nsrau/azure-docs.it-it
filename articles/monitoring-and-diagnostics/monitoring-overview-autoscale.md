@@ -48,7 +48,7 @@ I set di scalabilità di macchine virtuali usano i dati di telemetria degli agen
 ## <a name="custom-metrics"></a>Metriche personalizzate
 È anche possibile fare uso di eventuali metriche personalizzate generate dalle applicazioni usate. Se le applicazioni sono state configurate per l'invio di metriche ad Application Insights, è possibile usare tali metriche per prendere decisioni sulla scalabilità. 
 
-## <a name="time"></a>Time
+## <a name="time"></a>Tempo
 Le regole basate sulla pianificazione sono basate su UTC. Quando si configurano le regole, è necessario impostare correttamente il fuso orario.  
 
 ## <a name="rules"></a>Regole

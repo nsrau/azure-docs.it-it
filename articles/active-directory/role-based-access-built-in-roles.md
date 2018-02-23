@@ -3,24 +3,23 @@ title: 'Actions e NotActions: Controllo degli accessi in base al ruolo di Azure 
 description: "Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo. I ruoli vengono continuamente aggiunti, controllare la validità della documentazione."
 services: active-directory
 documentationcenter: 
-author: andredm7
+author: rolyon
 manager: mtillman
 editor: 
-ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 06/28/2017
-ms.author: andredm
-ms.reviewer: 
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.date: 01/30/2018
+ms.author: rolyon
+ms.reviewer: rqureshi
+ms.custom: it-pro
+ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
@@ -62,13 +61,14 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 | [Lettore di monitoraggio](#monitoring-reader) |Può leggere tutti i dati del monitoraggio |
 | [Collaboratore al monitoraggio](#monitoring-contributor) |Può leggere i dati del monitoraggio e modificare le impostazioni di monitoraggio |
 | [Collaboratore di rete](#network-contributor) |È in grado di gestire tutte le risorse di rete |
-| [Collaboratore account New Relic APM](#new-relic-apm-account-contributor) |Può gestire account e applicazioni di New Relic Application Performance Management |
 | [Proprietario](#owner) |È in grado di gestire tutti gli elementi, compresi gli accessi |
 | [Lettore](#reader) |È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche |
 | [Collaboratore cache Redis](#redis-cache-contributor) |È in grado di gestire le cache Redis |
 | [Collaboratore raccolte di processi dell'unità di pianificazione](#scheduler-job-collections-contributor) |È in grado di gestire raccolte di processi dell'utilità di pianificazione |
 | [Collaboratore servizi di ricerca](#search-service-contributor) |È in grado di gestire servizi di ricerca |
-| [Gestore della sicurezza SQL](#security-manager) |Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali |
+| [Amministrazione della protezione](#security-administrator) | Solo in Centro sicurezza: è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni |
+| [Gestore della sicurezza SQL](#security-manager) | Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali |
+| [Ruolo con autorizzazioni di lettura per la sicurezza](#security-reader) | Solo in Centro sicurezza: è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche |
 | [Collaboratore al ripristino sito](#site-recovery-contributor) | Consente di gestire il ripristino del sito nell'insieme di credenziali dei servizi di ripristino |
 | [Operatore del ripristino sito](#site-recovery-operator) | Può gestire operazioni failover e failback di ripristino del sito nell'insieme di credenziali di servizi di ripristino |
 | [Reader di ripristino sito](#site-recovery-reader) | Può visualizzare tutte le operazioni di gestione di ripristino del sito  |
@@ -372,12 +372,12 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.Support/\* |Creare e gestire ticket di supporto |
 
 ### <a name="documentdb-account-contributor"></a>Collaboratore account DocumentDB
-Può gestire gli account di Azure Cosmos DB. Azure DB Cosmos è noto in precedenza come DocumentDB.
+È in grado di gestire account Azure Cosmos DB. Azure Cosmos DB era precedentemente noto come DocumentDB.
 
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
-| Microsoft.DocumentDb/databaseAccounts/* |Creare e gestire gli account di Azure Cosmos DB |
+| Microsoft.DocumentDb/databaseAccounts/* |Creare e gestire account Azure Cosmos DB |
 | Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
@@ -440,19 +440,6 @@ Può leggere tutti i dati del monitoraggio e modificare le impostazioni di monit
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
-### <a name="new-relic-apm-account-contributor"></a>Collaboratore account New Relic APM
-Può gestire account e applicazioni di New Relic Application Performance Management
-
-| **Actions** |  |
-| --- | --- |
-| Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
-| Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
-| Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
-| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
-| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
-| Microsoft.Support/* |Creare e gestire ticket di supporto |
-| NewRelic.APM/accounts/* |Creare e gestire account di gestione delle prestazioni delle applicazioni New Relic |
-
 ### <a name="owner"></a>Proprietario
 È in grado di gestire tutti gli elementi, compresi gli accessi
 
@@ -506,21 +493,50 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | Microsoft.Search/searchServices/* |È in grado di creare e gestire servizi di ricerca |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
 
+### <a name="security-administrator"></a>Amministratore della sicurezza
+Solo in Centro sicurezza: è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Authorization/policyAssignments/* | Creare e gestire assegnazioni di criteri |
+| Microsoft.Authorization/policySetDefinitions/* | Creare e gestire set di criteri |
+| Microsoft.Authorization/policyDefinitions/* | Creare e gestire definizioni di criteri |
+| Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
+| Microsoft.operationalInsights/workspaces/*/read | Visualizzare i dati di Log Analytics |
+| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
+| Microsoft.Security/*/read | Leggere criteri e componenti di sicurezza |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+
 ### <a name="security-manager"></a>Gestore della sicurezza SQL
 Può gestire i componenti di protezione, i criteri di sicurezza e le macchine virtuali
 
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
-| Microsoft.ClassicCompute/*/read |Leggere le informazioni di configurazione delle macchine virtuali di calcolo classiche |
-| Microsoft.ClassicCompute/virtualMachines/*/write |Scrivere la configurazione delle macchine virtuali |
+| Microsoft.ClassicCompute/*/read |Leggere le informazioni di configurazione delle macchine virtuali classiche |
+| Microsoft.ClassicCompute/virtualMachines/*/write |Scrivere la configurazione delle macchine virtuali classiche |
 | Microsoft.ClassicNetwork/*/read |Leggere le informazioni della configurazione sulla rete classica |
-| Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
+| Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Security/* |Creare e gestire criteri e componenti di protezione |
 | Microsoft.Support/* |Creare e gestire ticket di supporto |
+
+### <a name="security-reader"></a>Ruolo con autorizzazioni di lettura per la sicurezza
+Solo in Centro sicurezza: è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche
+
+| **Actions** |  |
+| --- | --- |
+| Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
+| Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
+| Microsoft.operationalInsights/workspaces/*/read | Visualizzare i dati di Log Analytics |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
+| Microsoft.Security/*/read | Leggere criteri e componenti di sicurezza |
+| Microsoft.Support/* |Creare e gestire ticket di supporto |
+| Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
 
 ### <a name="site-recovery-contributor"></a>Collaboratore al ripristino sito
 Consente di gestire tutte le azioni per il ripristino del sito, ad eccezione della creazione dell'insieme di credenziali di Servizi di ripristino e l'assegnazione dei diritti di accesso ad altri utenti
@@ -872,3 +888,4 @@ Consente di gestire l'accesso degli utenti alle risorse di Azure
 * [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 * [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
 * [Risoluzione dei problemi del controllo degli accessi in base al ruolo](role-based-access-control-troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.
+* [Autorizzazioni nel Centro sicurezza di Azure](../security-center/security-center-permissions.md)

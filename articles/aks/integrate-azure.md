@@ -18,7 +18,7 @@ ms.lasthandoff: 12/11/2017
 
 Insieme al [catalogo di servizi di Kubernetes][kubernetes-service-catalog], Open Service Broker consente agli sviluppatori di usare i servizi gestiti di Azure in Kubernetes. Questa guida descrive la distribuzione del catalogo di servizi di Kubernetes, di Open Service Broker for Azure (OSBA) e delle applicazioni che usano i servizi gestiti di Azure con Kubernetes.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Una sottoscrizione di Azure.
 
 * Interfaccia della riga di comando di Azure versione 2.0: è possibile [installarla localmente][azure-cli-install] o usarla in [Azure Cloud Shell][azure-cloud-shell].

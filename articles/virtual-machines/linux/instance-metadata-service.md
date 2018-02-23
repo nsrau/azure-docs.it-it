@@ -279,10 +279,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Categorie di dati dei metadati dell'istanza
 Tramite il Servizio metadati dell'istanza sono disponibili le categorie di dati seguenti:
 
-Dati | Descrizione | Versione introdotta 
+Dati | DESCRIZIONE | Versione introdotta 
 -----|-------------|-----------------------
 location | Area di Azure in cui la macchina virtuale è in esecuzione | 2017-04-02 
-nome | Nome della VM | 2017-04-02
+name | Nome della VM | 2017-04-02
 offer | Offre informazioni per l'immagine della macchina virtuale. Questo valore è presente solo per le immagini distribuite dalla raccolta di immagini di Azure. | 2017-04-02
 publisher | Autore dell'immagine della macchina virtuale | 2017-04-02
 sku | SKU specifica per l'immagine della macchina virtuale | 2017-04-02
@@ -377,7 +377,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Linguaggio | Esempio 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Vai  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

@@ -55,7 +55,7 @@ In questo passaggio, è possibile verificare gli oggetti selezionati nella casel
 
 È anche possibile configurare altre impostazioni per il database di destinazione dell'esportazione. Le descrizioni di configurazione sono elencate nella tabella seguente:
 
-|Configurazione|Descrizione|
+|Configurazione|DESCRIZIONE|
 |-------------|-----------|
 |Nome destinazione|Questo nome indica dove si vuole salvare le risorse di database esportate. Alcuni esempi sono gli assembly, i file aggiuntivi e i dati di esempio. Verrà creata una cartella con questo nome nella cartella radice dei dati locale.|
 |Directory del progetto|Questo percorso definisce dove si vuole salvare lo script U-SQL esportato. Tutte le definizioni di oggetto di database vengono salvate in questa posizione.|

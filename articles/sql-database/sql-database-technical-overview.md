@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul servizio database SQL di Azure | Documentazione Microsoft
+title: Informazioni sul servizio database SQL di Azure | Microsoft Docs
 description: "Introduzione al database SQL, con dettagli tecnici e funzionalità relative al sistema di gestione di database relazionali (RDBMS) Microsoft sul cloud."
 keywords: introduzione a sql,intro a sql,informazioni sul database sql
 services: sql-database
@@ -17,11 +17,11 @@ ms.date: 12/13/2017
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 7e487ac4b11e4b323cfaed5492c7603776cc98bb
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure 
 
@@ -156,7 +156,7 @@ Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): per domande relative all'amministrazione dei database
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): per domande relative allo sviluppo
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): per domande tecniche
-- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback): per segnalare bug e richiedere funzionalità
+- [Commenti e suggerimenti](http://aka.ms/sqlfeedback): per segnalare bug e richiedere funzionalità
 - [Reddit](https://www.reddit.com/r/SQLServer/): per comunicazioni su SQL Server
 
 ## <a name="next-steps"></a>Passaggi successivi

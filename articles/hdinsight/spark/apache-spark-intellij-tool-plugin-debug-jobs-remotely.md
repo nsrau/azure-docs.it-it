@@ -18,7 +18,7 @@ ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 3a673d2ad58f85f5437c378a1d05aa4963893df1
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -34,7 +34,7 @@ Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsi
 4. Creare un'applicazione Scala in IntelliJ IDEA e configurarla per il debug remoto.
 5. Eseguire l'applicazione ed effettuarne il debug.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Una sottoscrizione di Azure**. Per altre informazioni, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un cluster Apache Spark in HDInsight**. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Kit di sviluppo di Oracle Java**. È possibile installarlo dal [sito Web di Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).

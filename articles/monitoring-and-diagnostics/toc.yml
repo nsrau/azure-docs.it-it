@@ -2,8 +2,8 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Monitoraggio di Azure
-      href: monitoring-overview-azure-monitor.md
+    - name: Monitoraggio in Azure
+      href: monitoring-overview.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -27,9 +27,9 @@
       href: monitoring-partners.md
     - name: Panoramiche aggiuntive
       items:
-        - name: Strumenti di monitoraggio in Azure
-          href: monitoring-overview.md
-        - name: Metrica
+        - name: Monitoraggio di Azure
+          href: monitoring-overview-azure-monitor.md
+        - name: Metriche
           href: monitoring-overview-metrics.md
         - name: Avvisi
           href: monitoring-overview-alerts.md
@@ -41,6 +41,8 @@
           href: monitoring-overview-autoscale.md
         - name: Log attività
           href: monitoring-overview-activity-logs.md
+        - name: Avvisi del log attività (anteprima)
+          href: monitoring-activity-log-alerts-new-experience.md
         - name: Gruppi di azioni
           href: monitoring-action-groups.md
         - name: Log di diagnostica
@@ -84,8 +86,8 @@
           href: insights-alerts-command-line-interface.md
         - name: Configurare avvisi con Azure PowerShell
           href: insights-alerts-powershell.md
-        - name: Chiamare un webhook con un avviso relativo alle metriche
-          href: insights-webhooks-alerts.md
+        - name: Azioni webhook per gli avvisi del log
+          href: monitor-alerts-unified-log-webhook.md
         - name: Creare un avviso metrica con un modello di Resource Manager
           href: monitoring-enable-alerts-using-template.md
     - name: Usare la scalabilità automatica
@@ -158,7 +160,7 @@
           href: azure-diagnostics-configure-application-insights.md
         - name: Inviare dati a Hub eventi
           href: azure-diagnostics-streaming-event-hubs.md
-        - name: Risoluzione dei problemi
+        - name: risoluzione dei problemi
           href: azure-diagnostics-troubleshooting.md
     - name: Creare grafici delle metriche in Esplora metriche
       href: monitoring-metric-charts.md
@@ -166,7 +168,7 @@
       href: monitor-send-to-grafana.md
     - name: Inviare dati di monitoraggio a un hub eventi
       href: monitor-stream-monitoring-data-event-hubs.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/monitor?view=azure-cli-latest

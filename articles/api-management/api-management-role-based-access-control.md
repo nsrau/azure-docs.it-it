@@ -28,9 +28,9 @@ In Gestione API sono attualmente disponibili tre ruoli predefiniti e altri due n
 
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. È possibile assegnare questi ruoli tramite il portale di Azure o altri strumenti, tra cui Azure [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), l'[interfaccia della riga di comando di Azure ](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) e l'[API REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Per dettagli su come assegnare ruoli predefiniti, vedere [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
 
-| Ruolo          | Accesso in lettura<sup>[1]</sup> | Accesso in scrittura<sup>[2]</sup> | Creazione, eliminazione e ridimensionamento di servizi, VPN e configurazione dominio personalizzato | Accesso al portale di pubblicazione legacy | Descrizione
+| Ruolo          | Accesso in lettura<sup>[1]</sup> | Accesso in scrittura<sup>[2]</sup> | Creazione, eliminazione e ridimensionamento di servizi, VPN e configurazione dominio personalizzato | Accesso al portale di pubblicazione legacy | DESCRIZIONE
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
-| Collaboratore Servizio Gestione API di Azure | ✓ | ✓  | ✓  | ✓ | Utente con privilegi avanzati. Dispone di accesso CRUD completo a servizi ed entità di Gestione API (ad esempio, API e criteri). Dispone di accesso al portale di pubblicazione legacy. |
+| Collaboratore Servizio Gestione API di Azure | ✓ | ✓ | ✓ | ✓ | Utente con privilegi avanzati. Dispone di accesso CRUD completo a servizi ed entità di Gestione API (ad esempio, API e criteri). Dispone di accesso al portale di pubblicazione legacy. |
 | Ruolo lettura del servizio Gestione API di Azure | ✓ | | || Dispone di accesso in sola lettura a servizi ed entità Gestione API. |
 | Operatore del servizio Gestione API di Azure | ✓ | | ✓ | | Può gestire i servizi di Gestione API, ma non le entità.|
 | Editor del servizio Gestione API di Azure<sup>*</sup> | ✓ | ✓ | |  | Può gestire le entità di Gestione API, ma non i servizi.|

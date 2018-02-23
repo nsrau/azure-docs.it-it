@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analizzare i log dei siti Web con Azure Data Lake Analytics
 Informazioni su come analizzare i log dei siti Web con Analisi Data Lake, in particolare come scoprire quali referrer hanno riscontrato errori durante la visita al il sito Web.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Visual Studio 2015 o Visual Studio 2013**.
 * **[Data Lake Tools per Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -172,7 +172,7 @@ Un'applicazione U-SQL è principalmente uno script U-SQL. Per altre informazioni
 3. Fare doppio clic su **UnsuccessfulResponsees.log**.
 4. È anche possibile fare doppio clic sul file di output nella visualizzazione grafico del processo per passare direttamente al file di output.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Per iniziare a usare Analisi Data Lake usando vari tipi di strumenti, vedere:
 
 * [Introduzione a Analisi Data Lake tramite il portale di Azure](data-lake-analytics-get-started-portal.md)

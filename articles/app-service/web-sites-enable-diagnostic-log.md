@@ -39,7 +39,7 @@ App Web del servizio app offre funzionalità diagnostiche per la registrazione d
 * **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. ad esempio:
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -69,7 +69,7 @@ Se si archiviano i log nel file system, è possibile accedere a questi file medi
 Per impostazione predefinita, i registri non vengono eliminati automaticamente, ad eccezione di **Registrazione applicazioni (file system)**. Per eliminare automaticamente i log, impostare il campo relativo al **periodo di conservazione (giorni)**.
 
 > [!NOTE]
-> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, seguire questa procedura:
+> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare l'operazione seguente:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione o alla tabella. Salvare l’impostazione.
@@ -159,11 +159,11 @@ Per trasmettere le informazioni di registrazione, avviare una nuova istanza di A
 
 Il comando consente di connettersi all'app Web specificata dal parametro **-Name** e di iniziare lo streaming delle informazioni alla finestra di PowerShell mentre gli eventi del log si verificano nell'app Web. Eventuali informazioni scritte nei file con estensione txt, log o htm memorizzati nella directory /LogFiles (d:/home/logfiles) vengono trasmesse alla console locale.
 
-Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Message** . Ad esempio:
+Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Message** . Ad esempio: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **-Path** . Ad esempio:
+Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **-Path** . Ad esempio: 
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
@@ -181,11 +181,11 @@ Per eseguire lo streaming delle informazioni di registrazione, aprire un nuovo p
 
 Il comando consente di connettersi all'app Web denominata 'webappname' e di iniziare lo streaming delle informazioni alla finestra di PowerShell mentre gli eventi del log si verificano nell'app Web. Eventuali informazioni scritte nei file con estensione txt, log o htm memorizzati nella directory /LogFiles (d:/home/logfiles) vengono trasmesse alla console locale.
 
-Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . Ad esempio:
+Per filtrare eventi specifici, ad esempio gli errori, utilizzare il parametro **-Filter** . Ad esempio: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
-Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . Ad esempio:
+Per filtrare tipi di log specifici, ad esempio HTTP, usare il parametro **--Path** . Ad esempio: 
 
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 

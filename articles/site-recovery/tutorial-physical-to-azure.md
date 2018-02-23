@@ -2,23 +2,17 @@
 title: Configurare il ripristino di emergenza in Azure per server fisici locali con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come configurare il ripristino di emergenza in Azure per server Windows e Linux locali con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 805f6946-c6da-491f-980e-bf724bebdf0b
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 02/07/2018
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 01e582cb789e402496c920e4a8fe27d5c6848531
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -33,7 +27,7 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 > * Creare un criterio di replica
 > * Abilitare la replica per un server
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -64,7 +58,7 @@ Verificare che l'account di Azure disponga delle autorizzazioni per la replica d
 
 ### <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
 
-Configurare una [rete di Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Configurare una [rete di Azure](../virtual-network/quick-create-portal.md).
 
 - Le VM di Azure create dopo il failover verranno inserite in questa rete.
 - La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.

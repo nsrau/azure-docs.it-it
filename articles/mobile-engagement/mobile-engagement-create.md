@@ -26,7 +26,7 @@ Questo articolo descrive come usare il metodo **Creazione rapida** per creare un
 Tenere presente che è necessario aggiungere un set minimo di "integrazione di base" per poter raccogliere i dati necessari per l'app e per inviare notifiche push. La documentazione completa relativa all'integrazione è disponibile nell'articolo [Integrazione di Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
 
 > [!IMPORTANT]
-> Per completare qualsiasi esercitazione su Azure Mobile Engagement, è necessario disporre di un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
+> Per completare qualsiasi esercitazione su Azure Mobile Engagement, è necessario disporre di un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">versione di valutazione gratuita di Azure</a>.
 > 
 > 
 

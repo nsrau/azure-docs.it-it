@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 9cf5b1227e69ada46bc0b1e5ff01cc12e73598f7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: de1e8ec1b712aeb5572c7972b22412f2ae90b7b9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Usare Draft con il servizio contenitore di Azure e il Registro contenitori di Azure per compilare e distribuire un'applicazione in Kubernetes
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/06/2017
       az group create --name draft --location eastus
       ```
 
-2. Creare un registro di immagini del Registro contenitori di Azure usando [az acr create](/cli/azure/acr#create) e verificare che l'opzione `--admin-enabled` sia impostata su `true`.
+2. Creare un registro di immagini del Registro contenitori di Azure usando [az acr create](/cli/azure/acr#az_acr_create) e verificare che l'opzione `--admin-enabled` sia impostata su `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -40,7 +40,7 @@ ms.lasthandoff: 12/06/2017
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Creare un servizio contenitore di Azure con Kubernetes
 
-A questo punto, è possibile usare [az acs create](/cli/azure/acs#create) per creare un cluster ACS usando Kubernetes come valore `--orchestrator-type`.
+A questo punto, è possibile usare [az acs create](/cli/azure/acs#az_acs_create) per creare un cluster ACS usando Kubernetes come valore `--orchestrator-type`.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -220,7 +220,7 @@ Ogni provider di dominio assegna i server DNS in un modo specifico. Per [delegar
     ```
 
 2. Creare una zona DNS per il proprio dominio.
-Usare il comando [az network dns zone create](/cli/azure/network/dns/zone#create) per ottenere i server dei nomi per delegare il controllo DNS al servizio DNS di Azure per il dominio.
+Usare il comando [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) per ottenere i server dei nomi per delegare il controllo DNS al servizio DNS di Azure per il dominio.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

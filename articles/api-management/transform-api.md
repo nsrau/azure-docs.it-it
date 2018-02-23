@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 ![Criteri](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
@@ -113,7 +113,7 @@ Per visualizzare la risposta originale:
 7. Selezionare **Editor di codice**.
 8. Posizionare il cursore all'interno dell'elemento **<outbound>**.
 9. Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
-10. Modificare il codice **<find-and-replace** (nell'elemento **<outbound>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API, ad esempio:
+10. Modificare il codice **<find-and-replace** (nell'elemento **<outbound>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API, Ad esempio: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -207,7 +207,7 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Trasformare un'API per rimuovere le intestazioni di risposta

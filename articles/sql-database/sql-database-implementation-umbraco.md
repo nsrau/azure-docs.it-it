@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: c76ba2189929113c2c6fbdf13f0c9b2b714ae73b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c25a66daa87da96d4e77c9021a1ceb4366d7a224
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco usa il database SQL di Azure per eseguire rapidamente il provisioning e il ridimensionamento di servizi per migliaia di tenant nel cloud.
 ![Logo di Umbraco](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -63,7 +63,7 @@ Con il database SQL di Azure e altri servizi di Azure, i clienti Umbraco possono
    Figura 2. Sito Web di clienti con Umbraco-as-a-Service (UaaS) che mostra una panoramica e i dettagli del progetto
    
    Il database SQL di Azure usa le unità di transazioni di database (DTU) per esprimere la potenza relativa necessaria per le transazioni di database reali. Per i clienti UaaS, la potenza dei database è in genere di circa 10 DTU, ma la flessibilità di ogni database consente la scalabilità su richiesta. I clienti possono quindi disporre delle risorse necessarie, anche durante le ore di punta. Ad esempio, nel corso di un recente evento sportivo notturno di domenica, un cliente del servizio UaaS ha riscontrato un picco del database fino a 100 DTU per la durata dell'evento. Grazie ai pool elastici di Azure, il sistema Umbraco è stato in grado di supportare questa richiesta elevata senza compromettere le prestazioni.
-3. Monitoraggio
+3. Monitorare
    
    Umbraco monitora l'attività dei database tramite i dashboard del portale di Azure e agli avvisi di posta elettronica personalizzati.
 4. Ripristino di emergenza
@@ -124,7 +124,6 @@ Da quando ha scelto Azure come partner cloud, Umbraco è stato in grado di forni
 ## <a name="more-information"></a>Altre informazioni
 * Per altre informazioni sui pool elastici, vedere [pool elastici](sql-database-elastic-pool.md).
 * Per altre informazioni sul bus di servizio di Azure, vedere [Bus di servizio](https://azure.microsoft.com/services/service-bus/).
-* Per altre informazioni sui ruoli Web e i ruoli di lavoro, vedere l'argomento relativo ai [ruoli di lavoro](../fundamentals-introduction-to-azure.md#compute).    
 * Per altre informazioni sulla rete virtuale, vedere [Rete virtuale](https://azure.microsoft.com/documentation/services/virtual-network/).    
 * Per altre informazioni su backup e ripristino, vedere [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).    
 * Per altre informazioni sul monitoraggio di pool, vedere [Monitorare e gestire un pool di database elastici con il portale di Azure](sql-database-elastic-pool-manage-portal.md).    

@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
 Per distribuire un'app Web Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure nella [pipeline Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) oppure il [plug-in Jenkins Servizio app di Azure](https://plugins.jenkins.io/azure-app-service). Il plug-in Jenkins versione 1.0 di supporta la distribuzione continua tramite la funzionalità App Web del Servizio app di Azure tramite:
-* GIT o FTP.
+* Git o FTP.
 * Docker per App Web in Linux.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
-> * Configurare Jenkins per distribuire le app Web tramite Git o FTP.
+> * Configurare Jenkins per distribuire app Web tramite Git o FTP.
 > * Configurare Jenkins per distribuire app Web per contenitori.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Creare e configurare un'istanza di Jenkins
@@ -71,7 +71,7 @@ Per distribuire il progetto in App Web, è possibile caricare gli artefatti di c
 Prima di configurare il processo in Jenkins sono necessari un piano di servizio app di Azure e un'app Web per l'esecuzione dell'app Java.
 
 
-1. Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il [comando `az appservice plan create` dell'interfaccia della riga di comando di Azure](/cli/azure/appservice/plan#create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse. Le risorse condivise permettono di risparmiare sui costi quando si ospitano più app.
+1. Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il [comando `az appservice plan create` dell'interfaccia della riga di comando di Azure](/cli/azure/appservice/plan#az_appservice_plan_create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse. Le risorse condivise permettono di risparmiare sui costi quando si ospitano più app.
 2. Creare un'app Web. È possibile usare il [portale di Azure](/azure/app-service-web/web-sites-configure) o il comando `az` dell'interfaccia della riga di comando di Azure seguente:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -104,7 +104,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
 8. Se si vuole eseguire la distribuzione in uno slot di diverso dalla produzione, è possibile anche impostare il nome dello **Slot**.
 9. Salvare e compilare il progetto. L'app web viene distribuita in Azure al termine della compilazione.
 
-### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Distribuire le app Web caricando file tramite la Pipeline di Jenkins
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Distribuire le app Web caricando file tramite la pipeline Jenkins
 
 Il plug-in Jenkins Servizio app di Azure è pronto per la pipeline. È possibile fare riferimento all'esempio seguente nel repository GitHub.
 

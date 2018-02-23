@@ -97,6 +97,8 @@
               href: backup-azure-arm-vms.md
             - name: Eseguire il backup di VM crittografate
               href: backup-azure-vms-encryption.md
+            - name: Abilitare il backup di una VM durante la creazione
+              href: backup-during-vm-creation.md
         - name: Gestire e monitorare le VM
           items:
             - name: Gestire i backup delle macchine virtuali di Azure nel portale di Azure
@@ -181,9 +183,11 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Risolvere i problemi del server di Backup di Azure
           href: backup-azure-mabs-troubleshoot.md
+        - name: Risolvere i problemi di System Center Data Protection Manager
+          href: backup-azure-scdpm-troubleshooting.md
         - name: Risolvere i problemi dell'agente di Backup di Azure
           href: backup-azure-mars-troubleshoot.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.backup

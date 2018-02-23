@@ -10,7 +10,7 @@ Seguire questa procedura per installare ed eseguire MongoDB in una macchina virt
 3. Passare alla pagina [MongoDB Download Center](https://www.mongodb.com/download-center#community) (Area download di MongoDB).
 4. Trovare la **versione stabile corrente** di **Community Server**selezionare la versione più recente a **64 bit** nella colonna di Windows. Scaricare ed eseguire il programma di installazione MSI.
 5. MongoDB viene in genere installato in C:\Programmi\MongoDB. Cercare le variabili di ambiente sul desktop e aggiungere il percorso di file binari MongoDB alla variabile PATH. I file binari potrebbero essere ad esempio disponibili nel percorso C:\Program Files\MongoDB\Server\3.4\bin del computer.
-6. Creare le directory dei dati e dei log di MongoDB nel disco dati, ad esempio l'unità **F:**, creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi.  Digitare:
+6. Creare le directory dei dati e dei log di MongoDB nel disco dati, ad esempio l'unità **F:**, creato nei passaggi precedenti. Dal menu **Start** scegliere **Prompt dei comandi** per aprire una finestra del prompt dei comandi.  Digitare: 
 
         C:\> F:
         F:\> mkdir \MongoData

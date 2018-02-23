@@ -81,7 +81,7 @@ ACU: 180 - 240
 
 <sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie GS può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
+<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente. 
 
 <sup>3</sup> Disponibili dimensioni core vincolate 
 
@@ -117,7 +117,7 @@ ACU: 210 - 250
 
 <sup>1</sup> La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie DSv2 può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> L'istanza è un nodo isolato che garantisce che la VM sia la sola nel nodo Intel Haswell.
+<sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente. 
 
 <sup>3</sup> 25000 Mbps con rete accelerata.
 
@@ -135,7 +135,7 @@ ACU: 210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64/64x500                       | 8 / 12000          |
 | Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 64/64x500                       | 8 / 25000 <sup>2</sup> |
 
-<sup>1</sup> L'istanza è un nodo isolato che garantisce che la VM sia la sola nel nodo Intel Haswell.
+<sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente. 
 
 <sup>2</sup> 25000 Mbps con rete accelerata.
 

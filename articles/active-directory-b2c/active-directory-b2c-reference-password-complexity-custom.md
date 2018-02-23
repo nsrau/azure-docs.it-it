@@ -16,7 +16,7 @@ ms.date: 08/16/2017
 ms.author: saeeda
 ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -33,7 +33,7 @@ Questo articolo descrive in modo approfondito come funziona la complessità dell
 
 Azure Active Directory B2C (Azure AD B2C) supporta la modifica dei requisiti di complessità delle password specificate da un utente finale durante la creazione di un account.  Per impostazione predefinita, Azure AD B2C usa password di complessità **Alta**.  Azure AD B2C supporta anche opzioni di configurazione per controllare la complessità delle password che i clienti possono usare.  Questo articolo illustra come configurare la complessità delle password nei criteri personalizzati.  È possibile anche usare [Configurare la complessità delle password nei criteri predefiniti](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Un tenant di Azure AD B2C configurato per completare una procedura di iscrizione/accesso di un account locale, come descritto in [Introduzione](active-directory-b2c-get-started-custom.md).
 

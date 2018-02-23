@@ -15,7 +15,7 @@ ms.date: 07/09/2017
 ms.author: gwallace
 ms.openlocfilehash: 63c8f1b1190e19e1f1d2a7871bffee44ef5c7877
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -27,7 +27,7 @@ Con questa operazione è possibile automatizzare la distribuzione delle risorse 
 
 In questo argomento si creerà un runbook PowerShell che usa un modello di Resource Manager archiviato in [Archiviazione di Azure](../storage/common/storage-introduction.md) per distribuire un nuovo account di Archiviazione di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 

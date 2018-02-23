@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 3a90057b43e3f2074e72f3d0f896b35b4884368b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf92b8b73dca55e819545913931c0a79a366486
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Abilitare multi-tenancy nello Stack di Azure
 
@@ -59,10 +59,14 @@ $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
 ## Replace the value below with the guest tenant directory. 
 $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 
+## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+$ResourceGroupName = "system.local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local"
+ -Location "local" `
+ -ResourceGroupName $ResourceGroupName
 ````
 
 
@@ -81,7 +85,7 @@ $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
 
 Register-AzSWithMyDirectoryTenant `
  -TenantResourceManagerEndpoint $tenantARMEndpoint `
- -DirectoryTenantName $guestDirectoryTenantName ` 
+ -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Indicare agli utenti di accedere
@@ -89,7 +93,7 @@ Ora che si e Maria sono stati completati i passaggi relativi alla directory di M
 
 Mary indirizzerà qualsiasi [entità esterna](../active-directory/active-directory-understanding-resource-access.md) nella directory di Fabrikam (vale a dire, gli utenti nella directory senza il suffisso del fabrikam.onmicrosoft.com Fabrikam) per accedere tramite https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se non utilizzano questo URL, vengono inviati alla directory predefinita (Fabrikam) e a ricevere un messaggio di errore che all'amministratore non ha accettato le condizioni.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - [Gestire i provider di delegati](azure-stack-delegated-provider.md)
 - [Concetti chiave di Azure Stack](azure-stack-key-features.md)

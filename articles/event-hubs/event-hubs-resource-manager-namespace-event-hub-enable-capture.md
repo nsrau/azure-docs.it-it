@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09345b32e80008d4afe61078bd4d272fafe631d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Creare uno spazio dei nomi con l'hub eventi e abilitare l'acquisizione usando un modello
 
-Questo articolo illustra come usare un modello di Azure Resource Manager che crea uno spazio dei nomi di Hub eventi con un'istanza di hub eventi e abilita anche la [funzionalità di acquisizione](event-hubs-capture-overview.md) nell'hub eventi. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
+Questo articolo illustra come usare un modello di Azure Resource Manager che crea uno spazio dei nomi di [Hub eventi](event-hubs-what-is-event-hubs.md) con un'istanza di hub eventi e abilita anche la [funzionalità di acquisizione](event-hubs-capture-overview.md) nell'hub eventi. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
 
 Questo articolo illustra anche come specificare l'acquisizione degli eventi in BLOB del servizio di archiviazione di Azure o in un'istanza di Azure Data Lake Store, in base alla destinazione scelta.
 
@@ -42,11 +42,7 @@ Per i modelli completi, fare clic sui collegamenti a GitHub seguenti:
 
 ## <a name="what-will-you-deploy"></a>Distribuzione
 
-Questo modello consente di distribuire uno spazio dei nomi di Hub eventi con un hub eventi nonché di abilitare la [funzionalità di acquisizione di Hub eventi](event-hubs-capture-overview.md).
-
-[Hub eventi](event-hubs-what-is-event-hubs.md) è un servizio di elaborazione di eventi che viene usato per fornire eventi e dati di telemetria in entrata in Azure su larga scala, con bassa latenza ed elevata affidabilità. La funzionalità di acquisizione di Hub eventi consente di distribuire automaticamente i dati di streaming di Hub eventi in un archivio BLOB di Azure o in Azure Data Lake Store, entro un intervallo di tempo o di dimensioni specificato.
-
-Fare clic sul pulsante seguente per abilitare la funzionalità di Hub eventi per l'acquisizione in Archiviazione di Azure:
+Questo modello consente di distribuire uno spazio dei nomi di Hub eventi con un hub eventi nonché di abilitare la [funzionalità di acquisizione di Hub eventi](event-hubs-capture-overview.md). La funzionalità di acquisizione di Hub eventi consente di distribuire automaticamente i dati di streaming di Hub eventi in un archivio BLOB di Azure o in Azure Data Lake Store, entro un intervallo di tempo o di dimensioni specificato. Fare clic sul pulsante seguente per abilitare la funzionalità di Hub eventi per l'acquisizione in Archiviazione di Azure:
 
 [![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
@@ -62,7 +58,7 @@ Il modello definisce i parametri seguenti.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Nome dello [spazio dei nomi di Hub eventi](event-hubs-create.md) da creare.
+Nome dello spazio dei nomi dell'hub eventi da creare.
 
 ```json
 "eventHubNamespaceName":{  
@@ -75,7 +71,7 @@ Nome dello [spazio dei nomi di Hub eventi](event-hubs-create.md) da creare.
 
 ### <a name="eventhubname"></a>eventHubName
 
-Nome dell'hub eventi creato nello [spazio dei nomi di Hub eventi](event-hubs-create.md).
+Nome dell'hub eventi creato nello spazio dei nomi di Hub eventi.
 
 ```json
 "eventHubName":{  

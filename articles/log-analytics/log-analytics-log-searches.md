@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: aa4608d37b06db88819e6175dcf8f94a7e13f04a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Trovare dati con ricerche nei log in Log Analytics
 
@@ -30,7 +30,7 @@ Un elemento fondamentale di Log Analytics è la funzionalità di ricerca nei log
 
 Nella pagina Search è possibile creare una query e quindi, durante la ricerca, filtrare i risultati usando controlli facet. È anche possibile creare query avanzate per trasformare, filtrare e creare report sui risultati.
 
-Le query di ricerca log più comuni sono visualizzate nella maggior parte delle pagine delle soluzioni. In tutta la console OMS è possibile fare clic sui riquadri o analizzare altri elementi per visualizzarne i dettagli usando la funzionalità di ricerca nei log.
+Le query di ricerca log più comuni sono visualizzate nella maggior parte delle pagine delle soluzioni. Nel portale di OMS è possibile fare clic sui riquadri o analizzare altri elementi per visualizzarne i dettagli usando la funzionalità di ricerca log.
 
 In questa esercitazione verranno esaminati alcuni esempi per analizzare tutti gli elementi di base quando si usa la ricerca log.
 
@@ -39,7 +39,7 @@ Si inizierà con esempi semplici e pratici, tali esempi verranno quindi compilat
 Dopo aver acquisito familiarità con le tecniche di ricerca, vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md).
 
 ## <a name="use-basic-filters"></a>Usare filtri di base
-La prima parte di una query di ricerca, quella prima di un carattere di barra verticale "|", è sempre un *filtro*. Può essere considerata come una clausola WHERE in TSQL, perché determina *quale* subset di dati estrarre dall'archivio dati di OMS. Per la ricerca in un archivio dati è importante specificare le caratteristiche dei dati da estrarre, è quindi normale che una query inizi con la clausola WHERE.
+La prima parte di una query di ricerca, quella prima di un carattere di barra verticale "|", è sempre un *filtro*. Può essere considerata come una clausola WHERE in TSQL, perché determina *quale* subset di dati estrarre dall'area di lavoro di Log Analytics. Per la ricerca in un archivio dati è importante specificare le caratteristiche dei dati da estrarre, è quindi normale che una query inizi con la clausola WHERE.
 
 I filtri più semplici che è possibile usare sono *parole chiave*, ad esempio 'error' o 'timeout' o un nome di computer. Questi tipi di query semplici restituiscono in genere diverse forme di dati all'interno dello stesso set di risultati. Questo perché Log Analytics include diversi *tipi* di dati nel sistema.
 
@@ -80,7 +80,7 @@ Questo perché tutti i filtri nella query vengono considerati come se fossero co
 
 Ad esempio, la query `Type=Event EventLog="Windows PowerShell"` è identica a `Type=Event AND EventLog="Windows PowerShell"`. Restituisce tutti gli eventi a cui è stato effettuato l'accesso e che sono stati raccolti dal registro eventi di Windows PowerShell. Se si aggiunge un filtro più volte selezionando ripetutamente lo stesso facet, il problema è puramente descrittivo, potrebbe creare confusione nella barra di ricerca, ma restituisce comunque gli stessi risultati perché l'operatore AND implicito è sempre presente.
 
-È possibile invertire facilmente l'operatore AND implicito usando un operatore NOT in modo esplicito. Ad esempio:
+È possibile invertire facilmente l'operatore AND implicito usando un operatore NOT in modo esplicito. Ad esempio: 
 
 `Type:Event NOT(EventLog:"Windows PowerShell")` o l'equivalente `Type=Event EventLog!="Windows PowerShell"` restituisce tutti gli eventi di tutti gli altri log DIVERSI dal log di Windows PowerShell.
 
@@ -126,7 +126,7 @@ Ogni query viene considerata nell'ordine esplicito seguente. Notare le parentesi
 (EventLog=Application OR EventLog=System) AND Computer=SERVER1.contoso.com
 ```
 
-Come il campo del registro eventi, è possibile recuperare i dati solo per un set di computer specifici aggiungendo OR. ad esempio:
+Come il campo del registro eventi, è possibile recuperare i dati solo per un set di computer specifici aggiungendo OR. Ad esempio: 
 
 ```
 (EventLog=Application OR EventLog=System) AND (Computer=SERVER1.contoso.com OR Computer=SERVER2.contoso.com OR Computer=SERVER3.contoso.com)
@@ -259,7 +259,7 @@ Type=Event EventID=600 | Top 1
 
 Nell'immagine precedente, sono presenti 358.000 record con EventID=600. I campi, i facet e i filtri a sinistra mostrano sempre informazioni sui risultati restituiti *dalla parte filtro* della query, ovvero la parte prima di qualsiasi carattere di barra verticale. Il riquadro **Risultati** restituisce il risultato più recente, in quanto il comando di esempio ha dato una forma e trasformato i risultati.
 
-### <a name="select"></a>Selezionare
+### <a name="select"></a>Select
 Il comando SELECT si comporta come Select-Object in PowerShell. Restituisce i risultati filtrati che non presentano tutte le relative proprietà originali. Al contrario, seleziona solo le proprietà specificate.
 
 #### <a name="to-run-a-search-using-the-select-command"></a>Per eseguire una ricerca usando il comando select
@@ -322,7 +322,7 @@ In secondo luogo, **Measure count** restituisce attualmente solo i primi 100 ris
 ## <a name="use-the-max-and-min-functions-with-the-measure-command"></a>Usare le funzioni max e min con il comando measure
 Esistono vari scenari in cui è utile usare **Measure Max()** e **Measure Min()**. Tuttavia, poiché ciascuna funzione è opposta all'altra, verrà illustrata la funzione Max() e l'utente sperimenterà autonomamente la funzione Min().
 
-Se si esegue una query per gli eventi di sicurezza, tali eventi hanno una proprietà **Livello** che può variare. Ad esempio:
+Se si esegue una query per gli eventi di sicurezza, tali eventi hanno una proprietà **Livello** che può variare. Ad esempio: 
 
 ```
 Type=SecurityEvent
@@ -355,7 +355,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 ## <a name="use-the-avg-function-with-the-measure-command"></a>Usare la funzione avg con il comando measure
 La funzione statistica Avg() usata con il comando measure consente di calcolare il valore medio per alcuni campi e di raggruppare i risultati in base allo stesso campo o ad un campo diverso. Questa funzione è utile in diversi casi, ad esempio con i dati sulle prestazioni.
 
-Si inizierà con i dati sulle prestazioni. Si noti che OMS attualmente raccoglie i contatori delle prestazioni sia per i computer Windows che Linux.
+Si inizierà con i dati sulle prestazioni. Si noti che Log Analytics attualmente raccoglie i contatori delle prestazioni sia per i computer Windows che Linux.
 
 Per la ricerca di *tutti* i dati sulle prestazioni, la query più semplice è:
 
@@ -414,7 +414,7 @@ Ora è possibile aggiungere computer e contatori con l'esempio seguente:
 Type=Perf InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03")
 ```
 
-Poiché è stata effettuata una selezione molto specifica, il comando **measure Avg()** può restituire la media non in base al computer ma, all'interno della farm, eseguendo il raggruppamento per CounterName. ad esempio:
+Poiché è stata effettuata una selezione molto specifica, il comando **measure Avg()** può restituire la media non in base al computer ma, all'interno della farm, eseguendo il raggruppamento per CounterName. Ad esempio: 
 
 ```
 Type=Perf  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer="AzureMktg01" OR Computer="AzureMktg02" OR Computer="AzureMktg03") | Measure Avg(CounterValue) by CounterName
@@ -448,7 +448,7 @@ Type:Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Compute
 ## <a name="use-the-where-command"></a>Usare il comando where
 Il comando where funziona come un filtro, ma può essere applicato nella pipeline per filtrare ulteriormente i risultati aggregati prodotti da un comando Measure, differentemente dai risultati non elaborati che vengono filtrati all'inizio di una query.
 
-ad esempio:
+Ad esempio: 
 
 ```
 Type=Perf  CounterName="% Processor Time"  InstanceName="_Total" | Measure Avg(CounterValue) as AVGCPU by Computer

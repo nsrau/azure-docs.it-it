@@ -1,6 +1,6 @@
 ---
-title: Esercitazione di Node.js per l'API di SQL Azure Cosmos DB | Documenti Microsoft
-description: In questa esercitazione Node.js che crea un database Cosmos con l'API di SQL.
+title: Esercitazione su Node.js per l'API SQL per Azure Cosmos DB | Microsoft Docs
+description: Esercitazione su Node.js che crea un'istanza di Cosmos DB con l'API SQL.
 keywords: esercitazione su node.js, database nodo
 services: cosmos-db
 documentationcenter: node.js
@@ -15,18 +15,18 @@ ms.devlang: node
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: anhoh
-ms.openlocfilehash: 3b3dc3675c495d9558ccb135f3177491d2aaf527
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 3cfea11e70309c56f991f5d563649741c675c907
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js esercitazione: usare l'API di SQL nel database di Azure Cosmos per creare un'applicazione console Node.js
+# <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Esercitazione su Node.js: usare l'API SQL in Azure Cosmos DB per creare un'applicazione console Node.js
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js per MongoDB](mongodb-samples.md)
-> * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [C++](sql-api-cpp-get-started.md)
 >  
@@ -336,7 +336,7 @@ Copiare e incollare la funzione **getFamilyDocument** sotto la funzione **getCol
         console.log(`Getting document:\n${document.id}\n`);
 
         return new Promise((resolve, reject) => {
-            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+            client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
                         client.createDocument(collectionUrl, document, (err, created) => {

@@ -129,7 +129,7 @@ A questo punto l'applicazione è completamente funzionale e le operazioni di agg
 
 Il **vantaggio** principale di questa opzione è che è possibile aggiornare in parallelo sia l'applicazione che la copia con ridondanza geografica senza compromettere la continuità aziendale durante l'aggiornamento. Il **compromesso** principale è che viene richiesta una doppia ridondanza per ogni componente dell'applicazione, che comporta un aumento dei costi e un flusso di lavoro più complesso. 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 I due metodi di aggiornamento descritti nell'articolo differiscono in termini di complessità e di costo, ma entrambi si concentrano sulla riduzione dei tempi quando l'utente finale è limitato alle operazioni di sola lettura. Questo periodo di tempo viene definito direttamente dalla durata dello script di aggiornamento. Non dipende dalle dimensioni del database, dal livello di servizio scelto, dalla configurazione del sito Web e da altri fattori difficilmente controllabili. Ciò è possibile perché tutti i passaggi di preparazione sono separati dalle operazioni di aggiornamento e possono essere eseguiti senza alcun impatto sull'applicazione di produzione. L'efficienza dello script di aggiornamento è il fattore determinante per l'esperienza dell'utente finale durante gli aggiornamenti. Il modo ottimale per migliorarla, quindi, consiste nel concentrare gli sforzi sullo script di aggiornamento, per renderlo il più efficiente possibile.  
 
 ## <a name="next-steps"></a>Passaggi successivi

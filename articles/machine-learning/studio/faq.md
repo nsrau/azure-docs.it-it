@@ -173,7 +173,7 @@ No. Attualmente è supportata solo la ripetizione del training a livello di codi
 
 **È possibile visualizzare i livelli di un modello di rete neurale usando il modulo predefinito?**
 
-No.
+di serie
 
 **È possibile creare dei moduli personalizzati in C# o in altri linguaggi?**
 
@@ -210,7 +210,7 @@ Usare le API per la ripetizione del training. Per altre informazioni, vedere [Ri
 ### <a name="create"></a>Create
 **È possibile distribuire il modello in locale o in un'applicazione senza una connessione Internet?**
 
-No.
+di serie
 
 **Esiste una latenza di base prevista per tutti i servizi Web?**
 
@@ -251,7 +251,7 @@ Attualmente, il provisioning dell'endpoint predefinito viene effettuato con 20 r
 
 **I processi R sono distribuiti in più nodi?**
 
-No.  
+di serie  
 
 **Quanti dati è possibile usare per il training?**
 
@@ -280,7 +280,7 @@ Le righe e le colonne sono limitate singolarmente in base alla limitazione .NET 
 
 **È possibile modificare le dimensioni della macchina virtuale che esegue il servizio Web?**
 
-No.  
+di serie  
 
 ## <a name="security-and-availability"></a>Sicurezza e disponibilità
 **Chi può accedere per impostazione predefinita all'endpoint HTTP per il servizio Web? Come limitare l'accesso all'endpoint?**

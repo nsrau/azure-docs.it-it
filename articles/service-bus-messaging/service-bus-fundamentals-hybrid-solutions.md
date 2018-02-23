@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-service-bus"></a>Bus di servizio di Azure
 
@@ -26,9 +26,9 @@ Indipendentemente dal fatto che sia eseguito nel cloud o in locale, spesso è ne
 
 ## <a name="service-bus-fundamentals"></a>Dati fondamentali del bus di servizio
 
-A seconda delle situazioni, possono essere necessari stili di comunicazione diversi. Talvolta, consentire alle applicazioni di inviare e ricevere messaggi attraverso una semplice coda è la soluzione migliore. In altre situazioni, una coda ordinaria non è sufficiente e l'uso di una coda con un meccanismo di pubblicazione e sottoscrizione risulta la soluzione più adatta. In alcuni casi, è sufficiente una connessione tra applicazioni e le code non sono necessarie. Il bus di servizio offre tutte e tre le opzioni e permette alle applicazioni di interagire in diversi modi.
+A seconda delle situazioni, possono essere necessari stili di comunicazione diversi. Talvolta, consentire alle applicazioni di inviare e ricevere messaggi attraverso una semplice coda è la soluzione migliore. In altre situazioni, una coda ordinaria non è sufficiente e l'uso di una coda con un meccanismo di pubblicazione e sottoscrizione risulta la soluzione più adatta. In alcuni casi, è sufficiente una connessione tra applicazioni e le code non sono necessarie. Il bus di servizio di Azure offre tutte e tre le opzioni e permette alle applicazioni di interagire in diversi modi.
 
-Il bus di servizio è un servizio cloud multi-tenant, il che significa che il servizio è condiviso da più utenti. Ogni utente, ad esempio uno sviluppatore di applicazioni, crea uno *spazio dei nomi* e quindi definisce i meccanismi di comunicazione necessari all'interno di tale spazio dei nomi. La Figura 1 mostra l'aspetto di questa architettura.
+Il bus di servizio è un servizio cloud multi-tenant, il che significa che il servizio è condiviso da più utenti. Ogni utente, ad esempio uno sviluppatore di applicazioni, crea uno *spazio dei nomi* e quindi definisce i meccanismi di comunicazione necessari all'interno di tale spazio dei nomi. La figura 1 mostra questa architettura:
 
 ![][1]
 
@@ -44,17 +44,17 @@ Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome.
 
 In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Questo servizio è noto come [inoltro WCF](../service-bus-relay/relay-what-is-it.md). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le [API REST](/rest/api/servicebus/) su HTTP. 
 
-È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
+È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È addirittura possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale oppure connettere tra loro tali dispositivi. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
-## <a name="queues"></a>Code
+## <a name="queues"></a>Queues
 
-Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. Nella figura 2 è illustrato questo scenario.
+Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. La figura 2 illustra questa situazione:
 
 ![][2]
 
 **Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
-Il processo è semplice: un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo preleva un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella Figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso, ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
+Un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo preleva un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella Figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso, ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
 
 Ogni messaggio è costituito da due parti: un set di proprietà, ognuno costituito da una coppia chiave-valore, e un payload dei messaggi. Il payload può essere di tipo binario, testo o anche XML. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà **Seller="Ava"** e **Amount=10000**. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato oppure, se questo non è disponibile, rimanere vuoto.
 
@@ -72,13 +72,13 @@ Le code risultano utili in un numero limitato di situazioni. Permettono alle app
 
 ## <a name="topics"></a>Argomenti
 
-Sebbene siano utili, non sempre le code rappresentano la soluzione più appropriata. Talvolta, sono più indicati gli argomenti del bus di servizio. Nella figura 3 viene illustrato questo concetto.
+Sebbene siano utili, non sempre le code rappresentano la soluzione più appropriata. In alcuni casi gli argomenti sono più adatti. La figura 3 illustra questo concetto:
 
 ![][3]
 
 **Figura 3: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.**
 
-Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza sta nel fatto che gli argomenti permettono a ogni applicazione ricevente di creare la propria *sottoscrizione* con la definizione di un *filtro*. Un sottoscrittore può quindi visualizzare solo i messaggi corrispondenti al filtro definito. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
+Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza sta nel fatto che gli argomenti permettono a ogni applicazione ricevente di creare la propria *sottoscrizione* e definire facoltativamente un *filtro*. Un sottoscrittore può quindi visualizzare solo i messaggi corrispondenti al filtro definito. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
 
 * Il sottoscrittore 1 riceve solo i messaggi che contengono la proprietà *Venditore="Ava"*.
 * Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Seller="Ruby"* e/o che contengono una proprietà *Amount* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
@@ -88,7 +88,7 @@ Come con le code, i sottoscrittori di un argomento possono leggere i messaggi us
 
 ## <a name="relays"></a>Inoltri
 
-Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi scenari nel bus di servizio sono disponibili gli *inoltri*, come illustrato nella figura 4.
+Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tramite un broker. Il traffico scorre in una sola direzione e non esiste una connessione diretta tra mittenti e ricevitori. Talvolta questo potrebbe non essere sufficiente, ad esempio se è necessario che le applicazioni possano inviare e ricevere messaggi o se occorre un collegamento diretto tra esse e non serve che i messaggi vengano archiviati tramite un broker. In questi scenari nel bus di servizio sono disponibili gli *inoltri*, come illustrato nella figura 4:
 
 ![][4]
 
@@ -96,7 +96,7 @@ Le code e gli argomenti consentono la comunicazione asincrona unidirezionale tra
 
 La domanda più ovvia relativa all'uso degli inoltri è: perché è necessario usarli? Anche se le code non sono necessarie, perché le applicazioni dovrebbero comunicare tramite un servizio cloud anziché interagire direttamente? La risposta è che la comunicazione diretta tra le applicazioni potrebbe risultare più complessa di quanto si pensi.
 
-Ad esempio, potrebbe essere necessario connettere due applicazioni locali, entrambe in esecuzione all'interno di data center aziendali. Ognuna di queste applicazioni è protetta da firewall ed è probabile che ogni data center usi il processo NAT (Network Address Translation). Il firewall blocca i dati in ingresso su tutte le porte tranne alcune e il processo NAT implica che il computer in cui è in esecuzione ogni applicazione non disponga di un indirizzo IP fisso raggiungibile direttamente dall'esterno del data center. Senza un ulteriore supporto, la connessione di queste applicazioni sulla rete Internet pubblica risulta problematica.
+Ad esempio, potrebbe essere necessario connettere due applicazioni locali, entrambe in esecuzione all'interno di data center aziendali. Ognuna di queste applicazioni è protetta da firewall ed è probabile che ogni data center usi il processo NAT (Network Address Translation). Il firewall blocca i dati in ingresso su tutte le porte tranne alcune e il processo NAT implica che il computer in cui è in esecuzione ogni applicazione non abbia un indirizzo IP fisso raggiungibile direttamente dall'esterno del data center. Senza un ulteriore supporto, la connessione di queste applicazioni sulla rete Internet pubblica risulta problematica.
 
 L'inoltro del bus di servizio di Azure può risultare utile. Per comunicare in modalità bidirezionale tramite un inoltro, ogni applicazione stabilisce una connessione TCP in uscita con il bus di servizio e la mantiene aperta. Tutte le comunicazioni tra le due applicazioni avvengono su tali connessioni. Dato che ogni connessione è stata stabilita dall'interno del data center, il firewall consente il traffico in ingresso a ogni applicazione senza aprire nuove porte. Questo approccio consente inoltre di risolvere il problema relativo al processo NAT, in quanto ogni applicazione presenta un endpoint coerente nel cloud nel corso della comunicazione. Lo scambio di dati tramite l'inoltro consente alle applicazioni di evitare i problemi che potrebbero rendere difficoltosa la comunicazione. 
 
@@ -106,7 +106,7 @@ Diversamente da code e argomenti, le applicazioni non creano inoltri in modo esp
 
 Gli inoltri rappresentano la soluzione ottimale nei casi in cui è necessaria la comunicazione diretta tra applicazioni, ad esempio un sistema di prenotazione di una compagnia aerea in esecuzione in un data center locale al quale devono poter accedere banchi del check-in, dispositivi mobili e altri computer. Le applicazioni in esecuzione in tutti questi sistemi possono usare l'inoltro del bus di servizio nel cloud per comunicare, indipendentemente dalla posizione in cui risiedono.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 La connessione tra applicazioni è sempre stata parte integrante dello sviluppo di soluzioni complete e il numero di scenari che richiedono una comunicazione diretta tra servizi e applicazioni è in costante aumento, di pari passo con il numero di applicazioni e dispositivi connessi a Internet. Il bus di servizio include tecnologie basate sul cloud per la comunicazione tramite code, argomenti e inoltri, che consentono di rendere questa funzionalità essenziale più semplice da implementare e disponibile a livello più ampio.
 

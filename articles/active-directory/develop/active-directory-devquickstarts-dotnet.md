@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory .NET Desktop (WPF) Introduzione | Documenti Microsoft
+title: Introduzione a Desktop .NET (WPF) per Azure AD | Microsoft Docs
 description: Come compilare un'applicazione desktop di Windows .NET che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e1ca92b1d1ae015add539ef03a358f7a53bc3a6d
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 9b1118b0159437e179b09b179571ed1460c3daf6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure Active Directory .NET Desktop (WPF) Guida introduttiva
+# <a name="azure-ad-net-desktop-wpf-getting-started"></a>Introduzione a Desktop .NET (WPF) per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -74,7 +74,7 @@ Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un tok
 
 * Nel progetto `DirectorySearcher` aprire `MainWindow.xaml.cs` e individuare il metodo `MainWindow()`.  Il primo passaggio consiste nell'inizializzare l'oggetto `AuthenticationContext` dell'app, ovvero la classe primaria di ADAL,  dove si passano ad ADAL le coordinate di cui ha bisogno per comunicare con Azure AD e gli si indica come memorizzare i token nella cache.
 
-```C#
+```csharp
 public MainWindow()
 {
     InitializeComponent();
@@ -87,7 +87,7 @@ public MainWindow()
 
 * Individuare ora il metodo `Search(...)`, che verrà richiamato quando l'utente fa clic sul pulsante "Search" nell'interfaccia utente dell'app.  Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato.  Per eseguire una query nell'API Graph, è però necessario includere un oggetto access_token nell'intestazione `Authorization` della richiesta, dove entra in gioco ADAL.
 
-```C#
+```csharp
 private async void Search(object sender, RoutedEventArgs e)
 {
     // Validate the Input String
@@ -121,7 +121,7 @@ private async void Search(object sender, RoutedEventArgs e)
 * Si noti che l'oggetto `AuthenticationResult` contiene un oggetto `UserInfo` che può essere usato per raccogliere informazioni che potrebbero essere richieste dall'app.  In DirectorySearcher `UserInfo` viene usato per personalizzare l'interfaccia utente dell'app con l'ID dell'utente.
 * È opportuno assicurarsi che, quando l'utente fa clic sul pulsante "Sign Out", la chiamata successiva a `AcquireTokenAsync(...)` chiederà all'utente di accedere.  Con ADAL, basta cancellare la cache dei token:
 
-```C#
+```csharp
 private void SignOut(object sender = null, RoutedEventArgs args = null)
 {
     // Clear the token cache
@@ -133,7 +133,7 @@ private void SignOut(object sender = null, RoutedEventArgs args = null)
 
 * Se tuttavia l'utente non fa clic sul pulsante di "disconnessione", è consigliabile mantenere la sessione dell'utente per la prossima esecuzione di DirectorySearcher.  Quando viene avviata l'app, è possibile cercare nella cache dei token di ADAL se esiste un token e aggiornare di conseguenza l'interfaccia utente.  Nel metodo `CheckForCachedToken()`, eseguire un'altra chiamata a `AcquireTokenAsync(...)`, questa volta superando il parametro `PromptBehavior.Never`.  `PromptBehavior.Never` comunicherà ad ADAL che non dovrà richiedere all'utente di accedere e dovrà invece generare un'eccezione se non è in grado di restituire un token.
 
-```C#
+```csharp
 public async void CheckForCachedToken() 
 {
     // As the application starts, try to get an access token without prompting the user.  If one exists, show the user as signed in.

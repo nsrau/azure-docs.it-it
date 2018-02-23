@@ -6,7 +6,7 @@
 
     ![Definire nuove impostazioni dell'app per le funzioni](./media/functions-create-function-app-portal/function-app-create-flow2.png)
 
-    | Impostazione      | Valore consigliato  | Descrizione                                        |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome app** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z`, `0-9` e `-`.  | 
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. | 

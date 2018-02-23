@@ -41,7 +41,7 @@ La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-d
 
 Questa funzione di esempio genera i dati di risposta JSON seguenti. Il tipo di dati di tutti i campi è `string`.
 
-| Campo             |Descrizione                           |
+| Campo             |DESCRIZIONE                           |
 |-------------------|--------------------------------------|
 | id                |ID dell'istanza di orchestrazione. |
 | statusQueryGetUri |URL di stato dell'istanza di orchestrazione. |
@@ -84,7 +84,7 @@ Questo protocollo consente di coordinare processi a esecuzione prolungata con cl
 
 Tutte le API HTTP implementate dall'estensione richiedono i parametri seguenti. Il tipo di dati di tutti i parametri è `string`.
 
-| .  | Tipo di parametro  | Descrizione |
+| Parametro  | Tipo di parametro  | DESCRIZIONE |
 |------------|-----------------|-------------|
 | instanceId | URL             | ID dell'istanza di orchestrazione. |
 | taskHub    | Stringa di query    | Nome dell'[hub attività](durable-functions-task-hubs.md). Se non specificato, viene usato il nome dell'hub attività dell'app per le funzioni corrente. |
@@ -113,7 +113,7 @@ Il formato di Funzioni 2.0 usa gli stessi parametri ma ha un prefisso URL legger
 GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>Risposta
 
 Possono essere restituiti diversi valori di codice di stato.
 
@@ -124,13 +124,13 @@ Possono essere restituiti diversi valori di codice di stato.
 
 Il payload di risposta per i casi **HTTP 200** e **HTTP 202** è un oggetto JSON con i campi seguenti.
 
-| Campo           | Tipo di dati | Descrizione |
+| Campo           | Tipo di dati | DESCRIZIONE |
 |-----------------|-----------|-------------|
-| runtimeStatus   | string    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
+| runtimeStatus   | stringa    | Stato di runtime dell'istanza. I valori includono *In esecuzione*, *In sospeso*, *Non riuscito*, *Annullato*, *Terminato*, *Completato*. |
 | input           | JSON      | Dati JSON usati per inizializzare l'istanza. |
 | output          | JSON      | Output JSON dell'istanza. Questo campo è `null` se l'istanza non è in stato completato. |
-| createdTime     | string    | Data e ora di creazione dell'istanza. Usa la notazione estesa ISO 8601. |
-| lastUpdatedTime | string    | Data e ora dell'ultimo stato persistente dell'istanza. Usa la notazione estesa ISO 8601. |
+| createdTime     | stringa    | Data e ora di creazione dell'istanza. Usa la notazione estesa ISO 8601. |
+| lastUpdatedTime | stringa    | Data e ora dell'ultimo stato persistente dell'istanza. Usa la notazione estesa ISO 8601. |
 
 Di seguito è riportato un payload di risposta di esempio (formattato per migliorare la leggibilità):
 
@@ -170,12 +170,12 @@ POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/rais
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo       | Tipo di parametro  | Tipo di dati | Descrizione |
+| Campo       | Tipo di parametro  | Tipo di dati | DESCRIZIONE |
 |-------------|-----------------|-----------|-------------|
-| eventName   | URL             | string    | Nome dell'evento atteso dall'istanza di orchestrazione di destinazione. |
+| eventName   | URL             | stringa    | Nome dell'evento atteso dall'istanza di orchestrazione di destinazione. |
 | {content}   | Contenuto della richiesta | JSON      | Payload dell'evento in formato JSON. |
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>Risposta
 
 Possono essere restituiti diversi valori di codice di stato.
 
@@ -216,11 +216,11 @@ DELETE /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/te
 
 I parametri della richiesta per questa API includono il set predefinito indicato in precedenza, nonché i parametri univoci seguenti.
 
-| Campo       | Tipo di parametro  | Tipo di dati | Descrizione |
+| Campo       | Tipo di parametro  | Tipo di dati | DESCRIZIONE |
 |-------------|-----------------|-----------|-------------|
-| reason      | Stringa di query    | string    | Facoltativo. Motivo dell'interruzione dell'istanza di orchestrazione. |
+| reason      | Stringa di query    | stringa    | facoltativo. Motivo dell'interruzione dell'istanza di orchestrazione. |
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>Risposta
 
 Possono essere restituiti diversi valori di codice di stato.
 

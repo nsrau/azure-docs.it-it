@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 01/27/2018
 ms.author: brenduns
-ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
@@ -59,9 +59,7 @@ Dimensioni delle macchine virtuali e le relative quantità di risorse associati 
 
 ## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale
 
- Lo Stack di Azure supporta le seguenti versioni di estensione di macchina virtuale:
-
-![Estensioni di VM](media/azure-stack-vm-considerations/vm-extensions.png)
+ Lo Stack di Azure include un piccolo set di estensioni. Gli aggiornamenti ed estensioni aggiuntive e sono disponibile tramite diffusione Marketplace.
 
 Utilizzare lo script di PowerShell seguente per ottenere l'elenco di estensioni di macchine virtuali che sono disponibili nell'ambiente dello Stack di Azure:
 

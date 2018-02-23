@@ -17,7 +17,7 @@ ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 Questo argomento descrive i comandi di PowerShell che consentono di eseguire molte delle attività di gestione dei servizi di Ricerca di Azure. Illustreremo in dettaglio come creare un servizio di ricerca, come ridimensionarlo e come gestire le relative chiavi API.
 Questi comandi si affiancano alle opzioni di gestione disponibili nella pagina relativa alle [API REST di gestione di Ricerca di Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * È necessario disporre di Azure PowerShell 1.0 o versioni successive. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * In PowerShell è necessario connettersi alla sottoscrizione di Azure come descritto di seguito.
 
@@ -129,7 +129,7 @@ Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio se
     # Deleting your service will delete all indexes and data in the service
     $resource | Remove-AzureRmResource
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato il servizio, è possibile procedere a compilare un [indice](search-what-is-an-index.md), eseguire [query su un indice](search-query-overview.md) e infine creare e gestire la propria applicazione di ricerca che usa Ricerca di Azure.
 
 * [Creare un indice di Ricerca di Azure nel portale di Azure](search-create-index-portal.md)

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 09/01/2017
+ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 526222944974c08f92aec2a8418e9b42401bc4d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrare un database SQL Server in un database SQL di Azure
 
@@ -34,15 +34,15 @@ La migrazione di un database SQL Server a un database SQL di Azure è un'operazi
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 - Installato la versione più recente di [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).  
 - È stata installata la versione più recente di [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA).
 - È avvenuta l'identificazione e si ha avuto accesso a un database per eseguire la migrazione. Questa esercitazione usa il [database OLTP SQL Server 2008R2 AdventureWorks](https://msftdbprodsamples.codeplex.com/releases/view/59211) in un'istanza di SQL Server 2008 R2 o versione più recenti, ma è possibile usare qualsiasi database di propria scelta. Per risolvere i problemi di compatibilità, usare [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
@@ -52,7 +52,7 @@ Un database SQL di Azure viene creato con un set definito di [risorse di calcolo
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente. 
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Database** dalla pagina **Nuovo**, quindi selezionare **Crea** in **Database SQL** nella pagina **Nuovo**.
 
@@ -60,7 +60,7 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
 3. Compilare il modulo Database SQL con le informazioni seguenti, come illustrato nell'immagine precedente:   
 
-   | Impostazione       | Valore consigliato | Descrizione | 
+   | Impostazione       | Valore consigliato | DESCRIZIONE | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Database name** (Nome database) | mySampleDatabase | Per i nomi di database validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database). | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
@@ -69,10 +69,10 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-   | Impostazione       | Valore consigliato | Descrizione | 
+   | Impostazione       | Valore consigliato | DESCRIZIONE | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). | 
-   | **Nome di accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
+   | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database).|
    | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
    | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
 
@@ -91,7 +91,7 @@ Per creare un database SQL vuoto, attenersi alla procedura seguente.
    > [!IMPORTANT]
    > \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere [Limitazioni correnti per P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Dopo la selezione del livello di servizio, del numero di DTU e della quantità di risorse di archiviazione, fare clic su **Applica**.  
@@ -124,7 +124,7 @@ Il servizio di database SQL crea un firewall a livello di server che impedisce a
 
 4. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-5. Fare clic su **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
+5. Fare clic su **Save**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server logico.
 
 6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
@@ -153,19 +153,19 @@ Seguire questi passaggi per usare **[Data Migration Assistant](https://www.micro
 
 2. Nel menu a sinistra fare clic su **+ Nuovo** per creare un progetto **Valutazione**. Specificare i valori richiesti e quindi fare clic su **Create** (Crea):
 
-   | Impostazione      | Valore consigliato | Descrizione | 
+   | Impostazione      | Valore consigliato | DESCRIZIONE | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo di progetto | Migrazione | Scegliere di valutare il database per la migrazione oppure scegliere di valutare ed eseguire la migrazione nell'ambito dello stesso flusso di lavoro |
    |Project name (Nome progetto)|Migration tutorial (Esercitazione per la migrazione)| Nome descrittivo |
    |Source server type (Tipo server di origine)| SQL Server | È l'unica origine attualmente supportata |
-   |Target server type (Tipo server di destinazione)| Database SQL di Azure| Le opzioni includono: Azure SQL Database (Database SQL di Azure), SQL Server, SQL Server on Azure virtual machines (SQL Server in macchine virtuali di Azure) |
+   |Target server type (Tipo server di destinazione)| database SQL di Azure| Le opzioni includono: Azure SQL Database (Database SQL di Azure), SQL Server, SQL Server on Azure virtual machines (SQL Server in macchine virtuali di Azure) |
    |Migration Scope (Ambito migrazione)| Schema and data (Schema e dati)| Le opzioni includono: Schema and data (Schema e dati), schema only (solo schema), data only (solo dati) |
    
    ![nuovo progetto di Data Migration Assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
 3.  Nella pagina **Select source** (Seleziona origine) immettere i valori richiesti e quindi fare clic su **Connect** (Connetti):
 
-    | Impostazione      | Valore consigliato | Descrizione | 
+    | Impostazione      | Valore consigliato | DESCRIZIONE | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nome server | Nome del server o indirizzo IP | Nome del server o indirizzo IP |
     | Tipo di autenticazione | Tipo di autenticazione preferito| Opzioni: Windows Authentication (Autenticazione di Windows), SQL Server Authentication (Autenticazione di SQL Server), Active Directory Integrated Authentication (Autenticazione integrata di Active Directory), Active Directory Password Authentication (Autenticazione della password di Active Directory) |
@@ -179,7 +179,7 @@ Seguire questi passaggi per usare **[Data Migration Assistant](https://www.micro
 
 6. Nella pagina **Select target** (Seleziona destinazione) immettere i valori richiesti e quindi fare clic su **Connect** (Connetti):
 
-    | Impostazione      | Valore consigliato | Descrizione | 
+    | Impostazione      | Valore consigliato | DESCRIZIONE | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nome server | Nome completo del server di database di Azure | Nome completo del server di database di Azure dalla procedura precedente |
     | Tipo di autenticazione | Autenticazione di SQL Server | SQL Server authentication (Autenticazione di SQL Server) è l'unica opzione al momento della realizzazione di questa esercitazione, ma il database SQL di Azure supporta anche le opzioni Active Directory Integrated Authentication (Autenticazione integrata di Active Directory) e Active Directory Password Authentication (Autenticazione della password di Active Directory) |
@@ -228,11 +228,11 @@ Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-   | Impostazione       | Valore consigliato | Descrizione | 
+   | Impostazione       | Valore consigliato | DESCRIZIONE | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo di server | Motore di database | Questo valore è obbligatorio |
    | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170824.database.windows.net**. |
-   | Autenticazione | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+   | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
    | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 

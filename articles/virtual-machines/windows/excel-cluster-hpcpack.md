@@ -34,7 +34,7 @@ Il seguente diagramma illustra in modo generale il cluster HPC Pack che verrà c
 
 ![Cluster HPC con nodi che eseguono carichi di lavoro di Excel][scenario]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Computer client** : per inviare i processi di Excel e SOA di esempio al cluster, è necessario un computer client basato su Windows. Per eseguire lo script di distribuzione del cluster di Azure PowerShell (se si sceglie tale metodo di distribuzione), è necessario anche un computer Windows.
 * **Sottoscrizione di Azure** : se non è disponibile una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 * **Quota di core** : potrebbe essere necessario aumentare la quota di core, soprattutto se si distribuiscono più nodi del cluster con dimensioni delle macchine virtuali multicore. Se si utilizza un modello di avvio rapido di Azure, la quota di core in Resource Manager è riferita a ogni area di Azure. In tal caso, potrebbe essere necessario aumentare la quota per una determinata area. Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-subscription-service-limits.md). Per aumentare una quota, è possibile [aprire una richiesta di assistenza clienti online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) senza alcun addebito.

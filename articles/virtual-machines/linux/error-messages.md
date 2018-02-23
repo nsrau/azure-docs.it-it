@@ -17,7 +17,7 @@ ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: 97a7c011b72ea733b8bd22203fb7ed6eb97c6e38
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---

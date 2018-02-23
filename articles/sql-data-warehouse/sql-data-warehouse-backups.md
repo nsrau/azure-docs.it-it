@@ -15,11 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: e76349ef7a2afa02d4f9e5295f299bb8084d1e08
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Backup e ripristino in SQL Data Warehouse
 Questo articolo illustra le specifiche dei backup in SQL Data Warehouse. Usare i backup di data warehouse per ripristinare uno snapshot del database nell'area primaria o per ripristinare un backup geografico nell'area geografica abbinata. 
@@ -42,7 +42,7 @@ order by run_id desc
 ## <a name="geo-backups"></a>Backup geografici
 SQL Data Warehouse esegue un backup geografico una volta al giorno su un [data center abbinato](../best-practices-availability-paired-regions.md). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico sul server nell'area geografica abbinata. Il backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere agli snapshot nell'area primaria.
 
-I backup geografici sono attivi per impostazione predefinita. Se il data warehouse è ottimizzato per l'elasticità, è possibile [disattivarli](https://docs.microsoft.com/powershell/resourcemanager/Azurerm.sql/v2.1.0/Set-AzureRmSqlDatabaseGeoBackupPolicyredirectedfrom=msdn) se si vuole. Non è possibile disattivare esplicitamente i backup geografici con il livello di prestazioni ottimizzato per il calcolo.
+I backup geografici sono attivi per impostazione predefinita. Se il data warehouse è ottimizzato per l'elasticità, è possibile [disattivarli](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se si vuole. Non è possibile disattivare esplicitamente i backup geografici con il livello di prestazioni ottimizzato per il calcolo.
 
 ## <a name="backup-costs"></a>Costi di backup
 Si noterà che la fattura di Azure include una voce per Archiviazione Premium di Azure e una voce per l'archiviazione con ridondanza geografica. Il costo di Archiviazione Premium è il costo totale per l'archiviazione dei dati nell'area primaria, che include gli snapshot.  L'addebito per la ridondanza geografica copre il costo per l'archiviazione dei backup geografici.  

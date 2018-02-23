@@ -16,7 +16,7 @@ ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 Questo argomento descrive scenari di segnalazione aggiuntivi nell'applicazione Android. È possibile applicare queste opzioni all'app creata nell'esercitazione [introduttiva](mobile-engagement-android-get-started.md) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 Anche se l'esercitazione completata è stata volutamente diretta e semplice, sono disponibili opzioni avanzate.

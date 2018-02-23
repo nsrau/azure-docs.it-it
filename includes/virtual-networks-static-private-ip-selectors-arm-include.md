@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [portale di Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure portal](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
 > * [Portale di Azure (classico)](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)

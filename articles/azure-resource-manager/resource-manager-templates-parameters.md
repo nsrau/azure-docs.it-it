@@ -1,6 +1,6 @@
 ---
-title: Sezione di Azure Resource Manager modello parametro | Documenti Microsoft
-description: Descrive la sezione parametri di modelli di gestione risorse di Azure utilizzando la sintassi dichiarativa JSON.
+title: Sezione parameters del modello di Azure Resource Manager | Microsoft Docs
+description: Descrive la sezione dei parametri dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d0f53751bf529d52c156a8b9319b10560eb8997
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="parameters-section-of-azure-resource-manager-templates"></a>Sezione parametri di modelli di gestione risorse di Azure
+# <a name="parameters-section-of-azure-resource-manager-templates"></a>Sezione parameters dei modelli di Azure Resource Manager
 Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare i parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, località e proprietà.
 
-Sono limitati a 255 parametri in un modello. È possibile ridurre il numero di parametri utilizzando gli oggetti che contengono più proprietà, come illustrato in questo articolo.
+È previsto un limite di 255 parametri per modello. Si può ridurre il numero di parametri usando oggetti che contengono più proprietà, come illustrato in questo articolo.
 
-## <a name="define-and-use-a-parameter"></a>Definire e utilizzare un parametro
+## <a name="define-and-use-a-parameter"></a>Definire e usare un parametro
 
-Nell'esempio seguente viene illustrata una definizione di parametro semplici. Definisce il nome del parametro e specifica che richiede un valore stringa. Il parametro accetta solo valori significativi per l'uso previsto. Specifica un valore predefinito quando viene fornito alcun valore durante la distribuzione. Infine, il parametro include una descrizione dell'utilizzo. 
+L'esempio seguente illustra la definizione di un parametro semplice. Definisce il nome del parametro e specifica che accetta un valore stringa. Il parametro accetta solo valori significativi per l'uso previsto. Specifica un valore predefinito quando durante la distribuzione non viene fornito alcun valore. Infine, il parametro include una descrizione del relativo uso. 
 
 ```json
 "parameters": {
@@ -47,7 +47,7 @@ Nell'esempio seguente viene illustrata una definizione di parametro semplici. De
 }
 ```
 
-Nel modello di riferimento al valore per il parametro con la sintassi seguente:
+Nel modello si fa riferimento al valore per il parametro con la sintassi seguente:
 
 ```json
 "resources": [
@@ -63,7 +63,7 @@ Nel modello di riferimento al valore per il parametro con la sintassi seguente:
 
 ## <a name="available-properties"></a>Proprietà disponibili
 
-Nell'esempio precedente è stato illustrato solo alcune delle proprietà che è possibile utilizzare nella sezione parametro. Le proprietà disponibili sono:
+L'esempio precedente mostra solo alcune delle proprietà che è possibile usare nella sezione dei parametri. Le proprietà disponibili sono:
 
 ```json
 "parameters": {
@@ -85,7 +85,7 @@ Nell'esempio precedente è stato illustrato solo alcune delle proprietà che è 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
 | parameterName |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| type |Sì |Tipo di valore del parametro. I tipi consentiti e i valori sono **stringa**, **secureString**, **int**, **bool**, **oggetto**, **secureObject**, e **matrice**. |
+| type |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **secureString**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | defaultValue |No  |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No  |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No  |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
@@ -96,7 +96,7 @@ Nell'esempio precedente è stato illustrato solo alcune delle proprietà che è 
 
 ## <a name="template-functions-with-parameters"></a>Funzioni di modello con parametri
 
-Quando si specifica il valore predefinito per un parametro, è possibile utilizzare la maggior parte delle funzioni di modello. È possibile utilizzare un altro valore di parametro per generare un valore predefinito. Il modello seguente viene illustrato l'utilizzo delle funzioni del valore predefinito:
+Quando si specifica il valore predefinito per un parametro, è possibile usare la maggior parte delle funzioni di modello. Si può usare il valore di un altro parametro per generare un valore predefinito. Il modello seguente illustra l'uso delle funzioni nel valore predefinito:
 
 ```json
 "parameters": {
@@ -117,13 +117,13 @@ Quando si specifica il valore predefinito per un parametro, è possibile utilizz
 }
 ```
 
-Non è possibile utilizzare il `reference` funzione nella sezione dei parametri. I parametri vengono valutati prima della distribuzione pertanto `reference` funzione non è possibile ottenere lo stato di runtime di una risorsa. 
+Non è possibile usare la funzione `reference` nella sezione dei parametri. I parametri vengono valutati prima della distribuzione, quindi la funzione `reference` non può ottenere lo stato di runtime di una risorsa. 
 
 ## <a name="objects-as-parameters"></a>Oggetti come parametri
 
-Potrebbe risultare più semplice organizzare i valori correlati passandoli come oggetto. Questo approccio riduce inoltre il numero di parametri nel modello.
+Può essere più semplice organizzare i valori correlati passandoli come oggetto. Questo approccio riduce anche il numero di parametri nel modello.
 
-Definire il parametro del modello e specificare un oggetto JSON anziché un solo valore durante la distribuzione. 
+Definire il parametro nel modello e specificare un oggetto JSON invece di un solo valore durante la distribuzione. 
 
 ```json
 "parameters": {
@@ -131,6 +131,7 @@ Definire il parametro del modello e specificare un oggetto JSON anziché un solo
     "type": "object",
     "defaultValue": {
       "name": "VNet1",
+      "location": "eastus",
       "addressPrefixes": [
         {
           "name": "firstPrefix",
@@ -152,7 +153,7 @@ Definire il parametro del modello e specificare un oggetto JSON anziché un solo
 },
 ```
 
-Quindi, fare riferimento a sottoproprietà del parametro utilizzando l'operatore punto.
+Quindi, fare riferimento alle sottoproprietà del parametro usando l'operatore punto.
 
 ```json
 "resources": [
@@ -160,7 +161,7 @@ Quindi, fare riferimento a sottoproprietà del parametro utilizzando l'operatore
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('VNetSettings').name]",
-    "location":"[resourceGroup().location]",
+    "location": "[parameters('VNetSettings').location]",
     "properties": {
       "addressSpace":{
         "addressPrefixes": [
@@ -224,7 +225,7 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
    }
    ```
 
-* Utilizzare **SecureString** per tutti i segreti e le password. Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
+* Usare **SecureString** per tutte le password e i segreti. Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
    
    ```json
    "parameters": {
@@ -237,7 +238,7 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
    }
    ```
 
-* Quando possibile, evitare di usare un parametro per specificare la posizione. Usare invece la proprietà **location** del gruppo di risorse. Usando l'espressione **resourceGroup().location** per tutte le risorse, le risorse nel modello verranno distribuite nella stessa posizione del gruppo di risorse:
+* Usare un parametro per specificare la posizione e condividere per quanto possibile il relativo valore con le risorse che potrebbero essere nella stessa posizione. Questo approccio permette di ridurre al minimo il numero di volte in cui gli utenti devono dare informazioni sulla posizione. Se un tipo di risorsa è supportato solo in un numero limitato di posizioni, provare a specificare una posizione valida direttamente nel modello oppure aggiungere un altro parametro location. Se un'organizzazione limita le aree consentite per gli utenti, l'espressione **resourceGroup().location** potrebbe impedire a un utente di distribuire il modello. Ad esempio, un utente crea un gruppo di risorse in un'area. Un secondo utente deve distribuire in quel gruppo di risorse, ma non ha accesso all'area. 
    
    ```json
    "resources": [
@@ -245,28 +246,27 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
+         "location": "[parameters('location')]",
          ...
      }
    ]
    ```
-   
-   Se un tipo di risorsa è supportato solo in un numero limitato di posizioni, provare a specificare una posizione valida direttamente nel modello. Se è necessario usare un parametro **location**, condividere per quanto possibile il relativo valore con le risorse che potrebbero essere nella stessa posizione. Questo approccio riduce il numero di volte in cui gli utenti vengono richiesto di fornire informazioni sul percorso.
+    
 * Evitare di usare un parametro o una variabile per la versione dell'API per un tipo di risorsa. I valori e le proprietà delle risorse possono variare in base al numero di versione. Quando la versione dell'API è impostata su un parametro o una variabile, IntelliSense negli editor di codice non può determinare lo schema corretto. Impostare invece la versione dell'API come hardcoded nel modello.
-* Evitare di specificare un nome di parametro nel modello che corrisponde a un parametro del comando di distribuzione. Gestione risorse consente di risolvere questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro di modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
+* Evitare di specificare nel modello un nome di parametro che corrisponde a un parametro del comando di distribuzione. Resource Manager risolve questo conflitto di denominazione aggiungendo il suffisso **FromTemplate** al parametro del modello. Se, ad esempio, si include un parametro denominato **ResourceGroupName** nel modello, si crea un conflitto con il parametro **ResourceGroupName** nel cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante la distribuzione verrà quindi richiesto di specificare un valore per **ResourceGroupNameFromTemplate**.
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-Questi modelli di esempio vengono illustrati alcuni scenari per l'utilizzo di parametri. Distribuire in modo da verificare come parametri vengono gestiti in diversi scenari.
+Questi modelli di esempio illustrano alcuni scenari per l'uso dei parametri. Distribuirli per testare il modo in cui i parametri vengono gestiti in scenari diversi.
 
 |Modello  |DESCRIZIONE  |
 |---------|---------|
-|[parametri con le funzioni per i valori predefiniti](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Viene illustrato come utilizzare le funzioni modello quando si definiscono i valori predefiniti per i parametri. Il modello di non distribuire le risorse. Costruisce i valori dei parametri e restituisce questi valori. |
-|[oggetto Parameter](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Viene illustrato l'utilizzo di un oggetto per un parametro. Il modello di non distribuire le risorse. Costruisce i valori dei parametri e restituisce questi valori. |
+|[parametri con funzioni per i valori predefiniti](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Illustra come usare le funzioni di modello quando si definiscono valori predefiniti per i parametri. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
+|[oggetto parametro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Illustra l'uso di un oggetto per un parametro. Il modello non distribuisce alcuna risorsa. Crea valori di parametro e restituisce questi valori. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 * Per informazioni sull'immissione di valori di parametro durante la distribuzione vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md). 
 * Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
-* Per informazioni sull'utilizzo di un oggetto parametro, vedere [utilizzare un oggetto come parametro in un modello di gestione risorse di Azure](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+* Per informazioni sull'uso di un oggetto parametro, vedere [Usare un oggetto come parametro in un modello di Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

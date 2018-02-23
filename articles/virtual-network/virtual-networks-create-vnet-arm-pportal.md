@@ -38,7 +38,7 @@ In questo articolo viene descritta la procedura per creare una rete virtuale tra
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|myVnet|
+    |NOME|myVnet|
     |Spazio degli indirizzi|10.0.0.0/16|
     |Nome della subnet|Pubblico|
     |Intervallo di indirizzi subnet|10.0.0.0/24|
@@ -152,7 +152,7 @@ Passaggi facoltativi dopo aver distribuito il modello:
     |---|---|
     |Sottoscrizione|Selezionare la propria sottoscrizione|
     |Gruppo di risorse|myResourceGroup|
-    |Percorso|Selezionare una località|
+    |Località|Selezionare una località|
     |Nome della rete virtuale|myVnet|
     |Prefisso di indirizzo della rete virtuale|10.0.0.0/16|
     |Subnet1Prefix|10.0.0.0/24|

@@ -1,9 +1,9 @@
 ---
-title: Risolvere i problemi di RBAC di Azure | Microsoft Docs
+title: Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure (RBAC) | Microsoft Docs
 description: Assistenza per problemi o domande sulle risorse del controllo degli accessi in base al ruolo.
 services: azure-portal
 documentationcenter: na
-author: andredm7
+author: rolyon
 manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
@@ -11,16 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: andredm
+ms.date: 01/14/2018
+ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: c2589aabce86f848fa1aa3e25b3f78be180c5525
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="role-based-access-control-troubleshooting"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo
+# <a name="troubleshooting-azure-role-based-access-control"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure 
 
 Questo articolo contiene le risposte alle domande comuni sui diritti di accesso specifici concessi ai ruoli, in modo da sapere cosa accade quando si usano i ruoli nel Portale di Azure e da poter risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
 

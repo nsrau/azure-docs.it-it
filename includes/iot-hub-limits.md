@@ -27,9 +27,9 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 | Numero massimo di recapiti per i messaggi di feedback  <br/> in risposta a un messaggio del cloud al dispositivo |100 |
 | TTL massimo per i messaggi di feedback  <br/> in risposta a un messaggio del cloud al dispositivo |2 giorni |
 | Dimensione massima del dispositivo gemello <br/> (tag, proprietà segnalate e proprietà desiderate) | 8 KB |
-| Dimensione massima del valore della stringa del dispositivo gemello | 512 byte |
+| Dimensione massima del valore della stringa del dispositivo gemello | 4 KB |
 | Profondità massima dell'oggetto nel dispositivo gemello | 5 |
-| Dimensione massima del payload del metodo diretto | 8 KB |
+| Dimensione massima del payload del metodo diretto | 128 KB |
 | Periodo di conservazione massimo della cronologia del processo | 30 giorni |
 | Numero massimo di processi simultanei | 10 (per S3), 5 per (S2), 1 ( per S1) |
 | Numero massimo di endpoint aggiuntivi | 10 (per S1, S2, S3) |
@@ -53,7 +53,7 @@ Il servizio IoT Hub limita le richieste quando vengono superate le quote seguent
 | Inoltri dal cloud al dispositivo | 83,33/sec/unità (5000/min/unità) (per S3), 1,67/sec/unità (100/min/unità) (per S1 e S2). |
 | Ricezioni dal cloud al dispositivo |833,33/sec/unità (50000/min/unità) (per S3), 16,67/sec/unità (1000/min/unità) (per S1 e S2). |
 | Operazioni di caricamento file |83,33 notifiche di caricamento file/sec/unità (5000/min/unità) (per S3), 1,67 notifiche di caricamento file/sec/unità (100/min/unità) (per S1 e S2). <br/> 10.000 URI di firma di accesso condiviso possono essere generati contemporaneamente per un account di archiviazione di Azure.<br/> 10 URI di firma di accesso condiviso/dispositivo possono essere generati contemporaneamente. |
-| Metodi diretti | 3000/sec/unità (per S3), 60/sec/unità (per S2), 20/sec/unità (per S1) |
+| Metodi diretti | 24 MB/sec/unità (per S3), 480 KB/sec/unità (per S2), 160 KB/sec/unità (per S1)<br/> In base a una dimensione del contatore delle limitazioni di 8 KB. |
 | Letture del dispositivo gemello | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |
 | Aggiornamenti dei dispositivi gemelli | 50/sec/unità (per S3), un massimo di 10/sec o di 1/sec/unità (per S2), 10/sec (per S1) |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 83,33/sec/unità (5000/min/unità) (per S3), 1,67/sec/unità (100/min/unità) (per S2), 1,67/sec/unità (100/min/unità) (per S1) |

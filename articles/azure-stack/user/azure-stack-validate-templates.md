@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Controllare i modelli per lo Stack di Azure con Validator del modello
 
@@ -58,18 +58,18 @@ Eventuali errori o avvisi di convalida modello vengono registrati nella console 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Descrizione | Obbligatorio |
+| Parametro | DESCRIZIONE | Obbligatoria |
 | ----- | -----| ----- |
 | TemplatePath | Specifica il percorso in modo ricorsivo trovare modelli di gestione risorse | Sì | 
-| TemplatePattern | Specifica il nome di file di modello per la corrispondenza. | No |
+| TemplatePattern | Specifica il nome di file di modello per la corrispondenza. | No  |
 | CapabilitiesPath | Specifica il percorso di file JSON di capacità cloud | Sì | 
-| IncludeComputeCapabilities | Include una valutazione delle risorse IaaS come dimensioni delle macchine Virtuali e le estensioni VM | No |
-| IncludeStorageCapabilities | Include la valutazione delle risorse di archiviazione come tipi SKU | No |
-| Report | Specifica nome del report HTML generato | No |
-| Dettagliato | Registra errori e avvisi nella console | No|
+| IncludeComputeCapabilities | Include una valutazione delle risorse IaaS come dimensioni delle macchine Virtuali e le estensioni VM | No  |
+| IncludeStorageCapabilities | Include la valutazione delle risorse di archiviazione come tipi SKU | No  |
+| Report | Specifica nome del report HTML generato | No  |
+| Dettagliato | Registra errori e avvisi nella console | No |
 
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 In questo esempio convalida tutte le [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) scaricato localmente e convalida le estensioni rispetto alle funzionalità di Azure Stack Development Kit e dimensioni delle macchine Virtuali.
 
 ```PowerShell
@@ -93,7 +93,7 @@ Valore predefinito di includere i file scaricati *AzureStackCloudCapabilities_wi
 3.  Usare il cmdlet Get-CloudCapabilities per recuperare le versioni di servizio e creare un file JSON delle funzionalità cloud:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 

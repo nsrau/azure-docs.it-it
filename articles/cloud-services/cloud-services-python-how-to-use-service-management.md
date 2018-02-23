@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: ca6e892e9f40204682be4ed00c413696f2022622
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="how-to-use-service-management-from-python"></a>Come usare la gestione dei servizi da Python
 La guida descrive come eseguire attività comuni di gestione dei servizi a livello di codice da Python. La classe **ServiceManagementService** disponibile in [Azure SDK per Python](https://github.com/Azure/azure-sdk-for-python) supporta l'accesso a livello di codice alla maggior parte delle funzionalità di gestione dei servizi disponibili tramite il [portale di Azure][management-portal] (ad esempio **creazione, aggiornamento ed eliminazione dei servizi cloud, distribuzioni, servizi di gestione dati e macchine virtuali**). Questa funzionalità può rivelarsi utile nella creazione di applicazioni che richiedono accesso a livello di codice alla gestione dei servizi.
@@ -117,7 +117,7 @@ Quando si crea un servizio cloud o un servizio di archiviazione, è necessario f
 * Australia orientale
 * Australia sudorientale
 
-## <a name="CreateCloudService"> </a>Procedura: Creare un servizio cloud
+## <a name="CreateCloudService"></a>Procedura: Creare un servizio cloud
 Quando si crea un'applicazione e la si esegue in Azure, la combinazione del codice e della configurazione costituisce il cosiddetto [servizio cloud][cloud service] di Azure (noto come *servizio ospitato* in versioni precedenti di Azure). Il metodo **create\_hosted\_service** consente di creare un nuovo servizio ospitato specificando un nome di servizio ospitato che deve essere univoco in Azure, un'etichetta con codifica Base64 automatica, una descrizione e una località.
 
     from azure import *
@@ -271,7 +271,7 @@ Per elencare le immagini del sistema operativo disponibili, usare il metodo **li
         print('Media link: ' + image.media_link)
         print('')
 
-## <a name="DeleteVMImage"></a>Procedura: Eliminare un'immagine del sistema operativo
+## <a name="DeleteVMImage"> </a>Procedura: Eliminare un'immagine del sistema operativo
 Per eliminare un'immagine dell'utente, usare il metodo **delete\_os\_image**:
 
     from azure import *
@@ -394,9 +394,9 @@ Per creare infine la macchina virtuale con l'immagine acquisita, usare il metodo
         role_size='Small',
         vm_image_name = image_name)
 
-Per altre informazioni su come acquisire una macchina virtuale Linux, vedere [Come acquisire una macchina virtuale Linux](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Per altre informazioni su come acquisire una macchina virtuale Linux nel modello di distribuzione classica, vedere [Come acquisire una macchina virtuale Linux](../virtual-machines/linux/classic/capture-image-classic.md).
 
-Per altre informazioni su come acquisire una macchina virtuale Windows, vedere [Come acquisire una macchina virtuale Windows](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per altre informazioni su come acquisire una macchina virtuale Windows nel modello di distribuzione classica, vedere [Come acquisire una macchina virtuale Windows](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base della gestione dei servizi, è possibile accedere alla [documentazione completa di riferimento all'API per Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) ed eseguire facilmente le complesse attività di gestione dell'applicazione Python.

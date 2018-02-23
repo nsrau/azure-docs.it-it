@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 01/30/2018
 ms.author: damaerte
-ms.openlocfilehash: 45a5c474191192975bfd8d6fc1bf3c0e497d369c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 9f089b5c5d573bf469d6920f9144b7cc5c97c03a
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell (anteprima)
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Strumenti e funzionalità è disponibile anche per [Bash](features.md).
@@ -53,7 +53,6 @@ Tutte le modifiche apportate alle risorse di Azure, sia se eseguite direttamente
 ![](media/features-powershell/azure-drive.png)
 
 #### <a name="contextual-awareness"></a>Consapevolezza contestuale
-
 - **Ambito del gruppo di risorse**: quando all'interno del contesto di un percorso del gruppo di risorse nell’unità Azure (`Azure:`), il nome del gruppo di risorse viene passato automaticamente al cmdlet di Azure PowerShell.
 
     ![](media/features-powershell/resource-group-autocomplete.png)
@@ -91,7 +90,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Strumenti di Azure     |[Azure PowerShell (5.1.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.1.1)<br> [interfaccia della riga di comando di Azure (2.0.23)](https://docs.microsoft.com/cli/azure/overview)|
+|Strumenti di Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Interfaccia della riga di comando di Azure (2.0.26)](https://docs.microsoft.com/cli/azure/overview)|
 |Editor di testo    |vim<br> nano                             |
 |Gestione pacchetti |PowerShellGet<br> Modulo PackageManagement<br> npm<br> pip |
 |Controllo del codice sorgente  |git                                      |
@@ -104,7 +103,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
-|PowerShell  |5.1 e [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 e [6.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## <a name="next-steps"></a>Passaggi successivi

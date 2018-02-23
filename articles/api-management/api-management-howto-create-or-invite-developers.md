@@ -70,7 +70,7 @@ Per reimpostare la password per un account utente, fare clic sul nome dell'accou
 
 Fare clic su **Reimposta password** per inviare all'utente un collegamento per la reimpostazione della password.
 
-![Reimpostazione delle password][api-management-reset-password]
+![Reimposta password][api-management-reset-password]
 
 Per lavorare con gli account utente a livello di codice, vedere la documentazione [Entità utente](https://msdn.microsoft.com/library/azure/dn776330.aspx) nel riferimento [API Management REST (REST di gestione API)](https://msdn.microsoft.com/library/azure/dn776326.aspx). Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) e specificare la password desiderata.
 

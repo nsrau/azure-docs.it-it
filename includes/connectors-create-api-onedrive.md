@@ -1,4 +1,4 @@
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>prerequisiti
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
 * Un account [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 
 

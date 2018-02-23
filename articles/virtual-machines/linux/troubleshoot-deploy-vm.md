@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 9a28d0573dd71238d0d91436cb49776b75b51a36
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 3d0e9a43d9a3c9c770c4ab6159279db1d93f5134
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Linux in Azure
 
@@ -92,7 +92,7 @@ Scegliere dimensioni supportate nel cluster del set di disponibilità. Quando si
 
 ## <a name="can-i-add-an-existing-classic-vm-to-an-availability-set"></a>È possibile aggiungere una VM classica esistente a un set di disponibilità?
 
-Sì. È possibile aggiungere una VM classica esistente a un set di disponibilità nuovo o esistente. Per altre informazioni, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../windows/classic/configure-availability.md#addmachine).
+Sì. È possibile aggiungere una VM classica esistente a un set di disponibilità nuovo o esistente. Per altre informazioni, vedere [Aggiungere una macchina virtuale esistente a un set di disponibilità](../windows/classic/configure-availability-classic.md#addmachine).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

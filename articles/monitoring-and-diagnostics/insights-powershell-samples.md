@@ -147,7 +147,7 @@ La tabella seguente descrive i parametri e valori usati per creare un avviso tra
 
 | parametro | value |
 | --- | --- |
-| Nome |simpletestdiskwrite |
+| NOME |simpletestdiskwrite |
 | Posizione di questa regola di avviso |Stati Uniti orientali |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

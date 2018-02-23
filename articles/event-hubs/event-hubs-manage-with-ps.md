@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell è un ambiente di scripting che può essere usato per
 
 È anche possibile gestire risorse Hub eventi usando i modelli di Azure Resource Manager. Per altre informazioni vedere l'articolo [Creare uno spazio dei nomi dell'hub eventi con Hub eventi e un gruppo di consumer usando un modello di Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, è necessario disporre di quanto segue:
 

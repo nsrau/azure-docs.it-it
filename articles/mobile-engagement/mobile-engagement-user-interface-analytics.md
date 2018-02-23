@@ -26,7 +26,7 @@ In questo articolo viene descritta la scheda **ANALISI** del portale **Mobile En
 La sezione Analytics dell'interfaccia utente fornisce informazioni aggregate sull'applicazione, tratte dai dati cronologici che vengono aggiornati ogni 24 ore. Le informazioni vengono visualizzate in dashboard diversi, composti da grafici a linee/barre/torta, griglie e mappe. I dati possono anche essere scaricati come file con estensione csv. La maggior parte di queste informazioni è disponibile in tempo reale nella sezione Monitoraggio dell'interfaccia utente. Inoltre, è possibile accedervi dall'API Analytics.
 
 > [!NOTE]
-> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
+> Molte sezioni dell'interfaccia utente del portale **Mobile Engagement** contengono il pulsante **MOSTRA LA GUIDA**. Premere questo pulsante per ottenere ulteriori informazioni contestuali su una sezione.
 
 ## <a name="standard-and-custom-analytics"></a>Analisi standard e personalizzate
 Azure Mobile Engagement offre un set di informazioni analitiche standard di base relative all'applicazione che possono essere rappresentate in un grafico, non appena si integra l'app con l'SDK. Azure Mobile Engagement offre anche la possibilità di riunire ulteriori informazioni analitiche personalizzate relative al comportamento degli utenti finali. È possibile eseguire questa operazione creando una pianificazione di "tag (informazioni dell'app)" personalizzata creata da **Impostazioni**. In questo modo, Azure Mobile Engagement può raccogliere questi dati aggiuntivi per conto dell'utente.
@@ -70,7 +70,7 @@ La parte centrale della schermata Panoramica su assorbimento è suddivisa in div
 4. Indica i valori utilizzati per il calcolo.
 5. Si tratta di un grafico sparkline relativo alla cronologia dei valori di assorbimento. Consente di visualizzare i valori del passato per avere una visione più ampia sull'evoluzione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Concetti][Link 6]
 * [Guida alla risoluzione dei problemi - Assistenza][Link 24]
 

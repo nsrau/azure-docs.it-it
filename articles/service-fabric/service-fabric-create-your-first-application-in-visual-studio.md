@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/04/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 2ecb8f8068043936d00f2c9752666490137414e3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Creare la prima applicazione Reliable Services con stato C# di Service Fabric
 
 Questo articolo illustra come distribuire la prima applicazione di Service Fabric per .NET in Windows in pochi minuti. Al termine, si avrà un cluster locale in esecuzione con un'applicazione Reliable Services.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo](service-fabric-get-started.md). Ciò include l'installazione di Service Fabric SDK e Visual Studio 2017 o 2015.
 
@@ -52,7 +52,7 @@ Visual studio crea il progetto di applicazione e il progetto di servizio con sta
 
 ![Esplora soluzioni dopo la creazione dell'applicazione con servizio con stato][3]
 
-Il progetto di applicazione (**MyApplication**) non contiene direttamente codice, ma fa riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
+Il progetto di applicazione (**MyApplication**) non contiene direttamente codice, Fa invece riferimento a un set di progetti di servizio. Include inoltre altri tre tipi di contenuto:
 
 * **Profili di pubblicazione**  
 Profili per la distribuzione in diversi ambienti.
@@ -82,7 +82,18 @@ All'avvio dell'applicazione, Visual Studio apre automaticamente il **visualizzat
    
 ![Visualizzatore eventi di diagnostica][5]
 
-Il modello di servizio con stato usato mostra semplicemente l'incremento del valore del contatore nel metodo `RunAsync` di **MyStatefulService.cs**.
+>[!NOTE]
+>Il rilevamento degli eventi nel visualizzatore eventi di diagnostica dovrebbe essere avviato automaticamente. Se invece deve essere configurato manualmente, per prima cosa aprire il file `ServiceEventSource.cs` che si trova nel progetto **MyStatefulService**. Copiare il valore dell'attributo `EventSource` sopra la classe `ServiceEventSource`. L'origine eventi è denominata `"MyCompany-MyApplication-MyStatefulService"` nell'esempio di seguito, ma può essere diversa nella situazione specifica.
+>
+>![Individuazione del nome dell'origine eventi del servizio][service-event-source-name]
+>
+>Fare quindi clic sull'icona a forma di ingranaggio nella scheda del visualizzatore eventi di diagnostica per aprire la finestra di dialogo **Provider ETW**. Incollare il nome dell'origine eventi appena copiata nella casella di input di **Provider ETW**. Fare quindi clic sul pulsante **Applica**. Verrà automaticamente avviata la traccia degli eventi.
+>
+>![Impostazione del nome dell'origine eventi di diagnostica][setting-event-source-name]
+>
+>Nella finestra Eventi di diagnostica dovrebbero ora essere visualizzati gli eventi.
+
+Il modello di servizio con stato usato mostra l'incremento del valore del contatore nel metodo `RunAsync` di **MyStatefulService.cs**.
 
 Espandere uno degli eventi per visualizzare altri dettagli, incluso il nodo in cui viene eseguito il codice. In questo caso si tratta di \_Node\_0, ma nel computer locale potrebbe essere diverso.
    
@@ -146,3 +157,5 @@ Altre informazioni su [Reliable Services](service-fabric-reliable-services-intro
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[service-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/event-source-attribute-value.png
+[setting-event-source-name]: ./media/service-fabric-create-your-first-application-in-visual-studio/setting-event-source-name.png

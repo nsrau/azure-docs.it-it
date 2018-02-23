@@ -12,54 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: d4559007aece8850b4c2d707686effd706ec468c
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-cloud-services"></a>Abilitare Application Insights Profiler sulle macchine virtuali di Azure, su Service Fabric e Servizi cloud
 
-Questo articolo illustra come abilitare Azure Application Insights Profiler in un'applicazione ASP.NET ospitata da una risorsa di Calcolo di Azure. 
+Questo articolo illustra come abilitare Azure Application Insights Profiler in un'applicazione ASP.NET ospitata da una risorsa di Calcolo di Azure.
 
 Gli esempi in questo articolo includono il supporto per le macchine virtuali di Azure, i set di scalabilità delle macchine virtuali, Azure Service Fabric e Servizi cloud di Azure. Gli esempi si basano su modelli che supportano il modello di distribuzione [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  
 
 
 ## <a name="overview"></a>Panoramica
 
-La figura seguente illustra il funzionamento di Application Insights Profiler con le risorse di Azure. L'immagine usa come esempio una macchina virtuale di Azure.
+La figura seguente illustra il funzionamento di Application Insights Profiler con le risorse di calcolo di Azure. Le risorse di calcolo di Azure includono le macchine virtuali, i set di scalabilità di macchine virtuali, i servizi cloud e i cluster Service Fabric. L'immagine usa come esempio una macchina virtuale di Azure.  
 
   ![Panoramica](./media/enable-profiler-compute/overview.png)
 
 Per abilitare completamente il profiler, è necessario modificare la configurazione in tre posizioni:
 
-* nel riquadro dell'istanza di Application Insights nel portale di Azure.
-* nel codice sorgente dell'applicazione, ad esempio in un'applicazione Web ASP.NET.
-* nel codice sorgente di definizione della distribuzione nell'ambiente, ad esempio un file JSON del modello di distribuzione della macchina virtuale.
+* Nel pannello dell'istanza di Application Insights nel portale di Azure.
+* Nel codice sorgente dell'applicazione, ad esempio in un'applicazione Web ASP.NET.
+* Nel codice sorgente di definizione della distribuzione nell'ambiente, ad esempio un modello di Azure Resource Manager nel file con estensione json.
 
 
 ## <a name="set-up-the-application-insights-instance"></a>Configurare l'istanza di Application Insights
 
-Nel portale di Azure creare o passare all'istanza di Application Insights che si desidera usare. Annotare la chiave di strumentazione dell'istanza. La chiave di strumentazione verrà usata in altri passaggi di configurazione.
+[Creare una nuova risorsa di Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource) o selezionarne una esistente.
+Passare alla risorsa di Application Insights e copiare la chiave di strumentazione.
 
   ![Posizione della strumentazione della chiave](./media/enable-profiler-compute/CopyAIKey.png)
 
-Questa istanza deve essere la stessa dell'applicazione, configurata per l'invio di dati di telemetria a ogni richiesta.
-I risultati di Profiler sono disponibili anche in questa istanza.  
-
-Nel portale di Azure completare i passaggi descritti in [Abilitare il profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) per completare la configurazione dell'istanza di Application Insights per il profiler. Per l'esempio in questo articolo, non è necessario collegare le app Web. Assicurarsi solo che il profiler sia abilitato nel portale.
+Completare quindi i passaggi descritti in [Abilitare il profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler) per completare la configurazione dell'istanza di Application Insights per il profiler. Non è necessario collegare le app web perché si tratta di passaggi specifici per la risorsa di Servizi app. Assicurarsi solo che il profiler sia abilitato nel pannello *Configura* di Profiler.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurare il codice sorgente dell'applicazione
 
+### <a name="aspnet-web-applications-cloud-services-web-roles-or-service-fabric-aspnet-web-frontend"></a>Applicazioni Web ASP.NET, ruoli Web di Servizi cloud o front-end Web ASP.NET di Service Fabric
 L'applicazione deve essere configurata per l'invio di dati di telemetria a un'istanza di Application Insights in ogni operazione `Request`:  
 
-1. Aggiungere l'[SDK di Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) al progetto dell'applicazione. Verificare che le versioni del pacchetto NuGet siano le seguenti:  
+Aggiungere l'[SDK di Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview#get-started) al progetto dell'applicazione. Verificare che le versioni del pacchetto NuGet siano le seguenti:  
   - Per le applicazioni ASP.NET: [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) versione 2.3.0 o versione successiva.
   - Per le applicazioni ASP.NET Core: [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) 2.1.0 o versione successiva.
   - Per altre applicazioni .NET e .NET Core, quali il servizio senza stato e il ruolo di lavoro del servizio cloud di Service Fabric: [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) o [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) 2.3.0 o versione successiva.  
 
-2. Se l'applicazione *non* è ASP.NET o ASP.NET Core, come i ruoli di lavoro di Servizi cloud o le API senza stato di Service Fabric, è necessaria la configurazione della strumentazione aggiuntiva seguente:  
+### <a name="cloud-services-worker-roles-or-service-fabric-stateless-backend"></a>Ruoli di lavoro di Servizi cloud o back-end senza stato di Service Fabric
+Se l'applicazione *non* è ASP.NET o ASP.NET Core, come i ruoli di lavoro di Servizi cloud o le API senza stato di Service Fabric, oltre al passaggio illustrato in precedenza è necessaria la configurazione della strumentazione aggiuntiva seguente:  
 
   1. Aggiungere il codice seguente in un punto iniziale della durata dell'applicazione:  
 
@@ -204,7 +204,7 @@ Esempi completi:
   ```
 
 2. Se l'applicazione interessata è in esecuzione tramite [IIS](https://www.microsoft.com/web/platform/server.aspx), abilitare la funzionalità di Windows `IIS Http Tracing`:  
-  
+
   1. Stabilire l'accesso remoto all'ambiente e quindi usare la finestra [Aggiungi funzionalità Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) oppure eseguire il comando seguente in PowerShell, come amministratore:  
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
@@ -217,7 +217,7 @@ Esempi completi:
 
 ## <a name="enable-the-profiler-on-on-premises-servers"></a>Abilitare Profiler sui server locali
 
-L'abilitazione di Profiler in un server locale è nota anche come esecuzione di Application Insights Profiler in modalità autonoma (non è associato alle modifiche dell'estensione di Diagnostica di Azure). 
+L'abilitazione di Profiler in un server locale è nota anche come esecuzione di Application Insights Profiler in modalità autonoma (non è associato alle modifiche dell'estensione di Diagnostica di Azure).
 
 Non è disponibile alcun piano per il supporto ufficiale di Profiler sui i server locali. Se si è interessati all'uso di questo scenario, è possibile [scaricare il codice di supporto](https://github.com/ramach-msft/AIProfiler-Standalone). Microsoft *non* è responsabile della conservazione del codice o delle risposte ai problemi o alle richieste di funzioni correlate al codice.
 

@@ -21,7 +21,7 @@ ms.lasthandoff: 11/22/2017
 
 Questo articolo descrive come usare il portale di Azure per aggiungere all'ambiente Time Series Insights un'origine evento che legge dati da un hub eventi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 - Creare un ambiente Time Series Insights Per altre informazioni, vedere [Creare un ambiente Azure Time Series Insights](time-series-insights-get-started.md). 
 - Creare un hub eventi. Per altre informazioni sugli hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
 - Lo hub eventi deve ricevere eventi messaggio attivi. Per altre informazioni, vedere [Inviare eventi a Hub eventi di Azure usando .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
@@ -52,7 +52,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
    ![Dettagli hub eventi e sottoscrizione](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
-   | Proprietà | Descrizione |
+   | Proprietà | DESCRIZIONE |
    | --- | --- |
    | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub eventi è stato creato.
    | Spazio dei nomi del bus di servizio | Selezionare lo spazio dei nomi del bus di servizio che contiene l'hub eventi.
@@ -66,7 +66,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 9. La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub eventi manualmente**:
 
-   | Proprietà | Descrizione |
+   | Proprietà | DESCRIZIONE |
    | --- | --- |
    | ID sottoscrizione | La sottoscrizione in cui l'hub eventi è stato creato.
    | Gruppo di risorse | Gruppo di risorse in cui è stato creato questo hub eventi.
@@ -81,7 +81,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 10. Selezionare **Crea** per aggiungere la nuova origine evento.
    
-   ![Fare clic su Crea](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    Dopo la creazione dell'origine evento, Time Series Insights inizierà automaticamente a trasmettere i dati nell'ambiente.
 

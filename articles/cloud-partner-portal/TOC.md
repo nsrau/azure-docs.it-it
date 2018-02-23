@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni sul portale per Cloud Partner](./cloud-partner-portal-what-is-the-cloud-partner-portal.md)
 
-# Introduzione
+# Attività iniziali
 ## [Introduzione al portale per Cloud Partner](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)
 ## [Prodotti supportati](./Cloud-partner-portal-products-that-can-get-published-via-portal.md)
 
@@ -22,7 +22,7 @@
 ### [Aggiornare un'offerta esistente](./cloud-partner-portal-update-existing-offer.md)
 ### [Eliminare un'offerta/SKU per le VM](./cloud-partner-portal-delete-an-offer.md)
 ### [Eseguire la migrazione al portale per Cloud Partner](./cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-## [Guida per i rivenditori di Azure Marketplace](./cloud-partner-portal-seller-guide.md)
+## [Guida per i venditori di Azure Marketplace](./cloud-partner-portal-seller-guide.md)
 
 ## [Ottenere lead](./cloud-partner-portal-get-customer-leads.md)
 ### [Tabella di Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)

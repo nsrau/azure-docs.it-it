@@ -16,7 +16,7 @@ ms.date: 07/17/2017
 ms.author: piyushjo
 ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

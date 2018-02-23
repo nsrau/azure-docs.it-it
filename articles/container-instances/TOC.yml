@@ -33,15 +33,23 @@
   items:
     - name: Distribuire gruppi di più contenitori
       href: container-instances-multi-container-group.md
-    - name: Rendere persistenti i dati con File di Azure
-      href: container-instances-mounting-azure-files-volume.md
     - name: Eseguire la distribuzione dal Registro contenitori di Azure
       href: container-instances-using-azure-container-registry.md
     - name: Eseguire attività in contenitori
       href: container-instances-restart-policy.md
     - name: Risolvere i problemi delle distribuzioni
       href: container-instances-troubleshooting.md
-- name: Riferimenti
+    - name: Configurare i volumi di dati
+      items:
+        - name: File di Azure
+          href: container-instances-volume-azure-files.md
+        - name: emptyDir
+          href: container-instances-volume-emptydir.md
+        - name: gitRepo
+          href: container-instances-volume-gitrepo.md
+        - name: secret
+          href: container-instances-volume-secret.md
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container

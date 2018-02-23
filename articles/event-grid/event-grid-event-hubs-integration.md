@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dba17a860dffd87b3784c53cf288b7a312c77e33
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Trasmettere Big Data a un data warehouse
 
@@ -64,7 +64,7 @@ Griglia di eventi distribuisce i dati dell'evento ai sottoscrittori. L'esempio s
 ]
 ```
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari:
 
@@ -74,7 +74,7 @@ Per completare l'esercitazione, sono necessari:
 
 ## <a name="deploy-the-infrastructure"></a>Distribuire l'infrastruttura
 
-Per semplificare questo articolo, distribuire l'infrastruttura necessaria con un modello di Resource Manager. Per esaminare le risorse che vengono distribuite, visualizzare il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Per la versione di anteprima la griglia di eventi di Azure supporta le aree **westus2** e **westcentralus**. Usare una di queste aree per la località del gruppo di risorse.
+Per semplificare questo articolo, distribuire l'infrastruttura necessaria con un modello di Resource Manager. Per esaminare le risorse che vengono distribuite, visualizzare il [modello](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Usare una delle [aree supportate](overview.md) per la località del gruppo di risorse.
 
 Per l'interfaccia della riga di comando di Azure usare:
 
@@ -154,7 +154,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 È possibile usare l'interfaccia della riga di comando di Azure o il portale per sottoscrivere l'evento. Questo articolo illustra entrambi gli approcci.
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 
 1. Dallo spazio dei nomi di Hub eventi selezionare **Griglia di eventi** a sinistra.
 
@@ -164,16 +164,20 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Aggiungere una sottoscrizione di eventi](media/event-grid-event-hubs-integration/add-event-subscription.png)
 
-3. Fornire i valori per la sottoscrizione di eventi. Usare l'URL di Funzioni di Azure che è stato copiato. Selezionare **Crea**.
+3. Fornire i valori per la sottoscrizione di eventi. Usare l'URL di Funzioni di Azure che è stato copiato. Selezionare **Create**.
 
    ![Fornire i valori della sottoscrizione](media/event-grid-event-hubs-integration/provide-values.png)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per sottoscrivere l'evento, eseguire il comando seguente:
+Per sottoscrivere l'evento, eseguire i comandi seguenti (che richiedono la versione 2.0.24 o successiva dell'interfaccia della riga di comando di Azure):
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>Eseguire l'app per generare i dati

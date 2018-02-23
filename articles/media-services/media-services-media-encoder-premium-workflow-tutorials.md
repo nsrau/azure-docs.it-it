@@ -933,7 +933,7 @@ Con la semplice clausola guard seguente, Ã¨ possibile controllare se il taglio Ã
 
 [Strumento di esplorazione di Servizi multimediali di Azure](http://aka.ms/amse)
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

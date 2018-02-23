@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2017
 ms.author: LADocs; klam
-ms.openlocfilehash: f2a92e45b8a759d2d8193ac188efdcfc694a3e6d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 49a66c826a98f7160b97b516e6fd541795ae3b0e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-pricing-model"></a>Modello di determinazione prezzi delle app per la logica
 Con App per la logica di Azure è possibile creare ed eseguire flussi di lavoro di integrazione automatizzati e scalabili nel cloud. Di seguito sono riportate informazioni dettagliate sul funzionamento dei prezzi e della fatturazione per App per la logica di Azure.
@@ -56,6 +56,6 @@ Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.micro
 * [Creare la prima app per la logica][create]
 
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
-[whatis]: logic-apps-what-are-logic-apps.md
-[create]: logic-apps-create-a-logic-app.md
+[whatis]: logic-apps-overview.md
+[create]: quickstart-create-first-logic-app-workflow.md
 

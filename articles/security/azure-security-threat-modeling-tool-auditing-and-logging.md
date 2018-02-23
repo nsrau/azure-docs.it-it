@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="log-rotation"></a>Assicurarsi che la rotazione e la separazione dei log siano abilitate
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="log-sensitive-data"></a>Assicurarsi che l'applicazione non registri nel log i dati sensibili degli utenti
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="log-restricted-access"></a>Assicurarsi che l'accesso ai file di log e di controllo sia limitato
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="threat-detection"></a>Abilitare il rilevamento delle minacce in SQL Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -184,7 +184,7 @@ Di seguito è riportato un esempio di configurazione con la funzionalità di con
 
 ## <a id="audit-failure-handling"></a>Implementare un livello di gestione degli errori di controllo sufficiente
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -240,4 +240,4 @@ Configurare WCF in modo da notificare al programma ogni volta che non riesce a s
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | [Introduzione al monitoraggio delle operazioni IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Passaggi** | <p>Progettare la raccolta e l'archiviazione dei dati di controllo raccolti tramite il monitoraggio delle operazioni IoT Hub. Abilitare le categorie di monitoraggio seguenti:</p><ul><li>Operazioni relative alle identità dei dispositivi</li><li>Comunicazioni da dispositivo a cloud</li><li>Comunicazioni da cloud a dispositivo</li><li>Connessioni</li><li>Caricamenti di file</li></ul>|
+| **Passaggi** | <p>Progettare la raccolta e l'archiviazione dei dati di controllo raccolti tramite il monitoraggio delle operazioni IoT Hub. Abilitare le categorie di monitoraggio seguenti:</p><ul><li>Operazioni relative alle identità dei dispositivi</li><li>Comunicazioni da dispositivo a cloud</li><li>Comunicazioni da cloud a dispositivo</li><li>connessioni</li><li>Caricamenti di file</li></ul>|

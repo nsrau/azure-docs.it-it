@@ -16,7 +16,7 @@ ms.date: 04/20/2017
 ms.author: suchiagicha
 ms.openlocfilehash: 0804e43c3f1bb13bea92ebd661ca52c799ff2332
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

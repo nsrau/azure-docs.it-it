@@ -30,7 +30,7 @@ Come per molti servizi di Azure, il servizio Batch genera eventi di log per dete
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * [Account Azure Batch](batch-account-create-portal.md)
 * [Account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   

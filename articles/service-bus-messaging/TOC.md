@@ -4,7 +4,7 @@
 ## [Architettura del bus di servizio](service-bus-architecture.md)
 ## [DOMANDE FREQUENTI](service-bus-faq.md)
 
-# Attività iniziali
+# Guide introduttive
 ## [Creare uno spazio dei nomi](service-bus-create-namespace-portal.md)
 ## Usare le code
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -28,13 +28,13 @@
 ### [Controllo degli accessi in base al ruolo (anteprima)](service-bus-role-based-access-control.md)
 ### [Messaggistica Premium](service-bus-premium-messaging.md)
 ### [Confronto tra code di Azure e code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-### [Compilare un'applicazione bus di servizio multilivello](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Ottimizzare le prestazioni](service-bus-performance-improvements.md)
 ### [Ripristino di emergenza geografico e replica geografica](service-bus-geo-dr.md)
 ### [Messaggistica asincrona e disponibilità elevata](service-bus-async-messaging.md)
 ### [Gestione di emergenze e interruzioni](service-bus-outages-disasters.md)
 
 ## Sviluppo
+### [Compilare un'applicazione bus di servizio multilivello](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### Gestione dei messaggi
 #### [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 #### [Messaggi, payload e serializzazione](service-bus-messages-payloads.md)

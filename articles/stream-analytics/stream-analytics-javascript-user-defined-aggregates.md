@@ -179,7 +179,7 @@ A questo punto viene creata un'aggregazione JavaScript definita dall'utente in u
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Chiamata di un'aggregazione JavaScript definita dall'utente in una query ASA
 
-Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda", ad esempio:
+Nel portale di Azure aprire il processo, modificare la query e chiamare la funzione TWA() con un prefisso obbligatorio "uda", Ad esempio: 
 
 ````SQL
 WITH value AS

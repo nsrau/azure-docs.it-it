@@ -9,17 +9,17 @@ ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Come usare il controllo mappa di Servizi Location Based di Azure
 La libreria JavaScript lato client del controllo mappa consente di eseguire il rendering delle mappe e delle funzionalità incorporate di Servizi Location Based di Azure nelle applicazioni Web e per dispositivi mobili. 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Un account Servizi Location Based di Azure e una chiave di sottoscrizione. Per informazioni sulla creazione di un account e sul recupero di una chiave di sottoscrizione, vedere [Come gestire l'account e le chiavi di Servizi Location Based di Azure](how-to-manage-account-keys.md). 
+Un account Servizi Location Based di Azure e una chiave. Per informazioni sulla creazione di un account e sul recupero di una chiave, vedere [Come gestire l'account e le chiavi di Servizi Location Based di Azure](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Creare una nuova mappa in una pagina Web usando l'API del controllo mappa
 È possibile incorporare una mappa in una pagina Web usando la libreria JavaScript lato client del controllo mappa.
@@ -42,19 +42,19 @@ Un account Servizi Location Based di Azure e una chiave di sottoscrizione. Per i
             }
     ``` 
     
-4. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Usare la propria chiave di sottoscrizione dell'account Servizi Location Based di Azure. 
+4. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Usare la chiave dell'account Servizi Location Based di Azure nello script. 
 
     ```html
     <div id="map">
         <script>
-            var subscriptionKey = "<_subscriptionKey_>";
+            var LBSAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey,
+                "subscription-key": LBSAccountKey,
                 center: [47.59093,-122.33263],
                 zoom: 12
             });
-        <script>
-    <div>
+        </script>
+    </div>
     ```
     
 5. Aprire il file nel Web browser e visualizzare la mappa di cui è stato eseguito il rendering.

@@ -1,5 +1,5 @@
 ---
-title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Microsoft Docs
+title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
 description: Istruzioni dettagliate su come creare un'immagine di macchina virtuale per Azure Marketplace acquistabile dagli utenti.
 services: Azure Marketplace
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
 Questo articolo, **Passaggio 2**, illustra la preparazione di dischi rigidi virtuali (VHD) da distribuire in Azure Marketplace. I dischi rigidi virtuali costituiscono la base dello SKU. Il processo varia a seconda che si stia offrendo uno SKU basato su Linux o su Windows. In questo articolo vengono descritti entrambi gli scenari. Questo processo può essere eseguito parallelamente alla [creazione e registrazione dell'account][link-acct-creation].
@@ -43,7 +43,7 @@ Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo 
 ### <a name="11-add-an-offer"></a>1.1 Aggiungere un'offerta
 1. Accedere al [portale di pubblicazione][link-pubportal] usando l'account venditore.
 2. Selezionare la scheda **Macchine virtuali** del portale di pubblicazione. Immettere il nome dell'offerta nel campo visualizzato. Il nome dell'offerta corrisponde in genere al nome del prodotto o servizio da vendere in Azure Marketplace.
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 
 ### <a name="12-define-a-sku"></a>1.2 Definire uno SKU
 Dopo aver aggiunto l'offerta, è necessario definire e identificare gli SKU. È possibile avere più offerte e ogni offerta può includere più SKU. Quando un'offerta passa all'ambiente di staging, passano a tale fase anche tutti i relativi SKU.
@@ -58,7 +58,7 @@ Dopo aver aggiunto l'offerta, è necessario definire e identificare gli SKU. È 
 3. Se si usano SKU basati su Windows, seguire i collegamenti consigliati per acquistare le versioni approvate di Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Creare un VHD compatibile con Azure (basato su Linux)
-Questa sezione è incentrata sulle procedure consigliate per la creazione di un'immagine di macchina virtuale basata su Linux per Azure Marketplace. Per una procedura dettagliata, fare riferimento alla documentazione seguente: [Creazione e caricamento di un disco rigido virtuale che contiene il sistema operativo Linux](../virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Questa sezione è incentrata sulle procedure consigliate per la creazione di un'immagine di macchina virtuale basata su Linux per Azure Marketplace. Per una procedura dettagliata, fare riferimento alla documentazione seguente: [Creare l'immagine personalizzata di una VM Linux](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. Creare un VHD compatibile con Azure (basato su Windows)
 Questa sezione è incentrata sui passaggi necessari per creare uno SKU basato su Windows Server per Azure Marketplace.
@@ -118,6 +118,9 @@ Con pochi semplici passaggi, dal portale di Microsoft Azure è possibile creare 
 È consigliabile sviluppare il VHD nel cloud usando Remote Desktop Protocol (RDP). Per connettersi a RDP, usare il nome utente e la password specificati durante il provisioning.
 
 > [!IMPORTANT]
+> **Non usare dischi gestiti.** La macchina virtuale usata per sviluppare il disco rigido virtuale nel cloud non deve essere basata su dischi gestiti perché attualmente non supporta la creazione di un'immagine da essi.
+> La creazione della macchina virtuale nella funzionalità facoltativa modifica l'impostazione predefinita per i dischi gestiti.
+
 > Se si sviluppa il VHD in locale (scelta non consigliata), vedere l'articolo relativo alla [creazione di un'immagine di macchina virtuale in locale](marketplace-publishing-vm-image-creation-on-premise.md). Il download del VHD non è necessario se lo sviluppo viene eseguito nel cloud.
 >
 >
@@ -299,7 +302,7 @@ Nota: le istruzioni seguenti sono applicabili solo ai dischi non gestiti che son
 L'URL SAS può essere generato in diversi modi per condividere il disco rigido virtuale per Azure Marketplace.
 Di seguito vengono riportati tre strumenti consigliati:
 
-1.  Azure Storage Explorer
+1.  Esplora archivi Azure
 2.  Microsoft Storage Explorer
 3.  Interfaccia della riga di comando di Azure
 
@@ -522,7 +525,7 @@ Dopo aver creato l'offerta e lo SKU, è necessario immettere i dettagli relativi
 ## <a name="next-step"></a>Passaggio successivo
 Dopo aver specificato i dettagli dello SKU, passare alla [Guida ai contenuti di marketing di Azure Marketplace][link-pushstaging]. In questo passaggio del processo di pubblicazione vengono forniti i contenuti marketing, i prezzi e le altre informazioni necessarie prima di continuare con il **Passaggio 3: Test dell'offerta di macchina virtuale nell'ambiente di staging**, dove vengono testati diversi scenari di casi d'uso prima di distribuire l'offerta in Azure Marketplace per la visibilità pubblica e l'acquisto.  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png

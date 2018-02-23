@@ -78,7 +78,7 @@ Questa funzionalità offre un report sugli errori di sincronizzazione che posson
 ### <a name="categorization-of-errors"></a>Categorizzazione degli errori
 Il report suddivide gli errori di sincronizzazione esistenti nelle categorie seguenti:
 
-| Categoria | Descrizione |
+| Categoria | DESCRIZIONE |
 | --- | --- |
 | Attributo duplicato |Errori che si verificano quando Azure AD Connect prova a creare o aggiornare oggetti con valori duplicati per uno o più attributi di Azure AD che devono essere univoci in un tenant, come proxyAddresses o UserPrincipalName. |
 | Dati non corrispondenti |Errori di sincronizzazione che si verificano quando la funzionalità di corrispondenza flessibile non riesce a trovare una corrispondenza con l'oggetto. |

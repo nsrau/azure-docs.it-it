@@ -31,6 +31,8 @@
   items:
     - name: 1 - App con DB
       items:
+        - name: .NET Core con SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET con database SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP con MySQL
@@ -39,6 +41,8 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: Java con MySQL
           href: app-service-web-tutorial-java-mysql.md
+        - name: Python con PostgreSQL
+          href: app-service-web-tutorial-python-postgresql.md
     - name: 1 - Creare un'API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Eseguire il mapping di un dominio personalizzato
@@ -71,6 +75,8 @@
       href: app-service-local-cache-overview.md
     - name: Diagnostica
       href: app-service-diagnostics.md
+    - name: Applicazione di patch a sistema operativo e runtime
+      href: app-service-patch-os-runtime.md
 - name: Guide alle procedure
   items:
     - name: Configurare un'app
@@ -85,7 +91,7 @@
           href: web-sites-python-configure.md
         - name: Connettersi alle risorse locali
           href: web-sites-integrate-with-vnet.md
-    - name: Distribuzione in Azure
+    - name: Distribuisci in Azure
       items:
         - name: Distribuire l'app
           items:
@@ -160,7 +166,7 @@
         - name: Clonare un'app
           href: app-service-web-app-cloning.md
         - name: Spostare le risorse
-          href: app-service-move-resources.md
+          href: '../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: Eseguire attività in background
       items:
         - name: Creare processi Web
@@ -223,7 +229,7 @@
           href: ../guidance/guidance-ra-app-service.md
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Risoluzione dei problemi
+    - name: risoluzione dei problemi
       items:
         - name: Risolvere i problemi con Visual Studio
           href: web-sites-dotnet-troubleshoot-visual-studio.md

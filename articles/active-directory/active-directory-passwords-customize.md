@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 6d8a2f2106e57bdf84bc3bead70d379691b79742
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.custom: it-pro;seohack1
+ms.openlocfilehash: 526286c7f6b62d165af43487ca63fe9055623d0c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
 
@@ -74,31 +74,7 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
     * Passando il parametro *whr* alla pagina per la reimpostazione della password, ad esempio "https://login.microsoftonline.com/?whr=contoso.com"
     * Passando il parametro *username* alla pagina per la reimpostazione della password, ad esempio "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-### <a name="graphics-details"></a>Dettagli di grafica
-
-Usare le impostazioni seguenti per modificare le caratteristiche visive della pagina di accesso. Andare a **Azure Active Directory** > **Informazioni personalizzate distintive dell'azienda** > **Modifica informazioni personalizzate distintive dell'azienda**:
-
-* Questa immagine della pagina di accesso deve essere un file PNG o JPG da 1420 x 1200 pixel e non superiore a 500 KB. Per ottenere risultati ottimali, è consigliabile scegliere dimensioni di circa 200 KB.
-* Il colore di sfondo della pagina di accesso viene usato nelle connessioni a latenza elevata e deve essere in formato RGB esadecimale.
-* L'immagine del banner deve essere un file PNG o JPG da 60 x 280 pixel e non superiore a 10 KB.
-* Il logo quadrato (tema normale e scuro) deve essere un file PNG o JPG da 240 x 240 pixel (ridimensionabili) e non superiore a 10 KB.
-
-### <a name="sign-in-text-options"></a>Opzioni del testo di accesso
-
-Usare le impostazioni seguenti per aggiungere alla pagina di accesso testo pertinente all'organizzazione. Andare a **Azure Active Directory** > **Informazioni personalizzate distintive dell'azienda** > **Modifica informazioni personalizzate distintive dell'azienda**:
-
-* **Suggerimento nome utente**: sostituisce il testo di esempio *someone@example.com* con uno più appropriato per gli utenti. È consigliabile lasciare il suggerimento predefinito quando si supportano utenti interni ed esterni.
-* **Testo della pagina di accesso**: può contenere un massimo di 256 caratteri. Questo testo viene visualizzato dove gli utenti eseguono l'accesso online e nell'esperienza Workplace Join di Azure AD in Windows 10. Usare questo testo per le condizioni per l'utilizzo, le istruzioni e i suggerimenti per gli utenti. 
-
-   >[!IMPORTANT]
-   >Poiché chiunque può visualizzare la pagina di accesso, non fornire informazioni riservate qui.
-   >
-
-### <a name="the-keep-me-signed-in-disabled-setting"></a>Impostazione "Mantieni l'accesso disabilitata"
-
-Con l'opzione **Mantieni l'accesso disabilitata** gli utenti possono restare connessi quando chiudono e riaprono la finestra del browser. Questa opzione non influisce sulla durata della sessione. Andare a **Azure Active Directory** > **Informazioni personalizzate distintive dell'azienda** > **Modifica informazioni personalizzate distintive dell'azienda**.
-
-Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dalla possibilità per gli utenti di selezionare questa casella di controllo. Se si nasconde questa opzione, gli utenti possono ottenere prompt di accesso aggiuntivi e imprevisti.
+Per Informazioni dettagliate su come configurare le informazioni personalizzate distintive dell'azienda, vedere l'articolo [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](customize-branding.md).
 
 ### <a name="directory-name"></a>Nome della directory
 

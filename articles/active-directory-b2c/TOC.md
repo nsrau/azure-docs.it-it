@@ -1,6 +1,6 @@
-# [Panoramica](active-directory-b2c-overview.md)
+# [Overview](active-directory-b2c-overview.md)
 
-# Introduzione
+# Attività iniziali
 ## [Eseguire il test drive di un'app Web di Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
 ## [Eseguire il test drive di un'app desktop di Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
 ## [Eseguire il test drive di un'app a singola pagina di Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
@@ -8,7 +8,7 @@
 ## [Registrare l'applicazione](active-directory-b2c-app-registration.md)
 ## [Criteri predefiniti](active-directory-b2c-reference-policies.md)
 ## App per dispositivi mobili e desktop
-### [Panoramica](active-directory-b2c-reference-oauth-code.md)
+### [Overview](active-directory-b2c-reference-oauth-code.md)
 ### iOS
 #### [iOS Swift con MSAL](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal)
 #### [iOS ObjC con AppAuth](active-directory-b2c-devquickstarts-ios.md)
@@ -18,18 +18,20 @@
 ### [.NET](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)
 ### [Xamarin](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native)
 ## App Web
-### [Panoramica](active-directory-b2c-reference-oidc.md)
+### [Overview](active-directory-b2c-reference-oidc.md)
+### [Autenticare gli utenti in ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
 ### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
 ## App a singola pagina
-### [Panoramica](active-directory-b2c-reference-spa.md)
+### [Overview](active-directory-b2c-reference-spa.md)
 ### [JavaScript con MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 ### [JavaScript con Hello](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi)
 ## API Web
+### [Proteggere un'API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chiamare un'API Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guide
@@ -40,6 +42,7 @@
 ### [Amazon](active-directory-b2c-setup-amzn-app.md)
 ### [LinkedIn](active-directory-b2c-setup-li-app.md)
 ### [Twitter](active-directory-b2c-setup-twitter-app.md)
+### [GitHub](active-directory-b2c-setup-github-app.md)
 ### [Weibo](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [WeChat](active-directory-b2c-setup-wechat-app.md)
@@ -60,7 +63,7 @@
 # Framework dell'esperienza di gestione delle identità
 ## [Criteri personalizzati](active-directory-b2c-overview-custom.md)
 ## Guide
-### [Introduzione](active-directory-b2c-get-started-custom.md)
+### [Attività iniziali](active-directory-b2c-get-started-custom.md)
 ### Configurare i provider OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Account Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
@@ -85,9 +88,9 @@
 #### [Complessità password](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Modifica della password](active-directory-b2c-reference-password-change-custom.md)
 #### [Abilita Mantieni l'accesso](active-directory-b2c-reference-kmsi-custom.md)
-### Risoluzione dei problemi
+### risoluzione dei problemi
 #### [Raccogliere i log tramite Application Insights](active-directory-b2c-troubleshoot-custom.md)
-## Riferimento
+## riferimento
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
 ### [Provider di sessioni SSO](active-directory-b2c-reference-sso-custom.md)
 ### [Personalizzazione della lingua](active-directory-b2c-language-customization-custom.md)

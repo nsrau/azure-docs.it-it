@@ -25,7 +25,7 @@ Controllo che è possibile usare per modificare il testo non formattato. Usare q
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "element1",

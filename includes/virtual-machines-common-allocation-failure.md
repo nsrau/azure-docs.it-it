@@ -53,7 +53,7 @@ Il diagramma 5 seguente illustra la tassonomia degli scenari di allocazione (blo
 > 
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>Scenario di allocazione: ridimensionare una VM o aggiungere altre VM o istanze dei ruoli a un servizio cloud esistente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 Upgrade_VMSizeNotSupported o GeneralError
 
@@ -68,7 +68,7 @@ Se l'errore è Upgrade_VMSizeNotSupported*, provare con dimensioni della VM dive
 Se l'errore è GeneralError, è probabile che il tipo di risorsa (ad esempio, le dimensioni specifiche della VM) sia supportato dal cluster, che al momento non dispone di risorse disponibili. Analogamente allo scenario riportato sopra, aggiungere la risorsa di calcolo desiderata tramite la creazione di un nuovo servizio cloud (notare che il nuovo servizio cloud deve usare un indirizzo VIP diverso) e usare una rete virtuale dell'area per connettere i servizi cloud.
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario di allocazione: riavviare VM arrestate (deallocate) parzialmente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 GeneralError*
 
@@ -84,7 +84,7 @@ Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (dea
 * Se il servizio cloud esistente non usa una rete virtuale dell'area, creare una nuova rete virtuale per il nuovo servizio cloud, quindi connettere la [rete virtuale esistente a quella nuova](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Altre informazioni sulle [reti virtuali a livello di area](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>Scenario di allocazione: riavviare VM arrestate (deallocate) completamente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 GeneralError*
 
@@ -97,7 +97,7 @@ La deallocazione completa significa che sono state arrestate (deallocate) tutte 
 Se è accettabile usare un indirizzo VIP diverso, eliminare le VM arrestate (deallocate) originali, mantenendo però i dischi associati, quindi eliminare il servizio cloud corrispondente. Le risorse di calcolo associate sono già state rilasciate al momento dell'arresto (deallocazione) delle VM. Creare un nuovo servizio cloud per riaggiungere le VM.
 
 ## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>Scenario di allocazione: distribuzioni di gestione temporanea/produzione (solo Platform-as-a-Service)
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 New_General* o New_VMSizeNotSupported*
 
@@ -110,7 +110,7 @@ Le distribuzione di gestione temporanea e di produzione di un servizio cloud son
 Eliminare la prima distribuzione e il servizio cloud originale, quindi ridistribuire il servizio cloud. Questa azione potrebbe inserire la prima distribuzione in un cluster con risorse disponibili sufficienti per entrambe le distribuzioni o in un cluster che supporta le dimensioni della VM richieste.
 
 ## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>Scenario di allocazione: gruppo di affinità (prossimità di VM o servizi)
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 New_General* o New_VMSizeNotSupported*
 
@@ -123,7 +123,7 @@ Qualsiasi risorsa di calcolo assegnata a un gruppo di affinità è associata a u
 Se un gruppo di affinità non è necessario, non usare un gruppo di affinità o raggruppare le risorse di calcolo in più gruppi di affinità.
 
 ## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>Scenario di allocazione: rete virtuale basata su gruppi di affinità
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 New_General* o New_VMSizeNotSupported*
 
@@ -149,7 +149,7 @@ Quando si riceve un errore di allocazione, verificare se uno degli scenari descr
 In generale, finché l'errore non indica che le dimensioni della VM richieste non sono supportate, è sempre possibile riprovare in un secondo momento perché nel cluster potrebbero liberarsi risorse sufficienti per soddisfare la richiesta. Se il problema consiste nel fatto che le dimensioni richieste per la VM non sono supportate, vedere di seguito le soluzioni alternative.
 
 ## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Scenario di allocazione: ridimensionare una VM o aggiungere VM a un set di disponibilità esistente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 Upgrade_VMSizeNotSupported* o GeneralError*
 
@@ -164,7 +164,7 @@ Se l'errore è Upgrade_VMSizeNotSupported*, provare con dimensioni della VM dive
 Se l'errore è GeneralError, è probabile che il tipo di risorsa (ad esempio, le dimensioni specifiche della VM) sia supportato dal cluster, che al momento non dispone di risorse disponibili. Se la VM può far parte di un set di disponibilità diverso, creare una nuova VM in un altro set di disponibilità nella stessa area. La nuova VM può quindi essere aggiunta alla stessa rete virtuale.  
 
 ## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>Scenario di allocazione: riavviare VM arrestate (deallocate) parzialmente
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 GeneralError*
 
@@ -177,7 +177,7 @@ La deallocazione parziale significa che una o più VM in un set di disponibilit�
 Arrestare tutte le VM nel set di disponibilità prima di riavviare la prima. Questo garantisce che venga eseguito un nuovo tentativo di allocazione e che si possa selezionare un nuovo cluster con capacità disponibile.
 
 ## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>Scenario di allocazione: riavviare in caso di arresto (deallocazione) completo
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 GeneralError*
 

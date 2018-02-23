@@ -42,7 +42,7 @@ Usare questa esercitazione per un'introduzione all'uso della registrazione dell'
 
 Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Insieme di credenziali delle chiavi esistente e già in uso.  
@@ -150,7 +150,7 @@ I valori di data e ora sono nel formato UTC.
 
 Poiché si può usare lo stesso account di archiviazione per raccogliere i log per più risorse, l'ID della risorsa completo nel nome del BLOB è molto utile per accedere solo ai BLOB necessari o per scaricarli. Prima di procedere, si vedrà però come scaricare tutti i BLOB.
 
-Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio:
+Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio: 
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -164,7 +164,7 @@ Inviare l'elenco tramite pipe con 'Get-AzureStorageBlobContent' per scaricare i 
 
 Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB crea una struttura di cartelle completa nella cartella di destinazione. Questa struttura verrà usata per scaricare e archiviare i BLOB come file.
 
-Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
+Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio: 
 
 * Se sono disponibili più insiemi di credenziali delle chiavi e si vogliono scaricare i log per un solo insieme di credenziali delle chiavi denominato CONTOSOKEYVAULT3, usare:
 
@@ -208,10 +208,10 @@ I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Questo 
 
 La tabella seguente elenca i nomi dei campi e le descrizioni.
 
-| Nome campo | Descrizione |
+| Nome campo | DESCRIZIONE |
 | --- | --- |
 | time |Data e ora (in formato UTC). |
-| resourceId |ID della risorsa Gestione risorse di Azure. Per i log dell'insieme di credenziali delle chiavi questo è sempre l'ID della risorsa insieme di credenziali delle chiavi. |
+| ResourceId |ID della risorsa Gestione risorse di Azure. Per i log dell'insieme di credenziali delle chiavi questo è sempre l'ID della risorsa insieme di credenziali delle chiavi. |
 | operationName |Nome dell'operazione, come illustrato nella tabella seguente. |
 | operationVersion |Questa è la versione dell'API REST richiesta dal client. |
 | category |Per i log dell'insieme di credenziali delle chiavi, AuditEvent è il solo valore disponibile. |
@@ -224,7 +224,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni.
 | identity |Identità del token presentato al momento dell'esecuzione della richiesta API REST. In genere si tratta di un "utente", una "entità servizio" o una combinazione "utente+appId" come nel caso di una richiesta generata da un cmdlet di Azure PowerShell. |
 | properties |Questo campo conterrà informazioni diverse in base all'operazione (operationName). Nella maggior parte dei casi contiene informazioni sul client (la stringa useragent passata dal client), l'URI esatto della richiesta API REST e il codice di stato HTTP. Quando un oggetto viene restituito come risultato di una richiesta, ad esempio KeyCreate o VaultGet, conterrà anche l'URI della chiave (come "id"), l'URI dell'insieme di credenziali o l'URI del segreto. |
 
-I valori del campo **operationName** sono nel formato OggettoVerbo. Ad esempio:
+I valori del campo **operationName** sono nel formato OggettoVerbo. Ad esempio: 
 
 * Tutte le operazioni sull'insieme di credenziali delle chiavi hanno il formato 'Vault`<action>`', ad esempio `VaultGet` e `VaultCreate`.
 * Tutte le operazioni sulle chiavi hanno il formato 'Key`<action>`', ad esempio `KeySign` e `KeyList`.

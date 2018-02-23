@@ -17,7 +17,7 @@ ms.date: 01/03/2018
 ms.author: cynthn
 ms.openlocfilehash: dd9ebaf9a1c8b3112623af4228efa0d9063c1e52
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---

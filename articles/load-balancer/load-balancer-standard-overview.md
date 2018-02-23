@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: ddcbe895bdaa6eaa49e8ed129fe92b415f2600ef
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Panoramica di Azure Load Balancer Standard (anteprima)
 
@@ -72,8 +72,8 @@ Load Balancer Standard offre nuove funzionalità di diagnostica multidimensional
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.
-| Pacchetti SYN | Load Balancer Standard non termina le connessioni TCP né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti. La metrica può inoltre riflettere i client che tentano di stabilire una connessione al servizio.|
-| Connessioni SNAT | Load Balancer Standard indica il numero di connessioni in uscita mascherate per l'indirizzo IP pubblico front-end. Le porte SNAT sono una risorsa esauribile. Questa metrica può offrire un'indicazione di quanto l'applicazione si basi su SNAT per le connessioni originate in uscita.|
+| Pacchetti SYN | Load Balancer Standard non termina le connessioni TCP né interagisce con i flussi di pacchetti TCP o UDP. I flussi e i relativi handshake sono sempre tra l'origine e l'istanza VM. Per risolvere meglio i problemi degli scenari del protocollo TCP, è possibile usare contatori di pacchetti SYN per determinare quanti tentativi di connessione TCP vengono eseguiti. La metrica indica il numero di pacchetti SYN TCP ricevuti.|
+| Connessioni SNAT | Load Balancer Standard segnala il numero di flussi in uscita mascherati per il front-end dell'indirizzo IP pubblico. Le porte SNAT sono una risorsa esauribile. Questa metrica può indicare l'uso che l'applicazione fa di SNAT per i flussi originati in uscita.  Vengono segnalati i contatori per i flussi SNAT con esito positivo e negativo, che è possibile usare per risolvere i problemi e comprendere l'integrità dei flussi in uscita.|
 | Contatori di byte | Load Balancer Standard restituisce i dati elaborati per ogni front-end.|
 | Contatori di pacchetti | Load Balancer Standard restituisce i pacchetti elaborati per ogni front-end.|
 
@@ -217,7 +217,7 @@ Quando le connessioni in uscita vengono usate con un front-end con ridondanza de
 
 Il nuovo algoritmo in Load Balancer Standard prealloca le porte SNAT porte alla scheda di rete di ogni macchina virtuale. Quando una scheda di rete viene aggiunta al pool, le porte SNAT sono preallocate in base alle dimensioni del pool. Nella tabella seguente sono riportate le preallocazioni delle porte per sei livelli di dimensioni del pool back-end:
 
-| Dimensioni del pool (istanze VM) | Porta SNAT preallocata |
+| Dimensioni del pool (istanze VM) | Numero di porte SNAT preallocate |
 | --- | --- |
 | 1 - 50 | 1024 |
 | 51 - 100 | 512 |

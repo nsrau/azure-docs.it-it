@@ -295,7 +295,7 @@ Ad esempio, se si usa Dropbox per elencare i file, la definizione della versione
 
 La tabella seguente illustra le singole proprietà:
 
-| Proprietà dell'azione | Descrizione |
+| Proprietà dell'azione | DESCRIZIONE |
 | --- | --- |
 | `type` |`Http` anziché `APIapp` |
 | `metadata.apiDefinitionUrl` |Per usare questa azione nella finestra di progettazione di app per la logica, includere l'endpoint dei metadati, costituito da: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
@@ -435,7 +435,7 @@ Con queste modifiche, è stata rimossa la funzione `@accessKeys()`, che è stata
 <a name="child-workflows"></a>
 ## <a name="call-child-workflows"></a>Chiamare flussi di lavoro figlio
 
-In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con il nuovo schema, il motore di app per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio:
+In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con il nuovo schema, il motore di app per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio: 
 
 ```
 "mynestedwf": {

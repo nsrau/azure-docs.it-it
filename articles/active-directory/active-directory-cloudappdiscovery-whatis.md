@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2018
 ---
 # <a name="find-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Trovare applicazioni cloud non gestite con Cloud App Discovery
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Cloud App Discovery di Azure Active Directory offre ora un'esperienza di individuazione avanzata senza agenti con tecnologia Microsoft Cloud App Security. Per usare Cloud App Discovery è sufficiente accedere con le credenziali di Azure AD Premium P1. Questo aggiornamento è disponibile senza costi aggiuntivi per tutti i clienti di Azure AD Premium P1. Iniziare con l'articolo [Configurare Cloud App Discovery in Azure AD](https://docs.microsoft.com/azure/active-directory/cloudappdiscovery-get-started), quindi provare [Microsoft Cloud App Security](https://portal.cloudappsecurity.com/).
 
@@ -36,7 +36,7 @@ Cloud App Discovery di Azure Active Directory offre ora un'esperienza di individ
 * Esportare i dati per analisi offline.
 * Portare le applicazioni sotto il controllo IT e abilitare la funzionalità Single Sign-On per la gestione degli utenti.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 1. Gli agenti di utilizzo dell'applicazione vengono installati nei computer dell'utente.
 2. Le informazioni sull'utilizzo delle applicazioni acquisite dagli agenti vengono inviate tramite un canale crittografato sicuro al servizio Cloud App Discovery.
 3. Il servizio Cloud App Discovery valuta i dati e genera report.

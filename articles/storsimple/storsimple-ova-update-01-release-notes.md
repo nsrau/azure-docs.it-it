@@ -53,7 +53,7 @@ L'aggiornamento 0.1 contiene le correzioni di bug e i miglioramenti seguenti.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemi risolti nell'aggiornamento 0.1
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| No. | Funzionalità | Problema |
+| di serie | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |VMDK |In alcune versioni di VMware, il disco del sistema operativo era considerato come sparse che generava avvisi e interrompeva le normali operazioni. Questo bug è stato risolto in questa versione. |
 | 2 |Server iSCSI |Nell'ultima versione, all'utente veniva richiesto di specificare un gateway per ogni interfaccia di rete abilitata del dispositivo virtuale StorSimple. Questo comportamento è stato modificato in questa versione in modo che l'utente debba configurare almeno un gateway per tutte le interfacce di rete abilitate. |

@@ -33,7 +33,7 @@ Le entità servizio sono preferibili per l'esecuzione dell'applicazione con le p
 * Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente.
 * È possibile usare un certificato per automatizzare l'autenticazione in caso di esecuzione di uno script automatico.  
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 
 A seconda di come sono stati distribuiti dello Stack di Azure, è innanzitutto necessario creare un servizio principale.  Questo documento viene descritta la creazione di un'entità servizio per entrambi [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) e [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Dopo aver creato l'entità servizio, un set di passi comuni sia ADFS e Azure Active Directory vengono utilizzati per [delegare le autorizzazioni](azure-stack-create-service-principals.md#assign-role-to-service-principal) al ruolo.     
 
@@ -78,14 +78,14 @@ Lo script viene eseguito dall'endpoint con privilegi in una macchina virtuale ER
 Requirements:
 - È necessario un certificato.
 
-**Parametri**
+**Parameters**
 
 Sono necessarie le seguenti informazioni come input per i parametri di automazione:
 
 
-|Parametro|Descrizione|Esempio|
+|Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
-|Nome|Nome dell'account del nome SPN|MyAPP|
+|NOME|Nome dell'account del nome SPN|MyAPP|
 |ClientCertificates|Matrice di oggetti certificato|X509 certificato|
 |ClientRedirectUris<br>Facoltativa|URI di reindirizzamento dell'applicazione|         |
 
@@ -111,7 +111,7 @@ Sono necessarie le seguenti informazioni come input per i parametri di automazio
 
 2. Al termine dell'esecuzione dell'automazione, vengono visualizzati i dettagli necessari per utilizzare il nome SPN. 
 
-   ad esempio:
+   Ad esempio: 
 
    ```
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

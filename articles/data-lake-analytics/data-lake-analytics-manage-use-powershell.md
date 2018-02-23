@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 Informazioni su come gestire gli account, le origini dati, i processi e gli elementi del catalogo di Azure Data Lake Analytics usando Azure PowerShell. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Durante la creazione di un account di Data Lake Analytics, è necessario sapere:
 
@@ -298,7 +298,7 @@ Usare il parametro `-Result` per rilevare se i processi finiti sono stati comple
 * Operazione annullata
 * Operazione non riuscita
 * Nessuna
-* Operazione completata
+* Succeeded
 
 ``` powershell
 # List Successful jobs.

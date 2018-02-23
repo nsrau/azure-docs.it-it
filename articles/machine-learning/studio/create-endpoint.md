@@ -51,7 +51,7 @@ Dopo aver creato l'endpoint, è possibile utilizzarlo tramite le API sincrone, l
 ## <a name="adding-an-endpoint-using-the-azure-machine-learning-web-services-portal"></a>Aggiunta di un endpoint mediante il portale dei servizi Web di Azure Machine Learning
 1. In Machine Learning Studio fare clic su Web Services (Servizi Web) nella colonna di spostamento a sinistra.
 2. Nella parte inferiore del dashboard dei servizi Web, fare clic su **Gestisci endpoint**. Nel portale dei servizi Web di Azure Machine Learning viene visualizzata la pagina dedicata agli endpoint del servizio Web.
-3. Fare clic su **New**.
+3. Fare clic su **Nuovo**.
 4. Immettere un nome e una descrizione per il nuovo endpoint. I nomi degli endpoint devono contenere al massimo 24 caratteri alfanumerici (con lettere minuscole). Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](web-services-logging.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

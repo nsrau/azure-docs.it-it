@@ -107,7 +107,7 @@ Al termine dell'impostazione, il criterio viene visualizzato nel grafico del seg
 Poiché un segmento è basato su dati di analisi, i segmenti vengono calcolati una volta al giorno.
 In questo esempio, il 47,7% degli utenti finali totali corrispondeva al criterio. Tali utenti sono quelli che hanno avuto un'esperienza ottima e che probabilmente esprimeranno una valutazione più alta se ricevono una notifica push che chiede loro di valutare l'applicazione nell'archivio.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Concetti][Link 6]
 * [Guida alla risoluzione dei problemi - Assistenza][Link 24]
 

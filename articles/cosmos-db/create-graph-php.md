@@ -37,7 +37,7 @@ Eseguire anche queste operazioni:
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-Prima di potere creare un database a grafo, è necessario creare un account di database Gremlin (Graph) con Azure Cosmos DB.
+Prima di potere creare un database a grafo, è necessario creare un account database Gremlin (grafo) con Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 

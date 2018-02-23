@@ -49,7 +49,7 @@ Il processo di base usato per il flusso in questo documento è il seguente:
 
 Per altre informazioni sui flussi, vedere il documento [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una familiarità nello scrivere e nel compilare il codice C# destinato a .NET Framework 4.5. Nella procedura di questo documento viene usato Visual Studio 2017.
 

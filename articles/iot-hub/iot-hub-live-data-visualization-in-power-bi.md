@@ -43,7 +43,7 @@ Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub Io
 - Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
   - Una sottoscrizione di Azure attiva.
   - Un hub IoT di Azure nella sottoscrizione.
-  - Un'applicazione client che invia messaggi all'hub IoT di Azure.
+  - Un'applicazione client che invia messaggi ad Azure IoT hub.
 - Un account di Power BI. ([Provare gratuitamente Power BI](https://powerbi.microsoft.com/))
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
@@ -107,7 +107,7 @@ Informazioni su come visualizzare i dati del sensore in tempo reale che l'hub Io
 1. In **Topologia processo** fare clic su **Query**.
 1. Sostituire `[YourInputAlias]` con l'alias di input del processo.
 1. Sostituire `[YourOutputAlias]` con l'alias di output del processo.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
    ![Aggiungere una query al processo di analisi di flusso in Azure](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 

@@ -16,7 +16,7 @@ ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

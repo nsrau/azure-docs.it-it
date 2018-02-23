@@ -27,7 +27,7 @@ Seguire i passaggi descritti in questo articolo per distribuire un cluster [Micr
 
 Usare uno dei [modelli di Azure Resource Manager](https://github.com/MsHpcPack/HPCPack2016) per distribuire il cluster HPC Pack 2016. È possibile scegliere tra diverse topologie di cluster con numeri differenti di nodi head del cluster e con nodi di calcolo Linux o Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="pfx-certificate"></a>Certificato PFX
 

@@ -18,7 +18,7 @@ ms.author: adegeo
 ms.custom: mvc
 ms.openlocfilehash: 218b6065b4bd4f05ca578dc2b20d99be4cc417a3
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

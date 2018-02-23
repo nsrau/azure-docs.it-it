@@ -182,7 +182,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ```
 
 Il comando `az postgres server restore` richiede i parametri seguenti:
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
 | --resource-group |  myResourceGroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | --name | mypgserver-restored | Il nome del nuovo server creato con il comando di ripristino. |

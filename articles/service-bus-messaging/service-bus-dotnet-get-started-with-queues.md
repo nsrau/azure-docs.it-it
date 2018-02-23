@@ -31,7 +31,7 @@ Questa esercitazione illustra i passaggi seguenti:
 3. Scrivere un'applicazione console .NET Core per inviare un set di messaggi alla coda.
 4. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla coda.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
@@ -407,7 +407,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
    
     ![Lunghezza coda][queue-message-receive]
 
-Congratulazioni. È stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti tali messaggi dalla stessa coda.
+Congratulazioni! È stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti tali messaggi dalla stessa coda.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

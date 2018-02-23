@@ -82,7 +82,7 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
 ## <a name="quickstarts"></a>Guide introduttive
 <table>
     <tr>
-        <td><a href="data-lake-analytics-get-started-portal.md">Portale</a></td>
+        <td><a href="data-lake-analytics-get-started-portal.md">di Microsoft Azure</a></td>
         <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
         <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
         <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
@@ -93,18 +93,18 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
 ## <a name="manage-data-lake-analytics"></a>Gestire Data Lake Analytics
 <table>
     <tr>
-        <td><a href="data-lake-analytics-manage-use-portal.md">Portale</a></td>
+        <td><a href="data-lake-analytics-manage-use-portal.md">di Microsoft Azure</a></td>
         <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
         <td><a href="data-lake-analytics-manage-use-cli.md">Interfaccia della riga di comando di Azure</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">SDK per Java</a></td>
+        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 
 ---
  
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -126,7 +126,7 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
                     <div class="cardText">
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>

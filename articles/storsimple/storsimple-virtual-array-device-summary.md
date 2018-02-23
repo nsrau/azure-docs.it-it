@@ -22,7 +22,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Usare il pannello di riepilogo dispositivo per il servizio Gestione dispositivi StorSimple connesso all'array virtuale StorSimple
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Il pannello del dispositivo di Gestione dispositivi StorSimple visualizza un riepilogo di un array virtuale StorSimple registrato con uno specifico servizio Gestione dispositivi StorSimple, evidenziando i problemi relativi al dispositivo che richiedono attenzione da parte dell'amministratore di sistema. Questa esercitazione introduce il pannello di riepilogo del dispositivo, illustra il contenuto e la funzione e descrive le attività che è possibile eseguire da questo pannello.
 
@@ -32,7 +32,7 @@ Il pannello di riepilogo dispositivo contiene le informazioni seguenti:
 
 
 
-## <a name="management"></a>gestione
+## <a name="management"></a>Gestione
 
 Il pannello del dispositivo StorSimple contiene le opzioni per la gestione del dispositivo StorSimple in uso. I comandi per la gestione vengono visualizzati nella parte superiore del pannello e sul lato sinistro. Usare queste opzioni per aggiungere condivisioni o volumi, aggiornare o eseguire il failover dell'array virtuale.
 

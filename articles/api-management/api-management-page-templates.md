@@ -223,7 +223,7 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
   
 ### <a name="data-model"></a>Modello di dati  
   
-|Proprietà|Tipo|Descrizione|  
+|Proprietà|type|DESCRIZIONE|  
 |--------------|----------|-----------------|  
 |referenceCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  
 |errorCode|stringa|Codice generato se questa pagina viene visualizzata in seguito a un errore interno.|  

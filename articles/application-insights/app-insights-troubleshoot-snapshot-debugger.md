@@ -98,7 +98,7 @@ Nei log dell'agente di raccolta snapshot cercare ```UploadSnapshotFinish```.  Se
 
 ## <a name="snapshot-view-local-variables-are-not-complete"></a>Visualizzazione snapshot: le variabili locali non sono complete
 
-Alcune delle variabili locali sono mancanti. Se l'applicazione esegue codice di rilascio, il compilatore procederà all'ottimizzazione di alcune variabili, ad esempio:
+Alcune delle variabili locali sono mancanti. Se l'applicazione esegue codice di rilascio, il compilatore procederà all'ottimizzazione di alcune variabili, Ad esempio: 
 
 ```csharp
     const int a = 1; // a will be discarded by compiler and the value 1 will be inline.

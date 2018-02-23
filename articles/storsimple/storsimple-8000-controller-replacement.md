@@ -89,7 +89,7 @@ Completare i passaggi seguenti se uno dei controller del dispositivo Microsoft A
    
     **Figura 1** retro del dispositivo StorSimple
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -230,7 +230,7 @@ Se il LED lampeggia, il controller è attivo e l'altro controller è in modalit�
 
 **Figura 8** Parte posteriore dell’enclosure principale con porte dati e  LED di monitoraggio
 
-| Etichetta | Descrizione |
+| Etichetta | DESCRIZIONE |
 |:--- |:--- |
 | 1-6 |porte di rete DATI da 0 a 5 |
 | 7 |LED blu |

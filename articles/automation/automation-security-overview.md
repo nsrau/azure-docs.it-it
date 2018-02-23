@@ -46,7 +46,7 @@ I runbook eseguiti in un ruolo di lavoro ibrido per runbook nel data center o in
 ## <a name="authentication-methods"></a>Metodi di autenticazione
 La tabella seguente riepiloga i diversi metodi di autenticazione per ogni ambiente supportato da Automazione di Azure e l'articolo che descrive come configurare l'autenticazione per i runbook.
 
-| Metodo | Ambiente | Articolo |
+| Metodo | Environment | Articolo |
 | --- | --- | --- |
 | Account utente di Azure AD |Azure Resource Manager e ambiente Azure classico |[Autenticare runbook con un account utente di Azure AD](automation-create-aduser-account.md) |
 | Account RunAs di Azure |Gestione risorse di Azure |[Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md) |

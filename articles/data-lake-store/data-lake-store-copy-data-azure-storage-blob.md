@@ -37,7 +37,7 @@ Azure Data Lake Store fornisce uno strumento da riga di comando, [AdlCopy](http:
 * **Autonomo**, in cui lo strumento usa le risorse di Archivio Data Lake per eseguire l'attività.
 * **Tramite un account di Analisi Data Lake**, in cui le unità assegnate all'account di Analisi Data Lake vengono usate per eseguire l'operazione di copia. È consigliabile scegliere questa opzione se si intende eseguire le attività di copia in modo prevedibile.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -53,7 +53,7 @@ Usare la sintassi seguente per usare lo strumento AdlCopy
 
 I parametri nella sintassi sono descritti di seguito:
 
-| Opzione | Descrizione |
+| Opzione | DESCRIZIONE |
 | --- | --- |
 | Sorgente |Specifica il percorso dei dati di origine nel BLOB di Archiviazione di Azure. L'origine può essere un contenitore BLOB, un BLOB o un altro account Data Lake Store. |
 | Dest |Specifica la destinazione di Archivio Data Lake in cui eseguire la copia. |

@@ -52,7 +52,7 @@ Ogni cluster può accettare più azioni di script che vengono richiamate nell'or
 
 HDInsight fornisce diversi script di esempio per installare i componenti seguenti nei cluster HDInsight:
 
-| Nome | Script |
+| NOME | Script |
 | --- | --- |
 | **Installare Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]. |
 | **Installare R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-install-r]. |
@@ -70,7 +70,7 @@ HDInsight fornisce diversi script di esempio per installare i componenti seguent
 
     <table border='1'>
         <tr><th>Proprietà</th><th>Valore</th></tr>
-        <tr><td>Nome</td>
+        <tr><td>NOME</td>
             <td>Specificare un nome per l'azione script.</td></tr>
         <tr><td>URI script</td>
             <td>Specificare l'URI dello script da richiamare per personalizzare il cluster. s</td></tr>
@@ -310,7 +310,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 ## <a name="develop-script-action-scripts"></a>Sviluppare script di Azione di script
 Vedere [Sviluppare script di Azione script per HDInsight][hdinsight-write-script].
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Creare cluster Hadoop in HDInsight][hdinsight-provision-cluster] contiene istruzioni relative alla creazione di un cluster HDInsight con altre opzioni personalizzate.
 * [Sviluppare script di Azione script per HDInsight][hdinsight-write-script]
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]

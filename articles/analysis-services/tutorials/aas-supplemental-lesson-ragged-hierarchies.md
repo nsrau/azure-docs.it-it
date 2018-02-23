@@ -31,7 +31,7 @@ I modelli tabulari a livello di compatibilità 1400 offrono un'altra proprietà 
   
 Tempo previsto per il completamento dell'esercitazione:**20 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari. Prima di eseguire le attività di questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti o avere completato il progetto modello di esempio Adventure Works Internet Sales. 
 
 Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'esercitazione, non contiene ancora dati o gerarchie incomplete. Per completare questa lezione supplementare, è quindi necessario creare prima il problema aggiungendo alcune tabelle, creare relazioni, colonne calcolate, una misura e una nuova gerarchia organizzativa. Questa operazione richiede circa 15 minuti. Basteranno poi pochi minuti per risolvere il problema.  
@@ -50,10 +50,10 @@ Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'e
 
     | Tabella 1           | Colonna       | Direzione del filtro   | Tabella 2     | Colonna      | Attivo |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Impostazione predefinita            | DimDate     | Data        | Sì    |
-    | FactResellerSales | DueDate      | Impostazione predefinita            | DimDate     | Data        | No     |
-    | FactResellerSales | ShipDateKey  | Impostazione predefinita            | DimDate     | Data        | No     |
-    | FactResellerSales | ProductKey   | Impostazione predefinita            | DimProduct  | ProductKey  | Sì    |
+    | FactResellerSales | OrderDateKey | Predefinito            | DimDate     | Data        | Sì    |
+    | FactResellerSales | DueDate      | Predefinito            | DimDate     | Data        | No      |
+    | FactResellerSales | ShipDateKey  | Predefinito            | DimDate     | Data        | No      |
+    | FactResellerSales | ProductKey   | Predefinito            | DimProduct  | ProductKey  | Sì    |
     | FactResellerSales | EmployeeKey  | A entrambe le tabelle | DimEmployee | EmployeeKey | Sì    |
 
 5. Nella tabella **DimEmployee** creare le [colonne calcolate](../tutorials/aas-lesson-5-create-calculated-columns.md) seguenti: 

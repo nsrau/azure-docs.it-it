@@ -16,7 +16,7 @@ ms.date: 11/01/2017
 ms.author: jeedes
 ms.openlocfilehash: 32b3a45d9baf0b53e05708abab78a462c6780daa
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ L'integrazione di Palo Alto Networks - Captive Portal con Azure AD offre i vanta
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Palo Alto Networks - Captive Portal, sono necessari gli elementi seguenti:
 

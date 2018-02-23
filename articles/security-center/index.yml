@@ -65,7 +65,7 @@ sections:
       image:
         src: https://docs.microsoft.com/media/logos/logo_azure.svg
         href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
-- title: Riferimento
+- title: riferimento
   items:
   - type: list
     style: cards

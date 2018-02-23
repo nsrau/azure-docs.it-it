@@ -26,7 +26,7 @@ ms.lasthandoff: 01/05/2018
 Questo argomento descrive come usare Azure Mobile Engagement per ottenere informazioni sull'uso dell'app e sull'invio di notifiche push a utenti segmentati di un'applicazione per Android.
 Questa esercitazione illustra uno scenario di trasmissione semplice tramite Mobile Engagement. Si creerà un'app per Android vuota che raccoglie dati di base e riceve notifiche push tramite il servizio Google Cloud Messaging (GCM).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione, è necessario disporre di [Android Developer Tools](https://developer.android.com/sdk/index.html)che include l'ambiente di sviluppo integrato di Android Studio e la piattaforma Android più recente.
 
 È necessario anche [Mobile Engagement Android SDK](https://aka.ms/vq9mfn).

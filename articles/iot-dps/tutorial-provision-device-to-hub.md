@@ -27,7 +27,7 @@ Nell'esercitazione precedente abbiamo appreso come configurare un dispositivo pe
 > * Avviare il dispositivo
 > * Verificare che il dispositivo sia registrato
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di procedere, assicurarsi di configurare il dispositivo e il relativo *modulo di protezione hardware* come descritto nell'esercitazione [Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure](./tutorial-set-up-device.md).
 
@@ -93,7 +93,7 @@ In seguito all'avvio del dispositivo dovrebbero verificarsi le azioni seguenti. 
     ![Successful connection to hub in the portal (Connessione all'hub nel portale riuscita)](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo

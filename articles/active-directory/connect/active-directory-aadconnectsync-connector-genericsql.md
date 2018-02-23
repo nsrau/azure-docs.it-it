@@ -3,7 +3,7 @@ title: Connettore Generic SQL | Documentazione Microsoft
 description: Questo articolo descrive come configurare il connettore Generic SQL di Microsoft.
 services: active-directory
 documentationcenter: 
-author: fimguy
+author: billmath
 manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
-ms.author: davidste
-ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.author: billmath
+ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Documentazione tecnica sul connettore Generic SQL
 Questo articolo descrive il connettore Generic SQL ed è applicabile ai prodotti seguenti:
@@ -43,7 +43,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 | Operazioni |<li>Importazione completa e importazione ed esportazione differenziale</li><li>Per l'esportazione: Aggiungi, Elimina, Aggiorna e Sostituisci</li><li>Imposta password, Cambia password</li> |
 | SCHEMA |<li>Individuazione dinamica di oggetti e attributi</li> |
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di usare il connettore, verificare che nel server di sincronizzazione sia disponibile quanto segue:
 
 * Microsoft .NET 4.5.2 Framework o versione successiva
@@ -231,10 +231,10 @@ Il connettore Generic SQL supporta l'importazione completa e delta usando questi
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/View**  
-Per importare gli attributi multivalore per un oggetto, è necessario specificare il nome di tabella o vista in **viste delle tabelle/nome di multivalore** e condizioni di join rispettivi nel **condizione Join** con la tabella padre . Se sono presenti più di una tabella a più valore nell'origine dati, è possibile utilizzare l'operatore union a una visualizzazione singola.
+Per importare attributi multivalore per un oggetto è necessario specificare i nomi di tabella o visualizzazione in **Nome della tabella/visualizzazione multivalore** e le rispettive condizioni di join in **Condizione di join** con la tabella padre. Se sono presenti più tabelle multivalore nell'origine dati, è possibile usare l'operatore unione per disporre di una visualizzazione singola.
 
 >[!IMPORTANT]
-L'agente di gestione di SQL generico può utilizzare solo una tabella multivalore. Non è inserito nel nome della tabella e viste multivalore più nomi di tabella. È la limitazione di SQL generico.
+L'agente di gestione SQL generico può essere usato con una sola tabella multivalore. Non inserire più nomi di tabella nel campo Nome della tabella/visualizzazione multivalore. Si tratta di una limitazione di SQL generico.
 
 
 Esempio: si vuole importare l'oggetto Employee e tutti i relativi attributi multivalore. Sono presenti due tabelle denominate Employee (tabella principale) e Department (multivalore).

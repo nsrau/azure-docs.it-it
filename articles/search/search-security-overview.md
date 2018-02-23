@@ -1,10 +1,10 @@
 ---
-title: Proteggere i dati e le operazioni di ricerca di Azure | Documenti Microsoft
-description: "Sicurezza di ricerca di Azure si basa su conformità SOC 2, la crittografia, autenticazione e identità di accesso utente e gli identificatori di protezione di gruppo nei filtri di ricerca di Azure."
+title: Proteggere i dati e le operazioni in Ricerca di Azure | Microsoft Docs
+description: "La sicurezza in Ricerca di Azure si basa sulla conformità SOC 2, sulla crittografia, sull'autenticazione e sull'accesso all'identità tramite gli ID di sicurezza di utenti e gruppi nei filtri di Ricerca di Azure."
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,122 +12,124 @@ ms.devlang:
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/14/2017
+ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 23616c70a5fd336b743f5acfad2601a6c3e23fc4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: c3aa4883e33b1f3494f8502fe7f8b12f7d64a72f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="data-security-and-controlled-access-to-azure-search-operations"></a>Protezione dei dati e l'accesso controllato alle operazioni di ricerca di Azure
+# <a name="security-and-controlled-access-in-azure-search"></a>Sicurezza e accesso controllato in Ricerca di Azure
 
-Ricerca di Azure è [SOC 2 conforme](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), con un sicurezza fisica spanning sicurezza globale architettura, la crittografia dei dati, un archivio crittografato e misure di sicurezza a livello di piattaforma software. Punto di vista operativo, ricerca di Azure accetta solo le richieste autenticate. Facoltativamente, è possibile aggiungere i controlli di accesso per utente sul contenuto. In questo articolo interessa sicurezza a ogni livello, ma è incentrato principalmente su come vengono protetti i dati e operazioni di ricerca di Azure.
+Ricerca di Azure è [conforme a SOC 2](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports), con un'architettura di sicurezza completa che include sicurezza fisica, trasmissioni crittografate, risorsa di archiviazione crittografata e misure di sicurezza software a livello di piattaforma. Dal punto di vista operativo, Ricerca di Azure accetta solo richieste autenticate. Facoltativamente, è possibile aggiungere controlli di accesso per utente sul contenuto. Questo articolo descrive la sicurezza a ogni livello e in particolare illustra come vengono protetti i dati e le operazioni in Ricerca di Azure.
 
-![Diagramma a blocchi di livelli di sicurezza](media/search-security-overview/azsearch-security-diagram.png)
-
-Mentre ricerca di Azure eredita la protezione e le misure di sicurezza della piattaforma Azure, il meccanismo principale utilizzato dal servizio stesso è l'autenticazione basata su chiave, in cui il tipo di chiave determina il livello di accesso. Una chiave è una chiave amministratore o una chiave di query per l'accesso in sola lettura.
-
-L'accesso al servizio si basa su una sezione di autorizzazioni concesse dalla chiave (completa o sola lettura), oltre a un contesto che definisce un ambito di operazioni. Ogni richiesta è costituito da una chiave obbligatoria, un'operazione e un oggetto. Quando concatenate, i due livelli di autorizzazione e il contesto è sufficiente per fornire una protezione full spettro nelle operazioni del servizio. 
+![Diagramma a blocchi dei livelli di sicurezza](media/search-security-overview/azsearch-security-diagram.png)
 
 ## <a name="physical-security"></a>Sicurezza fisica
 
-Data center Microsoft forniscono la sicurezza fisica leader del settore e sono conformi a una gamma completa di standard e normative. Per ulteriori informazioni, visualizzare il [data center globali di](https://www.microsoft.com/cloud-platform/global-datacenters) pagina o breve video nel data center sicurezza.
+I data center Microsoft garantiscono la sicurezza fisica leader di settore e sono conformi a un portafoglio completo di standard e normative. Per altre informazioni, vedere la pagina [Data center globali](https://www.microsoft.com/cloud-platform/global-datacenters) o guardare un breve video sulla sicurezza dei data center.
 
 > [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
-## <a name="encrypted-transmission-and-storage"></a>Archiviazione e la trasmissione crittografata
+## <a name="encrypted-transmission-and-storage"></a>Trasmissione e risorsa di archiviazione crittografate
 
-Ricerca di Azure è in ascolto sulla porta HTTPS 443. Nella piattaforma, le connessioni a servizi di Azure sono crittografate. 
+La crittografia viene applicata all'intera pipeline di indicizzazione: dalle connessioni alla trasmissione fino ai dati indicizzati archiviati in Ricerca di Azure.
 
-Nello spazio di archiviazione back-end utilizzato per gli indici e altri costrutti, ricerca di Azure sfrutta le funzionalità di crittografia di tali piattaforme. Completa [AICPA SOC 2 conformità](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) è disponibile per tutti i servizi (nuovi ed esistenti), di ricerca in tutti i data center offerta ricerca di Azure. Per esaminare il report completo, passare a [- Azure e Azure per enti pubblici SOC 2 tipo II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports).
+| Livello di sicurezza | DESCRIZIONE |
+|----------------|-------------|
+| Crittografia in transito | Ricerca di Azure è in ascolto sulla porta HTTPS 443. In tutta la piattaforma le connessioni ai servizi di Azure vengono crittografate. |
+| Crittografia di dati inattivi | La crittografia è completamente incorporata nel processo di indicizzazione, senza impatti significativi sul tempo necessario per il completamento dell'indicizzazione o sulle dimensioni dell'indice. Viene applicata automaticamente a tutta l'indicizzazione, inclusi gli aggiornamenti incrementali di un indice non completamente crittografato (creato prima di gennaio 2018).<br><br>Internamente la crittografia si basa su [Crittografia del servizio di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), con la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit.|
+| [Conformità SOC 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Tutti i servizi di ricerca sono completamente conformi a SOC 2 di AICPA, in tutti i data center che forniscono Ricerca di Azure. Per vedere il report completo, andare a [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports) (Report SOC 2 di tipo II per Azure e Azure per enti pubblici). |
 
-La crittografia è trasparente, con le chiavi di crittografia gestita internamente e applicati universalmente. Non è possibile disattivarla per servizi di ricerca specifico o gli indici, né gestire direttamente le chiavi, né fornire la propria. 
+La crittografia è interna in Ricerca di Azure, con certificati e chiavi di crittografia gestiti internamente da Microsoft e applicati universalmente. Non è possibile attivare o disattivare la crittografia, gestire o sostituire le proprie chiavi oppure visualizzare le impostazioni di crittografia nel portale o a livello di codice. 
 
-## <a name="azure-wide-logical-security"></a>Sicurezza di Azure a livello logico
+La crittografia dei dati inattivi è stata annunciata il 24 gennaio 2018 e si applica a tutti i livelli di servizio, inclusi i servizi condivisi (gratuiti), in tutte le aree. Per la crittografia completa, gli indici creati prima di tale data devono essere eliminati e ricompilati per poter applicare la crittografia. In caso contrario, vengono crittografati solo i nuovi dati aggiunti dopo il 24 gennaio.
 
-Diversi meccanismi di sicurezza sono disponibili nello Stack di Azure e pertanto è automaticamente disponibile per le risorse di ricerca di Azure che crei.
+## <a name="azure-wide-logical-security"></a>Sicurezza logica a livello di Azure
 
-+ [Blocchi a livello di risorse per evitare l'eliminazione o di sottoscrizione](../azure-resource-manager/resource-group-lock-resources.md)
-+ [In base al ruolo accesso controllo (RBAC) per controllare l'accesso alle informazioni e le operazioni amministrative](../active-directory/role-based-access-control-what-is.md)
+In Azure Stack sono disponibili diversi meccanismi di sicurezza che sono automaticamente disponibili anche per le risorse di Ricerca di Azure create.
 
-Tutti i servizi di Azure supportano i controlli di accesso basato sui ruoli (RBAC) per l'impostazione di livelli di accesso in modo coerente in tutti i servizi. Ad esempio, la visualizzazione di dati sensibili, ad esempio la chiave di amministrazione, è limitata ai ruoli proprietario e collaboratore, mentre la visualizzazione stato del servizio è disponibile per i membri di qualsiasi ruolo. RBAC fornisce ruoli proprietario, collaboratore e lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario.
++ [Blocchi a livello di sottoscrizione o di risorsa per evitare l'eliminazione](../azure-resource-manager/resource-group-lock-resources.md)
++ [Controllo degli accessi in base al ruolo per controllare l'accesso alle informazioni e alle operazioni amministrative](../active-directory/role-based-access-control-what-is.md)
 
-## <a name="service-authentication"></a>Autenticazione del servizio
+Tutti i servizi di Azure supportano i controlli degli accessi in base al ruolo per impostare i livelli di accesso in modo coerente in tutti i servizi. Ad esempio, la visualizzazione di dati sensibili, come la chiave amministratore, è consentita solo ai ruoli Proprietario e Collaboratore, mentre la visualizzazione dello stato del servizio è disponibile per i membri di qualsiasi ruolo. Il controllo degli accessi in base al ruolo include i ruoli Proprietario, Collaboratore e Lettore. Per impostazione predefinita, tutti gli amministratori dei servizi sono membri del ruolo Proprietario.
 
-Ricerca di Azure fornisce la propria metodologia di autenticazione. L'autenticazione si verifica a ogni richiesta ed è basata su una chiave di accesso che determina l'ambito delle operazioni. Una chiave di accesso valido è considerata una prova la richiesta proviene da un'entità attendibile. 
+## <a name="service-access-and-authentication"></a>Accesso al servizio e autenticazione
 
-L'autenticazione al servizio esiste a due livelli: completo dei diritti, query di sola lettura. Il tipo di chiave determina il livello di accesso.
+Ricerca di Azure non solo eredita le misure di sicurezza della piattaforma Azure, ma fornisce anche la propria autenticazione basata su chiavi. Il tipo di chiave (amministratore o di query) determina il livello di accesso. L'invio di una chiave valida è considerato come prova che la richiesta ha origine da un'entità attendibile. 
+
+L'autenticazione è necessaria per ogni richiesta, dove ogni richiesta è costituita da una chiave obbligatoria, un'operazione e un oggetto. Se concatenati, i due livelli di autorizzazione (completa o di sola lettura) più il contesto sono sufficienti per fornire una sicurezza ad ampio spettro per le operazioni del servizio. 
 
 |Chiave|DESCRIZIONE|Limiti|  
 |---------|-----------------|------------|  
-|Admin|Concede diritti completi per tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare **indici**, **indicizzatori**, e **origini dati**.<br /><br /> Amministrazione due **chiavi api**, noto come *primario* e *secondario* keys nel portale, vengono generati quando il servizio viene creato e può essere rigenerato singolarmente su richiesta . Presenza di due chiavi consente il rollover di una chiave quando si utilizza la seconda chiave per l'accesso continuo al servizio.<br /><br /> Le chiavi amministratore vengono specificate solo nelle intestazioni di richiesta HTTP. Non è possibile posizionare un amministratore **chiave api** in un URL.|Numero massimo di 2 per ogni servizio|  
-|Query|Concede l'accesso in sola lettura a indici e documenti e in genere vengono distribuiti alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta. È possibile crearli manualmente nel portale o a livello di programmazione tramite le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Le chiavi di query possono essere specificate in un'intestazione di richiesta HTTP per operazione di ricerca, suggerimento o ricerca. In alternativa, è possibile passare una chiave di query come un parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come un parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per servizio|  
+|Admin|Concede diritti completi a tutte le operazioni, inclusa la possibilità di gestire il servizio, creare ed eliminare indici, indicizzatori e origini dati.<br /><br /> Due **api-key** amministratore, chiamate chiavi *primaria* e *secondaria* nel portale, vengono generate quando il servizio viene creato e possono essere generate di nuovo singolarmente su richiesta. Avere due chiavi consente di eseguire il rollover di una chiave mentre si usa la seconda per l'accesso continuo al servizio.<br /><br /> Le chiavi amministratore vengono specificate solo nelle intestazioni delle richieste HTTP. Non è possibile inserire un elemento api-key amministratore in un URL.|Un massimo di 2 per servizio|  
+|Query|Concede l'accesso in sola lettura agli indici e ai documenti e viene in genere distribuita alle applicazioni client che inviano richieste di ricerca.<br /><br /> Le chiavi di query vengono create su richiesta. È possibile crearle manualmente nel portale o a livello di codice tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Le chiavi di query possono essere specificate nell'intestazione di una richiesta HTTP per un'operazione di ricerca o suggerimento. In alternativa, è possibile passare una chiave di query come parametro in un URL. A seconda di come l'applicazione client formula la richiesta, può risultare più semplice passare la chiave come parametro di query:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01&api-key=A8DA81E03F809FE166ADDB183E9ED84D`|50 per servizio|  
 
- In modo visivo, non viene fatta distinzione tra chiave amministratore o una chiave di query. Entrambe le chiavi sono stringhe composte da 32 in modo casuale generato caratteri alfanumerici. Se si perde traccia di quale tipo di chiave specificato nell'applicazione, è possibile [controllare i valori di chiave nel portale di](https://portal.azure.com) o utilizzare il [API REST](https://docs.microsoft.com/rest/api/searchmanagement/) per restituire il valore e tipo di chiave.  
+ Non esiste alcuna distinzione visiva tra una chiave amministratore o una chiave di query. Entrambe le chiavi sono stringhe composte da 32 caratteri alfanumerici generati in modo casuale. Se si è persa traccia del tipo di chiave specificato nell'applicazione, è possibile [controllare i valori delle chiavi nel portale](https://portal.azure.com) o usare l'[API REST](https://docs.microsoft.com/rest/api/searchmanagement/) per restituire il valore e il tipo di chiave.  
 
 > [!NOTE]  
->  Viene considerato un livello di protezione insufficienti per passare dati sensibili, ad esempio un `api-key` nell'URI della richiesta. Per questo motivo, ricerca di Azure accetta solo una chiave di query come un `api-key` nella query stringa ed è consigliabile evitare questa operazione, a meno che il contenuto dell'indice deve essere disponibile pubblicamente. Come regola generale, è consigliabile passare il `api-key` come intestazione della richiesta.  
+>  Passare dati sensibili, ad esempio un elemento `api-key`, nell'URI della richiesta è considerato una procedura di sicurezza non ottimale. Per questo motivo, Ricerca di Azure accetta solo una chiave di query come `api-key` nella stringa di query ed è consigliabile evitare di eseguire questa operazione, a meno che i contenuti dell'indice non debbano essere disponibili pubblicamente. Come regola generale, è consigliabile passare l'elemento `api-key` come intestazione della richiesta.  
 
-### <a name="how-to-find-the-access-keys-for-your-service"></a>Come individuare le chiavi di accesso per il servizio
+### <a name="how-to-find-the-access-keys-for-your-service"></a>Come trovare le chiavi di accesso per il servizio
 
-È possibile ottenere le chiavi di accesso nel portale o tramite il [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/). Per ulteriori informazioni, vedere [la gestione delle chiavi](search-manage.md#manage-api-keys).
+È possibile ottenere le chiavi di accesso nel portale o tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/). Per altre informazioni, vedere [Gestire le chiavi](search-manage.md#manage-api-keys).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Elenco di [una ricerca in servizi](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio e nella pagina del servizio, cercare **impostazioni** >**chiavi** per visualizzare le chiavi di query e di amministrazione.
+2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
+3. Selezionare il servizio nella pagina dei servizi e trovare **Impostazioni** >**Chiavi** per visualizzare le chiavi amministratore e di query.
 
-![Sezione di pagina del portale, le impostazioni, chiavi](media/search-security-overview/settings-keys.png)
+![Pagina del portale, sezione Impostazioni, Chiavi](media/search-security-overview/settings-keys.png)
 
-## <a name="index-access"></a>Accesso di indice
+## <a name="index-access"></a>Accesso all'indice
 
-In ricerca di Azure, un singolo indice non è un oggetto a protezione diretta. Accesso a un indice viene invece determinata a livello di servizio (lettura o accesso in scrittura), insieme al contesto di un'operazione.
+In Ricerca di Azure un singolo indice non è un oggetto a protezione diretta. L'accesso a un indice è invece determinato a livello di servizio (accesso in lettura o scrittura), con il contesto di un'operazione.
 
-Nel caso di accesso degli utenti finali, è possibile strutturare le richieste di query dell'applicazione per connettersi utilizzando una chiave di query, che rende le richieste di sola lettura e include l'indice specifico usato dall'app. In una richiesta di query, non è presente alcun concetto di unione degli indici o l'accesso a più indici contemporaneamente in modo da un singolo indice di destinazione tutte le richieste per definizione. Di conseguenza, la struttura della richiesta di query stessa (una chiave e un indice con singola destinazione) definisce il limite di sicurezza.
+Nel caso dell'accesso utente finale, è possibile strutturare le richieste di query nell'applicazione per la connessione tramite una chiave di query, che imposta qualsiasi richiesta come di sola lettura, e includere l'indice specifico usato dall'app. In una richiesta di query non è previsto il join degli indici o l'accesso a più indici simultaneamente, quindi tutte le richiesta specificano come destinazione un solo indice per definizione. Di conseguenza, la struttura della richiesta della query (una chiave più un singolo indice di destinazione) definisce di per sé il limite di sicurezza.
 
-Accesso di amministratore e lo sviluppatore agli indici è indifferenziato: sia necessario l'accesso in scrittura per creare, eliminare e aggiornare gli oggetti gestiti dal servizio. Chiunque disponga di una chiave di amministratore per il servizio può leggere, modificare o eliminare qualsiasi indice nello stesso servizio. Per la protezione contro accidentale o intenzionali l'eliminazione di indici, il controllo del codice sorgente interne per le risorse di codice è la soluzione per l'inversione di un indice indesiderato eliminazione o alla modifica. Ricerca di Azure è il failover all'interno del cluster per assicurare la disponibilità, ma non archivia o eseguire il codice proprietario usato per creare o caricare gli indici.
+L'accesso amministratore e sviluppatore agli indici è indifferenziato: entrambi richiedono l'accesso in scrittura per creare, eliminare e aggiornare gli oggetti gestiti dal servizio. Chiunque abbia una chiave amministratore per il servizio può leggere, modificare o eliminare qualsiasi indice nello stesso servizio. Per proteggersi dall'eliminazione accidentale o intenzionale degli indici, il controllo del codice sorgente interno per gli asset del codice è la risoluzione che consente di invertire l'eliminazione o la modifica indesiderata di un indice. In Ricerca di Azure è disponibile il failover nel cluster per assicurare la disponibilità, ma il codice proprietario usato per creare o caricare gli indici non viene archiviato o eseguito.
 
-Per le soluzioni multi-tenancy che richiedono i limiti di sicurezza a livello di indice, tali soluzioni includono in genere un livello intermedio, i clienti che utilizzano per gestire l'isolamento di indice. Per ulteriori informazioni sul caso di utilizzo di multi-tenant, vedere [Progettazione modelli per applicazioni SaaS multi-tenant e ricerca di Azure](search-modeling-multitenant-saas-applications.md).
+Le soluzioni multi-tenancy che richiedono limiti di sicurezza a livello di indice includono in genere un livello intermedio, che i clienti usano per gestire l'isolamento degli indici. Per altre informazioni sul caso d'uso multi-tenant, vedere [Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure](search-modeling-multitenant-saas-applications.md).
 
-## <a name="admin-access-from-client-apps"></a>Accesso di amministratore da applicazioni client
+## <a name="admin-access-from-client-apps"></a>Accesso amministratore dalle app client
 
-L'API REST gestione di Ricerca di Azure è un'estensione di Gestione risorse di Azure e ne condivide le dipendenze. Di conseguenza, Active Directory è un prerequisito per l'amministrazione dei servizi di Ricerca di Azure. Tutte le richieste amministrative dal codice client devono essere autenticate tramite Azure Active Directory prima che la richiesta raggiunga Gestione risorse.
+L'API REST gestione di Ricerca di Azure è un'estensione di Gestione risorse di Azure e ne condivide le dipendenze. Di conseguenza, Active Directory è un prerequisito per l'amministrazione dei servizi di Ricerca di Azure. Tutte le richieste amministrative dal codice client devono essere autenticate tramite Azure Active Directory prima che la richiesta raggiunga Resource Manager.
 
-Le richieste di dati contro l'endpoint del servizio di ricerca di Azure, ad esempio Create Index (Azure API REST di ricerca) o eseguire ricerche nei documenti (Azure API REST di ricerca), utilizzare una chiave api nell'intestazione della richiesta.
+Le richieste di dati all'endpoint del servizio Ricerca di Azure, ad esempio la creazione di un indice (API REST del servizio Ricerca di Azure) o la ricerca nei documenti (API REST del servizio Ricerca di Azure), usano un elemento api-key nell'intestazione della richiesta.
 
-Se il codice dell'applicazione gestisce operazioni di amministrazione del servizio, nonché le operazioni di dati nei documenti o gli indici di ricerca, è possibile implementare due approcci di autenticazione nel codice: la chiave di accesso nativa di ricerca di Azure e l'autenticazione di Active Directory metodologia richiesto dal gestore delle risorse. 
+Se il codice dell'applicazione gestisce le operazioni di amministrazione del servizio, oltre alle operazioni sui dati negli indici di ricerca o nei documenti, implementare due approcci all'autenticazione nel codice: la chiave di accesso nativa di Ricerca di Azure e la metodologia di autenticazione di Active Directory richiesta da Resource Manager. 
 
-Per informazioni su come strutturare una richiesta di ricerca di Azure, vedere [REST del servizio ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/). Per ulteriori informazioni sui requisiti di autenticazione per la gestione delle risorse, vedere [usare Gestione risorse l'API di autenticazione per le sottoscrizioni di accesso](../azure-resource-manager/resource-manager-api-authentication.md).
+Per informazioni sulla struttura di una richiesta in Ricerca di Azure, vedere [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/) (REST del servizio Ricerca di Azure). Per altre informazioni sui requisiti di autenticazione per Resource Manager, vedere [Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni](../azure-resource-manager/resource-manager-api-authentication.md).
 
-## <a name="user-access-to-index-content"></a>Accesso al contenuto dell'indice
+## <a name="user-access-to-index-content"></a>Accesso utente al contenuto dell'indice
 
-Per ogni utente l'accesso al contenuto di un indice viene implementata tramite i filtri di sicurezza nella query, la restituzione di documenti è associata a un'identità di sicurezza specificato. Invece di ruoli predefiniti e le assegnazioni di ruolo, il controllo di accesso basate sulle identità viene implementato come un filtro che elimina i risultati dei documenti e contenuto in base alle identità di ricerca. Nella tabella seguente vengono descritti due approcci diversi per i risultati della ricerca la rimozione del contenuto non autorizzato.
+L'accesso per utente ai contenuti di un indice viene implementato tramite filtri di sicurezza sulle query, che restituiscono i documenti associati a una determinata identità di sicurezza. Invece di ruoli e assegnazioni di ruolo predefiniti, il controllo di accesso basato sull'identità viene implementato come un filtro che limita i risultati della ricerca di documenti e contenuto in base alle identità. La tabella seguente descrive due approcci per limitare i risultati della ricerca di contenuto non autorizzato.
 
 | Approccio | DESCRIZIONE |
 |----------|-------------|
-|[Per motivi di sicurezza in base ai filtri di identità](search-security-trimming-for-azure-search.md)  | Documenta il flusso di lavoro di base per l'implementazione del controllo di accesso di identità utente. Vengono illustrati gli identificatori di sicurezza aggiunta a un indice e quindi illustra filtro tale campo per tagliare i risultati del contenuto non consentito. |
-|[Per motivi di sicurezza in base alle identità di Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | In questo articolo si espande l'articolo precedente, fornendo i passaggi per il recupero di identità da Azure Active Directory (AAD), uno del [libero servizi](https://azure.microsoft.com/free/) nella piattaforma cloud di Azure. |
+|[Limitazione per motivi di sicurezza in base ai filtri delle identità](search-security-trimming-for-azure-search.md)  | Documenta il flusso di lavoro di base per implementare il controllo di accesso dell'identità utente. Illustra l'aggiunta di ID di sicurezza a un indice e quindi illustra l'applicazione di filtri a tale campo per limitare i risultati di contenuto non consentito. |
+|[Limitazione per motivi di sicurezza in base alle identità di Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Questo articolo è un approfondimento dell'articolo precedente e contiene la procedura per recuperare le identità da Azure Active Directory (AAD), uno dei [servizi gratuiti](https://azure.microsoft.com/free/) della piattaforma cloud Azure. |
 
-## <a name="table-permissioned-operations"></a>Tabella: Operazioni state impostate le autorizzazioni
+## <a name="table-permissioned-operations"></a>Tabella: operazioni con autorizzazione
 
-Nella tabella seguente sono riepilogate le operazioni consentite in ricerca di Azure e la chiave Sblocca l'accesso a una particolare operazione.
+La tabella seguente riepiloga le operazioni consentite in Ricerca di Azure e la chiave che sblocca l'accesso a una determinata operazione.
 
 | Operazione | Autorizzazioni |
 |-----------|-------------------------|
 | Creare un servizio | Titolare della sottoscrizione di Azure|
-| Scalabilità di un servizio | Chiave di amministrazione, RBAC proprietario o collaboratore della risorsa  |
-| Eliminare un servizio | Chiave di amministrazione, RBAC proprietario o collaboratore della risorsa |
-| Creare, modificare, eliminare gli oggetti del servizio: <br>Gli indici e le parti componenti (inclusi definizioni di Analizzatore, i profili di punteggio, le opzioni CORS), gli indicizzatori, origini dati, sinonimi, suggerimento. | Chiave di amministrazione, RBAC proprietario o collaboratore della risorsa  |
-| Un indice di query | Chiave di query o di amministrazione (RBAC non applicabile) |
-| Eseguire una query informazioni di sistema, ad esempio la restituzione delle statistiche, conteggi e gli elenchi di oggetti. | Chiave di amministrazione, RBAC sulla risorsa (proprietario, collaboratore, Reader) |
-| Gestire le chiavi amministratore | Chiave di amministrazione, RBAC proprietario o collaboratore della risorsa. |
-| Gestisci chiavi di query |  Chiave di amministrazione, RBAC proprietario o collaboratore della risorsa. Lettore RBAC è possibile visualizzare le chiavi di query. |
+| Ridimensionare un servizio | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione  |
+| Eliminare un servizio | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione |
+| Creare, modificare, eliminare oggetti nel servizio: <br>indici e parti componenti (inclusi definizioni degli analizzatori, profili di punteggio, opzioni CORS), indicizzatori, origini dati, sinonimi, strumenti suggerimenti. | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione  |
+| Eseguire una query su un indice | Chiave amministratore o di query (Controllo degli accessi in base al ruolo non applicabile) |
+| Eseguire una query sulle informazioni sul sistema, ad esempio per restituire statistiche, conteggi ed elenchi di oggetti. | Chiave amministratore, Controllo degli accessi in base al ruolo nella risorsa (Proprietario, Collaboratore, Lettore) |
+| Gestire le chiavi amministratore | Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione. |
+| Gestire le chiavi di query |  Chiave amministratore, proprietario di Controllo degli accessi in base al ruolo o Collaboratore nella sottoscrizione. Il lettore di Controllo degli accessi in base al ruolo può visualizzare le chiavi di query. |
 
 
 ## <a name="see-also"></a>Vedere anche 
 
-+ [Ottenere avviato .NET (viene illustrato l'utilizzo di una chiave amministratore per creare un indice)](search-create-index-dotnet.md)
-+ [Ottenere avviato REST (viene illustrato l'utilizzo di una chiave amministratore per creare un indice)](search-create-index-rest-api.md)
-+ [Controllo di accesso basate sulle identità utilizzando i filtri di ricerca di Azure](search-security-trimming-for-azure-search.md)
-+ [Controllo accesso basato su identità di Active Directory utilizzando i filtri di ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Introduzione a .NET (illustra l'uso di una chiave amministratore per creare un indice)](search-create-index-dotnet.md)
++ [Introduzione a REST (illustra l'uso di una chiave amministratore per creare un indice)](search-create-index-rest-api.md)
++ [Controllo degli accessi in base all'identità tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search.md)
++ [Controllo degli accessi in base all'identità di Active Directory tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtri in Ricerca di Azure](search-filters.md)

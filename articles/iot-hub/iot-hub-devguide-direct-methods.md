@@ -12,28 +12,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
-L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio risulta utile in scenari in cui l'azione immediata da intraprendere varia a seconda che il dispositivo sia riuscito o meno a rispondere. Un esempio è rappresentato dall'invio di un SMS di riattivazione a un dispositivo offline, in cui l'invio di un SMS ha un costo maggiore rispetto a una chiamata a un metodo.
-
+L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio è utile per gli scenari in cui la linea di condotta immediata è diversa a seconda che il dispositivo sia in grado di rispondere o meno, ad esempio nel caso dell'invio di un SMS di riattivazione a un dispositivo se questo è offline, dato che un SMS è più costoso rispetto alla chiamata a un metodo.
 Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][lnk-devguide-jobs] permettono di richiamare i metodi diretti in più dispositivi e di pianificare la chiamata al metodo per i dispositivi disconnessi.
 
 Chiunque abbia autorizzazioni di **connessione servizio** per l'hub IoT può richiamare un metodo in un dispositivo.
 
-I metodi diretti si basano su un modello di tipo richiesta- risposta e sono destinati a comunicazioni che necessitano di una conferma immediata del risultato, in genere per il controllo interattivo del dispositivo, ad esempio l'accensione di un ventilatore.
+I metodi diretti si basano su un modello di tipo richiesta-risposta e sono destinati a comunicazioni che necessitano di una conferma immediata del risultato, ad esempio il controllo interattivo del dispositivo, come l'accensione di un ventilatore.
 
 Vedere [Cloud-to-device communication guidance][lnk-c2d-guidance] (Indicazioni sulla comunicazione da cloud a dispositivo) in caso di dubbi tra l'uso delle proprietà specifiche, dei metodi diretti o dei messaggi da cloud a dispositivo.
 
 ## <a name="method-lifecycle"></a>Ciclo di vita dei metodi
-I metodi diretti vengono implementati nel dispositivo. Per creare correttamente un'istanza possono essere necessari zero o più input nel payload del metodo. Per richiamare un metodo diretto è possibile usare un URI per il servizio (`{iot hub}/twins/{device id}/methods/`). Un dispositivo riceve metodi diretti tramite un argomento MQTT specifico del dispositivo (`$iothub/methods/POST/{method name}/`) o tramite collegamenti AMQP (`IoThub-methodname` e `IoThub-status` le proprietà dell'applicazione). 
+I metodi diretti vengono implementati nel dispositivo. Per creare correttamente un'istanza possono essere necessari zero o più input nel payload del metodo. Per richiamare un metodo diretto è possibile usare un URI per il servizio (`{iot hub}/twins/{device id}/methods/`). Un dispositivo riceve metodi diretti tramite un argomento MQTT specifico del dispositivo (`$iothub/methods/POST/{method name}/`) o tramite collegamenti AMQP (proprietà `IoThub-methodname` e `IoThub-status` dell'applicazione). 
 
 > [!NOTE]
 > Quando si richiama un metodo diretto in un dispositivo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici stampabili US-ASCII, ad eccezione dei seguenti: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -44,7 +43,7 @@ I metodi diretti sono sincroni e possono solo avere esito positivo o negativo do
 
 I metodi diretti supportano solo HTTPS lato cloud e solo MQTT o AMQP lato dispositivo.
 
-Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 8 KB.
+Il payload per le richieste e le risposte del metodo è un documento JSON con dimensioni massime di 128 KB.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Richiamare un metodo diretto da un'app back-end
 ### <a name="method-invocation"></a>Chiamata al metodo
@@ -55,16 +54,16 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS che includono
 * *Intestazioni* contenenti l'autorizzazione, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON trasparente nel formato seguente:
 
-   ```
-   {
-       "methodName": "reboot",
-       "responseTimeoutInSeconds": 200,
-       "payload": {
-           "input1": "someInput",
-           "input2": "anotherInput"
-       }
-   }
-   ```
+    ```json
+    {
+        "methodName": "reboot",
+        "responseTimeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
+    }
+    ```
 
 Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
 
@@ -75,13 +74,14 @@ L'app back-end riceve una risposta che include:
 * *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON nel formato seguente:
 
-   ```   {
-       "status" : 201,
-       "payload" : {...}
-   }
-   ```
+    ```json
+    {
+        "status" : 201,
+        "payload" : {...}
+    }
+    ```
 
-   Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
+    Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Gestire un metodo diretto in un dispositivo
 ### <a name="mqtt"></a>MQTT
@@ -90,7 +90,7 @@ I dispositivi ricevono richieste di metodi diretti nell'argomento MQTT: `$iothub
 
 Il corpo ricevuto dal dispositivo è nel formato seguente:
 
-```
+```json
 {
     "input1": "someInput",
     "input2": "anotherInput"
@@ -109,26 +109,26 @@ Il corpo è impostato dal dispositivo e accetta qualsiasi stato.
 
 ### <a name="amqp"></a>AMQP
 #### <a name="method-invocation"></a>Chiamata al metodo
-Il dispositivo riceve le richieste dirette del metodo tramite la creazione di un collegamento di ricezione sull'indirizzo`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Il dispositivo riceve richieste di metodi diretti tramite la creazione di un collegamento di ricezione sull'indirizzo `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
-Il messaggio AMQP arriva sul collegamento che rappresenta la richiesta del metodo receive. Sono disponibili i seguenti:
-* La proprietà ID di correlazione, che contiene un ID di richiesta che deve essere passato nuovamente con la relativa risposta (metodo)
-* Una proprietà dell'applicazione denominata `IoThub-methodname`, che contiene il nome del metodo richiamato
-* Il corpo del messaggio AMQP contenente il metodo payload JSON
+Il messaggio AMQP arriva sul collegamento di ricezione che rappresenta la richiesta del metodo. Tale messaggio contiene quanto segue:
+* La proprietà ID di correlazione, contenente un ID richiesta che deve essere passato con la relativa risposta del metodo
+* Una proprietà dell'applicazione denominata `IoThub-methodname`, contenente il nome del metodo richiamato
+* Il corpo del messaggio AMQP, contenente il payload del metodo in formato JSON
 
 #### <a name="response"></a>Risposta
-Il dispositivo crea un collegamento per restituire la risposta al metodo sull'indirizzo mittente`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Il dispositivo crea un collegamento di invio per restituire la risposta del metodo all'indirizzo `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
-Risposta del metodo viene restituito il collegamento di invio ed è strutturata come segue:
-* La proprietà ID di correlazione, che contiene l'ID richiesta passato nel messaggio di richiesta del metodo
-* Una proprietà dell'applicazione denominata `IoThub-status`, che contiene l'utente fornito lo stato (metodo)
-* Il corpo del messaggio AMQP contenente la risposta del metodo nel formato JSON
+La risposta del metodo viene restituita sul collegamento di invio e contiene gli elementi seguenti:
+* La proprietà ID di correlazione, contenente l'ID richiesta passato nel messaggio di richiesta del metodo
+* Una proprietà dell'applicazione denominata `IoThub-status`, contenente lo stato del metodo fornito dall'utente
+* Il corpo del messaggio AMQP, contenente la risposta del metodo in formato JSON
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
-* [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* [Limitazione e quote][lnk-quotas] descrive le quote applicabili al comportamento di limitazione previsto quando si usa l'hub IoT.
 * [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
 * [Il linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing messaggi][lnk-query] descrive il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui processi e i dispositivi gemelli.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.

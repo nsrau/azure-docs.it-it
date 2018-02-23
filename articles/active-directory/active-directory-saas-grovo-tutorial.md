@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 01/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 9deb4c9bd6719e7cf86883fba1306c435de0ebb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e4bb050e96d3e8d9da4666f5418ac3e444f6212d
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Esercitazione: Integrazione di Azure Active Directory con Grovo
 
@@ -32,7 +32,7 @@ L'integrazione di Grovo con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Grovo, sono necessari gli elementi seguenti:
 
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Grovo in Azure AD, è necessario aggiungere Gr
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni aziendali][2]
+    ![Pannello Applicazioni aziendali][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
@@ -112,7 +112,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
-4.  Selezionare **Mostra URL impostazioni avanzate** e seguire questa procedura:  
+4. Selezionare **Mostra URL impostazioni avanzate** ed eseguire l'operazione seguente:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url1.png)
 
@@ -121,13 +121,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_url2.png)
-
+    
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, aggiornare i valori con l'identificatore, l'URL di risposta, l'URL di accesso e lo stato dell'inoltro effettivi. Per ottenere questi valori, contattare il [team di supporto di Grovo](https://www.grovo.com/contact-us).
  
-5. L'applicazione Grovo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
+5. L'applicazione Grovo prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. Eseguire il mapping dell'attributo **Identificatore utente** con **user.mail** e configurare altri attributi, come illustrato nello screenshot seguente.
     
     ![Configurare l'attributo Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_attribute.png)
     
@@ -135,20 +135,24 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     | Nome attributo | Valore attributo |
     | ------------------- | -------------------- |    
-    | Nome              | user.givenname |
-    | Cognome               | user.surname |
+    | Nome          | user.givenname |
+    | Cognome           | user.surname |
+    | Indirizzo di posta elettronica       | user.mail    |
+    | employeeID          | user.employeeid |
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configurare l'attributo Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
+    ![Configurare l'aggiunta del Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_04.png)
 
-    ![Configurare l'attributo Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
+    ![Configurare l'aggiunta attributo Single Sign-On](./media/active-directory-saas-grovo-tutorial/tutorial_attribute_05.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
     c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
+
+    d. Lasciare vuota la casella **Spazio dei nomi**.
     
-    d. Fare clic su **OK**.
+    e. Fare clic su **OK**.
 
 
 7. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
@@ -165,7 +169,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 10. In un'altra finestra del Web browser accedere a Grovo come amministratore.
 
-11. Andare ad **ADMIN** (AMMINISTRATORE) > **Integrations** (Integrazioni).
+11. Andare ad **Admin** (Amministratore) > **Integrations** (Integrazioni).
  
     ![Configurazione di Grovo](./media/active-directory-saas-grovo-tutorial/tutorial_grovo_admin.png) 
 

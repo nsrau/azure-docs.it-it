@@ -1,6 +1,6 @@
 ---
-title: Informazioni di riferimento sulle parti per Progettazione viste in Log Analytics di OMS | Documentazione Microsoft
-description: Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati nel repository di OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
+title: Informazioni di riferimento sulle parti per Progettazione viste in Azure Log Analytics | Microsoft Docs
+description: Progettazione viste di Log Analytics consente di creare visualizzazioni personalizzate nel portale di Azure che contengono visualizzazioni diverse rispetto ai dati nell'area di lavoro di Log Analytics. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 40a6101576708936404447576d704a49666143fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fdfb237fcea6a10d38f3be8524ea5fbcf1f3728
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="log-analytics-view-designer-visualization-part-reference"></a>Riferimento alla parte di visualizzazione relativa a Progettazione viste di Log Analytics
-Progettazione viste di Log Analytics consente di creare viste personalizzate nella console di OMS contenenti visualizzazioni diverse dei dati provenienti dal repository OMS. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
+Progettazione viste di Log Analytics consente di creare visualizzazioni personalizzate nel portale di Azure che contengono visualizzazioni diverse rispetto ai dati nell'area di lavoro di Log Analytics. In questo articolo vengono fornite informazioni di riferimento sulle impostazioni relative a ciascuna parte di visualizzazione disponibile per l'uso nelle viste personalizzate.
 
 Altri articoli disponibili su Progettazione viste sono:
 
@@ -33,7 +33,7 @@ Altri articoli disponibili su Progettazione viste sono:
 
 La tabella seguente descrive i diversi tipi di riquadri disponibili in Progettazione viste.  Nelle sezioni seguenti vengono descritti i dettagli di ogni tipo di riquadro e le relative proprietà.
 
-| Tipo di visualizzazione | Descrizione |
+| Tipo di visualizzazione | DESCRIZIONE |
 |:--- |:--- |
 | [Elenco di query](#list-of-queries-part) |Visualizza l'elenco delle query di ricerca log.  L'utente può fare clic su ogni query per visualizzarne i risultati. |
 | [Numero ed elenco](#number-amp-list-part) |L'intestazione presenta un numero singolo che mostra il conteggio dei record risultanti da una query di ricerca log.  L'elenco mostra i primi dieci risultati da una query con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
@@ -50,7 +50,7 @@ Visualizza l'elenco delle query di ricerca log.  L'utente può fare clic su ogni
 
 ![Visualizzazione dell'elenco delle query](media/log-analytics-view-designer/view-list-queries.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo |Il testo da visualizzare nella parte superiore della vista. |
@@ -66,7 +66,7 @@ L'intestazione presenta un numero singolo che mostra il conteggio dei record ris
 
 ![Visualizzazione dell'elenco delle query](media/log-analytics-view-designer/view-number-list.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Il testo da visualizzare nella parte superiore della vista. |
@@ -75,7 +75,7 @@ L'intestazione presenta un numero singolo che mostra il conteggio dei record ris
 | Usa icona |Selezionare questa opzione per visualizzare l'icona. |
 | **Titolo** | |
 | Legenda |Il testo da visualizzare nella parte superiore dell'intestazione. |
-| Query |La query da eseguire per l'intestazione.  Verrà visualizzata la quantità del numero di record restituiti dalla query. |
+| Query |La query da eseguire per l'intestazione.  Verrà visualizzato il conteggio del numero di record restituiti dalla query. |
 | **Elenco** | |
 | Query |La query da eseguire per l'elenco.  Verranno visualizzate le prime due proprietà per i primi dieci record nei risultati.  La prima proprietà deve essere un valore di testo, mentre la seconda proprietà un valore numerico.  Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando ordina nella query per ordinare i record nell'elenco.  L'utente può fare clic su Visualizza tutto per eseguire la query e restituire tutti i record. |
 | Nascondi grafico |Selezionare questa opzione per disabilitare il grafico a destra della colonna numerica. |
@@ -84,7 +84,7 @@ L'intestazione presenta un numero singolo che mostra il conteggio dei record ris
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
 | **Elenco** |**&gt; Titoli di colonna** |
-| Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
+| NOME |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
@@ -94,7 +94,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 
 ![Visualizzazione Due numeri ed elenco](media/log-analytics-view-designer/view-two-numbers-list.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Il testo da visualizzare nella parte superiore della vista. |
@@ -103,7 +103,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Usa icona |Selezionare questa opzione per visualizzare l'icona. |
 | **Titolo** | |
 | Legenda |Il testo da visualizzare nella parte superiore dell'intestazione. |
-| Query |La query da eseguire per l'intestazione.  Verrà visualizzata la quantità del numero di record restituiti dalla query. |
+| Query |La query da eseguire per l'intestazione.  Verrà visualizzato il conteggio del numero di record restituiti dalla query. |
 | **Elenco** | |
 | Query |La query da eseguire per l'elenco.  Verranno visualizzate le prime due proprietà per i primi dieci record nei risultati.  La prima proprietà deve essere un valore di testo, mentre la seconda proprietà un valore numerico.  Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando ordina nella query per ordinare i record nell'elenco.  L'utente può fare clic su Visualizza tutto per eseguire la query e restituire tutti i record. |
 | Nascondi grafico |Selezionare questa opzione per disabilitare il grafico a destra della colonna numerica. |
@@ -113,7 +113,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
 | **Elenco** |**&gt; Titoli di colonna** |
-| Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
+| NOME |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
@@ -123,7 +123,7 @@ Nell'intestazione viene visualizzato un singolo numero riepilogato da una colonn
 
 ![Visualizzazione dell'anello e dell'elenco](media/log-analytics-view-designer/view-donut-list.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
@@ -153,7 +153,7 @@ Nell'intestazione viene visualizzato un singolo numero riepilogato da una colonn
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
 | **Elenco** |**&gt; Titoli di colonna** |
-| Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
+| NOME |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
@@ -163,7 +163,7 @@ L'intestazione mostra i risultati di due query di log nel tempo come grafici a c
 
 ![Visualizzazione di due sequenze temporali e dell'elenco](media/log-analytics-view-designer/view-two-timelines-list.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
@@ -183,7 +183,7 @@ L'intestazione mostra i risultati di due query di log nel tempo come grafici a c
 | Operazione |Operazione da eseguire per il grafico sparkline.  Per i dettagli, vedere le [impostazioni comuni](#sparklines). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
 | **Elenco** |**&gt; Titoli di colonna** |
-| Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
+| NOME |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
@@ -193,7 +193,7 @@ L'intestazione mostra il testo statico e un collegamento opzionale.  L'elenco mo
 
 ![Visualizzazione delle informazioni](media/log-analytics-view-designer/view-information.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
@@ -214,7 +214,7 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 
 ![Visualizzazione del grafico a linee, del callout e dell'elenco](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
@@ -243,7 +243,7 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
 | **Elenco** |**&gt; Titoli di colonna** |
-| Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
+| NOME |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
@@ -253,7 +253,7 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 
 ![Visualizzazione del grafico a linee e dell'elenco](media/log-analytics-view-designer/view-line-chart-callout-list.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
@@ -261,7 +261,7 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 | Icona |File di immagine da visualizzare accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questa opzione per visualizzare l'icona. |
 | **Intestazione** | |
-| Titolo |Il testo da visualizzare nella parte superiore dell'intestazione. |
+| Title |Il testo da visualizzare nella parte superiore dell'intestazione. |
 | Sottotitolo |Il testo da visualizzare sotto al titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |La query da eseguire per il grafico a linee.  La prima proprietà deve essere un valore di testo, mentre la seconda proprietà un valore numerico.  In genere si tratta di una query che usa la parola chiave **measure** per riepilogare i risultati.  Se la query usa la parola chiave **interval**, l'asse X del grafico userà questo intervallo di tempo.  Se la query non include la parola chiave **interval**, vengono usati intervalli orari per l'asse X. |
@@ -278,7 +278,7 @@ Nell'intestazione viene visualizzato un grafico a linee con più serie provenien
 | Nome e separatore valori |Delimitatore dei singoli caratteri per analizzare la proprietà text in più valori.  Per i dettagli, vedere le [impostazioni comuni](#name-value-separator). |
 | Query di navigazione |Query da eseguire quando l'utente seleziona un elemento nell'elenco.  Per i dettagli, vedere le [impostazioni comuni](#navigation-query). |
 | **Elenco** |**&gt; Titoli di colonna** |
-| Nome |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
+| NOME |Testo da visualizzare nella parte superiore della prima colonna dell'elenco. |
 | Valore |Testo da visualizzare nella parte superiore della seconda colonna dell'elenco. |
 | **Elenco** |**&gt; Thresholds** (Soglie) |
 | Abilitare le soglie |Selezionare questa opzione per abilitare le soglie.  Per i dettagli, vedere le [impostazioni comuni](#thresholds). |
@@ -288,7 +288,7 @@ Vengono visualizzati grafici a linee con più serie provenienti da una query di 
 
 ![Stack dei grafici a linee](media/log-analytics-view-designer/view-stack-line-charts.png)
 
-| Impostazione | Descrizione |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
 | Titolo gruppo |Testo da visualizzare nella parte superiore del riquadro. |
@@ -322,7 +322,7 @@ Un grafico sparkline è un grafico a linee di piccole dimensioni che mostra le v
 
 La tabella seguente illustra le impostazioni di un grafico sparkline.
 
-| Impostazione | Description |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | Abilita grafici sparkline |Selezionare questa opzione per visualizzare i grafici sparkline anziché la barra orizzontale. |
 | Operazione |Se sono abilitati i grafici sparkline, questa è l'operazione da eseguire su ogni proprietà nell'elenco per calcolare i valori per il grafico sparkline.<br><br>- Ultimo campione: l'ultimo valore per la serie nell'intervallo di tempo.<br>- Max: il valore massimo per la serie nell'intervallo di tempo.<br>- Min: il valore minimo per la serie nell'intervallo di tempo.<br>- Somma: la somma dei valori per la serie nell'intervallo di tempo.<br>-Riepilogo: usa lo stesso comando di misurazione come query nell'intestazione. |
@@ -336,10 +336,10 @@ A ogni soglia è associato il valore **Default** (Predefinito).  Si tratta del c
 
 La tabella seguente illustra le impostazioni relative alle soglie.
 
-| Impostazione | Description |
+| Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | Abilitare le soglie |Selezionare questa opzione per visualizzare l'icona di un colore a sinistra di ogni valore per indicare il livello di integrità in relazione alle soglie specificate. |
-| Nome |Nome che identifica il valore di soglia. |
+| NOME |Nome che identifica il valore di soglia. |
 | Soglia |Valore per la soglia.  Il colore dello stato di ogni elemento dell'elenco è impostato sul colore del valore di soglia massimo superato dal valore dell'elemento.  Esiste una soglia predefinita che corrisponde al colore visualizzato se non viene superato nessun valore di soglia. |
 | Colore |Colore del valore di soglia. |
 

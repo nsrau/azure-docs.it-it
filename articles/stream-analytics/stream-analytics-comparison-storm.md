@@ -55,7 +55,7 @@ Questo articolo fornisce un confronto delle funzionalità che consente di scegli
             </td>
             <td width="204" valign="top">
                 <p>
-No. Analisi di flusso di Azure è un'offerta proprietaria Microsoft.
+di serie Analisi di flusso di Azure è un'offerta proprietaria Microsoft.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -87,12 +87,12 @@ Sì </p>
             </td>
             <td width="204" valign="top">
                 <p>
-Nessuno. Analisi di flusso di Azure è un servizio di Azure.
+No. Analisi di flusso di Azure è un servizio di Azure.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Nessuno. Apache Storm è un servizio di Azure.
+No. Apache Storm è un servizio di Azure.
                 </p>
             </td>
         </tr>
@@ -172,7 +172,7 @@ Sì. Analisi di flusso di Azure fornisce un linguaggio simile a SQL per la creaz
             </td>
             <td width="246" valign="top">
                 <p>
-No. Gli utenti devono scrivere il codice in Java o C# o usare le API Trident.
+di serie Gli utenti devono scrivere il codice in Java o C# o usare le API Trident.
                 </p>
             </td>
         </tr>

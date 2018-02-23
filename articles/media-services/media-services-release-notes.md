@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 4775374b7e91930daa686e48e2869b4891615c4c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -31,7 +31,7 @@ Nelle presenti note sulla versione per Servizi multimediali di Azure vengono rie
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemi noti attualmente
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di Servizi multimediali
 
-| Problema | Descrizione |
+| Problema | DESCRIZIONE |
 | --- | --- |
 | Nell'API REST non sono disponibili alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
 | La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti di streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà Name non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
@@ -348,8 +348,8 @@ Media Services SDK per .NET è ora disponibile nella versione 3.0.0.7.
 * Anteprima dello streaming live. Per altre informazioni, vedere come [usare lo streaming live di Servizi multimediali](http://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Servizio di distribuzione delle chiavi. Per altre informazioni, vedere [Use AES-128 dynamic encryption and the key delivery service](http://msdn.microsoft.com/library/azure/dn783457.aspx) (Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi).
 * Crittografia dinamica AES. Per altre informazioni, vedere [Use AES-128 dynamic encryption and the key delivery service](http://msdn.microsoft.com/library/azure/dn783457.aspx) (Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi).
-* Servizio di distribuzione delle licenze PlayReady. Per altre informazioni, vedere [Use PlayReady dynamic encryption and the license delivery service](http://msdn.microsoft.com/library/azure/dn783467.aspx) (Usare la crittografia dinamica PlayReady e il servizio di distribuzione delle licenze).
-* Crittografia dinamica PlayReady. Per altre informazioni, vedere [Use PlayReady dynamic encryption and the license delivery service](http://msdn.microsoft.com/library/azure/dn783467.aspx) (Usare la crittografia dinamica PlayReady e il servizio di distribuzione delle licenze).
+* Servizio di distribuzione delle licenze PlayReady. 
+* Crittografia dinamica PlayReady. 
 * Modello di licenza PlayReady di Servizi multimediali. Per altre informazioni, vedere [Panoramica del modello di licenza PlayReady di Servizi multimediali].
 * Streaming di asset con contenuto crittografato di archiviazione. Per altre informazioni, vedere [Streaming di contenuto crittografato di archiviazione](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 

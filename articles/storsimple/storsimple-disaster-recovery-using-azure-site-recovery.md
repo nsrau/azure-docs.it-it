@@ -33,7 +33,7 @@ Questo documento illustra in dettaglio come creare una soluzione di ripristino d
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Opzioni di distribuzione di Azure Site Recovery
 I clienti possono distribuire file server come server fisici o macchine virtuali (VM) in esecuzione in Hyper-V o VMware e quindi creare le condivisioni file da volumi ottenuti dall'archiviazione StorSimple. Azure Site Recovery può proteggere le distribuzioni fisiche e virtuali in un sito secondario o in Azure. Questo documento descrive in dettaglio una soluzione di ripristino di emergenza che usa Azure come sito di ripristino per una VM di file server ospitata in Hyper-V e con condivisioni file nell'archiviazione di StorSimple. Altri scenari in cui la VM del file server si trova in una VM VMware o in un computer fisico possono essere implementati in modo analogo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 I prerequisiti di implementazione di una soluzione di ripristino di emergenza in un solo clic che usa Azure Site Recovery per le condivisioni file ospitate nell'archiviazione StorSimple sono i seguenti:
 
 * VM del file server Windows Server 2012 R2 locale ospitata in Hyper-V, VMware o in un computer fisico
@@ -359,5 +359,5 @@ La pianificazione della capacità prevede almeno due processi importanti:
   > Rieseguire il piano di ripristino al termine del failover dell'appliance.
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Usando Azure Site Recovery è possibile creare un piano di ripristino di emergenza automatizzato completo per una VM del server file con condivisioni file ospitate nell'archiviazione StorSimple. È possibile avviare il failover in pochi secondi da qualsiasi luogo in caso di un'interruzione e fare in modo che l'applicazione sia operativa in pochi minuti.

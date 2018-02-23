@@ -27,6 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Procedure
   items:
+    - name: Gestione degli aggiornamenti
+      items:
+        - name: Panoramica
+          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Gestire gli aggiornamenti per più macchine virtuali
+          href: manage-update-multi.md
+        - name: Integrare SCCM con Gestione aggiornamenti OMS
+          href: oms-solution-updatemgmt-sccmintegration.md
+    - name: Rilevamento modifiche
+      items:
+        - name: Panoramica
+          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Tenere traccia delle modifiche nelle macchine virtuali
+          href: automation-vm-change-tracking.md
+    - name: Inventario
+      items:
+        - name: Gestire una macchina virtuale con la raccolta dell'inventario
+          href: automation-vm-inventory.md
     - name: Autenticazione e sicurezza
       items:
         - name: Creare un account di Automazione autonomo
@@ -49,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Creare e importare runbook
           href: automation-creating-importing-runbook.md
+        - name: Creare un runbook grafico
+          href: automation-first-runbook-graphical.md
+        - name: Creare un runbook di PowerShell
+          href: automation-first-runbook-textual-powershell.md
+        - name: Creare un runbook del flusso di lavoro di PowerShell
+          href: automation-first-runbook-textual.md
+        - name: Creare un runbook di Python
+          href: automation-first-runbook-textual-python2.md
         - name: Modificare runbook di testo
           href: automation-edit-textual-runbook.md
         - name: Modificare runbook grafici
@@ -63,7 +89,7 @@
           href: automation-runbook-output-and-messages.md
         - name: Integrazione del controllo del codice sorgente
           href: automation-source-control-integration.md
-    - name: Automazione
+    - name: Automatizzare
       items:
         - name: Avviare un runbook
           href: automation-starting-a-runbook.md
@@ -99,7 +125,7 @@
       items:
         - name: Panoramica di DSC (Desired State Configuration)
           href: automation-dsc-overview.md
-        - name: introduttiva
+        - name: Introduzione
           href: automation-dsc-getting-started.md
         - name: Configurare i server allo stato desiderato e gestire la deviazione con Automazione di Azure
           href: tutorial-configure-servers-desired-state.md
@@ -115,7 +141,7 @@
       items:
         - name: Certificati
           href: automation-certificates.md
-        - name: Connessioni
+        - name: connessioni
           href: automation-connections.md
         - name: Credenziali
           href: automation-credentials.md
@@ -131,12 +157,14 @@
       items:
         - name: raccolta di runbook
           href: automation-runbook-gallery.md
+        - name: Avviare un runbook da avvisi di Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Creare una VM Amazon Web Services
           href: automation-scenario-aws-deployment.md
         - name: Correggere gli avvisi delle VM di Azure
           href: automation-azure-vm-alert-integration.md
-        - name: Avviare/arrestare una VM con tag JSON
-          href: automation-scenario-start-stop-vm-wjson-tags.md
+        - name: Avviare/arrestare le VM durante gli orari di minore attività
+          href: automation-solution-vm-management.md
         - name: Rimuovere un gruppo di risorse
           href: automation-scenario-remove-resourcegroup.md
         - name: Integrazione del controllo del codice sorgente con GitHub Enterprise
@@ -147,22 +175,6 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Distribuire un modello di Azure Resource Manager in un runbook PowerShell di Automazione di Azure
           href: automation-deploy-template-runbook.md
-    - name: Soluzioni
-      items:
-        - name: Gestione degli aggiornamenti
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Gestire gli aggiornamenti per più macchine virtuali
-          href: manage-update-multi.md
-        - name: Integrare SCCM con Gestione aggiornamenti OMS
-          href: oms-solution-updatemgmt-sccmintegration.md
-        - name: Rilevamento modifiche
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Tenere traccia delle modifiche nelle macchine virtuali
-          href: automation-vm-change-tracking.md
-        - name: Gestire una macchina virtuale con la raccolta dell'inventario
-          href: automation-vm-inventory.md
-        - name: Avviare/arrestare le VM durante gli orari di minore attività
-          href: automation-solution-vm-management.md
     - name: Monitorare
       items:
         - name: Inoltrare dati dei processi di Automazione di Azure a Log Analytics
@@ -175,13 +187,13 @@
           href: automation-orchestrator-migration.md
         - name: Spostare l'account di Automazione
           href: automation-migrate-account-subscription.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Risoluzione dei problemi comuni
           href: automation-troubleshooting-automation-errors.md
         - name: Risolvere i problemi di un ruolo di lavoro ibrido per runbook
           href: automation-troubleshooting-hybrid-runbook-worker.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

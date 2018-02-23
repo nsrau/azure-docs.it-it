@@ -53,22 +53,22 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 Vedere i dettagli di Classe e Parametro:
 
 ### <a name="class"></a>Classe
-| Nome | Descrizione |
+| NOME | DESCRIZIONE |
 |--------------------|--------------------|
 | ModelDataCollector | Una classe nello spazio dei nomi azureml.datacollector. Un'istanza di questa classe verrà usata per raccogliere i dati del modello. Un singolo file di assegnazione dei punteggi può contenere più ModelDataCollectors. Ogni istanza deve essere usata per raccogliere i dati in un'unica posizione discreta nel file di assegnazione dei punteggi in modo che lo schema dei dati raccolti rimanga coerente (vale a dire, input e stima)|
 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 |-------------|------------|-------------------------|
-| model_name | string | Il nome del modello per cui sono stati raccolti i dati |
-| identificatore | string | La posizione nel codice che identifica questi dati, ad esempio 'RawInput' o 'Prediction' |
+| model_name | stringa | Il nome del modello per cui sono stati raccolti i dati |
+| identificatore | stringa | La posizione nel codice che identifica questi dati, ad esempio 'RawInput' o 'Prediction' |
 | feature_names | elenco di stringhe | Un elenco di nomi di funzionalità che diventano l'intestazione CSV quando specificati |
-| model_management_account_id | string | L'identificatore per l'account di gestione del modello in cui è archiviato questo modello. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
-| webservice_name | string | Il nome del servizio Web in cui questo modello è distribuito attualmente. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
-| model_id | string | L'identificatore univoco per questo modello nel contesto di un account di gestione modelli. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
-| model_version | string | Il numero di versione di questo modello nel contesto di un account di gestione modelli. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
+| model_management_account_id | stringa | L'identificatore per l'account di gestione del modello in cui è archiviato questo modello. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
+| webservice_name | stringa | Il nome del servizio Web in cui questo modello è distribuito attualmente. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
+| model_id | stringa | L'identificatore univoco per questo modello nel contesto di un account di gestione modelli. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
+| model_version | stringa | Il numero di versione di questo modello nel contesto di un account di gestione modelli. Viene popolato automaticamente quando i modelli sono operativi tramite AML |
 
 
 
@@ -83,15 +83,15 @@ Vedere i dettagli di Classe e Parametro:
 Vedere i dettagli di Metodo e Parametro:
 
 ### <a name="method"></a>Metodo
-| Nome | Descrizione |
+| NOME | DESCRIZIONE |
 |--------------------|--------------------|
 | collect | Usato per raccogliere i dati per un input o una stima del modello|
 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 |-------------|------------|-------------------------|
 | input_data | più tipi | I dati da raccogliere (attualmente accetta l'elenco di tipi, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame). Per i tipi di frame di dati, se esiste un'intestazione con i nomi delle funzionalità, queste informazioni vengono incluse nella destinazione dei dati (senza la necessità di passare in modo esplicito i nomi delle funzionalità nel costruttore ModelDataCollector) |
-| user_correlation_id | string | Un ID di correlazione facoltativo che può essere fornito dall'utente per correlare questa stima |
+| user_correlation_id | stringa | Un ID di correlazione facoltativo che può essere fornito dall'utente per correlare questa stima |
 

@@ -43,7 +43,7 @@ Un set di dati di riferimento è una raccolta di elementi che vengono integrati 
 
    Se ad esempio si specifica **DeviceId** come nome della chiave e **String** come tipo, il motore in ingresso di Time Series Insights cerca e associa una proprietà denominata **DeviceId** di tipo **String** nell'evento in ingresso. È possibile specificare più di una chiave per creare il join con l'evento. La corrispondenza del nome della chiave distingue tra maiuscole e minuscole.
 
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire i dati di riferimento](time-series-insights-manage-reference-data-csharp.md) a livello di codice.

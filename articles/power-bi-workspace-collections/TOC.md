@@ -5,13 +5,13 @@
 # Attività iniziali
 ## [Introduzione alle raccolte di aree di lavoro di Power BI](get-started.md)
 ## [Esempio introduttivo](get-started-sample.md)
-## [Domande frequenti](faq.md)
+## [DOMANDE FREQUENTI](faq.md)
 
 # Procedure
 ## Pianificare e progettare
 ### [Scenari comuni](scenarios.md)
 
-## Gestire
+## Gestisci
 ### [Connettersi a un'origine dati](connect-datasource.md)
 ### [Incorporare un report di Power BI](embed-report.md)
 ### [Interagire con i report](interact-with-reports.md)

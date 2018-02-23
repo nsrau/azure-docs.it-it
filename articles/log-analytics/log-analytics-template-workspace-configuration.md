@@ -43,7 +43,7 @@ L'esempio riportato in questo articolo descrive un'[area di lavoro di Log Analyt
 | Risorsa | Tipo di risorsa | Versione API legacy | Versione API aggiornata |
 |:---|:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2015-11-01-preview | 2017-03-15-preview |
-| Cerca      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Ricerca      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | Origine dati | datasources   | 2015-11-01-preview | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 

@@ -43,7 +43,7 @@ La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine L
 
    ![Selezione del livello di registrazione](./media/web-services-logging/enable-logging.png)
 
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 7. Per i servizi Web classici, creare il contenitore **ml-diagnostics**.
 

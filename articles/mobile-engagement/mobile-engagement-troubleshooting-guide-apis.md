@@ -34,7 +34,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
   * Un altro problema comune relativo all'integrazione dell'SDK e all'utilizzo dell'API si verifica quando vengono confuse le chiavi SDK e API.
   * Gli script che si connettono alle API devono inviare dati almeno ogni 10 minuti, altrimenti si verifica il timeout della connessione. Questo errore è comune soprattutto negli script dell'API Monitor che sono in ascolto dei dati. Per impedire i timeout, fare in modo che lo script invii un ping XMPP ogni 10 minuti per mantenere attiva la sessione con il server.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'API][Link 4]
 * [Informazioni sul protocollo XMPP](http://xmpp.org/extensions/xep-0199.html)
 
@@ -45,7 +45,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 ### <a name="causes"></a>Cause
 * Quando si conferma che è possibile eseguire la stessa azione dall'interfaccia utente di Azure Mobile Engagement, vuol dire che la funzionalità di Azure Mobile Engagement è stata integrata correttamente nell'SDK.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'interfaccia utente][Link 1]
 
 ## <a name="error-messages"></a>Messaggi di errore
@@ -75,7 +75,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Documentazione dell'API - Errori dettagliati su ogni API specifica][Link 4]
 
 ## <a name="silent-failures"></a>Errori invisibili all'utente
@@ -86,7 +86,7 @@ Di seguito sono indicati possibili problemi relativi al modo in cui gli amminist
 * Molti elementi verranno visualizzati nell'interfaccia utente di Azure Mobile Engagement se sono integrati nel modo corretto, ma verranno nascosti automaticamente dall'API. Pertanto, è opportuno provare la stessa funzionalità dall'interfaccia utente per verificarne il funzionamento.
 * Prima di usare Azure Mobile Engagement e alcune delle funzionalità del servizio, è necessario integrare questi elementi in modo individuale nell'app con l'SDK, eseguendo una procedura separata.
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedere anche 
 * [Guida alla risoluzione dei problemi - SDK][Link 25]
 
 <!--Link references-->

@@ -61,7 +61,7 @@ Se questo è il primo piano di licenze di Azure AD acquistato, verrà generato e
 
 1. Per avviare l'attivazione, fare clic su **Accedi** o su **Iscriviti**.
    
-    ![pagina di accesso][1]
+    ![Accesso][1]
 
     - Se è già disponibile un tenant, fare clic su **Accedi** per accedere con l'account amministratore esistente. Eseguire l'accesso con credenziali di amministratore globale per il tenant in cui devono essere attivate le licenze.
 

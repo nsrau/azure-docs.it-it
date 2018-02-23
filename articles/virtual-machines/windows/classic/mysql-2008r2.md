@@ -109,7 +109,7 @@ Per aggiungere una regola di Windows Firewall che consenta il traffico di MySQL 
 Per testare la connessione remota alla macchina virtuale di Azure in esecuzione nel servizio MySQL Server, è necessario fornire il nome DNS del servizio cloud contenente la rete virtuale.
 
 1. Nel portale di Azure fare clic su **Macchine virtuali (classico)**, quindi sul nome della macchina virtuale di MySQL Server e infine su **Panoramica**.
-2. Dal dashboard della macchina virtuale prendere nota del valore in **Nome DNS**. Di seguito è fornito un esempio:
+2. Dal dashboard della macchina virtuale prendere nota del valore in **Nome DNS**. Di seguito è fornito un esempio: 
 
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. Da un computer locale che esegue MySQL o il client MySQL, eseguire questo comando per accedere come utente MySQL:

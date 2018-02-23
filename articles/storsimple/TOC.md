@@ -2,7 +2,6 @@
 
 ## Panoramica
 ### [In cosa consiste la soluzione?](storsimple-ova-overview.md)
-### [Disponibilità in base all'area geografica](storsimple-regions.md)
 
 ## Attività iniziali
 ### Pianificazione
@@ -13,6 +12,7 @@
 ### Distribuire
 #### [Preparare la distribuzione](storsimple-virtual-array-deploy1-portal-prep.md)
 ##### [Distribuire il servizio StorSimple Manager](storsimple-virtual-array-manage-service.md)
+##### [Nuova autenticazione](storsimple-virtual-array-aad-registration-key.md)
 #### [Effettuare il provisioning in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Effettuare il provisioning in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Eseguire la configurazione come file server](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -79,6 +79,7 @@
 
 ### Distribuire
 #### [Servizio Gestione dispositivi StorSimple](storsimple-8000-manage-service.md)
+#### [Nuova autenticazione per il servizio](storsimple-8000-aad-registration-key.md)
 #### [Dispositivo fisico in Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Dispositivo fisico nel portale per enti pubblici](storsimple-8000-deployment-walkthrough-gov-u2.md)
 #### [Appliance cloud in Azure](storsimple-8000-cloud-appliance-u2.md)
@@ -197,7 +198,7 @@
 #### [Aggiornamento 0.1](storsimple-october-2014-release-notes.md)
 #### [Versione - Disponibilità generale](storsimple-july-2014-release-notes.md)
 
-## riferimento
+## Riferimenti
 ### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell per i cmdlet StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
@@ -235,6 +236,7 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog di marketing](http://blogs.technet.com/b/cis/)
 ## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
+## [Opzioni di supporto per StorSimple](storsimple-8000-support-options.md)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

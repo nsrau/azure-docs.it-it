@@ -57,7 +57,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 | SO\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì|No|Sì|Sì\*|N/D
+|Windows 10|Sì|No |Sì|Sì\*|N/D
 |Windows 8.1|Sì|N/D|Sì|Sì\*|N/D
 |Windows 8|Sì|N/D|Sì|Sì\*|N/D
 |Windows 7|Sì|N/D|Sì|Sì\*|N/D

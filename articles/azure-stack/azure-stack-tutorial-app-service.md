@@ -81,7 +81,7 @@ Ora che è stato distribuito il provider di risorse del servizio App e creare un
 5. Fare clic su **Database** e immettere le informazioni per il database SQL creato in precedenza.
 6. Fare clic su **Crea**.
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Distribuire il provider di risorse del servizio App

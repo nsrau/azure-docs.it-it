@@ -30,7 +30,7 @@ Questo argomento illustra come accedere ai log delle applicazioni di YARN (Yet A
 >
 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un cluster HDInsight basato su Windows.  Vedere [Creare cluster Hadoop basati su Windows in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Server di sequenza temporale YARN

@@ -30,7 +30,7 @@ Visitare **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** og
 
 Le soluzioni di prevenzione di Threat Modeling Tool sono suddivise in base al contesto di sicurezza dell'applicazione Web, costituito dai seguenti elementi:
 
-| Categoria | Descrizione |
+| Categoria | DESCRIZIONE |
 | -------- | ----------- |
 | **[Controllo e registrazione](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Chi ha fatto cosa e quando? Controllo e registrazione fanno riferimento al modo in cui l'applicazione registra gli eventi di sicurezza |
 | **[Autenticazione](./azure-security-threat-modeling-tool-authentication.md)** | Chi si sta autenticando? L'autenticazione è il processo che permette a un'entità di dimostrare l'identità di un'altra entità, in genere mediante l'uso di credenziali, come un nome utente e una password |

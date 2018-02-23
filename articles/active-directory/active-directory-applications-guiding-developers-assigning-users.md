@@ -17,7 +17,7 @@ ms.author: kgremban
 robots: noindex
 ms.openlocfilehash: 1f25f5e750b705fda387fbaeed7d4e67710e0a18
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,6 +35,6 @@ Prima di assegnare utenti e gruppi a un'applicazione, è necessario richiedere l
 8. Fare clic su **ASSEGNARE**.
 9. Fare clic su **sì** quando richiesto.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 

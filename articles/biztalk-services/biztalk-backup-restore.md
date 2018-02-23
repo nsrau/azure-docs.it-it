@@ -47,7 +47,7 @@ I Servizi BizTalk di Azure includono funzioni di backup e ripristino.
 ## <a name="create-a-backup"></a>Creare un backup
 È possibile creare in qualsiasi momento un backup controllato interamente dall'utente. Per creare un backup, usare l'[API REST per la gestione dei servizi BizTalk in Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Restore
 Per ripristinare un backup, usare l'[API REST per la gestione dei servizi BizTalk in Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Dopo aver ripristinato un backup

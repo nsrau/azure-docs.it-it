@@ -22,7 +22,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Informazioni su come gestire i servizi Web di AzureML con Gestione API
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di AzureML.
 
 ## <a name="what-is-azure-api-management"></a>Cos'è Gestione API di Azure?
@@ -31,7 +31,7 @@ Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoi
 ## <a name="what-is-azureml"></a>Informazioni su AzureML
 AzureML è un servizio di Azure basato su Machine Learning che consente di compilare, distribuire e condividere facilmente soluzioni di analisi avanzate. Per informazioni dettagliate su AzureML, fare clic [qui](https://azure.microsoft.com/services/machine-learning/) .
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida, è necessario:
 
 * Un account Azure. Se non si dispone di un account Azure, fare clic [qui](https://azure.microsoft.com/pricing/free-trial/) per informazioni dettagliate su come creare un account di prova gratuito.
@@ -73,7 +73,7 @@ Per creare l'API:
 4. Immettere un valore per **Suffisso dell'URL dell'API Web". Il valore immesso diventerà l'ultima parte dell'URL che i clienti useranno per l'invio di richieste all'istanza del servizio (in questo esempio viene usato "azureml-demo").
 5. Per **Schema URL API Web** selezionare **HTTPS**.
 6. Per **Prodotti** selezionare **Starter** (Avviatore).
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 
 ## <a name="add-the-operations"></a>Aggiungere le operazioni
@@ -110,7 +110,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Modello di URL** digitare "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Submit").
 5. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 ### <a name="start-a-batch-execution-job"></a>Avviare un processo di esecuzione in batch
 
@@ -119,7 +119,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Verbo HTTP** digitare "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Start").
 6. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Ottenere lo stato o il risultato di un processo di esecuzione del Batch
 
@@ -128,7 +128,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Modello di URL** digitare "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Status").
 6. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 ### <a name="delete-a-batch-execution-job"></a>Eliminare un processo di esecuzione in batch
 
@@ -137,7 +137,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 3. Per **Modello di URL** digitare "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
 4. Immettere un valore nel campo **Nome visualizzato** (in questo esempio viene usato "BES Delete").
 5. Fare clic su **Risposte** > **AGGIUNGI** a sinistra e selezionare **200 OK**.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Chiamare un'operazione dal portale per sviluppatori
 
@@ -173,7 +173,7 @@ Una volta richiamata un'operazione, nel portale per sviluppatori vengono visuali
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Appendice A - Creazione e test di un semplice servizio Web di AzureML
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
-Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. ad esempio:
+Di seguito sono riportati i passaggi per creare un semplice esperimento di AzureML e distribuirlo come servizio Web. Il servizio Web accetta come input una colonna di testo arbitrario e restituisce un set di funzionalità rappresentate come valori Integer. Ad esempio: 
 
 | Text | Testo con hash |
 | --- | --- |

@@ -154,7 +154,7 @@ Fare clic su "Generate Pre-Shared-Keys" (Genera chiavi precondivise) che apre il
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-Fare clic su **OK**
+Fare clic su **OK**.
 
 L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise in Csync2. Il file della chiave viene generato con csync2 -k /etc/csync2/key_hagroup. Il file key_hagroup, dopo essere stato creato, deve essere copiato manualmente in tutti i membri del cluster. **Assicurarsi di copiare il file da node1 a node2**.
 
@@ -341,7 +341,7 @@ Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failove
 ![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
 
 
-## <a name="9-troubleshooting"></a>9. Risoluzione dei problemi
+## <a name="9-troubleshooting"></a>9. risoluzione dei problemi
 Questa sezione descrive alcuni scenari di errore che possono verificarsi durante la configurazione. anche se non necessariamente.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Nodo del cluster non online
@@ -371,7 +371,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
 In questo documento è stata usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
-**Errore**
+**Error (Errore) (Error (Errore)e)**
 
 ![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 

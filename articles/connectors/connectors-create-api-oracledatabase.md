@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: cc64441617eb5e7d5e70c1cf5c491a672428bc51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -30,7 +30,7 @@ Usando il connettore Oracle Database, è possibile creare flussi di lavoro dell'
 
 Questo argomento illustra come usare il connettore Oracle Database in un'app per la logica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Versioni di Oracle supportate: 
     * Oracle 9 e versioni successive
@@ -134,4 +134,4 @@ Il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forum
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) e scoprire i connettori disponibili in App per la logica nell'[elenco di API](apis-list.md).
+[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e scoprire i connettori disponibili in App per la logica nell'[elenco di API](apis-list.md).

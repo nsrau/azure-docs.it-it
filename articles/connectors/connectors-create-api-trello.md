@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 526a14710f24ee4a4b61a11873aa6caa0b47dc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Introduzione al connettore Trello
 Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede.
 
-Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-trello"></a>Creare una connessione a Trello
 Per creare app per la logica con Trello, creare prima di tutto una **connessione** e immettere i dettagli per le proprietà seguenti:
 
-| Proprietà | Obbligatorio | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| Token |Sì |Fornire le credenziali di Trello |
+| token |Sì |Fornire le credenziali di Trello |
 
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger.
 

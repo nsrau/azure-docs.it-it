@@ -38,7 +38,7 @@ Quando si crea un servizio cloud in Visual Studio, vengono automaticamente creat
 ## <a name="configure-an-azure-cloud-service"></a>Configurare un servizio cloud di Azure
 È possibile configurare un servizio cloud di Azure da Esplora soluzioni in Visual Studio, come illustrato nella procedura seguente:
 
-1. Creare o aprire un progetto di servizio cloud di Azure in Visual Studio.
+1. Creare o aprire un progetto del servizio cloud di Azure in Visual Studio.
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Proprietà** dal menu di scelta rapida.
    
@@ -90,7 +90,7 @@ Per migliorare le prestazioni del servizio cloud, è possibile cambiare il numer
 
 Se si usa un valore diverso per ogni configurazione del servizio, non sarà necessario usare stringhe di connessione diverse nel servizio cloud o modificare il codice quando si pubblica il servizio cloud in Azure. È possibile usare lo stesso nome per la stringa di connessione nel codice e il valore sarà diverso in base alla configurazione del servizio selezionata quando si compila il servizio cloud o quando lo si pubblica.
 
-1. Creare o aprire un progetto di servizio cloud di Azure in Visual Studio.
+1. Creare o aprire un progetto del servizio cloud di Azure in Visual Studio.
 
 1. In **Esplora soluzioni** espandere il nodo del progetto. Nel nodo **Ruoli**, fare clic con il pulsante destro del mouse sul ruolo da aggiornare e selezionare **Proprietà** dal menu di scelta rapida.
 
@@ -152,7 +152,7 @@ Le impostazioni personalizzate nel file di configurazione del servizio consenton
 
 Se si usa un valore diverso per ogni configurazione del servizio, non sarà necessario usare stringhe diverse nel servizio cloud o modificare il codice quando si pubblica il servizio cloud in Azure. È possibile usare lo stesso nome per la stringa nel codice e il valore sarà diverso in base alla configurazione del servizio selezionata quando si compila il servizio cloud o quando lo si pubblica.
 
-1. Creare o aprire un progetto di servizio cloud di Azure in Visual Studio.
+1. Creare o aprire un progetto del servizio cloud di Azure in Visual Studio.
 
 1. In **Esplora soluzioni** espandere il nodo del progetto. Nel nodo **Ruoli**, fare clic con il pulsante destro del mouse sul ruolo da aggiornare e selezionare **Proprietà** dal menu di scelta rapida.
 
@@ -203,7 +203,7 @@ La procedura seguente illustra come accedere a un'impostazione personalizzata a 
 ## <a name="manage-local-storage-for-each-role-instance"></a>Gestire le risorse di archiviazione locali per ogni istanza del ruolo
 È possibile aggiungere una risorsa di archiviazione del file system locale per ogni istanza del ruolo. I dati archiviati nella risorsa di archiviazione non sono accessibili da altre istanze del ruolo per il quale sono archiviati, né da altri ruoli.  
 
-1. Creare o aprire un progetto di servizio cloud di Azure in Visual Studio.
+1. Creare o aprire un progetto del servizio cloud di Azure in Visual Studio.
 
 1. In **Esplora soluzioni** espandere il nodo del progetto. Nel nodo **Ruoli**, fare clic con il pulsante destro del mouse sul ruolo da aggiornare e selezionare **Proprietà** dal menu di scelta rapida.
 

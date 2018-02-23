@@ -143,49 +143,49 @@ Le frecce della seguente tabella visualizzano la direzione del flusso performati
 
 #### <a name="create-message-receiver"></a>Creare il ricevitore dei messaggi
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source={nome entità},<br/>target={ID collegamento client}<br/>) |Il client si collega a un'entità come ricevitore |
 | Il bus di servizio risponde collegando la propria estremità del collegamento |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={nome entità},<br/>target={ID collegamento client}<br/>) |
 
 #### <a name="create-message-sender"></a>Creare il mittente dei messaggi
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |Nessuna azione |
 | Nessuna azione |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |
 
 #### <a name="create-message-sender-error"></a>Creare il mittente dei messaggi (errore)
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**sender**,<br/>source={ID collegamento client},<br/>target={nome entità}<br/>) |Nessuna azione |
 | Nessuna azione |<-- attach(<br/>name={nome collegamento},<br/>handle={handle numerico},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={handle numerico},<br/>closed=**true**,<br/>error={informazioni errore}<br/>) |
 
 #### <a name="close-message-receiversender"></a>Chiudere il ricevitore/mittente dei messaggi
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> detach(<br/>handle={handle numerico},<br/>closed=**true**<br/>) |Nessuna azione |
 | Nessuna azione |<-- detach(<br/>handle={handle numerico},<br/>closed=**true**<br/>) |
 
 #### <a name="send-success"></a>Inviare (operazione riuscita)
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
 | Nessuna azione |<-- disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>Inviare (errore)
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nessuna azione |
 | Nessuna azione |<-- disposition(<br/>role=receiver,<br/>first={ID consegna},<br/>last={ID consegna},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={informazioni errore}<br/>)<br/>) |
 
 #### <a name="receive"></a>Ricevere
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |Nessuna azione |
 | Nessuna azione |< transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -193,7 +193,7 @@ Le frecce della seguente tabella visualizzano la direzione del flusso performati
 
 #### <a name="multi-message-receive"></a>Ricevere più messaggi
 
-| Client | BUS DI SERVIZIO |
+| Client | Bus di servizio |
 | --- | --- |
 | --> flow(<br/>link-credit=3<br/>) |Nessuna azione |
 | Nessuna azione |< transfer(<br/>delivery-id={handle numerico},<br/>delivery-tag={handle binario},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
@@ -207,7 +207,7 @@ Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP st
 
 #### <a name="header"></a>intestazione
 
-| Nome campo | Utilizzo | Nome API |
+| Nome campo | Uso | Nome API |
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
@@ -217,7 +217,7 @@ Le sezioni seguenti spiegano quali proprietà delle sessioni di messaggi AMQP st
 
 #### <a name="properties"></a>properties
 
-| Nome campo | Utilizzo | Nome API |
+| Nome campo | Uso | Nome API |
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
@@ -284,9 +284,9 @@ Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| operation |No |string |**put-token** |
-| type |No |string |Tipo di token inserito. |
-| name |No |string |"Destinatari" a cui è applicabile il token. |
+| operation |No  |stringa |**put-token** |
+| type |No  |stringa |Tipo di token inserito. |
+| name |No  |stringa |"Destinatari" a cui è applicabile il token. |
 | expiration |Sì |timestamp |Ora di scadenza del token. |
 
 La proprietà *name* identifica l'entità a cui deve essere associato il token. Nel bus di servizio corrisponde al percorso della coda o dell'argomento/sottoscrizione. La proprietà *type* identifica il tipo di token:
@@ -303,8 +303,8 @@ Il messaggio di risposta ha i valori *application-properties* seguenti:
 
 | Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
-| status-code |No |int |Codice di risposta HTTP **[RFC2616]**. |
-| status-description |Sì |string |Descrizione dello stato. |
+| status-code |No  |int |Codice di risposta HTTP **[RFC2616]**. |
+| status-description |Sì |stringa |Descrizione dello stato. |
 
 Il client può chiamare *put-token* ripetutamente e per qualsiasi entità nell'infrastruttura di messaggistica. I token hanno come ambito il client corrente e sono ancorati alla connessione corrente, quindi il server elimina eventuali token conservati al termine della connessione.
 

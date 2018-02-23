@@ -82,7 +82,7 @@ Questo articolo organizza le procedure comprovate nei seguenti gruppi. Procedure
 | &nbsp; | Queues |Recupero bulk |[Si stanno recuperando più messaggi con un'unica operazione "Get"?](#subheading42) |
 | &nbsp; | Queues |Frequenza di polling |[Il polling viene eseguito abbastanza di frequente per ridurre la latenza percepita dell'applicazione?](#subheading43) |
 | &nbsp; | Queues |Aggiornamento del messaggio |[Si sta usando UpdateMessage per archiviare lo stato di elaborazione dei messaggi senza dover rielaborare l'intero messaggio in caso di errori?](#subheading44) |
-| &nbsp; | Queues |Architettura |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45) |
+| &nbsp; | Queues |Architecture |[Si stanno usando delle code per rendere più scalabile l'intera applicazione tenendo i carichi di lavoro con esecuzione prolungata fuori dal percorso critico e scalandoli indipendentemente?](#subheading45) |
 
 ## <a name="allservices"></a>Tutti i servizi
 Questa sezione elenca le procedure comprovate applicabili all'uso di tutti i servizi di archiviazione di Azure (BLOB, tabelle, code o file).  
@@ -298,7 +298,7 @@ L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per
 
 Per altre informazioni, vedere il post del blog relativo al [comportamento dell'algoritmo Nagle nei confronti delle piccole richieste](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), che spiega il motivo per cui questo algoritmo interagisce in modo poco efficace con le richieste relative a tabelle e code e che mostra come disabilitarlo nell'applicazione client.  
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 La modalità con cui vengono rappresentati i dati e vengono eseguite query su di essi è il fattore singolo più importante che influisce sulle prestazioni del servizio tabelle. Ogni applicazione è diversa, ma in questa sezione vengono descritte alcune procedure comprovate generali relative a:  
 
 * Progettazione della tabella
@@ -375,7 +375,7 @@ In alternativa, l'applicazione può archiviare l'utilizzo della CPU per ciascuna
 ##### <a name="subheading38"></a>Archiviazione di dati strutturati in BLOB
 A volte sembra che i dati strutturati debbano essere inseriti nelle tabelle, tuttavia gli intervalli delle entità vengono sempre recuperati insieme e possono essere inseriti in batch.  Per spiegarlo efficacemente, si prenda l'esempio di un file di log.  In questo caso è possibile creare in batch e inserire diversi minuti di log. Questi minuti di log vengono anche recuperati tutti in una volta.  Per motivi di prestazioni, si consiglia in questo caso di usare i BLOB invece delle tabelle perché consentono di ridurre significativamente il numero di oggetti scritti/restituiti e, di solito, anche il numero di richieste che occorre effettuare.  
 
-## <a name="queues"></a>Code
+## <a name="queues"></a>Queues
 Oltre alle procedure comprovate per [tutti i servizi](#allservices) descritte prima, le procedure comprovate seguenti si applicano specificamente al servizio di accodamento.  
 
 ### <a name="subheading39"></a>Limiti di scalabilità
@@ -408,5 +408,5 @@ Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito
 * Le code possono essere usate per creare backlog di lavoro per l'elaborazione e il contenimento dei carichi di lavoro nell'applicazione. Ad esempio, è possibile accodare le richieste degli utenti per eseguire un lavoro che prevede un utilizzo intensivo del processore, ad esempio il ridimensionamento delle immagini caricate.
 * È possibile usare le code per separare i componenti dell'applicazione per eseguirne la scalabilità in modo indipendente. Ad esempio, un front-end Web può inserire i risultati di un sondaggio degli utenti in una coda per l'analisi e l'archiviazione successive. È possibile aggiungere più istanze del ruolo di lavoro per elaborare i dati della coda come richiesto.  
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 In questo articolo sono state descritte alcune delle procedure comprovate più comuni per l'ottimizzazione delle prestazioni durante l'uso d Archiviazione di Azure. Si consiglia a tutti gli sviluppatori di applicazioni di valutare la propria applicazione in base alle procedure descritte sopra e di prendere in considerazione l'attuazione di alcune misure per migliorare le prestazioni delle applicazioni che usano Archiviazione di Azure.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2017
+ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 533b5564a805e0b41f2b1a4ad92e12b133220952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Viste nelle soluzioni di gestione di Operations Management Suite (OMS) (anteprima)
 > [!NOTE]
@@ -33,7 +33,7 @@ Le [soluzioni di gestione in Operations Management Suite (OMS)](operations-manag
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che si abbia già familiarità con le modalità di [creazione di una soluzione di gestione](operations-management-suite-solutions-creating.md) e la struttura di un file di soluzione.
 
 ## <a name="overview"></a>Panoramica
@@ -75,11 +75,10 @@ Aggiungere la risorsa vista seguente nell'elemento **resources** del file di sol
 
 Aggiungere le variabili seguenti all'elemento variables del file di soluzione e sostituire i valori con quelli della soluzione.
 
-    "LogAnalyticsApiVersion": "2015-11-01-preview",
+    "LogAnalyticsApiVersion": "<api-version>",
     "ViewAuthor": "Your name."
     "ViewDescription": "Optional description of the view."
     "ViewName": "Provide a name for the view here."
-
 
 Si noti che è possibile copiare l'intera risorsa vista dal file della vista esportato, ma è necessario apportare le modifiche seguenti per consentirne il funzionamento nella soluzione.  
 
@@ -89,6 +88,18 @@ Si noti che è possibile copiare l'intera risorsa vista dal file della vista esp
 * La proprietà **DisplayName** deve essere aggiunta alla vista.  I valori di **Id**, **Name** e **DisplayName** devono corrispondere.
 * I nomi dei parametri devono essere modificati in modo da corrispondere al set di parametri richiesto.
 * Le variabili devono essere definite nella soluzione e usate nelle proprietà appropriate.
+
+### <a name="log-analytics-api-version"></a>Versione API di Log Analytics
+Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le viste con query che usano il [linguaggio di query legacy e quello aggiornato](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ La tabella seguente illustra le versioni dell'API di Log Analytics relative alle viste nelle aree di lavoro legacy e aggiornate: 
+
+| Versione dell'area di lavoro | Versione dell'API | Query |
+|:---|:---|:---|
+| v1 (legacy)   | 2015-11-01-preview | Formato legacy.<br> Esempio: Type=Event EventLevelName = Error  |
+| v2 (aggiornata) | 2015-11-01-preview | Formato legacy.  Convertito in formato aggiornato al momento dell'installazione.<br> Esempio: Type=Event EventLevelName = Error<br>Convertito in: Event &#124; where EventLevelName == "Error"  |
+| v2 (aggiornata) | 2017-03-03-preview | Formato aggiornato. <br>Esempio: Event &#124; where EventLevelName == "Error"  |
+
 
 ## <a name="add-the-view-details"></a>Aggiungere i dettagli della vista
 La risorsa vista nel file della vista esportato conterrà due elementi nell'elemento **properties** denominati **Dashboard** e **OverviewTile** che contengono la configurazione dettagliata della vista.  Copiare questi due elementi e il relativo contenuto nell'elemento **properties** della risorsa vista nel file di soluzione.

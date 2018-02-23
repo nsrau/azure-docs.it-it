@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 8708f13109767c7cb9e4a1bf0d2797d7c4fb9a23
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure disconnessa pianificazione decisioni per lo Stack di Azure integrato sistemi
-Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-deployment-decisions.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
+Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-connection-models.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
 
 Con l'opzione di distribuzione di Azure, è possibile distribuire e utilizzare Azure Stack senza una connessione a Internet. Tuttavia, con una distribuzione disconnessa, sono limitati a un archivio di identità AD FS e il modello di fatturazione della capacità. 
 
@@ -34,7 +34,7 @@ Scegliere questa opzione se si:
 > [!TIP]
 > Inoltre, questo tipo di ambiente è definiti talvolta detta "scenario sottomarino".
 
-Una distribuzione disconnessa non significa necessariamente che è possibile connettersi in un secondo momento l'istanza dello Stack di Azure in Azure per scenari VM tenant ibridi. Ciò significa che non si dispone di connettività in Azure durante la distribuzione o non si desidera usare Azure Active Directory come archivio di identità. Tuttavia, se si desidera disporre di connettività a Azure dopo la distribuzione, indipendentemente dal fatto ciò che si desidera utilizzare come archivio di identità, è necessario scegliere l'opzione di distribuzione di Azure Connetti a. 
+Una distribuzione disconnessa non significa necessariamente che è possibile connettersi in un secondo momento l'istanza dello Stack di Azure in Azure per scenari VM tenant ibridi. Ciò significa che non si dispone di connettività in Azure durante la distribuzione o non si desidera usare Azure Active Directory come archivio di identità.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funzionalità che sono compromesse o non disponibili nelle distribuzioni disconnesse 
 Stack di Azure è stato progettato per la scelta ottimale quando è connesso ad Azure, pertanto è importante notare che esistono alcune caratteristiche e funzionalità che sono compromesse o completamente non disponibile in modalità disconnessa. 
@@ -60,3 +60,5 @@ Telemetria|Non disponibile: dati di telemetria per lo Stack di Azure, come pure 
 - Per informazioni sulla Guida di orientamento e geografica disponibilità per lo Stack di Azure sistemi integrati, vedere il white paper: [dello Stack di Azure: un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Per ulteriori informazioni su Microsoft Azure Stack assemblaggio e prezzi [scaricare il PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
+## <a name="next-steps"></a>Passaggi successivi
+[Integrazione della rete datacenter](azure-stack-network.md)

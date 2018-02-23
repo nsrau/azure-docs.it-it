@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Modelli di Gestione risorse di Azure
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Concetti
   items:
     - name: Database senza server
@@ -227,6 +229,8 @@
               items:
                 - name: Esempi .NET
                   href: sql-api-dotnet-samples.md
+                - name: Esempi di Java
+                  href: sql-api-java-samples.md
                 - name: Esempi di Node. js
                   href: sql-api-nodejs-samples.md
                 - name: Esempi per Python
@@ -248,7 +252,7 @@
           items:
             - name: Connettersi all'account MongoDB
               href: connect-mongodb-account.md
-            - name: Uso di MongoChef
+            - name: Using Studio 3T
               href: mongodb-mongochef.md
             - name: Uso di RoboMongo
               href: mongodb-robomongo.md
@@ -340,8 +344,10 @@
           href: logging.md
         - name: Gestire chiavi e coerenza
           href: manage-account.md
+        - name: Controllo di accesso
+          href: access-control.md
         - name: Esplora archivi Azure
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Sicurezza
           items:
             - name: Crittografia di dati inattivi
@@ -352,10 +358,15 @@
               href: secure-access-to-data.md
     - name: Integrare
       items:
+        - name: Implementare un'architettura lambda con HDInsight
+          href: lambda-architecture.md
         - name: Connettersi a Spark
           href: spark-connector.md
         - name: Connettersi a Spark GraphX
           href: spark-connector-graph.md
+        - name: Streaming con Kafka e Spark su HDInsight
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Distribuire un sito Web con il Servizio app di Azure
           href: create-website.md
         - name: Registrazione delle applicazioni con App per la logica

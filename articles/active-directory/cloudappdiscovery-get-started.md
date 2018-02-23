@@ -18,7 +18,7 @@ ms.author: curtand
 ms.reviewer: nigu
 ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/13/2017
 
 Cloud App Discovery in Azure AD ora si basa sull'integrazione dei dati resi disponibili da Microsoft Cloud App Security. Per fornire informazioni aggiornate sull'uso del cloud e sullo shadow IT, Cloud App Discovery confronta i log sul traffico con il catalogo di Cloud App Security di oltre 15.000 app cloud. In questo articolo viene descritto il processo di configurazione e vengono forniti collegamenti alle informazioni dettagliate per ogni passaggio. Vengono inoltre descritte le informazioni su proxy e firewall e il supporto dei file di log.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Per poter usare il prodotto, l'organizzazione deve avere una licenza di Azure AD Premium P1. Per altre informazioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 * Per configurare Cloud App Discovery, è necessario essere un amministratore globale o avere un ruolo con autorizzazioni di lettura per la sicurezza in Azure Active Directory.
@@ -79,7 +79,7 @@ Per generare correttamente un report di Cloud App Discovery, i log sul traffico 
 * Barracuda - Firewall di app Web (W3C)
 * Blue Coat Proxy SG - Log di accesso (W3C)
 * Punto di controllo
-* FirePOWER ASA Cisco
+* Cisco ASA FirePOWER
 * Firewall Cisco ASA (per i firewall Cisco ASA, impostare il livello di informazioni su 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe

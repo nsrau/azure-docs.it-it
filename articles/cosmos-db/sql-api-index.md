@@ -62,7 +62,7 @@ Queste esercitazioni sono più approfondite delle guide introduttive. Nelle eser
 - [.NET](sql-api-get-started.md)
 - [.NET Core](sql-api-dotnetcore-get-started.md) 
 - [Java](sql-api-java-get-started.md) 
-- [Node.JS](sql-api-nodejs-get-started.md) 
+- [Node.js](sql-api-nodejs-get-started.md) 
 - [C++](sql-api-cpp-get-started.md)
 
 ### <a name="create-a-mobile-app"></a>Creare un'app per dispositivi mobili
@@ -102,7 +102,7 @@ Azure Cosmos DB offre diversi SDK per abilitare lo sviluppo di applicazioni lato
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>riferimento
 
 - [REST](/rest/api/documentdb/)
 - [Provider di risorse REST](/rest/api/documentdbresourceprovider/)
@@ -114,5 +114,5 @@ Azure Cosmos DB offre diversi SDK per abilitare lo sviluppo di applicazioni lato
 Queste pagine di esempi contengono collegamenti al codice di esempio e ai contenuti di riferimento per le API per le attività più comuni dell'API SQL.
 
 - [.NET](sql-api-dotnet-samples.md)
-- [Node.JS](sql-api-nodejs-samples.md)
+- [Node.js](sql-api-nodejs-samples.md)
 - [Python](sql-api-python-samples.md) 

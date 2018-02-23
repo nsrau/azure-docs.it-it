@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 7303347444952d9c09dc6c04eea5b962e18729b4
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Trovare il percorso per raggiungere un punto di interesse tramite Servizi Location Based di Azure
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come usare l'account Servizi Location Based di Azu
 > * Ottenere le coordinate di un indirizzo
 > * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di procedere, [creare l'account Servizi Location Based di Azure](./tutorial-search-location.md#createaccount) e [ottenere la chiave di sottoscrizione per l'account](./tutorial-search-location.md#getkey). Può anche essere utile esaminare le istruzioni per l'uso delle API del servizio di ricerca e del controllo mappa riportate nell'esercitazione [Cercare un punto di interesse vicino tramite Servizi Location Based di Azure](./tutorial-search-location.md).
 
@@ -77,13 +77,13 @@ Seguire questa procedura per creare una pagina HTML statica incorporata usando l
     ```
     Si noti che nell'intestazione HTML sono incorporati i percorsi delle risorse per i file CSS e JavaScript relativi alla libreria di Servizi Location Based di Azure. Si noti inoltre il segmento *script* nel corpo del file HTML, che deve contenere il codice JavaScript inline per l'accesso alle API di Servizi Location Based di Azure.
 
-3. Aggiungere il codice JavaScript seguente al blocco *script* del file HTML. Sostituire il segnaposto *<insert-key>* con la chiave primaria dell'account Servizi Location Based.
+3. Aggiungere il codice JavaScript seguente al blocco *script* del file HTML. Usare la chiave primaria dell'account Servizi Location Based nello script.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva ed è un componente dell'API del controllo mappa di Azure.
@@ -179,14 +179,14 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
     url += "&api-version=1.0";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    La richiesta precedente mostra i parametri obbligatori, ovvero la chiave di sottoscrizione dell'account e le coordinate per i punti iniziale e finale, nell'ordine indicato. 
+    La richiesta precedente mostra i parametri obbligatori, ovvero la chiave dell'account e le coordinate per i punti iniziale e finale, nell'ordine indicato. 
 
 3. Salvare il file **MapRoute.html** in locale, aprirlo in un Web browser di propria scelta e osservare il risultato. Se la connessione con le API di Servizi Location Based è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente. 
 

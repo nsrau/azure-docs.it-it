@@ -14,7 +14,7 @@
     - name: Installare app HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: pianificazione della capacità
+    - name: Pianificazione della capacità
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Archiviazione e scalabilità
@@ -34,7 +34,7 @@
         - name: Kafka e Spark (flusso strutturato)
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
-        - name: Flusso strutturato da Kafka a CosmosDB
+        - name: Flusso strutturato da Kafka ad Azure Cosmos DB
           href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
           maintainContext: true
         - name: Kafka e Spark (DStream)
@@ -43,8 +43,16 @@
         - name: Kafka e Storm
           href: ../hdinsight-apache-storm-with-kafka.md
           maintainContext: true
+        - name: Usare Kafka con il servizio contenitore di Azure
+          href: apache-kafka-azure-container-services.md
+        - name: Kafka e Funzioni di Azure
+          href: apache-kafka-azure-functions.md
     - name: Sviluppo
       items:
+        - name: Uso di API per producer e consumer Kafka
+          href: apache-kafka-producer-consumer-api.md
+        - name: Uso di API Kafka Streams
+          href: apache-kafka-streams-api.md
         - name: Usare nodi perimetrali vuoti
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -68,6 +76,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Pubblicare app HDInsight in Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: Proteggere
       items:

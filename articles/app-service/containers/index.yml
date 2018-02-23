@@ -14,75 +14,80 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/05/2017
   ms.author: cfowler
+  ms.openlocfilehash: 561595cbed34fd105b9461ee34a9c270699450e3
+  ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/03/2017
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: list
+    style: icon48
     items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg'
-            text: .NET Core
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg'
-            text: Node.js
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg'
-            text: PHP
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-php'
-          - image:
-              src: 'https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg'
-            text: Java
-            href: 'https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_ruby.svg'
-            text: Ruby
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_docker.svg'
-            text: Docker
-            href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
-      - type: paragraph
-        text: 'Informazioni su come eseguire la distribuzione continua:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg'
-            text: VSTS
-            href: 'https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
+      text: .NET Core
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-dotnetcore
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-nodejs
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
+      text: PHP
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-php
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
+      text: Java
+      href: https://docs.microsoft.com/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_ruby.svg
+      text: Ruby
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_docker.svg
+      text: Docker
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
+  - type: paragraph
+    text: 'Informazioni su come eseguire la distribuzione continua:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure nel servizio app in Linux'
-      - type: list
-        style: ordered
-        items:
-          - html: Creare un'applicazione usando <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core con il database SQL di Azure</a> o <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Eseguire il mapping di un dominio personalizzato esistente all'applicazione</a>
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Associare un certificato SSL esistente all'applicazione</a>
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Aggiungere una rete CDN all'applicazione</a>
-  - title: Esempi
+    - image:
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure nel servizio app in Linux
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Trovare script per gestire le attività comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: <a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a>
-  - title: Riferimento
+    - html: Creare un'applicazione usando <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core con il database SQL di Azure</a> o <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Eseguire il mapping di un dominio personalizzato esistente all'applicazione</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Associare un certificato SSL esistente all'applicazione</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Aggiungere una rete CDN all'applicazione</a>
+- title: Esempi
+  items:
+  - type: paragraph
+    text: "Trovare script per gestire le attività comuni."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure 2.0</a></p>
-          - title: Lingue
-            html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/appservice">Informazioni di riferimento sulle API REST</a></p>
+    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a>
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure 2.0</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/appservice">Informazioni di riferimento sulle API REST</a></p>

@@ -113,14 +113,14 @@ Di seguito è riportato un esempio di URI di firma di accesso condiviso del serv
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Nome | Parte firma di accesso condiviso | Descrizione |
+| NOME | Parte firma di accesso condiviso | DESCRIZIONE |
 | --- | --- | --- |
 | URI del BLOB |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Indirizzo del BLOB. Si noti che è vivamente consigliato l'uso di HTTPS. |
 | Versione dei servizi di archiviazione |`sv=2015-04-05` |Per i servizi di archiviazione della versione 2012-02-12 e successive questo parametro indica la versione da usare. |
 | Ora di inizio |`st=2015-04-29T22%3A18%3A26Z` |Specificata nell'ora UTC. Se si desidera che la firma di accesso condiviso sia immediatamente valida, omettere l'ora di inizio. |
 | Scadenza |`se=2015-04-30T02%3A23%3A26Z` |Specificata nell'ora UTC. |
 | Risorsa |`sr=b` |La risorsa è un BLOB. |
-| autorizzazioni |`sp=rw` |Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w). |
+| Autorizzazioni |`sp=rw` |Le autorizzazioni concesse dalla firma di accesso condiviso includono lettura (r) e scrittura (w). |
 | Intervallo IP |`sip=168.1.5.60-168.1.5.70` |Intervallo di indirizzi IP da cui verrà accettata una richiesta. |
 | Protocollo |`spr=https` |Sono consentite solo richieste tramite HTTPS. |
 | Firma |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilizzata per autenticare l'accesso al BLOB. La firma è un HMAC calcolato sulla base di una stringa da firmare e della chiave mediante l'algoritmo SHA256, e quindi codificato con la codifica Base64. |
@@ -133,12 +133,12 @@ Di seguito è riportato un esempio di firma di accesso condiviso dell'account ch
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Nome | Parte firma di accesso condiviso | Descrizione |
+| NOME | Parte firma di accesso condiviso | DESCRIZIONE |
 | --- | --- | --- |
 | URI della risorsa |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Endpoint di servizio BLOB con parametri per ottenere le proprietà del servizio (operazione GET) o per impostare le proprietà del servizio (operazione SET). |
 | Services |`ss=bf` |La firma di accesso condiviso si applica ai servizi BLOB e File |
 | Tipi di risorse |`srt=s` |La firma di accesso condiviso si applica alle operazioni a livello di servizio. |
-| autorizzazioni |`sp=rw` |Le autorizzazioni concedono l'accesso alle operazioni di lettura e scrittura. |
+| Autorizzazioni |`sp=rw` |Le autorizzazioni concedono l'accesso alle operazioni di lettura e scrittura. |
 
 Poiché le autorizzazioni sono limitate a livello di servizio, le operazioni accessibili tramite questa firma di accesso condiviso sono **Get Blob Service Properties** (lettura) e **Set Blob Service Properties** (scrittura). Con un URI di risorsa diverso, lo stesso token di firma di accesso condiviso può tuttavia essere usato per delegare l'accesso all'operazione **Get Blob Service Stats** (lettura).
 

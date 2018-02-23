@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: fbfef291334109c6dcfcde80741874549fb7929f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Introduzione al connettore webhook
 
@@ -79,7 +79,7 @@ Di seguito altre informazioni sui trigger e sulle azioni che supporta webhook.
 
 ## <a name="webhook-triggers"></a>Trigger webhook
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
 | HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze. |
 
@@ -90,7 +90,7 @@ Di seguito altre informazioni sui trigger e sulle azioni che supporta webhook.
 Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per attivare l'app per la logica in base alle esigenze.
 L'asterisco (*) indica che il campo è obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Subscribe Method* |statico |Metodo HTTP da usare per la richiesta di sottoscrizione |
 | Subscribe URI* |Uri |URI HTTP da usare per la richiesta di sottoscrizione |
@@ -99,7 +99,7 @@ L'asterisco (*) indica che il campo è obbligatorio.
 | Subscribe Body |body |Request body HTTP per la sottoscrizione |
 | Subscribe Headers |headers |Intestazioni della richiesta HTTP per la sottoscrizione |
 | Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
-| Unsubscribe Body |body |Request body HTTP per annullare la sottoscrizione |
+| Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
 | Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
 | Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 
@@ -107,15 +107,15 @@ L'asterisco (*) indica che il campo è obbligatorio.
 
 Richiesta Webhook
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | headers |object |Intestazioni della richiesta webhook |
-| body |object |Oggetto della richiesta webhook |
+| Corpo |object |Oggetto della richiesta webhook |
 | Codice di stato |int |Codice di stato della richiesta webhook |
 
 ## <a name="webhook-actions"></a>Azioni webhook
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
 | HTTP Webhook |Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per riprendere un passaggio del flusso di lavoro in base alle esigenze. |
 
@@ -126,7 +126,7 @@ Richiesta Webhook
 Sottoscrivere un URL callback a un servizio in grado di chiamare l'URL per riprendere un passaggio del flusso di lavoro in base alle esigenze.
 L'asterisco (*) indica che il campo è obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Subscribe Method* |statico |Metodo HTTP da usare per la richiesta di sottoscrizione |
 | Subscribe URI* |Uri |URI HTTP da usare per la richiesta di sottoscrizione |
@@ -135,7 +135,7 @@ L'asterisco (*) indica che il campo è obbligatorio.
 | Subscribe Body |body |Request body HTTP per la sottoscrizione |
 | Subscribe Headers |headers |Intestazioni della richiesta HTTP per la sottoscrizione |
 | Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
-| Unsubscribe Body |body |Request body HTTP per annullare la sottoscrizione |
+| Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
 | Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
 | Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 
@@ -143,13 +143,13 @@ L'asterisco (*) indica che il campo è obbligatorio.
 
 Richiesta Webhook
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | headers |object |Intestazioni della richiesta webhook |
-| body |object |Oggetto della richiesta webhook |
+| Corpo |object |Oggetto della richiesta webhook |
 | Codice di stato |int |Codice di stato della richiesta webhook |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Trovare altri connettori](apis-list.md)

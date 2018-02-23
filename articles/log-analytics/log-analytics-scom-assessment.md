@@ -3,7 +3,7 @@ title: Ottimizzare l'ambiente System Center Operations Manager con Azure Log Ana
 description: "È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità degli ambienti a intervalli regolari."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2017
-ms.author: magoedte;banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -58,9 +58,9 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 1. [Impostare l'account RunAs per Controllo integrità System Center Operations Manager](#operations-manager-run-as-accounts-for-log-analytics)  
 2. [Configurare la regola di Controllo integrità System Center Operations Manager](#configure-the-assessment-rule)
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli sulla raccolta dei dati della valutazione di System Center Operations Manager
+## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Dettagli della raccolta di dati della valutazione di System Center Operations Manager
 
-Con Valutazione System Center Operations Manager vengono raccolti dati dalle origini seguenti: 
+Con Valutazione System Center Operations Manager vengono raccolti dati dalle origini seguenti:
 
 * Registro
 * Strumentazione gestione Windows (WMI)
@@ -72,7 +72,7 @@ I dati vengono raccolti nel server di gestione e inoltrati a Log Analytics ogni 
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Account RunAs di Operations Manager per Log Analytics
 
-Log Analytics si basa sui Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account utente di dominio. Configurare un account RunAs di Operations Manager con credenziali con privilegi. Per altre informazioni, vedere [Come creare un account RunAs](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) nella documentazione di Operations Manager. 
+Log Analytics si basa sui Management Pack per i carichi di lavoro per offrire servizi a valore aggiunto. Ogni carico di lavoro richiede privilegi specifici per eseguire i Management Pack in un contesto di sicurezza diverso, ad esempio un account utente di dominio. Configurare un account RunAs di Operations Manager con credenziali con privilegi. Per altre informazioni, vedere [Come creare un account RunAs](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) nella documentazione di Operations Manager.
 
 Usare le informazioni seguenti per impostare l'account RunAs di Operations Manager per Controllo integrità System Center Operations Manager.
 
@@ -82,13 +82,13 @@ Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
 
 * Essere un account utente di dominio membro del gruppo Administrators locale in tutti i server che supportano qualsiasi ruolo di Operations Manager, ovvero server di gestione, istanza di SQL Server che ospita il data warehouse operativo e il database ACS, Creazione report, Console Web e Server gateway.
 * Appartenere a un ruolo di amministratore di Operations Manager per il gruppo di gestione valutato
-* Se l'account non ha i diritti di amministratore di sistema SQL, eseguire lo [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) per concedere autorizzazioni granulari all'account in ogni istanza di SQL Server che ospita uno o tutti i database di Operations Manager. 
+* Se l'account non ha i diritti di amministratore di sistema SQL, eseguire lo [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) per concedere autorizzazioni granulari all'account in ogni istanza di SQL Server che ospita uno o tutti i database di Operations Manager.
 
 1. Nella console di Operations Manager selezionare il pulsante di spostamento **Amministrazione**.
 2. In **Run As Configuration** (Configurazione RunAs) fare clic su **Account**.
 3. Nella pagina **Introduzione** della procedura guidata **Crea account RunAs** fare clic su **Avanti**.
 4. Nella pagina **Proprietà generali** selezionare **Windows** nell'elenco **Tipo di account RunAs**.
-5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**. 
+5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**.
 6. Nella pagina **Sicurezza della distribuzione** selezionare **Più protetto**.
 7. Fare clic su **Crea**.  
 
@@ -96,7 +96,7 @@ Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di
 
 1. In **Run As Configuration** (Configurazione RunAs), **Account** fare doppio clic sull'account creato in precedenza nel riquadro dei risultati.
 2. Nella scheda **Distribuzione** fare clic su **Aggiungi**per la casella **Computer selezionati** e aggiungere il server di gestione in cui distribuire l'account.  Fare due volte clic su **OK** per salvare le modifiche.
-3. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profili**. 
+3. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profili**.
 4. Cercare il profilo *SCOM Assessment*.
 5. Il nome del profilo è *Microsoft System Center Advisor SCOM Assessment Run As Profile*.
 6. Fare clic con il pulsante destro del mouse, aggiornare le proprietà e aggiungere l'account RunAs creato in precedenza.
@@ -216,7 +216,7 @@ Prima di poter usare una soluzione di controllo integrità in Log Analytics, è 
 Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
-1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi fare clic sul riquadro **Portale di OMS**.  
 4. Nella pagina **Panoramica** fare clic sul riquadro **Controllo integrità System Center Operations Manager**.
@@ -228,7 +228,7 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 
 Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Log Analytics usa per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Per identificare le raccomandazioni da ignorare
 1. Nella pagina dell'area di lavoro di Log Analytics per l'area di lavoro selezionata del portale di Azure fare clic sul riquadro **Ricerca log**.
@@ -268,7 +268,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure è possibile rimuovere gli ID raccomandazione dagli stessi.
+3. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
 
 ## <a name="system-center-operations-manager-health-check-solution-faq"></a>Domande frequenti sulla soluzione Controllo integrità System Center Operations Manager
 

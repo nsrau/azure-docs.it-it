@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Come usare le unità GPU in Azure Machine Learning
 L'unità di elaborazione grafica (GPU) è ampiamente usata per elaborare le attività di calcolo complesse che si hanno in genere durante il training di alcuni modelli di reti neurali profonde. Usando le unità GPU è possibile ridurre significativamente la durata del training dei modelli. Questo documento illustra come configurare Azure Machine Learning Workbench affinché usi la [macchina virtuale per data science ](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) dotata di GPU come destinazione dell'esecuzione. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 - Per proseguire con questa guida è necessario innanzitutto [installare Azure Machine Learning Workbench](quickstart-installation.md).
 - È necessario accedere a computer dotati di GPU NVidia.
     - È possibile eseguire gli script direttamente sul computer locale (Windows o Mac OS) con GPU.

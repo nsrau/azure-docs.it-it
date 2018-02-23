@@ -27,7 +27,7 @@ ms.lasthandoff: 12/14/2017
 
 [Visual Studio Code](https://code.visualstudio.com/docs) è un editor grafico di codice per Linux, macOS e Windows che supporta le estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace), per le query di Microsoft SQL Server, database SQL di Azure e SQL Data Warehouse. Questa guida introduttiva illustra come usare Visual Studio Code per connettersi a un database SQL di Azure e quindi come usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
@@ -92,7 +92,7 @@ Usare Visual Studio Code per stabilire una connessione al server del database SQ
 
 4. Seguire le istruzioni per specificare le proprietà di connessione per il nuovo profilo di connessione. Dopo aver specificato ogni valore, premere **INVIO** per continuare. 
 
-   | Impostazione       | Valore consigliato | Descrizione |
+   | Impostazione       | Valore consigliato | DESCRIZIONE |
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
    | **Database name** (Nome database) | mySampleDatabase | Nome del database a cui connettersi. |

@@ -22,7 +22,7 @@ In questa guida introduttiva usare il portale di Azure per creare un'istanza del
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 Nel Web browser passare al [portale di Microsoft Azure](https://portal.azure.com/) e quindi immettere le credenziali per accedere al portale.
 
 La visualizzazione predefinita è il dashboard del servizio.
@@ -52,7 +52,7 @@ Prima di creare la prima istanza del servizio Migrazione del database, registrar
     - Selezionare Basic: 1 vCore per il **Piano tariffario**.
 
     ![Creare il servizio migrazione](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
-4. Selezionare **Crea**.
+4. Selezionare **Create**.
 
 Dopo qualche istante, l'istanza del servizio Migrazione del database di Azure viene creata ed è pronta per l'uso. Il servizio Migrazione del database viene visualizzato come illustrato nell'immagine seguente:
 

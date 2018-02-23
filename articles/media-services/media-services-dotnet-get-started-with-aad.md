@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 
 A partire da windowsazure.mediaservices 4.0.0.4, Servizi multimediali di Azure supporta l'autenticazione basata su Azure Active Directory (Azure AD). In questo argomento viene illustrato come usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con .NET.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Account di Servizi multimediali. Per altre informazioni, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
@@ -72,7 +72,7 @@ Se non si usa l'SDK .NET di Servizi multimediali di Azure, è consigliabile usar
 
 Per connettersi all'API Servizi multimediali di Azure con l'opzione di autenticazione utente, l'app client deve richiedere un token di Azure AD tramite i parametri seguenti:  
 
-- Endpoint del tenant di Azure AD. Le informazioni sul tenant possono essere recuperate dal portale di Azure. Passare il mouse sull'utente connesso nell'angolo superiore destro.
+- Endpoint tenant di Azure AD. Le informazioni sul tenant possono essere recuperate dal portale di Azure. Passare il mouse sull'utente connesso nell'angolo superiore destro.
 - URI di risorsa per Servizi multimediali.
 - ID client dell'applicazione Servizi multimediali (nativa). 
 - URI di reindirizzamento dell'applicazione Servizi multimediali (nativa). 

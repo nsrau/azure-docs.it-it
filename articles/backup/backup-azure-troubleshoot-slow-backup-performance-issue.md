@@ -43,7 +43,7 @@ Per rilevare i colli di bottiglia, Windows fornisce uno strumento predefinito ch
 
 Ecco alcuni contatori delle prestazioni e intervalli che possono essere utili per diagnosticare i colli di bottiglia e ottenere backup ottimali.
 
-| Contatore | Stato |
+| Contatore | Status |
 | --- | --- |
 | Disco logico (disco fisico) - % inattività |• Da 100% inattivo a 50% inattivo = integro</br>• Da 49% inattivo a 20% inattivo = avviso o monitoraggio</br>• Da 19% inattivo a 0% inattivo = critico o fuori specifica |
 | Disco logico (disco fisico) - % Media letture o scritture disco/sec |• Da 0,001 ms a 0,015 ms = integro</br>• Da 0,015 ms a 0,025 ms = avviso o monitoraggio</br>• Da ms 0,026 e oltre = critico o fuori specifica |

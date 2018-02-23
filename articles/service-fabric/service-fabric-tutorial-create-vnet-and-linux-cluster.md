@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2017
+ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: de67512a9b03095b793fc82f3b0c348577511d5f
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 3b09e676a26336d1ef1e744f9e45066c4815fe21
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
-Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster Linux di Service Fabric in una rete virtuale e in una subnet di Azure esistente tramite l'interfaccia della riga di comando di Azure. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Windows tramite PowerShell, vedere [Creare un cluster sicuro di Windows in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster Linux di Service Fabric in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) e in un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) usando l'interfaccia della riga di comando di Azure e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Windows tramite PowerShell, vedere [Creare un cluster sicuro di Windows in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In questa esercitazione si apprenderà come:
 
@@ -40,7 +40,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione:
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
@@ -48,98 +48,111 @@ Prima di iniziare questa esercitazione:
 
 Le procedure seguenti creano un cluster di Service Fabric a cinque nodi. Per calcolare i costi sostenuti per l'esecuzione di un cluster di Service Fabric in Azure, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="introduction"></a>Introduzione
-Questa esercitazione distribuisce un cluster di cinque nodi in un unico tipo di nodo in una rete virtuale di Azure.
-
+## <a name="key-concepts"></a>Concetti chiave
 Un [cluster di Service Fabric](service-fabric-deploy-anywhere.md) è un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi. I cluster possono supportare migliaia di macchine. Un computer o una macchina virtuale che fa parte di un cluster viene chiamato nodo. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le proprietà di posizionamento.
 
 Un tipo di nodo definisce le dimensioni, il numero e le proprietà di un set di macchine virtuali nel cluster. Ogni tipo di nodo definito viene configurato come [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/), una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. I tipi di nodo vengono usati per definire i ruoli relativi a un set di nodi del cluster, ad esempio "front-end" o "back-end".  Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario deve essere costituito da almeno cinque macchine virtuali per i cluster di produzione (o da almeno tre macchine virtuali per i cluster di test).  I [servizi di sistema Service Fabric](service-fabric-technical-overview.md#system-services) vengono inseriti nei nodi del tipo di nodo primario.
 
-## <a name="cluster-capacity-planning"></a>Pianificazione della capacità dei cluster
-Questa esercitazione distribuisce un cluster di cinque nodi in un unico tipo di nodo.  La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di un cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
+Il cluster è protetto con un certificato cluster. Un certificato del cluster è un certificato X.509 usato per proteggere le comunicazioni da nodo a nodo e autenticare gli endpoint di gestione dei cluster in un client di gestione.  Il certificato del cluster fornisce anche un certificato SSL per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS. I certificati autofirmati sono utili per i cluster di test.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA).
 
-- Numero di tipi di nodo necessari per il cluster 
-- Proprietà di ogni tipo di nodo (ad esempio, dimensione, tipo primario, tipo per Internet e numero di macchine virtuali)
-- Caratteristiche di affidabilità e durabilità del cluster
-
-Per altre informazioni, vedere [Considerazioni sulla pianificazione della capacità del cluster](service-fabric-cluster-capacity.md).
-
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>Accedere ad Azure e selezionare la sottoscrizione
-Questa guida usa l'interfaccia della riga di comando di Azure. Quando si avvia una nuova sessione accedere al proprio account Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
- 
-Eseguire questo script per accedere al proprio account Azure e selezionare la sottoscrizione:
-
-```azurecli
-az login
-az account set --subscription <guid>
-```
-
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Creare un nuovo gruppo di risorse per la distribuzione e assegnargli un nome e un percorso.
-
-```azurecli
-ResourceGroupName="sflinuxclustergroup"
-Location="southcentralus"
-az group create --name $ResourceGroupName --location $Location
-```
-
-## <a name="deploy-the-network-topology"></a>Distribuire la topologia di rete
-Configurare quindi la topologia di rete nella quale verrà distribuito il cluster di Gestione API e Service Fabric. Il modello di Gestione risorse [network.json][network-arm] è configurato per creare una rete virtuale (VNET), nonché una subnet e un gruppo di sicurezza di rete (NSG) per Service Fabric e una subnet e un gruppo di sicurezza di rete (NSG) per Gestione API. Altre informazioni sulle reti virtuali, le subnet e NSG sono reperibili [qui](../virtual-network/virtual-networks-overview.md).
-
-Il file dei parametri [network.parameters.json][network-parameters-arm] contiene i nomi delle subnet e dei gruppi di sicurezza di rete in cui verranno distribuiti Service Fabric e Gestione API.  Gestione API viene distribuito nell'[esercitazione seguente](service-fabric-tutorial-deploy-api-management.md). In questa guida non è necessario modificare i valori dei parametri. I modelli di Gestione risorse di Service Fabric usano questi valori.  Se i valori vengono modificati qui, è necessario modificarli negli altri modelli di Gestione risorse usati in questa esercitazione e nell'[esercitazione di distribuzione di Gestione API](service-fabric-tutorial-deploy-api-management.md). 
-
-Scaricare il modello e il file di parametri di Resource Manager seguenti:
-- [network.json][network-arm]
-- [network.parameters.json][network-parameters-arm]
-
-Per distribuire il modello e i file dei parametri di Gestione risorse per la configurazione di rete, usare lo script seguente:
-
-```azurecli
-az group deployment create \
-    --name VnetDeployment \
-    --resource-group $ResourceGroupName \
-    --template-file network.json \
-    --parameters @network.parameters.json
-```
-<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="deploy-the-service-fabric-cluster"></a>Distribuire il cluster di Service Fabric
-Una volta terminata la distribuzione delle risorse di rete, il passaggio successivo consiste nel distribuire un cluster Service Fabric per la rete virtuale nella subnet e nel gruppo NSG designato per tale cluster. La distribuzione di un cluster in una rete virtuale esistente e una subnet (distribuito in precedenza in questo articolo) richiede un modello di Gestione risorse.  Per altre informazioni, vedere [Creare un cluster usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Per questa serie di esercitazioni, il modello è preconfigurato per usare i nomi di rete virtuale, subnet e gruppo di sicurezza di rete configurati in un passaggio precedente.  
-
-Scaricare il modello e il file di parametri di Resource Manager seguenti:
-- [linuxcluster.json][cluster-arm]
-- [linuxcluster.Parameters.json][cluster-parameters-arm]
-
-Usare questo modello per creare un cluster protetto.  Un certificato del cluster è un certificato X.509 usato per proteggere le comunicazioni da nodo a nodo e autenticare gli endpoint di gestione dei cluster in un client di gestione.  Il certificato del cluster fornisce anche un certificato SSL per l'API di gestione HTTPS e per Service Fabric Explorer tramite HTTPS. L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster. 
-
-È possibile usare un certificato da un'autorità di certificazione come certificato del cluster oppure, a scopo di test, creare un certificato autofirmato. Il certificato del cluster deve:
+Il certificato del cluster deve:
 
 - contenere una chiave privata;
 - essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange);
 - avere un nome del soggetto corrispondente al dominio usato per accedere al cluster di Service Fabric. Questa corrispondenza è necessaria per fornire SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio .cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-Specificare un valore per questi parametri vuoti nel file *linuxcluster.parameters.json* per la distribuzione:
+L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster.
 
-|Parametro|Valore|
-|---|---|
-|adminPassword|Password#1234|
-|adminUserName|vmadmin|
-|clusterName|mysfcluster|
+Questa esercitazione distribuisce un cluster con cinque nodi in un unico tipo di nodo. La [pianificazione della capacità](service-fabric-cluster-capacity.md), tuttavia, è un passaggio importante per qualsiasi distribuzione di cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
 
-Lasciare vuoti i parametri **certificateThumbprint**, **certificateUrlValue** e **sourceVaultValue** per creare un certificato autofirmato.  Per usare un certificato esistente caricato in precedenza in un insieme di credenziali delle chiavi, immettere quei valori di parametro.
+- Numero e tipi di nodi necessari per il cluster 
+- Proprietà di ogni tipo di nodo (ad esempio, dimensione, tipo primario, tipo per Internet e numero di macchine virtuali)
+- Caratteristiche di affidabilità e durabilità del cluster
 
-Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) e il modello per distribuire un nuovo cluster in Azure. Il cmdlet crea anche un insieme di credenziali delle chiavi in Azure, aggiunge un nuovo certificato autofirmato all'insieme di credenziali delle chiavi e scarica il file del certificato in locale. È possibile specificare un certificato esistente e/o un insieme di credenziali delle chiavi con altri parametri del comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create).
+## <a name="download-and-explore-the-template"></a>Scaricare ed esplorare il modello
+Scaricare i file del modello di Resource Manager seguenti:
+- [vnet-linuxcluster.json][template]
+- [vnet-linuxcluster.parameters.json][parameters]
+
+[vnet-linuxcluster.json][template] distribuisce alcune risorse, incluse le seguenti.
+
+### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
+Viene distribuito un cluster Linux con le caratteristiche seguenti.
+- Unico tipo di nodo 
+- Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello)
+- Sistema operativo Ubuntu 16.04 LTS (configurabile nei parametri del modello)
+- Protezione con certificato (configurabile nei parametri del modello)
+- [Servizio DNS](service-fabric-dnsservice.md) abilitato
+- [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello)
+- [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Argento (configurabile nei parametri del modello)
+- Endpoint di connessione client: 19000 (configurabile nei parametri del modello)
+- Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello)
+
+### <a name="azure-load-balancer"></a>Servizio di bilanciamento del carico di Azure
+Viene distribuito un servizio di bilanciamento del carico e vengono configurati probe e regole per le porte seguenti.
+- Endpoint di connessione client: 19000
+- Endpoint del gateway HTTP: 19080 
+- Porta applicazione: 80
+- Porta applicazione: 443
+
+### <a name="virtual-network-subnet-and-network-security-group"></a>Rete virtuale, subnet e gruppo di sicurezza di rete
+I nomi della rete virtuale, della subnet e del gruppo di sicurezza di rete vengono dichiarati nei parametri del modello,  così come gli spazi indirizzi della rete virtuale e della subnet.
+- Spazio indirizzi della rete virtuale: 10.0.0.0/16
+- Spazio indirizzi della subnet di Service Fabric: 10.0.2.0/24
+
+Nel gruppo di sicurezza di rete vengono abilitate le regole per il traffico in ingresso riportate di seguito. È possibile modificare i valori di porta modificando le variabili del modello.
+- Endpoint di connessione client (TCP): 19000
+- Endpoint del gateway HTTP (HTTP/TCP): 19080
+- SMB: 445
+- Comunicazione tra nodi: 1025, 1026, 1027
+- Intervallo di porte temporaneo: da 49152 a 65534 (sono necessarie almeno 256 porte)
+- Porte utilizzabili per l'applicazione: 80 e 443
+- Intervallo di porte dell'applicazione: da 49152 a 65534 (quelle usate per la comunicazione tra servizi e di altro tipo non vengono aperte nel servizio di bilanciamento del carico)
+- Bloccare tutte le altre porte
+
+Se sono necessarie altre porte dell'applicazione, si dovranno modificare le risorse Microsoft.Network/loadBalancers e Microsoft.Network/networkSecurityGroups in modo da consentire il traffico in ingresso.
+
+## <a name="set-template-parameters"></a>Impostare i parametri del modello
+Nel file dei parametri [vnet-cluster.parameters.json][parameters] vengono dichiarati molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
+
+|Parametro|Valore di esempio|Note|
+|---|---||
+|adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. |
+|adminPassword|Password#1234| Password amministratore per le VM del cluster.|
+|clusterName|mysfcluster123| Nome del cluster. |
+|location|southcentralus| Località del cluster. |
+|certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3". </p>| 
+|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, ad esempio "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|sourceVaultValue||<p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore dell'insieme di credenziali di origine, ad esempio "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
+
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+
+## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuire la rete virtuale e il cluster
+Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager [vnet-linuxcluster.json][template] crea una rete virtuale, nonché una subnet e un gruppo di sicurezza di rete (NSG) per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
+
+Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) e il modello per distribuire un nuovo cluster protetto con un certificato esistente. Il comando crea anche un nuovo insieme di credenziali delle chiavi in Azure e carica il certificato.
 
 ```azurecli
+ResourceGroupName="sflinuxclustergroup"
+Location="southcentralus"  
 Password="q6D7nN%6ck@6"
-Subject="mysfcluster.southcentralus.cloudapp.azure.com"
 VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates\MyCertificate.pem"
+
+# sign in to your Azure account and select your subscription
+az login
+az account set --subscription <guid>
+
+# Create a new resource group for your deployment and give it a name and a location.
 az group create --name $ResourceGroupName --location $Location
 
+# Create the Service Fabric cluster.
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
-   --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \
+   --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file linuxcluster.json --parameter-file linuxcluster.parameters.json
-
+   --template-file vnet-linuxcluster.json --parameter-file vnet-linuxcluster.parameters.json
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Connettersi al cluster sicuro
@@ -180,8 +193,5 @@ Procedere con l'esercitazione seguente per scoprire come ridimensionare il clust
 > [Ridimensionare un cluster](service-fabric-tutorial-scale-cluster.md)
 
 
-[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
-[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
-
-[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.json
-[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.parameters.json
+[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.json
+[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.parameters.json

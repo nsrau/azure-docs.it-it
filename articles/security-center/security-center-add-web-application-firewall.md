@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 01/31/2018
 ms.author: terrylan
-ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Aggiungere un Web application firewall al Centro sicurezza di Azure
 È possibile che il Centro sicurezza di Azure consigli di aggiungere un WAF (Web Application Firewall) di un partner Microsoft per proteggere le applicazioni Web. Questo documento contiene un esempio su come eseguire questa operazione.
 
 Viene visualizzata una raccomandazione WAF per qualsiasi IP pubblico (IP a livello di istanza o IP con carico bilanciato) cui è associato un gruppo di sicurezza di rete con porte Web in ingresso aperte (80, 443).
 
-Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentire la protezione da attacchi contro le applicazioni Web nelle macchine virtuali e nell'Ambiente del servizio app. Un Ambiente del servizio app è un'opzione del piano di servizio [Premium](https://azure.microsoft.com/pricing/details/app-service/) del Servizio app di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro tutte le app del servizio. Per altre informazioni sull'ambiente del servizio app, vedere [Documentazione relativa agli ambienti del servizio app](../app-service/environment/intro.md).
+Il Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentire la protezione da attacchi contro le applicazioni Web nelle macchine virtuali e negli Ambienti del servizio app esterni. Un Ambiente del servizio app è un'opzione del piano di servizio [Premium](https://azure.microsoft.com/pricing/details/app-service/) del Servizio app di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro tutte le app del servizio. Per altre informazioni sull'ambiente del servizio app, vedere [Documentazione relativa agli ambienti del servizio app](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.
@@ -33,23 +33,23 @@ Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentir
 >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-1. Nel pannello **Raccomandazioni** selezionare **Secure web application using web application firewall** (Proteggi l'applicazione Web usando web application firewall).
+1. In **Raccomandazioni** selezionare **Secure web application using web application firewall** (Proteggi l'applicazione Web usando web application firewall).
    ![Proteggere l'applicazione Web][1]
-2. Nel pannello **Proteggere le applicazioni Web mediante Web application firewall** selezionare un'applicazione Web. Viene visualizzato il pannello **Aggiungi un web application firewall** .
-   ![Add a web application firewall][2]
+2. In **Secure your web applications using web application firewall** (Proteggi le applicazioni Web usando web application firewall) selezionare un'applicazione Web. Si aprirà la finestra **Aggiungi un web application firewall**.
+   ![Aggiungere un Web Application Firewall][2]
 3. È possibile scegliere di usare un Web application firewall esistente eventualmente disponibile o di crearne uno nuovo. In questo esempio non sono disponibili WAF esistenti ed è pertanto necessario creare un WAF.
 4. Per creare un WAF, selezionare una soluzione dall'elenco di partner integrati. In questo esempio viene selezionato **Barracuda Web Application Firewall**.
-5. Viene visualizzato il pannello **Barracuda Web Application Firewall** , dove sono disponibili informazioni sulla soluzione del partner. Selezionare **Crea** nel pannello informativo.
+5. Si aprirà la finestra **Barracuda Web Application Firewall** con informazioni sulla soluzione del partner. Selezionare **Create**.
 
    ![Pannello di informazioni sul firewall][3]
 
-6. Viene visualizzato il pannello **Nuovo web application firewall**, in cui è possibile eseguire la procedura di **Configurazione macchina virtuale** e fornire i dati richiesti in **Informazioni sul web application firewall**. Selezionare **Configurazione macchina virtuale**.
-7. Nel pannello **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che esegue il WAF.
+6. Si aprirà la finestra **Nuovo web application firewall**, in cui è possibile eseguire la procedura di **Configurazione macchina virtuale** e fornire i dati richiesti in **Informazioni sul web application firewall**. Selezionare **Configurazione macchina virtuale**.
+7. In **Configurazione macchina virtuale** immettere le informazioni necessarie per avviare la macchina virtuale che esegue il WAF.
    ![VM configuration][4]
-8. Tornare al pannello **Nuovo web application firewall** e selezionare **Informazioni sul web application firewall**. Nel pannello **WAF Information** (Informazioni WAF) è possibile configurare il WAF. Il passaggio 7 consente di configurare la macchina virtuale che esegue il WAF, mentre nel passaggio 8 si esegue il provisioning del WAF stesso.
+8. Tornare a **Nuovo web application firewall** e selezionare **Informazioni sul web application firewall**. In **Informazioni sul web application firewall** è possibile configurare il WAF. Il passaggio 7 consente di configurare la macchina virtuale che esegue il WAF, mentre nel passaggio 8 si esegue il provisioning del WAF stesso.
 
 ## <a name="finalize-application-protection"></a>Finalizza la protezione dell'applicazione
-1. Tornare al pannello **Raccomandazioni** . Dopo la creazione del WAF viene aggiunta una nuova voce: **Finalizza la protezione dell'applicazione**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione effettiva del WAF all'interno della rete virtuale di Azure in modo da proteggere l'applicazione.
+1. Tornare a **Raccomandazioni**. Dopo la creazione del WAF viene aggiunta una nuova voce: **Finalizza la protezione dell'applicazione**. Questa raccomandazione informa l'utente che è necessario completare il processo di connessione effettiva del WAF all'interno della rete virtuale di Azure in modo da proteggere l'applicazione.
 
    ![Finalizza la protezione dell'applicazione][5]
 

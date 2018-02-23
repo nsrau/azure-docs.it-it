@@ -18,7 +18,7 @@ ms.reviewer: carlrab
 ms.workload: Inactive
 ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

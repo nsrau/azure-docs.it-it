@@ -44,7 +44,7 @@ Per questa versione di anteprima del connettore, tenere presente quanto segue:
 * Per esaminare i problemi noti, vedere [la risoluzione dei problemi di Microsoft Azure Stack](azure-stack-troubleshooting.md).
 
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 Il diagramma seguente mostra i componenti principali di Windows Azure Pack Connector.
 
 ![I componenti di Windows Azure Pack connettore](media/azure-stack-manage-wap/image1.png)
@@ -93,7 +93,7 @@ Prima di configurare il connettore di Windows Azure Pack, è necessario abilitar
 Per abilitare la modalità multi-cloud, è necessario eseguire lo script Add-AzurePackConnector.ps1 dopo la distribuzione di Azure Stack. Nella tabella seguente vengono descritti i parametri di script.
 
 
-|  Parametro | Descrizione | Esempio |   
+|  Parametro | DESCRIZIONE | Esempio |   
 | -------- | ------------- | ------- |  
 | AzurePackClouds | URI dei connettori Windows Azure Pack. Gli URI devono corrispondere ai portali tenant Windows Azure Pack. | @{CloudName = "AzurePack1"; CloudEndpoint = "https://waptenantportal1:40005"},@{CloudName = "AzurePack2"; CloudEndpoint = "https://waptenantportal2:40005"}<br><br>  (Per impostazione predefinita, il valore della porta è 40005). |  
 | AzureStackCloudName | Etichetta per rappresentare il cloud di Azure Stack locale.| "AzureStack" |
@@ -179,11 +179,11 @@ Per questa versione di anteprima, usare il connettore di Windows Azure Pack solo
 
     f. Per completare la configurazione di questi tre servizi, eseguire il **Configura WapConnector.ps1** script per aggiornare i parametri del file Web. config.
 
-    |  Parametro | Descrizione | Esempio |   
+    |  Parametro | DESCRIZIONE | Esempio |   
     | -------- | ------------- | ------- |  
     | TenantPortalFQDN | Il portale tenant Windows Azure Pack FQDN. | tenant.contoso.com | 
     | TenantAPIFQDN | Windows Azure Pack Tenant API nome completo. | tenantapi.contoso.com  |
-    | AzureStackPortalFQDN | Il portale utenti Azure Stack FQDN. | Portal.Local.azurestack.External |
+    | AzureStackPortalFQDN | Il portale utenti Azure Stack FQDN. | portal.local.azurestack.external |
     | | |
     
      ```powershell
@@ -214,10 +214,10 @@ Per questa versione di anteprima, usare il connettore di Windows Azure Pack solo
     f.  Ripetere il passaggio 2 in altre macchine virtuali in esecuzione l'API Tenant.
 3. Da **sola** delle macchine virtuali API Tenant, eseguire lo script di configurazione TrustAzureStack.ps1 per aggiungere una relazione di trust tra l'API Tenant e l'istanza di AD FS nello Stack di Azure. È necessario utilizzare un account con accesso sysadmin nel database di Store. Questo script ha i seguenti parametri:
 
-    | Parametro | Descrizione | Esempio |
+    | Parametro | DESCRIZIONE | Esempio |
     | --------- | ------------| ------- |
-   | SQL Server | Il nome del Server SQL che contiene il database di Store. Questo parametro è obbligatorio. | SQL Server | 
-   | file di dati | Il file di output generati durante la configurazione della modalità multi-cloud Azure Stack in precedenza. Questo parametro è obbligatorio. | AzurePack-06-27-15-50.txt | 
+   | SqlServer | Il nome del Server SQL che contiene il database di Store. Questo parametro è obbligatorio. | SQLServer | 
+   | DataFile | Il file di output generati durante la configurazione della modalità multi-cloud Azure Stack in precedenza. Questo parametro è obbligatorio. | AzurePack-06-27-15-50.txt | 
    | PromptForSqlCredential | Indica che lo script deve richiedere in modo interattivo per le credenziali di autenticazione di SQL Server da utilizzare quando ci si connette all'istanza di SQL Server. Le credenziali specificate devono avere autorizzazioni sufficienti per disinstallare i database, schemi ed eliminare gli account di accesso utente. Se non è specificato, lo script si presuppone che il contesto utente corrente ha accesso. | Non è necessario alcun valore. |
    |  |  |
 

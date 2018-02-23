@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -158,7 +158,7 @@ Per inviare un singolo valore di metrica:
 
 *C#, Java*
 
-```C#
+```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
@@ -178,7 +178,7 @@ Di seguito è riportato un esempio di codice di aggregazione:
 
 *C#*
 
-```C#
+```csharp
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -422,7 +422,7 @@ Quando si tiene traccia dei dati di telemetria manualmente, il modo più semplic
 
 *C#*
 
-```C#
+```csharp
 // Establish an operation context and associated telemetry item:
 using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
@@ -547,7 +547,7 @@ Gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
     
-*Node.js*
+*Node.JS*
 
     telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
@@ -576,7 +576,7 @@ Se il [campionamento](app-insights-sampling.md) è attivo, la proprietà itemCou
 ## <a name="trackdependency"></a>TrackDependency
 Usare la chiamata di TrackDependency per rilevare i tempi di risposta e le percentuali di successo delle chiamate a un frammento di codice esterno. I risultati vengono visualizzati nei grafici dipendenze nel portale.
 
-```C#
+```csharp
 var success = false;
 var startTime = DateTime.UtcNow;
 var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -636,7 +636,7 @@ In genere l'SDK invia i dati in momenti scelti per ridurre al minimo l'impatto s
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
     
-*Node.js*
+*Node.JS*
 
     telemetry.flush();
 
@@ -726,7 +726,7 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, di valori delle propr
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
 
-*Node.JS*
+*Node.js*
 
     // Set up some properties and metrics:
     var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
@@ -882,7 +882,7 @@ Se si intende impostare solo i valori di proprietà predefiniti per alcuni degli
 
     gameTelemetry.TrackEvent("WinGame");
     
-*Node.js*
+*Node.JS*
 
     var gameTelemetry = new applicationInsights.TelemetryClient();
     gameTelemetry.commonProperties["Game"] = currentGame.Name;
@@ -913,7 +913,7 @@ Per *avviare e arrestare in modo dinamico* la raccolta e la trasmissione di dati
 
 *C#*
 
-```C#
+```csharp
 
     using  Microsoft.ApplicationInsights.Extensibility;
 
@@ -922,7 +922,7 @@ Per *avviare e arrestare in modo dinamico* la raccolta e la trasmissione di dati
 
 Per *disabilitare gli agenti di raccolta standard selezionati*, ad esempio contatori delle prestazioni, richieste HTTP o dipendenze, eliminare o impostare come commento le righe pertinenti in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio è possibile eseguire questa operazione se si desidera inviare i propri dati TrackRequest.
 
-*Node.JS*
+*Node.js*
 
 ```Javascript
 

@@ -38,7 +38,7 @@ Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Micro
 - [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questo argomento si presuppone che si dispone già di una conoscenza di:
 
@@ -85,7 +85,7 @@ Gli argomenti correlati forniscono due esempi di codice:
 
 La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](http://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
 
-| Nome della<br/>vista del catalogo | Descrizione |
+| Nome della<br/>vista del catalogo | DESCRIZIONE |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Restituisce una riga per ogni azione su ogni evento di una sessione di eventi. |
 | **sys.database_event_session_events** |Restituisce una riga per ogni evento in una sessione di eventi. |
@@ -99,7 +99,7 @@ In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.
 
 Il database SQL di Azure include [viste a gestione dinamica (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
-| Nome della DMV | Descrizione |
+| Nome della DMV | DESCRIZIONE |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |Restituisce informazioni sulle azioni della sessione di eventi. |
 | **sys.dm_xe_database_session_events** |Restituisce informazioni sugli eventi della sessione. |
@@ -146,7 +146,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Destinazioni per le sessioni di eventi del database SQL
 

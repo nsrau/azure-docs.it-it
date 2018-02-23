@@ -4,6 +4,8 @@
   items:
     - name: Informazioni sul database SQL
       href: sql-database-technical-overview.md
+    - name: PaaS o IaaS
+      href: sql-database-paas-vs-sql-server-iaas.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -59,9 +61,10 @@
       href: sql-database-powershell-samples.md
 - name: Concetti
   items:
-    - name: Funzionalità del servizio
-      href: sql-database-servers-databases.md
+    - name: Servizio di database
       items:
+        - name: Server e database
+          href: sql-database-servers-databases.md
         - name: Livelli di servizio
           href: sql-database-service-tiers.md
         - name: Limiti delle risorse
@@ -72,41 +75,22 @@
           href: sql-database-elastic-pool.md
         - name: Architettura della connettività
           href: sql-database-connectivity-architecture.md
-        - name: Regole del firewall
-          href: sql-database-firewall-configure.md
-        - name: Regole della rete virtuale del firewall
-          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU ed eDTU
           href: sql-database-what-is-a-dtu.md
         - name: Benchmark DTU
           href: sql-database-benchmark-overview.md
-        - name: PaaS o IaaS
-          href: sql-database-paas-vs-sql-server-iaas.md
-        - name: Controllo
-          href: sql-database-auditing.md
-        - name: Introduzione al rilevamento delle minacce
-          href: sql-database-threat-detection.md
-        - name: Backup del database
-          href: sql-database-automated-backups.md
-        - name: Conservazione backup
-          href: sql-database-long-term-retention.md
-        - name: Gruppi di failover
-          href: sql-database-geo-replication-overview.md
-        - name: Libreria di client elastici
-          href: sql-database-elastic-database-client-library.md
-        - name: Query elastiche
-          href: sql-database-elastic-query-overview.md
-        - name: Transazioni elastiche
-          href: sql-database-elastic-transactions-overview.md
-        - name: Processi elastici
-          href: sql-database-elastic-jobs-overview.md
-        - name: Valutazione della vulnerabilità di SQL
-          href: sql-vulnerability-assessment.md
         - name: Funzionalità comuni di SQL Server
           href: sql-database-features.md
+    - name: Disponibilità elevata
+      href: sql-database-high-availability.md
     - name: Sicurezza
-      href: sql-database-security-overview.md
       items:
+        - name: Panoramica
+          href: sql-database-security-overview.md
+        - name: Regole del firewall
+          href: sql-database-firewall-configure.md
+        - name: Regole della rete virtuale del firewall
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Controllo di accesso
           href: sql-database-control-access.md
         - name: Azure AD
@@ -115,15 +99,28 @@
           href: sql-database-manage-logins.md
         - name: Autenticazione a più fattori
           href: sql-database-ssms-mfa-authentication.md
+        - name: Controllo
+          href: sql-database-auditing.md
+        - name: Introduzione al rilevamento delle minacce
+          href: sql-database-threat-detection.md
         - name: Controllo Tabella e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Maschera dati
+        - name: Maschera dati dinamica
           href: sql-database-dynamic-data-masking-get-started.md
-    - name: Disponibilità elevata
-      href: sql-database-high-availability.md
+        - name: Valutazione della vulnerabilità
+          href: sql-vulnerability-assessment.md
+        - name: Individuazione dati e classificazione
+          href: sql-database-data-discovery-and-classification.md
     - name: Continuità aziendale
-      href: sql-database-business-continuity.md
       items:
+        - name: Panoramica
+          href: sql-database-business-continuity.md
+        - name: Backup del database
+          href: sql-database-automated-backups.md
+        - name: Conservazione backup
+          href: sql-database-long-term-retention.md
+        - name: Gruppi di failover
+          href: sql-database-geo-replication-overview.md
         - name: Ripristino del database
           href: sql-database-recovery-using-backups.md
         - name: Configurare la sicurezza
@@ -139,8 +136,9 @@
         - name: Eseguire un'esercitazione sul ripristino
           href: sql-database-disaster-recovery-drills.md
     - name: Eseguire la migrazione al database SQL
-      href: sql-database-cloud-migrate.md
       items:
+        - name: Panoramica
+          href: sql-database-cloud-migrate.md
         - name: Modifiche di T-SQL
           href: sql-database-transact-sql-information.md
         - name: Gestire il database dopo la migrazione
@@ -156,8 +154,9 @@
         - name: Sincronizzare i dati
           href: sql-database-sync-data.md
     - name: Monitorare e ottimizzare
-      href: sql-database-troubleshoot-performance.md
       items:
+        - name: Panoramica
+          href: sql-database-troubleshoot-performance.md
         - name: Monitoraggio delle prestazioni
           href: sql-database-single-database-monitor.md
         - name: Raccomandazioni per le prestazioni
@@ -177,8 +176,17 @@
         - name: Monitorare in memoria
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Scalabilità orizzontale
-      href: sql-database-elastic-scale-introduction.md
       items:
+        - name: Panoramica
+          href: sql-database-elastic-scale-introduction.md
+        - name: Libreria di client elastici
+          href: sql-database-elastic-database-client-library.md
+        - name: Query elastiche
+          href: sql-database-elastic-query-overview.md
+        - name: Transazioni elastiche
+          href: sql-database-elastic-transactions-overview.md
+        - name: Processi elastici
+          href: sql-database-elastic-jobs-overview.md
         - name: Mappe delle partizioni
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Routing delle query
@@ -205,6 +213,8 @@
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Sviluppare database
       items:
+        - name: Panoramica
+          href: sql-database-develop-overview.md
         - name: Dati JSON
           href: sql-database-json-features.md
         - name: In memoria
@@ -216,7 +226,6 @@
         - name: Configurare in memoria
           href: sql-database-in-memory-oltp-migration.md
     - name: Sviluppo di applicazioni
-      href: sql-database-develop-overview.md
       items:
         - name: Connettività
           href: sql-database-libraries.md
@@ -228,6 +237,10 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: Linee guida per la connettività
           href: sql-database-connectivity-issues.md
+        - name: Panoramica dell'alias DNS
+          href: dns-alias-overview.md
+        - name: PowerShell per l'alias DNS
+          href: dns-alias-powershell.md
         - name: 'Porte: ADO.NET'
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Guide alle procedure
@@ -292,6 +305,8 @@
           href: sql-database-advisor-portal.md
         - name: Abilitare l'ottimizzazione automatica
           href: sql-database-automatic-tuning-enable.md
+        - name: Notifiche tramite posta elettronica per l'ottimizzazione automatica
+          href: sql-database-automatic-tuning-email-notifications.md
         - name: Risoluzione dei problemi relativi alle prestazioni di Intelligent Insights
           href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: Usare le viste a gestione dinamica per monitorare le prestazioni
@@ -344,6 +359,8 @@
           items:
             - name: Distribuire un'applicazione di esempio
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Effettuare il provisioning di tenant
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Database per tenant
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

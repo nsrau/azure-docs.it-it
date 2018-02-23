@@ -29,7 +29,7 @@
           href: role-based-access-control-manage-access-rest.md
     - name: Elevare l'accesso al tenant con privilegi di amministratore
       href: role-based-access-control-tenant-admin-access.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       href: role-based-access-control-troubleshooting.md
     - name: Operazioni del provider di risorse
       href: role-based-access-control-resource-provider-operations.md

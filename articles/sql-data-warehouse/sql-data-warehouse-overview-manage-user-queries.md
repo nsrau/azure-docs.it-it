@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitorare le query utente in Azure SQL Data Warehouse
 Panoramica delle considerazioni, delle procedure consigliate e delle attività per il monitoraggio delle query utente in SQL Data Warehouse.
 
-| Categoria | Attività o considerazione | Descrizione |
+| Categoria | Attività o considerazione | DESCRIZIONE |
 |:--- |:--- |:--- |
 | Rallentamento delle prestazioni |Trovare una query utente con esecuzione prolungata |[Trovare query con esecuzione prolungata][Find long-running queries] |
 | Concorrenza |Assegnare risorse simultanee a query utente |[Gestione della concorrenza e del carico di lavoro][Concurrency and workload management] |

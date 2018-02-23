@@ -68,7 +68,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
        ```rand -hex <key length>```
 
-       ad esempio:
+       Ad esempio: 
 
        ```OpenSSL> rand -hex 32``` 
 
@@ -92,7 +92,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
        > <table>
        > <tr>
        >   <th>Nome parametro</th> 
-       >   <th>Descrizione</th>
+       >   <th>DESCRIZIONE</th>
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
@@ -110,7 +110,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
        >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
        >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
        >       </ul></li>
-       >       <li>Valore di input `/pictures/`: sono consentite solo le richieste contenenti il percorso `/pictures/`, ad esempio `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+       >       <li>Valore di input `/pictures/`: sono consentite solo le richieste contenenti il percorso `/pictures/`, Ad esempio, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
        >       <li>Valore di input `/pictures/city/strasbourg.png`: sono consentite solo le richieste per questo specifico percorso e asset.</li>
        >    </ul>
        > </tr>
@@ -158,7 +158,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
     7. Fare clic su **Crittografa** per generare il token.
 
-    Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, ad esempio `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, Ad esempio, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
     8. Facoltativamente, verificare il token con lo strumento per decrittografare in modo che sia possibile visualizzare i parametri del token. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco **Key to Decrypt** (Chiave da decrittografare) e fare clic su **Decrittografa**.
 

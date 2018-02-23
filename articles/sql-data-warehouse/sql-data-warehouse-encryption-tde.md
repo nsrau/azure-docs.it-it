@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---

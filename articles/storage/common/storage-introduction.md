@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
@@ -131,37 +131,35 @@ Il servizio BLOB consente di fornire l'accesso pubblico a un contenitore e ai ri
 
 ## <a name="encryption"></a>Crittografia
 
-Sono disponibili alcuni tipi di crittografia di base per i servizi di archiviazione.
+Sono disponibili due tipi di crittografia di base per i servizi di archiviazione. Per altre informazioni sulla sicurezza e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-È possibile abilitare Crittografia del servizio di archiviazione nel servizio file (anteprima) o nel servizio BLOB per un account di archiviazione di Azure. Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione.
+Crittografia del servizio di archiviazione di Azure per dati inattivi (SSE) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
+
+È possibile abilitare Crittografia del servizio di archiviazione (SSE) per l'archivio BLOB o File di Azure (anteprima). Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione.
+
+Per altre informazioni sulla crittografia SSE dei dati inattivi, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
 Le librerie client di archiviazione includono metodi che possono essere chiamati per crittografare i dati a livello di codice prima del transito dal client ad Azure. I dati vengono archiviati crittografati, ovvero sono crittografati anche quando inattivi. Durante la lettura dei dati, le informazioni vengono decrittografate dopo la ricezione.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Crittografia in transito con le condivisioni di File di Azure
-
-Per altre informazioni sulle firme di accesso condiviso, vedere [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Uso di firme di accesso condiviso). Per altre informazioni sull'accesso sicuro all'account di archiviazione, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md) e [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
-
-Per altre informazioni sulla protezione dell'account di archiviazione e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
+Per altre informazioni sulla crittografia lato client, vedere [Crittografia lato client con .NET per Archiviazione di Microsoft Azure](storage-client-side-encryption.md) .
 
 ## <a name="replication"></a>Replica
 
-Per assicurare che i dati siano durevoli, Archiviazione di Azure può mantenere e gestire più copie dei dati. Questo approccio viene definito replica o ridondanza. Quando si configura l'account di archiviazione, si seleziona un tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la configurazione dell'account di archiviazione.
-
-Tutti gli account di archiviazione offrono l'**archiviazione con ridondanza locale**, progettata per garantire almeno il 99,999999999% (11 9) di durabilità degli oggetti nell'arco di un anno. Di conseguenza, Archiviazione di Azure gestisce più copie dei dati nel data center specificato durante la configurazione dell'account di archiviazione. Quando viene eseguito il commit delle modifiche, tutte le copie vengono aggiornate prima della restituzione dell'esito positivo. Le repliche sono quindi sempre sincronizzate. Le copie, inoltre, si trovano in domini di errore e di aggiornamento separati e i dati sono quindi disponibili anche in caso di errore in un nodo di archiviazione contenente i dati o se questo viene portato offline per un aggiornamento.
+Per assicurare che i dati siano durevoli, Archiviazione di Azure manterrà e gestirà più copie dei dati. Questo approccio viene definito replica o ridondanza. Quando si configura l'account di archiviazione, si seleziona un tipo di replica. Nella maggior parte dei casi questa impostazione può essere modificata dopo la configurazione dell'account di archiviazione.
 
 **Archiviazione con ridondanza locale (LRS)**
 
-Come illustrato sopra, con l'archiviazione con ridondanza locale si hanno più copie dei dati in un singolo data center. Ciò consente di gestire il problema della mancata disponibilità dei dati in caso di errore o di spostamento offline di un nodo per l'aggiornamento, ma non in caso di mancata disponibilità di un intero data center.
+L'archiviazione con ridondanza locale è progettata per garantire almeno il 99,999999999% (11 9) di durabilità degli oggetti nell'arco di un anno. Di conseguenza, Archiviazione di Azure gestisce più copie dei dati nel data center specificato durante la configurazione dell'account di archiviazione. Quando viene eseguito il commit delle modifiche, tutte le copie vengono aggiornate prima della restituzione dell'esito positivo. Le repliche sono quindi sempre sincronizzate. Le copie, inoltre, si trovano in domini di errore e di aggiornamento separati e i dati sono quindi disponibili anche in caso di errore in un nodo di archiviazione contenente i dati o se questo viene portato offline per un aggiornamento.
 
-**Archiviazione con ridondanza della zona**
+**Archiviazione con ridondanza della zona (ZRS) (Anteprima)**
 
-L'archiviazione con ridondanza della zona è progettata per offrire almeno il 99,9999999999% (12 9) di durabilità degli oggetti nell'arco di un anno mantenendo le copie locali dei dati e un altro set di copie dei dati. Il secondo set di copie viene replicato in modo asincrono nei data center in una o due aree. Si noti che l'archiviazione con ridondanza della zona è disponibile solo per i BLOB in blocchi negli account di archiviazione per utilizzo generico. Dopo aver creato l'account di archiviazione e selezionato l'archiviazione con ridondanza della zona, non è inoltre possibile convertirlo per usarlo con un altro tipo di replica o viceversa.
+L'archiviazione con ridondanza della zona è progettata per semplificare lo sviluppo di applicazioni a disponibilità elevata. Offre almeno il 99,9999999999% (12 9) di durabilità degli oggetti di archiviazione nell'arco di un anno. Replica i dati in modo sincrono in più zone di disponibilità. Valutare l'uso dell'archiviazione con ridondanza della zona per scenari, quali quelli delle applicazioni transazionali, in cui i tempi di inattività non sono accettabili. L'archiviazione con ridondanza della zona consente ai clienti di leggere e scrivere dati anche se una singola zona non è disponibile o non può essere ripristinata. Gli inserimenti e gli aggiornamenti dei dati vengono eseguiti in modo sincrono e sono notevolmente coerenti.    
 
-L'archiviazione con ridondanza della zona fornisce una durabilità superiore rispetto all'archiviazione con ridondanza locale, ma gli account di archiviazione con ridondanza della zona non includono metriche o funzionalità di registrazione.
+La precedente funzionalità di archiviazione con ridondanza della zona è ora nota come versione classica dell'archiviazione con ridondanza della zona. Gli account della versione classica dell'archiviazione con ridondanza della zona sono disponibili solo per i BLOB in blocchi negli account di archiviazione per utilizzo generico v1. La versione classica dell'archiviazione con ridondanza della zona replica i dati in modo asincrono nei data center in una o due aree. Una replica potrebbe non essere disponibile a meno che Microsoft non avvii il failover all'area secondaria. Un account della versione classica dell'archiviazione con ridondanza della zona non può essere convertito da o verso l'archiviazione con ridondanza locale o l'archiviazione con ridondanza geografica e non include funzionalità di registrazione o metrica.
 
 **Archiviazione con ridondanza geografica (GRS)**
 
@@ -172,10 +170,10 @@ L'archiviazione con ridondanza geografica è progettata per offrire il 99,999999
 L'archiviazione con ridondanza geografica e accesso in lettura è esattamente uguale all'archiviazione con ridondanza geografica, ma si ottiene l'accesso in lettura ai dati nella posizione secondaria. Se il data center primario risulta temporaneamente non disponibile, è possibile continuare a leggere i dati dalla posizione secondaria. Questo approccio può risultare molto utile. È ad esempio possibile che sia presente un'applicazione Web che passa alla modalità di sola lettura e fa riferimento a una copia secondaria, consentendo l'accesso parziale, anche se gli aggiornamenti non sono disponibili.
 
 > [!IMPORTANT]
-> È possibile cambiare la modalità di replica dei dati dopo la creazione dell'account di archiviazione, a meno che non sia stata specificata l'archiviazione con ridondanza della zona al momento della creazione dell'account. Si noti tuttavia che se si passa dall'archiviazione con ridondanza locale all'archiviazione con ridondanza geografica o all'archiviazione con ridondanza geografica e accesso in lettura, potrebbe essere addebitato un costo una tantum per il trasferimento dei dati.
+> È possibile cambiare la modalità di replica dei dati dopo la creazione dell'account di archiviazione. Se però si passa dall'archiviazione con ridondanza locale o dall'archiviazione con ridondanza della zona all'archiviazione con ridondanza geografica o all'archiviazione con ridondanza geografica e accesso in lettura, potrebbe essere addebitato un costo una tantum per il trasferimento dei dati.
 >
 
-Per altre informazioni sulla replica, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+Per altre informazioni sulle opzioni di replica, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
 Per informazioni sul ripristino di emergenza, vedere [Cosa fare se si verifica un'interruzione di Archiviazione di Azure](storage-disaster-recovery-guidance.md).
 

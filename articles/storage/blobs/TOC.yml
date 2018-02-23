@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Usare i BLOB - Python
       href: storage-quickstart-blobs-python.md
+    - name: Usare i BLOB - Go
+      href: storage-quickstart-blobs-go.md
     - name: Usare i BLOB - Ruby
       href: storage-quickstart-blobs-ruby.md
     - name: Usare i BLOB - Node.js
@@ -70,10 +72,6 @@
       href: storage-samples-blobs-powershell.md
     - name: Interfaccia della riga di comando di Azure
       href: storage-samples-blobs-cli.md
-    - name: .NET
-      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Java
-      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Concetti
   items:
     - name: Pianificare e progettare
@@ -96,6 +94,8 @@
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Spostare dati da e verso Archiviazione
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Funzionalità dei BLOB di pagine
+          href: storage-blob-pageblob-overview.md
         - name: Archiviazione Premium
           items:
             - name: Linux
@@ -190,8 +190,6 @@
           href: storage-how-to-use-blobs-powershell.md
         - name: Interfaccia della riga di comando di Azure 2.0
           href: storage-how-to-use-blobs-cli.md
-        - name: REST
-          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gestisci
       items:
         - name: PowerShell per Archiviazione di Azure
@@ -236,6 +234,8 @@
           href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: AzCopy in Linux
           href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Montare l'archivio BLOB come file system in Linux
+          href: storage-how-to-mount-container-linux.md
         - name: Uso del servizio Importazione/Esportazione
           href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Uso dello strumento Importazione/Esportazione
@@ -317,7 +317,7 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Domande frequenti sulla migrazione di Archiviazione
           href: ../common/storage-migration-faq.md
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage

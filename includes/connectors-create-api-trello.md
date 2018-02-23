@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Un account [Trello](http://trello.com) 
 
 Prima di poter usare l'account Trello in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account Trello. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure. 

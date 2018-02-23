@@ -1,0 +1,618 @@
+- name: Documentazione di Service Fabric
+  href: /azure/service-fabric
+- name: Panoramica
+  items:
+    - name: Informazioni su Service Fabric
+      href: service-fabric-overview.md
+- name: Guide introduttive
+  items:
+    - name: Creare un'applicazione .NET
+      href: service-fabric-quickstart-dotnet.md
+    - name: Distribuire un'applicazione contenitore Linux
+      href: service-fabric-quickstart-containers-linux.md
+    - name: Distribuire un'applicazione contenitore Windows
+      href: service-fabric-quickstart-containers.md
+    - name: Guide introduttive su Java
+      items:
+        - name: Distribuire un'applicazione Spring Boot
+          href: service-fabric-quickstart-java-spring-boot.md
+        - name: Distribuire un'applicazione Reliable Services
+          href: service-fabric-quickstart-java-reliable-services.md
+- name: Esercitazioni
+  items:
+    - name: Distribuire un'app .NET
+      items:
+        - name: 1- Compilare un'applicazione .NET
+          href: service-fabric-tutorial-create-dotnet-app.md
+        - name: 2- Distribuire l'applicazione
+          href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+        - name: 3- Configurare integrazione continua/distribuzione continua
+          href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
+        - name: 4- Monitorare e diagnosticare
+          href: service-fabric-tutorial-monitoring-aspnet.md
+    - name: Distribuire un'app .NET esistente in un contenitore
+      items:
+        - name: 1- Distribuire un'app .NET con Docker Compose
+          href: service-fabric-host-app-in-a-container.md
+        - name: 2 - Monitorare il contenitore
+          href: service-fabric-tutorial-monitoring-wincontainers.md
+    - name: Creare un'app contenitore Linux
+      items:
+        - name: '1: Creare immagini del contenitore'
+          href: service-fabric-tutorial-create-container-images.md
+        - name: 2 - Pacchetto e contenitori di distribuzione
+          href: service-fabric-tutorial-package-containers.md
+        - name: 3 - Failover e scalabilità
+          href: service-fabric-tutorial-containers-failover.md
+    - name: Creare e gestire un cluster
+      items:
+        - name: 1- Creare un cluster in Azure
+          items:
+            - name: 1a- Creare un cluster Windows
+              href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
+            - name: 1b- Creare un cluster Linux
+              href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+        - name: 2- Ridimensionare il cluster
+          href: service-fabric-tutorial-scale-cluster.md
+        - name: 3- Aggiornare il runtime del cluster
+          href: service-fabric-tutorial-upgrade-cluster.md
+        - name: 4- Distribuire Gestione API con Service Fabric
+          href: service-fabric-tutorial-deploy-api-management.md
+- name: Esempi
+  items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+    - name: Azure PowerShell
+      href: service-fabric-powershell-samples.md
+    - name: Interfaccia della riga di comando di Service Fabric
+      href: samples-cli.md
+- name: Concetti
+  items:
+    - name: Informazioni sui microservizi
+      href: service-fabric-overview-microservices.md
+    - name: Quadro generale
+      href: service-fabric-content-roadmap.md
+    - name: Scenari applicativi
+      href: service-fabric-application-scenarios.md
+    - name: Modelli e scenari
+      href: service-fabric-patterns-and-scenarios.md
+    - name: Architecture
+      href: service-fabric-architecture.md
+    - name: Terminologia
+      href: service-fabric-technical-overview.md
+    - name: Modelli di programmazione supportati
+      href: service-fabric-choose-framework.md
+      items:
+        - name: Contenitori
+          href: service-fabric-containers-overview.md
+          items:
+            - name: Docker Compose (anteprima)
+              href: service-fabric-docker-compose.md
+            - name: Governance delle risorse
+              href: service-fabric-resource-governance.md
+        - name: Reliable Services
+          href: service-fabric-reliable-services-introduction.md
+          items:
+            - name: Ciclo di vita dell'istanza e della replica
+              href: service-fabric-concepts-replica-lifecycle.md
+            - name: 'Ciclo di vita di Reliable Services: C#'
+              href: service-fabric-reliable-services-lifecycle.md
+            - name: 'Ciclo di vita di Reliable Services: Java'
+              href: service-fabric-reliable-services-lifecycle-java.md
+            - name: Reliable Collections
+              href: service-fabric-reliable-services-reliable-collections.md
+            - name: Linee guida e indicazioni per Reliable Collections
+              href: service-fabric-reliable-services-reliable-collections-guidelines.md
+            - name: Lavorare con le raccolte Reliable Collections
+              href: service-fabric-work-with-reliable-collections.md
+            - name: Transazioni e blocchi
+              href: service-fabric-reliable-services-reliable-collections-transactions-locks.md
+            - name: Coda simultanea affidabile
+              href: service-fabric-reliable-services-reliable-concurrent-queue.md
+            - name: Serializzazione di raccolte Reliable Collections
+              href: service-fabric-reliable-services-reliable-collections-serialization.md
+            - name: Elementi interni di Reliable Collections e Reliable State Manager
+              href: service-fabric-reliable-services-reliable-collections-internals.md
+            - name: Uso avanzato
+              href: service-fabric-reliable-services-advanced-usage.md
+        - name: Reliable Actors
+          href: service-fabric-reliable-actors-introduction.md
+          items:
+            - name: Architecture
+              href: service-fabric-reliable-actors-platform.md
+            - name: Ciclo di vita e Garbage Collection
+              href: service-fabric-reliable-actors-lifecycle.md
+            - name: Gestione dello stato
+              href: service-fabric-reliable-actors-state-management.md
+            - name: Polimorfismo
+              href: service-fabric-reliable-actors-polymorphism.md
+            - name: Rientranza
+              href: service-fabric-reliable-actors-reentrancy.md
+            - name: Serializzazione dei tipi
+              href: service-fabric-reliable-actors-notes-on-actor-type-serialization.md
+    - name: Applicazioni e servizi
+      items:
+        - name: Modello di applicazione
+          href: service-fabric-application-model.md
+        - name: Manifesti dell'applicazione e del servizio
+          href: service-fabric-application-and-service-manifests.md
+        - name: Modello di hosting
+          href: service-fabric-hosting-model.md
+        - name: Stato del servizio
+          href: service-fabric-concepts-state.md
+        - name: Partizionamento del servizio
+          href: service-fabric-concepts-partitioning.md
+        - name: Scalabilità delle applicazioni
+          href: service-fabric-concepts-scalability.md
+        - name: Disponibilità dei servizi
+          href: service-fabric-availability-services.md
+        - name: Riconfigurazione
+          href: service-fabric-concepts-reconfiguration.md
+        - name: Comunicazione con i servizi
+          href: service-fabric-connect-and-communicate-with-services.md
+          items:
+            - name: Servizio DNS
+              href: service-fabric-dnsservice.md
+            - name: Proxy inverso
+              href: service-fabric-reverseproxy.md
+            - name: Configurare il proxy inverso per le comunicazioni sicure
+              href: service-fabric-reverseproxy-configure-secure-communication.md
+            - name: Diagnostica del proxy inverso
+              href: service-fabric-reverse-proxy-diagnostics.md
+        - name: Ciclo di vita dell'applicazione
+          href: service-fabric-application-lifecycle.md
+          items:
+            - name: Aggiornamento dell'applicazione
+              href: service-fabric-application-upgrade.md
+              items:
+                - name: Configurazione
+                  href: service-fabric-visualstudio-configure-upgrade.md
+                - name: Parametri di aggiornamento di un'applicazione
+                  href: service-fabric-application-upgrade-parameters.md
+                - name: Serializzazione dei dati negli aggiornamenti delle applicazioni
+                  href: service-fabric-application-upgrade-data-serialization.md
+                - name: Argomenti avanzati sugli aggiornamenti delle applicazioni
+                  href: service-fabric-application-upgrade-advanced.md
+            - name: Gestire le applicazioni per più ambienti
+              href: service-fabric-manage-multiple-environment-app-configuration.md
+            - name: Test delle app con analisi degli errori
+              href: service-fabric-testability-overview.md
+            - name: Impostazione ImageStoreConnectionString
+              href: service-fabric-image-store-connection-string.md
+        - name: Risorse del servizio
+          href: service-fabric-service-manifest-resources.md
+    - name: Cluster
+      href: service-fabric-deploy-anywhere.md
+      items:
+        - name: Sicurezza del cluster
+          href: service-fabric-cluster-security.md
+        - name: Differenze in termini di funzionalità tra Linux e Windows
+          href: service-fabric-linux-windows-differences.md
+        - name: Cluster in Azure
+          items:
+            - name: Tipi di nodo e set di scalabilità di macchine virtuali
+              href: service-fabric-cluster-nodetypes.md
+            - name: Modelli di rete di cluster
+              href: service-fabric-patterns-networking.md
+        - name: Gestione risorse cluster
+          href: service-fabric-cluster-resource-manager-introduction.md
+          items:
+            - name: Architecture
+              href: service-fabric-cluster-resource-manager-architecture.md
+            - name: Descrivere un cluster
+              href: service-fabric-cluster-resource-manager-cluster-description.md
+            - name: Panoramica dei gruppi di applicazioni
+              href: service-fabric-cluster-resource-manager-application-groups.md
+            - name: Configurare le impostazioni di Cluster Resource Manager
+              href: service-fabric-cluster-resource-manager-configure-services.md
+            - name: Metriche di consumo delle risorse
+              href: service-fabric-cluster-resource-manager-metrics.md
+            - name: Usare l'affinità dei servizi
+              href: service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md
+            - name: Criteri di posizionamento dei servizi
+              href: service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md
+            - name: Gestire un cluster
+              href: service-fabric-cluster-resource-manager-management-integration.md
+            - name: Deframmentazione dei cluster
+              href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
+            - name: Bilanciare un cluster
+              href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Limitazione
+              href: service-fabric-cluster-resource-manager-advanced-throttling.md
+            - name: Spostamento dei servizi
+              href: service-fabric-cluster-resource-manager-movement-cost.md
+    - name: Monitoraggio e diagnostica
+      items:
+        - name: Monitorare e diagnosticare applicazioni
+          href: service-fabric-diagnostics-overview.md
+        - name: Generare eventi
+          items:
+            - name: Generare eventi a livello di piattaforma
+              href: service-fabric-diagnostics-event-generation-infra.md
+              items:
+                - name: Canale operativo
+                  href: service-fabric-diagnostics-event-generation-operational.md
+                - name: Eventi di Reliable Services
+                  href: service-fabric-reliable-services-diagnostics.md
+                - name: Eventi di Reliable Actors
+                  href: service-fabric-reliable-actors-diagnostics.md
+                - name: Metriche delle prestazioni
+                  href: service-fabric-diagnostics-event-generation-perf.md
+                - name: Monitoraggio della comunicazione remota con i servizi
+                  href: service-fabric-reliable-serviceremoting-diagnostics.md
+            - name: Generare eventi a livello di applicazione
+              href: service-fabric-diagnostics-event-generation-app.md
+        - name: Ispezionare l'integrità di applicazioni e cluster
+          items:
+            - name: Monitorare l'integrità di Service Fabric
+              href: service-fabric-health-introduction.md
+            - name: Creare report e verificare l'integrità dei servizi
+              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+            - name: Aggiungere report sull'integrità personalizzati
+              href: service-fabric-report-health.md
+            - name: Risolvere i problemi relativi ai report sull'integrità del sistema
+              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+            - name: Visualizzare i report sull'integrità
+              href: service-fabric-view-entities-aggregated-health.md
+        - name: Aggregare eventi
+          items:
+            - name: Aggregare eventi con EventFlow
+              href: service-fabric-diagnostics-event-aggregation-eventflow.md
+            - name: Aggregare eventi con Diagnostica di Azure
+              items:
+                - name: Windows
+                  href: service-fabric-diagnostics-event-aggregation-wad.md
+                - name: Linux
+                  href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Analizzare gli eventi
+          items:
+            - name: Analizzare gli eventi con Application Insights
+              href: service-fabric-diagnostics-event-analysis-appinsights.md
+            - name: Analizzare gli eventi con OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
+        - name: Risolvere i problemi del cluster locale
+          href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Integrazione con Gestione API
+      href: service-fabric-api-management-overview.md
+- name: Guide alle procedure
+  items:
+    - name: Configurazione dell'ambiente di sviluppo
+      items:
+        - name: Windows
+          href: service-fabric-get-started.md
+        - name: Linux
+          href: service-fabric-get-started-linux.md
+        - name: Mac OS
+          href: service-fabric-get-started-mac.md
+        - name: Configurare l'interfaccia della riga di comando di Service Fabric
+          href: service-fabric-cli.md
+    - name: Pianificazione e preparazione
+      items:
+        - name: Pianificare la capacità dei cluster
+          href: service-fabric-cluster-capacity.md
+        - name: Pianificare la distribuzione autonoma dei cluster
+          href: service-fabric-cluster-standalone-deployment-preparation.md
+        - name: Preparare l'ambiente per il ripristino di emergenza
+          href: service-fabric-disaster-recovery.md
+        - name: Pianificare la capacità dell'applicazione
+          href: service-fabric-capacity-planning.md
+    - name: Creare la prima...
+      items:
+        - name: 'Applicazione C# in Visual Studio'
+          href: service-fabric-create-your-first-application-in-visual-studio.md
+        - name: Applicazione contenitore Windows
+          href: service-fabric-get-started-containers.md
+        - name: Applicazione contenitore Linux
+          href: service-fabric-get-started-containers-linux.md
+        - name: 'Applicazione Reliable Services C# su Windows'
+          href: service-fabric-reliable-services-quick-start.md
+        - name: Applicazione Reliable Services Java su Linux
+          href: service-fabric-reliable-services-quick-start-java.md
+        - name: 'Applicazione Reliable Services C# su Linux'
+          href: service-fabric-create-your-first-linux-application-with-csharp.md
+        - name: 'Applicazione Reliable Actors C# su Windows'
+          href: service-fabric-reliable-actors-get-started.md
+        - name: Applicazione Reliable Actors Java su Linux
+          href: service-fabric-create-your-first-linux-application-with-java.md
+        - name: Applicazione eseguibile guest su Windows
+          href: quickstart-guest-app.md
+        - name: Cluster autonomo
+          href: service-fabric-get-started-standalone-cluster.md
+    - name: Creare un'applicazione
+      items:
+        - name: Creare un servizio eseguibile guest
+          items:
+            - name: Distribuire un eseguibile guest
+              href: service-fabric-deploy-existing-app.md
+            - name: Distribuire più eseguibili guest
+              href: service-fabric-deploy-multiple-apps.md
+        - name: Creare un servizio contenitore
+          items:
+            - name: Sicurezza del contenitore
+              href: service-fabric-securing-containers.md
+            - name: Docker Compose (anteprima)
+              href: service-fabric-docker-compose.md
+            - name: Governance delle risorse per contenitori e servizi
+              href: service-fabric-resource-governance.md
+            - name: Driver di volume e registrazione
+              href: service-fabric-containers-volume-logging-drivers.md
+            - name: Servizi nei contenitori
+              href: service-fabric-services-inside-containers.md
+            - name: Modalità di rete del contenitore
+              href: service-fabric-networking-modes.md
+        - name: Creare un servizio di Reliable Services
+          items:
+            - name: Reliable Collections
+              items:
+                - name: Lavorare con le raccolte Reliable Collections
+                  href: service-fabric-work-with-reliable-collections.md
+                - name: Coda simultanea affidabile
+                  href: service-fabric-reliable-services-reliable-concurrent-queue.md
+                - name: Serializzazione di raccolte Reliable Collections
+                  href: service-fabric-reliable-services-reliable-collections-serialization.md
+            - name: Comunicare con i servizi
+              items:
+                - name: Comunicare con Reliable Services
+                  href: service-fabric-reliable-services-communication.md
+                - name: 'Servizio remoto: C#'
+                  href: service-fabric-reliable-services-communication-remoting.md
+                - name: 'Servizio remoto: Java'
+                  href: service-fabric-reliable-services-communication-remoting-java.md
+                - name: WCF
+                  href: service-fabric-reliable-services-communication-wcf.md
+                - name: 'Comunicazioni sicure - C#'
+                  href: service-fabric-reliable-services-secure-communication.md
+                - name: Comunicazioni sicure - Java
+                  href: service-fabric-reliable-services-secure-communication-java.md
+            - name: Configurare
+              href: service-fabric-reliable-services-configuration.md
+            - name: Inviare notifiche
+              href: service-fabric-reliable-services-notifications.md
+            - name: Backup e ripristino
+              href: service-fabric-reliable-services-backup-restore.md
+        - name: Creare un servizio di Reliable Actors
+          items:
+            - name: Inviare notifiche
+              href: service-fabric-reliable-actors-events.md
+            - name: Configurare timer e promemoria
+              href: service-fabric-reliable-actors-timers-reminders.md
+            - name: Configurare KvsActorStateProvider
+              href: service-fabric-reliable-actors-kvsactorstateprovider-configuration.md
+            - name: Configurare le impostazioni delle comunicazioni
+              href: service-fabric-reliable-actors-fabrictransportsettings.md
+            - name: Configurare ReliableDictionaryActorStateProvider
+              href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
+        - name: Eseguire la migrazione di applicazioni Java precedenti per il supporto di Maven
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
+        - name: Configurare il proxy inverso per le comunicazioni sicure
+          href: service-fabric-reverseproxy-configure-secure-communication.md
+        - name: ASP.NET Core
+          href: service-fabric-reliable-services-communication-aspnetcore.md
+        - name: Configurare la sicurezza
+          items:
+            - name: Gestire i segreti dell'applicazione
+              href: service-fabric-application-secret-management.md
+            - name: Configurare i criteri di sicurezza per l'applicazione
+              href: service-fabric-application-runas-security.md
+    - name: Usare un ambiente di sviluppo Windows/VS
+      items:
+        - name: Gestire le applicazioni in Visual Studio
+          href: service-fabric-manage-application-in-visual-studio.md
+        - name: Configurare connessioni sicure in Visual Studio
+          href: service-fabric-visualstudio-configure-secure-connections.md
+        - name: Eseguire il debug di un servizio .NET in Visual Studio
+          href: service-fabric-debugging-your-application.md
+        - name: Errori ed eccezioni comuni
+          href: service-fabric-errors-and-exceptions.md
+        - name: Monitorare e diagnosticare in locale
+          href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+        - name: Configurare un cluster Linux in Windows
+          href: service-fabric-local-linux-cluster-windows.md
+    - name: Usare un ambiente di sviluppo Linux/Eclipse
+      items:
+        - name: Introduzione al plug-in Eclipse per lo sviluppo Java
+          href: service-fabric-get-started-eclipse.md
+        - name: Eseguire il debug di un servizio Java in Eclipse
+          href: service-fabric-debugging-your-application-java.md
+        - name: Monitorare e diagnosticare in locale
+          href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Eseguire la migrazione da Servizi cloud
+      items:
+        - name: Confrontare Servizi cloud e Service Fabric
+          href: service-fabric-cloud-services-migration-differences.md
+        - name: Eseguire la migrazione a Service Fabric
+          href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
+        - name: Procedure consigliate
+          href: /azure/architecture/service-fabric/migrate-from-cloud-services
+    - name: Gestire il ciclo di vita delle applicazioni
+      items:
+        - name: Inserire un'applicazione in un pacchetto
+          href: service-fabric-package-apps.md
+        - name: Usare parametri con i file di configurazione
+          href: service-fabric-how-to-parameterize-configuration-files.md
+        - name: Specificare i numeri di porta usando parametri
+          href: service-fabric-how-to-specify-port-number-using-parameters.md
+        - name: Specificare variabili di ambiente
+          href: service-fabric-how-to-specify-environment-variables.md
+        - name: Distribuire o rimuovere applicazioni
+          items:
+            - name: Distribuire applicazioni in un cluster locale
+              href: service-fabric-get-started-with-a-local-cluster.md
+            - name: Gestione risorse di Azure
+              href: service-fabric-application-arm-resource.md
+            - name: Azure PowerShell
+              href: service-fabric-deploy-remove-applications.md
+            - name: Interfaccia della riga di comando di Service Fabric
+              href: service-fabric-application-lifecycle-sfctl.md
+            - name: API FabricClient
+              href: service-fabric-deploy-remove-applications-fabricclient.md
+        - name: Aggiornare le applicazioni
+          items:
+            - name: Eseguire l'aggiornamento con Azure PowerShell
+              href: service-fabric-application-upgrade-tutorial-powershell.md
+            - name: Eseguire l'aggiornamento con Visual Studio
+              href: service-fabric-application-upgrade-tutorial.md
+            - name: Risolvere i problemi relativi agli aggiornamenti delle applicazioni
+              href: service-fabric-application-upgrade-troubleshooting.md
+        - name: Testare applicazioni e servizi
+          items:
+            - name: Testare la comunicazione tra servizi
+              href: service-fabric-testability-scenarios-service-communication.md
+            - name: Simulare gli errori
+              items:
+                - name: Uso di Chaos controllato
+                  href: service-fabric-controlled-chaos.md
+                - name: Uso di azioni di test
+                  href: service-fabric-testability-actions.md
+                - name: Durante i carichi di lavoro
+                  href: service-fabric-testability-workload-tests.md
+                - name: Uso di scenari di test
+                  href: service-fabric-testability-scenarios.md
+                - name: Uso delle API di transizione del nodo
+                  href: service-fabric-node-transition-apis.md
+        - name: Configurare l'integrazione continua
+          items:
+            - name: Configurare l'integrazione continua con Visual Studio Team Services
+              href: service-fabric-set-up-continuous-integration.md
+            - name: Distribuire applicazioni Linux usando Jenkins
+              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+    - name: Creare e gestire i cluster
+      items:
+        - name: Cluster in Azure
+          items:
+            - name: Create
+              items:
+                - name: Portale di Azure
+                  href: service-fabric-cluster-creation-via-portal.md
+                - name: Gestione risorse di Azure
+                  href: service-fabric-cluster-creation-via-arm.md
+            - name: Scalabilità
+              items:
+                - name: Manualmente
+                  href: service-fabric-cluster-scale-up-down.md
+                - name: A livello di codice
+                  href: service-fabric-cluster-programmatic-scaling.md
+            - name: Aggiornamento
+              href: service-fabric-cluster-upgrade.md
+            - name: Configurare il controllo di accesso
+              href: service-fabric-cluster-security-roles.md
+            - name: Configurare
+              href: service-fabric-cluster-fabric-settings.md
+            - name: Aprire una porta nel servizio di bilanciamento del carico
+              href: create-load-balancer-rule.md
+            - name: Gestire i certificati cluster
+              href: service-fabric-cluster-security-update-certs-azure.md
+            - name: Delete
+              href: service-fabric-cluster-delete.md
+        - name: Cluster autonomi
+          items:
+            - name: Create
+              items:
+                - name: Creare in locale
+                  href: service-fabric-cluster-creation-for-windows-server.md
+                - name: Proteggere tramite i certificati
+                  href: service-fabric-windows-cluster-x509-security.md
+                - name: Proteggere con la protezione di Windows
+                  href: service-fabric-windows-cluster-windows-security.md
+                - name: Contenuti del pacchetto autonomo
+                  href: service-fabric-cluster-standalone-package-contents.md
+            - name: Scalabilità
+              href: service-fabric-cluster-windows-server-add-remove-nodes.md
+            - name: Configurare il controllo di accesso
+              href: service-fabric-cluster-security-roles.md
+            - name: Configurare
+              href: service-fabric-cluster-manifest.md
+            - name: Aggiornamento
+              href: service-fabric-cluster-upgrade-windows-server.md
+        - name: Visualizzare un cluster
+          href: service-fabric-visualizing-your-cluster.md
+        - name: Connettersi a un cluster sicuro
+          href: service-fabric-connect-to-secure-cluster.md
+        - name: Applicare patch ai nodi del cluster
+          items:
+            - name: Windows
+              href: service-fabric-patch-orchestration-application.md
+            - name: Linux
+              href: service-fabric-patch-orchestration-application-linux.md
+    - name: Monitorare e diagnosticare
+      items:
+        - name: OMS
+          items:
+            - name: Configurare OMS Log Analytics
+              href: service-fabric-diagnostics-oms-setup.md
+            - name: Aggiungere l'agente OMS
+              href: service-fabric-diagnostics-oms-agent.md
+            - name: Monitorare i contenitori
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Monitoraggio delle prestazioni
+          items:
+            - name: Monitoraggio delle prestazioni con Diagnostica di Microsoft Azure
+              href: service-fabric-diagnostics-perf-wad.md
+- name: Riferimenti
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.servicefabric/
+    - name: PowerShell
+      href: /powershell/module/servicefabric/?view=azureservicefabricps
+    - name: Interfaccia della riga di comando di Azure (az sf)
+      href: /cli/azure/sf
+    - name: Interfaccia della riga di comando di Service Fabric (sfctl)
+      href: service-fabric-sfctl.md
+      items:
+        - name: sfctl application
+          href: service-fabric-sfctl-application.md
+        - name: sfctl chaos
+          href: service-fabric-sfctl-chaos.md
+        - name: sfctl cluster
+          href: service-fabric-sfctl-cluster.md
+        - name: sfctl compose
+          href: service-fabric-sfctl-compose.md
+        - name: sfctl is
+          href: service-fabric-sfctl-is.md
+        - name: sfctl node
+          href: service-fabric-sfctl-node.md
+        - name: sfctl partition
+          href: service-fabric-sfctl-partition.md
+        - name: sfctl replica
+          href: service-fabric-sfctl-replica.md
+        - name: sfctl rpm
+          href: service-fabric-sfctl-rpm.md
+        - name: sfctl service
+          href: service-fabric-sfctl-service.md
+        - name: sfctl store
+          href: service-fabric-sfctl-store.md
+    - name: API Java
+      href: /java/api/overview/azure/servicefabric
+      items:
+        - name: API client REST Java
+          href: service-fabric-java-rest-api-usage.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
+    - name: REST
+      href: /rest/api/servicefabric
+    - name: Schema XML del modello del servizio
+      href: service-fabric-service-model-schema.md
+    - name: Variabili di ambiente
+      href: service-fabric-environment-variables-reference.md
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Domande frequenti
+      href: service-fabric-common-questions.md
+    - name: Percorso di apprendimento
+      href: 'https://azure.microsoft.com/documentation/learning-paths/service-fabric/'
+    - name: Forum di MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Codice di esempio
+      href: 'http://aka.ms/servicefabricsamples'
+    - name: Opzioni di supporto
+      href: service-fabric-support.md
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

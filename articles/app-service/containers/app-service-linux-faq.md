@@ -17,7 +17,7 @@ ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

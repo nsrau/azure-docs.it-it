@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 603a22059dcf07c68f4c6576ea1df97d810eacf3
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Come proteggere il back-end di un'API Web con Azure Active Directory e Gestione API
 Il video che segue illustra come compilare il back-end di un'API Web e proteggerlo usando il protocollo OAuth 2.0 con Azure Active Directory e Gestione API.  Questo articolo fornisce una panoramica e informazioni aggiuntive per le procedure illustrate nel video. Il video della durata di 24 minuti mostra come fare per:
@@ -81,13 +81,13 @@ L'API Web in questo esempio implementa un servizio calcolatrice di base usando u
 
 Aggiungere l'istruzione `using` seguente all'inizio del file `CalcInput.cs`.
 
-```c#
+```csharp
 using Newtonsoft.Json;
 ```
 
 Sostituire la classe generata con il codice seguente.
 
-```c#
+```csharp
 public class CalcInput
 {
     [JsonProperty(PropertyName = "a")]
@@ -104,7 +104,7 @@ Fare clic con il pulsante destro del mouse su **Controller** in **Esplora soluzi
 
 Aggiungere l'istruzione `using` seguente all'inizio del file `CalcController.cs`.
 
-```c#
+```csharp
 using System.IO;
 using System.Web;
 using APIMAADDemo.Models;
@@ -112,7 +112,7 @@ using APIMAADDemo.Models;
 
 Sostituire la classe controller generata con il codice seguente. Questo codice implementa le operazioni `Add`, `Subtract`, `Multiply` e `Divide` dell'API Calculator di base.
 
-```c#
+```csharp
 [Authorize]
 public class CalcController : ApiController
 {
@@ -436,7 +436,7 @@ Per ottenere il valore di **ID client** passare alla scheda **Configura** dell'a
 
 Per ottenere il **Segreto client** fare clic sull'elenco a discesa **Seleziona durata** nella sezione **Chiavi** e specificare un intervallo. In questo esempio viene usato 1 anno.
 
-![ID Client][api-management-aad-client-id]
+![ID client][api-management-aad-client-id]
 
 Fare clic su **Salva** per salvare la configurazione e visualizzare la chiave. 
 

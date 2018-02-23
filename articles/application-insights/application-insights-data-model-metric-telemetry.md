@@ -40,7 +40,7 @@ Metrica che rappresenta i contatori di sistema e di processo:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Lavoro in corso... | [requestExecutionTime](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestExecutionTime) | tempo di esecuzione medio delle richieste
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Lavoro in corso... | [requestsInQueue](https://dev.applicationinsights.io/apiexplorer/metrics?appId=DEMO_APP&apiKey=DEMO_KEY&metricId=performanceCounters%2FrequestsInQueue) | numero di richieste in attesa dell'elaborazione in una coda
 
-## <a name="name"></a>Nome
+## <a name="name"></a>NOME
 
 Nome della metrica che si vuole visualizzare nel portale di Application Insights e nell'interfaccia utente. 
 
@@ -48,7 +48,7 @@ Nome della metrica che si vuole visualizzare nel portale di Application Insights
 
 Singolo valore per la misura. Somma delle singole misure per l'aggregazione.
 
-## <a name="count"></a>Numero
+## <a name="count"></a>Conteggio
 
 Peso della metrica aggregata. Non deve essere impostato per una misura.
 

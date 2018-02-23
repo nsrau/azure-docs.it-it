@@ -17,7 +17,7 @@ ms.author: v-craic
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c2b71fa5ec2935a25b5fb37770dfb5163a286ded
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---

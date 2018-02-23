@@ -16,7 +16,7 @@ ms.date: 06/08/2016
 ms.author: mlearned
 ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/08/2017
 Docker è un motore contenitore leggero, simile in qualche modo a una macchina virtuale, che è possibile usare per ospitare applicazioni e servizi.
 Questa esercitazione illustra come usare l'estensione [Visual Studio Tools per Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) per distribuire un'app ASP.NET Core in un host Docker in Azure con PowerShell.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione è necessario quanto segue:
 
 * Creare una VM host Docker in Azure, come descritto in [Come usare Docker Machine in Azure](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

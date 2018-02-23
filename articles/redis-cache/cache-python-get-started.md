@@ -3,8 +3,8 @@ title: Come usare Cache Redis di Azure con Python | Documentazione Microsoft
 description: Introduzione all'uso di Cache Redis di Azure con Python
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
-ms.author: sdanie
-ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: wesmc
+ms.openlocfilehash: 17a22dc7a18931e368c7f2e61c563e0d99c3a7ac
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>Come usare Cache Redis di Azure con Python
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 12/18/2017
 
 Questo argomento descrive come usare Cache Redis di Azure con Python.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Installare [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## <a name="create-a-redis-cache-on-azure"></a>Creare una cache Redis in Azure

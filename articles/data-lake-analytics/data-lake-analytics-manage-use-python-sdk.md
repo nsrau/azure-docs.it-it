@@ -95,7 +95,7 @@ import logging, getpass, pprint, uuid, time
 
 Eseguire questo script per verificare che i moduli possano essere importati.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Autenticazione utente interattiva con un popup
 

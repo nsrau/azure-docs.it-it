@@ -3,7 +3,7 @@ title: Soluzione Capacity and Performance in Azure Log Analytics | Microsoft Doc
 description: "Usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V."
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: banders
-ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.author: magoedte
+ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacity and Performance (anteprima)
 
@@ -47,10 +47,10 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 |---|---|---|
 | [Agenti Windows](log-analytics-windows-agent.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
 | [Agenti Linux](log-analytics-linux-agents.md) | No     | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a OMS. I dati vengono inoltrati dal gruppo di gestione al repository OMS.|
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Gli agenti Windows o Operations Manager devono essere installati in host Hyper-V Windows Server 2012 o versione successiva, non in macchine virtuali.
 
@@ -59,11 +59,11 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 Eseguire questo passaggio per aggiungere la soluzione Capacity and Performance all'area di lavoro.
 
-- Aggiungere la soluzione Capacity and Performance all'area di lavoro di OMS usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+- Aggiungere la soluzione Capacità e prestazioni all'area di lavoro di Log Analytics usando la procedura descritta nell'articolo [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
 
 ## <a name="management-packs"></a>Management Pack
 
-Se il gruppo di gestione SCOM è connesso all'area di lavoro di OMS, i Management Pack seguenti verranno installati in SCOM quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
+Se il gruppo di gestione SCOM è connesso all'area di lavoro di Log Analytics, i Management Pack seguenti verranno installati in SCOM quando si aggiunge questa soluzione. Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 - Microsoft.IntelligencePacks.CapacityPerformance
 

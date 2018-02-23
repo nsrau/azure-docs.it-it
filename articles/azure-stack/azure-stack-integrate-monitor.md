@@ -3,7 +3,7 @@ title: Integrare la soluzione di monitoraggio esterna con lo Stack di Azure | Do
 description: Informazioni su come integrare Azure Stack con una soluzione di monitoraggio esterna nel Data Center.
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,21 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
-ms.author: mabrigg
-ms.openlocfilehash: 76499ac959b77e83494bc4f9593c20a99da5c147
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/01/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
+ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrare la soluzione di monitoraggio esterna con lo Stack di Azure
 
-*Si applica a: Azure Stack integrate di sistemi*
+Per il monitoraggio esterno dell'infrastruttura di Azure Stack, è necessario monitorare il software di Stack di Azure, i computer fisici e i commutatori di rete fisica. Ognuna di queste aree offre un metodo per recuperare le informazioni di stato e di avviso:
 
-Per il monitoraggio esterno dell'infrastruttura di Azure Stack, è necessario monitorare il software di Stack di Azure, i computer fisici e i commutatori di rete fisica. Ognuna di queste aree offre un metodo per recuperare le informazioni di stato e di avviso.
-
-- Il software di Stack Azure offre un'API basata su REST per recuperare l'integrità e avvisi. (Con l'utilizzo di definita dal software di tecnologie quali spazi di archiviazione diretta, gli avvisi e lo stato di archiviazione sono parte del software di monitoraggio).
+- Il software di Stack Azure offre un'API basata su REST per recuperare l'integrità e avvisi. (Con l'utilizzo di definita dal software di tecnologie quali spazi di archiviazione diretta, gli avvisi e lo stato di archiviazione fanno parte del software di monitoraggio.).
 - Computer fisico può rendere disponibile tramite i baseboard management controller (BMC) l'integrità e informazioni sugli avvisi.
 - I dispositivi di rete fisica possono rendere disponibile tramite il protocollo SNMP l'integrità e informazioni sugli avvisi.
 
@@ -47,16 +46,16 @@ In questo articolo viene illustrato come integrare Azure Stack con soluzioni di 
 
 Il management pack per lo Stack di Azure offre le funzionalità seguenti:
 
-- È possibile gestire più distribuzioni di Azure Stack.
-- È supportata per Azure Active Directory (Azure AD) e Active Directory Federation Services (ADFS).
-- È possibile recuperare e chiudere gli avvisi.
-- È presente dello stato e un dashboard di capacità.
-- Include il rilevamento di modalità di manutenzione automatica per l'utilizzo di patch e aggiornamenti (P & U) in corso.
-- Include attività di aggiornamento imposto per la distribuzione e area.
-- È possibile aggiungere informazioni personalizzate a un'area.
-- Supporta la notifica e creazione di report.
+- È possibile gestire più distribuzioni di Azure Stack
+- Supporto per Azure Active Directory (Azure AD) e Active Directory Federation Services (ADFS)
+- È possibile recuperare e chiudere gli avvisi
+- È presente dello stato e un dashboard di capacità
+- Include il rilevamento di modalità di manutenzione automatica per l'utilizzo di patch e aggiornamenti (P & U) in corso
+- Include le attività di aggiornamento imposto per la distribuzione e di area
+- È possibile aggiungere informazioni personalizzate a un'area
+- Supporta la notifica e creazione di report
 
-È possibile scaricare System Center Management Pack per Microsoft Azure Stack e la Guida dell'utente associato [qui](https://www.microsoft.com/en-us/download/details.aspx?id=55184), o direttamente da Operations Manager.
+È possibile scaricare System Center Management Pack per Microsoft Azure Stack e tale [manuale dell'utente](https://www.microsoft.com/en-us/download/details.aspx?id=55184), o direttamente da Operations Manager.
 
 Per una soluzione di creazione di ticket, è possibile integrare Operations Manager con System Center Service Manager. Il connettore prodotto integrato consente la comunicazione bidirezionale che consente di chiudere un avviso nello Stack di Azure e Operations Manager dopo avere risolto una richiesta di servizio in Service Manager.
 
@@ -76,15 +75,15 @@ Il plug-in funziona con Nagios Enterprise e Nagios Core. È possibile scaricarlo
 
 Configurare il file di plug-in "Azurestack_plugin.py" con i parametri seguenti:
 
-| Parametro | Descrizione | Esempio |
+| Parametro | DESCRIZIONE | Esempio |
 |---------|---------|---------|
-| *arm_endpoint* | Endpoint di Azure Resource Manager (amministratore) |https://adminmanagement.Local.azurestack.External |
-| *api_endpoint* | Endpoint di Azure Resource Manager (amministratore)  | https://adminmanagement.Local.azurestack.External |
+| *arm_endpoint* | Endpoint di Azure Resource Manager (amministratore) |https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Endpoint di Azure Resource Manager (amministratore)  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | ID sottoscrizione Admin | Recuperare tramite il portale dell'amministratore o PowerShell |
 | *User_name* | Nome utente di sottoscrizione (operatore) | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | Password di sottoscrizione (operatore) | password |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *area* |  Nome dell'area Azure Stack | local |
+| *User_password* | Password di sottoscrizione (operatore) | mypassword |
+| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Nome dell'area Azure Stack | local |
 |  |  |
 
 * Il GUID di PowerShell fornita è universale. È possibile utilizzarlo per ogni distribuzione.
@@ -139,12 +138,12 @@ La richiesta ottiene tutti gli avvisi attivi e chiusi per la sottoscrizione del 
 
 |Metodo  |URI della richiesta  |
 |---------|---------|
-|GET     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01 "      |
+|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
 |     |         |
 
 **Argomenti**
 
-|Argomento  |Descrizione  |
+|Argomento  |DESCRIZIONE  |
 |---------|---------|
 |armendpoint     |  L'endpoint di gestione risorse di Azure dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se è il nome FQDN esterno *azurestack.external* e nome dell'area *locale*, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.       |
 |subid     |   ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.      |
@@ -203,7 +202,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Dettagli della risposta**
 
 
-|  Argomento  |Descrizione  |
+|  Argomento  |DESCRIZIONE  |
 |---------|---------|
 |*id*     |      ID univoco dell'avviso.   |
 |*nome*     |     Nome interno dell'avviso.   |
@@ -217,19 +216,19 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*alertid*     |  ID univoco dell'avviso.       |
 |*faulttypeid*     |  Tipo univoco del componente guasto.       |
 |*lastupdatedtimestamp*     |   Ora UTC dell'ultimo aggiornamento informazioni sugli avvisi.    |
-|*HealthState*     | Stato di integrità complessivo.        |
+|*healthstate*     | Stato di integrità complessivo.        |
 |*nome*     |   Nome dell'avviso specifico.      |
 |*fabricname*     |    Nome registrato dell'infrastruttura del componente non corretto.   |
 |*description*     |  Descrizione del componente dell'infrastruttura registrati.   |
-|*tipo di servizio*     |   Tipo di servizio registrati dell'infrastruttura.   |
+|*servicetype*     |   Tipo di servizio registrati dell'infrastruttura.   |
 |*monitoraggio e aggiornamento*     |   Procedura di correzione consigliata.    |
 |*type*     |   Tipo di avviso.    |
 |*resourceRegistrationid*    |     ID della risorsa interessata registrata.    |
 |*resourceProviderRegistrationID*   |    ID del provider di risorse registrati del componente interessato.  |
 |*serviceregistrationid*     |    ID del servizio registrato.   |
-|*livello di gravità*     |     Gravità dell'avviso.  |
+|*severity*     |     Gravità dell'avviso.  |
 |*state*     |    Stato dell'avviso.   |
-|*titolo*     |    Titolo dell'avviso.   |
+|*title*     |    Titolo dell'avviso.   |
 |*impactedresourceid*     |     ID della risorsa interessata.    |
 |*ImpactedresourceDisplayName*     |     Nome della risorsa interessata.  |
 |*closedByUserAlias*     |   Utente che ha chiuso l'avviso.      |
@@ -242,17 +241,17 @@ La richiesta chiude un avviso dall'ID univoco.
 
 |Metodo    |URI della richiesta  |
 |---------|---------|
-|PUT     |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01 "    |
+|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
 
 **Argomenti**
 
 
-|Argomento  |Descrizione  |
+|Argomento  |DESCRIZIONE  |
 |---------|---------|
 |*armendpoint*     |   Endpoint di gestione delle risorse dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se è il nome FQDN esterno *azurestack.external* e nome dell'area *locale*, quindi l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.     |
 |*RegionName*     |   Il nome dell'area della distribuzione di Azure Stack.      |
-|*versione dell'API*     |    Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.     |
+|*api-version*     |    Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.     |
 |*alertid*     |    ID univoco dell'avviso.     |
 
 **Corpo**
@@ -346,7 +345,7 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 **Dettagli della risposta**
 
 
-|  Argomento  |Descrizione  |
+|  Argomento  |DESCRIZIONE  |
 |---------|---------|
 |*id*     |      ID univoco dell'avviso.   |
 |*nome*     |     Nome interno dell'avviso.   |
@@ -360,19 +359,19 @@ PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscripti
 |*alertid*     |  ID univoco dell'avviso.       |
 |*faulttypeid*     |  Tipo univoco del componente guasto.       |
 |*lastupdatedtimestamp*     |   Ora UTC dell'ultimo aggiornamento informazioni sugli avvisi.    |
-|*HealthState*     | Stato di integrità complessivo.        |
+|*healthstate*     | Stato di integrità complessivo.        |
 |*nome*     |   Nome dell'avviso specifico.      |
 |*fabricname*     |    Nome registrato dell'infrastruttura del componente non corretto.   |
 |*description*     |  Descrizione del componente dell'infrastruttura registrati.   |
-|*tipo di servizio*     |   Tipo di servizio registrati dell'infrastruttura.   |
+|*servicetype*     |   Tipo di servizio registrati dell'infrastruttura.   |
 |*monitoraggio e aggiornamento*     |   Procedura di correzione consigliata.    |
 |*type*     |   Tipo di avviso.    |
 |*resourceRegistrationid*    |     ID della risorsa interessata registrata.    |
 |*resourceProviderRegistrationID*   |    ID del provider di risorse registrati del componente interessato.  |
 |*serviceregistrationid*     |    ID del servizio registrato.   |
-|*livello di gravità*     |     Gravità dell'avviso.  |
+|*severity*     |     Gravità dell'avviso.  |
 |*state*     |    Stato dell'avviso.   |
-|*titolo*     |    Titolo dell'avviso.   |
+|*title*     |    Titolo dell'avviso.   |
 |*impactedresourceid*     |     ID della risorsa interessata.    |
 |*ImpactedresourceDisplayName*     |     Nome della risorsa interessata.  |
 |*closedByUserAlias*     |   Utente che ha chiuso l'avviso.      |
@@ -386,18 +385,18 @@ La richiesta ottiene lo stato di integrità per tutti i provider di risorse regi
 
 |Metodo  |URI della richiesta  |
 |---------|---------|
-|GET    |   https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01 "   |
+|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
 
 
 **Argomenti**
 
 
-|Argomenti  |Descrizione  |
+|Argomenti  |DESCRIZIONE  |
 |---------|---------|
 |*armendpoint*     |    L'endpoint di gestione delle risorse dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se il nome FQDN esterno è azurestack.external e nome dell'area è locale, l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.    |
 |*RegionName*     |     Il nome dell'area della distribuzione di Azure Stack.    |
-|*versione dell'API*     |   Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.      |
+|*api-version*     |   Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.      |
 
 
 **Risposta**
@@ -432,7 +431,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 **Dettagli della risposta**
 
 
-|Argomento  |Descrizione  |
+|Argomento  |DESCRIZIONE  |
 |---------|---------|
 |*Id*     |   ID univoco dell'avviso.      |
 |*nome*     |  Nome interno dell'avviso.       |
@@ -441,7 +440,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*tag*     |     Tag delle risorse.    |
 |*registrationId*     |   Registrazione univoco per il provider di risorse.      |
 |*displayName*     |Nome visualizzato del provider di risorse.        |
-|*spazio dei nomi*     |   Implementa l'API dello spazio dei nomi del provider di risorse.       |
+|*namespace*     |   Implementa l'API dello spazio dei nomi del provider di risorse.       |
 |*routePrefix*     |    URI per interagire con il provider di risorse.     |
 |*serviceLocation*     |   Area con cui è registrato questo provider di risorse.      |
 |*infraURI*     |   URI del provider di risorse elencato come un ruolo di infrastruttura.      |
@@ -457,16 +456,16 @@ La richiesta ottiene lo stato di integrità per un provider di risorse registrat
 
 |Metodo  |URI della richiesta  |
 |---------|---------|
-|GET     |     https://{armendpoint}/Subscriptions/{subId}/resourceGroups/System. {RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01 "    |
+|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
 
 **Argomenti**
 
-|Argomenti  |Descrizione  |
+|Argomenti  |DESCRIZIONE  |
 |---------|---------|
 |*armendpoint*     |    L'endpoint di gestione delle risorse dell'ambiente dello Stack di Azure, il formato di https://adminmanagement. {RegionName}. {FQDN esterno}. Ad esempio, se il nome FQDN esterno è azurestack.external e nome dell'area è locale, l'endpoint di gestione risorse è https://adminmanagement.local.azurestack.external.     |
 |*subid*     |ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API per eseguire query solo con un utente che dispone dell'autorizzazione per la sottoscrizione del provider predefinito.         |
 |*RegionName*     |  Il nome dell'area della distribuzione di Azure Stack.       |
-|*versione dell'API*     |  Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.       |
+|*api-version*     |  Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2016-05-01.       |
 |*RegistrationID* |ID di registrazione per un provider di risorse specifico. |
 
 **Risposta**
@@ -500,7 +499,7 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 
 **Dettagli della risposta**
 
-|Argomento  |Descrizione  |
+|Argomento  |DESCRIZIONE  |
 |---------|---------|
 |*Id*     |   ID univoco dell'avviso.      |
 |*nome*     |  Nome interno dell'avviso.       |
@@ -515,8 +514,11 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 |*resourceURI*     |   URI della risorsa.   |
 |*alertSummary*     |   Riepilogo delle critici e avvisi, lo stato di integrità.     |
 
+## <a name="learn-more"></a>Altre informazioni
+
+Per informazioni sul monitoraggio dello stato incorporate, vedere [monitorare l'integrità e avvisi in Azure Stack](azure-stack-monitor-health.md).
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sul monitoraggio dello stato incorporate, vedere [monitorare l'integrità e avvisi in Azure Stack](azure-stack-monitor-health.md).
-
-
+[Integrazione della sicurezza](azure-stack-integrate-security.md)

@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Informazioni su come usare Python SDK per Azure Data Lake Store per eseguire operazioni di gestione di account di base, ad esempio creare un account Data Lake Store, elencare gli account Data Lake Store e così via. Per istruzioni su come eseguire le operazioni del file system in Data Lake Store con Python, vedere [Operazioni del file system in Data Lake Store con Python](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Python**. È possibile scaricare Python [qui](https://www.python.org/downloads/). Questo articolo fa riferimento a Python 3.6.2.
 
@@ -87,7 +87,7 @@ pip install azure-datalake-store
 
 3. Salvare le modifiche a mysample.py.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Questa sezione descrive le diverse modalità di autenticazione con Azure AD. Le opzioni disponibili sono:
 

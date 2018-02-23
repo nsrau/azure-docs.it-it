@@ -39,7 +39,7 @@ Il database SQL protegge i dati limitando l'accesso al database usando regole de
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere:
 
@@ -47,7 +47,7 @@ Per completare questa esercitazione, accertarsi di avere:
 - Installato Microsoft Excel.
 - Creato un server e un database SQL di Azure. Vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-get-started-portal.md), [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md) e [Creare un singolo database SQL di Azure usando PowerShell](sql-database-get-started-powershell.md). 
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
@@ -184,7 +184,7 @@ Il controllo del database SQL di Azure tiene traccia degli eventi che si verific
    > Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
    > 
 
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
 > [!IMPORTANT]
 > Se si vogliono personalizzare gli eventi controllati, è possibile farlo tramite PowerShell o l'API REST. Vedere [Introduzione al controllo del database SQL](sql-database-auditing.md) per altri dettagli.

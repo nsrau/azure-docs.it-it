@@ -35,10 +35,10 @@ Una società con un sito Web di notizie è interessata a superare la concorrenza
 
 Per identificare in tempo reale gli argomenti di tendenza su Twitter, la società deve eseguire un'analisi in tempo reale sul volume dei tweet e sul sentiment relativo agli argomenti più importanti. In altre parole, ciò che serve è un motore di analisi del sentiment basato su questo feed di social media.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 In questa esercitazione si usa un'applicazione client che si connette a Twitter e cerca i tweet con determinati hashtag, che è possibile impostare. Per eseguire l'applicazione e analizzare i tweet tramite Analisi di flusso di Azure, è necessario quanto segue:
 
-* Una sottoscrizione di Azure
+* Una sottoscrizione di Azure.
 * Un account Twitter 
 * Un'applicazione Twitter e il [token di accesso OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) per tale applicazione. Più avanti sono riportate istruzioni dettagliate per creare un'applicazione Twitter.
 * L'applicazione TwitterWPFClient, che legge il feed di Twitter. Per ottenere questa applicazione, scaricare il file [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) da GitHub e decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'applicazione in un debugger, è possibile ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
@@ -274,7 +274,7 @@ Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una 
 
 5. Fare clic su **Test**. La query viene eseguita sui dati che sono stati campionati.
     
-6. Fare clic su **Salva**. In questo modo la query viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
+6. Fare clic su **Save**. In questo modo la query viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
 
 
 ## <a name="experiment-using-different-fields-from-the-stream"></a>Provare a usare diversi campi dal flusso 
@@ -367,7 +367,7 @@ Ai fini di questa esercitazione, si cercano gli argomenti menzionati più di 20 
     HAVING COUNT(*) > 20
     ```
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 5. Verificare che l'applicazione TwitterWpfClient sia in esecuzione. 
 
@@ -381,5 +381,5 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -175,7 +175,7 @@ ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.G
 SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Parameters["MySecret"].DecryptValue()
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sull' [esecuzione di applicazioni con autorizzazioni di sicurezza diverse](service-fabric-application-runas-security.md)
 
 <!-- Links -->

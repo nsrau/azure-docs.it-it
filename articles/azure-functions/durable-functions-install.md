@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installare l'estensione Funzioni permanenti e i relativi esempi (Funzioni di Azure)
 
@@ -32,7 +32,7 @@ L'estensione [Funzioni permanenti](durable-functions-overview.md) di Funzioni di
 
 Visual Studio offre al momento l'esperienza ottimale per lo sviluppo di applicazioni che usano Funzioni permanenti.  Le funzioni possono essere eseguite in locale ed essere pubblicate anche in Azure. È possibile iniziare con un progetto vuoto o con un set di funzioni di esempio.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * Installare la versione più recente di [Visual Studio](https://www.visualstudio.com/downloads/) (versione 15.3 o superiore). Includere il carico di lavoro di **sviluppo di Azure** nelle opzioni di installazione.
 
@@ -58,7 +58,7 @@ Seguire le stesse istruzioni fornite per l'avvio con l'esempio, ma eseguire i pa
 
 Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le principali piattaforme, Windows, macOS e Linux.  Le funzioni possono essere eseguite in locale ed essere pubblicate anche in Azure. È possibile iniziare con un progetto vuoto o con un set di funzioni di esempio.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * Installare la versione più recente di [Visual Studio Code](https://code.visualstudio.com/Download) 
 
@@ -123,7 +123,7 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 
 1. Creare una nuova app per le funzioni in [functions.azure.com](https://functions.azure.com/signin).
 
-2. Configurare l'app per le funzioni affinché usi la [versione di runtime 2.0](functions-versions.md).
+2. Configurare l'app per le funzioni affinché usi la [versione di runtime 2.0](set-runtime-version.md).
 
 3. Creare una nuova funzione selezionando **"Creare una funzione personalizzata."**.
 

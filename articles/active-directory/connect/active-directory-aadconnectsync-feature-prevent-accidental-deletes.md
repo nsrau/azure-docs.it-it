@@ -1,9 +1,9 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: impedire eliminazioni accidentali | Documentazione Microsoft'
+title: 'Servizio di sincronizzazione Azure AD Connect: impedire eliminazioni accidentali | Microsoft Docs'
 description: "Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect."
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
@@ -32,7 +32,7 @@ Gli scenari comuni in cui si verificano molte eliminazioni includono:
 * Vengono eliminati tutti gli oggetti in un'unità organizzativa.
 * Un'unità organizzativa viene rinominata in modo che tutti gli oggetti in essa contenuti vengano considerati al di fuori dell'ambito di sincronizzazione.
 
-Il valore predefinito di 500 oggetti può essere modificato con PowerShell tramite `Enable-ADSyncExportDeletionThreshold`, che fa parte del modulo di sincronizzazione di Active Directory installato con Azure Active Directory Connect. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione della sincronizzazione viene eseguita ogni 30 minuti, il valore è il numero di eliminazioni visualizzate in 30 minuti.
+Il valore predefinito, pari a 500 oggetti, può essere modificato tramite PowerShell con il comando `Enable-ADSyncExportDeletionThreshold`, che fa parte del modulo AD Sync installato con Azure Active Directory Connect. È consigliabile configurare questo valore in base alle dimensioni dell'organizzazione. Poiché l'utilità di pianificazione della sincronizzazione viene eseguita ogni 30 minuti, il valore è il numero di eliminazioni visualizzate in 30 minuti.
 
 Se il numero di eliminazioni da esportare in Azure AD è troppo elevato, l'esportazione verrà arrestata e si riceverà un messaggio di posta elettronica simile al seguente:
 

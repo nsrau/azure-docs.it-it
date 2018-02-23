@@ -1,6 +1,6 @@
 ---
 title: 'Risolvere un problema di Backup di Azure: stato dell''agente guest non disponibile | Microsoft Docs'
-description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi
+description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi.
 services: backup
 documentationcenter: 
 author: genlin
@@ -15,116 +15,131 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Risolvere i problemi di Backup di Azure relativi all'agente e/o all'estensione
+# <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
-Questo articolo presenta una procedura di risoluzione dei problemi per correggere gli errori di Backup correlati a problemi di comunicazione con l'agente e l'estensione delle macchine virtuali.
+Questo articolo illustra le procedure di risoluzione dei problemi che possono essere utili per risolvere gli errori di Backup di Azure correlati alla comunicazione con l'agente di macchine virtuali e all'estensione.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L'agente di macchine virtuali non riesce a comunicare con Backup di Azure
+## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Errore di comunicazione dell'agente di macchine virtuali con Backup di Azure
+
+Messaggio di errore: "L'agente di macchine virtuali non riesce a comunicare con il servizio Backup di Azure"
 
 > [!NOTE]
-> Se alcuni backup di VM Linux di Azure hanno iniziato a bloccarsi con questo errore a partire dal 4 gennaio 2018, eseguire il comando seguente nelle VM interessate e ripetere i backup
+> Se si verifica questo errore con i backup di macchine virtuali Linux di Azure a partire dal 4 gennaio 2018, eseguire il comando seguente nella macchina virtuale e quindi provare a eseguire di nuovo i backup: `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`
 
-    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+Dopo la registrazione e la pianificazione di una macchina per il servizio Backup, tale servizio avvia il processo comunicando con l'agente di macchine virtuali per creare uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Quando uno snapshot non viene attivato, il backup potrebbe non riuscire. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:
 
-Dopo la registrazione e la pianificazione di una VM per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'agente di macchine virtuali per creare uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Seguire questa procedura per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione.
+**Causa 1: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
+**Causa 2: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 3: [L'agente installato nella macchina virtuale non è aggiornato (per le macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 4: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Causa 5: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
 
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [la VM non ha accesso a Internet](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 2: [l'agente è installato nella VM ma non risponde (per VM Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Causa 6: [le VM di Azure classico possono richiedere un passaggio aggiuntivo per completare la registrazione](#azure-classic-vms-may-require-additional-step-to-complete-registration)
+## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Errore dell'operazione di creazione snapshot a causa dell'assenza di connettività di rete nella macchina virtuale
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale
-Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Seguire questa procedura per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [la VM non ha accesso a Internet](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 2: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-3-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 3: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
+Messaggio di errore: "L'operazione di creazione snapshot non è riuscita perché la connettività di rete è assente nella macchina virtuale"
 
-## <a name="vmsnapshot-extension-operation-failed"></a>Operazione dell'estensione VMSnapshot non riuscita
+Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:    
+**Causa 1: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
+**Causa 2: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 3: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
 
-Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Seguire questa procedura per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione.
-##### <a name="cause-1-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 1: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-2-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 2: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 3: [la VM non ha accesso a Internet](#the-vm-has-no-internet-access)
-##### <a name="cause-4-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 4: [l'agente è installato nella VM ma non risponde (per VM Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-5-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 5: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+## <a name="vmsnapshot-extension-operation-failed"></a>Errore dell'operazione di estensione VMSnapshot
 
-## <a name="unable-to-perform-the-operation-as-the-vm-agent-is-not-responsive"></a>Impossibile eseguire l'operazione perché l'agente di macchine virtuali non risponde
+Messaggio di errore: "L'operazione di estensione VMSnapshot non è riuscita"
 
-Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Seguire questa procedura per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione.
-##### <a name="cause-1-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 1: [l'agente è installato nella VM ma non risponde (per VM Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-2-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 2: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-3-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 3: [la VM non ha accesso a Internet](#the-vm-has-no-internet-access)
+Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
+**Causa 1: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
+**Causa 4: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 5: [L'agente installato nella macchina virtuale non è aggiornato (per le macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backup-failed-with-an-internal-error---please-retry-the-operation-in-a-few-minutes"></a>Il backup non è riuscito e si è verificato un errore interno. Attendere qualche minuto prima di ripetere l'operazione.
+## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Errore di backup a causa della mancata risposta da parte dell'agente di macchine virtuali
 
-Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Seguire questa procedura per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione.
-##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [la VM non ha accesso a Internet](#the-vm-has-no-internet-access)
-##### <a name="cause-2-the-agent-installed-in-the-vm-but-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 2: [l'agente è installato nella VM ma non risponde (per VM Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
-##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
-##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
-##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
-##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Causa 6: [il servizio di backup non dispone dell'autorizzazione per eliminare i vecchi punti di ripristino a causa del blocco del gruppo di risorse](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
+Messaggio di errore: "Non è possibile eseguire l'operazione perché l'agente di macchine virtuali non risponde"
 
-## <a name="the-specified-disk-configuration-is-not-supported"></a>La configurazione di disco specificata non è supportata
+Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
+**Causa 1: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 2: [L'agente installato nella macchina virtuale non è aggiornato (per le macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
+
+## <a name="backup-fails-with-an-internal-error"></a>Errore interno di backup
+
+Messaggio di errore: "Il backup non è riuscito e si è verificato un errore interno. Ripetere l'operazione tra qualche minuto"
+
+Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
+**Causa 1: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**  
+**Causa 2: [L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 3: [L'agente installato nella macchina virtuale non è aggiornato (per le macchine virtuali Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 4: [Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 5: [Non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 6: [Il servizio di backup non ha l'autorizzazione per eliminare i punti di ripristino precedenti a causa di un blocco del gruppo di risorse](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## <a name="disk-configuration-is-not-supported"></a>Configurazione del disco non supportata
+
+Messaggio di errore: "The specified Disk configuration is not supported" (La configurazione del disco specificata non è supportata)
 
 > [!NOTE]
-> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi non gestiti di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto del backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
 >
 >
 
-Attualmente Backup di Azure non supporta dischi di dimensioni [maggiori di 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Se la dimensione dei dischi è maggiore di 1 TB, [collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) di dimensione inferiore a 1 TB <br>
-- Copiare quindi i dati dal disco di dimensione superiore a 1 TB nei dischi appena creati di dimensione inferiore a 1 TB. <br>
-- Verificare che tutti i dati siano stati copiati e rimuovere i dischi di dimensione superiore a 1 TB
-- Avviare il backup.
+Attualmente Backup di Azure non supporta dischi di dimensioni [superiori a 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). Se si hanno dischi con dimensioni superiori a 1 TB:  
+1. [Collegare nuovi dischi](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) con dimensioni inferiori a 1 TB.  
+2. Copiare i dati dai dischi con dimensioni superiori a 1 TB nei nuovi dischi creati con dimensioni inferiori a 1 TB.  
+3. Verificare che tutti i dati siano stati copiati. Rimuovere quindi i dischi con dimensioni superiori a 1 TB.  
+4. Avviare il backup.
 
 ## <a name="causes-and-solutions"></a>Cause e soluzioni
 
-### <a name="the-vm-has-no-internet-access"></a>La VM non ha accesso a Internet
-In base al requisito di distribuzione, la macchina virtuale non ha accesso a Internet o sono presenti restrizioni che impediscono l'accesso all'infrastruttura di Azure.
+### <a name="the-vm-has-no-internet-access"></a>La macchina virtuale non ha accesso a Internet
+In base al requisito di distribuzione, la macchina virtuale non ha accesso a Internet. In alternativa, potrebbero esserci restrizioni che impediscono l'accesso all'infrastruttura di Azure.
 
-Per funzionare correttamente, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. L'estensione invia comandi a un endpoint di Archiviazione di Azure (URL HTTP) per gestire gli snapshot della macchina virtuale. Se l'estensione non ha accesso a Internet pubblico, il servizio Backup ha esito negativo.
+Per funzionare correttamente, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. L'estensione invia comandi a un endpoint di archiviazione di Azure (URL HTTP) per gestire gli snapshot della macchina virtuale. Se l'estensione non ha accesso a Internet pubblico, il backup ha esito negativo.
 
 ####  <a name="solution"></a>Soluzione
-Per risolvere il problema, provare ad applicare uno dei metodi seguenti.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Consentire l'accesso agli intervalli di indirizzi IP del data center di Azure
+Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 
-1. Ottenere l'[elenco di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) a cui consentire l'accesso.
-2. Sbloccare gli indirizzi IP eseguendo il cmdlet **New-NetRoute** nella macchina virtuale di Azure in una finestra di PowerShell con privilegi elevati. Eseguire il cmdlet come amministratore.
-3. Per consentire l'accesso agli indirizzi IP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
+##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Consentire l'accesso alle risorse di archiviazione di Azure corrispondenti all'area
 
-##### <a name="create-a-path-for-http-traffic-to-flow"></a>Creare un percorso per il flusso del traffico HTTP
+È possibile usare i [tag di servizio](../virtual-network/security-overview.md#service-tags) per consentire le connessioni alle risorse di archiviazione dell'area specifica. Verificare che la regola che consente l'accesso all'account di archiviazione abbia priorità più alta rispetto alla regola che blocca l'accesso a Internet. 
+
+![Gruppo di sicurezza di rete con tag di archiviazione per un'area](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> I tag del servizio di archiviazione sono in versione di anteprima. Sono disponibili solo in aree specifiche. Per un elenco delle aree, vedere [Tag di servizio per l'archiviazione](../virtual-network/security-overview.md#service-tags).
+
+##### <a name="create-a-path-for-http-traffic"></a>Creare un percorso per il traffico HTTP
 
 1. Se sono state applicate restrizioni di rete, ad esempio un gruppo di sicurezza di rete, distribuire un server proxy HTTP per indirizzare il traffico.
 2. Per consentire l'accesso a Internet dal server proxy HTTP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
 
 Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-Se si usa Managed Disks, può essere necessario aprire una porta aggiuntiva (8443) nei firewall.
+Se si usa Azure Managed Disks, può essere necessario aprire una porta aggiuntiva (8443) nei firewall.
 
-### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L'agente è installato nella VM ma non risponde (per VM Windows)
+### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L'agente è installato nella macchina virtuale ma non risponde (per le macchine virtuali Windows)
 
 #### <a name="solution"></a>Soluzione
-L'agente di macchine virtuali può essere danneggiato o il servizio può essere stato arrestato. La reinstallazione dell'agente di macchine virtuali consente di ottenere la versione più recente e di riavviare la comunicazione.
+L'agente di macchine virtuali può essere danneggiato o il servizio può essere stato arrestato. Reinstallando l'agente di macchine virtuali è possibile ottenere la versione più recente. In questo modo sarà anche possibile riavviare la comunicazione con il servizio.
 
-1. Verificare che il servizio agente guest di Windows sia in esecuzione nei servizi (services.msc) della macchina virtuale. Provare a riavviare il servizio agente guest di Windows e avviare il backup.<br>
-2. Se non è visibile tra i servizi, verificare in Programmi e funzionalità che il servizio agente guest di Windows sia installato.
-4. Se è possibile visualizzare il servizio agente guest di Windows in Programmi e funzionalità di Windows, disinstallarlo.
-5. Scaricare e installare l'[ultima versione del file MSI dell'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore.
-6. Il servizio agente guest di Windows dovrebbe quindi essere visualizzato tra i servizi
-7. Provare a eseguire un backup su richiesta o adhoc facendo clic su "Esegui Backup" nel portale.
+1. Determinare se il servizio agente guest di Windows è in esecuzione nei servizi delle macchine virtuali (services.msc). Provare a riavviare il servizio agente guest di Windows e avviare il backup.    
+2. Se il servizio agente guest di Windows non è visibile tra i servizi, nel Pannello di controllo passare a **Programmi e funzionalità** per determinare se è installato.
+4. Se il servizio agente guest di Windows è elencato in **Programmi e funzionalità**, disinstallarlo.
+5. Scaricare e installare la [versione più recente del file MSI dell'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari i diritti di amministratore.
+6. Verificare che il servizio agente guest di Windows sia visualizzato tra i servizi.
+7. Eseguire un backup su richiesta: 
+    * Nel portale selezionare **Esegui backup ora**.
 
-Verificare anche che **[.NET 4.5 sia installato nel sistema](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)** nella macchina virtuale. È necessario che l'agente di macchine virtuali comunichi con il servizio
+Verificare anche che [Microsoft .NET 4.5 sia installato](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) nella macchina virtuale. .NET 4.5 è necessario per la comunicazione dell'agente di macchine virtuali con il servizio.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L'agente installato nella VM Linux non è aggiornato (per VM Linux)
 
@@ -133,8 +148,8 @@ La maggior parte degli errori relativi ad agenti o estensioni nelle macchine vir
 
 1. Seguire le istruzioni per l'[aggiornamento dell'agente di macchine virtuali Linux](../virtual-machines/linux/update-agent.md).
 
- >[!NOTE]
- >È *fortemente consigliato* aggiornare l'agente solo tramite un repository di distribuzione. Non è consigliabile scaricare il codice dell'agente direttamente da GitHub e aggiornarlo. Se l'agente più recente non è disponibile per la distribuzione, contattare il supporto per la distribuzione per istruzioni su come installarlo. Per cercare l'agente più recente, passare alla pagina dell'[agente Linux di Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) nel repository GitHub.
+ > [!NOTE]
+ > È *fortemente consigliato* aggiornare l'agente solo tramite un repository di distribuzione. Non è consigliabile scaricare il codice dell'agente direttamente da GitHub e aggiornarlo. Se l'agente più recente per la distribuzione non è disponibile, contattare il supporto per la distribuzione per istruzioni su come installarlo. Per cercare l'agente più recente, passare alla pagina dell'[agente Linux di Microsoft Azure](https://github.com/Azure/WALinuxAgent/releases) nel repository GitHub.
 
 2. Assicurarsi che l'agente di Azure sia in esecuzione nella macchina virtuale eseguendo il comando seguente: `ps -e`
 
@@ -144,7 +159,7 @@ La maggior parte degli errori relativi ad agenti o estensioni nelle macchine vir
  * Per altre distribuzioni: `service waagent start`
 
 3. [Configurare l'agente per il riavvio automatico](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Eseguire un nuovo backup di prova. Se l'errore persiste, raccogliere i log seguenti dalla macchina virtuale del cliente:
+4. Eseguire un nuovo backup di prova. Se l'errore persiste, raccogliere i log seguenti dalla macchina virtuale:
 
    * /var/lib/waagent/*.xml
    * /var/log/waagent.log
@@ -154,87 +169,62 @@ Se è necessaria una registrazione dettagliata per waagent, seguire questa proce
 
 1. Nel file /etc/waagent.conf individuare la riga seguente: **Enable verbose logging (y|n)**
 2. Modificare il valore di **Logs.Verbose** da *n* a *y*.
-3. Salvare la modifica e riavviare waagent seguendo la procedura precedente in questa sezione.
+3. Salvare la modifica e quindi riavviare waagent seguendo la procedura descritta in precedenza in questa sezione.
 
-### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot
-Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'account di archiviazione sottostante. Il backup può avere esito negativo perché non ha accesso all'account di archiviazione o perché l'esecuzione dell'attività dello snapshot è stata posticipata.
+###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Non è possibile recuperare lo stato dello snapshot o acquisire uno snapshot
+Il backup delle macchine virtuali si basa sull'esecuzione del comando di snapshot sull'account di archiviazione sottostante. Il backup può avere esito negativo perché non ha accesso all'account di archiviazione o perché l'esecuzione dell'attività di snapshot è stata ritardata.
 
 #### <a name="solution"></a>Soluzione
 Le condizioni seguenti possono causare errori dell'attività di snapshot:
 
 | Causa | Soluzione |
 | --- | --- |
-| Per la macchina virtuale è stato configurato il backup di SQL Server. | Per impostazione predefinita, il servizio Backup delle macchine virtuali esegue backup VSS completi nelle macchine virtuali Windows. Nelle macchine virtuali che eseguono server basati su SQL Server e in cui è configurato il backup di SQL Server possono verificarsi ritardi nell'esecuzione di snapshot.<br><br>Se si verificano errori di backup a causa di problemi di snapshot, configurare la chiave seguente del Registro di sistema:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
-| Lo stato della macchina virtuale viene segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP. | Se si arresta la macchina virtuale in Remote Desktop Protocol (RDP), controllare il portale per determinare se lo stato della macchina virtuale è corretto. In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione **Spegni** nel dashboard della macchina virtuale. |
-| Diverse macchine virtuali dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento. | È consigliabile distribuire le pianificazione dei backup per le macchine virtuali dello stesso servizio cloud. |
-| L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
-| La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS.  Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Per altre informazioni, vedere [Impostazione di un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| Per la macchina virtuale è stato configurato il backup di SQL Server. | Per impostazione predefinita, il backup delle macchine virtuali esegue un backup completo del servizio Copia Shadow del volume nelle macchine virtuali Windows. Nelle macchine virtuali che eseguono server basati su SQL Server e in cui è configurato il backup di SQL Server possono verificarsi ritardi nell'esecuzione di snapshot.<br><br>Se si verificano errori di backup a causa di problemi di snapshot, configurare la chiave del Registro di sistema seguente:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
+| Lo stato della macchina virtuale viene segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP (Remote Desktop Protocol). | Se si arresta la macchina virtuale in RDP, controllare il portale per determinare se lo stato della macchina virtuale è corretto. In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione **Spegni** nel dashboard della macchina virtuale. |
+| La macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP, con risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Per altre informazioni, vedere [Impostare un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Non è possibile aggiornare o caricare l'estensione di backup
-Se non è possibile caricare le estensioni, Backup ha esito negativo perché non è possibile acquisire uno snapshot.
+Se non è possibile caricare le estensioni, si verifica un errore del backup perché non è possibile acquisire uno snapshot.
 
 #### <a name="solution"></a>Soluzione
 
-**Per guest Windows:** verificare che il servizio iaasvmprovider sia abilitato e abbia un tipo di avvio *automatico*. Se il servizio non è configurato in questo modo, abilitarlo per determinare se il backup successivo avrà esito positivo.
+**Per guest Windows:** verificare che il servizio iaasvmprovider sia abilitato e abbia un tipo di avvio *automatico*. Se il servizio non è configurato in questo modo, abilitarlo per determinare se il backup successivo ha esito positivo.
 
-**Per guest Linux:** verificare l'ultima versione di VMSnapshot per Linux (l'estensione usata da Backup), che è 1.0.91.0.<br>
+**Per guest Linux:** verificare che la versione più recente di VMSnapshot per Linux (l'estensione usata da Backup) sia 1.0.91.0.<br>
 
 
-Se l'aggiornamento o il caricamento dell'estensione di backup ancora non riesce, è possibile forzare il ricaricamento dell'estensione VMSnapshot disinstallandola. L'estensione viene ricaricata al successivo tentativo di backup.
+Se l'aggiornamento o il caricamento dell'estensione di backup ancora non riesce, disinstallare l'estensione per forzare il ricaricamento dell'estensione VMSnapshot. L'estensione viene ricaricata al successivo tentativo di backup.
 
-Per disinstallare l'estensione, seguire questa procedura:
+Per disinstallare l'estensione:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Trovare la macchina virtuale che presenta problemi di backup.
-3. Fare clic su **Impostazioni**.
-4. Fare clic su **Estensioni**.
-5. Fare clic su **Estensione Vmsnapshot**.
-6. Fare clic su **Disinstalla**.
+1. Nel [portale di Azure](https://portal.azure.com/) passare alla macchina virtuale in cui si è verificato l'errore di backup.
+2. Selezionare **Impostazioni**.
+3. Selezionare **Estensioni**.
+4. Selezionare **Vmsnapshot Extension** (Estensione Vmsnapshot).
+5. Selezionare **Disinstalla**.
 
-Questa procedura reinstalla l'estensione durante il backup successivo.
+Questa procedura fa in modo che l'estensione venga reinstallata durante il backup successivo.
 
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Le VM di Azure classico possono richiedere un passaggio aggiuntivo per completare la registrazione
-L'agente nelle VM di Azure classico deve essere registrato per stabilire una connessione al servizio di backup e avviare il backup
-
-#### <a name="solution"></a>Soluzione
-
-Dopo aver installato l'agente guest della VM, avviare Azure PowerShell <br>
-1. Accedere all'account Azure usando <br>
-       `Login-AzureAsAccount`<br>
-2. Verificare se la proprietà ProvisionGuestAgent della VM è impostata su True, mediante i comandi seguenti <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Se la proprietà è impostata su FALSE, eseguire i comandi seguenti per impostarla su TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Quindi eseguire il comando seguente per aggiornare la VM <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Tentare di avviare il backup. <br>
-
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Il servizio di backup non dispone dell'autorizzazione per eliminare i vecchi punti di ripristino a causa del blocco del gruppo di risorse
-Questo problema è specifico delle VM gestite, in cui l'utente blocca il gruppo di risorse e il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end.
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Il servizio di backup non ha l'autorizzazione per eliminare i punti di ripristino precedenti a causa di un blocco del gruppo di risorse
+Questo problema è specifico delle macchine virtuali gestite in cui l'utente blocca il gruppo di risorse. In questo caso, il servizio di backup non può eliminare i punti di ripristino precedenti. Poiché è previsto un limite di 18 punti di ripristino, i nuovi backup iniziano ad avere esito negativo.
 
 #### <a name="solution"></a>Soluzione
 
-Per risolvere il problema usare la procedura seguente per rimuovere la raccolta di punti di ripristino: <br>
+Per risolvere il problema, seguire la procedura illustrata di seguito per rimuovere la raccolta di punti di ripristino: <br>
  
-1. Rimuovere il blocco del gruppo di risorse in cui risiede la VM 
-     
-2. Installare l'ARMClient usando Chocolatey <br>
+1. Rimuovere il blocco nel gruppo di risorse in cui si trova la macchina virtuale. 
+2. Installare ARMClient usando Chocolatey: <br>
    https://github.com/projectkudu/ARMClient
-     
-3. Accedere ad ARMClient <br>
-             `.\armclient.exe login`
-         
-4. Ottenere la raccolta di punti di ripristino corrispondente alla VM <br>
+3. Accedere ad ARMClient: <br>
+    `.\armclient.exe login`
+4. Ottenere la raccolta di punti di ripristino corrispondente alla macchina virtuale: <br>
     `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
     Esempio: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-             
-5. Eliminare la raccolta di punti di ripristino <br>
-            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+5. Eliminare la raccolta di punti di ripristino: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. Il successivo backup pianificato crea automaticamente una raccolta di punti di ripristino e i nuovi punti di ripristino.
+
  
-6. Il backup pianificato successivo creerà automaticamente la raccolta di punti di ripristino e i nuovi punti di ripristino 
- 
-7. Il problema si ripresenta se il gruppo di risorse viene bloccato di nuovo, in quanto esiste solo un limite di 18 punti di ripristino dopo il quale il backup non viene eseguito 
+Il problema si verificherà di nuovo se il gruppo di risorse viene bloccato nuovamente. 
 

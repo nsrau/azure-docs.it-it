@@ -20,13 +20,10 @@
 #### [Archivio BLOB e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-blobs.md)
 #### [Archivio code e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-queues.md)
 #### [Archivio tabelle e servizi connessi](../visual-studio/vs-storage-cloud-services-getting-started-tables.md)
-### Configurare i pacchetti per la compilazione continua e la distribuzione
-#### [TFS e Team Build](cloud-services-dotnet-continuous-delivery.md)
 ### [Configurare le regole del traffico per un ruolo](cloud-services-enable-communication-role-instances.md)
 ### [Gestire eventi del ciclo di vita dei servizi cloud](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
 ### [Usare Twilio per effettuare una chiamata telefonica (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
-### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Configurare le attività di avvio
 #### [Creare le attività di avvio](cloud-services-startup-tasks.md)
@@ -44,12 +41,12 @@
 ### [Connettersi a un controller di dominio personalizzato](cloud-services-connect-to-custom-domain.md)
 
 ## Gestire il servizio
-### [Attenuazione dell'esecuzione speculativa](mitigate-se.md}
 ### [Attività di gestione comuni](cloud-services-how-to-manage-portal.md)
 ### [Configurare il servizio cloud](cloud-services-how-to-configure-portal.md)
 ### [Gestire un servizio cloud con Automazione di Azure](automation-manage-cloud-services.md)
 ### [Configurare il ridimensionamento automatico](cloud-services-how-to-scale-portal.md)
 ### [Usare Python per gestire le risorse di Azure](cloud-services-python-how-to-use-service-management.md)
+### [Attenuazione dell'esecuzione speculativa](mitigate-se.md)
 
 ### [Patch per il sistema operativo guest](cloud-services-guestos-msrc-releases.md)
 ### Ritiro del sistema operativo guest
@@ -64,20 +61,18 @@
 
 ## Monitorare
 ### [Monitorare il servizio cloud](cloud-services-how-to-monitor.md)
+### [Usare i contatori delle prestazioni](diagnostics-performance-counters.md)
 ### [Testare le prestazioni](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Test con Visual Studio Profiler](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Abilitare la diagnostica
 #### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Usare contatori delle prestazioni in Diagnostica di Azure](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Tracciare un servizio cloud con Diagnostica](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Inviare dati di diagnostica ad App Insights](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Risolvere problemi
 ### Debug 
-#### [Abilitare il debug remoto con la distribuzione di contenuti](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md)
 #### [Opzioni per un servizio cloud](../vs-azure-tools-debugging-cloud-services-overview.md)
 #### [Servizio cloud locale con Visual Studio](../vs-azure-tools-debug-cloud-services-virtual-machines.md)
 #### [Servizio cloud pubblicato con Visual Studio](../vs-azure-tools-intellitrace-debug-published-cloud-services.md)
@@ -93,7 +88,7 @@
 #### [Domande frequenti su connettività e rete](cloud-services-connectivity-and-networking-faq.md)
 #### [Domande frequenti sulla distribuzione](cloud-services-deployment-faq.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [Schema XML .csdef](schema-csdef-file.md)
 ### [Schema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo è valido per la versione 2 del servizio Azure Data Factory. Contiene le risposte alle domande frequenti su Data Factory.  
@@ -68,7 +68,7 @@ Per supportare l'integrazione di flussi e criteri di integrazione diversi nel da
 Per altre informazioni, vedere [Esercitazione: Flussi di controllo](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Distribuire i pacchetti SSIS in Azure 
-Se si vuole spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory versione 2 ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Il runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](tutorial-deploy-ssis-packages-azure.md). 
+Se si vuole spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory versione 2 ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Il runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
 
 ### <a name="sdks"></a>SDK
@@ -164,7 +164,7 @@ Per le informazioni più aggiornate su Azure Data Factory, andare ai siti seguen
 ## <a name="technical-deep-dive"></a>Approfondimento tecnico 
 
 ### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>Le pipeline versione 1 e versione 2 possono essere eseguite contemporaneamente?
-No. Le data factory versione 1 e versione 2 non possono contenere entità (ad esempio, servizi collegati, set di dati o pipeline) dell'altra versione.   
+di serie Le data factory versione 1 e versione 2 non possono contenere entità (ad esempio, servizi collegati, set di dati o pipeline) dell'altra versione.   
 
 ### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>È necessario definire i set di dati nella versione 2?
 Un set di dati non è più un'entità obbligatoria per la maggior parte delle attività. È necessario per le attività di copia, apprendimento automatico, ricerca, convalida e attività personalizzate che usano lo schema e altre informazioni sui metadati del set di dati per la trasformazione. Le altre attività non richiedono più i set di dati.

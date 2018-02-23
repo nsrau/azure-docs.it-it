@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
@@ -27,7 +27,7 @@ Con l'azione di query è possibile usare batch e matrici per poter eseguire flus
 * Creare un'attività per tutti i record ad alta priorità di un database.
 * Salvare tutti gli allegati PDF per i messaggi di posta elettronica in un BLOB di Azure.
 
-Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../logic-apps/logic-apps-create-a-logic-app.md).
+Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Usare l'azione di query
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).  
@@ -54,7 +54,7 @@ Ecco come è possibile aggiungerla in un'app per la logica:
 ## <a name="query-action"></a>Azione di query
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore supporta una sola azione possibile.
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
 | Filtra matrice |Valuta una condizione per ogni elemento in una matrice e restituisce i risultati |
 
@@ -65,7 +65,7 @@ L'azione di query supporta un'azione possibile. La tabella seguente descrive i c
 Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Da* |from |La matrice da filtrare |
 | Condizione* |dove |La condizione da valutare per ogni elemento |
@@ -75,10 +75,10 @@ Un asterisco (*) indica che è un campo obbligatorio.
 ### <a name="output-details"></a>Dettagli dell'output
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Matrice filtrata |array |Matrice che contiene un oggetto per ogni risultato filtrato |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 

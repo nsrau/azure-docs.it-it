@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52f1f1543fe0ef15cf71d2cf1f9a8bfeaae8933f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>Come usare l'archiviazione BLOB da Node.js
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -33,7 +33,7 @@ Questo articolo illustra scenari comuni relativi all'uso dell'archiviazione BLOB
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
-Per istruzioni su come creare un'applicazione Node.js, vedere [Creare un'app Web Node.js in Servizio app di Azure], [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- con Windows PowerShell, o [Build and deploy a Node.js web app to Azure using Web Matrix](https://www.microsoft.com/web/webmatrix/) (Creazione e distribuzione di un'app Web Node.js in Azure con WebMatrix).
+Per istruzioni su come creare un'applicazione Node.js, vedere [Creare un'app Web Node.js nel servizio app di Azure](../../app-service/app-service-web-get-started-nodejs.md), [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) -- con Windows PowerShell, o [Creazione e distribuzione di un sito Web Node.js in Azure con WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione
 Per usare Archiviazione di Azure, è necessario disporre di Azure Storage SDK per Node.js, che comprende un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
@@ -192,7 +192,7 @@ Per accodare un blocco a un blob di accodamento esistente, usare quanto segue:
 * **appendBlockFromText** : consente di accodare i contenuti di una stringa a un BLOB di accodamento esistente
 
 > [!NOTE]
-> Le API appendFromXXX consentono di eseguire rapidamente alcune convalide sul lato client per evitare chiamate al server non necessarie, contrariamente alle API appendBlockFromXXX.
+> Le API appendFromXXX consentono di eseguire rapidamente alcune convalide sul lato client per fallire e rispondere immediatamente agli errori in modo da evitare chiamate al server non necessarie, contrariamente alle API appendBlockFromXXX.
 >
 >
 
@@ -425,4 +425,4 @@ Per altre informazioni, vedere le risorse seguenti:
 [Azure portal]: https://portal.azure.com  
 [Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Blog del team di archiviazione di Azure]: http://blogs.msdn.com/b/windowsazurestorage/  
-[Riferimento per le API di Azure Storage SDK per Node]: http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Azure Storage SDK per riferimento all'API del nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html  

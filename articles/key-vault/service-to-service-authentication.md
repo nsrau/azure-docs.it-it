@@ -1,6 +1,6 @@
 ---
 title: Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
-description: Usare la raccolta Microsoft.Azure.Services.AppAuthentication per eseguire l'autenticazione ad Azure Key Vault usando .NET.
+description: Usare la libreria Microsoft.Azure.Services.AppAuthentication per eseguire l'autenticazione ad Azure Key Vault usando .NET.
 keywords: credenziali locali di autenticazione azure key vault
 author: lleonard-msft
 manager: mbaldwin
@@ -14,24 +14,24 @@ ms.technology:
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
-Per eseguire l'autenticazione ad Azure Key Vault, è necessaria una credenziale di Azure Active Directory (AD), chiave privata condivisa o certificato. La gestione delle credenziali di questo tipo può essere difficile e si può desiderare di aggregare le credenziali in un'app includendole nei file di origine o di configurazione.
+Per eseguire l'autenticazione ad Azure Key Vault, è necessaria una credenziale di Azure Active Directory (AD), basata su segreto condiviso o certificato. La gestione delle credenziali di questo tipo può essere difficile e si può desiderare di aggregare le credenziali in un'app includendole nei file di origine o di configurazione.
 
-`Microsoft.Azure.Services.AppAuthentication` per la raccolta .NET semplifica questo aspetto. Usa le credenziali per lo sviluppatore per eseguire l'autenticazione durante lo sviluppo locale. Quando in un secondo momento la soluzione viene distribuita in Azure, la raccolta passa automaticamente alle credenziali dell'applicazione.  
+`Microsoft.Azure.Services.AppAuthentication` per la libreria .NET semplifica questo aspetto. Usa le credenziali per lo sviluppatore per eseguire l'autenticazione durante lo sviluppo locale. Quando in un secondo momento la soluzione viene distribuita in Azure, la libreria passa automaticamente alle credenziali dell'applicazione.  
 
 L'utilizzo delle credenziali per lo sviluppatore durante lo sviluppo locale è più sicuro perché non è necessario creare credenziali di Azure AD o condividere le credenziali tra gli sviluppatori.
 
-La raccolta `Microsoft.Azure.Services.AppAuthentication` gestisce l'autenticazione automaticamente, consentendo quindi di concentrarsi sulla soluzione, anziché sulle credenziali.
+La libreria `Microsoft.Azure.Services.AppAuthentication` gestisce l'autenticazione automaticamente, consentendo quindi di concentrarsi sulla soluzione, anziché sulle credenziali.
 
-La raccolta `Microsoft.Azure.Services.AppAuthentication` supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o l'autenticazione integrata di Azure AD. Quando la distribuzione viene eseguita nei Servizi app di Azure o in una macchina virtuale (VM) di Azure, la raccolta usa automaticamente l'[identità del servizio gestito](/azure/active-directory/msi-overview) (MSI). Non sono richieste modifiche di codice o di configurazione. La raccolta supporta anche l'uso diretto delle [credenziali client](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) di Azure AD quando l'identità del servizio gestito non è disponibile o non è possibile determinare il contesto di protezione dello sviluppatore durante lo sviluppo locale.
+La libreria `Microsoft.Azure.Services.AppAuthentication` supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o l'autenticazione integrata di Azure AD. Quando la distribuzione viene eseguita nei Servizi app di Azure o in una macchina virtuale (VM) di Azure, la libreria usa automaticamente l'[identità del servizio gestito](/azure/active-directory/msi-overview) (MSI). Non sono necessarie modifiche di codice o di configurazione. La raccolta supporta anche l'uso diretto delle [credenziali client](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) di Azure AD quando l'identità del servizio gestito non è disponibile o non è possibile determinare il contesto di protezione dello sviluppatore durante lo sviluppo locale.
 
 <a name="asal"></a>
-## <a name="using-the-library"></a>Utilizzo della raccolta
+## <a name="using-the-library"></a>Utilizzo della libreria
 
 Per le applicazioni .NET, il modo più semplice per usare l'Identità del servizio gestito (MSI) è tramite il pacchetto `Microsoft.Azure.Services.AppAuthentication`. Ecco come iniziare:
 
@@ -63,7 +63,7 @@ Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre
 <a name="samples"></a>
 ## <a name="samples"></a>Esempi
 
-Gli esempi seguenti illustrano la raccolta `Microsoft.Azure.Services.AppAuthentication` in azione:
+Gli esempi seguenti illustrano la libreria `Microsoft.Azure.Services.AppAuthentication` in azione:
 
 1. [Usare un'identità del servizio gestito (MSI) per recuperare un segreto da Azure Key Vault in fase di esecuzione](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
 
@@ -80,14 +80,14 @@ Per lo sviluppo locale esistono due scenari di autenticazione principali:
 - [Autenticazione ai servizi di Azure](#authenticating-to-azure-services)
 - [Autenticazione ai servizi personalizzati](#authenticating-to-custom-services)
 
-In questo argomento verranno illustrati i requisiti per ogni scenario e gli strumenti supportati.
+Di seguito vengono illustrati i requisiti per ogni scenario e gli strumenti supportati.
 
 
 ### <a name="authenticating-to-azure-services"></a>Autenticazione ai servizi di Azure
 
-I computer locali non supportano l'identità del servizio gestito (MSI).  Di conseguenza, la raccolta `Microsoft.Azure.Services.AppAuthentication` usa le credenziali per lo sviluppatore per l'esecuzione nell'ambiente di sviluppo locale. Quando la soluzione viene distribuita in Azure, la raccolta usa l'autenticazione del servizio gestito per passare a un flusso di concessione delle credenziali client di OAuth 2.0.  È quindi possibile testare lo stesso codice in locale e in remoto con estrema semplicità.
+I computer locali non supportano l'identità del servizio gestito (MSI).  Di conseguenza, la libreria `Microsoft.Azure.Services.AppAuthentication` usa le credenziali per lo sviluppatore per l'esecuzione nell'ambiente di sviluppo locale. Quando la soluzione viene distribuita in Azure, la libreria usa l'autenticazione del servizio gestito per passare a un flusso di concessione delle credenziali client di OAuth 2.0.  Questo significa che è possibile testare lo stesso codice in locale e in remoto con estrema semplicità.
 
-Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio**, l'**interfaccia della riga di comando di Azure** o l'**autenticazione integrata di Azure AD**. Viene eseguito il tentativo di eseguire ogni opzione in ordine sequenziale e la raccolta usa la prima opzione con esito positivo. Se l'opzione non funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
+Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio**, l'**interfaccia della riga di comando di Azure** o l'**autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se nessuna opzione funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
 
 ### <a name="authenticating-with-visual-studio"></a>Autenticazione con Visual Studio
 
@@ -95,19 +95,19 @@ Per usare Visual Studio, verificare quanto segue:
 
 1. È stato installato [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) o versione successiva.
 
-2. L'[estensione Autenticazione app per Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) è installata.
+2. L'[estensione per l’autenticazione app per Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354) è installata.
  
-3. È stato eseguito l'accesso a Visual Studio ed è stato selezionato un account da usare per lo sviluppo locale. Usare **Strumenti**&nbsp;>&nbsp;**Opzioni**&nbsp;>&nbsp;**Autenticazione servizio Azure** per scegliere un account per lo sviluppo locale. 
+3. È stato eseguito l'accesso a Visual Studio ed è stato selezionato un account da usare per lo sviluppo locale. Usare **Strumenti**&nbsp;>&nbsp;**Opzioni**&nbsp;>&nbsp;**Autenticazione servizi di Azure** per scegliere un account per lo sviluppo locale. 
 
 Se si verificano problemi con Visual Studio, ad esempio errori relativi al file del provider di token, esaminare con attenzione questi passaggi. 
 
-Potrebbe anche essere necessario eseguire di nuovo l'autenticazione del token per sviluppatori.  A tale scopo passare a **Strumenti**&nbsp;>&nbsp;**Opzioni**>**Autenticazione&nbsp;servizio&nbsp;Azure**  e cercare un collegamento per **eseguire di nuovo l'autenticazione** nell'account selezionato.  Selezionare il collegamento per eseguire l'autenticazione. 
+Potrebbe anche essere necessario eseguire di nuovo l'autenticazione del token per sviluppatori.  A tale scopo passare a **Strumenti**&nbsp;>&nbsp;**Opzioni**>**&nbsp;&nbsp;Autenticazione servizi di Azure** e cercare un collegamento per **eseguire di nuovo l'autenticazione** nell'account selezionato.  Selezionare il collegamento per eseguire l'autenticazione. 
 
 ### <a name="authenticating-with-azure-cli"></a>Autenticazione con l'interfaccia della riga di comando di Azure
 
 Per usare l'interfaccia della riga di comando di Azure per lo sviluppo locale:
 
-1. Installare l'[interfaccia della riga di comando di Azure v2.0.12](/cli/azure/install-azure-cli) o la versione successiva. Aggiornare le versioni precedenti. 
+1. Installare l'[interfaccia della riga di comando di Azure v2.0.12](/cli/azure/install-azure-cli) o versione successiva. Aggiornare le versioni precedenti. 
 
 2. Eseguire **az login** per accedere ad Azure.
 
@@ -155,16 +155,16 @@ Quando si crea un servizio che chiama un servizio personalizzato, usare le crede
 
         Poiché l'entità servizio potrebbe non avere accesso a una sottoscrizione, usare l'argomento `--allow-no-subscriptions`.
 
-2.  Usare le variabili di ambiente per specificare i dettagli dell'entità servizio.  Per informazioni dettagliate, vedere la sezione [Esecuzione dell'applicazione con un'entità servizio](#running-the-application-using-a-service-principal).
+2.  Usare le variabili di ambiente per specificare i dettagli dell'entità servizio.  Per informazioni dettagliate, vedere [Esecuzione dell'applicazione con un'entità servizio](#running-the-application-using-a-service-principal).
 
 Dopo avere effettuato l'accesso ad Azure, `AzureServiceTokenProvider` usa l'entità servizio per recuperare un token per lo sviluppo locale.
 
-Ciò si applica solo allo sviluppo locale. Quando la soluzione viene distribuita in Azure, la raccolta passa all'autenticazione del servizio gestito.
+Ciò si applica solo allo sviluppo locale. Quando la soluzione viene distribuita in Azure, la libreria passa all'autenticazione del servizio gestito.
 
 <a name="msi"></a>
 ## <a name="running-the-application-using-a-managed-service-identity"></a>Esecuzione dell'applicazione con un'identità del servizio gestito 
 
-Quando si esegue il codice in un Servizio app di Azure o in una macchina virtuale di Azure con l'identità del servizio gestito abilitata, la raccolta usa automaticamente l'identità del servizio gestito. Non sono necessarie modifiche al codice. 
+Quando si esegue il codice in un Servizio app di Azure o in una macchina virtuale di Azure con l'identità del servizio gestito abilitata, la libreria usa automaticamente l'identità del servizio gestito. Non sono necessarie modifiche al codice. 
 
 
 <a name="sp"></a>
@@ -178,7 +178,7 @@ Potrebbe essere necessario creare una credenziale client di Azure Active Directo
  
 3. Il codice è in esecuzione su una risorsa di calcolo di Azure che non supporta ancora l'identità del servizio gestito, ad esempio Azure Batch.
 
-Per usare un certificato per accedere a Microsoft Azure AD:
+Per usare un certificato per accedere ad Azure AD:
 
 1. Creare un [certificato dell'entità servizio](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 

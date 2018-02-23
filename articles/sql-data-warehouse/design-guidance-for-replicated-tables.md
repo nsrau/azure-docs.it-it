@@ -16,7 +16,7 @@ ms.date: 10/23/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -27,7 +27,7 @@ Questo articolo offre alcuni consigli per la progettazione di tabelle replicate 
 > La funzionalità delle tabelle replicate è attualmente disponibile in anteprima pubblica. Alcuni comportamenti sono soggetti a modifiche.
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
 
 Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:

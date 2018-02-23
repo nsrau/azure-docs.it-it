@@ -1,9 +1,23 @@
-## <a name="deploy-uploaded-zip-file"></a>Distribuire il file ZIP caricato
+---
+title: File di inclusione
+description: File di inclusione
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 02/02/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/03/2018
+---
+## <a name="deploy-zip-file"></a>Distribuire un file ZIP
 
-In Cloud Shell distribuire il file ZIP caricato nell'app Web usando il comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Assicurarsi di sostituire *\<app_name>* con il nome dell'app Web specifica.
+Nel browser passare a `https://<app_name>.scm.azurewebsites.net/ZipDeploy`.
 
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myAppFiles.zip
-```
+Caricare il file ZIP creato in [Creare un file ZIP del progetto](#create-a-project-zip-file) trascinandolo nell'area di esplorazione dei file sulla pagina Web.
 
-Questo comando distribuisce i file e le directory del file ZIP nella cartella predefinita dell'applicazione del servizio app (`\home\site\wwwroot`) e riavvia l'app. Verranno eseguiti anche eventuali processi d compilazione personalizzati aggiuntivi presenti.
+Quando è in corso lo sviluppo, un'icona nell'angolo superiore destro mostra la percentuale di avanzamento. La pagina mostra anche messaggi dettagliati per l'operazione sotto l'area di esplorazione. Al termine, l'ultimo messaggio della distribuzione dovrebbe essere `Deployment successful`.

@@ -102,7 +102,7 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Screenshot di Power BI Desktop, con la modifica del titolo evidenziata](./media/app-insights-export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 È possibile che vengano restituiti errori relativi alle credenziali o alla dimensione del set di dati. Ecco alcune informazioni su come gestirli.
 

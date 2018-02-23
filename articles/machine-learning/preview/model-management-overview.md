@@ -32,7 +32,7 @@ Gestione modelli di Azure Machine Learning fornisce un registro delle versioni d
 
 Gli ambienti di calcolo di Azure Machine Learning consentono di configurare e gestire cluster scalabili per ospitare i modelli. L'ambiente di calcolo è basato sui servizi contenitore di Azure. I servizi contenitore di Azure offrono l'esposizione automatica delle API di Machine Learning come endpoint dell'API REST con le funzionalità seguenti:
 
-- Autenticazione
+- Authentication
 - Bilanciamento del carico.
 - Scalabilità orizzontale automatica
 - Crittografia

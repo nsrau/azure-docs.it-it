@@ -3,7 +3,7 @@ Un bilanciamento del carico viene usato per ridimensionare le applicazioni. Gli 
 
 ![Scheda di interfaccia di rete in una macchina virtuale singola](./media/resource-groups-networking/figure8.png)
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | *frontendIPConfigurations* |un bilanciamento del carico può includere uno o più indirizzi IP front-end, anche noti come IP virtuali (indirizzi VIP). Questi indirizzi IP fungono da entrata per il traffico e possono essere IP pubblici o privati |
 | *backendAddressPools* |si tratta di indirizzi IP associati alle schede di interfaccia di rete della macchina virtuale a cui viene distribuito il carico |

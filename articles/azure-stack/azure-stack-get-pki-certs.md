@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: e7edbc1c4aa6e3cb1026d493886ef7ca704b9131
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.reviewer: ppacent
+ms.openlocfilehash: a9f2a882947e07cde0e0505458608f86043b2a67
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Generare i certificati PKI per la distribuzione di Azure Stack
 Ora che si conoscono [requisiti dei certificati PKI](azure-stack-pki-certs.md) per le distribuzioni di Stack di Azure, è necessario ottenere i certificati dall'autorità di certificazione (CA) di propria scelta. 
@@ -74,3 +74,5 @@ Flusso di lavoro seguente viene descritto come è possibile personalizzare e uti
 4. **Importazione. CER**. Restituisce l'autorità di certificazione una. File CER. Con lo stesso computer di Windows da cui è stato generato il file di richiesta, importare il. File CER restituito nell'archivio del computer/personale. 
 5. **Esportare e copiare. PFX per le cartelle di distribuzione**. Esportare il certificato (con la chiave privata) come un. PFX file e copiare il. Il file PFX per le cartelle di distribuzione descritti in [requisiti di infrastruttura a chiave pubblica di Azure Stack distribuzione](azure-stack-pki-certs.md).
 
+## <a name="next-steps"></a>Passaggi successivi
+[Integrazione di identità](azure-stack-integrate-identity.md)

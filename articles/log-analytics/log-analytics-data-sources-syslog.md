@@ -183,7 +183,7 @@ Dopo aver completato le modifiche, riavviare Syslog e il servizio agente OMS per
 ## <a name="syslog-record-properties"></a>Proprietà dei record Syslog
 I record Syslog sono di tipo **Syslog** e hanno le proprietà descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Computer |Computer da cui è stato raccolto l'evento. |
 | Facility |Parte del sistema che ha generato il messaggio. |
@@ -197,7 +197,7 @@ I record Syslog sono di tipo **Syslog** e hanno le proprietà descritte nella ta
 ## <a name="log-queries-with-syslog-records"></a>Query di log con record Syslog
 La tabella seguente mostra alcuni esempi di query di log che recuperano i record Syslog.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |:--- |:--- |
 | syslog |Tutti i record Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tutti i record Syslog con livello di gravità errore. |
@@ -205,6 +205,6 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Numero di record Syslog per funzionalità. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Usare [campi personalizzati](log-analytics-custom-fields.md) per analizzare i dati dei record Syslog nei singoli campi.
 * [Configurare agenti Linux](log-analytics-linux-agents.md) per raccogliere altri tipi di dati.

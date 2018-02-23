@@ -3,7 +3,7 @@ title: "Come usare un'identità del servizio gestito di una macchina virtuale di
 description: "Istruzioni dettagliate ed esempi relativi all'uso di un'identità del servizio gestito di una macchina virtuale di Azure per l'accesso al client di script e alle risorse."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,31 +12,32 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/05/2018
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: c5c1be01947dba8b7f4ef8aa54aa6aedfb191d32
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Accedere utilizzando una macchina virtuale assegnati dall'utente del servizio identità gestite (MSI)
+# <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Accedere usando un'identità del servizio gestito assegnata dall'utente per una macchina virtuale
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]In questo articolo vengono forniti esempi di script CLI per l'accesso usando le entità di servizio MSI assegnati dall'utente e informazioni aggiuntive su argomenti importanti, ad esempio la gestione degli errori.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Questo articolo contiene esempi di script dell'interfaccia della riga di comando per accedere usando l'entità servizio di un'identità del servizio gestito assegnata dall'utente, insieme alle linee guida su argomenti importanti come la gestione degli errori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-Per utilizzare gli esempi di CLI di Azure in questo articolo, assicurarsi di installare la versione più recente di [CLI di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Per usare gli esempi dell'interfaccia della riga di comando di Azure forniti in questo articolo, assicurarsi di installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
-> - Tutti gli esempi di script in questo articolo presuppongono che il client da riga di comando sia in esecuzione su una macchina virtuale abilitata per l'identità del servizio gestito. Usare la funzionalità di connessione alla macchina virtuale nel portale di Azure per connettersi in remoto alla macchina virtuale. Per informazioni dettagliate sull'abilitazione di estensione MSI in una macchina virtuale, vedere [configurare una macchina virtuale gestita servizio identità (MSI) mediante Azure CLI](msi-qs-configure-cli-windows-vm.md), o uno degli articoli variant (tramite PowerShell, portale, un modello o un SDK di Azure). 
-> - Per evitare errori durante l'accesso di accesso e la risorsa, è necessario assegnare almeno il file MSI all'ambito appropriato di accesso "Lettura" (la macchina virtuale o una versione successiva) per consentire operazioni di gestione risorse di Azure nella macchina virtuale. Vedere [assegnare un'identità di servizio gestiti (MSI) l'accesso a una risorsa tramite l'interfaccia CLI di Azure](msi-howto-assign-access-cli.md) per informazioni dettagliate.
+> - Tutti gli esempi di script in questo articolo presuppongono che il client da riga di comando sia in esecuzione su una macchina virtuale abilitata per l'identità del servizio gestito. Usare la funzionalità di connessione alla macchina virtuale nel portale di Azure per connettersi in remoto alla macchina virtuale. Per informazioni dettagliate sull'abilitazione di un'identità del servizio gestito in una macchina virtuale, vedere [Configure a VM Managed Service Identity (MSI) using Azure CLI](msi-qs-configure-cli-windows-vm.md) (Configurare l'identità del servizio gestito di una macchina virtuale tramite l'interfaccia della riga di comando di Azure) o una delle varianti dell'articolo (tramite PowerShell, il portale, un modello o Azure SDK). 
+> - Per evitare errori durante l'accesso utente e alle risorse, è necessario che all'identità del servizio gestito venga assegnato almeno l'accesso "in lettura" nell'ambito appropriato (a livello di macchina virtuale o superiore) per consentire le operazioni di Azure Resource Manager sulla macchina virtuale. Per informazioni dettagliate, vedere [Assign a Managed Service Identity (MSI) access to a resource using Azure CLI](msi-howto-assign-access-cli.md) (Assegnare a un'identità del servizio gestito l'accesso a una risorsa tramite l'interfaccia della riga di comando di Azure).
 
 ## <a name="overview"></a>Panoramica
 
-Un'identità del servizio gestito fornisce un'[entità servizio](~/articles/active-directory/develop/active-directory-dev-glossary.md#service-principal-object), [creata con l'abilitazione dell'identità del servizio gestito](msi-overview.md#how-does-it-work) nella macchina virtuale. L'entità servizio può essere concesso l'accesso alle risorse di Azure e utilizzato come identità dai client di script o della riga di comando per l'accesso di accesso e la risorsa. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
+Un'identità del servizio gestito fornisce un'[entità servizio](~/articles/active-directory/develop/active-directory-dev-glossary.md#service-principal-object), [creata con l'abilitazione dell'identità del servizio gestito](msi-overview.md#how-does-it-work) nella macchina virtuale. All'entità servizio è possibile concedere l'accesso a risorse di Azure, usandola come identità tramite client di script/da riga di comando per l'accesso utente e alle risorse. In genere, per poter accedere a risorse protette con la propria identità, un client di script deve:  
 
    - essere registrato e autorizzato da Azure AD come applicazione client Web/riservata
    - accedere con la propria entità servizio usando le credenziali dell'app (probabilmente integrate nello script)
@@ -47,8 +48,8 @@ Con l'identità del servizio gestito, il client non deve più soddisfare questi 
 
 Lo script seguente illustra come:
 
-1. Accedi ad Azure AD in un'entità servizio l'utente assegnato file MSI.  
-2. Chiamare Gestione risorse di Azure e ottenere il percorso di area di Azure per una macchina virtuale. L'interfaccia della riga di comando si occupa di gestire automaticamente l'acquisizione/uso dei token. Assicurarsi di sostituire il nome della macchina virtuale per `<VM NAME>`e id di risorsa MSI assegnati dall'utente per `<MSI ID>`. Viene restituito l'id di risorsa file MSI nel `id` proprietà durante la creazione di un file MSI assegnati dall'utente (vedere [configurare un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale con Azure CLI](msi-qs-configure-cli-windows-vm.md) per esempi del `az identity create` comando ).
+1. Accedere ad Azure AD con l'entità servizio dell'identità del servizio gestito assegnata dall'utente.  
+2. Chiamare Azure Resource Manager e ottenere la posizione dell'area di Azure per una macchina virtuale. L'interfaccia della riga di comando si occupa di gestire automaticamente l'acquisizione/uso dei token. Assicurarsi di sostituire il nome della macchina virtuale per `<VM NAME>` e l'ID risorsa dell'identità del servizio gestito assegnata dall'utente per `<MSI ID>`. L'ID risorsa dell'identità del servizio gestito viene restituito nella proprietà `id` durante la creazione di un'identità del servizio gestito assegnata dall'utente. Per esempi del comando `az identity create`, vedere [Configure a user-assigned Managed Service Identity (MSI) for a VM, using Azure CLI](msi-qs-configure-cli-windows-vm.md) (Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite l'interfaccia utente di Azure).
 
     ```azurecli
     az login --msi –u <MSI ID>
@@ -86,7 +87,7 @@ Per un elenco di risorse che supportano Azure AD e che sono state testate con l'
 
 ## <a name="error-handling-guidance"></a>Istruzioni per la gestione degli errori 
 
-Le risposte seguenti possono indicare che non è stato configurato correttamente il file MSI:
+Le risposte seguenti possono indicare che l'identità del servizio gestito non è stata configurata correttamente:
 
 - Interfaccia della riga di comando: *MSI: Failed to retrieve a token from 'http://localhost:50342/oauth2/token' with an error of 'HTTPConnectionPool(host='localhost', port=50342)* (Identità del servizio gestito: Impossibile recuperare un token da 'http://localhost:50342/oauth2/token' con un errore 'HTTPConnectionPool(host='localhost', port=50342)) 
 
@@ -95,11 +96,11 @@ Se si riceve uno di questi errori, tornare alla macchina virtuale di Azure nel [
 - Andare alla pagina **Configurazione** e assicurarsi che l'opzione "Identità del servizio gestito" sia impostata su "Sì".
 - Andare alla pagina **Estensioni** e verificare che l'estensione dell'identità del servizio gestito sia stata distribuita correttamente.
 
-Se una è errato, è necessario riassegnare il file MSI per la risorsa nuovamente o risolvere il problema di distribuzione. Vedere [configurare una macchina virtuale gestita servizio identità (MSI) mediante Azure CLI](msi-qs-configure-cli-windows-vm.md) se occorre assistenza nella configurazione della macchina virtuale.
+Se una delle due opzioni è errata, è necessario riassegnare l'identità del servizio gestito alla risorsa oppure risolvere il problema di distribuzione. Per informazioni sulla configurazione della macchina virtuale, vedere [Configure a VM Managed Service Identity (MSI) using Azure CLI](msi-qs-configure-cli-windows-vm.md) (Configurare l'identità del servizio gestito di una macchina virtuale tramite l'interfaccia della riga di comando di Azure).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per abilitare MSI in una macchina virtuale di Azure, vedere [configurare una macchina virtuale gestita servizio identità (MSI) mediante Azure CLI](msi-qs-configure-cli-windows-vm.md).
+- Per abilitare l'identità del servizio gestito in una macchina virtuale di Azure, vedere [Configure a VM Managed Service Identity (MSI) using Azure CLI](msi-qs-configure-cli-windows-vm.md) (Configurare l'identità del servizio gestito di una macchina virtuale tramite l'interfaccia della riga di comando di Azure).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

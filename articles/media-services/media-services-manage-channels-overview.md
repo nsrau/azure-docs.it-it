@@ -62,18 +62,18 @@ Nella tabella seguente vengono confrontati i due tipi di canale supportati in Se
 
 | Funzionalità | Canale pass-through | Canale standard |
 | --- | --- | --- |
-| Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
+| Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Sì |
 | Risoluzione massima, numero di livelli |1080p, 8 livelli, oltre 60 fps |720p, 6 livelli, 30 fps |
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming e RTP |
 | Prezzo |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo di esecuzione massimo |24 x 7 |8 ore |
-| Supporto per l'inserimento di slate |No |Sì |
-| Supporto per annunci pubblicitari |No |Sì |
+| Supporto per l'inserimento di slate |No  |Sì |
+| Supporto per annunci pubblicitari |No  |Sì |
 | Pass-through di sottotitoli CEA 608/708 |Sì |Sì |
 | Possibilità di recuperare brevi fasi di stallo in feed di contributo |Sì |No (senza dati di input, il canale avvierà lo slate dopo 6 secondi) |
 | Supporto per GOP di input non uniformi |Sì |No: l'input deve essere fisso (GOP di 2 secondi) |
 | Supporto per input con frequenza dei fotogrammi variabile |Sì |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
-| Arresto automatico dei canali in caso di perdita del feed di input |No |Dopo 12 ore, nessun programma è in esecuzione |
+| Arresto automatico dei canali in caso di perdita del feed di input |No  |Dopo 12 ore, nessun programma è in esecuzione |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilizzo di canali che ricevono il flusso live a bitrate multiplo da codificatori locali con il metodo pass-through
 Il diagramma seguente illustra le parti principali della piattaforma AMS coinvolte nel flusso di lavoro **pass-through** .
@@ -90,7 +90,7 @@ Il seguente diagramma mostra i componenti principali della piattaforma AMS inter
 Per altre informazioni, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Descrizione di un canale e dei relativi componenti
-### <a name="channel"></a>canale
+### <a name="channel"></a>Canale
 In Servizi multimediali le entità [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)sono responsabili dell'elaborazione dei contenuti in streaming live. Un'entità Channel, o canale, fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito al transcodificatore live. Un'entità Channel riceve flussi di input live dal trascodificatore live e li rende disponibili per lo streaming mediante uno o più StreamingEndpoints. I canali forniscono anche un endpoint di anteprima(URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito.
 
 È possibile ottenere l'URL di inserimento e l'URL di anteprima quando si crea il canale. Per ottenere questi URL, non è necessario che il canale sia nello stato avviato. Quando si è pronti per avviare l'inserimento di dati da un transcodificatore live nel canale, il canale deve essere avviato. Una volta che il transcodificatore live inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
@@ -135,8 +135,8 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
 | In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
-| Arresto in corso |Arresto in corso |No (stato temporaneo) |
-| Arrestato |Arrestato |No |
+| Stopping |Stopping |No (stato temporaneo) |
+| Arrestato |Arrestato |No  |
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

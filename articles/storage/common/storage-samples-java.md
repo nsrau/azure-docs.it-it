@@ -45,15 +45,15 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a> (Introduzione al servizio BLOB di Azure in Java)</td>
 </tr> 
 <tr> 
-<td>Creazione contenitore</td>
+<td>Create Container</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a> (Introduzione al servizio BLOB di Azure in Java)</td>
 </tr> 
 <tr> 
-<td>Eliminazione BLOB</td>
+<td>Delete Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a> (Introduzione al servizio BLOB di Azure in Java)</td>
 </tr> 
 <tr> 
-<td>Eliminazione contenitore</td>
+<td>Delete Container</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a> (Introduzione al servizio BLOB di Azure in Java)</td>
 </tr> 
 <tr> 
@@ -89,7 +89,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java</a> (Introduzione al servizio BLOB di Azure in Java)</td>
 </tr>           
 <tr> 
-<td>Snapshot di BLOB</td>
+<td>Snapshot Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a> (Introduzione al servizio BLOB di Azure in Java)</td>
 </tr> 
 <tr> 
@@ -147,7 +147,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a> (Introduzione al servizio di accodamento di Azure in Java)</td> 
 </tr> 
 <tr> 
-<td>Visualizzazione di messaggio</td> 
+<td>Visualizzazione del messaggio</td> 
 <td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a> (Introduzione al servizio di accodamento di Azure in Java)</td> 
 </tr> 
 <tr> 
@@ -159,7 +159,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java</a> (Introduzione al servizio di accodamento di Azure in Java)</td> 
 </tr> 
 <tr> 
-<td>Aggiornamento messaggio</td> 
+<td>Aggiornamento del messaggio</td> 
 <td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a> (Introduzione al servizio di accodamento di Azure in Java)</td> 
 </tr> 
 <tr> 
@@ -176,7 +176,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Esempi di libreria client di archiviazione Java</a></td> 
 </tr> 
 <tr> 
-<td>Query su entità</td> 
+<td>Query Entities</td> 
 <td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introduzione al servizio tabelle di Azure in Java)</td> 
 </tr> 
 <tr> 
@@ -188,7 +188,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 <td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Getting Started with Azure Table Service in Java</a> (Introduzione al servizio tabelle di Azure in Java)</td> 
 </tr> 
 <tr> 
-<td>Aggiornamento di entità</td> 
+<td>Update Entity</td> 
 <td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Esempi di libreria client di archiviazione Java</a></td> 
 </tr> 
 </tbody> 

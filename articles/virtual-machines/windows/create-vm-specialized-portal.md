@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 33e94777047ea8a116ae6f393439521356a53509
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-vm-from-a-vhd-using-the-azure-portal"></a>Creare una macchina virtuale da un disco rigido virtuale con il portale di Azure
 

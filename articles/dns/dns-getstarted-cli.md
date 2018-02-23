@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introduzione a DNS Azure con l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](dns-getstarted-portal.md)
+> * [Azure portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-cli.md)
 

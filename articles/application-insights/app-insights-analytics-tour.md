@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Presentazione dello strumento Analisi in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -134,7 +134,7 @@ Per impostazione predefinita, le query sono limitate alle ultime 24 ore. Questo 
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Eseguire l'override dell'intervallo di tempo scrivendo una query che includa `timestamp` in una clausola where. ad esempio:
+Eseguire l'override dell'intervallo di tempo scrivendo una query che includa `timestamp` in una clausola where. Ad esempio: 
 
 ```AIQL
 
@@ -538,7 +538,7 @@ Se l'applicazione associa agli eventi [dimensioni (proprietà) e misure personal
 
 Ad esempio, se l'applicazione include:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
                      {{"p1", "v1"},{"p2", "v2"}};
@@ -611,7 +611,7 @@ Se si usa [Trackevent()](app-insights-api-custom-events-metrics.md#trackevent) p
 
 Esaminiamo un esempio in cui il codice dell'app contiene le righe seguenti:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
@@ -629,7 +629,7 @@ Estrarre le misure e le dimensioni degli eventi:
 ![Frequenza di visualizzazione degli eventi personalizzati](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
 ### <a name="custom-metrics-table"></a>Tabella delle metriche personalizzate
-Se si usa [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) per inviare i valori metrici, i risultati sono disponibili nel flusso **customMetrics**. Ad esempio:  
+Se si usa [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) per inviare i valori metrici, i risultati sono disponibili nel flusso **customMetrics**. Ad esempio:   
 
 ![Metriche personalizzate in Application Insights - Analisi](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 

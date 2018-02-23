@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="event-hubs-samples"></a>Esempi di Hub eventi 
 
@@ -29,7 +29,7 @@ Al momento della stesura di questo articolo, gli esempi di Hub eventi si trovano
 - [Esempi di codice per sviluppatori MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
 - [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-Per ulteriori informazioni sulle diverse versioni di .NET Framework, vedere [Framework e le destinazioni](/dotnet/articles/standard/frameworks).
+Per altre informazioni sulle diverse versioni di .NET Framework, vedere [Framework di destinazione](/dotnet/articles/standard/frameworks).
 
 Altri esempi saranno aggiunti in seguito, è consigliabile quindi controllare spesso gli aggiornamenti.
 
@@ -60,10 +60,6 @@ L'esempio per l'[introduzione a Hub eventi](https://code.msdn.microsoft.com/Serv
 ### <a name="scale-out-event-processing"></a>Elaborazione di eventi con aumento delle istanze 
 
 L'esempio sull'[elaborazione di eventi con aumento delle istanze](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) illustra come usare l'[Host processore di eventi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) per distribuire il carico di lavoro del consumo di flusso di Hub eventi. Viene illustrato come implementare gli oggetti **EventProcessor** e **EventProcessorFactory** per gestire il flusso di eventi. 
-
-###  <a name="pull-data-from-sql-into-an-event-hub"></a>Estrazione dei dati da SQL a un hub eventi
-
-L'esempio sull'[estrazione dei dati SQL](https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql) illustra come estrarre i dati da una tabella SQL e inserirli in un hub eventi, da usare come input per applicazioni analitiche downstream.
 
 ### <a name="pull-web-data-into-an-event-hub"></a>Estrarre i dati web in un hub eventi 
 

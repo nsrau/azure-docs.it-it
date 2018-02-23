@@ -25,7 +25,7 @@ Questo documento è complementare all'articolo [Come integrare Engagement in un'
 
 Tenere presente che, se si vuole impostare Engagement in modo che segnali solo le sessioni, le attività, gli arresti anomali e i dati tecnici dell'applicazione, la soluzione più semplice consiste nel fare in modo che tutte le sottoclassi `Page` ereditino dalla classe `EngagementPage`.
 
-Se invece si hanno esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementPage`, è necessario usare l'API di Engagement.
+Se invece si hanno esigenze più complesse, ad esempio se è necessario segnalare eventi, errori e processi specifici dell'applicazione o presentare le attività dell'applicazione in modo diverso rispetto a quello implementato nelle classi `EngagementPage` , è necessario usare l'API di Engagement.
 
 L'API di Engagement viene fornita dalla classe `EngagementAgent` . È possibile accedere a questi metodi tramite `EngagementAgent.Instance`.
 
@@ -65,7 +65,7 @@ Vengono terminate l'attività e la sessione. Chiamare questo metodo solo se si �
 
 ## <a name="reporting-jobs"></a>Segnalazione di processi
 ### <a name="start-a-job"></a>Avviare un processo
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void StartJob(string name, Dictionary<object, object> extras = null)
 
 È possibile utilizzare il processo per tenere traccia delle attività in un determinato periodo di tempo.
@@ -81,7 +81,7 @@ Vengono terminate l'attività e la sessione. Chiamare questo metodo solo se si �
             EngagementAgent.Instance.StartJob("uploadData", extras);
 
 ### <a name="end-a-job"></a>Terminare un processo
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void EndJob(string name)
 
 Appena terminata un'attività di cui un processo tiene traccia, è necessario chiamare il metodo EndJob per questo processo, fornendo il nome del processo.
@@ -164,7 +164,7 @@ Gli errori di sessione vengono in genere usati per segnalare gli errori che hann
             EngagementAgent.Instance.SendSessionError("errorName", extra);
 
 ### <a name="job-errors"></a>Errori di processo
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
 Gli errori possono essere correlati a un processo in esecuzione invece che alla sessione utente corrente.
@@ -176,7 +176,7 @@ Gli errori possono essere correlati a un processo in esecuzione invece che alla 
 L'agente fornisce due metodi per gestire gli arresti anomali.
 
 ### <a name="send-an-exception"></a>Inviare un'eccezione
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendCrash(Exception e, bool terminateSession = false)
 
 #### <a name="example"></a>Esempio
@@ -191,7 +191,7 @@ L'agente fornisce due metodi per gestire gli arresti anomali.
 In questo caso la sessione e i processi verranno chiusi solo dopo l'invio dell'arresto anomalo.
 
 ### <a name="send-an-unhandled-exception"></a>Inviare un'eccezione non gestita
-#### <a name="reference"></a>riferimento
+#### <a name="reference"></a>Riferimenti
             void SendCrash(Exception e)
 
 Engagement fornisce anche un metodo per inviare le eccezioni non gestite, se è stata **DISABILITATA** la segnalazione automatica degli **arresti anomali** in Engagement. Questa possibilità è particolarmente utile se utilizzata all'interno del gestore eventi UnhandledException.

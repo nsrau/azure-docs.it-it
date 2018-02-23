@@ -17,7 +17,7 @@ ms.author: kgremban
 ms.custom: pim
 ms.openlocfilehash: 3866438de8fba7a6c42777bbb57746eadf1158eb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

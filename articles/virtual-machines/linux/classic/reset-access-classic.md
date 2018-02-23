@@ -42,7 +42,7 @@ Con l’interfaccia della riga di comando di Azure è possibile eseguire le atti
 * [Verificare la coerenza dei dischi aggiunti](#checkdisk)
 * [Ripristinare i dischi aggiunti nella VM Linux](#repairdisk)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Sarà necessario eseguire le operazioni seguenti:
 
 * Sarà necessario [installare l'interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) e [connettersi alla proprio sottoscrizione](/cli/azure/authenticate-azure-cli) per usare le risorse di Azure associate al proprio account.

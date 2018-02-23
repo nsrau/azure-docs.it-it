@@ -32,9 +32,9 @@ L'insieme di credenziali delle chiavi di Azure è disponibile nella maggior part
 > Questa esercitazione non fornisce istruzioni su come scrivere l'applicazione Azure inclusa in uno dei passaggi. Lo scopo di questa applicazione di esempio è mostrare come un'applicazione può essere autorizzata a usare una chiave o un segreto archiviato nell'insieme di credenziali delle chiavi.
 > Questo articolo è incentrato sulla configurazione dell'insieme di credenziali delle chiavi di Azure tramite l'interfaccia della riga di comando multipiattaforma. Per le istruzioni relative ad Azure PowerShell, vedere [questa esercitazione equivalente](key-vault-get-started.md).
 
-Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
+Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -75,7 +75,7 @@ Se invece si vuole accedere digitando in modo interattivo
 azure login
 ```
 
-Se si dispone di più sottoscrizioni e se ne vuole specificare una in particolare da usare per l'insieme di credenziali delle chiavi di Azure, digitare quanto segue per visualizzare le sottoscrizioni per il proprio account:
+Se sono disponibili più sottoscrizioni e se ne vuole specificare una in particolare da usare per l'insieme di credenziali delle chiavi di Azure, digitare quanto segue per visualizzare le sottoscrizioni dell'account:
 
 ```azurecli-interactive
 azure account list
@@ -118,7 +118,7 @@ Quest'operazione deve essere eseguita una volta sola per ogni sottoscrizione.
 
 Usare il comando `azure keyvault create` per creare un insieme di credenziali delle chiavi. Questo script ha tre parametri obbligatori: un nome del gruppo di risorse, un nome dell'insieme di credenziali delle chiavi e la località geografica.
 
-ad esempio:
+Ad esempio: 
 - Se si usa **ContosoKeyVault** come nome dell'insieme di credenziali
 - **ContosoResourceGroup** come nome del gruppo di risorse
 - **Stati Uniti orientali** come località digitare:
@@ -299,8 +299,8 @@ azure keyvault secret delete --vault-name 'ContosoKeyVault' --secret-name 'SQLPa
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell’insieme di credenziali chiave Azure](key-vault-developers-guide.md).
-- Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali chiave di Azure?](key-vault-whatis.md)
+- Per i riferimenti alla programmazione, vedere [Guida per gli sviluppatori dell'insieme di credenziali chiave Azure](key-vault-developers-guide.md).
+- Per informazioni generali sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](key-vault-whatis.md)
 - Per usare un insieme di credenziali delle chiavi tramite PowerShell, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md).
 
 

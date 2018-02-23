@@ -1,112 +1,77 @@
 ---
-title: Distribuzione di tabelle in SQL Data Warehouse | Documentazione Microsoft
-description: Introduzione alla distribuzione di tabelle in SQL Data Warehouse di Azure.
+title: Linee guida di progettazione per tabelle distribuite - Azure SQL Data Warehouse | Microsoft Docs
+description: Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
 editor: 
-ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="distributing-tables-in-sql-data-warehouse"></a>Distribuzione di tabelle in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Panoramica][Overview]
-> * [Tipi di dati][Data Types]
-> * [Distribuzione][Distribute]
-> * [Indice][Index]
-> * [Partizione][Partition]
-> * [Statistiche][Statistics]
-> * [Temporanee][Temporary]
->
->
+# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Linee guida per la progettazione di tabelle distribuite in Azure SQL Data Warehouse
 
-SQL Data Warehouse è un sistema di database distribuito a elaborazione parallela massiva.  Suddividendo i dati e le funzionalità di elaborazione tra più nodi, SQL Data Warehouse offre grande scalabilità, ben oltre qualsiasi sistema singolo.  La distribuzione dei dati all'interno di SQL Data Warehouse è tra i fattori principali che permettono di ottenere prestazioni ottimali.   Per ottenere prestazioni ottimali è importante ridurre al minimo lo spostamento dei dati e, per fare ciò, è importante scegliere la giusta strategia di distribuzione.
+Questo articolo offre alcuni suggerimenti per la progettazione di tabelle distribuite in Azure SQL Data Warehouse. Le tabelle con distribuzione hash migliorano le prestazioni delle query nelle tabelle dei fatti di grandi dimensioni e rappresentano l'argomento principale di questo articolo. Le tabelle round robin consentono invece di aumentare la velocità di caricamento. Queste scelte di progettazione, quindi, possono contribuire in maniera significativa al miglioramento delle prestazioni delle query e di caricamento.
 
-## <a name="understanding-data-movement"></a>Comprendere lo spostamento dei dati
-In un sistema MPP i dati di ogni tabella sono suddivisi in più database sottostanti.  Le query maggiormente ottimizzate in un sistema MPP possono semplicemente essere passate per l'esecuzione sui singoli database distribuiti, senza alcuna interazione con gli altri database.  Ad esempio, si supponga di avere un database con dati di vendita che contiene due tabelle, per vendite e clienti.  Se si ha una query che deve creare un join tra la tabella delle vendite con quella dei clienti e si dividono entrambe le tabelle per numero di cliente, inserendo ogni cliente in un database distinto, tutte le query che uniscono vendite e clienti possono essere risolte all'interno di ogni database senza scambio di informazioni con gli altri database.  Al contrario, se si dividono i dati di vendita per numero d'ordine e i dati dei clienti per numero di cliente, qualsiasi database specificato non avrà i dati corrispondenti per ogni cliente e quindi se vogliono unire i dati di vendita con quelli dei clienti, sarà necessario ottenere i dati per ogni cliente dagli altri database.  Nel secondo esempio lo spostamento dei dati si renderà necessario per spostare i dati dei cliente nei dati di vendita, in modo da consentire l'unione delle due tabelle.  
+## <a name="prerequisites"></a>prerequisiti
+Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
 
-Lo spostamento dei dati non è sempre una procedura negativa, talvolta è necessaria per risolvere una query.  Quando tuttavia è possibile evitare questo passaggio supplementare, la query verrà naturalmente eseguita più velocemente.  In genere lo spostamento dei dati si verifica quando le tabelle vengono unite in join o vengono eseguite aggregazioni.  Spesso è necessario eseguire entrambe le operazioni, quindi anche se si può procedere all'ottimizzazione per uno scenario, ad esempio un join, lo spostamento dei dati è comunque necessario per facilitare la risoluzione per l'altro scenario, ad esempio un'aggregazione.  Il trucco è scoprire quale delle due soluzioni è meno impegnativa.  Nella maggior parte dei casi, la distribuzione di tabelle dei fatti di grandi dimensioni in una colonna di join comune è il metodo più efficace per ridurre al minimo lo spostamento dei dati.  La distribuzione dei dati nelle colonne di join è un metodo molto più comune per ridurre lo spostamento dei dati rispetto alla distribuzione di dati nelle colonne coinvolte in un'aggregazione.
+Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
 
-## <a name="select-distribution-method"></a>Selezionare il metodo di distribuzione
-Operando in background, SQL Data Warehouse divide i dati in 60 database.  Un singolo database è detto **distribuzione**.  Quando i dati vengono caricati nelle singole tabelle, SQL Data Warehouse deve sapere come dividerli nelle 60 distribuzioni.  
+- Quali sono le dimensioni della tabella?   
+- Quanto spesso viene aggiornata la tabella?   
+- Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
 
-Il metodo di distribuzione viene definito a livello di tabella e attualmente sono disponibili due opzioni:
+## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
+Una tabella distribuita viene visualizzata come una singola tabella, ma le righe al suo interno, in realtà, sono archiviate in 60 distribuzioni. Le righe, inoltre, vengono distribuite con un algoritmo hash o round robin. 
 
-1. **Round robin** , che distribuisce i dati in modo uniforme ma casuale.
-2. **Distribuzione hash** , che distribuisce i dati in base ai valori hash di una singola colonna.
+Un'altra opzione di archiviazione delle tabelle prevede la replica di una tabella di piccole dimensioni in tutti i nodi di calcolo. Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Per scegliere rapidamente tra queste tre opzioni, vedere Tabelle distribuite nell'articolo di [panoramica sulle tabelle](sql-data-warehouse-tables-overview.md). 
 
-Per impostazione predefinita, quando non si definisce un metodo di distribuzione dei dati, per la tabella viene usato il metodo di distribuzione **round robin** .  Tuttavia, man mano che l'implementazione si fa più sofisticata, è consigliabile usare tabelle con **distribuzione hash** per ridurre al minimo lo spostamento dei dati, ottimizzando così le prestazioni delle query.
 
-### <a name="round-robin-tables"></a>Tabelle round robin
-Il metodo round robin per la distribuzione dei dati è molto semplice da usare.  Man mano che i dati vengono caricati, ogni riga viene semplicemente inviata alla distribuzione successiva.  Questo metodo distribuisce sempre i dati in modo casuale e molto uniforme in tutte le distribuzioni.  In altre parole, durante il processo round robin che inserisce i dati non viene eseguita alcuna operazione di ordinamento.  Per questo motivo, una distribuzione round robin viene a volte definita hash causale.  In una tabella con distribuzione round robin non è necessario comprendere i dati.  Per questo motivo le tabelle round robin sono spesso un'ottima scelta come destinazioni di caricamento.
+### <a name="hash-distributed"></a>Tabelle con distribuzione hash
+Una tabella con distribuzione hash distribuisce le righe della tabella nei vari nodi di calcolo usando una funzione hash deterministica per assegnare ogni riga a una [distribuzione](massively-parallel-processing-mpp-architecture.md#distributions). 
 
-Per impostazione predefinita, se non viene scelto un metodo di distribuzione, viene usato il metodo di distribuzione round robin.  Tuttavia, se è vero che le tabelle round robin sono facili da usare, perché i dati vengono distribuiti in modo casuale nel sistema, è anche vero che il sistema non può garantire la posizione di ogni riga nella distribuzione.  Di conseguenza, a volte il sistema deve richiamare un'operazione di spostamento dei dati per organizzare meglio i dati e poter risolvere una query.  Questo passaggio aggiuntivo può rallentare le query.
+![Tabella distribuita](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Tabella distribuita")  
 
-Si consideri l'uso della distribuzione round robin della tabella negli scenari seguenti:
+Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. SQL Data Warehouse usa queste informazioni per ridurre al minimo lo spostamento dei dati durante le query e, di conseguenza, migliorare le prestazioni complessive delle query. 
 
-* Quando si inizia come punto di partenza semplice.
-* Se non è presente una chiave di join ovvia.
-* Se non è presente una colonna candidata ottimale per la distribuzione hash della tabella.
-* Se la tabella non condivide una chiave di join comune con altre tabelle.
-* Se il join è meno significativo di altri join nella query.
-* Quando si tratta di una tabella di staging temporaneo.
+Le tabelle con distribuzione hash sono particolarmente indicate per le tabelle dei fatti di grandi dimensioni in uno schema star. Possono contenere un numero molto elevato di righe e conseguire comunque prestazioni elevate. È necessario, ovviamente, considerare anche alcuni aspetti di progettazione per ottenere le prestazioni che il sistema distribuito è in grado di offrire. Uno di questi riguarda la scelta di una colonna di distribuzione appropriata, illustrata in questo articolo. 
 
-Entrambi gli esempi seguenti creano una tabella round robin:
+Valutare l'opportunità di usare una tabella con distribuzione hash se:
 
-```SQL
--- Round Robin created by default
-CREATE TABLE [dbo].[FactInternetSales]
-(   [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-;
+- La dimensione della tabella su disco è superiore a 2 GB.
+- La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. 
 
--- Explicitly Created Round Robin Table
-CREATE TABLE [dbo].[FactInternetSales]
-(   [ProductKey]            int          NOT NULL
-,   [OrderDateKey]          int          NOT NULL
-,   [CustomerKey]           int          NOT NULL
-,   [PromotionKey]          int          NOT NULL
-,   [SalesOrderNumber]      nvarchar(20) NOT NULL
-,   [OrderQuantity]         smallint     NOT NULL
-,   [UnitPrice]             money        NOT NULL
-,   [SalesAmount]           money        NOT NULL
-)
-WITH
-(   CLUSTERED COLUMNSTORE INDEX
-,   DISTRIBUTION = ROUND_ROBIN
-)
-;
-```
+### <a name="round-robin-distributed"></a>Distribuzione round robin
+Una tabella con distribuzione round robin distribuisce le righe della tabella in modo uniforme tra tutte le distribuzioni. L'assegnazione delle righe alle distribuzioni è casuale. A differenza delle tabelle con distribuzione hash, inoltre, non è garantito che valori identici vengano assegnati alla stessa distribuzione. 
 
-> [!NOTE]
-> Anche se la tabella round robin è il tipo predefinito, la procedura consigliata è essere espliciti nella DDL in modo che le intenzioni del layout di tabella siano chiare.
->
->
+Di conseguenza, a volte il sistema deve richiamare un'operazione di spostamento dei dati per organizzare meglio i dati e poter risolvere una query.  Questo passaggio aggiuntivo può rallentare le query. L'aggiunta di una tabella con distribuzione round robin, ad esempio, richiede una ridistribuzione dei dati, con una conseguente riduzione delle prestazioni.
 
-### <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
-L'uso di un algoritmo di **distribuzione hash** per distribuire le tabelle permette di migliorare le prestazioni in molti scenari riducendo lo spostamento dei dati in fase di query.  Le tabelle con distribuzione hash vengono suddivise tra i database distribuiti usando un algoritmo di hash in una singola colonna selezionata dall'utente.  La colonna di distribuzione determina il modo in cui i dati vengono divisi tra i database distribuiti.  La funzione hash usa la colonna di distribuzione per assegnare righe alle distribuzioni.  L'algoritmo di hash e la distribuzione risultante sono deterministici.  Vale a dire che per lo stesso valore con lo stesso tipo di dati viene sempre eseguito l'hash alla stessa distribuzione.    
+Valutare l'opportunità di usare la distribuzione round robin per una tabella negli scenari seguenti:
 
-Questo esempio permette di creare una tabella distribuita:
+- Quando si inizia come punto di partenza semplice (impostazione predefinita)
+- Se non è presente una chiave di join ovvia.
+- Se non è presente una colonna candidata ottimale per la distribuzione hash della tabella.
+- Se la tabella non condivide una chiave di join comune con altre tabelle.
+- Se il join è meno significativo di altri join nella query.
+- Quando si tratta di una tabella di staging temporaneo.
+
+L'esercitazione [Caricamento di dati dal BLOB di archiviazione di Azure](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) illustra un esempio di caricamento dei dati in una tabella di staging con distribuzione round robin.
+
+
+## <a name="choosing-a-distribution-column"></a>Scelta di una colonna di distribuzione
+Nelle tabelle con distribuzione hash è presente una colonna di distribuzione che rappresenta la chiave hash. Il codice seguente, ad esempio, crea una tabella con distribuzione hash con ProductKey come colonna di distribuzione.
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -124,64 +89,57 @@ WITH
 ,  DISTRIBUTION = HASH([ProductKey])
 )
 ;
-```
+``` 
 
-## <a name="select-distribution-column"></a>Selezionare la colonna di distribuzione
-Per eseguire la **distribuzione hash** di una tabella, è necessario selezionare una singola colonna di distribuzione.  Quando si seleziona una colonna di distribuzione occorre prendere in considerazione tre fattori importanti.  
+La scelta della colonna di distribuzione è una decisione di progettazione importante, poiché i valori presenti in questa colonna determinano il modo in cui vengono distribuite le righe. La scelta ottimale dipende da vari fattori e, in genere, comporta alcuni compromessi. Se, tuttavia, non si riesce a scegliere subito la tabella ottimale, è possibile usare [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per ricreare la tabella con una colonna di distribuzione diversa. 
 
-Selezionare una singola colonna:
+### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Scegliere una colonna di distribuzione che non richiede aggiornamenti
+Non è possibile aggiornare una colonna di distribuzione a meno che non si elimini la riga e si inserisca una nuova riga con i valori aggiornati. È consigliabile quindi selezionare una colonna con valori statici. 
 
-1. da non aggiornare,
-2. per distribuire i dati in modo uniforme, evitando asimmetrie,
-3. per ridurre al minimo lo spostamento dei dati.
+### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Scegliere una colonna di distribuzione in modo che i dati vengano distribuiti in modo uniforme
 
-### <a name="select-distribution-column-which-will-not-be-updated"></a>Selezionare una colonna di distribuzione da non aggiornare
-Le colonne di distribuzione non sono aggiornabili. Occorre quindi selezionare una colonna con valori statici.  Se una colonna deve essere aggiornata, in generale non è un buon candidato per la distribuzione.  Nel caso in cui sia necessario aggiornare una colonna di distribuzione, è possibile procedere prima di tutto eliminando la riga e poi inserendone una nuova.
+Per ottenere prestazioni ottimali, tutte le distribuzioni devono avere approssimativamente lo stesso numero di righe. Se una o più distribuzioni hanno un numero sproporzionato di righe, alcune distribuzioni completano la propria porzione di query parallela prima delle altre. La query, quindi, viene completata solo nel momento in cui tutte le distribuzioni hanno terminato l'elaborazione e la velocità di ogni query corrisponde di fatto alla distribuzione più lenta.
 
-### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Selezionare una colonna di distribuzione per distribuire i dati in modo uniforme
-Dal momento che le prestazioni di un sistema distribuito equivalgono a quelle della distribuzione più lenta, è importante dividere il carico di lavoro in modo uniforme tra le distribuzioni per ottenere un'esecuzione bilanciata in tutto il sistema.  Il modo in cui il carico lavoro viene diviso in un sistema distribuito dipende da dove si trovano i dati per ogni distribuzione.  Per questo motivo è molto importante selezionare la colonna di distribuzione appropriata per distribuire i dati, in modo che ogni distribuzione abbia lo stesso carico di lavoro e impieghi lo stesso tempo a completarlo.  Quando lavoro è diviso equamente nel sistema, i dati vengono bilanciati tra le distribuzioni.  Quando i dati non sono bilanciati in modo uniforme, si parla di **differenze di dati**.  
+- L'asimmetria dei dati significa che i dati non vengono distribuiti in modo uniforme tra le distribuzioni
+- L'asimmetria di elaborazione significa che alcune distribuzioni richiedono più tempo di altre per eseguire query parallele. Questa situazione può verificarsi in caso di asimmetria dei dati.
+  
+Per bilanciare l'elaborazione parallela, selezionare una colonna di distribuzione che:
 
-Per dividere i dati in modo uniforme ed evitare asimmetrie dei dati, selezionare la colonna di distribuzione tenendo presente quanto segue:
+- **Contenga molti valori univoci.** La colonna può includere alcuni valori duplicati, ma tutte le righe con lo stesso valore vengono assegnate alla stessa distribuzione. Poiché sono presenti 60 distribuzioni, la colonna deve avere almeno 60 valori univoci.  In genere, tuttavia, il numero di valori univoci è molto più elevato.
+- **Non contenga valori null o ne contenga un numero limitato.** Come esempio estremo, se tutti i valori della colonna sono NULL, tutte le righe vengono assegnate alla stessa distribuzione. L'elaborazione della query, quindi, è assegnata a un'unica distribuzione e non può usufruire dei vantaggi dell'elaborazione in parallelo. 
+- **Non è una colonna data**. Tutti i dati relativi alla stessa data vengono inseriti nella stessa distribuzione. In questo modo, se più utenti filtrano in base alla stessa data, l'intero lavoro di elaborazione viene eseguito solo da una delle 60 distribuzioni. 
 
-1. Selezionare una colonna che contiene un numero significativo di valori distinct.
-2. Evitare di distribuire dati in colonne con pochi valori distinti.
-3. Evitare di distribuire dati in colonne con una frequenza elevata di valori Null.
-4. Evitare di distribuire i dati in colonne data.
+### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Scegliere una colonna di distribuzione che riduca al minimo lo spostamento dei dati
 
-Dato che per ogni valore viene eseguito l'hash in 1 delle 60 distribuzioni, per ottenere una distribuzione uniforme è consigliabile selezionare una colonna altamente univoca che contenga più di 60 valori univoci.  Per illustrare questo concetto, si consideri il caso di una colonna contenente solo 40 valori univoci.  Se la colonna è stata selezionata come chiave di distribuzione, i dati per la tabella potrebbero essere ricevuti su 40 distribuzioni al massimo, lasciando 20 distribuzioni senza dati o elaborazioni da eseguire.  Al contrario, le altre 40 distribuzioni avrebbero un carico di lavoro maggiore rispetto a una distribuzione uniforme su 60 distribuzioni.  Questo scenario è un esempio di differenza di dati.
+Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. Scegliere una colonna di distribuzione che contribuisca a ridurre lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni di SQL Data Warehouse.
 
-Nel sistema MPP, ogni passaggio della query che tutte le distribuzioni completino la loro parte di lavoro.  Se una distribuzione svolge più lavoro rispetto alle altre, allora le risorse delle altre distribuzioni vengono essenzialmente sprecate nell'attesa della distribuzione occupata.  Quando si lavoro non viene distribuito uniformemente tra tutte le distribuzioni, si parla di **differenza di elaborazioni**.  La differenza di elaborazioni causa un rallentamento delle query rispetto a quando un carico di lavoro può essere distribuito uniformemente in tutte le distribuzioni.  La differenza di dati porta alla differenza di elaborazioni.
+Per ridurre al minimo lo spostamento dei dati, selezionare una colonna di distribuzione che:
 
-Evitare di distribuire su una colonna con un elevato numero di valori Null, poiché questi verranno ricevuti nella stessa distribuzione. Anche la distribuzione in una colonna di data può causare una differenza di elaborazioni, perché tutti i dati per una determinata data verranno ricevuti nella stessa distribuzione. Se più utenti eseguono query che applicano tutte un filtro alla stessa data, solo 1 delle 60 distribuzioni svolgerà tutto il lavoro, dal momento che una determinata data sarà solo in una distribuzione. In questo scenario le query verranno probabilmente eseguite 60 volte più lentamente rispetto a quando i dati vengono distribuiti uniformemente in tutte le distribuzioni.
+- Viene usata in clausole `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING`. Se due tabelle dei fatti di grandi dimensioni hanno join frequenti, le prestazioni delle query migliorano se si distribuiscono entrambe le tabelle in una delle colonne di join.  Se una tabella non viene usata in operazioni di join, valutare l'opportunità di distribuire la tabella in una colonna che si trova spesso nella clausola `GROUP BY`.
+- *Non* viene usata in clausole `WHERE`. Questo potrebbe limitare la query in modo che non venga eseguita in tutte le distribuzioni. 
+- *Non* è una colonna dati. Le clausole WHERE filtrano spesso per data.  Quando si verifica questa situazione, l'intera elaborazione può essere eseguita solo su alcune distribuzioni.
 
-Quando non sono disponibili colonne candidate, è consigliabile usare il metodo di distribuzione round robin.
+### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Cosa fare quando nessuna delle colonne è una colonna di distribuzione appropriata
 
-### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Selezionare una colonna di distribuzione per ridurre al minimo lo spostamento dei dati
-Ridurre al minimo lo spostamento dei dati selezionando la colonna di distribuzione appropriata è una delle strategie principali per l'ottimizzazione delle prestazioni di SQL Data Warehouse.  In genere lo spostamento dei dati si verifica quando le tabelle vengono unite in join o vengono eseguite aggregazioni.  Le colonne usate nelle clausole `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` e `HAVING` sono **ottimi** candidati per la distribuzione hash.
+Se nessuna delle colonne ha valori distinti sufficienti per una colonna di distribuzione, è possibile creare una nuova colonna come composizione di uno o più valori. Per evitare spostamenti di dati durante l'esecuzione di query, usare la colonna di distribuzione composita come colonna di join nelle query.
 
-D'altro canto, le colonne nella clausola `WHERE`**non** sono candidate ottimali come colonne hash, perché limitano le distribuzioni che fanno parte della query, causando una differenza di elaborazioni.  Un buon esempio di una colonna che su si potrebbe essere tentati di distribuire, ma che spesso può causare una differenza di elaborazioni è una colonna di data.
+Dopo aver progettato una tabella con distribuzione round robin, è necessario caricare i dati nella tabella.  Per informazioni sul caricamento, vedere l'articolo di [panoramica sul caricamento](sql-data-warehouse-overview-load.md). 
 
-In generale, se sono disponibili due tabelle dei fatti di grandi dimensioni, spesso coinvolte in un join, le prestazioni migliori si otterranno con la distribuzione di entrambe le tabelle in una delle colonne di join.  Se è presente una tabella che non è mai stata unita a un'altra tabella dei fatti di grandi dimensioni, esaminare le colonne che sono spesso nella clausola `GROUP BY` .
+## <a name="how-to-tell-if-your-distribution-column-is-a-good-choice"></a>Come stabilire se una colonna di distribuzione è appropriata
+Dopo aver caricato i dati in una tabella con distribuzione hash, verificare che le righe siano state distribuite in modo uniforme tra le 60 distribuzioni. Una variazione fino al 10% del numero di righe assegnate a ogni distribuzione non influisce in modo significativo sulle prestazioni. 
 
-Esistono alcuni criteri fondamentali che devono essere soddisfatti per evitare lo spostamento dei dati durante un join:
-
-1. È necessario eseguire la distribuzione hash delle tabelle coinvolte nel join in **una** delle colonne che fanno parte del join.
-2. I tipi di dati delle colonne di join nelle due tabelle devono corrispondere.
-3. Le colonne devono essere unite con un operatore Uguale.
-4. Il tipo di join può non essere `CROSS JOIN`.
-
-## <a name="troubleshooting-data-skew"></a>Risoluzione dei problemi relativi alle asimmetrie dei dati
-Quando i dati di una tabella sono distribuiti mediante il metodo di distribuzione hash, alcune distribuzioni presenteranno molti più dati di altre. Un'asimmetria dei dati eccessiva può compromettere le prestazioni delle query, perché per il risultato finale di una query distribuita è necessario aspettare che termini la distribuzione con il tempo di esecuzione più lungo. A seconda del grado di differenza dati potrebbe essere necessario risolvere il problema.
-
-### <a name="identifying-skew"></a>Identificazione dell'asimmetria dei dati
-Un modo semplice per identificare una differenza nelle tabelle consiste nell'uso di `DBCC PDW_SHOWSPACEUSED`.  Questo è un metodo molto semplice e rapido per vedere il numero di righe della tabella archiviate in ognuna delle 60 distribuzioni del database.  Tenere presente che per ottenere prestazioni più bilanciate, le righe nella tabella distribuita vanno suddivise in modo uniforme in tutte le distribuzioni.
+### <a name="determine-if-the-table-has-data-skew"></a>Determinare se la tabella presenta un'asimmetria dei dati
+Per controllare se è presente un'asimmetria dei dati, è possibile usare [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql). Il codice SQL seguente restituisce il numero di righe di tabella archiviate in ognuna delle 60 distribuzioni. Per ottenere prestazioni bilanciate, le righe nella tabella distribuita devono essere suddivise in modo uniforme tra tutte le distribuzioni.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Se tuttavia si esegue una query sulle viste a gestione dinamica di Azure SQL Data Warehouse (DMV) è possibile ottenere un'analisi più dettagliata.  Per iniziare, creare la vista [dbo.vTableSizes][dbo.vTableSizes] usando il codice SQL fornito nell'articolo [Panoramica delle tabelle][Overview].  Dopo aver creato la vista, eseguire questa query per identificare le tabelle con un'asimmetria dei dati superiore al 10%.
+Per identificare quali tabelle presentano un'asimmetria dei dati superiore al 10%:
+
+1. Creare la visualizzazione dbo.vTableSizes illustrata nell'articolo di [panoramica delle tabelle](sql-data-warehouse-tables-overview.md#table-size-queries).  
+2. Eseguire questa query:
 
 ```sql
 select *
@@ -198,15 +156,28 @@ order by two_part_name, row_count
 ;
 ```
 
-### <a name="resolving-data-skew"></a>Risoluzione delle asimmetrie di distribuzione
-Non tutte le asimmetrie sono sufficienti a giustificare una correzione.  In alcuni casi, le prestazioni di una tabella in alcune query possono compensare il danno causato dalla distribuzione asimmetrica.  Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro.   Per esaminare l'impatto della differenza sulle prestazioni delle query e in particolare sul tempo di completamento delle query nelle singole distribuzioni, è possibile seguire la procedura riportata nell'articolo [Monitoraggio delle query][Query Monitoring].
+### <a name="check-query-plans-for-data-movement"></a>Verificare lo spostamento dei dati nei piani di query
+Se la colonna di distribuzione è appropriata, i join e le aggregazioni presentano uno spostamento minimo dei dati. Questo aspetto influisce sul modo in cui devono essere scritti i join. Per ottenere uno spostamento minimo dei dati per un join in due tabelle con distribuzione hash, una delle colonne di join deve essere una colonna di distribuzione.  Se due tabelle con distribuzione hash creano un join in una colonna di distribuzione dello stesso tipo di dati, il join non richiede lo spostamento dei dati. I join possono usare colonne aggiuntive senza richiedere uno spostamento dei dati.
 
-La distribuzione è essenzialmente l'individuazione del giusto equilibrio fra la minimizzazione della differenza dati e la minimizzazione dello spostamento dei dati. Questi obiettivi possono essere contrastanti e talvolta può essere necessario tollerare una determinata differenza dati per poter ridurre lo spostamento dei dati. Ad esempio, quando la colonna di distribuzione corrisponde con un'elevata frequenza alla colonna condivisa di join e aggregazioni, si ridurrà al minimo lo spostamento dei dati. Il vantaggio di uno spostamento dei dati minimo potrebbe essere quello di compensare l'impatto negativo della differenza dati.
+Per evitare lo spostamento dei dati durante un join:
 
-Il modo più comune per risolvere la differenza dati è ricreare la tabella con una colonna di distribuzione diversa. Dato che non è possibile modificare la colonna di distribuzione in una tabella esistente, per modificare la distribuzione di una tabella occorre crearla nuovamente con [CTAS][].  Di seguito sono riportati due esempi di risoluzione di distribuzioni asimmetriche dei dati:
+- È necessario eseguire la distribuzione hash delle tabelle coinvolte nel join in **una** delle colonne che fanno parte del join.
+- I tipi di dati delle colonne di join nelle due tabelle devono corrispondere.
+- Le colonne devono essere unite con un operatore Uguale.
+- Il tipo di join può non essere `CROSS JOIN`.
 
-### <a name="example-1-re-create-the-table-with-a-new-distribution-column"></a>Esempio 1: Ricreare la tabella con una nuova colonna di distribuzione
-Questo esempio usa [CTAS][] per ricreare una tabella con una colonna di distribuzione hash diversa.
+Per vedere se nelle query si verifica uno spostamento dei dati, è possibile controllare il piano di query.  
+
+
+## <a name="resolve-a-distribution-column-problem"></a>Risolvere un problema relativo a una colonna di distribuzione
+Non è necessario risolvere tutti i casi di asimmetria dei dati. La distribuzione è essenzialmente l'individuazione del giusto equilibrio fra la minimizzazione dell'asimmetria dei dati e la minimizzazione dello spostamento dei dati. Non è sempre possibile ridurre al minimo entrambi i valori. In alcuni casi, il vantaggio di uno spostamento dei dati minimo può essere quello di compensare l'impatto negativo dell'asimmetria dei dati.
+
+Per decidere se sia necessario risolvere la differenza dati di una tabella, è necessario conoscere nel modo più completo possibile i volumi di dati e le query del carico di lavoro. È possibile seguire la procedura descritta nell'articolo [Monitoraggio delle query](sql-data-warehouse-manage-monitor.md) per monitorare l'impatto dell'asimmetria sulle prestazioni delle query. In particolare, è possibile scoprire quanto tempo richiede il completamento di query di grandi dimensioni in singole distribuzioni.
+
+Non essendo possibile modificare la colonna di distribuzione in una tabella esistente, il modo più comune per risolvere l'asimmetria dei dati consiste nel ricreare la tabella con una colonna di distribuzione diversa.  
+
+### <a name="re-create-the-table-with-a-new-distribution-column"></a>Ricreare la tabella con una nuova colonna di distribuzione
+Questo esempio usa [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) per ricreare una tabella con una colonna di distribuzione hash diversa.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -244,65 +215,11 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-### <a name="example-2-re-create-the-table-using-round-robin-distribution"></a>Esempio 2: Ricreare la tabella usando la distribuzione round robin
-Questo esempio usa [CTAS][] per ricreare una tabella con una distribuzione round robin anziché una distribuzione hash. Questa modifica produce una distribuzione uniforme dei dati ma aumenta lo spostamento dei dati.
-
-```sql
-CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN]
-WITH (  CLUSTERED COLUMNSTORE INDEX
-     ,  DISTRIBUTION =  ROUND_ROBIN
-     ,  PARTITION       ( [OrderDateKey] RANGE RIGHT FOR VALUES (   20000101, 20010101, 20020101, 20030101
-                                                                ,   20040101, 20050101, 20060101, 20070101
-                                                                ,   20080101, 20090101, 20100101, 20110101
-                                                                ,   20120101, 20130101, 20140101, 20150101
-                                                                ,   20160101, 20170101, 20180101, 20190101
-                                                                ,   20200101, 20210101, 20220101, 20230101
-                                                                ,   20240101, 20250101, 20260101, 20270101
-                                                                ,   20280101, 20290101
-                                                                )
-                        )
-    )
-AS
-SELECT  *
-FROM    [dbo].[FactInternetSales]
-OPTION  (LABEL  = 'CTAS : FactInternetSales_ROUND_ROBIN')
-;
-
---Create statistics on new table
-CREATE STATISTICS [ProductKey] ON [FactInternetSales_ROUND_ROBIN] ([ProductKey]);
-CREATE STATISTICS [OrderDateKey] ON [FactInternetSales_ROUND_ROBIN] ([OrderDateKey]);
-CREATE STATISTICS [CustomerKey] ON [FactInternetSales_ROUND_ROBIN] ([CustomerKey]);
-CREATE STATISTICS [PromotionKey] ON [FactInternetSales_ROUND_ROBIN] ([PromotionKey]);
-CREATE STATISTICS [SalesOrderNumber] ON [FactInternetSales_ROUND_ROBIN] ([SalesOrderNumber]);
-CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuantity]);
-CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
-CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
-
---Rename the tables
-RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
-RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
-```
-
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla progettazione di tabelle, vedere gli articoli relativi a [distribuzione][Distribute], [indici][Index], [partizioni][Partition], [tipi di dati][Data Types], [statistiche][Statistics] e [tabelle temporanee][Temporary].
 
-Per una panoramica delle procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse][SQL Data Warehouse Best Practices].
+Per creare una tabella distribuita, usare una di queste istruzioni:
 
-<!--Image references-->
+- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
-[dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 
-<!--MSDN references-->
-[DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
-
-<!--Other Web references-->

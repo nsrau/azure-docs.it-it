@@ -27,7 +27,7 @@ I gruppi di computer in Log Analytics consentono di limitare l'ambito delle [ric
 ## <a name="creating-a-computer-group"></a>Creazione di un gruppo di computer
 È possibile creare un gruppo di computer in Log Analytics usando uno dei metodi riportati nella tabella seguente.  Informazioni dettagliate su ogni metodo sono disponibili nelle sezioni successive. 
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 |:--- |:--- |
 | Ricerca log |Creare una ricerca log che restituisca un elenco di computer. |
 | API di ricerca nei log |Usare l'API di ricerca nei log per creare un gruppo di computer a livello di codice in base ai risultati di una ricerca nei log. |
@@ -44,7 +44,7 @@ Per un gruppo di computer è possibile usare qualsiasi query, ma questa deve res
 
 La tabella seguente descrive le proprietà che definiscono un gruppo di computer.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:---|:---|
 | Nome visualizzato   | Nome della ricerca da visualizzare nel portale. |
 | Categoria       | Categoria per l'organizzazione delle ricerche nel portale. |
@@ -147,9 +147,9 @@ La query seguente restituisce i record UpdateSummary solo per i computer in Comp
 ## <a name="computer-group-records"></a>Record dei gruppi di computer
 Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS viene creato un record nell'area di lavoro Log Analytics.  Il tipo di questi record è **ComputerGroup** e le proprietà sono elencate nella tabella seguente.  Per i gruppi di computer basati su ricerche nei log non vengono creati record.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Tipo |*ComputerGroup* |
+| type |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
 | Computer |Nome del computer membro. |
 | Group |Nome del gruppo. |

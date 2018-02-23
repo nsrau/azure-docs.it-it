@@ -123,7 +123,7 @@ Di seguito sono descritti alcuni scenari comuni in cui è possibile usare Storm 
 * Analisi di social media
 * Estrazione, trasformazione e caricamento (ETL)
 * Monitoraggio della rete
-* Search
+* Ricerca
 * Mobile Engagement
 
 Per informazioni sugli scenari reali, vedere il documento [How companies are using Storm](https://storm.apache.org/documentation/Powered-By.html) (Uso di Storm nelle aziende).

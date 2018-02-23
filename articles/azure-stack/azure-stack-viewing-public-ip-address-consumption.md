@@ -57,11 +57,11 @@ Esistono una serie di diversi casi in cui vengono assegnati indirizzi IP pubblic
 
 | **Caso di assegnazione indirizzo IP pubblico** | **Viene visualizzata nel riepilogo di utilizzo** | **Viene visualizzata nell'elenco di indirizzi IP pubblico tenant** |
 | --- | --- | --- |
-| Dinamica indirizzo IP pubblico non è ancora assegnato a una scheda di rete o di carico bilanciamento (temporaneo) |No |Sì |
+| Dinamica indirizzo IP pubblico non è ancora assegnato a una scheda di rete o di carico bilanciamento (temporaneo) |No  |Sì |
 | Pubblica indirizzo IP dinamico assegnato a un servizio di bilanciamento NIC o di carico. |Sì |Sì |
 | Indirizzo IP pubblico statico assegnato a un bilanciamento NIC o di caricamento del tenant. |Sì |Sì |
-| Indirizzo IP pubblico statico assegnato a un endpoint di servizio di infrastruttura dell'infrastruttura. |Sì |No |
-| Indirizzo IP pubblico, in modo implicito, creato per le istanze di VM IaaS e utilizzato per NAT in uscita sulla rete virtuale. Dietro le quinte vengono creati ogni volta che un tenant crea un'istanza di macchina virtuale in modo che le macchine virtuali possono inviare informazioni a Internet. |Sì |No |
+| Indirizzo IP pubblico statico assegnato a un endpoint di servizio di infrastruttura dell'infrastruttura. |Sì |No  |
+| Indirizzo IP pubblico, in modo implicito, creato per le istanze di VM IaaS e utilizzato per NAT in uscita sulla rete virtuale. Dietro le quinte vengono creati ogni volta che un tenant crea un'istanza di macchina virtuale in modo che le macchine virtuali possono inviare informazioni a Internet. |Sì |No  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestire gli account di archiviazione in Azure Stack](azure-stack-manage-storage-accounts.md)

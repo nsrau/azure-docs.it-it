@@ -1,9 +1,9 @@
 ---
 title: Crittografia in Azure Data Lake Store | Microsoft Docs
-description: Informazioni sul funzionamento della crittografia e della rotazione delle chiavi in Azure Data Lake Store
+description: "La crittografia in Azure Data Lake Store consente di proteggere i dati, implementare criteri di sicurezza aziendali e soddisfare i requisiti di conformità normativi. Questo articolo offre una panoramica della progettazione e illustra alcuni aspetti tecnici dell'implementazione."
 services: data-lake-store
 documentationcenter: 
-author: yagupta
+author: esung22
 manager: 
 editor: 
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 4/14/2017
+ms.date: 01/31/2018
 ms.author: yagupta
-ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Crittografia dei dati in Azure Data Lake Store
 
@@ -61,11 +61,11 @@ Ecco un breve confronto delle funzionalità offerte dalle due modalità di gesti
 | --- | --- | --- |
 |Come vengono archiviati i dati?|Vengono sempre crittografati prima dell'archiviazione.|Vengono sempre crittografati prima dell'archiviazione.|
 |Dove viene archiviata la chiave di crittografia master?|Insieme di credenziali di chiave|Insieme di credenziali di chiave|
-|Vengono archiviate chiavi di crittografia in chiaro al di fuori di Key Vault? |No|No|
-|La chiave di crittografia master può essere recuperata da Key Vault?|No. La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|No. La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|
+|Vengono archiviate chiavi di crittografia in chiaro al di fuori di Key Vault? |No |No |
+|La chiave di crittografia master può essere recuperata da Key Vault?|di serie La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|di serie La chiave di crittografia master, dopo essere stata archiviata in Key Vault, può solo essere usata per la crittografia e la decrittografia.|
 |Chi è il proprietario dell'istanza di Key Vault e della chiave di crittografia master?|Il servizio Data Lake Store|L'utente è il proprietario dell'istanza di Key Vault, che appartiene alla sottoscrizione di Azure. La chiave di crittografia master in Key Vault può essere gestita dal software o dall'hardware.|
-|È possibile revocare l'accesso alla chiave di crittografia master per il servizio Data Lake Store?|No|Sì. È possibile gestire gli elenchi di controllo di accesso in Key Vault e rimuovere le voci di controllo di accesso nell'identità del servizio per il servizio Data Lake Store.|
-|È possibile eliminare definitivamente la chiave di crittografia master?|No|Sì. Se si elimina la chiave di crittografia master da Key Vault, i dati nell'account Data Lake Store non possono essere in alcun modo decrittografati, neppure dal servizio Data Lake Store. <br><br> Se è stato eseguito un backup esplicito della chiave di crittografia master prima di eliminarla da Key Vault, la chiave può essere ripristinata e i dati recuperati. Se tuttavia non è stato eseguito un backup della chiave di crittografia master prima di eliminarla da Key Vault, i dati nell'account Data Lake Store non potranno più essere decrittografati.|
+|È possibile revocare l'accesso alla chiave di crittografia master per il servizio Data Lake Store?|No |Sì. È possibile gestire gli elenchi di controllo di accesso in Key Vault e rimuovere le voci di controllo di accesso nell'identità del servizio per il servizio Data Lake Store.|
+|È possibile eliminare definitivamente la chiave di crittografia master?|No |Sì. Se si elimina la chiave di crittografia master da Key Vault, i dati nell'account Data Lake Store non possono essere in alcun modo decrittografati, neppure dal servizio Data Lake Store. <br><br> Se è stato eseguito un backup esplicito della chiave di crittografia master prima di eliminarla da Key Vault, la chiave può essere ripristinata e i dati recuperati. Se tuttavia non è stato eseguito un backup della chiave di crittografia master prima di eliminarla da Key Vault, i dati nell'account Data Lake Store non potranno più essere decrittografati.|
 
 
 Fatta eccezione per questa differenza, ovvero chi gestisce la chiave di crittografia master e l'istanza di Key Vault in cui si trova, la progettazione è la medesima per entrambe le modalità.
@@ -79,11 +79,11 @@ Fatta eccezione per questa differenza, ovvero chi gestisce la chiave di crittogr
 
 Nella progettazione della crittografia dei dati vengono usati tre tipi di chiavi. La tabella seguente contiene un riepilogo:
 
-| Chiave                   | Abbreviazione | Elemento associato | Posizione di archiviazione                             | Tipo       | Note                                                                                                   |
+| Chiave                   | Abbreviazione | Elemento associato | Posizione di archiviazione                             | type       | Note                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Chiave di crittografia master | MEK          | Un account Data Lake Store | Insieme di credenziali di chiave                              | Asimmetrica | Può essere gestita da Data Lake Store o dall'utente.                                                              |
 | Chiave di crittografia dei dati   | DEK          | Un account Data Lake Store | Risorsa di archiviazione persistente, gestita dal servizio Data Lake Store | Simmetrica  | La chiave di crittografia dei dati viene crittografata dalla chiave di crittografia master. È la chiave di crittografia dei dati crittografata a essere archiviata nei supporti persistenti. |
-| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | Nessuno                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
+| Chiave di crittografia a blocchi  | BEK          | Un blocco di dati | Nessuna                                         | Simmetrica  | La chiave di crittografia a blocchi deriva dalla chiave di crittografia dei dati e dal blocco di dati.                                                      |
 
 Il diagramma seguente illustra questi concetti:
 
@@ -112,7 +112,7 @@ Il diagramma seguente illustra questi concetti:
 
 Quando si usano le chiavi gestite dal cliente, è possibile ruotare la chiave di crittografia master. Per informazioni su come configurare un account Data Lake Store con chiavi gestite dal cliente, vedere [Introduzione](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Quando si è configurato l'account Data Lake Store, si è scelto di usare le proprie chiavi. Questa opzione non può essere modificata dopo la creazione dell'account. I passaggi seguenti presuppongono che si usino chiavi gestite dal cliente, ovvero che si siano scelte le chiavi da Key Vault.
 

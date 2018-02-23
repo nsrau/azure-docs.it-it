@@ -16,7 +16,7 @@ ms.date: 04/10/2017
 ms.author: gsacavdm
 ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

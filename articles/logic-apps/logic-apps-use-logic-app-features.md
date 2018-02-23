@@ -1,7 +1,7 @@
 ---
 title: Aggiungere condizioni e avviare i flussi di lavoro - App per la logica di Azure | Microsoft Docs
 description: Controllare l'esecuzione dei flussi di lavoro nelle app per la logica di Azure mediante l'aggiunta di logica condizionale, trigger, azioni e parametri.
-author: stepsic-microsoft-com
+author: ecfan
 manager: anneta
 editor: 
 services: logic-apps
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: LADocs; estfan
+ms.openlocfilehash: 751bcc21397effc501931c00afef05f2dab24e4a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-logic-apps-features"></a>Usare le funzionalità delle app per la logica
 
-In un [argomento precedente](../logic-apps/logic-apps-create-a-logic-app.md) è stata creata la prima app per la logica. Per il controllo del flusso di lavoro delle app per la logica, è possibile specificare percorsi diversi per l'app per la logica da eseguire e la modalità di elaborazione dati in matrici, raccolte e batch. È possibile includere questi elementi nel flusso di lavoro dell'app per la logica:
+In un [argomento precedente](../logic-apps/quickstart-create-first-logic-app-workflow.md) è stata creata la prima app per la logica. Per il controllo del flusso di lavoro delle app per la logica, è possibile specificare percorsi diversi per l'app per la logica da eseguire e la modalità di elaborazione dati in matrici, raccolte e batch. È possibile includere questi elementi nel flusso di lavoro dell'app per la logica:
 
 * Le condizioni e le [istruzioni switch](../logic-apps/logic-apps-switch-case.md) consentono all'app per la logica di eseguire azioni diverse in base al fatto che vengano soddisfatte o meno condizioni specifiche.
 
@@ -48,7 +48,7 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
 2. Aggiungere una condizione al percorso del flusso di lavoro da usare. 
 
    Per aggiungere la condizione tra i passaggi esistenti nel flusso di lavoro dell'app per la logica, spostare il puntatore sulla freccia dove si vuole aggiungere la condizione. 
-   Scegliere il **segno più** (**+**), quindi **Aggiungi una condizione**. ad esempio:
+   Scegliere il **segno più** (**+**), quindi **Aggiungi una condizione**. Ad esempio: 
 
    ![Aggiungere una condizione all'app per la logica](./media/logic-apps-use-logic-app-features/add-condition.png)
 
@@ -57,7 +57,7 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
 
 3. Ora definire la condizione. Specificare il campo di origine da valutare, l'operazione da eseguire e il valore o il campo di destinazione. Per aggiungere alla condizione campi già esistenti, sceglierli dall'**elenco Aggiungi contenuto dinamico**.
 
-   ad esempio:
+   Ad esempio: 
 
    ![Modificare la condizione nella modalità di base](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode.png)
 
@@ -66,13 +66,13 @@ Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi
    ![Condizione completa](./media/logic-apps-use-logic-app-features/edit-condition-basic-mode-2.png)
 
    > [!TIP]
-   > Per definire la condizione nel codice, scegliere **Modifica in modalità avanzata**. ad esempio:
+   > Per definire la condizione nel codice, scegliere **Modifica in modalità avanzata**. Ad esempio: 
    > 
    > ![Modificare la condizione nel codice](./media/logic-apps-use-logic-app-features/edit-condition-advanced-mode.png)
 
 4. In **SE SÌ** e **SE NO** aggiungere i passaggi da eseguire in base al fatto che la condizione sia soddisfatta o meno.
 
-   ad esempio:
+   Ad esempio: 
 
    ![Condizione con percorsi SÌ e NO](./media/logic-apps-use-logic-app-features/condition-yes-no-path.png)
 

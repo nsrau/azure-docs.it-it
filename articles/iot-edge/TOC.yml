@@ -24,8 +24,6 @@
       href: tutorial-deploy-machine-learning.md
     - name: Distribuire Funzioni di Azure
       href: tutorial-deploy-function.md
-    - name: Creare una distribuzione di IoT Edge con l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0
-      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Guide alle procedure
   items:
     - name: Creare gateway
@@ -34,6 +32,8 @@
           href: how-to-create-transparent-gateway.md
         - name: Gateway Modbus
           href: deploy-modbus-gateway.md
+    - name: Usare l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
     - name: Distribuire e monitorare su larga scala
       href: how-to-deploy-monitor.md
     - name: Effettuare il provisioning di un dispositivo IoT Core
@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Eseguire il debug di Funzioni di Azure
           href: how-to-vscode-debug-azure-function.md
+    - name: Archiviare dati sul perimetro
+      href: sql-storage.md
     - name: Risolvere problemi
       href: troubleshoot.md
 - name: Concetti
@@ -86,7 +88,7 @@
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Calcolatore prezzi

@@ -18,7 +18,7 @@ ms.author: gwallace
 ms.custom: 
 ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -35,7 +35,7 @@ Configurazione dello stato desiderato di automazione di Azure consente di specif
 > * Assegnare una configurazione nodo a un nodo gestito
 > * Controllare lo stato di conformità di un nodo gestito
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, è necessario:
 

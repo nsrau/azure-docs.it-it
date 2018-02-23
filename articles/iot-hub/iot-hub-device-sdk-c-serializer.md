@@ -64,7 +64,7 @@ In questo esempio non vengono illustrati i tipi di dati aggiuntivi supportati da
 ### <a name="supported-data-types"></a>Tipi di dati supportati
 I tipi di dati seguenti sono supportati nei modelli creati con la libreria **serializer** .
 
-| Tipo | Descrizione |
+| type | DESCRIZIONE |
 | --- | --- |
 | double |Numero a virgola mobile a precisione doppia |
 | int |Intero a 32 bit |

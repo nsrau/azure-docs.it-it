@@ -29,7 +29,7 @@ Quando un producer invia un messaggio tramite una coda, tale operazione avviene 
 La messaggistica del bus di servizio di Microsoft Azure include proprietà di payload definite che producer e consumer devono usare per passare tale contesto di analisi.
 Il protocollo si basa sul [protocollo di correlazione HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome proprietà        | Descrizione                                                 |
+| Nome proprietà        | DESCRIZIONE                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificatore univoco di una chiamata esterna alla coda effettuata dal producer. Per la logica, le considerazioni e il formato, vedere [Request-Id in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id nel protocollo HTTP). |
 |  Correlation-Context | Contesto dell'operazione, che viene propagato in tutti i servizi coinvolti nell'elaborazione dell'operazione. Per altre informazioni, vedere [Correlation-Context in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context nel protocollo HTTP). |
@@ -152,7 +152,7 @@ Per ogni evento 'Stop' esiste una proprietà `Status` con l'operazione asincrona
 
 Ecco l'elenco completo delle operazioni instrumentate:
 
-| Nome dell'operazione | API verificata | Proprietà del payload specifiche|
+| Nome operazione | API verificata | Proprietà del payload specifiche|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> Messages: elenco dei messaggi da inviare |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Message Message: messaggio da elaborare<br/>DateTimeOffset ScheduleEnqueueTimeUtc: offset del messaggio pianificato<br/>long SequenceNumber: numero di sequenza del messaggio pianificato (payload dell'evento 'Stop') |

@@ -3,7 +3,7 @@ title: Soluzione Monitoraggio contenitori in Log Analytics di Azure | Microsoft 
 description: La soluzione Monitoraggio contenitori in Log Analytics consente di visualizzare e gestire gli host del contenitore Docker e Windows in un'unica posizione.
 services: log-analytics
 documentationcenter: 
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: 
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
-ms.author: magoedte;banders
-ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.author: magoedte
+ms.openlocfilehash: b3f78f6cc89a3d4bf8712c339f66b5d50f373919
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -402,8 +402,8 @@ Per Kubernetes Windows è possibile usare uno script per generare il file yaml d
         ```
     3. Creare il DaemonSet dell'agente OMS eseguendo l'istruzione ``` kubectl create -f omsagentsecret.yaml ```
     4. Per verificare, eseguire quanto segue:
-    
-        ``` 
+
+        ```
         root@ubuntu16-13db:~# kubectl get secrets
         ```
 
@@ -418,13 +418,13 @@ Per Kubernetes Windows è possibile usare uno script per generare il file yaml d
         Namespace:      default
         Labels:         <none>
         Annotations:    <none>
-    
+
         Type:   Opaque
-    
+
         Data
         ====
         WSID:   36 bytes
-        KEY:    88 bytes 
+        KEY:    88 bytes
         ```
 
     5. Creare il DaemonSet dell'agente OMS eseguendo l'istruzione ```kubectl create -f ws-omsagent-de-secrets.yaml```
@@ -437,9 +437,9 @@ Per Kubernetes Windows è possibile usare uno script per generare il file yaml d
     omsagent   1         1         <none>          1h
     ```
 
-3. Per installare l'agente nel nodo del lavoro, che esegue Windows, seguire i passaggi della sezione [Installare e configurare gli host del contenitore Windows](#install-and-configure-windows-container-hosts). 
+3. Per installare l'agente nel nodo del lavoro, che esegue Windows, seguire i passaggi della sezione [Installare e configurare gli host del contenitore Windows](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Usare Helm per distribuire l'agente OMS in Kubernetes Linux 
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Usare Helm per distribuire l'agente OMS in Kubernetes Linux
 Per usare Helm al fine di distribuire l'agente OMS in ambiente Kubernetes Linux, eseguire la procedura seguente.
 
 1. Creare il DaemonSet dell'agente OMS eseguendo l'istruzione ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
@@ -653,7 +653,7 @@ Verrà visualizzato l'elenco delle metriche delle prestazioni raccolte per un si
 ## <a name="example-log-search-queries"></a>Esempio di query di ricerca log
 Spesso è utile compilare query iniziando con qualche esempio da modificare in funzione dell'ambiente. Come punto di partenza è possibile provare a usare l'area **Query di esempio** per compilare query più avanzate.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Query sui contenitori](./media/log-analytics-containers/containers-queries.png)
 

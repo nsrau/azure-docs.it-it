@@ -28,7 +28,7 @@ Per il framework Reliable Actors è necessario definire almeno un'interfaccia da
 
 ![Gerarchia delle interfacce per gli attori della forma][shapes-interface-hierarchy]
 
-## <a name="types"></a>Types
+## <a name="types"></a>Tipi
 È inoltre possibile creare una gerarchia di tipi di attore, derivati dalla classe Attore di base fornita dalla piattaforma. Nel caso delle forme può essere presente un tipo `Shape` (C#) o `ShapeImpl` (Java) di base.
 
 ```csharp

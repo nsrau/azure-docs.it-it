@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ab3044b46c37a2a50d271fa8e8a6b924da1e131b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiare dati da un'origine OData usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ In particolare, il connettore OData supporta:
 - OData **versione 3.0 e 4.0**.
 - La copia di dati usando le autenticazioni seguenti: **Anonima**, **Di base** e **Windows**.
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -48,14 +48,14 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di OData sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **OData** |Sì |
-| url | URL radice del servizio OData. |Sì |
+| URL | URL radice del servizio OData. |Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi all'origine OData.<br/>I valori consentiti sono: **Anonima**, **Di base** e **Windows**. OAuth non è supportato. | Sì |
-| userName | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No |
-| password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString. | No |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| userName | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No  |
+| password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString. | No  |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 **Esempio 1: uso dell'autenticazione anonima**
 
@@ -130,10 +130,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da OData, impostare la proprietà type del set di dati su **ODataResource**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **ODataResource** | Sì |
-| percorso | Percorso della risorsa OData. | No |
+| path | Percorso della risorsa OData. | No  |
 
 **Esempio**
 
@@ -163,10 +163,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da OData, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
-| query | Opzioni di query OData per filtrare i dati. Esempio: "?$select=Name,Description&$top=5".<br/><br/>Osservare infine che il connettore OData copia i dati dall'URL combinato: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Fare riferimento all'articolo sui [componenti URL di OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | Opzioni di query OData per filtrare i dati. Esempio: "?$select=Name,Description&$top=5".<br/><br/>Osservare infine che il connettore OData copia i dati dall'URL combinato: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Fare riferimento all'articolo sui [componenti URL di OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No  |
 
 **Esempio:**
 
@@ -209,16 +209,16 @@ Quando si copiano dati da OData, vengono usati i mapping seguenti tra i tipi di 
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Booleano |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Data/Ora |
+| Edm.DateTime | Datetime |
 | Edm.Decimal | Decimal |
-| Edm.Double | A due righe |
-| Edm.Single | Singola |
-| Edm.Guid | GUID |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Stringa |
+| Edm.String | string |
 | Edm.Time | Intervallo di tempo |
 | Edm.DateTimeOffset | DateTimeOffset |
 

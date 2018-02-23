@@ -53,14 +53,14 @@ Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gesti
 
 | **Tipo di disco <br>gestito Premium** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Dimensione disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Dimensione disco        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Standard:
 
 | **Tipo di disco <br>gestito Standard** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Dimensione disco        | 32 GB   | 64 GB   | 128 GB | 512 GB | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| Dimensione disco        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 
 **Numero di transazioni**: viene addebitato il numero di transazioni eseguite in un disco gestito Standard. Non sono previsti costi per le transazioni per un disco gestito Premium.
@@ -72,7 +72,7 @@ Per informazioni dettagliate sui prezzi di Managed Disks, vedere [Prezzi di Mana
 
 ## <a name="managed-disk-snapshots"></a>Snapshot dei dischi gestiti
 
-Uno snapshot gestito è una copia di sola lettura di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di Managed Disks. Vengano addebitati in funzione della dimensione usata. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GB e una dimensione di dati effettivamente usata di 10 GB, verranno addebitati solo gli snapshot relativi alla dimensione di dati usata di 10 GB.  
+Uno snapshot gestito è una copia di sola lettura di un disco gestito che viene archiviata come disco gestito Standard per impostazione predefinita. Gli snapshot permettono di eseguire il backup dei dischi gestiti in qualsiasi momento. Questi snapshot esistono indipendentemente dal disco di origine e possono essere usati per creare nuove istanze di Managed Disks. Vengano addebitati in funzione della dimensione usata. Ad esempio, se si crea uno snapshot di un disco gestito con una capacità di provisioning di 64 GiB e una dimensione di dati effettivamente usata di 10 GiB, verranno addebitati solo gli snapshot relativi alla dimensione di dati usata di 10 GiB.  
 
 Gli [snapshot incrementali](../articles/virtual-machines/windows/incremental-snapshots.md) non sono attualmente supportati per Managed Disks, ma lo saranno in futuro.
 

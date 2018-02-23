@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Questo articolo illustra come usare l'API REST per eseguire l'autenticazione dell'utente finale con Azure Data Lake Store. Per l'autenticazione da servizio a servizio con Data Lake Store tramite l'API REST, vedere [Autenticazione da servizio a servizio con Data Lake Store tramite l'API REST](data-lake-store-service-to-service-authenticate-rest-api.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 

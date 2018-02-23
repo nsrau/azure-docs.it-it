@@ -34,7 +34,7 @@ Questo articolo illustra i concetti di base relativi ad [Azure Batch][azure_batc
 
 ![Flusso di lavoro della soluzione Batch (di base)][11]<br/>
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che l'utente sappia usare Python e Linux e possa soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per i servizi Batch e di archiviazione.
 
 ### <a name="accounts"></a>Account
@@ -87,7 +87,7 @@ In alternativa, è possibile installare i pacchetti Python [azure-batch][pypi_ba
 `pip install azure-storage`
 
 > [!TIP]
-> Se si una un account senza privilegi, può essere necessario anteporre `sudo` ai comandi. Ad esempio: `sudo pip install -r requirements.txt`. Per altre informazioni sull'installazione dei pacchetti Python, vedere [Installing Packages][pypi_install] (Installazione di pacchetti) in python.org.
+> Se si una un account senza privilegi, può essere necessario anteporre `sudo` ai comandi. Ad esempio, `sudo pip install -r requirements.txt`. Per altre informazioni sull'installazione dei pacchetti Python, vedere [Installing Packages][pypi_install] (Installazione di pacchetti) in python.org.
 >
 >
 
@@ -371,7 +371,7 @@ Quando si crea un pool, si definisce un elemento [PoolAddParameter][py_pooladdpa
 
 * **ID** del pool (*id*: obbligatorio)<p/>Così come la maggior parte delle entità in Batch, il nuovo pool deve avere un ID univoco all'interno dell'account Batch. Il codice fa riferimento a questo pool usando il relativo ID, che costituisce anche il modo con cui si identifica il pool nel [portale][azure_portal] di Azure.
 * **Numero di nodi di calcolo** (*target_dedicated*: obbligatorio)<p/>Questa proprietà specifica il numero di macchine virtuali da distribuire nel pool. È importante notare che tutti gli account Batch hanno una **quota** predefinita che limita il numero di **core** e di conseguenza di nodi di calcolo in un account Batch. Le quote predefinite e le istruzioni su come [aumentare una quota](batch-quota-limit.md#increase-a-quota), ad esempio il numero massimo di core nell'account Batch, sono riportate in [Quote e limiti per il servizio Azure Batch](batch-quota-limit.md). Se il pool non raggiunge più di X nodi, ad esempio, questa quota di core può essere la causa.
-* **Sistema operativo** per i nodi (*virtual_machine_configuration* **o** *cloud_service_configuration*: obbligatorio)<p/>In *python_tutorial_client.py* viene creato un pool di nodi Linux tramite [VirtualMachineConfiguration][py_vm_config]. La funzione `select_latest_verified_vm_image_with_node_agent_sku` in `common.helpers` semplifica l'uso delle immagini di [Marketplace per Macchine virtuali di Azure][vm_marketplace]. Per altre informazioni sull'uso delle immagini del Marketplace, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md) .
+* **Sistema operativo** per i nodi (*virtual_machine_configuration***o***cloud_service_configuration*: obbligatorio)<p/>In *python_tutorial_client.py* viene creato un pool di nodi Linux tramite [VirtualMachineConfiguration][py_vm_config]. La funzione `select_latest_verified_vm_image_with_node_agent_sku` in `common.helpers` semplifica l'uso delle immagini di [Marketplace per Macchine virtuali di Azure][vm_marketplace]. Per altre informazioni sull'uso delle immagini del Marketplace, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md) .
 * **Dimensione dei nodi di calcolo** (*vm_size*: obbligatorio)<p/>Dato che vengono specificati nodi Linux per [VirtualMachineConfiguration][py_vm_config], viene specificata una dimensione di VM, in questo esempio `STANDARD_A1`, in base a quanto descritto in [Dimensioni delle macchine virtuali in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per altre informazioni, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md) .
 * **Attività di avvio** (*start_task*: non obbligatorio)<p/>Oltre alle proprietà relative ai nodi fisici sopra descritte, è possibile specificare anche un elemento [StartTask][py_starttask] per il pool, ma non è obbligatorio. L'attività StartTask viene eseguita in ogni nodo quando questo viene aggiunto al pool e ogni volta che viene riavviato. StartTask è particolarmente utile per preparare i nodi di calcolo per l'esecuzione di attività, ad esempio per installare le applicazioni che vengono eseguite dalle attività.<p/>In questa applicazione di esempio StartTask copia i file scaricati dal servizio di archiviazione, specificati usando la proprietà **resource_files** di StartTask, dalla *directory di lavoro* di StartTask alla directory *condivisa* a cui possono accedere tutte le attività in esecuzione sul nodo. Sostanzialmente, viene copiato `python_tutorial_task.py` nella directory condivisa in ogni nodo quando questo viene aggiunto al pool, in modo che qualsiasi attività in esecuzione nel nodo possa accedervi.
 

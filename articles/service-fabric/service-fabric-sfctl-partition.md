@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 99756378f2106707b4f6d634a1183d5c32243ee2
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Descrizione|
+|Comando|DESCRIZIONE|
 | --- | --- |
 |    data-loss      | Questa API provoca la perdita di dati per la partizione specificata.|
 |    data-loss-status  | Mostra lo stato di avanzamento di un'operazione di perdita di dati in una partizione avviata usando l'API StartDataLoss.|
@@ -52,7 +52,7 @@ Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti Replica
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id      [Obbligatorio]| L'identità della partizione.|
 | --events-health-state-filter  | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità.                Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono utilizzati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti utilizzando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Utilizzato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.                -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità.                Il valore è 65535.|
@@ -68,7 +68,7 @@ Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti Replica
 | --help -h                  | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                Predefinito: json.|
 | --query                    | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/. |
-| --verbose                  | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose                  | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-partition-info"></a>sfctl partition info
 Mostra le informazioni su una partizione di Service Fabric.
@@ -77,7 +77,7 @@ L'endpoint delle partizioni restituisce informazioni sulla partizione specificat
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --timeout -t          | Timeout del server in secondi.  Predefinito: 60.|
@@ -90,7 +90,7 @@ L'endpoint delle partizioni restituisce informazioni sulla partizione specificat
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 Mostra l'elenco delle partizioni di un servizio di Service Fabric.
@@ -99,7 +99,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric. Include l'ID 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --continuation-token| Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo.         Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
@@ -113,7 +113,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric. Include l'ID 
 | --help -h           | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o         | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query             | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose           | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose           | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 Mostra il carico della partizione di Service Fabric specificata.
@@ -122,7 +122,7 @@ Restituisce informazioni sulla partizione specificata. La risposta include un el
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --timeout -t          | Timeout del server in secondi.  Predefinito: 60.|
@@ -135,7 +135,7 @@ Restituisce informazioni sulla partizione specificata. La risposta include un el
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indica al cluster di Service Fabric che deve tentare di ripristinare una partizione specifica, che è attualmente bloccata in una perdita di quorum.
@@ -144,7 +144,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare una partizi
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --timeout -t          | Timeout del server in secondi.  Predefinito: 60.|
@@ -157,7 +157,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare una partizi
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose             | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 Questa API riavvia alcune o tutte le repliche o le istanze della partizione specificata.
@@ -166,7 +166,7 @@ Questa API è utile per il test del failover. Se utilizzato come destinazione di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --operation-id             [Obbligatorio]| Una GUID che identifica una chiamata dell'API.  Questo viene passato all'API GetProgress corrispondente.|
 | --partition-id [Obbligatorio]| L'identità della partizione.|

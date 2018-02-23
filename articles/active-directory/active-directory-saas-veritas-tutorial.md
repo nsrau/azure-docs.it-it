@@ -4,20 +4,20 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: fbec2cee6e1ecd23b34fd879d978a05bd5a04ac4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: eb9243367d0817d37549fa147c6c5e1d2acf3761
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Veritas Enterprise Vault.cloud SSO
 
@@ -31,7 +31,7 @@ L'integrazione di Veritas Enterprise Vault.cloud SSO con Azure AD offre i vantag
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Veritas Enterprise Vault.cloud SSO, sono necessari gli elementi seguenti:
 
@@ -110,7 +110,23 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/active-directory-saas-veritas-tutorial/tutorial_veritas_url.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+
+    b. Nella casella di testo **Identificatore** usare l'URL in base al data center
+
+    | Data center| URL |
+    |----------|----|
+    | America del Nord| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Asia/Pacifico| `https://auth.syd.archivecloud.net`|
+
+    c. Nella casella di testo **URL di risposta** usare l'URL in base al data center
+
+    | Data center| URL |
+    |----------|----|
+    | America del Nord| `https://auth.lax.archivecloud.net` |
+    | Europa | `https://auth.ams.archivecloud.net` |
+    | Asia/Pacifico| `https://auth.syd.archivecloud.net`|
     
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html). 

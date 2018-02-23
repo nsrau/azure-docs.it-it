@@ -1,6 +1,6 @@
 ---
-title: Come creare trigger finestra a cascata in Data Factory di Azure | Documenti Microsoft
-description: Informazioni su come creare un trigger in Azure Data Factory in cui viene eseguita una pipeline in una finestra a cascata.
+title: Creare trigger di finestra a cascata in Azure Data Factory | Microsoft Docs
+description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in una finestra a cascata.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: a3b056ae4bb4eda26fec58ca3b6bed7f0744e36e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="how-to-create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Come creare un trigger che viene eseguita una pipeline in una finestra a cascata
-In questo articolo viene descritta la procedura per creare, avviare e monitorare un trigger di finestra a cascata. Per informazioni generali su trigger e i tipi sono supportati, vedere [della Pipeline di esecuzione e i trigger](concepts-pipeline-execution-triggers.md).
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creare un trigger per l'esecuzione di una pipeline in una finestra a cascata
+Questo articolo descrive la procedura per creare, avviare e monitorare un trigger di finestra a cascata. Per informazioni generali sui trigger e i tipi supportati, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere l'[introduzione a Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Questo articolo è applicabile ad Azure Data Factory versione 2, attualmente in versione di anteprima. Se si usa Azure Data Factory versione 1, disponibile a livello generale, vedere [Introduzione ad Azure Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-I trigger di finestra a cascata sono un tipo di trigger che viene attivato in un intervallo di tempo periodico da un'ora di inizio specificato, pur mantenendo lo stato. Finestre a cascata sono una serie di intervalli di tempo a dimensione fissa, non sovrapposte e contigue. Un trigger di finestra a cascata ha una relazione 1:1 con una pipeline e può fare riferimento solo una pipeline singolare.
+I trigger di finestra a cascata vengono attivati in base a un intervallo di tempo periodico a partire da un'ora di inizio specificata, mantenendo al tempo stesso lo stato. Le finestre a cascata sono costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti. Un trigger di finestra a cascata ha una relazione uno a uno con una pipeline e può fare riferimento solo a una singola pipeline.
 
-## <a name="tumbling-window-trigger-type-properties"></a>A cascata finestra proprietà del tipo di Trigger
+## <a name="tumbling-window-trigger-type-properties"></a>Proprietà del tipo di trigger di finestra a cascata
+Una finestra a cascata ha le proprietà del tipo di trigger seguenti:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -68,24 +70,25 @@ I trigger di finestra a cascata sono un tipo di trigger che viene attivato in un
 }
 ```  
 
-Nella tabella seguente fornisce una panoramica degli elementi principali relativi a ricorrenza e la pianificazione in un trigger di finestra a cascata.
+La tabella seguente fornisce una panoramica generale degli elementi JSON principali correlati alla ricorrenza e alla pianificazione di un trigger di finestra a cascata:
 
-| **Nome JSON** | **Descrizione** | **Valori consentiti** | **Obbligatorio** |
-|:--- |:--- |:--- |:--- |
-| **type** | Tipo di trigger. Questo problema viene risolto come "TumblingWindowTrigger". | string | Sì |
-| **runtimeState** | <readOnly>I valori possibili: Avviato, arrestato, disabilitato | string | Sì, sola lettura |
-| **frequency** |Il *frequenza* stringa che rappresenta l'unità della frequenza con cui ricorre il trigger. Valori supportati sono "minuto" e "ora". Se l'ora di inizio include parti di date più granulare rispetto alla frequenza, essi verranno eseguite in considerazione per calcolare i limiti della finestra. Per esempio: se la frequenza è ogni ora e l'ora di inizio è 2016-04-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z.)  | Stringa. Tipi supportati "minuto", "ora" | Sì |
-| **interval** |Il *intervallo* un numero intero positivo e indica l'intervallo per il *frequenza* che determina la frequenza con cui verrà eseguito il trigger. Ad esempio, se *intervallo* è 3 e *frequenza* è "ora", il trigger ricorre ogni 3 ore. | Integer | Sì |
-| **startTime**|*startTime* è in formato Data-Ora. *startTime* è la prima occorrenza e può essere nel passato. Primo intervallo di trigger sarà (startTime, startTime + intervallo). | Datetime | Sì |
-| **endTime**|*endTime* è una data e ora. *endTime* è l'ultima occorrenza e può essere nel passato. | Datetime | Sì |
-| **ritardo** | Specificare il ritardo prima dell'elaborazione di dati di avvio della finestra. La pipeline di esecuzione viene avviata dopo il tempo di esecuzione previsto + ritardo. Ritardo definisce come tempo di attesa scaduto il trigger tempo prima che venga attivato eseguire di nuovo. Non modifica l'ora di inizio finestra. | TimeSpan (esempio: 00:10:00, implica ritardo di 10 minuti) |  di serie Valore predefinito è "00: 00:00" |
-| **concorrenza massima** | Numero di esecuzioni simultanee di trigger che vengono generati per windows che sono pronti. Esempio: se si sta tentando di recupero ogni ora per ieri, sarebbe 24 windows. Se la concorrenza = 10, gli eventi vengono attivati solo per 10 prima windows di trigger (00:00:01: 00: 09:00:10: 00). Al termine dell'esecuzione della pipeline attivate primi 10, esecuzione di trigger vengono attivati per i successivi 10 (10:00-11:00-20-19:00:00). Continuando con l'esempio di concorrenza = 10, se sono presenti 10 pronto, saranno presenti 10 esecuzioni di pipeline di windows. Se sono presenti solo 1 finestra pronto, solo esisterà 1 esecuzione della pipeline. | Integer | Sì. Valori possibili 1-50 |
-| **retryPolicy: Count** | Il numero di tentativi prima dell'esecuzione della pipeline è contrassegnato come "Failed"  | Integer |  di serie Il valore predefinito è 0 tentativi |
-| **retryPolicy: intervalInSeconds** | Il ritardo tra tentativi di ripetizione espresso in secondi | Integer |  di serie Il valore predefinito è 30 secondi |
+| Elemento JSON | DESCRIZIONE | type | Valori consentiti | Obbligatoria |
+|:--- |:--- |:--- |:--- |:--- |
+| **type** | Tipo di trigger. Il tipo è il valore fisso "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | Sì |
+| **runtimeState** | Stato attuale del runtime del trigger.<br/>**Nota**: questo elemento è \<readOnly>. | string | "Started", "Stopped", "Disabled" | Sì |
+| **frequency** | Stringa che rappresenta l'unità di frequenza (minuti o ore) con cui si ripete il trigger. Se i valori di data di **startTime** sono più granulari del valore di **frequency**, le date di **startTime** sono considerate quando vengono calcolati i limiti della finestra. Ad esempio, se il valore di **frequency** è ogni ora e il valore di **startTime** è 2016-04-01T10:10:10Z, la prima finestra è (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sì |
+| **interval** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "hour", il trigger si ripete ogni 3 ore. | Integer | Numero intero positivo. | Sì |
+| **startTime**| Prima occorrenza, che può essere nel passato. Il primo intervallo di trigger è (**startTime**, **startTime** + **interval**). | Datetime | Valore DateTime. | Sì |
+| **endTime**| Ultima occorrenza, che può essere nel passato. | Datetime | Valore DateTime. | Sì |
+| **delay** | Periodo di tempo in base a cui ritardare l'avvio dell'elaborazione dei dati per la finestra. L'esecuzione della pipeline viene avviata dopo il tempo di esecuzione previsto più il periodo di **ritardo**. Il valore **delay** definisce per quanto tempo il trigger rimane in attesa dopo la scadenza prima di attivare una nuova esecuzione. Il valore **delay** non modifica il valore **startTime** della finestra. Ad esempio, un valore di **delay** pari a 00:10:00 implica un ritardo di 10 minuti. | TimeSpan  | Valore di ora in cui il valore predefinito è 00:00:00. | No  |
+| **maxConcurrency** | Il numero di esecuzioni di trigger simultanee che vengono generate per le finestre che sono pronte. Ad esempio, per recuperare le informazioni relative alle esecuzioni ogni ora per i risultati del giorno prima in 24 finestre. Se **maxConcurrency** = 10, gli eventi di attivazione vengono generati solo per le prime 10 finestre (00:00-01:00 - 09:00-10:00). Al termine delle prime 10 esecuzioni di pipeline attivate, le esecuzioni di trigger vengono generate per le 10 finestre successive (10:00-11:00 - 19:00-20:00). Continuando con questo esempio di **maxConcurrency** = 10, se sono pronte 10 finestre, ci sono 10 esecuzioni di pipeline totali. Se c'è solo una finestra pronta, è disponibile solo un'esecuzione di pipeline. | Integer | Numero intero compreso tra 1 e 50. | Sì |
+| **retryPolicy: Count** | Numero di tentativi prima che l'esecuzione della pipeline venga contrassegnata come "Non riuscita".  | Integer | Numero intero, in cui il valore predefinito è 0 (nessun tentativo). | No  |
+| **retryPolicy: intervalInSeconds** | Ritardo tra i tentativi di ripetizione specificato in secondi. | Integer | Numero di secondi, in cui il valore predefinito è 30. | No  |
 
-### <a name="using-system-variables-windowstart-and-windowend"></a>Utilizzo di variabili di sistema: WindowStart e WindowEnd
+### <a name="windowstart-and-windowend-system-variables"></a>Variabili di sistema WindowStart e WindowEnd
 
-Se si desidera utilizzare WindowStart e WindowEnd del trigger nella finestra a cascata le **pipeline** definizione (ad esempio per la parte di una query), è necessario passare le variabili come parametri per la pipeline di **trigger**definizione, come illustrato di seguito:
+È possibile usare le variabili di sistema **WindowStart** e **WindowEnd** del trigger di finestra a cascata nella definizione della **pipeline** (ovvero per una parte di una query). Passare le variabili di sistema come parametri alla pipeline nella definizione del **trigger**. L'esempio seguente mostra come passare tali variabili come parametri:
+
 ```  
 {
     "name": "MyTriggerName",
@@ -113,22 +116,24 @@ Se si desidera utilizzare WindowStart e WindowEnd del trigger nella finestra a c
 }
 ```  
 
-Quindi, nella definizione di pipeline, per utilizzare i valori WindowStart e WindowEnd, utilizzare i parametri di conseguenza di "MyWindowStart" e "MyWindowEnd"
+Per usare i valori delle variabili di sistema **WindowStart** e **WindowEnd** nella definizione della pipeline, usare i parametri "MyWindowStart" e "MyWindowEnd" di conseguenza.
 
-### <a name="notes-on-backfill"></a>Note sul recupero delle informazioni
-Quando sono presenti più finestre per l'esecuzione (esp. in uno scenario di recupero delle informazioni), l'ordine di esecuzione di windows è deterministico e verrà eseguita da intervalli più vecchie fino alle più recenti. Non è possibile modificare questo comportamento al momento.
+### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Ordine di esecuzione delle finestre in uno scenario di recupero delle informazioni
+Quando sono presenti più finestre pronte per l'esecuzione (soprattutto in uno scenario di recupero delle informazioni), l'ordine di esecuzione per le finestre è deterministico, dagli intervalli meno recenti ai più recenti. Attualmente non è possibile modificare questo comportamento.
 
-### <a name="updating-an-existing-triggerresource"></a>L'aggiornamento di un TriggerResource esistente
-* Se la frequenza (o dimensioni della finestra) del trigger viene modificata, lo stato di windows è già elaborato verrà *non* essere reimpostato. Il trigger continua generazione per windows a partire dall'ultimo che eseguito utilizzando le nuove dimensioni della finestra.
-* Se l'ora di fine del trigger modifiche (aggiunte o aggiornate), lo stato di windows già elaborato verrà *non* essere reimpostato. Il trigger rispetterà semplicemente la nuova ora di fine. Se l'ora di fine è prima di windows già eseguita, il trigger verrà interrotta. In caso contrario, interrompe quando viene rilevata la nuova ora di fine.
+### <a name="existing-triggerresource-elements"></a>Elementi TriggerResource esistenti
+I punti elencati di seguito si applicano agli elementi **TriggerResource** esistenti:
 
-## <a name="sample-using-azure-powershell"></a>Esempio di utilizzo di PowerShell di Azure
-In questa sezione viene illustrato come usare Azure PowerShell per creare, avviare e monitorare un trigger.
+* Se il valore per l'elemento **frequency** (o le dimensioni della finestra) del trigger viene modificato, lo stato delle finestre che sono già elaborate *non* viene reimpostato. Il trigger continua ad attivarsi per le finestre dall'ultima finestra eseguita usando le nuove dimensioni della finestra.
+* Se il valore per l'elemento **endTime** del trigger viene modificato (aggiunto o aggiornato), lo stato delle finestre che sono già elaborate *non* viene reimpostato. Il trigger rispetta il nuovo valore **endTime**. Se il nuovo valore **endTime** è precedente alle finestre già eseguite, il trigger si interrompe. In caso contrario, il trigger si interrompe quando viene rilevato il nuovo valore **endTime**.
 
-1. Creare un file JSON denominato MyTrigger.json nella cartella C:\ADFv2QuickStartPSH\ con il seguente contenuto:
+## <a name="sample-for-azure-powershell"></a>Esempio per Azure PowerShell
+Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger.
+
+1. Creare un file JSON denominato **MyTrigger.json** nella cartella C:\ADFv2QuickStartPSH con il contenuto seguente:
 
    > [!IMPORTANT]
-   > Impostare **startTime** all'ora UTC corrente e **endTime** a un'ora dopo l'ora UTC corrente ora prima di salvare il file JSON.
+   > Prima di salvare il file JSON, impostare il valore dell'elemento **startTime** sull'ora UTC corrente. Impostare il valore dell'elemento **endTime** su un'ora dopo l'ora UTC corrente.
 
     ```json   
     {
@@ -160,32 +165,38 @@ In questa sezione viene illustrato come usare Azure PowerShell per creare, avvia
       }
     }
     ```  
-2. Creare un trigger utilizzando il **Set AzureRmDataFactoryV2Trigger** cmdlet.
+
+2. Creare un trigger usando il cmdlet **Start-AzureRmDataFactoryV2Trigger**:
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    ```
     
-3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzureRmDataFactoryV2Trigger** cmdlet.
+3. Confermare che lo stato del trigger viene **interrotto** usando il cmdlet **Get-AzureRmDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-4. Avviare il trigger utilizzando il **inizio AzureRmDataFactoryV2Trigger** cmdlet:
+
+4. Avviare il trigger usando il cmdlet **Start-AzureRmDataFactoryV2Trigger**:
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-5. Verificare che lo stato del trigger sia **Started** utilizzando il **Get AzureRmDataFactoryV2Trigger** cmdlet.
+
+5. Confermare che lo stato del trigger viene **avviato** usando il cmdlet **Get-AzureRmDataFactoryV2Trigger**:
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
-6.  Ottenere trigger esegue con PowerShell tramite il **Get AzureRmDataFactoryV2TriggerRun** cmdlet. Per ottenere le informazioni sull'esecuzione di trigger, eseguire periodicamente il comando seguente: aggiornamento **TriggerRunStartedAfter** e **TriggerRunStartedBefore** valori corrispondono ai valori della definizione del trigger .
+
+6. Ottenere le esecuzioni di trigger in Azure PowerShell usando il cmdlet **Get AzureRmDataFactoryV2TriggerRun**. Per ottenere informazioni sulle esecuzioni di trigger, eseguire periodicamente il comando seguente. Aggiornare i valori di **TriggerRunStartedAfter** e **TriggerRunStartedBefore** in modo che corrispondano a quelli nella definizione del trigger:
 
     ```powershell
     Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-Per monitorare l'esecuzione di trigger/pipeline viene eseguito nel portale di Azure, vedere [esecuzione della pipeline di monitoraggio](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)
+    
+Per monitorare le esecuzioni di trigger e pipeline nel portale di Azure, vedere [Monitorare le esecuzioni di pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate sui trigger, vedere [della Pipeline di esecuzione e i trigger](concepts-pipeline-execution-triggers.md#triggers).
+Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#triggers).

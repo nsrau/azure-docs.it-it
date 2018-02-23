@@ -3,7 +3,7 @@ title: "Domande frequenti e problemi noti di Identità del servizio gestito (MSI
 description: "Problemi noti di Identità del servizio gestito per Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: bryanla
-ms.openlocfilehash: 2c29e93c0978250281fa489e53dcdf25f890a0a7
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: c8b25082170eb03c1ebc5965e273868982a3846f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Domande frequenti e problemi noti di Identità del servizio gestito (MSI) per Azure Active Directory
 
@@ -26,9 +26,9 @@ ms.lasthandoff: 12/22/2017
 
 ## <a name="frequently-asked-questions-faqs"></a>Domande frequenti (FAQ)
 
-### <a name="is-there-a-private-preview-available-for-additional-features"></a>Esiste un'anteprima privata disponibile, per altre funzionalità?
+### <a name="is-there-a-private-preview-available-for-additional-features"></a>È disponibile un'anteprima privata per funzionalità aggiuntive?
 
-Sì. Se si desidera essere considerata per la registrazione in anteprima privata, [visitare la pagina di iscrizione](https://aka.ms/azuremsiprivatepreview).
+Sì. Se si vuole sottoporre la propria candidatura per la registrazione all'anteprima privata, [vedere la pagina di iscrizione](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>Identità del servizio gestito funziona con Servizi cloud di Azure?
 
@@ -36,7 +36,7 @@ No. Non è previsto il supporto di Identità del servizio gestito in Servizi clo
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L'Identità del servizio gestito funziona con Active Directory Authentication Library (ADAL) o con Microsoft Authentication Library (MSAL)?
 
-No, l'Identità del servizio gestito non è ancora integrata con ADAL o MSAL. Per informazioni dettagliate sull'acquisizione di un token MSI utilizzando l'endpoint REST MSI, vedere [illustrato come utilizzare un Azure VM gestiti servizio identità (MSI) per l'acquisizione del token](msi-how-to-use-vm-msi-token.md).
+No, l'Identità del servizio gestito non è ancora integrata con ADAL o MSAL. Per informazioni su come acquisire il token dell'identità del servizio gestito usando l'endpoint REST dell'identità del servizio gestito, vedere [Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'acquisizione di token](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quali sono le distribuzioni di Linux supportate?
 
@@ -46,6 +46,7 @@ Le distribuzioni di Linux seguenti supportano MSI:
 - CentOS 7.1
 - RedHat 7.2
 - Ubuntu 15.04
+- Ubuntu 16.04
 
 Le altre distribuzioni di Linux attualmente non sono supportate e l'estensione potrebbe non riuscire nelle distribuzioni non supportate.
 

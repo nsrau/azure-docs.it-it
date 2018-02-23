@@ -75,7 +75,7 @@ Sostituire con i propri valori il nome della sottoscrizione e i nomi degli accou
   </LinuxComputeNodes>
 </IaaSClusterConfig>
 ```
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 * **Errore "La rete virtuale non esiste"**. Se si esegue lo script di distribuzione IaaS di HPC Pack per distribuire istantaneamente più cluster in Azure in una sottoscrizione, è possibile che una o più distribuzioni generi l'errore "La rete virtuale *Nome\_Retevirtuale* non esiste".
   In questo caso, eseguire nuovamente lo script per la distribuzione non riuscita.
 * **Problemi di accesso a Internet dalla rete virtuale di Azure**. Se si crea un cluster HPC Pack con un nuovo controller di dominio usando lo script di distribuzione oppure se si alza manualmente di livello la VM di un nodo head trasformandola in controller di dominio, è possibile che si verifichino problemi di connessione a Internet delle VM nella rete virtuale di Azure. Ciò si può verificare se un server DNS di inoltro viene configurato automaticamente nel controller di dominio e tale server non viene risolto correttamente.

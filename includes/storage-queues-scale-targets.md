@@ -1,4 +1,4 @@
-| Risorsa | Target |
+| Risorsa | Destinazione |
 |----------|---------------|
 | Dimensione massima di una singola coda | 500 TiB |
 | Dimensione massima di un messaggio in una coda | 64 KiB |

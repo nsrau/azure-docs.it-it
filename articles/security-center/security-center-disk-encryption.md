@@ -122,7 +122,7 @@ Per verificare che sia stato immesso il nome del gruppo di risorse corretto, dig
 
 **$resourceGroupName**
 
-Premere **INVIO**. Viene visualizzato il nome del gruppo di risorse in cui si trovano le macchine virtuali. Ad esempio:
+Premere **INVIO**. Viene visualizzato il nome del gruppo di risorse in cui si trovano le macchine virtuali. Ad esempio: 
 
 ![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
@@ -137,7 +137,7 @@ Per verificare che sia stato immesso il nome della macchina virtuale corretto, d
 
 **$vmName**
 
-Premere **INVIO**. Viene visualizzato il nome della macchina virtuale da crittografare. Ad esempio:
+Premere **INVIO**. Viene visualizzato il nome della macchina virtuale da crittografare. Ad esempio: 
 
 ![Output di PowerShell](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 

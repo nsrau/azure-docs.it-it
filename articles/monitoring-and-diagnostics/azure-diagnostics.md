@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="what-is-azure-diagnostics"></a>Informazioni sulla diagnostica di Azure
 Diagnostica di Azure è la funzionalità all'interno di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati i ruoli Web e di lavoro dei servizi cloud di Azure e le macchine virtuali di Azure che eseguono Microsoft Windows e Service Fabric. Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
@@ -26,13 +26,13 @@ Diagnostica di Azure è la funzionalità all'interno di Azure che consente la ra
 ## <a name="data-you-can-collect"></a>Dati che è possibile raccogliere
 Diagnostica di Azure consente di raccogliere i tipi di dati seguenti:
 
-| Origine dati | Descrizione |
+| origine dati | DESCRIZIONE |
 | --- | --- |
 | Contatori delle prestazioni |Contatori delle prestazioni del sistema operativo e personalizzati |
 | Log applicazioni |Messaggi di traccia scritti dall'applicazione |
 | Registri eventi di Windows |Informazioni inviate al sistema di registrazione eventi di Windows. |
 | Origine dell'evento .NET |Eventi di scrittura di codice con la classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) di .NET |
-| Log di IIS |Informazioni sui siti Web di IIS |
+| log di IIS |Informazioni sui siti Web di IIS |
 | ETW basato su manifesto |Traccia di eventi per eventi Windows generati da qualsiasi processo |
 | Dump di arresto anomalo del sistema |Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione. |
 | Log degli errori personalizzati |Log creati dall'applicazione o dal servizio. |
@@ -75,6 +75,6 @@ Per un'introduzione, vedere [Monitorare un'applicazione di Service Fabric](../se
 ## <a name="general-azure-diagnostics-articles"></a>Articoli su Diagnostica di Azure
 * [Schemi di configurazione di diagnostica di Azure](https://msdn.microsoft.com/library/azure/mt634524.aspx) -Informazioni su come modificare il file di schema per raccogliere e inviare dati di diagnostica. Si noti che è anche possibile usare Visual Studio per modificare il file di schema.
 * [Modalità di archiviazione dei dati di diagnostica in Archiviazione di Azure](../cloud-services/cloud-services-dotnet-diagnostics-storage.md) - Nomi delle tabelle e dei BLOB in cui vengono scritti i dati di diagnostica.
-* Informazioni su come [usare i contatori delle prestazioni in Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
+* Informazioni su come [usare i contatori delle prestazioni in Diagnostica di Azure](../cloud-services/diagnostics-performance-counters.md).
 * Informazioni su come [instradare le informazioni di diagnostica di Azure ad Application Insights](azure-diagnostics-configure-application-insights.md)
 * In caso di problemi nell'avvio della diagnostica o nell'individuazione dei dati nelle tabelle di archiviazione di Azure, vedere [Risoluzione dei problemi di Diagnostica di Azure](azure-diagnostics-troubleshooting.md)

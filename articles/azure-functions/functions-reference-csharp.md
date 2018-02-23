@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5a4fc57606b0cf09f8d20710e3c83637283014ba
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: b6b18f79b0ef50c30335218ef45ba6ed932cb586
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -246,7 +246,7 @@ public static void Run(string myBlob, TraceWriter log)
 ```
 
 > [!NOTE]
-> Per informazioni su un framework di registrazione più recente che è possibile usare invece di `TraceWriter`, vedere [Scrivere i log nelle funzioni C#](functions-monitoring.md#write-logs-in-c-functions) nell'articolo **Monitorare Funzioni di Azure**.
+> Per informazioni su un framework di registrazione più recente che è possibile usare al posto di `TraceWriter`, vedere [Scrivere i log nelle funzioni C#](functions-monitoring.md#write-logs-in-c-functions) nell'articolo **Monitorare Funzioni di Azure**.
 
 ## <a name="async"></a>Async
 
@@ -258,13 +258,13 @@ public async static Task ProcessQueueMessageAsync(
         Stream blobInput,
         Stream blobOutput)
 {
-    await blobInput.CopyToAsync(blobOutput, 4096, token);
+    await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
 
 ## <a name="cancellation-tokens"></a>Token di annullamento
 
-Alcune operazioni richiedono l'arresto normale. Mentre è sempre preferibile scrivere il codice per la gestione degli arresti anomali, quando si vuole gestire le richieste di arresto definire un argomento tipizzato [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  È fornito un `CancellationToken` per segnalare che viene avviato un arresto dell'host.
+Alcune operazioni richiedono l'arresto normale. Anche se è sempre preferibile scrivere codice che possa gestire gli arresti anomali, quando si vogliono gestire le richieste di arresto definire un argomento tipizzato [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  È fornito un `CancellationToken` per segnalare che viene avviato un arresto dell'host.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(

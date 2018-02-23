@@ -209,4 +209,4 @@ Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilan
 
 * [Gestione traffico di Azure](traffic-manager-overview.md)
 * [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
-* [Panoramica di Azure Load Balancer](../load-balancer/load-balancer-overview.md)
+* [Panoramica del servizio di bilanciamento del carico](../load-balancer/load-balancer-overview.md)

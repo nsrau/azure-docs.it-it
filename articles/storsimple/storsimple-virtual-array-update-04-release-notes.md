@@ -52,7 +52,7 @@ L'aggiornamento 0.4 è principalmente una build di correzioni di bug a cui sono 
 
 La tabella seguente fornisce un riepilogo dei problemi risolti in questa versione.
 
-| No. | Funzionalità | Problema |
+| di serie | Funzionalità | Problema |
 | --- | --- | --- |
 | 1 |Prestazioni del backup|Nelle versioni precedenti il completamento dei backup che coinvolgono un numero elevato di file richiede molto tempo (nell'ordine di giorni). In questa versione il tempo necessario per completare sia i backup completi che quelli incrementali è considerevolmente ridotto. |
 | 2 |Pacchetto di supporto|Le statistiche relative a disco, CPU, memoria, rete e cloud vengono ora registrate nei log di supporto, facendo i pacchetti per il supporto uno strumento molto efficace per la risoluzione dei problemi dei dispositivi.|
@@ -64,7 +64,7 @@ La tabella seguente fornisce un riepilogo dei problemi risolti in questa version
 
 La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale StorSimple e include i problemi delle versioni precedenti. 
 
-| No. | Funzionalità | Problema | Soluzione alternativa/commenti |
+| di serie | Funzionalità | Problema | Soluzione alternativa/commenti |
 | --- | --- | --- | --- |
 | **1.** |Aggiornamenti |È impossibile aggiornare i dispositivi virtuali creati nella versione di anteprima in una versione supportata di disponibilità generale. |Questi dispositivi virtuali devono essere sottoposti a failover per la versione di disponibilità generale tramite un flusso di lavoro di ripristino di emergenza. |
 | **2.** |Disco dati sottoposto a provisioning |Dopo il provisioning di un disco dati di una determinata dimensione specificata e la creazione di un dispositivo virtuale StorSimple corrispondente, non si deve espandere o compattare il disco dati. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati nei livelli locali del dispositivo. | |

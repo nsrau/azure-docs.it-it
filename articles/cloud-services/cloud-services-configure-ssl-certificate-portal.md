@@ -81,7 +81,7 @@ L'applicazione deve essere configurata per utilizzare il certificato ed è neces
 
    Le autorizzazioni (attributo`permisionLevel`) possono essere impostate su uno dei seguenti valori:
 
-   | Valore di autorizzazione | Descrizione |
+   | Valore di autorizzazione | DESCRIZIONE |
    | --- | --- |
    | limitedOrElevated |**(Predefinito)** Tutti i processi di ruolo possono accedere alla chiave privata. |
    | elevated |Solo i processi con autorizzazioni elevate possono accedere alla chiave privata. |

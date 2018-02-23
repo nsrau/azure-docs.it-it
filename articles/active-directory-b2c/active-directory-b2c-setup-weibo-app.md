@@ -16,7 +16,7 @@ ms.date: 3/26/2017
 ms.author: parakhj
 ms.openlocfilehash: 320d7c57035d3b3ecdb4e03d80141a58cf429461
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

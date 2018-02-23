@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6927b0bfa4591089657e36caddb442156457e5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Procedura: usare Packet Filter di FreeBSD per creare un firewall sicuro in Azure
 In questo articolo viene illustrato come distribuire un firewall NAT usando Packet Filter di FreeBSD tramite un modello di Azure Resource Manager per uno scenario server Web comune.
@@ -27,20 +27,20 @@ In questo articolo viene illustrato come distribuire un firewall NAT usando Pack
 ## <a name="what-is-pf"></a>Informazioni su PF
 PF (Packet Filter, chiamato anche pf) è un filtro di pacchetti con stato con licenza BSD, un componente software fondamentale per un firewall. Dalla sua creazione, PF si è rapidamente evoluto e ora dispone di numerosi vantaggi rispetto ad altri firewall disponibili. La funzionalità Network Address Translation (NAT) è sempre stata presente in PF. In seguito sono state aggiunte le funzionalità di pianificazione dei pacchetti e di gestione della coda attiva, integrando ALTQ e rendendolo configurabile tramite PF. Anche le funzionalità come pfsync e CARP per il failover e la ridondanza, authpf per l'autenticazione delle sessione e ftp-proxy per facilitare le operazioni del firewall sul complesso protocollo FTP dispongono di PF esteso. In breve, PF è un firewall potente e ricco di funzionalità. 
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 Se si desidera configurare un firewall sicuro nel cloud per i server Web, proseguire nella lettura dell'articolo. È inoltre possibile applicare gli script usati in questo modello di Azure Resource Manager per configurare la topologia di rete.
 Il modello Azure Resource Manager configura una macchina virtuale FreeBSD che esegue operazioni NAT/reindirizzamento tramite PF e due macchine virtuali FreeBSD con installato e configurato il server Web Nginx. Oltre a eseguire NAT per i il traffico in uscita dei due server Web, la macchina virtuale di NAT/reindirizzamento intercetta le richieste HTTP e le reindirizza ai due server Web in modo round robin. La rete virtuale usa lo spazio di indirizzi IP non instradabile 10.0.0.2/24 ed è possibile modificare i parametri del modello. Il modello di Azure Resource Manager definisce inoltre una tabella route per l'intera rete virtuale, ovvero una raccolta di route individuali usate per sostituire quelle predefinite di Azure in base all'indirizzo IP di destinazione. 
 
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Distribuire tramite l'interfaccia della riga di comando di Azure
-È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login). Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `West US`.
+È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login). Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGroup` nella posizione `West US`.
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment#create). Scaricare [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire i valori di risorse specifici, ad esempio `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
+Quindi distribuire il modello [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Scaricare [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) nello stesso percorso e definire i valori di risorse specifici, ad esempio `adminPassword`, `networkPrefix` e `domainNamePrefix`. 
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeploymentName \

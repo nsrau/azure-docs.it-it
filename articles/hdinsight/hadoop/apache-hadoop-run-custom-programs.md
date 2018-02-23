@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 59c7a65ff4eb35b3ea462962163b7b6ee94f521f
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 8e65c946d2cfcc830a1b9fa59b3f7886857f4f7d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="run-custom-mapreduce-programs"></a>Eseguire programmi MapReduce personalizzati
 
@@ -77,7 +77,7 @@ I programmi MapReduce più comuni sono scritti in Java e compilati in un file JA
 
     Questo comando invia il processo MapReduce a YARN. Il file di input è `/example/data/sample.log` e la directory di output è `/example/data/logoutput`. Il file di input e gli eventuali file di output saranno archiviati nella risorsa di archiviazione predefinita del cluster.
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Usare C# con lo streaming di MapReduce su Hadoop in HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Sviluppare programmi Java MapReduce per Hadoop in HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

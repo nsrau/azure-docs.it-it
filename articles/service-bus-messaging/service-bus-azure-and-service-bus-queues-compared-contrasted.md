@@ -174,7 +174,7 @@ Questa sezione illustra le funzionalità di autenticazione e autorizzazione supp
 
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
-| Autenticazione |**Chiave simmetrica** |**Chiave simmetrica** |
+| Authentication |**Chiave simmetrica** |**Chiave simmetrica** |
 | Modello di protezione |Accesso delegato tramite token di firma di accesso condiviso. |SAS |
 | Federazione del provider di identità |**No** |**Sì** |
 

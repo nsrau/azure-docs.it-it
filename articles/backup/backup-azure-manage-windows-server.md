@@ -76,7 +76,7 @@ Nella parte superiore del dashboard:
 | --- | --- |
 | Critico |Errore di backup, errore di ripristino |
 | Avviso |Backup completato con avvisi (quando non viene eseguito il backup di meno di cento file a causa di problemi di danneggiamento e viene completato il backup di più di un milione di file) |
-| Informazioni |None |
+| Informazioni |Nessuna |
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
 Fare clic sul riquadro **Avvisi di backup** per aprire il menu **Avvisi di backup** e gestire gli avvisi.

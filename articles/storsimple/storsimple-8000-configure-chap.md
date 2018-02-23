@@ -58,7 +58,7 @@ Nell’autenticazione unidirezionale, la destinazione autentica l'iniziatore. Qu
    3. Confermare la password.
 
        ![Iniziatore CHAP](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
+3. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Per configurare l'autenticazione unidirezionale nel server host di Windows
 1. Nel server host di Windows, avviare l'iniziatore iSCSI.
@@ -112,7 +112,7 @@ Nell'autenticazione bidirezionale la destinazione autentica l'iniziatore e poi l
    3. Confermare la password.
 
        ![Iniziatore CHAP](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
+4. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **OK** per salvare le modifiche.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Per configurare l'autenticazione bidirezionale nel server host di Windows
 

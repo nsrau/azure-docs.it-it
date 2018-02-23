@@ -122,7 +122,7 @@ Per le offerte per macchina virtuale, una volta che l'offerta o lo SKU è elenca
 
 ## <a name="step-2-set-your-prices"></a>Passaggio 2: Impostare i prezzi
 ### <a name="pricing-models"></a>Modelli di prezzi
-| Modello di prezzi | Descrizione |
+| Modello di prezzi | DESCRIZIONE |
 | --- | --- |
 | Base |Tariffa mensile fissa al momento dell'acquisto, ad esempio $10/mese. |
 | Consumo (noto come uso o misuratore) |Pagamento in base all'utilizzo, che viene definito dall’editore dell'offerta. L’eccedenza non può essere definita per postazione, per utente e così via, poiché non esiste alcun concetto di frazione di un utente o funzionalità per una ripartizione. L'utilizzo è segnalato dal partner su base oraria. Il cliente paga alla fine del ciclo di fatturazione mensile anziché in anticipo come per i piani mensili. |
@@ -139,7 +139,7 @@ Per le offerte per macchina virtuale, una volta che l'offerta o lo SKU è elenca
 
 |  | Solo Base | Solo Consumo | Base + Consumo |
 | --- | --- | --- | --- |
-| Immagine di macchina virtuale |No |Sì |No |
+| Immagine di macchina virtuale |No  |Sì |No  |
 | Servizio per gli sviluppatori |Sì |Sì |Sì |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Impostare i prezzi della VM
@@ -261,7 +261,7 @@ Di seguito è riportata una visualizzazione dettagliata di come vengono usate le
 
 *Descrizione dei dettagli dei prezzi dell’offerta nel sito Web del marketplace di Azure*
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 ![disegno](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Elenco di offerte nel portale di Azure*
@@ -276,7 +276,7 @@ Ora che il contenuto del Marketplace è caricato, è possibile passare al test d
 * [Testare l'offerta VM nello staging](marketplace-publishing-vm-image-test-in-staging.md)
 * [Test dell'offerta di modello di soluzione nello staging](marketplace-publishing-solution-template-test-in-staging.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg

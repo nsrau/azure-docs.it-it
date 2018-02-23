@@ -286,16 +286,16 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
     
     * Numeric
-    * Booleano
-    * Categorie
-    * Stringa
+    * boolean
+    * Categorical
+    * string
     * Etichetta
     * Funzionalità
     * Score
     * Tutti
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 
     
-    * Nessuno
+    * Nessuna
     * NumericFeature
     * NumericLabel
     * NumericScore

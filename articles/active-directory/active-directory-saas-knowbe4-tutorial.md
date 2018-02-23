@@ -16,7 +16,7 @@ ms.date: 08/31/2017
 ms.author: jeedes
 ms.openlocfilehash: 8153c0824de2cda61fecf1da822c1ffa70d8f0d0
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ L'integrazione di KnowBe4 Security Awareness Training con Azure AD offre i vanta
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con KnowBe4 Security Awareness Training, sono necessari gli elementi seguenti:
 

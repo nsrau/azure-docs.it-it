@@ -66,7 +66,7 @@ Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel 
 
 | Componenti | # Presente | Modulo plug-in? | Procedura di sostituzione |
 |:--- |:--- |:--- |:--- |
-| Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chassis |1 |No  |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controller primari |2 |Sì |[Sostituire un modulo controller nel dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
 | Power and Cooling Modules (PCM) da 764W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Batteria di backup |2 |Sì |[Sostituire il modulo batteria di backup nel dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
@@ -78,7 +78,7 @@ Lo chassis principale e lo chassis EBOD sono diversi nei moduli I/O. Inoltre, i 
 
 | Componenti | # Presente | Modulo plug-in? | Procedura di sostituzione |
 |:--- |:--- |:--- |:--- |
-| Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chassis |1 |No  |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controller EBOD |2 |Sì |[Sostituire un controller EBOD sul dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
 | Power and Cooling Modules (PCM) da 580W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
@@ -91,7 +91,7 @@ I moduli plug-in nel dispositivo sono evidenziati nei seguenti diagrammi anterio
 
 **Figura 1** Parte anteriore del dispositivo
 
-| Etichetta | Description |
+| Etichetta | DESCRIZIONE |
 |:--- |:--- |
 | 0 - 11 |Unità di dischi (totale pari a 12) |
 
@@ -101,7 +101,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 2** Pannello posteriore dello chassis principale
 
-| Etichetta | Descrizione |
+| Etichetta | DESCRIZIONE |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -112,7 +112,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 
 **Figura 3** pannello posteriore dell’enclosure EBOD
 
-| Etichetta | Descrizione |
+| Etichetta | DESCRIZIONE |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |

@@ -58,7 +58,7 @@ Il flusso di lavoro implementato seguendo le istruzioni di questa esercitazione 
 > 
 > 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Workstation con Azure PowerShell**. 
@@ -130,21 +130,21 @@ Nel flusso di lavoro vengono definite due azioni. L'azione start-to è *RunHiveS
 RunHiveScript è caratterizzato da diverse variabili. I valori vengono passati quando si invia il processo Oozie dalla workstation usando Azure PowerShell.
 
 <table border = "1">
-<tr><th>Variabili del flusso di lavoro</th><th>Descrizione</th></tr>
+<tr><th>Variabili del flusso di lavoro</th><th>DESCRIZIONE</th></tr>
 <tr><td>${jobTracker}</td><td>Specifica l'URL dell'utilità di analisi dei processi Hadoop. In HDInsight versione 3.0 o 2.1 usare <strong>jobtrackerhost: 9010</strong>.</td></tr>
 <tr><td>${nameNode}</td><td>Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo del file system predefinito, ad esempio <i>wasb://&lt;nomecontenitore&gt;@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Specifica il nome della coda alla quale viene inviato il processo. Usare il nome <strong>predefinito</strong>.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Variabile azione Hive</th><th>Descrizione</th></tr>
+<tr><th>Variabile azione Hive</th><th>DESCRIZIONE</th></tr>
 <tr><td>${hiveDataFolder}</td><td>Specifica la directory di origine per il comando Hive Create Table.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Specifica la cartella di output per l'istruzione INSERT OVERWRITE.</td></tr>
 <tr><td>${hiveTableName}</td><td>Specifica il nome della tabella di Hive che fa riferimento ai file di dati log4j.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Variabile azione Sqoop</th><th>Descrizione</th></tr>
+<tr><th>Variabile azione Sqoop</th><th>DESCRIZIONE</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Specifica la stringa di connessione del database SQL di Azure.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>Specifica la tabella del database SQL di Azure in cui vengono esportati i dati.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Specifica la cartella di output per l'istruzione INSERT OVERWRITE di Hive. È la stessa cartella dell'esportazione tramite Sqoop (export-dir).</td></tr>

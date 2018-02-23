@@ -17,7 +17,7 @@ ms.date: 11/03/2016
 ms.author: cjiang
 ms.openlocfilehash: 2fd99f47cc2051c5b27c3ec8621ae954e9f8ca14
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---

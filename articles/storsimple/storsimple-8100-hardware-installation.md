@@ -45,7 +45,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    
     **Dispositivo di archiviazione disimballato**
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    | --- | --- |
    |   1 |Scatola |
    |   2 |Protezione inferiore |
@@ -107,7 +107,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
 
     **Fissaggio delle slitte delle guide interne ai lati dello chassis**
    
-    Etichetta | Descrizione
+    Etichetta | DESCRIZIONE
     ----- | -----------
     1     | Viti con testa a bottone M 3X4
     2     | Guide dello chassis
@@ -121,7 +121,7 @@ Viene fornito un set di guide di montaggio da usare con l'armadio rack da 48,26 
    
     **Fissaggio dei gruppi guida esterna al rack**
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio |
    |   2 |Montante rack anteriore con fori quadrati |
@@ -147,7 +147,7 @@ Per montare il dispositivo nel rack usando le guide appena installate, seguire q
    
     **Installazione dei copriflangia**
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    | --- | --- |
    |   1 |Vite di fissaggio dell'enclosure |
 
@@ -156,7 +156,7 @@ Il passaggio successivo consiste nel cablare il dispositivo per l'alimentazione,
 ## <a name="cable-your-storsimple-8100-device"></a>Cablare il dispositivo StorSimple 8100
 In questo argomento vengono illustrate le procedure per cablare il dispositivo StorSimple 8100 per l'alimentazione, la connessione di rete e quella seriale.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di iniziare il cablaggio del dispositivo, è necessario avere a disposizione:
 
 * Il dispositivo di archiviazione, interamente disimballato e montato in rack.
@@ -187,7 +187,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Descrizione |
+   | Etichetta | DESCRIZIONE |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -198,9 +198,9 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
 
     **Cablaggio di rete per il dispositivo**
 
-   |Etichetta | Descrizione |
+   |Etichetta | DESCRIZIONE |
    |----- | ----------- |
-   | A    | LAN con accesso a Internet |
+   | Una     | LAN con accesso a Internet |
    | B    | Controller 0 |
    | C    | PCM 0 |
    | D    | Controller 1 |

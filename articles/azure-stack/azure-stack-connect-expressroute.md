@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 248e9cb521975e9c982684668a68214ce5a1c827
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>Stack di Azure di connettersi a Azure tramite ExpressRoute
 
@@ -88,9 +88,9 @@ Utilizzare le procedure seguenti per creare le risorse di rete richiesta nello S
 
    |Campo  |Valore  |
    |---------|---------|
-   |Nome     |Tenant1VNet1         |
+   |NOME     |Tenant1VNet1         |
    |Spazio degli indirizzi     |10.1.0.0/16|
-   |Nome della subnet     |Sub1 di Tenant1|
+   |Nome della subnet     |Tenant1-Sub1|
    |Intervallo di indirizzi subnet     |10.1.1.0/24|
 
 6. La sottoscrizione creata in precedenza verrà popolata nel campo **Sottoscrizione**.
@@ -205,19 +205,22 @@ Il router è una macchina virtuale di Windows Server (**AzS BGPNAT01**) esegue i
    Nei diagrammi di esempio, il *indirizzo esterno BGPNAT* è 10.10.0.62 e *indirizzo IP interno* è 192.168.102.1.
 
    ```
+   $ExtBgpNat = '<External BGPNAT address>'
+   $IntBgpNat = '<Internal IP address>'
+
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 499 `
       -PortEnd 501}
    Invoke-Command `
     -ComputerName azs-bgpnat01 `
      {Add-NetNatExternalAddress `
       -NatName BGPNAT `
-      -IPAddress <External BGPNAT address> `
+      -IPAddress $Using:ExtBgpNat `
       -PortStart 4499 `
       -PortEnd 4501}
    # create a static NAT mapping to map the external address to the Gateway
@@ -227,8 +230,8 @@ Il router è una macchina virtuale di Windows Server (**AzS BGPNAT01**) esegue i
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 500 `
       -InternalPort 500}
    # Finally, configure NAT traversal which uses port 4500 to
@@ -238,8 +241,8 @@ Il router è una macchina virtuale di Windows Server (**AzS BGPNAT01**) esegue i
      {Add-NetNatStaticMapping `
       -NatName BGPNAT `
       -Protocol UDP `
-      -ExternalIPAddress <External BGPNAT address> `
-      -InternalIPAddress <Internal IP address> `
+      -ExternalIPAddress $Using:ExtBgpNat `
+      -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
    ```

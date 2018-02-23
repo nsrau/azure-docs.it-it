@@ -27,11 +27,11 @@ ms.lasthandoff: 12/06/2017
 Informazioni su come usare le funzioni definite dall'utente C# con Apache Hive e Pig in HDInsight.
 
 > [!IMPORTANT]
-> I passaggi descritti in questo documento funzionano con i cluster HDInsight basati su Linux e su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](../hdinsight-component-versioning.md).
+> I passaggi descritti in questo documento funzionano con i cluster HDInsight basati su Linux e su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere l'articolo sul [controllo delle versioni del componente di HDInsight](../hdinsight-component-versioning.md).
 
 Sia Hive sia Pig sono in grado di passare i dati alle applicazioni esterne per l'elaborazione. Questo processo è noto come _streaming_. Quando si usa un'applicazione .NET, i dati vengono passati all'applicazione in STDIN e l'applicazione restituisce i risultati in STDOUT. Per leggere e scrivere da STDIN e STDOUT, è possibile usare `Console.ReadLine()` e `Console.WriteLine()` da un'applicazione console.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una familiarità nello scrivere e nel compilare il codice C# destinato a .NET Framework 4.5.
 

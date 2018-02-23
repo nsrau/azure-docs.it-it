@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Come creare un'infrastruttura di sviluppo in una macchina virtuale Linux in Azure con Jenkins, GitHub e Docker
 Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazione, è possibile usare una pipeline per l'integrazione e la distribuzione continue (CI/CD). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
@@ -36,12 +36,12 @@ Per automatizzare le fasi di compilazione e test dello sviluppo di un'applicazio
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, questa esercitazione, è necessario che sia in esecuzione l'interfaccia CLI di Azure versione 2.0.22 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.22 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Creare l'istanza di Jenkins
 In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. Questa esercitazione usa un file cloud-init per installare Jenkins e Docker in una macchina virtuale. Jenkins è un server di automazione open source molto diffuso che si integra uniformemente con Azure per consentire l'integrazione continua e il recapito continuo. Per altre esercitazioni sull'uso di Jenkins, vedere [Jenkins in Azure](https://docs.microsoft.com/azure/jenkins/).
 
-Nella shell corrente, creare un file denominato *cloud-init-jenkins.txt* e incollare la seguente configurazione. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. Immettere `sensible-editor cloud-init-jenkins.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
+Nella shell corrente creare un file denominato *cloud-init-jenkins.txt* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. Immettere `sensible-editor cloud-init-jenkins.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 
 ```yaml
 #cloud-config
@@ -64,16 +64,17 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
+  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
-Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupJenkins* nella posizione *eastus*:
+Per poter creare una macchina virtuale è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupJenkins* nella posizione *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo di *cloud-init-jenkins.txt*.
+Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az_vm_create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo di *cloud-init-jenkins.txt*.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -86,7 +87,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 Per creare e configurare la macchina virtuale sono necessari alcuni minuti.
 
-Per consentire al traffico Web di raggiungere la macchina virtuale, usare [az vm open-port](/cli/azure/vm#open-port) per aprire la porta *8080* per il traffico Jenkins e la porta *1337* per l'app Node.js che viene usata per eseguire un'app di esempio:
+Per consentire al traffico Web di raggiungere la macchina virtuale, usare [az vm open-port](/cli/azure/vm#az_vm_open_port) per aprire la porta *8080* per il traffico Jenkins e la porta *1337* per l'app Node.js che viene usata per eseguire un'app di esempio:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -117,10 +118,10 @@ Se il file non è ancora disponibile, attendere ancora qualche minuto che cloud-
 
 Aprire un Web browser e passare a `http://<publicIps>:8080`. Completare la configurazione iniziale di Jenkins come segue:
 
-- Immettere il nome utente **admin**, quindi fornire il *initialAdminPassword* ottenuto dalla macchina virtuale nel passaggio precedente.
-- Selezionare **gestire Jenkins**, quindi **gestire plug-in**.
-- Scegliere **disponibile**, quindi cercare *GitHub* nella casella di testo nella parte superiore. Selezionare la casella per *plug-in GitHub*, quindi selezionare **Download e installazione dopo il riavvio**.
-- Selezionare la casella per **riavviare Jenkins durante l'installazione è stata completata e non sono in esecuzione processi**, quindi attendere che il plug-in di processo di installazione è terminato.
+- Immettere il nome utente **admin** e quindi specificare la password *initialAdminPassword* ottenuta dalla macchina virtuale nel passaggio precedente.
+- Selezionare **Manage Jenkins** (Gestisci Jenkins) e quindi **Manage plugins** (Gestisci plug-in).
+- Scegliere **Available** (Disponibile) e quindi cercare *GitHub* nella casella di testo nella parte superiore. Selezionare la casella *GitHub plugin* (Plug-in GitHub) e quindi selezionare **Download now and install after restart** (Scarica subito e installa dopo il riavvio).
+- Selezionare la casella **Restart Jenkins when installation is complete and no jobs are running** (Riavvia Jenkins al termine dell'installazione e quando non ci sono processi in esecuzione) e quindi attendere il completamento del processo di installazione del plug-in.
 
 
 ## <a name="create-github-webhook"></a>Creare webhook di GitHub
@@ -146,7 +147,7 @@ Nel sito Web di Jenkins selezionare **Create new jobs** (Crea nuovi processi) da
 - Nella sezione **General** (Generale) selezionare il progetto **GitHub** e immettere l'URL del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world*.
 - Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/iainfoulds/nodejs-docs-hello-world.git*.
 - Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
-- Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **eseguire shell**, quindi immettere `echo "Testing"` nella finestra di comando.
+- Nella sezione **Build** (Compilazione) scegliere **Add build step** (Aggiungi istruzione di compilazione). Selezionare **Execute shell** (Esegui shell) e quindi immettere `echo "Testing"` nella finestra di comando.
 - Selezionare **Save** (Salva) nella parte inferiore della finestra dei processi.
 
 
@@ -161,19 +162,19 @@ response.end("Hello World!");
 
 Per eseguire il commit delle modifiche, selezionare il pulsante **Commit changes** (Esegui il commit delle modifiche) nella parte inferiore.
 
-In Jenkins viene avviata una nuova compilazione nella sezione **Build history** (Cronologia compilazione) nell'angolo inferiore sinistro della pagina del processo. Scegliere il collegamento di numeri di build e selezionare **output di Console** sul lato sinistro. È possibile visualizzare i passaggi eseguiti in Jenkins mentre viene eseguito il pull del codice da GitHub e l'azione di compilazione genera il messaggio `Testing` nella console. Ogni volta che viene eseguita un'operazione di commit in GitHub, il webhook raggiunge Jenkins e viene attivata una nuova compilazione in questo modo.
+In Jenkins viene avviata una nuova compilazione nella sezione **Build history** (Cronologia compilazione) nell'angolo inferiore sinistro della pagina del processo. Scegliere il collegamento del numero di build e selezionare **Console output** (Output console) sul lato sinistro. È possibile visualizzare i passaggi eseguiti in Jenkins mentre viene eseguito il pull del codice da GitHub e l'azione di compilazione genera il messaggio `Testing` nella console. Ogni volta che si esegue un'operazione di commit in GitHub, il webhook contatta Jenkins e attiva una nuova compilazione in questo modo.
 
 
 ## <a name="define-docker-build-image"></a>Definire l'immagine di compilazione di Docker
 Per visualizzare l'app Node.js in esecuzione sulla base dei commit GitHub, è necessario creare un'immagine Docker per l'esecuzione dell'app. L'immagine viene creata da un file Dockerfile che definisce come configurare il contenitore che esegue l'app. 
 
-Dalla connessione SSH alla macchina virtuale, passare alla directory dell'area di lavoro di Jenkins denominata sulla base del processo creato in un passaggio precedente. In questo esempio, che è stato denominato *HelloWorld*.
+Dalla connessione SSH alla macchina virtuale, passare alla directory dell'area di lavoro di Jenkins denominata sulla base del processo creato in un passaggio precedente. In questo esempio è stata denominata *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Creare un file in questa directory dell'area di lavoro con `sudo sensible-editor Dockerfile` e incollare il contenuto seguente. Assicurarsi che l'intero file Docker venga copiato correttamente, in particolare la prima riga:
+Creare un file con `sudo sensible-editor Dockerfile` in questa directory dell'area di lavoro e incollare il contenuto seguente. Assicurarsi che l'intero file Docker venga copiato correttamente, in particolare la prima riga:
 
 ```yaml
 FROM node:alpine

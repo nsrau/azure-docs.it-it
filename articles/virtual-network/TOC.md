@@ -15,7 +15,9 @@
 ### [Elenchi di controllo di accesso](virtual-networks-acl.md)
 
 # Attività iniziali
-## [Creare la prima rete virtuale](virtual-network-get-started-vnet-subnet.md)
+## [Creare una rete virtuale - Portale](quick-create-portal.md)
+## [Creare una rete virtuale - PowerShell](quick-create-powershell.md)
+## [Creare una rete virtuale - Interfaccia della riga di comando di Azure](quick-create-cli.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -155,6 +157,7 @@
 #### [Interfaccia della riga di comando di Azure](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Log](virtual-network-nsg-manage-log.md)
+### [Tabelle di route](manage-route-table.md)
 ### Interfacce di rete (NIC)
 #### [Creare, modificare o eliminare interfacce di rete](virtual-network-network-interface.md)
 #### [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md)
@@ -175,6 +178,7 @@
 ### [Test della velocità effettiva](virtual-network-bandwidth-testing.md)
 ### [Non è possibile eliminare le reti virtuali](virtual-network-troubleshoot-cannot-delete-vnet.md)
 ### [Problemi di connettività da VM a VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
+### [Configurare PTR per il controllo del banner SMTP](create-ptr-for-smtp-service.md)
 
 # Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

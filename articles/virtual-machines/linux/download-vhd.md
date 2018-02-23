@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 3eb88478b43f8e3a36ae04bf3703f238e8cb1f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03a29faeed71334253f9aa5bc88653fd689cc55b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -43,7 +43,7 @@ Per usare il disco rigido virtuale come immagine per la creazione di altre macch
     exit 
     ```
 
-2. Accedere all'account Azure con [az login](https://docs.microsoft.com/cli/azure/#login).
+2. Accedere all'account Azure con [az login](https://docs.microsoft.com/cli/azure/#az_login).
 3. Arrestare e deallocare la macchina virtuale.
 
     ```azurecli

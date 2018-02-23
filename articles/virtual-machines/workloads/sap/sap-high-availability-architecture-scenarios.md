@@ -248,7 +248,7 @@ La disponibilità elevata di SAP in Azure può essere di tre tipi:
 
 * **Disponibilità elevata delle applicazioni SAP**: 
 
-    Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio:
+    Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio: 
     * Server di applicazioni SAP ridondanti.
     * Componenti univoci. Un esempio potrebbe essere un componente singolo punto di guasto (SPOF), come un'istanza di SAP ASCS/SCS o un sistema di gestione di database (DBMS).
 
@@ -266,7 +266,7 @@ La base per il calcolo è di 30 giorni al mese o 43.200 minuti. Ad esempio, un t
 
 (Disponibilità servizio n. 1/100) * (Disponibilità servizio n. 2/100) * (Disponibilità servizio n. 3/100) \*…
 
-ad esempio:
+Ad esempio: 
 
 (99,95/100) + (99,9/100) + (99,9/100) = 0,9975 o una disponibilità complessiva del 99,75%.
 
@@ -320,7 +320,7 @@ Per altre informazioni su questo approccio, vedere [Utilize Azure infrastructure
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Disponibilità elevata delle applicazioni SAP su IaaS di Azure
 
-Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. ad esempio:
+Per ottenere una disponibilità elevata completa del sistema SAP, è necessario proteggere tutti i componenti SAP critici del sistema. Ad esempio: 
   * Server di applicazioni SAP ridondanti.
   * Componenti univoci. Un esempio potrebbe essere un componente singolo punto di guasto (SPOF), come un'istanza di SAP ASCS/SCS o un sistema di gestione di database (DBMS).
 

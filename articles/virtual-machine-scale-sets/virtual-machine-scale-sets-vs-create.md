@@ -18,7 +18,7 @@ ms.author: negat
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---

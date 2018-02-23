@@ -16,7 +16,7 @@ ms.date: 10/13/2017
 ms.author: yurid
 ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

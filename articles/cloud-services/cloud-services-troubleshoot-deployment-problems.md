@@ -17,7 +17,7 @@ ms.date: 11/03/2017
 ms.author: v-six
 ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---

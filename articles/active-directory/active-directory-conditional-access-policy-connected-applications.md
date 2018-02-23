@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fb646a56b51960d5b076027d942dabe8f2afbe97
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2354a8bf81189f70bb8d0d63c3df3236403c11fc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory
 
@@ -41,11 +41,11 @@ Collegamenti di accesso condizionale basato su dispositivo **Accesso condizional
 
 In un mondo in cui i dispositivi mobili e il cloud hanno sempre più importanza, Azure Active Directory consente ovunque l'accesso Single Sign-On a dispositivi, app e servizi. Per alcune risorse nel proprio ambiente, la concessione dell'accesso agli utenti appropriati potrebbe non essere sufficiente. Oltre agli utenti appropriati, potrebbe anche essere necessario l'uso di un dispositivo attendibile per accedere a una risorsa. Nell'ambiente in uso, è possibile definire cos'è un dispositivo attendibile sulla base dei componenti seguenti:
 
-- Le [piattaforme del dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms)
+- Le [piattaforme del dispositivo](active-directory-conditional-access-conditions.md#device-platforms)
 - Se un dispositivo è conforme
 - Se un dispositivo è aggiunto al dominio 
 
-Le [piattaforme del dispositivo](active-directory-conditional-access-azure-portal.md#device-platforms) sono caratterizzate dal sistema operativo in esecuzione sul dispositivo. Nei criteri di accesso condizionale basato su dispositivo, è possibile limitare l'accesso a determinate risorse solo a piattaforme specifiche del dispositivo.
+Le [piattaforme del dispositivo](active-directory-conditional-access-conditions.md#device-platforms) sono caratterizzate dal sistema operativo in esecuzione sul dispositivo. Nei criteri di accesso condizionale basato su dispositivo, è possibile limitare l'accesso a determinate risorse solo a piattaforme specifiche del dispositivo.
 
 
 

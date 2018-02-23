@@ -31,7 +31,7 @@ Al contrario, SQL Data Warehouse esegue tutto il carico di lavoro del data wareh
 > 
 > 
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Raccomandazioni
 Si tratta di indicazioni per il consolidamento di carichi di lavoro, sicurezza, dominio e i limiti funzionali mediante l'uso di schemi definiti dall'utente.
 
 1. Usare un database SQL Data Warehouse per eseguire l'intero carico di lavoro del data warehouse.

@@ -5,7 +5,7 @@ I cluster Kubernetes, DC/OS e Docker Swarm forniscono localmente endpoint HTTP. 
 
 Per DC/OS e Docker Swarm, è consigliabile creare un tunnel Secure Shell (SSH) dal computer locale al sistema di gestione cluster. Dopo la creazione del tunnel, è possibile eseguire comandi che usano gli endpoint HTTP e visualizzare l'interfaccia Web dell'agente di orchestrazione (se disponibile) dal sistema locale. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un cluster Kubernetes, DC/OS o Docker Swarm [distribuito nel servizio contenitore di Azure](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * File di chiave privata SSH RSA, corrispondente alla chiave pubblica aggiunta al cluster durante la distribuzione. Questi comandi presuppongono che la chiave privata SSH si trovi in `$HOME/.ssh/id_rsa` nel computer. Per altre informazioni, vedere le istruzioni per [macOS e Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) o per [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). Se la connessione SSH non funziona, potrebbe essere necessario [reimpostare le chiavi SSH](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
@@ -40,7 +40,7 @@ az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --na
 
 Questo comando scarica le credenziali del cluster in `$HOME/.kube/config` dove si prevede che sia disponibile `kubectl`.
 
-In alternativa è possibile usare `scp` per copiare in modo sicuro i file da `$HOME/.kube/config` nella VM master al computer locale. Ad esempio:
+In alternativa è possibile usare `scp` per copiare in modo sicuro i file da `$HOME/.kube/config` nella VM master al computer locale. Ad esempio: 
 
 ```bash
 mkdir $HOME/.kube
@@ -145,7 +145,7 @@ Impostare la variabile di ambiente DOCKER_HOST sulla porta locale configurata pe
 export DOCKER_HOST=:2375
 ```
 
-Eseguire i comandi di Docker che effettuano il tunneling al cluster Docker Swarm, ad esempio:
+Eseguire i comandi di Docker che effettuano il tunneling al cluster Docker Swarm, Ad esempio: 
 
 ```bash
 docker info

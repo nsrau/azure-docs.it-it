@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -20,20 +20,22 @@ Griglia di eventi di Azure consente di compilare facilmente applicazioni con arc
 
 È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile. Griglia di eventi offre anche il supporto predefinito per eventi personalizzati e di terze parti.
 
-Griglia di eventi supporta attualmente le aree seguenti:
+Attualmente Griglia di eventi supporta le aree seguenti:
 
+* Asia sudorientale
+* Asia orientale
 * Stati Uniti centrali
 *   Stati Uniti orientali
 *   Stati Uniti orientali 2
+* Europa occidentale
+* Europa settentrionale
 *   Stati Uniti centro-occidentali
 *   Stati Uniti occidentali
 *   Stati Uniti occidentali 2
 
-Verranno aggiunte altre aree.
+Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). L'immagine seguente illustra come Griglia di eventi collega autori e gestori ma non fornisce un elenco completo di opzioni supportate.
 
-Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). La figura seguente mostra la modalità di connessione griglia eventi gestori e i server di pubblicazione, ma non fornisce un elenco completo delle opzioni supportate.
-
-![Modello funzionale di Griglia di eventi](./media/overview/event-grid-functional-model.png)
+![Modello funzionale di Griglia di eventi](./media/overview/functional-model.png)
 
 ## <a name="event-publishers"></a>Autori di eventi
 
@@ -42,10 +44,10 @@ Attualmente i servizi di Azure seguenti hanno il supporto predefinito degli auto
 * Sottoscrizioni di Azure (operazioni di gestione)
 * Argomenti personalizzati
 * Hub eventi
+* Hub IoT
 * Gruppi di risorse (operazioni di gestione)
 * Archiviazione BLOB
-
-Quest'anno verranno aggiunti altri servizi di Azure.
+* Utilizzo generico dell'archiviazione v2 (GPv2)
 
 ## <a name="event-handlers"></a>Gestori eventi
 
@@ -58,7 +60,7 @@ Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestor
 * Microsoft Flow
 * Webhook
 
-Quest'anno verranno aggiunti altri servizi di Azure.
+Quando si usa Funzioni di Azure come gestore, l'uso del trigger della Griglia di eventi è consigliato rispetto ai trigger HTTP generici. Griglia di eventi convalida automaticamente i trigger di funzioni della Griglia di eventi. Con i trigger HTTP generici è necessario implementare la [risposta di convalida](security-authentication.md#webhook-event-delivery).
 
 ## <a name="concepts"></a>Concetti
 
@@ -111,9 +113,7 @@ Griglia di eventi connette l'app con altri servizi. Creare, ad esempio, un argom
 
 ## <a name="how-much-does-event-grid-cost"></a>Costi di Griglia di eventi
 
-Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pagamento per evento, quindi si paga solo per le risorse usate.
-
-Griglia di eventi costa $ 0,60 per milione di operazioni ($ 0,30 durante l'anteprima) e le prime 100.000 operazioni al mese sono gratuite. Le operazioni vengono definite come inserimento di eventi, corrispondenza avanzata, tentativo di recapito e chiamate di gestione.  Per informazioni più dettagliate, vedere la [pagina dedicata ai prezzi](https://azure.microsoft.com/pricing/details/event-grid/).
+Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pagamento per evento, quindi si paga solo per le risorse usate. Le prime 100.000 operazioni al mese sono gratuite. Le operazioni vengono definite come inserimento di eventi, corrispondenza avanzata, tentativo di recapito e chiamate di gestione. Per informazioni dettagliate, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

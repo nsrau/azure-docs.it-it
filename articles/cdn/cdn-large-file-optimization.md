@@ -34,7 +34,7 @@ La rete di distribuzione dei contenuti di Azure con tecnologia Akamai offre ora 
 
 ## <a name="configure-a-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurare un endpoint di rete CDN per ottimizzare la distribuzione di file di grandi dimensioni
 
-È possibile configurare l'endpoint di rete CDN per ottimizzare la distribuzione di file di grandi dimensioni tramite il portale di Azure. A tale scopo è anche possibile usare le API REST o qualsiasi SDK client. I passaggi seguenti mostrano il processo tramite il portale di Azure.
+È possibile configurare l'endpoint di rete CDN per ottimizzare la distribuzione di file di grandi dimensioni tramite il portale di Azure. A questo scopo, è anche possibile usare le API REST o qualsiasi SDK client. I passaggi seguenti mostrano il processo tramite il portale di Azure.
 
 1. Per aggiungere un nuovo endpoint, nella pagina **Profilo CDN** selezionare **Endpoint**.
 
@@ -70,7 +70,7 @@ L'ottimizzazione per file di grandi dimensioni usa tempi di scadenza della memor
 |    | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
 --- | --- | --- 
 Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | None | 1 secondo 
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuna | 1 secondo 
 
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine
 

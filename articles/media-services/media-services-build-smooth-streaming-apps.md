@@ -31,7 +31,7 @@ In questa esercitazione vengono presentate quattro lezioni:
 3. Selezionare flussi Smooth Streaming
 4. Selezionare tracce Smooth Streaming
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 > [!NOTE]
 > I progetti di Windows Store 8.1 o versioni precedenti non sono supportati in Visual Studio 2017.  Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
@@ -65,12 +65,12 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 2. Scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 3. Nella finestra di dialogo Nuovo progetto digitare o selezionare i valori seguenti:
 
-| Nome | Valore |
+| NOME | Valore |
 | --- | --- |
 | Gruppo dei modelli di progetto |Installato/Modelli/Visual C#/Windows Store |
 | Modello |Applicazione vuota (XAML) |
-| Nome |SSPlayer |
-| Percorso |C:\SSTutorials |
+| NOME |SSPlayer |
+| Località |C:\SSTutorials |
 | Nome soluzione |SSPlayer |
 | Crea directory per soluzione |(selezionata) |
 
@@ -81,10 +81,10 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse su **SSPlayer**, quindi scegliere **Aggiungi riferimento**.
 2. Digitare o selezionare i valori seguenti:
 
-| Nome | Valore |
+| NOME | Valore |
 | --- | --- |
 | Gruppo di riferimenti |Windows/Estensioni |
-| riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
+| Riferimenti |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
 
 1. Fare clic su **OK**. 
 
@@ -472,7 +472,7 @@ Gli stessi eventi sono inoltre disponibili a livello di gestione dell'origine ad
          # endregion sliderMediaPlayer
       
 >[!NOTE]
->Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di colli di bottiglia nel thread del dispatcher, gli sviluppatori possono scegliere di usare il dispatcher fornito dall'elemento dell'interfaccia utente che intendono aggiornare.  ad esempio:
+>Per apportare modifiche al thread dell'interfaccia utente da un thread non di interfaccia utente viene usato CoreDispatcher. In caso di colli di bottiglia nel thread del dispatcher, gli sviluppatori possono scegliere di usare il dispatcher fornito dall'elemento dell'interfaccia utente che intendono aggiornare.  Ad esempio: 
    
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 

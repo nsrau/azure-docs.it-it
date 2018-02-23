@@ -41,7 +41,7 @@ La figura seguente illustra questa configurazione. Come indicato, per uno scenar
 
 ![Panoramica dell'integrazione di Machine Learning in Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Una sottoscrizione di Azure attiva.
@@ -274,7 +274,7 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Integrare API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

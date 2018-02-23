@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 9e8808a50e86e40af4991a6054a55ef57f744aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure
 
@@ -28,7 +28,7 @@ Microsoft Azure offre molte funzionalità in Archiviazione di Azure per archivia
 
 La tabella seguente confronta File, BLOB e Dischi e illustra scenari di esempio appropriati per ognuna delle funzionalità.
 
-| Funzionalità | Descrizione | Quando usare le autorizzazioni |
+| Funzionalità | DESCRIZIONE | Quando usare le autorizzazioni |
 |--------------|-------------|-------------|
 | **File di Azure** | Include un'interfaccia SMB, librerie client e un'[interfaccia REST](/rest/api/storageservices/file-service-rest-api) che consente l'accesso ai file archiviati ovunque ci si trovi. | Si intende aggiornare e spostare un'applicazione nel cloud che usa già le API del file system native per condividere i dati con altre applicazioni in esecuzione in Azure.<br/><br/>Si intende archiviare gli strumenti di sviluppo e di debug a cui deve essere possibile accedere da molte macchine virtuali. |
 | **BLOB di Azure** | Include librerie client e un'[interfaccia REST](/rest/api/storageservices/blob-service-rest-api) che consente di archiviare i dati non strutturati e di accedervi su larga scala in BLOB in blocchi. | Si desidera che la propria applicazione supporti scenari di accesso casuale e tramite flusso.<br/><br/>Si desidera poter accedere ai dati dell'applicazione ovunque ci si trovi. |
@@ -41,13 +41,13 @@ La tabella seguente confronta File di Azure e BLOB di Azure.
 ||||  
 |-|-|-|  
 |**Attributo**|**BLOB di Azure**|**File di Azure**|  
-|Opzioni di durabilità|LRS, ZRS, GRS (e RA-GRS per una maggiore disponibilità)|LRS, GRS|  
+|Opzioni di durabilità|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |Accessibilità|API REST|API REST<br /><br /> SMB 2.1 e SMB 3.0 (API del file system standard)|  
 |Connettività|API REST: tutto il mondo|API REST: tutto il mondo<br /><br /> SMB 2.1: nell'area<br /><br /> SMB 3.0: tutto il mondo|  
 |Endpoint|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Directory|Spazio dei nomi flat|Oggetti directory veri|  
 |Distinzione tra maiuscole e minuscole nei nomi|Fa distinzione tra maiuscole e minuscole.|Non fa distinzione tra maiuscole e minuscole, ma le mantiene così come sono|  
-|Capacità|Contenitori fino a 500 TB|Condivisioni file da 5 TB|  
+|Capacity|Contenitori fino a 500 TB|Condivisioni file da 5 TB|  
 |Velocità effettiva|Fino a 60 MB/s per BLOB in blocchi|Fino a 60 MB/s per condivisione|  
 |Dimensioni oggetto|Fino a 200 GB/BLOB in blocchi|Fino a 1 TB/file|  
 |Capacità fatturata|In base ai byte scritti|In base alle dimensioni di file|  
@@ -63,9 +63,9 @@ La tabella seguente confronta File di Azure e Dischi di Azure.
 |-|-|-|  
 |**Attributo**|**Dischi di Azure**|**File di Azure**|  
 |Scope|Esclusivo per una singola macchina virtuale|Accesso condiviso tra più macchine virtuali|  
-|Snapshot e Copia|Sì|No|  
+|Snapshot e Copia|Sì|No |  
 |Configurazione|Connesso all'avvio della macchina virtuale|Connesso dopo l'avvio della macchina virtuale|  
-|Autenticazione|Predefinito|Impostato con comando net use|  
+|Authentication|Predefinito|Impostato con comando net use|  
 |Pulizia|Automatico|Manuale|  
 |Accesso tramite REST|Non è possibile accedere ai file all'interno del disco rigido virtuale|È possibile accedere ai file archiviati in una condivisione|  
 |Dimensioni massime|Disco di 4 TB|Condivisione file da 5 TB e file da 1 TB nella condivisione|  
@@ -78,4 +78,4 @@ Quando si decide la modalità di archiviazione e di accesso ai dati, è consigli
   
 Alcune funzionalità SMB non sono applicabili al cloud. Per altre informazioni, vedere [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Funzionalità non supportate da Servizio file di Azure).
   
-Per altre informazioni sui dischi dati, vedere [Gestione di dischi e immagini](../../virtual-machines/windows/about-disks-and-vhds.md) e [Come collegare un disco dati da una macchina virtuale Windows ](../../virtual-machines/windows/classic/attach-disk.md).
+Per altre informazioni sui dischi dati, vedere [Gestione di dischi e immagini](../../virtual-machines/windows/about-disks-and-vhds.md) e [Come collegare un disco dati da una macchina virtuale Windows ](../../virtual-machines/windows/attach-managed-disk-portal.md).

@@ -15,7 +15,7 @@ ms.date: 10/17/2017
 ms.author: lbosq
 ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

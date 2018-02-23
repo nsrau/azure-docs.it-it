@@ -3,7 +3,7 @@ title: Uso del supporto del feed delle modifiche in Azure Cosmos DB | Microsoft 
 description: Usare il supporto del feed delle modifiche di Azure Cosmos DB per tenere traccia delle modifiche nei documenti, eseguire elaborazioni basate su eventi come i trigger e mantenere aggiornati i sistemi di cache e analisi.
 keywords: feed delle modifiche
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Il **supporto del feed di modifiche** in Azure Cosmos DB consente di creare solu
 ![Uso del feed delle modifiche di Azure Cosmos DB per agevolare le analisi in tempo reale e gli scenari di calcolo guidati dagli eventi](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Tuttavia, il feed di modifica viene letto utilizzando il client SQL e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON. 
+> Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Il feed di modifiche tuttavia viene letto usando il client SQL e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON. 
 
 ## <a name="how-does-change-feed-work"></a>Funzionamento del feed di modifiche
 
@@ -60,6 +60,7 @@ Informazioni aggiuntive:
 * Le modifiche possono essere sincronizzate da qualsiasi punto nel tempo, in altre parole non è previsto un periodo di conservazione fisso per cui sono disponibili le modifiche.
 * Le modifiche sono disponibili in blocchi di intervalli di chiavi di partizione. Questa funzionalità consente di apportare modifiche da raccolte di grandi dimensioni per poi elaborarle in parallelo da più consumer/server.
 * Le applicazioni possono richiedere più feed di modifiche alla volta nella stessa raccolta.
+* È possibile usare ChangeFeedOptions.StartTime per fornire un punto di partenza iniziale, ad esempio per trovare il token di continuazione corrispondente a un'ora specificata. Se si specifica ContinuationToken, questo avrà priorità rispetto ai valori di StartTime e StartFromBeginning. La precisione di ChangeFeedOptions.StartTime è circa di 5 secondi. 
 
 ## <a name="use-cases-and-scenarios"></a>Casi d'uso e scenari
 
@@ -90,9 +91,9 @@ I trigger possono essere creati nel portale di Funzioni di Azure, nel portale di
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Uso dell'SDK
 
-Il [SQL SDK](sql-api-sdk-dotnet.md) per Azure Cosmos DB offre tutte le potenzialità di leggere e gestire una modifica del feed. con tutte le responsabilità che ne derivano. Se è necessario gestire checkpoint e numeri di sequenza di documenti e avere un controllo granulare sulle chiavi di partizione, usare l'SDK può essere l'approccio ideale.
+[SQL SDK](sql-api-sdk-dotnet.md) per Azure Cosmos DB offre tutta la potenza necessaria per leggere e gestire un feed di modifiche, con tutte le responsabilità che ne derivano. Se è necessario gestire checkpoint e numeri di sequenza di documenti e avere un controllo granulare sulle chiavi di partizione, usare l'SDK può essere l'approccio ideale.
 
-In questa sezione illustra in dettaglio come usare il SDK di SQL per lavorare con una modifica del feed.
+Questa sezione illustra come usare SQL SDK per lavorare con un feed di modifiche.
 
 1. Iniziare leggendo le risorse seguenti da appconfig. Le istruzioni per recuperare l'endpoint e la chiave di autorizzazione sono disponibili in [Aggiornare la stringa di connessione](create-sql-api-dotnet.md#update-your-connection-string).
 
@@ -178,6 +179,7 @@ Il client a sinistra è stato avviato per primo e ha iniziato a monitorare tutte
 
 Si noti che, se si hanno due funzioni di Azure senza server che monitorano la stessa raccolta e usano lo stesso lease, le due funzioni possono ottenere documenti diversi a seconda di come la libreria del processore decide di elaborare le partizioni.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Informazioni sulla libreria del processore dei feed delle modifiche
 
 L'implementazione del processore dei feed di modifiche prevede quattro componenti principali, ovvero la raccolta monitorata, la raccolta di lease, l'host del processore e i consumer. 

@@ -29,7 +29,7 @@ Questo articolo continua dall'esercitazione sul [rilevamento delle frodi in temp
 È disponibile [un video](https://www.youtube.com/watch?v=SGUpT-a99MA) che illustra questo scenario.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
@@ -113,7 +113,7 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 
 ## <a name="test-the-query"></a>Testare la query
@@ -217,7 +217,7 @@ Per calcolare il valore e visualizzare la finestra in secondi, è possibile usar
 
 ![Equazione 1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-Ad esempio:
+Ad esempio: 
 
 * Sono presenti 1.000 dispositivi che inviano dati a intervalli di un secondo.
 * Si usa lo SKU di Power BI Pro che supporta 1.000.000 righe l'ora.

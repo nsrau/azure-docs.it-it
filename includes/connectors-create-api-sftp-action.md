@@ -2,9 +2,9 @@ Una volta aggiunto un trigger, è possibile svolgere delle operazioni interessan
 
 Per configurare questa azione, è necessario fornire le informazioni indicate di seguito. Si noterà che è facile usare i dati generati dal trigger come input per alcune proprietà del nuovo file:
 
-| SFTP - Proprietà della cartella di estrazione | Descrizione |
+| SFTP - Proprietà della cartella di estrazione | DESCRIZIONE |
 | --- | --- |
-| Percorso file di archiviazione di origine |Si tratta del percorso del file estratto. È possibile selezionare uno dei token da un'azione precedente o esplorare il server SFTP per trovare il percorso del file. |
+| Percorso del file di archivio di origine |Si tratta del percorso del file estratto. È possibile selezionare uno dei token da un'azione precedente o esplorare il server SFTP per trovare il percorso del file. |
 | Percorso cartella di destinazione |Questo è il percorso in cui verranno posizionati i file estratti. È possibile selezionare uno dei token da un'azione precedente come percorso di destinazione oppure esplorare il server SFTP e selezionare un percorso. |
 | Sovrascrivere? |Se nel percorso della cartella di destinazione è presente un file con lo stesso nome del file estratto, questo messaggio indica che è possibile sovrascrivere il file esistente. |
 

@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 
 Questa esercitazione illustra il processo di implementazione di un servizio di base per la distribuzione di contenuti video on demand con l'applicazione Servizi multimediali di Azure nel portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
 * Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -88,7 +88,7 @@ Per codificare il contenuto tramite Media Encoder Standard nel portale di Azure:
    Per una gestione più semplice delle risorse è possibile modificare il nome dell'asset di output e il nome del processo.
    
    ![Codificare gli asset](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorare lo stato del processo di codifica
 Per monitorare lo stato del processo di codifica, fare clic su **Impostazioni** nella parte superiore della pagina e selezionare **Processi**.

@@ -168,7 +168,7 @@ Il database radice di federazione può essere usato nel servizio di anteprima di
 
 Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
--   [Impostare la sincronizzazione dati SQL di Azure](sql-database-get-started-sql-data-sync.md)
+-   [Configurare la sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)
 -   [Procedure consigliate per la sincronizzazione dati SQL di Azure](sql-database-best-practices-data-sync.md)
 -   [Monitorare la sincronizzazione dati SQL di Azure con OMS Log Analytics](sql-database-sync-monitor-oms.md)
 -   [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)

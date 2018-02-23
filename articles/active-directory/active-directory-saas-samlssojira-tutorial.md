@@ -15,7 +15,7 @@ ms.date: 05/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3a3224acd2376efca19a29576980b6a3ca6a9e99
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -31,7 +31,7 @@ L'integrazione di SAML SSO for Jira di resolution GmbH con Azure AD offre i vant
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con SAML SSO for Jira di resolution GmbH, sono necessari gli elementi seguenti:
 

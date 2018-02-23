@@ -6,6 +6,14 @@
 # Guide introduttive
 
 ## [Creare e connettere - portale](create-data-warehouse-portal.md)
+## Sospendere e riprendere le risorse di calcolo
+### [di Microsoft Azure](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+## Ridimensionare le risorse di calcolo
+### [di Microsoft Azure](quickstart-scale-compute-portal.md)
+### [PowerShell](quickstart-scale-compute-powershell.md)
+### [T-SQL](quickstart-scale-compute-tsql.md)
+
 
 # Esercitazioni
 ## [1 - Caricare dati dal BLOB](load-data-from-azure-blob-storage-using-polybase.md)
@@ -109,14 +117,11 @@
 ### [Analizzare il carico di lavoro](analyze-your-workload.md)
 
 ## Scalabilità orizzontale
-### [Gestire il calcolo - portale](sql-data-warehouse-manage-compute-portal.md)
-### [Gestire il calcolo - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [Gestire il calcolo - API REST](sql-data-warehouse-manage-compute-rest-api.md)
+
 ### [Automatizzare i livelli di calcolo](manage-compute-with-azure-functions.md)
 
 
 # riferimento
-
 
 ## T-SQL
 ### [Informazioni di riferimento complete](https://docs.microsoft.com/sql/t-sql/language-reference/)
@@ -124,6 +129,7 @@
 ### [Istruzioni di SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md)
 ## [Viste di sistema](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Cmdlet di PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [API REST](sql-data-warehouse-manage-compute-rest-api.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=databases)

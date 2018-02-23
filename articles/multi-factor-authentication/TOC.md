@@ -3,7 +3,7 @@
 ## [Funzionamento](multi-factor-authentication-how-it-works.md)
 ## [Come ottenere Azure MFA](multi-factor-authentication-versions-plans.md)
 
-# Introduzione
+# Attività iniziali
 ## [Scegliere dove eseguire la distribuzione](multi-factor-authentication-get-started.md)
 ## [MFA nel cloud](multi-factor-authentication-get-started-cloud.md)
 ## [MFA locale](multi-factor-authentication-get-started-server.md)
@@ -46,10 +46,10 @@
 #### [App Web IIS](multi-factor-authentication-get-started-server-iis.md)
 #### [Gateway Desktop remoto](multi-factor-authentication-get-started-server-rdg.md)
 
-## Sviluppare
+## Sviluppo
 ### [Compilazione in app personalizzate (SDK)](multi-factor-authentication-sdk.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Domande frequenti](multi-factor-authentication-faq.md)
 ### [Porre una domanda](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 ### [Errori dell'estensione del Server dei criteri di rete](multi-factor-authentication-nps-errors.md)

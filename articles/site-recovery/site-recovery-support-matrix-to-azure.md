@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
@@ -166,7 +166,7 @@ Percorsi multipli (MPIO)<br></br>Testata con: DSM Microsoft, EMC PowerPath 5.7 S
 VMDK | Sì | N/D
 VHD/VHDX | N/D | Sì
 VM di seconda generazione | N/D | Sì
-EFI/UEFI| No  | Sì
+EFI/UEFI| Solo migrazione ad Azure per Windows Server 2012 e versioni successive. </br></br> ** Vedere la nota alla fine della tabella.  | Sì
 Disco cluster condiviso | No  | No 
 Disco crittografato | No  | No 
 NFS | No  | N/D
@@ -180,6 +180,12 @@ Spazi di archiviazione | No  | Sì
 Aggiunta/rimozione a caldo disco | No  | No 
 Esclusione disco | Sì | Sì
 Percorsi multipli (MPIO) | N/D | Sì
+
+> [!NOTE]
+> ** È possibile eseguire la migrazione in Azure di macchine virtuali VMware con avvio UEFI o server fisici che eseguono Windows Server 2012 o versioni successive. Si applicano le restrizioni seguenti.
+> - Solo migrazione ad Azure. Il failback nel sito VMware locale non è supportato.
+> - Non sono supportate più di 4 partizioni sul disco del sistema operativo del server.
+> - Richiede il servizio Mobility di Azure Site Recovery versione 9.13 o successiva.
 
 **Archiviazione di Azure** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
 --- | --- | ---

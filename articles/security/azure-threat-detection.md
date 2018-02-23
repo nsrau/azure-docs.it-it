@@ -181,7 +181,7 @@ Il flusso di dati di telemetria proviene da più origini, ad esempio Azure, Offi
 
 I ricercatori ricevono anche informazioni di intelligence per le minacce condivise tra i principali provider di servizi cloud e sottoscrivono i feed di terze parti di intelligence per le minacce. Il Centro sicurezza di Azure usa queste informazioni per avvisare gli utenti nel caso di minacce provenienti da attori dannosi noti. Di seguito sono riportati alcuni esempi:
 
--   **Uso della potenza di Machine Learning**: il Centro sicurezza di Azure ha accesso a una grande quantità di dati sulle attività di rete nel cloud, che può usare per rilevare le minacce alle distribuzioni di Azure. Ad esempio:
+-   **Uso della potenza di Machine Learning**: il Centro sicurezza di Azure ha accesso a una grande quantità di dati sulle attività di rete nel cloud, che può usare per rilevare le minacce alle distribuzioni di Azure. Ad esempio: 
 
 -   **Rilevamento di attacchi di forza bruta**: Machine Learning viene usato per creare un modello cronologico dei tentativi di accesso remoto, che consente di rilevare gli attacchi di forza bruta contro porte SQL, RDP e SSH.
 

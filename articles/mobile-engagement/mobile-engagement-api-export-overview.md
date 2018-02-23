@@ -45,16 +45,16 @@ Esistono due tipi fondamentali di esportazione:
 
 Nella tabella seguente vengono descritte con attenzione tutte le esportazioni possibili:
 
-| Export Type | Tipo di dati | Descrizione |
+| Export Type | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Snapshot |Push |Genera un'esportazione di commenti e suggerimenti di campagne push in base all'ID dispositivo o all'utente |
 | Snapshot |Tag |Genera un'esportazione dei tag (app-info) associati a ogni dispositivo |
 | Snapshot |Dispositivo |Genera un'esportazione della maggior parte dei dati sui dispositivi, ad esempio i dati tecnici quali modello, impostazioni locali, fuso orario e così via, i tag, la data di produzione e altri ancora. |
-| Snapshot |Token |Genera un'esportazione di tutti i token validi |
+| Snapshot |token |Genera un'esportazione di tutti i token validi |
 | Cronologica |Attività |Genera un'esportazione di tutte le attività per ogni dispositivo in un determinato periodo di tempo |
-| Cronologica |Evento |Genera un'esportazione di tutte le attività per ogni dispositivo in un determinato periodo di tempo |
-| Cronologica |Job |Genera un'esportazione di tutti i processi per ogni dispositivo in un determinato periodo di tempo |
-| Cronologica |Errore |Genera un'esportazione di tutti gli errori per ogni dispositivo in un determinato periodo di tempo |
+| Cronologica |Event |Genera un'esportazione di tutte le attività per ogni dispositivo in un determinato periodo di tempo |
+| Cronologica |Processo |Genera un'esportazione di tutti i processi per ogni dispositivo in un determinato periodo di tempo |
+| Cronologica |Tipi di errore |Genera un'esportazione di tutti gli errori per ogni dispositivo in un determinato periodo di tempo |
 
 ## <a name="how-does-it-work"></a>Come funziona?
 Le esportazioni sono attività a esecuzione prolungata che potrebbero generare file di dati di grandi dimensioni. Per questo motivo, la loro chiamata non può restituire immediatamente un file da scaricare.

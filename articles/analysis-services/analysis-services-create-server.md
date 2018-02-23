@@ -52,7 +52,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
 La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **More services** (Altri servizi) > **Analysis Services** per vedere se il server è pronto.
 
- ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
+ ![dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

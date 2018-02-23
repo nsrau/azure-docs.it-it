@@ -19,7 +19,7 @@ ms.reviewer: sasubram
 ms.custom: it-pro
 ms.openlocfilehash: 664398eb71501ff450b785928992729f91740a19
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

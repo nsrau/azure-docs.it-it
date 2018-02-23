@@ -9,7 +9,7 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
-caps.latest.revision: "14"
+caps.latest.revision: 
 author: thraka
 ms.author: adegeo
 manager: timlt
@@ -58,14 +58,14 @@ L'elemento `LoadBalancerProbe` definisce il probe di integrità per un modello. 
 
 La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 
-|Attributo|Tipo|Descrizione|
+|Attributo|type|DESCRIZIONE|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Obbligatorio. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
-| `protocol`          | `string` | Obbligatorio. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|
+| `name`              | `string` | Richiesto. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
+| `protocol`          | `string` | Richiesto. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|
 | `path`              | `string` | URI usato per richiedere lo stato di integrità alla macchina virtuale. `path` è obbligatorio se `protocol` impostato su `http`. In caso contrario, non è consentito.<br /><br /> Non esistono valori predefiniti.|
-| `port`              | `integer` | Facoltativo. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
-| `intervalInSeconds` | `integer` | Facoltativo. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
-| `timeoutInSeconds`  | `integer` | Facoltativo. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
+| `port`              | `integer` | facoltativo. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
+| `intervalInSeconds` | `integer` | facoltativo. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
+| `timeoutInSeconds`  | `integer` | facoltativo. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Schema di definizione di Servizi cloud - Versione classica)

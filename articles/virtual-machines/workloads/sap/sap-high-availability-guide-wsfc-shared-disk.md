@@ -191,7 +191,7 @@ Windows Server Failover Clustering è alla base di un'istallazione ASCS/SCS di S
 
 Un cluster di failover è un gruppo di 1 + n server, ovvero nodi, indipendenti che funzionano insieme per aumentare la disponibilità di applicazioni e servizi. Se si verifica un errore in un nodo, Windows Server Failover Clustering calcola il numero di errori che possono verificarsi e mantiene un cluster integro per fornire applicazioni e servizi. A questo scopo è possibile scegliere tra diverse modalità quorum per ottenere il clustering di failover.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di svolgere le attività descritte in questo articolo, leggere l'articolo seguente:
 
 * [Scenari e architettura di disponibilità elevata in Macchine virtuali di Azure per SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -224,7 +224,7 @@ Un'istanza di SAP ASCS/SCS include i componenti seguenti:
 
 
 * File host globali di SAP:
-    * Struttura del file: S:\usr\sap\\&lt;SID&gt;\SYS\...
+    * Struttura del file: S:\usr\sap\\&lt;SID&gt;\SYS\..
     * La condivisione file sapmnt, che consente l'accesso a questi file globali S:\usr\sap\\&lt;SID&gt;\SYS\... usando il percorso UNC seguente:
 
      \\\\< nome host virtuale ASCS/SCS > \sapmnt\\&lt;SID&gt;\SYS\....

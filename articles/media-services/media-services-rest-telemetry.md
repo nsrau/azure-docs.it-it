@@ -83,7 +83,7 @@ Questo argomento descrive come:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Response
+###<a name="response"></a>Risposta
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -127,7 +127,7 @@ Questo argomento descrive come:
 >[!NOTE]
 >Non dimenticare di modificare il valore "https://telemetryvalidationstore.table.core.windows.net" con l'account di archiviazione.
 
-###<a name="response"></a>Response
+###<a name="response"></a>Risposta
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ Questo argomento descrive come:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Response
+###<a name="response"></a>Risposta
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache

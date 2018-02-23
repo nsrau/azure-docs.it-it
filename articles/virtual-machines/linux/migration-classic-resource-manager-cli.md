@@ -17,7 +17,7 @@ ms.date: 03/30/2017
 ms.author: kasing
 ms.openlocfilehash: 607ab59dbeb414c69a6272d0aeb00299296bca6a
 ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2017
 ---

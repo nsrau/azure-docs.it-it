@@ -86,13 +86,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Application preview (Anteprima dell'applicazione)|  
 |WebApplicationsRequirementsHeader|Requisiti|  
@@ -101,13 +101,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application? (Rimuovere l'applicazione?)|  
 |WebDevelopersAppNotPublished|Not published (Non pubblicata)|  
 |WebDevelopersAppNotSubminted|Not submitted (Non inviata)|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
-|WebDevelopersAppTableNameHeader|Nome|  
+|WebDevelopersAppTableNameHeader|NOME|  
 |WebDevelopersAppTableStateHeader|Stato|  
 |WebDevelopersEditLink|Modificare|  
 |WebDevelopersRegisterAppLink|Registrare l'applicazione|  
@@ -117,13 +117,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
-|WebApplicationsHeader|Applicazioni|  
+|WebApplicationsHeader|APPLICAZIONI|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |NoItemsToDisplay|No results found. (Nessun risultato trovato.)|  
 |GeneralExceptionMessage|Something is not right. (Si è verificato un problema.) It could be a temporary glitch or a bug. (Potrebbe trattarsi di un problema temporaneo o di un bug.) Please, try again. (Riprovare.)|  
@@ -134,7 +134,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |ButtonLabelCancel|Annulla|  
 |ButtonLabelSave|Salva|  
@@ -158,7 +158,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="Documentation"></a> Documentazione  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Invalid header '{0}' (Intestazione '{0}' non valida)|  
 |WebDocumentationInvalidRequestErrorMessage|Invalid Request URL (URL della richiesta non valido)|  
@@ -298,7 +298,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |SectionHeadingRequestBody|Corpo della richiesta|  
 |SectionHeadingRequestParameters|Parametri della richiesta|  
 |SectionHeadingRequestUrl|URL richiesta|  
-|SectionHeadingResponse|Response|  
+|SectionHeadingResponse|Risposta|  
 |SectionHeadingRequestHeaders|Intestazioni della richiesta|  
 |FormLabelSubtextOptional|Facoltativo|  
 |SectionHeadingCodeSamples|Esempi di codice|  
@@ -306,7 +306,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |LinkLabelBack|Indietro|  
 |LinkLabelHomePage|home page|  
@@ -324,7 +324,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemi|  
 |WebIssuesNoActiveSubscriptions|Non si dispone di sottoscrizioni attive. You need to subscribe for a product to report an issue. (È necessario disporre della sottoscrizione al prodotto per segnalare un problema.)|  
@@ -335,7 +335,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|Inviare un messaggio di posta elettronica|  
@@ -350,7 +350,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |WebProductsAgreement|By subscribing to {0} Product, I agree to the `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`. (Con la sottoscrizione al prodotto {0}, accetto le `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.)|  
 |WebProductsLegalTermsLink|Condizioni per l'utilizzo|  
@@ -372,13 +372,13 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |PageTitleProducts|Prodotti|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Sign in is disabled by the administrators at the moment. (L'accesso è al momento disabilitato dagli amministratori.)|  
 |TextboxExternalIdentitiesSigninInvitation|Alternatively, sign in with (In alternativa, accedere con)|  
@@ -386,7 +386,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |PrincipalNotFound|Principal is not found or signature is invalid (Entità non trovata o firma non valida)|  
 |ErrorSsoAuthenticationFailed|SSO authentication failed (Autenticazione SSO non riuscita)|  
@@ -407,7 +407,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ValidationErrorEmailInvalid|Invalid e-mail address (Indirizzo di posta elettronica non valido)|  
 |TextboxLabelEmail|Email|  
 |ValidationErrorEmailRequired|L'indirizzo di posta elettronica è obbligatorio.|  
-|WebAuthenticationErrorNoticeHeader|Errore|  
+|WebAuthenticationErrorNoticeHeader|Tipi di errore|  
 |WebAuthenticationFieldLengthErrorMessage|{0} must be a maximum length of {1} ({0} deve avere una lunghezza massima di {1})|  
 |TextboxLabelEmailFirstName|Nome|  
 |ValidationErrorFirstNameRequired|First name is required. (Un nome è obbligatorio.)|  
@@ -482,19 +482,19 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Password dimenticata?|  
 |WebAuthenticationIfAdministrator|If you are an Administrator you must sign in `<a href="{0}"\>here</a\>`. (Gli amministratori devono accedere da `<a href="{0}"\>here</a\>`.)|  
 |WebAuthenticationNotAMember|Not a member yet? (Non si è ancora membri?) `<a href="/signup"\>Sign up now</a\>`|  
 |WebAuthenticationRemember|Remember me on this computer (Memorizza utente su questo computer)|  
 |WebAuthenticationSigininWithPassword|Sign in with your username and password (Immettere il proprio nome utente e la password)|  
-|WebAuthenticationSigninTitle|pagina di accesso|  
+|WebAuthenticationSigninTitle|Accesso|  
 |WebAuthenticationSignUpNow|Effettua l'iscrizione ora|  
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |PageTitleSignup|Iscrizione|  
 |WebAuthenticationAlreadyAMember|Already a member? (Si è già membri?)|  
@@ -504,7 +504,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Are you sure that you want to cancel this subscription? (Annullare la sottoscrizione?)|  
 |SubscriptionRenewConfirmation|Are you sure that you want to renew this subscription? (Rinnovare la sottoscrizione?)|  
@@ -516,7 +516,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
 |ButtonLabelRenewSubscription|Renew|  
 |WebDevelopersSubscriptionReqested|Requested on {0} (Richiesta il {0})|  
 |WebDevelopersSubscriptionRequestedState|Requested (Richiesta)|  
-|WebDevelopersSubscriptionTableNameHeader|Nome|  
+|WebDevelopersSubscriptionTableNameHeader|NOME|  
 |WebDevelopersSubscriptionTableStateHeader|Stato|  
 |WebDevelopersUsageStatisticsLink|Analytics reports (Report di analisi)|  
 |WebDevelopersYourSubscriptions|Your subscriptions (Sottoscrizioni)|  
@@ -527,7 +527,7 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Looking to close your account? (Chiudere l'account?)|  
 |PageTitleDeveloperProfile|Profilo|  
@@ -538,14 +538,14 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Update profile (Aggiorna profilo)|  
 |PageTitleUpdateProfile|Update account information (Aggiorna informazioni sull'account)|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Nome|Text|  
+|NOME|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Change account information(Modifica informazioni sull'account)|  
 |ButtonLabelChangePassword|Cambia password|  
@@ -577,4 +577,4 @@ Gestione API di Azure fornisce i seguenti tipi di risorse per l'uso nei modelli 
  Per l'elenco completo dei glifi, vedere [Glyphicons da Bootstrap](http://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API usando i modelli](api-management-developer-portal-templates.md).
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).

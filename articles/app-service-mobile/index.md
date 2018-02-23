@@ -189,7 +189,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
 
 ---
 
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

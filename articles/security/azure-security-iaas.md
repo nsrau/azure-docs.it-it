@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure | Microsoft Docs
+title: Procedure consigliate per la sicurezza dei carichi di lavoro IaaS in Azure | Documentazione Microsoft
 description: " La migrazione dei carichi di lavoro ad Azure IaaS offre l'opportunità di rivalutare i progetti "
 services: security
 documentationcenter: na
@@ -192,7 +192,7 @@ Esattamente come gli aggiornamenti della sicurezza, anche il backup deve essere 
 Se possibile, i carichi di lavoro di produzione spostati in Azure devono integrarsi con le soluzioni di backup esistenti. In alternativa, per le esigenze di backup è possibile usare [Backup di Azure](../backup/backup-azure-arm-vms.md).
 
 
-## <a name="monitor"></a>Monitoraggio
+## <a name="monitor"></a>Monitorare
 
 Il [Centro sicurezza](../security-center/security-center-intro.md) analizza in modo continuo lo stato di protezione delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. Un elenco di suggerimenti illustra in dettaglio il processo di configurazione dei controlli necessari.
 

@@ -50,7 +50,7 @@ Se non si ha ancora un kit, Provare il [simulatore online Raspberry Pi](iot-hub-
 ![Elementi necessari](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * Una scheda di Raspberry Pi 2 o Raspberry Pi 3.
-* Una sottoscrizione di Azure attiva. Se non si ha un account Azure, [creare un account Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
+* Una sottoscrizione di Azure attiva. Se non si ha un account di Azure, [creare un account di Azure gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 * Un monitor, una tastiera USB e un mouse collegato a Pi.
 * Un Mac o PC che esegue Windows o Linux.
 * Una connessione Internet.

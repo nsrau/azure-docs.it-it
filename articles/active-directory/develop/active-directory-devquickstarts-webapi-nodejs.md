@@ -1,5 +1,5 @@
 ---
-title: Azure AD Node.js API web introduzione | Documenti Microsoft
+title: Introduzione all'API Web Node.js per Azure AD | Microsoft Docs
 description: Come compilare un'API Web REST per Node.js che si integra con Azure AD per l'autenticazione.
 services: active-directory
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 411f646574af2f86621cbb3cd7175b6a9478972a
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 2ed0874b79601976e0d5a73fe82c7c03331d9bea
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js API web Guida introduttiva
+# <a name="azure-ad-nodejs-web-api-getting-started"></a>Introduzione all'API Web Node.js per Azure AD
 
 Questo articolo descrive come proteggere un endpoint dell'API [Restify](http://restify.com/) con [Passport](http://passportjs.org/) usando il modulo [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) per gestire le comunicazioni con Azure Active Directory (AAD). 
 
@@ -129,13 +129,18 @@ Per la protezione di un endpoint è necessario specificare una strategia respons
 
 ```JavaScript
 const authenticationStrategy = new BearerStrategy(config.credentials, (token, done) => {
-    let userToken = authenticatedUserTokens.find((user) => user.sub === token.sub);
+    let currentUser = null;
+
+    let userToken = authenticatedUserTokens.find((user) => {
+        currentUser = user;
+        user.sub === token.sub;
+    });
 
     if(!userToken) {
         authenticatedUserTokens.push(token);
     }
 
-    return done(null, user, token);
+    return done(null, currentUser, token);
 });
 ```
 Questa implementazione usa la registrazione automatica aggiungendo i token di autenticazione nella matrice `authenticatedUserTokens` se non esistono già.

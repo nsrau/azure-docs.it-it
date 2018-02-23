@@ -2,10 +2,10 @@
 documentType: LandingData
 title: Azure per contenitori
 metadata:
-  document_id: null
-  title: 'Azure per contenitori - Esercitazioni, informazioni di riferimento sulle API'
-  description: 'Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono guide introduttive, esercitazioni e strumenti utili per contenitori.'
-  keywords: 'Azure, Contenitori, Docker, API, Kubernetes'
+  document_id: 
+  title: Azure per contenitori - Esercitazioni, informazioni di riferimento sulle API
+  description: "Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono guide introduttive, esercitazioni e strumenti utili per contenitori."
+  keywords: Azure, Contenitori, Docker, API, Kubernetes
   author: bketelsen
   ms.author: brketels
   manager: listonb
@@ -13,86 +13,90 @@ metadata:
   ms.topic: article
   ms.prod: azure
   featureFlags:
-    - clicktale
+  - clicktale
   ms.technology: azure
   ms.devlang: multiple
   ms.service: multiple
+  ms.openlocfilehash: fd20b6194a4ddaba7077a6bcc85b4f2ed264312a
+  ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/25/2017
 sections:
-  - items:
-      - type: markdown
-        text: |
-          Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono esercitazioni e strumenti utili per i contenitori.
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: 'https://docs.microsoft.com/azure/container-instances/container-instances-quickstart'
-            html: <p>Creare un'app inclusa in contenitori con Istanze di contenitore di Azure</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
-            title: Attività iniziali
-          - href: 'https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples'
-            html: <p>Esempi dell'interfaccia della riga di comando di Azure per il servizio contenitore di Azure</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_code-samples.svg'
-            title: Esempi di codice
-  - title: Guide introduttive di 5 minuti
+- items:
+  - type: markdown
+    text: "Per iniziare a sviluppare app con Azure, è possibile usare le risorse seguenti che offrono esercitazioni e strumenti utili per i contenitori.\n"
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
     items:
-      - type: paragraph
-        text: Informazioni su come usare i contenitori con i servizi di Azure.
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: ../aks/kubernetes-walkthrough.md
-            title: Creare un cluster Kubernetes con il servizio contenitore di Azure
-            image:
-              src: /azure/media/index/ContainerService.svg
-          - href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers'
-            title: Distribuire un'applicazione contenitore Windows con Service Fabric
-            image:
-              src: /azure/media/index/Fabric.svg
-          - href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image'
-            title: Creare un'app in contenitori con App Web per contenitori di Azure
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-          - href: 'https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli'
-            title: Creare un registro Docker privato nel Registro contenitori di Azure
-            image:
-              src: /azure/media/index/container-registry.svg
-  - title: Video di formazione gratuiti su PluralSight per Azure e contenitori
+    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
+      html: <p>Creare un'app inclusa in contenitori con Istanze di contenitore di Azure</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_get-started.svg
+      title: "Attività iniziali"
+    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
+      html: <p>Esempi dell'interfaccia della riga di comando di Azure per il servizio contenitore di Azure</p>
+      image:
+        src: https://docs.microsoft.com/media/common/i_code-samples.svg
+      title: Esempi di codice
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come usare i contenitori con i servizi di Azure.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
     items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-            title: Macchine virtuali di Microsoft Azure - Introduzione
-  - title: Esempi
+    - href: ../aks/kubernetes-walkthrough.md
+      title: Creare un cluster Kubernetes con il servizio contenitore di Azure
+      image:
+        src: /azure/media/index/ContainerService.svg
+    - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
+      title: Distribuire un'applicazione contenitore Windows con Service Fabric
+      image:
+        src: /azure/media/index/Fabric.svg
+    - href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
+      title: Creare un'app in contenitori con App Web per contenitori di Azure
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+    - href: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+      title: Creare un registro Docker privato nel Registro contenitori di Azure
+      image:
+        src: /azure/media/index/container-registry.svg
+- title: Video di formazione gratuiti su PluralSight per Azure e contenitori
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
     items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Introduzione al servizio app - Gestire app Web Linux con il registro contenitori in Java</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Esempi di contenitori di Service Fabric</a>'
-          - html: '<a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a> (Distribuire e connettersi a un contenitore Docker in un cluster di Azure)'
-  - title: Esercitazioni dettagliate
+    - href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+      title: Macchine virtuali di Microsoft Azure - Introduzione
+- title: Esempi
+  items:
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Informazioni su come usare il servizio contenitore di Azure
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un'applicazione</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore nel registro contenitori di Azure</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Distribuire un cluster del servizio contenitore di Azure</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Introduzione al servizio app - Gestire app Web Linux con il registro contenitori in Java</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Esempi di contenitori di Service Fabric</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a> (Distribuire e connettersi a un contenitore Docker in un cluster di Azure)
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come usare il servizio contenitore di Azure
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Creare immagini del contenitore da un'applicazione</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Caricare immagini del contenitore nel registro contenitori di Azure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Distribuire un cluster del servizio contenitore di Azure</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Eseguire le immagini del contenitore in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Ridimensionare un'applicazione e l'infrastruttura Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Aggiornare un'applicazione in esecuzione in Kubernetes</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitorare Kubernetes con Log Analytics</a>

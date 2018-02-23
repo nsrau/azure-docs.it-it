@@ -3,16 +3,14 @@
 ## [Funzionalità di Hub eventi](event-hubs-features.md)
 ## [DOMANDE FREQUENTI](event-hubs-faq.md)
 
-# Attività iniziali
+# Guide introduttive
 ## [Creare un hub eventi](event-hubs-create.md)
 ## Inviare eventi
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Ricevere eventi
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Acquisire eventi
@@ -29,7 +27,9 @@
 ### [Panoramica sul modello di autenticazione e di protezione](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilità e coerenza](event-hubs-availability-and-consistency.md)
 ### [Ridimensionare automaticamente le unità elaborate](event-hubs-auto-inflate.md)
-## Sviluppare
+## Sviluppo
+### [Inviare eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Ricevere eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [API disponibili](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
@@ -45,7 +45,7 @@
 ### [Trasmettere dati di Diagnostica di Azure usando Hub eventi](event-hubs-streaming-azure-diags-data.md)
 ### [Creare e distribuire un hub eventi con un modello di Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)

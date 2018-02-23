@@ -157,7 +157,7 @@ ClusterManifest.xml
     </Section>
 ```
 
-Tramite ClusterConfig.json per le distribuzioni autonome o Template.json per cluster ospitati in Azure:
+mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i cluster ospitati in Azure:
 
 ```json
 "fabricSettings": [

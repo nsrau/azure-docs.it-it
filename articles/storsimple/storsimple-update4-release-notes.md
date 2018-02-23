@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: ce9a6493e80d65641ef5d797d89663bfaa5cd624
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: f1c0734b07287d95a2f5031e010f0e407d3a816f
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Note sulla versione dell'aggiornamento 4 di StorSimple serie 8000
 > [!NOTE]
@@ -59,7 +59,7 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
 * **Modifiche all'aggiornamento**: in questa versione sono stati corretti i bug relativi agli errori di aggiornamento.
 
-* **Avviso per gli errori del disco**: aggiunto un nuovo avviso che informa l'utente di errori imminenti legati al disco. Se viene visualizzato questo avviso, contattare il supporto tecnico Microsoft per richiedere un disco sostitutivo. Per altre informazioni, vedere gli [avvisi hardware sul dispositivo StorSimple](storsimple-manage-alerts.md#hardware-alerts).
+* **Avviso per gli errori del disco**: aggiunto un nuovo avviso che informa l'utente di errori imminenti legati al disco. Se viene visualizzato questo avviso, contattare il supporto tecnico Microsoft per richiedere un disco sostitutivo. Per altre informazioni, vedere gli [avvisi hardware sul dispositivo StorSimple](storsimple-8000-manage-alerts.md#hardware-alerts).
 
 * **Modifiche alla sostituzione del controller**: aggiunto un cmdlet che consente all'utente di richiedere lo stato del processo di sostituzione del controller. Per altre informazioni, vedere il [cmdlet per richiedere lo stato di sostituzione del controller](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -68,10 +68,10 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 4.    
 
-| No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No  | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
 | 1 |Failover |Nella versione precedente, dopo il failover nel sito del cliente si verificava un problema legato alla pulizia. Tale problema è stato corretto in questa versione. |Sì |Sì |
-| 2 |Volumi aggiunti in locale |Nella versione precedente, si verificava un problema per la creazione di volumi correlati per i volumi aggiunti localmente che causava errori nella creazione. In questa versione il problema è stato corretto una volta individuata la causa radice. |Sì |No |
+| 2 |Volumi aggiunti in locale |Nella versione precedente, si verificava un problema per la creazione di volumi correlati per i volumi aggiunti localmente che causava errori nella creazione. In questa versione il problema è stato corretto una volta individuata la causa radice. |Sì |No  |
 | 3 |Pacchetto di supporto |Nella versione precedente, si verificavano problemi relativi al pacchetto di supporto che causavano un'eccezione System.OutOfMemory o altri errori, risultanti nell'esito negativo della creazione del pacchetto. Tali bug sono stati risolti in questa versione. |Sì |Sì |
 | 4 |Monitoraggio |Nella versione precedente, si verificava un problema con i grafici di monitoraggio per i volumi aggiunti localmente, per cui l'utilizzo veniva mostrato in EB. Questo bug è stato risolto in questa versione. |Sì |Sì |
 | 5 |Migrazione |Nella versione precedente, si verificavano diversi problemi legati all'affidabilità della migrazione dai dispositivi delle serie 5000-7000 a quelli della serie 8000. I problemi sono stati risolti in questa versione. |Sì |Sì |

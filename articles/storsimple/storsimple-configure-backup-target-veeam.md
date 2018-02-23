@@ -105,7 +105,7 @@ Le tabelle seguenti riportano le indicazioni iniziali da modello ad architettura
 | Backup primario  | Backup recenti archiviati nell'archivio locale per il ripristino rapido per soddisfare l'obiettivo punto di ripristino (RPO) | La cronologia dei backup (RPO) rientra nella capacità del cloud |
 | Backup secondario | La copia secondaria dei dati di backup può essere archiviata nella capacità del cloud  | N/D  |
 
-## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple come destinazione di backup primaria
+## <a name="storsimple-as-a-primary-backup-target"></a>StorSimple come destinazione primaria di backup
 
 In questo scenario i volumi StorSimple vengono presentati all'applicazione di backup come unico archivio per i backup. La figura seguente mostra l'architettura della soluzione in cui tutti i backup usano i volumi StorSimple a livelli per i backup e i ripristini.
 

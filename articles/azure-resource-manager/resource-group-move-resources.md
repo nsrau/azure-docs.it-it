@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3f8b5e8b8af4be85e830bde8eb0587c632a9dd1f
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -53,7 +53,10 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, per spostare le risorse in un nuovo tenant è necessario contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant: 
+
+  * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
+  * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Il servizio deve abilitare lo spostamento di risorse. In questo articolo sono elencati i servizi che consentono di spostare risorse e quelli che invece non lo consentono.
 3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
@@ -93,7 +96,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
 Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se è necessario:
 
-* Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory).
+* Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory) e serve assistenza con le istruzioni nella sezione precedente.
 * Spostare le risorse classiche ma si verificano problemi relativi alle limitazioni.
 
 ## <a name="services-that-enable-move"></a>Servizi che abilitano lo spostamento
@@ -113,7 +116,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Content Moderator
 * Data Catalog
 * Data factory
-* Analisi Data Lake
+* Data Lake Analytics
 * Archivio Data Lake
 * DNS
 * Hub eventi
@@ -131,7 +134,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Power BI
 * Cache Redis
 * Utilità di pianificazione
-* Search
+* Ricerca
 * Gestione server
 * Bus di servizio
 * Service Fabric
@@ -139,7 +142,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
-* Gestione traffico
+* servizio Gestione traffico
 * Macchine virtuali: non è possibile spostare macchine virtuali con dischi gestiti. Vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
@@ -187,43 +190,29 @@ Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la ret
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 
-Quando si usano le app del servizio app non è possibile spostare solo un piano di servizio app. Per spostare le app del servizio app, le opzioni disponibili sono:
+Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
-* Spostare il piano di servizio app e tutte le altre risorse del servizio app del gruppo di risorse in un nuovo gruppo di risorse che non dispone di risorse del servizio app. In base a questo requisito è necessario spostare anche le risorse del servizio app non associate al piano di servizio app.
-* Spostare le app in un gruppo di risorse diverso, ma mantenere tutti i piani di servizio app nel gruppo di risorse originale.
+### <a name="moving-within-the-same-subscription"></a>Spostamento all'interno della stessa sottoscrizione
 
-Per il corretto funzionamento dell'app non è necessario che il piano di servizio app risieda nello stesso gruppo di risorse in cui si trova l'app stessa.
+Quando si sposta un'app Web _nella stessa sottoscrizione_, non è possibile spostare i certificati SSL caricati. È comunque possibile spostare un'app Web nel nuovo gruppo di risorse senza spostare il relativo certificato SSL caricato mantenendo effettiva la funzionalità SSL dell'app. 
 
-Se ad esempio il gruppo di risorse contiene:
+Se si desidera spostare il certificato SSL con l'app Web, attenersi alla procedura seguente:
 
-* **web-a** che è associata a **plan-a**
-* **web-b** che è associata a **plan-b**
+1.  Eliminare il certificato caricato dall'app Web.
+2.  Spostare l'app Web.
+3.  Caricare il certificato nell'app Web spostata.
 
-Le opzioni possibili sono:
+### <a name="moving-across-subscriptions"></a>Spostamento tra sottoscrizioni
 
-* Spostare **web-a**, **plan-a**, **web-b** e **plan-b**
-* Spostare **web-a** e **web-b**
-* Spostare **web-a**
-* Spostare **web-b**
+Quando si sposta un'app Web _tra sottoscrizioni_, si applicano le limitazioni seguenti:
 
-Con tutte le altre combinazioni si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
-
-Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servizio app corrispondente ma si vuole spostare entrambi gli elementi in un nuovo gruppo di risorse, è necessario eseguire lo spostamento in due fasi. Ad esempio:
-
-* **web-a** si trova in **web-group**
-* **plan-a** si trova in **plan-group**
-* Si vuole che **web-a** e **plan-a** risiedano in **combined-group**
-
-Per ottenere questo risultato è necessario eseguire due operazioni di spostamento distinte nell'ordine che segue:
-
-1. Spostare **web-a** in **plan-group**
-2. Spostare **web-a** e **plan-a** in **combined-group**.
-
-È possibile spostare un certificato del servizio app in un nuovo gruppo di risorse o una nuova sottoscrizione senza problemi. Se l'app Web include un certificato SSL acquistato esternamente e caricato nell'app, tuttavia, è necessario eliminare il certificato prima di spostare l'app Web. Ad esempio, è possibile eseguire i passaggi seguenti:
-
-1. Eliminare il certificato caricato dall'App Web
-2. Spostare l'App Web
-3. Caricare il certificato nell'App Web
+- Il gruppo di risorse di destinazione non deve contenere risorse del servizio app esistenti. Le risorse del servizio app includono:
+    - App Web
+    - Piani di servizio app
+    - Certificati SSL importati o caricati
+    - Ambienti del servizio app
+- Tutte le risorse del servizio app nel gruppo di risorse devono essere spostate insieme.
+- Le risorse del servizio app possono essere spostate solo dal gruppo di risorse in cui sono state originariamente create. Se una risorsa del servizio app non si trova più nel gruppo di risorse originale, deve essere spostata nuovamente in tale gruppo prima di poter essere spostata tra le sottoscrizioni. 
 
 ## <a name="classic-deployment-limitations"></a>Limitazioni della distribuzione classica
 
@@ -314,6 +303,12 @@ Questa operazione potrebbe richiedere alcuni minuti.
 Lo spostamento non è abilitato per le risorse di archiviazione, di rete o di calcolo usate per configurare il ripristino di emergenza con Azure Site Recovery.
 
 Ad esempio, si supponga di avere configurato la replica delle macchine locali su un account di archiviazione (Storage1) e di desiderare che il computer protetto venga avviato dopo il failover in Azure come macchina virtuale (VM1) collegata a una rete virtuale (Network1). Non è possibile spostare una di queste risorse di Azure - Storage1 VM1 e Network1 - nei gruppi di risorse all'interno della stessa sottoscrizione o tra le sottoscrizioni.
+
+Per spostare una VM registrata in **Backup di Azure** tra gruppi di risorse:
+ 1. Interrompere temporaneamente il backup e conservare i dati di backup
+ 2. Spostare la VM nel gruppo di risorse di destinazione
+ 3. Riproteggerla con lo stesso o con un nuovo insieme di credenziali Gli utenti possono eseguire il ripristino dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
+Se l'utente sposta la macchina virtuale sottoposta a backup tra sottoscrizioni, i passaggi 1 e 2 restano invariati. Nel passaggio 3, è necessario proteggere la macchina virtuale in un nuovo insieme di credenziali presente o creato nella sottoscrizione di destinazione. L'insieme di credenziali di Servizi di ripristino non supporta i backup tra più sottoscrizioni.
 
 ## <a name="hdinsight-limitations"></a>Limitazioni di HDInsight
 

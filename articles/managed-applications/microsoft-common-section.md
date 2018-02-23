@@ -25,7 +25,7 @@ Controllo che raggruppa uno o più elementi sotto un'intestazione. Usare questo 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 ```json
 {
   "name": "section1",

@@ -22,7 +22,7 @@ Una macchina virtuale di Stack di Azure (VM) è un tipo di risorsa di calcolo su
 
 Una macchina virtuale di Azure Stack offre la flessibilità della virtualizzazione senza dover gestire singoli cluster o macchine. È comunque necessario gestire la VM eseguendo determinate attività, ovvero configurazione, applicazione di patch e installazione del software in esecuzione sulla macchina virtuale.
 
-Macchine virtuali di Azure Stack può essere utilizzate in vari modi. ad esempio:
+Macchine virtuali di Azure Stack può essere utilizzate in vari modi. Ad esempio: 
 
 * **Sviluppo e test** : le macchine virtuali di Azure Stack offrono una rapida e necessarie per creare un computer con una configurazione specifica di codice e testare un'applicazione.
 
@@ -65,7 +65,7 @@ Stack di Azure fornisce un marketplace per l'utilizzo con varie versioni e i tip
 Nella tabella seguente vengono illustrati alcuni metodi che è possibile trovare le informazioni per un'immagine:
 
 
-|Metodo|Descrizione|
+|Metodo|DESCRIZIONE|
 |---------|---------|
 |Portale di Azure Stack|I valori vengono specificati automaticamente quando si seleziona un'immagine da usare.|
 |PowerShell per Azure Stack|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -87,14 +87,14 @@ Le estensioni VM offrono le funzionalità aggiuntive di macchina virtuale tramit
 Le risorse nella tabella seguente vengono utilizzate dalla macchina virtuale e devono esistere o essere creata quando viene creata la macchina virtuale.
 
 
-|Risorsa|Obbligatorio|Descrizione|
+|Risorsa|Obbligatoria|DESCRIZIONE|
 |---------|---------|---------|
 |Gruppo di risorse|Sì|La VM deve essere contenuta in un gruppo di risorse.|
 |Account di archiviazione|Sì|La VM richiede l'account di archiviazione per archiviare i dischi rigidi virtuali.|
 |Rete virtuale|Sì|La VM deve appartenere a una rete virtuale.|
-|Indirizzo IP pubblico|No|È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota.|
-|Interfaccia di rete|Sì|La VM richiede l'interfaccia di rete per comunicare in rete.|
-|Dischi dati|No|La VM può includere dischi dati per espandere le funzionalità di archiviazione.|
+|Indirizzo IP pubblico|No |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota.|
+|interfaccia di rete|Sì|La VM richiede l'interfaccia di rete per comunicare in rete.|
+|Dischi dati|No |La VM può includere dischi dati per espandere le funzionalità di archiviazione.|
 
 ## <a name="how-do-i-create-my-first-vm"></a>Come creare la prima VM
 
@@ -118,7 +118,7 @@ Le VM possono essere gestite mediante un portale basato su browser, gli strument
 La tabella seguente illustra alcuni modi per ottenere informazioni su una macchina virtuale.
 
 
-|Metodo|Descrizione|
+|Metodo|DESCRIZIONE|
 |---------|---------|
 |Portale di Azure Stack|Nel menu hub fare clic su macchine virtuali e quindi selezionare la macchina virtuale dall'elenco. Nella pagina per la macchina virtuale, è possibile accedere a informazioni generali, impostare valori e metriche di monitoraggio.|
 |Azure PowerShell|La gestione di macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni sull'utilizzo di PowerShell, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows con il modulo PowerShell di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

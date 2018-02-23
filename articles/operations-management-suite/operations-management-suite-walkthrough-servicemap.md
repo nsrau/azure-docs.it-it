@@ -1,6 +1,6 @@
 ---
 title: Demo per la formazione autonoma sulla soluzione Service Map | Microsoft Docs
-description: "Service Map è una soluzione di Operations Management Suite (OMS) che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi.  Questa demo per la formazione autonoma illustra l'uso di Service Map per identificare e diagnosticare un problema simulato in un'applicazione Web."
+description: "Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi.  Questa demo per la formazione autonoma illustra l'uso di Service Map per identificare e diagnosticare un problema simulato in un'applicazione Web."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35fe4e95eae8b63425abc8ed2970c0ad51073883
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Demo per la formazione autonoma sulla soluzione Service Map in Operations Management Suite (OMS)
-Questa demo per la formazione autonoma illustra l'uso della [soluzione Service Map](operations-management-suite-service-map.md) in Operations Management Suite (OMS) per identificare e diagnosticare un problema simulato in un'applicazione Web.  L'elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi.  Consente di consolidare i dati raccolti da altri servizi OMS per agevolare l'analisi delle prestazioni e l'identificazione dei problemi.  Verranno anche usate le [ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md) per eseguire il drill-down sui dati raccolti e identificare il problema radice.
+# <a name="self-paced-demo---service-map"></a>Demo autonoma - Service Map
+Questa demo per la formazione autonoma illustra l'uso della [soluzione Service Map](operations-management-suite-service-map.md) in Azure per identificare e diagnosticare un problema simulato in un'applicazione Web.  Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi.  Consente di consolidare i dati raccolti da altri servizi e da altre soluzioni per agevolare l'analisi delle prestazioni e l'identificazione dei problemi.  Vengono anche usate le [ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md) per eseguire il drill-down sui dati raccolti e identificare il problema radice.
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -35,7 +35,7 @@ Questa demo per la formazione autonoma illustra l'uso della [soluzione Service M
 ## <a name="walk-through"></a>Procedura dettagliata
 
 ### <a name="1-connect-to-the-oms-experience-center"></a>1. Connettersi a OMS Experience Center
-Questa procedura dettagliata fa uso di [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), che offre un ambiente completo di OMS con dati di esempio. Per iniziare, seguire questo collegamento, specificare le informazioni e quindi selezionare lo scenario **Insight & Analytics**.
+Questa procedura dettagliata usa [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), che offre un ambiente di Log Analytics completo con dati di esempio. Per iniziare, seguire questo collegamento, specificare le informazioni e quindi selezionare lo scenario **Insight & Analytics**.
 
 
 ### <a name="2-start-service-map"></a>2. Avviare Service Map
@@ -43,7 +43,7 @@ Per avviare la soluzione, fare clic sul riquadro **Service Map**.
 
 ![Riquadro Service Map](media/operations-management-suite-walkthrough-servicemap/tile.png)
 
-Verrà visualizzata la console di Service Map.  Il riquadro a sinistra contiene un elenco di computer nell'ambiente in cui è installato l'agente per Service Map.  Il computer da visualizzare verrà selezionato da questo elenco.
+Verrà visualizzata la console di Service Map.  Il riquadro a sinistra contiene un elenco di computer nell'ambiente in cui è installato l'agente per Service Map.  Il computer da visualizzare viene selezionato da questo elenco.
 
 ![Elenco di computer](media/operations-management-suite-walkthrough-servicemap/computer-list.png)
 
@@ -80,7 +80,7 @@ Esaminare **acmetomcat** più da vicino.  Fare clic nell'angolo superiore destro
 
 
 ### <a name="7-view-change-tracking"></a>7. Visualizzare il rilevamento modifiche
-Provare ora a scoprire la possibile causa di questo utilizzo elevato.  Fare clic sulla scheda **Riepilogo**,  che contiene le informazioni che OMS ha raccolto dal computer, come le connessioni non riuscite, gli avvisi critici e le modifiche al software.  Le sezioni con informazioni recenti interessanti dovrebbero già essere espanse. È possibile espandere altre sezioni per esaminare le informazioni in esse contenute.
+Provare ora a scoprire la possibile causa di questo utilizzo elevato.  Fare clic sulla scheda **Riepilogo**,  che contiene le informazioni che Log Analytics ha raccolto dal computer, come le connessioni non riuscite, gli avvisi critici e le modifiche al software.  Le sezioni con informazioni recenti rilevanti dovrebbero già essere espanse. È possibile espandere altre sezioni per esaminare le informazioni in esse contenute.
 
 
 Espandere **Rilevamento modifiche**, se non è già aperto.  Qui vengono mostrate le informazioni raccolte dalla [soluzione Rilevamento modifiche](../log-analytics/log-analytics-change-tracking.md).  Sembra che in questo intervallo di tempo sia stata apportata una modifica al software.  Fare clic su **Software** per visualizzare i dettagli.  Un processo di backup è stato aggiunto al computer poco dopo le 4.00. Sembra quindi che sia questa la causa del consumo eccessivo di risorse.
@@ -90,13 +90,13 @@ Espandere **Rilevamento modifiche**, se non è già aperto.  Qui vengono mostrat
 
 
 ### <a name="8-view-details-in-log-search"></a>8. Visualizzare i dettagli nella ricerca dei log
-Per fare un'ulteriore verifica, è possibile esaminare le informazioni dettagliate sulle prestazioni raccolte nel repository di Log Analytics.  Fare nuovamente clic sulla scheda **Avvisi** e quindi su uno degli avvisi di **utilizzo elevato della CPU**.  Fare clic su **Mostra in Ricerca log**.  Verrà visualizzata la finestra Ricerca log, in cui è possibile eseguire [ricerche nei log](../log-analytics/log-analytics-log-searches.md) su tutti i dati archiviati nel repository.  Service Map ha già compilato una query per recuperare l'avviso che si sta cercando.  
+Per fare un'ulteriore verifica, è possibile esaminare le informazioni dettagliate sulle prestazioni raccolte nell'area di lavoro di Log Analytics.  Fare nuovamente clic sulla scheda **Avvisi** e quindi su uno degli avvisi di **utilizzo elevato della CPU**.  Fare clic su **Mostra in Ricerca log**.  Verrà visualizzata la finestra Ricerca log, in cui è possibile eseguire [ricerche nei log](../log-analytics/log-analytics-log-searches.md) su tutti i dati archiviati nell'area di lavoro.  Service Map ha già compilato una query per recuperare l'avviso che si sta cercando.  
 
 ![Ricerca log](./media/operations-management-suite-walkthrough-servicemap/log-search.png)
 
 
 ### <a name="9-open-saved-search"></a>9. Aprire una ricerca salvata
-Provare ora a ottenere maggiori dettagli sulla raccolta di prestazioni che ha generato l'avviso, per verificare il sospetto che i problemi siano causati da tale processo di backup.  Modificare l'intervallo di tempo in **6 ore**.  Quindi fare clic su **Preferiti** e scorrere fino alle ricerche salvate per **Service Map**.  Si tratta delle query create in modo specifico per l'analisi.  Fare clic su **Top 5 Processes by CPU for acmetomcat** (Primi 5 processi per CPU per acmetomcat).
+Provare ora a ottenere maggiori dettagli sulla raccolta di prestazioni che ha generato l'avviso, per verificare il sospetto che i problemi siano causati da tale processo di backup.  Modificare l'intervallo di tempo in **6 ore**.  Quindi fare clic su **Preferiti** e scorrere fino alle ricerche salvate per **Service Map**.  Le query sono state create in modo specifico per l'analisi.  Fare clic su **Top 5 Processes by CPU for acmetomcat** (Primi 5 processi per CPU per acmetomcat).
 
 ![Ricerca salvata](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
@@ -108,8 +108,8 @@ In questo caso si può notare che il processo di backup utilizza in modo costant
 
 ## <a name="summary-points"></a>Riepilogo
 - [Service Map](operations-management-suite-service-map.md) permette di visualizzare l'intera applicazione, anche se non se ne conoscono tutti i server e le dipendenze.
-- Service Map presenta i dati raccolti da altre soluzioni OMS per identificare i problemi dell'applicazione e dell'infrastruttura sottostante.
-- [Ricerche log](../log-analytics/log-analytics-log-searches.md) consente di eseguire il drill down su dati specifici raccolti nel repository di Log Analytics.    
+- Service Map presenta i dati raccolti da altre soluzioni di gestione per identificare i problemi dell'applicazione e dell'infrastruttura sottostante.
+- [Ricerche log](../log-analytics/log-analytics-log-searches.md) consente di eseguire il drill down su dati specifici raccolti nell'area di lavoro di Log Analytics.    
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [Service Map](operations-management-suite-service-map.md).

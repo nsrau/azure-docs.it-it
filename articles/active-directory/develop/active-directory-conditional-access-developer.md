@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 8ad1ed1b8a178cb8906e6233e6bd78f50d01c50c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (AD) offre diversi modi per proteggere l'app e un servizi
 * Autorizzazione dell'accesso a servizi specifici solo per dispositivi registrati in Intune
 * Limitazione delle posizioni dell'utente e degli intervalli IP
 
-Per ulteriori informazioni su tutte le funzionalità di accesso condizionale, vedere [accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
+Per altre informazioni sulle funzionalità di accesso condizionale complete, vedere [Accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 In questo articolo viene illustrato il significato dell'accesso condizionale per gli sviluppatori che creano app per Azure AD.  Si presuppone una conoscenza delle app a [tenant singolo](active-directory-integrating-applications.md) e [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) e dei [modelli di autenticazione comuni](active-directory-authentication-scenarios.md).
 
@@ -73,7 +73,7 @@ Gli sviluppatori possono aggiungere questa richiesta a una nuova richiesta per A
 
 ## <a name="scenarios"></a>Scenari
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 L'accesso condizionale di Azure AD è una funzionalità inclusa in [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Per altre informazioni sui requisiti relativi alle licenza, vedere [Report Utilizzo senza licenza](../active-directory-conditional-access-unlicensed-usage-report.md).  Gli sviluppatori possono entrare a far parte di [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx) e ottenere così una sottoscrizione gratuita a Enterprise Mobility Suite, che include Azure AD Premium.
 
@@ -109,7 +109,7 @@ La richiesta di attestazioni si trova all'interno dell'intestazione ```WWW-Authe
 
 L'intestazione ```WWW-Authenticate``` presenta una struttura univoca e non è semplice da analizzare per estrarre i valori.  Di seguito è riportato un metodo rapido.
 
-```C#
+```csharp
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -217,7 +217,7 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 
 ## <a name="see-also"></a>Vedere anche 
 
-* Per ulteriori informazioni sulle funzionalità, vedere [accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Per altre informazioni su ADAL SDK e sull'accesso alla documentazione di riferimento, vedere la [guida alle librerie](active-directory-authentication-libraries.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](active-directory-devhowto-multi-tenant-overview.md).

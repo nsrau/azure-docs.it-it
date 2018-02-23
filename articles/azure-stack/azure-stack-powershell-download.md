@@ -49,7 +49,7 @@ cd AzureStack-Tools-master
 
 Il **AzureStack strumenti** repository contiene i moduli di PowerShell che supportano le funzionalità seguenti per lo Stack di Azure:  
 
-| Funzionalità | Descrizione | chi può usare questo modulo? |
+| Funzionalità | DESCRIZIONE | chi può usare questo modulo? |
 | --- | --- | --- |
 | [Capacità del cloud](user/azure-stack-validate-templates.md) | Usare questo modulo per ottenere le funzionalità cloud di un cloud. Tramite questo modulo, ad esempio, è possibile ottenere le funzionalità del cloud, ad esempio la versione API e le risorse di gestione risorse di Azure. È anche possibile ottenere le estensioni di macchina virtuale per Stack di Azure e cloud di Azure usando questo modulo. | Gli utenti e agli operatori cloud |
 | [Amministrazione di calcolo Azure Stack](azure-stack-add-vm-image.md) | Usare questo modulo per aggiungere o rimuovere un'immagine di macchina virtuale tramite il marketplace dello Stack di Azure. | Operatori di cloud |

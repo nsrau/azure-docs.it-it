@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8da7d9112c9527945ab4b524625603faa84cf00d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Cercare un punto di interesse vicino tramite Servizi Location Based di Azure
 
@@ -24,7 +24,7 @@ Questa esercitazione illustra come configurare un account con Servizi Location B
 
 > [!div class="checklist"]
 > * Creare un account con Servizi Location Based di Azure
-> * Ottenere la chiave di sottoscrizione per l'account
+> * Conoscere la chiave primaria per l'account Servizi Location Based di Azure
 > * Creare una nuova pagina Web usando l'API del controllo mappa
 > * Usare il servizio di ricerca per trovare il punto di interesse più vicino
 
@@ -55,7 +55,7 @@ Seguire questa procedura per creare un nuovo account Servizi Location Based.
 
 <a id="getkey"></a>
 
-## <a name="get-the-subscription-key-for-your-account"></a>Ottenere la chiave di sottoscrizione per l'account
+## <a name="get-the-primary-key-for-your-account"></a>Ottenere la chiave primaria per l'account
 
 Dopo aver creato l'account Servizi Location Based, seguire questa procedura per collegarlo alle API di ricerca mappe:
 
@@ -113,16 +113,16 @@ L'API del controllo mappa di Azure è una pratica libreria client che consente d
     ``` 
     Si noti che l'intestazione HTML include i file di risorse CSS e JavaScript ospitati dalla libreria del controllo mappa di Azure. Si noti inoltre il segmento *script* nel *corpo* del file HTML, che deve contenere il codice JavaScript inline per l'accesso alle API di Servizi Location Based di Azure.
  
-3.  Aggiungere il codice JavaScript seguente al blocco *script* del file HTML. Sostituire il segnaposto *<insert-key>* con la chiave primaria dell'account Servizi Location Based. 
+3.  Aggiungere il codice JavaScript seguente al blocco *script* del file HTML. Usare la chiave primaria dell'account Servizi Location Based nello script. 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
-    Questo segmento avvia l'API del controllo mappa per la chiave di sottoscrizione. Lo spazio dei nomi che contiene l'API del controllo mappa di Azure e i componenti visivi correlati è denominato **Atlas**. **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva. È possibile osservare l'aspetto grafico della mappa aprendo la pagina HTML nel browser. 
+    Questo segmento avvia l'API del controllo mappa per la chiave dell'account Servizi Location Based di Azure. Lo spazio dei nomi che contiene l'API del controllo mappa di Azure e i componenti visivi correlati è denominato **Atlas**. **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva. È possibile osservare l'aspetto grafico della mappa aprendo la pagina HTML nel browser. 
 
 4. Nel blocco *script* aggiungere il codice JavaScript seguente per specificare un livello per i segnaposto di ricerca nel controllo mappa:
 
@@ -193,7 +193,7 @@ Questa sezione illustra come usare l'API del servizio di ricerca di Servizi Loca
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
     url += "&api-version=1.0";
     url += "&query=gasoline%20station";
-    url += "&subscription-key=" + subscriptionKey;
+    url += "&subscription-key=" + LBSAccountKey;
     url += "&lat=47.6292";
     url += "&lon=-122.2337";
     url += "&radius=100000";
@@ -201,7 +201,7 @@ Questa sezione illustra come usare l'API del servizio di ricerca di Servizi Loca
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    Questo frammento di codice usa l'API di base del servizio di ricerca, definita **ricerca fuzzy**. Supporta anche input con un basso livello di corrispondenza fuzzy gestendo qualsiasi combinazione di token di indirizzo o *punto di interesse*. Esegue la ricerca della **stazione di servizio** più vicina, per l'indirizzo con i valori di latitudine e longitudine indicati, e all'interno del raggio specificato. Usa la chiave di sottoscrizione dell'account fornita in precedenza nel file di esempio per eseguire la chiamata a Servizi Location Based e infine restituisce i risultati come coppie di latitudine e longitudine per le posizioni trovate. È possibile osservare i segnaposto di ricerca aprendo la pagina HTML nel browser. 
+    Questo frammento di codice usa l'API di base del servizio di ricerca, definita **ricerca fuzzy**. Supporta anche input con un basso livello di corrispondenza fuzzy gestendo qualsiasi combinazione di token di indirizzo o *punto di interesse*. Esegue la ricerca della **stazione di servizio** più vicina, per l'indirizzo con i valori di latitudine e longitudine indicati, e all'interno del raggio specificato. Usa la chiave primaria dell'account fornita in precedenza nel file di esempio per eseguire la chiamata a Servizi Location Based. Infine restituisce i risultati come coppie di latitudine e longitudine per le posizioni trovate. È possibile osservare i segnaposto di ricerca aprendo la pagina HTML nel browser. 
 
 3. Aggiungere le righe seguenti al blocco *script* per creare le finestre popup per i punti di interesse restituiti dal servizio di ricerca:
 
@@ -244,7 +244,7 @@ Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un account con Servizi Location Based di Azure
-> * Ottenere la chiave di sottoscrizione per l'account
+> * Ottenere la chiave primaria per l'account
 > * Creare una nuova pagina Web usando l'API del controllo mappa
 > * Usare il servizio di ricerca per trovare il punto di interesse più vicino
 

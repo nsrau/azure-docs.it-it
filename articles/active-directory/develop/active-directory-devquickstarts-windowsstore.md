@@ -1,5 +1,5 @@
 ---
-title: Azure AD piattaforma universale di Windows (UWP XAML) Introduzione | Documenti Microsoft
+title: Introduzione alla piattaforma UWP (Universal Windows Platform) di Azure AD (UWP/XAML) | Microsoft Docs
 description: Compilare app di Windows Store che si integrano con Azure AD per la registrazione e per chiamare le API protette di Azure AD tramite il protocollo OAuth.
 services: active-directory
 documentationcenter: windows
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2282a59c9dd5d5d76a5b3e19f602e9d3dcc0b4ef
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.openlocfilehash: 8bc8c3a897363da2a8ebe7ac6bd8798c8e22ba04
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Azure AD piattaforma universale di Windows (UWP XAML) Guida introduttiva
+# <a name="azure-ad-windows-universal-platform-uwpxaml-getting-started"></a>Introduzione alla piattaforma UWP (Universal Windows Platform) di Azure AD (UWP/XAML)
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -89,7 +89,7 @@ Il principio alla base di ADAL è che ogni volta che l'app ha bisogno di un toke
 
 1. Inizializzare la classe `AuthenticationContext` dell'app, che è la classe principale di ADAL. Questa azione passa ad ADAL le coordinate necessarie per comunicare con Azure AD e gli indica come memorizzare i token nella cache.
 
-    ```C#
+    ```csharp
     public MainPage()
     {
         ...
@@ -100,7 +100,7 @@ Il principio alla base di ADAL è che ogni volta che l'app ha bisogno di un toke
 
 2. Individuare il metodo `Search(...)`, che viene richiamato quando l'utente sceglie il pulsante **Cerca** nell'interfaccia utente dell'app. Questo metodo invia una richiesta GET all'API Graph di Azure AD per eseguire una query sugli utenti il cui UPN inizia con il termine di ricerca specificato. Per eseguire una query nell'API Graph, includere un token di accesso nell'intestazione **Authorization** della richiesta. È qui che entra in gioco ADAL.
 
-    ```C#
+    ```csharp
     private async void Search(object sender, RoutedEventArgs e)
     {
         ...
@@ -123,20 +123,20 @@ Il principio alla base di ADAL è che ogni volta che l'app ha bisogno di un toke
     Quando l'app richiede un token mediante la chiamata a `AcquireTokenAsync(...)`, ADAL tenta di restituire un token senza chiedere le credenziali all'utente. Se ADAL determina che l'utente deve eseguire l'accesso per ottenere un token, visualizza una finestra di dialogo di accesso, raccoglie le credenziali dell'utente e restituisce un token al termine dell'autenticazione. Se per qualsiasi motivo ADAL non può restituire un token, lo stato di *AuthenticationResult* sarà un errore.
 3. È ora di usare il token di accesso appena acquisito. Nel metodo `Search(...)` associare il token alla richiesta get dell'API Graph nell'intestazione **Authorization**:
 
-    ```C#
+    ```csharp
     // Add the access token to the Authorization header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
 
     ```
 4. È possibile usare l'oggetto `AuthenticationResult` anche per visualizzare informazioni sull'utente nell'app, ad esempio l'ID dell'utente:
 
-    ```C#
+    ```csharp
     // Update the page UI to represent the signed-in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 5. È inoltre possibile usare ADAL per disconnettere gli utenti dall'app. Quando l'utente fa clic sul pulsante **Sign Out** (Disconnetti), è opportuno assicurarsi che la chiamata successiva a `AcquireTokenAsync(...)` mostri una vista di accesso. Con ADAL, questa azione è facile quanto cancellare la cache dei token:
 
-    ```C#
+    ```csharp
     private void SignOut()
     {
         // Clear session state from the token cache.

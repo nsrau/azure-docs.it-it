@@ -56,7 +56,7 @@ Collegare quindi l'account di integrazione creato all'app per la logica.
 
 Per consentire alle app per la logica di accedere a mappe, schemi, contratti e altri elementi nell'account di integrazione, collegare quest'ultimo all'app per la logica.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * Un account di integrazione
 * App per la logica

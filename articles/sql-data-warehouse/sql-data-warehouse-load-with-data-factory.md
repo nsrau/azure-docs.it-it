@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 **Tempo stimato**: per completare questa esercitazione sono necessari circa 10-15 minuti una volta soddisfatti i prerequisiti.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - È necessario un **database di SQL Server** con tabelle contenenti i dati da copiare in SQL Data Warehouse.  
 

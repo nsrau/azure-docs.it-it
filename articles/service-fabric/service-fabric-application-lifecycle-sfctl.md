@@ -18,7 +18,7 @@ ms.lasthandoff: 11/17/2017
 
 Informazioni su come creare ed eliminare applicazioni in esecuzione in un cluster Azure Service Fabric.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Installare l'interfaccia della riga di comando di Service Fabric. Selezionare il cluster Service Fabric. Per altre informazioni, vedere [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
 

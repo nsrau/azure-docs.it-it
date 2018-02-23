@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 00b608f36caf51e27a1751560df0ffb1308695c4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure
 
@@ -30,7 +30,7 @@ Gli esempi di questa guida presuppongono l'uso della shell Bash in Ubuntu, ma la
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questa guida si presuppone che si conoscano i concetti di base dell'archiviazione di Azure. e possa soddisfare i requisiti di creazione dell'account specificati di seguito per Azure e per il servizio Archiviazione.
 
 ### <a name="accounts"></a>Account
@@ -196,9 +196,10 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+```
 
-### <a name="set-default-azure-storage-account-environment-variables"></a>Impostare le variabili di ambiente predefinite dell'account di archiviazione di Azure
-È possibile avere più account di archiviazione nella sottoscrizione di Azure. Per selezionarne uno da usare per tutti i comandi di archiviazione successivi, è possibile impostare queste variabili di ambiente:
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -268,7 +269,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 
-Elencare i BLOB in un contenitore con il comando [az storage blob list](/cli/azure/storage/blob#list).
+Elencare i BLOB in un contenitore con il comando [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list).
 
 ```azurecli
 az storage blob list \
@@ -373,7 +374,7 @@ az storage file copy start \
 ```
 
 ## <a name="create-share-snapshot"></a>Creare uno snapshot di condivisione
-È possibile creare uno snapshot di condivisione usando il comando `az storage share snapshot`:
+È possibile eliminare uno snapshot di condivisione usando il comando `az storage share snapshot`:
 
 ```cli
 az storage share snapshot -n <share name>

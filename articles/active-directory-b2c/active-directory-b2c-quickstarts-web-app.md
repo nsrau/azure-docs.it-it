@@ -16,7 +16,7 @@ ms.date: 10/31/2017
 ms.author: patricka
 ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ Azure Active Directory B2C consente la gestione delle identità del cloud per ga
 > * Come creare e gestire l'account e il profilo utente di Azure AD B2C.
 > * Come chiamare un'API Web protetta da Azure AD B2C.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**. 
 * Un account di social networking di Facebook, Google, Microsoft o Twitter.

@@ -60,7 +60,7 @@ Creare un messaggio di posta elettronica usando il modulo SendGrid è una proced
         text: 'This is a sample email message.'
     });
 
-È inoltre possibile specificare un messaggio HTML per i client che li supportano, configurando la proprietà html. ad esempio:
+È inoltre possibile specificare un messaggio HTML per i client che li supportano, configurando la proprietà html. Ad esempio: 
 
     html: This is a sample <b>HTML<b> email message.
 
@@ -78,7 +78,7 @@ Dopo aver creato un messaggio di posta elettronica usando la funzione Email, è 
     });
 
 > [!NOTE]
-> Sebbene gli esempi precedenti illustrino il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente la funzione send specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio:  
+> Sebbene gli esempi precedenti illustrino il passaggio di un oggetto di posta elettronica e una funzione di richiamata, è inoltre possibile richiamare direttamente la funzione send specificando direttamente le proprietà dei messaggi di posta elettronica. Ad esempio:   
 > 
 > `````
 > sendgrid.send({

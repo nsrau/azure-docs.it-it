@@ -330,6 +330,8 @@
           items:
             - name: MySQL
               href: mysql-install.md
+            - name: MySQL in SUSE
+              href: mysql-on-opensuse.md
             - name: MongoDB
               href: install-mongodb.md
             - name: PostgreSQL
@@ -369,6 +371,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Trovare dischi non collegati
+          href: find-unattached-disks.md
         - name: Usare Archiviazione file
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Eseguire la distribuzione di dischi con un modello

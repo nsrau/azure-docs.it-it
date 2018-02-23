@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Inviare messaggi da dispositivo a cloud all'hub IoT
 
 Per inviare i dati e gli avvisi di telemetria di serie temporali dai dispositivi al back-end della soluzione, inviare messaggi da dispositivo a cloud dal dispositivo all'hub IoT. Per una descrizione delle altre opzioni da dispositivo a cloud supportate dall'hub IoT, vedere [Indicazioni sulle comunicazioni da dispositivo a cloud][lnk-d2c-guidance].
 
-I messaggi da dispositivo a cloud vengono inviati tramite un endpoint per il dispositivo (**/devices/{deviceId}/messages/events**). A quel punto le regole di routing reindirizzano i messaggi a uno degli endpoint di servizio nell'hub IoT. Le regole di routing usano le intestazioni e il corpo dei messaggi da dispositivo a cloud che passano nell'hub per determinare dove reindirizzarli. Per impostazione predefinita, i messaggi vengono reindirizzati all'endpoint per servizio predefinito (**messages/events**) compatibile con [Hub eventi][lnk-event-hubs]. È quindi possibile usare l'[integrazione standard di Hub eventi e gli SDK][lnk-compatible-endpoint] per ricevere i messaggi da dispositivo a cloud nel back-end della soluzione.
+I messaggi da dispositivo a cloud vengono inviati tramite un endpoint per il dispositivo (**/devices/{deviceId}/messages/events**). A quel punto le regole di routing reindirizzano i messaggi a uno degli endpoint di servizio nell'hub IoT. Le regole di routing usano le intestazioni e il corpo dei messaggi da dispositivo a cloud per determinare dove indirizzare i messaggi. Per impostazione predefinita, i messaggi vengono instradati all'endpoint per servizi predefinito (**messaggi/eventi**) compatibile con [Hub eventi][lnk-event-hubs]. È quindi possibile usare l'[integrazione standard di Hub eventi e gli SDK][lnk-compatible-endpoint] per ricevere i messaggi da dispositivo a cloud nel back-end della soluzione.
 
 L'hub IoT implementa la messaggistica da dispositivo a cloud usando un modello di messaggistica di flusso. I messaggi da dispositivo a cloud dell'hub IoT somigliano più a *eventi* di [Hub eventi][lnk-event-hubs] che non a *messaggi* del [bus di servizio][lnk-servicebus], poiché è presente un volume elevato di eventi che passa nel servizio ed è leggibile da più lettori.
 
@@ -36,11 +36,11 @@ La messaggistica da dispositivo a cloud con hub IoT ha le caratteristiche seguen
 * L'hub IoT abilita milioni di dispositivi connessi contemporaneamente (vedere [Quote e limitazioni][lnk-quotas]).
 * L'hub IoT non consente il partizionamento arbitrario. I messaggi da dispositivo a cloud vengono partizionati in base al valore **deviceId**di origine.
 
-Per altre informazioni sulle differenze tra l'hub IoT e i servizi di hub eventi, vedere [Confronto tra l'hub IoT e Hub eventi di Azure][lnk-comparison].
+Per altre informazioni sulle differenze tra l'hub IoT e Hub eventi, vedere [Confronto tra l'hub IoT e Hub eventi di Azure][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Invio di traffico non di telemetria
 
-Spesso, oltre ai punti dati di telemetria, i dispositivi inviano messaggi e richieste che devono essere eseguiti e gestiti separatamente nel back-end della soluzione. Ad esempio, gli avvisi critici che devono attivare un'azione specifica nel back-end. È possibile scrivere facilmente una [regola di routing][lnk-devguide-custom] per l'invio di questi tipi di messaggi a un endpoint dedicato alla loro elaborazione che si basa sull'intestazione del messaggio o su un valore del corpo del messaggio.
+Spesso, oltre alla telemetria, i dispositivi inviano messaggi e richieste da eseguire e gestire separatamente nel back-end della soluzione. Ad esempio, gli avvisi critici che devono attivare un'azione specifica nel back-end. È possibile scrivere una [regola di gestione][lnk-devguide-custom] per l'invio di questi tipi di messaggi a un endpoint dedicato alla loro elaborazione in base all'intestazione del messaggio o a un valore del corpo del messaggio.
 
 Per altre informazioni sul modo migliore di elaborare questo tipo di messaggio, vedere l'[Esercitazione: Elaborare messaggi da dispositivo a cloud dell'hub IoT usando .Net][lnk-d2c-tutorial].
 

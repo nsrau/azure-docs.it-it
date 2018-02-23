@@ -36,7 +36,7 @@ Attualmente, molti scenari in [Microsoft Cloud per la Germania](https://www.micr
   * Azure AD Connect Health
   * Aggiornamenti automatici
  
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 È possibile scaricare Azure AD Connect dal pannello Azure AD Connect nel portale.  Usare le istruzioni seguenti per trovare il pannello Azure AD Connect.
 
 ### <a name="the-azure-ad-connect-blade"></a>Pannello Azure AD Connect
@@ -52,7 +52,7 @@ Dovrebbe essere visualizzata la seguente schermata:
 
 La tabella seguente illustra le funzionalità visualizzate nel pannello.
 
-| Titolo | Descrizione |
+| Titolo | DESCRIZIONE |
 | --- | --- |
 | STATO SINCRONIZZAZIONE |Indica se la sincronizzazione è abilitata o disabilitata. |
 | ULTIMA SINCRONIZZAZIONE |Ultima volta in cui è stata completata correttamente una sincronizzazione. |

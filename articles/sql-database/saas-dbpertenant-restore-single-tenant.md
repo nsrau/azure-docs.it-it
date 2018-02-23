@@ -40,7 +40,7 @@ Questa esercitazione illustra due modelli di ripristino dei dati:
 | **Ripristinare un tenant sul posto** | Questo modello viene in genere usato per ripristinare un tenant a un punto precedente nel tempo, dopo che il tenant ha accidentalmente eliminato i dati. Il database originale viene portato offline e sostituito con il database ripristinato. |
 |||
 
-Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
+Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
 * L'app SaaS Wingtip viene distribuita. Per distribuire in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)

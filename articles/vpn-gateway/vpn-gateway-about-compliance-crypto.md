@@ -45,7 +45,7 @@ I gateway VPN di Azure ora supportano i criteri IPsec/IKE personalizzati per con
 ### <a name="workflow"></a>Flusso di lavoro
 
 1. Creare le reti virtuali, i gateway VPN o i gateway di rete locale per la topologia di connettività, come descritto in altri documenti sulle procedure
-2. Creare criteri IPsec/IKE
+2. Creare un criterio IPsec/IKE
 3. È possibile applicare i criteri quando si crea una connessione S2S o da rete virtuale a rete virtuale
 4. Se la connessione è già stata creata, è possibile applicare o aggiornare i criteri per una connessione esistente
 

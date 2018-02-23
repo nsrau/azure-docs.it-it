@@ -33,7 +33,7 @@ Per le macchine virtuali nei servizi cloud il Centro sicurezza di Azure consigli
    ![Aggiornare la versione sistema operativo][1]
 2. Viene visualizzato il pannello **Aggiorna la versione del sistema operativo**. Seguire i passaggi in questo pannello per aggiornare la versione del sistema operativo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Questo documento illustra come implementare la raccomandazione "Aggiorna la versione del sistema operativo" del Centro sicurezza. Per altre informazioni sui servizi cloud e sull'aggiornamento della versione del sistema operativo per un servizio cloud, vedere:
 
 * [Perché scegliere Servizi cloud](../cloud-services/cloud-services-choose-me.md)

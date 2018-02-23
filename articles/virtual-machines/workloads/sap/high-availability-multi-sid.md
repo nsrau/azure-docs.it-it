@@ -453,7 +453,7 @@ Questo articolo si concentra sul passaggio da un'installazione di ASCS/SCS singo
 > [!NOTE]
 > Questa funzionalità è disponibile solo nel modello di distribuzione Azure Resource Manager.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 È già stato configurato un cluster WSFC che viene usato per un'istanza di SAP ASCS/SCS, come descritto in [SAP NetWeaver in macchine virtuali Windows: guida alle funzionalità di disponibilità elevata][sap-ha-guide] e come illustrato nella figura seguente.
 
 ![Istanza di SAP ASCS/SCS a disponibilità elevata][sap-ha-guide-figure-6001]

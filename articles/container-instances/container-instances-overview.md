@@ -45,7 +45,7 @@ Per recuperare e rendere persistente lo stato con Istanze di contenitore di Azur
 
 Istanze di contenitore di Azure permette di pianificare i contenitori Windows e Linux con la stessa API. È sufficiente specificare il tipo di sistema operativo quando si creano i [gruppi di contenitori](container-instances-container-groups.md).
 
-Alcune funzionalità attualmente sono limitate ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quote e aree disponibili per Istanze di contenitore di Azure](container-instances-quotas.md).
+Alcune funzionalità attualmente sono limitate ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 

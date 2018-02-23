@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurazione di LinkedIn Elevate per provisioning automatico di utenti con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare LinkedIn Elevate per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per eseguire automaticamente il provisioning e il deprovisioning degli account utente in LinkedIn Elevate.
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 6c2f26e6df435b522346f22ce697468d094de23e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7694c28dd41b75438bfa4ffc8d032f439173122b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di LinkedIn Elevate per il provisioning automatico di utenti
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Elevate per il provisioning utenti automatico
 
 
 Questa esercitazione descrive le procedure da eseguire in LinkedIn Elevate e Azure AD per eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a LinkedIn Elevate. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 

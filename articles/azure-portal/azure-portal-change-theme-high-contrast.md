@@ -12,7 +12,7 @@ ms.custom: accessibility
 manager: timlt
 ms.openlocfilehash: 6099bc9d19216dced5611785c2a484d50fde7883
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

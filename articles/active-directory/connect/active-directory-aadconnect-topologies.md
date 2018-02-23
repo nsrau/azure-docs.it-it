@@ -3,7 +3,7 @@ title: 'Azure AD Connect: topologie supportate | Microsoft Docs'
 description: Questo argomento illustra in modo dettagliato le topologie supportate e non supportate per Azure AD Connect
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: dbf531302e53ca52e24dbd2ba954defad391060f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -110,10 +110,11 @@ In questo scenario una o più foreste risorse considerano attendibili tutte le f
 Alcuni carichi di lavoro di Office 365 prevedono determinate restrizioni per le topologie supportate:
 
 | Carico di lavoro | Restrizioni |
---------- | ---------
+| --------- | --------- |
 | Exchange Online | Per altre informazioni sulle topologie ibride supportate da Exchange Online, vedere [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype for Business Online | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Per altre informazioni, vedere [Requisiti ambientali di Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
+Un'organizzazione più grande può provare a usare la funzionalità [PreferredDataLocation di Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md), che consente di definire l'area del data center in cui si trovano le risorse dell'utente.
 
 ## <a name="staging-server"></a>server di gestione temporanea
 ![Server di staging in una topologia](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)

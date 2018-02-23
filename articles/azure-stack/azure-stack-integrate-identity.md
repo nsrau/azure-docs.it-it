@@ -5,28 +5,26 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/12/2017
-ms.author: mabrigg
+ms.date: 02/01/2018
+ms.author: jeffgilb
+ms.reviewer: wfayed
 keywords: 
-ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 03dc26ba3fcf10b52f6d6b77445de3f6770c4162
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Azure Data Center di Stack - identità
-
-*Si applica a: Azure Stack integrate di sistemi*
-
 È possibile distribuire dello Stack di Azure mediante Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. Prima di distribuire Azure Stack, è necessario effettuare la scelta. Distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
 
 Nella tabella seguente vengono illustrate le differenze tra le opzioni di due identità:
 
-||Fisicamente disconnesso|Fisicamente connesso|
+||Disconnesso da internet|Connesso a internet|
 |---------|---------|---------|
 |Fatturazione|Deve essere di capacità<br> Enterprise Agreement (EA)|Capacità o retribuzione come-di-utilizzo<br>EA o il Provider di soluzioni Cloud (CSP)|
 |Identità|È necessario AD FS|Azure Active Directory o AD FS|
-|Diffusione di Marketplace|Attualmente non disponibile|Supportato<br>BYOL licenze|
+|Diffusione di Marketplace|Supportato<br>BYOL licenze|Supportato<br>BYOL licenze|
 |Registrazione|Consigliata, è necessario un supporto rimovibile<br> e un dispositivo connesso distinto.|Automatico|
 |Patch e aggiornamenti|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso distinto.|Pacchetto di aggiornamento può essere scaricato direttamente<br> da Internet allo Stack di Azure.|
 
@@ -57,14 +55,14 @@ Requirements:
 |Componente|Requisito|
 |---------|---------|
 |Grafico|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012 o 2012 R2/2016|
+|AD FS|Windows Server 2012/2012 R2/2016|
 
 ## <a name="setting-up-graph-integration"></a>Impostazione dell'integrazione di Graph
 
 Le informazioni seguenti sono necessari come input per i parametri di automazione:
 
 
-|Parametro|Descrizione|Esempio|
+|Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
 |CustomADGlobalCatalog|Nome di dominio completo della foresta di Active Directory di destinazione<br>che si desidera integrare con|Contoso.com|
 |CustomADAdminCredentials|Un utente con autorizzazione di lettura LDAP|YOURDOMAIN\graphservice|
@@ -105,7 +103,7 @@ Per questa procedura, utilizzare un computer della rete di Data Center in grado 
 
 Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comunicare con Active Directory di destinazione:
 
-|Tipo|Porta|Protocol|
+|type|Porta|Protocollo|
 |---------|---------|---------|
 |LDAP|389|TCP / UDP|
 |LDAP SSL|636|TCP|
@@ -116,10 +114,10 @@ Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comun
 
 Sono necessarie le seguenti informazioni come input per i parametri di automazione:
 
-|Parametro|Descrizione|Esempio|
+|Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
 |CustomAdfsName|Nome del provider di attestazioni. <cr>Viene visualizzato in questo modo nella pagina di destinazione di ADFS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Collegamento di metadati di federazione|https://AD01.contoso.com/FederationMetadata/2007-06/FederationMetadata.Xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Collegamento di metadati di federazione|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automazione di trigger per configurare l'attendibilità di provider di attestazioni nello Stack di Azure
@@ -155,10 +153,10 @@ Utilizzare questo metodo se una delle seguenti condizioni sono vere:
 Sono necessarie le seguenti informazioni come input per i parametri di automazione:
 
 
-|Parametro|Descrizione|Esempio|
+|Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
 |CustomAdfsName|Nome del provider di attestazioni. Viene visualizzato in questo modo nella pagina di destinazione di ADFS.|Contoso|
-|CustomADFSFederationMetadataFile|File di metadati di federazione|https://AD01.contoso.com/FederationMetadata/2007-06/FederationMetadata.Xml|
+|CustomADFSFederationMetadataFile|File di metadati di federazione|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 ### <a name="create-federation-metadata-file"></a>Creare il file di metadati di federazione
 
@@ -287,7 +285,7 @@ Esistono molti scenari che richiedono l'uso di un nome principale servizio (SPN)
 Per ulteriori informazioni sulla creazione di un nome SPN, vedere [creare l'entità servizio per AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="configuration-rollback"></a>Rollback di configurazione
 
@@ -335,4 +333,4 @@ Se uno dei cmdlet non riesce, è possibile raccogliere i log usando il `Get-Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Azure dello Stack di integrazione di datacenter: pubblicare endpoint](azure-stack-integrate-endpoints.md)
+[Registro dello Stack di Azure](azure-stack-registration.md)

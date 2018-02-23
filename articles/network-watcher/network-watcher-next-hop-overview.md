@@ -34,7 +34,7 @@ Di seguito è riportato un elenco dei tipi di hop successivo che possono essere 
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Nessuna
 
 ### <a name="next-steps"></a>Passaggi successivi
 

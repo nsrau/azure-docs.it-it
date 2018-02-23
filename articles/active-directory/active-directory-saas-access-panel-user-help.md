@@ -1,6 +1,6 @@
 ---
-title: Problemi riscontrati con il portale App personali in Azure Active Directory | Microsoft Docs
-description: "Vengono fornite le istruzioni per eseguire le attività comuni quando si lavora nell'Access Panel (Riquadro di accesso)."
+title: Ottenere assistenza durante l'accesso e l'uso del portale delle app personali in Azure Active Directory | Microsoft Docs
+description: "Ottenere assistenza durante l'accesso e l'esecuzione di attività comuni nel riquadro di accesso."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,123 +15,109 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="do-you-need-help-with-the-my-apps-portal"></a>Problemi riscontrati con il portale App personali
+# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Risolvere i problemi di accesso e uso del portale delle app personali
 
-Questa pagina viene in genere visualizzata quando si verifica un problema durante l'uso del portale App personali. In alcuni casi il problema richiede l'intervento del supporto tecnico o dell'amministratore, ma in altri casi può essere utile vedere prima uno dei seguenti argomenti di risoluzione dei problemi.
+Se si verificano problemi durante l'accesso al portale delle app personali o durante il suo uso, fare riferimento ai suggerimenti sulla risoluzione dei problemi seguenti prima di contattare il supporto tecnico o l'amministratore per ottenere assistenza.
 
 ## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Si è verificato un problema durante l'accesso al portale App personali
 
-Problemi generali da verificare:
+Fare riferimento ai suggerimenti generali seguenti:
 
-- Verificare di accedere all'URL corretto: [https://myapps.microsoft.com](https://myapps.microsoft.com)
-
+- Verificare in primo luogo di usare l'URL corretto: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Provare ad aggiungere l'URL ai siti attendibili del browser.
-
-- Verificare che la password non sia scaduta o non sia stata dimenticata. Vedere [qui](active-directory-passwords-update-your-own-password.md) informazioni dettagliate per l'aggiornamento della password.
-
-- Verificare che le informazioni di contatto per l'autenticazione siano aggiornate e non impediscano l'accesso. Vedere [qui](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) altri dettagli per l'impostazione delle informazioni di autenticazione.
-
+- Assicurarsi che la password sia corretta e che non sia scaduta. Per altre informazioni, vedere [Reimpostare la password aziendale o scolastica](active-directory-passwords-update-your-own-password.md).
+- Assicurarsi che le informazioni di contatto per l'autenticazione siano aggiornate e che non impediscano l'accesso. Per altre informazioni, vedere [Quali sono i vantaggi di Azure Multi-Factor Authentication?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user).
 - Cancellare i cookie del browser e riprovare ad accedere.
 
-Se i problemi persistono e non consentono l'accesso, rivolgersi all'amministratore per ulteriore assistenza.
+Se i problemi persistono durante i tentativi di accesso, rivolgersi all'amministratore.
 
 
-## <a name="how-do-i-update-my-password"></a>Come aggiornare la password
+## <a name="i-seem-to-be-having-password-issues"></a>Si è verificato un problema con la password
 
 Se si dimentica la password, la si vuole modificare, il personale IT non l'ha mai inviata oppure se l'account è stato bloccato, vedere [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md) (Password di Azure AD dimenticata).
 
-## <a name="how-do-i-register-for-password-reset"></a>Come registrarsi per la reimpostazione della password
+## <a name="i-need-to-register-for-password-reset"></a>È necessario eseguire la registrazione per la reimpostazione della password
 
-Come utente finale, è possibile reimpostare la password o sbloccare l'account senza la necessità di rivolgersi a un'altra persona usando la funzionalità di reimpostazione della password self-service (SSPR). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore. Per altre informazioni, vedere [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md).
+È possibile reimpostare la password o sbloccare l'account senza la necessità di rivolgersi a un'altra persona usando la funzionalità di reimpostazione della password self-service (SSPR). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione in uso o confermare i metodi di autenticazione predefiniti richiesti dall'amministratore. Per altre informazioni, vedere [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md).
 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Si riscontrano problemi con l'installazione dell'estensione di accesso sicuro per le app personali
 
-Verificare se i requisiti del browser sono soddisfatti:
+Per il portale delle app personali è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Se si usano app con accesso Single Sign-On basato su password è necessario installare anche l'estensione corrispondente. L'estensione viene scaricata automaticamente quando si avvia un'applicazione configurata per le app con accesso Single Sign-On basato su password.
 
-- Per il portale è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Se si usano app con accesso Single Sign-On basato su password è necessario installare anche l'estensione corrispondente. L'estensione viene scaricata automaticamente quando si avvia un'applicazione configurata per le app con accesso Single Sign-On basato su password.
+Verificare che vengano soddisfatti i requisiti del browser seguenti:
+- **Edge**: su Windows 10 Anniversary Edition o versioni successive.
+- **Chrome**: in Windows 7 o versione successiva e in Mac OS X o versione successiva.
+- **Firefox 26.0 o versione successiva**: in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva.
+- **Internet Explorer 8, 9, 10, 11**: in Windows 7 o versioni successive (supporto limitato).
 
-- I requisiti del browser per l'estensione sono i seguenti:
-    - Edge su Windows 10 Anniversary Edition o versioni successive
-    - Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
-    - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
-    - Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive (supporto limitato)
-
-È anche possibile scaricare l'estensione per Chrome ed Edge dai collegamenti diretti seguenti:
+È anche possibile scaricare l'estensione per Chrome ed Edge direttamente dai siti seguenti:
 
 - [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-
 - [Estensione per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
-Se dopo l'installazione si riscontrano problemi, seguire questa procedura:
+Se l'estensione è stata installata e continuano a verificarsi problemi, procedere come segue:
 
 - Verificare che l'estensione sia abilitata nelle impostazioni delle estensioni del browser.
+- Riavviare il browser e accedere al portale delle app personali.
+- Cancellare i cookie del browser e accedere al portale delle app personali.
+- Per accedere a uno strumento di diagnostica e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la procedura di [risoluzione dei problemi relativi all'estensione del riquadro di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-- Riavviare il browser e accedere al portale App personali.
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Usare l'estensione per l'accesso sicuro alle app personali
+* Se si usa un URL delle app personali diverso da `https://myapps.microsoft.com`, configurare l'URL predefinito effettuando le operazioni seguenti:
+   1. *Senza* accedere all'estensione, fare clic con il pulsante destro del mouse sull'icona dell'estensione.
+   2. Nel menu selezionare **My Apps URL** (URL app personali).
+   3. Selezionare l'URL predefinito.
+   4. Selezionare l'icona dell'estensione.
+   5. Per accedere all'estensione, selezionare **Accedere per iniziare**.
 
-- Cancellare i cookie del browser e accedere al portale App personali.
-- Per accedere a uno strumento di diagnostica e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la [Risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
+* Per accedere direttamente a un'app dal browser, eseguire le operazioni seguenti:
+   1. Dopo aver installato l'estensione, accedervi selezionando **Accedere per iniziare**.
+   2. Accedere all'app tramite l'URL di accesso.  
+       L'URL di accesso è in genere l'URL dell'app che visualizza il form di accesso.
+      L'estensione dovrebbe modificare lo stato in modo da consentire di sapere se la password è disponibile.
+   3. Per eseguire l'accesso, selezionare l'icona dell'estensione.
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Come usare l'estensione per l'accesso sicuro alle app personali
-Modifica dell'URL predefinito delle app personali per l'estensione
-
-Se per le app personali si usa un URL diverso da https://myapps.microsoft.com è necessario configurare l'URL predefinito tramite la procedura seguente:
-1. Senza accedere all'estensione, **fare clic con il pulsante destro del mouse** sull'icona dell'estensione.
-2. Fare clic su **Seleziona URL app personali** dal menu.
-3. **Selezionare** l'URL predefinito.
-4. Fare clic sull'icona dell'estensione.
-5. Accedere all'estensione selezionando **Accedere per iniziare**.
-
-Accedere direttamente a un'app dal browser
-1. Dopo aver installato l'estensione, accedervi selezionando **Accedere per iniziare**.
-2. Passare all'**URL di accesso** dell'app a cui si vuole accedere, in genere l'URL dell'app che consente di visualizzare la pagina di accesso.
-3. L'estensione dovrebbe modificare lo stato e consentire di sapere se la password è disponibile, fare clic sull'**icona di estensione** per accedere
-
-Avviare un'app dall'estensione
-1. Dopo aver installato l'estensione, accedervi selezionando **Accedere per iniziare**.
-2. Fare clic sull'icona di estensione per aprire il menu.
-3. **Cercare** un'app disponibile nel portale delle app personali.
-4. Scegliere l'app nei **i risultati della ricerca** per avviarla.
-5. Le ultime tre app avviate verranno inoltre visualizzate nell'elenco di collegamenti **Usati di recente**
+* Per avviare un'app dall'estensione, eseguire le operazioni seguenti:
+   1. Dopo aver installato l'estensione, accedervi selezionando **Accedere per iniziare**.
+   2. Selezionare l'icona di estensione per aprire il menu.
+   3. Cercare un'app disponibile nel portale delle app personali.
+   4. Nell'elenco dei risultati di ricerca selezionare l'app.  
+       Nell'elenco di collegamenti **Usati di recente** verranno visualizzate le ultime tre app usate.
 
 > [!NOTE]
-> Queste opzioni sono disponibili solo per Edge, Chrome, Firefox.
+> Queste funzionalità sono disponibili solo per Edge, Chrome e Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Come aggiungere una nuova app
 
-1.  Nella pagina **App** fare clic su **Aggiungi app**.
+1.  Nella pagina **App** selezionare **Aggiungi app**.
+2.  Cercare l'applicazione che si desidera aggiungere e quindi selezionare **Aggiungi**.
 
-2.  Cercare l'applicazione da aggiungere e quindi fare clic su **Aggiungi**.
-
-**Osservazioni:**
-
-- Si ha accesso a questa opzione solo se è stata abilitata dall'amministratore per l'account.
-
-- Se l'applicazione richiede l'autorizzazione può essere necessario attendere l'approvazione dell'amministratore.
-
+   > [!NOTE]
+   > * È possibile accedere a questa opzione solo se l'amministratore l'ha abilitata per l'account.
+   > * Se l'app richiede l'autorizzazione, può essere necessario attendere l'approvazione dell'amministratore.
+   > 
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Come gestire l'appartenenza ai gruppi
 
-1. Fare clic nel riquadro **Gruppi**. 
-2. Per creare un gruppo, in Gruppi di cui si è proprietari fare clic su **Crea gruppo**, quindi seguire le istruzioni.
-3. Per partecipare a un gruppo, in Gruppi a cui si appartiene fare clic su **Partecipa a gruppo**, quindi seguire le istruzioni.
+Selezionare il riquadro **Gruppi** e quindi eseguire una delle operazioni seguenti: 
+* Per creare un gruppo, in **Gruppi di cui si è proprietari** selezionare **Crea gruppo** e quindi seguire le istruzioni.
+* Per partecipare a un gruppo, in **Gruppi a cui si appartiene** fare clic su **Partecipa a gruppo** e quindi seguire le istruzioni.
 
-**Osservazioni:**
-
-- Si ha accesso a questa opzione solo se è stata abilitata dall'amministratore per l'account.
-
-- Nei gruppi di appartenenza è possibile visualizzare i dettagli o abbandonare il gruppo.
-
-- Nei gruppi di cui si proprietari è possibile visualizzare i dettagli, aggiungere o rimuovere membri e abbandonare il gruppo.
+   > [!NOTE]
+   > * È possibile accedere a questa opzione solo se l'amministratore l'ha abilitata per l'account.
+   > * Se si è membri di un gruppo, è possibile visualizzarne i dettagli e abbandonare il gruppo.
+   > * Se si è proprietari di un gruppo, è possibile visualizzarne i dettagli, aggiungere o rimuovere i membri e abbandonare il gruppo.
+   >
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni correlate alla risoluzione dei problemi, vedere [Problemi relativi all'uso del sito Web o dell'applicazione per dispositivi mobili del pannello di accesso dell'applicazione](active-directory-application-access-panel-content-map.md)
+Per altre informazioni relative alla risoluzione dei problemi, vedere [Problemi relativi all'uso del sito Web o dell'applicazione per dispositivi mobili del pannello di accesso dell'applicazione](active-directory-application-access-panel-content-map.md).
 

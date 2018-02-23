@@ -40,12 +40,12 @@ Nella soluzione è incluso un simulatore di dati telematici relativi al veicolo,
 
 Questo set di dati in formato JSON contiene lo schema seguente.
 
-| Colonna | Descrizione | Valori |
+| Colonna | DESCRIZIONE | Valori |
 | --- | --- | --- |
 | vin |Numero di identificazione del veicolo generato in modo casuale |Ottenuto da un elenco principale di 10.000 numeri di identificazione del veicolo generati in modo casuale |
 | outsideTemperature |Temperatura all'esterno durante la guida del veicolo |Numero da 0 a 100 generato in modo casuale |
 | engineTemperature |Temperatura del motore del veicolo |Numero da 0 a 500 generato in modo casuale |
-| Velocità |Velocità del motore durante la guida del veicolo |Numero da 0 a 100 generato in modo casuale |
+| speed |Velocità del motore durante la guida del veicolo |Numero da 0 a 100 generato in modo casuale |
 | fuel |Livello di carburante del veicolo |Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di carburante) |
 | engineoil |Livello dell'olio del motore del veicolo |Numero da 0 a 100 generato in modo casuale (indica la percentuale del livello di olio nel motore) |
 | Tire pressure |Pressione degli pneumatici del veicolo |Numero da 0 a 50 generato in modo casuale (indica la percentuale del livello di pressione degli pneumatici) |
@@ -58,7 +58,7 @@ Questo set di dati in formato JSON contiene lo schema seguente.
 | ignition_status |Indica se il veicolo è acceso o meno |true o false |
 | windshield_wiper_status |Indica se il tergicristallo è attivato o meno |true o false |
 | abs |Indica se l'ABS è attivato o meno |true o false |
-| Timestamp |Timestamp di creazione del punto dati |Date |
+| Timestamp |Timestamp di creazione del punto dati |Data |
 | city |Località in cui si trova il veicolo |Quattro città in questa soluzione: Bellevue, Redmond, Sammamish, Seattle |
 
 Il set di dati di riferimento del modello del veicolo esegue il mapping dei numeri di identificazione del veicolo con i modelli. 
@@ -662,14 +662,14 @@ L'aspetto finale del dashboard appare come nell'esempio seguente:
 
 ![Dashboard di Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questo documento contiene un'analisi dettagliata e approfondita della soluzione di analisi dei dati di telemetria del veicolo. Il modello di architettura lambda viene usato per l'analisi batch e in tempo reale completa di stime e azioni. Il modello si applica a una vasta gamma di casi d'uso che richiedono l'analisi del percorso critico (in tempo reale) e di quello non critico (batch). 
 
 ### <a name="references"></a>Riferimenti
 
 * [Soluzione Vehicle Telematics Simulator di Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
-* [Data factory di Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK di Hub eventi di Azure per l'inserimento di flussi](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Funzionalità di spostamento dei dati di Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
 * [Attività .NET di Azure Data Factory](../../data-factory/v1/data-factory-use-custom-activities.md)

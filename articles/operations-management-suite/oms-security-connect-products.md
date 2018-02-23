@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f95ee94d1b86b6409fc5ecce14ed3e068a635b3d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>Connessione dei prodotti per la sicurezza alla soluzione Sicurezza e controllo per Operations Management Suite (OMS) 
 Questo documento consente di connettere i prodotti per la sicurezza alla soluzione Sicurezza e controllo per OMS. Sono supportate le origini seguenti:
@@ -95,7 +95,7 @@ Nel computer agente gli eventi devono essere inviati dal daemon syslog alla port
 
 ## <a name="reviewing-collected-security-events"></a>Esaminare gli eventi di sicurezza raccolti
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 Al termine della configurazione, gli eventi di sicurezza inizieranno a essere acquisiti dalla soluzione per la sicurezza per OMS. Per visualizzare tali eventi, aprire Ricerca log, digitare il comando *Type=CommonSecurityLog* nel campo di ricerca e premere INVIO. Nell'esempio seguente viene illustrato il risultato di questo comando. Si noti che la soluzione per la sicurezza per OMS in questo caso ha già acquisito i log per la sicurezza da più fornitori:
    
@@ -106,7 +106,7 @@ Al termine della configurazione, gli eventi di sicurezza inizieranno a essere ac
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Accesso ai computer senza valutazione baseline
 OMS supporta il profilo baseline dei membri di dominio in Windows Server 2008 R2 fino a Windows Server 2012 R2. La baseline di Windows Server 2016 non è ancora definitiva e verrà aggiunta non appena pubblicata. Tutti i sistemi operativi analizzati tramite la valutazione baseline della soluzione Sicurezza e controllo per OMS vengono visualizzati nella sezione **Computer senza valutazione baseline**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 In questo documento è stato descritto come connettere la soluzione CEF a OMS. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
 
 * [Panoramica di Operations Management Suite (OMS)](operations-management-suite-overview.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Elenco dei connettori
 Per trovare i trigger e le azioni definiti dalla descrizione Swagger di ogni connettore e gli eventuali limiti dei connettori, vedere le [informazioni dettagliate sui connettori](/connectors/).
@@ -82,7 +82,7 @@ Enterprise Integration Pack (EIP) include connettori noti alla community di BizT
 | --- | --- | --- | --- |
 | [![Icona API][as2icon]<br/>**Decodifica</br> AS2**][as2decode] | [![Icona API][as2icon]<br/>**Codifica</br> AS2**][as2encode] | [![Icona API][x12icon]<br/>**Decodifica</br> EDIFACT**][EDIFACTdecode] | [![Icona API][x12icon]<br/>**Codifica</br> EDIFACT**][EDIFACTencode] |
 [![Icona API][flatfileicon]<br/>**Codifica</br> file flat**][flatfiledoc] | [![Icona API][flatfiledecodeicon]<br/>**Decodifica</br> file flat**][flatfiledecodedoc] | [![Icona API][integrationaccounticon]<br/>**Account<br/> di integrazione**][integrationaccountdoc] | [![Icona API][xmltransformicon]<br/>**Trasformazione<br/>XML**][xmltransformdoc] |
-| [![Icona API][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![Icona API][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | |
+| [![Icona API][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![Icona API][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | [![Icona API][liquidicon]<br/>**Trasformazioni <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Connettori aziendali
 
@@ -126,7 +126,7 @@ Le app per la logica includono azioni predefinite che consentono di modificare i
 | **Filtra matrice** (query) | È possibile filtrare un set di risultati per visualizzare le voci più rilevanti per l'utente. È ad esempio possibile cercare tutti i tweet con `#Azure` e quindi "filtrare" i tweet restituiti per poter visualizzare solo i risultati di tipo `Tweeted_by_followers > 50`. |
 | **Join** | È possibile unire una matrice mediante un delimitatore. L'operazione di rilevamento delle frasi chiave restituisce una matrice di frasi chiave. È possibile "unirle" con `,` o un approccio simile. Invece di `["Some", "Phrase"]` si ottiene `"Some, Phrase"`. |
 | **Analizza JSON** | È possibile escludere tramite analisi e accedere a valori da un oggetto JSON nella finestra di progettazione. Se ad esempio Funzioni di Azure restituisce un payload JSON, è possibile analizzarlo per accedere alle proprietà JSON in un passaggio successivo. L'azione convalida anche la corrispondenza di JSON con lo schema specificato in fase di runtime. | 
-| **Selezionare** | Selezionare alcune proprietà di una matrice per un'elaborazione aggiuntiva. Se si elencano record da SQL e vengono restituite 15 colonne, selezionare solo alcune colonne per un'elaborazione aggiuntiva. L'output è una matrice che contiene solo le proprietà selezionate. |
+| **Select** | Selezionare alcune proprietà di una matrice per un'elaborazione aggiuntiva. Se si elencano record da SQL e vengono restituite 15 colonne, selezionare solo alcune colonne per un'elaborazione aggiuntiva. L'output è una matrice che contiene solo le proprietà selezionate. |
 
 ## <a name="custom-connectors-and-azure-certification"></a>Connettori personalizzati e certificazione per Azure 
 
@@ -143,7 +143,7 @@ Per contribuire al miglioramento di App per la logica di Azure e dei connettori,
 Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia importante, aggiungerlo agli argomenti esistenti o scrivere un argomento personalizzato. La documentazione è open source e ospitata su GitHub. Introduzione al [repository GitHub](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare la prima app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Creare API personalizzate per app per la logica](../logic-apps/logic-apps-create-api-app.md)
 * [Monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
@@ -189,6 +189,7 @@ Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia impo
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode" (Informazioni su Enterprise Integration: decodifica EDIFACT)
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode" (Informazioni su Enterprise Integration: codifica EDIFACT)
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Cercare schemi, mappe, partner e altro ancora nell'account di integrazione"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Informazioni sulle trasformazioni JSON con Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Connettersi a Box. Caricare, recuperare, eliminare ed elencare i file e altro ancora"
@@ -328,3 +329,4 @@ Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia impo
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

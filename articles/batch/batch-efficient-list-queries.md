@@ -76,7 +76,7 @@ La stringa di filtro è un'espressione che riduce il numero di elementi restitui
 * È possibile combinare più espressioni usando gli operatori logici `and` e `or`.
 * Questo esempio di stringa di filtro indica solo le attività di "rendering" in esecuzione: `(state eq 'running') and startswith(id, 'renderTask')`.
 
-### <a name="select"></a>Selezionare
+### <a name="select"></a>Select
 La stringa di selezione limita i valori della proprietà restituiti per ogni elemento. Si specifica un elenco di nomi di proprietà e vengono restituiti solo i valori di quelle proprietà per gli elementi nei risultati della query.
 
 * La stringa di selezione è costituita da un elenco con valori delimitati da virgole di nomi di proprietà. È possibile specificare qualsiasi proprietà per il tipo di entità su cui si esegue la query.
@@ -181,7 +181,7 @@ I nomi delle proprietà nelle stringhe di filtro, selezione ed espansione *devon
 ## <a name="example-construct-a-filter-string"></a>Esempio: costruire una stringa di filtro
 Quando si costruisce una stringa di filtro per un oggetto [ODATADetailLevel.FilterClause][odata_filter], vedere la tabella in "Mapping per le stringhe di filtro" per trovare la pagina di documentazione dell'API REST corrispondente all'operazione di tipo elenco da eseguire. Le proprietà filtrabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Per recuperare ad esempio tutte le attività il cui codice di uscita non è pari a zero, questa riga in [Elencare le attività associate a un processo][rest_list_tasks] specifica la stringa della proprietà applicabile e gli operatori consentiti:
 
-| Proprietà | Operazioni consentite | Tipo |
+| Proprietà | Operazioni consentite | type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -192,7 +192,7 @@ La stringa di filtro per elencare tutte le attività con un codice di uscita non
 ## <a name="example-construct-a-select-string"></a>Esempio: costruire una stringa di selezione
 Per costruire una stringa [ODATADetailLevel.SelectClause][odata_select], vedere la tabella in "Mapping per le stringhe di selezione" e passare alla pagina dell'API REST che corrisponde al tipo di entità da specificare. Le proprietà selezionabili e gli operatori supportati sono disponibili nella prima tabella con più righe in quella pagina. Se ad esempio si desidera recuperare solo l'ID e la riga di comando per ogni attività in un elenco, queste righe si trovano nella tabella applicabile in [Ottenere informazioni su un'attività][rest_get_task]:
 
-| Proprietà | Tipo | Note |
+| Proprietà | type | Note |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |

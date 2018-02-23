@@ -52,7 +52,7 @@ Sono i seguenti:
 
 Versioni supportate ufficialmente:
 
-| Componente | Versione |
+| Componente | Version |
 |---------|-------|
 |Apache Spark|2.0.2, 2.1.0, 2.2.0|
 | Scala| 2.10, 2.11|

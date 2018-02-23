@@ -51,13 +51,13 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | Tipo di errore | Motivo | Log|
 |---|---|---|
 | NoFault | Non viene rilevato alcun errore. |Sì|
-| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No|
-| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No|
-| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No |
-| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No |
-| PlatformInActive | Si è verificato un errore con la piattaforma. | No|
-| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No|
-| NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No|
+| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
+| PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No |
+| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No  |
+| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
+| PlatformInActive | Si è verificato un errore con la piattaforma. | No |
+| ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
+| NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No |
 | ConnectionsNotConnected | Le connessioni non sono connesse. Questo è solo un avviso.| Sì|
 | GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
@@ -66,15 +66,15 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 | Tipo di errore | Motivo | Log|
 |---|---|---|
 | NoFault | Non viene rilevato alcun errore. |Sì|
-| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No|
-| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No|
-| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No |
-| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No |
-| ConnectionEntityNotFound | La configurazione della connessione non è presente. | No |
-| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No|
+| GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
+| PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No |
+| UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No  |
+| VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
+| ConnectionEntityNotFound | La configurazione della connessione non è presente. | No  |
+| ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No |
 | ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
 | ConnectionMarkedStandy | Il servizio sottostante viene contrassegnato come "standby".| Sì|
-| Autenticazione | Mancata corrispondenza della chiave precondivisa. | Sì|
+| Authentication | Mancata corrispondenza della chiave precondivisa. | Sì|
 | PeerReachability | Il gateway peer non è raggiungibile. | Sì|
 | IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
 | WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|

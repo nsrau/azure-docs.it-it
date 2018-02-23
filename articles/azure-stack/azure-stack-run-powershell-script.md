@@ -216,18 +216,18 @@ Se l'ambiente **non** hanno DHCP è abilitato, è necessario includere i seguent
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>Parametri facoltativi ASDK InstallAzureStackPOC.ps1
-|Parametro|Obbligatorio/Facoltativo|Descrizione|
+|Parametro|Obbligatorio/Facoltativo|DESCRIZIONE|
 |-----|-----|-----|
-|AdminPassword|Obbligatorio|Imposta l'account amministratore locale e tutti gli altri account utente in tutte le macchine virtuali create come parte della distribuzione kit di sviluppo. Questa password deve corrispondere alla password di amministratore locale corrente nell'host.|
-|InfraAzureDirectoryTenantName|Obbligatorio|Imposta la directory del tenant. Utilizzare questo parametro per specificare una directory specifica in cui l'account AAD disponga delle autorizzazioni per la gestione di più directory. Nome di un Tenant di Directory nel formato completo. c o m o Azure Active Directory il nome di dominio personalizzato verificato.|
-|Acquisisca|Obbligatorio|Utilizzare questo parametro per specificare un server di tempo specifico. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.|
+|AdminPassword|Obbligatoria|Imposta l'account amministratore locale e tutti gli altri account utente in tutte le macchine virtuali create come parte della distribuzione kit di sviluppo. Questa password deve corrispondere alla password di amministratore locale corrente nell'host.|
+|InfraAzureDirectoryTenantName|Obbligatoria|Imposta la directory del tenant. Utilizzare questo parametro per specificare una directory specifica in cui l'account AAD disponga delle autorizzazioni per la gestione di più directory. Nome di un Tenant di Directory nel formato completo. c o m o Azure Active Directory il nome di dominio personalizzato verificato.|
+|TimeServer|Obbligatoria|Utilizzare questo parametro per specificare un server di tempo specifico. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.|
 |InfraAzureDirectoryTenantAdminCredential|Facoltativo|Imposta il nome utente di Azure Active Directory e la password. Le credenziali di Azure devono essere ID. Org|
 |InfraAzureEnvironment|Facoltativo|Selezionare l'ambiente di Azure con cui si desidera registrare la distribuzione di Azure Stack. Le opzioni includono pubblica Azure, Azure - Cina, Azure - governo.|
 |DNSForwarder|Facoltativo|Un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per la risoluzione dei nomi di fuori l'indicatore, fornire i server di infrastruttura DNS esistente. Il server DNS in timbro inoltra le richieste di risoluzione nome sconosciuto al server.|
 |NatIPv4Address|Richiesta per il supporto DHCP NAT|Imposta un indirizzo IP statico per definiti BGPNAT01. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
 |NatIPv4Subnet|Richiesta per il supporto DHCP NAT|Prefisso di Subnet IP utilizzato per DHCP sul supporto NAT. Usare questo parametro solo se DHCP non riesce ad assegnare un indirizzo IP valido per accedere a Internet.|
 |PublicVlanId|Facoltativo|Imposta l'ID VLAN. Utilizzare questo parametro solo se l'host e definiti BGPNAT01 necessario configurare l'ID VLAN per accedere alla rete fisica (e Internet). Ad esempio,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Riesegui|Facoltativo|Utilizzare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dati reimmettere forniti in precedenza non sono supportati perché più valori univoci vengono generati e utilizzati per la distribuzione.|
+|Esegui di nuovo|Facoltativo|Utilizzare questo flag per rieseguire la distribuzione. Tutti gli input precedenti viene utilizzato. Dati reimmettere forniti in precedenza non sono supportati perché più valori univoci vengono generati e utilizzati per la distribuzione.|
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Attivare i portali tenant e di amministratore
 Dopo le distribuzioni che usano Azure AD, è necessario attivare entrambi i Azure Stack amministratore portali tenant e. Questa attivazione consente che il portale di Azure Stack e Azure Resource Manager le autorizzazioni corrette (elencate nella pagina di consenso) per tutti gli utenti della directory.

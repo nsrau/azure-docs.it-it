@@ -172,10 +172,10 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 32. Nella pagina **Advanced Options** , accettare il valore predefinito.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image33.png)
-33. Nella pagina **Ready to Complete** , esaminare le opzioni del disco. Fare clic su **Finish**.
+33. Nella pagina **Ready to Complete** , esaminare le opzioni del disco. Fare clic su **Fine**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image34.png)
-34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Finish**.
+34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Fine**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
 35. Con la macchina virtuale selezionata nel riquadro a destra, passare alla scheda **Summary** . Rivedere le impostazioni per la macchina virtuale.

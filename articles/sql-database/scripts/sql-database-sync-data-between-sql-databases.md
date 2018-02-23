@@ -19,7 +19,7 @@ ms.author: jognanay
 ms.reviewer: douglasl
 ms.openlocfilehash: fe52538c95619cd5bf69ff706ec266195194ace9
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---

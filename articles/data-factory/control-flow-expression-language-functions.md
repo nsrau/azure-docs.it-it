@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 78f21576bb7d839e5b5c4d8c2b721e381d663406
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ I valori JSON nella definizione possono essere letterali o espressioni che vengo
 "name": "value"
 ```
 
- (o)  
+ (oppure)  
   
 ```json
 "name": "@pipeline().parameters.password"
@@ -56,22 +56,22 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
   
  Tramite una funzionalità denominata *interpolazione delle stringhe*, è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- Usando l'interpolazione delle stringhe, il risultato è sempre una stringa. Ad esempio dopo aver definito `myNumber` come `42` e `myString` come `foo`:  
+ Usando l'interpolazione delle stringhe, il risultato è sempre una stringa. Si supponga di aver definito `myNumber` come `42` e `myString` come `foo`:  
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
-|"@pipeline(). parameters.myString"| Restituisce `foo` come stringa.|  
-|"@{pipeline.parameters.myString ()}"| Restituisce `foo` come stringa.|  
-|"@pipeline(). parameters.myNumber"| Restituisce `42` come *numero*.|  
-|"@{pipeline.parameters.myNumber ()}"| Restituisce `42` come *stringa*.|  
-|"Risposta è: @{pipeline.parameters.myNumber ()}"| Restituisce la stringa `Answer is: 42`.|  
-|"@concat(' Risposta è: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
-|"Risposta è: @ @ {pipeline.parameters.myNumber ()}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"@pipeline().parameters.myString"| Restituisce `foo` come stringa.|  
+|"@{pipeline().parameters.myString}"| Restituisce `foo` come stringa.|  
+|"@pipeline().parameters.myNumber"| Restituisce `42` come *numero*.|  
+|"@{pipeline().parameters.myNumber}"| Restituisce `42` come *stringa*.|  
+|"Answer is: @{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: 42`.|  
+|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
+|"Answer is: @@{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Esempi
 
 #### <a name="a-dataset-with-a-parameter"></a>Un set di dati con un parametro
-Nell'esempio seguente, il BlobDataset accetta un parametro denominato **percorso**. Il valore viene utilizzato per impostare un valore per il **folderPath** proprietà tramite le espressioni seguenti: `@{dataset().path}`. 
+Nell'esempio seguente BlobDataset accetta un parametro denominato **path**. Questo valore viene usato per impostare un valore per la proprietà **folderPath** usando l'espressione seguente: `@{dataset().path}`. 
 
 ```json
 {
@@ -95,7 +95,7 @@ Nell'esempio seguente, il BlobDataset accetta un parametro denominato **percorso
 ```
 
 #### <a name="a-pipeline-with-a-parameter"></a>Una pipeline con un parametro
-Nell'esempio seguente, la pipeline accetta **inputPath** e **outputPath** parametri. Il **percorso** per il blob con parametri i set di dati viene impostata tramite valori di questi parametri. La sintassi usata in questo esempio è: `pipeline().parameters.parametername`. 
+Nell'esempio seguente la pipeline accetta i parametri **inputPath** e **outputPath**. Il parametro **path** per il set di dati del BLOB con parametri viene impostato usando i valori di questi parametri. La sintassi usata è: `pipeline().parameters.parametername`. 
 
 ```json
 {

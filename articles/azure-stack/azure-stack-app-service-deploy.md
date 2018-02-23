@@ -12,21 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6851fd46d243fcdce4f69811495c74dfe8311478
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 Un operatore di cloud di Azure Stack, è possibile assegnare agli utenti la possibilità di creare applicazioni web e API. A tale scopo, è necessario aggiungere il [il provider di risorse di servizio App](azure-stack-app-service-overview.md) alla distribuzione di Azure Stack, come descritto in questo articolo. Dopo aver installato il provider di risorse del servizio App, è possibile includerla nelle offerte e piani. Gli utenti possono eseguire la sottoscrizione per ottenere il servizio e avviare la creazione di applicazioni.
 
 > [!IMPORTANT]
 > Prima di eseguire il programma di installazione, assicurarsi di aver seguito le istruzioni riportate in [prima di iniziare](azure-stack-app-service-before-you-get-started.md).
-> 
+>
 >
 
 
@@ -59,7 +60,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 6. Nella pagina successiva:
     1. Fare clic su di **Connetti** accanto al pulsante il **sottoscrizioni di Azure Stack** casella.
         - Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password forniti quando è stato distribuito Azure Stack. Fare clic su **Sign In**.
-        - Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. ad esempio cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
+        - Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
     2. Nel **sottoscrizioni di Azure Stack** , selezionare la sottoscrizione.
     3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
     4. Immettere un **nome gruppo di risorse** per la distribuzione di servizio App. Per impostazione predefinita, viene impostata su **APPSERVICE\<area\>**.
@@ -85,7 +86,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     | Box | Esempio di nome file di certificato |
     | --- | --- |
-    | **File di certificato SSL predefinito di servizio App** | \_. appservice.local.AzureStack.external.pfx |
+    | **File di certificato SSL predefinito di servizio App** | \_.appservice.local.AzureStack.external.pfx |
     | **File del certificato SSL API del servizio App** | api.appservice.local.AzureStack.external.pfx |
     | **File del certificato SSL di server di pubblicazione del servizio App** | ftp.appservice.local.AzureStack.external.pfx |
 
@@ -101,16 +102,16 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     > [!NOTE]
     > Per le distribuzioni di produzione, le istruzioni disponibili in [pianificazione della capacità di ruoli del server di servizio App di Azure in Azure Stack](azure-stack-app-service-capacity-planning.md).
-    > 
+    >
     >
 
     | Ruolo | Istanze minima | SKU minimo | Note |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
-    | gestione | 1 | Standard_A2 - (Vcpu 2, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
-    | Autore | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
-    | Lavoro condiviso | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
+    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
+    | Gestione | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
+    | Editore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
+    | Lavoro condiviso | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image08.png)    
 

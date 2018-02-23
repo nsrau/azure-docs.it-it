@@ -25,7 +25,7 @@ ms.lasthandoff: 10/20/2017
 
 
 Questo articolo descrive come configurare la replica di macchine virtuali (VM) in esecuzione su VMware in Azure.
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone che l'utente abbia:
 
@@ -121,7 +121,7 @@ Successivamente, verificare le proprietà del computer di origine. Tenere presen
 
 ### <a name="azure-hybrid-use-benefit"></a>Vantaggio Azure Hybrid Use
 
-I clienti di Microsoft Software Assurance possono usare il Vantaggio Azure Hybrid Use per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o usare Azure per il ripristino di emergenza. Se si ha diritto a usare il Vantaggio Azure Hybrid Use, è possibile specificare che questo vantaggio dovrà essere assegnato alla macchina virtuale creata da Azure Site Recovery in Azure in caso di failover. A tale scopo, seguire questa procedura:
+I clienti di Microsoft Software Assurance possono usare il Vantaggio Azure Hybrid Use per risparmiare sui costi di licenza per i computer Windows Server di cui viene eseguita la migrazione ad Azure o usare Azure per il ripristino di emergenza. Se si ha diritto a usare il Vantaggio Azure Hybrid Use, è possibile specificare che questo vantaggio dovrà essere assegnato alla macchina virtuale creata da Azure Site Recovery in Azure in caso di failover. A tale scopo, effettuare l'operazione seguente:
 - Passare alla sezione delle proprietà Calcolo e rete della macchina virtuale replicata.
 - Rispondere alla domanda che chiede se si ha una licenza di Windows Server in virtù della quale si è idonei per il Vantaggio Azure Hybrid Use.
 - Selezionare la casella di controllo per confermare che si ha una licenza di Windows Server con Software Assurance idonea che consente di applicare il Vantaggio Hybrid Use nel computer che verrà creato con il failover.

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: aggiornare le impostazioni DNS per la rete virtuale di Azure | Microsoft Docs'
-description: Introduzione a Servizi di dominio Azure Active Directory
+description: Introduzione ad Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan

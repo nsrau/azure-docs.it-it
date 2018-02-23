@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 37f9da7dcc8dd527fe0bfbf2fbcc40a3ba0e8a1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guida per gli sviluppatori dell'hub IoT di Azure
 
@@ -42,10 +42,10 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
   * [Inviare messaggi da cloud a dispositivo dall'hub IoT][devguide-messages-c2d].
   * [Creare e leggere messaggi dell'hub IoT][devguide-format].
 * [Upload files from a device][devguide-upload] (Caricare file da un dispositivo), che descrive come caricare file da un dispositivo. Questo articolo contiene anche informazioni sul modo in cui le notifiche possono essere inviate dal processo di aggiornamento.
-* [Manage device identities in IoT Hub][devguide-identities] (Gestire le identità dei dispositivi nell'hub IoT), che descrive le informazioni archiviate nel registro delle identità di ogni hub IoT e spiega come accedere alle informazioni e modificarle.
+* [Gestire le identità dei dispositivi nell'hub IoT][devguide-identities], che descrive le informazioni archiviate nel registro delle identità di ogni hub IoT. L'articolo descrive anche come è possibile accedervi e modificarlo.
 * [Controllare l'accesso all'hub IoT][devguide-security], che descrive il modello di sicurezza usato per concedere l'accesso alla funzionalità hub IoT per i dispositivi e i componenti cloud. In questo articolo sono incluse informazioni sull'uso di token e certificati X.509, oltre ai dettagli delle autorizzazioni che è possibile concedere.
-* [Usare dispositivi gemelli per sincronizzare stato e configurazioni][devguide-device-twins], che descrive il concetto di *dispositivi gemelli* e la funzionalità esposta, come la sincronizzazione di un dispositivo con il suo gemello. In questo articolo sono incluse informazioni sui dati archiviati in un dispositivo gemello.
-* [Richiamare un metodo diretto in un dispositivo][devguide-directmethods], che descrive il ciclo di vita di un metodo diretto, informazioni su come richiamare i metodi in un dispositivo dall'app back-end e gestire il metodo diretto nel dispositivo.
+* [Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni][devguide-device-twins] descrive il concetto di *dispositivi gemelli*. L'articolo descrive anche le funzionalità esposte dai dispositivi gemelli, ad esempio la sincronizzazione di un dispositivo con il dispositivo gemello. In questo articolo sono incluse informazioni sui dati archiviati in un dispositivo gemello.
+* [Richiamare un metodo diretto in un dispositivo] [ devguide-directmethods] descrive il ciclo di vita di un metodo diretto. L'articolo descrive come richiamare metodi in un dispositivo dall'app back-end e come gestire il metodo diretto nel dispositivo.
 * [Pianificare processi in più dispositivi][devguide-jobs], che descrive come pianificare processi in più dispositivi. Questo articolo descrive come inviare processi che eseguono attività come un metodo diretto, aggiornando un dispositivo tramite un dispositivo gemello. Viene descritto anche come eseguire una query sullo stato di un processo.
 * [Reference - choose a communication protocol][devguide-protocol] (Informazioni di riferimento: scegliere un protocollo di comunicazione) descrive i protocolli di comunicazione supportati dall'hub IoT per la comunicazione tra dispositivi ed elenca le porte che devono essere aperte.
 * [Reference - IoT Hub endpoints][devguide-endpoints] (Informazioni di riferimento: Endpoint dell'hub IoT) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione. L'articolo descrive anche come creare endpoint aggiuntivi nell'hub IoT e come usare un gateway di campo per abilitare la connettività agli endpoint dell'hub IoT in scenari non standard.

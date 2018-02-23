@@ -175,6 +175,6 @@ In questa circostanza si utilizzerà una VM Linux con OpenSUSE.
 
            #[root@mysqlnode ~]# insserv mysql
 
-### <a name="next-step"></a>Passaggio successivo
+### <a name="next-step"></a>passaggio successivo
 Ulteriori utilizzi e informazioni su MySQL sono disponibili [qui](https://www.mysql.com/).
 

@@ -169,7 +169,7 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 
 4. Modificare il file JSON.
 
-    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. ad esempio:
+    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Ad esempio: 
 
     ```azurecli
     {
@@ -553,7 +553,7 @@ Dopo il ripristino della macchina virtuale, configurare l'indirizzo IP pubblico.
 
 L'esecuzione di backup e ripristino del database Oracle Database 12c su una macchina virtuale Linux di Azure è stata completata.
 
-## <a name="delete-the-vm"></a>Eliminare la VM
+## <a name="delete-the-vm"></a>Eliminare la macchina virtuale
 
 Quando la macchina virtuale non è più necessaria, è possibile usare il comando seguente per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate:
 

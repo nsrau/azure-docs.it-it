@@ -29,7 +29,7 @@ Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di pre
   
 -   Dopo aver ricevuto le unità da un processo di esportazione completato, è possibile usare questo strumento per recuperare eventuali file danneggiati o mancanti nelle unità.  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Se si intende preparare delle unità per un processo di importazione, è necessario soddisfare i prerequisiti seguenti:  
   
 -   È necessario disporre di una sottoscrizione di Azure attiva.  
@@ -254,7 +254,7 @@ Examples:
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md) (Preparazione dei dischi rigidi per un processo di importazione)   
+* [Preparazione dei dischi rigidi per un processo di importazione](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Anteprima dell'uso del disco per un processo di esportazione](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md) (Revisione dello stato dei processi con i file di log di copia)   
 * [Riparazione di un processo di importazione](../storage-import-export-tool-repairing-an-import-job-v1.md)   

@@ -1,16 +1,16 @@
 ---
-title: VMware e architettura della replica di Azure in Azure Site Recovery | Documenti Microsoft
+title: Architettura della replica da VMware ad Azure in Azure Site Recovery | Microsoft Docs
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di VM VMware locali in Azure con il servizio Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 01/15/2018
 ms.author: raynew
-ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 7999f23d167c6e8a7bcaf3a817e0cd2e80a1d649
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Architettura della replica da VMware ad Azure
 
@@ -24,11 +24,9 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
 **Azure** | Sono necessari una sottoscrizione di Azure, un account di archiviazione di Azure e una rete di Azure. | I dati replicati da macchine virtuali locali vengono archiviati nell'account di archiviazione. Le macchine virtuali di Azure vengono create con i dati replicati durante l'esecuzione di un failover dal sito locale ad Azure. Le VM di Azure si connettono alla rete virtuale di Azure quando vengono create.
-**Server di configurazione** | Viene distribuita una sola macchina virtuale VMware locale per eseguire tutti i componenti di Site Recovery locali. La macchina virtuale esegue il server di configurazione, il server di elaborazione e il server di destinazione master. | Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
- **Server di elaborazione**  | Installato per impostazione predefinita insieme al server di configurazione. | Agisce come un gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure.<br/><br/> Il server di elaborazione installa anche il servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali nei server VMware locali.<br/><br/> Con l'aumentare delle dimensioni della distribuzione, è possibile aggiungere altri server di elaborazione separati per gestire volumi più elevati di traffico di replica.
- **Server master di destinazione** | Installato per impostazione predefinita insieme al server di configurazione. | Gestisce i dati di replica durante il failback da Azure.<br/><br/> Per distribuzioni di grandi dimensioni, è possibile aggiungere un altro server di destinazione master separato per il failback.
+**Computer server di configurazione** | Un singolo computer locale. È consigliabile eseguirlo come macchina virtuale VMware distribuibile da un modello OVF scaricato.<br/><br/> Nel computer vengono eseguiti tutti i componenti locali di Site Recovery, inclusi il server di configurazione, il server di elaborazione e il server di destinazione master. | **Server di configurazione**: coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.<br/><br/> **Server di elaborazione**: installato per impostazione predefinita nel server di configurazione. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia alla risorsa di archiviazione di Azure. Il server di elaborazione installa anche il servizio Mobility nelle VM da replicare ed esegue l'individuazione automatica delle VM locali. Con l'aumentare delle dimensioni della distribuzione, è possibile aggiungere altri server di elaborazione separati per gestire volumi più elevati di traffico di replica.<br/><br/>  **Server di destinazione master**: installato per impostazione predefinita nel server di configurazione. Gestisce i dati di replica durante il failback da Azure. Per distribuzioni di grandi dimensioni, è possibile aggiungere un altro server di destinazione master separato per il failback.
 **Server VMware** | Le macchine virtuali VMware sono ospitate in server vSphere ESXi locali. È consigliabile usare un server vCenter per gestire gli host. | Durante la distribuzione di Site Recovery, aggiungere i server VMware all'insieme di credenziali di Servizi di ripristino.
-**Computer replicati** | Il servizio Mobility viene installato in ogni macchina virtuale VMware di cui viene eseguita la replica. | È consigliabile consentire l'installazione automatica dal server di elaborazione. In alternativa, è possibile installare manualmente il servizio o usare un metodo di distribuzione automatico, ad esempio System Center Configuration Manager. 
+**Computer replicati** | Il servizio Mobility viene installato in ogni macchina virtuale VMware di cui viene eseguita la replica. | È consigliabile consentire l'installazione automatica dal server di elaborazione. In alternativa, è possibile installare manualmente il servizio o usare un metodo di distribuzione automatico, ad esempio System Center Configuration Manager.
 
 **Architetture da VMware ad Azure**
 
@@ -36,15 +34,17 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 ## <a name="replication-process"></a>Processo di replica
 
-1. Si configura la distribuzione, inclusi i componenti locali e di Azure. Nell'insieme di credenziali di Servizi di ripristino è necessario specificare l'origine e la destinazione della replica, impostare il server di configurazione, creare criteri di replica e abilitare la replica.
-2. La replica dei computer avviene in base ai criteri di replica e viene eseguita la replica di una copia iniziale dei dati delle macchine virtuali nella risorsa di archiviazione di Azure.
-3. Al termine della replica iniziale, viene avviata la replica differenziale in Azure. Le modifiche rilevate vengono salvate in un file HRL.
+1.  Preparare le risorse di Azure e i componenti locali.
+2.  Nell'insieme di credenziali di Servizi di ripristino specificare le impostazioni della replica di origine. Come parte di questo processo, impostare il server di configurazione locale. Per distribuire il server come macchina virtuale VMware, scaricare un modello OVF preconfigurato e importarlo in VMware per creare la macchina virtuale.
+3. Specificare le impostazioni della replica di destinazione, definire i criteri di replica e abilitare la replica per le macchine virtuali VMware.
+4.  La replica dei computer avviene in base ai criteri di replica e viene eseguita la replica di una copia iniziale dei dati delle macchine virtuali nella risorsa di archiviazione di Azure.
+5.  Al termine della replica iniziale, viene avviata la replica differenziale in Azure. Le modifiche rilevate vengono salvate in un file HRL.
     - I computer comunicano con il server di configurazione sulla la porta HTTPS 443 in ingresso, per la gestione delle repliche.
     - I computer inviano i dati di replica al server di elaborazione sulla porta HTTPS 9443 in ingresso (che può essere modificata).
     - Il server di configurazione orchestra la gestione delle repliche con Azure tramite la porta HTTPS 443 in uscita.
     - Il server di elaborazione riceve i dati dai computer di origine, li ottimizza e li crittografa e li invia ad Archiviazione di Azure tramite la porta 443 in uscita.
     - Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gruppo di replica comunicano tra loro sulla porta 20004. La coerenza tra più VM viene usata se si raggruppano più computer in gruppi di replica che condividono punti di ripristino coerenti con l'arresto anomalo del sistema e coerenti con l'app quando si esegue il failover. È utile se i computer eseguono lo stesso carico di lavoro e devono essere coerenti.
-4. Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. In alternativa, è possibile usare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) di Azure ExpressRoute. La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
+6.  Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. In alternativa, è possibile usare il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) di Azure ExpressRoute. La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
 
 
 **Processo di replica da VMware ad Azure**
@@ -77,4 +77,4 @@ Quando il sito locale primario è di nuovo disponibile, è possibile effettuare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire [questa esercitazione](tutorial-vmware-to-azure.md) per consentire la replica di Azure di VMware.
+Seguire [questa esercitazione](tutorial-vmware-to-azure.md) per abilitare la replica da VMware ad Azure.

@@ -156,7 +156,7 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo avere appreso le nozioni di base dell'archivio BLOB, visitare i collegamenti seguenti per altre informazioni.
 
-* [Centro per sviluppatori di Python](https://azure.microsoft.com/develop/python/)
+* [Centro per sviluppatori Python](https://azure.microsoft.com/develop/python/)
 * [API REST dei servizi di archiviazione di Azure](http://msdn.microsoft.com/library/azure/dd179355)
 * [Blog del team di Archiviazione di Azure]
 * [Microsoft Azure Storage SDK per Python]

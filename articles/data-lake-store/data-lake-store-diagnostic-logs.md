@@ -25,7 +25,7 @@ Informazioni su come abilitare la registrazione diagnostica per l'account Data L
 
 Le organizzazioni possono abilitare la registrazione diagnostica per il loro account di Archivio Data Lake di Azure per raccogliere gli audit trial di accesso ai dati che forniscono varie informazioni, come l’elenco di utenti che hanno avuto accesso ai dati, la frequenza di accesso ai dati, la quantità di dati archiviati nell’account, ecc. Quando è abilitata, la registrazione della diagnostica e/o delle richieste viene eseguita nel modo più efficiente possibile. Vengono create voci nei log sia delle richieste che della diagnostica solo se esistono richieste effettuate verso l'endpoint di servizio.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md).
 
@@ -114,27 +114,27 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
     }
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| time |Stringa |Il timestamp del log (fusorario UTC) |
-| ResourceId |Stringa |L’ID della risorsa interessata dall’operazione |
-| category |Stringa |La categoria di log. Ad esempio, **Richieste**. |
-| operationName |Stringa |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
-| resultType |Stringa |Lo stato dell'operazione, ad esempio 200. |
-| callerIpAddress |Stringa |L’indirizzo IP del client che esegue la richiesta |
-| correlationId |Stringa |L'ID del log che può essere usato per raggruppare un set di voci di log correlate |
+| time |string |Il timestamp del log (fusorario UTC) |
+| ResourceId |string |L’ID della risorsa interessata dall’operazione |
+| category |string |La categoria di log. Ad esempio, **Richieste**. |
+| operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
+| resultType |string |Lo stato dell'operazione, ad esempio 200. |
+| callerIpAddress |string |L’indirizzo IP del client che esegue la richiesta |
+| correlationId |string |L'ID del log che può essere usato per raggruppare un set di voci di log correlate |
 | identity |Oggetto |L'identità che ha generato il log |
-| proprietà |JSON |Vedere di seguito per ulteriori dettagli |
+| properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| HttpMethod |Stringa |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| Percorso |Stringa |Il percorso coinvolto nell'operazione |
+| HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
+| path |string |Il percorso coinvolto nell'operazione |
 | RequestContentLength |int |La lunghezza del contenuto della richiesta HTTP |
-| ClientRequestId |Stringa |L'ID che identifica la richiesta in modo univoco |
-| StartTime |Stringa |L'ora in cui il server ha ricevuto la richiesta |
-| EndTime |Stringa |L'ora in cui il server ha inviato una risposta |
+| ClientRequestId |string |L'ID che identifica la richiesta in modo univoco |
+| StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
+| EndTime |string |L'ora in cui il server ha inviato una risposta |
 
 ### <a name="audit-logs"></a>Log di controllo
 Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
@@ -160,21 +160,21 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
     }
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| time |Stringa |Il timestamp del log (fusorario UTC) |
-| ResourceId |Stringa |L’ID della risorsa interessata dall’operazione |
-| category |Stringa |La categoria di log. Ad esempio, **Audit**. |
-| operationName |Stringa |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
-| resultType |Stringa |Lo stato dell'operazione, ad esempio 200. |
-| correlationId |Stringa |L'ID del log che può essere usato per raggruppare un set di voci di log correlate |
+| time |string |Il timestamp del log (fusorario UTC) |
+| ResourceId |string |L’ID della risorsa interessata dall’operazione |
+| category |string |La categoria di log. Ad esempio, **Audit**. |
+| operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
+| resultType |string |Lo stato dell'operazione, ad esempio 200. |
+| correlationId |string |L'ID del log che può essere usato per raggruppare un set di voci di log correlate |
 | identity |Oggetto |L'identità che ha generato il log |
-| proprietà |JSON |Vedere di seguito per ulteriori dettagli |
+| properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| StreamName |Stringa |Il percorso coinvolto nell'operazione |
+| StreamName |string |Il percorso coinvolto nell'operazione |
 
 ## <a name="samples-to-process-the-log-data"></a>Esempi per elaborare i dati di log
 Quando si inviano i log da Azure Data Lake Store ad Azure Log Analytics (per informazioni dettagliate sull'uso di Log Analytics, vedere [Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)), la query seguente restituisce una tabella contenente un elenco dei nomi visualizzati degli utenti, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visivo. È possibile modificarlo facilmente per mostrare i GUID utente o altri attributi:

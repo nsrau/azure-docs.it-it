@@ -3,8 +3,8 @@ title: Scaricare gli elementi di marketplace da Azure | Documenti Microsoft
 description: "È possibile scaricare gli elementi di marketplace da Azure a una distribuzione Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,23 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/30/2017
-ms.author: erikje
-ms.openlocfilehash: 33b7be4a85723ab03e4c656a8dd28632ad854e29
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.date: 01/30/2018
+ms.author: brenduns
+ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare gli elementi di marketplace da Azure allo Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
+
 Come si decide il contenuto da includere nel marketplace dello Stack di Azure, è necessario considerare il contenuto disponibile da Azure marketplace. È possibile scaricare da un elenco di elementi di Azure marketplace che sono stati pre-verificate per l'esecuzione in Azure Stack curato. Spesso vengono aggiunti nuovi elementi a questo elenco, pertanto assicurarsi di selezionare nuovamente per il nuovo contenuto.
 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Scaricare elementi del marketplace in uno scenario connesso (con connettività internet)
 
-1. Per scaricare elementi del marketplace, è innanzitutto necessario [registro dello Stack di Azure con Azure](azure-stack-register.md). 
+1. Per scaricare elementi del marketplace, è innanzitutto necessario [registro dello Stack di Azure con Azure](azure-stack-register.md).
 2. Accedere al portale di amministrazione di Azure Stack (https://portal.local.azurestack.external).
 3. Alcuni elementi del marketplace possono essere estesa. Verificare che si dispone di spazio sufficiente nel sistema, fare clic su **i provider di risorse** > **archiviazione**.
 
@@ -51,7 +52,7 @@ Come si decide il contenuto da includere nel marketplace dello Stack di Azure, �
 
 ## <a name="download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Download di elementi del marketplace in un disconnesso o per uno scenario di connesso parziale (con connettività internet limitata)
 
-Quando si distribuisce Azure Stack in modalità disconnessa (senza qualsiasi connessione a internet), è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile utilizzare lo strumento di diffusione marketplace per scaricare gli elementi del marketplace in un computer con connettività internet e quindi di trasferirle all'ambiente dello Stack di Azure. 
+Quando si distribuisce Azure Stack in modalità disconnessa (senza qualsiasi connessione a internet), è possibile scaricare elementi del marketplace tramite il portale di Azure Stack. Tuttavia, è possibile utilizzare lo strumento di diffusione marketplace per scaricare gli elementi del marketplace in un computer con connettività internet e quindi di trasferirle all'ambiente dello Stack di Azure.
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di utilizzare lo strumento di diffusione marketplace, assicurarsi di aver [registrati dello Stack di Azure con la sottoscrizione di Azure](azure-stack-register.md).  
@@ -132,12 +133,12 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
     -Version "2017.09.25" `
     -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
     -CreateGalleryItem $False `
-    -Location Local 
+    -Location Local
    ```
 
 4. Portale di utilizzo per caricare l'elemento del Marketplace (. Azpkg) Stack archiviazione Blob di Azure. È possibile caricare in archiviazione di Azure Stack locale o caricare in archiviazione di Azure. (È un percorso temporaneo per il pacchetto). Assicurarsi che il blob è accessibile pubblicamente e prendere nota dell'URI.  
 
-5. Pubblicare l'elemento del marketplace allo Stack di Azure tramite il **Aggiungi AzureRMGalleryItem**. ad esempio:
+5. Pubblicare l'elemento del marketplace allo Stack di Azure tramite il **Aggiungi AzsGalleryItem**. Ad esempio: 
 
    ```powershell
    Add-AzsGalleryItem `

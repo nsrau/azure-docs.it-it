@@ -23,7 +23,7 @@ ms.lasthandoff: 11/28/2017
 
 L'applicazione *SaaS Wingtip* è un'app multi-tenant di esempio che dimostra i vantaggi peculiari del database SQL. L'app usa un database per ogni tenant, il modello di applicazione SaaS, per soddisfare le richieste di più tenant. L'app è progettata per presentare le funzionalità del database SQL di Azure che supportano gli scenari SaaS, inclusi diversi modelli di progettazione e gestione SaaS. Per iniziare, è sufficiente distribuire l'app SaaS Wingtip, operazione che richiede meno di cinque minuti.
 
-Il codice sorgente dell'applicazione e gli script di gestione sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere il [materiale sussidiario generale](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da scaricare e per sbloccare gli script SaaS Wingtip Tickets.
+Il codice sorgente dell'applicazione e gli script di gestione sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="application-architecture"></a>Architettura dell'applicazione
 
@@ -40,7 +40,7 @@ Mentre si eseguono le esercitazioni e si utilizza l'app, è importante concentra
 Dopo avere distribuito l'app, esplorare le esercitazioni seguenti che si basano sulla distribuzione iniziale. Queste esercitazioni illustrano i comuni modelli SaaS che sfruttano le funzionalità predefinite del database SQL, di SQL Data Warehouse e di altri servizi di Azure. Le esercitazioni includono script di PowerShell, con spiegazioni dettagliate che semplificano notevolmente la comprensione e l'implementazione degli stessi modelli di gestione SaaS nelle proprie applicazioni.
 
 
-| Esercitazione | Descrizione |
+| Esercitazione | DESCRIZIONE |
 |:--|:--|
 | [Materiale sussidiario e suggerimenti per l'esempio di app SaaS multi-tenant di database SQL di Azure](saas-tenancy-wingtip-app-guidance-tips.md) | **INIZIARE DA QUI.** Scaricare ed eseguire gli script di PowerShell per preparare le parti dell'applicazione. |
 |[Distribuire ed esplorare l'applicazione SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Distribuire ed esplorare l'applicazione SaaS Wingtip nella sottoscrizione di Azure. |

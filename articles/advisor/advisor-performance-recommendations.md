@@ -57,7 +57,7 @@ Per altre informazioni sui consigli per Servizi app, vedere [Procedure consiglia
 Per altre informazioni sui consigli di Advisor, vedere:
 
 * [Introduction to Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
+* [Introduzione ad Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md) (Consigli di Advisor sulla disponibilità elevata)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)

@@ -48,7 +48,7 @@ Ecco l'elenco dei criteri che l'app deve soddisfare
     - HDInsight
     - Machine Learning
     - Data Lake Analytics
-    - Analisi di flusso
+    - Analisi dei flussi
     - Servizi cognitivi
     - Bot Framework
     - Analysis Services

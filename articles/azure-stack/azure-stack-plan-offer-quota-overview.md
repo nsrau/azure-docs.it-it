@@ -51,11 +51,11 @@ Per gestire la capacità del cloud, si selezionare o creare una quota per ogni s
 
 Quote possono essere configurate per area. Ad esempio, un piano che contiene i servizi di calcolo da un'area potrebbe avere una quota di due macchine virtuali, 4 GB di RAM e 10 core di CPU. In Azure Stack Development Kit, una sola area (denominato *locale*) è disponibile.
 
-### <a name="base-plan"></a>Piano di base
+### <a name="base-plan"></a>Piano base
 
 Quando si crea un'offerta, l'amministratore del servizio può includere un piano di base. Questi piani di base sono inclusi per impostazione predefinita, quando un utente sottoscrive l'offerta. Quando un utente esegue la sottoscrizione, hanno accesso a tutti i provider di risorse specificato in questi piani di base (con le quote corrispondenti).
 
-### <a name="add-on-plans"></a>Piani di componente aggiuntivo
+### <a name="add-on-plans"></a>Piani aggiuntivi
 
 È inoltre possibile includere i piani di componente aggiuntivo opzionale in un'offerta. I piani aggiuntivi non sono inclusi per impostazione predefinita nella sottoscrizione. Piani di componente aggiuntivo sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire ai clienti che decide di adottare il servizio di un piano di base con risorse limitate per una versione di valutazione e un piano del componente aggiuntivo con un numero più significativo di risorse.
 

@@ -23,7 +23,7 @@ Ogni area di Azure è associata a un'altra area con la stessa collocazione geogr
 
 Esempi di coppie di aree includono:
 
-| Primario | Secondario |
+| Primaria | Secondario |
 |:--- |:--- |
 | Stati Uniti occidentali |Stati Uniti orientali |
 | Europa settentrionale |Europa occidentale |
@@ -55,8 +55,8 @@ La tabella seguente fornisce una rapida panoramica delle differenze tra i tipi d
 
 | Strategia di replica | Archiviazione con ridondanza locale | ZRS | Archiviazione con ridondanza geografica | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| I dati vengono replicati in più strutture |No |Sì |Sì |Sì |
-| I dati possono essere letti dalla località secondaria e da quella primaria. |No |No |No |Sì |
+| I dati vengono replicati in più strutture |No  |Sì |Sì |Sì |
+| I dati possono essere letti dalla località secondaria e da quella primaria. |No  |No  |No  |Sì |
 | Numero di copie di dati mantenute in nodi distinti |3 |3 |6 |6 |
 
 Per ulteriori informazioni, consultare [qui le opzioni di replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). Per altre informazioni sui dischi gestiti, vedere [Azure Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md) (Panoramica di Azure Managed Disks).

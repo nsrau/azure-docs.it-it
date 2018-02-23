@@ -122,7 +122,7 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
     ```
 
-    Di seguito sono elencate le istruzioni che eseguono queste azioni:
+    Le istruzioni eseguono queste azioni:
 
     * `DROP TABLE`: se la tabella esiste, viene eliminata.
 
@@ -245,7 +245,7 @@ Per trovare il nome di dominio completo di un nodo head, usare le informazioni c
 
 Spark fornisce la propria implementazione di HiveServer2, spesso definita come server Spark Thrift. Questo servizio usa Spark SQL invece di Hive per risolvere le query e può offrire prestazioni migliori a seconda della query.
 
-Per connettersi al server Spark Thrift di un cluster Spark in HDInsight, usare la porta `10002` invece della `10001`. Ad esempio: `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
+Per connettersi al server Spark Thrift di un cluster Spark in HDInsight, usare la porta `10002` invece della `10001`. Ad esempio, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 
 > [!IMPORTANT]
 > Il server Spark Thrift non è direttamente accessibile tramite Internet. È possibile connettersi solo da una sessione SSH o nella stessa rete virtuale di Azure del cluster HDInsight.

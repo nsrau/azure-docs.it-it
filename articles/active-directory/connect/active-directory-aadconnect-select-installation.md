@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect: Selezionare il tipo di installazione | Documentazione Microsoft'
+title: 'Azure AD Connect: Selezionare il tipo di installazione | Microsoft Docs'
 description: Questo argomento descrive come selezionare il tipo di installazione da usare per Azure AD Connect
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 99b97de182ddbfa8b490c15b2a6a38cc69421283
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selezionare il tipo di installazione da usare per Azure AD Connect
 Per Azure AD Connect sono disponibili due tipi di installazione: rapida e personalizzata. Questo argomento consente di decidere quale opzione usare durante l'installazione.
 
-## <a name="express"></a>Express
+## <a name="express"></a>Rapida
 L'installazione rapida è l'opzione più comune e viene usata per circa il 90% di tutte le nuove installazioni. È stata progettata per fornire una configurazione adatta per la maggior parte degli scenari dei clienti.
 
 Richiede:
@@ -41,7 +41,7 @@ Offre:
 
 Casi in cui è comunque possibile usare l'installazione rapida:
 
-- Se non si desidera sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida, deselezionando **Avviare il processo di sincronizzazione...** * nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
+- Se non si vogliono sincronizzare tutte le unità organizzative, è comunque possibile usare l'installazione rapida deselezionando **Avvia il processo di sincronizzazione...*** nell'ultima pagina. Eseguire quindi di nuovo l'Installazione guidata, modificare le unità organizzative nelle [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options) e abilitare la sincronizzazione pianificata.
 - Si desidera abilitare una delle funzionalità in Azure AD Premium, ad esempio il writeback delle password. Completare innanzitutto l'intera procedura di installazione rapida iniziale. Eseguire quindi di nuovo l'Installazione guidata e modificare le [opzioni di configurazione](active-directory-aadconnectsync-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizzate

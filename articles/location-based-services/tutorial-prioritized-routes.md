@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 78e911d17fe8c468cf89ec1477f1c5144e6669b6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Trovare i percorsi per diverse modalità di trasporto tramite Servizi Location Based di Azure
 
@@ -26,9 +26,9 @@ Questa esercitazione illustra come usare l'account Servizi Location Based di Azu
 > * Configurare la query da inviare al servizio di pianificazione percorso
 > * Classificare i percorsi in ordine di priorità in base alla modalità di trasporto
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Prima di procedere, [creare l'account Servizi Location Based di Azure](./tutorial-search-location.md#createaccount) e [ottenere la chiave di sottoscrizione per l'account](./tutorial-search-location.md#getkey). Può anche essere utile esaminare le istruzioni per l'uso delle API del servizio di ricerca e del controllo mappa riportate nell'esercitazione [Cercare un punto di interesse vicino tramite Servizi Location Based di Azure](./tutorial-search-location.md) e anche apprendere le nozioni di base sull'uso delle API del servizio di pianificazione percorso, come illustrato nell'esercitazione [Trovare il percorso per raggiungere un punto di interesse tramite Servizi Location Based di Azure](./tutorial-route-location.md).
+Prima di procedere, [creare l'account Servizi Location Based di Azure](./tutorial-search-location.md#createaccount) e [ottenere una chiave dall'account](./tutorial-search-location.md#getkey). Può anche essere utile esaminare le istruzioni per l'uso delle API del servizio di ricerca e del controllo mappa riportate nell'esercitazione [Cercare un punto di interesse vicino tramite Servizi Location Based di Azure](./tutorial-search-location.md) e anche apprendere le nozioni di base sull'uso delle API del servizio di pianificazione percorso, come illustrato nell'esercitazione [Trovare il percorso per raggiungere un punto di interesse tramite Servizi Location Based di Azure](./tutorial-route-location.md).
 
 
 <a id="queryroutes"></a>
@@ -80,9 +80,9 @@ Seguire questa procedura per creare una pagina HTML statica incorporata usando l
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var subscriptionKey = "<insert-key>";
+    var LBSAccountKey = "<_your account key_>";
     var map = new atlas.Map("map", {
-        "subscription-key": subscriptionKey
+        "subscription-key": LBSAccountKey
     });
     ```
     **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva ed è un componente dell'API del controllo mappa di Azure.
@@ -195,7 +195,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
 
     var truckRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     truckRouteUrl += "&api-version=1.0";
-    truckRouteUrl += "&subscription-key=" + subscriptionKey;
+    truckRouteUrl += "&subscription-key=" + LBSAccountKey;
     truckRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
     truckRouteUrl += "&travelMode=truck";
@@ -209,7 +209,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     ```
     Questo frammento di codice crea un oggetto [XMLHttpRequest](https://xhr.spec.whatwg.org/) e aggiunge un gestore eventi per analizzare la risposta in ingresso. Per ottenere una risposta, crea una matrice di coordinate per il percorso restituito e aggiunge tale elemento al livello `truckRouteLayerName` della mappa. 
     
-    Il frammento di codice invia inoltre la query al servizio di pianificazione percorso, per ottenere il percorso relativo ai punti iniziale e finale specificati, per la chiave di sottoscrizione dell'account. Per indicare il percorso per un autocarro pesante vengono usati i parametri facoltativi seguenti: - Il parametro `travelMode=truck` specifica la modalità di trasporto *truck*. Le altre modalità di trasporto supportate sono *taxi*, *bus*, *van*, *motorcycle* e la modalità predefinita *car*.  
+    Il frammento di codice invia anche la query al servizio di pianificazione percorso, per ottenere il percorso relativo ai punti iniziale e finale specificati, per la chiave dell'account. Per indicare il percorso per un autocarro pesante vengono usati i parametri facoltativi seguenti: - Il parametro `travelMode=truck` specifica la modalità di trasporto *truck*. Le altre modalità di trasporto supportate sono *taxi*, *bus*, *van*, *motorcycle* e la modalità predefinita *car*.  
         - I parametri `vehicleWidth`, `vehicleHeight` e `vehicleLength` specificano le dimensioni del veicolo in metri e vengono considerate solo se è impostata la modalità di trasporto *truck*.  
         - Il parametro `vehicleLoadType` classifica il carico come pericoloso e soggetto a limitazioni su alcune strade. Anche questo parametro viene considerato solo per la modalità *truck*.  
 
@@ -238,7 +238,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
 
     var carRouteUrl = "https://atlas.microsoft.com/route/directions/json?";
     carRouteUrl += "&api-version=1.0";
-    carRouteUrl += "&subscription-key=" + subscriptionKey;
+    carRouteUrl += "&subscription-key=" + LBSAccountKey;
     carRouteUrl += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
 
@@ -247,7 +247,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     ```
     Questo frammento di codice crea un altro oggetto [XMLHttpRequest](https://xhr.spec.whatwg.org/) e aggiunge un gestore eventi per analizzare la risposta in ingresso. Per ottenere una risposta, crea una matrice di coordinate per il percorso restituito e aggiunge tale elemento al livello `carRouteLayerName` della mappa. 
     
-    Il frammento di codice invia inoltre la query al servizio di pianificazione percorso, per ottenere il percorso relativo ai punti iniziale e finale specificati, per la chiave di sottoscrizione dell'account. Poiché non sono impostati altri parametri, viene restituito il percorso per la modalità di trasporto *car* predefinita. 
+    Il frammento di codice invia anche la query al servizio di pianificazione percorso, per ottenere il percorso relativo ai punti iniziale e finale specificati, per la chiave dell'account. Poiché non sono impostati altri parametri, viene restituito il percorso per la modalità di trasporto *car* predefinita. 
 
 3. Salvare il file **MapTruckRoute.html** in locale, aprirlo in un Web browser di propria scelta e osservare il risultato. Se la connessione con le API di Servizi Location Based è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente. 
 

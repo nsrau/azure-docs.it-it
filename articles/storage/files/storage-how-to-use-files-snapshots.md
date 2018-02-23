@@ -3,7 +3,7 @@ title: Usare gli snapshot di condivisione (anteprima) | Microsoft Docs
 description: "Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per eseguire un backup della condivisione stessa."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 5212866bda9ff775d32ebb57874b3d58e11f1eb3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Usare gli snapshot di condivisione (anteprima)
 Uno snapshot di condivisione (anteprima) è una versione di sola lettura di una condivisione di File di Azure acquisita in un determinato momento. Dopo aver creato uno snapshot di condivisione è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Uno snapshot di condivisione consente di eseguire un backup della condivisione così com'è in un determinato momento. 
@@ -244,6 +244,40 @@ Nel risultato si noterà che il contenuto del file scaricato e le relative propr
     "serverEncrypted": true
   }
 }
+```
+
+### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operazioni di creazione snapshot di condivisione file in Azure PowerShell
+È possibile usare Azure Powershell per eseguire operazioni come la visualizzazione di un elenco di snapshot di condivisione, l'esplorazione del contenuto di uno snapshot di condivisione, il ripristino o il download di file da uno snapshot di condivisione o l'eliminazione di uno snapshot di condivisione.
+
+#### <a name="list-share-snapshots"></a>Elencare gli snapshot di condivisione
+
+È possibile elencare gli snapshot di condivisione di una specifica condivisione usando `Get-AzureStorageShare`.
+
+```powershell
+Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+```
+
+#### <a name="browse-share-snapshots"></a>Esplorare gli snapshot di condivisione
+È anche possibile esplorare un determinato snaphot di condivisione per visualizzare il relativo contenuto usando `Get-AzureStorageFile` con valore `-Share` puntando allo snapshot specifico
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+Get-AzureStorageFile -Share $snapshot
+```
+
+#### <a name="restore-from-share-snapshots"></a>Eseguire il ripristino da snapshot di condivisione
+
+È possibile ripristinare un file copiandolo o scaricandolo dallo snapshot di condivisione usando il comando `Get-AzureStorageFileContent`.
+
+```powershell
+$download='C:\Temp\Download'
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $download
+```
+
+```powershell
+$snapshot = Get-AzureStorageShare -Name "ContosoShare06" -SnapshotTime "6/16/2017 9:48:41 AM +00:00"
+$directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWorkingFolder" | Get-AzureStorageFile
+Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
 ## <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione

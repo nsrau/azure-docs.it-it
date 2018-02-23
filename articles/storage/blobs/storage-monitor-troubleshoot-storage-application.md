@@ -2,23 +2,20 @@
 title: Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud in Azure | Microsoft Docs
 description: Usare gli strumenti di diagnostica, le metriche e gli avvisi per risolvere i problemi e monitorare un'applicazione cloud.
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: db88c331f79d83e0124519f8b6dbb34514b456dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -36,11 +33,11 @@ Nella quarta parte della serie si apprenderà come:
 
 La registrazione e le metriche degli account di archiviazione vengono abilitate dalla scheda **Diagnostica** nel portale di Azure. Esistono due tipi di metriche. Le metriche **aggregate** raccolgono dati in ingresso/uscita, di disponibilità, latenza e percentuale di operazioni riuscite, che vengono aggregate per i servizi BLOB, di accodamento, tabelle e file. **Per API** raccolgono lo stesso set di metriche per ogni operazione di archiviazione nell'API del servizio Archiviazione di Azure. La registrazione di archiviazione consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle tabelle, code e BLOB di Azure. Consentono anche di visualizzare i motivi di fallimento delle richieste, ad esempio errori di timeout, limitazione e autorizzazione.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [portale di Azure](https://portal.azure.com)
 
-## <a name="turn-on-logging-and-metrics"></a>attivare le metriche e la registrazione
+## <a name="turn-on-logging-and-metrics"></a>Attivare le metriche e la registrazione
 
 Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
 
@@ -118,7 +115,7 @@ Quando il log si apre, è possibile visualizzare gli eventi di archiviazione. Co
 Nella quarta e ultima parte della serie è stato descritto come monitorare e risolvere i problemi relativi all'account di archiviazione, ad esempio come:
 
 > [!div class="checklist"]
-> * attivare le metriche e la registrazione
+> * Attivare le metriche e la registrazione
 > * attivare gli avvisi per gli errori di autorizzazione
 > * eseguire il traffico di test con token SAS non corretti
 > * scaricare e analizzare i log

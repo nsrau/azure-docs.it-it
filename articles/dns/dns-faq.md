@@ -69,7 +69,7 @@ DNS di Azure supporta solo domini DNS di Traffic Manager "statici", in cui ogni 
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>DNS di Azure supporta la registrazione del nome di dominio?
 
-No. DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si vogliono acquistare domini, è necessario ricorrere a un registrar di terze parti, che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record DNS. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
+di serie DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si vogliono acquistare domini, è necessario ricorrere a un registrar di terze parti, che addebita in genere una tariffa annuale contenuta. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record DNS. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
 
 Questa è una funzionalità che Microsoft sta verificando nel backlog. È possibile usare il sito per i commenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
@@ -80,19 +80,19 @@ Per informazioni sulle altre opzioni DNS interne in Azure, vedere [Risoluzione d
 
 ### <a name="does-azure-dns-support-dnssec"></a>DNS di Azure supporta DNSSEC?
 
-No. DNS di Azure attualmente non supporta DNSSEC.
+di serie DNS di Azure attualmente non supporta DNSSEC.
 
 Questa è una funzionalità che Microsoft sta verificando nel backlog. È possibile usare il sito per i commenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>DNS di Azure supporta i trasferimenti di zona (AXFR/IXFR)?
 
-No. DNS di Azure attualmente non supporta i trasferimenti di zona. Le zone DNS possono essere [importate in DNS di Azure tramite l'interfaccia della riga di comando di Azure](dns-import-export.md). I record DNS possono quindi essere gestiti tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento dell'interfaccia della riga di comando](dns-operations-recordsets-cli.md).
+di serie DNS di Azure attualmente non supporta i trasferimenti di zona. Le zone DNS possono essere [importate in DNS di Azure tramite l'interfaccia della riga di comando di Azure](dns-import-export.md). I record DNS possono quindi essere gestiti tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento dell'interfaccia della riga di comando](dns-operations-recordsets-cli.md).
 
 Questa è una funzionalità che Microsoft sta verificando nel backlog. È possibile usare il sito per i commenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>DNS di Azure supporta i reindirizzamenti URL?
 
-No. Il servizio di reindirizzamento URL non è attualmente un servizio DNS, poiché opera al livello HTTP, piuttosto che a livello di DNS. Alcuni provider DNS offrono anche un servizio di reindirizzamento dell'URL come parte dell'offerta complessiva. Questo servizio non è attualmente supportato da DNS di Azure.
+di serie Il servizio di reindirizzamento URL non è attualmente un servizio DNS, poiché opera al livello HTTP, piuttosto che a livello di DNS. Alcuni provider DNS offrono anche un servizio di reindirizzamento dell'URL come parte dell'offerta complessiva. Questo servizio non è attualmente supportato da DNS di Azure.
 
 Questa funzionalità viene rilevata nel backlog. È possibile usare il sito per i commenti per [registrare il supporto per questa funzionalità](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 

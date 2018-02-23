@@ -3,7 +3,7 @@ title: Connettore PowerShell | Documentazione Microsoft
 description: Questo articolo descrive come configurare il connettore Windows PowerShell di Microsoft.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 27ca89a2032c82a8be909349b38a64fc6aa9579e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2caf8dd8a657f116df0342893763829676602cd6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Documentazione tecnica sul connettore Windows PowerShell
 Questo articolo descrive il connettore Windows PowerShell ed è applicabile ai prodotti seguenti:
@@ -32,7 +32,7 @@ Per MIM2016 e FIM2010R2, il connettore è disponibile come download dall' [Area 
 ## <a name="overview-of-the-powershell-connector"></a>Panoramica del connettore PowerShell
 Il connettore PowerShell consente di integrare il servizio di sincronizzazione con sistemi esterni che offrono API basate su Windows PowerShell. Il connettore fornisce un collegamento tra le funzionalità del framework ECMA2 (Extensible Connectivity 2 Management Agent) e Windows PowerShell. Per altre informazioni sul framework ECMA, vedere le [informazioni di riferimento su Extensible Connectivity 2.2 Management Agent](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di usare il connettore, verificare che nel server di sincronizzazione sia disponibile quanto segue:
 
 * Microsoft .NET 4.5.2 Framework o versione successiva

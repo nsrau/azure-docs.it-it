@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurare gli endpoint del servizio Rete virtuale
 
@@ -67,15 +67,15 @@ Accedere ad Azure usando l'account Azure. Se non si ha un account Azure, è poss
 
 Impostazione | Valore
 ------- | -----
-Nome    | myVnet
+NOME    | myVnet
 Spazio degli indirizzi | 10.0.0.0/16
 Nome della subnet|mySubnet
 Intervallo di indirizzi subnet|10.0.0.0/24
 Gruppo di risorse|Lasciare selezionata l'opzione Crea nuovo e quindi immettere un nome.
-Percorso|Un'area supportata, ad esempio, Australia orientale
+Località|Un'area supportata, ad esempio, Australia orientale
 Sottoscrizione|Selezionare la propria sottoscrizione.
-__Endpoint servizio__|Enabled
-__Servizi__ | Selezionare uno o tutti i servizi disponibili. In fase di anteprima, i servizi supportati sono: __"Microsoft.Storage", "Microsoft.Sql"__.
+__Endpoint servizio__|Attivato
+__Servizi__ | Selezionare uno o tutti i servizi disponibili. Servizi supportati: __"Microsoft.Storage", "Microsoft.Sql"__.
 
 Selezionare i servizi per gli endpoint: ![Selezionare i servizi per gli endpoint di servizio](media/virtual-network-service-endpoints-portal/vnet-create-flow-services.png)
 
@@ -136,7 +136,7 @@ Get-AzureRmVirtualNetworkAvailableEndpointService -location eastus
 ```
 
 Output: 
-Nome | ID | Tipo
+NOME | ID | type
 -----|----|-------
 Microsoft.Storage|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Storage|Microsoft.Network/virtualNetworkEndpointServices
 Microsoft.Sql|/subscriptions/xxxx-xxx-xxx/providers/Microsoft.Network/virtualNetworkEndpointServices/Microsoft.Sql|Microsoft.Network/virtualNetworkEndpointServices
@@ -230,7 +230,7 @@ Get-AzureRmVirtualNetwork -ResourceGroupName "myRG" -Name "myVNet" | Set-AzureRm
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Configurare i prerequisiti:
-- Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#login) e seguire le istruzioni visualizzate. Per altre informazioni sulla registrazione, vedere [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#az_login) e seguire le istruzioni visualizzate. Per altre informazioni sulla registrazione, vedere [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
  - L'account deve avere le [autorizzazioni](#provisioning) necessarie per la creazione di una rete virtuale e di un endpoint di servizio.
 
  Per l'elenco completo dei comandi per le rete virtuali, vedere [Azure CLI Virtual Network commands](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) (Comandi per le reti virtuali dell'interfaccia della riga di comando di Azure)
@@ -387,7 +387,7 @@ Per associare le risorse dei servizi di Azure a una rete virtuale, l'utente deve
 
 Altre informazioni sui [ruoli predefiniti](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e sull'assegnazione di autorizzazioni specifiche ai [ruoli personalizzati](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
-Le reti virtuali e le risorse dei servizi di Azure possono essere nella stessa sottoscrizione o in sottoscrizioni diverse. Se sono in sottoscrizioni diverse, le risorse devono essere nello stesso tenant di Active Directory (AD), al momento di questa anteprima.
+Le reti virtuali e le risorse dei servizi di Azure possono essere nella stessa sottoscrizione o in sottoscrizioni diverse. Se sono in sottoscrizioni diverse, le risorse devono essere nello stesso tenant di Active Directory (AD).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

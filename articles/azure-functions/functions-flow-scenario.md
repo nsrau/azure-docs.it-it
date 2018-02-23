@@ -18,7 +18,7 @@ ms.author: mblythe
 ms.custom: 
 ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,7 +39,7 @@ In questo argomento si apprenderà come:
 > * Creare un flusso per inviare un messaggio di posta elettronica se la riparazione è conveniente.
 > * Eseguire il flusso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Un [account di Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) attivo con le stesse credenziali di accesso dell'account di Azure. 
 + SharePoint, usato come origine dati per questo flusso. Iscriversi a [una versione di valutazione gratuita di Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) se l'utente non ha già SharePoint.

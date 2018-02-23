@@ -83,7 +83,7 @@ La tabella seguente riepiloga l'accesso che si può impostare con ogni modello d
 
 |                          | Portale di Log Analytics | Portale di Azure | API (incluso PowerShell) |
 |--------------------------|----------------------|--------------|----------------------------|
-| Ruoli utente di Log Analytics | Sì                  | No           | No                         |
+| Ruoli utente di Log Analytics | Sì                  | No            | No                          |
 | Accessi in base al ruolo di Azure  | Sì                  | Sì          | Sì                        |
 
 > [!NOTE]
@@ -114,7 +114,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 - Visualizzare e cercare tutti i dati di monitoraggio 
 - Visualizzare le impostazioni di monitoraggio, inclusa la configurazione della diagnostica di Azure in tutte le risorse di Azure.
 
-| Tipo    | Autorizzazione | Descrizione |
+| type    | Autorizzazione | DESCRIZIONE |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse e le configurazioni delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse |
 | Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Consente di eseguire query di ricerca log versione 2 |
@@ -136,7 +136,7 @@ I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste oper
 > [!NOTE] 
 > È possibile usare la possibilità di aggiungere un'estensione macchina virtuale a una VM per ottenere il controllo completo su di essa.
 
-| Autorizzazione | Descrizione |
+| Autorizzazione | DESCRIZIONE |
 | ---------- | ----------- |
 | `*/read`     | Consente di visualizzare tutte le risorse e le configurazioni delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse |
 | `Microsoft.Automation/automationAccounts/*` | Consente di creare e configurare account di automazione di Azure, inclusa l'aggiunta e modifica di runbook |
@@ -270,8 +270,8 @@ Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate
 7. Se necessario, è possibile modificare i valori per gli elementi seguenti:
    * Sottoscrizione
    * Gruppo di risorse
-   * Percorso
-   * Piano tariffario   
+   * Località
+   * Piano tariffario  
      ![Modificare i valori](./media/log-analytics-manage-access/manage-access-link-azure05.png)
 8. Fare clic su **OK**. L'area di lavoro ora è collegata all'account Azure.
 

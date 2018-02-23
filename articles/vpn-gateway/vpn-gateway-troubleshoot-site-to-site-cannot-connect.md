@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
-ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -87,12 +87,12 @@ Cercare e rimuovere il routing definito dall'utente o i gruppi di sicurezza di r
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Passaggio 6. Verificare che le subnet corrispondano esattamente (gateway basati su criteri di Azure)
 
--   Verificare che ci sia una corrispondenza esatta delle subnet tra la rete virtuale di Azure e le definizioni locali per la rete virtuale di Azure.
+-   Verificare che ci sia una corrispondenza esatta dello spazio di indirizzi della rete virtuale tra la rete virtuale di Azure e le definizioni locali.
 -   Verificare che ci sia una corrispondenza esatta delle subnet tra il **gateway di rete locale** e le definizioni locali per la rete locale.
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>Passaggio 7. Verificare il probe di integrità del gateway di Azure
 
-1. Passare al [probe di integrità](https://&lt;YourVirtualNetworkGatewayIP&gt;:8081/healthprobe).
+1. Passare al probe di integrità.
 
 2. Fare clic sull'avviso del certificato.
 3. Se si riceve una risposta, il gateway VPN viene considerato integro. Se non si riceve una risposta, è possibile che il gateway non sia integro oppure il problema è causato da un gruppo di sicurezza di rete nella subnet del gateway. Il testo seguente è una risposta di esempio:

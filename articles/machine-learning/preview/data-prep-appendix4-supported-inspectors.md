@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/11/2017
-ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 1046f08d4e3b1111f8f82551b71252856174a308
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Controlli supportati per la preparazione dati di Azure Machine Learning - Anteprima
 Questo documento descrive il set di controlli disponibili in questa anteprima.
@@ -52,6 +52,7 @@ Questo controllo supporta l'effetto alone.
 - Numero predefinito di bucket (regola di Scott) 
 - Mostra alone
 - Sovrimpressione del tracciato di densità del kernel (kernel gaussiano) 
+- Usa la scala logaritmica
 
 
 ### <a name="actions"></a>Azioni
@@ -65,6 +66,7 @@ Questo controllo visualizza una tabella con la frequenza dei valori della colonn
 - Decrescente
 - Include valori null o errore
 - Mostra alone
+- Usa la scala logaritmica
 
 
 ### <a name="actions"></a>Azioni 

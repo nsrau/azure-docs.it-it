@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 36ff6d8fc956f5c863884e4591cbcb2909fcb200
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-network-security-groups-using-the-azure-cli"></a>Gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure
 
@@ -35,10 +35,10 @@ ms.lasthandoff: 11/17/2017
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## <a name="prerequisite"></a>Prerequisito
-Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#login). 
+Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#az_login). 
 
 ## <a name="view-existing-nsgs"></a>Visualizzare NSG esistenti
-Per visualizzare l'elenco di gruppi di sicurezza di rete in un gruppo di risorse specifico, eseguire il comando [az network nsg list](/cli/azure/network/nsg#list) con un formato di output `-o table`:
+Per visualizzare l'elenco di gruppi di sicurezza di rete in un gruppo di risorse specifico, eseguire il comando [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) con un formato di output `-o table`:
 
 ```azurecli
 az network nsg list -g RG-NSG -o table
@@ -52,7 +52,7 @@ Output previsto:
     centralus   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## <a name="list-all-rules-for-an-nsg"></a>Elencare tutte le regole per un NSG
-Per visualizzare le regole di un gruppo di sicurezza di rete denominato **NSG-FrontEnd**, eseguire il comando [az network nsg show](/cli/azure/network/nsg#show) usando il [filtro di query JMESPATH](/cli/azure/query-az-cli2) e il formato di output `-o table`:
+Per visualizzare le regole di un gruppo di sicurezza di rete denominato **NSG-FrontEnd**, eseguire il comando [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) usando il [filtro di query JMESPATH](/cli/azure/query-az-cli2) e il formato di output `-o table`:
 
 ```azurecli
     az network nsg show \
@@ -75,7 +75,7 @@ Output previsto:
     rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
     web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
-> È possibile anche usare [az network nsg rule list](/cli/azure/network/nsg/rule#list) per elencare solo le regole personalizzate da un gruppo di sicurezza di rete.
+> È possibile anche usare [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) per elencare solo le regole personalizzate da un gruppo di sicurezza di rete.
 >
 
 ## <a name="view-nsg-associations"></a>Visualizzare le associazioni di NSG
@@ -151,7 +151,7 @@ Output previsto:
 ```
 
 ## <a name="change-a-rule"></a>Modificare una regola
-Per modificare la regola creata in precedenza per consentire solo il traffico in ingresso da **Internet**, eseguire il comando [az network nsg rule update](/cli/azure/network/nsg/rule#update) come illustrato di seguito:
+Per modificare la regola creata in precedenza per consentire solo il traffico in ingresso da **Internet**, eseguire il comando [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) come illustrato di seguito:
 
 ```azurecli
 az network nsg rule update \
@@ -194,7 +194,7 @@ az network nsg rule delete \
 
 
 ## <a name="associate-an-nsg-to-a-nic"></a>Associare un NSG a una NIC
-Per associare il gruppo di sicurezza di rete **NSG-FrontEnd** alla scheda di interfaccia di rete **TestNICWeb1**, eseguire il comando [az network nic update](/cli/azure/network/nic#update):
+Per associare il gruppo di sicurezza di rete **NSG-FrontEnd** alla scheda di interfaccia di rete **TestNICWeb1**, eseguire il comando [az network nic update](/cli/azure/network/nic#az_network_nic_update):
 
 ```azurecli
 az network nic update \
@@ -277,7 +277,7 @@ Output previsto:
 
 ## <a name="dissociate-an-nsg-from-a-nic"></a>Annullare l'associazione tra un NSG e una NIC
 
-Per annullare l'associazione del gruppo di sicurezza di rete **NSG-FrontEnd** dalla scheda di interfaccia di rete **TestNICWeb1** eseguire di nuovo il comando [az network nsg rule update](/cli/azure/network/nsg/rule#update) ma sostituire l'argomento `--network-security-group` con una stringa vuota (`""`).
+Per annullare l'associazione del gruppo di sicurezza di rete **NSG-FrontEnd** dalla scheda di interfaccia di rete **TestNICWeb1** eseguire di nuovo il comando [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) ma sostituire l'argomento `--network-security-group` con una stringa vuota (`""`).
 
 ```azurecli
 az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-security-group ""
@@ -286,7 +286,7 @@ az network nic update --resource-group RG-NSG --name TestNICWeb3 --network-secur
 Nell'output la chiave `networkSecurityGroup` è impostata su null.
 
 ## <a name="dissociate-an-nsg-from-a-subnet"></a>Annullare l'associazione tra un NSG e una subnet
-Per annullare l'associazione del gruppo di sicurezza di rete **NSG-FrontEnd** dalla subnet **FrontEnd** eseguire il comando [az network nsg rule update](/cli/azure/network/nsg/rule#update), ma sostituire l'argomento `--network-security-group` con una stringa vuota (`""`).
+Per annullare l'associazione del gruppo di sicurezza di rete **NSG-FrontEnd** dalla subnet **FrontEnd** eseguire il comando [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update), ma sostituire l'argomento `--network-security-group` con una stringa vuota (`""`).
 
 ```azurecli
 az network vnet subnet update \

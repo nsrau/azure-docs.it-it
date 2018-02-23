@@ -18,7 +18,7 @@ ms.lasthandoff: 10/25/2017
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione per il carico di lavoro. Database di Azure per MySQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server MySQL. 
 
-## <a name="metrics"></a>Metrica
+## <a name="metrics"></a>Metriche
 Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronologia di 30 giorni. 
 
 È possibile configurare avvisi in base alle metriche. Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-on-metric.md). 
@@ -28,18 +28,18 @@ Le altre attività includono la configurazione di azioni automatiche, l'esecuzio
 ### <a name="list-of-metrics"></a>Elenco delle metriche
 Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 
-|Metrica|Nome visualizzato per la metrica|Unità|Descrizione|
+|Metrica|Nome visualizzato per la metrica|Unità|DESCRIZIONE|
 |---|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
-|compute_limit|Limite unità di calcolo|Numero|Numero massimo di unità di calcolo del server.|
+|compute_limit|Limite unità di calcolo|Conteggio|Numero massimo di unità di calcolo del server.|
 |compute_consumption_percent|Compute Unit percentage (Percentuale unità di calcolo)|Percentuale|Percentuale di unità di calcolo usata rispetto al massimo del server.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Percentuale di I/O in uso.|
 |storage_percent|Percentuale archiviazione|Percentuale|Percentuale di spazio di archiviazione usata rispetto al massimo del server.|
 |storage_used|Uso archiviazione|Byte|Quantità di spazio di archiviazione in uso. Lo spazio di archiviazione usato dal servizio include file di database, log delle transazioni e log del server.|
 |storage_limit|Limite archiviazione|Byte|Spazio di archiviazione massimo per il server.|
-|active_connections|Total active connections (Numero totale di connessioni attive)|Numero|Numero di connessioni al server attive.|
-|connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Numero|Numero di connessioni al server non riuscite.|
+|active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Numero di connessioni al server attive.|
+|connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Numero di connessioni al server non riuscite.|
 
 
 > [!NOTE]

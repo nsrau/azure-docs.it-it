@@ -45,7 +45,7 @@ Sì. L'amministratore account è la persona che ha configurato l'account Azure e
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>L'aggiornamento dell'indirizzo di posta elettronica del profilo provoca anche l'aggiornamento dell'indirizzo di posta elettronica di accesso?
 
-No. L'aggiornamento dell'indirizzo di posta elettronica del profilo non provoca l'aggiornamento dell'indirizzo di posta elettronica di accesso. Per modificare l'indirizzo di posta elettronica di accesso è necessario trasferire la proprietà dell'account.
+di serie L'aggiornamento dell'indirizzo di posta elettronica del profilo non provoca l'aggiornamento dell'indirizzo di posta elettronica di accesso. Per modificare l'indirizzo di posta elettronica di accesso è necessario trasferire la proprietà dell'account.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>L'aggiornamento dell'indirizzo del profilo provoca l'aggiornamento dell'indirizzo di fatturazione della carta di credito?
 

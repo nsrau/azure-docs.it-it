@@ -5,15 +5,15 @@ description: Le chiavi dell'account di archiviazione forniscono un'integrazione 
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6ebac5fc90e259b19e0a4103a732754384232a44
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
 
@@ -23,7 +23,7 @@ La funzionalità chiave di Account di Archiviazione di Azure (ASA) consente di g
 
 Per informazioni più generali sugli account di archiviazione di Azure, vedere [Informazioni sugli account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
-## <a name="supporting-interfaces"></a>Interfacce di supporto
+## <a name="supporting-interfaces"></a>Supporto di interfacce
 
 L'elenco completo delle interfacce di programmazione e di script Microsoft e i collegamenti a queste sono disponibili in [Guida per gli sviluppatori di Key Vault](key-vault-developers-guide.md#coding-with-key-vault).
 
@@ -234,7 +234,7 @@ Il token OBO funziona solo quando si usano applicazioni client native e proprie 
 
 - I token SAS, costruiti usando le chiavi dell'account di archiviazione Key Vault, forniscono un accesso ancora più controllato a un account di archiviazione di Azure. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 - [Informazioni su chiavi, segreti e certificati](https://docs.microsoft.com/rest/api/keyvault/)
 - [Blog del team di Key Vault](https://blogs.technet.microsoft.com/kv/)

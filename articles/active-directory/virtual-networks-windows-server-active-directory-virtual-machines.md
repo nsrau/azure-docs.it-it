@@ -16,7 +16,7 @@ ms.date: 04/06/2017
 ms.author: joflore
 ms.openlocfilehash: 0217e34c8d4461c7731a583a37aaf8cbcf6265ff
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

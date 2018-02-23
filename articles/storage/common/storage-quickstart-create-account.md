@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: c97e1b5115a8a97b8d9345c02d12b55b1d7a58fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: f9692156fa2c1eaf9d3a617d339cdbc210bf6dd1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-new-storage-account"></a>Creare un nuovo account di archiviazione.
+# <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 Un account di archiviazione di Azure offre uno spazio dei nomi univoco nel cloud per archiviare gli oggetti dati in Archiviazione di Azure e accedere a tali oggetti. Un account di archiviazione contiene tutti i BLOB, file, code, tabelle e dischi creati in tale account. 
 
@@ -120,7 +120,7 @@ $location = "westus"
 
 # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per creare un nuovo gruppo di risorse con l'interfaccia della riga di comando di Azure, usare il comando [az group create](/cli/azure/group#create). 
+Per creare un nuovo gruppo di risorse con l'interfaccia della riga di comando di Azure, usare il comando [az group create](/cli/azure/group#az_group_create). 
 
 ```azurecli-interactive
 az group create \
@@ -128,7 +128,7 @@ az group create \
     --location westus
 ```
 
-In caso di dubbi su quale area specificare per il parametro `--location`, è possibile recuperare un elenco di aree supportate per la sottoscrizione con il comando [az account list-locations](/cli/azure/account#list).
+In caso di dubbi su quale area specificare per il parametro `--location`, è possibile recuperare un elenco di aree supportate per la sottoscrizione con il comando [az account list-locations](/cli/azure/account#az_account_list).
 
 ```azurecli-interactive
 az account list-locations \
@@ -138,9 +138,19 @@ az account list-locations \
 
 ---
 
-# <a name="create-a-general-purpose-storage-account"></a>Creare un account di archiviazione per utilizzo generico
+## <a name="create-a-general-purpose-storage-account"></a>Creare un account di archiviazione per utilizzo generico
 
-Un account di archiviazione per utilizzo generico consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code e tabelle. È possibile creare un account di archiviazione per utilizzo generico nel livello Standard o Premium. Gli esempi in questo articolo mostrano come creare un account di archiviazione per utilizzo generico nel livello Standard (predefinito). Per altre informazioni sulle opzioni degli account di archiviazione, vedere [Introduzione ad Archiviazione di Microsoft Azure](storage-introduction.md).
+Un account di archiviazione per utilizzo generico consente l'accesso a tutti i servizi di Archiviazione di Azure: BLOB, file, code e tabelle. È possibile creare un account di archiviazione per utilizzo generico nel livello Standard o Premium. Gli esempi in questo articolo mostrano come creare un account di archiviazione per utilizzo generico nel livello Standard (predefinito).
+
+In Archiviazione di Azure sono disponibili due tipi di account di archiviazione per utilizzo generico:
+
+- Account per utilizzo generico v2 
+- Account per utilizzo generico v1. 
+
+> [!NOTE]
+> È consigliabile creare nuovi account di archiviazione come **account per utilizzo generico v2** in modo da sfruttare le funzionalità più recenti disponibili per tali account.  
+
+Per altre informazioni sui tipi di account di archiviazione, vedere [Opzioni di account di archiviazione di Azure](storage-account-options.md).
 
 Quando si assegna un nome all'account di archiviazione, tenere presenti queste regole:
 
@@ -149,43 +159,72 @@ Quando si assegna un nome all'account di archiviazione, tenere presenti queste r
 
 # <a name="portaltabportal"></a>[di Microsoft Azure](#tab/portal)
 
-Per creare un account di archiviazione per utilizzo generico nel portale di Azure, seguire questa procedura:
+Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Altri servizi**. Scorrere quindi verso il basso fino ad **Archiviazione** e scegliere **Account di archiviazione**. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 2. Immettere un nome per l'account di archiviazione.
-3. Lasciare impostati i valori predefiniti per questi campi: **Modello di distribuzione**, **Tipologia account**, **Prestazioni**, **Replica**, **Trasferimento sicuro obbligatorio**.
-4. Scegliere la sottoscrizione in cui creare l'account di archiviazione.
-5. Nella sezione **Gruppo di risorse** selezionare **Usa esistente** e quindi scegliere il gruppo di risorse creato nella sezione precedente.
-6. Scegliere la posizione per il nuovo account di archiviazione.
-7. Fare clic su **Crea** per creare l'account di archiviazione.      
+3. Impostare il campo **Tipologia account** su **StorageV2 (utilizzo generico v2)**.
+4. Lasciare il campo **Replica** impostato su **Archiviazione con ridondanza locale**. In alternativa, è possibile scegliere **Archiviazione con ridondanza della zona (versione in anteprima)**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura**.
+5. Non modificare i valori predefiniti per questi campi: **Modello di distribuzione**, **Prestazioni**, **Trasferimento sicuro obbligatorio**.
+6. Scegliere la sottoscrizione in cui creare l'account di archiviazione.
+7. Nella sezione **Gruppo di risorse** selezionare **Usa esistente** e quindi scegliere il gruppo di risorse creato nella sezione precedente.
+8. Scegliere la posizione per il nuovo account di archiviazione.
+9. Fare clic su **Crea** per creare l'account di archiviazione.      
 
 ![Screenshot che mostra la creazione dell'account di archiviazione nel portale di Azure](./media/storage-quickstart-create-account/create-account-portal.png)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Per creare un account di archiviazione per utilizzo generico da PowerShell, usare il comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
+Per creare un account di archiviazione per utilizzo generico v2 da PowerShell con l'archiviazione con ridondanza locale, usare il comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount): 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
-  -Kind Storage 
+  -Kind StorageV2 
 ```
+
+Per creare un account di archiviazione per utilizzo generico v2 con l'archiviazione con ridondanza della zona (versione in anteprima), l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura, sostituire il parametro **SkuName** con il valore desiderato nella tabella seguente. 
+
+|Opzione di replica  |Parametro SkuName  |
+|---------|---------|
+|Archiviazione con ridondanza locale     |Standard_LRS         |
+|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
+|Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per creare un account di archiviazione per utilizzo generico dall'interfaccia della riga di comando di Azure, usare il comando [az storage account create](/cli/azure/storage/account#create).
+Per creare un account di archiviazione per utilizzo generico v2 dall'interfaccia della riga di comando di Azure con l'archiviazione con ridondanza locale, usare il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location westus \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
+    --kind StorageV2
 ```
 
+Per creare un account di archiviazione per utilizzo generico v2 con l'archiviazione con ridondanza della zona (versione in anteprima), l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura, sostituire il parametro **sku** con il valore desiderato nella tabella seguente. 
+
+|Opzione di replica  |Parametro sku  |
+|---------|---------|
+|Archiviazione con ridondanza locale     |Standard_LRS         |
+|Archiviazione con ridondanza della zona (ZRS).     |Standard_ZRS         |
+|Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
+|Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
+
 ---
+
+> [!NOTE]
+> L'[archiviazione con ridondanza della zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) è attualmente disponibile in versione di anteprima e solo per le località seguenti:
+>    - Stati Uniti orientali 2
+>    - Stati Uniti centrali
+>    - Francia centrale. Quest'area è attualmente disponibile in anteprima. Per richiedere l'accesso, vedere [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Anteprima di Microsoft Azure con Zone di disponibilità di Azure ora accessibile in Francia).
+    
+Per altre informazioni sui diversi tipi di replica disponibili, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -209,7 +248,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 # <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare il comando [az group delete](/cli/azure/group#delete).
+Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare il comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -41,7 +41,7 @@ Qui di seguito sono elencati gli argomenti trattati in questo articolo:
 * Crittografia in transito
 * Crittografia di dati inattivi/Crittografia del servizio di archiviazione
 * Azure Disk Encryption
-* Insieme di credenziali chiave Azure
+* Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base a principi di [riservatezza](https://en.wikipedia.org/wiki/Need_to_know) e [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Questi diritti di accesso vengono concessi assegnando il ruolo di controllo degli accessi appropriato a gruppi e applicazioni in un ambito specifico. È possibile usare i [ruoli predefiniti del controllo degli accessi in base al ruolo](../active-directory/role-based-access-built-in-roles.md), ad esempio Collaboratore Account di archiviazione, per assegnare privilegi agli utenti.
@@ -91,7 +91,7 @@ Altre informazioni:
 
 * [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-key-vault"></a>Insieme di credenziali chiave Azure
+## <a name="azure-key-vault"></a>Azure Key Vault
 Crittografia dischi di Azure usa [Insieme di credenziali delle chiavi di Azure](https://azure.microsoft.com/services/key-vault/) per facilitare il controllo e la gestione delle chiavi di crittografia dei dischi e dei segreti nella sottoscrizione dell'insieme di credenziali delle chiavi, assicurando al tempo stesso che tutti i dati nei dischi delle macchine virtuali siano crittografati quando inattivi in Archiviazione di Azure. È opportuno usare l'insieme di credenziali delle chiavi per controllare le chiavi e l'utilizzo di criteri.
 
 Altre informazioni:

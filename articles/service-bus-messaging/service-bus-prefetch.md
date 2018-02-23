@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 4a4a06f90c2c48d35d836f0be89fec9cc47f32c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prelettura dei messaggi del bus di servizio di Azure
 
@@ -27,7 +27,7 @@ Una singola chiamata iniziale di tipo [Receive](/dotnet/api/microsoft.servicebus
 
 ## <a name="enable-prefetch"></a>Abilitare la prelettura
 
-In .NET è possibile abilitare la funzionalità Prelettura impostando la proprietà [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) di **MessageReceiver**, **QueueClient** o **SubscriptionClient** su un numero maggiore di zero. La configurazione del valore su zero consente di disattivare la prelettura.
+Con .NET è possibile abilitare la funzionalità Prelettura impostando la proprietà [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) di **MessageReceiver**, **QueueClient** o **SubscriptionClient** su un numero maggiore di zero. La configurazione del valore su zero consente di disattivare la prelettura.
 
 È possibile aggiungere con facilità questa impostazione sul lato di ricezione delle impostazioni degli esempi [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) o [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) per verificare l'effetto in questi contesti.
 
@@ -37,7 +37,7 @@ La prelettura funziona allo stesso modo anche con le API [OnMessage](/dotnet/api
 
 ## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Motivi per cui la Prelettura non è l'opzione predefinita anche se è più veloce
 
-La Prelettura accelera il flusso di messaggi facendo in modo che un messaggio sia immediatamente disponibile per il recupero locale quando e prima che un'applicazione ne richieda uno. Questo vantaggio a livello di velocità effettiva è il risultato di una decisione di compromesso che l'autore dell'applicazione deve effettuare in modo esplicito:
+La Prelettura accelera il flusso di messaggi facendo in modo che un messaggio sia immediatamente disponibile per il recupero locale quando e prima che un'applicazione ne richieda uno. Questo vantaggio a livello di velocità effettiva è il risultato di un compromesso che l'autore dell'applicazione deve effettuare in modo esplicito:
 
 Con la modalità di ricezione [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), tutti i messaggi acquisiti nel buffer di prelettura non sono più disponibili nella coda e si trovano nel buffer di prelettura in memoria solo fino a quando non vengono ricevuti nell'applicazione tramite le API **Receive**/**ReceiveAsync** o **OnMessage**/**OnMessageAsync**. Se l'applicazione viene terminata prima della ricezione dei messaggi nell'applicazione, tali messaggi vengono irrimediabilmente persi.
 

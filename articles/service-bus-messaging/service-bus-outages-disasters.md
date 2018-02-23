@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6dd9045d7aa8d4dc8b3a1acbe6f927e232d9b505
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -31,12 +31,7 @@ Il termine "emergenza" indica la perdita permanente di un'unità di scala del bu
 ## <a name="current-architecture"></a>Architettura corrente
 Il bus di servizio usa più archivi di messaggistica per memorizzare messaggi inviati a code o argomenti. Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo.
 
-Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi di servizio che è affiliato a un data center. Il bus di servizio non abilita la replica geografica automatica dei dati, né consente a uno spazio dei nomi di estendersi su più data center.
-
-## <a name="protecting-against-acs-outages"></a>Protezione da interruzioni del servizio di controllo di accesso (ACS)
-Se si usano credenziali ACS e il servizio ACS non è disponibile, i client non possono più ottenere i token. I client che dispongono di un token nel momento in cui ACS si arresta possono continuare a usare il bus di servizio fino alla scadenza dei token. La durata predefinita dei token è 3 ore.
-
-Per proteggersi dalle interruzioni del servizio ACS, usare token di firma di accesso condiviso. In questo caso, il client esegue direttamente l'autenticazione con il bus di servizio firmando un token coniato automaticamente con una chiave privata. Non sono più necessarie chiamate ad ACS. Per altre informazioni sulla configurazione dei token di firma di accesso condiviso, vedere [Autenticazione e autorizzazione del bus di servizio][Service Bus authentication].
+Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi di servizio che è affiliato a un data center. Il bus di servizio supporta il [*ripristino di emergenza geografico* e la *replica geografica*](service-bus-geo-dr.md) a livello di spazio dei nomi.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protezione di code e argomenti da errori degli archivi di messaggistica
 Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Code e argomenti partizionati][Partitioned messaging entities].
@@ -82,9 +77,14 @@ Quando si usa la replica passiva, negli scenari seguenti è possibile che i mess
 
 L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di servizio][Geo-replication with Service Bus Brokered Messages] illustra la modalità di replica passiva delle entità di messaggistica.
 
+## <a name="geo-replication"></a>Replica geografica
+
+Il bus di servizio supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. Per altre informazioni, vedere [Ripristino di emergenza geografico per il bus di servizio di Azure](service-bus-geo-dr.md). La funzionalità di ripristino di emergenza, disponibile solo per lo [SKU Premium](service-bus-premium-messaging.md), implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari del ripristino di emergenza.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti:
 
+* [Ripristino di emergenza geografico per il bus di servizio di Azure](service-bus-geo-dr.md)
 * [Continuità aziendale del database SQL di Azure][Azure SQL Database Business Continuity]
 * [Progettazione di applicazioni resilienti per Azure][Azure resiliency technical guidance]
 

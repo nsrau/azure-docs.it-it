@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 01/05/2018
+ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Introduzione alla progettazione di tabelle in Azure SQL Data Warehouse
 
@@ -32,39 +32,32 @@ Uno [schema star](https://en.wikipedia.org/wiki/Star_schema) organizza i dati in
 
 - Le **tabelle delle dimensioni** contengono i dati degli attributi che possono cambiare, ma che in genere cambiano raramente. Il nome e l'indirizzo di un cliente, ad esempio, vengono archiviati in una tabella delle dimensioni e aggiornati solo quando viene modificato il profilo del cliente. Per ridurre al minimo le dimensioni di una tabella fact di grandi dimensioni, si può evitare di inserire il nome e l'indirizzo del cliente in ogni riga della tabella. La tabella fact e la tabella delle dimensioni possono invece condividere un ID cliente. Una query può creare un join tra le due tabelle per associare il profilo e le transazioni di un cliente. 
 
-- Le **tabelle di integrazione** sono un luogo in cui integrare o gestire temporaneamente i dati. Queste tabelle possono essere create come tabelle standard, tabelle esterne o temporanee. È ad esempio possibile caricare i dati in una tabella di staging, eseguire trasformazioni sui dati in gestione temporanea e quindi inserirli in una tabella di produzione.
+- Le **tabelle di integrazione** sono un luogo in cui integrare o gestire temporaneamente i dati. È possibile creare una tabella di integrazione come una tabella normale, una tabella esterna o una tabella temporanea. È ad esempio possibile caricare i dati in una tabella di staging, eseguire trasformazioni sui dati in gestione temporanea e quindi inserirli in una tabella di produzione.
 
 ## <a name="schema-and-table-names"></a>Nomi di tabella e dello schema
 In SQL Data Warehouse un data warehouse è un tipo di database. Tutte le tabelle nel data warehouse sono contenute all'interno dello stesso database.  Non è possibile creare un join tra le tabelle che si trovano in più data warehouse. Questo comportamento è diverso da quello di SQL Server, dove i join tra database sono supportati. 
 
-In un database di SQL Server è possibile usare fact, dim o integrate come nomi di schema. Se si trasferisce un database di SQL Server a SQL Data Warehouse, è consigliabile migrare o archiviare tutte le tabelle fact, delle dimensioni e di integrazione in un unico schema in SQL Data Warehouse. Si può, ad esempio, archiviare tutte le tabelle nel data warehouse di esempio [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) all'interno di un unico schema denominato WWI. Il codice seguente crea uno [schema definito dall'utente](/sql/t-sql/statements/create-schema-transact-sql) denominato WWI.
+In un database di SQL Server è possibile usare fact, dim o integrate come nomi di schema. Se si esegue la migrazione di un database di SQL Server a SQL Data Warehouse, è consigliabile migrare tutte le tabelle fact, delle dimensioni e di integrazione in un unico schema in SQL Data Warehouse. Si può, ad esempio, archiviare tutte le tabelle nel data warehouse di esempio [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) all'interno di un unico schema denominato wwi. Il codice seguente crea uno [schema definito dall'utente](/sql/t-sql/statements/create-schema-transact-sql) denominato wwi.
 
 ```sql
-CREATE SCHEMA WWI;
+CREATE SCHEMA wwi;
 ```
 
-Per visualizzare l'organizzazione delle tabelle in SQL Data Warehouse, usare fact, dim e int come prefissi dei nomi delle tabelle. La tabella seguente include alcuni dei nomi di tabella e dello schema per WideWorldImportersDW. Questa tabella mette a confronto i nomi in SQL Server e SQL Data Warehouse. 
+Per visualizzare l'organizzazione delle tabelle in SQL Data Warehouse, è possibile usare fact, dim e int come prefissi dei nomi delle tabelle. La tabella seguente include alcuni dei nomi di tabella e dello schema per WideWorldImportersDW. Questa tabella mette a confronto i nomi in SQL Server con i nomi in SQL Data Warehouse. 
 
-| Tabelle delle dimensioni di WWI  | SQL Server | SQL Data Warehouse |
+| Tabella WideWorldImportersDW  | Tipo di tabella | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|
-| Città | Dimension.City | WWI. DimCity |
-| Customer | Dimension.Customer | WWI.DimCustomer |
-| Data | Dimension.Date | WWI.DimDate |
-
-| Tabelle fact di WWI | SQL Server | SQL Data Warehouse |
-|:---|:---|:---|
-| Ordine | Fact.Order | WWI.FactOrder |
-| Sale  | Fact.Sale  | WWI.FactSale  |
-| Purchase | Fact | WWI.FactPurchase |
+| city | Dimensione | Dimension.City | wwi.DimCity |
+| Ordine | Fact | Fact.Order | wwi.FactOrder |
 
 
-## <a name="table-definition"></a>Definizione di tabella 
+## <a name="table-persistence"></a>Persistenza delle tabelle 
 
-I concetti seguenti illustrano gli aspetti chiave della definizione delle tabelle. 
+Le tabelle archiviano i dati in modo permanente in Archiviazione di Azure, temporaneamente in Archiviazione di Azure oppure in un archivio dati esterno al data warehouse.
 
-### <a name="standard-table"></a>Tabella standard
+### <a name="regular-table"></a>Tabella normale
 
-Una tabella standard viene archiviata in Archiviazione di Microsoft Azure come parte del data warehouse. La tabella e i dati sono persistenti indipendentemente dalla presenza o meno di una sessione aperta.  Questo esempio crea una tabella con due colonne. 
+Una tabella normale archivia i dati in Archiviazione di Azure come parte del data warehouse. La tabella e i dati sono persistenti indipendentemente dalla presenza o meno di una sessione aperta.  Questo esempio crea una tabella normale con due colonne. 
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -74,19 +67,32 @@ CREATE TABLE MyTable (col1 int, col2 int );
 Una tabella temporanea esiste solo per la durata della sessione. Si può usare questo tipo di tabella per impedire ad altri utenti di visualizzare i risultati temporanei e anche per ridurre la necessità di eseguire una pulizia.  Poiché le tabelle temporanee utilizzano anche archiviazione locale, possono offrire prestazioni più veloci per alcune operazioni.  Per altre informazioni, vedere [Tabelle temporanee](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabella esterna
-Una tabella esterna punta ai dati che si trovano nell'archivio BLOB di Azure o in Azure Data Lake Store. Quando viene usata in combinazione con l'istruzione CREATE TABLE AS SELECT, la selezione da una tabella esterna importa i dati in SQL Data Warehouse. Le tabelle esterne sono pertanto utili per il caricamento dei dati. Per un'esercitazione sul caricamento, vedere [Usare PolyBase per caricare dati dall'archivio BLOB di Azure a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+Una tabella esterna punta ai dati che si trovano nel BLOB del servizio di archiviazione di Azure o in Azure Data Lake Store. Quando viene usata in combinazione con l'istruzione CREATE TABLE AS SELECT, la selezione da una tabella esterna importa i dati in SQL Data Warehouse. Le tabelle esterne sono pertanto utili per il caricamento dei dati. Per un'esercitazione sul caricamento, vedere [Usare PolyBase per caricare dati dall'archivio BLOB di Azure a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-### <a name="data-types"></a>Tipi di dati
-SQL Data Warehouse supporta i tipi di dati più diffusi. Per un elenco dei tipi di dati supportati, vedere [tipi di dati](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) nell'istruzione CREATE TABLE. La riduzione al minimo delle dimensioni dei tipi di dati consente di migliorare le prestazioni delle query. Per informazioni sui tipi di dati, vedere [Tipi di dati](sql-data-warehouse-tables-data-types.md).
+## <a name="data-types"></a>Tipi di dati
+SQL Data Warehouse supporta i tipi di dati più diffusi. Per un elenco dei tipi di dati supportati, vedere [tipi di dati](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) nel riferimento sull'istruzione CREATE TABLE. La riduzione al minimo delle dimensioni dei tipi di dati consente di migliorare le prestazioni delle query. Per informazioni sull'uso dei tipi di dati, vedere [Tipi di dati](sql-data-warehouse-tables-data-types.md).
 
-### <a name="distributed-tables"></a>Tabelle con distribuzione
-Una caratteristica fondamentale di SQL Data Warehouse è il modo in cui riesce ad archiviare le tabelle tra 60 posizioni distribuite, chiamate distribuzioni, nel sistema distribuito.  SQL Data Warehouse può archiviare una tabella in uno dei tre modi indicati di seguito:
+## <a name="distributed-tables"></a>Tabelle con distribuzione
+Una caratteristica fondamentale di SQL Data Warehouse è il modo è riesce ad archiviare e operare sulle tabelle in 60 [distribuzioni](massively-parallel-processing-mpp-architecture.md#distributions).  Le tabelle vengono distribuite usando un metodo round robin, hash o di replica.
 
-- **Round robin** archivia le righe di tabella in modo casuale, ma uniformemente tra le distribuzioni. La tabella round robin offre prestazioni di caricamento elevate, ma richiede un maggiore spostamento dei dati rispetto agli altri metodi per le query che creano un join tra le colonne. 
-- La distribuzione **hash** distribuisce le righe in base al valore nella colonna di distribuzione. La tabella con distribuzione hash è la soluzione potenzialmente più indicata per ottenere prestazioni elevate in presenza di join di query tra tabelle di grandi dimensioni. Molti fattori influiscono sulla scelta della colonna di distribuzione. Per altre informazioni, vedere [Tabelle con distribuzione](sql-data-warehouse-tables-distribute.md).
-- Le tabelle **replicate** mettono a disposizione una copia completa della tabella in ogni nodo di calcolo. Le query sulle tabelle replicate sono veloci poiché i join nelle tabelle replicate non richiedono lo spostamento dei dati. La replica esige tuttavia uno spazio di archiviazione aggiuntivo e non risulta pratica per le tabelle di grandi dimensioni. Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md).
+### <a name="hash-distributed-tables"></a>Tabelle con distribuzione hash
+La distribuzione hash distribuisce le righe in base al valore nella colonna di distribuzione. La tabella con distribuzione hash è progettata per ottenere prestazioni elevate in presenza di join di query tra tabelle di grandi dimensioni. Molti fattori influiscono sulla scelta della colonna di distribuzione. 
 
-La categoria della tabella spesso determina l'opzione appropriata per la distribuzione della tabella.  
+Per altre informazioni, vedere [Linee guida di progettazione per tabelle distribuite](sql-data-warehouse-tables-distribute.md).
+
+### <a name="replicated-tables"></a>Tabelle replicate
+Le tabelle replicate mettono a disposizione una copia completa della tabella in ogni nodo di calcolo. Le query sulle tabelle replicate sono veloci poiché i join nelle tabelle replicate non richiedono lo spostamento dei dati. La replica esige tuttavia uno spazio di archiviazione aggiuntivo e non risulta pratica per le tabelle di grandi dimensioni. 
+
+Per altre informazioni, vedere [Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md).
+
+### <a name="round-robin-tables"></a>Tabelle round robin
+Una tabella round robin distribuisce le righe della tabella in modo uniforme tra tutte le distribuzioni. Le righe vengono distribuite in modo casuale. Il caricamento dei dati in una tabella round robin è veloce.  Tuttavia, le query possono richiedere un maggiore spostamento dei dati rispetto agli altri metodi di distribuzione. 
+
+Per altre informazioni, vedere [Linee guida di progettazione per tabelle distribuite](sql-data-warehouse-tables-distribute.md).
+
+
+### <a name="common-distribution-methods-for-tables"></a>Metodi di distribuzione comuni per le tabelle
+La categoria della tabella spesso determina l'opzione appropriata per la distribuzione della tabella. 
 
 | Categoria di tabella | Opzione di distribuzione consigliata |
 |:---------------|:--------------------|
@@ -94,21 +100,21 @@ La categoria della tabella spesso determina l'opzione appropriata per la distrib
 | Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
 | Staging        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Dopo che i dati sono stati inseriti nella tabella di staging, usare INSERT...SELECT per spostarli in una tabella di produzione. |
 
-### <a name="table-partitions"></a>Partizioni della tabella
+## <a name="table-partitions"></a>Partizioni della tabella
 Una tabella partizionata archivia ed esegue operazioni sulle righe di tabella in base agli intervalli di dati. Una tabella può, ad esempio, essere partizionata in base ai giorni, ai mesi o agli anni. È possibile migliorare le prestazioni delle query tramite l'eliminazione della partizione, che limita l'analisi di una query ai dati all'interno di una partizione. È inoltre possibile gestire i dati tramite la commutazione tra partizioni. Poiché i dati in SQL Data Warehouse sono già distribuiti, un numero eccessivo di partizioni può rallentare le prestazioni delle query. Per altre informazioni, vedere [Indicazioni sul partizionamento](sql-data-warehouse-tables-partition.md).
 
-### <a name="columnstore-indexes"></a>Indici Columnstore
+## <a name="columnstore-indexes"></a>Indici Columnstore
 Per impostazione predefinita, SQL Data Warehouse archivia una tabella come indice columnstore cluster. Questo modulo di archiviazione dei dati raggiunge compressione dei dati e prestazioni di query elevate su tabelle di grandi dimensioni.  L'indice columnstore cluster è in genere la scelta migliore, ma in alcuni casi un indice cluster o un heap è la struttura di archiviazione appropriata.
 
 Per un elenco delle funzionalità columnstore, vedere [Indici columnstore - Novità](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Per migliorare le prestazioni dell'indice columnstore, vedere [Ottimizzazione della qualità di un gruppo di righe per columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
-### <a name="statistics"></a>Statistiche
+## <a name="statistics"></a>Statistiche
 Quando crea il piano per l'esecuzione di una query, Query Optimizer usa le statistiche a livello di colonna. Per migliorare le prestazioni delle query, è importante creare statistiche su singole colonne, in particolare sulle colonne usate nei join delle query. La creazione e l'aggiornamento delle statistiche non vengono eseguiti automaticamente. [Creare le statistiche](/sql/t-sql/statements/create-statistics-transact-sql) dopo la creazione di una tabella. Aggiornare le statistiche dopo l'aggiunta o la modifica di un numero significativo di righe. Aggiornare, ad esempio, le statistiche dopo un carico. Per altre informazioni, vedere [Indicazioni sulle statistiche](sql-data-warehouse-tables-statistics.md).
 
-## <a name="ways-to-create-tables"></a>Modalità di creazione di tabelle
+## <a name="commands-for-creating-tables"></a>Comandi per la creazione di tabelle
 È possibile creare una tabella come nuova tabella vuota. È inoltre possibile creare e popolare una tabella con i risultati di un'istruzione SELECT. Di seguito sono riportati i comandi T-SQL per la creazione di una tabella.
 
-| Istruzione T-SQL | Descrizione |
+| Istruzione T-SQL | DESCRIZIONE |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crea una tabella vuota definendo tutte le opzioni e le colonne della tabella. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crea una tabella esterna. La definizione della tabella viene archiviata in SQL Data Warehouse. I dati della tabella vengono archiviati nell'archivio BLOB di Azure o in Azure Data Lake Store. |
@@ -119,7 +125,7 @@ Quando crea il piano per l'esecuzione di una query, Query Optimizer usa le stati
 
 Le tabelle del data warehouse vengono popolate caricando i dati da un'altra origine dati. Per eseguire un caricamento corretto, il numero e i tipi di dati delle colonne nei dati di origine devono essere allineati con la definizione della tabella nel data warehouse. Il recupero dei dati da allineare potrebbe risultare l'operazione più difficile della progettazione delle tabelle. 
 
-Se i dati provengono da più archivi dati, è possibile migrarli nel data warehouse e archiviarli in una tabella di integrazione. Dopo che i dati sono stati inseriti nella tabella di integrazione, è possibile sfruttare la potenza di SQL Data Warehouse per eseguire operazioni di trasformazione.
+Se i dati provengono da più archivi dati, è possibile migrarli nel data warehouse e archiviarli in una tabella di integrazione. Dopo che i dati sono stati inseriti nella tabella di integrazione, è possibile sfruttare la potenza di SQL Data Warehouse per eseguire operazioni di trasformazione. Dopo aver preparati i dati, è possibile inserirli nelle tabelle di produzione.
 
 ## <a name="unsupported-table-features"></a>Funzionalità non supportate delle tabelle
 SQL Data Warehouse supporta molte delle funzionalità per tabelle offerte da altri database, ma non tutte.  Di seguito sono elencate alcune delle funzionalità per tabelle che non sono supportate in SQL Data Warehouse.
@@ -259,7 +265,7 @@ FROM size
 
 ### <a name="table-space-summary"></a>Riepilogo dello spazio della tabella
 
-Questa query restituisce le righe e lo spazio per singola tabella.  Consente di vedere quali sono le tabelle più grandi e se si tratta di tabelle con distribuzione hash, replicate o round robin.  Per le tabelle con distribuzione hash, la query mostra la colonna di distribuzione.  Nella maggior parte dei casi, le tabelle più grandi devono essere tabelle con distribuzione hash e avere un indice columnstore cluster.
+Questa query restituisce le righe e lo spazio per singola tabella.  Consente di vedere quali sono le tabelle più grandi e se si tratta di tabelle con distribuzione hash, replicate o round robin.  Per le tabelle con distribuzione hash, la query mostra la colonna di distribuzione.  
 
 ```sql
 SELECT 

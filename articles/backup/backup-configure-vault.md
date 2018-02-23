@@ -17,7 +17,7 @@ ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: 89553ee973e4aebc96b60caef9eefa80178fadfb
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2018
 ---
@@ -176,7 +176,7 @@ L'agente ora è installato e il computer è registrato nell'insieme di credenzia
 Se il computer/proxy ha un accesso a Internet limitato, verificare che le impostazioni del firewall sul computer/proxy siano configurate per consentire gli URL seguenti: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
-    3. windowsazure.com
+    3. *.windowsazure.com
     4. *.microsoftonline.com
     5. *.windows.net
 

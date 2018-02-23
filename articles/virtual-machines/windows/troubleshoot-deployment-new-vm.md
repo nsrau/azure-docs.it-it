@@ -18,7 +18,7 @@ ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fff29f6cfed4989386ca5bbd12184dce525add76
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---

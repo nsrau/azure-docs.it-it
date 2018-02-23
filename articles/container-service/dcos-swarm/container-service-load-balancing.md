@@ -11,7 +11,7 @@ ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---

@@ -38,7 +38,7 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 * La procedura consigliata prevede di impostare il percorso probe su un valore con logica sufficiente a determinare se il sito sia attivo o non attivo. Nell'esempio precedente, impostando il percorso su "/favicon.ico", si verifica solo che w3wp.exe risponda. Questo probe non indica necessariamente che l'applicazione Web è integra. Un'opzione migliore prevede di impostare un percorso su un valore simile a "/Probe.aspx", che è dotato della logica necessaria a determinare l'integrità del sito. Ad esempio, si potrebbero usare i contatori delle prestazioni per verificare l'utilizzo della CPU o misurare il numero di richieste con esito negativo, o tentare di accedere a risorse come lo stato del database o della sessione per assicurarsi che l'applicazione Web funzioni correttamente.
 * Se tutti gli endpoint di un profilo sono danneggiati, Gestione traffico li gestirà come integri e indirizzerà il traffico a tutti gli endpoint. In questo modo si evita che eventuali problemi con il meccanismo di probe non comportino un'interruzione completa del servizio.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Per risolvere gli errori di probe, è necessario uno strumento che mostri il codice di stato HTTP restituito dall'URL del probe. Sono disponibili numerosi strumenti che mostrano la risposta HTTP non elaborata.
 

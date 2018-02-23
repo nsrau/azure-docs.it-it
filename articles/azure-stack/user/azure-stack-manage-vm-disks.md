@@ -242,5 +242,5 @@ If you have a VM with more than one disk in the same container, the service oper
 To do so, use the scripts from the following location in GitHub. These scripts can be used to move the data disks to different containers.
 -->
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per ulteriori informazioni sulle macchine virtuali di Azure Stack, vedere [considerazioni per le macchine virtuali in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-considerations).

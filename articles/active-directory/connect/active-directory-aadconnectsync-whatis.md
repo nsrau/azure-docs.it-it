@@ -3,7 +3,7 @@ title: 'Servizio di sincronizzazione Azure AD Connect: comprendere e personalizz
 description: Spiega come funziona il servizio di sincronizzazione Azure AD Connect e come personalizzarlo.
 services: active-directory
 documentationcenter: 
-author: andkjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: c3f5d469850cf06d21821bd2f642666dc5c48644
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione
 Il servizio di sincronizzazione Azure Active Directory Connect (servizio di sincronizzazione Azure AD Connect) è un componente importante di Azure AD Connect. Si occupa di tutte le operazioni che riguardano la sincronizzazione dei dati relativi alle identità tra l'ambiente locale e Azure AD. Il servizio di sincronizzazione Azure AD Connect è il successore di DirSync, Azure AD Sync e Forefront Identity Manager con il connettore Azure Active Directory configurato.
 
 Questo argomento fornisce informazioni di base sul **servizio di sincronizzazione Azure AD Connect**, detto anche **motore di sincronizzazione**, e include un elenco di collegamenti a tutti gli altri argomenti correlati. Per collegamenti relativi ad Azure AD Connect, vedere [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).
 
-Il servizio di sincronizzazione è costituito da due componenti: la **sincronizzazione di Azure AD Connect** locale e il servizio di Azure AD chiamato **servizio di sincronizzazione di Azure AD Connect**. 
+Il servizio di sincronizzazione è costituito da due componenti: la **sincronizzazione di Azure AD Connect** locale e il servizio di Azure AD chiamato **servizio di sincronizzazione di Azure AD Connect**.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Argomenti relativi al servizio di sincronizzazione Azure AD Connect
 | Argomento | Contenuti e destinatari |
@@ -49,6 +49,7 @@ Il servizio di sincronizzazione è costituito da due componenti: la **sincronizz
 | [Implementare la sincronizzazione password](active-directory-aadconnectsync-implement-password-synchronization.md) |Illustra il funzionamento della sincronizzazione password, spiega come implementarla, usarla e risolverne i problemi. |
 | [Writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) |Illustra il funzionamento del writeback dei dispositivi in Azure AD Connect. |
 | [Estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md) |Illustra come estendere lo schema di Azure AD con i propri attributi personalizzati. |
+| [PreferredDataLocation di Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Descrive come inserire le risorse di Office 365 dell'utente nella stessa area dell'utente. |
 | **Servizio di sincronizzazione** | |
 | [Funzionalità del servizio di sincronizzazione di Azure AD Connect](active-directory-aadconnectsyncservice-features.md) |Descrive il servizio di sincronizzazione e la modifica delle impostazioni di sincronizzazione in Azure AD. |
 | [Resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |Descrive come abilitare e usare la resilienza dei valori di attributo duplicati **userPrincipalName** e **proxyAddresses**. |
@@ -64,4 +65,3 @@ Il servizio di sincronizzazione è costituito da due componenti: la **sincronizz
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md)
-

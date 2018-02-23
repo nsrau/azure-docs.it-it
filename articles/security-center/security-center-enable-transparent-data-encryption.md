@@ -42,7 +42,7 @@ Questa indicazione si applica esclusivamente al servizio SQL di Azure e non incl
 
    ![Stato della crittografia][4]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Questo documento illustra come implementare la raccomandazione "Abilitare Transparent Data Encryption" del Centro sicurezza. Per altre informazioni su TDE di SQL, vedere gli argomenti seguenti:
 
 * [Transparent Data Encryption con il database SQL di Azure](https://msdn.microsoft.com/library/dn948096)

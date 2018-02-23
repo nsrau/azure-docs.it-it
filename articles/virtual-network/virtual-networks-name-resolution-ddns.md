@@ -33,7 +33,7 @@ I client Windows appartenenti a un dominio registrano i relativi indirizzi IP co
 ## <a name="linux-clients"></a>Client Linux
 I client Linux solitamente non si registrano con il server DNS all'avvio, presuppongono che il server DHCP esegua l'operazione. I server DHCP di Azure non sono in grado o non dispongono delle credenziali per registrare i record nel server DNS.  È possibile usare uno strumento denominato *nsupdate*, incluso nel pacchetto di binding, per inviare gli aggiornamenti del DNS dinamico. Poiché il protocollo DNS dinamico è standardizzato, è possibile usare *nsupdate* anche quando non si usa il pacchetto Bind sul server DNS.
 
-È possibile usare gli hook messi a disposizione dal client DHCP per creare e gestire il nome host nel server DNS. Durante il ciclo DHCP, il client esegue gli script in */etc/dhcp/dhclient-exit-hooks.d/*. Questo può essere usato per registrare il nuovo indirizzo IP tramite *nsupdate*. Ad esempio:
+È possibile usare gli hook messi a disposizione dal client DHCP per creare e gestire il nome host nel server DNS. Durante il ciclo DHCP, il client esegue gli script in */etc/dhcp/dhclient-exit-hooks.d/*. Questo può essere usato per registrare il nuovo indirizzo IP tramite *nsupdate*. Ad esempio: 
 
         #!/bin/sh
         requireddomain=mydomain.local

@@ -34,7 +34,7 @@ La rete per la distribuzione di contenuti di Azure offerta da Verizon distribuis
  
 ## <a name="configure-an-endpoint-to-optimize-media-streaming-in-the-azure-content-delivery-network-from-akamai"></a>Configurare un endpoint per ottimizzare lo streaming multimediale nella rete per la distribuzione dei contenuti di Azure da Akamai
  
-È possibile configurare l'endpoint della rete di distribuzione di contenuti (CDN) per ottimizzare il recapito per i file di grandi dimensioni tramite il portale di Azure. A tale scopo è anche possibile usare le API REST o qualsiasi SDK client. La procedura seguente illustra il processo tramite il portale di Azure:
+È possibile configurare l'endpoint della rete di distribuzione di contenuti (CDN) per ottimizzare il recapito per i file di grandi dimensioni tramite il portale di Azure. A questo scopo, è anche possibile usare le API REST o qualsiasi SDK client. La procedura seguente illustra il processo tramite il portale di Azure:
 
 1. Per aggiungere un nuovo endpoint nella pagina **Profilo CDN** selezionare **Endpoint**.
   
@@ -63,7 +63,7 @@ I tempi negativi e brevi di memorizzazione nella cache sono utili per l'offload 
 |   | Distribuzione Web generale | Streaming multimediale generale | Streaming multimediale di video on demand  
 --- | --- | --- | ---
 Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |365 giorni | 365 giorni   
-Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | None | 1 secondo | 1 secondo
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | Nessuna | 1 secondo | 1 secondo
  
 ### <a name="deal-with-origin-failure"></a>Gestione degli errori di origine  
 

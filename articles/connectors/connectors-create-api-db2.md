@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen; ladocs
-ms.openlocfilehash: 4501b3d9a2fdc00582596cb907f7130591e4782e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introduzione al connettore DB2
 Microsoft Connector for DB2 connette le app per la logica alle risorse archiviate in un database IBM DB2. Il connettore include un client Microsoft per comunicare con computer server DB2 remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Bluemix dashDB o IBM DB2 per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-db2.md#supported-db2-platforms-and-versions) delle piattaforme e delle versioni di IBM DB2 supportate (in questo argomento).
@@ -35,7 +35,7 @@ Il connettore DB2 supporta le operazioni di database seguenti:
 
 Questo argomento illustra come usare il connettore in un'app per la logica per elaborare operazioni su database.
 
-Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per altre informazioni sulle app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="available-actions"></a>Azioni disponibili
 Il connettore DB2 supporta le azioni delle app per la logica seguenti:
@@ -83,14 +83,14 @@ All'interno dell'app per la logica è possibile aggiungere un'azione per elencar
 ## <a name="create-the-connections"></a>Creare le connessioni
 Il connettore supporta le connessioni ai database ospitati locali e cloud mediante le proprietà di connessione seguenti. 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| server |Obbligatorio. Accetta un valore stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, delimitato da due punti e seguito da un numero di porta TCP/IP. |
-| database |Obbligatorio. Accetta un valore stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA. DB2 per z/OS accetta una stringa di 16 byte (il database è definito come posizione di IBM DB2 per z/OS). DB2 per i5/OS accetta una stringa di 18 byte (il database è definito come database relazionale IBM DB2 per i). DB2 per LUW accetta una stringa di 8 byte. |
+| server |Richiesto. Accetta un valore stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, delimitato da due punti e seguito da un numero di porta TCP/IP. |
+| database |Richiesto. Accetta un valore stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA. DB2 per z/OS accetta una stringa di 16 byte (il database è definito come posizione di IBM DB2 per z/OS). DB2 per i5/OS accetta una stringa di 18 byte (il database è definito come database relazionale IBM DB2 per i). DB2 per LUW accetta una stringa di 8 byte. |
 | authentication |facoltativo. Accetta un valore elemento di elenco, ovvero Basic o Windows (kerberos). |
-| username |Obbligatorio. Accetta il valore della stringa. DB2 per z/OS accetta una stringa di 8 byte. DB2 per i accetta una stringa di 10 byte. DB2 per Linux o UNIX accetta una stringa di 8 byte. DB2 per Windows accetta una stringa di 30 byte. |
-| password |Obbligatorio. Accetta il valore della stringa. |
-| gateway |Obbligatorio. Accetta un valore elemento di elenco, che rappresenta il gateway dati locale definito per le app per la logica nel gruppo di archiviazione. |
+| username |Richiesto. Accetta il valore della stringa. DB2 per z/OS accetta una stringa di 8 byte. DB2 per i accetta una stringa di 10 byte. DB2 per Linux o UNIX accetta una stringa di 8 byte. DB2 per Windows accetta una stringa di 30 byte. |
+| password |Richiesto. Accetta il valore della stringa. |
+| gateway |Richiesto. Accetta un valore elemento di elenco, che rappresenta il gateway dati locale definito per le app per la logica nel gruppo di archiviazione. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Creare una connessione gateway locale
 Il connettore può accedere a un database DB2 locale tramite il gateway locale. Per altre informazioni, vedere gli argomenti relativi al gateway. 
@@ -281,5 +281,5 @@ Il connettore supporta le piattaforme e le versioni di IBM DB2 seguenti, nonché
 Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/db2/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
+[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
 

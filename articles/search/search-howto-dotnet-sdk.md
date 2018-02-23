@@ -56,7 +56,7 @@ Esistono diverse operazioni che è necessario eseguire nell'applicazione di rice
 
 Il codice di esempio che segue illustra ciascuna di queste operazioni. È possibile utilizzare i frammenti di codice nell'applicazione.
 
-### <a name="overview"></a>Overview
+### <a name="overview"></a>Panoramica
 L'applicazione di esempio crea un nuovo indice denominato "hotels", vi inserisce alcuni documenti, quindi esegue alcune query di ricerca. Ecco il programma principale che mostra il flusso generale:
 
 ```csharp

@@ -111,15 +111,15 @@ Per mantenere un modello comune tra le metriche dell'infrastruttura già raccolt
 | Campo metrica CollectD | Campo Log Analytics |
 |:--|:--|
 | host | Computer |
-| plugin | Nessuno |
+| plugin | Nessuna |
 | plugin_instance | Nome dell'istanza<br>Se **plugin_instance** è *null*, InstanceName="*_Total*" |
 | type | ObjectName |
 | type_instance | CounterName<br>Se **type_instance** è *null*, CounterName=**blank** |
 | dsnames[] | CounterName |
-| dstypes | Nessuno |
+| dstypes | Nessuna |
 | values[] | CounterValue |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 * Usare [campi personalizzati](log-analytics-custom-fields.md) per analizzare i dati dei record Syslog nei singoli campi.
 

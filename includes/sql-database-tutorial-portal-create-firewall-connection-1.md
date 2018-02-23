@@ -8,7 +8,7 @@ Un database SQL di Azure viene creato con un set definito di [risorse di calcolo
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente. 
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Database** dalla pagina **Nuovo**, quindi selezionare **Crea** in **Database SQL** nella pagina **Nuovo**.
 

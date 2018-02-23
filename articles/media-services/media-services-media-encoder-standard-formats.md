@@ -48,7 +48,7 @@ Il Codificatore multimedia standard supporta i seguenti formati audio nei conten
 
 * file MXF, GXF e QuickTime che dispongono di tracce audio con esempi di stereo interleaved o 5.1
 
-o
+oppure
 
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
 
@@ -65,7 +65,7 @@ Il supporto per il mapping del canale esplicito/fornito dall'utente verrà forni
 | MPEG-2 (fino a 422 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Fino a 422 Profile |
 | MPEG-1 |Sì |
 | FORMATO VC-1/WMV9 |Sì |
-| Canopus HQ/HQX |No |
+| Canopus HQ/HQX |No  |
 | MPEG-4 parte 2 |Sì |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sì |
 | YUV420 non compressi o mezzanine |Sì |
@@ -88,10 +88,10 @@ Il supporto per il mapping del canale esplicito/fornito dall'utente verrà forni
 | [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sì |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |
 | AMR (velocità multipla adattiva) |Sì |
-| AES (SMPTE 331M e 302M, AES3-2003) |No |
-| Dolby® E |No |
-| Dolby® Digital (AC3) |No |
-| Dolby® Digital Plus (E-AC3) |No |
+| AES (SMPTE 331M e 302M, AES3-2003) |No  |
+| Dolby® E |No  |
+| Dolby® Digital (AC3) |No  |
+| Dolby® Digital Plus (E-AC3) |No  |
 
 ## <a name="output-formats-and-codecs"></a>Formati e codec di output
 La tabella seguente include l'elenco dei codec e dei formati di file supportati per l'esportazione.

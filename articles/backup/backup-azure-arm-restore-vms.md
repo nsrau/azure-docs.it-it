@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
 È possibile proteggere i dati mediante la creazione di snapshot dei dati a intervalli definiti. Questi snapshot sono noti come punti di ripristino e vengono archiviati negli insiemi di credenziali dei servizi di ripristino. Se è necessario ripristinare o ricreare una macchina virtuale (VM), è possibile ripristinare la macchina virtuale da qualsiasi punto di ripristino salvato. Quando si ripristina un punto di ripristino, è possibile:
@@ -104,7 +104,7 @@ Dopo aver selezionato il punto di ripristino, scegliere una configurazione di ri
 
    * **Ripristinare i dischi**
 
-Il portale offre un'opzione di **creazione rapida** per una VM ripristinata. Per personalizzare la configurazione della VM o i nomi delle risorse create come parte della creazione di una nuova opzione di VM, usare PowerShell o il portale per ripristinare i dischi di backup. Usare i comandi di PowerShell per associarli alla scelta della configurazione della VM. In alternativa, è possibile usare il modello integrato nei dischi ripristinati per personalizzare la VM ripristinata. Per informazioni su come ripristinare una VM che dispone di più schede di interfaccia di rete o nel bilanciamento del carico, vedere [Restore a VM with special network configurations](#restore-a vm-with-special-network-configurations) (Ripristino di una VM con configurazioni di rete speciali). Se una VM Windows usa le [licenze HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), ripristinare i dischi e usare PowerShell o il modello come specificato in questo articolo per creare la VM. Assicurarsi di specificare **Tipo di licenza** come "Windows_Server" durante la creazione della VM per poter accedere ai vantaggi HUB nella VM ripristinata. 
+Il portale offre un'opzione di **creazione rapida** per una VM ripristinata. Per personalizzare la configurazione della VM o i nomi delle risorse create come parte della creazione di una nuova opzione di VM, usare PowerShell o il portale per ripristinare i dischi di backup. Usare i comandi di PowerShell per associarli alla scelta della configurazione della VM. In alternativa, è possibile usare il modello integrato nei dischi ripristinati per personalizzare la VM ripristinata. Per informazioni su come ripristinare una VM che dispone di più schede di interfaccia di rete o nel bilanciamento del carico, vedere [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations) (Ripristino di una VM con configurazioni di rete speciali). Se una VM Windows usa le [licenze HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), ripristinare i dischi e usare PowerShell o il modello come specificato in questo articolo per creare la VM. Assicurarsi di specificare **Tipo di licenza** come "Windows_Server" durante la creazione della VM per poter accedere ai vantaggi HUB nella VM ripristinata. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Creare una nuova VM da un punto di ripristino
 1. Se non lo si è già fatto, [selezionare un punto di ripristino](#restore-a vm-with-special-network-configurations) prima di iniziare a creare una nuova VM da un punto di ripristino. Dopo aver selezionato un punto di ripristino, nel pannello **Configurazione di ripristino** specificare o selezionare i valori per ogni campo seguente:
@@ -196,7 +196,7 @@ Per ottenere il modello generato come parte dell'opzione dei dischi di ripristin
    ![Inviare la distribuzione del modello](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
 ## <a name="post-restore-steps"></a>Operazioni successive al ripristino
-* Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/classic/reset-access.md) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino.
+* Se si usa una distribuzione Linux basata su cloud-init, ad esempio Ubuntu, per motivi di sicurezza la password verrà bloccata dopo il ripristino. Per [reimpostare la password](../virtual-machines/linux/reset-password.md) nella VM ripristinata, usare l'estensione VMAccess. È consigliabile usare chiavi SSH in queste distribuzioni per evitare la reimpostazione della password dopo il ripristino.
 * Le estensioni presenti durante la configurazione di backup verranno installate, ma non abilitate. Se si verifica un problema, reinstallare le estensioni. 
 * Se la VM di backup dispone di indirizzo IP statico dopo il ripristino, la VM ripristinata avrà un indirizzo IP dinamico per evitare conflitti durante la creazione di una VM ripristinata. Altre informazioni su come [aggiungere un indirizzo IP statico alla VM ripristinata](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 * Una VM ripristinata non avrà set di valori di disponibilità. È consigliabile usare l'opzione di ripristino dei dischi per [aggiungere un set di disponibilità](../virtual-machines/windows/tutorial-availability-sets.md) durante la creazione di una VM da PowerShell o dei modelli con i dischi ripristinati. 

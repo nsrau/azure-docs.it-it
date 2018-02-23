@@ -34,7 +34,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Pubblicare la funzione di Azure
 > * Connettere la funzione di Azure al database Azure Cosmos DB
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - [Visual Studio 2017 versione 15.3](https://www.visualstudio.com/vs/preview/), con il carico di lavoro di **sviluppo di Azure**.
 

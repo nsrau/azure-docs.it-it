@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Questo articolo fornisce informazioni per l'esecuzione di operazioni di gestione di account in Data Lake Store con l'API REST. Le operazioni di gestione di account includono la creazione di un account Data Lake Store, l'eliminazione di un account Data Lake Store e così via. Per istruzioni su come eseguire le operazioni del file system in Data Lake Store con l'API REST, vedere [Operazioni del file system in Data Lake Store con l'API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **[cURL](http://curl.haxx.se/)**. Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un account Archivio Data Lake.

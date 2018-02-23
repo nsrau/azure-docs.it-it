@@ -100,7 +100,7 @@ Immettere il comando seguente:
 
 Questo comando installa Restify.
 
-#### <a name="did-you-get-an-error"></a>È stato visualizzato un errore?
+#### <a name="did-you-get-an-error"></a>È STATO VISUALIZZATO UN ERRORE?
 In alcuni sistemi operativi, quando si usa `npm` potrebbero essere visualizzati l'errore `Error: EPERM, chmod '/usr/local/bin/..'` e una richiesta di eseguire l'account come amministratore. In tal caso, usare il comando `sudo` per eseguire `npm` a un livello di privilegi più elevato.
 
 #### <a name="did-you-get-a-dtrace-error"></a>È stato visualizzato un errore di DTrace?

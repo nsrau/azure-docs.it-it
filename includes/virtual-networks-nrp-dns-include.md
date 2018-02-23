@@ -1,16 +1,16 @@
 ## <a name="azure-dns"></a>DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.
 
-| Proprietà | Descrizione | Valore di esempio |
+| Proprietà | DESCRIZIONE | Valore di esempio |
 | --- | --- | --- |
 | **DNSzones** |Informazioni sulla zona del dominio per ospitare i record DNS di un particolare dominio. |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
 
 ### <a name="dns-record-sets"></a>Set di record DNS
 Le zone DNS dispongono di un oggetto figlio denominato set di record. I set di record sono una raccolta di record host in base al tipo per una zona DNS. I tipi record sono A, AAAA, CNAME, MX, NS, SOA, SRV e TXT.
 
-| Proprietà | Descrizione | Valore di esempio |
+| Proprietà | DESCRIZIONE | Valore di esempio |
 | --- | --- | --- |
-| A |Tipo di record IPv4 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
+| Una  |Tipo di record IPv4 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | AAAA |Tipo di record IPv6 |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
 | CNAME |tipo di record di nome canonical <sup>1</sup> |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
 | MX |Tipo di record di posta elettronica |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |

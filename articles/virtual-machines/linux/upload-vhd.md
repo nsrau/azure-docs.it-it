@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d72094fb34c73e511b1003be25594a1dedddb1e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Creare una macchina virtuale Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure 2.0
 
@@ -35,7 +35,7 @@ Sono disponibili due opzioni:
 
 ## <a name="quick-commands"></a>Comandi rapidi
 
-Quando si crea una nuova macchina virtuale usando [az vm create](/cli/azure/vm#create) da un disco specializzato o personalizzato, **collegare** il disco (--attach-os-disk) anziché specificare un'immagine personalizzata o del marketplace (--image). L'esempio seguente crea una macchina virtuale denominata *myVM* usando il disco gestito denominato *myManagedDisk* creato dal disco rigido virtuale personalizzato:
+Quando si crea una nuova macchina virtuale usando [az vm create](/cli/azure/vm#az_vm_create) da un disco specializzato o personalizzato, **collegare** il disco (--attach-os-disk) anziché specificare un'immagine personalizzata o del marketplace (--image). L'esempio seguente crea una macchina virtuale denominata *myVM* usando il disco gestito denominato *myManagedDisk* creato dal disco rigido virtuale personalizzato:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location eastus --name myVM \
@@ -56,11 +56,11 @@ Per completare la procedura seguente, è necessario:
 > 
 
 
-* Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login).
+* Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *mystorageaccount* e *mydisks*.
 
-<a id="prepimage"> </a>
+<a id="prepimage"></a>
 
 ## <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 
@@ -87,7 +87,7 @@ Vedere anche le [Note sull'installazione di Linux](create-upload-generic.md#gene
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Prima di caricare il disco personalizzato e creare le VM, è necessario creare un gruppo di risorse con [az group create](/cli/azure/group#create).
+Prima di caricare il disco personalizzato e creare le VM, è necessario creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create).
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *eastus*: [Panoramica di Azure Managed Disks](../windows/managed-disks-overview.md)
 ```azurecli
@@ -98,7 +98,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un account di archiviazione per il disco personalizzato e le VM con [az storage account create](/cli/azure/storage/account#create). 
+Creare un account di archiviazione per il disco personalizzato e le VM con [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 Nell'esempio seguente viene creato un account di archiviazione denominato *mystorageaccount* nel gruppo di risorse creato in precedenza:
 
@@ -112,7 +112,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>Ottenere chiavi degli account di archiviazione
-Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono usate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys#list).
+Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono usate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Ulteriori informazioni sulla [gestione dell'accesso all'archiviazione sono disponibili qui](../../storage/common/storage-create-storage-account.md#manage-your-storage-account). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list).
 
 Visualizzare le chiavi di accesso per l'account di archiviazione creato:
 
@@ -136,7 +136,7 @@ info:    storage account keys list command OK
 Prendere nota di **key1** perché verrà usato per interagire con l'account di archiviazione nei passaggi successivi.
 
 ### <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
-Nello stesso modo in cui si creano directory diverse per organizzare in modo logico il file system locale si creano anche i contenitori con un account di archiviazione per organizzare i dischi. Un account di archiviazione può contenere un numero qualsiasi di contenitori. Creare un contenitore con [az storage container create](/cli/azure/storage/container#create).
+Nello stesso modo in cui si creano directory diverse per organizzare in modo logico il file system locale si creano anche i contenitori con un account di archiviazione per organizzare i dischi. Un account di archiviazione può contenere un numero qualsiasi di contenitori. Creare un contenitore con [az storage container create](/cli/azure/storage/container#az_storage_container_create).
 
 Nell'esempio seguente viene creato un contenitore denominato *mydisks*:
 
@@ -147,7 +147,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale
-Caricare ora il disco personalizzato con [az storage blob upload](/cli/azure/storage/blob#upload). Caricare e archiviare il disco personalizzato come BLOB di pagine.
+Caricare ora il disco personalizzato con [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload). Caricare e archiviare il disco personalizzato come BLOB di pagine.
 
 Specificare la chiave di accesso e il contenitore creato nel passaggio precedente, quindi selezionare il percorso del disco personalizzato sul computer locale:
 
@@ -164,7 +164,7 @@ Il caricamento del disco rigido virtuale potrebbe richiedere qualche minuto.
 ### <a name="create-a-managed-disk"></a>Creare un disco gestito
 
 
-Creare un disco gestito dal disco rigido virtuale con [az disk create](/cli/azure/disk#create). Nell'esempio seguente viene creato un disco gestito denominato *myManagedDisk* dal disco rigido virtuale caricato nell'account di archiviazione e nel contenitore denominati:
+Creare un disco gestito dal disco rigido virtuale con [az disk create](/cli/azure/disk#az_disk_create). Nell'esempio seguente viene creato un disco gestito denominato *myManagedDisk* dal disco rigido virtuale caricato nell'account di archiviazione e nel contenitore denominati:
 
 ```azurecli
 az disk create \
@@ -210,7 +210,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>Creare la VM
 
-A questo punto, creare la macchina virtuale con [az vm create](/cli/azure/vm#create) e collegare (--attach-os-disk) il disco gestito come disco del sistema operativo. L'esempio seguente crea una macchina virtuale denominata *myNewVM* usando il disco gestito creato dal disco rigido virtuale caricato:
+A questo punto, creare la macchina virtuale con [az vm create](/cli/azure/vm#az_vm_create) e collegare (--attach-os-disk) il disco gestito come disco del sistema operativo. L'esempio seguente crea una macchina virtuale denominata *myNewVM* usando il disco gestito creato dal disco rigido virtuale caricato:
 
 ```azurecli
 az vm create \

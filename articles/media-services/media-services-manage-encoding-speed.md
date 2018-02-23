@@ -36,7 +36,7 @@ Per informazioni dettagliate ed esempi che illustrano come ridimensionare le uni
 
 [Ridimensionare le unità di codifica](media-services-scale-media-processing-overview.md)
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

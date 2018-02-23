@@ -21,7 +21,7 @@ ms.author:
 - justcla
 ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/08/2017
 
 Questo documento descrive come pubblicare un'applicazione Web ASP.NET in una macchina virtuale (VM) di Azure usando la funzionalità di pubblicazione **Macchine virtuali di Microsoft Azure** di Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtuale di Azure, la macchina virtuale deve essere configurata correttamente.
 
 - Il computer deve essere configurato per eseguire un'applicazione Web ASP.NET e deve essere installato WebDeploy.

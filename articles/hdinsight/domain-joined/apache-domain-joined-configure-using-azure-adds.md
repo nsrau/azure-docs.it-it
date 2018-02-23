@@ -3,7 +3,7 @@ title: Configurare cluster HDInsight aggiunti al dominio usando Azure Active Dir
 description: Informazioni su come configurare i cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services
 services: hdinsight
 documentationcenter: 
-author: saurinsh
+author: bprakash
 manager: jhubbard
 editor: cgronlun
 tags: 
@@ -13,21 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
-ms.author: saurinsh
-ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.author: bhanupr
+ms.openlocfilehash: 77478616eae27828a57a36dc0aaf3884e80ce403
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services
 
 I cluster aggiunti al dominio offrono alle aziende con più utenti funzionalità di sicurezza in HDInsight. I cluster HDInsight aggiunti al dominio sono collegati ai domini di Active Directory, così che gli utenti del dominio possano usare le proprie credenziali per effettuare l'autenticazione con i cluster ed eseguire lavori con big data. 
 
-Esistono tre modi per configurare un controller di dominio in modo che i cluster HDInsight aggiunti al dominio possano connettersi a:
+Esistono due modi per configurare un controller di dominio in modo che i cluster HDInsight aggiunti al dominio possano connettersi a:
 
 - Azure Active Directory Domain Services (Azure AD DS)
-- Active Directory locale
 - Controller di Dominio di Active Directory su macchine virtuali Azure IaaS
 
 In questo articolo sono contenute informazioni su come configurare un cluster HDInsight aggiunto al dominio usando Azure Active Directory Domain Services.
@@ -37,7 +36,7 @@ In questo articolo sono contenute informazioni su come configurare un cluster HD
 Prima di poter creare un cluster HDInsight, è necessario creare un Azure Active Directory Domain Services. Per creare un Azure Active Directory Domain Services, vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Solo l'amministratore tenant dispone dell'autorizzazione a creare servizi di dominio. 
+> Solo l'amministratore tenant dispone dell'autorizzazione a creare servizi di dominio. Se si usa l'archiviazione di Azure Data Lake come risorsa di archiviazione predefinita per HDInsight, verificare che il tenant di Azure AD predefinito per l'archiviazione di Azure Data Lake sia lo stesso del dominio per il cluster di HDInsight. 
 
 Quando il servizio di dominio è stato sottoposto a provisioning, sarà necessario creare un account del servizio nel gruppo **di amministratori Azure Active Directory Domain Services** per creare il cluster HDInsight. L'account del servizio deve essere un amministratore globale in Azure AD.
 

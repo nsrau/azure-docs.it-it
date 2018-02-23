@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: v-livech
-ms.openlocfilehash: 9eae17b304f8a987b44ebed8906dabd8ff3a36a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4566e9b236049c336858e9149cca80066b029775
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -67,7 +67,7 @@ Lo spostamento di file da una VM a un montaggio SMB ospitato nell'archiviazione 
 
 Per questa procedura dettagliata vengono definiti i prerequisiti necessari prima per creare la condivisione di archiviazione file di Azure e quindi per montarla tramite SMB in una VM Linux.
 
-1. Creare un gruppo di risorse con [az group create](/cli/azure/group#create) per contenere la condivisione file.
+1. Creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create) per contenere la condivisione file.
 
     Per creare un gruppo di risorse denominato `myResourceGroup` nell'area "Stati Uniti occidentali" usando il comando seguente:
 
@@ -75,7 +75,7 @@ Per questa procedura dettagliata vengono definiti i prerequisiti necessari prima
     az group create --name myResourceGroup --location westus
     ```
 
-2. Creare un account di archiviazione di Azure con [az storage account create](/cli/azure/storage/account#create) per archiviare i file effettivi.
+2. Creare un account di archiviazione di Azure con [az storage account create](/cli/azure/storage/account#az_storage_account_create) per archiviare i file effettivi.
 
     Per creare un account di archiviazione denominato mystorageaccount usando SKU di archiviazione Standard_LRS, usare l'esempio seguente:
 
@@ -90,7 +90,7 @@ Per questa procedura dettagliata vengono definiti i prerequisiti necessari prima
 
     Quando si crea un account di archiviazione, le chiavi dell'account vengono create a coppie perché possano essere ruotate senza interrompere il servizio. Quando si passa alla seconda chiave della coppia, viene creata una nuova coppia di chiavi. Le nuove chiavi dell'account di archiviazione vengono sempre create a coppie in modo da avere sempre a disposizione almeno una chiave dell'account di archiviazione non usata alla quale passare.
 
-    Usare [az storage account keys list](/cli/azure/storage/account/keys#list) per visualizzare le chiavi dell'account di archiviazione. L'esempio seguente elenca le chiavi dell'account di archiviazione denominato `mystorageaccount`:
+    Usare [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) per visualizzare le chiavi dell'account di archiviazione. L'esempio seguente elenca le chiavi dell'account di archiviazione denominato `mystorageaccount`:
 
     ```azurecli
     az storage account keys list --resource-group myResourceGroup \
@@ -107,7 +107,7 @@ Per questa procedura dettagliata vengono definiti i prerequisiti necessari prima
 
 4. Creare la condivisione di archiviazione file.
 
-    La condivisione di archiviazione file contiene la condivisione SMB con [az storage share create](/cli/azure/storage/share#create). La quota è sempre espressa in gigabyte (GB). Passare a una delle chiavi dal comando precedente `az storage account keys list`. Creare una condivisione denominata mystorageshare con una quota di 10 GB con l'esempio seguente:
+    La condivisione di archiviazione file contiene la condivisione SMB con [az storage share create](/cli/azure/storage/share#az_storage_share_create). La quota è sempre espressa in gigabyte (GB). Passare a una delle chiavi dal comando precedente `az storage account keys list`. Creare una condivisione denominata mystorageshare con una quota di 10 GB con l'esempio seguente:
 
     ```azurecli
     az storage share create --name mystorageshare \
@@ -137,7 +137,7 @@ Per questa procedura dettagliata vengono definiti i prerequisiti necessari prima
     Quando si riavvia la VM Linux, durante la fase di arresto viene smontata la condivisione SMB montata. Per consentire il rimontaggio della condivisione SMB all'avvio, aggiungere una riga a /etc/fstab di Linux. Linux usa il file fstab per elencare i file system da montare durante la fase di avvio. Aggiungendo la condivisione SMB si garantisce che la condivisione di archiviazione file costituisca un file system montato in modo permanente per la VM Linux. L'aggiunta della condivisione SMB di archiviazione file in una nuova VM è possibile quando si usa cloud-init.
 
     ```bash
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

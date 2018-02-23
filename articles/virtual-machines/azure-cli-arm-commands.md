@@ -17,7 +17,7 @@ ms.date: 04/18/2017
 ms.author: danlep
 ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
 ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2017
 ---

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 01/26/2018
 ms.author: terrylan
-ms.openlocfilehash: c715afe55a3aedd5c4f826bc34c3c56e167d2f82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time) (anteprima)
 
@@ -50,11 +50,13 @@ Quando un utente richiede l'accesso a una macchina virtuale, il Centro sicurezza
 
 ## <a name="using-just-in-time-access"></a>Uso dell'accesso Just-in-Time
 
-Il riquadro **Accesso Just-In-Time alla VM** nel **Centro sicurezza** mostra il numero di macchine virtuali configurate per l'accesso Just-in-Time e il numero di richieste di accesso approvate nell'ultima settimana.
+1. Aprire il dashboard **Centro sicurezza**.
+
+2. Nel riquadro a sinistra selezionare **Accesso Just-In-Time alla VM**.
 
 ![Riquadro Accesso Just-In-Time alla VM][2]
 
-Selezionare il riquadro **Accesso Just-In-Time alla VM** per aprire **Accesso Just-In-Time alla VM**.
+Viene visualizzata la finestra **Accesso Just-In-Time alla VM**.
 
 ![Riquadro Accesso Just-In-Time alla VM][10]
 

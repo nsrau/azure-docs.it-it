@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -22,9 +22,9 @@ La definizione dei criteri delle risorse usata da Criteri di Azure consente di s
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 * mode
-* parametri
+* Parametri
 * nome visualizzato
-* descrizione
+* description
 * regola dei criteri
   * valutazione logica
   * effetto
@@ -64,7 +64,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti i modelli di Criteri di Azure di esempio sono disponibili nella pagina [Modelli per Criteri di Azure](json-samples.md).
 
-## <a name="mode"></a>Modalità
+## <a name="mode"></a>Mode
 
 È consigliabile impostare `mode` su `all` affinché un'assegnazione di criteri valuti tutti i tipi e i gruppi di risorse. È possibile visualizzare un esempio di definizione dei criteri che applica tag a un gruppo di risorse in [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md) (Consentire l'uso di un'immagine di macchina virtuale personalizzata da un gruppo di risorse).
 
@@ -179,7 +179,7 @@ Quando si usa la condizione **like**, è possibile inserire un carattere jolly (
 
 Quando si usa la condizione **match**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per alcuni esempi, vedere [Immagini di macchine virtuali approvate](scripts/allowed-custom-images.md).
 
-### <a name="fields"></a>Campi
+### <a name="fields"></a>Fields
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.  
 
 Sono supportati i seguenti campi:
@@ -225,7 +225,7 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Cache/Redis**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | Impostare se la porta non-ssl del server Redis (6379) è abilitata. |
 | Microsoft.Cache/Redis/shardCount | Impostare il numero di partizioni da creare in una cache di cluster Premium.  |
@@ -235,13 +235,13 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Cdn/profiles**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | Impostare il nome del livello di prezzo. |
 
 **Microsoft.Compute/disks**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
 | Microsoft.Compute/imagePublisher | Impostare il server di pubblicazione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
@@ -251,7 +251,7 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Impostare l'identificatore dell'immagine utilizzata per creare la macchina virtuale. |
 | Microsoft.Compute/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
@@ -268,7 +268,7 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | Impostare il nome del server di pubblicazione dell'estensione. |
 | Microsoft.Compute/virtualMachines/extensions/type | Impostare il tipo di estensione. |
@@ -276,7 +276,7 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Impostare l'identificatore dell'immagine utilizzata per creare la macchina virtuale. |
 | Microsoft.Compute/imageOffer | Impostare l'offerta dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
@@ -292,26 +292,26 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | Impostare la dimensione del gateway. |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | Impostare il tipo di questo gateway di rete virtuale. |
 | Microsoft.Network/virtualNetworkGateways/sku.name | Impostare il nome dello SKU del gateway. |
 
 **Microsoft.Sql/servers**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | Impostare la versione del server. |
 
 **Microsoft.Sql/databases**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | Impostare l'edizione del database. |
 | Microsoft.Sql/servers/databases/elasticPoolName | Impostare il nome del pool elastico in cui si trova in database. |
@@ -320,14 +320,14 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Impostare il valore DTU totale condiviso per il pool elastico del database. |
 | servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Impostare l'edizione del pool elastico. |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | Descrizione |
+| Alias | DESCRIZIONE |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | Impostare il livello di accesso utilizzato per la fatturazione. |
 | Microsoft.Storage/storageAccounts/accountType | Impostare il nome di SKU. |

@@ -76,7 +76,7 @@ Utilizzo delle risorse è gratuito per Azure Stack Development Kit. Mentre per i
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Gli utenti vengono addebitati per l'infrastruttura di macchine virtuali?
 
-No. Dati di utilizzo per alcuni provider di risorse macchine virtuali di Azure Stack viene segnalati in Azure, ma non sono previsti costi per queste macchine virtuali, né per le macchine virtuali create durante la distribuzione abilitare l'infrastruttura di Azure Stack.  
+di serie Dati di utilizzo per alcuni provider di risorse macchine virtuali di Azure Stack viene segnalati in Azure, ma non sono previsti costi per queste macchine virtuali, né per le macchine virtuali create durante la distribuzione abilitare l'infrastruttura di Azure Stack.  
 
 Gli utenti vengono addebitati solo per le macchine virtuali che vengono eseguiti in sottoscrizioni tenant. Tutti i carichi di lavoro deve essere distribuiti in sottoscrizioni tenant ai fini della conformità con le condizioni di licenza dello Stack di Azure.
 

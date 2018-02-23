@@ -35,7 +35,7 @@ R. Visitare la pagina [Conformità di Microsoft] per le diverse offerte di confo
 
 D: È possibile connettersi a PowerBI?
 
-R. È possibile usarlo. Anche se PowerBI supporta la query diretta con SQL DW, non è pensato per un numero elevato di utenti o di dati in tempo reale. Per l'uso della produzione di PowerBI, è consigliabile usare PowerBI su Azure Analysis Services o IaaS di Analysis Service. 
+R. Sì. Anche se PowerBI supporta la query diretta con SQL DW, non è pensato per un numero elevato di utenti o di dati in tempo reale. Per l'uso della produzione di PowerBI, è consigliabile usare PowerBI su Azure Analysis Services o IaaS di Analysis Service. 
 
 D: Quali sono i limiti di capacità di SQL Data Warehouse?
 

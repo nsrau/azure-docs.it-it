@@ -246,7 +246,7 @@ Reliable State Manager consente di creare backup coerenti senza bloccare alcuna 
 
 Eventuali transazioni di cui viene eseguito il commit dopo la chiamata di `BackupAsync` potrebbero essere incluse o meno nel backup.  Dopo il popolamento della cartella di backup locale da parte della piattaforma, ovvero dopo un backup locale completato dal runtime, verrà richiamato il callback del backup del servizio.  Il callback è responsabile dello spostamento della cartella di backup in una posizione esterna, ad esempio nell'Archiviazione di Azure.
 
-### <a name="restore"></a>Ripristino
+### <a name="restore"></a>Restore
 Reliable State Manager consente di eseguire il ripristino da un backup con l'API `RestoreAsync`.  
 È possibile chiamare il metodo `RestoreAsync` su `RestoreContext` solo all'interno del metodo `OnDataLossAsync`.
 Il valore booleano restituito da `OnDataLossAsync` indica se il servizio ha ripristinato il rispettivo stato da un'origine esterna.

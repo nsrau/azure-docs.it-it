@@ -1,5 +1,5 @@
 ---
-title: Creare un dashboard personalizzato in Log Analytics di Azure | Microsoft Docs
+title: Creare un dashboard personalizzato in Log Analytics di Azure | Documentazione Microsoft
 description: Questa guida spiega in che modo i dashboard di Log Analytics visualizzano tutte le ricerche log salvate, offrendo un punto di vista unico su tutto l'ambiente.
 services: log-analytics
 documentationcenter: 

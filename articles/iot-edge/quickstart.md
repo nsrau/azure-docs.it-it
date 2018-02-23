@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows - Anteprima
 
@@ -21,7 +21,7 @@ In questa guida introduttiva viene usata l'interfaccia cloud di Azure IoT Edge p
 
 Se non si ha una sottoscrizione di Azure attiva, creare un [account gratuito][lnk-account] prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questa esercitazione presuppone che si usi un computer o una macchina virtuale che esegue Windows per simulare un dispositivo di Internet delle cose. Se si esegue Windows in una macchina virtuale, abilitare la [virtualizzazione annidata][lnk-nested] e allocare almeno 2 GB di memoria. 
 
@@ -32,7 +32,7 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 3. Installare [Python 2.7 su Windows][lnk-python] e assicurarsi di usare il comando pip.
 4. Eseguire il comando seguente per scaricare lo script di controllo di IoT Edge.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -42,14 +42,14 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 >    * Windows Server 1709 (Build 16299) oppure
 >    * Windows IoT Core (Build 16299) su un dispositivo basato su x64
 >
-> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per usare i contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
->    ```
+> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per l'uso dei contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Creare un hub IoT con l'interfaccia della riga di comando di Azure
 
-Creare un hub IoT nella sottoscrizione di Azure. Il livello Gratuito dell'hub IoT può essere usato per questa guida introduttiva. Se è già stato usato l'hub IoT ed è già stato creato un hub Gratuito, è possibile saltare questa sezione e passare a [Registrare un dispositivo di IoT Edge][anchor-register]. Ogni sottoscrizione può avere solo un hub IoT gratuito. 
+Creare un hub IoT nella sottoscrizione di Azure. Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se è già stato usato l'hub IoT ed è già stato creato un hub gratuito, è possibile saltare questa sezione e passare a [Registrare un dispositivo IoT Edge][anchor-register]. Ogni sottoscrizione può avere un solo hub IoT gratuito. 
 
 1. Accedere al [portale di Azure][lnk-portal]. 
 1. Selezionare il pulsante **Cloud Shell**. 
@@ -78,19 +78,19 @@ Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È cos
 
 Configurare il runtime con la stringa di connessione del dispositivo IoT Edge definita nella sezione precedente.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Avviare il runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Controllare Docker per verificare che l'agente di IoT Edge sia in esecuzione come modulo.
 
-```
+```cmd
 docker ps
 ```
 

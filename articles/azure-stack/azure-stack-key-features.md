@@ -32,7 +32,7 @@ Esistono due tipi di utenti per Microsoft Azure Stack, l'operatore cloud (provid
 * Oggetto **operatore cloud** dello Stack di Azure di configurare e gestire offerte, dei piani, servizi, quote e prezzi per fornire le risorse per i tenant.  Gli operatori di cloud consente inoltre di gestire la capacità e di rispondono agli avvisi.  
 * Oggetto **tenant** (detto anche un utente) utilizza i servizi che offre l'amministratore del cloud. Il tenant può effettuare il provisioning, monitorare e gestire i servizi che ha sottoscritto, ad esempio App Web, Archiviazione e Macchine virtuali.
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 I metodi principali dell'interazione con Microsoft Azure Stack sono il portale dell'amministratore, un portale per gli utenti e PowerShell.
 
 I portali di Azure Stack ognuno sono supportati da istanze separate di gestione risorse di Azure.  Un operatore di cloud utilizza il portale dell'amministratore per gestire Azure Stack e, ad esempio creare offerte di tenant.  Portale per gli utenti (detto anche il portale tenant) offre un'esperienza self-service per l'utilizzo delle risorse cloud, macchine virtuali, gli account di archiviazione e le applicazioni Web. Per ulteriori informazioni, vedere [tramite i portali di amministratore e utente di Azure Stack](azure-stack-manage-portals.md).

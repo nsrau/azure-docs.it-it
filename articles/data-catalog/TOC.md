@@ -7,7 +7,7 @@
 ## [Introduzione ad Azure Data Catalog](data-catalog-get-started.md)
 ## [Adozione di Azure Data Catalog](data-catalog-adopting-data-catalog.md)
 ## [Prerequisiti](data-catalog-prerequisites.md)
-## [Domande frequenti](data-catalog-frequently-asked-questions.md)
+## [DOMANDE FREQUENTI](data-catalog-frequently-asked-questions.md)
 
 # Procedure
 ## [Registrare le origini dati](data-catalog-how-to-register.md)

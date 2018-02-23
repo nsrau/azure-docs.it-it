@@ -37,7 +37,7 @@ Installare il modulo Azure Powershell nel computer in cui verranno eseguiti gli 
 * Installare [Installazione guidata piattaforma Web Microsoft (v5 o versione successiva)](http://www.microsoft.com/web/downloads/platform.aspx).
 * Usarla per installare Microsoft Azure PowerShell.
 
-## <a name="connect-to-azure"></a>Connettersi ad Azure
+## <a name="connect-to-azure"></a>Connect to Azure
 Avviare Azure PowerShell e [connettersi alla sottoscrizione](/powershell/azure/overview):
 
 ```PowerShell
@@ -97,7 +97,7 @@ Ho un'applicazione in cui uso [TrackMetric()](app-insights-api-custom-events-met
 La stessa regola può essere utilizzata per la metrica riportata utilizzando il [parametro misura](app-insights-api-custom-events-metrics.md#properties) di un altra chiamata di rilevamento come ad esempio TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nomi delle metriche
-| Nome metrica | Nome schermata | Descrizione |
+| Nome metrica | Nome schermata | DESCRIZIONE |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Eccezioni del browser |Conteggio delle eccezioni non rilevate generate nel browser. |
 | `basicExceptionServer.count` |Eccezioni del server |Conteggio delle eccezioni non gestite generate dall'applicazione |
@@ -134,7 +134,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 ## <a name="webhooks"></a>Webhook
 È possibile [automatizzare la risposta a un avviso](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure richiamerà l'indirizzo Web specificato quando viene generato un avviso.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Script per configurare Application Insights](app-insights-powershell-script-create-resource.md)
 * [Creare risorse Application Insights e test web da modelli](app-insights-powershell.md)
 * [Automatizzare l'accoppiamento tra Diagnostica di Microsoft Azure e Application Insights](app-insights-powershell-azure-diagnostics.md)

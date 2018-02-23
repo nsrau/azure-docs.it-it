@@ -63,7 +63,7 @@
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
         - name: Distribuire un'app Spring Boot con il plug-in Maven fabric8
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acs

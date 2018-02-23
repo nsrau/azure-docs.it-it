@@ -29,6 +29,14 @@
       href: understading-cost-reports.md
 - name: Guide alle procedure
   items:
+    - name: Attivare sottoscrizioni e account di Azure
+      href: activate-subs-accounts.md
+    - name: Aggiungere metriche estese per le macchine virtuali
+      href: azure-vm-extended-metrics.md
+    - name: Collegare un account Google
+      href: connect-google-account.md
+    - name: Collegare un account AWS
+      href: connect-aws-account.md
     - name: Usare i report di Gestione costi
       href: use-reports.md
 - name: Risorse
@@ -41,5 +49,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cost-management'
     - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/en-us/regions/services/'
-    - name: domande frequenti
+    - name: Domande frequenti
       href: cost-mgt-faq.md

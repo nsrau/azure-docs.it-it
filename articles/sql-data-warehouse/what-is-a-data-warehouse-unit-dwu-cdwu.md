@@ -81,7 +81,7 @@ Per visualizzare l'impostazione corrente per le unità DWU:
 
 1. Aprire Esplora oggetti di SQL Server in Visual Studio.
 2. Connettersi al database master associato al server di database SQL logico.
-3. Effettuare una selezione nella vista a gestione dinamica sys.database_service_objectives. Di seguito è fornito un esempio: 
+3. Effettuare una selezione nella vista a gestione dinamica sys.database_service_objectives. Di seguito è fornito un esempio:  
 
 ```sql
 SELECT  db.name [Database]
@@ -101,7 +101,7 @@ Per modificare DWU o DWU a elevato utilizzo di calcolo:
 
 2. In **Ridimensiona** spostare il dispositivo di scorrimento verso sinistra o destra per modificare l'impostazione delle DWU.
 
-3. Fare clic su **Salva**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
+3. Fare clic su **Save**. Viene visualizzato un messaggio di conferma. Fare clic su **Sì** per confermare o su **No** per annullare.
 
 ### <a name="powershell"></a>PowerShell
 Per modificare il numero di DWU o di DWU a elevato utilizzo di calcolo usare il cmdlet di PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]. L'esempio seguente imposta l'obiettivo del livello di servizio su DW1000 per il database MySQLDW ospitato nel server MyServer.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastruttura di sicurezza: dati sensibili - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -37,7 +37,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="binaries-info"></a>Assicurarsi che i file binari che contengono informazioni riservate vengano offuscati
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -96,7 +96,7 @@ ms.lasthandoff: 12/11/2017
 
 ### <a name="example"></a>Esempio
 Per l'implementazione è possibile usare un filtro. È possibile usare l'esempio seguente: 
-```C#
+```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
@@ -123,7 +123,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Crittografare le sezioni dei file di configurazione dell'app Web contenenti dati sensibili
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -134,7 +134,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="autocomplete-input"></a>Disabilitare in modo esplicito l'attributo HTML di completamento automatico in input e moduli sensibili
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -144,7 +144,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Passaggi** | L'attributo autocomplete specifica se la funzionalità di completamento automatico di un modulo debba essere abilitata o disabilitata. Quando il completamento automatico è abilitato, il browser completa automaticamente i valori in base a valori immessi in precedenza dall'utente. Ad esempio, quando si immette un nuovo nome e una password in un modulo, che poi viene inviato, il browser chiede se si vuole salvare la password. Quando il modulo viene visualizzato successivamente, il nome e la password vengono popolati automaticamente o vengono compilati immettendo il nome. Un utente malintenzionato con accesso in locale può ottenere la password non crittografata dalla cache del browser. Il completamento automatico è abilitato per impostazione predefinita e deve essere disabilitato in modo esplicito. |
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -175,7 +175,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="salted-hash"></a>Assicurarsi che le password vengano archiviate in formato hash con valori salt
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -186,7 +186,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Assicurarsi che i dati sensibili nelle colonne di database vengano crittografati
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -208,7 +208,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Assicurarsi che i backup di database vengano crittografati
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -219,7 +219,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Assicurarsi che i dati sensibili relativi all'API Web non vengano memorizzati nell'archivio del browser
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -243,7 +243,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Crittografare i dati sensibili archiviati in Cosmos DB
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure DocumentDB | 
 | **Fase SDL**               | Compilare |  
@@ -254,7 +254,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>Usare Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust della macchina virtuale IaaS di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -265,7 +265,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>Crittografare i segreti nelle applicazioni di Service Fabric
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Service Fabric | 
 | **Fase SDL**               | Compilare |  
@@ -276,7 +276,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="modeling-teams"></a>Eseguire la modellazione di sicurezza e usare team e unità aziendali quando richiesto
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Compilare |  
@@ -309,7 +309,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Includere una regola sugli standard di sviluppo che vieta la visualizzazione dei dettagli di configurazione nella gestione delle eccezioni
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Distribuzione |  
@@ -320,7 +320,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Usare Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -353,7 +353,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### <a name="example"></a>Esempio
 Per proteggere i dati sensibili, è possibile configurare Intune con i criteri di sicurezza seguenti: 
-```C#
+```csharp
 Require encryption on mobile device    
 Require encryption on storage cards
 Allow screen capture
@@ -361,7 +361,7 @@ Allow screen capture
 
 ### <a name="example"></a>Esempio
 Se non si tratta di un'applicazione aziendale, usare l'archivio chiavi offerto dalla piattaforma e i portachiavi per archiviare le chiavi di crittografia, tramite l'operazione di crittografia che può essere eseguita nel file system. Il frammento di codice seguente mostra come accedere alla chiave dal portachiavi usando Xamarin: 
-```C#
+```csharp
         protected static string EncryptionKey
         {
             get
@@ -392,7 +392,7 @@ Se non si tratta di un'applicazione aziendale, usare l'archivio chiavi offerto d
 
 ## <a id="binaries-end"></a>Offuscare i file binari generati prima della distribuzione agli utenti finali
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Client per dispositivi mobili | 
 | **Fase SDL**               | Compilare |  
@@ -422,7 +422,7 @@ Impostare clientCredentialType su Certificate o su Windows.
 
 ## <a id="security"></a>WCF: la modalità di sicurezza non è abilitata
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  

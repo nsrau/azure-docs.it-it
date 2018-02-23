@@ -17,7 +17,7 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---

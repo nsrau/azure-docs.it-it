@@ -75,7 +75,7 @@ Ora che è stato distribuito il provider di risorse di SQL Server e creare un'of
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Distribuire il provider di risorse di SQL Server

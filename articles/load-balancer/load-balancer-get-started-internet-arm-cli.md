@@ -1,6 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet - Interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Informazioni su come creare un servizio di bilanciamento del carico Internet in Gestione risorse mediante l'interfaccia della riga di comando di Azure.
+title: Creare un servizio di bilanciamento del carico pubblico - Interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come creare un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8baf065a7aac0a38624197f8f6a1f6a84aaab2a8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8c2703a1b43834e1c82e0776e2dee807bb3192
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico Internet tramite l'interfaccia della riga di comando di Azure
+# <a name="creating-a-public-load-balancer-using-the-azure-cli"></a>Creazione di un servizio di bilanciamento del carico pubblico con l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -34,13 +34,13 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-Questo articolo illustra il modello di distribuzione Gestione risorse. Vedere [Informazioni su come creare un servizio di bilanciamento del carico Internet tramite la distribuzione classica](load-balancer-get-started-internet-classic-portal.md)
+Questo articolo illustra il modello di distribuzione Gestione risorse. È anche possibile ottenere [informazioni su come creare un servizio di bilanciamento del carico pubblico con la distribuzione classica](load-balancer-get-started-internet-classic-portal.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="deploying-the-solution-using-the-azure-cli"></a>Distribuzione della soluzione tramite l'interfaccia della riga di comando di Azure
 
-La procedura seguente illustra come creare un servizio di bilanciamento del carico Internet usando Azure Resource Manager con l'interfaccia della riga di comando di Azure. Con Azure Resource Manager ogni risorsa viene creata e configurata singolarmente e quindi integrata per creare una risorsa.
+La procedura seguente illustra come creare un servizio di bilanciamento del carico pubblico usando Azure Resource Manager con l'interfaccia della riga di comando. Con Azure Resource Manager ogni risorsa viene creata e configurata singolarmente e quindi integrata per creare una risorsa.
 
 Creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico:
 

@@ -1,7 +1,7 @@
 ## <a name="public-ip-address"></a>Indirizzo IP pubblico
 Una risorsa di indirizzo IP pubblico fornisce un indirizzo IP pubblico con connessione a internet riservato o dinamico. Sebbene sia possibile creare un indirizzo IP pubblico come oggetto autonomo, è necessario associarlo a un altro oggetto per utilizzare davvero l'indirizzo. È possibile associare un indirizzo IP pubblico a un servizio di bilanciamento del carico, a un gateway applicazione o a una scheda di rete per fornire l'accesso a Internet a tali risorse.  
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **publicIPAllocationMethod** |Definisce se l'indirizzo IP è *statico* o *dinamico*. |statico, dinamico |
 | **idleTimeoutInMinutes** |Definisce il timeout di inattività, con un valore predefinito pari a 4 minuti. Se non vengono ricevuti ulteriori pacchetti per una determinata sessione entro questo intervallo di tempo, la sessione è terminata. |qualsiasi valore compreso tra 4 e 30. |
@@ -10,7 +10,7 @@ Una risorsa di indirizzo IP pubblico fornisce un indirizzo IP pubblico con conne
 ### <a name="dns-settings"></a>Impostazioni DNS
 Gli indirizzi IP pubblici dispongono di un oggetto figlio denominato **dnsSettings** contenente le proprietà seguenti:
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **domainNameLabel** |Host denominato utilizzato per la risoluzione dei nomi. |www, ftp, vm1 |
 | **fqdn** |Nome completo per l'indirizzo IP pubblico. |www.westus.cloudapp.azure.com |

@@ -1,5 +1,5 @@
 ---
-title: Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte di information worker | Microsoft Docs
+title: Aggiungere utenti di Collaborazione B2B come Information Worker - Azure Active Directory | Microsoft Docs
 description: Collaborazione B2B consente agli information worker di aggiungere utenti dalle proprie organizzazioni ad Azure AD per l'accesso | Microsoft Docs
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 255ee5c11aa7e76fec23837d3bdccf2175c2f9fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e02f23c055af24b42fd41394b26a4df827cb0fc8
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte di information worker
 

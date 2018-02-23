@@ -57,7 +57,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Il comando dell'interfaccia della riga di comando di Azure include alcuni parametri descritti nella tabella seguente:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --------- | ----------- |
 | `--backend-port`  | Porta su cui è in ascolto l'applicazione di Service Fabric. |
 | `--frontend-port` | Porta esposta dal servizio di bilanciamento del carico per le connessioni esterne. |

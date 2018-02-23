@@ -35,4 +35,4 @@ Per accedere ai calendari dell'utente nel contesto di un'applicazione, aggiunger
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

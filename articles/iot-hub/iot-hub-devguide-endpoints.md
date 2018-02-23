@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 47f8949139c48ffa79f5530552b0a2e27b0f9ee0
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 È possibile trovare il nome dell'hub IoT che ospita gli endpoint nel portale sul pannello **Panoramica**. Per impostazione predefinita, il nome DNS di un hub IoT è simile al seguente: `{your iot hub name}.azure-devices.net`.
 
-È possibile usare il DNS di Azure per creare un nome DNS personalizzato per l'hub IoT. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../dns/dns-custom-domain.md#azure-iot).
+È possibile usare il DNS di Azure per creare un nome DNS personalizzato per l'hub IoT. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../dns/dns-custom-domain.md).
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Elenco di endpoint dell'hub IoT incorporati
 
@@ -81,7 +81,12 @@ Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas 
 
 ### <a name="when-using-azure-storage-containers"></a>Uso dei contenitori di Archiviazione di Azure
 
-L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB nel formato [Apache Avro](http://avro.apache.org/). L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo, a seconda dello scenario che si verifica per primo. L'hub IoT non scriverà un BLOB vuoto se non sono presenti dati da scrivere.
+L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB nel formato [Apache Avro](http://avro.apache.org/). L'hub IoT raggruppa i messaggi in batch e scrive i dati in un BLOB ogni volta che:
+
+* Il batch raggiunge una dimensione specifica, oppure
+* è trascorsa una certa quantità di tempo.
+
+Se non sono presenti dati da scrivere, l'hub IoT scrive un BLOB vuoto.
 
 Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
 

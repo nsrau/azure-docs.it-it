@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: Sviluppare con l''API Graph in .NET | Documentazione Microsoft'
-description: Imparare a sviluppare con API di SQL Azure Cosmos DB usando .NET
+description: Informazioni su come sviluppare con l'API SQL di Azure Cosmos DB usando .NET
 services: cosmos-db
 documentationcenter: 
 author: luisbosquez
@@ -16,15 +16,15 @@ ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
 ms.openlocfilehash: ddbfe11e4415e1c240914142f4daf54b3032f5d8
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Sviluppare con l'API Graph in .NET
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare un contenitore e un database di grafi. L'applicazione quindi crea una social network semplice con quattro utenti che utilizzano il [API Graph](graph-sdk-dotnet.md), quindi consente di scorrere e il grafico Gremlin utilizzando una query.
+Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare un contenitore e un database di grafi. L'applicazione crea quindi una social network semplice con quattro utenti usando l'[API Graph](graph-sdk-dotnet.md), quindi attraversa ed esegue query sul grafo usando Gremlin.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -40,11 +40,11 @@ Questa esercitazione illustra le attività seguenti:
 
 Il linguaggio di programmazione funzionale Gremlin supporta operazioni di scrittura (DML) e le operazioni di query e attraversamento. Questo articolo descrive alcuni esempi per iniziare a usare Gremlin. Vedere [Query di Gremlin](gremlin-support.md) per una procedura dettagliata delle funzionalità Gremlin disponibili in Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
-    * In alternativa, è possibile utilizzare il [emulatore locale](local-emulator.md) per questa esercitazione.
+    * In alternativa, per questa esercitazione è possibile usare l'[emulatore locale](local-emulator.md).
 * [Visual Studio](http://www.visualstudio.com/).
 
 ## <a name="create-database-account"></a>Creare un account di database
@@ -96,7 +96,7 @@ DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
 
 ## <a id="create-database"></a>Creare un database 
 
-A questo punto, creare un database di Azure Cosmos [database](sql-api-resources.md#databases) utilizzando il [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metodo o [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metodo il  **DocumentClient** classe il [SQL .NET SDK](sql-api-sdk-dotnet.md).  
+A questo punto creare un [database](sql-api-resources.md#databases) di Azure Cosmos DB usando il metodo [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) o [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) della classe **DocumentClient** da [SQL .NET SDK](sql-api-sdk-dotnet.md).  
 
 ```csharp 
 Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" }); 

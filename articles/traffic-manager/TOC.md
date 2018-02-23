@@ -28,15 +28,15 @@
 ## [Misurare le prestazioni di Gestione traffico](traffic-manager-performance-considerations.md)
 ## [Usare Azure PowerShell per gestire Gestione traffico](traffic-manager-powershell-arm.md)
 ## [Indirizzare il dominio Internet a Gestione traffico](traffic-manager-point-internet-domain.md)
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Risolvere i problemi di stato danneggiato in Gestione traffico di Azure](traffic-manager-troubleshooting-degraded.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
@@ -49,7 +49,7 @@
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/traffic-manager/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Limiti del servizio](../azure-subscription-service-limits.md#traffic-manager-limits)

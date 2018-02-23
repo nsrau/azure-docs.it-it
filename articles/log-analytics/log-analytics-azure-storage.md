@@ -31,7 +31,7 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 4. Script per raccogliere e inviare i dati a Log Analytics (spazi vuoti nella tabella seguente e per i servizi non elencati)
 
 
-| Service                 | Tipo di risorsa                           | Log        | Metrica     | Soluzione |
+| Service                 | Tipo di risorsa                           | Log        | Metriche     | Soluzione |
 | --- | --- | --- | --- | --- |
 | Gateway di applicazione    | Microsoft.Network/applicationGateways   | Diagnostica | Diagnostica | [Analisi dei gateway applicazione di Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Connettore   | Connettore   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (anteprima) |
@@ -43,7 +43,7 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnostica |             | |
 | Spazio dei nomi dell'hub eventi     | Microsoft.EventHub/namespaces           | Diagnostica | Diagnostica | |
 | Hub IoT                | Microsoft.Devices/IotHubs               |             | Diagnostica | |
-| Insieme di credenziali delle chiavi               | Microsoft.KeyVault/vaults               | Diagnostica |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
+| Insieme di credenziali di chiave               | Microsoft.KeyVault/vaults               | Diagnostica |             | [KeyVault Analytics](log-analytics-azure-key-vault.md) |
 | Servizi di bilanciamento del carico          | Microsoft.Network/loadBalancers         | Diagnostica |             |  |
 | App per la logica              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostica | Diagnostica | |
 | Gruppi di sicurezza di rete | Microsoft.Network/networksecuritygroups | Diagnostica |             | [Analisi del gruppo di sicurezza di rete di Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |

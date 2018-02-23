@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a9f50a1762f003727e62b43b6e81e62b66878f2f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cf86325971b607c7e1ec4b026f7df274e14c5e52
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Creare una funzione attivata da un webhook generico
 
@@ -28,7 +28,7 @@ Funzioni di Azure consente di eseguire il codice in un ambiente senza server sen
 
 ![Funzione attivata da un webhook generico nel portale di Azure](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 Per completare questa esercitazione:
 
@@ -72,7 +72,7 @@ Creare quindi un endpoint del webhook in un avviso del log attività in Monitora
 
     ![Creare un avviso del log attività](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
-    | Impostazione      |  Valore consigliato   | Descrizione                              |
+    | Impostazione      |  Valore consigliato   | DESCRIZIONE                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome avviso del log attività** | resource-group-create-alert | Nome dell'avviso del log attività. |
     | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione usata per questa esercitazione. | 
@@ -82,7 +82,7 @@ Creare quindi un endpoint del webhook in un avviso del log attività in Monitora
     | **Gruppo di risorse**<br/>e **Risorsa** | Tutti | Vengono monitorate tutte le risorse. |
     | **Nome operazione** | Crea gruppo di risorse | Filtra gli avvisi per ottenere le operazioni di creazione. |
     | **Level** | Informazioni | Vengono inclusi gli avvisi di livello informativo. | 
-    | **Status** | Operazione completata | Filtra gli avvisi per ottenere le azioni completate correttamente. |
+    | **Status** | Succeeded | Filtra gli avvisi per ottenere le azioni completate correttamente. |
     | **Gruppo di azione** | Nuovo | Viene creato un nuovo gruppo di azione, che definisce l'azione eseguita quando viene generato un avviso. |
     | **Nome gruppo di azione** | function-webhook | Nome per identificare il gruppo di azione.  | 
     | **Nome breve** | funcwebhook | Nome breve per il gruppo di azione. |  
@@ -128,7 +128,7 @@ Il webhook verrà chiamato quando viene creato un gruppo di risorse nella sottos
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
-            log.Error("An error occured");
+            log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
             {
                 error = "Unexpected message payload or wrong alert received."

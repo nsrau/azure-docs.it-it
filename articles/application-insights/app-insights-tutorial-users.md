@@ -30,7 +30,7 @@ Azure Application Insights raccoglie informazioni sull'utilizzo che consentono d
 > * Controllare la modalità di navigazione degli utenti all'interno dell'applicazione
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 

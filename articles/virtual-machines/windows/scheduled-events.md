@@ -71,7 +71,7 @@ Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso 
 ### <a name="versioning"></a>Controllo delle versioni 
 Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie e la versione corrente è `2017-08-01`.
 
-| Versione | Note sulla versione | 
+| Version | Note sulla versione | 
 | - | - | 
 | 2017-08-01 | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
 | 2017-03-01 | <li>Versione di anteprima pubblica
@@ -128,7 +128,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una seri
 ```
 
 ### <a name="event-properties"></a>Proprietà degli eventi
-|Proprietà  |  Descrizione |
+|Proprietà  |  DESCRIZIONE |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La CPU viene sospesa, ma la memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. |

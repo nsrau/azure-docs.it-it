@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 1a979bde37d247da5c630547924cadbd79c4a6a4
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compare-azure-iot-options"></a>Confrontare le opzioni di Azure IoT
 
@@ -29,11 +29,11 @@ Per implementare questa architettura, Azure IoT offre diverse opzioni, ognuna ap
 
 * [Azure IoT Suite](index.md) è una raccolta di livello aziendale di [soluzioni preconfigurate](iot-suite-what-are-preconfigured-solutions.md) basate sulla piattaforma distribuita come servizio (PaaS) di Azure che consentono di velocizzare lo sviluppo di soluzioni IoT personalizzate.
 
-* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) è una soluzione SaaS che usa un approccio basato su modelli per consentire la creazione di soluzioni IoT di livello aziendale senza competenze nello sviluppo di soluzioni cloud.
+* [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) è una soluzione SaaS (Software-as-a-Service) che usa un approccio basato su modelli per consentire la creazione di soluzioni IoT di livello aziendale senza competenze nello sviluppo di soluzioni cloud.
 
 ## <a name="azure-iot-hub"></a>Hub IoT Azure
 
-Hub IoT di Azure è la piattaforma distribuita come servizio di base di Azure usata sia da Microsoft IoT Central che da Azure IoT Suite. L'hub IoT supporta comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e una soluzione cloud. L'hub IoT consente di risolvere problematiche associate all'implementazione IoT come le seguenti:
+Hub IoT di Azure è la piattaforma PaaS principale di Azure usata sia da Microsoft IoT Central che da Azure IoT Suite. L'hub IoT supporta comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi IoT e una soluzione cloud. L'hub IoT consente di risolvere problematiche associate all'implementazione IoT come le seguenti:
 
 * Connettività e gestione di volumi elevati di dispositivi.
 * Inserimento di volumi elevati di dati di telemetria.

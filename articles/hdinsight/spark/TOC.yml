@@ -84,12 +84,17 @@
       items:
         - name: Uso con Data Lake Store
           href: apache-spark-use-with-data-lake-store.md
+        - name: Connettersi al database SQL di Azure
+          href: apache-spark-connect-to-sql-database.md
+        - name: Implementare un'architettura lambda Spark e Cosmos DB
+          href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
     - name: Streaming di Spark
       items:
         - name: Panoramica
           href: apache-spark-streaming-overview.md
-        - name: Elaborare eventi di flusso
-          href: apache-spark-eventhub-streaming.md
+        - name: Creare processi di streaming Spark a disponibilità elevata in YARN
+          href: apache-spark-streaming-high-availability.md
         - name: Flusso strutturato con Hub eventi
           href: apache-spark-eventhub-structured-streaming.md
         - name: Flusso strutturato con Kafka
@@ -101,6 +106,8 @@
         - name: Flusso Spark (DStream) con Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
+        - name: Creare processi di streaming Spark con elaborazione di eventi di tipo exactly-once
+          href: apache-spark-streaming-exactly-once.md
     - name: Spark e Machine Learning
       items:
         - name: Prevedere le prestazioni HVAC
@@ -113,8 +120,13 @@
           href: apache-spark-deep-learning-caffe.md
         - name: Uso con Microsoft Cognitive Toolkit
           href: apache-spark-microsoft-cognitive-toolkit.md
+        - name: Creare una pipeline di Machine Learning Spark
+          href: apache-spark-creating-ml-pipelines.md
     - name: Analizzare Big Data
       items:
+        - name: Usare Spark per leggere e scrivere dati HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analizzare i log di Application Insights Telemetry
           href: apache-spark-analyze-application-insight-logs.md
     - name: Estendere i cluster
@@ -162,6 +174,21 @@
             - name: Pubblicare app HDInsight in Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
               maintainContext: true
+            - name: Installare un'app pubblicata - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
+              maintainContext: true
     - name: Proteggere
       items:
         - name: Usare SSH con HDInsight
@@ -178,6 +205,10 @@
           maintainContext: true
     - name: Gestisci
       items:
+        - name: Configurare le impostazioni di Spark
+          href: apache-spark-settings.md
+        - name: Ottimizzare i processi Spark
+          href: apache-spark-perf.md
         - name: Pianificazione della capacità dei cluster
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

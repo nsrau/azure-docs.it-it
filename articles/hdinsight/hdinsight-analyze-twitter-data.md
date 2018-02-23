@@ -28,7 +28,7 @@ In questa esercitazione si userà l'API di streaming di Twitter per ricevere twe
 > [!IMPORTANT]
 > I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una workstation** in cui sia stato installato e configurato Azure PowerShell.
@@ -41,7 +41,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     Login-AzureRmAccount
     ```
 
-    Se si dispone di più sottoscrizioni di Azure, usare il seguente cmdlet per impostare la sottoscrizione corrente:
+    Se si hanno più sottoscrizioni di Azure, usare il cmdlet seguente per impostare la sottoscrizione corrente:
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
@@ -56,7 +56,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 Nella tabella seguente vengono elencati i file usati nell'esercitazione:
 
-| File | Descrizione |
+| File | DESCRIZIONE |
 | --- | --- |
 | /tutorials/twitter/data/tweets.txt |I dati di origine per il processo Hive. |
 | /tutorials/twitter/output |Cartella di output per il processo Hive. Il nome file di output del processo Hive relativo al file predefinito è **000000_0**. |
@@ -83,8 +83,8 @@ Il primo passaggio da seguire per usare OAuth consiste nel creare una nuova appl
 
    | Campo | Valore |
    | --- | --- |
-   |  Nome |MyHDInsightApp |
-   |  Descrizione |MyHDInsightApp |
+   |  NOME |MyHDInsightApp |
+   |  DESCRIZIONE |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. Fare clic su **Yes, I agree** e su **Create your Twitter application**.
 5. Fare clic sulla scheda **Permissions** . L'autorizzazione predefinita è **Read only**. Questo livello di autorizzazione è sufficiente per l'esercitazione.
@@ -231,7 +231,7 @@ In questa esercitazione si usa Windows PowerShell per effettuare la chiamata al 
 
 3. Impostare le prime cinque-otto variabili dello script:
 
-    Variabile|Descrizione
+    Variabile|DESCRIZIONE
     ---|---
     $clusterName|Nome del cluster HDInsight in cui eseguire l'applicazione.
     $oauth_consumer_key|Applicazione Twitter **consumer key** scritta in precedenza al momento della creazione dell'applicazione Twitter.
@@ -440,7 +440,7 @@ Il file di script HiveQL eseguirà le operazioni seguenti:
 
 3. Impostare le prime due variabili nello script:
 
-   | Variabile | Descrizione |
+   | Variabile | DESCRIZIONE |
    | --- | --- |
    |  $clusterName |Immettere il nome del cluster HDInsight in cui eseguire l'applicazione. |
    |  $subscriptionID |Inserire L'ID della sottoscrizione di Azure. |

@@ -30,7 +30,7 @@ In questo articolo viene descritto il modello di dati usato per il push dei dati
 ### <a name="alert"></a>Avviso
 Questa tabella offre dettagli sui campi relativi agli avvisi.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | AlertUniqueId_s |Text |ID univoco dell'avviso generato |
 | AlertType_s |Text |Tipo di avviso generato, ad esempio Backup |
@@ -57,7 +57,7 @@ Questa tabella offre dettagli sui campi relativi agli avvisi.
 ### <a name="backupitem"></a>BackupItem
 Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |ID univoco dell'elemento di backup |
@@ -83,7 +83,7 @@ Questa tabella offre dettagli sui campi relativi agli elementi di backup.
 ### <a name="backupitemassociation"></a>BackupItemAssociation
 Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con varie entità.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |ID univoco dell'elemento di backup |
@@ -106,7 +106,7 @@ Questa tabella fornisce dettagli sulle associazioni degli elementi di backup con
 ### <a name="job"></a>Processo
 Questa tabella offre dettagli sui campi relativi al processo.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Id univoco dell'elemento di backup a cui appartiene questo processo |
@@ -133,10 +133,10 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | ResourceProvider |Text |Questo campo rappresenta il provider di risorse per cui sono stati raccolti i dati - Microsoft.RecoveryServices |
 | ResourceType |Text |Questo campo rappresenta il tipo di risorsa per la quale sono stati raccolti i dati - Insiemi di credenziali |
 
-### <a name="policy"></a>Criteri
+### <a name="policy"></a>Criterio
 Questa tabella offre dettagli sui campi relativi al criterio.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V1** |
@@ -176,7 +176,7 @@ Questa tabella offre dettagli sui campi relativi al criterio.
 ### <a name="policyassociation"></a>PolicyAssociation
 Questa tabella fornisce dettagli sulle associazioni dei criteri con varie entità.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V1** |
@@ -197,7 +197,7 @@ Questa tabella fornisce dettagli sulle associazioni dei criteri con varie entit�
 ### <a name="protectedserver"></a>ProtectedServer
 Questa tabella offre dettagli sui campi relativi al server protetto.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | ProtectedServerName_s |Text |Nome del server protetto |
@@ -222,7 +222,7 @@ Questa tabella offre dettagli sui campi relativi al server protetto.
 ### <a name="protectedserverassociation"></a>ProtectedServerAssociation
 Questa tabella fornisce dettagli sulle associazioni dei server protetti con altre entità.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V1** |
@@ -243,7 +243,7 @@ Questa tabella fornisce dettagli sulle associazioni dei server protetti con altr
 ### <a name="storage"></a>Archiviazione
 Questa tabella offre dettagli sui campi relativi all'archiviazione.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Numero decimale |Spazio di archiviazione nel cloud usato dal backup, calcolato in base al valore più recente |
 | ProtectedInstances_s |Numero decimale |Numero di istanze protette usato per il calcolo dell'archiviazione front-end a scopo di fatturazione, calcolato in base al valore più recente |
@@ -266,7 +266,7 @@ Questa tabella offre dettagli sui campi relativi all'archiviazione.
 ### <a name="vault"></a>Insiemi di credenziali
 Questa tabella offre dettagli sui campi relativi all'insieme di credenziali.
 
-| Campo | Tipo di dati | Descrizione |
+| Campo | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | EventName_s |Text |Questo campo rappresenta il nome di questo evento, che è sempre AzureBackupCentralReport |
 | SchemaVersion_s |Text |Questo campo indica la versione corrente dello schema, ovvero **V1** |

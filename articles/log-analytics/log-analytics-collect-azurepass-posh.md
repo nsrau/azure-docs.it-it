@@ -16,7 +16,7 @@ ms.date: 11/13/2017
 ms.author: magoedte
 ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -26,7 +26,7 @@ Le risorse PaaS (Platform as a Service) di Azure, come SQL di Azure e Siti Web d
 
 Attualmente, non è possibile abilitare la registrazione delle metriche per risorse PaaS tramite il portale di Azure. È necessario quindi usare uno script di PowerShell. Combinata con gli strumenti di monitoraggio di Log Analytics, la funzionalità nativa di registrazione delle metriche consente di monitorare le risorse di Azure su larga scala. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di procedere, verificare che nel computer siano installati i moduli di Azure Resource Manager seguenti:
 
 - AzureRM.Insights

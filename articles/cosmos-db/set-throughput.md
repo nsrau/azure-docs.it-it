@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: cf6eadbae328b1551da861fb5a11930ee830d415
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Impostare la velocità effettiva per i contenitori di Azure Cosmos DB
 
@@ -36,7 +36,7 @@ La tabella seguente elenca la velocità effettiva disponibile per i contenitori:
         <tr>
             <td valign="top"><p>Velocità effettiva minima</p></td>
             <td valign="top"><p>400 unità richiesta al secondo</p></td>
-            <td valign="top"><p>unità di richiesta di 1000 al secondo</p></td>
+            <td valign="top"><p>1000 unità richiesta al secondo</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Velocità effettiva massima</p></td>
@@ -51,15 +51,15 @@ La tabella seguente elenca la velocità effettiva disponibile per i contenitori:
 1. In una nuova finestra accedere al [Portale di Azure](https://portal.azure.com).
 2. Fare clic su **Azure Cosmos DB** nella barra a sinistra oppure fare clic su **Altri servizi** nella parte inferiore, scorrere fino a **Database**, quindi fare clic su **Azure Cosmos DB**.
 3. Selezionare l'account Cosmos DB.
-4. Nella nuova finestra, fare clic su **Esplora dati** nel menu di navigazione.
+4. Nella nuova finestra fare clic su **Esplora dati** dal menu di spostamento.
 5. Nella nuova finestra espandere il database e il contenitore e quindi fare clic su **Scale & Settings** (Scalabilità e impostazioni).
 6. Nella nuova finestra digitare il nuovo valore per la velocità effettiva nella casella **Velocità effettiva** e quindi fare clic su **Salva**.
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Per impostare la velocità effettiva tramite l'API di SQL per .NET
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Per impostare la velocità effettiva usando l'API SQL per .NET
 
-```C#
+```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
@@ -75,9 +75,9 @@ await client.ReplaceOfferAsync(offer);
 
 <a id="set-throughput-java"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Per impostare la velocità effettiva tramite l'API di SQL per Java
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>Per impostare la velocità effettiva usando l'API SQL per Java
 
-Questo frammento di codice è tratto dal file OfferCrudSamples.java nel [java di azure documentdb](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) repository. 
+Questo frammento è tratto dal file OfferCrudSamples.java nel repository [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java). 
 
 ```Java
 // find offer associated with this collection
@@ -99,11 +99,11 @@ client.replaceOffer(offer);
 
 **È possibile impostare la velocità effettiva a meno di 400 UR/sec?**
 
-400 UR/sec è la velocità effettiva minima disponibile per i contenitori di singola partizione DB Cosmos (1000 UR/sec è il valore minimo per i contenitori partizionati). Le unità richieste sono impostate in intervalli di 100 UR/sec, ma la velocità effettiva non può essere impostata su 100 UR/sec o su qualsiasi valore inferiore a 400 UR/sec. Se si cerca un metodo conveniente per sviluppare e testare Cosmos DB, è possibile usare la versione gratuita dell'[emulatore di Azure Cosmos DB](local-emulator.md), distribuibile in locale senza alcun costo aggiuntivo. 
+Il valore di 400 UR/sec è la velocità effettiva minima disponibile nei contenitori di partizioni singole di Cosmos DB. 1000 UR/sec è il valore minimo per i contenitori partizionati. Le unità richieste sono impostate in intervalli di 100 UR/sec, ma la velocità effettiva non può essere impostata su 100 UR/sec o su qualsiasi valore inferiore a 400 UR/sec. Se si cerca un metodo conveniente per sviluppare e testare Cosmos DB, è possibile usare la versione gratuita dell'[emulatore di Azure Cosmos DB](local-emulator.md), distribuibile in locale senza alcun costo aggiuntivo. 
 
 **Come configurare la velocità effettiva tramite l'API MongoDB**
 
-Non è disponibile alcuna estensione dell'API MongoDB per la configurazione della velocità effettiva. Consiglia di utilizzare l'API di SQL, come illustrato nella [per impostare la velocità effettiva tramite l'API di SQL per .NET](#set-throughput-sdk).
+Non è disponibile alcuna estensione dell'API MongoDB per la configurazione della velocità effettiva. È consigliabile usare l'API SQL, come mostrato in [Per configurare la velocità effettiva usando l'API SQL per .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -106,7 +106,7 @@ Per iniziare, impostare l'app per la logica da usare con la soluzione preconfigu
 ## <a name="set-up-the-eventprocessor-web-job"></a>Configurare il processo Web EventProcessor
 In questa sezione si esegue la connessione della soluzione preconfigurata all'App per la logica creata. Per completare questa attività, aggiungere l'URL per attivare l'App per la logica all'azione che viene generata quando il valore del sensore del dispositivo supera la soglia.
 
-1. Usare il client git per clonare la versione più recente del [repository GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Ad esempio:
+1. Usare il client git per clonare la versione più recente del [repository GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Ad esempio: 
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git

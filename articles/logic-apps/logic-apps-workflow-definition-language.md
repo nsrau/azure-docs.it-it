@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 36eee42b7b10dfb62e569d665f62a94fc94365be
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cee0619df4e2ed2e31becc764dd64dafef6e97d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure
 
@@ -42,14 +42,14 @@ Ecco la struttura di base di una definizione del flusso di lavoro:
 > [!NOTE]
 > La documentazione su [Workflow Management REST API](https://docs.microsoft.com/rest/api/logic/workflows) (API REST per la gestione dei flussi di lavoro) include informazioni su come creare e gestire i flussi di lavoro delle app per la logica.
   
-|Nome dell'elemento|Obbligatorio|Descrizione|  
+|Nome dell'elemento|Obbligatoria|DESCRIZIONE|  
 |------------------|--------------|-----------------|  
-|$schema|No|Specifica il percorso del file dello schema JSON che descrive la versione del linguaggio della definizione. Questo percorso è obbligatorio quando si fa riferimento esternamente a una definizione. Per questo documento il percorso è: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
-|contentVersion|No|Specifica la versione della definizione. Quando si distribuisce un flusso di lavoro tramite la definizione, è possibile usare questo valore per assicurarsi che venga usata la definizione corretta.|  
-|parameters|No|Specifica i parametri usati per inserire dati nella definizione. È possibile definire un massimo di 50 parametri.|  
-|trigger|No|Specifica le informazioni per i trigger che avviano il flusso di lavoro. È possibile definire un massimo di 10 trigger.|  
-|Azioni|No|Specifica le azioni effettuate durante l'esecuzione del flusso. È possibile definire un massimo di 250 azioni.|  
-|outputs|No|Specifica le informazioni sulla risorsa distribuita. È possibile definire un massimo di 10 output.|  
+|$schema|No |Specifica il percorso del file dello schema JSON che descrive la versione del linguaggio della definizione. Questo percorso è obbligatorio quando si fa riferimento esternamente a una definizione. Ecco il percorso per questo documento: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`|  
+|contentVersion|No |Specifica la versione della definizione. Quando si distribuisce un flusso di lavoro tramite la definizione, è possibile usare questo valore per assicurarsi che venga usata la definizione corretta.|  
+|Parametri|No |Specifica i parametri usati per inserire dati nella definizione. È possibile definire un massimo di 50 parametri.|  
+|trigger|No |Specifica le informazioni per i trigger che avviano il flusso di lavoro. È possibile definire un massimo di 10 trigger.|  
+|Azioni|No |Specifica le azioni effettuate durante l'esecuzione del flusso. È possibile definire un massimo di 250 azioni.|  
+|outputs|No |Specifica le informazioni sulla risorsa distribuita. È possibile definire un massimo di 10 output.|  
   
 ## <a name="parameters"></a>Parametri
 
@@ -68,12 +68,12 @@ L'esempio seguente illustra la struttura di una definizione di parametro:
 }
 ```
 
-|Nome dell'elemento|Obbligatorio|Descrizione|  
+|Nome dell'elemento|Obbligatoria|DESCRIZIONE|  
 |------------------|--------------|-----------------|  
 |type|Sì|**Tipo**: string <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "string"}` <p> **Specifiche**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: securestring <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Specifiche**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tipo**: int <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Specifiche**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tipo**: bool <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": true }}` <p> **Tipo**: array <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tipo**: object <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tipo**: secureobject <p> **Dichiarazione**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Specifiche**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Nota:** i tipi `securestring` e `secureobject` non vengono restituiti nelle operazioni `GET`. Tutte le password, le chiavi e i segreti devono usare questo tipo.|  
-|defaultValue|No|Specifica il valore predefinito per il parametro quando non viene specificato alcun valore durante la creazione della risorsa.|  
-|allowedValues|No|Specifica una matrice di valori consentiti per il parametro.|  
-|metadata|No|Specifica informazioni aggiuntive sul parametro, ad esempio una descrizione leggibile o dati relativi alla fase di progettazione usati da Visual Studio o da altri strumenti.|  
+|defaultValue|No |Specifica il valore predefinito per il parametro quando non viene specificato alcun valore durante la creazione della risorsa.|  
+|allowedValues|No |Specifica una matrice di valori consentiti per il parametro.|  
+|metadata|No |Specifica informazioni aggiuntive sul parametro, ad esempio una descrizione leggibile o dati relativi alla fase di progettazione usati da Visual Studio o da altri strumenti.|  
   
 Questo esempio mostra come usare un parametro nella sezione del corpo di un'azione:  
   
@@ -90,7 +90,7 @@ Questo esempio mostra come usare un parametro nella sezione del corpo di un'azio
 
 I trigger e le azioni specificano le chiamate che possono partecipare all'esecuzione del flusso di lavoro. Per informazioni dettagliate su questa sezione, vedere [Workflow Actions and Triggers](logic-apps-workflow-actions-triggers.md) (Azioni e trigger dei flussi di lavoro).
   
-## <a name="outputs"></a>outputs  
+## <a name="outputs"></a>Output  
 
 Gli output specificano le informazioni che possono essere restituite da un'esecuzione del flusso di lavoro. Se ad esempio si vuole tenere traccia di uno stato o di un valore specifico per ogni esecuzione, è possibile includere tali dati negli output dell'esecuzione. I dati vengono visualizzati nell'API REST di gestione per tale esecuzione e nell'interfaccia utente di gestione per l'esecuzione nel portale di Azure. È anche possibile passare questi output ad altri sistemi esterni come PowerBI per la creazione di dashboard. Gli output *non* vengono usati per rispondere a richieste in ingresso nell'API REST del servizio. Per rispondere a una richiesta in ingresso usando il tipo di azione `response`, ecco un esempio:
   
@@ -103,7 +103,7 @@ Gli output specificano le informazioni che possono essere restituite da un'esecu
 } 
 ```
 
-|Nome dell'elemento|Obbligatorio|Descrizione|  
+|Nome dell'elemento|Obbligatoria|DESCRIZIONE|  
 |------------------|--------------|-----------------|  
 |key1|Sì|Specifica l'identificatore chiave per l'output. Sostituire **key1** con un nome da usare per identificare l'output.|  
 |value|Sì|Specifica il valore dell'output.|  
@@ -111,7 +111,7 @@ Gli output specificano le informazioni che possono essere restituite da un'esecu
   
 ## <a name="expressions"></a>Espressioni  
 
-I valori JSON nella definizione possono essere letterali o possono essere espressioni che vengono valutate quando viene usata la definizione. Ad esempio:  
+I valori JSON nella definizione possono essere letterali o possono essere espressioni che vengono valutate quando viene usata la definizione. Ad esempio:   
   
 ```json
 "name": "value"
@@ -135,7 +135,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"@@"|Viene restituita una stringa da 1 carattere che contiene '@'.|  
 |" @"|Viene restituita una stringa da 2 caratteri che contiene ' @'.|  
   
-Con l'*interpolazione della stringa* è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
+Con l'*interpolazione della stringa* è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
 Il risultato è sempre una stringa. Questa funzionalità è quindi simile alla funzione `concat`. Si supponga di avere definito `myNumber` come `42` e `myString` come `sampleString`:  
   
@@ -153,7 +153,7 @@ Il risultato è sempre una stringa. Questa funzionalità è quindi simile alla f
 
 Gli operatori sono i caratteri che possono essere usati all'interno delle espressioni o delle funzioni. 
   
-|operatore|Descrizione|  
+|Operatore|Descrizione|  
 |--------------|-----------------|  
 |.|L'operatore punto consente di fare riferimento alle proprietà di un oggetto.|  
 |?|L'operatore punto interrogativo consente di fare riferimento alle proprietà Null di un oggetto senza un errore di runtime. È ad esempio possibile usare questa espressione per gestire gli output di trigger Null: <p>`@coalesce(trigger().outputs?.body?.property1, 'my default value')`|  
@@ -176,9 +176,9 @@ Gli operatori sono i caratteri che possono essere usati all'interno delle espres
 
 È possibile usare queste funzioni per fare riferimento agli output da altre azioni nell'app per la logica o a valori passati durante la creazione dell'app per la logica. È ad esempio possibile fare riferimento ai dati di un passaggio per usarli in un altro.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
-|parameters|Restituisce un valore di parametro definito nella definizione. <p>`parameters('password')` <p> **Numero di parametro**: 1 <p> **Nome**: Parameter <p> **Descrizione**: obbligatoria. Nome del parametro di cui si vogliono ottenere i valori.|  
+|Parametri|Restituisce un valore di parametro definito nella definizione. <p>`parameters('password')` <p> **Numero di parametro**: 1 <p> **Nome**: Parameter <p> **Descrizione**: obbligatoria. Nome del parametro di cui si vogliono ottenere i valori.|  
 |action|Consente a un'espressione di derivare il rispettivo valore da altre coppie nome/valore JSON o dall'output dell'azione di runtime corrente. La proprietà rappresentata da propertyPath nell'esempio seguente è facoltativa. Se il valore propertyPath non è specificato, il riferimento è relativo all'intero oggetto action. Questa funzione può essere usata solo all'interno delle condizioni do-until di un'azione. <p>`action().outputs.body.propertyPath`|  
 |Azioni|Consente a un'espressione di derivare il rispettivo valore da altre coppie nome/valore JSON o dall'output dell'azione di runtime. Queste espressioni dichiarano esplicitamente che un'azione dipende da un'altra azione. La proprietà rappresentata da propertyPath nell'esempio seguente è facoltativa. Se il valore propertyPath non è specificato, il riferimento è relativo all'intero oggetto action. È possibile usare questo elemento o l'elemento conditions per specificare le dipendenze, ma non è necessario usare entrambi per la stessa risorsa dipendente. <p>`actions('myAction').outputs.body.propertyPath` <p> **Numero di parametro**: 1 <p> **Nome**: ActionName <p> **Descrizione**: obbligatoria. Nome dell'azione di cui si vogliono ottenere i valori. <p> Le proprietà disponibili per l'oggetto azione sono: <ul><li>`name`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Per informazioni dettagliate su queste proprietà, vedere [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850646) (API REST).|
 |trigger|Consente a un'espressione di derivare il rispettivo valore da altre coppie nome/valore JSON o dall'output del trigger di runtime. La proprietà rappresentata da propertyPath nell'esempio seguente è facoltativa. Se il valore propertyPath non è specificato, il riferimento è relativo all'intero oggetto trigger. <p>`trigger().outputs.body.propertyPath` <p>Quando viene usata all'interno degli input di un trigger, la funzione restituisce gli output dell'esecuzione precedente. Quando viene usata all'interno della condizione di un trigger, tuttavia, la funzione `trigger` restituisce gli output dell'esecuzione corrente. <p> Le proprietà disponibili per l'oggetto trigger sono: <ul><li>`name`</li><li>`scheduledTime`</li><li>`startTime`</li><li>`endTime`</li><li>`inputs`</li><li>`outputs`</li><li>`status`</li><li>`code`</li><li>`trackingId`</li><li>`clientTrackingId`</li></ul> <p>Per informazioni dettagliate su queste proprietà, vedere [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=850644) (API REST).|
@@ -192,7 +192,7 @@ Gli operatori sono i caratteri che possono essere usati all'interno delle espres
 
 Queste funzioni operano sulle raccolte e in genere sono applicabili a matrici, stringhe e dizionari.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |contains|Restituisce true se un dizionario contiene una chiave, se un elenco contiene un valore o se una stringa contiene una sottostringa. Ad esempio, questa funzione restituisce `true`: <p>`contains('abacaba','aca')` <p> **Numero di parametro**: 1 <p> **Nome**: WithinCollection <p> **Descrizione**: obbligatoria. Raccolta in cui eseguire la ricerca. <p> **Numero di parametro**: 2 <p> **Nome**: FindObject <p> **Descrizione**: obbligatoria. Oggetto da trovare all'interno di **WithinCollection**.|  
 |length|Restituisce il numero di elementi in una matrice o in una stringa. Ad esempio, questa funzione restituisce `3`:  <p>`length('abc')` <p> **Numero di parametro**: 1 <p> **Nome**: Collection <p> **Descrizione**: obbligatoria. Raccolta per cui ottenere la lunghezza.|  
@@ -209,12 +209,12 @@ Queste funzioni operano sulle raccolte e in genere sono applicabili a matrici, s
 
 Le funzioni seguenti sono applicabili solo alle stringhe. È anche possibile usare alcune funzioni di raccolta sulle stringhe.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |concat|Combina un numero qualsiasi di stringhe. Se ad esempio il parametro 1 è `p1`, questa funzione restituisce `somevalue-p1-somevalue`: <p>`concat('somevalue-',parameters('parameter1'),'-somevalue')` <p> **Numero parametro**: 1 ... *n* <p> **Nome**: String *n* <p> **Descrizione**: obbligatoria. Stringhe da combinare in una singola stringa.|  
 |substring|Restituisce un sottoinsieme di caratteri da una stringa. Ad esempio, questa funzione restituisce `abc`: <p>`substring('somevalue-abc-somevalue',10,3)` <p> **Numero di parametro**: 1 <p> **Nome**: String <p> **Descrizione**: obbligatoria. Stringa da cui viene ottenuta la sottostringa. <p> **Numero di parametro**: 2 <p> **Nome**: StartIndex <p> **Descrizione**: obbligatoria. Indice da cui inizia la sottostringa nel parametro 1. <p> **Numero di parametro**: 3 <p> **Nome**: Length <p> **Descrizione**: obbligatoria. Lunghezza della sottostringa.|  
 |replace|Sostituisce una stringa con una stringa specifica. Ad esempio, questa funzione restituisce `the new string`: <p>`replace('the old string', 'old', 'new')` <p> **Numero di parametro**: 1 <p> **Nome**: string <p> **Descrizione**: obbligatoria. Stringa in cui viene eseguita la ricerca del parametro 2 e che viene aggiornata con il parametro 3, quando il parametro 2 viene trovato nel parametro 1. <p> **Numero di parametro**: 2 <p> **Nome**: OldString <p> **Descrizione**: obbligatoria. Stringa da sostituire con il parametro 3 quando viene trovata una corrispondenza nel parametro 1. <p> **Numero di parametro**: 3 <p> **Nome**: NewString <p> **Descrizione**: obbligatoria. Stringa usata per sostituire la stringa nel parametro 2 quando viene trovata una corrispondenza nel parametro 1.|  
-|guid|Questa funzione genera una stringa univoca globale (GUID). Ad esempio, questa funzione può generare questo GUID: `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` <p>`guid()` <p> **Numero di parametro**: 1 <p> **Nome**: Format <p> **Descrizione**: facoltativa. Identificatore di formato singolo che indica [come formattare il valore di questo GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Il parametro format può essere "N", "D", "B", "P" o "X". Se il valore format non viene specificato, viene usato "D".|  
+|GUID|Questa funzione genera una stringa univoca globale (GUID). Ad esempio, questa funzione può generare questo GUID: `c2ecc88d-88c8-4096-912c-d6f2e2b138ce` <p>`guid()` <p> **Numero di parametro**: 1 <p> **Nome**: Format <p> **Descrizione**: facoltativa. Identificatore di formato singolo che indica [come formattare il valore di questo GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Il parametro format può essere "N", "D", "B", "P" o "X". Se il valore format non viene specificato, viene usato "D".|  
 |toLower|Converte una stringa in lettere minuscole. Ad esempio, questa funzione restituisce `two by two is four`: <p>`toLower('Two by Two is Four')` <p> **Numero di parametro**: 1 <p> **Nome**: String <p> **Descrizione**: obbligatoria. Stringa da convertire in lettere minuscole. Se un carattere nella stringa non ha un equivalente minuscolo, il carattere viene incluso senza modifiche nella stringa restituita.|  
 |toUpper|Converte una stringa in lettere maiuscole. Ad esempio, questa funzione restituisce `TWO BY TWO IS FOUR`: <p>`toUpper('Two by Two is Four')` <p> **Numero di parametro**: 1 <p> **Nome**: String <p> **Descrizione**: obbligatoria. Stringa da convertire in lettere maiuscole. Se un carattere nella stringa non ha un equivalente maiuscolo, il carattere viene incluso senza modifiche nella stringa restituita.|  
 |indexof|Consente di trovare l'indice di un valore in una stringa senza distinzione tra maiuscole e minuscole. Ad esempio, questa funzione restituisce `7`: <p>`indexof('hello, world.', 'world')` <p> **Numero di parametro**: 1 <p> **Nome**: String <p> **Descrizione**: obbligatoria. Stringa che potrebbe contenere il valore. <p> **Numero di parametro**: 2 <p> **Nome**: String <p> **Descrizione**: obbligatoria. Valore nel cui indice si vuole eseguire la ricerca.|  
@@ -227,7 +227,7 @@ Le funzioni seguenti sono applicabili solo alle stringhe. È anche possibile usa
 
 Queste funzioni sono utili all'interno delle condizioni e possono essere usate per valutare qualsiasi tipo di logica.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |equals|Restituisce true se due valori sono uguali. Se ad esempio parameter1 è someValue, questa funzione restituisce `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Numero di parametro**: 1 <p> **Nome**: Object 1 <p> **Descrizione**: obbligatoria. Oggetto da confrontare a **Object 2**. <p> **Numero di parametro**: 2 <p> **Nome**: Object 2 <p> **Descrizione**: obbligatoria. Oggetto da confrontare a **Object 1**.|  
 |less|Restituisce true se il primo argomento è inferiore al secondo. Si noti che i valori possono essere solo di tipo intero, a virgola mobile o stringa. Ad esempio, questa funzione restituisce `true`: <p>`less(10,100)` <p> **Numero di parametro**: 1 <p> **Nome**: Object 1 <p> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è inferiore a **Object 2**. <p> **Numero di parametro**: 2 <p> **Nome**: Object 2 <p> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è superiore a **Object 1**.|  
@@ -243,7 +243,7 @@ Queste funzioni sono utili all'interno delle condizioni e possono essere usate p
 
 Queste funzioni vengono usate per la conversione tra ogni tipo nativo nel linguaggio:  
   
-- string  
+- stringa  
   
 - numero intero  
   
@@ -257,10 +257,10 @@ Queste funzioni vengono usate per la conversione tra ogni tipo nativo nel lingua
 
 -   form  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |int|Converte il parametro in un valore intero. Ad esempio, questa funzione restituisce 100 sotto forma di numero, invece di una stringa: <p>`int('100')` <p> **Numero di parametro**: 1 <p> **Nome**: Value <p> **Descrizione**: obbligatoria. Valore convertito in un valore intero.|  
-|string|Converte il parametro in una stringa. Ad esempio, questa funzione restituisce `'10'`: <p>`string(10)` <p>È anche possibile convertire un oggetto in una stringa. Se ad esempio il parametro `myPar` è un oggetto con una proprietà `abc : xyz`, questa funzione restituisce `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Numero di parametro**: 1 <p> **Nome**: Value <p> **Descrizione**: obbligatoria. Valore convertito in una stringa.|  
+|stringa|Converte il parametro in una stringa. Ad esempio, questa funzione restituisce `'10'`: <p>`string(10)` <p>È anche possibile convertire un oggetto in una stringa. Se ad esempio il parametro `myPar` è un oggetto con una proprietà `abc : xyz`, questa funzione restituisce `{"abc" : "xyz"}`: <p>`string(parameters('myPar'))` <p> **Numero di parametro**: 1 <p> **Nome**: Value <p> **Descrizione**: obbligatoria. Valore convertito in una stringa.|  
 |json|Converte il parametro in un valore di tipo JSON ed è l'opposto di `string()`. Ad esempio, questa funzione restituisce `[1,2,3]` come matrice, invece di una stringa: <p>`json('[1,2,3]')` <p>È analogamente possibile convertire una stringa in un oggetto. Ad esempio, questa funzione restituisce `{ "abc" : "xyz" }`: <p>`json('{"abc" : "xyz"}')` <p> **Numero di parametro**: 1 <p> **Nome**: String <p> **Descrizione**: obbligatoria. Stringa convertita in un valore di tipo nativo. <p>La funzione `json()` supporta anche l'input XML. Ad esempio, il valore del parametro di: <p>`<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>` <p>Viene convertito in JSON: <p>`{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Converte l'argomento del parametro in un numero a virgola mobile. Ad esempio, questa funzione restituisce `10.333`: <p>`float('10.333')` <p> **Numero di parametro**: 1 <p> **Nome**: Value <p> **Descrizione**: obbligatoria. Valore convertito in un numero a virgola mobile.|  
 |bool|Converte il parametro in un valore booleano. Ad esempio, questa funzione restituisce `false`: <p>`bool(0)` <p> **Numero di parametro**: 1 <p> **Nome**: Value <p> **Descrizione**: obbligatoria. Valore convertito in un valore booleano.|  
@@ -292,7 +292,7 @@ Queste funzioni vengono usate per la conversione tra ogni tipo nativo nel lingua
  
 Queste funzioni si applicano a oggetti e XML.
  
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------| 
 |coalesce|Restituisce il primo oggetto non Null negli argomenti passati. **Nota**: una stringa vuota non è Null. Se ad esempio i parametri 1 e 2 non sono definiti, questa funzione restituisce `fallback`:  <p>`coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')` <p> **Numero parametro**: 1 ... *n* <p> **Nome**: Object*n* <p> **Descrizione**: obbligatoria. Oggetto da controllare per rilevare valori Null.|
 |addProperty|Restituisce un oggetto con una proprietà aggiuntiva. Se la proprietà esiste già in fase di esecuzione verrà generato un errore. Ad esempio, questa funzione restituisce l'oggetto `{ "abc" : "xyz", "def": "uvw" }`: <p>`addProperty(json('{"abc" : "xyz"}'), 'def', 'uvw')` <p> **Numero di parametro**: 1 <p> **Nome**: Object <p> **Descrizione**: obbligatoria. Oggetto a cui aggiungere una nuova proprietà. <p> **Numero di parametro**: 2 <p> **Nome**: Property Name <p> **Descrizione**: obbligatoria. Nome della nuova proprietà. <p> **Numero di parametro**: 3 <p> **Nome**: Value <p> **Descrizione**: obbligatoria. Valore da assegnare alla nuova proprietà.|
@@ -304,7 +304,7 @@ Queste funzioni si applicano a oggetti e XML.
 
 Queste funzioni possono essere usate per qualsiasi tipo di numero, ovvero **numeri interi** e **numeri a virgola mobile**.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |add|Restituisce il risultato della somma di due numeri. Ad esempio, questa funzione restituisce `20.333`: <p>`add(10,10.333)` <p> **Numero di parametro**: 1 <p> **Nome**: Summand 1 <p> **Descrizione**: obbligatoria. Numero da aggiungere a **Summand 2**. <p> **Numero di parametro**: 2 <p> **Nome**: Summand 2 <p> **Descrizione**: obbligatoria. Numero da aggiungere a **Summand 1**.|  
 |sub|Restituisce il risultato della sottrazione di due numeri. Ad esempio, questa funzione restituisce `-0.333`: <p>`sub(10,10.333)` <p> **Numero di parametro**: 1 <p> **Nome**: Minuend <p> **Descrizione**: obbligatoria. Numero da cui viene rimosso **Subtrahend**. <p> **Numero di parametro**: 2 <p> **Nome**: Subtrahend <p> **Descrizione**: obbligatoria. Numero da rimuovere da **Minuend**.|  
@@ -318,7 +318,7 @@ Queste funzioni possono essere usate per qualsiasi tipo di numero, ovvero **nume
  
 ### <a name="date-functions"></a>Funzioni di data  
 
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |utcnow|Restituisce il timestamp corrente come stringa, ad esempio: `2017-03-15T13:27:36Z`: <p>`utcnow()` <p> **Numero di parametro**: 1 <p> **Nome**: Format <p> **Descrizione**: facoltativa. [Singolo carattere di identificatore formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o [modello di formato personalizzato](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) che indica come formattare il valore di questo timestamp. Se il formato non viene specificato, viene usato il formato ISO 8601 ("o").|  
 |addseconds|Aggiunge un numero intero di secondi a un timestamp di stringa passato. Il numero di secondi può essere positivo o negativo. Per impostazione predefinita, il risultato è una stringa in formato ISO 8601 ("o"), a meno che non venga fornito un identificatore di formato. Ad esempio, `2015-03-15T13:27:00Z`: <p>`addseconds('2015-03-15T13:27:36Z', -36)` <p> **Numero di parametro**: 1 <p> **Nome**: Timestamp <p> **Descrizione**: obbligatoria. Stringa contenente l'ora. <p> **Numero di parametro**: 2 <p> **Nome**: Seconds <p> **Descrizione**: obbligatoria. Numero di secondi da aggiungere. Può essere negativo per sottrarre secondi. <p> **Numero di parametro**: 3 <p> **Nome**: Format <p> **Descrizione**: facoltativa. [Singolo carattere di identificatore formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o [modello di formato personalizzato](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) che indica come formattare il valore di questo timestamp. Se il formato non viene specificato, viene usato il formato ISO 8601 ("o").|  
@@ -338,7 +338,7 @@ Queste funzioni possono essere usate per qualsiasi tipo di numero, ovvero **nume
 
 Queste funzioni consentono di ottenere informazioni sul flusso di lavoro stesso in fase di esecuzione.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |listCallbackUrl|Restituisce una stringa da chiamare per richiamare il trigger o l'azione. <p> **Nota**: questa funzione può essere usata solo in un oggetto **httpWebhook** e **apiConnectionWebhook**, non in un oggetto **manual**, **recurrence**, **http** o **apiConnection**. <p>Ad esempio, la funzione `listCallbackUrl()` restituisce: <p>`https://prod-01.westus.logic.azure.com:443/workflows/1235...ABCD/triggers/manual/run?api-version=2015-08-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxx...xxx` |  
 |flusso di lavoro|Questa funzione fornisce tutti i dettagli del flusso di lavoro stesso in fase di esecuzione. <p> Le proprietà disponibili per l'oggetto flusso di lavoro sono: <ul><li>`name`</li><li>`type`</li><li>`id`</li><li>`location`</li><li>`run`</li></ul> <p> Il valore della proprietà `run` è un oggetto con le proprietà seguenti: <ul><li>`name`</li><li>`type`</li><li>`id`</li></ul> <p>Per informazioni dettagliate su queste proprietà, vedere [Rest API](http://go.microsoft.com/fwlink/p/?LinkID=525617) (API REST).<p> Ad esempio, per ottenere il nome dell'esecuzione corrente, usare l'espressione `"@workflow().run.name"`. |

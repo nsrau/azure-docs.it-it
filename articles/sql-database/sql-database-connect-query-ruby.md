@@ -25,7 +25,7 @@ ms.lasthandoff: 11/29/2017
 
 Questa esercitazione introduttiva illustra come usare [Ruby](https://www.ruby-lang.org) per creare un programma per connettersi a un database SQL di Azure e usare istruzioni Transact-SQL per eseguire query sui dati.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione introduttiva, accertarsi di soddisfare i requisiti seguenti:
 

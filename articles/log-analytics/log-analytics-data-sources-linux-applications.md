@@ -47,7 +47,7 @@ Di seguito è riportato il formato per il file di autenticazione di OMI MySQL
 
 Nella tabella seguente sono descritte le voci presenti nel file di autenticazione.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--|:--|
 | Porta | Rappresenta la porta corrente su cui è in ascolto l'istanza di MySQL. La porta 0 indica che per l'istanza predefinita vengono usate le proprietà seguenti. |
 | Bind-address| Valore bind-address corrente di MySQL. |
@@ -60,7 +60,7 @@ Il file di autenticazione di OMI MySQL può definire un numero di porta e un'ist
 
 Nella tabella seguente sono riportate impostazioni di un'istanza di esempio 
 
-| Descrizione | File |
+| DESCRIZIONE | File |
 |:--|:--|
 | Istanza predefinita e istanza con porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Istanza predefinita e istanza con porta 3308 e nome e password diversi. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -76,7 +76,7 @@ Con l'installazione del provider OMI MySQL viene fornito un programma per il fil
 
 La tabella seguente fornisce informazioni dettagliate sulla sintassi per l'utilizzo di mycimprovauth.
 
-| Operazione | Esempio | Descrizione
+| Operazione | Esempio | DESCRIZIONE
 |:--|:--|:--|
 | autoupdate *false\|true* | mycimprovauth autoupdate false | Specifica se il file di autenticazione verrà aggiornato automaticamente in caso di riavvio o aggiornamento. |
 | default *bind-address nome utente password* | mycimprovauth default 127.0.0.1 root pwd | Imposta l'istanza predefinita nel file di autenticazione di OMI MySQL.<br>Nel campo della password deve essere immesso un valore in testo normale: la password nel file di autenticazione di OMI MySQL verrà codificata in Base 64. |
@@ -167,4 +167,4 @@ Dopo aver configurato l'agente OMS per Linux per inviare dati a Log Analytics, �
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Raccogliere i contatori delle prestazioni](log-analytics-data-sources-performance-counters.md) da agenti Linux.
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 

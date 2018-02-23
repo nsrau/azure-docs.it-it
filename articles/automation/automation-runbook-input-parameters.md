@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 2934257e6feb6836492a4957e976abd02df12cfd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -30,14 +30,14 @@ I parametri di input dei runbook ne aumentano la flessibilità perché consenton
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Configurare i parametri di input nei runbook di PowerShell e nei runbook del flusso di lavoro PowerShell
 
-I [runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) e i runbook di PowerShell in Automazione di Azure supportano parametri di input definiti tramite gli attributi seguenti.  
+I [runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md) e i runbook di PowerShell in Automazione di Azure supportano parametri di input definiti tramite gli attributi seguenti:  
 
 | **Proprietà** | **Descrizione** |
 |:--- |:--- |
 | type |Richiesto. Tipo di dati previsto per il valore del parametro. Qualsiasi tipo .NET è valido. |
 | NOME |Obbligatoria. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
 | Mandatory |facoltativo. Specifica se è necessario specificare un valore per il parametro. Se la proprietà è impostata su **$true**, è necessario specificare un valore quando viene avviato il runbook. Se la proprietà è impostata su **$false**, il valore è facoltativo. |
-| Default value |facoltativo.  Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per qualsiasi parametro, rendendolo automaticamente facoltativo indipendentemente dall'impostazione della proprietà Mandatory. |
+| Default value |facoltativo. Specifica un valore che verrà usato per il parametro se non viene passato un valore all'avvio del runbook. È possibile impostare un valore predefinito per qualsiasi parametro, rendendolo automaticamente facoltativo indipendentemente dall'impostazione della proprietà Mandatory. |
 
 Windows PowerShell supporta più attributi dei parametri di input di quelli elencati di seguito, ad esempio la convalida, gli alias e i set di parametri. Tuttavia, Automazione di Azure attualmente supporta solo i parametri di input sopra elencati.
 
@@ -93,7 +93,7 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
    
    | **Proprietà** | **Descrizione** |
    |:--- |:--- |
-   | NOME |Obbligatoria.  Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
+   | NOME |Obbligatoria. Nome del parametro. Questo valore deve essere univoco all'interno del runbook e può contenere solo lettere, numeri o caratteri di sottolineatura. Deve iniziare con una lettera. |
    | DESCRIZIONE |facoltativo. Descrizione dello scopo del parametro di input. |
    | type |facoltativo. Tipo di dati previsto per il valore del parametro. I tipi di parametro supportati sono **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se non è selezionato un tipo di dati, l'impostazione predefinita è **String**. |
    | Obbligatorio |facoltativo. Specifica se è necessario specificare un valore per il parametro. Se si sceglie **Sì**, è necessario specificare un valore quando viene avviato il runbook. Se si sceglie **No**, non è necessario specificare un valore all'avvio del runbook ed è possibile impostare un valore predefinito. |
@@ -114,7 +114,7 @@ Per [configurare un runbook grafico](automation-first-runbook-graphical.md) con 
      * Obbligatorio: no
      * Valore predefinito: personalizzato
      * Valore predefinito personalizzato: \< nome del gruppo di risorse che contiene le macchine virtuali>.
-5. Dopo aver aggiunto i parametri, fare clic su **OK**.  Ora è possibile visualizzarli nel pannello **Input e output**. Fare nuovamente clic su **OK**, quindi su **Salva** e **pubblicare** il runbook.
+5. Dopo aver aggiunto i parametri, fare clic su **OK**. Ora è possibile visualizzarli nel pannello **Input e output**. Fare nuovamente clic su **OK**, quindi su **Salva** e **pubblicare** il runbook.
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>Configurare i parametri di input in runbook di Python
 
@@ -127,7 +127,7 @@ Per un esempio su come usare i parametri di input in un runbook di Python, veder
 
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>Assegnare valori ai parametri di input nei runbook
 
-È possibile passare valori ai parametri di input nei runbook negli scenari illustrati di seguito.
+È possibile passare valori ai parametri di input nei runbook negli scenari illustrati di seguito:
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>Avviare un runbook e assegnare parametri
 
@@ -135,13 +135,11 @@ Ci sono diversi modi per avviare un runbook: dal portale di Azure, con un webhoo
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>Avviare un runbook pubblicato usando il portale di Azure e assegnare parametri
 
-Quando si [avvia il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), viene aperto il pannello **Avvia runbook** ed è possibile immettere i valori per i parametri appena creati.
+Quando si [avvia il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), viene aperto il pannello **Avvia runbook** ed è possibile immettere i valori per i parametri creati.
 
 ![Attività iniziali con il portale](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
 Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi impostati per il parametro. Gli attributi includono obbligatorio o facoltativo, tipo e valore predefinito. Nel fumetto della Guida accanto al nome del parametro sono disponibili tutte le informazioni chiave necessarie per scegliere i valori dei parametri di input, Queste informazioni indicano se un parametro è obbligatorio o facoltativo. Includono inoltre il tipo e il valore predefinito (se presente) e altre note utili.
-
-![Fumetto della Guida](media/automation-runbook-input-parameters/automation-05-helpbaloon.png)
 
 > [!NOTE]
 > I parametri di tipo String supportano valori di stringa **vuoti** .  Immettendo **[EmptyString]** nella casella del parametro di input viene passata una stringa vuota al parametro. I parametri di tipo String non supportano il passaggio di valori **Null** . Se non viene passato alcun valore al parametro String, PowerShell lo interpreterà come Null.
@@ -159,7 +157,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Cmdlet di Gestione dei servizi di Azure:** è possibile avviare un runbook di automazione creato in un gruppo di risorse predefinito usando [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+* **Cmdlet del modello di distribuzione classica di Azure:** è possibile avviare un runbook di automazione creato in un gruppo di risorse predefinito usando [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
   
   **Esempio:**
   
@@ -195,7 +193,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
       return response.Job;
       }
   ```
-* **Metodo di gestione del servizio Azure:** è possibile avviare un runbook usando l'SDK di un linguaggio di programmazione. Di seguito è riportato un frammento di codice C# per l'avvio di un runbook nell'account di automazione. È possibile visualizzare tutto il codice nel [repository GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Metodo del modello di distribuzione classica di Azure:** è possibile avviare un runbook usando l'SDK di un linguaggio di programmazione. Di seguito è riportato un frammento di codice C# per l'avvio di un runbook nell'account di automazione. È possibile visualizzare tutto il codice nel [repository GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +227,7 @@ Nell'etichetta sotto la casella di input è possibile visualizzare gli attributi
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Avviare un runbook usando l'API REST e assegnare parametri
-È possibile creare e avviare un processo del runbook con l'API REST di Automazione di Azure usando il metodo **PUT** con l'URI della richiesta seguente.
+È possibile creare e avviare un processo del runbook con l'API REST di Automazione di Azure usando il metodo **PUT** con l'URI della richiesta seguente:
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -262,7 +260,7 @@ Per avviare il runbook **Get-AzureVMTextual** creato in precedenza con **VMName*
 Se il processo è stato creato, viene restituito un codice di stato HTTP 201. Per altre informazioni su intestazioni di risposta e sul corpo della risposta, vedere l'articolo relativo alla [creazione di un processo del runbook tramite l'API REST.](https://msdn.microsoft.com/library/azure/mt163849.aspx)
 
 ### <a name="test-a-runbook-and-assign-parameters"></a>Eseguire il test di un runbook e assegnare parametri
-Quando si esegue il [test della versione bozza del runbook](automation-testing-runbook.md) con l'opzione di test, viene visualizzato il pannello **Test** in cui è possibile configurare i valori per i parametri appena creati.
+Quando si esegue il [test della versione bozza del runbook](automation-testing-runbook.md) con l'opzione di test, viene visualizzata la pagina **Test** in cui è possibile configurare i valori per i parametri creati.
 
 ![Esecuzione di test e assegnazione di parametri](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 

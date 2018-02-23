@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, è necessario un [account di Automazione di Azure](../automation/automation-offering-get-started.md) per contenere il runbook che viene attivato dalla sottoscrizione Griglia di eventi di Azure.
 

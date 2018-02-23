@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-[Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Azure Cosmos DB offre [distribuzione globale predefinita](distribute-data-globally.md), [scalabilità elastica in termini di archiviazione e velocità effettiva](partition-data.md) ovunque nel mondo, latenze pari a singole unità di millisecondi al 99° percentile, [cinque livelli di coerenza ben definiti](consistency-levels.md) e disponibilità elevata garantita, il tutto supportato da [contratti di servizio leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indicizza automaticamente i dati](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) senza che sia necessario gestire manualmente indici e schemi. Si tratta di un database multimodello che supporta modelli di dati di documenti, coppie chiave-valore, grafi e colonne.
+[Azure Cosmos DB](introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Azure Cosmos DB offre [distribuzione globale predefinita](distribute-data-globally.md), [scalabilità elastica in termini di archiviazione e velocità effettiva](partition-data.md) ovunque nel mondo, latenze pari a singole unità di millisecondi al 99° percentile, [cinque livelli di coerenza ben definiti](consistency-levels.md) e disponibilità elevata garantita, il tutto supportato da [contratti di servizio leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indicizza automaticamente i dati](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) senza che sia necessario gestire manualmente indici e schemi. Si tratta di un database multimodello che supporta modelli di dati di documenti, coppie chiave/valore, grafi e colonne.
 
 ![API SQL di Azure](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
@@ -70,7 +70,7 @@ Un account di database è costituito da un insieme di database, ognuno dei quali
 
 Azure Cosmos DB espone le risorse tramite le API REST che possono essere chiamate da qualsiasi linguaggio in grado di inviare richieste HTTP/HTTPS. Sono anche disponibili librerie di programmazione per diversi linguaggi comuni per l'API SQL. Le librerie client semplificano molti aspetti dell'uso dell'API, grazie alla gestione di dettagli quali la memorizzazione nella cache degli indirizzi, la gestione delle eccezioni, i tentativi automatici e così via. Le librerie attualmente disponibili riguardano i linguaggi e le piattaforme seguenti:  
 
-| Scaricare | Documentazione |
+| Download | Documentazione |
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[Libreria .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Libreria Node.js](http://azure.github.io/azure-documentdb-node/) |
@@ -78,7 +78,7 @@ Azure Cosmos DB espone le risorse tramite le API REST che possono essere chiamat
 | [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[Libreria JavaScript](http://azure.github.io/azure-documentdb-js/) |
 | n/d |[JavaScript SDK lato server](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Libreria di Python](http://azure.github.io/azure-documentdb-python/) |
-| N/D | [API per MongoDB](mongodb-introduction.md)
+| n/d | [API per MongoDB](mongodb-introduction.md)
 
 
 Usando l'[emulatore di Azure Cosmos DB](local-emulator.md), è possibile sviluppare e testare l'applicazione in locale con l'API SQL, senza creare una sottoscrizione di Azure né sostenere costi. Quando si è soddisfatti del funzionamento dell'applicazione nell'emulatore, è possibile iniziare a usare l'account Azure Cosmos DB nel cloud.

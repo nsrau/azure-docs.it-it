@@ -77,14 +77,14 @@ Attualmente vengono acquisite due categorie di log di diagnostica:
 
 Tutti i log vengono archiviati in formato JSON. Ogni voce include i campi stringa comuni seguenti:
 
-Nome | Descrizione
+NOME | DESCRIZIONE
 ------- | -------
 time | Timestamp del log (in UTC).
-resourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+ResourceId | ID della risorsa interessata dall'operazione, in lettere maiuscole. Include l'ID sottoscrizione, il gruppo di risorse e il nome del processo. Ad esempio, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | Categoria del log, ovvero **Execution** o **Authoring**.
 operationName | Il nome dell'operazione registrata. Ad esempio **Send Events: SQL Output write failure to mysqloutput**.
 status | Stato dell'operazione. Ad esempio **Failed** o **Succeeded**.
-necessario | Il livello del log. Ad esempio **Error**, **Warning** o **Informational**.
+level | Il livello del log. Ad esempio **Error**, **Warning** o **Informational**.
 properties | Dettagli specifici delle voci di log; serializzazione come stringa JSON. Per altre informazioni, vedere le sezioni seguenti.
 
 ### <a name="execution-log-properties-schema"></a>Schema delle proprietà dei log di esecuzione
@@ -95,11 +95,11 @@ I log di esecuzione hanno informazioni sugli eventi che si sono verificati duran
 
 Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici.
 
-Nome | Descrizione
+NOME | DESCRIZIONE
 ------- | -------
 Sorgente | Nome dell'input o dell'output del processo in cui si è verificato l'errore.
 Message | Messaggio associato all'errore.
-Tipo | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
+type | Tipo di errore. Ad esempio **DataConversionError**, **CsvParserError** o **ServiceBusPropertyColumnMissingError**.
 Dati | Dati utili per individuare con precisione l'origine dell'errore. Sono soggetti a troncamento in base alle dimensioni.
 
 In base al valore **operationName**, lo schema degli errori nei dati è il seguente:
@@ -112,11 +112,11 @@ In base al valore **operationName**, lo schema degli errori nei dati è il segue
 
 Gli eventi generici sono tutti gli altri.
 
-Nome | Descrizione
+NOME | DESCRIZIONE
 -------- | --------
 Tipi di errore | (facoltativo) Informazioni sugli errori. Si tratta in genere di informazioni sulle eccezioni, se disponibili.
 Message| Messaggio del log.
-Tipo | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
+type | Tipo di messaggio. Esegue il mapping alla categorizzazione interna degli errori. Ad esempio **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 ID correlazione | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) che identifica in modo univoco l'esecuzione del processo. Tutte le voci del log di esecuzione dal momento dell'avvio del processo fino a quando il processo viene interrotto hanno lo stesso valore **ID correlazione**.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -44,6 +44,8 @@
         - name: Strumenti per VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Inviare processi da R Tools per Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Estendere i cluster
       items:
         - name: Personalizzare i cluster usando bootstrap
@@ -91,6 +93,21 @@
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Pubblicare app HDInsight in Azure Marketplace
               href: ../hdinsight-apps-publish-applications.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Cask Data Application Platform (CDAP)
+              href: ../hdinsight-apps-install-cask.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Dataiku
+              href: ../hdinsight-apps-install-dataiku.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Datameer
+              href: ../hdinsight-apps-install-datameer.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - H2O
+              href: ../hdinsight-apps-install-h2o.md
+              maintainContext: true
+            - name: Installare un'app pubblicata - Streamsets
+              href: ../hdinsight-apps-install-streamsets.md
               maintainContext: true
     - name: Proteggere
       items:
@@ -269,7 +286,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

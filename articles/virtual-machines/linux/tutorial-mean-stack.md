@@ -36,7 +36,7 @@ Questa esercitazione illustra come implementare uno stack MongoDB, Express, Angu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Creare una macchina virtuale Linux
@@ -327,7 +327,7 @@ sudo apt-get install -y nodejs
 
     ![Record del libro](media/tutorial-mean/meanstack-init.png)
 
-3. Immettere i dati nelle caselle di testo e fare clic su **Add**, ad esempio:
+3. Immettere i dati nelle caselle di testo e fare clic su **Add**, Ad esempio: 
 
     ![Aggiungere il record di un libro](media/tutorial-mean/meanstack-add.png)
 

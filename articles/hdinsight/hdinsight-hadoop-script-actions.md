@@ -92,7 +92,7 @@ Per la creazione di cluster HDInsight nel sistema operativo Windows, l'azione Sc
 
     Write-HDILog "$configFileName has been configured."
 
-Lo script accetta quattro parametri, il nome del file di configurazione, la proprietà da modificare, il valore da impostare e una descrizione. ad esempio:
+Lo script accetta quattro parametri, il nome del file di configurazione, la proprietà da modificare, il valore da impostare e una descrizione. Ad esempio: 
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
@@ -102,7 +102,7 @@ Lo script di esempio è disponibile anche all'indirizzo [https://hditutorialdata
 
 HDInsight fornisce diversi script di esempio per installare componenti aggiuntivi nei cluster HDInsight:
 
-| Nome | Script |
+| NOME | Script |
 | --- | --- |
 | **Installare Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vedere [Installare e usare Spark in cluster Hadoop di HDInsight][hdinsight-install-spark]. |
 | **Installare R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Vedere [Installare e usare R nei cluster HDInsight][hdinsight-r-scripts]. |
@@ -138,7 +138,7 @@ I metodi di supporto di Azione script sono utilità che è possibile usare duran
 
 Di seguito sono indicati i metodi di supporto forniti da questo script:
 
-| Metodo helper | Descrizione |
+| Metodo helper | DESCRIZIONE |
 | --- | --- |
 | **Save-HDIFile** |Scaricare un file dall'URI (Uniform Resource Identifier) specificato a un percorso nel disco locale associato al nodo della VM di Azure assegnato al cluster |
 | **Expand-HDIZippedFile** |Decomprimere un file compresso. |
@@ -202,7 +202,7 @@ Gli script usati per personalizzare un cluster devono essere nell'account di arc
 In questo esempio, è necessario assicurarsi che il contenitore 'somecontainer' nell'account di archiviazione 'somestorageaccount' sia accessibile pubblicamente. In caso contrario, lo script genera un'eccezione "Non trovato" ed ha esito negativo.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Passare i parametri al cmdlet Add-AzureRmHDInsightScriptAction
-Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio:
+Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio: 
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
@@ -299,7 +299,7 @@ In questo log è evidente che è stata eseguita l'azione script Spark nella VM d
 
 Nel caso in cui si verifichi un errore di esecuzione, anche l'output che descrive l'errore sarà contenuto in questo file di log. Le informazioni fornite in questi log saranno utili per il debug di eventuali problemi di script.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Personalizzare cluster HDInsight mediante l'azione script][hdinsight-cluster-customize]
 * [Installare e usare Spark nei cluster HDInsight][hdinsight-install-spark]
 * [Installare e usare R nei cluster HDInsight][hdinsight-r-scripts]

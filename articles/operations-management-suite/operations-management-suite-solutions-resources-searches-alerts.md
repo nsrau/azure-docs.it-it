@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2017
+ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione in OMS (anteprima)
 
@@ -31,12 +31,12 @@ Le [soluzioni di gestione in OMS](operations-management-suite-solutions.md) incl
 > [!NOTE]
 > Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Creazione di soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md)  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che si abbia già familiarità con la [creazione di una soluzione di gestione](operations-management-suite-solutions-creating.md) e la struttura di un [modello di Resource Manager](../resource-group-authoring-templates.md) e un file di soluzione.
 
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro di Log Analytics
-Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
+Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
 
 Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa savedsearch.
 
@@ -45,17 +45,14 @@ Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A ques
 ## <a name="log-analytics-api-version"></a>Versione API di Log Analytics
 Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le risorse che usano il [linguaggio di query legacy e quello aggiornato](../log-analytics/log-analytics-log-search-upgrade.md).  
 
- La tabella seguente specifica le versioni API di Log Analytics per le aree di lavoro legacy e quelle aggiornate, con una query di esempio che illustra la diversa sintassi per ogni caso. 
+ La tabella seguente illustra le versioni dell'API di Log Analytics relative alle ricerche salvate nelle aree di lavoro legacy e aggiornate: 
 
-| Versione dell'area di lavoro | Versione dell'API | Query di esempio |
+| Versione dell'area di lavoro | Versione dell'API | Query |
 |:---|:---|:---|
-| v1 (legacy)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
-| v2 (aggiornata) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+| v1 (legacy)   | 2015-11-01-preview | Formato legacy.<br> Esempio: Type=Event EventLevelName = Error  |
+| v2 (aggiornata) | 2015-11-01-preview | Formato legacy.  Convertito in formato aggiornato al momento dell'installazione.<br> Esempio: Type=Event EventLevelName = Error<br>Convertito in: Event &#124; where EventLevelName == "Error"  |
+| v2 (aggiornata) | 2017-03-03-preview | Formato aggiornato. <br>Esempio: Event &#124; where EventLevelName == "Error"  |
 
-Si noti quanto segue in relazione alle aree di lavoro supportate dalle diverse versioni.
-
-- I modelli che usano il linguaggio di query legacy possono essere installati in un'area di lavoro legacy o aggiornata.  Se l'installazione avviene in un'area di lavoro aggiornata, le query vengono convertite all'istante nel nuovo linguaggio quando vengono eseguite dall'utente.
-- I modelli che usano il linguaggio di query aggiornato possono essere installati solo in un'area di lavoro aggiornata.
 
 
 ## <a name="saved-searches"></a>Ricerche salvate
@@ -82,7 +79,7 @@ Le risorse [ricerca salvata di Log Analytics](../log-analytics/log-analytics-log
 
 Le singole proprietà di una ricerca salvata sono descritte nella tabella seguente. 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | category | Categoria della ricerca salvata.  Tutte le ricerche salvate nella stessa soluzione condivideranno in genere una singola categoria in modo da essere raggruppate nella console. |
 | displayname | Nome da visualizzare per la ricerca salvata nel portale. |
@@ -128,7 +125,7 @@ Una ricerca salvata può avere una o più pianificazioni, ognuna delle quali rap
 
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | Enabled       | Sì | Specifica se l'avviso viene abilitato al momento della creazione. |
 | interval      | Sì | Frequenza, in minuti, con cui viene eseguita la query. |
@@ -187,18 +184,18 @@ Le azioni di avviso hanno la struttura seguente.  Nella struttura sono inclusi p
 
 Le proprietà delle risorse azione di avviso sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
-| Type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
-| Nome | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
-| Descrizione | No | Descrizione facoltativa dell'avviso. |
+| type | Sì | Tipo di azione.  Per le azioni di avviso, il tipo è **Alert**. |
+| NOME | Sì | Nome visualizzato per l'avviso.  È il nome visualizzato nella console per la regola di avviso. |
+| DESCRIZIONE | No  | Descrizione facoltativa dell'avviso. |
 | Severity | Sì | Gravità del record di avviso tra i valori seguenti:<br><br> **Critical**<br>**Warning**<br>**Informational** |
 
 
 ##### <a name="threshold"></a>Soglia
 Questa sezione è obbligatoria  e definisce le proprietà della soglia dell'avviso.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
 | Valore | Sì | Valore per il confronto dei risultati. |
@@ -210,7 +207,7 @@ Questa sezione è facoltativa.  Includere la sezione per un avviso di misurazion
 > [!NOTE]
 > Gli avvisi di misurazione delle metriche sono attualmente disponibili in anteprima pubblica. 
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | TriggerCondition | Sì | Specifica se la soglia riguarda il numero totale di violazioni o le violazioni consecutive, con i valori seguenti:<br><br>**Total<br>Consecutive** |
 | Operatore | Sì | Operatore di confronto tra i valori seguenti:<br><br>**gt = maggiore di<br>lt = minore di** |
@@ -219,28 +216,28 @@ Questa sezione è facoltativa.  Includere la sezione per un avviso di misurazion
 ##### <a name="throttling"></a>Limitazione
 Questa sezione è facoltativa.  Includere la sezione se si vogliono eliminare gli avvisi generati dalla stessa regola per un determinato intervallo di tempo dopo la creazione di un avviso.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | DurationInMinutes | Sì, se è incluso l'elemento Throttling | Numero di minuti in cui verranno eliminati gli avvisi dopo che ne è stato creato uno dalla stessa regola di avviso. |
 
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa. Includere la sezione se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | Destinatari | Sì | Elenco delimitato da virgole di indirizzi di posta elettronica a cui inviare una notifica quando viene creato un avviso, come nell'esempio seguente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | Oggetto | Sì | Riga dell'oggetto del messaggio di posta elettronica. |
-| Attachment | No | Gli allegati non sono attualmente supportati.  Se questo elemento è incluso, il valore dovrà essere **None**. |
+| Attachment | No  | Gli allegati non sono attualmente supportati.  Se questo elemento è incluso, il valore dovrà essere **None**. |
 
 
 ##### <a name="remediation"></a>Correzione
 Questa sezione è facoltativa. Includere la sezione se si vuole avviare un runbook in risposta all'avviso. |
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | RunbookName | Sì | Nome del runbook da avviare. |
 | WebhookUri | Sì | URI del webhook per il runbook. |
-| Expiry | No | Data e ora di scadenza della correzione. |
+| Expiry | No  | Data e ora di scadenza della correzione. |
 
 #### <a name="webhook-actions"></a>Azioni webhook
 
@@ -266,12 +263,12 @@ Se l'avviso chiamerà un webhook, sarà necessaria una risorsa azione di tipo **
 
 Le proprietà delle risorse azione webhook sono descritte nella tabella seguente.
 
-| Nome dell'elemento | Obbligatorio | Descrizione |
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--|:--|:--|
 | type | Sì | Tipo di azione.  Per le azioni webhook, il tipo è **Webhook**. |
 | name | Sì | Nome visualizzato per l'azione.  Non viene visualizzato nella console. |
 | wehookUri | Sì | URI del webhook. |
-| customPayload | No | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
+| customPayload | No  | Payload personalizzato da inviare al webhook. Il formato dipende da ciò che il webhook si aspetta. |
 
 
 

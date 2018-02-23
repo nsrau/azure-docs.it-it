@@ -17,7 +17,7 @@ ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 > * Usare un'area di lavoro di OMS per visualizzare i log ed eseguire query su di essi dai contenitori e dai nodi
 > * Configurare l'agente di OMS per raccogliere le metriche relative ai contenitori e ai nodi
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione, è necessario:
 - Disporre di un cluster in Azure o [crearne uno seguendo le istruzioni in questa esercitazione](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Distribuire nel cluster un'applicazione nei contenitori](service-fabric-host-app-in-a-container.md)

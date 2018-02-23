@@ -1,6 +1,6 @@
 1. Accedere al [portale di Azure].
 
-2. Fare clic su **New**.
+2. Fare clic su **Nuovo**.
 
 3. Nella casella di ricerca digitare **App per dispositivi mobili**.
 

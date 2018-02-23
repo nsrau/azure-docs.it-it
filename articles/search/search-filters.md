@@ -159,7 +159,7 @@ Per i filtri di testo costituiti da stringhe, non c'è un'analisi lessicale o un
 Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non c'è corrispondenza tra parole minuscole e maiuscole: `$filter=f eq 'Sunny day'` non consente di trovare "sunny day".
 
 
-| Approccio | Descrizione | 
+| Approccio | DESCRIZIONE | 
 |----------|-------------|
 | [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Funzione che fornisce l'elenco delimitato da virgole di stringhe per un determinato campo. Le stringhe includono i criteri di filtro, che vengono applicati a ogni campo nell'ambito per la query. <br/><br/>`search.in(f, ‘a, b, c’)` è semanticamente equivalente a `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, ad eccezione del fatto che l'esecuzione è molto più veloce quando l'elenco di valori è grande.<br/><br/>Si consiglia di usare la funzione **search.in** per i [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri costituiti da testo non elaborato di cui trovare la corrispondenza con i valori in un determinato campo. Questo approccio è progettato per offrire velocità. È possibile ottenere un tempo di risposta di frazioni di secondo per centinaia o migliaia di valori. Anche se non c'è alcun limite esplicito per il numero di elementi che è possibile passare alla funzione, la latenza aumenta proporzionalmente al numero di stringhe fornite. | 
 | [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. Consente più combinazioni di filtro di query in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |  
@@ -198,7 +198,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Per altri esempi, vedere [OData Filter Expression Syntax > Examples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples) (Sintassi delle espressioni di filtro OData -> Esempi).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 + [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)

@@ -51,10 +51,10 @@ Di seguito è riportata una visualizzazione concettuale di una distribuzione di 
 
 Ogni risorsa prevede un set comune di proprietà e il proprio set di proprietà. Ecco le proprietà comuni:
 
-| Proprietà | Descrizione | Valori di esempio |
+| Proprietà | DESCRIZIONE | Valori di esempio |
 | --- | --- | --- |
 | **nome** |Nome univoco per le risorse. Ogni tipo di risorsa dispone delle proprie restrizioni di denominazione. |PIP01, VM01, NIC01 |
-| **Località** |Area di Azure in cui sarà creata la VM. |westus, eastus |
+| **location** |Area di Azure in cui sarà creata la VM. |westus, eastus |
 | **id** |Identificazione univoca basata su URI |/subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP |
 
 È possibile controllare le proprietà delle singole risorse nelle sezioni seguenti.

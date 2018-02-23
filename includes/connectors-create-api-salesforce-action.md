@@ -2,7 +2,7 @@ Dopo aver aggiunto una condizione, è possibile svolgere delle operazioni intere
 
 Per configurare questa azione, è necessario fornire le informazioni indicate di seguito. Si noterà che è facile usare i dati generati dal trigger come input per alcune proprietà del nuovo file:
 
-| Creare proprietà file | Descrizione |
+| Creare proprietà file | DESCRIZIONE |
 | --- | --- |
 | Tipo di oggetto |Questo è il tipo di oggetto Salesforce a cui si è interessati. Alcuni esempi sono Lead, Account, ecc. |
 | ID oggetto |Rappresenta un identificatore dell'oggetto. |

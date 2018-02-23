@@ -34,7 +34,7 @@ Per questa esercitazione di configurazione non è necessaria la stringa di conne
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 5. Dopo la creazione del dispositivo, aprire il dispositivo nel riquadro **Esplora dispositivi**.
 6. Annotare la chiave primaria della stringa di connessione.
 

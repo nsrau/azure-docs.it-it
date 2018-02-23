@@ -8,7 +8,7 @@
       items:
         - name: Pipeline e attività
           href: data-factory-create-pipelines.md
-        - name: DATASETS
+        - name: Set di dati
           href: data-factory-create-datasets.md
         - name: Pianificazione ed esecuzione
           href: data-factory-scheduling-and-execution.md
@@ -45,7 +45,7 @@
           href: data-factory-build-your-first-pipeline-using-rest-api.md
     - name: Spostare dati tra origini locali e cloud
       href: data-factory-move-data-between-onprem-and-cloud.md
-    - name: domande frequenti
+    - name: Domande frequenti
       href: data-factory-faq.md
 - name: Procedure
   items:
@@ -78,7 +78,7 @@
               href: data-factory-azure-datalake-connector.md
             - name: Ricerca di Azure
               href: data-factory-azure-search-connector.md
-            - name: Database SQL di Azure
+            - name: database SQL di Azure
               href: data-factory-azure-sql-connector.md
             - name: Azure SQL Data Warehouse
               href: data-factory-azure-sql-data-warehouse-connector.md
@@ -155,7 +155,7 @@
           href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
         - name: Servizi collegati di calcolo
           href: data-factory-compute-linked-services.md
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: Modello di Azure Resource Manager
           href: data-factory-how-to-use-resource-manager-templates.md

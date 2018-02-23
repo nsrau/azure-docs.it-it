@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Questo articolo illustra come usare Java SDK per eseguire l'autenticazione da servizio a servizio con Azure Data Lake Store. L'autenticazione dell'utente finale con Data Lake Store tramite Java SDK non è supportata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Creare un'applicazione "Web" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione da servizio a servizio con Data Lake Store tramite Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).

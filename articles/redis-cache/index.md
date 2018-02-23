@@ -152,7 +152,7 @@ Informazioni su come usare Cache Redis di Azure, una cache di dati protetti e br
 
 ---
 
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

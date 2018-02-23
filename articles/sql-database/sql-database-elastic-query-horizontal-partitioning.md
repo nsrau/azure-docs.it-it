@@ -29,7 +29,7 @@ Per l'avvio rapido, vedere [Creazione di report tra database cloud con scalabili
 
 Per i database non partizionati, vedere [Eseguire query in database cloud con schemi diversi](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Creare una mappa partizioni usando la libreria client dei database elastici. Vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). In alternativa, usare l'app di esempio in [Introduzione agli strumenti del database elastico](sql-database-elastic-scale-get-started.md).
 * In alternativa, vedere [Migrate existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md)(Eseguire la migrazione di database esistenti per la scalabilità orizzontale).
 * L'utente deve disporre dell'autorizzazione ALTER ANY origine dei dati esterni. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE.

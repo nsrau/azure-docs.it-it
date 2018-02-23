@@ -82,7 +82,7 @@ Per altre informazioni sui piani di hosting, vedere [Confronto di piani di hosti
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare la prima funzione di Azure](functions-create-first-azure-function.md)  
   Informazioni su come iniziare immediatamente a creare la prima funzione tramite Avvio rapido di Funzioni di Azure. 
-* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)  
+* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)  
   Include informazioni più tecniche sul runtime di Funzioni di Azure, nonché informazioni di riferimento per la codifica di funzioni e la definizione di trigger e associazioni.
 * [Test di Funzioni di Azure](functions-test-a-function.md)  
   Descrive diversi strumenti e tecniche per il test delle funzioni.

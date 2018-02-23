@@ -105,7 +105,7 @@ Elemento di livello superiore del file di configurazione della diagnostica.
 
 Attributi:
 
-|Attributo  |Type   |Obbligatorio| Default | Descrizione|  
+|Attributo  |type   |Obbligatoria| Predefinito | DESCRIZIONE|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Facoltativo | PT1M| Specifica l'intervallo con cui il monitor di diagnostica esegue il polling per le modifiche della configurazione di diagnostica.|  
 |**overallQuotaInMB**|unsignedInt|Facoltativo| 4000 MB. Se si specifica un valore, non deve superare la quantità |Spazio totale di archiviazione del file system allocato per tutti i buffer di registrazione.|  
@@ -117,11 +117,11 @@ Elemento padre: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConf
 
 Attributi:
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------|----|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|string|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|duration|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferLogLevelFilter**|stringa|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
 
 ## <a name="logs-element"></a>Elemento Logs  
  Definisce la configurazione del buffer per i log di base di Azure.
@@ -130,11 +130,11 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|string|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|duration|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferLogLevelFilter**|stringa|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
 
 ## <a name="directories-element"></a>Elemento Directories  
 Definisce la configurazione del buffer per i log basati su file che è possibile definire.
@@ -144,10 +144,10 @@ Elemento padre: [elemento DiagnosticMonitorConfiguration](#DiagnosticMonitorConf
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferPeriod**|duration|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Definisce la directory dei dump di arresto anomalo del sistema.
@@ -156,10 +156,10 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|string|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
-|**directoryQuotaInMB**|unsignedInt|Facoltativa. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
+|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ## <a name="failedrequestlogs-element"></a>Elemento FailedRequestLogs  
  Definisce la directory dei log di richieste non riuscite.
@@ -168,10 +168,10 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|string|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
-|**directoryQuotaInMB**|unsignedInt|Facoltativa. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
+|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ##  <a name="iislogs-element"></a>Elemento IISLogs  
  Definisce la directory di log IIS.
@@ -180,10 +180,10 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|string|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
-|**directoryQuotaInMB**|unsignedInt|Facoltativa. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
+|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ## <a name="datasources-element"></a>Elemento DataSources  
  Definisce zero o più directory di log aggiuntivi.
@@ -197,10 +197,10 @@ Attributi:
 
 Attributi:
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**container**|string|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
-|**directoryQuotaInMB**|unsignedInt|Facoltativa. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
+|**container**|stringa|Nome del contenitore in cui dovrà essere trasferito il contenuto della directory.|  
+|**directoryQuotaInMB**|unsignedInt|facoltativo. Specifica le dimensioni massime della directory in MB.<br /><br /> Il valore predefinito è 0.|  
 
 ## <a name="absolute-element"></a>Elemento Absolute  
  Definisce un percorso assoluto della directory da monitorare con espansione dell'ambiente facoltativa.
@@ -209,10 +209,10 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**path**|string|Obbligatorio. Percorso assoluto della directory da monitorare.|  
-|**expandEnvironment**|boolean|Obbligatorio. Se impostato su **true**, le variabili di ambiente nel percorso verranno espanse.|  
+|**path**|stringa|Richiesto. Percorso assoluto della directory da monitorare.|  
+|**expandEnvironment**|boolean|Richiesto. Se impostato su **true**, le variabili di ambiente nel percorso verranno espanse.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Definisce un percorso relativo a una risorsa locale nella definizione del servizio.
@@ -221,10 +221,10 @@ Attributi:
 
 Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**nome**|string|Obbligatorio. Nome della risorsa locale che contiene la directory da monitorare.|  
-|**relativePath**|string|Obbligatorio. Percorso relativo della risorsa locale da monitorare.|  
+|**nome**|stringa|Richiesto. Nome della risorsa locale che contiene la directory da monitorare.|  
+|**relativePath**|stringa|Richiesto. Percorso relativo della risorsa locale da monitorare.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  Definisce il percorso del contatore delle prestazioni da raccogliere.
@@ -234,10 +234,10 @@ Attributi:
 
  Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferPeriod**|duration|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>Elemento PerformanceCounterConfiguration  
  Definisce il contatore delle prestazioni da raccogliere.
@@ -246,10 +246,10 @@ Attributi:
 
  Attributi:  
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|Obbligatorio. Percorso del contatore delle prestazioni da raccogliere.|  
-|**sampleRate**|duration|Obbligatorio. Frequenza con la quale raccogliere il contatore delle prestazioni.|  
+|**counterSpecifier**|stringa|Richiesto. Percorso del contatore delle prestazioni da raccogliere.|  
+|**sampleRate**|duration|Richiesto. Frequenza con la quale raccogliere il contatore delle prestazioni.|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  Definisce i registri eventi da monitorare.
@@ -258,11 +258,11 @@ Attributi:
 
   Attributi:
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Facoltativa. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
-|**scheduledTransferLogLevelFilter**|string|Facoltativa. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
-|**scheduledTransferPeriod**|duration|Facoltativa. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|facoltativo. Specifica lo spazio massimo di archiviazione del file system disponibile per i dati specificati.<br /><br /> Il valore predefinito è 0.|  
+|**scheduledTransferLogLevelFilter**|stringa|facoltativo. Specifica il livello di gravità minimo per le voci di log trasferite. Il valore predefinito è **Non definito**. Altri valori possibili sono **Dettagli**, **Informazioni**, **Avviso**, **Errore** e **Critico**.|  
+|**scheduledTransferPeriod**|duration|facoltativo. Specifica l'intervallo tra trasferimenti di dati pianificati, arrotondato per eccesso al minuto più vicino.<br /><br /> Il valore predefinito è PT0S.|  
 
 ## <a name="datasource-element"></a>Elemento DataSource  
  Definisce il registro eventi da monitorare.
@@ -271,6 +271,6 @@ Attributi:
 
  Attributi:
 
-|Attributo|Tipo|Descrizione|  
+|Attributo|type|DESCRIZIONE|  
 |---------------|----------|-----------------|  
-|**nome**|string|Obbligatorio. Espressione XPath che specifica il log da raccogliere.|  
+|**nome**|stringa|Richiesto. Espressione XPath che specifica il log da raccogliere.|  

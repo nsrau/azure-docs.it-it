@@ -3,7 +3,7 @@ title: Connettore Lotus Domino | Documentazione Microsoft
 description: Questo articolo descrive come configurare il connettore Lotus Domino di Microsoft.
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6c412be1c54e0378166791c61469c951bca3a583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Documentazione tecnica sul connettore Lotus Domino
 Questo articolo descrive il connettore Lotus Domino ed è applicabile ai prodotti seguenti:
@@ -43,7 +43,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 
 Il connettore Lotus Domino usa il client Lotus Notes per comunicare con il server Lotus Domino. A causa di questa dipendenza, è necessario installare un client Lotus Notes supportato nel server di sincronizzazione. La comunicazione tra il client e il server viene implementata tramite l'interfaccia di Lotus Notes .NET Interop (Interop.domino.dll). Questa interfaccia facilita la comunicazione tra la piattaforma Microsoft.NET e il client Lotus Notes e supporta l'accesso a documenti e viste di Lotus Domino. Per l'importazione differenziale è anche possibile usare l'interfaccia nativa C++, a seconda del metodo di importazione differenziale selezionato.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Prima di usare il connettore, verificare che nel server di sincronizzazione siano disponibili i prerequisiti seguenti:
 
 * Microsoft .NET 4.5.2 Framework o versione successiva

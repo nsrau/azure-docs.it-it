@@ -261,7 +261,7 @@ Esistono due modi per abilitare la funzione TRIM in una VM Linux. Come di consue
     sudo fstrim /datadrive
     ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

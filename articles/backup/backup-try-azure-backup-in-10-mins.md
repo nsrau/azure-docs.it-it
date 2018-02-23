@@ -28,7 +28,7 @@ Per altre informazioni su Backup di Azure, vedere questa [panoramica](backup-int
 
 Se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) che consente di accedere a qualsiasi servizio di Azure.
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 Per eseguire il backup dei file e delle cartelle, è necessario creare un insieme di credenziali di Servizi di ripristino nell'area in cui archiviare i dati. È anche necessario determinare la modalità di replica di archiviazione.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Per creare un insieme di credenziali di Servizi di ripristino
@@ -168,7 +168,7 @@ L'agente ora è installato e il computer è registrato nell'insieme di credenzia
 Se il computer/proxy ha un accesso a Internet limitato, verificare che le impostazioni del firewall nel computer/proxy siano configurate per consentire gli URL seguenti: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
-    3. windowsazure.com
+    3. *.windowsazure.com
     4. *.microsoftonline.com
     5. *.windows.net
 

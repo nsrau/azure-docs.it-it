@@ -117,7 +117,7 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 
 ![Report visualizzato nell'applicazione](media/row-level-security/dashboard-13.png)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Sicurezza a livello di riga con Power BI](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
 [Autenticazione e autorizzazione con le raccolte di aree di lavoro di Power BI](app-token-flow.md)  

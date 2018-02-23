@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 È ora possibile creare report di raccolta di aree di lavoro di Power BI da un set di dati nell'applicazione.
 
 > [!IMPORTANT]
-> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto della raccolta di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Le raccolte di aree di lavoro di Power BI sono deprecate e sono disponibili fino a giugno 2018 o fino alla data specificata nel contratto. È consigliabile pianificare la migrazione a Power BI Embedded per evitare interruzioni nell'applicazione. Per informazioni su come eseguire la migrazione dei dati a Power BI Embedded, vedere [Come eseguire la migrazione del contenuto delle raccolte di aree di lavoro di Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Il metodo di autenticazione è simile a quello usato per l'incorporamento di report ed è basato su token di accesso specifici di un set di dati. I token usati per PowerBI.com sono rilasciati da Azure Active Directory (AAD). I token della raccolta di aree di lavoro di Power BI vengono rilasciati dall'applicazione personalizzata.
 
@@ -199,7 +199,7 @@ var embedCreateConfiguration = {
     });
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 [Esempio introduttivo](get-started-sample.md)  
 [Salvare i report](save-reports.md)  

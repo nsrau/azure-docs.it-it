@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: c336966f9a785707e76bc6a10c4a9283d797d064
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione da Azure a un sito locale
 
@@ -42,7 +42,7 @@ Per una rapida panoramica, guardare il video seguente che illustra come eseguire
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video5-Failback-from-Azure-to-On-premises/player]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 > [!IMPORTANT]
 > Durante il failover in Azure, il sito locale potrebbe non essere accessibile e pertanto il server di configurazione può essere non disponibile o venire arrestato. Durante la riprotezione e il failback, il server di configurazione locale deve essere in esecuzione e in stato OK connesso.
@@ -221,13 +221,7 @@ Per ripristinare la macchina virtuale di Azure in una macchina virtuale locale e
 
 Al termine della riprotezione, la macchina virtuale entrerà in uno stato protetto.
 
-## <a name="next-steps"></a>Passaggi successivi
-
-È possibile [avviare un failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back) solo dopo che la macchina virtuale è entrata in uno stato protetto. 
-
-Il failback arresterà la macchina virtuale in Azure e avvierà la macchina virtuale locale. Per l'applicazione, quindi, è necessario prevedere un breve tempo di inattività. Selezionare un'ora di failback in cui l'inattività dell'applicazione non provocherà conseguenze.
-
-## <a name="common-problems"></a>Problemi frequenti
+## <a name="common-issues"></a>Problemi comuni
 
 * Se è stato usato un modello per creare le macchine virtuali, assicurarsi che ogni macchina virtuale abbia un UUID univoco per i dischi. Se l'UUID della macchina virtuale locale è in conflitto con quello del server di destinazione master perché entrambi sono stati creati a partire dallo stesso modello, la riprotezione non riesce. Distribuire un altro server di destinazione master che non sia stato creato a partire dallo stesso modello.
 
@@ -245,38 +239,9 @@ Il failback arresterà la macchina virtuale in Azure e avvierà la macchina virt
 
 * Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
 
-### <a name="common-error-codes"></a>Codici errore comuni
 
-#### <a name="error-code-95226"></a>Codice di errore 95226
+## <a name="next-steps"></a>Passaggi successivi
 
-*La riprotezione non è riuscita perché la macchina virtuale di Azure non è in grado di raggiungere il server di configurazione locale.*
+È possibile [avviare un failback](site-recovery-how-to-failback-azure-to-vmware.md#steps-to-fail-back) solo dopo che la macchina virtuale è entrata in uno stato protetto. 
 
-Ciò si verifica quando 
-1. La macchina virtuale di Azure non ha potuto raggiungere il server di configurazione locale e di conseguenza è stato impossibile individuarla e registrarla nel server di configurazione. 
-2. Il servizio dell'applicazione InMage Scout nella macchina virtuale di Azure che deve essere in esecuzione per comunicare al server di configurazione locale potrebbe non eseguire il failover post.
-
-Per risolvere il problema
-1. È necessario assicurarsi che la rete della macchina virtuale di Azure sia configurata in modo che la macchina virtuale possa comunicare con il server di configurazione locale. A tale scopo, configurare una VPN da sito a sito nel data center locale o configurare una connessione ExpressRoute con peering privato sulla rete virtuale della macchina virtuale di Azure. 
-2. Se si dispone già di una rete configurata in modo che la macchina virtuale di Azure possa comunicare con il server di configurazione locale, accedere alla macchina virtuale e verificare l'opzione 'InMage Scout Application Service'. Se si osserva che InMage Scout Application Service non è in esecuzione, avviare manualmente il servizio e verificare che il tipo di avvio sia impostato su Automatico.
-
-### <a name="error-code-78052"></a>Codice di errore 78052
-La riprotezione ha esito negativo e viene visualizzato il messaggio di errore: *Non è stato possibile completare l'abilitazione della protezione per la macchina virtuale*.
-
-Questa situazione può verificarsi per due motivi
-1. La macchina virtuale da riproteggere è Windows Server 2016. Attualmente questo sistema operativo non è supportato per il failback, ma sarà presto supportato.
-2. Esiste già una macchina virtuale con lo stesso nome nel server di destinazione master.
-
-Per risolvere questo problema è possibile selezionare un server di destinazione master diverso in un host diverso, per cui la riprotezione creerà la macchina in un host diverso, in cui i nomi non sono in conflitto. È anche possibile usare vMotion nel server di destinazione master in modo da reindirizzarlo verso un host diverso, in cui non si verificherà il conflitto di nomi. Se la macchina virtuale esistente è una macchina errata, è possibile rinominarla in modo che la nuova macchina virtuale possa essere creata nello stesso host ESXi.
-
-### <a name="error-code-78093"></a>Codice di errore 78093
-
-*La macchina virtuale non è in esecuzione, è bloccata o non è accessibile.*
-
-Per la riprotezione di una macchina virtuale su cui è stato eseguito il failover di nuovo in locale, è necessario che la macchina virtuale di Azure sia in esecuzione, in modo che il servizio di mobilità sia registrato con il server di configurazione locale e possa avviare la replica mediante la comunicazione con il server di processo. Se il computer si trova su una rete non corretta o non è in esecuzione (bloccato o in arresto), il server di configurazione non riesce a raggiungere il servizio di mobilità nella macchina virtuale per avviare la riprotezione. È possibile riavviare la macchina virtuale in modo che questa riesca a riavviare la comunicazione locale. Riavviare il processo di riprotezione dopo l'avvio della macchina virtuale di Azure
-
-### <a name="error-code-8061"></a>Codice di errore 8061
-
-*L'archivio dati non è accessibile dall'host ESXi.*
-
-Fare riferimento ai [prerequisiti di destinazione master](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server) e agli [archivi dati di supporto](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback) per il failback
-
+Il failback arresterà la macchina virtuale in Azure e avvierà la macchina virtuale locale. Per l'applicazione, quindi, è necessario prevedere un breve tempo di inattività. Selezionare un'ora di failback in cui l'inattività dell'applicazione non provocherà conseguenze.

@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [portale di Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
 > * [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 > * [Modello](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
