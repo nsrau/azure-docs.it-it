@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 1c5459533ecc8c505b62a9c44c395cfd08a3a629
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di gestione dei contenuti per una soluzione di identità ibrida
-Comprendere i requisiti aziendali relativi alla gestione dei contenuti può incidere direttamente sulla decisione in merito alla soluzione di identità ibrida da usare. Con la proliferazione delle tipologie di dispositivi e la possibilità per gli utenti di usare dispositivi personali anche nelle attività lavorative (approccio[BYOD](http://aka.ms/byodcg)), è sempre più forte l'esigenza per le aziende di proteggere i dati senza compromettere la privacy degli utenti. In genere, quando un utente usa un dispositivo personale, si avvale di più credenziali diverse, in base all'applicazione a cui deve accedere. È importante quindi distinguere i contenuti creati usando credenziali personali rispetto a quelli realizzati ricorrendo a credenziali aziendali. La soluzione di identità adottata deve essere in grado di interagire con i servizi cloud, in modo da fornire un'esperienza trasparente per l'utente finale, garantirne la privacy e migliorare la protezione contro la perdita di dati. 
+Comprendere i requisiti aziendali relativi alla gestione dei contenuti può incidere direttamente sulla decisione in merito alla soluzione di identità ibrida da usare. Con la proliferazione delle tipologie di dispositivi e la possibilità per gli utenti di usare dispositivi personali anche nelle attività lavorative (approccio[BYOD](https://aka.ms/byodcg)), è sempre più forte l'esigenza per le aziende di proteggere i dati senza compromettere la privacy degli utenti. In genere, quando un utente usa un dispositivo personale, si avvale di più credenziali diverse, in base all'applicazione a cui deve accedere. È importante quindi distinguere i contenuti creati usando credenziali personali rispetto a quelli realizzati ricorrendo a credenziali aziendali. La soluzione di identità adottata deve essere in grado di interagire con i servizi cloud, in modo da fornire un'esperienza trasparente per l'utente finale, garantirne la privacy e migliorare la protezione contro la perdita di dati. 
 
 La soluzione di identità deve essere inoltre sottoposta a vari controlli tecnici per permettere la gestione dei contenuti, come illustrato nella figura seguente:
 

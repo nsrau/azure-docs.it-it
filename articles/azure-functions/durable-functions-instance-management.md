@@ -14,11 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
+<<<<<<< HEAD
 ms.openlocfilehash: cbf7731c0faa82ebd3e662eb6d2a8fb0acd65c97
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+=======
+ms.openlocfilehash: a938e5949896ad3bfa91903106d56ccdf827c725
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+>>>>>>> 31972e77aa0784c49b3de1fde20ec0a5e3007025
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gestire le istanze in Funzioni permanenti (Funzioni di Azure)
 
@@ -38,12 +43,12 @@ Di seguito è riportato un semplice esempio in C#:
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
-public static Task Run(
+public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
     TraceWriter log)
 {
-    string instanceId = starter.StartNewAsync("HelloWorld", input);
+    string instanceId = await starter.StartNewAsync("HelloWorld", input);
     log.Info($"Started orchestration with ID = '{instanceId}'.");
 }
 ```

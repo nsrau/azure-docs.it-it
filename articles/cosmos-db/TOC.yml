@@ -131,6 +131,8 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Modelli di Gestione risorse di Azure
+      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
 - name: Concetti
   items:
     - name: Database senza server
@@ -342,6 +344,8 @@
           href: logging.md
         - name: Gestire chiavi e coerenza
           href: manage-account.md
+        - name: Controllo di accesso
+          href: access-control.md
         - name: Esplora archivi Azure
           href: storage-explorer.md
         - name: Sicurezza

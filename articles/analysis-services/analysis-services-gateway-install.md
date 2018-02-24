@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 9ba36c4cf932cab2e449b12a307639184feab049
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c2cbe1c60f67c689a38d1585245610a6fa73bff4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).

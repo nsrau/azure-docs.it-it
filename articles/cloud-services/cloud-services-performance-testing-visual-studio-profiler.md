@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 5e3c729ce3e75665078d7f33baed943087fbe0ca
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
 È possibile usare diversi strumenti e tecniche per il test delle prestazioni di servizi cloud.
@@ -44,31 +44,35 @@ Queste istruzioni sono applicabili a un progetto esistente o a un nuovo progetto
 
 A scopo esemplificativo, aggiungere al progetto codice la cui esecuzione richiede molto tempo e che illustri alcuni problemi ovvi relativi alle prestazioni. Aggiungere ad esempio il codice seguente a un progetto di tipo ruolo di lavoro:
 
-    public class Concatenator
+```csharp
+public class Concatenator
+{
+    public static string Concatenate(int number)
     {
-        public static string Concatenate(int number)
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
         {
-            int count;
-            string s = "";
-            for (count = 0; count < number; count++)
-            {
-                s += "\n" + count.ToString();
-            }
-            return s;
+            s += "\n" + count.ToString();
         }
+        return s;
     }
+}
+```
 
 Chiamare tale codice dal metodo RunAsync nella classe del ruolo di lavoro derivata da RoleEntryPoint. (Ignorare l'avviso relativo al metodo eseguito in modalità sincrona).
 
-        private async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
-        }
+```csharp
+private async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following with your own logic.
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        Trace.TraceInformation("Working");
+        Concatenator.Concatenate(10000);
+    }
+}
+```
 
 Compilare ed eseguire localmente il servizio cloud senza eseguire il debug (CTRL+F5) con la configurazione della soluzione impostata su **Release**. In tale modo, tutti i file e le cartelle verranno creati per l'esecuzione locale dell'applicazione e tutti gli emulatori verranno avviati. Avviare l'interfaccia utente dell'emulatore di calcolo dalla barra delle applicazioni per verificare che il ruolo di lavoro sia in esecuzione.
 
@@ -88,9 +92,11 @@ Se la cartella del progetto si trova su un'unità di rete, il profiler richieder
  È anche possibile connettersi a un ruolo Web mediante la connessione a WaIISHost.exe.
 Se l'applicazione include più processi di ruolo di lavoro, sarà necessario usare il valore processID per distinguerli. È possibile eseguire query relative ai valori processID a livello di codice, mediante l'accesso all'oggetto Process. Se, ad esempio, si aggiunge il codice seguente al metodo Run della classe derivata da RoleEntryPoint in un ruolo, sarà possibile esaminare il log nell'interfaccia utente dell'emulatore di calcolo per individuare i processi a cui connettersi.
 
-    var process = System.Diagnostics.Process.GetCurrentProcess();
-    var message = String.Format("Process ID: {0}", process.Id);
-    Trace.WriteLine(message, "Information");
+```csharp
+var process = System.Diagnostics.Process.GetCurrentProcess();
+var message = String.Format("Process ID: {0}", process.Id);
+Trace.WriteLine(message, "Information");
+```
 
 Per visualizzare il log, avviare l'interfaccia utente dell'emulatore di calcolo.
 
@@ -126,16 +132,18 @@ Se è stato aggiunto il codice di concatenazione di stringa disponibile in quest
 ## <a name="4-make-changes-and-compare-performance"></a>4: Apportare modifiche e confrontare le prestazioni
 È anche possibile confrontare le prestazioni prima e dopo la modifica del codice.  Arrestare il processo in esecuzione e modificare il codice per sostituire l'operazione di concatenazione di stringa usando StringBuilder:
 
-    public static string Concatenate(int number)
+```csharp
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
     {
-        int count;
-        System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-        for (count = 0; count < number; count++)
-        {
-             builder.Append("\n" + count.ToString());
-        }
-        return builder.ToString();
+        builder.Append("\n" + count.ToString());
     }
+    return builder.ToString();
+}
+```
 
 Eseguire di nuovo la verifica delle prestazioni e quindi confrontare le prestazioni. Se le esecuzioni si trovano nella stessa sessione, in Esplora prestazioni è possibile selezionare entrambi i rapporti, aprire il menu di scelta rapida e quindi scegliere **Confronta rapporto di prestazioni**. Per effettuare un confronto con un'esecuzione in un'altra sessione relativa alle prestazioni, aprire il menu **Analizza** e quindi scegliere **Confronta rapporto di prestazioni**. Specificare entrambi i file nella casella della finestra di dialogo visualizzata.
 

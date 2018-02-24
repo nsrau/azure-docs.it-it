@@ -15,11 +15,16 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
+<<<<<<< HEAD
 ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+=======
+ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+>>>>>>> 31972e77aa0784c49b3de1fde20ec0a5e3007025
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
 
@@ -40,7 +45,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-2. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
+2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 
@@ -87,7 +92,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 > 
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
+2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 4. Nel pannello **Panoramica** del lab selezionare la VM dalla quale creare la formula.
    
@@ -104,7 +109,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 Per modificare una formula, seguire questa procedura:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
+2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 4. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
    
@@ -116,7 +121,7 @@ Per modificare una formula, seguire questa procedura:
 Per eliminare una formula, seguire questa procedura:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
+2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 4. Nel pannello **Settings** (Impostazioni) del lab selezionare **Formulas** (Formule).
    

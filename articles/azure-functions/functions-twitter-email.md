@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -53,7 +53,7 @@ Le API Servizi cognitivi sono disponibili in Azure come singole risorse. Usare l
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+2. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 3. Fare clic su **Intelligenza artificiale e servizi cognitivi** > **API Analisi del testo**. Usare quindi le impostazioni indicate nella tabella, accettare le condizioni e selezionare **Aggiungi al dashboard**.
 

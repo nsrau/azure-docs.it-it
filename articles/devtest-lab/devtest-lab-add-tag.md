@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: v-craic
-ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 72e82b207a543a9020b38b2c4494717e9f648ab7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Aggiungere tag a un lab in Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Ogni tag è costituito da una coppia **nome**/**valore**. Ad esempio, è possibi
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Passaggi per la gestione di tag in un lab esistente
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Se necessario, selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
+1. Se necessario, selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco. Il lab potrebbe essere già visualizzato nel dashboard in **Tutte le risorse**.
 1. Nell'elenco di lab selezionare il lab in cui si vuole aggiungere o gestire i tag.  
 1. Nell'area **Panoramica** del lab selezionare **Configurazione e criteri**.  
 

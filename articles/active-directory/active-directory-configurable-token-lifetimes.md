@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 19cd4ae8dc0ca3efa4eca51e5a6ba102338b4ef9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
@@ -73,7 +73,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massima |
 | --- | --- | --- | --- | --- | --- |
 | Durata dei token di accesso |AccessTokenLifetime |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
-| Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |14 giorni |10 minuti |90 giorni |
+| Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
 | Validità massima token di aggiornamento a fattore singolo |MaxAgeSingleFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 | Validità massima token di aggiornamento a più fattori |MaxAgeMultiFactor |Token di aggiornamento (per tutti gli utenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 | Validità massima token di sessione a fattore singolo |MaxAgeSessionSingleFactor<sup>2</sup> |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
