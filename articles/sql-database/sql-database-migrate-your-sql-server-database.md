@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b45661bbfc3d86542bd7424329e504d1d9c91e4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrare un database SQL Server in un database SQL di Azure
 
@@ -52,7 +52,7 @@ Un database SQL di Azure viene creato con un set definito di [risorse di calcolo
 
 Per creare un database SQL vuoto, attenersi alla procedura seguente. 
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Database** dalla pagina **Nuovo**, quindi selezionare **Crea** in **Database SQL** nella pagina **Nuovo**.
 

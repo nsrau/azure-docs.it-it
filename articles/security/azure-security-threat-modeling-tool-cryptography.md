@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="padding"></a>Usare riempimenti, lunghezze di chiave e algoritmi asimmetrici approvati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -99,7 +99,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="hash-functions"></a>Usare solo funzioni hash crittografiche approvate
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -143,7 +143,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="ekm-keys"></a>Usare EKM di SQL Server per proteggere le chiavi di crittografia
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -165,7 +165,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="keys-iot"></a>Archiviare le chiavi di crittografia in modo sicuro nel dispositivo IoT
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -221,7 +221,7 @@ Come si può osservare, la chiave primaria del dispositivo non è presente nel c
 
 ## <a id="rolled-server"></a>Assicurarsi che venga eseguito il rollover delle chiavi di firma quando si usa Identity Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Distribuzione |  

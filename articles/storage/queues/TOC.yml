@@ -100,7 +100,7 @@
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Esempi
       href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=queue'
-- name: riferimento
+- name: Riferimenti
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
@@ -168,6 +168,8 @@
           href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Risolvere i problemi di Storage Explorer
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Accessibilità di Storage Explorer
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Pacchetti NuGet
       items:
         - name: Libreria client di archiviazione di Azure per .NET

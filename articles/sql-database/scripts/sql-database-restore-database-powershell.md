@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: janeng
 ms.openlocfilehash: e09c14a33f655d059ec4bce6b4aa952855d3ad2a
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---

@@ -3,11 +3,12 @@ title: Azure dello Stack di avvio rapido - creazione macchina virtuale portale
 description: Azure Stack Quick Start - creare una VM Linux tramite il portale
 services: azure-stack
 cloud: azure-stack
-author: vhorne
-manager: byronr
+author: brenduns
+manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 12/11/2017
+<<<<<<< HEAD
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 1e1732f48de9f95e669d0282d120e48b5fe5f0ef
@@ -15,6 +16,16 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+=======
+ms.author: brenduns
+ms.reviewer: 
+ms.custom: mvc
+ms.openlocfilehash: d4aef23e2de327fabb1f0304d8a3db1497d55827
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/22/2018
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Creare una macchina virtuale Linux con il portale di Azure Stack
 

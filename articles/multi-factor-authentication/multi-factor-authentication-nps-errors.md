@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/23/2017
 ---
@@ -106,9 +106,9 @@ Se gli utenti hanno [Problemi con la verifica in due passaggi](./end-user/multi-
 
 Se è necessario avere un maggiore supporto, contattare un tecnico del supporto tramite il [supporto del server Multi-Factor Authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Le informazioni da dare includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico, l'ID dell'utente che visualizza l'errore e i registri debug.
 
-Per raccogliere i registri di debug per la diagnostica di supporto, attenersi alla procedura seguente nel server dei criteri di rete:
+Per raccogliere i registri debug per la diagnostica di supporto, attenersi alla procedura seguente sul server NPS:
 
-1. Aprire l'Editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** a **TRUE**
+1. Aprire l'editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa impostando **VERBOSE_LOG** su **TRUE**
 2. Aprire un prompt dei comandi di amministratore ed eseguire questi comandi:
 
    ```
@@ -132,7 +132,7 @@ Per raccogliere i registri di debug per la diagnostica di supporto, attenersi al
    Start .
    ```
 
-5. Aprire l'Editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** a **FALSE**
+5. Aprire l'editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa impostando **VERBOSE_LOG** su **FALSE**
 6. Comprimere il contenuto della cartella C:\NPS e allegare il file compresso al caso di supporto.
 
 

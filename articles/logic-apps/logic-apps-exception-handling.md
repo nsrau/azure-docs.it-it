@@ -1,6 +1,6 @@
 ---
-title: Errore e gestione delle eccezioni per la logica App in Azure | Documenti Microsoft
-description: Modelli di errore e gestione delle eccezioni nelle App per la logica.
+title: Gestione degli errori e delle eccezioni per App per la logica in Azure | Microsoft Docs
+description: Modelli per la gestione degli errori e delle eccezioni in App per la logica.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: derek1ee
@@ -16,27 +16,27 @@ ms.date: 10/18/2016
 ms.author: LADocs; deli
 ms.openlocfilehash: a74c7d18306359c9152f139299de1208b5932fe5
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="handle-errors-and-exceptions-in-logic-apps"></a>Gestire errori ed eccezioni nelle app di logica
+# <a name="handle-errors-and-exceptions-in-logic-apps"></a>Gestire gli errori e le eccezioni in App per la logica
 
-Logica App in Azure fornisce strumenti avanzati e modelli che consentono di garantire che le integrazioni affidabile e resiliente agli errori. Qualsiasi architettura comporta la necessità di gestire in modo appropriato i tempi di inattività o problemi da sistemi dipendenti. Logica App rende gestione degli errori di un'esperienza di prima classe. Fornisce gli strumenti che necessari per agire su eccezioni ed errori nei flussi di lavoro.
+App per la logica in Azure offre un set completo di strumenti e modelli per garantire la solidità e la resilienza delle integrazioni dell'utente in caso di errori. Nelle architetture di integrazione una delle difficoltà consiste nel garantire che i tempi di inattività o i problemi dei sistemi dipendenti vengano gestiti in modo appropriato. App per la logica consente di avere un'esperienza di prima classe nella gestione degli errori. Offre gli strumenti necessari per risolvere le eccezioni e gli errori nei flussi di lavoro.
 
 ## <a name="retry-policies"></a>Criteri di ripetizione dei tentativi
 
-Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione. Se i timeout di una richiesta iniziale o ha esito negativo (qualsiasi richiesta che comporta un 429 o risposta 5xx), un criterio di ripetizione definisce se e come l'azione deve essere riprovata. 
+Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione. In caso di timeout o esito negativo della richiesta iniziale, con restituzione di una risposta 429 o 5xx, i criteri di ripetizione definiscono se e come l'azione dovrà essere ripetuta. 
 
-Sono disponibili quattro tipi di criteri di tentativi: default, none, fisso, intervallo e intervallo esponenziale. Se un criterio di ripetizione non viene fornito nella definizione del flusso di lavoro, viene utilizzato il criterio predefinito, come definito dal servizio. 
+Esistono quattro tipi di criteri di ripetizione: predefinito, nessuno, a intervallo fisso e a intervallo esponenziale. Se i criteri di ripetizione non vengono indicati nella definizione del flusso di lavoro, vengono usati i criteri predefiniti specificati dal servizio. 
 
-È possibile configurare i criteri di ripetizione dei tentativi nell'*input* di una determinata azione o trigger se ripetibile. Analogamente, è possibile configurare criteri di tentativi (se applicabile) nella finestra di progettazione logica App. Per impostare un criterio di ripetizione, in Progettazione applicazione logica, passare a **impostazioni** per un'azione specifica.
+È possibile configurare i criteri di ripetizione dei tentativi nell'*input* di una determinata azione o trigger se ripetibile. Analogamente è possibile configurare i criteri di ripetizione, se applicabili, nella finestra di progettazione di App per la logica. Per configurare i criteri di ripetizione, nella finestra di progettazione di App per la logica passare a **Impostazioni** per scegliere un'azione specifica.
 
-Per informazioni sulle limitazioni di criteri di tentativi, vedere [limiti di App per la logica e la configurazione](../logic-apps/logic-apps-limits-and-config.md). Per ulteriori informazioni sulla sintassi supportata, vedere il [ripetere la sezione criteri nel flusso di lavoro azioni e trigger][retryPolicyMSDN].
+Per informazioni sulle restrizioni dei criteri di ripetizione, vedere [Limiti e configurazione per App per la logica](../logic-apps/logic-apps-limits-and-config.md). Per altre informazioni sulla sintassi supportata, vedere la [sezione relativa ai criteri di ripetizione in Trigger e azioni dei flussi di lavoro][retryPolicyMSDN].
 
 ### <a name="default"></a>Predefinito
 
-Se non si definisce un criterio di ripetizione (**retryPolicy** è definito), viene usato il criterio predefinito. Il criterio predefinito è un criterio di intervallo esponenziale che invia fino a quattro tentativi, a migliorare in modo esponenziale intervalli scalati 7,5 secondi. L'intervallo è limitata a compreso tra 5 e 45 secondi. Il criterio predefinito è equivalente al criterio in questo esempio di definizione del flusso di lavoro HTTP:
+Se i criteri di ripetizione non vengono definiti, ovvero **retryPolicy** non viene specificato, vengono usati i criteri predefiniti. I criteri predefiniti sono criteri a intervallo esponenziale che consentono di inviare fino a 4 ripetizioni di tentativi, a intervalli con crescita esponenziale ridimensionati di 7,5 secondi. L'intervallo è compreso tra 5 e 45 secondi. Tali criteri predefiniti equivalgono ai criteri nella definizione del flusso di lavoro HTTP di questo esempio:
 
 ```json
 "HTTP":
@@ -59,7 +59,7 @@ Se non si definisce un criterio di ripetizione (**retryPolicy** è definito), vi
 
 ### <a name="none"></a>Nessuna
 
-Se **retryPolicy** è impostato su **Nessuno**, non viene ripetuta una richiesta non riuscita.
+Se **retryPolicy** è impostato su **none**, la richiesta non riuscita non viene ripetuta.
 
 | Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | ------------ | -------- | ---- | ----------- |
@@ -67,45 +67,45 @@ Se **retryPolicy** è impostato su **Nessuno**, non viene ripetuta una richiesta
 
 ### <a name="fixed-interval"></a>Intervallo fisso
 
-Se **retryPolicy** è impostato su **fissa**, i criteri di tentativi di una richiesta non riuscita mediante l'attesa dell'intervallo di tempo prima di inviare la richiesta successiva specificato.
+Se **retryPolicy** è impostato su **fixed**, i criteri ripeteranno una richiesta non riuscita attendendo l'intervallo di tempo specificato prima di inviare la richiesta successiva.
 
 | Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | ------------ | -------- | ---- | ----------- |
-| type | Sì | string | **predefinito** |
+| type | Sì | string | **fixed** |
 | count | Sì | Integer | Numero di tentativi. Deve essere compreso tra 1 e 90. |
-| interval | Sì | string | Intervallo di tentativi [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra PT5S e PT1D. |
+| interval | Sì | string | Intervallo di tentativi in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra PT5S e PT1D. |
 
 ### <a name="exponential-interval"></a>Intervallo esponenziale
 
-Se **retryPolicy** è impostato su **esponenziale**, i criteri di tentativi di una richiesta non riuscita dopo un intervallo di tempo casuale da un intervallo di crescita esponenziale. Per ogni tentativo si garantisce l'invio di un intervallo casuale maggiore di **minimumInterval** e minore di **maximumInterval**. Una variabile casuale uniforme nell'intervallo indicato nella tabella seguente viene generata per ogni nuovo tentativo alla **conteggio**:
+Se **retryPolicy** è impostato su **exponential**, i criteri ripeteranno una richiesta non riuscita dopo un intervallo di tempo casuale di un intervallo a crescita esponenziale. Per ogni tentativo si garantisce l'invio di un intervallo casuale maggiore di **minimumInterval** e minore di **maximumInterval**. Una variabile casuale uniforme nell'intervallo indicato nella tabella seguente verrà generata per ogni nuovo tentativo fino al valore di **count** incluso:
 
 **Intervallo variabile casuale**
 
-| Numero di tentativi | Intervallo minimo | Intervallo massimo |
+| Numero di ripetizioni | Intervallo minimo | Intervallo massimo |
 | ------------ |  ------------ |  ------------ |
 | 1 | Massimo (0, **minimumInterval**) | Minimo (intervallo, **maximumInterval**) |
 | 2 | Massimo (intervallo, **minimumInterval**) | Minimo (2 * intervallo, **maximumInterval**) |
-| 3 | Max (2 * intervallo, **definiti in minimumInterval**) | Minimo (4 * intervallo, **maximumInterval**) |
+| 3 | Massimo (2 * intervallo, **minimumInterval**) | Minimo (4 * intervallo, **maximumInterval**) |
 | 4 | Massimo (4*intervallo, **minimumInterval**) | Minimo (8 * intervallo, **maximumInterval**) |
 | ... |
 
-Per i criteri di tipo esponenziale, **conteggio** e **intervallo** sono necessari. I valori del parametro **definiti in minimumInterval** e **maximumInterval** sono facoltativi. È possibile aggiungere in modo da ignorare i valori predefiniti di PT5S e PT1D, rispettivamente.
+Per i criteri di tipo esponenziale, è necessario impostare i valori per **count** e **interval**. I valori per **minimumInterval** e **maximumInterval** sono facoltativi. È possibile aggiungerli per sostituire rispettivamente i valori predefiniti di PT5S e PT1D.
 
 | Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | ------------ | -------- | ---- | ----------- |
-| type | Sì | string | **esponenziale** |
+| type | Sì | string | **exponential** |
 | count | Sì | Integer | Numero di tentativi. Deve essere compreso tra 1 e 90.  |
-| interval | Sì | string | Intervallo di tentativi [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra PT5S e PT1D. |
-| minimumInterval | No  | string | Intervallo minimo in tentativi [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra PT5S e **intervallo**. |
-| maximumInterval | No  | string | Intervallo minimo in tentativi [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra **intervallo** e PT1D. |
+| interval | Sì | string | Intervallo di tentativi in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra PT5S e PT1D. |
+| minimumInterval | No  | string | Intervallo minimo di ripetizioni in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra PT5S e il valore per **interval**. |
+| maximumInterval | No  | string | Intervallo minimo di ripetizioni in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Deve essere compreso tra l'**intervallo** e PT1D. |
 
-## <a name="catch-failures-with-the-runafter-property"></a>Intercettare gli errori con la proprietà runAfter
+## <a name="catch-failures-with-the-runafter-property"></a>Rilevare gli errori con la proprietà runAfter
 
-Ogni azione di logica app dichiara le azioni che devono essere completata prima dell'inizio dell'azione. È simile a ordine i passaggi nel flusso di lavoro. Nella definizione di azione, questo ordinamento è noto come il **runAfter** proprietà. 
+Ogni azione di un'app per la logica dichiara le azioni che devono essere completate prima del proprio avvio. Si ottiene così una sorta di ordinamento dei passaggi nel flusso di lavoro. Nella definizione dell'azione tale ordinamento è noto come proprietà **runAfter**. 
 
-Il **runAfter** proprietà è un oggetto che descrive l'azione di eseguire le azioni e gli stati di azione. Per impostazione predefinita, tutte le azioni che sono state aggiunte tramite Progettazione applicazione logica vengono impostate per l'esecuzione dopo il passaggio precedente, se il risultato del passaggio precedente è **Succeeded**. 
+La proprietà **runAfter** è un oggetto che descrive le azioni e gli stati delle azioni che determineranno l'esecuzione dell'azione. Per impostazione predefinita tutte le azioni aggiunte tramite la finestra di progettazione di App per la logica vengono impostate per essere eseguite dopo il passaggio precedente, se il risultato del passaggio precedente è **Succeeded**. 
 
-Tuttavia, è possibile personalizzare il **runAfter** valore attivano azioni quando operazioni sopra descritte avranno come risultato **Failed**, **ignorati**, o un set di possibili valori sono i seguenti. Se si desidera aggiungere un elemento a un argomento del Bus di servizio di Azure designato dopo un'azione specifica **Insert_Row** ha esito negativo, è possibile utilizzare la seguente **runAfter** configurazione:
+È tuttavia possibile personalizzare il valore di **runAfter** per attivare le azioni quando lo stato delle azioni precedenti è **Failed**, **Skipped** o un possibile insieme di questi valori. Se si vuole aggiungere un elemento a un argomento del bus di servizio di Azure designato in seguito all'esito negativo di una specifica azione **Insert_Row**, è possibile usare la configurazione di **runAfter** seguente:
 
 ```json
 "Send_message": {
@@ -133,7 +133,7 @@ Tuttavia, è possibile personalizzare il **runAfter** valore attivano azioni qua
 }
 ```
 
-Si noti che **runAfter** è impostato su attivato se il **Insert_Row** risultato dell'azione è **Failed**. Per eseguire l'azione, se lo stato dell'azione **Succeeded**, **non riuscito**, o **ignorati**, utilizzare la seguente sintassi:
+Si noti che **runAfter** è impostato per attivarsi se il risultato dell'azione **Insert_Row** è **Failed**. Per eseguire l'azione se lo stato dell'azione è **Succeeded**, **Failed** o **Skipped** usare la sintassi seguente:
 
 ```json
 "runAfter": {
@@ -144,27 +144,27 @@ Si noti che **runAfter** è impostato su attivato se il **Insert_Row** risultato
 ```
 
 > [!TIP]
-> Azioni che eseguono e completata correttamente, dopo che ha eseguito un'azione precedente sono contrassegnate come **Succeeded**. Ciò significa che se si catch tutti correttamente gli errori in un flusso di lavoro, l'esecuzione di se stesso è contrassegnato come **Succeeded**.
+> Le azioni eseguite e completate correttamente in seguito all'esito negativo di un'azione precedente vengono contrassegnate come **Succeeded**. Vale a dire che se tutti gli errori in un flusso di lavoro vengono rilevati, l'esecuzione stessa verrà contrassegnata come **Succeeded**.
 
 ## <a name="scopes-and-results-to-evaluate-actions"></a>Ambiti e risultati per la valutazione delle azioni
 
-È possibile raggruppare le azioni all'interno di un [ambito](../logic-apps/logic-apps-loops-and-scopes.md), in modo analogo al modo in cui è eseguito dopo le singole azioni. Un ambito viene utilizzato un raggruppamento logico di azioni. 
+È possibile raggruppare tutte le azioni all'interno di un [ambito](../logic-apps/logic-apps-loops-and-scopes.md), analogamente al modo in cui si avvia l'esecuzione in seguito a singole azioni. Un ambito avvia un raggruppamento logico di azioni. 
 
-Gli ambiti sono utili per organizzare le azioni di App per la logica e per l'esecuzione di valutazioni di aggregazione dello stato di un ambito. L'ambito in sé riceve uno stato dopo che sono state completate tutte le azioni al suo interno. Lo stato dell'ambito è determinato con gli stessi criteri usati per un'esecuzione: Se l'azione finale in un branch di esecuzione è **Failed** o **Aborted**, lo stato è **Failed**.
+Gli ambiti sono utili sia per organizzare le azioni di App per la logica sia per eseguire valutazioni aggregate sullo stato di un ambito. L'ambito in sé riceve uno stato dopo che sono state completate tutte le azioni al suo interno. Lo stato dell'ambito è determinato con gli stessi criteri usati per un'esecuzione: se l'azione finale in un ramo di esecuzione risulta **Failed** o **Aborted** lo stato è **Failed**.
 
-Per generare le azioni specifiche per gli eventuali errori che si è verificato all'interno dell'ambito, è possibile utilizzare **runAfter** con un ambito che è contrassegnato come **Failed**. Se *qualsiasi* azioni nell'ambito hanno esito negativo, se si utilizza **runAfter** per un ambito, è possibile creare una singola azione per intercettare gli errori.
+È possibile usare **runAfter** con un ambito contrassegnato come **Failed** per attivare azioni specifiche per eventuali errori che si sono verificati all'interno dell'ambito. Se si usa **runAfter** per un ambito è possibile creare una singola azione per rilevare gli errori in caso di esito negativo di una *qualsiasi* azione all'interno dell'ambito.
 
-### <a name="get-the-context-of-failures-with-results"></a>Ottenere il contesto degli errori relativi a risultati
+### <a name="get-the-context-of-failures-with-results"></a>Recuperare il contesto degli errori con i risultati
 
-Sebbene intercettare gli errori di un ambito è utile, è possibile anche contesto consentono di comprendere esattamente le azioni che non è riuscita e per comprendere eventuali errori o i codici di stato che sono stati restituiti. Il  **@result()** funzione del flusso di lavoro fornisce un contesto sul risultato di tutte le azioni in un ambito.
+Rilevare gli errori è molto utile, ma può essere opportuno anche il contesto per comprendere esattamente quali azioni hanno avuto esito negativo ed eventuali errori o codici di stato restituiti. La funzione del flusso di lavoro **@result()** offre il contesto relativo al risultato di tutte le azioni all'interno di un ambito.
 
-Il  **@result()** funzione accetta un parametro singolo (nome dell'ambito) e restituisce una matrice di tutti i risultati di azioni da tale ambito. Questi oggetti azione includono gli stessi attributi di  **@actions()** Genera oggetto, inclusi l'ora di inizio azione, ora di fine di azione, lo stato di azione, input azione, ID di correlazione di azione e azione. 
+La funzione **@result()** accetta un unico parametro, il nome dell'ambito, e restituisce una matrice dei risultati di tutte le azioni all'interno di tale ambito. Tali oggetti azione includono gli stessi attributi dell'oggetto **@actions()**, tra cui ora di inizio, ora di fine, stato, input, ID di correlazione e output dell'azione. 
 
-Per inviare il contesto di tutte le azioni che non è riuscita in un ambito, può essere facilmente un  **@result()** funzione con un **runAfter** proprietà.
+Per inviare il contesto di una qualsiasi azione non riuscita all'interno di un ambito, è possibile associare una funzione **@result()** a una proprietà **runAfter**.
 
-Per eseguire un'azione *per ogni* azione in un ambito con un **Failed** risultati, e per filtrare la matrice di risultati alle azioni che non è riuscita, è possibile associare  **@result()** con un [Filter_array](../connectors/connectors-native-query.md) azione e un [foreach](../logic-apps/logic-apps-loops-and-scopes.md) ciclo. Con la matrice di risultati filtrato, è possibile eseguire un'azione per ogni errore utilizzando il **foreach** ciclo. 
+Se si vuole eseguire un'azione *per ogni* azione di un ambito con stato **Failed**, è possibile associare **@result()** a un'azione [Filter_array](../connectors/connectors-native-query.md) e a un ciclo [foreach](../logic-apps/logic-apps-loops-and-scopes.md). Ciò consente anche di filtrare la matrice dei risultati in modo da ottenere le azioni non riuscite. La matrice dei risultati filtrata può essere usata per eseguire un'azione per ogni errore con il ciclo **foreach**. 
 
-Ecco un esempio che invia un HTTP POST richiesta con il corpo della risposta di tutte le azioni che non è nell'ambito My_Scope:
+L'esempio seguente invia una richiesta HTTP POST con il corpo della risposta di un'azione non riuscita all'interno dell'ambito My_Scope:
 
 ```json
 "Filter_array": {
@@ -205,21 +205,21 @@ Ecco un esempio che invia un HTTP POST richiesta con il corpo della risposta di 
 }
 ```
 
-Di seguito è riportata una procedura dettagliata per descrivere cosa accade nell'esempio precedente:
+Ecco la procedura dettagliata che descrive quanto accaduto nell'esempio precedente:
 
-1. Per ottenere il risultato di tutte le azioni all'interno di My_Scope, il **Filter_array** filtri azione  **@result('My_Scope')**.
+1. Per ottenere il risultato di tutte le azioni all'interno di My_Scope, l'azione **Filter_array** filtra **@result('My_Scope')**.
 
-2. La condizione per **Filter_array** qualsiasi  **@result()** elemento il cui stato uguale a **Failed**. Questa condizione filtra la matrice di tutti i risultati dell'azione da My_Scope, in una matrice con i risultati solo azione non riuscita.
+2. La condizione per **Filter_array** è qualsiasi elemento **@result()** con stato uguale a **Failed**. Questa condizione filtra la matrice di tutti i risultati dell'azione da My_Scope a una matrice con i soli risultati delle azioni non riuscite.
 
-3. Eseguire un **foreach** azione il *matrice filtrata* output. Questo passaggio esegue un'azione *per ogni* risultato di azione non riuscita precedentemente filtrato.
+3. Eseguire un'azione **foreach** sugli output della *matrice filtrata*. Questo passaggio esegue un'azione *per ogni* risultato di azione non riuscita precedentemente filtrato.
 
-    Se non è riuscita un'unica azione nell'ambito, le azioni nel **foreach** eseguire una sola volta. Più azioni non riuscite di modo che un'azione per errore.
+    Se una sola azione nell'ambito ha avuto esito negativo, le azioni in **foreach** vengono eseguite una sola volta. Molte azioni non riuscite determinano un'azione per errore.
 
-4. Inviare una richiesta POST HTTP sul **foreach** elemento corpo della risposta, o  **@item() ['output'] ['body']**. Il  **@result()** forma di elemento è lo stesso come il  **@actions()** forma. Può essere analizzato allo stesso modo.
+4. Inviare HTTP POST nel corpo della risposta dell'elemento **foreach**, ovvero **@item()['outputs']['body']**. La forma dell'elemento **@result()** è la stessa di **@actions()**. Può essere analizzata allo stesso modo.
 
-5. Includere due intestazioni personalizzate con il nome di azione non riuscita  **@item() ['name']** e di eseguire client ID rilevamento  **@item() ['clientTrackingId']**.
+5. Includere due intestazioni personalizzate con il nome dell'azione non riuscita **@item()['name']** e l'ID di rilevamento del client dell'esecuzione non riuscita **@item()['clientTrackingId']**.
 
-Per riferimento, di seguito è riportato un esempio di un singolo  **@result()** elemento. Viene illustrato il **nome**, **corpo**, e **clientTrackingId** le proprietà che vengono analizzate nell'esempio precedente. All'esterno una **foreach** action  **@result()** restituisce una matrice di questi oggetti.
+Come riferimento, di seguito è riportato un esempio di un solo elemento **@result()**. Mostra le proprietà **name**, **body** e **clientTrackingId** analizzate nell'esempio precedente. All'esterno di un'azione **foreach** **@result()** restituisce una matrice di questi oggetti.
 
 ```json
 {
@@ -251,20 +251,20 @@ Per riferimento, di seguito è riportato un esempio di un singolo  **@result()**
 }
 ```
 
-Per diverse eccezioni modelli, è possibile utilizzare le espressioni descritte in precedenza nell'articolo. Potrebbe scegliere di eseguire un'unica eccezione che gestisce l'azione all'esterno dell'ambito che accetta l'intera matrice filtrata di errori e rimuovere il **foreach**. È inoltre possibile includere altre proprietà utili dal  **@result()** risposta, come descritto in precedenza.
+Le espressioni riportate sopra nell'articolo possono essere usate per eseguire diversi modelli di gestione delle eccezioni. È possibile scegliere di eseguire una singola azione di gestione delle eccezioni all'esterno dell'ambito che accetta l'intera matrice filtrata degli errori e rimuovere **foreach**. È anche possibile includere altre proprietà utili della risposta **@result()** come illustrato sopra.
 
 ## <a name="azure-diagnostics-and-telemetry"></a>Diagnostica e telemetria di Azure
 
-I modelli descritti in questo articolo è fornire grandi modi per gestire errori ed eccezioni all'interno di un'esecuzione, ma è anche possibile identificare e rispondere agli errori indipendentemente dall'esecuzione stessa. [Diagnostica di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fornisce un modo semplice per inviare tutti gli eventi del flusso di lavoro (inclusi tutti gli stati di esecuzione e l'azione) a un account di archiviazione di Azure o a un hub di eventi nell'hub eventi di Azure. 
+I modelli descritti in questo articolo sono un ottimo modo per gestire gli errori e le eccezioni in un'esecuzione, ma è possibile anche identificare e rispondere agli errori indipendentemente dall'esecuzione. [Diagnostica di Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) consente di inviare in modo semplice tutti gli eventi del flusso di lavoro, inclusi tutti gli stati delle esecuzioni e delle azioni, a un account di archiviazione di Azure o a un hub eventi in Hub eventi di Azure. 
 
-Per valutare gli stati di esecuzione, è possibile monitorare le metriche e i registri o pubblicarli in qualsiasi strumento di monitoraggio che si preferisce. Un potenziale consiste nel flusso di tutti gli eventi tramite gli hub di eventi per [Azure flusso Analitica](https://azure.microsoft.com/services/stream-analytics/). Nel flusso Analitica, è possibile scrivere query in tempo reale in base alle eventuali anomalie, medie o errori dai log di diagnostica. È possibile utilizzare Analitica di flusso per inviare informazioni da altre origini dati, ad esempio code, argomenti, SQL, database di Azure Cosmos o Power BI.
+Per valutare gli stati delle esecuzioni è possibile monitorare i log e le metriche o pubblicarli nello strumento di monitoraggio preferito. Una possibile opzione consiste nel trasmettere tutti gli eventi tramite Hub eventi ad [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). In Analisi di flusso è possibile scrivere query dinamiche in base a un'anomalia, una media o un errore dei log di diagnostica. È possibile usare Analisi di flusso per inviare informazioni ad altre origini dati, ad esempio a code, argomenti, SQL, Azure Cosmos DB o Power BI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere come un cliente [compilazioni con App in Azure per la logica di gestione degli errori](../logic-apps/logic-apps-scenario-error-and-exception-handling.md).
-* Altre informazioni sono disponibili [logica App esempi e scenari](../logic-apps/logic-apps-examples-and-scenarios.md).
-* Informazioni su come creare [automatizzata le distribuzioni per App per la logica](../logic-apps/logic-apps-create-deploy-template.md).
-* Informazioni su come [compilare e distribuire App con Visual Studio per la logica](logic-apps-deploy-from-vs.md).
+* Informazioni su come un cliente [implementa la gestione degli errori con App per la logica in Azure](../logic-apps/logic-apps-scenario-error-and-exception-handling.md).
+* Altri [esempi e scenari di App per la logica](../logic-apps/logic-apps-examples-and-scenarios.md).
+* Informazioni su come creare [distribuzioni automatizzate per le app per la logica](../logic-apps/logic-apps-create-deploy-template.md).
+* Informazioni su come [compilare e distribuire le app per la logica con Visual Studio](logic-apps-deploy-from-vs.md).
 
 <!-- References -->
 [retryPolicyMSDN]: https://docs.microsoft.com/rest/api/logic/actions-and-triggers#Anchor_9

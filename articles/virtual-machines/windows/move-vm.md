@@ -17,7 +17,7 @@ ms.date: 12/06/2017
 ms.author: cynthn
 ms.openlocfilehash: f4b739fd34cc0c85d47b97b7b42a70eb7f5f5ac7
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -35,13 +35,13 @@ Questo articolo illustra come spostare una VM di Windows tra gruppi di risorse o
 
 ## <a name="use-powershell-to-move-a-vm"></a>Usare PowerShell per spostare una VM
 
-Per spostare una macchina virtuale in un altro gruppo di risorse, è necessario assicurarsi di spostare anche tutte le risorse dipendenti. Per utilizzare il cmdlet Move-AzureRMResource, è necessario l'ID della risorsa di ognuna delle risorse. È possibile ottenere un elenco di utilizzando il ResourceId il [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
+Per spostare una macchina virtuale in un altro gruppo di risorse, è necessario assicurarsi di spostare anche tutte le risorse dipendenti. Per usare il cmdlet Move-AzureRMResource, è necessario conoscere il ResourceID per ciascuna risorsa. È possibile ottenere un elenco di ResourceID tramite il cmdlet [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource).
 
 ```azurepowershell-interactive
  Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-Per spostare una VM, occorre spostare più risorse. È possibile utilizzare l'output di ricerca-AzureRMResource per creare un elenco separato da virgole di ID della risorsa e passarlo a [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) per spostarli nella destinazione. 
+Per spostare una VM, occorre spostare più risorse. È possibile usare l'output di Find-AzureRMResource per creare un elenco separato da virgole di ResourceID e passarlo a [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) per spostare i ResourceID nella destinazione. 
 
 ```azurepowershell-interactive
 

@@ -17,7 +17,7 @@ ms.date: 12/12/2017
 ms.author: iainfou
 ms.openlocfilehash: f405cdaf61d6aaafa8568a9d7f21614071285c17
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -52,7 +52,7 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) | Crea una chiave di crittografia in Key Vault. |
 | [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) | Crea un'entità servizio di Azure Active Directory per autenticare in modo sicuro e controllare l'accesso alle chiavi di crittografia. |
 | [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | Imposta le autorizzazioni in Key Vault per concedere l'accesso dell'entità servizio alle chiavi di crittografia. |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Inoltre, questo comando apre la porta 80 e imposta le credenziali amministrative. |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando apre anche la porta 80 e imposta le credenziali amministrative. |
 | [Get-AzureRmKeyVault](/powershell/module/azurerm.keyvault/get-azurermkeyvault) | Ottiene le informazioni necessarie in Key Vault |
 | [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) | Abilita la crittografia in una VM usando le credenziali dell'entità servizio e la chiave di crittografia. |
 | [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) | Mostra lo stato del processo di crittografia della VM. |

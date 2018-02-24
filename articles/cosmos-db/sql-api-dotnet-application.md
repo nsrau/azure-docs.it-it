@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: devcenter
 ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -57,7 +57,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano disponib
 Tutte le schermate in questo articolo sono state ottenute usando Microsoft Visual Studio Community 2017. Se il sistema in uso è configurato con versioni diverse, è probabile che le schermate e le opzioni non siano interamente corrispondenti. Se si soddisfano i prerequisiti precedenti, la soluzione dovrebbe funzionare comunque.
 
 ## <a name="_Toc395637761"></a>Passaggio 1: Creare un account del database di Azure Cosmos DB
-Creare prima di tutto un account Azure Cosmos DB. Se si dispone già di un account SQL di Azure Cosmos DB o se si utilizza l'emulatore di Azure Cosmos DB per questa esercitazione, è possibile passare alla [creare una nuova applicazione MVC ASP.NET](#_Toc395637762).
+Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account SQL per Azure Cosmos DB o si usa l'emulatore Azure Cosmos DB per questa esercitazione, è possibile proseguire con il passaggio [Creare una nuova applicazione MVC ASP.NET](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

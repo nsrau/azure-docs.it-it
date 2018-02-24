@@ -79,6 +79,14 @@
               href: backup-mabs-system-state-and-bmr.md
         - name: Ripristinare i dati da un server di Backup di Azure
           href: backup-azure-alternate-dpm-server.md
+    - name: Condivisioni di File di Azure
+      items:
+        - name: Eseguire il backup di condivisioni di File di Azure
+          href: backup-azure-files.md
+        - name: Domande frequenti sull'esecuzione del backup di condivisioni di File di Azure
+          href: backup-azure-files-faq.md
+        - name: Risolvere i problemi del backup delle condivisioni di File di Azure
+          href: troubleshoot-azure-files.md
     - name: Macchine virtuali di Azure
       items:
         - name: Preparare la macchina virtuale
@@ -183,11 +191,11 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Risolvere i problemi del server di Backup di Azure
           href: backup-azure-mabs-troubleshoot.md
-        - name: Risolvere i problemi di System Center Data Protection Manager
+        - name: Risolvere i problemi relativi a System Center Data Protection Manager
           href: backup-azure-scdpm-troubleshooting.md
         - name: Risolvere i problemi dell'agente di Backup di Azure
           href: backup-azure-mars-troubleshoot.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.backup

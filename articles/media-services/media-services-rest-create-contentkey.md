@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: b9673376d0b2d2fab9254ab4e9f20484a46adc4b
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/05/2018
 > 
 > 
 
-Servizi multimediali consente di recapitare gli asset crittografati. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
+Servizi multimediali consente di distribuire asset crittografati. Un'entità **ContentKey** consente l'accesso sicuro alle entità **Asset**. 
 
 Quando si crea un nuovo asset, ad esempio prima di [caricare file](media-services-rest-upload-files.md), è possibile specificare le seguenti opzioni di crittografia: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
@@ -35,11 +35,11 @@ Quando si distribuiscono asset ai client, è possibile [configurarli per la crit
 
 Gli asset crittografati devono essere associati alle entità **ContentKey**. Questo articolo descrive come creare una chiave simmetrica.
 
-Di seguito sono indicati i passaggi generali per la generazione di chiavi simmetriche che si associa alle risorse che si desidera essere crittografati. 
+Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare. 
 
 1. Generare in modo casuale una chiave AES a 16 byte (per la crittografia common e envelope) o a 32 byte (per la crittografia di archiviazione). 
    
-    Questa è la chiave simmetrica dell'asset, ovvero tutti i file associati che asset devono utilizzare la stessa chiave simmetrica durante la decrittografia. 
+    Questa è la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset devono usare la stessa chiave simmetrica durante la decrittografia. 
 2. Chiamare i metodi [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3. Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
    
@@ -68,7 +68,7 @@ Di seguito sono indicati i passaggi generali per la generazione di chiavi simmet
 5. Creare la chiave simmetrica con i valori **EncryptedContentKey** (convertito in stringa con codifica Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** ricevuti nei passaggi precedenti.
 6. Associare l'entità **ContentKey** all'entità **Asset** tramite l'operazione $links.
 
-In questo articolo viene illustrato come generare una chiave AES, crittografare la chiave e il calcolo del checksum. 
+Questo articolo non illustra come generare una chiave AES, eseguirne la crittografia e calcolare il checksum. 
 
 >[!NOTE]
 
@@ -149,7 +149,7 @@ Risposta:
 ## <a name="create-the-contentkey"></a>Creare l'entità ContentKey
 Dopo aver recuperato il certificato X.509 e usato la chiave pubblica per crittografare la chiave simmetrica, creare un'entità **ContentKey** e impostare i valori delle proprietà di conseguenza.
 
-Uno dei valori che è necessario impostare quando si crea la chiave simmetrica è quello relativo al tipo. Scegliere uno dei valori seguenti:
+Uno dei valori che è necessario impostare quando si crea la chiave simmetrica è quello relativo al tipo. Scegliere uno dei seguenti valori:
 
     public enum ContentKeyType
     {
@@ -176,7 +176,7 @@ Uno dei valori che è necessario impostare quando si crea la chiave simmetrica �
     }
 
 
-Nell'esempio seguente viene illustrato come creare un **ContentKey** con un **ContentKeyType** impostato per la crittografia di archiviazione ("1") e **ProtectionKeyType** impostato su "0" per indicare che la chiave di protezione dati ID è l'identificazione personale del certificato x. 509.  
+L'esempio seguente mostra come creare **ContentKey** con **ContentKeyType** impostato per la crittografia di archiviazione ("1") e **ProtectionKeyType** impostato su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.  
 
 Richiesta
 

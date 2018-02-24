@@ -17,7 +17,7 @@ ms.date: 12/14/2017
 ms.author: v-shysun
 ms.openlocfilehash: 141dd1fe9e727f430b7c45dbb798f5471167c355
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -27,26 +27,26 @@ ms.lasthandoff: 12/21/2017
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-In questo articolo vengono fornite le risposte ad alcune delle domande più comuni sull'esecuzione [SQL Server in macchine virtuali di Windows Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzione di [SQL Server in macchine virtuali di Windows Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
-> Questo articolo illustra i problemi specifici di SQL Server in macchine virtuali di Windows. Se si esegue SQL Server in macchine virtuali Linux, vedere le [domande frequenti su Linux](../../linux/sql/sql-server-linux-faq.md).
+> Questo articolo descrive i problemi specifici di SQL Server in macchine virtuali Windows. Se si esegue SQL Server in macchine virtuali Linux, vedere le [domande frequenti su Linux](../../linux/sql/sql-server-linux-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Immagini
+## <a id="images"></a> Immagini
 
-1. **Le immagini della raccolta macchina virtuale SQL Server sono disponibili?**
+1. **Quali immagini della raccolta di macchine virtuali di SQL Server sono disponibili?**
 
-   Azure gestisce le immagini di macchina virtuale per tutte le versioni principali supportate di SQL Server in tutte le edizioni di Windows e Linux. Per ulteriori informazioni, vedere l'elenco completo dei [immagini di macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e [immagini VM Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
+   Azure mantiene le immagini delle macchine virtuali per tutte le principali versioni supportate di SQL Server in tutte le edizioni sia per Linux che per Windows. Per altre informazioni, vedere l'elenco completo di [immagini di macchine virtuali Linux](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e [immagini di macchine virtuali Windows](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
-1. **Immagini della raccolta macchina virtuale SQL Server esistenti vengono aggiornate?**
+1. **Le immagini della raccolta di macchine virtuali di SQL Server esistenti vengono aggiornate?**
 
-   Ogni due mesi, le immagini di SQL Server in una raccolta di macchine virtuali vengono aggiornate con le più recenti di Windows e Linux Aggiorna. Per le immagini Windows, include tutti gli aggiornamenti che sono contrassegnati come importanti in Windows Update, inclusi gli aggiornamenti di sicurezza di SQL Server importanti e service pack. Per le immagini Linux, include gli aggiornamenti più recenti del sistema. Gli aggiornamenti cumulativi di SQL Server vengono gestiti in modo diverso per Linux e Windows. Per Linux, gli aggiornamenti cumulativi di SQL Server sono inoltre inclusi nell'aggiornamento. Ma in questo momento, le macchine virtuali di Windows non vengono aggiornate con gli aggiornamenti cumulativi di SQL Server o Windows Server.
+   Ogni due mesi, le immagini di SQL Server nella raccolta di macchine virtuali vengono aggiornate con gli aggiornamenti di Linux e Windows più recenti. Per le immagini Windows, si includono tutti gli aggiornamenti contrassegnati come importanti in Windows Update, tra cui gli aggiornamenti di sicurezza e i Service Pack di SQL Server importanti. Per le immagini Linux si includono gli aggiornamenti di sistema più recenti. Gli aggiornamenti cumulativi di SQL Server vengono gestiti in modo diverso per Linux e Windows. Per Linux, gli aggiornamenti cumulativi di SQL Server sono inclusi nell'aggiornamento. Tuttavia al momento le macchine virtuali Windows non vengono aggiornate con gli aggiornamenti cumulativi di SQL Server o Windows Server.
 
-1. **Immagini di macchina virtuale di SQL Server possono ottenere rimosso dalla raccolta?**
+1. **Le immagini di macchine virtuali di SQL Server possono essere rimosse dalla raccolta?**
 
-   Sì. Azure gestisce solo un'immagine per ogni versione principale e l'edizione. Ad esempio, quando viene rilasciato un nuovo service pack di SQL Server, Azure aggiunge una nuova immagine per la raccolta per il service pack. L'immagine di SQL Server per il service pack precedente viene rimosso immediatamente dal portale di Azure. Tuttavia, è ancora disponibile per il provisioning di PowerShell per i successivi tre mesi. Dopo tre mesi, l'immagine precedente del Service pack non è più disponibile. Questi criteri di rimozione sono applicabile anche se una versione di SQL Server diventa non supportata quando viene raggiunta la fine del ciclo di vita.
+   Sì. Azure mantiene solo un'immagine per ogni versione e per ogni edizione principale. Ad esempio, quando viene rilasciato un nuovo Service Pack di SQL Server, Azure aggiunge una nuova immagine alla raccolta per quel Service Pack. L'immagine di SQL Server del Service Pack precedente viene immediatamente rimossa dal portale di Azure. Tuttavia resta disponibile per il provisioning di PowerShell per i successivi tre mesi. Dopo tre mesi, l'immagine del Service Pack precedente non è più disponibile. Questi criteri di rimozione sono applicabili anche se una versione di SQL Server non è più supportata perché raggiunge la fine del ciclo di vita.
 
 1. **È possibile impostare configurazioni non visualizzate nella raccolta di macchine virtuali, ad esempio Windows 2008 R2 + SQL Server 2012?**
 
@@ -56,7 +56,7 @@ In questo articolo vengono fornite le risposte ad alcune delle domande più comu
 
 1. **Come si crea una macchina virtuale di Azure con SQL Server?**
 
-   La soluzione più semplice consiste nel creare una macchina virtuale che include SQL Server. Per un'esercitazione sull'iscrizione ad Azure e la creazione di una VM SQL dal portale, vedere [il provisioning di una macchina virtuale di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md). È possibile selezionare un'immagine di macchina virtuale che utilizza la licenza di SQL Server con costo al minuto oppure usare un'immagine che consente di trasferire la licenza di SQL Server dell'utente. È anche possibile installare manualmente in una macchina virtuale un'edizione di SQL Server con licenza gratuita (Developer o Express) o riutilizzando una licenza locale. Se si usa la funzionalità Bring Your Own License, è necessario avere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
+   La soluzione più semplice consiste nel creare una macchina virtuale che include SQL Server. Per un'esercitazione sulla registrazione in Azure e sulla creazione di una macchina virtuale di SQL Server dal portale, vedere [Effettuare il provisioning di una macchina virtuale di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md). È possibile selezionare un'immagine di macchina virtuale che utilizza la licenza di SQL Server con costo al minuto oppure usare un'immagine che consente di trasferire la licenza di SQL Server dell'utente. È anche possibile installare manualmente in una macchina virtuale un'edizione di SQL Server con licenza gratuita (Developer o Express) o riutilizzando una licenza locale. Se si usa la funzionalità Bring Your Own License, è necessario avere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Per altre informazioni, vedere [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
 
 1. **Come si esegue la migrazione di un database SQL Server locale nel cloud?**
 
@@ -94,7 +94,7 @@ In questo articolo vengono fornite le risposte ad alcune delle domande più comu
    >[!NOTE]
    >Una macchina virtuale di SQL Server Azure viene fatturata come descritto in [Guida ai prezzi per le VM di SQL Server in Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Se si rimuove SQL Server, gli addebiti per l'utilizzo continuano. Se SQL Server non è più necessario, è possibile distribuire una nuova macchina virtuale ed eseguire la migrazione di dati e applicazioni alla nuova macchina virtuale. Sarà quindi possibile rimuovere la macchina virtuale di SQL Server.
 
-## <a name="updating-and-patching"></a>L'aggiornamento e l'applicazione di patch
+## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
 1. **Come si esegue l'aggiornamento a una nuova versione o a una nuova edizione di SQL Server in una VM di Azure?**
 

@@ -1,5 +1,5 @@
 ---
-title: Struttura e sintassi del modello di Azure Resource Manger | Documentazione Microsoft
+title: Struttura e sintassi del modello di Azure Resource Manger | Microsoft Docs
 description: "Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON."
 services: azure-resource-manager
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.date: 12/13/2017
 ms.author: tomfitz
 ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="resources-section-of-azure-resource-manager-templates"></a>Sezione relativa alle risorse dei modelli di gestione risorse di Azure
+# <a name="resources-section-of-azure-resource-manager-templates"></a>Sezione resources dei modelli di Azure Resource Manager
 
 Nella sezione risorse è possibile definire le risorse da distribuire o aggiornare. Questa sezione può risultare complicata perché per specificare i valori corretti è necessario conoscere i tipi da distribuire.
 
@@ -73,22 +73,22 @@ Le risorse vengono definite con la struttura seguente:
 | type |Sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. |
 | name |Sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. |
 | location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. |
-| tags |No  |Tag associati alla risorsa. Applicare i tag per organizzare in modo logico le risorse tra la sottoscrizione. |
+| tags |No  |Tag associati alla risorsa. Applicare i tag per organizzare in modo logico le risorse nella sottoscrizione. |
 | commenti |No  |Le note per documentare le risorse nel modello |
 | copy |No  |Numero di risorse da creare, se sono necessarie più istanze. La modalità predefinita è parallela. Specificare la modalità seriale quando si desidera che non tutte le risorse vengano distribuite contemporaneamente. Per altre informazioni, vedere [Creare più istanze di risorse in Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |No  |Risorse da distribuire prima della distribuzione di questa risorsa. Resource Manager valuta le dipendenze tra le risorse e le distribuisce nell'ordine corretto. Quando le risorse non sono interdipendenti, vengono distribuite in parallelo. Il valore può essere un elenco delimitato da virgole di nomi o identificatori univoci di risorse. Elencare solo le risorse distribuite in questo modello. Le risorse non definite in questo modello devono essere già esistenti. Evitare di aggiungere dipendenze non necessarie perché possono rallentare la distribuzione e creare dipendenze circolari. Per indicazioni sull'impostazione delle dipendenze, vedere l'articolo relativo alla [definizione delle dipendenze nei modelli di Azure Resource Manager](resource-group-define-dependencies.md). |
 | properties |No  |Impostazioni di configurazione specifiche delle risorse. I valori per l'elemento properties corrispondono esattamente a quelli specificati nel corpo della richiesta per l'operazione API REST (metodo PUT) per creare la risorsa. È inoltre possibile specificare una matrice di copia per creare più istanze di una proprietà. |
 | resources |No  |Risorse figlio che dipendono dalla risorsa in via di definizione. Specificare solo tipi di risorsa consentiti dallo schema della risorsa padre. Il nome di tipo completo della risorsa figlio include il tipo della risorsa padre, ad esempio **Microsoft.Web/sites/extensions**. La dipendenza dalla risorsa padre non è implicita. È necessario definirla in modo esplicito. |
 
-## <a name="resource-specific-values"></a>Valori specifici delle risorse
+## <a name="resource-specific-values"></a>Valori specifici della risorsa
 
-Il **apiVersion**, **tipo**, e **proprietà** sono diverse per ogni tipo di risorsa. Per determinare i valori per queste proprietà, vedere [riferimento a un modello](/azure/templates/).
+L'**apiVersion**, il **tipo** e la **proprietà** sono diverse per ogni tipo di risorsa. Per determinare i valori per queste proprietà, vedere [riferimento a un modello](/azure/templates/).
 
 ## <a name="resource-names"></a>Nomi di risorse
 In genere vengono usati tre tipi di nomi di risorse in Resource Manager:
 
 * Nomi di risorse che devono essere univoci.
-* I nomi delle risorse che non devono essere univoci, ma si sceglie di fornire un nome che è possibile identificare la risorsa.
+* Nomi di risorse che non devono necessariamente essere univoci, ma che si desidera rendano possibile l'identificazione di una risorsa.
 * Nomi di risorse che possono essere generici.
 
 ### <a name="unique-resource-names"></a>Nomi di risorse univoci
@@ -106,7 +106,7 @@ In genere vengono usati tre tipi di nomi di risorse in Resource Manager:
 
 <sup>1</sup> I nomi di account di archiviazione devono essere formati da lettere minuscole, un massimo di 24 caratteri e non devono includere alcun segno meno.
 
-Quando si imposta il nome, è possibile manualmente creare un nome univoco o utilizzare il [uniqueString()](resource-group-template-functions-string.md#uniquestring) funzione per generare un nome. È spesso opportuno aggiungere un prefisso o un suffisso al risultato di **uniqueString**. La modifica del nome univoco consente di identificare più facilmente il tipo di risorsa in base al nome. Ad esempio, è possibile generare un nome univoco per un account di archiviazione usando la variabile seguente:
+Quando si imposta il nome, è possibile creare manualmente un nome univoco o usare la funzione [uniqueString()](resource-group-template-functions-string.md#uniquestring) per generare un nome. È spesso opportuno aggiungere un prefisso o un suffisso al risultato di **uniqueString**. La modifica del nome univoco consente di identificare più facilmente il tipo di risorsa in base al nome. Ad esempio, è possibile generare un nome univoco per un account di archiviazione usando la variabile seguente:
 
 ```json
 "variables": {
@@ -141,7 +141,7 @@ Per i tipi di risorse in gran parte accessibili tramite un'altra risorsa, è pos
 ```
 
 ## <a name="location"></a>Località
-Quando si distribuisce un modello, è necessario fornire la posizione per ogni risorsa. Diversi tipi di risorse sono supportati in posizioni diverse. Per visualizzare un elenco di ubicazioni disponibili per la sottoscrizione per un determinato tipo di risorsa, usare Azure PowerShell o l'interfaccia CLI di Azure. 
+Quando si distribuisce un modello, è necessario fornire la posizione per ogni risorsa. Diversi tipi di risorse sono supportati in posizioni diverse. Per visualizzare un elenco delle posizioni disponibili per la sottoscrizione per una specifica risorsa, usare Azure PowerShell o l'interfaccia della riga di comando di Azure. 
 
 Nell'esempio seguente viene usato PowerShell per ottenere la posizione per il tipo di risorsa `Microsoft.Web\sites`:
 
@@ -155,7 +155,7 @@ Nell'esempio seguente viene usata l'interfaccia della riga di comando di Azure 2
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-Dopo aver determinato i percorsi supportati per le risorse, impostare tale posizione nel modello. Il modo più semplice per impostare questo valore consiste nel creare un gruppo di risorse in una posizione che supporti i tipi di risorsa e impostare ogni posizione su `[resourceGroup().location]`. È possibile ridistribuire il modello a gruppi di risorse in posizioni diverse senza modificare i valori o i parametri del modello. 
+Dopo aver determinato le posizioni supportate per le risorse, impostare la posizione del modello. Il modo più semplice per impostare questo valore consiste nel creare un gruppo di risorse in una posizione che supporti i tipi di risorsa e impostare ogni posizione su `[resourceGroup().location]`. È possibile ridistribuire il modello a gruppi di risorse in posizioni diverse senza modificare i valori o i parametri del modello. 
 
 Nell'esempio seguente viene illustrato un account di archiviazione che viene distribuito nella stessa posizione del gruppo di risorse:
 
@@ -221,7 +221,7 @@ Se è necessario impostare come hardcoded la posizione del modello, specificare 
 
 ## <a name="child-resources"></a>Risorse figlio
 
-All'interno di alcuni tipi di risorsa, è inoltre possibile definire una matrice di risorse figlio. Risorse figlio sono presenti solo all'interno del contesto di un'altra risorsa. Ad esempio, un database SQL non può esistere senza un server SQL in modo il database è un figlio del server. È possibile definire il database all'interno della definizione per il server.
+All'interno di alcuni tipi di risorsa è anche possibile definire una matrice di risorse figlio. Le risorse figlio sono risorse presenti solo all'interno del contesto di un'altra risorsa. Ad esempio, un database SQL non può esistere senza un server SQL, pertanto il database è un figlio del server. È possibile definire il database all'interno della definizione per il server.
 
 ```json
 {
@@ -240,7 +240,7 @@ All'interno di alcuni tipi di risorsa, è inoltre possibile definire una matrice
 }
 ```
 
-Quando annidati, il tipo è impostato su `databases` ma il tipo di risorsa completo `Microsoft.Sql/servers/databases`. Non si specifica `Microsoft.Sql/servers/` perché viene ottenuto dal tipo della risorsa padre. Il nome della risorsa figlio è impostato su `exampledatabase`, ma il nome completo include il nome della risorsa padre. Non si specifica `exampleserver` perché viene ottenuto dalla risorsa padre.
+Quando annidata, il tipo è impostato su `databases`, ma il tipo di risorsa completo è `Microsoft.Sql/servers/databases`. Non si specifica `Microsoft.Sql/servers/` perché viene ottenuto dal tipo della risorsa padre. Il nome della risorsa figlio è impostato su `exampledatabase`, ma il nome completo include il nome della risorsa padre. Non si specifica `exampleserver` perché viene ottenuto dalla risorsa padre.
 
 Il formato del tipo della risorsa figlio è: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
@@ -304,7 +304,7 @@ Le informazioni seguenti possono essere utili quando si usano le risorse:
    }
    ```
    
-   Se l'account di archiviazione viene distribuito nello stesso modello creato, non è necessario specificare lo spazio dei nomi del provider quando si fa riferimento alla risorsa. L'esempio seguente mostra la sintassi semplificata:
+   Se l'account di archiviazione viene distribuito nello stesso modello creato, non è necessario specificare lo spazio dei nomi del provider quando si fa riferimento alla risorsa. L'esempio seguente viene descritta la sintassi semplificata:
    
    ```json
    "osDisk": {

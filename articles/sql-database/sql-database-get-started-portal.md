@@ -14,6 +14,7 @@ ms.workload: Active
 ms.tgt_pltfrm: portal
 ms.devlang: na
 ms.topic: quickstart
+<<<<<<< HEAD
 ms.date: 02/12/2018
 ms.author: carlrab
 ms.openlocfilehash: 7a57593825f816a03b59f6c5228243670f1e9e9e
@@ -21,6 +22,15 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2018
+=======
+ms.date: 02/16/2018
+ms.author: carlrab
+ms.openlocfilehash: 425e2186d4eba5db358ebb3a014c3563c4443eb5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/21/2018
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creare un database SQL di Azure nel portale di Azure
 
@@ -38,7 +48,7 @@ Un database SQL di Azure viene creato con un set definito di [risorse di calcolo
 
 Seguire questi passaggi per creare un database SQL contenente i dati di esempio di Adventure Works LT.
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Database** dalla pagina **Nuovo**, quindi selezionare **Crea** in **Database SQL** nella pagina **Nuovo**.
 

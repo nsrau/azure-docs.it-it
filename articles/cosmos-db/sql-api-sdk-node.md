@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API Node.js SQL, SDK e risorse | Documenti Microsoft'
-description: Tutte le informazioni di SQL Node.js API e SDK tra date di rilascio, date di ritiro e le modifiche apportate tra ogni versione di Azure Cosmos DB Node.js SDK.
+title: 'Azure Cosmos DB: risorse, SDK e API Node.js di SQL | Microsoft Docs'
+description: Informazioni complete sull'SDK e sull'API Node.js di SQL, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB Node.js SDK.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fa9b11e754ab86f0e4c88923d4b895aa5dd0e271
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK per l'API di SQL: note sulla versione e le risorse
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Node.js SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -64,11 +64,11 @@ ms.lasthandoff: 01/05/2018
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="1.14.2"/>1.14.2</a>
-* Documentazione aggiornata al riferimento DB Cosmos Azure anziché Azure DocumentDB.
+* Documentazione aggiornata con riferimento a Azure Cosmos DB anziché Azure DocumentDB.
 * Aggiunta del supporto per l'impostazione proxyUrl in ConnectionPolicy.
 
 ### <a name="1.14.1"/>1.14.1</a>
-* Correzione secondaria per i sistemi di file tra maiuscole e minuscole.
+* Correzione secondaria per i sistemi di file con distinzione tra maiuscole e minuscole.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Aggiunge il supporto per la coerenza di sessione.
@@ -194,7 +194,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato viene rifiutata dal 
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [1.14.2](#1.14.2) |21 dicembre 2017. |--- |
+| [1.14.2](#1.14.2) |21 dicembre 2017 |--- |
 | [1.14.1](#1.14.1) |10 novembre 2017 |--- |
 | [1.14.0](#1.14.0) |09 novembre 2017 |--- |
 | [1.13.0](#1.13.0) |11 ottobre 2017 |--- |

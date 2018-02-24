@@ -16,7 +16,7 @@ ms.date: 11/02/2017
 ms.author: juliako
 ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -29,7 +29,7 @@ Questo articolo descrive le quote e le limitazioni associate a Servizi multimedi
 Per richiedere modifiche alle quote predefinite fornite, è possibile aprire un ticket di supporto. Includere informazioni dettagliate nella richiesta sulle modifiche alle quote desiderate, sugli scenari di utilizzo e sulle aree necessarie.
 
 ### <a name="how-to-open-a-support-ticket"></a>Come aprire un ticket di supporto
-Nel portale di Azure, passare a [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se non è stato effettuato l'accesso ad Azure, verrà richiesto di immettere le credenziali.
+Nel portale di Azure passare a [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se non si è ancora effettuato l'accesso ad Azure, verrà richiesto di immettere le credenziali.
 
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

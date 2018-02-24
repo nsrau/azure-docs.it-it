@@ -1,5 +1,5 @@
 ---
-title: Introduzione a Cloud Foundry in Microsoft Azure | Documentazione Microsoft
+title: Introduzione a Cloud Foundry in Microsoft Azure | Microsoft Docs
 description: Eseguire OSS o Pivotal Cloud Foundry in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: 

@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: adsolank;juliako;
 ms.openlocfilehash: 075daadae42340dfc9c7510a8010e337210e6e01
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -25,18 +25,18 @@ Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consen
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** è attualmente disponibile in anteprima.
 
-In questo articolo viene illustrato come creare i processi di indicizzazione con **anteprima di Azure Media Indexer 2**.
+Questo articolo illustra come creare processi di indicizzazione con **Azure Media Indexer 2 Preview**.
 
 > [!NOTE]
 > Si applicano le considerazioni seguenti:
 > 
 > Indexer 2 non è supportato in Azure Cina e in Azure per enti pubblici.
 > 
-> Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato sono: registrati riunioni, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
+> Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 > 
 > 
 
-In questo articolo fornisce informazioni dettagliate sulle **anteprima di Azure Media Indexer 2** e viene illustrato come usarlo con Media Services SDK per .NET
+Questo articolo contiene informazioni dettagliate su **Azure Media Indexer 2 Preview** e illustra come usare questo processore con Media Services .NET SDK
 
 ## <a name="input-and-output-files"></a>File di input e output
 ### <a name="input-files"></a>File di input
@@ -95,7 +95,7 @@ Per informazioni sui tipi di file supportati, vedere la sezione sui [codec/forma
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Creare un processo con un'attività di indicizzazione in base a un file di configurazione che contiene il set di impostazioni json seguente:
+2. Creare un processo con un'attività di indicizzazione in base al file di configurazione che contiene il set di impostazioni JSON seguente:
    
         {
           "version":"1.0",

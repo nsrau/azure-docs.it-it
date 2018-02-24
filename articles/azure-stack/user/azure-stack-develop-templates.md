@@ -15,11 +15,19 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
+<<<<<<< HEAD
 ms.openlocfilehash: f85875b5b128f53d45fe9af97c026fc6e34b2d27
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+=======
+ms.openlocfilehash: bbd6cc68f1c16d48380cf498d6b089abe923e95a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/22/2018
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerazioni sui modelli di Azure Resource Manager
 

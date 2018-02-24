@@ -17,7 +17,7 @@ ms.date: 04/14/2015
 ms.author: jparrel
 ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -52,7 +52,7 @@ Sono necessarie le risorse e funzionalità seguenti:
   * Corosync e Pacemaker
 
 ### <a name="affinity-group"></a>Gruppo di affinità
-Creare un gruppo di affinità per la soluzione effettuando l'accesso al portale di Azure selezionando **impostazioni**e la creazione di un gruppo di affinità. Le risorse allocate create in seguito verranno assegnate a questo gruppo di affinità.
+Creare un gruppo di affinità per la soluzione accedendo al portale di Azure, selezionando **Impostazioni** e creando un gruppo di affinità. Le risorse allocate create in seguito verranno assegnate a questo gruppo di affinità.
 
 ### <a name="networks"></a>Reti
 Vengono create una nuova rete e una subnet all'interno della rete. Questo esempio usa una rete 10.10.10.0/24 contenente una sola subnet /24.

@@ -16,15 +16,15 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
-# <a name="use-service-bus-from-net-with-amqp-10"></a>Utilizzare il Bus di servizio da .NET con AMQP 1.0
+# <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
-Supporto di AMQP 1.0 è disponibile nella versione di pacchetto di Service Bus 2.1 o versione successiva. Scaricare la versione più recente del bus di servizio da [NuGet][NuGet] per essere certi di disporre della versione corretta.
+Il supporto per AMQP 1.0 è disponibile nel pacchetto Service Bus versione 2.1 o successiva. Scaricare la versione più recente del bus di servizio da [NuGet][NuGet] per essere certi di disporre della versione corretta.
 
-## <a name="configure-net-applications-to-use-amqp-10"></a>Configurare le applicazioni .NET per usare AMQP 1.0
+## <a name="configure-net-applications-to-use-amqp-10"></a>Configurare le applicazioni .NET per l'uso di AMQP 1.0
 
 Per impostazione predefinita, la libreria client .NET del bus di servizio comunica con il bus di servizio tramite un protocollo dedicato basato su SOAP. Per usare AMQP 1.0 anziché il protocollo predefinito, è necessaria una configurazione esplicita nella stringa di connessione del bus di servizio, come illustrato nella sezione successiva. A parte questa modifica, il codice dell'applicazione rimane invariato quando si usa AMQP 1.0.
 
@@ -32,7 +32,7 @@ Nella versione corrente alcune funzionalità API non sono supportate se si usa A
 
 ### <a name="configuration-using-appconfig"></a>Configurazione mediante App.config
 
-È consigliabile per le applicazioni di utilizzare il file di configurazione App. config per archiviare le impostazioni. Per le applicazioni del bus di servizio, è possibile usare App.config per archiviare la stringa di connessione del bus di servizio. Ecco un file App.config di esempio:
+È consigliabile usare il file di configurazione App.config per l'archiviazione delle impostazioni delle applicazioni. Per le applicazioni del bus di servizio, è possibile usare App.config per archiviare la stringa di connessione del bus di servizio. Ecco un file App.config di esempio:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -107,7 +107,7 @@ Esistono anche alcune piccole differenze di comportamento dell'API .NET del bus 
 * `MessageReceiver.Receive(TimeSpan.Zero)` viene implementato come `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.
 * Il completamento di messaggi tramite token di blocco può essere eseguito solo dai destinatari che hanno ricevuto i messaggi all'inizio.
 
-## <a name="control-amqp-protocol-settings"></a>Impostazioni del protocollo AMQP controllo
+## <a name="control-amqp-protocol-settings"></a>Controllare le impostazioni del protocollo AMQP
 
 Le [API .NET](/dotnet/api/) espongono diverse impostazioni per controllare il comportamento del protocollo AMQP:
 

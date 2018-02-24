@@ -16,7 +16,7 @@ ms.date: 12/08/2016
 ms.author: tamram
 ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -295,7 +295,7 @@ Questa impostazione si applica all'intero account di archiviazione. È possibile
 
 Al momento, le chiavi usate per la crittografia sono gestite da Microsoft. Le chiavi vengono generate in origine e viene gestita l'archiviazione protetta delle chiavi, nonché la rotazione regolare secondo quanto definito dai criteri interni di Microsoft. In futuro, sarà possibile gestire le proprie chiavi di crittografia e verrà fornito un percorso di migrazione dalle chiavi gestite da Microsoft alle chiavi gestite dal cliente.
 
-Questa funzionalità è disponibile per gli account di archiviazione Premium e Standard creati con il modello di distribuzione di Resource Manager. SSE si applica a qualsiasi tipo di dati: BLOB in blocchi, BLOB di pagine, aggiungere BLOB, tabelle, code e i file.
+Questa funzionalità è disponibile per gli account di archiviazione Premium e Standard creati con il modello di distribuzione di Resource Manager. La funzionalità SSE si applica a qualsiasi tipo di dati: BLOB in blocchi, BLOB di pagine, BLOB di accodamento, tabelle, code e file.
 
 I dati vengono crittografati solo quando SSE è abilitata e i dati vengono scritti nell'archiviazione BLOB. L'abilitazione o la disabilitazione di SSE non influisce sui dati esistenti. In altre parole, quando si abilita la crittografia, non tornare indietro e crittografare i dati che esistono già. né per decrittografare i dati già presenti quando si disabilita SSE.
 
@@ -380,7 +380,7 @@ La crittografia lato client comporta un carico maggiore sul client ed è necessa
 #### <a name="storage-service-encryption-sse"></a>Crittografia del servizio di archiviazione di Azure (SSE)
 La crittografia del servizio di archiviazione è gestita da Archiviazione di Azure. SSE non solo garantisce la sicurezza dei dati in transito, ma permette di crittografare i dati al momento della scrittura in Archiviazione di Azure. L'uso di questa funzionalità non incide in alcun modo sulle prestazioni.
 
-È possibile crittografare qualsiasi tipo di dati dell'account di archiviazione utilizza SSE (BLOB in blocchi, aggiungere BLOB, BLOB di pagine, i dati di tabella, i dati della coda e file).
+Con SSE è possibile crittografare qualsiasi tipo di dati dell'account di archiviazione, ovvero BLOB in blocchi, BLOB di pagine, BLOB di accodamento, dati di tabelle, dati di code e file.
 
 Se è disponibile un archivio o una raccolta di file VHD usati come base per la creazione di nuove macchine virtuali, è possibile creare un nuovo account di archiviazione, abilitare SSE e quindi caricare i file VHD in quell'account. Questi file VHD saranno crittografati da Archiviazione di Azure.
 

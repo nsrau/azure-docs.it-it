@@ -1,6 +1,6 @@
 ---
-title: Creare spazio dei nomi messaggistica del Bus di servizio utilizzando il modello di gestione risorse di Azure | Documenti Microsoft
-description: Utilizzare il modello di gestione risorse di Azure per creare uno spazio dei nomi di messaggistica del Bus di servizio
+title: Creare uno spazio dei nomi della messaggistica del bus di servizio tramite un modello di Azure Resource Manager | Microsoft Docs
+description: Usare il modello di Azure Resource Manager per creare uno spazio dei nomi della messaggistica del bus di servizio
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -16,7 +16,7 @@ ms.date: 12/21/2017
 ms.author: sethm;shvija
 ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---

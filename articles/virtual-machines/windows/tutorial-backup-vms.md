@@ -18,7 +18,7 @@ ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -78,7 +78,7 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
     ![Pagina Web IIS predefinita](./media/tutorial-backup-vms/iis-broken.png)
 
 5. Nel computer locale aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
-6. Nel menu a sinistra, selezionare **macchine virtuali** e selezionare la macchina virtuale dall'elenco.
+6. Nel menu a sinistra selezionare **Macchine virtuali** e scegliere la macchina virtuale dall'elenco.
 8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
 9. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
 10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.

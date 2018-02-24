@@ -16,24 +16,24 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurazione della telemetria di Servizi multimediali di Azure con .NET
 
-Questo articolo descrive i passaggi generali che è possibile eseguire quando si configura la telemetria di servizi multimediali di Azure (AMS) mediante .NET SDK. 
+Questo articolo descrive la procedura generale da seguire per la configurazione della telemetria di Servizi multimediali di Azure (AMS) con .NET SDK. 
 
 >[!NOTE]
->Per una descrizione dettagliata dei dati di telemetria AMS e come utilizzarla, vedere il [Panoramica](media-services-telemetry-overview.md) articolo.
+>Per una spiegazione dettagliata della telemetria di Servizi multimediali di Azure e di come usarla, vedere l'articolo relativo alla [panoramica](media-services-telemetry-overview.md).
 
 I dati di telemetria possono essere usati in uno dei modi seguenti:
 
-- Leggere i dati direttamente da Archiviazione tabelle di Azure (ad esempio, tramite il SDK di archiviazione). Per la descrizione delle tabelle di archiviazione di dati di telemetria, vedere il **utilizzo delle informazioni di telemetria** in [questo](https://msdn.microsoft.com/library/mt742089.aspx) articolo.
+- Leggere i dati direttamente da Archiviazione tabelle di Azure tramite, ad esempio, Storage SDK. Per la descrizione delle tabelle di archiviazione di dati di telemetria, vedere **Uso delle informazioni di telemetria** in [questo](https://msdn.microsoft.com/library/mt742089.aspx) articolo.
 
 Oppure
 
-- Usare il supporto presente nell'SDK di Servizi multimediali per .NET per la lettura dei dati di archiviazione. In questo articolo viene illustrato come attivare la telemetria per l'account di sistema AMS specificato e come eseguire una query di metriche usando Azure Media Services .NET SDK.  
+- Usare il supporto presente nell'SDK di Servizi multimediali per .NET per la lettura dei dati di archiviazione. Questo articolo illustra come abilitare la telemetria per gli account di Servizi multimediali di Azure specificati e come eseguire query sulle metriche con l'SDK di Servizi multimediali per .NET.  
 
 ## <a name="configuring-telemetry-for-a-media-services-account"></a>Configurazione della telemetria per un account di Servizi multimediali
 
@@ -47,7 +47,7 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
 
-- Creare una monitoraggio impostazione di configurazione per i servizi che si desidera monitorare. Impostazione di configurazione non più di un monitoraggio è consentita. 
+- Creare un set di configurazione del monitoraggio per i servizi da monitorare. È consentito un solo set di configurazione del monitoraggio. 
   
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -58,7 +58,7 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
 
 ## <a name="consuming-telemetry-information"></a>Uso delle informazioni di telemetria
 
-Per informazioni sull'utilizzo delle informazioni di telemetria, vedere [questo](media-services-telemetry-overview.md) articolo.
+Per informazioni sull'uso dei dati di telemetria, vedere [questo](media-services-telemetry-overview.md) articolo.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 

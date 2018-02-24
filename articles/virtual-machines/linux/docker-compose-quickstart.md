@@ -1,5 +1,5 @@
 ---
-title: Usare Docker Compose in una VM Linux in Azure | Documentazione Microsoft
+title: Usare Docker Compose in una VM Linux in Azure | Microsoft Docs
 description: Come usare Docker e Compose in macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 474a2d66cc46fcac35b145633e802d72881b10d8
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 9f8c9a32be9b889ced4fdc7065acd09e6700afd5
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introduzione a Docker e Compose per la definizione e l'esecuzione di un'applicazione multi-contenitore in Azure
 Con [Compose](http://github.com/docker/compose) si usa un file di testo semplice per definire un'applicazione costituita da più contenitori Docker. Si avvia quindi l'applicazione mediante un unico comando che effettua le operazioni necessarie per distribuire l'ambiente definito. Come esempio, questo articolo illustra come configurare rapidamente un blog WordPress con un database SQL MariaDB back-end in una macchina virtuale di Ubuntu. È possibile usare Compose anche per configurare applicazioni più complesse.
@@ -32,15 +32,15 @@ Quando si usa l'estensione di VM Docker, la macchina virtuale viene automaticame
 
 
 ### <a name="create-docker-host-with-azure-cli-20"></a>Creare un host Docker con l'interfaccia della riga di comando di Azure 2.0
-Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#login).
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#az_login).
 
-Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Innanzitutto, creare un gruppo di risorse per l'ambiente di Docker con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Quando richiesto, fornire i propri valori univoci per *newStorageAccountName*, *adminUsername*, *adminPassword*, e *dnsNameForPublicIP*:
+Successivamente, distribuire una macchina virtuale con il comando [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) che include l'estensione di VM Docker di Azure da [questo modello di Azure Resource Manager su GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Se richiesto, specificare i propri valori univoci per *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP*:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -51,7 +51,7 @@ L'operazione di distribuzione richiede alcuni minuti.
 
 
 ## <a name="verify-that-compose-is-installed"></a>Verificare che Compose sia installato
-Per visualizzare i dettagli della VM, incluso il nome DNS, usare [az vm show](/cli/azure/vm#show):
+Per visualizzare i dettagli della VM, incluso il nome DNS, usare [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show \
@@ -62,7 +62,7 @@ az vm show \
     --output tsv
 ```
 
-SSH per il nuovo host Docker. Fornire il proprio nome utente e nome DNS nei passaggi precedenti:
+SSH per il nuovo host Docker. Fornire il nome utente e il nome DNS dei passaggi precedenti:
 
 ```bash
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com

@@ -40,9 +40,9 @@ Per informazioni sul comportamento predefinito e sulle intestazioni delle dirett
 Come impostare regole di memorizzazione nella cache della rete CDN:
 
 1. Aprire il portale di Azure, selezionare un profilo della rete CDN e selezionare un endpoint.
-2. Nel riquadro a sinistra in impostazioni, fare clic su **la memorizzazione nella cache regole**.
+2. Nel riquadro sinistro, in Impostazioni, fare clic su **Regole di memorizzazione nella cache**.
 
-   ![Pulsante regole di memorizzazione nella cache della rete CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+   ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
 1. Creare una regola di memorizzazione nella cache globale come segue:
    1. In **Regole di memorizzazione nella cache globali** impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query**.

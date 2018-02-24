@@ -14,13 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/20/2018
 ms.author: larryfr
+<<<<<<< HEAD
 ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
 ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+=======
+ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Eseguire una query Hive tramite il driver JDBC in HDInsight
 

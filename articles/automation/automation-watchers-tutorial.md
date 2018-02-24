@@ -16,103 +16,103 @@ ms.date: 12/11/2017
 ms.author: eamono
 ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
 ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creare attività per tenere traccia delle modifiche del file in un computer locale di un controllo di automazione di Azure
+# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creare un'attività watcher di Automazione di Azure per tenere traccia delle modifiche dei file in un computer locale
 
-Automazione di Azure utilizza le attività di controllo per il controllo degli eventi e attivare le azioni. In questa esercitazione viene descritto come creare un'attività di monitoraggio per il monitoraggio quando viene aggiunto un nuovo file in una directory.
+Automazione di Azure usa le attività watcher per controllare gli eventi e le azioni di trigger. In questa esercitazione viene descritto come creare un'attività watcher per monitorare quando viene aggiunto un nuovo file in una directory.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Importare un runbook di monitoraggio
+> * Importare un runbook watcher
 > * Creare una variabile di automazione
-> * Creare un runbook di azione
-> * Creare un'attività di controllo
-> * Attivare un controllo
-> * Esaminare l'output
+> * Creare un runbook azione
+> * Creare un'attività watcher
+> * Attivare un watcher
+> * Esaminare i risultati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, siano soddisfatti i seguenti:
+Per completare l'esercitazione, è necessario quanto segue:
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account di automazione](automation-offering-get-started.md) per contenere i runbook watcher e azione e l'attività watcher.
 * Un [ruolo di lavoro ibrido per runbook](automation-hybrid-runbook-worker.md) dove viene eseguita l'attività watcher.
 
-## <a name="import-a-watcher-runbook"></a>Importare un runbook di monitoraggio
+## <a name="import-a-watcher-runbook"></a>Importare un runbook watcher
 
-Questa esercitazione viene utilizzato un runbook di controllo denominato **Watch NewFile** per cercare i nuovi file in una directory. Il runbook controllo recupera l'ora dell'ultima scrittura noti per i file in una cartella ed esamina tutti i file più recenti rispetto a tale limite. In questo passaggio, si importa questo runbook nell'account di automazione.
+Questa esercitazione usa un runbook watcher denominato **Watch-NewFile** per cercare nuovi file in una directory. Il runbook watcher recupera la data e l'ora dell'ultima scrittura nota nei file di una cartella e cerca qualsiasi file che risulti più recente di quel limite. In questo passaggio, si importa questo runbook nell'account di automazione.
 
-1. Aprire l'account di automazione e fare clic su di **runbook** pagina.
-1. Fare clic su di **Sfoglia raccolta** pulsante.
-1. Ricerca di "Controllo runbook", selezionare **runbook di monitoraggio che controlla la presenza di nuovi file in una directory** e selezionare **importazione**.
-  ![Importazione di runbook di automazione interfaccia utente](media/automation-watchers-tutorial/importsourcewatcher.png)
-1. Assegnare il runbook, un nome e descrizione e selezionare **OK** per importare il runbook nell'account di automazione.
-1. Selezionare **modifica** e quindi fare clic su **pubblica**. Quando viene richiesto di selezionare **Sì** a pubblicare il runbook.
+1. Aprire l'account di automazione e fare clic sulla pagina **Runbook**.
+1. Fare clic sul pulsante **Sfoglia raccolta**.
+1. Cercare "Runbook watcher", selezionare **Watcher runbook that looks for new files in a directory** (Runbook watcher che cerca nuovi file in una directory) e selezionare **Importa**.
+  ![Importare un runbook di automazione dall'interfaccia utente](media/automation-watchers-tutorial/importsourcewatcher.png)
+1. Assegnare al runbook un nome e una descrizione e selezionare **OK** per importarlo nell'account di automazione.
+1. Selezionare **Modifica** e quindi fare clic su **Pubblica**. Al prompt, selezionare **Sì** per pubblicare il runbook.
 
 ## <a name="create-an-automation-variable"></a>Creare una variabile di automazione
 
-Un [variabile di automazione](automation-variables.md) viene utilizzato per archiviare i timestamp che il runbook precedente legge e archivia ogni file. 
+Una [variabile di automazione](automation-variables.md) viene usata per archiviare i timestamp che il runbook precedente legge e archivia da ogni file. 
 
-1. Selezionare **variabili** in **risorse CONDIVISE** e selezionare **+ Aggiungi una variabile**.
-1. Immettere "Watch-NewFileTimestamp" per il nome
-1. Selezionare una data/ora per il tipo.
-1. Fare clic su di **crea** pulsante. Crea la variabile di automazione.
+1. Selezionare **Variabili** in **RISORSE CONDIVISE** e selezionare **+ Aggiungi variabile**.
+1. Immettere "Watch-NewFileTimestamp" nel campo Nome.
+1. Selezionare DateTime in Tipo.
+1. Fare clic sul pulsante **Crea**. Viene creata la variabile di automazione.
 
-## <a name="create-an-action-runbook"></a>Creare un runbook di azione
+## <a name="create-an-action-runbook"></a>Creare un runbook azione
 
-Un runbook di azione viene usato in un'attività di controllo per agire sui dati passati da un runbook di monitoraggio. In questo passaggio, si aggiorna importazione un runbook di azione predefinito denominato "Processo NewFile".
+Un runbook azione viene usato in un'attività watcher per agire sui dati passati da un runbook watcher. In questo passaggio si importa un runbook azione predefinito denominato "Process-NewFile".
 
-1. Passare al proprio account di automazione e selezionare **runbook** sotto il **automazione dei processi** categoria.
-1. Fare clic su di **Sfoglia raccolta** pulsante.
-1. Eseguire la ricerca di "Azione di controllo" e selezionare **azione di controllo che elabora gli eventi attivati da un runbook watcher** e selezionare **importazione**.
-  ![Importare runbook azione dell'interfaccia utente](media/automation-watchers-tutorial/importsourceaction.png)
-1. Assegnare il runbook, un nome e descrizione e selezionare **OK** per importare il runbook nell'account di automazione.
-1. Selezionare **modifica** e quindi fare clic su **pubblica**. Quando viene richiesto di selezionare **Sì** a pubblicare il runbook.
+1. Passare all'account di automazione e selezionare **Runbook** nella categoria **AUTOMAZIONE PROCESSI**.
+1. Fare clic sul pulsante **Sfoglia raccolta**.
+1. Cercare "Azione watcher" e selezionare **Watcher action that processes events triggered by a watcher runbook** (Azione watcher che elabora eventi attivati da un runbook watcher) e selezionare **Importa**.
+  ![Importare un runbook azione dall'interfaccia utente](media/automation-watchers-tutorial/importsourceaction.png)
+1. Assegnare al runbook un nome e una descrizione e selezionare **OK** per importarlo nell'account di automazione.
+1. Selezionare **Modifica** e quindi fare clic su **Pubblica**. Al prompt, selezionare **Sì** per pubblicare il runbook.
 
-## <a name="create-a-watcher-task"></a>Creare un'attività di controllo
+## <a name="create-a-watcher-task"></a>Creare un'attività watcher
 
-L'attività di controllo contiene due parti. Il controllo e l'azione. Il controllo viene eseguito in un intervallo definito nell'attività di controllo. Dati di controllo runbook sono passati al runbook azione. In questo passaggio, configurare l'attività di monitoraggio che fanno riferimento ai runbook di monitoraggio e azione definiti nei passaggi precedenti.
+L'attività watcher contiene due parti. Il watcher e l'azione. Il watcher viene eseguito a un intervallo definito nell'attività watcher. I dati del runbook watcher vengono passati nel runbook azione. In questo passaggio si configura l'attività watcher che fa riferimento ai runbook watcher e azione definiti nei passaggi precedenti.
 
-1. Passare al proprio account di automazione e selezionare **attività controllo** sotto il **automazione dei processi** categoria.
-1. Selezionare la pagina attività di controllo e fare clic su **+ Aggiungi un'attività Monitoraggio** pulsante.
-1. Immettere "WatchMyFolder" come nome.
+1. Passare all'account di automazione e selezionare **Attività watcher** nella categoria **AUTOMAZIONE PROCESSI**.
+1. Selezionare la pagina Attività watcher e fare clic sul pulsante **+ Aggiungi un'attività watcher**.
+1. Immettere "WatchMyFolder" nel campo Nome.
 
-1. Selezionare **Configura controllo** e selezionare il **Watch NewFile** runbook.
+1. Selezionare **Configura watcher** e selezionare il runbook **Watch-NewFile**.
 
 1. Per i parametri inserire i valori seguenti:
 
-   * **FOLDERPATH** -una cartella nel processo di lavoro ibrido in cui verranno creati nuovi file. d:\examplefiles
-   * **ESTENSIONE** -lasciare vuoto per elaborare tutte le estensioni di file.
-   * **RECURSE** -specifica un valore come impostazione predefinita.
-   * **IMPOSTAZIONI di esecuzione** -selezionare il ruolo di lavoro ibrido.
+   * **FOLDERPATH** - Una cartella nel ruolo di lavoro ibrido in cui verranno creati nuovi file. d:\examplefiles
+   * **EXTENSION** - Lasciare vuoto per elaborare tutte le estensioni di file.
+   * **RECURSE** -Lasciare questo valore come impostazione predefinita.
+   * **RUN SETTINGS** - Selezionare il ruolo di lavoro ibrido.
 
 1. Fare clic su OK e quindi su Seleziona per tornare alla pagina del watcher.
-1. Selezionare **configurare azione** e selezionare il runbook di "Processo NewFile".
+1. Selezionare **Configura azione** e selezionare il runbook "Process-NewFile".
 1. Per i parametri inserire i valori seguenti:
 
-   *    **EVENTDATA** -lasciare vuoto. I dati vengono passati dal runbook watcher.  
-   *    **Impostazioni esecuzione test** -lasciare Azure come il runbook viene eseguito nel servizio di automazione.
+   *    **EVENTDATA** - Lasciare vuoto. I dati vengono passati dal runbook watcher.  
+   *    **Run Settings** (Impostazioni di esecuzione) - Lasciare questo campo impostato su Azure in quanto questo runbook viene eseguito nel servizio Automazione.
 
-1. Fare clic su **OK**, quindi selezionare per tornare alla pagina di controllo.
-1. Fare clic su **OK** per creare l'attività Monitoraggio.
+1. Fare clic su **OK** e quindi su Seleziona per tornare alla pagina del watcher.
+1. Fare clic su **OK** per creare l'attività watcher.
 
-![Configurare l'azione di controllo dall'interfaccia utente](media/automation-watchers-tutorial/watchertaskcreation.png)
+![Configurare l'azione watcher dall'interfaccia utente](media/automation-watchers-tutorial/watchertaskcreation.png)
 
-## <a name="trigger-a-watcher"></a>Attivare un controllo
+## <a name="trigger-a-watcher"></a>Attivare un watcher
 
-Per testare il controllo funziona come previsto, è necessario creare un file di test.
+Per verificare se il watcher funziona come previsto, è necessario creare un file di test.
 
-Accedere in remoto il worker ibrido. Aprire **PowerShell** e creare un file di test nella cartella.
+Passare al ruolo di lavoro ibrido. Aprire **PowerShell** e creare un file di test nella cartella.
   
    ```PowerShell-interactive
    New-Item -Name ExampleFile1.txt
    ```
 
-Nell'esempio seguente viene illustrato l'output previsto.
+L'esempio seguente illustra l'output previsto.
 
 ```
     Directory: D:\examplefiles
@@ -123,16 +123,16 @@ Mode                LastWriteTime         Length Name
 -a----       12/11/2017   9:05 PM              0 ExampleFile1.txt
 ```
 
-## <a name="inspect-the-output"></a>Esaminare l'output
+## <a name="inspect-the-output"></a>Esaminare i risultati
 
-1. Passare al proprio account di automazione e selezionare **attività controllo** sotto il **automazione dei processi** categoria.
-1. Selezionare l'attività di monitoraggio "WatchMyFolder".
-1. Fare clic su **visualizzare flussi di controllo** in **flussi** per verificare che il controllo trovato il nuovo file e avviato il runbook di azione.
-1. Per visualizzare i processi runbook di azione, fare clic su di **visualizzare i processi di azione di controllo**. Ogni processo può essere selezionata la vista Dettagli del processo.
+1. Passare all'account di automazione e selezionare **Attività watcher** nella categoria **AUTOMAZIONE PROCESSI**.
+1. Selezionare l'attività watcher "WatchMyFolder".
+1. Fare clic su **Visualizza flussi watcher** in **Flussi** per vedere che il watcher ha trovato il nuovo file e ha avviato il runbook azione.
+1. Per visualizzare i processi del runbook azione, fare clic su **Visualizza processi dell'azione watcher**. È possibile selezionare ogni processo per visualizzarne i dettagli.
 
-   ![Processi di azione di controllo dall'interfaccia utente](media/automation-watchers-tutorial/WatcherActionJobs.png)
+   ![Processi dell'azione watcher dall'interfaccia utente](media/automation-watchers-tutorial/WatcherActionJobs.png)
 
-L'output previsto quando viene trovato il nuovo file può essere visualizzato nell'esempio seguente:
+L'esempio seguente illustra l'output previsto quando viene trovato il nuovo file:
 
 ```
 Message is Process new file...
@@ -147,14 +147,14 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-> * Importare un runbook di monitoraggio
+> * Importare un runbook watcher
 > * Creare una variabile di automazione
-> * Creare un runbook di azione
-> * Creare un'attività di controllo
-> * Attivare un controllo
-> * Esaminare l'output
+> * Creare un runbook azione
+> * Creare un'attività watcher
+> * Attivare un watcher
+> * Esaminare i risultati
 
-Fare clic sul collegamento per ulteriori informazioni sulla creazione di propri runbook.
+Per altre informazioni sulla creazione di un runbook, seguire questo collegamento.
 
 > [!div class="nextstepaction"]
 > [Il primo runbook PowerShell](automation-first-runbook-textual-powershell.md).

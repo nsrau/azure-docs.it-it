@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: eugenesh
 ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -255,7 +255,7 @@ I parametri di configurazione descritti in precedenza si applicano a tutti i BLO
 | AzureSearch_SkipContent |"true" |Equivale all'impostazione `"dataToExtract" : "allMetadata"` descritta [in precedenza](#PartsOfBlobToIndex) nell'ambito di un BLOB specifico. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Gli errori
+## <a name="dealing-with-errors"></a>Gestione degli errori
 
 Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena viene rilevato un BLOB con un tipo di contenuto non supportato, ad esempio un'immagine. Naturalmente, è possibile usare il parametro `excludedFileNameExtensions` per ignorare determinati tipi di contenuto. Potrebbe tuttavia essere necessario indicizzare BLOB senza conoscere in anticipo tutti i tipi di contenuto possibili. Per continuare l'indicizzazione quando viene rilevato un tipo di contenuto non supportato, impostare il parametro di configurazione `failOnUnsupportedContentType` su `false`:
 
@@ -268,11 +268,11 @@ Per impostazione predefinita, l'indicizzatore BLOB viene arrestato non appena vi
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
 
-Per alcuni BLOB, non è possibile elaborare un documento di supportata in caso contrario il tipo di contenuto o è in grado di determinare il tipo di contenuto ricerca di Azure. Per ignorare la modalità di errore, impostare il `failOnUnprocessableDocument` su false il parametro di configurazione:
+Per alcuni BLOB, Ricerca di Azure non è in grado di determinare il tipo di contenuto o di elaborare il documento di un tipo di contenuto altrimenti supportato. Per ignorare la modalità di errore, impostare il parametro di configurazione `failOnUnprocessableDocument` su False:
 
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 
-È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi di BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare il `maxFailedItems` e `maxFailedItemsPerBatch` i parametri di configurazione per i valori desiderati. Ad esempio: 
+È anche possibile continuare l'indicizzazione se si verificano errori in qualsiasi momento dell'elaborazione, durante l'analisi dei BLOB o durante l'aggiunta di documenti a un indice. Per ignorare un determinato numero di errori, impostare i parametri di configurazione `maxFailedItems` e `maxFailedItemsPerBatch` sui valori desiderati. Ad esempio: 
 
     {
       ... other parts of indexer definition

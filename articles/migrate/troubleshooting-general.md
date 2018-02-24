@@ -8,7 +8,7 @@ ms.date: 12/12/2017
 ms.author: raynew
 ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -19,15 +19,15 @@ ms.lasthandoff: 12/12/2017
 [Azure Migrate](migrate-overview.md) valuta i carichi di lavoro locali per la migrazione ad Azure. Attenersi a questo articolo per risolvere i problemi che possono verificarsi durante la distribuzione e l'utilizzo di Azure Migrate.
 
 
-**Agente di raccolta non è in grado di connettersi a internet**
+**L'agente di raccolta non è in grado di connettersi a Internet**
 
-Ciò può verificarsi quando il computer in uso è dietro un proxy. Assicurarsi di fornire le credenziali di autorizzazione, se è necessario uno il proxy.
-Se si utilizza qualsiasi proxy firewall basato su URL per controllare la connettività in uscita, assicurarsi che all'elenco elementi consentiti queste richieste di URL:
+Ciò può verificarsi quando il computer in uso è protetto da un proxy. Assicurarsi di fornire le credenziali di autorizzazione, se richiesto dal proxy.
+Se si usa qualsiasi proxy firewall basato su URL per controllare la connettività in uscita, assicurarsi di inserire nell'elenco dei consentiti questi URL richiesti:
 
 **URL** | **Scopo**  
 --- | ---
-*. portal.azure.com | Necessario per verificare la connettività al servizio di Azure e convalidare la sincronizzazione dell'ora problemi.
-*. oneget.org | Richiesto per il download di powershell in base vCenter PowerCLI modulo.
+*.portal.azure.com | Necessario per controllare la connettività al servizio di Azure e convalidare i problemi relativi alla sincronizzazione dell'ora.
+*.oneget.org | Necessario per il download del modulo vCenter PowerCLI basato su PowerShell.
 
 **L'agente di raccolta non riesce a connettersi al progetto usando l'ID progetto e la chiave copiata dal portale.**
 

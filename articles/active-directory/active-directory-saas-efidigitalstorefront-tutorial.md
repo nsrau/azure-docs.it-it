@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con EFI digitale StoreFront | Documenti Microsoft'
-description: Informazioni su come configurare single sign-on tra Azure Active Directory e StoreFront digitale EFI.
+title: 'Esercitazione: Integrazione di Azure Active Directory con EFI Digital StoreFront | Documentazione Microsoft'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory ed EFI Digital StoreFront.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 12/08/2017
 ms.author: jeedes
 ms.openlocfilehash: 38d24096977b093ba5b1af2258618b3cdb783e77
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Esercitazione: Integrazione di Azure Active Directory con EFI digitale StoreFront
+# <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Esercitazione: Integrazione di Azure Active Directory con EFI Digital StoreFront
 
-In questa esercitazione, informazioni su come integrare StoreFront digitale EFI con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare EFI Digital StoreFront con Azure Active Directory (Azure AD).
 
-Integrazione StoreFront digitale EFI con Azure AD offre i vantaggi seguenti:
+L'integrazione di EFI Digital StoreFront con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al StoreFront digitale EFI.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato EFI StoreFront digitali (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a EFI Digital StoreFront.
+- È possibile abilitare gli utenti per l'accesso automatico a EFI Digital StoreFront (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per configurare l'integrazione di Azure AD con StoreFront digitale EFI, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con EFI Digital StoreFront, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- StoreFront digitale EFI single sign-on abilitato sottoscrizione
+- Sottoscrizione di EFI Digital StoreFront abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -50,13 +50,13 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
-1. Aggiunta di StoreFront digitale EFI dalla raccolta
+1. Aggiunta di EFI Digital StoreFront dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-## <a name="adding-efi-digital-storefront-from-the-gallery"></a>Aggiunta di StoreFront digitale EFI dalla raccolta
-Per configurare l'integrazione di StoreFront digitale EFI in Azure AD, è necessario aggiungere all'elenco di App SaaS gestite StoreFront digitale EFI dalla raccolta.
+## <a name="adding-efi-digital-storefront-from-the-gallery"></a>Aggiunta di EFI Digital StoreFront dalla raccolta
+Per configurare l'integrazione di EFI Digital StoreFront in Azure AD, è necessario aggiungere EFI Digital StoreFront dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere StoreFront digitale EFI dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere EFI Digital StoreFront dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -70,33 +70,33 @@ Per configurare l'integrazione di StoreFront digitale EFI in Azure AD, è necess
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **StoreFront digitale EFI**selezionare **StoreFront digitale EFI** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **EFI Digital StoreFront**, selezionare **EFI Digital StoreFront** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![EFI StoreFront digitale nell'elenco dei risultati](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_addfromgallery.png)
+    ![EFI Digital StoreFront nell'elenco dei risultati](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con EFI di StoreFront digitale in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con EFI Digital StoreFront in base a un utente test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in StoreFront digitale EFI a un utente in Azure AD. In altre parole, una relazione di collegamento tra un utente AD Azure e l'utente correlato in StoreFront digitale EFI deve essere stabilito.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente controparte di EFI Digital StoreFront che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EFI Digital StoreFront.
 
-In StoreFront digitale EFI, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in EFI Digital StoreFront assegnare il valore di **nome utente** in Azure AD come valore di **Username** (Nome utente).
 
-Per configurare e testare Azure AD single sign-on con StoreFront digitale EFI, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con EFI Digital StoreFront, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test StoreFront digitale EFI](#create-a-efi-digital-storefront-test-user)**  - disporre di un equivalente di Britta Simon in StoreFront digitale EFI collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di EFI Digital StoreFront](#create-a-efi-digital-storefront-test-user)**: per avere una controparte di Britta Simon in EFI Digital StoreFront collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione StoreFront digitale EFI.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione EFI Digital StoreFront.
 
-**Per configurare Azure AD single sign-on con EFI digitale StoreFront, eseguire la procedura seguente:**
+**Per configurare Single Sign-On di Azure AD con EFI Digital StoreFront, seguire questa procedura:**
 
-1. Nel portale di Azure, sul **StoreFront digitale EFI** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **EFI Digital StoreFront** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,9 +104,9 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_samlbase.png)
 
-3. Nel **EFI digitale StoreFront dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio EFI Digital StoreFront** seguire questa procedura:
 
-    ![EFI digitale StoreFront informazioni domini e gli URL single sign-on](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_url.png)
+    ![Informazioni sul Single Sign-On di URL e dominio di EFI Digital StoreFront](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.myprintdesk.net/DSF`
 
@@ -120,7 +120,7 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso single sign-on in **StoreFront digitale EFI** lato, è necessario inviare scaricato **Metadata XML** a [team di supporto EFI digitale StoreFront](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Per configurare l'accesso Single Sign-On sul lato **EFI Digital StoreFront**, è necessario inviare il file di **XML metadati** scaricato al [team di supporto di EFI Digital StoreFront](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -158,25 +158,25 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-efi-digital-storefront-test-user"></a>Creare un utente test EFI digitale StoreFront
+### <a name="create-a-efi-digital-storefront-test-user"></a>Creare un utente test EFI Digital StoreFront
 
-In questa sezione si crea un utente denominato Britta Simon in StoreFront digitale EFI. Lavorare con [team di supporto EFI digitale StoreFront](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) per aggiungere gli utenti nella piattaforma StoreFront digitale EFI. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente chiamato Britta Simon in EFI Digital StoreFront. In collaborazione con il [team di supporto EFI Digital StoreFront](http://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) aggiungere gli utenti nella piattaforma EFI Digital StoreFront. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso a StoreFront digitale EFI.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a EFI Digital StoreFront.
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon a StoreFront digitale EFI, è possibile eseguire i passaggi seguenti:**
+**Per assegnare Britta Simon a EFI Digital StoreFront, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **StoreFront digitale EFI**.
+2. Nell'elenco delle applicazioni, selezionare **EFI Digital StoreFront**.
 
-    ![Il collegamento StoreFront digitale EFI nell'elenco delle applicazioni](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_app.png)  
+    ![Collegamento EFI Digital StoreFront nell'elenco delle applicazioni](./media/active-directory-saas-efidigitalstorefront-tutorial/tutorial_efidigital_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -196,7 +196,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro StoreFront digitale EFI nel Pannello di accesso, dovrebbe ottenere automaticamente firmato-on all'applicazione StoreFront digitale EFI.
+Quando si fa clic sul riquadro EFI Digital StoreFront nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione EFI Digital StoreFront.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

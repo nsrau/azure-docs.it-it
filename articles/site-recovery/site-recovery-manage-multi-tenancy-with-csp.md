@@ -1,6 +1,6 @@
 ---
-title: Gestire multi-tenancy in Azure Site Recovery con il programma di Provider di soluzioni Cloud (CSP) | Documenti Microsoft
-description: Viene descritto come creare e gestire le sottoscrizioni di tenant tramite CSP e distribuire Azure Site Recovery in una configurazione di multi-tenant
+title: Gestire il multi-tenancy in Azure Site Recovery con il programma Cloud Solution Provider (CSP) | Documentazione Microsoft
+description: Descrive come creare e gestire le sottoscrizioni di tenant tramite CSP e distribuire Azure Site Recovery in una configurazione multi-tenant
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
@@ -16,23 +16,23 @@ ms.date: 12/14/2017
 ms.author: manayar
 ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Gestire multi-tenancy con il programma di Provider di soluzioni Cloud (CSP)
+# <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Gestire il multi-tenancy con il programma Cloud Solution Provider (CSP)
 
-Il [programma CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) rafforza la motivazione storie insieme a una situazione migliore per i servizi cloud Microsoft, inclusi Office 365, Enterprise Mobility Suite e Microsoft Azure. Con CSP, i partner proprietari della relazione end-to-end con i clienti e diventano il punto di contatto primario relazione. I partner possono distribuire le sottoscrizioni di Azure per i clienti e combinarle con le proprie offerte personalizzate a valore aggiunto.
+Il [programma CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) promuove scenari di collaborazione per i servizi cloud Microsoft, tra cui Office 365, Enterprise Mobility Suite e Microsoft Azure. Con CSP, i partner acquisiscono una relazione end-to-end con i clienti e diventano il punto di contatto primario della relazione. I partner possono distribuire le sottoscrizioni di Azure per i clienti e combinarle con le proprie offerte personalizzate a valore aggiunto.
 
 Con Azure Site Recovery, i partner possono gestire la soluzione di ripristino di emergenza completa per i clienti direttamente tramite CSP. Possono in alternativa usare il programma CSP per configurare gli ambienti di Site Recovery e consentire ai clienti di gestire le proprie esigenze di ripristino di emergenza in modalità self-service. In entrambi gli scenari, i partner rappresentano l'anello di congiunzione tra Site Recovery e i clienti. I partner gestiscono la relazione con i clienti, addebitando loro l'uso di Site Recovery.
 
-In questo articolo viene descritto come creare e gestire le sottoscrizioni di tenant tramite CSP, per l'installazione multi-tenant VMware un partner.
+Questo articolo descrive come creare e gestire le sottoscrizioni di tenant tramite CSP, per una configurazione di VMware multi-tenant.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - [Preparare](tutorial-prepare-azure.md) le risorse di Azure, inclusi un abbonamento ad Azure, una rete virtuale di Azure e un account di archiviazione.
 - [Preparare](tutorial-prepare-on-premises-vmware.md) i server e le macchine virtuali VMware locali.
-- Per ogni tenant, creare un server di gestione separato che possa comunicare con le macchine virtuali tenant e il vCenter del partner. Solo il partner dispone dei diritti di accesso a questo server. Per ulteriori informazioni sui diversi ambienti multi-tenant, vedere il [multi-tenant VMware](site-recovery-multi-tenant-support-vmware-using-csp.md) informazioni aggiuntive.
+- Per ogni tenant, creare un server di gestione separato che possa comunicare con le macchine virtuali tenant e il vCenter del partner. Solo il partner dispone dei diritti di accesso a questo server. Per ulteriori informazioni sui diversi ambienti multi-tenant, vedere il materiale sussidiario di [VMware multi-tenant](site-recovery-multi-tenant-support-vmware-using-csp.md).
 
 ## <a name="create-a-tenant-account"></a>Creare un account tenant
 
@@ -64,7 +64,7 @@ In questo articolo viene descritto come creare e gestire le sottoscrizioni di te
 
     Queste informazioni possono essere condivise con il tenant così come sono oppure, se necessario, è possibile creare e condividere un account separato.
 
-## <a name="access-the-tenant-account"></a>Accedere all'account del tenant
+## <a name="access-the-tenant-account"></a>Accedere all'account tenant
 
 È possibile accedere alla sottoscrizione del tenant tramite il dashboard del Centro per i partner Microsoft, come descritto in "Passaggio 1: Creare un account tenant".
 
@@ -80,7 +80,7 @@ In questo articolo viene descritto come creare e gestire le sottoscrizioni di te
 
 A questo punto è possibile eseguire tutte le operazioni di ripristino sito per il tenant tramite il portale di Azure e gestire le operazioni di ripristino di emergenza. Per accedere alla sottoscrizione del tenant tramite CSP per il ripristino di emergenza gestito, seguire la procedura descritta in precedenza.
 
-## <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuire le risorse per la sottoscrizione tenant
+## <a name="deploy-resources-to-the-tenant-subscription"></a>Distribuire le risorse nella sottoscrizione del tenant
 1. Nel portale di Azure creare un gruppo di risorse e distribuire un insieme di credenziali di Servizi di ripristino seguendo la procedura consueta.
 
 2. Scaricare la chiave di registrazione dell'insieme di credenziali,
@@ -91,14 +91,14 @@ A questo punto è possibile eseguire tutte le operazioni di ripristino sito per 
 
     ![Gestire gli account del server di configurazione](./media/site-recovery-manage-multi-tenancy-with-csp/config-server-account-display.png)
 
-## <a name="register-site-recovery-infrastructure-to-the-recovery-services-vault"></a>Registrare l'infrastruttura di Site Recovery per l'insieme di credenziali di servizi di ripristino
+## <a name="register-site-recovery-infrastructure-to-the-recovery-services-vault"></a>Registrare l'infrastruttura di Site Recovery nell'insieme di credenziali di Servizi di ripristino
 1. Passare al portale di Azure e nell'insieme di credenziali creato in precedenza registrare il server vCenter nel server di configurazione registrato in "Passaggio 3: Distribuire le risorse nella sottoscrizione del tenant". A questo scopo usare l'account di accesso a vCenter.
 2. Completare il processo di preparazione dell'infrastruttura per Site Recovery seguendo la procedura consueta.
 3. Le macchine virtuali sono ora pronte per essere replicate. Verificare che nel pannello **Seleziona macchine virtuali** sotto l'opzione **Replica** siano visibili solo le macchine virtuali del tenant.
 
     ![Elenco di macchine virtuali tenant nel pannello Seleziona macchine virtuali](./media/site-recovery-manage-multi-tenancy-with-csp/tenant-vm-display.png)
 
-## <a name="assign-tenant-access-to-the-subscription"></a>Assegnare l'accesso ai tenant per la sottoscrizione
+## <a name="assign-tenant-access-to-the-subscription"></a>Assegnare l'accesso tenant alla sottoscrizione
 
 Per il ripristino di emergenza self-service, fornire al tenant i dettagli dell'account, come indicato nel passaggio 6 della sezione "Passaggio 1: Creare un account tenant". Eseguire questa operazione dopo che il partner ha configurato l'infrastruttura di ripristino di emergenza. A prescindere che il ripristino di emergenza sia gestito o self-service, i partner devono accedere alle sottoscrizioni del tenant tramite il portale CSP. I partner configurano l'insieme di credenziali di loro proprietà e registrano l'infrastruttura nelle sottoscrizioni del tenant.
 
@@ -108,7 +108,7 @@ I partner possono anche aggiungere un nuovo utente alla sottoscrizione del tenan
 
     ![Pagina delle sottoscrizioni CSP del tenant](./media/site-recovery-manage-multi-tenancy-with-csp/users-and-licences.png)
 
-    È ora possibile creare un nuovo utente immettendo i dettagli più importanti e modificando le autorizzazioni o caricando l'elenco degli utenti in un file CSV.
+    È ora possibile creare un nuovo utente immettendo i relativi dettagli e selezionando le autorizzazioni oppure caricando l'elenco di utenti in un file CSV.
 
 2. Dopo aver creato un nuovo utente, tornare al portale di Azure e selezionare la sottoscrizione corrispondente nel pannello **Sottoscrizione**.
 
@@ -119,9 +119,9 @@ I partner possono anche aggiungere un nuovo utente alla sottoscrizione del tenan
 
     Per la maggior parte delle operazioni di gestione è sufficiente il ruolo *Collaboratore*. Gli utenti con questo livello di accesso possono eseguire qualsiasi operazione su una sottoscrizione, tranne modificare i livelli di accesso. Per questa operazione è infatti richiesto il livello di accesso *Proprietario*.
 
-  Azure Site Recovery ha anche tre [predefiniti ruoli utente](site-recovery-role-based-linked-access-control.md) che può essere utilizzato per limitare ulteriormente i livelli di accesso in base alle esigenze.
+  Azure Site Recovery ha anche tre [ruoli utente predefiniti](site-recovery-role-based-linked-access-control.md) che possono essere utilizzati per limitare ulteriormente i livelli di accesso in base alle esigenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
-  [Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo di accesso basato sui ruoli per gestire le distribuzioni di Azure Site Recovery.
+  [Ulteriori informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery.
 
   [Gestire gli ambienti VMware multi-tenant](site-recovery-multi-tenant-support-vmware-using-csp.md)

@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: iainfou
 ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -207,7 +207,7 @@ Packer impiega alcuni minuti per compilare la macchina virtuale, eseguire gli st
 
 
 ## <a name="create-vm-from-azure-image"></a>Creare una macchina virtuale da un'immagine di Azure
-È ora possibile creare una macchina virtuale dall'immagine con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Impostare in primo luogo, un amministratore, nome utente e password per la macchina virtuale con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+È ora possibile creare una macchina virtuale dall'immagine con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
 
 ```powershell
 $cred = Get-Credential
@@ -277,7 +277,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 ```
 
-Sono necessari alcuni minuti per creare la macchina virtuale dall'immagine chi.
+La creazione della macchina virtuale dall'immagine Packer richiede alcuni minuti.
 
 
 ## <a name="test-vm-and-iis"></a>Testare la macchina virtuale e IIS

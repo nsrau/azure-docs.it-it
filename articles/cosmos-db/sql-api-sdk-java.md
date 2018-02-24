@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API Java SQL, SDK e risorse | Documenti Microsoft'
-description: Tutte le informazioni su API Java SQL e SDK tra date di rilascio, date di ritiro e le modifiche apportate tra ogni versione di Azure Cosmos DB SQL Java SDK.
+title: 'Azure Cosmos DB: API Java, risorse e SDK per SQL | Documentazione Microsoft'
+description: Informazioni complete sull'SDK e sull'API Java, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Java SDK.
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -17,11 +17,11 @@ ms.author: khdang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK per Java DB Cosmos per l'API di SQL: note sulla versione e le risorse
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -175,7 +175,7 @@ Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte so
 Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
 
 > [!WARNING]
-> Tutte le versioni precedenti alla versione del SDK per Java SQL **1.0.0** sono stati ritirati su **29 febbraio 2016**.
+> Tutte le versioni dell'SDK per Java di SQL precedenti alla versione **1.0.0** sono state ritirate il **29 febbraio 2016**.
 > 
 > 
 

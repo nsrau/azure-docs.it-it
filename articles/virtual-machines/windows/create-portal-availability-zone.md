@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 4d48aff7d29def9fa54438a11885b4ff4fba54cc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 63c2baa2f3924cf2274608df98b854683bc2baa8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Creare una macchina virtuale Windows in una zona di disponibilità con il portale di Azure
 
@@ -35,7 +35,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
 

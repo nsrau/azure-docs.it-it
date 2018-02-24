@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 6982d6177ef5c94436a28cd68beb9feb5cc343e5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 29f153803d5eb74e2d287d97cf9436e81b2a3e20
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo
 
@@ -56,6 +56,16 @@ Filtrare per informazioni aggiuntive e tipo nell'ID prenotazione. Lo screenshot 
 3. La riga Istanze riservate di VM di base in Sottocategoria misuratore rappresenta la riga del costo pari a $ 0 nella sezione del rendiconto. Il costo dell'esecuzione di questa VM è già coperto dalla prenotazione.
 4. Questo è l'ID contatore per la prenotazione. Il costo di questo contatore è pari a $ 0. Le VM qualificate per Istanza riservata hanno questo ID contatore nel CSV per tenere conto del costo. 
 5. Standard_DS1_v2 è una VM con vCPU che viene distribuita senza il vantaggio Azure Hybrid. Questo contatore copre quindi i costi aggiuntivi del software Windows. Vedere [Costi del software Windows per le istanze di macchina virtuale riservata di Azure](billing-reserved-instance-windows-software-costs.md) per trovare il contatore corrispondente alla VM con 1 core serie D. Se si usa il vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato. 
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](billing-save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

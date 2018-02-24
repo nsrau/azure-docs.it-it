@@ -1,23 +1,22 @@
 # [Overview](overview.md)
 
 # Guida introduttiva
-## [Guida introduttiva di Bash](quickstart.md)
-## [Avvio rapido di PowerShell](quickstart-powershell.md)
+## [Bash - Guida introduttiva](quickstart.md)
+## [PowerShell - Guida introduttiva](quickstart-powershell.md)
 
 # Concetti
-## [Strumenti e funzionalità in Bash](features.md)
-## [Strumenti e funzionalità in PowerShell](features-powershell.md)
+## [Bash - Strumenti e funzionalità](features.md)
+## [PowerShell - Strumenti e funzionalità](features-powershell.md)
 ## [Limitazioni](limitations.md)
 
 # Procedura
-## [Archiviazione persistente in Bash](persisting-shell-storage.md)
-## [Archiviazione persistente in PowerShell](persisting-shell-storage-powershell.md)
+## [Bash - Archiviazione persistente](persisting-shell-storage.md)
+## [PowerShell - Archiviazione persistente](persisting-shell-storage-powershell.md)
 ## [Uso della finestra](using-the-shell-window.md)
 
 # Esempi
-## [Distribuire risorse di Azure con Terraform in Bash](example-terraform-bash.md)
-
-## [Eseguire Ansible in Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
+## [Bash - Creare risorse con Terraform](example-terraform-bash.md)
+## [Bash - Eseguire playbook Ansible](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Incorporare Cloud Shell](embed-cloud-shell.md)
 

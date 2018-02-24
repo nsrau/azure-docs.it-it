@@ -14,11 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: v-craic
+<<<<<<< HEAD
 ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+=======
+ms.openlocfilehash: 037c3dd1ae3cc77ee6a0224149f3b099b3af8641
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configurare una rete virtuale per Azure DevTest Labs
 Come illustrato nell'articolo [Aggiungere una macchina virtuale a un lab](devtest-lab-add-vm.md), quando si crea una macchina virtuale in un lab è possibile specificare una rete virtuale configurata. Potrebbe essere necessario, ad esempio, accedere alle risorse di rete aziendali dalle macchine virtuali usando la rete virtuale configurata con ExpressRoute o VPN da sito a sito.
@@ -29,7 +34,7 @@ Questo articolo illustra come aggiungere la rete virtuale esistente alle imposta
 I passaggi seguenti descrivono la procedura per aggiungere una rete virtuale esistente (e una subnet) a un lab in modo che sia disponibile al momento della creazione di una VM nel lab. 
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco dei lab selezionare il lab desiderato. 
 1. Nel riquadro principale del lab selezionare **Configurazione e criteri**.
 

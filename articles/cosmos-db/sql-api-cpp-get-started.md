@@ -16,11 +16,11 @@ ms.date: 12/25/2016
 ms.author: aasthan
 ms.openlocfilehash: da969e3f619c9703ea0c02a148f11a9509d6e988
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Cosmos Azure DB: Esercitazione di applicazione console C++ per l'API di SQL
+# <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: Esercitazione su un'applicazione console in C++ per l'API SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -33,9 +33,9 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
-Introduzione all'esercitazione C++ per l'API di SQL Azure DB Cosmos approvate SDK per C++. Al termine di questa esercitazione, si otterrà un'applicazione console che consente di creare ed eseguire query sulle risorse di Azure Cosmos DB, incluso un database C++.
+Esercitazione su C++ per l'SDK per C++ approvato per l'API SQL di Azure Cosmos DB Al termine di questa esercitazione, si otterrà un'applicazione console che consente di creare ed eseguire query sulle risorse di Azure Cosmos DB, incluso un database C++.
 
-Si applica questa Guida rapida:
+In questa Guida introduttiva viene trattato quanto segue:
 
 * Creazione e connessione a un account Azure Cosmos DB
 * Configurazione dell'applicazione
@@ -101,7 +101,7 @@ Visualizzare il [portale di Azure](https://portal.azure.com) e accedere all'acco
         DocumentDBConfiguration conf (L"<account_configuration_uri>", L"<primary_key>");
         DocumentClient client (conf);
    
-    Dopo aver creato il codice per inizializzare il client, esaminiamo un utilizzo delle risorse di Azure Cosmos DB.
+    Ora che è disponibile il codice per inizializzare il client, è possibile esaminare l'uso delle risorse di Azure Cosmos DB.
 
 ## <a id="CreateDBColl"></a>Passaggio 5. Creare un database e una raccolta C++
 Per coloro che hanno appena iniziato a usare Azure Cosmos DB, prima di eseguire questo passaggio verrà esaminata l'interazione tra database, raccolta e documenti. Un [database](sql-api-resources.md#databases) è un contenitore logico di archiviazione documenti partizionato nelle raccolte. Una [raccolta](sql-api-resources.md#collections) è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata. Per altre informazioni sui concetti e sul modello di risorse gerarchico di Azure Cosmos DB, vedere [Modello di risorse gerarchico e concetti relativi ad Azure Cosmos DB](sql-api-resources.md).

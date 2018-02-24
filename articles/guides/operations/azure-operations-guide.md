@@ -17,7 +17,7 @@ ms.date: 06/12/2017
 ms.author: nepeters
 ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -48,7 +48,7 @@ Un'infrastruttura locale garantisce il controllo completo sull'hardware e sul so
 
 Microsoft ha distribuito numerosi centri dati di Azure in tutto il mondo e prevede di distribuirne altri. Microsoft, poi, sta aumentando i cloud sovrani in aree quali Cina e Germania. Una distribuzione di centri dati di questo tipo è alla portata solo delle aziende globali di maggiori dimensioni. Tramite Azure, quindi, è più facile per le aziende di qualsiasi dimensione distribuire i propri servizi vicino ai propri clienti.
 
-Per le piccole imprese, Azure rappresenta un punto di ingresso a costo contenuto, con la possibilità di un ridimensionamento rapido man mano che le esigenze di calcolo aumentano. Ciò consente di evitare un immediato consistente investimento nell'infrastruttura e offre la flessibilità necessaria per riprogettare i sistemi quando necessario. L'uso del cloud computing si adatta perfettamente al modello "scale-fast, fail-fast" della crescita iniziale.
+Per le piccole imprese, Azure rappresenta un punto di ingresso a costo contenuto, con la possibilità di un ridimensionamento rapido man mano che le esigenze di calcolo aumentano. Ciò consente di evitare un immediato consistente investimento nell'infrastruttura e offre la flessibilità necessaria per riprogettare i sistemi quando necessario. L'uso del cloud computing si adatta perfettamente al modello con scalabilità immediata e con risposta immediata agli errori della crescita iniziale.
 
 Per altre informazioni sulle aree di Azure disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
@@ -141,7 +141,7 @@ Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazion
 ### <a name="datacenters-and-regions"></a>Centri dati e aree
 
 
-Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un Data Center speciﬁc in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un data center specifico in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi.
 

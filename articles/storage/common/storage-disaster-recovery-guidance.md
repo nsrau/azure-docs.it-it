@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 327816874fb2f2d43192e02410bd31c168e574f7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione di Archiviazione di Azure
 Microsoft si impegna costantemente per verificare che i servizi siano sempre disponibili. A volte si verificano eventi al di fuori del controllo di Microsoft, che causano interruzioni non pianificate dei servizi in una o più aree. Per riuscire a gestire questi sporadici avvenimenti, viene fornita la guida generale seguente per i servizi di Archiviazione di Azure.
@@ -27,9 +27,9 @@ Microsoft si impegna costantemente per verificare che i servizi siano sempre dis
 È fondamentale che ogni cliente prepari il proprio piano di ripristino di emergenza. Il processo per eseguire il ripristino dopo un'interruzione dell'archiviazione comporta in genere sia il coinvolgimento del personale addetto alle attività operative che procedure automatizzate per riattivare le applicazioni in uno stato funzionante. Per creare un piano di ripristino di emergenza, vedere la documentazione di Azure seguente:
 
 * [Elenco di controllo della disponibilità](https://docs.microsoft.com/azure/architecture/checklist/availability)
-* [Progettazione di applicazioni resilienti per Azure](/azure/architecture/resiliency)
+* [Progettazione di applicazioni resilienti per Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Servizio Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
-* [Replica di Archiviazione di Azure](storage-redundancy)
+* [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 * [Servizio Backup di Azure](https://azure.microsoft.com/services/backup/)
 
 ## <a name="how-to-detect"></a>Come rilevare il problema

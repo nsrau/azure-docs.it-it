@@ -18,7 +18,7 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: cd603e00b28b2de380408707043e9806e29b74c4
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -49,7 +49,7 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 | Comando | Note |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Inoltre, questo comando apre la porta 80 e imposta le credenziali amministrative. |
+| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando apre anche la porta 80 e imposta le credenziali amministrative. |
 | [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Aggiungere un'estensione di VM alla macchina virtuale. In questo esempio, l'estensione dello script personalizzato è usata per installare IIS. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 

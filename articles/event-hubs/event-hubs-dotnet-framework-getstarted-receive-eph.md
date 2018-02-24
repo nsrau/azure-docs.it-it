@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8fd70380dbb88f379789e1a4730934dcd38cac5a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Ricevere eventi da Hub eventi di Azure usando .NET Framework
 
@@ -45,7 +45,7 @@ Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azur
 
 Per usare l'[host processore di eventi][EventProcessorHost] è necessario un [account di archiviazione di Azure][Azure Storage account]:
 
-1. Accedere al [portale di Azure][Azure portal] e fare clic su **Nuovo** nella parte superiore sinistra della schermata.
+1. Accedere al [portale di Azure][Azure portal] e fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
 2. Fare clic su **Archiviazione** e quindi su **Account di archiviazione**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)

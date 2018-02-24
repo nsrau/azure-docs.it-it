@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows - Anteprima
 
@@ -32,7 +32,7 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 3. Installare [Python 2.7 su Windows][lnk-python] e assicurarsi di usare il comando pip.
 4. Eseguire il comando seguente per scaricare lo script di controllo di IoT Edge.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
@@ -43,7 +43,7 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 >    * Windows IoT Core (Build 16299) su un dispositivo basato su x64
 >
 > Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per l'uso dei contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
->    ```
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -78,19 +78,19 @@ Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È cos
 
 Configurare il runtime con la stringa di connessione del dispositivo IoT Edge definita nella sezione precedente.
 
-```
+```cmd
 iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Avviare il runtime.
 
-```
+```cmd
 iotedgectl start
 ```
 
 Controllare Docker per verificare che l'agente di IoT Edge sia in esecuzione come modulo.
 
-```
+```cmd
 docker ps
 ```
 

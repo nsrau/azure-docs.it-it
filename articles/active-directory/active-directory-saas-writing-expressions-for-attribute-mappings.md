@@ -78,7 +78,7 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 | Nome | Obbligatorio/Ripetuto | Tipo | Note |
 | --- | --- | --- | --- |
 | **separator** |Obbligatorio |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
+| **source1 … sourceN ** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 - - -
 ### <a name="mid"></a>Mid

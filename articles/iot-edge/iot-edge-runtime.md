@@ -6,14 +6,19 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
+<<<<<<< HEAD
 ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+=======
+ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Informazioni sul runtime di Azure IoT Edge e la relativa architettura: anteprima
 
@@ -64,14 +69,18 @@ L'hub di Edge facilita la comunicazione da modulo a modulo. L'uso dell'hub di Ed
 
 Per inviare i dati all'hub di Edge, un modulo chiama il metodo SendEventAsync. Il primo argomento specifica su quale output inviare il messaggio. Lo pseudocodice seguente invia un messaggio su output1:
 
-    DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
-    await client.OpenAsync(); 
-    await client.SendEventAsync(“output1”, message); 
+   ```csharp
+   DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+   await client.OpenAsync(); 
+   await client.SendEventAsync(“output1”, message); 
+   ```
 
 Per ricevere un messaggio, registrare un callback che elabori i messaggi in arrivo in un input specifico. Lo pseudocodice seguente registra la funzione messageProcessor da usare per l'elaborazione di tutti i messaggi ricevuti in input1:
 
-    await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
-    
+   ```csharp
+   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   ```
+
 Lo sviluppatore di soluzioni è responsabile dell'indicazione delle regole che determinano la modalità in cui l'hub di Edge passa i messaggi tra i moduli. Le regole di routing sono definite nel cloud e propagate all'hub di Edge nel dispositivo gemello. La stessa sintassi per le route dell'hub IoT viene usata per definire le route tra i moduli di Azure IoT Edge. 
 
 <!--- For more info on how to declare routes between modules, see []. --->   

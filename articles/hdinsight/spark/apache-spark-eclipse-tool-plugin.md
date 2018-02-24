@@ -16,11 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
+<<<<<<< HEAD
 ms.openlocfilehash: c36d742c61fb85f1b6077dd9156d6e36b37db1e1
 ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2018
+=======
+ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/21/2018
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Spark per un cluster HDInsight
 
@@ -246,7 +254,6 @@ Per eventuali commenti oppure se si riscontrano problemi nell'uso di questo stru
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](../hdinsight-apache-spark-eventhub-streaming.md)
 * [Analisi dei log del sito Web mediante Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Creazione ed esecuzione di applicazioni

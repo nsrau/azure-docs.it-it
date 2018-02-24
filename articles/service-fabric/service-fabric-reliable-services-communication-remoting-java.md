@@ -15,7 +15,7 @@ ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -101,7 +101,7 @@ Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al 
 Il proxy servizio non gestisce tutte le eccezioni di failover per la partizione del servizio per la quale è stato creato. Risolve nuovamente gli endpoint in presenza di eccezioni di failover (eccezioni non temporanee) e tenta di nuovo la chiamata con l'endpoint corretto. Il numero di tentativi per l'eccezione di failover è indefinito.
 In caso di eccezioni temporanee ritenta solo la chiamata.
 
-Parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Utente può configurare questi valori, passando OperationRetrySettings oggetto costruttore ServiceProxyFactory.
+Parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings]. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) L'utente può configurare questi valori passando l'oggetto OperationRetrySettings al costruttore di ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Proteggere le comunicazioni per Reliable Services](service-fabric-reliable-services-secure-communication.md)

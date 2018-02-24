@@ -16,15 +16,15 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Uso dell'API REST del servizio Importazione/Esportazione di Azure
 
-Il servizio Importazione/Esportazione di Microsoft Azure espone un'API REST per abilitare il controllo a livello di programmazione dei processi di importazione/esportazione. È possibile utilizzare l'API REST per eseguire tutte le operazioni di importazione/esportazione che è possibile effettuare con il [portale di Azure](https://portal.azure.com/). Inoltre, è possibile utilizzare l'API REST per eseguire determinate operazioni granulari, ad esempio una query sulla percentuale di completamento di un processo, che non è attualmente disponibile nel portale di Azure.
+Il servizio Importazione/Esportazione di Microsoft Azure espone un'API REST per abilitare il controllo a livello di programmazione dei processi di importazione/esportazione. È possibile utilizzare l'API REST per eseguire tutte le operazioni di importazione/esportazione che è possibile effettuare con il [portale di Azure](https://portal.azure.com/). È possibile usare l'API REST anche per eseguire determinate operazioni dettagliate attualmente non disponibili nel portale di Azure, ad esempio eseguire una query sulla percentuale di completamento di un processo.
 
-Vedere [mediante il servizio di importazione/esportazione di Microsoft Azure per trasferire dati nell'archiviazione Blob](../storage-import-export-service.md) per una panoramica del servizio di importazione/esportazione e un'esercitazione che illustra come usare il portale per creare e gestire l'importazione e i processi di esportazione.
+Per una panoramica del servizio di Importazione/Esportazione e un'esercitazione che illustra come usare il portale per creare e gestire i processi di importazione ed esportazione, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../storage-import-export-service.md).
 
 ## <a name="service-endpoints"></a>Endpoint di servizio
 

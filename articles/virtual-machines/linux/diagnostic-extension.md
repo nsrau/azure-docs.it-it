@@ -11,7 +11,7 @@ ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -50,7 +50,7 @@ Le istruzioni di installazione e la [configurazione di esempio scaricabile](http
 
 La configurazione scaricabile è solo un esempio; modificarla per adattarla alle proprie esigenze.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) per aggiornarla.
 * **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale.
@@ -137,7 +137,7 @@ sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui po
 
 
 > [!NOTE]
-> Quando si distribuisce l'estensione con un modello di distribuzione di Azure, l'account di archiviazione e il token di firma di accesso condiviso deve essere create in precedenza e quindi passati al modello. Impossibile distribuire una macchina virtuale, l'account di archiviazione e configurare l'estensione in un unico modello. Creazione di un token di firma di accesso condiviso all'interno di un modello non è attualmente supportata.
+> Quando si distribuisce l'estensione con un modello di distribuzione di Azure, è necessario creare prima l'account di archiviazione e il token di firma di accesso condiviso e poi passarli al modello. Non è possibile distribuire una macchina virtuale, l'account di archiviazione e configurare l'estensione in un unico modello. La creazione di un token di firma di accesso condiviso all'interno di un modello non è attualmente supportata.
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 

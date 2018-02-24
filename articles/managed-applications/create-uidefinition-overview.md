@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Creare l'interfaccia utente del portale di Azure per l'applicazione gestita
 Questo documento illustra i concetti di base del file createUiDefinition.json. Il portale di Azure usa questo file per generare l'interfaccia utente per la creazione di un'applicazione gestita.
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json",
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
    "handler": "Microsoft.Compute.MultiVm",
    "version": "0.1.2-preview",
    "parameters": {
@@ -58,7 +58,7 @@ La proprietà steps può contenere zero o più passaggi aggiuntivi da visualizza
 ## <a name="outputs"></a>Output
 Il portale di Azure usa la proprietà `outputs` per il mapping di elementi da `basics` e `steps` ai parametri del modello di distribuzione Azure Resource Manager. Le chiavi di questo dizionario sono i nomi dei parametri del modello e i valori sono le proprietà degli oggetti di output dagli elementi a cui si fa riferimento.
 
-Per impostare il nome della risorsa applicazione gestita, è necessario includere un valore denominato `applicationResourceName` nella proprietà di output. Se non si imposta questo valore, l'applicazione assegna un GUID per il nome. È possibile includere una casella di testo nell'interfaccia utente che richiede un nome dell'utente.
+Per impostare il nome della risorsa applicazione gestita, è necessario includere un valore denominato `applicationResourceName` nella proprietà di output. Se non si imposta questo valore, l'applicazione assegna un GUID per il nome. È possibile includere una casella di testo nell'interfaccia utente che richiede un nome all'utente.
 
 ```json
 "outputs": {
@@ -81,4 +81,4 @@ Il file createUiDefinition.json è contraddistinto da uno schema semplice ma sup
 
 Per uno schema JSON corrente per createUiDefinition, vedere qui: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Per un file di interfaccia utente di esempio, vedere [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).
+Per un esempio di file di interfaccia utente, vedere [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

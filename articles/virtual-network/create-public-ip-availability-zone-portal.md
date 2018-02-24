@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e796c8be0a5db8cb67e4a091fa51ed89920852c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>Creare un indirizzo IP pubblico in una zona di disponibilità con il portale di Azure
 
@@ -40,7 +40,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-zonal-public-ip-address"></a>Creare un indirizzo IP pubblico di zona
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Rete** e quindi **Indirizzo IP pubblico**.
 3. Immettere o selezionare i valori per le impostazioni seguenti, selezionare la sottoscrizione, accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **Crea**:
 

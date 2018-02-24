@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: fed2e9af3e9765ce5a2486fe9468d3ca690a0d5d
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Spostare i dati da SQL Server locale a SQL Azure con Azure Data Factory
 Questo argomento descrive come spostare i dati da un database di SQL Server locale a un database di SQL Azure tramite l'archiviazione BLOB di Azure usando Azure Data Factory (ADF).
@@ -178,7 +178,7 @@ Copiare la definizione JSON della tabella in un file denominata *bloboutputtable
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>Tabella SQL Azure
+### <a name="adf-table-azure-sql"></a>Tabella SQL Azure
 La definizione della tabella per l’output SQL Azure è la seguente (questo schema associa i dati provenienti dal blob):
 
     {

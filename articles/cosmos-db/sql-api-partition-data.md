@@ -16,17 +16,17 @@ ms.author: rafats
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partizionamento nel database di Cosmos di Azure usando l'API di SQL
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Partizionamento in Azure Cosmos DB con l'API SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) è un servizio di database multimodello con distribuzione globale progettato per ottenere prestazioni rapide e prevedibili e per eseguire facilmente il ridimensionamento in base alla crescita dell'applicazione. 
 
-In questo articolo viene fornita una panoramica sull'utilizzo con il partizionamento dei contenitori Cosmos DB con l'API di SQL. Per una panoramica dei concetti e delle procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB, vedere l'articolo relativo a [partizionamento e scalabilità orizzontale](../cosmos-db/partition-data.md). 
+Questo articolo offre una panoramica dell'uso del partizionamento dei contenitori Cosmos DB con l'API SQL. Per una panoramica dei concetti e delle procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB, vedere l'articolo relativo a [partizionamento e scalabilità orizzontale](../cosmos-db/partition-data.md). 
 
 Per iniziare a usare il codice, scaricare il progetto da [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -45,7 +45,7 @@ Per iniziare a usare il codice, scaricare il progetto dell'[esempio di driver di
 
 ## <a name="partition-keys"></a>Chiavi di partizione
 
-Nell'API di SQL, specificare una definizione della chiave di partizione sotto forma di un percorso JSON. La tabella seguente mostra esempi di definizioni di chiavi di partizione e i valori corrispondenti a ognuna. La chiave di partizione viene specificata come percorso, ad esempio `/department` rappresenta la proprietà department. 
+Nell'API SQL è necessario specificare la definizione della chiave di partizione sotto forma di percorso JSON. La tabella seguente mostra esempi di definizioni di chiavi di partizione e i valori corrispondenti a ognuna. La chiave di partizione viene specificata come percorso, ad esempio `/department` rappresenta la proprietà department. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -107,7 +107,7 @@ await client.CreateDocumentCollectionAsync(
 Questo metodo effettua una chiamata API REST a Cosmos DB e il servizio eseguirà il provisioning di una serie di partizioni in base alla velocità effettiva richiesta. È possibile modificare la velocità effettiva di un contenitore in base all'evoluzione delle esigenze in termini di prestazioni. 
 
 ### <a name="reading-and-writing-items"></a>Lettura e scrittura di elementi
-A questo punto si inseriscono i dati in Cosmos DB. Di seguito è riportata una classe di esempio contenente la lettura di un dispositivo e una chiamata a CreateDocumentAsync per inserire una nuova lettura del dispositivo in un contenitore. Questo è un esempio di utilizzo delle API di SQL:
+A questo punto si inseriscono i dati in Cosmos DB. Di seguito è riportata una classe di esempio contenente la lettura di un dispositivo e una chiamata a CreateDocumentAsync per inserire una nuova lettura del dispositivo in un contenitore. Questo esempio sfrutta l'API SQL:
 
 ```csharp
 public class DeviceReading
@@ -224,7 +224,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Nella sezione successiva verrà illustrato come passare a contenitori partizionati da contenitori a partizione singola.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è fornita una panoramica sull'utilizzo con il partizionamento dei contenitori di Azure Cosmos DB con l'API di SQL. Per una panoramica dei concetti e delle procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB, vedere anche l'articolo relativo a [partizionamento e scalabilità orizzontale](../cosmos-db/partition-data.md). 
+Questo articolo include una panoramica dell'uso del partizionamento dei contenitori Azure Cosmos DB con l'API SQL. Per una panoramica dei concetti e delle procedure consigliate per il partizionamento con qualsiasi API di Azure Cosmos DB, vedere anche l'articolo relativo a [partizionamento e scalabilità orizzontale](../cosmos-db/partition-data.md). 
 
 * Eseguire il test delle prestazioni e della scalabilità con Azure Cosmos DB. Per un esempio, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 * Introduzione alla programmazione con gli [SDK](sql-api-sdk-dotnet.md) o l'[API REST](/rest/api/documentdb/)

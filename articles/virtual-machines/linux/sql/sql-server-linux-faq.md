@@ -14,7 +14,7 @@ ms.date: 12/13/2017
 ms.author: jroth
 ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -24,30 +24,30 @@ ms.lasthandoff: 12/21/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](sql-server-linux-faq.md)
 
-In questo articolo vengono fornite le risposte ad alcune delle domande più comuni sull'esecuzione [SQL Server in macchine virtuali Linux Azure](sql-server-linux-virtual-machines-overview.md).
+Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzione di [SQL Server in macchine virtuali Linux di Azure](sql-server-linux-virtual-machines-overview.md).
 
 > [!NOTE]
-> Questo articolo illustra i problemi specifici di SQL Server in macchine virtuali Linux. Se si esegue SQL Server in macchine virtuali Windows, vedere le [domande frequenti su Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
+> Questo articolo descrive i problemi specifici di SQL Server nelle macchine virtuali Linux. Se si esegue SQL Server in macchine virtuali Windows, vedere le [domande frequenti su Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-faq.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Immagini
+## <a id="images"></a> Immagini
 
-1. **Le immagini della raccolta macchina virtuale SQL Server sono disponibili?**
+1. **Quali immagini della raccolta di macchine virtuali di SQL Server sono disponibili?**
 
-   Azure gestisce le immagini di macchina virtuale per tutte le versioni principali supportate di SQL Server in tutte le edizioni per Linux e Windows. Per ulteriori informazioni, vedere l'elenco completo dei [immagini VM Linux](sql-server-linux-virtual-machines-overview.md#create) e [immagini di macchina virtuale Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
+   Azure mantiene le immagini di macchine virtuali per tutte le principali versioni supportate di SQL Server in tutte le edizioni sia per Linux che per Windows. Per altre informazioni, vedere l'elenco completo di [immagini di macchine virtuali Linux](sql-server-linux-virtual-machines-overview.md#create) e [immagini di macchine virtuali Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
-1. **Immagini della raccolta macchina virtuale SQL Server esistenti vengono aggiornate?**
+1. **Le immagini della raccolta di macchine virtuali di SQL Server esistenti vengono aggiornate?**
 
-   Ogni due mesi, le immagini di SQL Server nella raccolta di macchine virtuali vengono aggiornate con i più recenti Linux e gli aggiornamenti di Windows. Per le immagini Linux, include gli aggiornamenti più recenti del sistema. Per le immagini Windows, include tutti gli aggiornamenti che sono contrassegnati come importanti in Windows Update, inclusi gli aggiornamenti di sicurezza di SQL Server importanti e service pack. Gli aggiornamenti cumulativi di SQL Server vengono gestiti in modo diverso per Linux e Windows. Per Linux, gli aggiornamenti cumulativi di SQL Server sono inoltre inclusi nell'aggiornamento. Ma in questo momento, le macchine virtuali di Windows non vengono aggiornate con gli aggiornamenti cumulativi di SQL Server o Windows Server.
+   Ogni due mesi, le immagini di SQL Server nella raccolta di macchine virtuali vengono aggiornate con gli aggiornamenti di Linux e Windows più recenti. Per le immagini Linux si includono gli aggiornamenti di sistema più recenti. Per le immagini Windows, si includono tutti gli aggiornamenti contrassegnati come importanti in Windows Update, inclusi gli aggiornamenti di sicurezza e i Service Pack di SQL Server importanti. Gli aggiornamenti cumulativi di SQL Server vengono gestiti in modo diverso per Linux e Windows. Per Linux, gli aggiornamenti cumulativi di SQL Server sono inclusi nell'aggiornamento. Tuttavia al momento le macchine virtuali Windows non vengono aggiornate con gli aggiornamenti cumulativi di SQL Server o Windows Server.
 
 1. **Quali altri pacchetti di SQL Server correlati vengono installati?**
 
    Per visualizzare i pacchetti di SQL Server installati per impostazione predefinita nelle VM Linux di SQL Server, vedere [Pacchetti installati](sql-server-linux-virtual-machines-overview.md#packages).
 
-1. **Immagini di macchina virtuale di SQL Server possono ottenere rimosso dalla raccolta?**
+1. **Le immagini di macchine virtuali di SQL Server possono essere rimosse dalla raccolta?**
 
-   Sì. Azure gestisce solo un'immagine per ogni versione principale e l'edizione. Ad esempio, quando viene rilasciato un nuovo service pack di SQL Server, Azure aggiunge una nuova immagine per la raccolta per il service pack. L'immagine di SQL Server per il service pack precedente viene rimosso immediatamente dal portale di Azure. Tuttavia, è ancora disponibile per il provisioning di PowerShell per i successivi tre mesi. Dopo tre mesi, l'immagine precedente del Service pack non è più disponibile. Questi criteri di rimozione sono applicabile anche se una versione di SQL Server diventa non supportata quando viene raggiunta la fine del ciclo di vita.
+   Sì. Azure mantiene solo un'immagine per ogni versione e per ogni edizione principale. Ad esempio, quando viene rilasciato un nuovo Service Pack di SQL Server, Azure aggiunge una nuova immagine alla raccolta per quel Service Pack. L'immagine di SQL Server del Service Pack precedente viene immediatamente rimossa dal portale di Azure. Tuttavia è ancora disponibile per il provisioning di PowerShell per i successivi tre mesi. Dopo tre mesi, l'immagine del Service Pack precedente non è più disponibile. Questi criteri di rimozione sono applicabili anche se una versione di SQL Server non è più supportata perché raggiunge la fine del ciclo di vita.
 
 ## <a name="creation"></a>Creazione
 
@@ -75,11 +75,11 @@ In questo articolo vengono fornite le risposte ad alcune delle domande più comu
 
 ## <a name="administration"></a>Administration
 
-1. **È possibile gestire una macchina virtuale Linux SQL Server con SQL Server Management Studio (SSMS)?**
+1. **È possibile gestire una macchina virtuale Linux di SQL Server con SQL Server Management Studio (SSMS)?**
 
-   Sì, ma SQL Server Management Studio è uno strumento solo Windows. È necessario connettersi in remoto da un computer Windows per utilizzare SQL Server Management Studio con le macchine virtuali di Linux SQL Server. Localmente su Linux, il nuovo [mssql conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) strumento è possibile eseguire molte attività amministrative. Per visualizzare l'anteprima di uno strumento di gestione di database di più piattaforme, vedere [Studio operazioni di SQL Server (anteprima)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Sì, ma lo strumento SSMS è attualmente disponibile solo su Windows. Per usare SSMS con le macchine virtuali Linux di SQL Server è necessario connettersi in remoto da un computer Windows. Su Linux in locale il nuovo strumento [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) può eseguire molte attività amministrative. Per visualizzare l'anteprima di uno strumento di gestione del database multi-piattaforma, vedere [SQL Server Operations Studio (anteprima)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
 
-## <a name="updating-and-patching"></a>L'aggiornamento e l'applicazione di patch
+## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 
 1. **Come si esegue l'aggiornamento a una nuova versione o a una nuova edizione di SQL Server in una VM di Azure?**
 

@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: milanga;juliako;
 ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,7 +27,7 @@ Questa tecnologia, destinata alle trasmissioni video di sicurezza, è in grado d
 
 Attualmente il processore multimediale **Rilevatore multimediale di movimento Azure** è disponibile in Anteprima.
 
-In questo articolo fornisce informazioni dettagliate sulle **rilevatore di movimento di Azure Media** e viene illustrato come usarlo con Media Services SDK per .NET
+Questo articolo illustra dettagliatamente **Azure Media Motion Detector** e spiega come usare questa funzionalità con Media Services SDK per .NET
 
 ## <a name="motion-detector-input-files"></a>File di input di Rilevatore di movimento
 File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
@@ -40,11 +40,11 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
 
 | NOME | Opzioni | DESCRIZIONE | Predefinito |
 | --- | --- | --- | --- |
-| sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificare questa opzione per modificare i numero di falsi positivi. |'medium' |
+| sensitivityLevel |Stringa:'low', 'medium', 'high' |Imposta il livello di sensibilità per la segnalazione dei movimenti. Modificarla per ridurre il numero di falsi positivi. |'medium' |
 | frameSamplingValue |Intero positivo |Imposta la frequenza di esecuzione dell'algoritmo. 1 indica a ogni fotogramma, 2 a un fotogramma su due e così via. |1 |
 | detectLightChange |Booleano: 'true', 'false' |Indica se vengono segnalate le variazioni di luce nei risultati |'False' |
 | mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Esempio: 00:00:03 |Specifica l'intervallo di tempo tra eventi di movimento in cui 2 eventi verranno combinati e segnalati come 1 evento. |00:00:00 |
-| detectionZones |Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1. |Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>Risultati con le zone come ID, con il primo 'id': 0 |Singola zona, che copre l'intero frame. |
+| detectionZones |Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1. |Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>I risultati sono visualizzati con le zone come ID, dove la prima è 'id':0 |Singola zona che copre l'intero fotogramma. |
 
 ### <a name="json-example"></a>Esempio di JSON
     {
@@ -77,9 +77,9 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
 
 
 ## <a name="motion-detector-output-files"></a>File di output di Rilevatore di movimento
-Un processo di rilevamento del movimento restituirà un file JSON nell'asset di output, che descrive gli avvisi di movimento e le rispettive categorie, all'interno del video. Il file conterrà informazioni sull'ora e sulla durata dei movimenti rilevati nel video.
+Un processo di rilevamento del movimento restituirà un file JSON nell'asset di output che descrive gli avvisi di movimento e le relative categorie all'interno del video. Il file conterrà informazioni sull'ora e sulla durata dei movimenti rilevati nel video.
 
-L'API rilevamento movimento fornisce indicatori quando sono presenti oggetti in movimento in un video di sfondo predefinito (ad esempio, un sistema di sorveglianza video). Rilevatore di movimento è in grado di ridurre i falsi allarmi, ad esempio variazioni di luminosità e di ombreggiatura. Le limitazioni correnti degli algoritmi includono video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
+L'API Rilevatore di movimento fornisce indicatori se sono presenti oggetti in movimento in un video con sfondo fisso, ad esempio un video di sorveglianza. Rilevatore di movimento è in grado di ridurre i falsi allarmi, ad esempio variazioni di luminosità e di ombreggiatura. Le limitazioni correnti degli algoritmi includono video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
 
 ### <a id="output_elements"></a>Elementi del file di output JSON
 > [!NOTE]
@@ -102,7 +102,7 @@ La tabella seguente illustra gli elementi del file di output JSON.
 | Eventi |Ogni frammento di evento contiene i movimenti rilevati nella durata specificata. |
 | type |Nella versione corrente questo valore è sempre "2" per il movimento generico. Questa etichetta offre alle API Video la flessibilità necessaria per classificare i movimenti nelle versioni future. |
 | RegionID |Come spiegato in precedenza, in questa versione questo valore è sempre 0. Questa etichetta offre alle API Video la flessibilità necessaria per individuare i movimenti in varie aree nelle versioni future. |
-| Regioni |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/> Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY sinistra superiore dell'area in una scala normalizzata tra 0.0 e 1.0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
+| Regioni |Si riferisce all'area del video in cui si presta particolare attenzione al movimento. <br/><br/>-"id" rappresenta l'area: in questa versione ne è presente una sola, ID 0. <br/>-"type" rappresenta la forma dell'area importante per il movimento. Sono attualmente supportati "rectangle" e "polygon".<br/> Se è stato specificato "rectangle", le dimensioni dell'area saranno X, Y, larghezza e altezza. Le coordinate X e Y rappresentano le coordinate XY in alto a sinistra nell'area in una scala normalizzata da 0,0 a 1,0. La larghezza e l'altezza rappresentano le dimensioni dell'area in una scala normalizzata da 0,0 a 1,0. Nella versione corrente, X, Y, larghezza e altezza sono sempre 0, 0 e 1, 1. <br/>Se è stato specificato "polygon", le dimensioni dell'area saranno in punti. <br/> |
 | Frammenti |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento contiene un inizio, una durata, un numero di intervallo e uno o più eventi. Un frammento privo di eventi significa che non è stato rilevato alcun movimento in corrispondenza dell'ora di inizio e della durata. |
 | Parentesi quadre [] |Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento. |
 | locations |Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento. |
@@ -155,14 +155,14 @@ Di seguito è riportato un esempio di output JSON
 ## <a name="limitations"></a>Limitazioni
 * I formati video di input supportati includono MP4, MOV e WMV.
 * Il rilevamento di movimento è ottimizzato per i video a sfondo fisso. L'algoritmo mira alla riduzione dei falsi allarmi, ad esempio le variazioni di luce e ombra.
-* Non è possibile rilevare alcuni movimento a causa di problemi tecnici; ad esempio, video visione di notte, oggetti semi-trasparenti e oggetti di piccole dimensioni.
+* È possibile che alcuni movimenti non vengano rilevati per problemi tecnici, ad esempio video con visione notturna, oggetti semi-trasparenti e oggetti di piccole dimensioni.
 
 ## <a name="net-sample-code"></a>Codice di esempio .NET
 
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Creare un processo con un'attività di rilevamento movimento in video in base a un file di configurazione che contiene il set di impostazioni json seguente: 
+2. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente: 
    
         {
           "Version": "1.0",

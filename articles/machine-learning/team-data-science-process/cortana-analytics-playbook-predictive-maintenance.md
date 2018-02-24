@@ -16,7 +16,7 @@ ms.date: 03/14/2017
 ms.author: fboylu
 ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
@@ -165,7 +165,7 @@ Gli elementi di dati comuni per i problemi di manutenzione predittiva possono es
 
 Ecco alcuni esempi di elementi dati dai casi d'uso precedenti:
 
-Cronologia di errore: volo date ritardo, le date di errore componente aereo e tipi, errori di ATM cassa ritiro delle transazioni, errori sportello train/sollevamento, freni disco sostituzione order date, vento turbina errore date e interruttore i comandi non riusciti.
+Cronologia dei guasti: date di ritardo dei voli, date e tipi di guasti dei componenti dell'aereo, errori delle transazioni di prelievo di contanti dagli sportelli bancomat, guasti delle porte di treni/ascensori, date degli ordini di sostituzione dei dischi dei freni, dati dei guasti delle turbine eoliche ed errori dei comandi degli interruttori automatici.
 
 Cronologia di manutenzione: registri degli errori dei voli, registri degli errori delle transazioni degli sportelli bancomat, record di manutenzione dei treni inclusi tipo di manutenzione, breve descrizione e così via e record di manutenzione degli interruttori.
 

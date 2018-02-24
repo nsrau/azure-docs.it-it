@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 397afc28b5f4c4f7f84afde13b6d031d83aaced4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità (Anteprima)
 Per proteggere i set di scalabilità di macchine virtuali dagli errori che possono verificarsi a livello di data center, è possibile creare un set di scalabilità tra le zone di disponibilità. Le aree di Azure che supportano le zone di disponibilità includono almeno tre zone distinte, ognuna dotata di risorse di alimentazione, di rete e di raffreddamento indipendenti. Per ulteriori informazioni, vedere [Overview of Availability Zones](../availability-zones/az-overview.md) (Panoramica delle zone di disponibilità in Azure).
@@ -30,13 +30,7 @@ Per proteggere i set di scalabilità di macchine virtuali dagli errori che posso
 ## <a name="single-zone-and-zone-redundant-scale-sets"></a>Set di scalabilità a zona singola o con ridondanza della zona
 Quando si distribuisce un set di scalabilità di macchine virtuali, è possibile scegliere di usare una sola zona di disponibilità in un'area o più zone.
 
-Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le istanze delle macchine virtuali vengono eseguite è sotto controllo e il set di scalabilità viene gestito e ridimensionato automaticamente solo all'interno di questa zona. La figura seguente illustra come è possibile creare più set di scalabilità a zona singola con un servizio di bilanciamento del carico con ridondanza della zona che distribuisce il traffico:
-
-![Distribuzione di set di scalabilità a zona singola con servizio di bilanciamento del carico con ridondanza della zona](media/virtual-machine-scale-sets-use-availability-zones/zonal-vmss.png)
-
-Un set di scalabilità con ridondanza della zona consente di creare un solo set di scalabilità che include più zone. Quando vengono create le istanze delle macchine virtuali, per impostazione predefinita vengono bilanciate equamente tra le diverse zone. Se si verifica un'interruzione in una di queste zone, un set di scalabilità non aumenta automaticamente le istanze per incrementare la capacità. Una procedura consigliata è quella di configurare regole di scalabilità automatica in base alla CPU o all'utilizzo della memoria. Le regole di scalabilità automatica consentono al set di scalabilità di rispondere a una perdita delle istanze delle macchine virtuali in una zona aumentando il numero di istanze nelle restanti zone operative. La figura seguente illustra un esempio di un set di scalabilità singolo distribuito in più zone:
-
-![Distribuzione di un set di scalabilità con ridondanza della zona e servizio di bilanciamento del carico](media/virtual-machine-scale-sets-use-availability-zones/zone-redundant-vmss.png)
+Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le istanze delle macchine virtuali vengono eseguite è sotto controllo e il set di scalabilità viene gestito e ridimensionato automaticamente solo all'interno di questa zona. Un set di scalabilità con ridondanza della zona consente di creare un solo set di scalabilità che include più zone. Quando vengono create le istanze delle macchine virtuali, per impostazione predefinita vengono bilanciate equamente tra le diverse zone. Se si verifica un'interruzione in una di queste zone, un set di scalabilità non aumenta automaticamente le istanze per incrementare la capacità. Una procedura consigliata è quella di configurare regole di scalabilità automatica in base alla CPU o all'utilizzo della memoria. Le regole di scalabilità automatica consentono al set di scalabilità di rispondere a una perdita delle istanze delle macchine virtuali in una zona aumentando il numero di istanze nelle restanti zone operative.
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-overview.md#regions-that-support-availability-zones). È anche necessario eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 

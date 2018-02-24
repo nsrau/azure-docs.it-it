@@ -1,6 +1,6 @@
 ---
-title: Alle variabili del modello di gestione delle risorse Azure | Documenti Microsoft
-description: Viene descritto come definire le variabili in un modelli di gestione risorse di Azure utilizzando la sintassi dichiarativa JSON.
+title: Variabili del modello di Azure Resource Manager | Microsoft Docs
+description: Descrive come definire le variabili dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -15,16 +15,16 @@ ms.date: 12/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 8d9f227ad1f450cf6cdfca1dafb1b51bc6f6c9f9
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="variables-section-of-azure-resource-manager-templates"></a>Sezione di variabili dei modelli di gestione risorse di Azure
+# <a name="variables-section-of-azure-resource-manager-templates"></a>Sezione variables dei modelli di Azure Resource Manager
 Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili, che però permettono spesso di semplificare il modello riducendo le espressioni complesse.
 
-## <a name="define-and-use-a-variable"></a>Definire e utilizzare una variabile
+## <a name="define-and-use-a-variable"></a>Definire e usare una variabile
 
-Nell'esempio seguente viene illustrata una definizione di variabile. Crea un valore stringa per un nome di account di archiviazione. Usa diverse funzioni di modello per ottenere un valore di parametro e concatenata a una stringa univoca.
+L'esempio seguente illustra la definizione di una variabile: Crea un valore stringa per il nome di un account di archiviazione. Usa diverse funzioni di modello per ottenere un valore di parametro e concatenarlo a una stringa univoca.
 
 ```json
 "variables": {
@@ -32,7 +32,7 @@ Nell'esempio seguente viene illustrata una definizione di variabile. Crea un val
 },
 ```
 
-La variabile viene utilizzata durante la definizione di risorsa.
+La variabile viene usata quando si definisce la risorsa.
 
 ```json
 "resources": [
@@ -44,7 +44,7 @@ La variabile viene utilizzata durante la definizione di risorsa.
 
 ## <a name="available-definitions"></a>Definizioni disponibili
 
-Nell'esempio precedente è stato illustrato un modo per definire una variabile. È possibile utilizzare una delle seguenti definizioni:
+L'esempio precedente illustra un modo per definire una variabile. È possibile usare una delle definizioni seguenti:
 
 ```json
 "variables": {
@@ -77,7 +77,7 @@ Nell'esempio precedente è stato illustrato un modo per definire una variabile. 
 
 ## <a name="configuration-variables"></a>Variabili di configurazione
 
-È possibile utilizzare i tipi complessi di JSON per definire i valori correlati per un ambiente. 
+È possibile usare i tipi JSON complessi per definire i valori associati a un ambiente. 
 
 ```json
 "variables": {
@@ -94,7 +94,7 @@ Nell'esempio precedente è stato illustrato un modo per definire una variabile. 
 },
 ```
 
-Nei parametri, si crea un valore che indica i valori di configurazione da utilizzare.
+Nei parametri, creare un valore che indichi i valori di configurazione da usare.
 
 ```json
 "parameters": {
@@ -114,9 +114,9 @@ Recuperare le impostazioni correnti con:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-## <a name="use-copy-element-in-variable-definition"></a>Utilizzare l'elemento copy nella definizione di variabile
+## <a name="use-copy-element-in-variable-definition"></a>Usare l'elemento di copia nella definizione della variabile
 
-È possibile usare la sintassi **copia** per creare una variabile con una matrice di più elementi. Fornire un conteggio del numero di elementi. Ogni elemento contiene le proprietà nell'oggetto **input**. È possibile usare l'istruzione copy in una variabile oppure per creare la variabile. Quando si definisce una variabile e utilizzare **copia** all'interno di tale variabile, si crea un oggetto che dispone di una proprietà di matrice. Quando si utilizza **copia** al livello superiore e definire uno o più variabili all'interno di essa, si crea uno o più gruppi. Entrambi gli approcci sono illustrati nell'esempio seguente:
+È possibile usare la sintassi **copia** per creare una variabile con una matrice di più elementi. Fornire un conteggio del numero di elementi. Ogni elemento contiene le proprietà nell'oggetto **input**. È possibile usare l'istruzione copy in una variabile oppure per creare la variabile. Quando si definisce una variabile e si usa l'istruzione **copy** all'interno di tale variabile, si crea un oggetto che dispone di una proprietà di matrice. Quando si usa l'istruzione **copy** al livello superiore e si definiscono una o più variabili all'interno di esso, si creano una o più matrici. Entrambi gli approcci sono illustrati nell'esempio seguente:
 
 ```json
 "variables": {
@@ -147,7 +147,7 @@ Recuperare le impostazioni correnti con:
 },
 ```
 
-La variabile **disco matrice in oggetto** contiene il seguente oggetto con una matrice denominata **dischi**:
+La variabile **disk-array-on-object** contiene l'oggetto seguente con una matrice denominata **disks**:
 
 ```json
 {
@@ -171,7 +171,7 @@ La variabile **disco matrice in oggetto** contiene il seguente oggetto con una m
 }
 ```
 
-La variabile **matrice dischi-alto livello** contiene la matrice seguente:
+La variabile **disks-top-level-array** contiene la matrice seguente:
 
 ```json
 [
@@ -220,7 +220,7 @@ La variabile **matrice dischi-alto livello** contiene la matrice seguente:
 },
 ```
 
-Questo approccio funziona bene quando è necessario accettare i valori di parametro e assicurarsi che siano nel formato corretto per un valore del modello. Il seguente esempio formatta i valori dei parametri per l'utilizzo nella definizione di regole di sicurezza:
+Questo approccio funziona bene quando occorre verificare che i valori dei parametri siano nel formato corretto per il valore di un modello. L'esempio seguente formatta i valori dei parametri da usare nella definizione delle regole di sicurezza:
 
 ```json
 {
@@ -273,17 +273,17 @@ Le informazioni seguenti possono essere utili quando si usano variabili:
 
 * Usare le variabili per i valori da usare più volte in un modello. Se un valore viene usato una sola volta, un valore hardcoded facilita la lettura del modello.
 * Non è possibile usare la funzione [reference](resource-group-template-functions-resource.md#reference) nella sezione **variables** del modello. La funzione **reference** deriva il proprio valore dallo stato di runtime della risorsa, ma le variabili vengono risolte durante l'analisi iniziale del modello. Costruire invece valori che richiedono la funzione **reference** direttamente nella sezione **resources** o **outputs** del modello.
-* Includere le variabili per i nomi delle risorse che devono essere univoci.
+* Includere le variabili per i nomi di risorse che devono essere univoci.
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-Questi modelli di esempio vengono illustrati alcuni scenari per l'utilizzo di variabili. Distribuire in modo da verificare come le variabili vengono gestite in diversi scenari. 
+Questi modelli di esempio illustrano alcuni scenari per l'uso delle variabili. Distribuirli per testare il modo in cui le variabili vengono gestite in scenari diversi. 
 
 |Modello  |DESCRIZIONE  |
 |---------|---------|
-| [definizioni di variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Illustra i diversi tipi di variabili. Il modello di non distribuire le risorse. Costruisce i valori delle variabili e restituisce questi valori. |
-| [variabile di configurazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Viene illustrato l'utilizzo di una variabile che definisce i valori di configurazione. Il modello di non distribuire le risorse. Costruisce i valori delle variabili e restituisce questi valori. |
-| [le regole di sicurezza di rete](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [file dei parametri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Costruisce una matrice nel formato corretto per l'assegnazione delle regole di sicurezza a un gruppo di sicurezza di rete. |
+| [definizioni delle variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Illustra i diversi tipi di variabili. Il modello non distribuisce alcuna risorsa. Crea e restituisce valori variabili. |
+| [variabile di configurazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Illustra l'uso di una variabile che definisce i valori di configurazione. Il modello non distribuisce alcuna risorsa. Crea e restituisce valori variabili. |
+| [regole di sicurezza della rete](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [file dei parametri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Crea una matrice nel formato corretto per assegnare le regole di sicurezza a un gruppo di sicurezza della rete. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

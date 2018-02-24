@@ -16,13 +16,13 @@ ms.date: 12/21/2017
 ms.author: sethm
 ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
 ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Informazioni sul prezzo e la fatturazione del Bus di servizio
 
-Service Bus di Azure viene offerto con Standard e [Premium](service-bus-premium-messaging.md) livelli. È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
+Il bus di servizio di Azure è disponibile nei livelli Standard e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
 
 > [!NOTE]
 > Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#pricing).
@@ -44,19 +44,19 @@ La tabella [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/detai
 
 ## <a name="messaging-operations"></a>Operazioni di messaggistica
 
-Code e argomenti/sottoscrizioni vengono fatturate per "operation", non per ogni messaggio. Un'operazione fa riferimento a qualsiasi chiamata API a un endpoint del servizio code o argomenti/sottoscrizioni. Sono incluse operazioni di stato della sessione, di invio/ricezione e di gestione.
+Le code e gli argomenti/sottoscrizioni vengono fatturati per "operazione", non per messaggio. Per operazione si intende qualsiasi chiamata API effettuata da un endpoint di servizio di una coda o di un argomento o sottoscrizione. Sono incluse operazioni di stato della sessione, di invio/ricezione e di gestione.
 
 | Tipo di operazione | DESCRIZIONE |
 | --- | --- |
 | Gestione |Creazione, lettura, aggiornamento, eliminazione su code o argomenti/sottoscrizioni. |
 | Messaggistica |Inviare e ricevere messaggi con code o argomenti/sottoscrizioni. |
-| Stato sessione |Ottiene o imposta lo stato della sessione su una coda o argomento o sottoscrizione. |
+| Stato sessione |Acquisire o impostare lo stato della sessione su una coda o un argomento/sottoscrizione. |
 
 Per i dettagli sui costi, vedere i prezzi elencati nella pagina [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="brokered-connections"></a>Connessioni negoziate
 
-*Connessioni negoziate* adattare i modelli di utilizzo che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" su code, argomenti o sottoscrizioni. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
+Le *connessioni negoziate* sono ideali per i modelli d'uso che prevedono un numero elevato di mittenti/destinatari "connessi in modo permanente" a code, argomenti o sottoscrizioni. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
 Per le quote di connessione e altri limiti di servizio, vedere l'articolo sulle [quote di Bus di servizio](service-bus-quotas.md). Per altre informazioni sulle connessioni negoziate, vedere la sezione [Domande frequenti](#faq) più avanti in questo articolo.
 

@@ -1,6 +1,6 @@
 ---
-title: Distribuire l'applicazione di servizio App di Azure con un file ZIP | Documenti Microsoft
-description: Informazioni su come distribuire l'applicazione di servizio App di Azure con un file ZIP.
+title: Distribuire l'app nel servizio app di Azure con un file ZIP | Documentazione Microsoft
+description: Informazioni su come distribuire l'app nel servizio app di Azure con un file ZIP.
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -15,40 +15,40 @@ ms.date: 12/05/2017
 ms.author: cephalin;sisirap
 ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Distribuire l'applicazione di servizio App di Azure con un file ZIP
+# <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Distribuire l'app nel servizio app di Azure con un file ZIP
 
-In questo articolo viene illustrato come utilizzare un file ZIP per distribuire l'applicazione web per [Azure App Service](app-service-web-overview.md). 
+Questo articolo illustra come usare un file ZIP per distribuire l'app Web nel [servizio app di Azure](app-service-web-overview.md). 
 
-Questa distribuzione di file ZIP utilizza lo stesso servizio Kudu che rafforza continua basata sull'integrazione con le distribuzioni. Per la distribuzione del file ZIP, kudu supporta le funzionalità seguenti: 
+La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le distribuzioni basate su integrazione continua. Kudu supporta le funzionalità seguenti per la distribuzione tramite file ZIP: 
 
-- L'eliminazione dei file rimasti da una distribuzione precedente.
+- Eliminazione dei file rimasti da una distribuzione precedente.
 - Opzione per attivare il processo di compilazione predefinito, che include il ripristino del pacchetto.
-- [Personalizzazione distribuzione](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), tra cui l'esecuzione di script di distribuzione.  
-- Registri di distribuzione. 
+- [Personalizzazione della distribuzione](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), inclusa l'esecuzione di script di distribuzione.  
+- Log di distribuzione. 
 
-Per ulteriori informazioni, vedere [documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per completare i passaggi descritti in questo articolo:
+Per seguire la procedura descritta in questo articolo:
 
 * [Creare un'app del servizio app](/azure/app-service/) oppure usare un'app creata per un'altra esercitazione.
 
-## <a name="create-a-project-zip-file"></a>Creare un file ZIP di progetto
+## <a name="create-a-project-zip-file"></a>Creare un file ZIP del progetto
 
 >[!NOTE]
-> Se hai scaricato i file in un file ZIP, estrarre innanzitutto i file. Ad esempio, se un file ZIP scaricato da GitHub, è possibile distribuire il file come-è. GitHub aggiunge ulteriori directory annidate, che non funzionano con il servizio App. 
+> Se i file sono stati scaricati in un file ZIP, occorre innanzitutto estrarli. Ad esempio, se è stato scaricato un file ZIP da GitHub, non è possibile distribuire il file così com'è. GitHub aggiunge altre directory annidate che non funzionano con il servizio app. 
 >
 
-In una finestra terminal locale, passare alla directory radice del progetto dell'app. 
+In una finestra terminale locale, passare alla directory radice del progetto dell'app. 
 
-Questa directory deve contenere il file di voce per l'app web, ad esempio _index.html_, _index.php_, e _app.js_. Può inoltre contenere file di gestione del pacchetto come _Project_, _composer.json_, _package. JSON_, _bower. JSON_e _requirements.txt_.
+Questa directory deve contenere il file di ingresso dell'app Web, ad esempio _index.html_, _index.php_ e _app.js_. Può inoltre contenere file di gestione del pacchetto come _project.json_, _composer.json_, _package.json_, _bower.json_ e _requirements.txt_.
 
-Creare un archivio ZIP di tutti gli elementi del progetto. Il comando seguente usa lo strumento predefinito nel terminale:
+Creare un archivio ZIP per tutti gli elementi del progetto. Il comando seguente usa lo strumento predefinito nel terminale:
 
 ```
 # Bash
@@ -62,29 +62,29 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="upload-zip-file-to-cloud-shell"></a>Caricare il file ZIP alla Shell Cloud
+## <a name="upload-zip-file-to-cloud-shell"></a>Caricare il file ZIP in Cloud Shell
 
-Se si sceglie di eseguire l'interfaccia CLI di Azure dal terminale locale, invece, ignorare questo passaggio.
+Se si sceglie di eseguire l'interfaccia della riga di comando di Azure dal terminale locale, invece, ignorare questo passaggio.
 
-Seguire questa procedura per caricare il file ZIP per la Shell di Cloud. 
+Seguire questa procedura per caricare il file ZIP in Cloud Shell. 
 
 [!INCLUDE [app-service-web-upload-zip.md](../../includes/app-service-web-upload-zip-no-h.md)]
 
-Per ulteriori informazioni, vedere [mantenere i file nella Shell di Cloud di Azure](../cloud-shell/persisting-shell-storage.md).
+Per altre informazioni, vedere [Rendere persistenti i file in Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
 
 ## <a name="deploy-zip-file"></a>Distribuire un file ZIP
 
-Distribuire il file ZIP caricato all'app web utilizzando il [az webapp distribuzione origine configurazione-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip) comando. Se si sceglie di non utilizzare la Shell di Cloud, assicurarsi che la versione di CLI di Azure è 2.0.21 o versione successiva. Per stabilire quale versione è disponibile, eseguire `az --version` comando nella finestra del terminale locale. 
+Distribuire il file ZIP caricato nell'app Web usando il comando [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Se si sceglie di non utilizzare Cloud Shell, assicurarsi che la versione dell'interfaccia della riga di comando di Azure sia 2.0.21 o una versione successiva. Per stabilire la versione in uso, eseguire il comando `az --version` nella finestra terminale locale. 
 
-Nell'esempio seguente consente di distribuire il file ZIP che è stata caricata. Quando si utilizza un'installazione locale di CLI di Azure, specificare il percorso del file ZIP locale per `--src`.   
+L'esempio seguente distribuisce il file ZIP caricato. Quando si utilizza un'installazione locale dell'interfaccia della riga di comando di Azure, specificare il percorso del file ZIP locale per `--src`.   
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/<filename>.zip
 ```
 
-Questo comando consente di distribuire i file e directory di file ZIP file nella cartella dell'applicazione di servizio App predefinita (`\home\site\wwwroot`) e riavvia l'app. Se è configurato alcun processo di compilazione personalizzato aggiuntivo, viene eseguito anche. Per ulteriori informazioni, vedere [documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
+Questo comando distribuisce i file e le directory del file ZIP nella cartella predefinita dell'applicazione del servizio app (`\home\site\wwwroot`) e riavvia l'app. Verranno eseguiti anche eventuali processi d compilazione personalizzati aggiuntivi presenti. Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-Per visualizzare l'elenco delle distribuzioni per questa applicazione, è necessario utilizzare le API REST (vedere la sezione successiva). 
+Per visualizzare l'elenco delle distribuzioni per questa app, è necessario utilizzare le API REST (vedere la sezione successiva). 
 
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
 
@@ -94,5 +94,5 @@ Per scenari di distribuzione più avanzati, provare a eseguire la [distribuzione
 
 ## <a name="more-resources"></a>Altre risorse
 
-* [Kudu: La distribuzione da un file zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: distribuzione da un file ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Credenziali per la distribuzione del Servizio app di Azure](app-service-deploy-ftp.md)

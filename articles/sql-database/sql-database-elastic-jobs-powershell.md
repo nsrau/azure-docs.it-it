@@ -16,7 +16,7 @@ ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 
 Le API di PowerShell per i **processi di database elastici** , in anteprima, consentono di definire il gruppo di database sul quale verranno eseguiti gli script. Questo articolo illustra come creare e gestire **processi di database elastici** con i cmdlet di PowerShell. Vedere [Panoramica dei processi di database elastici](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
 * Un set di database creato con gli strumenti di database elastici. Vedere [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -203,7 +203,7 @@ Aprire una connessione ai processi di database elastici:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Credenziali crittografate all'interno dei processi di database elastici
 Le credenziali del database possono essere inserite nel *database di controllo* dei processi con la relativa password crittografata. È necessario archiviare le credenziali per abilitare l'esecuzione dei processi in un secondo momento tramite pianificazioni dei processi.
 
-La crittografia funziona tramite un certificato creato come parte dello script di installazione. Lo script di installazione crea e carica il certificato nel servizio Cloud di Azure per la decrittografia delle password crittografate archiviate. Il servizio Cloud di Azure in un secondo momento archivia la chiave pubblica all'interno di processi *database del controllo* che consente l'interfaccia portale API di PowerShell o Azure crittografare una password fornita senza richiedere il certificato sia installato in locale .
+La crittografia funziona tramite un certificato creato come parte dello script di installazione. Lo script di installazione crea e carica il certificato nel servizio Cloud di Azure per la decrittografia delle password crittografate archiviate. In seguito, il servizio cloud di Azure archivia la chiave pubblica nel *database di controllo* dei processi che consente all'API di PowerShell o all'interfaccia del portale di Azure di crittografare una password fornita, senza richiedere l'installazione locale del certificato.
 
 Le password delle credenziali vengono crittografate e protette dagli utenti con accesso in sola lettura agli oggetti dei processi di database elastici. È tuttavia possibile che un utente malintenzionato con accesso in lettura e scrittura agli oggetti dei processi di database elastici possa estrarre una password. Le credenziali sono progettate per essere riutilizzate sulle esecuzioni del processo. Le credenziali vengono passate al database di destinazione quando si stabiliscono connessioni. Attualmente non sono previste restrizioni per i database di destinazione usati per le singole credenziali, quindi un utente malintenzionato potrebbe aggiungere una destinazione di database per un database sotto il suo controllo. L'utente potrebbe quindi avviare un processo destinato a questo database per ottenere la password delle credenziali.
 

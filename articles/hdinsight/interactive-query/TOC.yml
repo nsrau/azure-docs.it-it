@@ -12,7 +12,7 @@
     - name: Installare app HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: pianificazione della capacità
+    - name: Pianificazione della capacità
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: Procedure
@@ -49,7 +49,7 @@
             - name: Usare Beeline
               href: ../hadoop/apache-hadoop-use-hive-beeline.md
               maintainContext: true
-            - name: Uso di cURL
+            - name: Usare l'API REST
               href: ../hadoop/apache-hadoop-use-hive-curl.md
               maintainContext: true
             - name: Usare Azure PowerShell
@@ -227,6 +227,12 @@
             - name: Usare l'API REST Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Ridimensionare un cluster HDInsight
+          href: ../hdinsight-scaling-best-practices.md
+          maintainContext: true
+        - name: Usare archivi di metadati esterni
+          href: ../hdinsight-use-external-metadata-stores.md
+          maintainContext: true
         - name: Gestire i log per un cluster HDInsight
           href: ../hdinsight-log-management.md
           maintainContext: true

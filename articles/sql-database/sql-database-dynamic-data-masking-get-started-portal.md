@@ -1,12 +1,12 @@
 ---
 title: 'Portale di Azure: Maschera dati dinamica del database SQL di Azure | Documentazione Microsoft'
-description: Come iniziare con la maschera dati dinamica del Database SQL nel portale di Azure
+description: Introduzione alla maschera dati dinamica del database SQL nel portale di Azure
 services: sql-database
 documentationcenter: 
 author: ronitr
 manager: jhubbard
 editor: 
-ms.assetid: "2"
+ms.assetid: 
 ms.service: sql-database
 ms.custom: security
 ms.devlang: NA
@@ -17,7 +17,7 @@ ms.date: 11/22/2016
 ms.author: ronitr
 ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

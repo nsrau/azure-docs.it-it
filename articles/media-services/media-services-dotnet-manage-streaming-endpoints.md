@@ -1,6 +1,6 @@
 ---
 title: Gestire gli endpoint di streaming con .NET SDK. | Microsoft Docs
-description: In questo articolo viene illustrato come gestire gli endpoint di streaming con il portale di Azure.
+description: Questo articolo illustra come gestire gli endpoint di streaming mediante il portale di Azure.
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -17,16 +17,16 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gestire gli endpoint di streaming con .NET SDK
 
 >[!NOTE]
->Assicurarsi di esaminare il [Panoramica](media-services-streaming-endpoints-overview.md) articolo. Vedere anche [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Vedere l'articolo sulla [panoramica](media-services-streaming-endpoints-overview.md). Vedere anche [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Nel codice in questo articolo viene illustrato come effettuare le seguenti attività mediante Azure Media Services .NET SDK:
+Il codice in questo articolo illustra come eseguire queste attività tramite SDK di Servizi multimediali di Azure per .NET:
 
 - Esaminare l'endpoint di streaming predefinito.
 - Creare/aggiungere un nuovo endpoint di streaming.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 6b0d523dd4c3a03daef0a713c4d57e5ca868af2a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7265af62adf8f380a3a5bd5d9950fb70e9ad6172
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuire Gestione API e Service Fabric
 Questa è la quarta di una serie di esercitazioni.  La distribuzione di Gestione API di Azure con Service Fabric costituisce uno scenario avanzato.  Gestione API è utile quando occorre pubblicare API con un ampio set di regole di routing per i servizi back-end di Service Fabric. Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. In Service Fabric un gateway può essere qualsiasi servizio senza stato progettato per l'ingresso del traffico, come un'applicazione ASP.NET Core, Hub eventi, Hub IoT o Gestione API di Azure. 
@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà come:
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure usando un modello
-> * [Aumentare o ridurre un cluster](/service-fabric-tutorial-scale-cluster.md)
+> * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Distribuire Gestione API e Service Fabric
 

@@ -16,7 +16,7 @@ ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -50,7 +50,7 @@ L'elemento chiave di questo diagramma dell'architettura è il bus di servizio di
 2. In questo modo, è possibile ricevere eventi da uno o più sistemi back-end anche nello scenario con più app per dispositivi mobili.  
 
 ## <a name="sample"></a>Esempio:
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 È necessario completare le seguenti esercitazioni per acquisire familiarità con i concetti e con i comuni passaggi di creazione e configurazione:
 
 1. [Come usare gli argomenti e le sottoscrizioni del bus di servizio]: viene illustrato nei dettagli l'utilizzo di argomenti/sottoscrizioni del bus di servizio. Viene inoltre mostrato come creare uno spazio dei nomi per contenere argomenti/sottoscrizioni e come inviare e ricevere messaggi da questi ultimi.
@@ -212,7 +212,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
    
     ![][3]
    
-    g. Configurare il processo di "Eseguire continuamente" in modo che quando accede al [portale di Azure] dovrebbe essere simile al seguente:
+    g. Configurare il processo per l'esecuzione continua, in modo che, quando si accede al [portale di Azure], venga visualizzata una schermata simile alla seguente:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 3. Eseguire l'applicazione console **EnterprisePushBackendSystem** che simula il back-end LOB e avvia l'invio di messaggi. Verranno visualizzate notifiche di tipo avviso popup simili alle seguenti:
    
     ![][5]
-4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. È possibile esaminare i log del processo Web per verificare l'elaborazione quando si passa al collegamento di registri [portale di Azure] per il processo Web:
+4. All'inizio i messaggi sono stati inviati ad argomenti del bus di servizio, operazione monitorata da sottoscrizioni del bus di servizio nel processo Web. Una volta ricevuto un messaggio, è stata creata una notifica che è stata inviata all'app per dispositivi mobili. Per confermare l'elaborazione, è possibile esaminare i log del processo Web quando si accede al collegamento Log relativo al processo Web nel [portale di Azure]:
    
     ![][6]
 

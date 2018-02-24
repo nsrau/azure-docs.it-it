@@ -17,7 +17,7 @@ ms.date: 5/10/2017
 ms.author: negat
 ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -27,13 +27,13 @@ Questo articolo illustra come modificare il [modello di set di scalabilità a va
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
-Può essere visualizzato il modello di set di scala valida minima [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), e il modello per la distribuzione di scala impostato da un'immagine personalizzata può essere visto [qui](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set custom-image`, passo per passo:
+Il modello di set di scalabilità a validità minima è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), mentre il modello per la distribuzione del set di scalabilità da un'immagine personalizzata è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set custom-image`, passo per passo:
 
 ### <a name="creating-a-managed-disk-image"></a>Creazione dell'immagine di un disco gestito
 
 Se si dispone già di un'immagine di disco gestito personalizzata (una risorsa di tipo `Microsoft.Compute/images`), è possibile ignorare questa sezione.
 
-Aggiungere innanzitutto un `sourceImageVhdUri` parametro, che è l'URI del BLOB in archiviazione di Azure che contiene l'immagine personalizzata per la distribuzione da generalizzato.
+Prima di tutto aggiungere un parametro `sourceImageVhdUri`, ovvero l'URI al BLOB generalizzato in Archiviazione di Azure che contiene l'immagine personalizzata da cui avviare la distribuzione.
 
 
 ```diff
@@ -51,7 +51,7 @@ Aggiungere innanzitutto un `sourceImageVhdUri` parametro, che è l'URI del BLOB 
    "variables": {},
 ```
 
-Successivamente, aggiungere una risorsa di tipo `Microsoft.Compute/images`, ovvero l'immagine del disco gestito in base all'URI blob generalizzato `sourceImageVhdUri`. Questa immagine deve trovarsi nella stessa area del set di scalabilità da cui viene usata. Nelle proprietà dell'immagine, specificare il tipo del sistema operativo, la posizione del blob (dal `sourceImageVhdUri` parametro) e il tipo di account di archiviazione:
+Aggiungere poi una risorsa di tipo `Microsoft.Compute/images`, ovvero l'immagine del disco gestito basata sul BLOB generalizzato presente nell'URI `sourceImageVhdUri`. Questa immagine deve trovarsi nella stessa area del set di scalabilità da cui viene usata. Nelle proprietà dell'immagine specificare il tipo di sistema operativo, la posizione del BLOB ottenuta dal parametro `sourceImageVhdUri` e il tipo di account di archiviazione:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ Successivamente, aggiungere una risorsa di tipo `Microsoft.Compute/images`, ovve
 
 ```
 
-Nella scala dei set di risorse, aggiungere un `dependsOn` clausola che fa riferimento all'immagine personalizzata per verificare che l'immagine viene creata prima tenta di distribuire da quell'immagine di impostare la scala:
+Nella risorsa del set di scalabilità aggiungere una clausola `dependsOn` che fa riferimento all'immagine personalizzata, in modo da essere certi che l'immagine venga creata prima che il set di scalabilità tenti la distribuzione da tale immagine:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ Nella scala dei set di risorse, aggiungere un `dependsOn` clausola che fa riferi
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Modifica delle proprietà del set di scalabilità per usare l'immagine del disco gestito
 
-Nel `imageReference` della scala impostare `storageProfile`, anziché specificare il server di pubblicazione, offerta, sku e versione di un'immagine della piattaforma, specificare il `id` del `Microsoft.Compute/images` risorse:
+In `imageReference` del set di scalabilità `storageProfile` anziché specificare editore, offerta, SKU e versione di un'immagine della piattaforma, specificare `id` della risorsa `Microsoft.Compute/images`:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,9 +111,9 @@ Nel `imageReference` della scala impostare `storageProfile`, anziché specificar
            "osProfile": {
 ```
 
-In questo esempio, utilizzare il `resourceId` funzione per ottenere l'ID risorsa dell'immagine creato nello stesso modello. Se è stato creato l'immagine del disco gestito in anticipo, è necessario fornire l'ID di tale immagine invece. L'ID deve essere nel formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+In questo esempio viene usata la funzione `resourceId` per ottenere l'ID della risorsa dell'immagine creata nello stesso modello. Se l'immagine del disco gestito è stata creata in precedenza, è necessario indicare invece l'ID di tale immagine. L'ID deve essere nel formato seguente: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

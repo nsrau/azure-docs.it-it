@@ -19,7 +19,7 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/14/2017
 Quando si compilano e si distribuiscono servizi a disponibilità elevata nel database SQL di Azure, [i gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili, nonché un rapido ripristino nei database secondari. Questo articolo esamina modelli di applicazione comuni e illustra vantaggi e svantaggi di ogni opzione. Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Uso di due aree di Azure per la continuità aziendale con tempo di inattività minimo
-In questo scenario, le applicazioni hanno le caratteristiche seguenti: 
+In questo scenario le applicazioni presentano le caratteristiche seguenti: 
 *   L'applicazione è attiva in un'area di Azure
 *   Tutte le sessioni del database richiedono l'accesso in lettura e scrittura ai dati
 *   Il livello Web e il livello dati devono essere collocati in modo da ridurre la latenza e il costo del traffico 

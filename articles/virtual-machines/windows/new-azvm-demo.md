@@ -1,6 +1,6 @@
 ---
-title: Creare una macchina virtuale Windows usando i cmdlet New-AzureRMVM semplificata nella Shell di Cloud di Azure | Documenti Microsoft
-description: Rapidamente informazioni su come creare macchine virtuali di Windows con il cmdlet New-AzureRMVM semplificato nella Shell di Cloud di Azure.
+title: Creare una macchina virtuale Windows con il cmdlet New-AzureRMVM semplificato in Azure Cloud Shell | Microsoft Docs
+description: Informazioni veloci su come creare macchine virtuali Windows con il cmdlet New-AzureRMVM semplificato in Azure Cloud Shell.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -18,13 +18,13 @@ ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: 94eb6232cf59d502a9d70545785c3788398f4d27
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Creare una macchina virtuale Windows con il cmdlet New-AzureRMVM semplificato nella Shell di Cloud 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Creare una macchina virtuale Windows con il cmdlet New-AzureRMVM semplificato in Cloud Shell 
 
-Il [New AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) è aggiunto un set semplificato di parametri per la creazione di una nuova macchina virtuale con PowerShell il cmdlet. In questo argomento viene illustrato come utilizzare PowerShell nella Shell di Cloud di Azure, con la versione più recente del cmdlet New-AzureVM preinstallato, per creare una nuova macchina virtuale. Verrà utilizzato un set di parametri semplificata che crea automaticamente tutte le risorse necessarie utilizzando le impostazioni predefinite intelligenti. 
+Il cmdlet [New AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) ha visto l'aggiunta di un set semplificato di parametri per la creazione di una nuova macchina virtuale con PowerShell. In questo argomento viene illustrato come usare PowerShell in Azure Cloud Shell con la versione più recente del cmdlet New-AzureVM preinstallata per creare una nuova macchina virtuale. Verrà usato un set di parametri semplificato, in grado di creare automaticamente tutte le risorse necessarie tramite impostazioni predefinite intelligenti. 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -35,7 +35,7 @@ Se si sceglie di installare e usare PowerShell in locale, per questa esercitazio
 
 ## <a name="create-the-vm"></a>Creare la VM
 
-È possibile utilizzare il [New AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet per creare una macchina virtuale con impostazioni predefinite intelligenti che includono l'utilizzo dell'immagine di Windows Server 2016 Datacenter da Azure Marketplace. È possibile usare New-AzureRMVM con solo il **-nome** parametro e tale valore verrà utilizzato per tutti i nomi di risorsa. In questo esempio viene impostato il parametro **-Name** come *myVM*. 
+È possibile usare il cmdlet [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) per creare una macchina virtuale con impostazioni predefinite intelligenti che includono l'uso dell'immagine di Windows Server 2016 Datacenter disponibile in Azure Marketplace. È possibile usare il cmdlet New-AzureRMVM solo con il parametro **-Name**; tale valore verrà usato per tutti i nomi di risorsa. In questo esempio viene impostato il parametro **-Name** come *myVM*. 
 
 Verificare che in Cloud Shell sia selezionata l'opzione **PowerShell** e digitare:
 
@@ -63,14 +63,14 @@ Get-AzureRmPublicIpAddress `
     -ResourceGroupName myVMResourceGroup | Select IpAddress
 ```
 
-Nel computer locale, aprire un prompt dei comandi e utilizzare il **mstsc** comando per avviare una sessione desktop remoto con la nuova macchina virtuale. Sostituire &lt;publicIPAddress&gt; con l'indirizzo IP della macchina virtuale. Quando richiesto, immettere il nome utente e la password assegnati alla macchina virtuale al momento della creazione.
+Nel computer locale aprire un prompt dei comandi e usare il comando **mstsc** per avviare una sessione di desktop remoto con la nuova macchina virtuale. Sostituire &lt;publicIPAddress&gt; con l'indirizzo IP della macchina virtuale. Quando richiesto, immettere il nome utente e la password assegnati alla macchina virtuale al momento della creazione.
 
 ```
 mstsc /v:<publicIpAddress>
 ```
-## <a name="specify-different-resource-names"></a>Specificare i nomi di risorse diverso
+## <a name="specify-different-resource-names"></a>Specificare nomi di risorse diversi
 
-È possibile anche fornire nomi più descrittivi per le risorse e in modo da poterle creato automaticamente. Di seguito è riportato un esempio in cui è stato denominato più risorse per la nuova macchina virtuale, inclusi un nuovo gruppo di risorse.
+È possibile anche fornire nomi più descrittivi per le risorse, pur creandoli sempre automaticamente. Di seguito è riportato un esempio in cui sono state denominate più risorse per la nuova macchina virtuale, incluso un nuovo gruppo di risorse.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

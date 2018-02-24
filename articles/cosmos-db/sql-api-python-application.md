@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b83e096cbb677653db8a13b6b7c04e6c705fd2f3
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -95,7 +95,7 @@ Viene ora illustrata in dettaglio la procedura per creare un'applicazione Web Py
 
 ## <a name="step-3-modify-the-python-flask-web-application"></a>Passaggio 3: Modificare l'applicazione Web Python Flask
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Aggiungere i pacchetti Python Flask al progetto
-Una volta configurato il progetto, è necessario aggiungere i pacchetti pallone richiesti al progetto, inclusi pydocumentdb, il pacchetto di Python per l'API di SQL Azure DB Cosmos.
+Dopo la configurazione del progetto sarà necessario aggiungere i pacchetti Flask necessari per il progetto, compreso pydocumentdb, il pacchetto python per l'API SQL di Azure Cosmos DB.
 
 1. In Esplora soluzioni aprire il file denominato **requirements.txt** e sostituire il contenuto esistente con quello riportato di seguito:
    
@@ -317,7 +317,7 @@ def vote():
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Aggiungere un file di configurazione e modificare \_\_init\_\_.py
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **tutorial** (esercitazione), scegliere **Aggiungi**, **Nuovo elemento** e infine **Empty Python File** (File di Python vuoto), quindi denominare il file **config.py**. Questo file config è necessario per i moduli in Flask. È possibile usarlo anche per fornire una chiave privata. Tale chiave non sarà tuttavia necessaria per questa esercitazione.
-2. Aggiungere il seguente codice al config.py, sarà necessario modificare i valori di **COSMOSDB\_HOST** e **COSMOSDB\_chiave** nel passaggio successivo.
+2. Aggiungere il codice seguente al file config.py. Nel passaggio successivo sarà necessario modificare i valori di **COSMOSDB\_HOST** e **COSMOSDB\_KEY**.
    
     ```python
     CSRF_ENABLED = True
@@ -330,8 +330,8 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. Nel [portale di Azure](https://portal.azure.com/) passare alla pagina **Chiavi** facendo clic su **Sfoglia**, **Account Azure Cosmos DB**, fare doppio clic sul nome dell'account da usare e quindi fare clic sul pulsante **Chiavi** nell'area **Informazioni di base**. Nel **chiavi** copiare il **URI** valore e incollarlo il **config.py** file, come valore per il **COSMOSDB\_HOST**proprietà. 
-4. Eseguire il backup nel portale di Azure, nel **chiavi** copiare il valore della **chiave primaria** o **chiave secondaria**e incollarlo nella **config.py**file, come valore per il **COSMOSDB\_chiave** proprietà.
+3. Nel [portale di Azure](https://portal.azure.com/) passare alla pagina **Chiavi** facendo clic su **Sfoglia**, **Account Azure Cosmos DB**, fare doppio clic sul nome dell'account da usare e quindi fare clic sul pulsante **Chiavi** nell'area **Informazioni di base**. Nella pagina **Chiavi** copiare il valore di **URI** e incollarlo nel file **config.py**, come valore della proprietà **COSMOSDB\_HOST**. 
+4. Tornare al portale di Azure e nella pagina **Chiavi** copiare il valore della **Chiave primaria** o della **Chiave secondaria** e incollarlo nel file **config.py** come valore della proprietà **COSMOSDB\_KEY**.
 5. Nel file **\_\_init\_\_.py** aggiungere la riga seguente: 
    
         app.config.from_object('config')

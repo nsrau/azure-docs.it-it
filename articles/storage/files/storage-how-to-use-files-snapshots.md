@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c4a5f7d28601867c383b8b348568e4bb580a81eb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: eb5c7d0fcb9e1106dbc0aa577ba5ecfa1bf6bee7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="work-with-share-snapshots-preview"></a>Usare gli snapshot di condivisione (anteprima)
 Uno snapshot di condivisione (anteprima) è una versione di sola lettura di una condivisione di File di Azure acquisita in un determinato momento. Dopo aver creato uno snapshot di condivisione è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Uno snapshot di condivisione consente di eseguire un backup della condivisione così com'è in un determinato momento. 
@@ -246,7 +246,6 @@ Nel risultato si noterà che il contenuto del file scaricato e le relative propr
 }
 ```
 
-<<<<<<< HEAD
 ### <a name="file-share-snapshot-operations-in-azure-powershell"></a>Operazioni di creazione snapshot di condivisione file in Azure PowerShell
 È possibile usare Azure Powershell per eseguire operazioni come la visualizzazione di un elenco di snapshot di condivisione, l'esplorazione del contenuto di uno snapshot di condivisione, il ripristino o il download di file da uno snapshot di condivisione o l'eliminazione di uno snapshot di condivisione.
 
@@ -281,11 +280,7 @@ $directory = Get-AzureStorageFile -ShareName "ContosoShare06" -Path "ContosoWork
 Get-AzureStorageFileContent -Share $snapshot -Path $file -Destination $directory
 ```
 
-
-## <a name="delete-azure-files-share-snapshot"></a>Eliminare uno snapshot di condivisione file di Azure
-=======
 ## <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione
->>>>>>> 6a1833e10031fbf1ab204bb1f30cb54cf5fbcada
 
 È possibile eliminare snapshot di condivisione file usando il portale di Azure, PowerShell, l'interfaccia della riga di comando, l'API REST o qualsiasi SDK di Archiviazione. Le sezioni seguenti illustrano come creare uno snapshot di condivisione usando il portale di Azure, l'interfaccia della riga di comando e PowerShell.
 

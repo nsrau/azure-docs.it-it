@@ -2,23 +2,25 @@
 title: "Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure | Microsoft Docs"
 description: "Informazioni su come usare Azure SDK per caricare grandi quantità di dati casuali in parallelo in un account di archiviazione di Azure"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 98f3f69c6025d61caac20e13b573651854952432
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+=======
+ms.openlocfilehash: 39a48007bdcd055df4529074a67b5b8a6db2d8b4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
 
@@ -36,7 +38,7 @@ L'archivio BLOB di Azure offre un servizio scalabile per l'archiviazione dei dat
 
 Un altro fattore importante nella progettazione di un'applicazione ad alte prestazioni che usa BLOB è la [denominazione delle partizioni](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47). Per la scalabilità e il bilanciamento del carico, Archiviazione di Azure usa uno schema di partizionamento basato su intervalli. Con questa configurazione, i file con prefissi o convenzioni di denominazione simili vengono inseriti nella stessa partizione. Questa logica include il nome del contenitore in cui i file vengono caricati. In questa esercitazione si usano file con nomi costituiti da GUID e contenuto generato in modo casuale, che vengono quindi caricati in cinque diversi contenitori con nomi casuali.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione è necessario aver completato la precedente esercitazione sull'archiviazione: [Creare una macchina virtuale e un account di archiviazione per un'applicazione scalabile][previous-tutorial].
 

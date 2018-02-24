@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: milanga;juliako;
 ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ Il processore di contenuti multimediali **Rilevamento multimediale volti di Azur
 
 * **Rilevamento volti**
   
-    Il Rilevamento volti rileva e monitora i volti umani all'interno di un video. È possibile rilevare e monitorare diversi volti mentre le persone si muovono; i metadati relativi a ora e luogo vengono restituiti in un file JSON. Durante l'attività di gestione, tenta di assegnare un ID coerenza per la stessa faccia mentre l'utente si sposta sullo schermo, anche se è nascosto o lasciare brevemente il frame.
+    Il Rilevamento volti rileva e monitora i volti umani all'interno di un video. È possibile rilevare e monitorare diversi volti mentre le persone si muovono; i metadati relativi a ora e luogo vengono restituiti in un file JSON. Durante il monitoraggio, il sistema tenta di assegnare sempre lo stesso ID al volto mentre la persona si muove sullo schermo, anche se è nascosta o se esce brevemente dall'inquadratura.
   
   > [!NOTE]
   > Questo servizio non esegue il riconoscimento facciale. Se una persona esce dall'inquadratura o viene nascosta troppo a lungo, al suo ritorno le verrà assegnato un nuovo ID.
@@ -38,7 +38,7 @@ Il processore di contenuti multimediali **Rilevamento multimediale volti di Azur
 
 Attualmente il processore multimediale **Rilevamento multimediale volti di Azure** è disponibile in Anteprima.
 
-In questo articolo fornisce informazioni dettagliate sulle **Azure Media faccia Rilevatore** e viene illustrato come usarlo con Media Services SDK per .NET.
+Questo articolo contiene informazioni dettagliate su **Azure Media Face Detector** e illustra come usare questa funzionalità con Media Services .NET SDK.
 
 ## <a name="face-detector-input-files"></a>File di input di Rilevamento volti
 File video. Attualmente sono supportati i formati seguenti: MP4, MOV e WMV.
@@ -316,14 +316,14 @@ Output JSON per l'emozione aggregata (troncato):
 * I formati video di input supportati includono MP4, MOV e WMV.
 * L'intervallo delle dimensioni rilevabili del volto è da 24x24 a 2048x2048 pixel. I volti al di fuori di questo intervallo non vengono rilevati.
 * Il numero massimo di volti restituiti per ogni video è 64.
-* Non è possibile rilevare alcuni volti a causa di problemi tecnici; ad esempio, angoli faccia molto grandi (head-posa) e occlusione di grandi dimensioni. Le riprese frontali e quasi frontali producono i risultati migliori.
+* È possibile che alcuni volti non vengano rilevati per problemi tecnici, ad esempio angoli del volto molto grandi (durante le pose) e grandi occlusioni. Le riprese frontali e quasi frontali producono i risultati migliori.
 
 ## <a name="net-sample-code"></a>Codice di esempio .NET
 
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Creare un processo con un'attività di rilevamento viso in base a un file di configurazione che contiene il set di impostazioni json seguente: 
+2. Creare un processo con un'attività di rilevamento viso in base al file di configurazione che contiene il set di impostazioni JSON seguente: 
    
         {
             "version": "1.0"

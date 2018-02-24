@@ -16,7 +16,7 @@ ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -28,7 +28,7 @@ In questo argomento viene illustrato come utilizzare Hub di notifica di Azure pe
 
 È possibile abilitare gli scenari di trasmissione includendo uno o più *tag* durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per ulteriori informazioni sui tag, vedere [Espressioni di routing e tag  per hub di notifica](notification-hubs-tags-segment-push-message.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
@@ -207,7 +207,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 Ora l'app può archiviare un insieme di categorie nella risorsa di archiviazione locale del dispositivo utilizzata per la registrazione con l'hub di notifica ogni volta che l'app viene avviata.  L'utente può modificare la selezione di categorie al runtime e scegliere il metodo **subscribe** per aggiornare la registrazione per il dispositivo. Successivamente, si aggiornerà l'app per inviare le notifiche relative alle ultime notizie direttamente nell'applicazione stessa.
 
 ## <a name="optional-sending-tagged-notifications"></a>(facoltativo) Invio di notifiche con tag
-Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica modello appropriato di [portale di Azure] utilizzando la scheda di debug per l'hub di notifica. 
+Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [portale di Azure] usando la scheda debug per l'hub di notifica. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
