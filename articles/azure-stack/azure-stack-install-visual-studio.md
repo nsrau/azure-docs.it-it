@@ -3,8 +3,8 @@ title: Installazione di Visual Studio e connettersi a Azure Stack | Documenti Mi
 description: Informazioni sui passaggi necessari per installare Visual Studio e connettersi a Azure Stack
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 5487125095f05b2fbfa9489c5b4733f61c0212d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: e73aba26a2409c710d962b9df45f6601b0e05340
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Installazione di Visual Studio e connettersi a Azure Stack
 
