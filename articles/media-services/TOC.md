@@ -36,11 +36,9 @@
 #### [Gestire asset tra più account di archiviazione](meda-services-managing-multiple-storage-accounts.md)
 ### [Quote e limitazioni](media-services-quotas-and-limitations.md)
 ## [Configurare Postman](media-rest-apis-with-postman.md)
-### Streaming on demand
-#### [Environment](postman-environment.md)
-#### [Raccolta](postman-collection.md)
-### Streaming live
-#### [Raccolta](postman-live-streaming-collection.md)
+### [Raccolta di streaming on demand](postman-collection.md)
+### [Raccolta di streaming live](postman-live-streaming-collection.md)
+### [Environment](postman-environment.md)
 ## Caricare contenuti
 ### Caricare file in un account
 #### [Azure portal](media-services-portal-upload-files.md)

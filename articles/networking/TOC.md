@@ -23,6 +23,7 @@
 ### [Connettersi all'ambiente locale: VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettersi all'ambiente locale: rete dedicata](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
+
 # Attività iniziali
 ## [Creare la prima rete virtuale](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
@@ -47,6 +48,7 @@
 ### [Gestire l'acquisizione pacchetti](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Determinare l'hop successivo del routing](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Verificare i flussi IP per una macchina virtuale](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Panoramica del monitoraggio della rete](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Script di esempio
 ### [Interfaccia della riga di comando di Azure](cli-samples.md)
@@ -56,11 +58,11 @@
 ### [Bilanciare il carico delle VM](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettere un computer a una rete virtuale](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# riferimento
+# Riferimenti
 ## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
-## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
+## [Node.JS](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
 ## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # Risorse

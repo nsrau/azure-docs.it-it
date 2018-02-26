@@ -44,9 +44,9 @@
           href: storage-monitor-troubleshoot-storage-application.md
     - name: Progettare per la disponibilità elevata nella risorsa di archiviazione cloud
       items:
-        - name: Rendere l'applicazione a disponibilità elevata
+        - name: 1 - Rendere l'applicazione a disponibilità elevata
           href: storage-create-geo-redundant-storage.md
-        - name: Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
+        - name: 2 - Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Eseguire la migrazione dei dati locali nel cloud con AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -54,13 +54,13 @@
       href: storage-unstructured-search.md
     - name: Ottimizzare le prestazioni e la scalabilità dell'applicazione di archiviazione
       items:
-        - name: Creare una VM e un account di archiviazione
+        - name: 1 - Creare una VM e un account di archiviazione
           href: storage-blob-scalable-app-create-vm.md
-        - name: Caricare dati di grandi dimensioni in un account di archiviazione di Azure
+        - name: 2 - Caricare grandi quantità di dati in un account di archiviazione di Azure
           href: storage-blob-scalable-app-upload-files.md
-        - name: Scaricare dati di grandi dimensioni da un account di archiviazione di Azure
+        - name: 3 - Scaricare grandi quantità di dati da un account di archiviazione di Azure
           href: storage-blob-scalable-app-download-files.md
-        - name: Verificare metriche di velocità effettiva e latenza
+        - name: 4- Verificare le metriche di velocità effettiva e latenza
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Esempi
   items:
@@ -317,7 +317,7 @@
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Domande frequenti sulla migrazione di Archiviazione
           href: ../common/storage-migration-faq.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage

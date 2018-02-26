@@ -197,7 +197,7 @@
           items:
             - name: Ambiente di origine per VMware in Azure
               href: site-recovery-set-up-vmware-to-azure.md
-            - name: Distribuire il server di configurazione per server fisici e VMware
+            - name: Distribuire il server di configurazione per il ripristino di emergenza di VMware
               href: how-to-deploy-configuration-server.md
             - name: Ambiente di origine per computer fisico in Azure
               href: site-recovery-set-up-physical-to-azure.md
@@ -267,8 +267,10 @@
       items:
         - name: Gestire server di elaborazione in Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
-        - name: Gestire il server di configurazione
+        - name: Gestire il server di configurazione per il ripristino di emergenza di VMware
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
+        - name: Gestire il server di configurazione per il ripristino di emergenza di computer fisici
+          href: physical-manage-configuration-server.md
         - name: Gestire server vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Gestire il multi-tenancy con Cloud Solution Provider (CSP)

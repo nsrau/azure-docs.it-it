@@ -55,6 +55,8 @@
       items:
         - name: Indirizzo IP statico
           href: static-ip.md
+        - name: Traffico in ingresso e TLS
+          href: ingress.md
     - name: Sicurezza e autenticazione
       items:
         - name: Creare un'entità servizio

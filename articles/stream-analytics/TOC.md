@@ -36,7 +36,7 @@
 
 ## Usare gli strumenti di Visual Studio
 ### [Installare](stream-analytics-tools-for-visual-studio-install.md)
-### [Attività iniziali](stream-analytics-tools-for-visual-studio.md)
+### [Introduzione](stream-analytics-tools-for-visual-studio.md)
 ### [Configurare pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Monitorare e ottimizzare
@@ -62,12 +62,13 @@
 ### [Considerazioni sull'ordinamento degli eventi](stream-analytics-out-of-order-and-late-events.md)
 ### [Limiti del lettore dell'hub eventi](stream-analytics-event-hub-consumer-groups.md)
 ### [Log di diagnostica](stream-analytics-job-diagnostic-logs.md)
+### [Recuperare gli eventi con formato non valido](stream-analytics-malformed-events.md)
 
 ## Automatizzare
 ### [Usare .NET SDK per la gestione](stream-analytics-dotnet-management-sdk.md)
 ### [Azure PowerShell con un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)
