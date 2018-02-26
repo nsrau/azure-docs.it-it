@@ -22,7 +22,7 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Creare una funzione connessa di Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [App Web di distribuzione Docker in Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [App Web di distribuzione Docker in Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Esempi
 ## Interfaccia della riga di comando di Azure
@@ -95,7 +95,7 @@
 ## SDK
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
-### [Node.JS](http://azure.github.io/azure-sdk-for-node/)
+### [Node.js](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)

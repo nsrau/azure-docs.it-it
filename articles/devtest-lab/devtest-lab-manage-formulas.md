@@ -15,13 +15,8 @@ ms.topic: article
 ms.date: 03/07/2017
 ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-<<<<<<< HEAD
-ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-=======
 ms.openlocfilehash: 330f6ae246697d54c6bce0690346652b5f2e2dd0
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
->>>>>>> 31972e77aa0784c49b3de1fde20ec0a5e3007025
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018

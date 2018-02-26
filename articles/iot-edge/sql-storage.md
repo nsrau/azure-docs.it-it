@@ -3,19 +3,6 @@ title: Modulo SQL per Azure IoT Edge | Microsoft Docs
 description: Archiviare dati sul perimetro usando i moduli Microsoft SQL, con Funzioni di Azure per formattare i dati.
 services: iot-edge
 keywords: 
-<<<<<<< HEAD
-author: ebertrams
-manager: timlt
-ms.author: kgremban, ebertrams
-ms.date: 02/07/2018
-ms.topic: article
-ms.service: iot-edge
-ms.openlocfilehash: f7ff069a2536d0138be8cbb32eefba342e1e9275
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-=======
 author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
@@ -27,7 +14,6 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/22/2018
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Archiviare dati sul perimetro con database di SQL Server
 
@@ -106,10 +92,6 @@ Nel passaggio 3 si aggiungono al contenitore SQL Server opzioni di creazione, im
              }
           }
         }
-<<<<<<< HEAD
-      }
-=======
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
    ```
 
 3. A seconda del sistema operativo in esecuzione, aggiornare le impostazioni per il modulo SQL con il codice seguente: 
@@ -118,11 +100,7 @@ Nel passaggio 3 si aggiungono al contenitore SQL Server opzioni di creazione, im
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-<<<<<<< HEAD
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
-=======
       "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
       ```
 
    * Linux:
@@ -139,11 +117,7 @@ Nel passaggio 3 si aggiungono al contenitore SQL Server opzioni di creazione, im
 8. Per avviare il runtime di Edge, selezionare **Edge: Start Edge** (Edge: Avvia Edge) nel riquadro comandi.
 
 >[!TIP]
-<<<<<<< HEAD
->Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker.md#change-the-sa-password).
-=======
 >Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 
 ## <a name="create-the-sql-database"></a>Creare il database SQL
 
@@ -157,11 +131,7 @@ In uno strumento da riga di comando connettersi al database:
    ```
 
 * Linux    
-<<<<<<< HEAD
-   ```cmd
-=======
    ```bash
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
    Docker exec -it sql 'bash'
    ```
 
@@ -173,11 +143,7 @@ Aprire lo strumento di comando SQL:
    ```
 
 * Linux
-<<<<<<< HEAD
-   ```cmd
-=======
    ```bash
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
@@ -222,11 +188,7 @@ IoT Edge crea automaticamente una rete bridge (Linux) o NAT (Windows) all'avvio.
 
 * Linux
 
-<<<<<<< HEAD
-   ```cmd
-=======
    ```bash
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
    sudo docker network inspect azure-iot-edge
    ```
 
@@ -346,11 +308,7 @@ In uno strumento da riga di comando connettersi al database:
    ```
 
 * Linux    
-<<<<<<< HEAD
-   ```cmd
-=======
    ```bash
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
    Docker exec -it sql 'bash'
    ```
 
@@ -362,11 +320,7 @@ Aprire lo strumento di comando SQL:
    ```
 
 * Linux
-<<<<<<< HEAD
-   ```cmd
-=======
    ```bash
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
@@ -381,8 +335,4 @@ Visualizzare i dati:
 
 * Informazioni su come [configurare immagini contenitore SQL Server 2017 in Docker](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker).
 
-<<<<<<< HEAD
 * Visitare il [repository GitHub mssql-docker](https://github.com/Microsoft/mssql-docker) per risorse, feedback e problemi noti.
-=======
-* Visitare il [repository GitHub mssql-docker](https://github.com/Microsoft/mssql-docker) per risorse, feedback e problemi noti.
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea

@@ -9,13 +9,8 @@ ms.author: kgremban
 ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-<<<<<<< HEAD
-ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-=======
 ms.openlocfilehash: 7515f6b2e074c33488fc44768705896d7c9d8ce6
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
