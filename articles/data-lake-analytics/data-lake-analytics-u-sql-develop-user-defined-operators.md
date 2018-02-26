@@ -16,7 +16,7 @@ ms.date: 12/05/2016
 ms.author: edmaca
 ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -130,5 +130,5 @@ Per istruzioni sullo sviluppo di assembly per utilizzo generico per U-SQL, veder
 2. Espandere esempi, espandere gli output e quindi fare doppio clic su **Drivers.csv**.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Estensione delle espressioni U-SQL con codice utente](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx) (Estensione delle espressioni U-SQL con il codice utente)
 * [Utilizzare gli strumenti Data Lake per Visual Studio per lo sviluppo di applicazioni U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

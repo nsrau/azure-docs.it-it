@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2018
+ms.date: 02/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 58f8287e5675e1134cb2fcceef9a9128ef97207c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: jeffgo
+ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare gli elementi di marketplace da Azure allo Stack di Azure
 
@@ -43,7 +44,7 @@ Come si decide il contenuto da includere nel marketplace dello Stack di Azure, �
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. Selezionare l'elemento desiderato nell'elenco e quindi fare clic su **scaricare**. Verrà avviato il download dell'immagine di macchina virtuale per l'elemento selezionato. Tempi di download variano.
+5. Selezionare l'elemento desiderato nell'elenco e quindi fare clic su **scaricare**. Immagine di macchina virtuale per l'elemento selezionato viene avviato per il download. Tempi di download variano.
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -61,7 +62,7 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
 
 1. Aprire la console PowerShell come amministratore e [installare i moduli di PowerShell specifici di Azure Stack](azure-stack-powershell-install.md). Assicurarsi di installare **PowerShell versione 1.2.11 o versione successiva**.  
 
-2. Aggiungere l'account di Azure che è stato utilizzato per registrare dello Stack di Azure. A tale scopo, eseguire il **Aggiungi AzureRmAccount** cmdlet senza parametri. Viene richiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario utilizzare 2-factor authentication in base alla configurazione dell'account.  
+2. Aggiungere l'account di Azure che è stato utilizzato per registrare dello Stack di Azure. Per aggiungere l'account, eseguire il **Aggiungi AzureRmAccount** cmdlet senza parametri. Viene richiesto di immettere le credenziali dell'account Azure e potrebbe essere necessario utilizzare 2-factor authentication in base alla configurazione dell'account.  
 
 3. Se si dispone di più sottoscrizioni, eseguire il comando seguente per selezionare il certificato utilizzato per la registrazione:  
 
@@ -74,16 +75,16 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
 
    ```PowerShell
    # Download the tools archive.
-   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/vnext.zip `
-     -OutFile vnext.zip
+   invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+     -OutFile master.zip
 
    # Expand the downloaded files.
-   expand-archive vnext.zip `
+   expand-archive master.zip `
      -DestinationPath . `
      -Force
 
    # Change to the tools directory.
-   cd \AzureStack-Tools-vnext
+   cd \AzureStack-Tools-master
 
    ```
 
@@ -93,7 +94,7 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
    Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
-     -destination “<Destination folder path>” `
+     -destination "<Destination folder path>" `
      -AzureTenantID $AzureContext.Tenant.TenantId `
      -AzureSubscriptionId $AzureContext.Subscription.Id  
    ```
@@ -102,15 +103,17 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
 
    ![Popup di elementi Azure Marketplace](./media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Selezionare l'immagine che si desidera scaricare (è possibile selezionare più immagini tenendo premuto il tasto Ctrl) e prendere nota della versione dell'immagine, si utilizzerà questa versione per importare l'immagine nella sezione successiva > fare clic su **Ok** > accettare le condizioni legali facendo clic su **Sì**. È anche possibile filtrare l'elenco delle immagini tramite il **aggiungere criteri** opzione. Il download richiede un certo tempo a seconda delle dimensioni dell'immagine. Una volta il download delle immagini è disponibile nel percorso di destinazione fornito in precedenza. Il download contiene gli elementi di raccolta e i file VHD nel formato Azpkg.  
+7. Selezionare l'immagine che si desidera scaricare e prendere nota della versione dell'immagine. È possibile selezionare più immagini tenendo premuto il tasto Ctrl. Utilizzare la versione dell'immagine per importare l'immagine nella sezione successiva.  Successivamente, fare clic su **Ok**, quindi accettare i termini legali facendo clic su **Sì**. È anche possibile filtrare l'elenco delle immagini tramite il **aggiungere criteri** opzione. 
+
+   Il download richiede un certo tempo a seconda delle dimensioni dell'immagine. Una volta il download delle immagini è disponibile nel percorso di destinazione fornito in precedenza. Il download contiene gli elementi di raccolta e i file VHD nel formato Azpkg.
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importare l'immagine e pubblicarla in marketplace Azure Stack
 
-1. Dopo aver scaricato il pacchetto di raccolta e di immagine, salvare i loro e il relativo contenuto nella cartella AzureStack-strumenti-vnext per un'unità disco rimovibile e copiarlo in un ambiente dello Stack di Azure (è possibile copiarlo in locale in qualsiasi posizione, ad esempio: "C:\MarketplaceImages".)   
+1. Dopo aver scaricato il pacchetto di raccolta e di immagine, salvare loro e il relativo contenuto nella cartella AzureStack-strumenti-master per un'unità disco rimovibile e copiarlo in un ambiente dello Stack di Azure (è possibile copiarlo in locale in qualsiasi posizione, ad esempio: "C:\MarketplaceImages").   
 
 2. Prima di importare l'immagine, è necessario connettersi all'ambiente dell'operatore dello Stack di Azure tramite la procedura descritta in [configurare l'ambiente di PowerShell Azure Stack operatore](azure-stack-powershell-configure-admin.md).  
 
-3. Importare l'immagine dello Stack di Azure tramite il cmdlet Add-AzsVMImage. Quando si utilizza questo cmdlet, assicurarsi di sostituire il server di pubblicazione, l'offerta e altri valori di parametro con i valori dell'immagine che si desidera importare. È possibile ottenere "publisher", i valori di "sku" e "offerta" dell'immagine dall'oggetto imageReference del file Azpkg che è stato scaricato in precedenza e il valore "version" passaggio 6 nella sezione precedente.
+3. Importare l'immagine dello Stack di Azure tramite il cmdlet Add-AzsVMImage. Quando si utilizza questo cmdlet, assicurarsi di sostituire il *publisher*, *offrono*e altri valori di parametro con i valori dell'immagine che si desidera importare. È possibile ottenere il *publisher*, *offrono*, e *sku* i valori dell'immagine dall'oggetto imageReference del file Azpkg che è stato scaricato in precedenza e  *versione* valore al passaggio 6 nella sezione precedente.
 
    ```json
    "imageReference": {
@@ -130,8 +133,8 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
     -offer "WindowsServer" `
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
-    -Version "2017.09.25" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Microsoft.WindowsServer2016DatacenterServerCore-ARM-Eval.2017.09.25.vhd" `
+    -Version "2016.127.20171215" `
+    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
     -CreateGalleryItem $False `
     -Location Local
    ```

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8082b632e9fef4aa5d46deb35e415f2b1c55dda
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud
 Azure Active Directory (Azure AD) Connect Health consente di monitorare e ottenere informazioni dettagliate sull'infrastruttura di gestione delle identità locale e sui servizi di sincronizzazione. Consente di mantenere una connessione affidabile a Office 365 e Microsoft Online Services offrendo capacità di monitoraggio per i componenti chiave relativi all'identità, ad esempio i server Active Directory Federation Services (AD FS), i server Azure AD Connect (noto anche come motore di sincronizzazione), i controller di dominio di Active Directory e così via. Rende anche facilmente accessibili i punti dati chiave relativi a questi componenti, per poter recuperare dati sull'utilizzo e altre informazioni importanti e utili per prendere decisioni informate.
@@ -110,7 +110,7 @@ Per iniziare a usare Azure AD Connect Health sono molto semplici, seguire questa
 Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio delle prestazioni e l'analisi di utilizzo. L'URL https://aka.ms/aadconnecthealth permette di raggiungere il pannello principale di Azure AD Connect Health. Un pannello è paragonabile a una finestra. Nel pannello principale sono disponibili opzioni per l'**Avvio rapido**, per i servizi di Azure AD Connect Health e altre opzioni di configurazione. Vedere lo screenshot seguente e le brevi spiegazioni a seguire. Dopo la distribuzione degli agenti, il servizio integrità identifica automaticamente i servizi monitorati da Azure AD Connect Health.
 
 > [!NOTE]
-> Per informazioni sulle licenze, vedere [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md) o la [pagina Prezzi di Azure AD](https://aka.ms/aadpricing).
+> Per informazioni sulle licenze, vedere [Domande frequenti su Azure AD Connect Health](active-directory-aadconnect-health-faq.md) o la [pagina dei prezzi di Azure AD](https://aka.ms/aadpricing).
     
 ![portale di Azure AD Connect Health](./media/active-directory-aadconnect-health/portal4.png)
 

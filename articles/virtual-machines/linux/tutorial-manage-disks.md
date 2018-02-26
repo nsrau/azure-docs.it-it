@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
@@ -108,7 +108,7 @@ Creare un gruppo di risorse con il comando [az group create](https://docs.micros
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Creare una VM con il comando [az vm create]( /cli/azure/vm#create). L'argomento `--datadisk-sizes-gb` viene usato per specificare che è necessario creare un disco aggiuntivo e collegarlo alla macchina virtuale. Per creare e collegare più dischi, usare un elenco delimitato da spazio dei valori delle dimensioni del disco. Nell'esempio seguente viene creata una macchina virtuale con due dischi di dati, entrambi di 128 GB. Poiché le dimensioni dei dischi sono 128 GB, entrambi i dischi sono configurati come P10, il che garantisce un massimo di 500 operazioni di I/O al secondo per disco.
+Creare una VM con il comando [az vm create]( /cli/azure/vm#az_vm_create). L'argomento `--datadisk-sizes-gb` viene usato per specificare che è necessario creare un disco aggiuntivo e collegarlo alla macchina virtuale. Per creare e collegare più dischi, usare un elenco delimitato da spazio dei valori delle dimensioni del disco. Nell'esempio seguente viene creata una macchina virtuale con due dischi di dati, entrambi di 128 GB. Poiché le dimensioni dei dischi sono 128 GB, entrambi i dischi sono configurati come P10, il che garantisce un massimo di 500 operazioni di I/O al secondo per disco.
 
 ```azurecli-interactive 
 az vm create \
@@ -122,7 +122,7 @@ az vm create \
 
 ### <a name="attach-disk-to-existing-vm"></a>Collegare un disco alla macchina virtuale esistente
 
-Per creare e collegare un nuovo disco a una macchina virtuale esistente, usare il comando [az vm disk attach](/cli/azure/vm/disk#attach). Nell'esempio seguente viene creato un disco premium, di 128 gigabyte, che viene collegato alla macchina virtuale creata nel passaggio precedente.
+Per creare e collegare un nuovo disco a una macchina virtuale esistente, usare il comando [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach). Nell'esempio seguente viene creato un disco premium, di 128 gigabyte, che viene collegato alla macchina virtuale creata nel passaggio precedente.
 
 ```azurecli-interactive 
 az vm disk attach --vm-name myVM --resource-group myResourceGroupDisk --disk myDataDisk --size-gb 128 --sku Premium_LRS --new 
@@ -207,13 +207,13 @@ Prima di aumentare le dimensioni del disco, è necessario conoscere l'ID o il no
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
 ```
 
-La macchina virtuale deve anche essere deallocata. Usare il comando [aaz vm deallocate]( /cli/azure/vm#deallocate) per arrestare e deallocare la VM.
+La macchina virtuale deve anche essere deallocata. Usare il comando [aaz vm deallocate]( /cli/azure/vm#az_vm_deallocate) per arrestare e deallocare la VM.
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupDisk --name myVM
 ```
 
-Usare il comando [az disk update](/cli/azure/vm/disk#update) per ridimensionare il disco. In questo esempio un disco denominato *myDataDisk* viene ridimensionato a 1 terabyte.
+Usare il comando [az disk update](/cli/azure/vm/disk#az_vm_disk_update) per ridimensionare il disco. In questo esempio un disco denominato *myDataDisk* viene ridimensionato a 1 terabyte.
 
 ```azurecli-interactive 
 az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
@@ -225,7 +225,7 @@ Dopo aver completato l'operazione di ridimensionamento, avviare la macchina virt
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Se è stato ridimensionato il disco del sistema operativo, la partizione viene automaticamente espanso. Se è stato ridimensionato un disco dati, tutte le partizioni correnti devono essere estese al sistema operativo delle macchine virtuali.
+Se è stato ridimensionato il disco del sistema operativo, la partizione si espande automaticamente. Se è stato ridimensionato un disco dati, tutte le partizioni correnti devono essere estese al sistema operativo delle macchine virtuali.
 
 ## <a name="snapshot-azure-disks"></a>Snapshot di dischi di Azure
 

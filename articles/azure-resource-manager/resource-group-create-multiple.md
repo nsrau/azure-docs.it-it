@@ -16,16 +16,16 @@ ms.date: 12/15/2017
 ms.author: tomfitz
 ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
-In questo articolo viene illustrato come distribuire in modo condizionale una risorsa e come eseguire l'iterazione nel modello di gestione risorse di Azure per creare più istanze di una risorsa.
+Questo articolo illustra come eseguire una distribuzione condizionale di una risorsa e come eseguire l'iterazione nel modello di Azure Resource Manager per creare più istanze di una risorsa.
 
 ## <a name="conditionally-deploy-resource"></a>Distribuire una risorsa in modo condizionale
 
-Quando è necessario decidere durante la distribuzione per creare un'istanza o nessuna istanza di una risorsa, utilizzare il `condition` elemento. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene distribuita. Quando il valore è false, la risorsa non viene distribuita. Per indicare, ad esempio, se viene distribuito un nuovo account di archiviazione o se ne viene usato uno esistente, specificare:
+Quando durante la distribuzione occorre decidere se creare o meno un'istanza di una risorsa, usare l'elemento `condition`. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene distribuita. Quando il valore è false, la risorsa non viene distribuita. Per indicare, ad esempio, se viene distribuito un nuovo account di archiviazione o se ne viene usato uno esistente, specificare:
 
 ```json
 {
@@ -43,7 +43,7 @@ Quando è necessario decidere durante la distribuzione per creare un'istanza o n
 ```
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
-Quando è necessario decidere durante la distribuzione per creare uno o più istanze di una risorsa, aggiungere un `copy` elemento per il tipo di risorsa. Nell'elemento copy si specifica il numero di iterazioni e un nome per questo ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800. 
+Quando durante la distribuzione occorre decidere se creare una o più istanze di una risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento copy si specifica il numero di iterazioni e un nome per questo ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800. 
 
 La risorsa da ricreare più volte assume il formato seguente:
 
@@ -127,11 +127,11 @@ Crea questi nomi:
 * storagefabrikam
 * storagecoho
 
-Per impostazione predefinita, Gestione risorse consente di creare le risorse in parallelo. Pertanto l'ordine di creazione non è garantito. Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
+Per impostazione predefinita, Gestione risorse crea le risorse in parallelo. Pertanto l'ordine di creazione non è garantito. Tuttavia è consigliabile specificare che le risorse vengano distribuite in sequenza. Ad esempio, quando si aggiorna un ambiente di produzione, è consigliabile sfalsare gli aggiornamenti per aggiornarne solo un determinato numero in un dato momento.
 
-Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` a **seriale** e `batchSize` al numero di istanze da distribuire alla volta. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
+Per distribuire in modo seriale più istanze di una risorsa, impostare `mode` su **serial** e `batchSize` sul numero di istanze da distribuire contemporaneamente. Con la modalità seriale, Resource Manager crea una dipendenza da istanze precedenti nel ciclo in modo un batch venga avviato solo dopo il completamento del batch precedente.
 
-Ad esempio, per distribuire in modo seriale due account di archiviazione alla volta, utilizzare:
+Ad esempio, per distribuire in modo seriale gli account di archiviazione due alla volta, usare:
 
 ```json
 {
@@ -256,9 +256,9 @@ Resource Manager espande la matrice `copy` durante la distribuzione. Il nome del
 }
 ```
 
-## <a name="variable-iteration"></a>Iterazione variabile
+## <a name="variable-iteration"></a>Iterazione delle variabili
 
-Per creare più istanze di una variabile, utilizzare il `copy` elemento nella sezione variabili. È possibile creare più istanze di oggetti con i valori correlati e quindi assegnare i valori per le istanze della risorsa. Per creare un oggetto con una proprietà di matrice o una matrice, è possibile utilizzare copia. Entrambi gli approcci sono illustrati nell'esempio seguente:
+Per creare più istanze di una variabile, usare l'elemento `copy` nella sezione variables. È possibile creare più istanze di oggetti con valori correlati e quindi assegnare tali valori a istanze della risorsa. È possibile usare l'opzione di copia per creare un oggetto con una matrice di proprietà o una matrice. Entrambi gli approcci sono illustrati nell'esempio seguente:
 
 ```json
 {
@@ -397,17 +397,17 @@ Nell'esempio seguente viene descritta l'implementazione:
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-Gli esempi seguenti illustrano scenari comuni per la creazione di più risorse o proprietà.
+Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più risorse o proprietà.
 
-|Modello  |DESCRIZIONE  |
+|Modello  |Descrizione  |
 |---------|---------|
-|[Spazio di archiviazione copia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Consente di distribuire più account di archiviazione con un numero di indice nel nome. |
-|[Spazio di archiviazione copia seriale](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Consente di distribuire più account di archiviazione, uno in esecuzione. Il nome include il numero di indice. |
-|[Spazio di archiviazione copia con matrice](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Consente di distribuire più account di archiviazione. Il nome include un valore da una matrice. |
-|[Macchina virtuale con un nuovo o esistente rete virtuale, archiviazione e indirizzo IP pubblico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Consente di distribuire in modo condizionale le risorse nuove o esistenti con una macchina virtuale. |
-|[Distribuzione della macchina virtuale con un numero variabile di dischi dati](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Consente di distribuire più dischi di dati con una macchina virtuale. |
-|[Copiare le variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Illustra le varie modalità di scorrimento su variabili. |
-|[Più regole di sicurezza](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Consente di distribuire più regole di sicurezza a un gruppo di sicurezza di rete. Costruisce le regole di sicurezza da un parametro. |
+|[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
+|[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |
+|[Copia risorsa di archiviazione con matrice](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Distribuisce più account di archiviazione. Il nome include un valore di una matrice. |
+|[VM con valori nuovi o esistenti per Rete virtuale, Archiviazione e IP pubblico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Distribuisce in modo condizionale risorse nuove o esistenti con una macchina virtuale. |
+|[Distribuzione VM con un numero variabile di dischi dati](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuisce più dischi dati con una macchina virtuale. |
+|[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Mostra le diverse modalità di iterazione delle variabili. |
+|[Più regole di sicurezza](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuisce più regole di sicurezza a un gruppo di sicurezza di rete. Costruisce le regole di sicurezza da un parametro. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulle sezioni di un modello, vedere [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md) (Creazione di modelli di Azure Resource Manager).

@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -249,7 +249,7 @@ Attualmente C# è l'unico linguaggio supportato per Funzioni permanenti. Questo 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
-L'estensione funzioni durevole genera automaticamente i dati di rilevamento strutturati [Application Insights](functions-monitoring.md) quando l'app di funzione è configurato con una chiave di strumentazione di Application Insights. Questi dati di rilevamento possono essere usati per monitorare il comportamento e lo stato di avanzamento delle orchestrazioni.
+L'estensione Funzioni permanenti invia automaticamente dati di rilevamento strutturati ad [Application Insights](functions-monitoring.md) quando l'app per le funzioni è configurata con una chiave di strumentazione di Application Insights. Questi dati di rilevamento possono essere usati per monitorare il comportamento e lo stato di avanzamento delle orchestrazioni.
 
 Ecco un esempio di come si presentano gli eventi di rilevamento nel portale Application Insights usando [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 

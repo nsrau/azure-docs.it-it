@@ -16,7 +16,7 @@ ms.date: 09/12/2016
 ms.author: magoedte;bwren
 ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -38,9 +38,9 @@ La procedura per verificare ogni [tipo di runbook](automation-runbook-types.md) 
 6. Se il runbook è un [flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o è [grafico](automation-runbook-types.md#graphical-runbooks), è possibile arrestarlo o sospenderlo, mentre viene testato usando i pulsanti presenti sotto il pannello di output. Quando si sospende il runbook, esso completa l'attività corrente prima di essere sospeso. Una volta che il runbook viene sospeso, è possibile arrestarlo o riavviarlo.
 7. Esaminare l'output dal runbook nel pannello di output.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni su come creare o importare un runbook, vedere [Creazione o importazione di un runbook in Automazione di Azure](automation-creating-importing-runbook.md)
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md)
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
-* Per ulteriori informazioni sulla configurazione di runbook per restituire errori e messaggi di stato, incluse le procedure consigliate, vedere [Runbook output e i messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
+* Per altre informazioni sulla configurazione dei runbook per restituire messaggi di stato ed errori e per conoscere le operazioni consigliate, vedere [Output di runbook e messaggi in automazione di Azure](automation-runbook-output-and-messages.md)
 

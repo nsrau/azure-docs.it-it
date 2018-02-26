@@ -16,7 +16,7 @@ ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -28,7 +28,7 @@ Questo argomento illustra come usare Hub di notifica di Azure per trasmettere le
 
 È possibile abilitare gli scenari di trasmissione includendo uno o più *tag* durante la creazione di una registrazione nell'hub di notifica. Quando le notifiche vengono inviate a un tag, tutti i dispositivi che hanno effettuato la registrazione al tag riceveranno la notifica. Poiché i tag sono costituiti da stringhe, non è necessario eseguire il provisioning anticipatamente. Per ulteriori informazioni sui tag, vedere [Espressioni di routing e tag  per hub di notifica](notification-hubs-tags-segment-push-message.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo argomento si basa sull'app creata nell'esercitazione [Introduzione ad Hub di notifica][get-started]. Prima di iniziare questa esercitazione, è necessario completare le procedure illustrate in [Introduzione ad Hub di notifica][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
@@ -278,7 +278,7 @@ Ora l'app è completa e può quindi archiviare un set di categorie nell'archivia
 2. Abilitare uno o più interruttori di categorie e quindi fare clic su **Subscribe**.
    
     L'app converte le categorie selezionate in tag e richiede una nuova registrazione del dispositivo per i tag selezionati dall'hub di notifica. Le categorie registrate vengono restituite e visualizzate in notifica di tipo avviso popup.
-3. Inviare una nuova notifica eseguendo l'app .NET Console.  In alternativa, è possibile inviare notifiche di modello con tag utilizzando la scheda debug dell'hub di notifica di [portale di Azure].
+3. Inviare una nuova notifica eseguendo l'app .NET Console.  In alternativa è possibile inviare notifiche del modello con tag usando la scheda di debug dell'hub di notifica nel [portale di Azure].
    
     Le notifiche per le categorie selezionate vengono visualizzate come notifiche di tipo avviso popup.
 

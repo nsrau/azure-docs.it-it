@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: ea842ecb40e2aff3316ed255388412597bb28eae
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, con dati di grandi dimensioni e in contenitori.
@@ -33,7 +33,7 @@ Per altre informazioni sui set di scalabilità, guardare questi video:
 * [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Creazione e gestione dei set di scalabilità
-È possibile creare un set di scalabilità nel [portale di Azure](https://portal.azure.com) selezionando **Nuovo** e digitando **scalabilità** nella barra di ricerca. Nei risultati verrà visualizzato **Set di scalabilità di macchine virtuali**. A questo punto è possibile compilare i campi obbligatori per personalizzare e distribuire il set di scalabilità. Nel portale sono disponibili anche opzioni per impostare regole di base di scalabilità automatica in base all'utilizzo della CPU. Per gestire il set di scalabilità, è possibile usare il portale di Azure, i [cmdlet di Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o l'interfaccia della riga di comando di Azure 2.0.
+È possibile creare un set di scalabilità nel [portale di Azure](https://portal.azure.com) selezionando **Crea una risorsa** e digitando **scalabilità** nella barra di ricerca. Nei risultati verrà visualizzato **Set di scalabilità di macchine virtuali**. A questo punto è possibile compilare i campi obbligatori per personalizzare e distribuire il set di scalabilità. Nel portale sono disponibili anche opzioni per impostare regole di base di scalabilità automatica in base all'utilizzo della CPU. Per gestire il set di scalabilità, è possibile usare il portale di Azure, i [cmdlet di Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o l'interfaccia della riga di comando di Azure 2.0.
 
 I set di scalabilità possono essere distribuiti in più [zone di disponibilità](virtual-machine-scale-sets-use-availability-zones.md).
 

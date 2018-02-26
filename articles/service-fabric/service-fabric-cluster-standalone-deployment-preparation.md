@@ -15,7 +15,7 @@ ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -77,7 +77,7 @@ L'amministratore del cluster che distribuisce e configura il cluster deve dispor
 
 ## <a name="modify-cluster-configuration"></a>Modificare la configurazione del cluster
 Per creare un cluster autonomo, è necessario creare un file ClusterConfig.json di configurazione del cluster autonomo che descrive la specifica del cluster. È possibile basare il file di configurazione sui modelli disponibili nel collegamento seguente. <br>
-[Configurazioni di Cluster autonomi](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+[Configurazioni di cluster autonomi](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 Per informazioni dettagliate sulle sezioni di tale file, vedere [Impostazioni di configurazione per un cluster autonomo in Windows](service-fabric-cluster-manifest.md).
 

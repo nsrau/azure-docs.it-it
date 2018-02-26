@@ -73,7 +73,7 @@ La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esisten
 
 10. Esaminare la finestra di output per controllare l'avanzamento dell'operazione di pubblicazione.
 
-    ![Finestra Output]
+    ![Finestra di output]
 
 11. Se la pubblicazione ha esito positivo, viene avviato un browser per aprire l'URL del sito appena pubblicato.
 

@@ -3,8 +3,8 @@ title: "La funzionalità e concetti nello Stack di Azure | Documenti Microsoft"
 description: "Informazioni sulle funzionalità e i concetti principali in Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 09ca32b7-0e81-4a27-a6cc-0ba90441d097
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: fd16748e1369b8abcab38ce1945f72c681c344b8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Funzionalità e concetti principali in Azure Stack
 

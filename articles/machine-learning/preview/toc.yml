@@ -160,6 +160,8 @@
           href: data-prep-appendix10-sample-custom-column-transforms-python.md
         - name: API di esecuzione della preparazione dei dati
           href: data-prep-python-execution-api.md
+        - name: Operazionalizzazione della preparazione dei dati
+          href: data-prep-operationalization.md
     - name: Sperimentazione
       items:
         - name: Configurazione del servizio Sperimentazione

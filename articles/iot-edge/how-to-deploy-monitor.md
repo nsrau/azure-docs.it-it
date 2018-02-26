@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -40,7 +40,7 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 
 ## <a name="create-a-deployment"></a>Creare una distribuzione
 
-1. Nel [portale di Azure][lnk-portal], visitare l'hub IoT. 
+1. Nel [portale di Azure][lnk-portal] passare all'hub IoT. 
 1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
 1. Selezionare **Add IoT Edge device** (Aggiungi il dispositivo di IoT Edge).
 
@@ -61,25 +61,25 @@ Se si crea una distribuzione senza moduli, tutti i moduli esistenti vengono rimo
 >[!NOTE]
 >Azure Machine Learning e Funzioni di Azure non supportano ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione di moduli personalizzati per aggiungere manualmente questi servizi alla distribuzione. 
 
-Per aggiungere un modulo da Analitica di flusso di Azure, seguire questi passaggi:
-1. Selezionare **modulo Importa Azure flusso Analitica IoT Edge**.
+Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura:
+1. Selezionare **Import Azure Stream Analytics IoT Edge module** (Importa modulo di IoT Edge di Analisi di flusso di Azure).
 1. Usare i menu a discesa per selezionare le istanze del servizio Azure che si vuole distribuire.
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
 1. Selezionare **Add IoT Edge module** (Aggiungi il modulo di IoT Edge).
 1. Assegnare un nome al modulo in **Name** (Nome).
-1. Per il **URI immagine** immettere l'immagine contenitore Docker per il modulo. 
-1. Specificare qualsiasi **opzioni di creazione del contenitore** che deve essere passato al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
+1. Per il campo **Image URI** (URI immagine) immettere l'immagine del contenitore Docker per il modulo. 
+1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
 1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti: 
    * **Always** (Sempre): il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
    * **Never** (Mai): il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
    * **On-failed** (In caso di errore): il modulo viene riavviato in caso di arresto anomalo, ma non se viene chiuso normalmente. 
    * **On-unhealthy** (Se non integro): il modulo viene riavviato in caso di arresto anomalo o se restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità. 
-1. Utilizzare il menu a discesa per selezionare il **stato desiderato** per il modulo. È possibile scegliere tra le opzioni seguenti:
+1. Usare il menu a discesa per selezionare lo **stato desiderato** per il modulo. È possibile scegliere tra le opzioni seguenti:
    * **Running** (In esecuzione): questa è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
    * **Stopped** (Arrestato): dopo la distribuzione, il modulo resta inattivo fino a quando non viene chiamato per l'avvio dall'utente o da un altro modulo.
-1. Selezionare **abilitare** se si desidera aggiungere la coppia di modulo qualsiasi tag o proprietà desiderate. 
+1. Selezionare **Enable** (Abilita) per aggiungere tag o proprietà al modulo gemello. 
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti** per procedere al passaggio tre.

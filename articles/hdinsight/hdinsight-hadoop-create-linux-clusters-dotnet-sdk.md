@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 78d5c2f37add456fbb5891f76039b453e731a4a8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 8a48579d380784c2c653f8e4be26af51863db578
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Creare cluster basati su Linux in HDInsight tramite .NET SDK
 
@@ -397,8 +397,6 @@ Dopo aver creato un cluster HDInsight, usare le informazioni seguenti per acquis
 * [Eseguire i processi in modalità remota in un cluster Spark utilizzando Livy](spark/apache-spark-livy-rest-interface.md)
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](spark/apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](spark/apache-spark-eventhub-streaming.md)
-
 ### <a name="run-jobs"></a>Eseguire i processi
 * [Eseguire processi Hive con .NET SDK in HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Eseguire processi Pig con .NET SDK in HDInsight](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)

@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: d051c648ac66a42cefe0113d2571fe0a3050a237
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -101,7 +101,7 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale mediante le API di SQL
+> * Configurare la distribuzione globale tramite le API SQL
 
 È ora possibile passare all'esercitazione successiva per imparare a sviluppare in locale usando l'emulatore locale di Azure Cosmos DB.
 

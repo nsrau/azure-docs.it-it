@@ -1,6 +1,6 @@
 ---
 title: Introduzione ad Android per Azure AD | Microsoft Docs
-description: Come creare un'applicazione Android che si integra con Azure AD per l'accesso e le chiamate AD Azure protetto API tramite OAuth 2.0.
+description: Come compilare un'applicazione Android che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth2.0.
 services: active-directory
 documentationcenter: android
 author: danieldobalian
@@ -17,11 +17,11 @@ ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-android-getting-started"></a>Azure AD Android, che guida introduttiva
+# <a name="azure-ad-android-getting-started"></a>Introduzione ad Android per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 Se si sta sviluppando un'applicazione desktop, Azure Active Directory (Azure AD) semplifica e facilita l'autenticazione degli utenti tramite gli account Active Directory locali. Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.

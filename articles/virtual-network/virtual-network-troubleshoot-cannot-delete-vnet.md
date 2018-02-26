@@ -16,7 +16,7 @@ ms.date: 12/12/2017
 ms.author: genli
 ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -65,7 +65,7 @@ Se Active Directory Domain Service è abilitato e connesso alla rete virtuale, n
 
 ![Controllare il dispositivo collegato](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Per disabilitare il servizio, vedere [disabilitare Azure Active Directory Domain Services tramite il portale di Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+Per disabilitare il servizio, vedere [Disabilitare Azure Active Directory Domain Services tramite il portale di Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Verificare se la rete virtuale è connessa ad altre risorse
 

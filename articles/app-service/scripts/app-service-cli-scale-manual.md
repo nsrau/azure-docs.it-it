@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 961805842e9beca0ee2e34abcd0c1355f502a46b
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="scale-a-web-app-manually"></a>Ridimensionare un'App Web manualmente
 
-Questo script di esempio crea un gruppo di risorse, piani di servizio App e un'app web. Quindi, si adatta il piano di servizio App da una singola istanza per più istanze.
+Questo script di esempio crea un gruppo di risorse, un piano di servizio app e un'app Web. Ridimensiona quindi il piano di servizio app da una singola istanza a più istanze.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 

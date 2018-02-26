@@ -18,7 +18,7 @@ ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.openlocfilehash: 3ece2326a19e32666f46e8b737d15a48e335de6a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -34,7 +34,7 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 >
 > Sebbene sia possibile creare un gruppo dinamico per i dispositivi o gli utenti, non è possibile creare una regola che contenga sia oggetti utente che dispositivo.
 > 
-> Al momento, non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
+> Al momento non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
 
 ## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
 1. Accedere al [centro amministrativo Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o amministratore di account utente.
@@ -293,7 +293,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Modifica dell'appartenenza dinamica in statica e viceversa
 È possibile modificare il modo in cui viene gestita l'appartenenza in un gruppo. Ciò è utile per mantenere lo stesso ID e nome di gruppo nel sistema in modo che i riferimenti al gruppo esistenti restino validi. Creando un nuovo gruppo sarebbe infatti necessario aggiornare tali riferimenti.
 
-È in corso l'aggiornamento del portale di Azure per supportare questa funzionalità. Nel frattempo, è possibile utilizzare i cmdlet di PowerShell come illustrato di seguito.
+È in corso l'aggiornamento del portale di Azure per supportare questa funzionalità. Nel frattempo è possibile usare i cmdlet di PowerShell come illustrato di seguito.
 
 > [!WARNING]
 > Quando si modifica un gruppo statico esistente in gruppo dinamico, tutti i membri esistenti verranno rimossi dal gruppo e verrà quindi elaborata la regola di appartenenza per aggiungere nuovi membri. Se il gruppo viene usato per controllare l'accesso alle app o alle risorse, i membri originali potrebbero perdere l'accesso finché non viene completata l'elaborazione della regola di appartenenza.

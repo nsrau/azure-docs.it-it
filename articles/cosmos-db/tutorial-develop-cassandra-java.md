@@ -18,7 +18,7 @@ ms.author: mimig
 ms.custom: mvc
 ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa esercitazione viene illustrato come creare un account di Azure Cosmos DB tramite il portale di Azure e quindi creare un Cassandra Table(sql-api-partition-data.md#partition-keys) utilizzando il [Cassandra API](cassandra-introduction.md). Definendo una chiave primaria quando si crea una Tabella, l'applicazione viene preparata a una facile scalabilità in linea con la crescita dei dati. 
+Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare una tabella Cassandra (sql-api-partition-data.md#partition-keys) usando l'[API Cassandra](cassandra-introduction.md). Definendo una chiave primaria quando si crea una Tabella, l'applicazione viene preparata a una facile scalabilità in linea con la crescita dei dati. 
 
 Questa esercitazione illustra le attività seguenti usando l'API Cassandra:
 
@@ -37,7 +37,7 @@ Questa esercitazione illustra le attività seguenti usando l'API Cassandra:
 > * Eseguire query sui dati
 > * Esaminare i contratti di servizio
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Accesso al programma di anteprima dell'API Cassandra di Azure Cosmos DB. Se non è ancora stato richiesto l'accesso, [iscriversi adesso](https://aka.ms/cosmosdb-cassandra-signup).
 

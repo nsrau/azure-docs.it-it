@@ -10,30 +10,30 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 80792a82adbb93e80c94b4829b704b70d2a8ed23
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilare le app Web di Azure attive con Application Insights
 
 *Questa funzionalità di Application Insights è disponibile a livello generale per Servizio app di Azure e in anteprima per le risorse di calcolo di Azure.*
 
-Determinare il tempo impiegato in ogni metodo nell'applicazione Web attiva con [Application Insights](app-insights-overview.md). Lo strumento di profilatura Application Insights consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il *percorso critico* che usa più tempo. Le richieste con tempi di risposta diversi vengono profilate su una base di campionamento. Il sovraccarico per l'applicazione è ridotto al minimo grazie all'uso di diverse tecniche.
+Determinare il tempo impiegato in ogni metodo dell'applicazione Web attiva con [Application Insights](app-insights-overview.md). Lo strumento di profilatura Application Insights consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il *percorso critico* che usa più tempo. Le richieste con tempi di risposta diversi vengono profilate su una base di campionamento. Il sovraccarico per l'applicazione è ridotto al minimo grazie all'uso di diverse tecniche.
 
-Il profiler è attualmente valido per le app Web ASP.NET e ASP.NET Core in esecuzione nel servizio app di Azure, almeno nel livello di servizio **Basic**.
+Il profiler è attualmente valido per le app Web ASP.NET e ASP.NET Core in esecuzione nel servizio app di Azure. Per usare il profiler, è necessario il livello di servizio **Basic**.
 
 ## <a id="installation"></a> Abilitare il profiler per l'app Web del servizio app
-Se l'applicazione è già stata pubblicata in un servizio app, ma non sono state eseguite operazioni nel codice sorgente per l'uso di Application Insights, nel riquadro Servizi App del portale di Azure passare a **Monitoraggio | Application Insights** e seguire le istruzioni nel riquadro per creare una nuova risorsa di Application Insights o selezionarne una esistente per monitorare l'app Web. Si noti che per il profiler è necessario almeno il piano **Basic** del servizio app di Azure.
+Se l'applicazione è già stata pubblicata in un servizio app, ma non sono state eseguite operazioni nel codice sorgente per l'uso di Application Insights, nel riquadro Servizi app del portale di Azure passare a **Monitoraggio | Application Insights** e seguire le istruzioni nel riquadro per creare una nuova risorsa o selezionare una risorsa esistente di Application Insights per monitorare l'app Web.
 
 ![Abilitare Application Insights nel portale dei servizi app][appinsights-in-appservices]
 
 Se si ha accesso al codice sorgente del progetto, [installare Application Insights](app-insights-asp-net.md). Se è già installato, assicurarsi che la versione in uso sia la più recente. Per controllare la versione più recente, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet** > **Aggiornamenti** > **Aggiorna tutti i pacchetti**. Distribuire quindi l'app.
 
-Un'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o versioni successive per poter interagire con il profiler. A partire da 27 giugno 2017 non sono supportate le versioni precedenti.
+Le applicazioni ASP.NET Core richiedono l'installazione del pacchetto NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o versioni successive per poter interagire con il profiler. A partire dal 27 giugno 2017 le versioni precedenti non sono supportate.
 
 Nel [portale di Azure](https://portal.azure.com) aprire la risorsa Application Insights per l'app Web. Selezionare **Prestazioni** > **Abilita Application Insights Profiler**.
 
@@ -57,9 +57,9 @@ Sono disponibili informazioni su una [versione di anteprima del profiler per le 
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati del profiler
 
-**Verificare che l'applicazione riceva traffico.** Se si sta eseguendo un esperimento, è possibile generare le richieste per l'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se il profiler è stato appena abilitato, è possibile eseguire un breve test di carico per circa 15 minuti per ottenere le tracce del profiler. Se il profiler è abilitato già da qualche tempo, tenere presente che viene eseguito in modo casuale due volte ogni ora e che ogni esecuzione dura due minuti. È consigliabile eseguire il test di carico per un'ora per ottenere tracce di esempio del profiler.
+**Verificare che l'applicazione riceva traffico.** Se si sta eseguendo un esperimento, è possibile generare le richieste per l'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se il profiler è stato appena abilitato, è possibile eseguire per circa 15 minuti un breve test di carico, che genererà le tracce del profiler. Se il profiler è stato abilitato già da qualche tempo, tenere presente che viene eseguito in modo casuale due volte ogni ora e che ogni esecuzione dura due minuti. È consigliabile eseguire prima il test di carico per un'ora per ottenere tracce di esempio del profiler.
 
-Dopo che l'applicazione ha iniziato a ricevere traffico, passare al pannello **Prestazioni** e quindi alla sezione **Take Actions** (Esegui azioni) della pagina per visualizzare le tracce del profiler. Selezionare il pulsante **Tracce Profiler**.
+Dopo che l'applicazione inizia a ricevere traffico, passare al pannello **Prestazioni** > **Take Actions** (Esegui azioni) per visualizzare le tracce del profiler. Selezionare il pulsante **Tracce Profiler**.
 
 ![Riquadro di anteprima delle prestazioni per Tracce Profiler in Application Insights][performance-blade-v2-examples]
 
@@ -76,7 +76,7 @@ Explorer di analisi visualizza le informazioni seguenti:
 
 ## <a name="how-to-read-performance-data"></a>Procedura: leggere i dati sulle prestazioni
 
-Il profiler del servizio Microsoft usa una combinazione della strumentazione e dei metodi di campionamento per analizzare le prestazioni dell'applicazione. Quando la raccolta dettagliata è in corso, il profiler del servizio campiona il puntatore all'istruzione di ciascuna delle CPU del computer ogni millisecondo. Ogni esempio acquisisce lo stack di chiamate completo del thread attualmente in esecuzione. Fornisce informazioni utili e dettagliate sull'attività del thread a un livello generale e specifico di astrazione. Il profiler del servizio raccoglie anche altri eventi per tenere traccia della causalità e della correlazione delle attività, ad esempio gli eventi di commutazione di contesto, Task Parallel Library (TPL) e del pool di thread.
+Il profiler del servizio Microsoft usa una combinazione della strumentazione e dei metodi di campionamento per analizzare le prestazioni dell'applicazione. Quando la raccolta dettagliata è in corso, il profiler del servizio campiona il puntatore all'istruzione di ogni CPU del computer ogni millisecondo. Ogni esempio acquisisce lo stack di chiamate completo del thread attualmente in esecuzione. Fornisce informazioni dettagliate sull'attività del thread a livello sia generale che specifico di astrazione. Il profiler del servizio raccoglie anche altri eventi per tenere traccia della causalità e della correlazione delle attività, ad esempio gli eventi di commutazione di contesto, Task Parallel Library (TPL) e del pool di thread.
 
 Lo stack di chiamate mostrato nella visualizzazione della sequenza temporale è il risultato del campionamento e della strumentazione. Poiché ogni esempio acquisisce lo stack di chiamate completo del thread, include il codice di Microsoft .NET Framework, nonché di altri framework a cui si fa riferimento.
 
@@ -86,10 +86,10 @@ Lo stack di chiamate mostrato nella visualizzazione della sequenza temporale è 
 ### <a id="theprestub"></a>Caricamento di codice (clr!ThePreStub)
 **clr!ThePreStub** è una funzione di supporto all'interno di .NET Framework che prepara il codice da eseguire per la prima volta. Include ad esempio la compilazione JIT. Per ogni metodo C#, **clr!ThePreStub** deve essere richiamato al massimo una volta nel corso della durata di un processo.
 
-Se **clr!ThePreStub** richiede una notevole quantità di tempo per una richiesta, indica che la richiesta è la prima a eseguire questo metodo. Il tempo di caricamento del metodo da parte del runtime di .NET Framework è significativo. È possibile valutare un processo di riscaldamento che esegua tale parte del codice prima che gli utenti accedano a esso oppure l'esecuzione del generatore di immagini native (ngen.exe) negli assembly.
+Se **clr!ThePreStub** richiede una notevole quantità di tempo per una richiesta, indica che la richiesta è la prima a eseguire questo metodo. Il tempo di caricamento del primo metodo da parte del runtime di .NET Framework è significativo. È possibile valutare un processo di riscaldamento che esegua tale parte del codice prima che gli utenti accedano a esso oppure l'esecuzione del generatore di immagini native (ngen.exe) negli assembly.
 
 ### <a id="lockcontention"></a>Conflitto di blocchi (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
-**clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indica che il thread corrente è in attesa di un blocco da rilasciare. In genere viene visualizzato durante l'esecuzione di un'istruzione **LOCK** C#, richiamando il metodo **Monitor.Enter** o richiamando un metodo con l'attributo **MethodImplOptions.Synchronized**. Il conflitto di blocchi si verifica in genere quando il thread A acquisisce un blocco e il thread B tenta di acquisire lo stesso blocco prima che il thread A lo rilasci.
+**clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indica che il thread corrente è in attesa di un blocco da rilasciare. In genere viene visualizzato durante l'esecuzione di un'istruzione **LOCK** C#, richiamando il metodo **Monitor.Enter** o richiamando un metodo con l'attributo **MethodImplOptions.Synchronized**. Il conflitto di blocchi si verifica in genere quando il thread _A_ acquisisce un blocco e il thread _B_ prova ad acquisire lo stesso blocco prima che il thread _A_ lo rilasci.
 
 ### <a id="ngencold"></a>Caricamento di codice ([COLD])
 Se il nome del metodo contiene **[COLD]**, ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta il codice non ottimizzato dall'<a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">ottimizzazione PGO</a>. Per ogni metodo verrà visualizzato al massimo una volta nel corso del processo.
@@ -124,7 +124,7 @@ La colonna **Quando** è una visualizzazione della variazione nel tempo degli es
 
 La conservazione predefinita dei dati è di cinque giorni. La quantità massima di dati inseriti al giorno è 10 GB.
 
-Non sono previsti costi per l'uso del servizio profiler. Per usare il servizio profiler, l'app Web deve essere ospitata almeno al livello di base di Servizio app.
+Non sono previsti costi per l'uso del servizio profiler. Per usare il servizio profiler, l'app Web deve essere ospitata almeno al livello Basic del servizio app di Azure.
 
 ## <a name="overhead-and-sampling-algorithm"></a>Overhead e algoritmo di campionamento
 
@@ -161,9 +161,9 @@ Ecco alcuni aspetti da controllare:
 * Assicurarsi che l'app Web sia in esecuzione su .NET Framework 4.6.
 * Se l'app Web è un'applicazione ASP.NET Core, verificare le [dipendenze richieste](#aspnetcore).
 
-Dopo aver avviato il profiler, sarà previsto un breve periodo di riscaldamento durante il quale il profiler raccoglierà attivamente diverse analisi di prestazioni. Successivamente, il profiler raccoglie le analisi di prestazioni per due minuti ogni ora.  
+Dopo aver avviato il profiler, sarà previsto un breve periodo di riscaldamento durante il quale il profiler raccoglierà attivamente diverse analisi di prestazioni. Successivamente, il profiler raccoglie le analisi di prestazioni per due minuti ogni ora.
 
-### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Stavo usando il profiler del servizio Azure. Che cosa è successo?  
+### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Stavo usando il profiler del servizio Azure. Che cosa è successo?
 
 Quando si abilita Application Insights Profiler, l'agente del profiler di servizi Azure viene disabilitato.
 
@@ -171,9 +171,9 @@ Quando si abilita Application Insights Profiler, l'agente del profiler di serviz
 
 In alcuni casi la metrica del tempo totale nel visualizzatore dello stack supera la durata della richiesta.
 
-Questa situazione può verificarsi quando sono presenti due o più thread associati a una richiesta, che operano in parallelo. In questo caso, il tempo totale di thread è superiore al tempo trascorso. Un thread può essere in attesa del completamento dell'altro. Il visualizzatore tenta di rilevare questa situazione e omette l'attesa non interessante, ma sbaglia mostrando l'eccesso anziché l'omissione di quelle che possono essere informazioni critiche.  
+Questa situazione può verificarsi quando sono presenti due o più thread associati a una richiesta, che operano in parallelo. In questo caso, il tempo totale di thread è superiore al tempo trascorso. Un thread può essere in attesa del completamento dell'altro. Il visualizzatore tenta di rilevare questa situazione e omette l'attesa non interessante, ma sbaglia mostrando l'eccesso anziché l'omissione di quelle che possono essere informazioni critiche.
 
-Quando sono presenti thread in parallelo nelle analisi, determinare quali thread sono in attesa in modo da poter determinare il percorso critico per la richiesta. Nella maggior parte dei casi, il thread che entra rapidamente in uno stato di attesa è semplicemente in attesa di altri thread. Concentrarsi sugli altri thread e ignorare il tempo nei thread in attesa.
+Quando sono presenti thread in parallelo nelle analisi, determinare quali thread sono in attesa per poter verificare il percorso critico per la richiesta. Nella maggior parte dei casi, il thread che entra rapidamente in uno stato di attesa è semplicemente in attesa di altri thread. Concentrarsi sugli altri thread e ignorare il tempo nei thread in attesa.
 
 ### <a id="issue-loading-trace-in-viewer"></a>Senza dati di profilatura
 
@@ -204,7 +204,7 @@ Questi parametri eliminano la cartella usata da Application Insights Profiler e 
 
 ## <a name="manual-installation"></a>Installazione manuale
 
-Quando si configura il profiler, vengono eseguiti aggiornamenti nelle impostazioni dell'app Web. È possibile applicare gli aggiornamenti manualmente, se l'ambiente lo richiede (ad esempio, se l'applicazione viene eseguita nell'ambiente di Servizio app per PowerApps).
+Quando si configura il profiler, vengono eseguiti aggiornamenti nelle impostazioni dell'app Web. È possibile applicare gli aggiornamenti manualmente, se l'ambiente lo richiede (ad esempio, se l'applicazione viene eseguita in un ambiente del servizio app per PowerApps).
 
 1. Nel pannello di controllo dell'app Web aprire **Impostazioni**.
 2. Impostare la **versione di .NET Framework** su **v4.6**.
@@ -221,9 +221,9 @@ Nello sviluppo del profiler è stata aggiunta un'interfaccia della riga di coman
 
 Questa sezione illustra come eseguire queste operazioni:
 
-1.  Creare un processo Web che consente di avviare il profiler per due minuti facendo clic su un pulsante.
-2.  Creare un processo Web che consente di pianificare l'esecuzione del profiler.
-3.  Impostare gli argomenti del profiler.
+1. Creare un processo Web che consente di avviare il profiler per due minuti facendo clic su un pulsante.
+2. Creare un processo Web che consente di pianificare l'esecuzione del profiler.
+3. Impostare gli argomenti del profiler.
 
 
 ### <a name="set-up"></a>Configurare
@@ -235,34 +235,34 @@ Come si può notare, questo dashboard mostra tutti i processi Web attualmente in
 
 Ottenere prima di tutto i file binari necessari.
 
-1.  Passare al sito di Kudu. Nella scheda degli strumenti di sviluppo fare clic sulla scheda "Strumenti avanzati" con il logo Kudu. Fare clic su "Vai". Verrà visualizzato un nuovo sito al quale si accederà automaticamente.
+1.  Passare al sito di Kudu. Nella scheda degli strumenti di sviluppo fare clic sulla scheda "Strumenti avanzati" con il logo Kudu. Fare clic su "Vai". Viene visualizzato un nuovo sito al quale si accede automaticamente.
 2.  Ora è necessario scaricare i file binari del profiler. Passare a Esplora file tramite Console di debug -> CMD nella parte superiore della pagina.
-3.  Fare clic sul sito -> wwwroot -> App_Data -> processi -> continuo. Verrà visualizzata la cartella "ApplicationInsightsProfiler2". Fare clic sull'icona per il download a sinistra della cartella. Verrà scaricato il file "ApplicationInsightsProfiler2.zip".
-4.  Il download conterrà tutti i file che saranno necessari in un secondo momento. È consigliabile creare una directory vuota in cui spostare questo archivio ZIP prima di proseguire.
+3.  Fare clic sul sito -> wwwroot -> App_Data -> processi -> continuo. Verrà visualizzata la cartella "ApplicationInsightsProfiler2". Fare clic sull'icona per il download a sinistra della cartella. Viene scaricato il file "ApplicationInsightsProfiler2.zip".
+4.  Vengono scaricati tutti i file necessari. È consigliabile creare una directory vuota in cui spostare questo archivio ZIP prima di proseguire.
 
 ### <a name="setting-up-the-web-job-archive"></a>Configurazione di un archivio di processi Web
-Quando si aggiunge un nuovo processo Web al sito Web di Azure, sostanzialmente si crea un archivio ZIP con un file run.cmd all'interno. Il file run.cmd indica al sistema del processo Web le operazioni da effettuare quando si esegue il processo Web. Nella documentazione dei processi Web sono disponibili altre opzioni, ma ai fini di questa esercitazione non è necessario altro.
+Quando si aggiunge un nuovo processo Web al sito Web di Azure, sostanzialmente si crea un archivio ZIP con un file run.cmd all'interno. Il file run.cmd indica al sistema del processo Web le operazioni da effettuare quando si esegue il processo Web.
 
-1.  Per iniziare a creare una nuova cartella, denominarla "RunProfiler2Minutes".
+1.  Per iniziare a creare una nuova cartella, l'esempio viene denominato "RunProfiler2Minutes".
 2.  Copiare i file dalla cartella ApplicationInsightProfiler2 estratta a questa nuova cartella.
-3.  Creare un nuovo file run.cmd. Per praticità, è consigliabile aprire questa cartella di lavoro in Visual Studio Code prima di iniziare.
+3.  Creare un nuovo file run.cmd. Per praticità, è possibile aprire questa cartella di lavoro in VS Code prima di iniziare.
 4.  Aggiungere il comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` e salvare il file.
 a.  Il comando `start` indica al profiler di avviarsi.
 b.  `--engine-mode immediate` indica al profiler che si vuole avviare immediatamente la profilatura.
 c.  `--single` indica al profiler di arrestarsi automaticamente dopo l'esecuzione. d.  `--immediate-profiling-duration 120` indica che il profiler deve essere eseguito per 120 secondi o 2 minuti.
 5.  Salvare questo file.
-6.  Archiviare questa cartella. È possibile fare clic con il pulsante destro del mouse sulla cartella e quindi scegliere Invia a -> Cartella compressa. Verrà creato un file ZIP con il nome della cartella.
+6.  Archiviare questa cartella. È possibile fare clic con il pulsante destro del mouse sulla cartella e quindi scegliere Invia a -> Cartella compressa. Viene creato un file ZIP con il nome della cartella.
 
 ![Comando di avvio del profiler](./media/app-insights-profiler/start-profiler-command.png)
 
 È ora disponibile un file ZIP del processo Web che può essere usato per configurare i processi Web nel sito.
 
 ### <a name="add-a-new-web-job"></a>Aggiungere un nuovo processo Web
-Ora si aggiungerà un nuovo processo Web nel sito. Questo esempio illustra come aggiungere un processo Web attivato manualmente. Dopo aver eseguito questa operazione, il processo è quasi identico a quello per l'esecuzione pianificata. Sono comunque disponibili altre informazioni sui processi con attivazione pianificata.
+Ora si aggiunge un nuovo processo Web nel sito. Questo esempio illustra come aggiungere un processo Web attivato manualmente. Dopo aver eseguito questa operazione, il processo è quasi identico a quello per l'esecuzione pianificata.
 
 1.  Passare al dashboard dei processi Web.
 2.  Fare clic sul comando Aggiungi sulla barra degli strumenti.
-3.  Assegnare un nome al processo Web. È possibile scegliere lo stesso nome dell'archivio per maggiore chiarezza e consentire l'uso di diverse versioni del file run.cmd.
+3.  Assegnare al processo Web un nome. Per maggiore chiarezza, può essere utile fare in modo che corrisponda al nome dell'archivio e aprirlo per avere versioni diverse di run.cmd.
 4.  In Caricamento file fare clic sull'icona di apertura file e trovare il file ZIP creato in precedenza.
 5.  Per il tipo, scegliere Attivati.
 6.  Per il trigger, scegliere Manuale.
@@ -274,20 +274,23 @@ Ora si aggiungerà un nuovo processo Web nel sito. Questo esempio illustra come 
 
 Ora che è stato creato un nuovo processo Web che può essere attivato manualmente è possibile provare a eseguirlo.
 
-1.  Per impostazione predefinita è possibile eseguire un solo processo ApplicationInsightsProfiler.exe alla volta nel computer. Per iniziare, assicurarsi quindi di disabilitare il processo Web continuo da questo dashboard. Fare clic sulla riga e selezionare "Arresta". Fare clic su Aggiorna sulla barra degli strumenti e verificare che lo stato confermi che il processo è stato arrestato.
-2.  Fare clic sulla riga con il nuovo processo Web aggiunto e selezionare Esegui.
-3.  Con la riga ancora selezionata, fare clic sul comando Log sulla barra degli strumenti per visualizzare un dashboard per il processo Web avviato. Verranno visualizzate le esecuzioni più recenti e i relativi risultati.
-4.  Fare clic sull'esecuzione appena avviata.
-5.  Se non si sono verificati errori, verranno visualizzati alcuni log di diagnostica del profiler per confermare l'avvio della profilatura.
+1. Per impostazione predefinita è possibile eseguire un solo processo ApplicationInsightsProfiler.exe alla volta nel computer. Per iniziare, assicurarsi quindi di disabilitare il processo Web continuo da questo dashboard. Fare clic sulla riga e selezionare "Arresta". Selezionare quindi Aggiorna sulla barra degli strumenti e verificare che lo stato indichi che il processo è stato arrestato.
+2. Fare clic sulla riga con il nuovo processo Web aggiunto e selezionare Esegui.
+3. Con la riga ancora selezionata, fare clic sul comando Log sulla barra degli strumenti per visualizzare un dashboard per il processo Web avviato. Vengono visualizzati le esecuzioni più recenti e i relativi risultati.
+4. Fare clic sull'istanza dell'esecuzione appena avviata.
+5. Se non si sono verificati errori, verranno visualizzati alcuni log di diagnostica del profiler per confermare l'avvio della profilatura.
 
 ### <a name="things-to-consider"></a>Aspetti da considerare
 
 Questo metodo è relativamente semplice, tuttavia esistono alcuni aspetti da considerare.
 
-1.  Il metodo non è gestito dal servizio, quindi non sarà possibile aggiornare i file binari dell'agente per il processo Web. Non è attualmente disponibile una pagina di download stabile per i file binari, quindi l'unico modo per ottenere la versione più recente è aggiornare l'estensione e recuperarla dalla cartella Continuo come in precedenza.
-2.  Gli argomenti della riga di comando sono stati originariamente progettati per gli sviluppatori e non per gli utenti finali, quindi potranno cambiare in futuro. Tenere in considerazione questo aspetto quando si esegue l'aggiornamento. Non dovrebbero tuttavia verificarsi particolari problemi perché è possibile aggiungere un processo Web, eseguirlo e verificare che funzioni correttamente. In futuro verrà creata un'interfaccia utente per eseguire questa operazione senza processo manuale.
-3.  Processi Web per i servizi app è un'ottima funzionalità perché quando esegue il processo Web assicura che il processo abbia le stesse variabili di ambiente e le stesse impostazioni app previste per il sito Web. Non è quindi necessario passare la chiave di strumentazione al profiler tramite la riga di comando perché la chiave di strumentazione verrà selezionata dall'ambiente. Se tuttavia si vuole eseguire il profiler nella casella di sviluppo o in un computer all'esterno di Servizi app, è necessario specificare una chiave di strumentazione. A tale scopo, passare un argomento `--ikey <instrumentation-key>`. Si noti che questo valore deve corrispondere alla chiave di strumentazione usata dall'applicazione. Nell'output del log del profiler sarà indicata la chiave di strumentazione iniziale del profiler e se sono state rilevate attività da tale chiave di strumentazione durante la profilatura.
-4.  I processi Web con attivazione manuale possono essere attivati tramite webhook. È possibile ottenere questo URL facendo clic con il pulsante destro del mouse sul processo Web nel dashboard e visualizzando le proprietà oppure scegliendo Proprietà sulla barra degli strumenti dopo aver selezionato il processo Web dalla tabella. Sono disponibili numerosi articoli online su questo argomento, quindi non verranno forniti altri dettagli in questo contesto. Questa funzionalità consente tuttavia di attivare il profiler dalla pipeline di integrazione continua/distribuzione continua (come VSTS) o ad esempio Microsoft Flow (https://flow.microsoft.com/it-it/). Sono disponibili numerose possibilità a seconda del grado di complessità desiderato per run.cmd, che può comunque essere un file run.ps1.  
+- Il metodo non è gestito dal servizio, quindi non è possibile aggiornare i file binari dell'agente per il processo Web. Non è attualmente disponibile una pagina di download stabile per i file binari, quindi l'unico modo per ottenere la versione più recente è aggiornare l'estensione e recuperarla dalla cartella Continuo come nei passaggi precedenti.
+
+- Gli argomenti della riga di comando sono stati originariamente progettati per gli sviluppatori e non per gli utenti finali, quindi potranno cambiare in futuro. Tenere in considerazione questo aspetto quando si esegue l'aggiornamento. Non dovrebbero tuttavia verificarsi particolari problemi perché è possibile aggiungere un processo Web, eseguirlo e verificare che funzioni correttamente. Verrà infine creata un'interfaccia utente per gestirlo senza il processo manuale.
+
+- Processi Web per i servizi app è un'ottima funzionalità perché quando esegue il processo Web assicura che il processo abbia le stesse variabili di ambiente e le stesse impostazioni app previste per il sito Web. Non è quindi necessario passare la chiave di strumentazione al profiler tramite la riga di comando. La chiave di strumentazione verrà selezionata dall'ambiente. Se tuttavia si vuole eseguire il profiler nella casella di sviluppo o in un computer all'esterno di Servizi app, è necessario specificare una chiave di strumentazione. A tale scopo, passare un argomento `--ikey <instrumentation-key>`. Questo valore deve corrispondere alla chiave di strumentazione usata dall'applicazione. Nell'output del log del profiler è indicata la chiave di strumentazione iniziale del profiler e se sono state rilevate attività da tale chiave di strumentazione durante la profilatura.
+
+- I processi Web con attivazione manuale possono essere attivati tramite webhook. È possibile ottenere questo URL facendo clic con il pulsante destro del mouse sul processo Web dal dashboard e visualizzando le proprietà oppure scegliendo le proprietà nella barra degli strumenti dopo avere selezionato il processo Web dalla tabella. Ciò offre infinite possibilità, dall'attivazione del profiler dalla pipeline di integrazione continua/recapito continuo (come VSTS) a un servizio come Microsoft Flow (https://flow.microsoft.com/it-it/). La flessibilità è in definitiva garantita, indipendentemente dal livello di complessità scelto per run.cmd (che può essere anche run.ps1).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

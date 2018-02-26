@@ -1,6 +1,6 @@
 ﻿---
-title: Compilare e distribuire un'app Node.js Express a servizi Cloud di Azure
-description: Compilare e distribuire un'applicazione di Express.js in Node.js servizi Cloud di Azure
+title: Creare e distribuire un'app Express in Node.js in Servizi cloud di Azure
+description: Creare e distribuire un'applicazione Express.js in Node.js in Servizi cloud di Azure
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -20,10 +20,10 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Compilare e distribuire un'applicazione web Node.js mediante Express in un Cloud di servizi di Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Creare e distribuire un'applicazione Web Node.js usando Express in Servizi cloud di Azure
 
 Node.js include un set minimo di funzionalità nel runtime core.
-Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express](https://github.com/expressjs/express), che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
+Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express](https://github.com/expressjs/express) che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 

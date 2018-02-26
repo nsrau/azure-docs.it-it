@@ -8,18 +8,18 @@ ms.author: tomfitz
 ms.date: 01/30/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 01472ffc7a98cd2c99793c8675efe2cefffe5558
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f37d496d43bb24c51d6e1c11b77d9ceba48b7b23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creare e instradare eventi personalizzati con il portale di Azure e Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo viene usato il portale di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un URL che si limita a raccoglie i messaggi. È possibile creare questo URL usando strumenti di terze parti da [RequestBin](https://requestb.in/) o [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** e **Hookbin** non sono destinati per un utilizzo con velocità effettiva elevata. L'uso di questi strumenti è esclusivamente dimostrativo. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
+>**RequestBin** e **Hookbin** non sono destinati all'utilizzo con velocità effettiva elevata. Questi strumenti vengono usati esclusivamente per scopi dimostrativi. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
 
 Al termine, i dati dell'evento vengono inviati a un endpoint.
 
@@ -43,7 +43,7 @@ Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inse
 
 Un argomento fornisce un endpoint definito dall'utente in cui vengono pubblicati gli eventi. 
 
-1. Per creare un argomento nel gruppo di risorse, selezionare **Altri servizi** e cercare *Griglia di eventi*. Selezionare **Argomenti di Griglia di eventi** tra le opzioni disponibili.
+1. Per creare un argomento nel gruppo di risorse, selezionare **Tutti i servizi** e cercare *Griglia di eventi*. Selezionare **Argomenti di Griglia di eventi** tra le opzioni disponibili.
 
    ![Creare un argomento di Griglia di eventi](./media/custom-event-quickstart-portal/create-event-grid-topic.png)
 
@@ -61,13 +61,13 @@ Un argomento fornisce un endpoint definito dall'utente in cui vengono pubblicati
 
 ## <a name="create-a-message-endpoint"></a>Creare un endpoint del messaggio
 
-Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin e Hookbin sono strumenti di terze parti che consentono di creare un endpoint e visualizzare le richieste che vengono inviate. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea RequestBin) o passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
+Prima di sottoscrivere l'argomento, creare l'endpoint per il messaggio dell'evento. Anziché scrivere codice per rispondere all'evento, creare un endpoint che raccoglie i messaggi per poterli visualizzare. RequestBin e Hookbin sono strumenti di terze parti che consentono di creare un endpoint e visualizzare le richieste inviate a questo endpoint. Passare a [RequestBin](https://requestb.in/) e fare clic su **Create a RequestBin** (Crea RequestBin) oppure passare a [Hookbin](https://hookbin.com/) e fare clic su **Create New Endpoint** (Crea nuovo endpoint).  Copiare l'URL del contenitore, necessario per sottoscrivere l'argomento.
 
 ## <a name="subscribe-to-a-topic"></a>Sottoscrivere un argomento
 
 Si sottoscrive un argomento per indicare alla griglia di eventi gli eventi di cui si vuole tenere traccia. 
 
-1. Per creare una sottoscrizione di Griglia di eventi, selezionare di nuovo **Altri servizi** e cercare *Griglia di eventi*. Selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
+1. Per creare una sottoscrizione di Griglia di eventi, selezionare di nuovo **Tutti i servizi** e cercare *Griglia di eventi*. Selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
 
    ![Creare una sottoscrizione di Griglia di eventi](./media/custom-event-quickstart-portal/create-subscription.png)
 

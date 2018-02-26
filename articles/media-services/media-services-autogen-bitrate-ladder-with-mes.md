@@ -15,7 +15,7 @@ ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,15 +23,15 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>Panoramica
 
-In questo articolo viene illustrato come utilizzare Media codificatore Standard (MES) per generare automaticamente una scala di velocità in bit (coppie di risoluzione a velocità in bit) in base alla risoluzione di input e velocità in bit. Il set di impostazioni generate automaticamente non supererà mai la risoluzione di input e la velocità in bit. Ad esempio, se l'input è 720p 3 Mbps, output rimane nella migliore delle ipotesi 720p e inizierà a velocità inferiore a 3 Mbps.
+In questo articolo viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder (coppia risoluzione-velocità in bit) in base alla risoluzione di input e alla velocità in bit. Il set di impostazioni generate automaticamente non supererà mai la risoluzione di input e la velocità in bit. Ad esempio, se l'input è 720p a 3 Mbps, l'output resta al massimo a 720p e inizia a una velocità inferiore a 3 Mbps.
 
 ### <a name="encoding-for-streaming-only"></a>Codifica solo per lo streaming
 
-Se si intende codificare un video di origine solo per lo streaming, è necessario utilizzare il "il flusso adattivo" predefinito durante la creazione di un'attività di codifica. Quando si usa il set di impostazioni **Flusso adattivo** il codificatore MES userà in modo intelligente un bitrate ladder. Tuttavia, non sarà possibile controllare i costi di codifica, poiché il servizio determina il numero di livelli da usare e la risoluzione. È possibile visualizzare esempi dei livelli di output prodotti da MES in seguito alla codifica con il **il flusso adattivo** predefinito alla fine di questo articolo. L'output di che file MP4 contenente audio e video non viene interfacciato.
+Se si intende codificare il video di origine solo per lo streaming, è necessario usare il set di impostazioni "Flusso adattivo" quando si crea un'attività di codifica. Quando si usa il set di impostazioni **Flusso adattivo** il codificatore MES userà in modo intelligente un bitrate ladder. Tuttavia, non sarà possibile controllare i costi di codifica, poiché il servizio determina il numero di livelli da usare e la risoluzione. È possibile vedere esempi dei livelli di output prodotti da MES in seguito alla codifica con il set di impostazioni **Flusso adattivo** alla fine di questo articolo. L'asset di output conterrà i file MP4 in cui audio e video non sono di tipo Interleaved.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Codifica per streaming e download progressivo
 
-Se si intende per codificare un video di origine per i flussi, nonché per produrre file MP4 per il download progressivo, è necessario utilizzare il "contenuto adattivo più velocità in bit MP4" predefinito durante la creazione di un'attività di codifica. Quando si utilizza il **contenuto file MP4 a velocità in bit adattiva più** predefinito, il codificatore MES applica la stessa logica di codifica come illustrato in precedenza, ma ora l'asset di output conterrà i file MP4 in audio e video è alternato. È possibile usare uno di questi file MP4 (ad esempio la versione con bitrate più elevato) come file di download progressivo.
+Se si intende codificare un video di origine per lo streaming e per produrre file MP4 per il download progressivo, è necessario usare il set di impostazioni "Content Adaptive Multiple Bitrate MP4" durante la creazione di un'attività di codifica. Quando si usa il set di impostazioni **Content Adaptive Multiple Bitrate MP4**, il codificatore MES applica la stessa logica di codifica illustrata in precedenza, ma ora l'asset di output conterrà file MP4 in cui audio e video sono di tipo Interleaved. È possibile usare uno di questi file MP4 (ad esempio la versione con bitrate più elevato) come file di download progressivo.
 
 ## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 

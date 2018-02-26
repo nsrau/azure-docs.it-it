@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano ora macchine virtuali con dischi di dati collegati. I dischi di dati possono essere definiti nel profilo di archiviazione per i set di scalabilità creati con Azure Managed Disks. In precedenza, le uniche opzioni di archivi collegati direttamente disponibili con le macchine virtuali nei set di scalabilità erano le unità del sistema operativo e le unità temporanee.
@@ -61,6 +61,59 @@ Un altro modo per creare un set di scalabilità con dischi di dati collegati è 
 ```
 
 Un esempio completo e pronto per la distribuzione di un modello di set di scalabilità con un disco collegato è disponibile qui: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
+
+## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Creare un cluster di Service Fabric con dischi dati collegati
+Ogni [tipo di nodo](../service-fabric/service-fabric-cluster-nodetypes.md) in un cluster di [Service Fabric](/azure/service-fabric) in esecuzione in Azure è supportato da un set di scalabilità di macchine virtuali.  Usando un modello di Azure Resource Manager, è possibile collegare dischi dati ai set di scalabilità che costituiscono il cluster di Service Fabric. Come punto di partenza, è possibile usare un [modello esistente](https://github.com/Azure-Samples/service-fabric-cluster-templates). Nel modello includere una sezione _dataDisks_ nell'elemento _storageProfile_ delle risorse _Microsoft.Compute/virtualMachineScaleSets_ e distribuire il modello. L'esempio seguente consente di collegare un disco dati da 128 GB:
+
+```json
+"dataDisks": [
+    {
+    "diskSizeGB": 128,
+    "lun": 0,
+    "createOption": "Empty"
+    }
+]
+```
+
+È possibile partizionare, formattare e montare i dischi dati automaticamente al momento della distribuzione del cluster.  Aggiungere un'estensione di script personalizzata in _extensionProfile_ per l'elemento _virtualMachineProfile_ dei set di scalabilità.
+
+Per preparare automaticamente i dischi dati in un cluster Windows, aggiungere quanto segue:
+
+```json
+{
+    "name": "customScript",    
+    "properties": {    
+        "publisher": "Microsoft.Compute",    
+        "type": "CustomScriptExtension",    
+        "typeHandlerVersion": "1.8",    
+        "autoUpgradeMinorVersion": true,    
+        "settings": {    
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.ps1"
+        ],
+        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File prepare_vm_disks.ps1"
+        }
+    }
+}
+```
+Per preparare automaticamente i dischi dati in un cluster Linux, aggiungere quanto segue:
+```json
+{
+    "name": "lapextension",
+    "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+        "fileUris": [
+            "https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"
+        ],
+        "commandToExecute": "bash prepare_vm_disks.sh"
+        }
+    }
+}
+```
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Aggiungere un disco dati a un set di scalabilità esistente
 > [!NOTE]

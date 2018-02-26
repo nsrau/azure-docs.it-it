@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Sviluppo con l''API di SQL in .NET | Documenti Microsoft'
-description: Imparare a sviluppare con API di SQL Azure Cosmos DB usando .NET
+title: 'Azure Cosmos DB: Sviluppare con l''API SQL in .NET | Microsoft Docs'
+description: Informazioni su come sviluppare con l'API SQL di Azure Cosmos DB usando .NET
 services: cosmos-db
 documentationcenter: 
 author: rafats
@@ -18,19 +18,19 @@ ms.author: rafats
 ms.custom: mvc
 ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: Sviluppo con l'API di SQL in .NET
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB: Sviluppare con l'API SQL in .NET
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-In questa esercitazione viene illustrato come creare un account di Azure Cosmos DB tramite il portale di Azure e quindi creare un database di documenti e una raccolta con un [chiave di partizione](sql-api-partition-data.md#partition-keys) utilizzando il [API .NET SQL](sql-api-introduction.md). Definendo una chiave di partizione quando si crea una raccolta, l'applicazione viene preparata ad una facile scalabilità in linea con la crescita dei dati. 
+Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare una raccolta e un database di documenti con una [chiave di partizione](sql-api-partition-data.md#partition-keys) usando l'[API .NET SQL](sql-api-introduction.md). Definendo una chiave di partizione quando si crea una raccolta, l'applicazione viene preparata ad una facile scalabilità in linea con la crescita dei dati. 
 
-In questa esercitazione vengono illustrate le attività seguenti utilizzando la [API .NET SQL](sql-api-sdk-dotnet.md):
+Questa esercitazione illustra le attività seguenti usando l'[API .NET SQL](sql-api-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Creare un account Azure Cosmos DB
@@ -42,7 +42,7 @@ In questa esercitazione vengono illustrate le attività seguenti utilizzando la 
 > * Eliminare un documento
 > * Eliminare un database
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Assicurarsi di disporre di quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
@@ -81,7 +81,7 @@ Si inizia creando un account Azure Cosmos DB nel portale di Azure.
     Se viene visualizzato un messaggio sulla verifica delle modifiche alla soluzione, fare clic su **OK**. Se viene visualizzato un messaggio sull'accettazione della licenza, fare clic su **Accetto**.
 
 ## <a id="Connect"></a>Aggiungere riferimenti al progetto
-I passaggi rimanenti in questa esercitazione specificare i frammenti di codice SQL API necessari per creare e aggiornare le risorse di Azure Cosmos DB nel progetto.
+I passaggi rimanenti di questa esercitazione specificano i frammenti di codice dell'API SQL necessari per creare e aggiornare le risorse di Azure Cosmos DB nel progetto.
 
 Aggiungere questi riferimenti all'applicazione.
 <!---These aren't added by default when you install the pkg?--->
@@ -121,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Creare un database
 
-Successivamente, creare un database di Azure Cosmos [database](sql-api-resources.md#databases) utilizzando il [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) metodo o [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) metodo il  **DocumentClient** classe il [SQL .NET SDK](sql-api-sdk-dotnet.md). Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
+Creare quindi un [database](sql-api-resources.md#databases) di Azure Cosmos DB usando il metodo [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) o [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) della classe **DocumentClient** da [SQL .NET SDK](sql-api-sdk-dotnet.md). Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -261,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Esecuzione di query in parallelo
-Azure Cosmos DB SQL SDK alla 1.9.0 e versioni successive di supporto opzioni di esecuzione parallela di query, che consentono di eseguire query di bassa latenza per le raccolte partizionate, anche quando è necessario tocco di un numero elevato di partizioni. Ad esempio, la query seguente è configurata in modo da essere eseguita in parallelo tra le partizioni.
+Gli SDK SQL 1.9.0 e versioni successive di Azure Cosmos DB supportano le opzioni di esecuzione di query in parallelo, che consentono di eseguire query a bassa latenza sulle raccolte partizionate, anche quando è necessario toccare un numero elevato di partizioni. Ad esempio, la query seguente è configurata in modo da essere eseguita in parallelo tra le partizioni.
 
 ```csharp
 // Cross-partition Order By queries
@@ -277,7 +277,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 * Impostando `MaxDegreeOfParallelism`è possibile controllare il grado di parallelismo, ovvero il numero massimo di connessioni di rete simultanee alle partizioni della raccolta. Se si imposta questo valore su -1, il grado di parallelismo viene gestito dall'SDK. Se `MaxDegreeOfParallelism` non è specificato o è impostato su 0, ovvero il valore predefinito, esisterà una sola connessione di rete per le partizioni della raccolta.
 * Impostando `MaxBufferedItemCount` è possibile raggiungere un compromesso tra latenza della query e uso della memoria dal lato client. Se si omette questo parametro o si imposta su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
-Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o superiore), SQL SDK esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati globalmente.
+Considerato lo stato della raccolta, una query in parallelo restituirà i risultati nello stesso ordine dell'esecuzione seriale. Quando si esegue una query tra partizioni che include l'ordinamento (ORDER BY e/o TOP), l'SDK di SQL esegue la query in parallelo tra le partizioni e unisce i risultati ordinati parzialmente sul lato client per produrre risultati ordinati a livello globale.
 
 ## <a name="execute-stored-procedures"></a>Eseguire stored procedure
 Infine è possibile eseguire transazioni atomiche rispetto a documenti con lo stesso ID dispositivo, ad esempio se si gestiscono aggregazioni o lo stato più recente di un dispositivo in un unico documento aggiungendo il codice seguente al progetto.

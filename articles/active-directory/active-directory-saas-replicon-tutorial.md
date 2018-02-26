@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Integrazione di Azure Active Directory con Replicon | Documentazione Microsoft'
-description: Informazioni su come configurare single sign-on tra Azure Active Directory e Replicon.
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Replicon.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 12/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 130e13b0bb801c498f6de6e4bfd61bd3d2c3bf00
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Esercitazione: Integrazione di Azure Active Directory con Replicon
 
-In questa esercitazione informazioni su come integrare Replicon con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare Replicon con Azure Active Directory (Azure AD).
 
-Integrazione di Replicon con Azure AD offre i vantaggi seguenti:
+L'integrazione di Replicon con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso a Replicon.
-- È possibile consentire agli utenti di automaticamente ottenere firmato a Replicon (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a Replicon.
+- È possibile abilitare gli utenti per l'accesso automatico a Replicon (Single Sign-On) con i propri account Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per configurare l'integrazione di Azure AD con Replicon, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con Replicon, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Sottoscrizione abilitata per Replicon single sign-on
+- Sottoscrizione di Replicon abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -54,9 +54,9 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-replicon-from-the-gallery"></a>Aggiunta di Replicon dalla raccolta
-Per configurare l'integrazione di Replicon in Azure AD, è necessario aggiungere all'elenco di App SaaS gestite Replicon dalla raccolta.
+Per configurare l'integrazione di Replicon in Azure AD, è necessario aggiungere Replicon dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Replicon dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere Replicon dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -70,33 +70,33 @@ Per configurare l'integrazione di Replicon in Azure AD, è necessario aggiungere
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **Replicon**selezionare **Replicon** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Replicon**, selezionare **Replicon** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Nell'elenco dei risultati replicon](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_addfromgallery.png)
+    ![Replicon nell'elenco dei risultati](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con Replicon in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Replicon usando un utente test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in Replicon a un utente in Azure AD. In altre parole, è necessario stabilire una relazione di collegamento tra un utente AD Azure e l'utente correlato in Replicon.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Replicon che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Replicon.
 
-In Replicon, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in Replicon assegnare il valore di **nome utente** in Azure AD come valore dell'attributo **Username** (Nome utente).
 
-Per configurare e testare Azure AD single sign-on con Replicon, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Replicon, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test Replicon](#create-a-replicon-test-user)**  - disporre di un equivalente di Britta Simon in Replicon collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di Replicon](#create-a-replicon-test-user)**: per avere una controparte di Britta Simon in Replicon collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione Replicon.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Replicon.
 
-**Per configurare Azure single sign-on AD con Replicon, eseguire la procedura seguente:**
+**Per configurare Single Sign-On di Azure AD con Replicon, seguire questa procedura:**
 
-1. Nel portale di Azure, sul **Replicon** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **Replicon** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,9 +104,9 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_samlbase.png)
 
-3. Nel **Replicon dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio Replicon** seguire questa procedura:
 
-    ![URL e replicon dominio single sign-on, informazioni](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Replicon](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
@@ -115,7 +115,7 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Contatto [team di supporto Client di Replicon](https://www.replicon.com/customerzone/contact-support) per ottenere questi valori. 
+    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Replicon](https://www.replicon.com/customerzone/contact-support). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -131,7 +131,7 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
    
     ![Abilita autenticazione SAML](./media/active-directory-saas-replicon-tutorial/ic777805.png "autenticazione SAML abilitare")
     
-    a. Per visualizzare il **EnableSAML Authentication2** finestra di dialogo, aggiungere quanto segue all'URL, dopo la chiave dell'azienda:`/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    a. Per visualizzare la finestra di dialogo **EnableSAML Authentication2** accodare i seguenti elementi all'URL, dopo la chiave della società: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
     
     * Di seguito è illustrato lo schema dell'URL completo:  
    `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
@@ -178,7 +178,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-replicon-test-user"></a>Creare un utente test Replicon
+### <a name="create-a-replicon-test-user"></a>Creare un utente di test di Replicon
 
 Per consentire agli utenti di Azure AD di accedere a Replicon, è necessario eseguirne il provisioning in Replicon. Nel caso di Replicon, il provisioning è un'attività manuale.
 
@@ -198,7 +198,7 @@ Per consentire agli utenti di Azure AD di accedere a Replicon, è necessario ese
    
     ![Profilo utente](./media/active-directory-saas-replicon-tutorial/ic777808.png "Profilo utente")
     
-    a. Nel **nome account di accesso** casella di testo, digitare l'indirizzo di posta elettronica dell'utente di Azure AD a cui si desidera eseguire il provisioning come  **BrittaSimon@contoso.com** .
+    a. Nella casella di testo **Nome accesso** digitare l'indirizzo di posta elettronica dell'utente di Azure AD di cui si desidera eseguire il provisioning, ad esempio **BrittaSimon@contoso.com**.
     
     b. In **Tipo di autenticazione** selezionare **SSO**.
     
@@ -209,23 +209,23 @@ Per consentire agli utenti di Azure AD di accedere a Replicon, è necessario ese
     e. Fare clic su **Salva profilo utente**.
 
 >[!NOTE]
->È possibile usare qualsiasi altro Replicon utente account strumento di creazione o le API fornite da Replicon per eseguire il provisioning degli account utente di Azure AD.
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Replicon per eseguire il provisioning degli account utente di Azure AD.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso a Replicon.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Replicon.
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon a Replicon, eseguire i passaggi seguenti:**
+**Per assegnare Britta Simon a Replicon, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **Replicon**.
+2. Nell'elenco di applicazioni selezionare **Replicon**.
 
-    ![Il collegamento di Replicon nell'elenco delle applicazioni](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)  
+    ![Collegamento di Replicon nell'elenco delle applicazioni](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -245,7 +245,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Replicon nel Pannello di accesso, dovrebbe ottenere automaticamente firmato-on all'applicazione di Replicon.
+Quando si fa clic sul riquadro Replicon nel riquadro di accesso, si dovrebbe accedere automaticamente all'applicazione Replicon.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

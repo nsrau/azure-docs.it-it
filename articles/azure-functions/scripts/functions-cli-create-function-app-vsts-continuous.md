@@ -9,15 +9,19 @@ ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 789f4e0b325475ddc3ff7aeb6e014f3814ac3458
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Creare una funzione in Azure distribuita da Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
 
-Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [senza server](https://azure.microsoft.com/overview/serverless-computing/) che usa il [piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che è un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Visual Studio Team Services (VSTS). Per completare questo argomento sono necessari:
+Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [senza server](https://azure.microsoft.com/overview/serverless-computing/) che usa il [piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che è un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Visual Studio Team Services (VSTS). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
+
+Per completare questo argomento sono necessari:
 
 * Un repository di Visual Studio Team Services che contiene il progetto dell'app per le funzioni e per cui si dispone di autorizzazioni amministrative.
 * Un [token di accesso personale](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) per accedere al repository di Visual Studio Team Services.

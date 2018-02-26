@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualizzare o analizzare i dati raccolti con la ricerca log di Log Analytics
 
@@ -41,7 +41,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 ## <a name="open-the-log-search-portal"></a>Aprire il portale per la ricerca log 
 Per iniziare, aprire il portale per la ricerca log.   
 
-1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nel riquadro delle sottoscrizioni di Log Analytics, selezionare un'area di lavoro e quindi selezionare il riquadro **Ricerca log**.<br> ![Pulsante Ricerca log](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
 
 Potrebbe essere apparso il banner nella parte superiore della pagina delle risorse di Log Analytics nel portale che invita a eseguire l'aggiornamento.<br> ![Avviso di aggiornamento di Log Analytics nel portale di Azure](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
@@ -50,7 +50,7 @@ Di recente Log Analytics ha introdotto un nuovo linguaggio di query per semplifi
 
 Eseguire un aggiornamento è semplice.  Avviare il processo facendo clic sul banner indicante **Altre informazioni e aggiorna**.  Leggere le informazioni aggiuntive sull'aggiornamento nella pagina delle informazioni sull'aggiornamento e fare clic su **Aggiorna ora**.
 
-Questo processo richiederà alcuni minuti. Nel frattempo è possibile tenere traccia dello stato di avanzamento alla voce **Notifiche** nel menu. Altre informazioni sui [Vantaggi del nuovo linguaggio di query](log-analytics-log-search-upgrade.md#why-the-new-language).
+Questo processo richiede alcuni minuti. Nel frattempo è possibile tenere traccia dello stato di avanzamento alla voce **Notifiche** nel menu. Altre informazioni sui [Vantaggi del nuovo linguaggio di query](log-analytics-log-search-upgrade.md#why-the-new-language).
 
 ## <a name="create-a-simple-search"></a>Creare una ricerca semplice
 Il modo più rapido per recuperare alcuni dati da utilizzare è una query semplice che restituisce tutti i record in una tabella.  In presenza di client Windows o Linux connessi all'area di lavoro, saranno disponibili dati nella tabella Event (Windows) o nella tabella Syslog (Linux).

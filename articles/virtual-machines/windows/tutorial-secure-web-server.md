@@ -4,23 +4,23 @@ description: Informazioni su come proteggere il server Web IIS con i certificati
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/14/2017
+ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43f06422e1120f1c3b2a9d9d5d4be515213c0937
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: ada0703603df5ae5a324d38cda2b23a060a10992
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="secure-iis-web-server-with-ssl-certificates-on-a-windows-virtual-machine-in-azure"></a>Proteggere il server Web IIS con i certificati SSL in una macchina virtuale Windows in Azure
 Per proteggere i server Web, è possibile usare un certificato Secure Sockets Layer (SSL) per crittografare il traffico Web. Questi certificati SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali (VM) Windows in Azure. In questa esercitazione si apprenderà come:
@@ -31,7 +31,9 @@ Per proteggere i server Web, è possibile usare un certificato Secure Sockets La
 > * Creare una macchina virtuale e installare il server Web IIS
 > * Inserire il certificato nella macchina virtuale e configurare IIS con un'associazione SSL
 
-Questa esercitazione richiede il modulo Azure PowerShell 3.6 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
 
 
 ## <a name="overview"></a>Panoramica
@@ -43,16 +45,16 @@ Invece di usare un'immagine di macchina virtuale personalizzata che include cert
 ## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
 Per poter creare un insieme di credenziali delle chiavi e i certificati, è prima necessario creare un gruppo di risorse con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupSecureWeb* nella località *East US*:
 
-```powershell
+```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
 $location = "East US"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Creare quindi un insieme di credenziali delle chiavi con [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente, sostituire `<mykeyvault>` con il nome univoco del proprio Key Vault:
+Creare quindi un insieme di credenziali delle chiavi con [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Ogni Key Vault deve avere un nome univoco in lettere minuscole. Nell'esempio seguente, sostituire `mykeyvault` con il nome univoco del proprio Key Vault:
 
-```powershell
-$keyvaultName="<mykeyvault>"
+```azurepowershell-interactive
+$keyvaultName="mykeyvault"
 New-AzureRmKeyVault -VaultName $keyvaultName `
     -ResourceGroup $resourceGroup `
     -Location $location `
@@ -62,7 +64,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generare un certificato e archiviarlo in Key Vault
 Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Per questa esercitazione, l'esempio seguente illustra come sia possibile generare un certificato autofirmato con il comando [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) che usi i criteri dei certificati predefiniti da [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
 
-```powershell
+```azurepowershell-interactive
 $policy = New-AzureKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
@@ -79,83 +81,24 @@ Add-AzureKeyVaultCertificate `
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 Impostare nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-A questo punto è possibile creare la macchina virtuale con il comando [New AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Nell'esempio seguente vengono creati i componenti della rete virtuale necessari e viene eseguita la configurazione del sistema operativo. Viene quindi creata una macchina virtuale denominata *myVM*:
+A questo punto è possibile creare la macchina virtuale con il comando [New AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). L'esempio seguente crea una macchina virtuale denominata *myVM* nell'area *EastUS*. Se non esistono già, vengono create le rispettive risorse di rete di supporto. Per consentire il traffico Web sicuro, il cmdlet apre anche la porta *443*.
 
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+```azurepowershell-interactive
+# Create a VM
+New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
+    -Name "myVM" `
     -Location $location `
-    -Name "myVnet" `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -AllocationMethod Static `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleRDP"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1000 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 `
-    -Access Allow
-
-# Create an inbound network security group rule for port 443
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name "myNetworkSecurityGroupRuleWWW"  `
-    -Protocol "Tcp" `
-    -Direction "Inbound" `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 443 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -Name "myNetworkSecurityGroup" `
-    -SecurityRules $nsgRuleRDP,$nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name "myNic" `
-    -ResourceGroupName $resourceGroup `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS2" | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName "myVM" -Credential $cred | `
-Set-AzureRmVMSourceImage -PublisherName "MicrosoftWindowsServer" `
-    -Offer "WindowsServer" -Skus "2016-Datacenter" -Version "latest" | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-# Create virtual machine
-New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred `
+    -OpenPorts 443
 
 # Use the Custom Script Extension to install IIS
 Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
@@ -174,7 +117,7 @@ Per creare la macchina virtuale sono necessari alcuni minuti. L'ultimo passaggio
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Aggiungere un certificato alla macchina virtuale da Key Vault
 Per aggiungere un certificato da Key Vault a una macchina virtuale, ottenere l'ID del certificato con [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Aggiungere il certificato alla macchina virtuale con [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
 
-```powershell
+```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzureRMVM -ResourceGroupName $resourceGroup -Name "myVM"
@@ -188,9 +131,9 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ## <a name="configure-iis-to-use-the-certificate"></a>Configurare IIS per usare il certificato
 Usare di nuovo l'estensione Script personalizzato con [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) per aggiornare la configurazione di IIS. Questo aggiornamento applica il certificato inserito da Key Vault a IIS e configura l'associazione Web:
 
-```powershell
+```azurepowershell-interactive
 $PublicSettings = '{
-    "fileUris":["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/secure-iis.ps1"],
+    "fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/secure-iis.ps1"],
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
 }'
 
@@ -208,8 +151,8 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ### <a name="test-the-secure-web-app"></a>Testare l'applicazione Web protetta
 Ottenere l'indirizzo IP pubblico della macchina virtuale con il comando [Get-AzureRmPublicIPAddress](/powershell/resourcemanager/azurerm.network/get-azurermpublicipaddress). L'esempio seguente ottiene l'indirizzo IP `myPublicIP` creato in precedenza:
 
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIP" | select "IpAddress"
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
 È ora possibile aprire un Web browser e immettere `https://<myPublicIP>` bella barra degli indirizzi. Per accettare l'avviso di sicurezza se si è usato un certificato autofirmato, selezionare **Dettagli** e quindi **Continua per la pagina Web**:
@@ -222,7 +165,6 @@ Il sito Web IIS protetto viene quindi visualizzato come illustrato nell'esempio 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 In questa esercitazione si è protetto un server Web IIS con un certificato SSL archiviato in Azure Key Vault. Si è appreso come:
 
 > [!div class="checklist"]

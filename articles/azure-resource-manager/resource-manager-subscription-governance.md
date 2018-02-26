@@ -16,7 +16,7 @@ ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -168,7 +168,7 @@ Per altri esempi di tag, vedere [Recommended Naming Conventions for Azure Resour
 ## <a name="resource-group"></a>Gruppo di risorse
 Resource Manager consente di inserire le risorse in gruppi significativi per gestione, fatturazione o affinità naturale. Come accennato in precedenza, Azure offre due modelli di distribuzione. Nel modello di distribuzione classica, quello precedente, l'unità di base per la gestione era la sottoscrizione. Era difficile suddividere le risorse all'interno di una sottoscrizione e questo comportava la creazione di un numero elevato di sottoscrizioni. Con il modello di Resource Manager, sono stati introdotti i gruppi di risorse. I gruppi di risorse sono contenitori di risorse che hanno un ciclo di vita comune o condividono un attributo, ad esempio "tutti i server SQL" o "Applicazione A".
 
-I gruppi di risorse non possono essere contenuti in un altro gruppo di risorse e le risorse possono appartenere a un solo gruppo di risorse. Determinate azioni possono essere applicate a tutte le risorse di un gruppo di risorse. Ad esempio, l'eliminazione di un gruppo di risorse comporta la rimozione di tutte le risorse all'interno del gruppo di risorse. In genere, un'intera applicazione o il sistema correlato vengono posizionati nello stesso gruppo di risorse. Ad esempio, un'applicazione a tre livelli dell'applicazione Web di Contoso chiamata conterrebbe il server web, server applicazioni e SQL server nello stesso gruppo di risorse.
+I gruppi di risorse non possono essere contenuti in un altro gruppo di risorse e le risorse possono appartenere a un solo gruppo di risorse. Determinate azioni possono essere applicate a tutte le risorse di un gruppo di risorse. Ad esempio, l'eliminazione di un gruppo di risorse comporta la rimozione di tutte le risorse all'interno del gruppo di risorse. In genere, un'intera applicazione o il sistema correlato vengono posizionati nello stesso gruppo di risorse. Ad esempio, un'applicazione a tre livelli denominata Applicazione Web Contoso conterrebbe il server Web, il server applicazioni e il server SQL nello stesso gruppo di risorse.
 
 > [!TIP]
 > La modalità di organizzazione dei gruppi di risorse può variare da carichi di lavoro di tipo "IT tradizionale" a carichi di lavoro di tipo "IT agile":

@@ -1,6 +1,6 @@
 ---
 title: Esercitazione su Istanze di contenitore di Azure - Preparare l'app
-description: 'Azure istanze di contenitori esercitazione parte 1 di 3: preparare un''app per la distribuzione in istanze di contenitori di Azure'
+description: Esercitazione di Istanze di contenitore di Azure - Parte 1 di 3 - Preparare un'app per la distribuzione in Istanze di contenitore di Azure
 services: container-instances
 author: seanmck
 manager: timlt
@@ -11,7 +11,7 @@ ms.author: seanmck
 ms.custom: mvc
 ms.openlocfilehash: fc16be80e776d1472be775fa32354ba157d16545
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -19,28 +19,28 @@ ms.lasthandoff: 01/02/2018
 
 Istanze di contenitore di Azure consente la distribuzione di contenitori Docker nell'infrastruttura di Azure senza effettuare il provisioning di macchine virtuali o adottare servizi di livello superiore. In questa esercitazione viene compilata una piccola applicazione Web in Node.js e ne viene creato un pacchetto in un contenitore che può essere eseguito usando Istanze di contenitore di Azure.
 
-In questo articolo, parte della serie, è:
+In questo articolo, che corrisponde alla seconda parte della serie, è possibile eseguire queste operazioni:
 
 > [!div class="checklist"]
 > * Clonare il codice sorgente dell'applicazione da GitHub
-> * Creare un'immagine contenitore dall'origine dell'applicazione
-> * Testare l'immagine in un ambiente locale in Docker
+> * Creazione di un'immagine del contenitore dall'origine applicazione
+> * Test dell'immagine in un ambiente Docker locale
 
 Nelle esercitazioni successive l'immagine viene caricata in un Registro contenitori di Azure e quindi distribuita in Istanze di contenitore di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione, è necessario che sia in esecuzione l'interfaccia CLI di Azure versione 2.0.23 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare Azure CLI 2.0][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.23 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli-install].
 
-Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali di `docker`. Se necessario, vedere [Introduzione a Docker] [ docker-get-started] per una panoramica sui concetti fondamentali di contenitore.
+Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali di `docker`. Se necessario, vedere [Introduzione a Docker][docker-get-started] per una panoramica sui concetti fondamentali relativi al contenitore.
 
-Per completare questa esercitazione, è necessario un ambiente di sviluppo Docker installato localmente. Docker offre pacchetti che consente di configurare facilmente Docker in qualsiasi [Mac][docker-mac], [Windows][docker-windows], o [Linux] [ docker-linux] sistema.
+Per completare questa esercitazione è necessario un ambiente di sviluppo Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
-Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. Nel computer locale per completare questa esercitazione, è necessario installare l'ambiente di sviluppo CLI di Azure e Docker.
+Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È necessario installare l'interfaccia della riga di comando di Azure e l'ambiente di sviluppo Docker nel computer locale per completare questa esercitazione.
 
 ## <a name="get-application-code"></a>Ottenere il codice dell'applicazione
 
-L'esempio in questa esercitazione include una semplice applicazione web incorporata [Node.js][nodejs]. L'app gestisce una pagina HTML statica ed è simile alla seguente:
+L'esempio in questa esercitazione include una semplice applicazione Web compilata in [Node.js][nodejs]. L'app gestisce una pagina HTML statica ed è simile alla seguente:
 
 ![App dell'esercitazione visualizzata in un browser][aci-tutorial-app]
 
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/aci-helloworld.git
 
 ## <a name="build-the-container-image"></a>Compilare l'immagine del contenitore
 
-Il documento Dockerfile fornito nel repository di esempio illustra come viene compilato il contenitore. Viene avviato da un [ufficiale immagine Node.js] [ docker-hub-nodeimage] in base a [Linux Alpine][alpine-linux], una distribuzione di piccole dimensioni che è adatta per l'utilizzo contenitori. Copia quindi i file dell'applicazione nel contenitore, installa le dipendenze usando Gestione pacchetti del nodo e infine avvia l'applicazione.
+Il documento Dockerfile fornito nel repository di esempio illustra come viene compilato il contenitore. Viene avviato da un'[immagine Node.js ufficiale][docker-hub-nodeimage] basata su [Alpine Linux][alpine-linux], una distribuzione di piccole dimensioni particolarmente adatta per l'uso con i contenitori. Copia quindi i file dell'applicazione nel contenitore, installa le dipendenze usando Gestione pacchetti del nodo e infine avvia l'applicazione.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -63,13 +63,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Utilizzare il [compilazione docker] [ docker-build] comando per creare l'immagine contenitore, come la codifica *aci-esercitazione-app*:
+Usare il comando [docker build][docker-build] per creare l'immagine del contenitore, assegnandole il tag *aci-tutorial-app*:
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Output di [compilazione docker] [ docker-build] comando è simile al seguente (troncato per migliorare la leggibilità):
+L'output dal comando [docker build][docker-build] sarà simile al seguente (troncato per una migliore leggibilità):
 
 ```bash
 Sending build context to Docker daemon  119.3kB
@@ -90,7 +90,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Utilizzare il [immagini docker] [ docker-images] comando per visualizzare l'immagine incorporata:
+Usare il comando [docker images][docker-images] per visualizzare l'immagine compilata:
 
 ```bash
 docker images

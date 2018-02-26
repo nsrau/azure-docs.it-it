@@ -33,15 +33,17 @@
       href: tutorial-virtual-network.md
     - name: 9 - Eseguire il backup delle macchine virtuali
       href: tutorial-backup-vms.md
-    - name: 10 - Monitorare e aggiornare le macchine virtuali
+    - name: 10 - Configurare la governance delle VM
+      href: tutorial-govern-resources.md
+    - name: 11 - Monitorare e aggiornare le VM
       href: tutorial-monitoring.md
-    - name: 11 - Gestire la sicurezza delle VM
+    - name: 12 - Gestire la sicurezza delle VM
       href: tutorial-azure-security.md
-    - name: 12 - Integrazione continua e distribuzione continua con Team Services
+    - name: 13- Integrazione continua e distribuzione continua con Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - Installare uno \.stack NET SQL\IIS
+    - name: 14 - Installare uno stack SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 14 - Proteggere il server Web con SSL
+    - name: '15: Proteggere il server Web con SSL'
       href: tutorial-secure-web-server.md
 - name: Esempi
   items:

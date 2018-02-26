@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: sethm;darosa
 ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -42,7 +42,7 @@ Acquisizione di Hub eventi consente di configurare una finestra per controllare 
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-Si noti che i valori di data vengono riempiti con zeri; potrebbe essere un nome di file di esempio:
+Si noti che i valori di data vengono riempiti con zeri, come illustrato nel nome di file di esempio seguente:
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro

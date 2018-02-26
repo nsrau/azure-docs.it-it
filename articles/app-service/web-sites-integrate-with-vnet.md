@@ -16,7 +16,7 @@ ms.date: 08/23/2017
 ms.author: ccompy
 ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,7 +39,7 @@ La funzionalità Integrazione rete virtuale:
 * richiede un piano tariffario Standard, Premium o Isolated 
 * funziona con reti virtuali classiche o di Resource Manager 
 * supporta TCP e UDP
-* funzionamento del servizio Web, con dispositivi mobili, App per le API e App (funzione)
+* funziona con app Web, per dispositivi mobili e per le API, nonché con app per le funzioni
 * consente a un'app di connettersi a 1 sola rete virtuale alla volta
 * consente di integrare fino a cinque reti virtuali in un piano di servizio app 
 * consente l'uso della stessa rete virtuale da parte di più app in un piano di servizio app
@@ -93,7 +93,7 @@ Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario es
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Abilitare la connessione da punto a sito in una rete virtuale di Resource Manager
-Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal]. L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. Si noti che non è necessario creare i certificati per la configurazione del sito del punto. poiché viene configurata automaticamente quando si connette l'app Web alla rete virtuale. 
+Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal]. L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. Tenere presente che la configurazione da punto a sito non richiede la creazione di certificati, poiché viene configurata automaticamente quando si connette l'app Web alla rete virtuale. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creazione di una rete virtuale preconfigurata
 Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale di Resource Manager. Se si vuole creare una rete virtuale classica con un gateway e una connessione da punto a sito, l'operazione deve essere eseguita manualmente tramite l'interfaccia utente di rete. 
@@ -260,7 +260,7 @@ A questo punto, se la macchina virtuale ospitata nella rete virtuale può raggiu
 
 ## <a name="powershell-automation"></a>Automazione di PowerShell
 
-Servizio App è possibile integrare con una rete virtuale di Azure tramite PowerShell. Per uno script ready to run, vedere [Connetti un'app in Azure App Service a una rete virtuale di Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+È possibile integrare Servizio app con una rete virtuale di Azure tramite PowerShell. Per uno script pronto per l'esecuzione, vedere [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3) (Connettere un'app del Servizio app di Azure a una rete virtuale di Azure).
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>Connessioni ibride e ambienti del servizio App
 Sono disponibili tre funzioni che consentono l'accesso alle risorse ospitate su reti virtuali. Sono:

@@ -36,13 +36,13 @@ Al termine del processo di provisioning della soluzione di monitoraggio remoto, 
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Effettuare il provisioning del dispositivo nella soluzione di monitoraggio remoto
 
 > [!NOTE]
-> Se è già stato eseguito il provisioning di un dispositivo nella soluzione, è possibile saltare questo passaggio. Sono necessarie le credenziali del dispositivo quando si crea l'applicazione client.
+> Se è già stato eseguito il provisioning di un dispositivo nella soluzione, è possibile saltare questo passaggio. Quando si crea l'applicazione client, è necessaria la stringa di connessione del dispositivo, che è possibile recuperare dal portale di Azure.
 
-Per connettere un dispositivo alla soluzione preconfigurata, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. È possibile recuperare le credenziali del dispositivo dalla pagina **Dispositivi** della soluzione. Le istruzioni per includere le credenziali del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
+Per connettere un dispositivo alla soluzione preconfigurata, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene le credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 
 Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, completare i passaggi seguenti nella pagina **Dispositivi** della soluzione:
 
-1. Passare alla pagina **Provisioning** e scegliere **Fisico** per **Tipo di dispositivo**:
+1. Scegliere **Nuovo dispositivo** e quindi come **Tipo di dispositivo** scegliere **Fisico**:
 
     ![Effettuare il provisioning di un dispositivo fisico](media/iot-suite-selector-connecting/devicesprovision.png)
 
@@ -50,17 +50,11 @@ Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, complet
 
     ![Scegliere le opzioni per il dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
+1. Scegliere **Applica**. Prendere quindi nota dei valori di **ID dispositivo**, **Chiave primaria**, e **Connection string primary key** (Chiave primaria della stringa di connessione):
+
+    ![Recuperare le credenziali](media/iot-suite-selector-connecting/credentials.png)
+
 Per individuare le credenziali che il dispositivo deve usare per la connessione alla soluzione preconfigurata, passare al portale di Azure nel browser. Accedere alla sottoscrizione.
-
-1. Individuare il gruppo di risorse che contiene i servizi di Azure usati dalla soluzione per il monitoraggio remoto. Il nome del gruppo di risorse coincide con quello della soluzione per il monitoraggio remoto della quale si è effettuato il provisioning.
-
-1. Passare all'hub IoT in questo gruppo di risorse. Scegliere quindi **dispositivi IoT**:
-
-    ![Esplora dispositivi](media/iot-suite-selector-connecting/deviceexplorer.png)
-
-1. Scegliere l'**ID dispositivo**creato nella pagina **Dispositivi** della soluzione per il monitoraggio remoto.
-
-1. Prendere nota dei valori di **ID dispositivo** e **Chiave dispositivo**. Questi valori vengono usati quando si aggiunge codice per connettere il dispositivo alla soluzione.
 
 È stato ora effettuato il provisioning di un dispositivo fisico nella soluzione preconfigurata per il monitoraggio remoto. Nelle sezioni seguenti si implementerà l'applicazione client che usa le credenziali del dispositivo per connettersi alla soluzione.
 
@@ -68,4 +62,4 @@ L'applicazione client implementa il modello di dispositivo **Chiller** predefini
 
 * Le proprietà che il dispositivo segnala alla soluzione. Ad esempio, un dispositivo **Chiller** segnala informazioni su firmware e posizione.
 * Tipi di dati di telemetria che il dispositivo invia alla soluzione. Ad esempio, un dispositivo **Chiller** invia valori di temperatura, umidità e pressione.
-* I metodi che possono essere pianificati nella soluzione per l'esecuzione nel dispositivo. Un dispositivo **Chiller** deve ad esempio implementare i metodi **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressure**.
+* I metodi che possono essere pianificati nella soluzione per l'esecuzione nel dispositivo. Un dispositivo **Chiller**, ad esempio, deve implementare i metodi **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressure**.

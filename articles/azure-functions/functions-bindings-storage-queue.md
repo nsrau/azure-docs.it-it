@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 2ca511bf0c145878cc80bdbae694f581fd487820
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: ce28b6eea9843ce423b57e539a844b4dacb552aa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione code di Azure per Funzioni di Azure
 
@@ -36,12 +36,12 @@ Usare il trigger della coda per avviare una funzione quando viene ricevuto un nu
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script c# (con estensione csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che esegue il polling di `myqueue-items` coda e scrive un log a ogni elaborazione di un elemento della coda.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
-Nell'esempio seguente viene illustrato un trigger di blob, l'associazione in un *function.json* file e [c# script (con estensione csx)](functions-reference-csharp.md) codice che utilizza l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C# (.csx)](functions-reference-csharp.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
 Ecco il file *function.json*:
 
@@ -153,7 +153,7 @@ Nella sezione [usage](#trigger---usage) è illustrato `myQueueItem`, denominato 
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
  
-In [librerie di classi c#](functions-dotnet-class-library.md), usare i seguenti attributi per configurare un trigger di coda:
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare i seguenti attributi per configurare un trigger di coda:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ In [librerie di classi c#](functions-dotnet-class-library.md), usare i seguenti 
   }
   ```
  
-  Per un esempio completo, vedere [Trigger - esempio c#](#trigger---c-example).
+  Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -267,12 +267,12 @@ Usare l'associazione di output dell'archiviazione code di Azure per scrivere i m
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script c# (con estensione csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che crea un messaggio nella coda per ogni richiesta HTTP ricevuto.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che crea un messaggio nella coda per ogni richiesta HTTP ricevuta.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Output - esempio di script C#
 
-Nell'esempio seguente viene illustrato un trigger di blob, l'associazione in un *function.json* file e [c# script (con estensione csx)](functions-reference-csharp.md) codice che utilizza l'associazione. La funzione crea un elemento della coda con un payload POCO per ogni richiesta HTTP ricevuta.
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C# (.csx)](functions-reference-csharp.md) che usa l'associazione. La funzione crea un elemento della coda con un payload POCO per ogni richiesta HTTP ricevuta.
 
 Ecco il file *function.json*:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Output - attributi
  
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), la cui definizione si trova nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 L'attributo si applica a un parametro `out` o al valore restituito della funzione. Il costruttore dell'attributo accetta il nome della coda, come illustrato nell'esempio seguente:
 
@@ -425,7 +425,7 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Per un esempio completo, vedere [Output - esempio c#](#output---c-example).
+Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere [Trigger - attributi](#trigger---attribute).
 
@@ -458,6 +458,15 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 * [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
 
 Nelle funzioni JavaScript usare `context.bindings.<name>` per accedere al messaggio nella coda di output. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
+
+
+## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
+
+| Associazione |  riferimento |
+|---|---|
+| Coda | [Codici di errore della coda](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue |  [Risoluzione dei problemi](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

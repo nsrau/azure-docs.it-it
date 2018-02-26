@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 9125f3db8929a41f49ff3ae53de9f3a71f5bf051
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizzare l'utilizzo dei dati in Log Analytics
 Log Analytics include informazioni sulla quantità di dati raccolti, sui diversi tipi di dati inviati e sui sistemi che li hanno inviati.  È possibile usare dashboard **Utilizzo in Log Analytics** per visualizzare la quantità di dati inviata al servizio Log Analytics. Il dashboard mostra la quantità di dati raccolti da ogni soluzione e la quantità di dati inviata dai computer.
@@ -44,13 +44,17 @@ Il dashboard **Utilizzo di Log Analytics** visualizza le informazioni seguenti:
 ![dashboard di utilizzo](./media/log-analytics-usage/usage-dashboard01.png)
 
 ### <a name="to-work-with-usage-data"></a>Per gestire i dati di utilizzo
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
-3. Nell'elenco di aree di lavoro di Log Analytics selezionare un'area di lavoro.
-4. Selezionare **Utilizzo di Analisi dei log** dall'elenco nel riquadro a sinistra.
-5. Nel dashboard **Utilizzo di Log Analytics** fare clic su **Ora: Ultime 24 ore** per modificare l'intervallo di tempo.<br><br> ![Intervallo di tempo](./media/log-analytics-usage/time.png)<br><br>
-6. Visualizzare i pannelli delle categorie di utilizzo che mostrano le aree a cui si è interessati. Scegliere un pannello e quindi fare clic su un elemento per visualizzare altri dettagli in [Ricerca log](log-analytics-log-searches.md).<br><br> ![Pannello dell'utilizzo dei dati di esempio](./media/log-analytics-usage/blade.png)<br><br>
-7. Nel dashboard Ricerca log esaminare i risultati restituiti dalla ricerca.<br><br> ![Ricerca log sull'utilizzo dei dati di esempio](./media/log-analytics-usage/usage-log-search.png)
+1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com), usando la sottoscrizione di Azure.
+2. Fare clic su **Tutti i servizi** e nell'elenco di risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Log Analytics**.  
+    ![Hub di Azure](./media/log-analytics-usage/hub.png)
+3. Il dashboard **Log Analytics** visualizza un elenco delle aree di lavoro. Selezionare un'area di lavoro.
+4. Nel dashboard dell'*area di lavoro* fare clic su **Utilizzo di Log Analytics**.
+5. Nel dashboard **Utilizzo di Log Analytics** fare clic su **Ora: Ultime 24 ore** per modificare l'intervallo di tempo.  
+    ![Intervallo di tempo](./media/log-analytics-usage/time.png)
+6. Visualizzare i pannelli delle categorie di utilizzo che mostrano le aree a cui si è interessati. Scegliere un pannello e quindi fare clic su un elemento per visualizzare altri dettagli in [Ricerca log](log-analytics-log-searches.md).  
+    ![Pannello dell'utilizzo dei dati di esempio](./media/log-analytics-usage/blade.png)
+7. Nel dashboard Ricerca log esaminare i risultati restituiti dalla ricerca.  
+    ![Ricerca log sull'utilizzo dei dati di esempio](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creare un avviso quando la raccolta dati supera le dimensioni previste
 Questa sezione descrive come creare un avviso nei casi seguenti:

@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: govindk
 ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -72,7 +72,7 @@ Se si desidera risparmiare spazio degli indici, è possibile modificare i [crite
 
 ## <a name="debugging-why-queries-are-running-slow"></a>Eseguire il degug sul motivo per cui l'esecuzione delle query risulta rallentata
 
-Nel SDK di API di SQL Azure Cosmos DB fornisce le statistiche di esecuzione di query. 
+Negli SDK dell'API SQL Azure Cosmos DB presenta le statistiche di esecuzione delle query. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

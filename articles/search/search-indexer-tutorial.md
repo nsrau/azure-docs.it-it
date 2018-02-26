@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Come effettuare una ricerca per indicizzazione in un database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
@@ -121,7 +121,7 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). 
 
-2. Fare clic su **Nuovo** > **Database SQL** per creare un database, un server e un gruppo di risorse. È possibile usare le impostazioni predefinite e il piano tariffario del livello più basso. Uno dei vantaggi della creazione di un server consiste nella possibilità di specificare un nome utente e una password dell'amministratore, necessari per la creazione e il caricamento di tabelle in un passaggio successivo.
+2. Fare clic su **Crea una risorsa** > **Database SQL** per creare un database, un server e un gruppo di risorse. È possibile usare le impostazioni predefinite e il piano tariffario del livello più basso. Uno dei vantaggi della creazione di un server consiste nella possibilità di specificare un nome utente e una password dell'amministratore, necessari per la creazione e il caricamento di tabelle in un passaggio successivo.
 
    ![Pagina Nuovo database](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 

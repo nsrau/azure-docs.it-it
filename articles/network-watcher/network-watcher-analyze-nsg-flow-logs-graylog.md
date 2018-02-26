@@ -17,7 +17,7 @@ ms.date: 09/19/2017
 ms.author: mareat
 ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -153,7 +153,7 @@ La sezione filtro rende quindi flat tutti i file di log di flusso in modo che og
 La sezione di output inoltra infine ogni evento Logstash al server Graylog. Modificare il file di configurazione Logstash in base alle esigenze specifiche.
 
    > [!NOTE]
-   > Il file di configurazione precedente presuppone che il server Graylog sia stato configurato per l'indirizzo IP di loopback dell'host locale 127.0.0.1. In caso contrario, sarà necessario modificare il parametro host nella sezione di output per l'indirizzo IP corretto.
+   > Il file di configurazione precedente presuppone che il server Graylog sia stato configurato nell'indirizzo IP 127.0.0.1 di loopback dell'host locale. In caso contrario, assicurarsi di modificare il parametro host nella sezione di output impostando l'indirizzo IP corretto.
 
 Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) di Logtash.
 

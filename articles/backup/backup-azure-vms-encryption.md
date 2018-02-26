@@ -17,7 +17,7 @@ ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -37,7 +37,7 @@ Questo articolo illustra i passaggi per eseguire il backup e il ripristino di ma
    | **Macchine virtuali non gestite**  | Sì | Sì  |
    | **Macchine virtuali gestite**  | Sì | Sì  |
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * La macchina virtuale è stata crittografata usando [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md).
 
 * È stato creato un insieme di credenziali di Servizi di ripristino e la replica di archiviazione è stata impostata seguendo i passaggi descritti in [Preparare l'ambiente per il backup](backup-azure-arm-vms-prepare.md).
@@ -78,15 +78,15 @@ Per impostare l'obiettivo di un backup, definire i criteri, configurare gli elem
 
       ![Selezionare le macchine virtuali crittografate](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 7. In questa pagina viene visualizzato un messaggio sull'insieme di credenziali delle chiavi associato alle macchine virtuali crittografate selezionate. Il servizio Backup richiede l'accesso in sola lettura per le chiavi e i segreti in Key Vault. Il servizio usa queste autorizzazioni per eseguire il backup di chiavi e segreti, nonché delle macchine virtuali associate.<br>
-Se si è un **utente membro**, processo di Backup di abilitare facilmente acquisirà l'accesso all'insieme di credenziali chiave di backup crittografato di macchine virtuali senza richiedere alcun intervento dell'utente.
+Se si è un **utente membro**, il processo di abilitazione del backup accederà facilmente all'insieme di credenziali delle chiavi per eseguire il backup delle macchine virtuali crittografate senza richiedere alcun intervento dell'utente.
 
    ![Messaggio delle macchine virtuali crittografate](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   Per un **utente Guest**, è necessario fornire autorizzazioni al servizio di backup per l'insieme di credenziali chiave per i backup funzionino accedere. È possibile fornire queste autorizzazioni seguendo il [i passaggi indicati nella sezione seguente](#provide-permissions-to-backup)
+   Per un **utente guest**, per consentire il funzionamento dei backup, è necessario concedere le autorizzazioni al servizio Backup per l'accesso all'insieme di credenziali delle chiavi. Per concedere queste autorizzazioni, seguire la [procedura descritta nella sezione seguente](#provide-permissions-to-backup).
 
    ![Messaggio delle macchine virtuali crittografate](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
  
-    Dopo avere definito tutte le impostazioni per l'insieme di credenziali, selezionare **Abilita backup** nella parte inferiore della pagina. **Abilitare il Backup** consente di distribuire i criteri per l'insieme di credenziali e le macchine virtuali.
+    Dopo avere definito tutte le impostazioni per l'insieme di credenziali, selezionare **Abilita backup** nella parte inferiore della pagina. **Abilita backup** consente di distribuire i criteri nell'insieme di credenziali e nelle macchine virtuali.
   
 8. La fase successiva di preparazione è l'installazione dell'agente di macchine virtuali o la verifica che l'agente di macchine virtuali sia installato. Per eseguire la stessa operazione, seguire la procedura descritta in [Preparare l'ambiente per il backup](backup-azure-arm-vms-prepare.md).
 

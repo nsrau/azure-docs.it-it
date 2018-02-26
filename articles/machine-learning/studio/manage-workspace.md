@@ -16,7 +16,7 @@ ms.date: 02/27/2017
 ms.author: garye
 ms.openlocfilehash: 2e4b2869b6eac9670853832d58bc37f1cb0ed001
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/14/2017
 > 
 > 
 
-È possibile gestire le aree di lavoro di Machine Learning nel portale di Azure.
+Nel portale di Azure è possibile gestire le aree di lavoro di Machine Learning.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -49,7 +49,7 @@ Per gestire i servizi Web associati all'area di lavoro, usare il portale dei ser
 > [!NOTE]
 > Per distribuire o gestire nuovi servizi Web è necessario che all'utente sia assegnato un ruolo di collaboratore o di amministratore nella sottoscrizione in cui viene distribuito il servizio Web. Se si invita un altro utente in un'area di lavoro di Machine Learning, affinché possa distribuire o gestire servizi Web è prima necessario assegnargli un ruolo di collaboratore o di amministratore nella sottoscrizione. 
 > 
->Per ulteriori informazioni sull'impostazione delle autorizzazioni di accesso, vedere [visualizzare le assegnazioni di accesso per utenti e gruppi nel portale di Azure](../../active-directory/role-based-access-control-manage-assignments.md).
+>Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [Visualizzare le assegnazioni dell'accesso per utenti e gruppi nel portale di Azure](../../active-directory/role-based-access-control-manage-assignments.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni, vedere [distribuire Machine Learning con modelli di gestione risorse di Azure](deploy-with-resource-manager-template.md). 
+* Altre informazioni sulla [distribuzione di Machine Learning con i modelli di Azure Resource Manager](deploy-with-resource-manager-template.md). 

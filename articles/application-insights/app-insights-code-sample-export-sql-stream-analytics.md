@@ -16,7 +16,7 @@ ms.date: 03/06/2015
 ms.author: mbullwin
 ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
 ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -141,13 +141,13 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visualizzare gli altri dati disponibili, esaminare l'output JSON e vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
-Dal [portale di Azure](https://portal.azure.com/), selezionare il servizio di Azure flusso Analitica e creare un nuovo processo di flusso Analitica:
+Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Quando viene creato il nuovo processo, selezionare **passare alla risorsa**.
+Quando viene creato il nuovo processo, selezionare **Vai alla risorsa**.
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 

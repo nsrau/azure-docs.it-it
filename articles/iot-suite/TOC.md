@@ -17,7 +17,6 @@
 #### [Autorizzazioni in azureiotsuite.com](iot-suite-v1-permissions.md)
 #### [Procedura dettagliata per la soluzione di monitoraggio remoto](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
 #### [Connettere Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
-#### [Connettere MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 ##### Usare C
 ###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
 ###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
@@ -26,6 +25,7 @@
 ###### [Dati simulati](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Usare sensori reali](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementare l'aggiornamento del firmware](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### [Connettere MXChip IoT DevKit](../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 ### Guide alle procedure
 #### Connettere un dispositivo simulato
@@ -81,7 +81,7 @@
 ### [Configurare la soluzione di connected factory](iot-suite-connected-factory-configure.md)
 ## [Autorizzazioni in azureiotsuite.com](iot-suite-permissions.md)
 
-# riferimento
+# Riferimenti
 ## [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Architettura di sicurezza](iot-security-architecture.md)
@@ -99,5 +99,7 @@
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [DOMANDE FREQUENTI](iot-suite-faq.md)
+## [Domande frequenti sul monitoraggio remoto](iot-suite-faq-rm-v2.md)
 ## [Domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-suite)
 ## [Percorso di apprendimento per IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

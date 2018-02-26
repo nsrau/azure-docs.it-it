@@ -10,24 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 145c2bc0556010389e78e523fde6fd4b9063f930
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 42643c73368597d1caea4aba12bc7b64b7440970
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Archiviare le credenziali in Azure Key Vault
 
 È possibile archiviare le credenziali per gli archivi dati in un [insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-whatis.md). Azure Data Factory Azure recupera le credenziali durante l'esecuzione di un'attività che usa l'archivio dati.
 
-Attualmente, [connettore di Dynamics](connector-dynamics-crm-office-365.md), [connettore Salesforce](connector-salesforce.md) e alcuni appena attivare il supporto di connettori questa funzionalità. Prevedere più presto in un secondo momento. È possibile controllare ogni argomento connettore su Dettagli. Per i campi di segreto che supportano questa funzionalità, verrà visualizzata una nota nella pronuncia descrizione "*è possibile scegliere di contrassegnare questo campo come SecureString per archiviare in modo sicuro nel file ADF, o archiviare password in Azure e consentire il pull di attività di copia da qui Quando si esegue la copia dei dati - informazioni dalle credenziali di archiviazione nell'insieme di credenziali chiave.* "
+Questa funzionalità è attualmente supportata dall'attività di copia con tutti i tipi di connettori. Per informazioni dettagliate, vedere la sezione relativa alle proprietà del servizio collegato nell'[argomento dedicato a ogni connettore](copy-activity-overview.md#supported-data-stores-and-formats). Il supporto per altri tipi di attività e il servizio collegato di calcolo è previsto in futuro.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio di Data Factory, disponibile a livello generale, vedere la [documentazione sulla versione 1 di Data Factory](v1/data-factory-introduction.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questa funzionalità si basa sull'identità del servizio Data Factory. È necessario apprenderne il funzionamento tramite l'[identità del servizio Data Factory](data-factory-service-identity.md) e verificare che la data factory in uso abbia un'identità associata.
 
@@ -35,10 +35,10 @@ Questa funzionalità si basa sull'identità del servizio Data Factory. È necess
 
 Per fare riferimento a una credenziale archiviata in Azure Key Vault, è necessario:
 
-1. [Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
-2. Concedere l'accesso dell'identità del servizio ad Azure Key Vault. Nell'insieme di credenziali delle chiavi -> Controllo dell'accesso -> Aggiungi -> cercare l'ID applicazione identità del servizio per aggiungere almeno l'autorizzazione **Lettore**. Consente a questa factory designata di accedere al segreto nell'insieme di credenziali.
-3. Creare un servizio collegato che punta ad Azure Key Vault. Fare riferimento a [Servizio collegato di Azure Key Vault](#azure-key-vault-linked-service).
-4. Creare il servizio collegato di archiviazione dati, nel cui riferimento il segreto corrispondente è archiviato nell'insieme di credenziali delle chiavi. Vedere [Credenziali di riferimento archiviate nell'insieme di credenziali delle chiavi](#reference-credential-stored-in-key-vault).
+1. **[Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity)** copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
+2. **Concedere l'accesso dell'identità del servizio ad Azure Key Vault** Nell'insieme di credenziali delle chiavi -> Criteri di accesso -> Aggiungi nuovo -> cercare questo ID nuova ricerca ID applicazione identità del servizio per concedere l'autorizzazione **Recupera** nell'elenco a discesa Autorizzazioni segrete. Consente a questa factory designata di accedere al segreto nell'insieme di credenziali.
+3. **Creare un servizio collegato che punta ad Azure Key Vault.** Fare riferimento a [Servizio collegato di Azure Key Vault](#azure-key-vault-linked-service).
+4. **Creare il servizio collegato di archivio dati, nel cui riferimento il segreto corrispondente è archiviato nell'insieme di credenziali delle chiavi.** Vedere [Fare riferimento a un segreto nell'insieme di credenziali delle chiavi](#reference-secret-stored-in-key-vault).
 
 ## <a name="azure-key-vault-linked-service"></a>Servizio collegato di Azure Key Vault
 
@@ -63,7 +63,7 @@ Per il servizio collegato di Azure Key Vault sono supportate le proprietà segue
 }
 ```
 
-## <a name="reference-credential-stored-in-key-vault"></a>Credenziali di riferimento archiviate nell'insieme di credenziali delle chiavi
+## <a name="reference-secret-stored-in-key-vault"></a>Fare riferimento a un segreto nell'insieme di credenziali delle chiavi
 
 Quando si configura un campo nel servizio collegato che fa riferimento a un segreto dell'insieme di credenziali delle chiavi, sono supportate le proprietà seguenti:
 

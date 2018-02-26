@@ -1,7 +1,7 @@
 Verificare che sia già stato creato uno spazio dei nomi del bus di servizio, come illustrato [qui][namespace-how-to].
 
 1. Accedere al [portale di Azure][azure-portal].
-2. Nel riquadro di spostamento a sinistra del portale, fare clic su **Bus di servizio** (se non viene visualizzato **Bus di servizio**, fare clic su **Altri servizi**).
+2. Nel riquadro di spostamento a sinistra del portale fare clic su **Bus di servizio**. Se l'opzione **Bus di servizio** non è visualizzata, fare clic su **Tutti i servizi**.
 3. Fare clic sullo spazio dei nomi in cui si vuole creare la coda. In questo caso è **sbnstest1**.
    
     ![Creare una coda][createqueue1]

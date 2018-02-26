@@ -3,8 +3,8 @@ title: Risoluzione dei problemi di Microsoft Azure Stack | Documenti Microsoft
 description: Azure Stack risoluzione dei problemi.
 services: azure-stack
 documentationcenter: 
-author: heathl17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
-ms.author: helaw
-ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
+ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Risoluzione dei problemi di Microsoft Azure Stack
 
@@ -26,37 +27,37 @@ ms.lasthandoff: 11/13/2017
 
 Questo documento fornisce informazioni sulla risoluzione dei problemi comuni per lo Stack di Azure. 
 
-Poiché il Kit di sviluppo tecnica di Azure Stack viene offerto come un ambiente di valutazione, non è previsto alcun supporto ufficiale dal supporto tecnico clienti Microsoft.  Se si sta verificando un problema non documentato, assicurarsi di controllare il [Forum MSDN di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) per ulteriore assistenza e informazioni.  
+Poiché il Kit di sviluppo tecnica di Azure Stack viene offerto come un ambiente di valutazione, non è previsto alcun supporto ufficiale dal supporto tecnico clienti Microsoft. Se si sta verificando un problema non documentato, assicurarsi di controllare il [Forum MSDN di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) per ulteriore assistenza e informazioni.  
 
 Le indicazioni per la risoluzione dei problemi descritti in questa sezione sono derivate da diverse origini e potrebbero essere o non possono essere risolti al problema specifico. Vengono forniti esempi di codice come sono e non possono essere garantiti risultati previsti. In questa sezione è soggetto a modifiche frequenti e gli aggiornamenti come vengono implementati i miglioramenti al prodotto.
 
 ## <a name="deployment"></a>Distribuzione
 ### <a name="deployment-failure"></a>Errore di distribuzione
-Se si verifica un errore durante l'installazione, è possibile utilizzare utilizzare l'opzione rieseguire dello script di distribuzione per riavviare la distribuzione del passaggio non riuscito.  
+Se si verifica un errore durante l'installazione, è possibile riavviare la distribuzione del passaggio non riuscito con il parametro - opzione rieseguire dello script di distribuzione.  
 
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Al termine della distribuzione, la sessione di PowerShell è ancora aperta e non visualizza alcun output
-Questo comportamento è probabilmente solo il risultato del comportamento predefinito di una finestra di comando di PowerShell, quando è stato selezionato. La distribuzione di kit di sviluppo effettivamente ha avuto esito positivo, ma lo script è stato sospeso quando si seleziona la finestra. È possibile verificare che questo è il caso cercando la parola "select" sulla barra del titolo della finestra di comando.  Premere il tasto ESC per deselezionarlo e deve essere visualizzato il messaggio di completamento dopo di esso.
+Questo comportamento è probabilmente solo il risultato del comportamento predefinito di una finestra di comando di PowerShell, quando è stato selezionato. La distribuzione di kit di sviluppo effettivamente ha avuto esito positivo, ma lo script è stato sospeso quando si seleziona la finestra. È possibile verificare l'installazione è stata completata cercando la parola "select" sulla barra del titolo della finestra di comando.  Premere il tasto ESC per deselezionarlo e deve essere visualizzato il messaggio di completamento dopo di esso.
 
 ## <a name="virtual-machines"></a>Macchine virtuali
 ### <a name="default-image-and-gallery-item"></a>Elemento di raccolta e l'immagine predefinita
-Prima di distribuire le macchine virtuali nello Stack di Azure, è innanzitutto necessario aggiungere un elemento di raccolta e l'immagine di Windows Server.
+Prima di distribuire le macchine virtuali nello Stack di Azure, è necessario aggiungere un elemento di raccolta e l'immagine di Windows Server.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Dopo il riavvio dell'host di Stack di Azure, alcune macchine virtuali non venga avviato automaticamente.
 Dopo il riavvio dell'host, è possibile riscontrare servizi Azure Stack non sono immediatamente disponibili.  In questo modo Azure Stack [infrastruttura di macchine virtuali](azure-stack-architecture.md#virtual-machine-roles) e RPs richiedere un po' le per verificare la coerenza, ma verrà infine avviata automaticamente.
 
-È anche possibile riscontrare tenant che macchine virtuali non avviare automaticamente dopo il riavvio dell'host del kit di sviluppo dello Stack di Azure.  Questo è un problema noto e richiede solo pochi passaggi manuali per portarli online:
+È anche possibile riscontrare tenant che macchine virtuali non avviare automaticamente dopo il riavvio dell'host del kit di sviluppo dello Stack di Azure. Questo è un problema noto e richiede solo pochi passaggi manuali per portarli online:
 
 1.  Nell'host di kit di sviluppo dello Stack di Azure, avviare **gestione Cluster di Failover** dal Menu Start.
 2.  Selezionare il cluster **S Cluster.azurestack.local**.
 3.  Selezionare **Ruoli**.
-4.  Le macchine virtuali tenant verranno visualizzate un *salvato* stato.  Quando tutte le macchine virtuali dell'infrastruttura sono in esecuzione, le macchine virtuali tenant e scegliere **avviare** per riprendere la macchina virtuale.
+4.  Le macchine virtuali tenant visualizzate un *salvato* stato. Quando tutte le macchine virtuali dell'infrastruttura sono in esecuzione, le macchine virtuali tenant e scegliere **avviare** per riprendere la macchina virtuale.
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>Sono eliminati alcune macchine virtuali, ma comunque visualizzare i file di disco rigido virtuale su disco. Questo comportamento è previsto?
 Sì, questo comportamento è previsto. È stato progettato in questo modo perché:
 
 * Quando si elimina una macchina virtuale, è possibile che i dischi rigidi virtuali non vengono eliminati. I dischi sono separate le risorse nel gruppo di risorse.
-* Quando un account di archiviazione Ottiene eliminato, l'eliminazione è visibile immediatamente tramite Gestione risorse di Azure (portale, PowerShell), ma i dischi che potrebbe contenere ancora vengono conservati nell'archiviazione fino a quando non viene eseguito l'operazione di garbage collection.
+* Quando un account di archiviazione Ottiene eliminato, l'eliminazione è visibile immediatamente tramite Gestione risorse di Azure, ma i dischi che potrebbe contenere ancora vengono conservati nell'archiviazione fino a quando non viene eseguito l'operazione di garbage collection.
 
 Se viene visualizzato "orfano" i dischi rigidi virtuali, è importante sapere se fanno parte della cartella per un account di archiviazione che è stato eliminato. Se l'account di archiviazione non è stato eliminato, è normale che sono ancora presenti.
 

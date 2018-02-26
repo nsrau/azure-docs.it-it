@@ -16,15 +16,17 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 363a3fd1c80538495658720274840b921baa8675
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b4dad0bba7a147f294c5d9ce3a1a1aa8e95058f3
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="integrate-function-app-into-azure-storage-account"></a>Integrare l'app per le funzioni nell'account di archiviazione di Azure
+# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Creare un'app per le funzioni che si connette a un account di archiviazione di Azure
 
-Questo script di esempio crea un'app per le funzioni e un account di archiviazione.
+Questo script di esempio di Funzioni di Azure crea un'app per le funzioni e connette la funzione a un account di archiviazione di Azure. L'impostazione dell'app creata che contiene la connessione può essere usata con un [trigger o un binding di archiviazione](..\functions-bindings-storage-blob.md). 
+
+[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +53,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Accedere ad Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Accedere ad Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creare un gruppo di risorse con una posizione |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | Creare un account di archiviazione |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Creare una nuova app per le funzioni |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 5008d8f0ce36f09ff26bf10fadbf14da6b474ea9
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 77b30610072fb7f573597d035dcc161b4739ec7c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -428,7 +428,7 @@ Lo stato del trigger distribuito è arrestato. Uno dei modi per avviare il trigg
     ```
 
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
-1. Dopo avere eseguito l'accesso al [portale di Azure](https://portal.azure.com/), fare clic su **Altri servizi**, eseguire una ricerca con una parola chiave come **data fa** e selezionare **Data factory**.
+1. Dopo avere eseguito l'accesso al [portale di Azure](https://portal.azure.com/), fare clic su **Tutti i servizi**, eseguire una ricerca con una parola chiave come **data fa** e selezionare **Data factory**.
 
     ![Menu di esplorazione delle data factory](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. Nella pagina **Data factory** fare clic sulla data factory creata. Se necessario, filtrare l'elenco specificando il nome della data factory.  

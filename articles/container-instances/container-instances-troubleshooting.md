@@ -11,7 +11,7 @@ ms.author: seanmck
 ms.custom: mvc
 ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -21,13 +21,13 @@ Questo articolo mostra come risolvere i problemi durante la distribuzione di con
 
 ## <a name="get-diagnostic-events"></a>Recuperare gli eventi di diagnostica
 
-Per visualizzare i registri dal codice dell'applicazione in un contenitore, è possibile utilizzare il [az contenitore registri] [ az-container-logs] comando. Se tuttavia il contenitore non viene distribuito correttamente, è necessario esaminare le informazioni di diagnostica fornite dal provider di risorse Istanze di contenitore di Azure. Per visualizzare gli eventi per il contenitore, eseguire il [Mostra contenitore az] [ az-container-show] comando:
+Per visualizzare i log generati dal codice dell'applicazione all'interno di un contenitore, è possibile usare il comando [az container logs][az-container-logs]. Se tuttavia il contenitore non viene distribuito correttamente, è necessario esaminare le informazioni di diagnostica fornite dal provider di risorse Istanze di contenitore di Azure. Per visualizzare gli eventi per il proprio contenitore, eseguire il comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-L'output include le proprietà principali del contenitore, insieme agli eventi di distribuzione (illustrato di seguito troncato):
+L'output include le proprietà principali del contenitore e gli eventi di distribuzione (visualizzati qui troncati):
 
 ```JSON
 {
@@ -94,7 +94,7 @@ La maggior parte degli errori riscontrati durante la distribuzione è dovuta ad 
 
 ## <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 
-Se Istanze di contenitore di Azure non è inizialmente in grado di eseguire il pull dell'immagine, ripete il tentativo per un certo periodo di tempo prima di generare un errore. Se non è possibile effettuare il pull dell'immagine, eventi simile al seguente vengono visualizzati nell'output di [Mostra contenitore az][az-container-show]:
+Se Istanze di contenitore di Azure non è inizialmente in grado di eseguire il pull dell'immagine, ripete il tentativo per un certo periodo di tempo prima di generare un errore. Se il pull dell'immagine non può essere eseguito, vengono visualizzati eventi simili al seguente nell'output di [az container show][az-container-show]:
 
 ```bash
 "events": [
@@ -131,7 +131,7 @@ Per risolvere il problema, eliminare il contenitore e ripetere il tentativo di d
 
 Se al completamento dell'esecuzione il contenitore viene riavviato automaticamente, potrebbe essere necessario impostare i [criteri di riavvio](container-instances-restart-policy.md) su **OnFailure** o **Never**. Se si specifica **OnFailure** e si riscontra una situazione di riavvio continuo, potrebbe essere presente un problema con l'applicazione o lo script eseguito nel contenitore.
 
-L'API Istanze di contenitore include una proprietà `restartCount`. Per controllare il numero di riavvii di un contenitore, è possibile utilizzare il [Mostra contenitore az] [ az-container-show] comando CLI di Azure 2.0. Nell'output di esempio seguente (troncato per brevità) la proprietà `restartCount` è visualizzata alla fine dell'output.
+L'API Istanze di contenitore include una proprietà `restartCount`. Per controllare il numero di riavvii di un contenitore, è possibile usare il comando [az container show][az-container-show] nell'interfaccia della riga di comando di Azure 2.0. Nell'output di esempio seguente (troncato per brevità) la proprietà `restartCount` è visualizzata alla fine dell'output.
 
 ```json
 ...
@@ -191,7 +191,7 @@ REPOSITORY                             TAG                 IMAGE ID            C
 microsoft/aci-helloworld               latest              7f78509b568e        13 days ago         68.1MB
 ```
 
-Il modo migliore per limitare le dimensioni delle immagini è quello di evitare che l'immagine finale contenga dati che non sono necessari in fase di esecuzione. Questa operazione è con [compilazioni a più fasi][docker-multi-stage-builds]. Le compilazioni di questo tipo consentono di assicurarsi che l'immagine finale contenga solo gli elementi necessari per l'applicazione, escludendo altro contenuto richiesto in fase di compilazione.
+Il modo migliore per limitare le dimensioni delle immagini è quello di evitare che l'immagine finale contenga dati che non sono necessari in fase di esecuzione. A tale scopo è possibile eseguire [compilazioni in più fasi][docker-multi-stage-builds]. Le compilazioni di questo tipo consentono di assicurarsi che l'immagine finale contenga solo gli elementi necessari per l'applicazione, escludendo altro contenuto richiesto in fase di compilazione.
 
 L'altro modo per ridurre l'impatto del pull dell'immagine sul tempo di avvio del contenitore è quello di ospitare l'immagine del contenitore usando il Registro contenitori di Azure nella stessa area in cui si intende usare Istanze di contenitore di Azure. Ciò consente di ridurre il percorso dell'immagine del contenitore attraverso la rete e quindi di limitare notevolmente il tempo di download.
 
@@ -201,9 +201,9 @@ A causa del carico variabile delle risorse delle aree in Azure, quando si cerca 
 
 `The requested resource with 'x' CPU and 'y.z' GB memory is not available in the location 'example region' at this moment. Please retry with a different resource request or in another location.`
 
-Questo errore indica che a causa di un carico elevato nell'area in cui si sta cercando di eseguire la distribuzione, le risorse specificate per il contenitore non possono essere al momento allocate. Per risolvere il problema, utilizzare uno o più dei seguenti passaggi di attenuazione.
+Questo errore indica che a causa di un carico elevato nell'area in cui si sta cercando di eseguire la distribuzione, le risorse specificate per il contenitore non possono essere al momento allocate. Usare uno o più dei passaggi seguenti per mitigare il problema.
 
-* Verificare le impostazioni di distribuzione contenitore rientrano i parametri definiti [quote e la disponibilità di area per le istanze di contenitore di Azure](container-instances-quotas.md#region-availability)
+* Verificare che le impostazioni di distribuzione del contenitore rientrino nei parametri definiti in [Quote e aree disponibili per Istanze di contenitore di Azure](container-instances-quotas.md#region-availability)
 * Specificare impostazioni di memoria e CPU inferiori per il contenitore
 * Eseguire la distribuzione in un'area di Azure diversa
 * Eseguire la distribuzione in un secondo momento

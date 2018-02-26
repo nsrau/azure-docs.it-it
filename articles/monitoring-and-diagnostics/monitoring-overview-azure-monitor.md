@@ -17,7 +17,7 @@ ms.author: robb
 ms.custom: mvc
 ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -43,7 +43,7 @@ La pagina è un punto di partenza per la navigazione, incluso il caricamento. Mo
 
 Quando si apre la pagina, è possibile scegliere tra le sottoscrizioni per cui si dispone di accesso in lettura. Per una sottoscrizione selezionata, è possibile vedere:
 
-- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi metrica che agli avvisi del log attività. *< modifica: avvisi (anteprima) con esperienza unificata visualizzate anche per tutti gli avvisi, eventi, metriche e log >*
+- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi metrica che agli avvisi del log attività. *<Modifica: l'anteprima degli avvisi con l'esperienza unificata deve essere visualizzata anche per tutti gli avvisi: eventi, metriche e log>*
 - **Errori log attività**: se una delle risorse di Azure registra eventi con gravità a livello di errore, è possibile visualizzare un conteggio di alto livello e andare alla pagina log attività per esaminare ogni evento.
 - **Integrità dei servizi di Azure**: è possibile visualizzare un conteggio di problemi di integrità del servizio, eventi pianificati di manutenzione e avvisi sull'integrità. Integrità dei servizi di Azure offre informazioni personalizzate quando nell'infrastruttura di Azure si verificano problemi che influiscono sui servizi.  Per altre informazioni, vedere [Integrità dei servizi di Azure](../service-health/service-health-overview.md).  
 - **Application Insights**: vedere gli indicatori KPI per ogni risorsa AppInsights nella sottoscrizione corrente. Gli indicatori KPI sono ottimizzati affinché l'applicazione sul lato server monitori le applicazioni web ASP.NET e i tipi di applicazione Java, Node e generali. Gli indicatori KPI includono metriche per la frequenza di richieste, la durata di risposta, la percentuale di errori e di disponibilità. 
@@ -143,9 +143,9 @@ Ecco alcuni metodi di visualizzazione:
 
 ### <a name="automate"></a>Automatizzare
 > [!NOTE]
-> Come parte dell'evoluzione degli avvisi in Microsoft Azure in corso, ora in anteprima un'esperienza unificata per gli avvisi. Ulteriori informazioni su [gli avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md)
+> Come parte dell'evoluzione continua degli avvisi in Microsoft Azure, è ora disponibile un'esperienza unificata per gli avvisi in anteprima. Altre informazioni sugli [avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md)
 
-Negli avvisi di Azure standard, è possibile utilizzare dati di monitoraggio per attivare gli avvisi o addirittura interi processi. Tra gli esempi sono inclusi:
+Negli avvisi di Azure standard è possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi. Tra gli esempi sono inclusi:
 
 * Usare i dati per la scalabilità automatica delle istanze di calcolo in base al carico dell'applicazione.
 * Inviare messaggi di posta elettronica quando una metrica supera una soglia predeterminata.

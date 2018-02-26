@@ -16,7 +16,7 @@ ms.date: 12/08/2017
 ms.author: ryanwi
 ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -103,7 +103,7 @@ Un [eseguibile guest](service-fabric-deploy-existing-app.md) è un eseguibile ar
 ## <a name="application-lifecycle"></a>Ciclo di vita dell'applicazione
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. Service Fabric di Azure offre un supporto di prima categoria per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni. Il modello di servizio abilita diversi ruoli per la partecipazione indipendente al ciclo di vita delle applicazioni. [Ciclo di vita dell'applicazione di Service Fabric](service-fabric-application-lifecycle.md) offre una panoramica delle interfacce API e del modo in cui vengono usate dai diversi ruoli nelle fasi del ciclo di vita di un'applicazione di Service Fabric. 
 
-Il ciclo di vita intera app può essere gestito mediante [i cmdlet di PowerShell](/powershell/module/ServiceFabric/), [i comandi CLI](service-fabric-sfctl.md), [API c#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [API Java](/java/api/system.fabric._application_management_client), e [ Le API REST](/rest/api/servicefabric/). È possibile anche configurare pipeline di distribuzione/integrazione continua con strumenti quali [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+L'intero ciclo di vita dell'app può essere gestito tramite i [cmdlet di PowerShell](/powershell/module/ServiceFabric/), i [comandi dell'interfaccia della riga di comando](service-fabric-sfctl.md), le [API C#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), le [API Java](/java/api/system.fabric._application_management_client) e le [API REST](/rest/api/servicefabric/). È possibile anche configurare pipeline di distribuzione/integrazione continua con strumenti quali [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 Il video di Microsoft Virtual Academy seguente illustra come gestire il ciclo di vita dell'applicazione:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -184,8 +184,8 @@ I componenti di Azure Service Fabric forniscono report sull'integrità predefini
 
 Service Fabric offre diversi modi per [visualizzare i report sull'integrità](service-fabric-view-entities-aggregated-health.md) aggregati nell'archivio di integrità:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) o altri strumenti di visualizzazione.
-* Query sull'integrità (tramite [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [c# FabricClient APIs](/dotnet/api/system.fabric.fabricclient.healthclient) e [Java FabricClient APIs](/java/api/system.fabric._health_client), o [REST API](/rest/api/servicefabric)).
-* Generale query che restituiscono un elenco di entità che dispongono di integrità come una delle proprietà (tramite PowerShell, CLI, l'API o REST).
+* Query di integrità (tramite [PowerShell](/powershell/module/ServiceFabric/), l'[interfaccia della riga di comando](service-fabric-sfctl.md), le [API FabricClient C#](/dotnet/api/system.fabric.fabricclient.healthclient) e le [API FabricClient Java](/java/api/system.fabric._health_client) o l'[API REST](/rest/api/servicefabric)).
+* Query generali che restituiscono un elenco di entità per le quali l'integrità costituisce una proprietà (tramite PowerShell, l'interfaccia della riga di comando, API o REST).
 
 Il video seguente di Microsoft Virtual Academy descrive i concetti del modello di integrità di Service Fabric e il suo uso: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
@@ -204,11 +204,11 @@ Gli obiettivi principali di monitoraggio e diagnostica sono:
  
 Il flusso di lavoro generale di monitoraggio e diagnostica è costituito da tre passaggi:
 
-1. Generazione di eventi: l'infrastruttura (cluster), piattaforma e a livello di applicazione / servizio sono inclusi gli eventi (log, le tracce, gli eventi personalizzati)
-2. Aggregazione evento: gli eventi generati devono essere raccolti e aggregati prima che possano essere visualizzati
-3. Analisi: gli eventi devono essere visualizzato e accessibile in un formato, per consentire l'analisi e visualizzare in base alle esigenze
+1. Generazione di eventi: sono inclusi eventi, ovvero log, tracce, eventi personalizzati, sia a livello di infrastruttura, cioè cluster, che a livello di piattaforma e applicazione o servizio
+2. Aggregazione di eventi: gli eventi generati devono essere raccolti e aggregati prima di poter essere visualizzati
+3. Analisi: gli eventi devono essere visualizzati e devono essere accessibili in un formato, per consentirne l'analisi e la visualizzazione in base alle esigenze specifiche
 
-Sono disponibili molti prodotti che coprono le tre aree. Gli utenti sono liberi di scegliere tecnologie diverse per ognuno di essi. Per altre informazioni, vedere [monitoraggio e diagnostica per Azure Service Fabric](service-fabric-diagnostics-overview.md).
+Sono disponibili molti prodotti che coprono le tre aree. Gli utenti sono liberi di scegliere tecnologie diverse per ognuno di essi. Per altre informazioni leggere [Monitoraggio e diagnostica in Azure Service Fabric](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come creare un [cluster in Azure](service-fabric-cluster-creation-via-portal.md) o un [cluster autonomo in Windows](service-fabric-cluster-creation-for-windows-server.md).

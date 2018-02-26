@@ -17,7 +17,7 @@ ms.date: 09/15/2017
 ms.author: anta
 ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -52,7 +52,7 @@ Questo scenario è incentrato sulla previsione della domanda di energia, il cui 
 
 Questo scenario presenta in modo dettagliato la creazione di una soluzione di apprendimento automatico per la previsione della domanda di energia. Il training della soluzione è stato eseguito su un set di dati pubblico del [New York Independent System Operator (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), che gestisce la rete elettrica dello stato di New York. Il set di dati include i dati relativi alla domanda di elettricità ora per ora per la città di New York in un periodo di cinque anni. È stato inoltre recuperato un set di dati aggiuntivo contenente le condizioni meteo ora per ora nella città di New York durante lo stesso periodo di tempo da [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 - Una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](./quickstart-installation.md) per installare il programma e creare un'area di lavoro.
@@ -76,7 +76,7 @@ Creare un nuovo progetto usando questo esempio come modello:
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-Due set di dati vengono forniti in questo esempio e vengono scaricati utilizzando il `1-data-preparation.ipynb` notebook: `nyc_demand.csv` e `nyc_weather.csv`.
+Questo esempio offre due set di dati scaricati tramite il blocco appunti `1-data-preparation.ipynb`: `nyc_demand.csv` e `nyc_weather.csv`.
 
 **nyc_demand.csv** contiene i valori relativi alla domanda di energia ora per ora nella città di New York per gli anni 2012-2017. I dati hanno la semplice struttura seguente:
 

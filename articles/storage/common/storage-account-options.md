@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: bdbcdc7d46d5395b28cf9ba7066703ce5da900a5
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-storage-account-options"></a>Opzioni di account di archiviazione di Azure
 
@@ -125,7 +125,7 @@ Negli esempi seguenti non è possibile impostare il livello di accesso su archiv
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel menu Hub selezionare **Nuovo** > **Dati e archiviazione** > **Account di archiviazione**.
+2. Nel menu Hub scegliere **Crea una risorsa** > **Dati e archiviazione** > **Account di archiviazione**.
 
 3. Immettere un nome per l'account di archiviazione.
 
@@ -159,7 +159,7 @@ Negli esempi seguenti non è possibile impostare il livello di accesso su archiv
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Per passare all'account di archiviazione, selezionare Tutte le risorse, quindi selezionare l'account di archiviazione.
+2. Per passare all'account di archiviazione, selezionare **Tutte le risorse** e quindi selezionare l'account di archiviazione.
 
 3. Nella sezione Impostazioni fare clic su **Configurazione**.
 
@@ -173,7 +173,7 @@ Negli esempi seguenti non è possibile impostare il livello di accesso su archiv
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Per passare all'account di archiviazione, selezionare Tutte le risorse, quindi selezionare l'account di archiviazione.
+2. Per passare all'account di archiviazione, selezionare **Tutte le risorse** e quindi selezionare l'account di archiviazione.
 
 3. Nel pannello Impostazioni fare clic su **Configurazione** per visualizzare e/o modificare la configurazione dell'account.
 
@@ -185,7 +185,7 @@ Negli esempi seguenti non è possibile impostare il livello di accesso su archiv
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Per passare al BLOB nell'account di archiviazione, selezionare Tutte le risorse, selezionare l'account di archiviazione, selezionare il contenitore e quindi selezionare il BLOB.
+2. Per passare al BLOB nell'account di archiviazione, selezionare **Tutte le risorse**, selezionare l'account di archiviazione, selezionare il contenitore e quindi selezionare il BLOB.
 
 3. Nel pannello delle proprietà del BLOB fare clic sul menu a discesa **Livello di accesso** per selezionare il livello di archiviazione **Frequente**, **Sporadico** o **Archivio**.
 

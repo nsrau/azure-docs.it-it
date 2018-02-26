@@ -1,6 +1,6 @@
 ---
-title: Raccogliere e analizzare i registri eventi di Windows in Azure Log Analitica | Documenti Microsoft
-description: "I registri eventi di Windows sono una delle origini dati più comuni usate da Log Analytics.  In questo articolo viene descritto come configurare l'insieme dei registri eventi di Windows e i dettagli dei record che creano nell'area di lavoro Log Analitica."
+title: Raccogliere e analizzare log eventi di Windows in Azure Log Analytics | Microsoft Docs
+description: "I registri eventi di Windows sono una delle origini dati più comuni usate da Log Analytics.  Questo articolo descrive come configurare una raccolta di log eventi di Windows e i dettagli dei record creati nell'area di lavoro di Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -16,7 +16,7 @@ ms.date: 12/11/2017
 ms.author: bwren
 ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---

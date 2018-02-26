@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 0f60c4cd03a5728dc81cb43e02c8486b15221851
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-storage-account"></a>Connettere un'App Web a un account di archiviazione
 
-Questo script di esempio crea un account di archiviazione di Azure e un'app web di Azure. L'account di archiviazione quindi collega all'app web utilizzando le impostazioni dell'app.
+Questo script di esempio crea un account di archiviazione di Azure e un'app Web di Azure, quindi collega l'account di archiviazione all'app Web usando le impostazioni dell'app.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="sample-script"></a>Script di esempio
@@ -41,7 +41,7 @@ Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessa
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script utilizza i comandi seguenti per creare un gruppo di risorse, app web, account di archiviazione e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per creare un gruppo di risorse, l'app Web, l'account di archiviazione e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

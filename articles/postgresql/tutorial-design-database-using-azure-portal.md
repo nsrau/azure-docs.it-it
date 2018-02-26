@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 11/03/2017
-ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 215de7113421670dae5745ddd5fc2cc22d2143e1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Progettare il primo Database di Azure per PostgreSQL tramite il portale di Azure
 
@@ -40,9 +40,9 @@ Accedere al [Portale di Azure](https://portal.azure.com).
 
 Verrà creato un database di Azure per il server PostgreSQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
-Seguire questi passaggi per creare un database di Azure per il server PostgreSQL:
-1.  Fare clic sul pulsante **+ Nuovo** nell'angolo superiore sinistro del portale di Azure.
-2.  Selezionare **Database** nella pagina **Nuovo** e selezionare il **Database di Azure per PostgreSQL** nella pagina **Database**.
+Seguire questa procedura per creare un database di Azure per il server PostgreSQL:
+1.  Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
+2.  Selezionare **Database** nella pagina **Nuovo** e selezionare **Database di Azure per PostgreSQL** nella pagina **Database**.
  ![Database di Azure per PostgreSQL - Creare il database](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  Compilare il modulo per i dettagli del nuovo server con le informazioni seguenti, come illustrato nell'immagine precedente:

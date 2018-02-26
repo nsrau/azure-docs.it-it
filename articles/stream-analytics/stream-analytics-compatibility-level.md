@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/03/2018
 ms.author: sngun
-ms.openlocfilehash: 0d89259d54fba0bd57881ec69cb61b5af6d603b5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: f354c39fc3b366795fe4ed8dbeeb961bb11d5420
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
  
@@ -57,7 +57,10 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
   * **Versioni precedenti:** i nomi dei campi venivano modificati in lettere minuscole quando venivano elaborati dal motore di Analisi di flusso di Azure. 
 
   * **Versione corrente:** la distinzione maiuscole/minuscole viene mantenuta nei nomi dei campi elaborati dal motore di Analisi di flusso di Azure. 
- 
+
+  > [!NOTE] 
+  > La distinzione tra maiuscole e minuscole persistente non è ancora disponibile per i processi di Analisi di flusso ospitati in un ambiente di dispositivo perimetrale. Se il processo è ospitato in un dispositivo perimetrale, quindi, tutti i nomi di campo vengono convertiti in caratteri minuscoli. 
+
 * **FloatNaNDeserializationDisabled**  
 
   * **Versioni precedenti:** il comando CREATE TABLE non filtrava gli eventi contrassegnati con NaN (Not a Number, ad esempio: Infinity, -Infinity) in una colonna di tipo FLOAT, poiché non erano inclusi nell'intervallo documentato per questi numeri.

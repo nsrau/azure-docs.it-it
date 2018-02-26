@@ -17,7 +17,7 @@ ms.author: robb
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -34,7 +34,7 @@ Azure usa i termini seguenti per descrivere gli avvisi e le relative funzioni:
 * **Azione**: una chiamata specifica inviata a un ricevitore di una notifica (ad esempio, l'invio di un messaggio di posta elettronica a un indirizzo o la pubblicazione in un URL del webhook). Le notifiche possono in genere attivare più azioni.
 
     > [!NOTE]
-    > Come parte dell'evoluzione degli avvisi in Azure, è disponibile in anteprima una nuova esperienza unificata. La nuova esperienza di avvisi (anteprima) usa una classificazione diversa. Altre informazioni, vedere [avvisi (anteprima)](monitoring-overview-unified-alerts.md). 
+    > Una nuova esperienza unificata è disponibile in anteprima, come parte dell'evoluzione degli avvisi in Azure. La nuova esperienza degli avvisi in anteprima usa una tassonomia diversa. Altre informazioni sull'[anteprima degli avvisi](monitoring-overview-unified-alerts.md). 
     >
 
 ## <a name="alerts-in-different-azure-services"></a>Avvisi in diversi servizi di Azure
@@ -97,4 +97,4 @@ Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione 
 * Altre informazioni sugli [avvisi metrica quasi in tempo reale](monitoring-near-real-time-metric-alerts.md)
 * Altre informazioni sulle [notifiche del servizio](monitoring-service-notifications.md)
 * Altre informazioni sui [gruppi di azione](monitoring-action-groups.md)
-* Configurare [avvisi tramite avvisi (anteprima)](monitor-alerts-unified-usage.md)
+* Configurare gli [avvisi tramite l'anteprima degli avvisi](monitor-alerts-unified-usage.md)

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Usare la pagina **Maintenance** (Manutenzione) per esaminare l'allarme
 > * Chiamare un metodo del dispositivo per correggere il problema
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
@@ -46,7 +46,7 @@ Per esaminare in modo più approfondito il problema, scegliere l'opzione **Explo
 
 ![Esplorare l'allarme nel dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-Viene illustrata la visualizzazione dettagli dell'avviso:
+La visualizzazione dettagli dell'allarme mostra:
 
 * Data e ora di attivazione dell'allarme
 * Informazioni sullo stato dei dispositivi associati all'allarme
@@ -66,7 +66,7 @@ Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) respons
 
 Per correggere il problema per il dispositivo **Prototype** (Prototipo), è necessario chiamare il metodo **DecreaseTemperature** sul dispositivo.
 
-Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il **prototipo** modello di dispositivo specifica i quattro metodi deve supportare un dispositivo:
+Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il modello di dispositivo **Prototype** (Prototipo) specifica quattro metodi che un dispositivo deve supportare:
 
 ![Visualizzare i metodi supportati dai dispositivi](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -74,11 +74,11 @@ Scegliere **DecreaseTemperature** e impostare il nome del processo su **Decrease
 
 ![Creare il processo per ridurre la temperatura](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-Per tenere traccia dello stato del processo sul **manutenzione** pagina, scegliere **processi**. Utilizzare il **processi** Visualizza per tenere traccia di tutti i processi e il metodo chiama nella soluzione:
+Per tenere traccia dello stato del processo nella pagina **Maintenance** (Manutenzione), scegliere **Jobs** (Processi). Usare la visualizzazione **Jobs** (Processi) per tenere traccia di tutti i processi e le chiamate ai metodi nella soluzione:
 
 ![Monitorare il processo per ridurre la temperatura](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Per visualizzare i dettagli di un processo specifico o una chiamata al metodo, scegliere nell'elenco di **processi** Vista:
+Per visualizzare i dettagli di un una chiamata a un metodo o di un processo specifico, scegliere l'elemento nell'elenco nella visualizzazione **Jobs** (Processi):
 
 ![Visualizza i dettagli dei processi](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

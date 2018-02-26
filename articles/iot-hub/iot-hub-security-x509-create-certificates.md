@@ -15,7 +15,7 @@ ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/19/2017
 
 La sicurezza basata su certificati X.509 nell'hub IoT richiede prima di tutto una [catena di certificati X.509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), che include il certificato radice e i certificati intermedi fino al certificato foglia. La presente guida fornisce *procedure* e istruzioni dettagliate che usano script PowerShell di esempio basati su [OpenSSL](https://www.openssl.org/) per creare e firmare certificati X.509. È consigliabile usare questa guida solo come riferimento, dal momento che molte delle procedure descritte vengono in realtà eseguite durante il processo di produzione. È possibile usare questi certificati per simulare la sicurezza nell'hub IoT di Azure mediante l'*autenticazione dei certificati X.509*. I passaggi descritti in questa guida consentono di creare certificati in locale nel computer Windows in uso. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 In questa esercitazione si presuppone l'acquisto di file binari OpenSSL. È possibile
     - scaricare il codice sorgente OpenSSL e generare i file binari nel computer in uso oppure 
     - scaricare e installare qualsiasi [file binario OpenSSL di terze parti](https://wiki.openssl.org/index.php/Binaries), ad esempio da [questo progetto in SourceForge](https://sourceforge.net/projects/openssl/).
@@ -223,7 +223,7 @@ Nella finestra di PowerShell disponibile sul desktop eseguire il codice seguente
    New-CAVerificationCert "<your verification code>"
    ```
 
-Questo codice crea un certificato con il nome del soggetto specificato firmato dall'autorità di certificazione, come un file denominato *VerifyCert4.cer* nella directory di lavoro. Questo file di certificato consente di convalidare nell'hub IoT che l'utente dispone dell'autorizzazione di firma, vale a dire della chiave privata, di questa CA.
+Questo codice crea un certificato con il nome oggetto specificato, firmato dalla CA, in un file denominato *VerifyCert4.cer* nella directory di lavoro. Questo file di certificato consente di convalidare nell'hub IoT che l'utente dispone dell'autorizzazione di firma, vale a dire della chiave privata, di questa CA.
 
 
 <a id="createx509device"></a>
@@ -277,12 +277,12 @@ Nella finestra di PowerShell disponibile nel computer locale eseguire lo script 
 
 Eseguire quindi `New-CADevice "<yourTestDevice>"` nella finestra di PowerShell specificando il nome descrittivo usato per creare il dispositivo. Quando viene richiesta la password per la chiave privata della CA, immettere "123". Verrà creato un file con estensione _<yourTestDevice>pfx_ nella directory di lavoro.
 
-## <a name="clean-up-certificates"></a>Pulizia dei certificati
+## <a name="clean-up-certificates"></a>Pulire i certificati
 
-Nella barra di avvio o **impostazioni** app, cercare e selezionare **gestire i certificati del computer**. Rimuovere eventuali certificati rilasciati dalla **Azure IoT CA TestOnly***. Questi certificati devono essere disponibili in tre posizioni seguenti: 
+Nella barra di avvio o in **Impostazioni** cercare e selezionare **Gestisci i certificati computer**. Rimuovere eventuali certificati rilasciati da **Azure IoT CA TestOnly***. Questi certificati devono essere presenti nelle tre posizioni seguenti: 
 
-* Certificati - Computer locale > personale > certificati
-* Certificati - Computer locale > autorità di certificazione radice attendibili > certificati
-* Certificati - Computer locale > autorità di certificazione intermedie > certificati
+* Certificati - Computer locale > Personale > Certificati
+* Certificati - Computer locale > Autorità di certificazione radice attendibili > Certificati
+* Certificati - Computer locale > Autorità di certificazione intermedia > Certificati
 
-   ![Rimuovere i certificati CA TestOnly di Azure IoT](./media/iot-hub-security-x509-create-certificates/cleanup.png)
+   ![Rimuovere i certificati Azure IoT CA TestOnly](./media/iot-hub-security-x509-create-certificates/cleanup.png)

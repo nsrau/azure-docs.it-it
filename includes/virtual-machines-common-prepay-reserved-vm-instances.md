@@ -30,8 +30,15 @@ Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istan
 
     ![Schermata prima di inviare l'acquisto della prenotazione](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
-## <a name="next-steps-after-buying-a-reservation"></a>Passaggi successivi dopo l'acquisto di una prenotazione
+## <a name="next-steps"></a>Passaggi successivi 
 Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. È possibile aggiornare l'ambito della prenotazione nel [portale di Azure](https://portal.azure.com), in PowerShell, nell'interfaccia della riga di comando o tramite le API. 
 
 Per informazioni su come gestire una prenotazione, vedere [Gestire le istanze di macchina virtuale riservate di Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
+Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Costi del software Windows non inclusi nelle istanze riservate](../articles/billing/billing-reserved-instance-windows-software-costs.md)

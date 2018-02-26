@@ -16,7 +16,7 @@
 
 ## <a name="act-on-your-device"></a>Agire sul dispositivo
 
-Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della soluzione per il monitoraggio remoto. Nella soluzione per il monitoraggio remoto, i dispositivi **Chiller** implementano ad esempio un metodo **Reboot**.
+Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della soluzione per il monitoraggio remoto. Nella soluzione per il monitoraggio remoto, i dispositivi **Chiller** implementano ad esempio un metodo **FirmwareUpdate**.
 
 1. Scegliere **Dispositivi** per passare alla pagina **Dispositivi** della soluzione.
 
@@ -26,11 +26,15 @@ Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della s
 
 1. Per visualizzare un elenco dei metodi che è possibile chiamare in un dispositivo, scegliere **Pianificazione**. Per pianificare un metodo per l'esecuzione in più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Pianificazione** mostra i tipi di metodi comuni a tutti i dispositivi selezionati.
 
-1. Scegliere **Reboot**, impostare il nome processo su **RebootPhysicalChiller** e quindi fare clic su **Applica**:
+1. Scegliere **FirmwareUpdate**, impostare il nome del processo su **UpdatePhysicalChiller**. Impostare **Firmware Version** (Versione firmware) su **2.0.0**, impostare **Firmware URI** (URI firmware) su **http://contoso.com/updates/firmware.bin** e quindi scegliere  **Apply** (Applica):
 
-    ![Pianificare il riavvio](media/iot-suite-visualize-connecting/deviceschedule.png)
+    ![Pianificare l'aggiornamento del firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
-1. Viene visualizzato un messaggio nella console che esegue il codice del dispositivo quando il dispositivo gestisce il metodo.
+1. Nella console che esegue il codice del dispositivo mentre il dispositivo simulato gestisce il metodo viene visualizzata una sequenza di messaggi.
+
+1. A termine dell'aggiornamento, nella pagina **Devices** (Dispositivi) viene visualizzata la nuova versione del firmware:
+
+    ![Aggiornamento completato](media/iot-suite-visualize-connecting/complete.png)
 
 > [!NOTE]
 > Per tenere traccia dello stato del processo nella soluzione, scegliere **Visualizza**.

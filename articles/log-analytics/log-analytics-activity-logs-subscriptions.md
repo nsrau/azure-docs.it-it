@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni
 
@@ -53,7 +53,7 @@ Di seguito sono riportati i requisiti per le risorse di Azure usate in questo sc
 
 <!-- Follow the steps in [how to create an Event Hubs namespace and Event Hub](../event-hubs/event-hubs-create.md) to create your event hub. -->
 
-1. Nel portale di Azure selezionare **Nuovo**> **Internet delle cose** > **Hub eventi**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Internet delle cose** > **Hub eventi**.
 
    ![Nuovo hub eventi nel marketplace](media/log-analytics-activity-logs-subscriptions/marketplace-new-event-hub.png)
 

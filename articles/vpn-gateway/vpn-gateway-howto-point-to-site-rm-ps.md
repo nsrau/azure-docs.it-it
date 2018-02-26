@@ -1,10 +1,10 @@
 ---
 title: 'Connettere un computer a una rete virtuale di Azure da punto a sito con l''autenticazione del certificato di Azure nativo: PowerShell | Microsoft Docs'
-description: Connettere in modo sicuro un computer alla rete virtuale creando una connessione gateway VPN da punto a sito con l'autenticazione del certificato di Azure nativo per il gateway VPN. Questo articolo si applica al modello di distribuzione di Resource Manager e usa PowerShell.
+description: "Connettere i client Windows e Mac OS X in modo sicuro alla rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 3eddadf6-2e96-48c4-87c6-52a146faeec6
@@ -13,55 +13,34 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ab171a97855090302148651e8e9c3d0d8b91a33a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: PowerShell
 
-Questo articolo illustra come creare una rete virtuale con una connessione da punto a sito nel modello di distribuzione Resource Manager usando PowerShell. Questa configurazione usa i certificati per l'autenticazione. In questa configurazione il gateway VPN di Azure esegue la convalida del certificato, invece che di un server RADIUS. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
+Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
 
-> [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Portale di Azure (classico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->
->
+![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-Un gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. Una VPN P2S è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Una connessione VPN P2S viene avviata dai dispositivi Windows e Mac. 
 
-I client che si connettono possono usare i metodi di autenticazione seguenti:
+## <a name="architecture"></a>Architecture
 
-* Server RADIUS
-* Autenticazione del certificato di Azure nativo tramite il gateway VPN
-
-Questo articolo illustra come eseguire una configurazione P2S con l'autenticazione usando l'autenticazione del certificato di Azure nativo. Per usare RADIUS per autenticare gli utenti che si connettono, vedere [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S con autenticazione RADIUS).
-
-![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-rm-ps/p2snativeps.png)
-
-Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2.
-
-* SSTP è un tunnel VPN basato su SSL supportato solo nelle piattaforme client Windows. Può penetrare i firewall e per questo è l'opzione ideale per connettersi ad Azure ovunque. Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2.
-
-* VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
-
-Le connessioni da punto a sito con l'autenticazione del certificato di Azure nativo richiedono gli elementi seguenti:
+Le connessioni con autenticazione tramite certificato da punto a sito di Azure usano gli elementi seguenti, che vengono configurati in questo esercizio:
 
 * Un gateway VPN RouteBased.
 * La chiave pubblica (file CER) per un certificato radice, caricato in Azure. Il certificato, dopo essere stato caricato, viene considerato un certificato attendibile e viene usato per l'autenticazione.
-* Un certificato client generato dal certificato radice e installato in ogni computer client che si connetterà alla rete virtuale. Questo certificato viene usato per l'autenticazione client.
+* Un certificato client generato dal certificato radice. Il certificato client installato su ogni computer client che si connetterà alla rete virtuale. Questo certificato viene usato per l'autenticazione client.
 * Una configurazione del client VPN. I file di configurazione del client VPN contengono le informazioni necessarie per la connessione del client alla rete virtuale. I file configurano il client VPN esistente, nativo del sistema operativo. Ogni client che si connette deve essere configurato usando le impostazioni nei file di configurazione.
-
-Per altre informazioni al riguardo, vedere [About Point-to-Site connections](point-to-site-about.md) (Informazioni sulle connessioni da punto a sito).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 * Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
-* Installare la versione più recente dei cmdlet di PowerShell per Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+* Installare la versione più recente dei cmdlet di PowerShell per Resource Manager. Per altre informazioni sull'installazione dei cmdlet di PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Questo elemento è importante perché le versioni precedenti dei cmdlet non contengono i valori correnti necessari per questo esercizio.
 
 ### <a name="example"></a>Valori di esempio
 
@@ -164,7 +143,7 @@ In questa sezione si accede e si dichiarano i valori usati per la configurazione
 Configurare e creare il gateway di rete virtuale per la rete virtuale.
 
 * -GatewayType deve essere **Vpn** e -VpnType deve essere **RouteBased**.
-* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Le due opzioni per i tunnel sono **SSTP** e **IKEv2**. È possibile scegliere di abilitarne una o entrambe. Per abilitarle entrambe, specificare entrambi i nomi separati da virgola. Il client Strongswan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP.
+* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Le due opzioni per i tunnel sono **SSTP** e **IKEv2**. È possibile scegliere di abilitarne una o entrambe. Per abilitarle entrambe, specificare entrambi i nomi separati da virgola. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP.
 * Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, in base allo [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md) selezionato. In questo esempio viene usato IKEv2.
 
 ```powershell
@@ -235,6 +214,11 @@ I file di configurazione del client VPN contengono le impostazioni per configura
 ## <a name="connect"></a>9. Connect to Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Per connettersi da un client VPN Windows
+
+>[!NOTE]
+>È necessario avere diritti di amministratore per il computer client Windows da cui ci si connette.
+>
+>
 
 1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connetti**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. Fare clic su **Continua** per usare privilegi elevati. 
 2. Nella pagina **Stato connessione** fare clic su **Connetti** per avviare la connessione. Se viene visualizzato un **Seleziona certificato** dello schermo, verificare che il certificato client visualizzato sia quello che si desidera utilizzare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
@@ -428,3 +412,5 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Per altre informazioni sulla rete e sulle macchine virtuali, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/azure-vm-network-overview.md).
+
+Per informazioni sulla risoluzione dei problemi della connessione da punto a sito, vedere [Risoluzione dei problemi: problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

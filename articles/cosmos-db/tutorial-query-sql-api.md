@@ -1,6 +1,6 @@
 ---
 title: Procedura per l'esecuzione di query con SQL in Azure Cosmos DB | Microsoft Docs
-description: Viene illustrato come eseguire una query SQL nel database di Azure Cosmos
+description: Informazioni sull'esecuzione di query con SQL in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
 author: rafats
@@ -18,7 +18,7 @@ ms.date: 05/10/2017
 ms.author: rafats
 ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Il database di Azure Cosmos [API SQL](documentdb-introduction.md) supporta l'esecuzione di query di documenti con SQL. Questo articolo include un documento di esempio e due esempi di query SQL e relativi risultati.
+L'[API SQL](documentdb-introduction.md) di Azure Cosmos DB supporta l'esecuzione di query sui documenti usando SQL. Questo articolo include un documento di esempio e due esempi di query SQL e relativi risultati.
 
 Questo articolo illustra le attività seguenti: 
 
@@ -72,7 +72,7 @@ Le query SQL di questo articolo usano il documento di esempio seguente.
 Per altre informazioni sulle query SQL, vedere:
 * [Query e sintassi SQL](sql-api-sql-query.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 L'esercitazione presuppone la presenza di un account e di una raccolta di Azure Cosmos DB. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-mongodb-nodejs.md) o l'[esercitazione per sviluppatori](tutorial-develop-mongodb.md) per creare un account e una raccolta.
 

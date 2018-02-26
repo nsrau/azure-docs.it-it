@@ -1,5 +1,5 @@
 ---
-title: Server fisico all'architettura di replica di Azure in Azure Site Recovery | Documenti Microsoft
+title: Architettura della replica dal server fisico ad Azure in Azure Site Recovery | Microsoft Docs
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di server fisici locali in Azure con il servizio Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,7 +8,7 @@ ms.date: 12/19/2017
 ms.author: raynew
 ms.openlocfilehash: 8bae8688e322efd0a0556cf01e319252d42fc31d
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -55,7 +55,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 Dopo aver configurato la replica e aver eseguito un'analisi di ripristino di emergenza (failover di test) per verificare che funzioni tutto come previsto, è possibile eseguire il failover e il failback in base alle esigenze. Si noti che:
 
 - Il failover pianificato non è supportato.
-- È necessario eseguire il failback in una macchina virtuale VMware locale. Ciò significa che un'infrastruttura VMware in locale, è necessario anche durante la replica di server fisici locali in Azure.
+- È necessario eseguire il failback in una macchina virtuale VMware locale. Questo significa che è necessaria un'infrastruttura VMware locale, anche quando si esegue la replica di server fisici locali in Azure.
 - È possibile eseguire il failover di un solo computer o creare piani di ripristino per il failover di più computer insieme.
 - Quando si esegue un failover, le macchine virtuali di Azure vengono create dai dati replicati nella risorsa di archiviazione di Azure.
 - Dopo aver attivato il failover iniziale, è necessario eseguirne il commit per iniziare ad accedere al carico di lavoro dalla macchina virtuale di Azure.
@@ -78,4 +78,4 @@ Dopo aver configurato la replica e aver eseguito un'analisi di ripristino di eme
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Seguire [questa esercitazione](tutorial-physical-to-azure.md) per abilitare un server fisico per la replica di Azure.
+Seguire [questa esercitazione](tutorial-physical-to-azure.md) per abilitare la replica da server fisico ad Azure.

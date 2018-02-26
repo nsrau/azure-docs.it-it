@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 280c31d00acc074653b6594235f78e4d569464b4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 
@@ -28,19 +28,19 @@ Questo articolo descrive come usare l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
-Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito l'accesso a un account di Azure con [az login](/cli/azure/#login).
+Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito l'accesso a un account di Azure con [az login](/cli/azure/#az_login).
 
 
-## <a name="check-vm-sku-availability"></a>Verificare la disponibilità di VM SKU
-La disponibilità di dimensioni delle macchine Virtuali o SKU, può variare per area e area. Per la pianificazione per l'utilizzo delle aree di disponibilità, è possibile elencare gli SKU di macchina virtuale disponibili per area e area di Azure. Questa possibilità garantisce scegliere una dimensione di macchina virtuale appropriata e ottenere resilienza desiderata tra aree. Per ulteriori informazioni sui diversi tipi di macchine Virtuali e le dimensioni, vedere [Panoramica di dimensioni delle macchine Virtuali](sizes.md).
+## <a name="check-vm-sku-availability"></a>Verificare la disponibilità dello SKU di VM
+La disponibilità delle dimensioni delle macchine virtuali, o SKU, può variare in base all'area e alla zona. Per semplificare la pianificazione dell'uso delle zone di disponibilità, è possibile elencare gli SKU di VM disponibili per area e zona di Azure. Questa possibilità assicura la scelta di dimensioni adeguate per le macchine virtuali e l'ottenimento della resilienza desiderata tra le aree. Per altre informazioni sui tipi e sulle dimensioni delle VM, vedere la [panoramica delle dimensioni delle VM](sizes.md).
 
-È possibile visualizzare gli SKU di VM disponibili con la [az vm elenco-SKU](/cli/azure/vm#az_vm_list_skus) comando. L'esempio seguente elenca le SKU VM disponibili nel *eastus2* area:
+È possibile visualizzare gli SKU di VM disponibili con il comando [az vm list-skus](/cli/azure/vm#az_vm_list_skus). L'esempio seguente elenca gli SKU di VM disponibili nell'area *eastus2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
 ```
 
-L'output è simile all'esempio seguente ridotta, che vengono visualizzate le zone di disponibilità in cui è disponibile ogni dimensione della macchina virtuale:
+L'output è simile all'esempio sintetico seguente, che mostra le zone di disponibilità nelle quali è disponibile ogni dimensione di VM:
 
 ```azurecli
 ResourceType      Locations  Name               Tier       Size     Zones

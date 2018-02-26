@@ -18,35 +18,35 @@ ms.author: lbosq
 ms.custom: mvc
 ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Procedura di configurazione della distribuzione globale in Azure Cosmos DB mediante l'API Graph
 
-In questo articolo è illustrato come utilizzare il portale di Azure per la distribuzione globale di Azure Cosmos DB del programma di installazione e quindi connettersi usando l'API Graph.
+Questo articolo illustra come usare il portale di Azure per configurare la distribuzione globale in Azure Cosmos DB e quindi connettersi tramite l'API Graph.
 
 Questo articolo illustra le attività seguenti: 
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurazione distribuzione globale mediante il [sulle API Graph](graph-introduction.md)
+> * Configurare la distribuzione globale tramite le [API Graph](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Connessione a un'area preferita tramite l'API Graph con .NET SDK
 
-L'API Graph viene esposto come una libreria di estensioni sopra l'API di SQL.
+L'API Graph viene esposta come libreria di estensione oltre all'API SQL.
 
 Per sfruttare la [distribuzione globale](distribute-data-globally.md), le applicazioni client possono specificare un elenco di aree, nell'ordine preferito, da usare per eseguire operazioni sui documenti. Questa operazione può essere eseguita impostando il criterio di connessione. A seconda della configurazione dell'account Azure Cosmos DB, della disponibilità corrente delle aree e dell'elenco delle preferenze specificato, l'SDK sceglierà l'endpoint ottimale per eseguire le operazioni di scrittura e lettura.
 
 L'elenco delle preferenze viene specificato nella fase di inizializzazione di una connessione usando gli SDK. Gli SDK accettano il parametro facoltativo "PreferredLocations", ovvero un elenco ordinato di aree di Azure.
 
-* **Scrive**: il SDK invia automaticamente tutte le scritture all'area di scrittura corrente.
-* **Legge**: tutte le letture vengono inviate per la prima area disponibile nell'elenco PreferredLocations. Se la richiesta non riesce, il client non riesce in basso nell'elenco per l'area successiva e così via. il SDK di tenta di leggere le aree specificate nella PreferredLocations. In tal caso, ad esempio, se l'account di database Cosmos è disponibile in tre aree, ma il client specifica solo due delle aree di scrittura per PreferredLocations, quindi non letture sono servite all'esterno dell'area di scrittura, anche in caso di failover.
+* **Scritture**: l'SDK invia automaticamente tutte le scritture all'area di scrittura corrente.
+* **Letture**: tutte le letture vengono inviate alla prima area disponibile nell'elenco PreferredLocations. Se la richiesta ha esito negativo, il client trasferisce l'elenco all'area successiva e così via. Gli SDK provano a leggere solo dalle aree specificate nell'elenco PreferredLocations. Quindi se l'account Cosmos DB è disponibile ad esempio in tre aree, ma il client specifica solo due delle aree di non scrittura per PreferredLocations, le letture non vengono distribuite fuori dall'area di scrittura, anche in caso di failover.
 
-L'applicazione può verificare l'endpoint di scrittura e lettura corrente scelto dall'SDK controllando due proprietà, WriteEndpoint e ReadEndpoint, disponibili nella versione dell'SDK 1.8 e nelle versioni successive. Se la proprietà PreferredLocations non è impostata, tutte le richieste vengono gestite dall'area di scrittura corrente.
+L'applicazione può verificare l'endpoint di scrittura e lettura corrente scelto dall'SDK controllando due proprietà, WriteEndpoint e ReadEndpoint, disponibili nella versione dell'SDK 1.8 e nelle versioni successive. Se la proprietà PreferredLocations non è impostata, tutte le richieste vengono distribuite dall'area di scrittura corrente.
 
 ### <a name="using-the-sdk"></a>Uso dell'SDK
 
@@ -87,7 +87,7 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare la distribuzione globale tramite il portale di Azure
-> * Configurare la distribuzione globale mediante le API di SQL
+> * Configurare la distribuzione globale tramite le API SQL
 
 È ora possibile passare all'esercitazione successiva per imparare a sviluppare in locale usando l'emulatore locale di Azure Cosmos DB.
 

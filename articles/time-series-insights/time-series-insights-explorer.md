@@ -12,18 +12,18 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/30/2017
-ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 In questo articolo vengono descritte le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Time Series Insights. Usare lo strumento di esplorazione di Time Series Insights nel Web browser per creare visualizzazioni di dati.
  
 Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati e consente di convalidare rapidamente le soluzioni IoT e di evitare così costosi periodi di inattività per i dispositivi di importanza strategica. È possibile individuare tendenze nascoste e anomalie, nonché eseguire analisi della causa radice. Lo strumento di esplorazione di Time Series Insights è attualmente disponibile nella versione di anteprima pubblica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di poter usare lo strumento di esplorazione di Time Series Insights, è necessario:
 - Creare un ambiente Time Series Insights
@@ -37,7 +37,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
 2. Dopo aver selezionato un ambiente, usare le configurazioni **FROM** (DA) e **TO** (A) disponibili nella parte superiore oppure fare clic e trascinare il puntatore del mouse sull'intervallo di tempo desiderato.  Fare clic sulla lente di ingrandimento in alto a destra o fare clic con il pulsante destro del mouse sull'intervallo di tempo selezionato e scegliere **Search** (Cerca).  
 
-3. È anche possibile aggiornare automaticamente la disponibilità ogni minuto selezionando il pulsante **Auto On** (Abilita aggiornamento automatico).
+3. È anche possibile aggiornare automaticamente la disponibilità ogni minuto selezionando il pulsante **Auto On** (Abilita aggiornamento automatico).  Da notare che il pulsante 'Auto-On' (Abilita aggiornamento automatico) si applica al solo grafico della disponibilità e non al contenuto della visualizzazione principale.
 
 4. L'icona del cloud di Azure consente di passare all'ambiente nel portale di Azure.
 
@@ -60,7 +60,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Tutti gli operandi devono essere dello stesso tipo o essere una costante NULL.        |
-         |HAS     | String        |  Sono consentiti solo valori letterali di tipo stringa costante sul lato destro. Non sono consentiti valori NULL o stringhe vuote.       |
+         |HAS     | string        |  Sono consentiti solo valori letterali di tipo stringa costante sul lato destro. Non sono consentiti valori NULL o stringhe vuote.       |
 
       - **Esempi di query**
       
@@ -94,7 +94,7 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
 12. **Events** (Eventi): quando si sceglie di esplorare gli eventi mediante una selezione o un clic con il pulsante destro del mouse nell'area soprastante, viene visualizzato il riquadro degli eventi.  In questa area è possibile visualizzare tutti gli eventi non elaborati ed esportare gli eventi come file con estensione json o csv. In Time Series Insights vengono archiviati tutti i dati non elaborati.
 
-   ![Events](media/time-series-insights-explorer/explorer7.png)
+   ![Eventi](media/time-series-insights-explorer/explorer7.png)
 
 13. Fare clic sulla scheda **STATS** (Statistiche) dopo aver esplorato gli eventi per visualizzare i modelli e le statistiche di colonna.  
 

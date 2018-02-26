@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 951a3217d795df6360cd3cfa2d47db08c11f978e
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/03/2018
 *L'app è stata installata nel server Web e ora non vengono visualizzati i dati di telemetria. Nel computer di sviluppo funzionava correttamente.*
 
 * Probabilmente è un problema del firewall. [Impostare le eccezioni del firewall per l'invio di dati da parte di Application Insights](app-insights-ip-addresses.md).
-* Server IIS potrebbero mancare alcuni prerequisiti: estendibilità .NET 4.5 e ASP.NET 4.5.
+* È possibile che il server IIS non sia conforme ad alcuni prerequisiti: Estendibilità .NET 4.5 e ASP.NET 4.5.
 
 *È stato [installato Status Monitor](app-insights-monitor-performance-live-website-now.md) nel server Web per monitorare le app esistenti, ma non è presente alcun risultato.*
 

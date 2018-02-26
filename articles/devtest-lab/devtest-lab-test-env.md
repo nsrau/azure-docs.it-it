@@ -16,7 +16,7 @@ ms.date: 07/17/2017
 ms.author: v-craic
 ms.openlocfilehash: dc54b1638fbea577f383ead47b83d29e677cd78f
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -56,7 +56,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs usate pe
    
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
-   | [Configurare le immagini di Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Informazioni su come aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace, rendendo disponibili per la selezione solo quelle che si vuole usare per i tester.|
+   | [Configurare le impostazioni dell'immagine di Azure Marketplace in un lab](devtest-lab-configure-marketplace-images.md) |Informazioni su come aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace, rendendo disponibili per la selezione solo quelle che si vuole usare per i tester.|
    | [Creare un'immagine personalizzata](devtest-lab-create-template.md) |Creare un'immagine personalizzata preinstallando il software necessario in modo che i tester possano creare rapidamente una macchina virtuale usando l'immagine personalizzata.|
    | [Learn about image factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) (Informazioni sulla factory di immagini) |Guardare un video che descrive come configurare e usare una factory di immagini.|
 

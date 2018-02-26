@@ -1,6 +1,6 @@
 ---
-title: Riferimento sulle impostazioni di Azure Active Directory l'accesso condizionale | Documenti Microsoft
-description: Ottenere una panoramica delle impostazioni supportate in un criterio di accesso condizionale di Azure Active Directory.
+title: Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory | Microsoft Docs
+description: Panoramica delle impostazioni supportate nei criteri di accesso condizionale di Azure Active Directory.
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/08/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Fare riferimento a impostazioni di accesso condizionale di Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
-È possibile utilizzare [accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) per controllare gli utenti come autorizzati possono accedere alle risorse.   
+È possibile usare l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) per controllare il modo in cui gli utenti autorizzati possono accedere alle risorse.   
 
-In questo articolo vengono fornite informazioni di supporto per le seguenti opzioni di configurazione in un criterio di accesso condizionale: 
+Questo articolo contiene informazioni di supporto per le opzioni di configurazione seguenti di un criterio di accesso condizionale: 
 
 - Assegnazioni delle applicazioni cloud
 
@@ -35,11 +35,11 @@ In questo articolo vengono fornite informazioni di supporto per le seguenti opzi
 - Requisito per le applicazioni client approvate
 
 
-In caso contrario le informazioni che si sta cercando, lasciare un commento alla fine di questo articolo.
+Se queste informazioni non soddisfano le aspettative, lasciare un commento alla fine di questo articolo.
 
 ## <a name="cloud-apps-assignments"></a>Assegnazioni di app cloud
 
-Grazie ai criteri di accesso condizionale è possibile controllare la modalità di accesso degli utenti alle [app cloud](active-directory-conditional-access-azure-portal.md#who). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
+Grazie ai criteri di accesso condizionale è possibile controllare la modalità di accesso degli utenti alle [app cloud](active-directory-conditional-access-conditions.md#cloud-apps). Quando si configura un criterio di accesso condizionale, è necessario selezionare almeno un'app cloud. 
 
 ![Selezionare le app cloud per il criterio](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -58,7 +58,7 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (include OneDrive for Business e di Project Online)
+- Microsoft Office 365 SharePoint Online (include OneDrive for Business e Project Online)
 
 - Microsoft Power BI 
 
@@ -105,7 +105,7 @@ In un criterio di accesso condizionale è possibile configurare la condizione pe
 
 ## <a name="client-apps-condition"></a>Condizione per le app client 
 
-Nel criterio di accesso condizionale è possibile configurare le condizioni delle [app client](active-directory-conditional-access-azure-portal.md#client-apps) per associare il criterio all'app client che ha avviato un tentativo di accesso. Impostare la condizione per le app client in modo da concedere o bloccare l'accesso quando viene eseguito un tentativo di accesso da questi tipi di app client:
+Nel criterio di accesso condizionale è possibile configurare le condizioni delle [app client](active-directory-conditional-access-conditions.md#client-apps) per associare il criterio all'app client che ha avviato un tentativo di accesso. Impostare la condizione per le app client in modo da concedere o bloccare l'accesso quando viene eseguito un tentativo di accesso da questi tipi di app client:
 
 - Browser
 - App per dispositivi mobili e app desktop
@@ -169,10 +169,9 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 |Outlook 2016 (Office per macOS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |App Outlook Mobile|Office 365 Exchange Online|Android, iOS|
-|App PowerBI. L'app Power BI per Android non supporta attualmente l'accesso condizionale basato su dispositivo.|Servizio PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
+|App PowerBI|Servizio PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
 |Skype for Business Online|Office 365 Exchange Online|Android, iOS |
 |App Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
-
 
 
 ## <a name="approved-client-app-requirement"></a>Requisito per le app client approvate 
@@ -186,6 +185,7 @@ Questa impostazione è valida solo per le app client seguenti:
 
 - Microsoft Azure Information Protection
 - Microsoft Excel
+- Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -193,6 +193,7 @@ Questa impostazione è valida solo per le app client seguenti:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype for Business
+- Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word

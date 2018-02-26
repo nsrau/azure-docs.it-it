@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c79bce401b0f1d67d7955f4c97a5dfac5008be0d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -135,7 +135,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
     ```
 
-### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL per archiviare il valore del limite massimo
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL di Azure per archiviare il valore limite massimo
 1. Eseguire questo comando SQL sul database SQL per creare una tabella denominata `watermarktable` in cui archiviare il valore limite: 
     
     ```sql
@@ -157,7 +157,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-sql-database"></a>Creare una stored procedure nel database SQL 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creare una stored procedure nel database SQL di Azure 
 
 Eseguire questo comando per creare una stored procedure nel database SQL. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
 
@@ -175,7 +175,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures"></a>Creare tipi di dati e stored procedure aggiuntive
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Creare tipi di dati e stored procedure aggiuntive nel database SQL di Azure
 Eseguire questa query per creare due stored procedure e due tipi di dati nel database SQL. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione.
 
 ```sql
@@ -228,6 +228,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
    
    ![Nuovo->DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
@@ -422,7 +423,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     3. Selezionare **Oggetto** per il **tipo** di parametro.
 
     ![Parametri della pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Trascinare l'attività **ForEach** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. Nella scheda **Generale** della finestra **Proprietà** immettere **IterateSQLTables**. 
+4. Nella casella degli strumenti **Attività** espandere **Iteration & Conditionals** (Iterazione e istruzioni condizionali) e trascinare l'attività **ForEach** nell'area di progettazione della pipeline. Nella scheda **Generale** della finestra **Proprietà** immettere **IterateSQLTables**. 
 
     ![Nome dell'attività ForEach](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
 5. Passare alla scheda **Impostazioni** nella finestra **Proprietà** e immettere `@pipeline().parameters.tableList` per **Elementi**. L'attività ForEach esegue l'iterazione di un elenco di tabelle ed esegue l'operazione di copia incrementale. 
@@ -431,7 +432,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
 6. Selezionare l'attività **ForEach** nella pipeline se non è già selezionata. Fare clic sul pulsante **Modifica (icona a forma di matita)**.
 
     ![Modifica dell'attività ForEach](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Trascinare l'attività **Ricerca** dalla casella degli strumenti **Attività** e immettere **LookupOldWaterMarkActivity** per **Nome**.
+7. Nella casella degli strumenti **Attività** espandere **Generale**, trascinare l'attività **Cerca** nell'area di progettazione della pipeline e immettere **LookupOldWaterMarkActivity** in **Nome**.
 
     ![Prima attività di ricerca: nome](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 8. Passare alla scheda **Impostazioni** della finestra **Proprietà** e seguire questa procedura: 
@@ -497,8 +498,9 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 19. Passare alla scheda **Stored procedure** e seguire questa procedura:
 
-    1. Immettere `sp_write_watermark` per **Nome stored procedure**. 
-    2. Usare il pulsante **Nuovo** per aggiungere i parametri seguenti: 
+    1. In **Nome stored procedure** selezionare `sp_write_watermark`. 
+    2. Selezionare **Import parameter** (Importa parametro). 
+    3. Specificare i valori seguenti per i parametri: 
 
         | NOME | type | Valore | 
         | ---- | ---- | ----- |

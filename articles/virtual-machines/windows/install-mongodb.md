@@ -16,14 +16,14 @@ ms.date: 12/15/2017
 ms.author: iainfou
 ms.openlocfilehash: f3fe9751467a1fc34f4e9d02855c4aff307424a3
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Installare e configurare MongoDB in una VM Windows in Azure
-[MongoDB](http://www.mongodb.org) è un diffuso database NoSQL open source a prestazioni elevate. In questo articolo illustra l'installazione e configurazione di MongoDB in una macchina virtuale Windows Server 2016 (VM) in Azure. È anche possibile [installare MongoDB in una VM Linux in Azure](../linux/install-mongodb.md).
+[MongoDB](http://www.mongodb.org) è un diffuso database NoSQL open source a prestazioni elevate. Questo articolo illustra la procedura di installazione e configurazione di MongoDB in una macchina virtuale Windows Server 2016 in Azure. È anche possibile [installare MongoDB in una VM Linux in Azure](../linux/install-mongodb.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di installare e configurare MongoDB, è necessario creare una VM e, idealmente, aggiungere un disco dati. Vedere gli articoli seguenti per creare una VM e aggiungere un disco dati:
 
 * Creare una macchina virtuale Windows Server usando [il portale di Azure](quick-create-portal.md) o [Azure PowerShell](quick-create-powershell.md).
@@ -36,23 +36,23 @@ Per iniziare a installare e configurare MongoDB, [accedere a una VM Windows Serv
 > Le funzionalità di sicurezza MongoDB, ad esempio l'autenticazione e l'associazione di indirizzi IP, non sono abilitate per impostazione predefinita. Dovranno essere abilitate prima di distribuire MongoDB in un ambiente di produzione. Per altre informazioni, vedere [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication) (Sicurezza e autenticazione di MongoDB).
 
 
-1. Dopo aver collegato alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer nella barra delle applicazioni.
+1. Dopo avere eseguito la connessione alla macchina virtuale tramite Desktop remoto, aprire Internet Explorer dalla barra delle applicazioni.
 2. All'apertura di Internet Explorer, selezionare **Usa impostazioni di sicurezza, privacy e compatibilità consigliate** e fare clic su **OK**.
 3. La configurazione di protezione avanzata di Internet Explorer è abilitata per impostazione predefinita. Aggiungere il sito Web di MongoDB all'elenco dei siti consentiti:
    
    * Nell'angolo superiore destro fare clic sull'icona **Strumenti**.
    * In **Opzioni Internet** selezionare la scheda **Sicurezza**, quindi l'icona **Siti attendibili**.
-   * Fare clic sul pulsante **Siti**. Aggiungere *https://\*. mongodb.com* all'elenco dei siti attendibili e quindi chiudere la finestra di dialogo.
+   * Fare clic sul pulsante **Siti**. Aggiungere *https://\*.mongodb.com* all'elenco dei siti attendibili, quindi chiudere la finestra di dialogo.
      
      ![Configurare le impostazioni di sicurezza di Internet Explorer](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Individuare il [MongoDB - Scarica](http://www.mongodb.com/downloads) pagina (http://www.mongodb.com/downloads).
-5. Se necessario, selezionare il **Server Community** edition e quindi selezionare la versione più recente stabile corrente release per*Windows Server 2008 R2 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)**.
+4. Accedere alla pagina [MongoDB - Download](http://www.mongodb.com/downloads) (http://www.mongodb.com/downloads).
+5. Se necessario, selezionare l'edizione **Community Server** e quindi l'ultima versione stabile corrente per *Windows Server 2008 R2 a 64 bit e versioni successive*. Per scaricare il programma di installazione, fare clic su **DOWNLOAD (msi)**.
    
     ![Scaricare il programma di installazione di MongoDB](./media/install-mongodb/download-mongodb.png)
    
     Eseguire il programma di installazione al termine del download.
 6. Leggere e accettare il contratto di licenza. Quando richiesto, selezionare **Completa** per l'installazione.
-7. Se si desidera, è possibile scegliere di installare anche Compass, un'interfaccia grafica per MongoDB.
+7. Se lo si desidera, è possibile scegliere anche di installare Compass, un'interfaccia grafica per MongoDB.
 8. Nella schermata finale fare clic su **Installa**.
 
 ## <a name="configure-the-vm-and-mongodb"></a>Configurare la VM e MongoDB

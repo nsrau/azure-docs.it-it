@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: ryanwi
 ms.openlocfilehash: d5f6fbb9d9c0bc0d9762f8d6b4b4eb3b02d29adc
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ Un'applicazione è una raccolta di servizi costituenti che eseguono determinate 
 
 Un tipo di applicazione è una categorizzazione di un'applicazione e consiste in un'aggregazione di tipi di servizi. Un tipo di servizio è una categorizzazione di un servizio. La categorizzazione di un servizio può disporre di impostazioni e configurazioni diverse, ma la funzionalità di base resta la stessa. Le istanze di un servizio sono le diverse varianti di configurazione dello stesso tipo di servizio.  
 
-Le classi (o "tipi") di applicazioni e servizi vengono descritte nei file XML (manifesti dell'applicazione e manifesti del servizio).  I manifesti descrivono applicazioni e servizi e come trovare i modelli in cui le applicazioni è possibile creare istanze dall'archivio di immagini del cluster.  I manifesti sono descritti in dettaglio nella [manifesti di applicazione e servizio](service-fabric-application-and-service-manifests.md). La definizione dello schema per i file ServiceManifest.xml e ApplicationManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Programmi\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Lo schema XML è documentato [documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+Le classi (o "tipi") di applicazioni e servizi vengono descritte nei file XML (manifesti dell'applicazione e manifesti del servizio).  I manifesti descrivono applicazioni e servizi e sono i modelli in base ai quali è possibile creare istanze delle applicazioni dall'archivio immagini del cluster.  I manifesti sono descritti in dettaglio in [Manifesti dell'applicazione e del servizio](service-fabric-application-and-service-manifests.md). La definizione dello schema per i file ServiceManifest.xml e ApplicationManifest.xml viene installata con l'SDK e gli strumenti di Service Fabric in *C:\Programmi\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*. Lo schema XML è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
 Il codice di istanze di applicazioni diverse viene eseguito come processo separato anche se ospitato dallo stesso nodo di Service Fabric. Il ciclo di vita di ogni istanza dell'applicazione può inoltre essere gestito, ad esempio aggiornato, in modo indipendente. Il diagramma seguente illustra come i tipi di applicazioni siano costituiti da tipi di servizi, che a loro volta sono costituiti da codice, configurazione e pacchetti di dati. Per semplificare il diagramma, vengono visualizzati solo i pacchetti codice/configurazione/dati relativi a `ServiceType4`, anche se ogni tipo di servizio può includere tutti questi tipi di pacchetti o solo alcuni.
 
@@ -49,10 +49,10 @@ Il diagramma seguente illustra la relazione tra applicazioni e istanze di serviz
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su [la scalabilità dell'applicazione](service-fabric-concepts-scalability.md).
-- Informazioni sul servizio [stato](service-fabric-concepts-state.md), [partizionamento](service-fabric-concepts-partitioning.md), e [disponibilità](service-fabric-availability-services.md).
-- Informazioni sulle modalità di definizione delle applicazioni e servizi nel [manifesti di applicazione e servizio](service-fabric-application-and-service-manifests.md).
-- [Applicazione che ospita modelli](service-fabric-hosting-model.md) descrivere relazione tra le repliche (o le istanze) di un servizio distribuito e il processo host del servizio.
+- Informazioni sulla [scalabilità delle applicazioni](service-fabric-concepts-scalability.md).
+- Informazioni sul servizio [stato](service-fabric-concepts-state.md), [partizionamento](service-fabric-concepts-partitioning.md) e [disponibilità](service-fabric-availability-services.md).
+- Informazioni sulla definizione di applicazioni e servizi in [Manifesti dell'applicazione e del servizio](service-fabric-application-and-service-manifests.md).
+- [Modelli di hosting dell'applicazione](service-fabric-hosting-model.md) descrive la relazione tra le repliche (o istanze) di un servizio distribuito e il processo host del servizio.
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

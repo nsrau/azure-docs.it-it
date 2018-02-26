@@ -21,13 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/09/2018
 ---
-# <a name="create-relationships"></a>Crea relazioni
+# <a name="create-relationships"></a>Creare relazioni
 
 In questa lezione si verificheranno le relazioni create automaticamente quando sono stati importati i dati e si aggiungeranno nuove relazioni tra tabelle diverse. Una relazione è una connessione tra due tabelle che stabilisce la modalità con cui devono essere correlati i dati in tali tabelle. Ad esempio, la tabella DimProduct e la tabella DimProductSubcategory hanno una relazione basata sul fatto che ogni prodotto appartiene a una sottocategoria. Per altre informazioni, vedere [Relationships](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular) (Relazioni).
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   
-## <a name="prerequisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 3: Contrassegnare come tabella data](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Esaminare le relazioni esistenti e aggiungere nuove relazioni  

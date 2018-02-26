@@ -14,7 +14,7 @@ ms.date: 05/29/2017
 ms.author: jonatul
 ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -34,7 +34,7 @@ I record DNS inversi sono ospitati in speciali zone DNS, chiamate zone "ARPA".  
 
 Il record DNS "www.contoso.com", ad esempio, viene implementato usando un record "A" DNS con il nome "www" nella zona "contoso.com".  Questo record A fa riferimento all'indirizzo IP corrispondente, in questo caso 64.4.6.100.  La ricerca inversa viene implementata separatamente, usando un record "PTR" denominato "100" nella zona "6.4.64.in-addr.arpa". Si noti che gli indirizzi IP sono inversi nelle zone ARPA.  Questo record PTR, se è stato configurato correttamente, fa riferimento al nome "www.contoso.com".
 
-Quando a un'organizzazione viene assegnato un blocco di indirizzi IP, acquisisce anche il diritto di gestire la zona ARPA corrispondente. Le zone ARPA corrispondenti ai blocchi di indirizzi IP usati da Azure vengono ospitate e gestite da Microsoft. Provider di servizi Internet può ospitare la zona ARPA per i propri indirizzi IP per l'utente oppure potrebbe consentire l'hosting della zona ARPA in un servizio DNS di propria scelta, ad esempio DNS di Azure.
+Quando a un'organizzazione viene assegnato un blocco di indirizzi IP, acquisisce anche il diritto di gestire la zona ARPA corrispondente. Le zone ARPA corrispondenti ai blocchi di indirizzi IP usati da Azure vengono ospitate e gestite da Microsoft. L'ISP può ospitare per l'utente la zona ARPA per gli indirizzi IP o può consentire di ospitare la zona ARPA nel servizio DNS preferito, ad esempio DNS di Azure.
 
 > [!NOTE]
 > Le ricerche DNS dirette e le ricerche DNS inverse vengono implementate in gerarchie DNS separate parallele. La ricerca inversa per "www.contoso.com" **non** è ospitata nella zona "contoso.com", ma nella zona ARPA per il blocco di indirizzi IP corrispondente. Per i blocchi di indirizzi IPv4 e IPv6 vengono usate zone separate.

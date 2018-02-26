@@ -17,7 +17,7 @@ ms.date: 7/20/2017
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
 ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -57,7 +57,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 
 | Sistema operativo | Piattaforma | SKU |
 |:--- | --- |:--- |
-| Windows Server 2016 e più recenti SPs |64 bit |Standard, Datacenter, Essentials (a partire in MABS v2) |
+| Windows Server 2016 e versioni più recenti di SP |64 bit |Standard, Datacenter, Essentials (MABS v2 e versioni successive) |
 | Windows Server 2012 R2 e più recenti SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 e versioni più recenti di SP |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit |Standard, Workgroup |

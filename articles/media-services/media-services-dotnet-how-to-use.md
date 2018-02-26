@@ -16,21 +16,21 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-In questo articolo viene illustrato come iniziare a sviluppare applicazioni di servizi multimediali usando .NET.
+Questo articolo illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.
 
 La libreria di **Azure Media Services .NET SDK** consente di programmare per Servizi multimediali usando .NET. Per facilitare ancora di più lo sviluppo con .NET, è disponibile la libreria di **Media Services .NET SDK Extensions**, contenente un set di funzioni di supporto e metodi di estensione che semplificano il codice .NET. Entrambe le librerie sono disponibili tramite **NuGet** e **GitHub**.
 
-## <a name="prerequisites"></a>Prerequisiti
-* Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'articolo [come creare un Account di servizi multimediali](media-services-portal-create-account.md).
+## <a name="prerequisites"></a>prerequisiti
+* Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'articolo [Come creare un account di Servizi multimediali](media-services-portal-create-account.md).
 * Sistemi operativi: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
-* .NET framework 4.5 o versione successiva.
+* .NET Framework 4.5 o versioni successive.
 * Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
@@ -62,7 +62,7 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
     3. Negli assembly .NET Framework individuare e selezionare l'assembly System.Configuration e scegliere **OK**.
 6. Aprire il file App.config e aggiungere una sezione **appSettings** al file. Impostare i valori necessari per connettersi all'API di Servizi multimediali. Per altre informazioni, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-Impostare i valori che sono necessarie per connettersi utilizzando il **dell'entità servizio** metodo di autenticazione.  
+Impostare i valori necessari per connettersi usando il metodo di autenticazione **Entità servizio**.  
 
         <configuration>
         ...
@@ -73,8 +73,8 @@ Impostare i valori che sono necessarie per connettersi utilizzando il **dell'ent
                 <add key="AMSClientSecret" value="secret"/>
             </appSettings>
         </configuration>
-7. Aggiungere il **Configuration** riferimento al progetto.
-7. Sovrascrivere esistente **utilizzando** istruzioni all'inizio del file Program.cs con il codice seguente:
+7. Aggiungere il riferimento **System.Configuration** al progetto.
+7. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il codice seguente:
            
         using System;
         using System.Configuration;

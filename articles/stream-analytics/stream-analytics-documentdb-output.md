@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: jeanb
 ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,7 +27,7 @@ L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/ser
 Se non si ha familiarità con Cosmos DB, vedere l'articolo che descrive il [percorso di apprendimento di Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per un’introduzione. 
 
 > [!Note]
-> In questo momento, Analitica di flusso di Azure supporta solo la connessione a CosmosDB utilizzando **API SQL**.
+> Ad oggi, Analisi di flusso di Azure supporta la connessione a CosmosDB solo tramite l'**API SQL**.
 > Altre API di Azure Cosmos DB non sono ancora supportate. Se Analisi di flusso di Azure punta agli account Azure Cosmos DB creati con altre API, i dati potrebbero non essere archiviati correttamente. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Nozioni di base di Cosmos DB come destinazione di output

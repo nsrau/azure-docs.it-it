@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: eugenesh
 ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -52,12 +52,12 @@ Se i BLOB non contengono una riga di intestazione iniziale, è necessario specif
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-È possibile personalizzare il delimitatore di tipo carattere con la `delimitedTextDelimiter` impostazione di configurazione. Ad esempio: 
+È possibile personalizzare il carattere di delimitazione usando l'impostazione di configurazione `delimitedTextDelimiter`. Ad esempio: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
 > [!NOTE]
-> È attualmente supportata solo la codifica UTF-8. Se è necessario il supporto per altre codifiche, Saremmo lieti di sapere su [il sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> È attualmente supportata solo la codifica UTF-8. Se si necessita di supporto per altre codifiche, inviare commenti nel [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Quando si usa la modalità di analisi di testo delimitato, Ricerca di Azure presuppone che tutti i BLOB nell'origine dati siano di tipo CSV. Se è necessario supportare una combinazione di BLOB di tipo CSV e non CSV nella stessa origine dati, comunicare questa esigenza sul [sito UserVoice](https://feedback.azure.com/forums/263029-azure-search).

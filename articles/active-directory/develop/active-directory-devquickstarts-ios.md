@@ -1,5 +1,5 @@
 ---
-title: Azure iOS AD introduzione | Documenti Microsoft
+title: Introduzione a iOS per Azure AD | Microsoft Docs
 description: Informazioni su come compilare un'applicazione iOS che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: ios
@@ -17,11 +17,11 @@ ms.author: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-ad-ios-getting-started"></a>Guida introduttiva Azure iOS di Active Directory
+# <a name="azure-ad-ios-getting-started"></a>Introduzione a iOS per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 Azure Active Directory (Azure AD) include Active Directory Authentication Library, o ADAL, per i client iOS che devono accedere a risorse protette. ADAL semplifica il processo usato dall'applicazione per ottenere i token di accesso. Per far capire quanto sia semplice, in questo articolo verrà compilata un'applicazione Objective C per eseguire alcuni operazioni che:
@@ -54,7 +54,7 @@ Il formato iOS per l'URI di reindirizzamento è il seguente:
 ```
 
 * **app-scheme**: è registrato nel progetto XCode ed è il modo in cui altre applicazioni possono eseguire la chiamata. È possibile trovarlo in Info.plist -> URL types -> URL Identifier. È consigliabile crearne uno se non sono stati configurati uno o più URI.
-* **id bundle** -si tratta dell'identificatore di aggregazione disponibili nella sezione "identity" le impostazioni del progetto XCode.
+* **bundle-id** : è il Bundle Identifier presente in "identity" nelle impostazioni del progetto in XCode.
 
 Per un esempio di questo codice di QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 

@@ -16,13 +16,13 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-management-libraries"></a>Librerie di gestione di Hub eventi
 
-Le librerie di gestione di Hub eventi possono effettuare il provisioning di entità e spazi dei nomi di Hub eventi in modo dinamico, Questa natura dinamica consente di eseguire distribuzioni complesse e scenari di messaggistica, in modo che a livello di codice è possibile determinare quali entità per effettuare il provisioning. Queste librerie sono attualmente disponibili per .NET.
+Le librerie di gestione di Hub eventi possono effettuare il provisioning di entità e spazi dei nomi di Hub eventi in modo dinamico, per consentire distribuzioni complesse e scenari di messaggistica e permettere di determinare a livello di codice le entità di cui effettuare il provisioning. Queste librerie sono attualmente disponibili per .NET.
 
 ## <a name="supported-functionality"></a>Funzionalità supportate
 
@@ -30,7 +30,7 @@ Le librerie di gestione di Hub eventi possono effettuare il provisioning di enti
 * Creazione, aggiornamento, eliminazione di Hub eventi
 * Creazione, aggiornamento, eliminazione di gruppi di consumer
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per iniziare a usare le librerie di gestione di Hub eventi, è necessario eseguire l'autenticazione con Azure Active Directory (AAD). AAD richiede l'autenticazione come entità servizio, che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
 

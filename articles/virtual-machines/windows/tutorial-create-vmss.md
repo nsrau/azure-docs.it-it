@@ -18,7 +18,7 @@ ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -32,7 +32,7 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 > * Aumentare o diminuire il numero di istanze in un set di scalabilità
 > * Creare regole di scalabilità automatica
 
-Questa esercitazione richiede di Azure PowerShell versione del modulo 5.1.1 o versione successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Questa esercitazione richiede il modulo Azure PowerShell 5.1.1 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
 ## <a name="scale-set-overview"></a>Informazioni generali sui set di scalabilità
@@ -217,7 +217,7 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
     Select -ExpandProperty Sku
 ```
 
-È possibile quindi aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Nell'esempio seguente imposta il numero di macchine virtuali nella scala impostata su *3*:
+È possibile quindi aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). L'esempio seguente imposta il numero di macchine virtuali del set di scalabilità su *3*:
 
 ```powershell
 # Get current scale set
@@ -236,7 +236,7 @@ Sono necessari alcuni minuti per aggiornare il numero specificato di istanze del
 
 
 ### <a name="configure-autoscale-rules"></a>Configurare le regole di scalabilità automatica
-Anziché scalare manualmente il numero di istanze del set di scalabilità, si definiscono regole di scalabilità automatica. Queste regole monitorano le istanze nel set di scalabilità e rispondono di conseguenza in base alle metriche e alle soglie definite. L'esempio seguente aumenta il numero di istanze di uno quando il carico della CPU medio è maggiore del 60% per un periodo di 5 minuti. Se il carico della CPU medio quindi scende sotto il 30% in un periodo di 5 minuti, le istanze vengono ridimensionate da un'istanza:
+Anziché scalare manualmente il numero di istanze del set di scalabilità, si definiscono regole di scalabilità automatica. Queste regole monitorano le istanze nel set di scalabilità e rispondono di conseguenza in base alle metriche e alle soglie definite. L'esempio seguente aumenta il numero di istanze di uno quando il carico della CPU medio è maggiore del 60% per un periodo di 5 minuti. Se il carico della CPU medio scende poi al di sotto del 30% per un periodo di 5 minuti, le istanze vengono ridotte di una istanza:
 
 ```powershell
 # Define your scale set information

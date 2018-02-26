@@ -10,18 +10,20 @@ ms.author: grhuynh
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
-ms.openlocfilehash: d410516f807b7914e15bed1fb93ee58d3e340d1e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.date: 02/05/2018
+ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Inviare un flusso di lavoro usando più input dallo stesso esempio
 
-Questa guida introduttiva illustra come inviare un flusso di lavoro al servizio Genomica di Microsoft se il file di input è costituito da più file FASTQ o BAM **provenienti dallo stesso esempio**. Occorre tuttavia ricordare che **non è possibile** combinare file FASTQ e BAM nello stesso invio.
+Questa guida introduttiva illustra come inviare un flusso di lavoro al servizio Genomica di Microsoft se il file di input è costituito da più file FASTQ o BAM **provenienti dallo stesso esempio**. Se ad esempio è stato eseguito lo **stesso esempio** in più corsie sul sequencer, è possibile che il sequencer restituisca una coppia di file FASTQ per ogni corsia. Invece di concatenare questi file FASTQ prima dell'allineamento e chiamata delle varianti, è possibile inviare direttamente tutti questi input al client `msgen`. L'output dal client `msgen` sarà un **set singolo** di file, che include un file con estensione bam, bai, vcf. 
 
-In questo argomento si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro con i dati di esempio forniti, è possibile proseguire con questa guida introduttiva. 
+Occorre tuttavia ricordare che **non è possibile** combinare file FASTQ e BAM nello stesso invio. **Non è possibile** inoltre inviare più file FASTQ o BAM da più utenti singoli. 
+
+In questo articolo si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro con i dati di esempio forniti, è possibile proseguire con questa guida introduttiva. 
 
 
 ## <a name="multiple-bam-files"></a>Più file BAM
@@ -32,7 +34,7 @@ Si supponga che siano disponibili più file BAM come input, *reads.bam*, *additi
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>Inviare il processo al client `msgen` 
 
-È possibile inviare più file BAM passando tutti i rispettivi nomi all'argomento --input-blob-name-1. Si noti che tutti i file devono provenire dallo stesso esempio, ma l'ordine non è importante. Di seguito sono disponibili invii di esempio da una riga di comando in Windows, in Unix e tramite un file di configurazione. Le interruzioni di riga vengono aggiunte per maggiore chiarezza:
+È possibile inviare più file BAM passando tutti i rispettivi nomi all'argomento --input-blob-name-1. Si noti che tutti i file devono provenire dallo stesso esempio, ma l'ordine non è importante. La sezione seguente illustra in modo dettagliato invii di esempio da una riga di comando in Windows, in Unix e tramite un file di configurazione. Le interruzioni di riga vengono aggiunte per maggiore chiarezza:
 
 
 Per Windows:
@@ -97,7 +99,7 @@ Si supponga che siano disponibili più file FASTQ abbinati come input, *reads_1.
 
 I file FASTQ abbinati non devono solo provenire dallo stesso esempio, ma devono anche essere elaborati insieme.  L'ordine dei nomi di file deve essere rispettato quando vengono passati come argomenti a --input-blob-name-1 e --input-blob-name-2. 
 
-Di seguito sono disponibili invii di esempio da una riga di comando in Windows, in Unix e tramite un file di configurazione. Le interruzioni di riga vengono aggiunte per maggiore chiarezza:
+La sezione seguente illustra in modo dettagliato invii di esempio da una riga di comando in Windows, in Unix e tramite un file di configurazione. Le interruzioni di riga vengono aggiunte per maggiore chiarezza:
 
 
 Per Windows:

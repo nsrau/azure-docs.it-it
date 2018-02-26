@@ -1,73 +1,60 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch | Documentazione Microsoft
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch - Servizio Batch | Microsoft Docs
+description: "Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account Batch in modalità servizio Batch"
 services: batch
 documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
+author: dlepow
+manager: jeconnoc
+editor: 
 ms.assetid: 
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
-ms.author: antisch
-ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/29/2018
+ms.author: danlep
+ms.openlocfilehash: e8e8e475c1fe32346dde39e187a007ec7f62a2f3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="create-a-batch-account-with-the-azure-cli"></a>Creare un account Batch con l'interfaccia della riga di comando di Azure
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Esempio dell'interfaccia della riga di comando: creare un account Batch in modalità servizio Batch
 
-Questo script crea un account Batch di Azure e illustra come le varie proprietà dell'account possono essere sottoposte a query e aggiornate.
+Questo script crea un account Azure Batch in modalità servizio Batch e mostra come eseguire query o aggiornamenti su varie proprietà dell'account. Quando si crea un account Batch in modalità servizio Batch predefinita, i nodi di calcolo vengono assegnati internamente dal servizio Batch. I nodi di calcolo allocati sono soggetti a una quota di memoria centrale vCPU separata e l'account può essere autenticato tramite credenziali con chiave condivisa o un token di Azure Active Directory.
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Installare l'interfaccia della riga di comando di Azure usando le istruzioni presenti nella [Guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), se questa operazione non è stata ancora eseguita.
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.20 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
 
-## <a name="batch-account-sample-script"></a>Script di esempio per un account Batch
+## <a name="example-script"></a>Script di esempio
 
-Quando si crea un account Batch, per impostazione predefinita i relativi nodi di calcolo sono assegnati internamente dal servizio Batch. I nodi di calcolo allocati saranno soggetti a una quota di memoria centrale separata e l'account può essere autenticato tramite le credenziali a chiave condivisa o un token di Azure Active Dirctory.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
-
-## <a name="batch-account-using-user-subscription-sample-script"></a>Account Batch con lo script di esempio della sottoscrizione utente
-
-È possibile anche fare in modo che Batch crei i nodi di calcolo nella propria sottoscrizione di Azure Batch.
-Gli account che allocano i nodi di calcolo nella propria sottoscrizione devono essere autenticati tramite un token di Azure Active Directory e i nodi di calcolo allocati verranno considerati ai fini della quota di sottoscrizione. Per creare un account in questa modalità, è necessario specificare un riferimento Key Vault durante la creazione dell'account.
-
-[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
+[!code-azurecli-interactive[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
-Dopo l'esecuzione di uno degli script dell'esempio precedente, eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate (inclusi gli account Batch, gli account di archiviazione di Azure e gli insiemi di credenziali delle chiavi di Azure).
+Eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
 
-```azurecli
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti per creare un gruppo di risorse, l'account Batch e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | Crea l'account Batch.  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | Aggiorna le proprietà dell'account Batch.  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | Recupera i dettagli dell'account Batch specificato.  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | Recupera le chiavi d'accesso dell'account Batch specificato.  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | Crea un insieme di credenziali chiave. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | Aggiornare i criteri di sicurezza dell'insieme di credenziali delle chiavi specificato. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Crea l'account Batch. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
+| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Aggiorna le proprietà dell'account Batch.  |
+| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Recupera i dettagli dell'account Batch specificato.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Recupera le chiavi d'accesso dell'account Batch specificato.  |
+| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Effettua l'autenticazione con l'account Batch specificato per un'ulteriore interazione con l'interfaccia della riga di comando.  |
+| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Altri esempi di script dell'interfaccia della riga di comando di Batch sono disponibili nella [documentazione dell'interfaccia della riga di comando di Azure Batch](../batch-cli-samples.md).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview).

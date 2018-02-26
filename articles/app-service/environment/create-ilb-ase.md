@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -55,7 +55,7 @@ Quando si usa un ambiente del servizio app con bilanciamento del carico interno,
 
 Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
-1. Nel portale di Azure selezionare **Nuovo** > **Web e dispositivi mobili** > **Ambiente del servizio app**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Ambiente del servizio app**.
 
 2. Selezionare la propria sottoscrizione.
 
@@ -106,7 +106,7 @@ Se si imposta il **Tipo di indirizzo VIP** su **Interno**, il nome dell'ambiente
 
 La creazione di un'app in un ambiente del servizio app con bilanciamento del carico interno è la stessa eseguita in un ambiente del servizio app regolare.
 
-1. Nel portale di Azure selezionare **Nuovo** > **Web e dispositivi mobili** > **Web** o **Dispositivi mobili** o **App per le API**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Web** o **Dispositivi mobili** o **App per le API**.
 
 2. Immettere il nome dell'app.
 

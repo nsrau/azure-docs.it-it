@@ -1,5 +1,5 @@
 ---
-title: App di web AD Node.js Azure introduzione | Documenti Microsoft
+title: Introduzione all'app Web Node.js per Azure AD | Microsoft Docs
 description: Informazioni sulla compilazione di un'app Web Express MVC di Node.js che si integra con Azure AD per l'accesso.
 services: active-directory
 documentationcenter: nodejs
@@ -17,11 +17,11 @@ ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-ad-nodejs-web-app-getting-started"></a>App di web AD Node.js Azure Guida introduttiva
+# <a name="azure-ad-nodejs-web-app-getting-started"></a>Introduzione all'app Web Node.js per Azure AD
 Passport viene usato per:
 
 * Far accedere l'utente all'app con Azure Active Directory (Azure AD).

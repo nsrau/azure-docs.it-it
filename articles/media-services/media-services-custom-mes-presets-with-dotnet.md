@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -24,15 +24,15 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="overview"></a>Panoramica
 
-Questo articolo illustra come eseguire la codifica avanzata con supporto di codificatore Standard (MES) usando un set di impostazioni personalizzato. L'articolo utilizza .NET per creare un'attività di codifica e un processo che esegue questa attività.  
+Questo articolo illustra come eseguire le attività di codifica avanzata con Media Encoder Standard usando un set di impostazioni personalizzato. In questo articolo viene usato .NET per creare un'attività di codifica e un processo che la esegue.  
 
-In questo articolo viene illustrato come personalizzare un set di impostazioni eseguendo il [H264 bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinito e riducendo il numero di livelli. Il [predefiniti personalizzazione Media Encoder Standard](media-services-advanced-encoding-with-mes.md) articolo illustra predefiniti personalizzati che possono essere utilizzati per eseguire attività avanzate di codifica.
+L'articolo illustra come personalizzare un set di impostazioni partendo dal set di impostazioni [Codec video H.264 a bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e riducendo il numero di livelli. L'articolo [Personalizzazione dei set di impostazioni di Media Encoder Standard](media-services-advanced-encoding-with-mes.md) illustra i set di impostazioni personalizzati che è possibile usare per eseguire attività di codifica avanzata.
 
 ## <a id="customizing_presets"></a> Personalizzazione di un set di impostazioni di Media Encoder Standard
 
 ### <a name="original-preset"></a>Set di impostazioni originale
 
-Salvare definito in JSON il [H264 bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) articolo in un file con estensione JSON. Ad esempio, **CustomPreset_JSON.json**.
+Salvare il codice JSON definito nell'articolo [Codec video H.264 a bitrate multiplo con risoluzione 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) in un file con estensione json. Ad esempio, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Set di impostazioni personalizzato
 

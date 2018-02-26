@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/20/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89f3ceeb95b4a8b498523e0d73930740bcadd268
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Stack Azure
 Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile dall'esterno indirizzi IP pubblici assegnati a un piccolo set di servizi di Azure Stack ed eventualmente macchine virtuali tenant. I certificati PKI con i nomi DNS appropriati per questi endpoint infrastruttura pubblica Azure Stack sono necessari durante la distribuzione di Azure Stack. In questo articolo contiene informazioni su:
@@ -33,10 +33,11 @@ Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile d
 ## <a name="certificate-requirements"></a>Requisiti dei certificati
 L'elenco seguente descrive i requisiti del certificato che sono necessari per distribuire Azure Stack: 
 - I certificati devono essere emessi da un'autorità di certificazione interna o un'autorità di certificazione pubblica. Se si utilizza un'autorità di certificazione pubblica, deve essere incluso nell'immagine sistema operativo di base durante il programma Microsoft Root autorità attendibili. È possibile trovare l'elenco completo di seguito: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Il certificato può essere un certificato con caratteri jolly singolo che coprono tutti spazi dei nomi nel campo nome alternativo soggetto (SAN). In alternativa, è possibile utilizzare i singoli certificati con caratteri jolly per gli endpoint, come archiviazione e l'insieme di credenziali chiave in cui sono necessarie. 
+- Il certificato può essere un certificato con caratteri jolly singolo che coprono tutti spazi dei nomi nel campo nome alternativo soggetto (SAN). In alternativa, è possibile utilizzare i singoli certificati con caratteri jolly per gli endpoint, ad esempio acs e l'insieme di credenziali chiave in cui sono necessarie. 
 - L'algoritmo di firma del certificato non può essere SHA1, deve essere maggiore. 
 - Il formato del certificato deve essere PFX, come le chiavi pubbliche e private sono necessari per l'installazione dello Stack di Azure. 
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo "Key Usage".
+- Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Utilizzo chiavi avanzato".
 - Le password per tutti i file di certificato pfx devono essere uguale al momento della distribuzione
 - Assicurarsi che i nomi di soggetto e i nomi di soggetto alternativo di tutti i certificati corrispondano a quanto descritto in questo articolo per evitare distribuzioni non riuscite.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -26,7 +26,7 @@ Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non 
 * Interno
 
 
-Quando il servizio Gestione API viene installato in modalità di rete virtuale interna, tutti gli endpoint di servizio, ovvero gateway, portale per sviluppatori, portale di pubblicazione, gestione diretta e GIT, sono visibili solo all'interno di una rete virtuale i cui accessi sono gestiti dall'utente. Nessuno degli endpoint di servizio è registrato nel server DNS pubblico.
+Quando il servizio Gestione API viene installato in modalità di rete virtuale interna, tutti gli endpoint di servizio, ovvero gateway, portale per sviluppatori, portale di Azure, gestione diretta e GIT, sono visibili solo all'interno di una rete virtuale i cui accessi sono gestiti dall'utente. Nessuno degli endpoint di servizio è registrato nel server DNS pubblico.
 
 Usando Gestione API in modalità interna è possibile implementare gli scenari seguenti:
 * Consentire un accesso esterno sicuro da parte di terzi alle API ospitate in un data center privato, tramite connessioni VPN da sito a sito o Azure ExpressRoute.
@@ -34,7 +34,7 @@ Usando Gestione API in modalità interna è possibile implementare gli scenari s
 * Gestire le API ospitate in più aree geografiche usando un singolo endpoint del gateway. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -72,14 +72,14 @@ Una volta completata la distribuzione, nel dashboard dovrebbe essere visualizzat
 Quando si usa Gestione API in modalità di rete virtuale esterna, il servizio DNS è gestito da Azure. Per la modalità di rete virtuale interna, è necessario gestire il routing proprio.
 
 > [!NOTE]
-> Il servizio Gestione API non ascolta le richieste in arrivo dagli indirizzi IP. Risponde solo alle richieste per il nome host configurato negli endpoint di servizio. Questi endpoint includono gateway, portale per sviluppatori, portale di pubblicazione, endpoint di gestione diretta e GIT.
+> Il servizio Gestione API non ascolta le richieste in arrivo dagli indirizzi IP. Risponde solo alle richieste per il nome host configurato negli endpoint di servizio. Questi endpoint includono gateway, portale per sviluppatori, portale di Azure, endpoint di gestione diretta e GIT.
 
 ### <a name="access-on-default-host-names"></a>Accesso con i nomi host predefiniti
 Quando si crea un servizio Gestione API, denominato ad esempio "contoso", vengono configurati i seguenti endpoint di servizio per impostazione predefinita:
 
    * Gateway o proxy: contoso.azure-api.net
 
-   * Portale di pubblicazione e portale per sviluppatori: contoso.portal.azure-api.net
+   * Portale di Azure e portale per sviluppatori: contoso.portal.azure-api.net
 
    * Endpoint di gestione diretta: contoso.management.azure-api.net
 

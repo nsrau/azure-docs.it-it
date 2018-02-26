@@ -3,22 +3,23 @@ title: Distribuire l'app in Azure e Azure Stack | Documenti Microsoft
 description: Informazioni su come distribuire le App in Azure e Azure Stack con una pipeline di CI/CD ibrido.
 services: azure-stack
 documentationcenter: 
-author: HeathL17
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/25/2017
-ms.author: helaw
+ms.date: 02/21/2018
+ms.author: jeffgilb
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6292a846a2c3d7e112558ef0d2b62b3a3fdd3c51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Distribuire le App in Azure e Azure Stack
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -71,7 +72,7 @@ In questa sezione un'applicazione ASP.NET semplice creare e inviare a Visual Stu
 ### <a name="commit-and-push-changes-to-vsts"></a>Eseguire il commit e push delle modifiche in Visual Studio Team Services
 1.  Utilizzando Team Explorer in Visual Studio, selezionare l'elenco a discesa e fare clic su **modifiche**.
 2.  Specificare un messaggio di conferma e selezionare **Commit di tutti**. Può essere richiesto di salvare il file della soluzione, fare clic su Sì per salvare tutti.
-3.  Una volta eseguito il commit, Visual Studio consente di sincronizzare le modifiche al progetto. Selezionare **sincronizzazione**.
+3.  Una volta eseguito il commit, Visual Studio consente di sincronizzare le modifiche al progetto. Selezionare **Sincronizza**.
 
     ![immagine che illustra la schermata di commit, una volta completato il commit](./media/azure-stack-solution-pipeline/image1.png)
 

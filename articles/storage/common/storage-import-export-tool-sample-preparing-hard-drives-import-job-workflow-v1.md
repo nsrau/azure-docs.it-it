@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Completamento della sessione di copia
 
-Dopo aver completato le sessioni di copia, è possibile disconnettere le due unità dal computer di copia e spedirle al data center di Windows Azure appropriato. Caricare i due file journal, `FirstDrive.jrn` e `SecondDrive.jrn`, quando si crea il processo di importazione nel [portale di Azure](https://portal.azure.com).  
+Dopo aver completato le sessioni di copia, è possibile disconnettere le due unità dal computer di copia e spedirle al data center di Windows Azure appropriato. Caricare i due file journal, `FirstDrive.jrn` e `SecondDrive.jrn`, durante la creazione del processo di importazione nel [portale di Azure](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Passaggi successivi
 

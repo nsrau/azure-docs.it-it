@@ -36,8 +36,9 @@
 #### [Gestire asset tra più account di archiviazione](meda-services-managing-multiple-storage-accounts.md)
 ### [Quote e limitazioni](media-services-quotas-and-limitations.md)
 ## [Configurare Postman](media-rest-apis-with-postman.md)
+### [Raccolta di streaming on demand](postman-collection.md)
+### [Raccolta di streaming live](postman-live-streaming-collection.md)
 ### [Environment](postman-environment.md)
-### [Raccolta](postman-collection.md)
 ## Caricare contenuti
 ### Caricare file in un account
 #### [Azure portal](media-services-portal-upload-files.md)
@@ -225,7 +226,7 @@
 ### [Codici di errore](media-services-error-codes.md)
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (gestione dei servizi)](/powershell/module/azure/?view=azuresmps-3.7.0)

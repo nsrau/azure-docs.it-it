@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 12/02/2017
 ms.openlocfilehash: d7eec2735e48f57500eb2ea822f0949d2ec2e585
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -36,7 +36,7 @@ Un database di Azure per il server PostgreSQL:
 In un database di Azure per il server PostgreSQL è possibile creare uno o più database. È possibile scegliere di creare un singolo database per ogni server per usare tutte le risorse o creare più database per condividere le risorse. I prezzi sono strutturati per server, in base alla configurazione di piano tariffario, unità di calcolo e archiviazione (GB). Per altre informazioni, vedere i [piani tariffari](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Come connettersi ed eseguire l'autenticazione a un database di Azure per il server PostgreSQL?
-I seguenti elementi utili per garantire l'accesso sicuro per il database:
+Gli elementi seguenti contribuiscono a garantire un accesso sicuro al database:
 
 |||
 |:--|:--|
@@ -49,7 +49,7 @@ I seguenti elementi utili per garantire l'accesso sicuro per il database:
 È possibile gestire i server di Database di Azure per PostgreSQL mediante il [portale di Azure](https://portal.azure.com) o l'[interfaccia della riga di comando di Azure](/cli/azure/postgres).
 
 ## <a name="server-parameters"></a>Parametri del server
-I parametri del server PostgreSQL determinano la configurazione del server. Nel Database di Azure per PostgreSQL, l'elenco dei parametri può essere visualizzato e modificati utilizzando il portale di Azure o l'interfaccia CLI di Azure. 
+I parametri del server PostgreSQL determinano la configurazione del server. In Database di Azure per PostgreSQL l'elenco dei parametri può essere visualizzato e modificato tramite il portale o l'interfaccia della riga di comando di Azure. 
 
 Come servizio gestito per Postgres i parametri configurabili in Database di Azure per PostgreSQL sono un subset di parametri nell'istanza di Postgres locale. Per altre informazioni sui parametri per Postgres, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html). Il server di Database di Azure per PostgreSQL è abilitato con i valori predefiniti per ogni parametro al momento della sua creazione. I parametri che richiedono il riavvio del server o l'accesso con diritti superuser per l'implementazione delle modifiche non possono essere configurati dall'utente.
 

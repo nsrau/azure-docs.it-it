@@ -17,7 +17,7 @@ ms.date: 06/27/2017
 ms.author: negat
 ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -27,9 +27,9 @@ Questo articolo illustra come modificare il [modello di set di scalabilità mini
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
-Può essere visualizzato il modello di set di scala valida minima [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), e il modello per la distribuzione della scala impostata in una rete virtuale esistente può essere visto [qui](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set existing-vnet`, passo per passo:
+Il modello del set di scalabilità a validità minima è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), mentre il modello per la distribuzione del set di scalabilità in una rete virtuale esistente è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set existing-vnet`, passo per passo:
 
-Aggiungere innanzitutto un `subnetId` parametro. La configurazione di set di scalabilità, consentendo la scala impostata per identificare la subnet creata in precedenza per distribuire le macchine virtuali in questa stringa viene passata. La stringa deve essere nel formato seguente: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Ad esempio, per distribuire il set di scalabilità in una rete virtuale esistente denominata `myvnet`, subnet `mysubnet`, gruppo di risorse `myrg` e sottoscrizione`00000000-0000-0000-0000-000000000000`, l'ID subnet sarebbe il seguente: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Prima di tutto aggiungere un parametro `subnetId`. Questa stringa viene passata nella configurazione del set di scalabilità e permette al set di scalabilità di identificare la subnet creata in precedenza in cui distribuire le macchine virtuali. La stringa deve essere nel formato seguente: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Ad esempio, per distribuire il set di scalabilità in una rete virtuale esistente denominata `myvnet`, subnet `mysubnet`, gruppo di risorse `myrg` e sottoscrizione`00000000-0000-0000-0000-000000000000`, l'ID subnet sarebbe il seguente: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -42,7 +42,7 @@ Aggiungere innanzitutto un `subnetId` parametro. La configurazione di set di sca
    },
 ```
 
-Successivamente, eliminare la risorsa di rete virtuale dal `resources` matrice, come si utilizza una rete virtuale esistente e non è necessario distribuire una nuova.
+Dal momento che si usa una rete virtuale esistente e non è necessario distribuirne una nuova, eliminare successivamente la risorsa rete virtuale dalla matrice `resources`.
 
 ```diff
    "variables": {},
@@ -70,7 +70,7 @@ Successivamente, eliminare la risorsa di rete virtuale dal `resources` matrice, 
 -    },
 ```
 
-La rete virtuale esiste già prima della distribuzione del modello, non è quindi necessario specificare una clausola dependsOn dal set di scalabilità alla rete virtuale. Eliminare le righe seguenti:
+La rete virtuale esiste già prima della distribuzione del modello, non è quindi necessario specificare una clausola dependsOn dal set di scalabilità alla rete virtuale. Individuare le righe seguenti:
 
 ```diff
      {
@@ -86,7 +86,7 @@ La rete virtuale esiste già prima della distribuzione del modello, non è quind
          "capacity": 2
 ```
 
-Infine, passare il `subnetId` parametro impostato dall'utente (anziché `resourceId` per ottenere l'ID di una rete virtuale nella stessa distribuzione, che è cosa praticabile scala minima Imposta modello).
+Infine, passare il parametro `subnetId` impostato dall'utente, anziché usare `resourceId` per ottenere l'ID di una rete virtuale nella stessa distribuzione, perché questa operazione viene eseguita dal modello del set di scalabilità a validità minima.
 
 ```diff
                        "name": "myIpConfig",

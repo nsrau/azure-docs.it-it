@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -47,7 +47,7 @@ Per un'introduzione al portale di Azure, vedere [Creare un SQL Data Warehouse (p
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
 
-SSDT include Esplora oggetti di SQL Server., che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è possibile semplicemente fare clic il **aperta in Visual Studio** pulsante nel comando barra quando il database di visualizzazione dei dettagli nel portale di Azure.  
+SSDT include Esplora oggetti di SQL Server., che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è sufficiente fare clic sul pulsate **Apri in Visual Studio** sulla barra dei comandi quando i dettagli del database sono visualizzati nel portale di Azure.  
 
 Per iniziare a usare SSDT in Visual Studio, vedere [Eseguire query su Azure SQL Data Warehouse con Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 

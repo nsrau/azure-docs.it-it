@@ -9,7 +9,7 @@ ms.date: 12/19/2017
 ms.author: raynew
 ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -20,7 +20,7 @@ Questo articolo descrive come creare un gruppo di computer per la valutazione co
 
 ## <a name="create-a-group"></a>Creare un gruppo
 
-1. Nel **Panoramica** del progetto Azure di eseguire la migrazione, in Gestisci, fare clic su **gruppi** > **+ gruppo**e specificare un nome di gruppo.
+1. Nella **Panoramica** del progetto di Azure Migrate, in Gestisci, fare clic su  **Gruppi** > **+Gruppo** e specificare un nome di gruppo.
 2. Aggiungere uno o più computer al gruppo e fare clic su  **Crea**. 
 3. Facoltativamente è possibile scegliere di eseguire una nuova valutazione per il gruppo. 
 
@@ -30,5 +30,5 @@ Dopo aver creato il gruppo, è possibile modificarlo selezionando la voce corris
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare [mapping dipendenza macchina](how-to-create-group-machine-dependencies.md) per creare gruppi di una confidenza elevata.
+- Informazioni su come usare il [mapping delle dipendenze del computer](how-to-create-group-machine-dependencies.md) per creare gruppi più attendibili.
 - [Altre informazioni](concepts-assessment-calculation.md) sul modo in cui vengono calcolate le valutazioni.

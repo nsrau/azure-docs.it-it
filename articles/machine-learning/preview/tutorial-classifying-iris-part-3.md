@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 12cbd7d9682e70fc5bc65b2eda5b8eddf6bbb7f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54f81a93876549d624cef6c37dd659af084d0b37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificare i dati Iris - Parte 3: Distribuire un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -198,7 +198,7 @@ A questo punto è possibile creare il servizio Web in tempo reale.
    * `-n`: nome dell'app, che può contenere solo lettere minuscole.
    * `-f`: nome del file di script di assegnazione dei punteggi.
    * `--model-file`: file di modello. In questo caso si tratta del file model.pkl ottenuto con pickle.
-   * `-r`: tipo di modello. In questo caso si tratta di un modello Python.
+   * `-r`: runtime del modello. In questo caso si tratta di un modello Python. I runtime validi sono `python` e `spark-py`.
    * `--collect-model-data true`: abilita la raccolta dati.
    * `-c`: percorso del file delle dipendenze conda in cui vengono specificati pacchetti aggiuntivi.
 
@@ -285,7 +285,7 @@ Per testare il servizio Web **irisapp** in esecuzione, usare un record con codif
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Individuare gli account di archiviazione. A tale scopo, selezionare **Altri servizi**.
+2. Individuare gli account di archiviazione. A questo scopo, selezionare **Tutti i servizi**.
 
 3. Nella casella di ricerca digitare **Account di archiviazione** e premere **INVIO**.
 

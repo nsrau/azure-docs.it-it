@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: caa7f58860c4540fa6914b1c0f0cfcba437468fa
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric
 
@@ -34,7 +34,7 @@ Questa è la seconda di una serie di esercitazioni. In questa esercitazione vien
 > * Distribuire ed eseguire l'applicazione 
 > * Eseguire la pulizia dell'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Vengono usate le immagini del contenitore di cui è stato eseguito il push nel Registro contenitori di Azure creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
 - Viene [configurato](service-fabric-tutorial-create-container-images.md) l'ambiente di sviluppo Linux.
@@ -108,7 +108,7 @@ Vengono visualizzate tutte le voci per l'aggiunta del servizio usato:
    create TestContainer/azurevotebackPkg/code/Dummy.txt
 ```
 
-Per il resto di questa esercitazione, si lavorerà nella directory **TestContainer**, ad esempio *./TestContainer/TestContainer*. Il contenuto di questa directory dovrebbe essere il seguente.
+Per il resto di questa esercitazione, si lavorerà nella directory **TestContainer**. ad esempio *./TestContainer/TestContainer*. Il contenuto di questa directory dovrebbe essere il seguente.
 ```bash
 $ ls
 ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
@@ -218,9 +218,17 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 A questo punto dell'esercitazione il modello di un'applicazione del pacchetto di servizio è disponibile per la distribuzione in un cluster. Nell'esercitazione successiva questa applicazione viene distribuita ed eseguita in un cluster di Service Fabric.
 
 ## <a name="create-a-service-fabric-cluster"></a>Creare un cluster di Service Fabric
-Per distribuire l'applicazione in un cluster in Azure, usare il proprio cluster o un party cluster.
+Per distribuire l'applicazione in un cluster di Azure, creare un cluster personale.
 
-I cluster di entità sono gratuiti e sono cluster di Service Fabric a tempo limitato ospitati in Azure. Gestito dal team di Service Fabric in cui tutti gli utenti possono distribuire le applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
+I party cluster sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure. Sono gestiti dal team di Service Fabric e consentono a chiunque di distribuirvi applicazioni e imparare a usare la piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
+
+Per eseguire operazioni di gestione sul cluster di entità sicuro, è possibile usare Service Fabric Explorer, l'interfaccia della riga di comando o PowerShell. Per usare Service Fabric Explorer, sarà necessario scaricare il file PFX dal sito Web del cluster di entità e importare il certificato nell'archivio certificati (Windows o Mac) oppure nel browser stesso (Ubuntu). Non sono previste password per i certificati autofirmati dal cluster di entità. 
+
+Per eseguire operazioni di gestione con PowerShell o con l'interfaccia della riga di comando, sarà necessario il file PFX (PowerShell) o il file PEM (interfaccia della riga di comando). Per convertire il file PFX in un file PEM, eseguire il comando seguente:  
+
+```bash
+openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1277863181-client-cert.pem -nodes -passin pass:
+```
 
 Per informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -230,7 +238,7 @@ Per informazioni sulla creazione di un cluster, vedere l'articolo su come [crear
 Connettersi al cluster di Service Fabric in Azure. Sostituire l'endpoint segnaposto con quello proprio. L'endpoint deve essere un URL completo, simile al seguente.
 
 ```bash
-sfctl cluster select --endpoint <http://lin4hjim3l4.westus.cloudapp.azure.com:19080>
+sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
 
 Usare lo script di installazione fornito nella directory **TestContainer** per copiare il pacchetto dell'applicazione nell'archivio immagini del cluster, registrare il tipo e creare un'istanza dell'applicazione.

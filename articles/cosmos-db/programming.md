@@ -1,7 +1,7 @@
 ---
 title: Programmazione JavaScript lato server per Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come usare Azure Cosmos DB per scrivere stored procedure, trigger del database e funzioni definite dall'utente in JavaScript. Ottenere suggerimenti sulla programmazione di database e altro ancora.
-keywords: Database di trigger, stored procedure, stored procedure, il programma di database, stored procedure, azure, Microsoft azure
+keywords: Trigger di database, stored procedure, programma database, sproc, Azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -17,7 +17,7 @@ ms.date: 12/07/2017
 ms.author: andrl
 ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -56,7 +56,7 @@ Questo approccio di *"JavaScript come nuovo T-SQL"* libera gli sviluppatori di a
   * Aggiunge un livello di astrazione al di sopra dei dati non elaborati, consentendo ai responsabili dell'architettura dati di far evolvere le proprie applicazioni indipendentemente dai dati. Si tratta di una caratteristica particolarmente vantaggiosa quando i dati sono privi di schema, a causa dei presupposti transitori che potrebbe essere necessario integrare nell'applicazione qualora fosse necessario gestire i dati direttamente.  
   * Questa astrazione consente alle grandi imprese di proteggere i propri dati semplificando l'accesso dagli script.  
 
-La creazione e l'esecuzione del trigger di database, stored procedure e gli operatori di query personalizzata è supportata tramite il [portale di Azure](https://portal.azure.com), [API REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [client SDK](sql-api-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
+La creazione e l'esecuzione di trigger del database, stored procedure e operatori query personalizzati sono supportate tramite il [portale di Azure](https://portal.azure.com), l'[API REST](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) e gli [SDK client](sql-api-sdk-dotnet.md) in molte piattaforme, tra cui .NET, Node.js e JavaScript.
 
 Questa esercitazione usa [Node.js SDK con promesse Q](http://azure.github.io/azure-documentdb-node-q/) per illustrare la sintassi e l'uso di stored procedure, trigger e funzioni definite dall'utente.   
 
@@ -440,7 +440,7 @@ Il trigger esegue query sul documento dei metadati, aggiornandolo con le informa
 Un aspetto importante da tenere presente è l'esecuzione **transazionale** dei trigger in Cosmos DB. Questo post-trigger viene eseguito come parte della stessa transazione relativa alla creazione del documento originale. Pertanto, se si genera un'eccezione dal post-trigger (ad esempio se non è possibile aggiornare il documento dei metadati), l'intera transazione avrà esito negativo e verrà ripristinata allo stato precedente. Non verrà creato alcun documento e verrà restituita un'eccezione.  
 
 ## <a id="udf"></a>Funzioni definite dall'utente
-Funzioni definite dall'utente (UDF) vengono utilizzate per estendere la grammatica del linguaggio di query SQL del database Cosmos Azure e implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le funzioni definite dall'utente su repliche secondarie del servizio Cosmos DB.  
+Le funzioni definite dall'utente consentono di estendere la grammatica del linguaggio di query SQL di Azure Cosmos DB e di implementare la logica di business personalizzata. Possono essere richiamate solo dall'interno delle query. Non hanno accesso all'oggetto contesto e vanno usate come JavaScript di solo calcolo. È quindi possibile eseguire le funzioni definite dall'utente su repliche secondarie del servizio Cosmos DB.  
 
 L'esempio seguente consente di creare una funzione definita dall'utente per calcolare l'imposta sul reddito in base ai tassi relativi a varie fasce di reddito. La funzione viene quindi usata all'interno di una query per trovare tutte le persone che hanno pagato oltre 20.000 dollari di imposte.
 
@@ -482,7 +482,7 @@ La funzione UDF può in seguito essere usata in query come quella riportata nell
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API della Language-Integrated Query di JavaScript
-Oltre a eseguire una query utilizzando la grammatica SQL di Azure Cosmos DB, il SDK lato server consente di eseguire query ottimizzate attraverso un'interfaccia intuitiva di JavaScript senza la conoscenza di SQL. L'API della query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e diffuse della matrice ECMAScript5 come lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
+Oltre a eseguire query usando la grammatica SQL di Azure Cosmos DB, l'SDK lato server consente di eseguire query ottimizzate tramite un'intuitiva interfaccia JavaScript senza alcuna conoscenza di SQL. L'API della query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e diffuse della matrice ECMAScript5 come lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`.
@@ -645,7 +645,7 @@ Le descrizioni seguenti illustrano ogni query nella tabella sopra.
 
 
 ## <a name="runtime-support"></a>Supporto di runtime
-Il database di Azure Cosmos [API sul lato di JavaScript server](http://azure.github.io/azure-documentdb-js-server/) fornisce il supporto per la maggior parte delle funzionalità del linguaggio JavaScript mainstream come standard da [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+L'[API lato server JavaScript](http://azure.github.io/azure-documentdb-js-server/) di Azure Cosmos DB offre supporto per la maggior parte delle principali funzionalità del linguaggio JavaScript, secondo lo standard [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Sicurezza
 Le stored procedure e i trigger di JavaScript vengono create in modalità sandbox in modo che gli effetti di un unico script non vengano trasferiti all'altro senza che siano stati prima sottoposti all'isolamento delle transazioni snapshot a livello di database. Gli ambienti di runtime vengono riuniti in pool, ma ripuliti dal contesto dopo ciascuna esecuzione. Di conseguenza è possibile garantirne la sicurezza rispetto a effetti collaterali imprevisti causati l'un l'altro.
@@ -654,7 +654,7 @@ Le stored procedure e i trigger di JavaScript vengono create in modalità sandbo
 Le stored procedure, i trigger e le UDF vengono precompilate implicitamente nel formato di codice byte per evitare i costi di compilazione ad ogni chiamata dello script. Questo garantisce la velocità elevata e il footprint ridotto delle chiamate delle stored procedure.
 
 ## <a name="client-sdk-support"></a>Supporto di client SDK
-Oltre ai database Azure Cosmos [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB è [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), e [Python SDK](sql-api-sdk-python.md) per anche l'API di SQL. È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
+Oltre all'API [Node.js](sql-api-sdk-node.md) di Azure Cosmos DB, Azure Cosmos DB include gli [SDK di .NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) anche per l'API SQL. È possibile creare ed eseguire stored procedure, trigger e UDFs usando anche uno qualsiasi di questi SDK. Nell'esempio seguente viene illustrato come creare ed eseguire una stored procedure con il client .NET. Notare il modo in cui i tipi -NET vengono passati nella stored procedure come JSON e poi riletti.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -687,7 +687,7 @@ Oltre ai database Azure Cosmos [Node.js](sql-api-sdk-node.md) API, Azure Cosmos 
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-In questo esempio viene illustrato come utilizzare il [API .NET SQL](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) per creare un pre- trigger di e creare un documento con il trigger abilitato. 
+Questo esempio illustra come usare l'[API .NET di SQL](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) per creare un pre-trigger e quindi un documento con il trigger abilitato. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -708,7 +708,7 @@ In questo esempio viene illustrato come utilizzare il [API .NET SQL](/dotnet/api
         });
 
 
-E l'esempio seguente viene illustrato come creare una funzione definita dall'utente (UDF) e utilizzarlo in un [query SQL](sql-api-sql-query.md).
+L'esempio seguente illustra come creare una funzione definita dall'utente e usarla in una [query SQL](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

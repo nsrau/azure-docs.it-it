@@ -15,14 +15,14 @@ ms.date: 12/09/2017
 ms.author: juliako
 ms.openlocfilehash: 5a6e1b5bc377d3fc4ad47fdfb37da4853c3bb827
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copia di un BLOB esistente in un asset di Servizi multimediali
-In questo articolo viene illustrato come copiare BLOB da un account di archiviazione in un nuovo asset di servizi multimediali di Azure (AMS) utilizzando [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+Questo articolo illustra come copiare BLOB da un account di archiviazione in un nuovo asset di Servizi multimediali di Azure (AMS) usando le [estensioni SDK .NET dei Servizi multimediali di Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-Usare i metodi di estensione:
+I metodi di estensione funzionano con:
 
 - Asset regolari.
 - Asset di archivio live (formato FragBlob).
@@ -32,16 +32,16 @@ Usare i metodi di estensione:
 > È sconsigliabile tentare di modificare i contenuti dei contenitori BLOB generati da Servizi multimediali senza usare le API di Servizi multimediali.
 > 
 
-L'articolo illustra due esempi di codice:
+L'articolo mostra due esempi di codice:
 
 1. Copiare i BLOB da un asset in un account AMS in un nuovo asset in un altro account AMS.
 2. Copiare i BLOB da alcuni account di storage in un nuovo asset in un account AMS.
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copiare i BLOB tra due account AMS  
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
-Due account dei Servizi multimediali. Vedere l'articolo [come creare un Account di servizi multimediali](media-services-portal-create-account.md).
+Due account dei Servizi multimediali. Vedere l'articolo [Come creare un account di Servizi multimediali](media-services-portal-create-account.md).
 
 ### <a name="download-sample"></a>Scaricare un esempio
 È possibile seguire i passaggi descritti in questo articolo oppure scaricare un esempio che contiene il codice descritto in questo articolo da [qui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
@@ -49,7 +49,7 @@ Due account dei Servizi multimediali. Vedere l'articolo [come creare un Account 
 ### <a name="set-up-your-project"></a>Configurare il progetto
 
 1. Configurare l'ambiente di sviluppo come descritto in [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Sviluppo di applicazioni di Servizi multimediali con .NET). 
-2. Aggiungere la sezione appSettings del file config e aggiornare i valori in base a cui gli account di servizi multimediali, l'account di archiviazione di destinazione e l'ID asset di origine.  
+2. Aggiungere la sezione appSettings al file con estensione CONFIG e aggiornare i valori in base all'account di Servizi multimediali, all'account di archiviazione di destinazione e all'ID dell'asset di origine.  
 
 ```   
 <appSettings>
@@ -157,7 +157,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copiare i BLOB da un account di archiviazione in un account AMS 
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 - Un account di archiviazione da cui si desidera copiare i BLOB.
 - Un account AMS in cui si desidera copiare i BLOB.
@@ -182,7 +182,7 @@ namespace CopyExistingBlobsIntoAsset
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Copiare BLOB da un account di archiviazione in un nuovo asset in un account di sistema AMS
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Copiare i BLOB da alcuni account di storage in un nuovo asset in un account AMS
 
 Il codice seguente copia i BLOB da un account di archiviazione in un asset di Servizi multimediali. 
 

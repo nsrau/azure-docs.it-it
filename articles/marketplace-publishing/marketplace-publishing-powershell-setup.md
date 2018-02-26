@@ -30,7 +30,7 @@ Per configurare e archiviare le impostazioni di sottoscrizione comuni di Microso
 
 Il primo comando associa un account di archiviazione predefinito alla sottoscrizione (necessario per alcune operazioni di provisioning delle macchine virtuali).  Il secondo rende corrente la sottoscrizione (riconosciuta da altri cmdlet).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 * [Creazione di un'immagine di macchina virtuale per Marketplace](marketplace-publishing-vm-image-creation.md)
 

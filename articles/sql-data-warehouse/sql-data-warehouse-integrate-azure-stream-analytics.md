@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: c5c0450cba541a9346f023057345c5fc9b147903
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ Analisi di flusso di Azure è un servizio completamente gestito che consente l'e
 
 In questo articolo si apprenderà come usare il database di Azure SQL Data Warehouse come un sink di output per i processi di Analisi di flusso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Eseguire prima di tutto questa procedura nell'esercitazione [Introduzione all'uso di Analisi di flusso di Azure][Get started using Azure Stream Analytics].  
 
 1. Creare un input dell'hub eventi
@@ -53,7 +53,7 @@ Immettere i valori seguenti nella pagina successiva:
   * Se il database SQL Data Warehouse esiste nella stessa sottoscrizione del processo di analisi di flusso, selezionare Usare il database SQL dalla sottoscrizione corrente.
   * Se il database è in una sottoscrizione diversa, selezionare Usare il database SQL da un'altra sottoscrizione.
 * *Database*: specificare il nome di un database di destinazione.
-* *Nome server*: specificare il nome del server per il database specificato. È possibile utilizzare il portale di Azure per questa operazione.
+* *Nome server*: specificare il nome del server per il database specificato. Per trovarlo, è possibile usare il portale di Azure.
 
 ![][server-name]
 

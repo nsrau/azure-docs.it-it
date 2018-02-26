@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 7ef601033b36ee968cb766d40a0a6b05afa9a1a4
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise
 Per informazioni sull'utilizzo di Istanza riservata, usare ReservationId della [pagina Prenotazione](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) e il file di utilizzo del [portale EA](https://ea.azure.com). È anche possibile visualizzare l'utilizzo della prenotazione nella sezione di riepilogo dell'utilizzo del [portale EA](https://ea.azure.com).
@@ -56,6 +56,16 @@ Utilizzo istanze riservate viene visualizzato anche nella sezione di riepilogo d
 
 1. Il componente hardware della VM non viene addebitato perché è coperto da Istanza riservata. 
 2. Il software Windows viene addebitato perché Vantaggio Azure Hybrid non viene usato. 
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](billing-save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

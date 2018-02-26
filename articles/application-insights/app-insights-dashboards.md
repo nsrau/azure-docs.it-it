@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -98,7 +98,7 @@ Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
 
-## <a name="create-dashboards-programmatically"></a>Creare i dashboard a livello di codice
+## <a name="create-dashboards-programmatically"></a>Creare dashboard a livello di codice
 È possibile automatizzare la creazione di dashboard usando [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) e un semplice editor di JSON.
 
 ## <a name="app-navigation"></a>Esplorazione delle app

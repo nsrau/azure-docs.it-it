@@ -16,7 +16,7 @@ ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 72a581643ccde55f8b849c511c3365e029d7cbcb
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -72,7 +72,7 @@ Se si desidera specificarla in fase di esecuzione, è possibile chiamare il meto
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-La stringa di connessione per l'applicazione viene visualizzata nel portale di Azure.
+La stringa di connessione per l'applicazione viene visualizzata sul portale di Azure.
 
 ### <a name="engagement-initialization"></a>Inizializzazione di Engagement
 Quando si crea un nuovo progetto, viene generato un file `App.xaml.cs` . Questa classe eredita da `Application` e contiene molti metodi importanti. Verrà inoltre usata per inizializzare Engagement SDK.

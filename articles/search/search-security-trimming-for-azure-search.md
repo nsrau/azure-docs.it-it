@@ -1,25 +1,25 @@
 ---
-title: I filtri di sicurezza per i risultati di taglio in ricerca di Azure | Documenti Microsoft
-description: "Controllo di accesso al contenuto di ricerca di Azure utilizzando i filtri di sicurezza e identità utente."
+title: Filtri di sicurezza per limitare i risultati in Ricerca di Azure | Microsoft Docs
+description: "Controllo di accesso sul contenuto di Ricerca di Azure con i filtri di sicurezza e le identità dell'utente."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
-caps.latest.revision: "26"
+caps.latest.revision: 
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
 ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per i risultati di taglio in ricerca di Azure
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per limitare i risultati in Ricerca di Azure
 
-È possibile applicare i filtri di sicurezza per tagliare i risultati della ricerca in ricerca di Azure in base all'identità utente. Per questa esperienza di ricerca in genere è necessario il confronto dell'identità dell'utente che richiede la ricerca con un campo contenente i principi che dispongono delle autorizzazioni per il documento. Quando viene trovata una corrispondenza, l'utente o l'entità di sicurezza, ad esempio un gruppo o ruolo, può accedere a un documento.
+È possibile applicare i filtri di sicurezza per limitare i risultati della ricerca in Ricerca di Azure in base all'identità dell'utente. Per questa esperienza di ricerca in genere è necessario il confronto dell'identità dell'utente che richiede la ricerca con un campo contenente i principi che dispongono delle autorizzazioni per il documento. Quando viene trovata una corrispondenza, l'utente o l'entità di sicurezza, ad esempio un gruppo o ruolo, può accedere a un documento.
 
 Un modo per applicare il filtro di sicurezza è tramite una disgiunzione complessa di espressioni di uguaglianza: ad esempio `Id eq 'id1' or Id eq 'id2'` e così via. Questo approccio è soggetto a errori, difficili da gestire e nei casi in cui l'elenco contenga centinaia o migliaia di valori, rallenta il tempo di risposta della query di molti secondi. 
 
@@ -34,7 +34,7 @@ Questo articolo descrive come applicare un filtro di sicurezza usando la procedu
 >[!NOTE]
 > Il processo di recupero degli identificatori dell'entità di sicurezza non viene trattato in questo documento. È possibile richiederlo dal provider di servizi di identità.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone la disponibilità di una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), del [servizio Ricerca di Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) e dell'[Indice di Ricerca di Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -157,6 +157,6 @@ Ecco come è possibile filtrare i risultati in base all'identità dell'utente e 
  
 ## <a name="see-also"></a>Vedere anche 
 
-+ [Controllo accesso basato su identità di Active Directory utilizzando i filtri di ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Controllo degli accessi in base all'identità di Active Directory tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtri in Ricerca di Azure](search-filters.md)
-+ [Controllo di accesso e protezione di dati nelle operazioni di ricerca di Azure](search-security-overview.md)
++ [Controllo di accesso e sicurezza dei dati nelle operazioni di Ricerca di Azure](search-security-overview.md)

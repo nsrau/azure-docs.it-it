@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 0ab45043e2f75ff07a2a1a48e69507be185b56ab
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 063c92a006696afb998799c312515c79c19a48f4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
@@ -61,7 +61,7 @@ Molti clienti ritengono che il modo più facile per invitare gli utenti a usare 
 Molti clienti scelgono di ospitare una pagina Web e di creare una voce DNS radice, ad esempio https://passwords.contoso.com. Popolano questa pagina con collegamenti alle informazioni seguenti:
 
 * [Portale di reimpostazione della password di Azure AD: https://aka.ms/sspr](https://aka.ms/sspr)
-* [Portale di registrazione per la reimpostazione della password di Azure AD: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portale di registrazione per la reimpostazione della password di Azure AD: https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
 * [Portale di modifica della password di Azure AD: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Altre informazioni specifiche dell'organizzazione
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c1095c67b9a5369a9ac797bf17342499675e244
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-cdn-pop-locations"></a>Località POP della rete CDN di Azure
 Questo articolo elenca le località POP (Point of Presence) correnti per la **rete CDN di Azure fornita da Verizon** e la **rete CDN di Azure fornita da Akamai**.
@@ -32,9 +32,9 @@ Questo articolo elenca le località POP (Point of Presence) correnti per la **re
 
 | Region | Verizon | Akamai |
 | --- | --- | --- |
-| America del Nord | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington, DC | Canada<br />Messico<br />Stati Uniti |
+| America del Nord | Atlanta, GA<br />Boston, MA<br />Chicago, IL<br />Dallas, TX<br />Denver, CO<br />Los Angeles, CA<br />Miami, FL<br />New York, NY<br />Philadelphia, PA<br />San Jose, CA<br />Seattle, WA<br />Washington, DC<br />Puebla, Messico<br />Querétaro, Messico | Canada<br />Messico<br />Stati Uniti |
 | America del Sud | Buenos Aires, Argentina<br />Rio de Janeiro, Brasile<br />São Paulo, Brasile<br />Valparaíso, Cile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Perù | Brasile<br />Perù |
-| Europa settentrionale e orientale | Copenhagen, Danimarca<br />Helsinki, Finlandia<br />Varsavia, Polonia<br />Stoccolma, Svezia | Danimarca<br />Polonia<br />Svezia<br /> |
+| Europa settentrionale e orientale | Copenhagen, Danimarca<br />Helsinki, Finlandia<br />Riga, Lettonia<br />Varsavia, Polonia<br />Stoccolma, Svezia | Danimarca<br />Polonia<br />Svezia<br /> |
 | Europa occidentale | Vienna, Austria<br />Parigi, Francia<br />Francoforte, Germania<br />Amsterdam, Paesi Bassi<br />Londra, Regno Unito | Austria<br />Francia<br />Germania<br />Irlanda<br />Paesi Bassi<br />Svizzera<br />Regno Unito |
 | Europa meridionale | Milano, Italia<br />Madrid, Spagna | Italia<br />Spagna |
 | Africa | Johannesburg, Sudafrica | |

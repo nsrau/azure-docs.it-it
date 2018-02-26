@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: iainfou
 ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -40,7 +40,7 @@ Selezionare il nuovo gruppo di sicurezza di rete. Selezionare "Regole di sicurez
 
 Per creare una regola che consenta il traffico:
 
-- Selezionare il **base** pulsante. Per impostazione predefinita, il **avanzate** finestra fornisce alcune opzioni di configurazione aggiuntive, ad esempio per definire un intervallo di blocco o la porta IP origine specifica.
+- Selezionare il pulsante **Basic**. Per impostazione predefinita, la finestra **Avanzata** offre alcune opzioni di configurazione aggiuntive, ad esempio per definire un intervallo specifico di porte o indirizzi IP di origine bloccati.
 - Scegliere un **servizio** comune dal menu a discesa, ad esempio *HTTP*. È possibile anche selezionare l'opzione *Personalizzata* per indicare una porta specifica da usare. 
 - Se si desidera, modificare la priorità o il nome. La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola.
 - Quando si è pronti, selezionare **OK** per creare la regola:

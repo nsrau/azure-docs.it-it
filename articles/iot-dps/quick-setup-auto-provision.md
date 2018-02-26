@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 00e0f169c7de2521b15b89c2d935967e51b38960
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
 
@@ -31,7 +31,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Internet delle cose**, **Hub IoT** e quindi fare clic sul pulsante **Crea**. 
 
@@ -44,9 +44,9 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Creare una nuova istanza del servizio Device Provisioning in hub IoT
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
 
-2. *Nel Marketplace* cercare il **servizio Device Provisioning**. Selezionare il **servizio Device Provisioning IoT** e fare clic sul pulsante **Crea**. 
+2. *Nel Marketplace* cercare il **servizio Device Provisioning**. Selezionare il servizio **Device Provisioning in hub IoT** e fare clic sul pulsante **Crea**. 
 
 3. **Assegnare un nome** all'istanza del servizio Device Provisioning. Selezionare la sottoscrizione che verrà usata per questa istanza e immettere il nome di un gruppo di risorse nuovo o esistente. Selezionare la posizione. Al termine, fare clic su **Crea**.
 

@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 68855e0070916dc672914fbc8ca3587a5d3c25f6
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -25,12 +25,12 @@ ms.lasthandoff: 12/20/2017
 
 ## <a name="overview"></a>Panoramica
 
-[Azure Watcher di rete](../../network-watcher/network-watcher-monitoring-overview.md) è delle prestazioni di monitoraggio, diagnostica e analitica servizio di rete che consente il monitoraggio di reti di Azure. L'estensione della macchina virtuale dell'agente di controllo di rete è un requisito per l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate in macchine virtuali di Azure.
+[Network Watcher di Azure](../../network-watcher/network-watcher-monitoring-overview.md) è un servizio di monitoraggio, diagnostica e analisi delle prestazioni di rete che consente di monitorare le reti di Azure. L'estensione della macchina virtuale dell'agente Network Watcher è un requisito per l'acquisizione del traffico di rete su richiesta e altre funzionalità avanzate nelle macchine virtuali di Azure.
 
 
 Questo documento descrive in dettaglio le piattaforme e le opzioni di distribuzione supportate per l'estensione macchina virtuale agente Network Watcher per Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -38,11 +38,11 @@ L'estensione agente Network Watcher per Windows può essere eseguita in Windows 
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Alcune delle funzionalità di Network Watcher Agent richiedono che la macchina virtuale di destinazione sia connessa a Internet. Senza la possibilità di stabilire connessioni in uscita, l'agente di controllo di rete non sarà in grado di caricare le acquisizioni di pacchetti per l'account di archiviazione. Per maggiori dettagli, vedere la [documentazione di Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
+Alcune delle funzionalità di Network Watcher Agent richiedono che la macchina virtuale di destinazione sia connessa a Internet. Senza la possibilità di stabilire connessioni in uscita, l'agente Network Watcher non sarà in grado di caricare le acquisizioni dei pacchetti nell'account di archiviazione. Per maggiori dettagli, vedere la [documentazione di Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Lo schema JSON seguente illustra lo schema dell'estensione Network Watcher Agent. L'estensione non richiede, né supporta, le impostazioni fornite dall'utente e si basa sulla configurazione predefinita.
+Lo schema JSON seguente illustra lo schema dell'estensione Network Watcher Agent. L'estensione non richiede né supporta impostazioni fornite dall'utente e si basa sulla configurazione predefinita.
 
 ```json
 {
@@ -74,11 +74,11 @@ Lo schema JSON seguente illustra lo schema dell'estensione Network Watcher Agent
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-È possibile distribuire le estensioni VM di Azure con modelli di gestione risorse di Azure. È possibile utilizzare lo schema JSON dettagliato nella sezione precedente in un modello di gestione risorse di Azure per eseguire l'estensione dell'agente di controllo di rete durante la distribuzione di un modello di gestione risorse di Azure.
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. È possibile usare lo schema JSON descritto nella sezione precedente in un modello di Azure Resource Manager per eseguire l'estensione agente Network Watcher durante la distribuzione di un modello di Azure Resource Manager.
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Utilizzare il `Set-AzureRmVMExtension` comando per distribuire l'estensione della macchina virtuale dell'agente di controllo di rete a una macchina virtuale esistente:
+Usare il comando `Set-AzureRmVMExtension` per distribuire l'estensione macchina virtuale dell'agente Network Watcher in una macchina virtuale esistente:
 
 ```powershell
 Set-AzureRmVMExtension `
@@ -95,7 +95,7 @@ Set-AzureRmVMExtension `
 
 ### <a name="troubleshooting"></a>risoluzione dei problemi
 
-È possibile recuperare i dati sullo stato delle distribuzioni di estensione dal portale di Azure e PowerShell. Per visualizzare lo stato di distribuzione di estensioni per una macchina virtuale specificata, eseguire il comando seguente con il modulo PowerShell di Azure:
+I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e da PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente tramite il modulo di Azure PowerShell:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 461557b415ec816860acb5308e7aeba34468f4ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -117,6 +117,8 @@ Il codice di Funzioni di Azure è open source e archiviato in repository GitHub:
 La tabella riportata di seguito elenca tutte le associazioni supportate.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+In caso di problemi con errori provenienti dalle associazioni, rivedere la documentazione [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) (Codici degli errori di associazione di Funzioni di Azure).
 
 ## <a name="reporting-issues"></a>Segnalazione di problemi
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

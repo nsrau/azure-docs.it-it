@@ -15,7 +15,7 @@ ms.date: 01/04/2018
 ms.author: mbullwin
 ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -76,13 +76,13 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
-Dal [portale di Azure](https://portal.azure.com/), selezionare il servizio di Azure flusso Analitica e creare un nuovo processo di flusso Analitica:
+Nel [portale di Azure](https://portal.azure.com/) selezionare il servizio Analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
 
 ![](./media/app-insights-export-stream-analytics/SA001.png)
 
 ![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Quando viene creato il nuovo processo, selezionare **passare alla risorsa**.
+Quando viene creato il nuovo processo, selezionare **Vai alla risorsa**.
 
 ![](./media/app-insights-export-stream-analytics/SA003.png)
 
@@ -115,8 +115,8 @@ Esempio:
 > Controllare lo spazio di archiviazione per assicurarsi di ottenere il percorso corretto.
 > 
 
-## <a name="add-new-output"></a>Aggiungere nuovo output
-Selezionare il processo > **output** > **Aggiungi**.
+## <a name="add-new-output"></a>Aggiungere un nuovo output
+Selezionare il processo > **Output** > **Aggiungi**.
 
 ![](./media/app-insights-export-stream-analytics/SA006.png)
 
@@ -148,7 +148,7 @@ Incollare questa query:
 
 * export-input è l'alias assegnato all'input del flusso
 * pbi-output è l'alias dell'output definito
-* Utilizziamo [OUTER GetElements applicare](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché è il nome dell'evento in una matrice annidata di JSON. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. Il [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clausola Raggruppa gli elementi in periodi di tempo di un minuto.
+* Viene usato [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) raggruppa gli elementi in periodi di tempo di un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Query per visualizzare i valori delle metriche
 ```SQL

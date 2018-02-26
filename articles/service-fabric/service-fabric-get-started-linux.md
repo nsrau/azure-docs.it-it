@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: b39a5790e5a2ef5483428842b537e0189f5f2b32
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76d7fd268fba9f672e97d25dfc749afea3f52bab
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -230,6 +230,7 @@ sudo apt-get install -f
 * [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)
 * [Usare l'interfaccia della riga di comando di Service Fabric per gestire le applicazioni](service-fabric-application-lifecycle-sfctl.md)
 * [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
+* [Automatizzare l'applicazione di patch al sistema operativo nel cluster Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->

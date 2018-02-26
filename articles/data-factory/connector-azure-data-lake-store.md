@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c388fe0cfe85ec2bf2b752f74d39eb2ebe38ceb1
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e8326cedfbf22b5ddf19626642b63312babe5fb6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Store usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,15 +71,15 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 >[!IMPORTANT]
 > Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
->- **Come origine**, concedere almeno l'autorizzazione di accesso ai dati **Lettura ed esecuzione** per l'elenco e la copia del contenuto di una cartella oppure l'autorizzazione **Lettura** per la copia di un file singolo. Nessun requisito per il controllo di accesso a livello di account (IAM).
->- **Come sink**, concedere almeno l'autorizzazione di accesso ai dati **Scrittura ed esecuzione** per la creazione di elementi figlio nella cartella. E se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed eseguire l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente:
+>- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
+>- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
 
 Sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString. | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 
 **Esempio:**
 
@@ -114,12 +114,12 @@ Una data factory può essere associata a un'[identità del servizio gestito](dat
 Per usare l'autenticazione basata sull'identità del servizio gestito (MSI):
 
 1. [Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
-2. Concedere all'identità del servizio l'accesso a Data Lake Store usando la stessa procedura valida per l'entità del servizio. Per la procedura dettagliata, vedere [Autenticazione da servizio a servizio: Assegnare l'applicazione Azure AD al file o alla cartella dell'account di Azure Data Lake Store](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+2. Concedere all'identità del servizio l'accesso a Data Lake Store usando la stessa procedura valida per l'entità servizio attenendosi alle note riportate di seguito.
 
 >[!IMPORTANT]
 > Assicurarsi di concedere all'identità del servizio Data factory un'autorizzazione appropriata in Azure Data Lake Store:
->- **Come origine**, concedere almeno l'autorizzazione di accesso ai dati **Lettura ed esecuzione** per l'elenco e la copia del contenuto di una cartella oppure l'autorizzazione **Lettura** per la copia di un file singolo. Nessun requisito per il controllo di accesso a livello di account (IAM).
->- **Come sink**, concedere almeno l'autorizzazione di accesso ai dati **Scrittura ed esecuzione** per la creazione di elementi figlio nella cartella. E se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed eseguire l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente:
+>- **Come origine**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Lettura ed esecuzione** per elencare e copiare i file in cartelle/sottocartelle oppure l'autorizzazione **Lettura** per copiare un file singolo; impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Nessun requisito per il controllo di accesso a livello di account (IAM).
+>- **Come sink**, in Esplora dati -> Accesso, concedere almeno l'autorizzazione **Scrittura ed esecuzione** per creare elementi figlio nella cartella e impostare l'aggiunta come **una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Se si esegue la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud), in Controllo di accesso (IAM) concedere almeno il ruolo **Lettore** per permettere a Data Factory di rilevare l'area di Data Lake Store. Se si vuole evitare questo ruolo IAM, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Data Lake Store ed effettuare l'associazione nel servizio collegato di Data Lake Store, come nell'esempio seguente.
 
 In Azure Data Factory non è necessario specificare alcuna proprietà oltre alle informazioni generali di Data Lake Store nel servizio collegato.
 
@@ -197,7 +197,7 @@ Per copiare dati da Azure Data Lake Store, impostare il tipo di origine nell'att
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **AzureDataLakeStoreSource** |Sì |
-| recursive | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No  |
+| ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Si noti che se recursive è impostata su true e il sink è un archivio basato su file, la cartella o la sottocartella vuota non verrà copiata o creata nel sink.<br/>I valori consentiti sono: **true** (predefinito), **false** | No  |
 
 **Esempio:**
 

@@ -17,7 +17,7 @@ ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: d556f2d6d37956c3b3bca2a2905b2c947e6be0df
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -44,7 +44,7 @@ Sebbene in questo esempio si usi la porta TCP 3389, è possibile attenersi alla 
 ## <a name="detailed-troubleshooting-steps"></a>Procedura di risoluzione dei problemi dettagliata
 Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza di rete per una VM:
 
-1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . L'account deve essere assegnato il *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operazione per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [creare ruoli personalizzati per gestire il controllo di accesso](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Avviare una sessione di Azure PowerShell e accedere ad Azure. Se non si ha dimestichezza con Azure PowerShell, leggere l'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) . All'account deve essere assegnata l'operazione *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Immettere il comando seguente per restituire tutte le regole dei gruppi di sicurezza di rete applicate a un'interfaccia di rete denominata *VM1 NIC1* nel gruppo di risorse *RG1*:
    
         Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

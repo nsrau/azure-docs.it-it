@@ -15,7 +15,7 @@ ms.date: 05/04/2017
 ms.author: mbullwin
 ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -157,7 +157,7 @@ Le informazioni fornite includono:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Rilevamento intelligente dei modelli di esecuzione lenta 
 
-Application Insights rileva i problemi di prestazioni che potrebbero riguardare solo alcuni utenti o che riguardano gli utenti solo in alcuni casi. Ad esempio, notifica del caricamento delle pagine è più lenta su un tipo di browser di altri tipi di browser, o se le richieste vengono gestite più lento da un server specifico. È anche possibile rilevare problemi legati alle combinazioni di proprietà, ad esempio caricamenti lenti della pagine in un'area geografica per clienti che usano un particolare sistema operativo.  
+Application Insights rileva i problemi di prestazioni che potrebbero riguardare solo alcuni utenti o che riguardano gli utenti solo in alcuni casi. Ad esempio, le notifiche relative al caricamento più lento delle pagine su un tipo di browser rispetto ad altri o se le richieste vengono eseguite più lentamente da un server specifico. È anche possibile rilevare problemi legati alle combinazioni di proprietà, ad esempio caricamenti lenti della pagine in un'area geografica per clienti che usano un particolare sistema operativo.  
 
 Anomalie come queste sono molto difficili da rilevare semplicemente esaminando i dati, ma sono più comuni di quanto si pensi. Spesso emergono solo quando i clienti si lamentano. A quel punto è troppo tardi: gli utenti interessati sono già passati alla concorrenza.
 

@@ -12,7 +12,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
 ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -33,18 +33,18 @@ Una tecnica comune per l'ottimizzazione degli iperparametri consiste in una *ric
 
 La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se un algoritmo ha cinque iperparametri, ognuno con cinque valori candidati, si usa K=5 iterazioni. Una ricerca a griglia viene quindi completata eseguendo il training di 5<sup>6</sup>=15625 modelli. Fortunatamente, la ricerca a griglia con convalida incrociata è una procedura con un elevatissimo livello di parallelismo e il training di tutti questi modelli può essere eseguito in parallelo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 * Una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione e alla creazione](./quickstart-installation.md) per installare Workbench e creare gli account.
 * Questo scenario presuppone che Azure ML Workbench sia in esecuzione in un computer Windows 10 o MacOS con il motore Docker installato in locale. 
 * Per eseguire lo scenario con un contenitore Docker remoto, effettuare il provisioning di una macchina virtuale di data science (DSVM) Ubuntu seguendo le [istruzioni](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). È consigliabile usare una macchina virtuale con almeno 8 core e 28 GB di memoria. Le istanze D4 delle macchine virtuali offrono questa capacità. 
 * Per eseguire questo scenario con un cluster Spark, effettuare il provisioning del cluster Azure HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-Si consiglia di gestire un cluster con almeno:
+È consigliabile avere un cluster con almeno:
     - sei nodi di lavoro
     - otto core
     - 28 GB di memoria sia nel nodo head che nei nodi di lavoro. Le istanze D4 delle macchine virtuali offrono questa capacità.       
-    - Si consiglia di modificare i parametri seguenti per ottimizzare le prestazioni del cluster:
+    - Per ottimizzare le prestazioni del cluster, è consigliabile modificare i parametri seguenti:
         - spark.executor.instances
         - spark.executor.cores
         - spark.executor.memory 

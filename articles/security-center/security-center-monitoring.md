@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare la conformità ai criteri.
@@ -87,6 +87,13 @@ Per visualizzare i dettagli delle raccomandazioni, fare clic sul nome dell'aggio
 > [!NOTE]
 > Le raccomandazioni sulla sicurezza contenute qui sono identiche a quelle nel pannello **Raccomandazioni**. Per altre informazioni su come gestire correttamente le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md). Questo vale non solo per le macchine virtuali e i computer, ma anche per tutte le risorse disponibili nel riquadro **Integrità risorse**.
 >
+
+#### <a name="unmonitored-vms"></a>Macchine virtuali non monitorate
+Una macchina virtuale non è monitorata dal Centro sicurezza se non esegue l'estensione Microsoft Monitoring Agent. È possibile che in una macchina virtuale sia già installato un agente locale, ad esempio l'agente diretto di OMS o l'agente di SCOM. Le macchine virtuali con questi agenti vengono identificate come non monitorate perché tali agenti non sono supportati completamente nel Centro sicurezza. Per sfruttare in modo ottimale i vantaggi di tutte le funzionalità del Centro sicurezza, è necessaria l'estensione Microsoft Monitoring Agent.
+
+È possibile installare l'estensione nella VM non monitorata oltre all'agente locale già installato. Configurare gli agenti allo stesso modo, connettendoli alla stessa area di lavoro. Ciò consente al Centro sicurezza di interagire con l'estensione Microsoft Monitoring Agent e raccogliere dati.  Vedere [Abilitare l'estensione macchina virtuale](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) per istruzioni su come installare l'estensione Microsoft Monitoring Agent.
+
+Vedere [Problemi di integrità dell'agente di monitoraggio](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) per altre informazioni sui motivi per cui il Centro sicurezza non è in grado di monitorare correttamente VM e computer inizializzati per il provisioning automatico.
 
 #### <a name="vms--computers-section"></a>Sezione VM e computer
 La sezione relativa alle macchine virtuali e ai computer offre una panoramica di tutte le raccomandazioni per macchine virtuali e computer. Ogni colonna rappresenta un set di raccomandazioni, come illustrato nello screenshot seguente:

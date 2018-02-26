@@ -17,7 +17,7 @@ ms.date: 12/15/2017
 ms.author: zivr
 ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
 ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/29/2017
 ---
@@ -32,9 +32,9 @@ Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le pre
 
 La manutenzione pianificata che richiede un riavvio viene pianificata a ondate. Ogni ondata ha un ambito diverso (aree),
 
-- e inizia con un avviso ai clienti. Per impostazione predefinita, l'avviso viene inviato ai comproprietari e ai proprietari della sottoscrizione. È possibile aggiungere più destinatari e le opzioni di messaggistica come messaggio di posta elettronica, SMS e ai Webhook, per le notifiche tramite Azure [gli avvisi del registro attività](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
-- Al momento della notifica, un *self-service finestra* viene reso disponibile. Durante questo periodo, è possibile trovare le macchine virtuali inclusi in questo wave e avviare in modo proattivo manutenzione in base alle proprie esigenze di pianificazione.
-- Dopo la finestra di self-service, un *finestra di manutenzione pianificata* inizia. A un certo punto durante questa finestra di Azure pianifica e si applica la manutenzione necessaria per la macchina virtuale. 
+- e inizia con un avviso ai clienti. Per impostazione predefinita, l'avviso viene inviato ai comproprietari e ai proprietari della sottoscrizione. È possibile aggiungere più destinatari e opzioni di messaggistica, come messaggi di posta elettronica, SMS e webhook, alle notifiche tramite gli [avvisi del log attività](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) di Azure.  
+- Al momento della notifica, viene reso disponibile un *intervallo in modalità self-service*. Durante questo intervallo è possibile individuare le macchine virtuali incluse in questo ciclo e avviare in modo proattivo la manutenzione in base alle proprie esigenze di pianificazione.
+- Dopo l'intervallo in modalità self-service, viene avviato un *intervallo di manutenzione pianificato*. In un determinato momento di questo intervallo Azure pianifica e applica la manutenzione necessaria alla macchina virtuale. 
 
 La presenza di due finestre consente di avere tempo sufficiente per iniziare la manutenzione e riavviare la macchina virtuale, sapendo comunque quando Azure avvierà automaticamente la manutenzione.
 
@@ -42,34 +42,34 @@ La presenza di due finestre consente di avere tempo sufficiente per iniziare la 
 Per eseguire una query sulla finestra di manutenzione della macchina virtuale e avviare la manutenzione self-service è possibile usare il portale di Azure, PowerShell, API REST e interfaccia della riga di comando.
 
  > [!NOTE]
- > Se si tenta di avviare la manutenzione e la richiesta non riesce, Azure contrassegna la macchina virtuale come **ignorato**. Non sarà in grado di utilizzare l'opzione di manutenzione avviato dal cliente. La macchina virtuale dovrà essere riavviato da Azure durante la fase di manutenzione pianificata.
+ > Se si tenta di avviare la manutenzione e la richiesta non riesce, Azure contrassegna la macchina virtuale come **ignorata**. Non sarà più possibile usare l'opzione di manutenzione avviata dal cliente e la macchina virtuale dovrà essere riavviata da Azure durante la fase di manutenzione pianificata.
 
 
  
-## <a name="should-you-start-maintenance-using-during-the-self-service-window"></a>Deve iniziare con manutenzione durante la finestra di self-service?  
+## <a name="should-you-start-maintenance-using-during-the-self-service-window"></a>L'uso dell'opzione di manutenzione deve iniziare durante l'intervallo in modalità self-service?  
 
-Le linee guida seguenti consentono di decidere se è necessario utilizzare questa funzionalità e avviare manutenzione in un secondo momento.
+Le linee guida seguenti consentono di decidere se è necessario usare questa funzionalità e avviare la manutenzione nel momento più opportuno.
 
 > [!NOTE] 
-> Self-service manutenzione potrebbe non essere disponibile per tutte le macchine virtuali. Per determinare se è disponibile per la macchina virtuale la ridistribuzione, cercare il **iniziare** nello stato di manutenzione. Manutenzione self-service non è attualmente disponibile per i servizi Cloud (ruoli Web/di lavoro), Service Fabric e set di scalabilità di macchine virtuali.
+> La manutenzione in modalità self-service potrebbe non essere disponibile per tutte le macchine virtuali. Per determinare se per la propria macchina virtuale è disponibile la ridistribuzione proattiva, cercare l'opzione **Start now** (Inizia ora) nello stato di manutenzione. La manutenzione self-service non è attualmente disponibile per Servizi cloud (ruolo Web o di lavoro), Service Fabric e set di scalabilità di macchine virtuali.
 
 
-Manutenzione self-service non è consigliata per distribuzioni con **set di disponibilità** poiché sono le installazioni a disponibilità elevata, in cui un solo aggiornamento dominio ha un impatto in qualsiasi momento. 
-    - Consente di Azure trigger di manutenzione, ma tenere presente che l'ordine dei domini di aggiornamento influenzate non necessariamente avvengono in modo sequenziale e che sia presente una pausa di 30 minuti tra i domini di aggiornamento.
-    - Se una temporanea perdita di alcune delle capacità di (numero di domini di aggiornamento/1) è un problema, si può facilmente essere compensato allocando le istanze di aggiunta durante il periodo di manutenzione **non** utilizzare self-service di manutenzione nell'esempio seguente scenari: 
-    - Se si arresta le macchine virtuali, spesso, sia manualmente, utilizzando DevTest labs, utilizzando arresto automatici o in base alla pianificazione, è possibile ripristinare lo stato di manutenzione e pertanto causare tempi di inattività aggiuntive.
-    - In breve durate macchine virtuali che verranno eliminati prima della fine della fase di manutenzione. 
-    - Per i carichi di lavoro con uno stato di grandi dimensioni archiviati nel disco locale (temporaneo) che si desidera essere mantenute dopo l'aggiornamento. 
-    - Per i casi in cui si ridimensiona la macchina virtuale spesso, perché Impossibile ripristinare lo stato di manutenzione. 
-    - Se si hanno adottato per gli eventi pianificati che consentono il failover o spegnimento del carico di lavoro, 15 minuti prima dell'inizio della chiusura di manutenzione
+La manutenzione self-service non è consigliata per distribuzioni che usano **set di disponibilità** perché questi ultimi sono configurazioni ad alta disponibilità, in cui solo un dominio di aggiornamento è interessato in un determinato momento. 
+    - È consigliabile consentire ad Azure di attivare la manutenzione, ma è opportuno ricordare che l'ordine dei domini di aggiornamento interessati non deve necessariamente essere sequenziale e che tra i domini di aggiornamenti intercorre una pausa di 30 minuti.
+    - Se una perdita di capacità temporanea (1/numero domini di aggiornamento) rappresenta un problema, tuttavia può essere compensata dall'allocazione di istanze aggiuntive durante il periodo di manutenzione **Non** usare la manutenzione self-service negli scenari seguenti: 
+    - Arresto frequente delle macchine virtuali, manualmente, tramite DevTest Labs o l'arresto automatico o in base a una pianificazione, perché lo stato di manutenzione potrebbe essere ripristinato con un conseguente aumento del tempo di inattività.
+    - In macchine virtuali di breve durata di cui si sa che verranno eliminate prima della fine del ciclo di manutenzione. 
+    - In carichi di lavoro con uno stato di grandi dimensioni archiviato nel disco locale (temporaneo) che si desidera mantenere dopo l'aggiornamento. 
+    - Nei casi in cui si ridimensioni spesso la macchina virtuale perché lo stato di manutenzione potrebbe essere ripristinato. 
+    - Nel caso in cui siano stati adottati eventi pianificati che consentono il failover proattivo o l'arresto normale del carico di lavoro, 15 minuti prima dell'inizio dell'arresto della manutenzione.
 
-**Utilizzare** manutenzione self-service, se si prevede di eseguire la macchina virtuale senza interruzioni durante la fase di manutenzione pianificata e nessuna delle Counter-indicazioni indicate in precedenza sono applicabile. 
+**Usare** la manutenzione self-service se si prevede di eseguire la macchina virtuale senza interruzione durante la fase di manutenzione pianificata e non è applicabile alcun indicatore di conteggio citato in precedenza. 
 
-È consigliabile utilizzare self-service di manutenzione nei casi seguenti:
-    - È necessario comunicare una finestra di manutenzione esatta per la gestione o un cliente finale. 
-    - È necessario completare la manutenzione per una determinata data. 
-    - È necessario controllare la sequenza di manutenzione, ad esempio, applicazione a più livelli per garantire il recupero.
-    - È necessario più di 30 minuti di tempo di recupero di macchina virtuale tra due domini di aggiornamento (UD). Per controllare l'intervallo tra i domini di aggiornamento, è necessario attivare manutenzione sulle macchine virtuali di un dominio di aggiornamento (UD) alla volta.
+È consigliabile usare la manutenzione self-service nei casi seguenti:
+    - Necessità di comunicare un intervallo di manutenzione esatto ai propri responsabili o ai clienti finali. 
+    - Necessità di completare la manutenzione entro una data specifica. 
+    - Necessità di controllare la sequenza di manutenzione, ad esempio, applicazione a più livelli per garantire un recupero sicuro.
+    - Necessità di oltre 30 minuti di tempo di recupero per le macchine virtuali tra due domini di aggiornamento. Per controllare l'intervallo tra i domini di aggiornamento, è necessario attivare la manutenzione sulle macchine virtuali di un dominio di aggiornamento alla volta.
 
  
 
@@ -91,8 +91,8 @@ MaintenanceRedeployStatus restituisce le proprietà seguenti:
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale ||
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||
 | PreMaintenanceWindowEndTime           | Termine della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||
-| MaintenanceWindowStartTime            | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione di una macchina virtuale ||
-| MaintenanceWindowEndTime              | La fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione di una macchina virtuale ||
+| MaintenanceWindowStartTime            | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione della VM ||
+| MaintenanceWindowEndTime              | Fine dell'intervallo pianificato di manutenzione in cui Azure avvia la manutenzione della macchina virtuale ||
 | LastOperationResultCode               | Risultato dell'ultimo tentativo di avviare la manutenzione della macchina virtuale ||
 
 
@@ -149,7 +149,7 @@ Per ottenere lo stato di manutenzione di una macchina virtuale, digitare:
 Get-AzureVM -ServiceName <Service name> -Name <VM name>
 ```
 
-Per avviare manutenzione nella VM classica, digitare:
+Per avviare la manutenzione di una VM classica, digitare:
 
 ```
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
@@ -165,9 +165,9 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **D: È sicuro seguire le raccomandazioni per la disponibilità elevata che prevedono l'uso di un set di disponibilità?**
 
-**R:** set di macchine virtuali distribuite in un disponibilità o il set di scalabilità di macchine virtuali dispone della nozione di domini di aggiornamento (UD). Quando si esegue la manutenzione, Azure rispetta il vincolo dei domini di aggiornamento e non riavvia le macchine virtuali da domini di aggiornamento diversi (nello stesso set di disponibilità).  Azure attende anche almeno 30 minuti prima di passare al gruppo successivo di macchine virtuali. 
+**R:** Le macchine virtuali distribuite in un set di disponibilità o nei set di scalabilità di macchine virtuali riconoscono i domini di aggiornamento. Quando si esegue la manutenzione, Azure rispetta il vincolo dei domini di aggiornamento e non riavvia le macchine virtuali da domini di aggiornamento diversi (nello stesso set di disponibilità).  Azure attende anche almeno 30 minuti prima di passare al gruppo successivo di macchine virtuali. 
 
-Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponibilità per le macchine virtuali in Azure](regions-and-availability.MD).
+Per altre informazioni sulla disponibilità elevata, vedere [Regions and availability for virtual machines in Azure](regions-and-availability.MD) (Aree e disponibilità per le macchine virtuali in Azure).
 
 **D: Come si ricevono le notifiche relative alla manutenzione pianificata?**
 
@@ -179,15 +179,15 @@ Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponib
 
 **D: È possibile sapere con esattezza quando la macchina virtuale verrà coinvolta?**
 
-**R:** Quando si imposta la pianificazione, viene definita una finestra temporale di alcuni giorni. La sequenza esatta dei server (e delle VM) entro questa finestra è tuttavia sconosciuta. I clienti che si desiderano conoscere l'ora esatta per le proprie macchine virtuali possono utilizzare [pianificati eventi](scheduled-events.md) e query dall'interno della macchina virtuale e ricevere una notifica di 15 minuti prima di un riavvio della VM.
+**R:** Quando si imposta la pianificazione, viene definita una finestra temporale di alcuni giorni. La sequenza esatta dei server (e delle VM) entro questa finestra è tuttavia sconosciuta. I clienti che desiderano conoscere l'ora esatta per le proprie macchine virtuali possono usare gli [eventi pianificati](scheduled-events.md), eseguire query dalla macchina virtuale e ricevere una notifica 15 minuti prima del riavvio di una macchina virtuale.
 
 **D: Quanto tempo sarà necessario per riavviare la macchina virtuale?**
 
-**R:** a seconda delle dimensioni della macchina virtuale, riavviare il computer potrebbe richiedere alcuni minuti durante la finestra di manutenzione self-service. Durante il Azure avviata riavvii nella finestra di manutenzione pianificata, il take typicall verrà riavvio circa 25 minuti. Si noti che in caso di un set di disponibilità, imposta la scala di macchine virtuali o servizi Cloud (ruoli Web/di lavoro), sarà possibile 30 minuti tra ogni gruppo di macchine virtuali (UD) durante la finestra di manutenzione pianificata. 
+**R:** A seconda delle dimensioni della macchina virtuale, il riavvio potrebbe richiedere alcuni minuti durante l'intervallo di manutenzione self-service. Durante i riavvii avviati da Azure nell'intervallo di manutenzione pianificato, il riavvio richiede in genere circa 25 minuti. Si noti che nel caso in cui si usino Servizi cloud (ruolo Web o di lavoro), set di scalabilità di macchine virtuali o set di disponibilità, saranno disponibili 30 minuti tra ogni gruppo di macchine virtuali (domini di aggiornamento) durante l'intervallo di manutenzione pianificato. 
 
-**D: che cos'è l'esperienza in caso di servizi Cloud (ruoli Web/di lavoro), Service Fabric e set di scalabilità di macchine virtuali?**
+**D: Qual è l'esperienza nel caso di Servizi cloud (ruolo Web o di lavoro), Service Fabric e set di scalabilità di macchine virtuali?**
 
-**R:** Anche se queste piattaforme sono interessate dalla manutenzione pianificata, i clienti che le usano sono considerati sicuri perché solo le VM di un singolo dominio di aggiornamento saranno interessate a una determinata ora. Manutenzione self-service non è attualmente disponibile per i servizi Cloud (ruoli Web/di lavoro), Service Fabric e set di scalabilità di macchine virtuali.
+**R:** Anche se queste piattaforme sono interessate dalla manutenzione pianificata, i clienti che le usano sono considerati sicuri perché solo le VM di un singolo dominio di aggiornamento saranno interessate a una determinata ora. La manutenzione self-service non è attualmente disponibile per Servizi cloud (ruolo Web o di lavoro), Service Fabric e set di scalabilità di macchine virtuali.
 
 **D: È stato ricevuto un messaggio di posta elettronica sulla rimozione delle autorizzazioni per l'hardware. È uguale alla manutenzione pianificata?**
 
@@ -198,7 +198,7 @@ Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponib
 **R:** I motivi per cui non vengono visualizzate informazioni sulla manutenzione per le VM sono diversi:
 1.  Si usa una sottoscrizione contrassegnata come Microsoft (interno).
 2.  Le VM non sono pianificate per la manutenzione. La manutenzione potrebbe essere terminata oppure essere stata annullata o modificata e di conseguenza le VM non sono più interessate.
-3.  Non si dispone di **manutenzione** colonna aggiunta alla visualizzazione elenco VM. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, i clienti con una configurazione che non prevede la visualizzazione delle colonne non predefinite devono aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle VM.
+3.  La colonna **Manutenzione** non è stata aggiunta alla visualizzazione elenco delle macchine virtuali. Anche se questa colonna è stata aggiunta alla visualizzazione predefinita, i clienti con una configurazione che non prevede la visualizzazione delle colonne non predefinite devono aggiungere manualmente la colonna **Manutenzione** alla visualizzazione elenco delle VM.
 
 **D: La VM è pianificata per la manutenzione per la seconda volta. Perché?**
 
@@ -209,9 +209,9 @@ Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponib
 4.  È attivo l'**arresto automatico** per la VM
 
 
-**D: manutenzione il set di disponibilità richiede molto tempo e risulta ora "ignorato" stato di alcune della disponibilità di set di istanze. Perché?** 
+**D: La manutenzione del set di disponibilità richiede molto tempo e lo stato di alcune istanze del set di disponibilità risulta ora "ignorato". Perché?** 
 
-**R:** se si è selezionato per aggiornare più istanze in un set di disponibilità in successione breve, Azure verranno inseriti nella coda le richieste e inizia a aggiornare solo le macchine virtuali nel dominio di aggiornamento (UD) alla volta. Tuttavia, poiché potrebbe esserci una pausa tra domini di aggiornamento, l'aggiornamento potrebbe sembrare richiedere più tempo. Se la coda di aggiornamento richiede più di 60 minuti, verranno visualizzate alcune istanze di **ignorata** stato anche se sono stati aggiornati correttamente. Per evitare questo stato non corretto, aggiornare la disponibilità del set facendo clic solo su istanza all'interno di una disponibilità impostato e attendere l'aggiornamento su tale macchina virtuale per il completamento prima di fare clic sulla macchina virtuale successiva in un dominio di aggiornamento diversi.
+**R:** Se è stato fatto clic per aggiornare più istanze in un set di disponibilità in breve successione, Azure inserisce queste richieste in coda e inizia ad aggiornare solo le macchine virtuali in un dominio di aggiornamento alla volta. Poiché tra i domini di aggiornamento può intercorrere un periodo di pausa, l'aggiornamento potrebbe sembrare più lungo. Se la coda di aggiornamento richiede più tempo di 60 minuti, per alcune istanze verrà visualizzato lo stato **ignorato** anche se sono state aggiornate in modo corretto. Per evitare questo stato non corretto, aggiornare i set di disponibilità facendo clic solo su un'istanza in un set di disponibilità e attendere il completamento dell'aggiornamento su tale macchina virtuale prima di fare clic sulla macchina virtuale successiva in un dominio di aggiornamento diverso.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,6 +1,6 @@
 ---
 title: Costi del software Windows per le istanze di macchina virtuale riservate di Azure | Microsoft Docs
-description: Informazioni sui contatori usati per il software Windows per le macchine virtuali Windows idonee all'istanza riservata.
+description: Informazioni sui contatori relativi al software Windows non inclusi nei costi dell'istanza di macchina virtuale riservata.
 services: billing
 documentationcenter: 
 author: manish-shukla01
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: b985e6e9575ffeedcac5bcb3f94a43d23fdbb85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a0bb559369877e1cc5333394102bfb85d3f0bb11
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="windows-software-costs-not-included-with-reserved-instances"></a>Costi del software Windows non inclusi nelle istanze riservate
 
-Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchina virtuale riservata in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella tabella seguente:
+Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchina virtuale riservata in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
+
+## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Costi dei contatori relativi al software Windows non inclusi nell'istanza riservata
 
 | ID contatore | Nome del contatore nel file di uso | Usato da VM |
 | ------- | ------------------------| --- |
@@ -48,3 +50,13 @@ Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchin
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Istanze riservate di Windows Server (96 core) | Tutte tranne Serie B |
 
 È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](https://msdn.microsoft.com/library/azure/mt219004).
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate](billing-save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)

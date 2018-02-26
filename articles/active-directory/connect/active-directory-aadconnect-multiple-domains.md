@@ -16,7 +16,7 @@ ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: db4cfe91b8d27b5336763eff7c6f22f0f345caf2
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -33,7 +33,7 @@ Quando un dominio è federato con Azure AD, alcune proprietà vengono impostate 
 >
 >
 
-È possibile visualizzare il IssuerUri usando il comando PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`.
+È possibile visualizzare IssuerUri usando il comando `Get-MsolDomainFederationSettings -DomainName <your domain>` di PowerShell.
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
@@ -144,7 +144,7 @@ L'attestazione seguente consente di eseguire questa operazione:
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
 [!NOTE]
-L'ultimo numero dell'espressione regolare imposta il numero di domini padre presente nel dominio radice. In bmcontoso.com sono necessari due domini padre. Se fossero necessari tre domini padre (ad esempio: corp.bmcontoso.com), il numero sarebbe tre. Infine un intervallo possono essere indicati, verrà eseguita sempre la corrispondenza in modo che corrisponda il numero massimo di domini. "{2,3}" corrisponde a due o tre domini (ad esempio: bmfabrikam.com e corp.bmcontoso.com).
+L'ultimo numero dell'espressione regolare imposta il numero di domini padre presente nel dominio radice. In bmcontoso.com sono necessari due domini padre. Se fossero necessari tre domini padre (ad esempio: corp.bmcontoso.com), il numero sarebbe tre. È possibile indicare un intervallo, la corrispondenza sarà sempre in base al massimo dei domini. "{2,3}" corrisponde a due o tre domini (ad esempio: bmfabrikam.com e corp.bmcontoso.com).
 
 Usare la procedura seguente per aggiungere un'attestazione personalizzata per il supporto dei sottodomini.
 

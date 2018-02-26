@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ricevere una notifica quando un valore della metrica soddisfa una condizione
 
@@ -30,11 +30,11 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
 
-2. Cercare e selezionare **App per la logica**. Creare un nuovo gruppo di risorse denominato **myResourceGroup**. Usare il percorso predefinito. Selezionare il pulsante **Create** .
+2. Cercare e selezionare **App per la logica**. Selezionare il pulsante **Create** .
 
-3. Immettere le informazioni sull'app per la logica e selezionare l'opzione **Aggiungi al dashboard**. Al termine, fare clic su **Crea**.
+3. Immettere le informazioni sull'app per la logica mostrate nell'immagine seguente.  Usare la località predefinita. Selezionare l'opzione **Aggiungi al dashboard**.  Al termine, fare clic su **Crea**. 
 
     ![Immettere le informazioni di base sull'app per la logica nel portale](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
@@ -61,6 +61,8 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 12. Fare clic su **Save**.
 
+13. Possono essere necessari fino a cinque minuti perché vengano completate le azioni di esecuzione dell'app per la logica.  
+
 ## <a name="view-metrics-for-your-logic-app"></a>Visualizzare le metriche per l'app per la logica
 
 1. Fare clic sull'opzione **Monitoraggio** nel riquadro di navigazione a sinistra.
@@ -71,7 +73,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 4. Modificare l'**intervallo di tempo** del grafico per visualizzare i dati dell'ora precedente.
 
-5. Viene ora visualizzato un grafico che traccia il numero totale di esecuzioni avviate dall'app per la logica nell'ora precedente.
+5. Viene ora visualizzato un grafico che traccia il numero totale di esecuzioni avviate dall'app per la logica nell'ora precedente. Se non viene visualizzato alcun grafico, assicurarsi di aver atteso almeno cinque minuti dal passaggio precedente. Aggiornare quindi il browser. 
 
     ![Tracciare un grafico della metrica per la risorsa dell'app per la logica](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 

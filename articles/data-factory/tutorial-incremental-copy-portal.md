@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ff26d3ae159320f8c726b37eb0c68e6c5f2c2cc3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: edde9d8c6fe070e5323cf63d222c7cd6a8983e8a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
@@ -154,6 +154,7 @@ END
 
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
    
    ![Nuovo->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
@@ -192,7 +193,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 3. Nella pagina **Generale** della finestra **Proprietà** per la pipeline immettere il nome **IncrementalCopyPipeline**. 
 
    ![Nome della pipeline](./media/tutorial-incremental-copy-portal/pipeline-name.png)
-4. Verrà ora aggiunta la prima attività di ricerca per recuperare il valore limite precedente. Nella casella degli strumenti **Attività** espandere **Database SQL** e trascinare l'attività **Cerca** nell'area di progettazione della pipeline. Modificare il nome dell'attività in **LookupOldWaterMarkActivity**.
+4. Verrà ora aggiunta la prima attività di ricerca per recuperare il valore limite precedente. Nella casella degli strumenti **Attività** espandere **Generale** e trascinare l'attività **Cerca** nell'area di progettazione della pipeline. Modificare il nome dell'attività in **LookupOldWaterMarkActivity**.
 
    ![Prima attività di ricerca: nome](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Passare alla scheda **Impostazioni** e fare clic su **+ Nuovo** in corrispondenza di **Source Dataset** (Set di dati di origine). In questo passaggio viene creato un set di dati per rappresentare i dati in **watermarktable**. Questa tabella contiene il limite precedente che è stato usato nella precedente operazione di copia. 
@@ -224,7 +225,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 11. Passare all'editor di pipeline facendo clic sulla scheda della pipeline in alto oppure sul nome della pipeline nella visualizzazione albero a sinistra. Nella finestra delle proprietà per l'attività **Cerca** verificare che nel campo **Source Dataset** (Set di dati di origine) sia selezionato **WatermarkDataset**. 
 
     ![Pipeline: set di dati per limite precedente](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. Nella casella degli strumenti **Attività** espandere **Database SQL**, trascinare un'altra attività **Cerca** nell'area di progettazione della pipeline e impostare il nome su **LookupNewWaterMarkActivity** nella scheda **Generale** della finestra delle proprietà. Questa attività di ricerca recupera il nuovo valore limite dalla tabella con i dati di origine da copiare nella destinazione. 
+12. Nella casella degli strumenti **Attività** espandere **Generale**, trascinare un'altra attività **Cerca** nell'area di progettazione della pipeline e impostare il nome su **LookupNewWaterMarkActivity** nella scheda **Generale** della finestra delle proprietà. Questa attività di ricerca recupera il nuovo valore limite dalla tabella con i dati di origine da copiare nella destinazione. 
 
     ![Seconda attività di ricerca: nome](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
 13. Nella finestra delle proprietà per la seconda attività **Cerca** passare alla scheda **Impostazioni** e fare clic su **Nuovo**. Si creerà un set di dati per fare riferimento alla tabella di origine contenente il nuovo valore limite, ossia il valore massimo di LastModifyTime. 
@@ -295,7 +296,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 
         ![Set di dati sink: impostazioni di connessione](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Passare all'editor di **pipeline** facendo clic sulla scheda della pipeline in alto oppure sul nome della pipeline nella visualizzazione albero a sinistra. 
-29. Nella casella degli strumenti **Attività** espandere **Database SQL** e trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. **Connettere** l'output contrassegnato in verde (come operazione riuscita) dell'attività **Copia** all'attività **Stored procedure**. 
+29. Nella casella degli strumenti **Attività** espandere **Generale** e trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. **Connettere** l'output contrassegnato in verde (come operazione riuscita) dell'attività **Copia** all'attività **Stored procedure**. 
     
     ![Attività di copia: origine](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
 24. Selezionare l'attività **Stored procedure** nella finestra di progettazione della pipeline e modificarne il nome in **StoredProceduretoWriteWatermarkActivity**. 
@@ -306,8 +307,8 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Passare alla scheda **Stored procedure** e seguire questa procedura: 
 
-    1. Immettere **sp_write_watermark** per **Nome stored procedure**. 
-    2. Per specificare i valori per i parametri della stored procedure, fare clic su **+ Nuovo** nella sezione **Parametri stored procedure** e immettere i valori seguenti: 
+    1. In **Nome stored procedure** selezionare **sp_write_watermark**. 
+    2. Per specificare i valori dei parametri della stored procedure, fare clic su **Import parameter** (Importa parametro) e immettere i valori seguenti per i parametri: 
 
         | NOME | type | Valore | 
         | ---- | ---- | ----- | 
@@ -318,14 +319,15 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 27. Per convalidare le impostazioni della pipeline, fare clic su **Convalida** sulla barra degli strumenti. Verificare che non siano presenti errori di convalida. Per chiudere la finestra del **report di convalida della pipeline** fare clic su >>.   
 
     ![Convalidare la pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
-28. Pubblicare le entità (servizi collegati, set di dati e pipeline) nel servizio Azure Data Factory facendo clic sul pulsante **Pubblica**. Attendere fino alla visualizzazione del messaggio che informa che la pubblicazione è riuscita. 
+28. Pubblicare le entità (servizi collegati, set di dati e pipeline) nel servizio Azure Data Factory selezionando il pulsante **Pubblica tutti**. Attendere fino alla visualizzazione del messaggio che informa che la pubblicazione è riuscita. 
 
     ![Pulsante Publish](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Attivare un'esecuzione della pipeline
-Fare clic su **Trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso). 
+1. Fare clic su **Trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso). 
 
-![Pulsante Trigger Now (Attiva adesso)](./media/tutorial-incremental-copy-portal/trigger-now.png)
+    ![Pulsante Trigger Now (Attiva adesso)](./media/tutorial-incremental-copy-portal/trigger-now.png)
+2. Nella finestra **Pipeline Run** (Esecuzione di pipeline) selezionare **Fine**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 

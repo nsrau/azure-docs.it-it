@@ -1,5 +1,5 @@
 ---
-title: Associazioni di File esterne per le funzioni di Azure (sperimentale)
+title: Associazioni di file esterni per Funzioni di Azure (sperimentale)
 description: Utilizzo di associazioni di file esterni in Funzioni di Azure
 services: functions
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.date: 11/27/2017
 ms.author: alkarche
 ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
 ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-file-bindings-experimental"></a>Associazioni di File esterno funzioni Azure (sperimentale)
-In questo articolo viene illustrato come modificare i file dai diversi provider SaaS (ad esempio l'unità di Google o Dropbox) nelle funzioni di Azure. Azure supporta funzioni trigger, l'input e output associazioni di file esterni. Queste associazioni creano connessioni di API per i provider SaaS o utilizzano le connessioni esistenti di API dal gruppo di risorse dell'applicazione (funzione).
+# <a name="azure-functions-external-file-bindings-experimental"></a>Associazioni di file esterni in Funzioni di Azure (sperimentale)
+Questo articolo illustra come modificare i file di diversi provider SaaS (ad esempio Dropbox o Google Drive) in Funzioni di Azure. Funzioni di Azure supporta associazioni di input, output e trigger per i file esterni. Queste associazioni creano connessioni API ai provider SaaS o usano le connessioni API esistenti del gruppo di risorse dell'app per le funzioni.
 
 > [!IMPORTANT]
-> Le associazioni di File esterno sono sperimentale e potrebbero non raggiungere mai lo stato in genere disponibili (GA). Sono inclusi solo in Azure non sono previste per aggiungerle a funzioni di Azure e le funzioni di 1. x 2. x. Per gli scenari che richiedono l'accesso ai dati in provider SaaS, è consigliabile usare [logica App che chiamano funzioni](functions-twitter-email.md). Vedere il [connettore File System di logica app](../logic-apps/logic-apps-using-file-connector.md).
+> Le associazioni di file esterni sono sperimentali e potrebbero non diventare mai disponibili a livello generale. Sono incluse solo in Funzioni di Azure 1.x e non è prevista la loro aggiunta in Funzioni di Azure 2. x. Per gli scenari che richiedono l'accesso ai dati nei provider SaaS, è consigliabile usare [app per la logica che chiamano funzioni](functions-twitter-email.md). Vedere l'articolo relativo al [connettore del file system di App per la logica](../logic-apps/logic-apps-using-file-connector.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="available-file-connections"></a>Connessioni per file disponibili
+## <a name="available-file-connections"></a>Connessioni file disponibili
 
 |Connettore|Trigger|Input|Output|
 |:-----|:---:|:---:|:---:|
@@ -41,11 +41,11 @@ In questo articolo viene illustrato come modificare i file dai diversi provider 
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
-> Le connessioni esterne File utilizzabili [Azure logica app](https://docs.microsoft.com/azure/connectors/apis-list).
+> È possibile usare le connessioni ai file esterni anche in [App per la logica di Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
 ## <a name="trigger"></a>Trigger
 
-Il trigger di file esterno consente di monitorare una cartella remota ed eseguire il codice di funzione, quando vengono rilevate modifiche.
+Il trigger di file esterni consente di monitorare una cartella remota ed eseguire il codice della funzione qualora vengano rilevate modifiche.
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -56,7 +56,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
-Nell'esempio seguente viene illustrato un trigger di file esterno, l'associazione in un *function.json* file e un [la funzione di script c#](functions-reference-csharp.md) che utilizza l'associazione. La funzione Registra il contenuto di ogni file che viene aggiunto alla cartella monitorata.
+L'esempio seguente mostra un'associazione di trigger di file esterno in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione registra i contenuti di ogni file aggiunto alla cartella monitorata.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -86,7 +86,7 @@ public static void Run(string myFile, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
-Nell'esempio seguente viene illustrato un trigger di file esterno, l'associazione in un *function.json* file e un [funzione JavaScript](functions-reference-node.md) che utilizza l'associazione. La funzione Registra il contenuto di ogni file che viene aggiunto alla cartella monitorata.
+L'esempio seguente mostra un'associazione di trigger di file esterno in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione registra i contenuti di ogni file aggiunto alla cartella monitorata.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -123,8 +123,8 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**type** | Il valore deve essere impostato su `apiHubFileTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. | 
-|**connessione**| Identifica l'impostazione dell'app che archivia la stringa di connessione. L'impostazione dell'app viene creata automaticamente quando si aggiunge una connessione nell'interfaccia utente di integrazione nel portale di Azure.|
-|**path** | La cartella da monitorare e facoltativamente un modello di nome.|
+|**connessione**| Identifica l'impostazione dell'app che archivia la stringa di connessione. L'impostazione dell'app viene creata automaticamente quando si aggiunge una connessione nell'interfaccia utente integrata nel portale di Azure.|
+|**path** | Cartella da monitorare e, facoltativamente, un modello di nome.|
 
 ### <a name="name-patterns"></a>Modelli di nome
 
@@ -198,7 +198,7 @@ File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure st
 To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
 --->
 
-## <a name="trigger---poison-files"></a>Trigger - file di messaggi non elaborabili
+## <a name="trigger---poison-files"></a>Trigger - file non elaborabili
 
 Quando una funzione di trigger del file esterno ha esito negativo, per impostazione predefinita Funzioni di Azure ritenta l'esecuzione fino a 5 volte (incluso il primo tentativo) per un dato messaggio.
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-apihubtrigger-poison*. Il messaggio di coda per i file non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
@@ -222,7 +222,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
 
-L'esempio seguente Mostra file esterni associazioni di input e outpue in un *function.json* file e un [la funzione di script c#](functions-reference-csharp.md) che utilizza l'associazione. La funzione copia un file di input in un file di output.
+L'esempio seguente mostra associazioni di input e output di file esterno in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione copia un file di input in un file di output.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -267,7 +267,7 @@ public static void Run(string myQueueItem, string myInputFile, out string myOutp
 
 ### <a name="input---javascript-example"></a>Input - esempio JavaScript
 
-L'esempio seguente Mostra file esterni associazioni di input e outpue in un *function.json* file e un [funzione JavaScript](functions-reference-node.md) che utilizza l'associazione. La funzione copia un file di input in un file di output.
+L'esempio seguente mostra associazioni di input e output di file esterno in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione copia un file di input in un file di output.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -319,12 +319,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**type** | Il valore deve essere impostato su `apiHubFile`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. | 
-|**connessione**| Identifica l'impostazione dell'app che archivia la stringa di connessione. L'impostazione dell'app viene creata automaticamente quando si aggiunge una connessione nell'interfaccia utente di integrazione nel portale di Azure.|
+|**connessione**| Identifica l'impostazione dell'app che archivia la stringa di connessione. L'impostazione dell'app viene creata automaticamente quando si aggiunge una connessione nell'interfaccia utente integrata nel portale di Azure.|
 |**path** | Deve contenere il nome della cartella e il nome del file. Se, ad esempio, nella funzione è presente un [trigger della coda](functions-bindings-storage-queue.md), è possibile usare `"path": "samples-workitems/{queueTrigger}"` in modo che punti a un file nella cartella `samples-workitems` con un nome che corrisponde al nome di file specificato nel messaggio di trigger.   
 
 ## <a name="input---usage"></a>Input - uso
 
-Nelle funzioni C# l'associazione ai dati del file di input viene eseguita usando un parametro denominato nella firma funzione, ad esempio `<T> <name>`. `T`è il tipo di dati che si desidera deserializzare i dati in e `name` è il nome specificato nell'associazione di input. Nelle funzioni Node.js si accede ai dati del file di input usando `context.bindings.<name>`.
+Nelle funzioni C# l'associazione ai dati del file di input viene eseguita usando un parametro denominato nella firma funzione, ad esempio `<T> <name>`. `T` è il tipo di dati in cui deserializzare i dati e `name` è il nome specificato nell'associazione di input. Nelle funzioni Node.js si accede ai dati del file di input usando `context.bindings.<name>`.
 
 È possibile deserializzare il file in uno dei tipi seguenti:
 
@@ -346,7 +346,7 @@ L'associazione di input di file esterni di Azure consente di usare un file da un
 
 ## <a name="output---example"></a>Output - esempio
 
-Vedere il [esempio di associazione di input](#input---example).
+Vedere l'[esempio di associazione di input](#input---example).
 
 ## <a name="output---configuration"></a>Output - configurazione
 
@@ -357,12 +357,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**type** | Il valore deve essere impostato su `apiHubFile`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. | 
-|**connessione**| Identifica l'impostazione dell'app che archivia la stringa di connessione. L'impostazione dell'app viene creata automaticamente quando si aggiunge una connessione nell'interfaccia utente di integrazione nel portale di Azure.|
+|**connessione**| Identifica l'impostazione dell'app che archivia la stringa di connessione. L'impostazione dell'app viene creata automaticamente quando si aggiunge una connessione nell'interfaccia utente integrata nel portale di Azure.|
 |**path** | Deve contenere il nome della cartella e il nome del file. Se, ad esempio, nella funzione è presente un [trigger della coda](functions-bindings-storage-queue.md), è possibile usare `"path": "samples-workitems/{queueTrigger}"` in modo che punti a un file nella cartella `samples-workitems` con un nome che corrisponde al nome di file specificato nel messaggio di trigger.   
 
 ## <a name="output---usage"></a>Output - uso
 
-In c# le funzioni, è associare al file di output utilizzando l'oggetto denominato `out` parametro nella firma di funzione, ad esempio `out <T> <name>`, dove `T` è il tipo di dati che si desidera serializzare i dati, e `name` è il nome specificato in l'associazione di output. Nelle funzioni Node.js si accede al file di output usando `context.bindings.<name>`.
+Nelle funzioni C# è possibile eseguire l'associazione al file di output usando il parametro denominato `out` nella firma della funzione, ad esempio `out <T> <name>`, dove `T` è il tipo di dati in cui serializzare i dati e `name` è il nome specificato nell'associazione di output. Nelle funzioni Node.js si accede al file di output usando `context.bindings.<name>`.
 
 È possibile scrivere nel file di output usando uno dei tipi seguenti:
 

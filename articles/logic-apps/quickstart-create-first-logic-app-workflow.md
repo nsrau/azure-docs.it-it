@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9b6b9df01f0e56cac3fe45bd0ef8290ca1587a1a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro dell'app per la logica - Portale di Azure
 
@@ -38,7 +38,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica 
 
-1. Dal menu principale di Azure scegliere **Nuovo** > **Enterprise Integration** > **App per la logica**.
+1. Nel menu principale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
 
    ![Creare l'app per la logica](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -51,8 +51,8 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | **Nome** | MyFirstLogicApp | Nome dell'app per la logica | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
    | **Gruppo di risorse** | My-First-LA-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate | 
-   | **Località** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'app per la logica | 
-   | **Log Analytics** | No | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
+   | **Posizione** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'app per la logica | 
+   | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    |||| 
 
 3. Dopo che Azure ha distribuito l'app, Progettazione app per la logica si apre e visualizza una pagina con un video introduttivo e i trigger più usati. In **Modelli** scegliere **App per la logica vuota**.
@@ -71,10 +71,10 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Configurare un trigger con feed RSS, frequenza e intervallo](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
-   | Impostazione | Valore | Descrizione | 
+   | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
    | **URL feed RSS** | ```http://feeds.reuters.com/reuters/topNews``` | Collegamento per il feed RSS che si vuole monitorare | 
-   | **Intervallo** | 1 | Numero di intervalli di attesa tra i controlli | 
+   | **Interval** | 1 | Numero di intervalli di attesa tra i controlli | 
    | **Frequenza** | Minuto | Unità di tempo per ogni intervallo tra i controlli  | 
    |  |  |  | 
 

@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 01/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: fb6b3b357fd1f66184e480115a9c863ba31ac193
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualizzare le operazioni di distribuzione con Azure Resource Manager
 
 
 È possibile visualizzare le operazioni per una distribuzione tramite il portale di Azure. È possibile che si sia più interessati a visualizzare le operazioni quando si riceve un errore durante la distribuzione, quindi questo articolo è incentrato sulla visualizzazione delle operazioni non riuscite. Il portale offre un'interfaccia che consente di individuare facilmente gli errori e determinare le potenziali correzioni.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
+È possibile risolvere i problemi relativi alla distribuzione esaminando i log di controllo o le operazioni di distribuzione. Questo argomento illustra entrambi i metodi. Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguente:
 
 1. Per il gruppo di risorse coinvolte nella distribuzione, si noti lo stato dell'ultima distribuzione. È possibile selezionare questo stato per ottenere altri dettagli.
@@ -42,7 +42,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
     ![visualizzare la distribuzione non riuscita](./media/resource-manager-deployment-operations/view-error.png)
    
     Questo messaggio di errore dovrebbe essere sufficiente per iniziare la risoluzione dei problemi. Tuttavia, se sono necessari altri dettagli sulle attività completate, è possibile visualizzare le operazioni, come illustrato nei passaggi seguenti.
-4. È possibile visualizzare tutte le operazioni di distribuzione nel pannello **Distribuzione** . Selezionare un'operazione per visualizzare altri dettagli.
+4. È possibile visualizzare tutte le operazioni di distribuzione. Selezionare un'operazione per visualizzare altri dettagli.
    
     ![visualizzare operazioni](./media/resource-manager-deployment-operations/view-operations.png)
    
@@ -50,7 +50,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 5. È possibile visualizzare gli eventi relativi alla distribuzione selezionando **venti**.
    
     ![visualizzare eventi](./media/resource-manager-deployment-operations/view-events.png)
-6. Visualizzare tutti gli eventi per la distribuzione e selezionarne una per altri dettagli. Si notino anche gli ID di correlazione. Questo valore può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione.
+6. Visualizzare tutti gli eventi per la distribuzione e selezionarne una per altri dettagli. Si notino gli ID di correlazione. Questo valore può essere utile quando si interagisce con il supporto tecnico per risolvere i problemi relativi a una distribuzione.
    
     ![vedere eventi](./media/resource-manager-deployment-operations/see-all-events.png)
 
@@ -178,7 +178,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
   }
   ```
 
-2. Ottenere informazioni sulle operazioni di distribuzione con l'operazione [Elencare tutte le operazioni di distribuzione modello](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Per informazioni sulle distribuzioni, vedere l'[elenco di tutte le operazioni di distribuzione di modelli](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
@@ -213,7 +213,7 @@ Per visualizzare le operazioni di distribuzione, attenersi alla procedura seguen
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulla risoluzione di errori di distribuzione specifici vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Per informazioni sulla risoluzione di errori di distribuzione specifici, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per altre informazioni sull'uso dei log attività per monitorare altri tipi di azioni, vedere [Visualizzare i log attività per gestire le risorse di Azure](resource-group-audit.md).
 * Per convalidare la distribuzione prima di eseguirla, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](resource-group-template-deploy.md).
 

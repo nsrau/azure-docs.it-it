@@ -1,6 +1,6 @@
 ---
-title: "Trovare il report attività utente di Azure Active Directory nel portale di Azure | Documenti Microsoft"
-description: "Informazioni in cui il report attività utente Azure Active Directory nel portale di Azure."
+title: "Trovare i report attività utente di Azure Active Directory nel portale di Azure | Microsoft Docs"
+description: "Informazioni su dove trovare i report attività utente di Azure Active Directory nel portale di Azure."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -17,17 +17,17 @@ ms.author: curtand
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
-In questo articolo si descrivono come individuare i report di attività utente di Azure Active Directory nel portale di Azure.
+In questo articolo viene descritto come trovare i report attività utente di Azure Active Directory nel portale di Azure.
 
 ## <a name="whats-new"></a>Novità
 
-I report nel portale classico di Azure sono stati suddivisi in categorie:
+I report nel portale di Azure classico sono suddivisi in categorie:
 * Report sulla sicurezza
 * Report sull’attività
 * Report app integrate

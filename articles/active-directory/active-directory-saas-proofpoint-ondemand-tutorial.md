@@ -16,7 +16,7 @@ ms.date: 12/13/2017
 ms.author: jeedes
 ms.openlocfilehash: 55479406487bf445c5f449b13663c0bfaee751fd
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -27,12 +27,12 @@ Questa esercitazione descrive come integrare Proofpoint on Demand con Azure Acti
 L'integrazione di Proofpoint on Demand con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Proofpoint on Demand.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato Proofpoint su richiesta (Single Sign-On) con i propri account Azure AD.
+- È possibile abilitare gli utenti per l'accesso automatico a Proofpoint on Demand (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Proofpoint on Demand, sono necessari gli elementi seguenti:
 
@@ -70,23 +70,23 @@ Per configurare l'integrazione di Proofpoint on Demand in Azure AD, è necessari
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **Proofpoint su richiesta**selezionare **Proofpoint su richiesta** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Proofpoint on Demand**, selezionare **Proofpoint on Demand** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Proofpoint su richiesta dell'elenco dei risultati](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
+    ![Proofpoint on Demand nell'elenco dei risultati](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con Proofpoint su richiesta in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Proofpoint on Demand usando un utente di test di nome "Britta Simon".
 
-Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Proofpoint on Demand che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Proofpoint on Demand.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve sapere qual è l'utente di Proofpoint on Demand che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Proofpoint on Demand.
 
-In Proofpoint su richiesta, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in Proofpoint on Demand assegnare il valore di **nome utente** di Azure AD come valore dell'attributo **Username** (Nome utente).
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Proofpoint on Demand, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un Proofpoint utente test richiesta](#create-a-proofpoint-on-demand-test-user)**  - disporre di un equivalente di Britta Simon in Proofpoint su richiesta che è collegata la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di Proofpoint on Demand](#create-a-proofpoint-on-demand-test-user)** per avere una controparte di Britta Simon in Proofpoint on Demand collegata alla rappresentazione di tale utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -106,7 +106,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 3. Nella sezione **URL e dominio Proofpoint on Demand** seguire questa procedura:
 
-    ![Proofpoint su richiesta informazioni domini e gli URL single sign-on](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Proofpoint on Demand](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
@@ -127,9 +127,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
 7. Nella sezione **Configurazione di Proofpoint on Demand** fare clic su **Configura Proofpoint on Demand** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Proofpoint configurazione richiesta](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
+    ![Configurazione di Proofpoint on Demand](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
 
-8. Per configurare l'accesso single sign-on in **Proofpoint su richiesta** lato, è necessario inviare scaricato **Certificate(Base64)**, **Sign-Out URL, l'ID entità SAML e SAML Single Sign-On Service URL** a [Proofpoint team di supporto richiesta](https://www.proofpoint.com/us/support-services). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+8. Per configurare l'accesso Single Sign-On sul lato **Proofpoint on Demand**, è necessario inviare il file di **certificato (Base64)** scaricato, l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Proofpoint on Demand](https://www.proofpoint.com/us/support-services). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Proofpoint on Demand**.
 
-    ![Il Proofpoint sul collegamento richiesta nell'elenco delle applicazioni](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
+    ![Collegamento di Proofpoint on Demand nell'elenco delle applicazioni](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -204,7 +204,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro richiesta nel Pannello di accesso di Proofpoint, dovrebbe ottenere automaticamente firmato-on per il Proofpoint sull'applicazione richiesta.
+Quando si fa clic sul riquadro Proofpoint on Demand nel riquadro di accesso, verrà eseguito automaticamente l'accesso all'applicazione Proofpoint on Demand.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

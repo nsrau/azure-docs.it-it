@@ -107,7 +107,7 @@
           href: 'https://docs.loganalytics.io'
         - name: Transizione dal linguaggio legacy
           href: log-analytics-log-search-transition.md
-        - name: Ricerche tra aree di lavoro
+        - name: Ricerche in più risorse
           href: log-analytics-cross-workspace-search.md
         - name: Intervenire dai risultati della ricerca
           href: log-analytics-log-search-takeaction.md
@@ -231,7 +231,15 @@
         - name: Analisi di rete
           href: log-analytics-azure-networking-analytics.md
         - name: Monitoraggio delle prestazioni di rete
-          href: log-analytics-network-performance-monitor.md
+          items:
+            - name: Panoramica della soluzione
+              href: log-analytics-network-performance-monitor.md
+            - name: Monitoraggio delle prestazioni
+              href: log-analytics-network-performance-monitor-performance-monitor.md
+            - name: Endpoint servizio
+              href: log-analytics-network-performance-monitor-service-endpoint.md
+            - name: ExpressRoute
+              href: log-analytics-network-performance-monitor-expressroute.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: Controllo integrità SCOM

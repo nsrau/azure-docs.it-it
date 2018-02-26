@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparare un registro contenitori di Azure con replica geografica
 
@@ -47,7 +47,7 @@ Azure Cloud Shell non include i componenti di Docker necessari per completare og
 
 Accedere al [portale di Azure](http://portal.azure.com).
 
-Selezionare **Nuovo** > **Contenitori** > **Registro contenitori di Azure**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori di Azure**.
 
 ![Creazione di un registro contenitori con il portale di Azure][tut-portal-01]
 

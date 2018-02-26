@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/10/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: f5dc9551013445b11e3eaf579dfb883451647315
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 17c3624804475f1f711130372a7442ddd8dbeb3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services-samples"></a>Esempi di Azure Analysis Services
 Usare le risorse di esempio seguenti che consentono di apprendere e testare Analysis Services nel proprio ambiente.

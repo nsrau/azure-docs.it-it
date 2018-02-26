@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e1b5ae05429cba34e3ea71f95414417bffd99a6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creare un account Batch nel portale di Azure
 
@@ -41,7 +41,7 @@ Per informazioni sugli account e gli scenari Batch, vedere la [panoramica della 
 > Quando si crea un account Batch, è in genere consigliabile scegliere la modalità **Servizio Batch** predefinita, in cui i pool vengono associati in background nelle sottoscrizioni gestite da Azure. Nella modalità **Sottoscrizione utente** alternativa, che non è più consigliata per la maggior parte degli scenari, le VM e le altre risorse di Batch vengono create direttamente nella sottoscrizione durante la creazione di un pool. Per creare un account Batch in modalità Sottoscrizione utente, è anche necessario registrare la sottoscrizione in Azure Batch e associare l'account ad Azure Key Vault.
 
 1. Accedere al [portale di Azure][azure_portal].
-2. Fare clic su **Nuovo** e cercare nel Marketplace **Servizio Batch**.
+2. Fare clic su **Crea una risorsa** e cercare **Servizio Batch** nel Marketplace.
 
     ![Batch in Marketplace][marketplace_portal]
 3. Selezionare **Servizio Batch**, fare clic su **Crea** e quindi immettere le impostazioni in **Nuovo account Batch**. Vedere i dettagli seguenti.

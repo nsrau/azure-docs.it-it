@@ -18,7 +18,7 @@ ms.date: 12/14/2017
 ms.author: janeng
 ms.openlocfilehash: 741c066d62364e34b788883bfc96fba1ea3507c3
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -37,7 +37,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Utilizzare [elenco di operazioni db sql az](/cli/azure/sql/db/op?#az_sql_db_op_list) per ottenere un elenco di operazioni eseguite nel database e utilizzare [Annulla di op db sql az](/cli/azure/sql/db/op#az_sql_db_op_cancel) per annullare un'operazione di aggiornamento nel database.
+> Usare [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) per ottenere un elenco delle operazioni eseguite sul database e usare [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) per annullare un'operazione di aggiornamento sul database.
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

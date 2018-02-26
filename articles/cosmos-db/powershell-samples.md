@@ -17,7 +17,7 @@ ms.date: 10/16/2017
 ms.author: mimig
 ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ La tabella seguente include collegamenti a esempi di script di Azure PowerShell 
 | |  |
 |---|---|
 |**Creare un account di Azure Cosmos DB**||
-|[Creare un account SQL API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account Azure Cosmos DB da utilizzare con l'API di SQL. |
+|[Creare un account API SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un singolo account API di Azure Cosmos DB da usare con l'API SQL. |
 |**Scalare Azure Cosmos DB**||
 |[Replicare l'account di Azure Cosmos DB in più aree e configurare le priorità di failover](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replica a livello globale i dati dell'account in più aree con una priorità di failover specificata.|
 |**Proteggere Azure Cosmos DB**||

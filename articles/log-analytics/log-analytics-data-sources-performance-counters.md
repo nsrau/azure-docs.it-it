@@ -1,6 +1,6 @@
 ---
 title: Raccogliere e analizzare contatori delle prestazioni in Log Analytics di Axure| Documentazione Microsoft
-description: I contatori delle prestazioni vengono raccolti da Log Analytics per analizzare le prestazioni degli agenti Windows e Linux.  In questo articolo viene descritto come configurare la raccolta dei contatori delle prestazioni per entrambe le finestre e gli agenti Linux, i dettagli di cui vengono archiviati nell'area di lavoro e come analizzare tali nel portale di Azure.
+description: I contatori delle prestazioni vengono raccolti da Log Analytics per analizzare le prestazioni degli agenti Windows e Linux.  Questo articolo descrive come configurare la raccolta di contatori delle prestazioni per gli agenti Windows e Linux, i cui dettagli vengono archiviati nell'area di lavoro, e come analizzarli nel portale di Azure.
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -16,7 +16,7 @@ ms.date: 12/19/2017
 ms.author: magoedte
 ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
@@ -26,9 +26,9 @@ I contatori delle prestazioni in Windows e Linux forniscono informazioni dettagl
 ![Contatori delle prestazioni](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurazione dei contatori delle prestazioni
-Configurare i contatori delle prestazioni di [menu dati nelle impostazioni di registro Analitica](log-analytics-data-sources.md#configuring-data-sources).
+Configurare i contatori delle prestazioni nel [menu Dati delle impostazioni di Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
 
-Quando si configura prima i contatori delle prestazioni di Linux o Windows per una nuova area di lavoro di Log Analitica, è possibile creare rapidamente diversi contatori comuni.  Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.  Assicurarsi di aver selezionato tutti i contatori da creare e quindi fare clic su **Aggiungi i contatori delle prestazioni selezionati**.
+Quando si configurano i contatori delle prestazioni di Windows o Linux per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni.  Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.  Assicurarsi di aver selezionato tutti i contatori da creare e quindi fare clic su **Aggiungi i contatori delle prestazioni selezionati**.
 
 Per i contatori delle prestazioni di Windows è possibile scegliere un'istanza specifica per ogni contatore delle prestazioni. Per i contatori delle prestazioni di Linux, l'istanza di ogni contatore scelto viene applicata a tutti i contatori figlio del contatore padre. La tabella seguente illustra le istanze comuni disponibili ai contatori delle prestazioni di Linux e Windows.
 
@@ -65,7 +65,7 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Lin
 5. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurare i contatori delle prestazioni di Linux nel file di configurazione
-Anziché configurare i contatori delle prestazioni di Linux tramite il portale di Azure, è possibile modificare i file di configurazione dell'agente Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
+Anziché usare il portale di Azure per configurare i contatori delle prestazioni di Linux, è possibile modificare i file di configurazione direttamente nell'agente di Linux.  Le metriche delle prestazioni da raccogliere sono controllate dalla configurazione in **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
 Ogni oggetto o categoria delle metriche delle prestazioni da raccogliere deve essere definito nel file di configurazione come singolo elemento `<source>` . La sintassi segue il modello seguente.
 
@@ -182,7 +182,7 @@ Di seguito è illustrata la configurazione predefinita per le metriche delle pre
     </source>
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Log Analytics raccoglierà tutti i contatori delle prestazioni specificati in base all'intervallo di campionamento definito in tutti gli agenti in cui è installato il contatore.  I dati non sono aggregati, e i dati non elaborati sono disponibili in tutte le visualizzazioni di ricerca di log per la durata specificata dalla sottoscrizione.
+Log Analytics raccoglierà tutti i contatori delle prestazioni specificati in base all'intervallo di campionamento definito in tutti gli agenti in cui è installato il contatore.  I dati non vengono aggregati e i dati non elaborati sono disponibili in tutte le visualizzazioni di ricerca log per la durata specificata dalla sottoscrizione.
 
 ## <a name="performance-record-properties"></a>Proprietà dei record delle prestazioni
 Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate nella tabella seguente.

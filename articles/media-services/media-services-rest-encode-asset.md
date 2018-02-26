@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -58,7 +58,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 >
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Configurazione dello sviluppo dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 >
-> Quando usando JSON e specificando per l'utilizzo di **Metadata** (parola chiave) nella richiesta (ad esempio, per un oggetto collegato riferimento), è necessario impostare il **Accept** intestazione [formato JSON dettagliato](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accettare: application/json; odata = verbose.
+> Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) è necessario impostare l'intestazione **Accetta** sul [formato JSON Verbose](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accetta: application/json;odata=verbose.
 >
 >
 
@@ -90,13 +90,13 @@ Il seguente esempio mostra impostare l'attributo assetName:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Considerazioni
-* Le proprietà TaskBody devono usare codice XML letterale per definire il numero di asset di input o di output che vengono usati dall'attività. L'articolo di attività contiene la definizione di Schema XML per il codice XML.
+* Le proprietà TaskBody devono usare codice XML letterale per definire il numero di asset di input o di output che vengono usati dall'attività. L'articolo Attività contiene la definizione dello schema XML per il codice XML.
 * Nella definizione TaskBody ogni valore interno per <inputAsset> e <outputAsset>deve essere impostato come JobInputAsset(value) o JobOutputAsset(value).
 * Un'attività può avere più asset di output. Un oggetto JobOutputAsset(x) può essere usato solo una volta come output di un'attività in un processo.
 * È possibile specificare JobInputAsset o JobOutputAsset come asset di input di un'attività.
 * Le attività non devono formare un ciclo.
 * Il parametro del valore passato a JobInputAsset o JobOutputAsset rappresenta il valore di indice di un asset. Gli asset effettivi vengono definiti nelle proprietà di navigazione InputMediaAssets e OutputMediaAssets nella definizione dell'entità del processo.
-* Poiché servizi multimediali si basa su OData versione 3, i singoli asset nelle raccolte di proprietà di navigazione InputMediaAssets e OutputMediaAssets viene fatto riferimento tramite un " Metadata: uri" coppia nome-valore.
+* Poiché Servizi multimediali si basa su OData versione 3, i riferimenti ai singoli asset nelle raccolte delle proprietà di navigazione InputMediaAssets e OutputMediaAssets vengono definiti mediante una coppia nome/valore "__metadata: uri".
 * InputMediaAssets è mappata a uno o più asset creati in Servizi multimediali. Le proprietà OutputMediaAssets vengono create dal sistema. Non fanno riferimento a un asset esistente.
 * Per assegnare un nome a OutputMediaAssets è possibile usare l'attributo assetName. Se questo attributo non è presente, il nome della proprietà OutputMediaAssets corrisponde al valore del testo interno dell'elemento <outputAsset> preceduto dal nome o dall'ID del processo, nel caso in cui la proprietà Name non sia definita. Se ad esempio si è impostato "Sample" come valore di assetName, la proprietà Name di OutputMediaAssets sarà impostata su "Sample". Se invece non si è impostato un valore per assetName, ma si è impostato "NewJob" come nome del processo, il nome di OutputMediaAssets sarà "JobOutputAsset(value)_NewJob".
 

@@ -123,7 +123,7 @@ Quando **Authorization code** è selezionato, viene visualizzata una finestra po
 > 
 > 
 
-![pagina di accesso][api-management-oauth2-signin]
+![Accesso][api-management-oauth2-signin]
 
 Dopo aver effettuato l'accesso, le **intestazioni della richiesta** vengono compilate con un'intestazione `Authorization : Bearer` che autorizza la richiesta.
 

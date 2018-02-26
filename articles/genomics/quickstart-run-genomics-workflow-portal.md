@@ -10,11 +10,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 71f5e4d1288a361c4b52ff45fb4c6601fa39a757
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ed2048755317649d160bcfd71519af715067b99b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
@@ -84,7 +84,7 @@ Se si usa l'installazione basata su pacchetti o il file setup.py, vengono instal
 
 
 ### <a name="test-the-microsoft-genomics-client"></a>Eseguire test del client di Genomica di Microsoft
-Per eseguire test del client di Genomica di Microsoft, scaricare il file di configurazione dall'account di Genomica. Passare all'account di Genomica facendo clic su **Altri servizi** in basso a sinistra, applicando filtri e selezionando gli account di Genomica.
+Per eseguire test del client di Genomica di Microsoft, scaricare il file di configurazione dall'account di Genomica. Passare all'account di Genomica facendo clic su **Tutti i servizi** in alto a sinistra, applicando i filtri necessari e selezionando gli account di Genomica.
 
 
 ![Applicare un filtro per Genomica di Microsoft nel portale di Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Applicare un filtro per Genomica di Microsoft nel portale di Azure")

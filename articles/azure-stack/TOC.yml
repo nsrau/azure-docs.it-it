@@ -57,8 +57,12 @@
         - name: Requisiti per Azure Stack distribuzione PKI
           href: azure-stack-pki-certs.md
           items:
-            - name: Ottenere i certificati di infrastruttura a chiave pubblica per la distribuzione di Azure Stack
+            - name: Ottenere i certificati di infrastruttura a chiave pubblica di Azure Stack
               href: azure-stack-get-pki-certs.md
+            - name: Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack
+              href: prepare-pki-certs.md
+            - name: La convalida dei certificati di infrastruttura a chiave pubblica di Azure Stack
+              href: validate-pki-certs.md
         - name: Integrazione di identità
           href: azure-stack-integrate-identity.md
         - name: Registro dello Stack di Azure
@@ -168,6 +172,10 @@
           href: azure-stack-security-foundations.md
         - name: Identità
           items:
+            - name: Panoramica dell'identità
+              href: azure-stack-identity-overview.md
+            - name: Architettura di identità
+              href: azure-stack-identity-architecture.md
             - name: Gestire il controllo degli accessi in base al ruolo
               href: azure-stack-manage-permissions.md
             - name: Aggiungere utenti per Azure AD
@@ -214,7 +222,7 @@
           items:
             - name: Panoramica del servizio app in Azure Stack
               href: azure-stack-app-service-overview.md
-            - name: pianificazione della capacità
+            - name: Pianificazione della capacità
               href: azure-stack-app-service-capacity-planning.md
             - name: Prima di iniziare
               href: azure-stack-app-service-before-you-get-started.md
@@ -288,13 +296,15 @@
       href: /azure/azure-stack/user/
 - name: Risorse
   items:
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack'
+    - name: Guida di orientamento per Azure Stack
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Forum MSDN di Stack di Azure
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
+    - name: Suggerimenti sulla documentazione dello Stack di Azure
+      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informazioni sui prezzi
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-stack'
     - name: Formazione e certificazione
-      href: azure-stack-train-and-cert.md
+      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'

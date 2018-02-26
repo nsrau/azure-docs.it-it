@@ -16,7 +16,7 @@ ms.date: 12/07/2017
 ms.author: juliako
 ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 > 
 
 ## <a name="overview"></a>Panoramica
-Processori di contenuti multimediali sono un componente che gestisce un video specifico o un'attività di elaborazione audio, ad esempio codifica, conversione di formato, la crittografia o decrittografia i contenuti multimediali. Tutte le attività inviate a servizi multimediali richiedono un processore di contenuti multimediali per codificare, crittografare o convertire il contenuto video o audio. 
+Un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione video o audio specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Tutte le attività inviate a Servizi multimediali richiedono un processore di contenuti multimediali per codificare, crittografare o convertire il contenuto video o audio. 
 
 ## <a name="azure-media-processors"></a>Processori di contenuti multimediali di Azure 
 
@@ -86,6 +86,6 @@ Risposta:
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Fasi successive
-Ora che appreso come ottenere un'istanza di processore di contenuti multimediali, passare al [come codificare un Asset](media-services-rest-get-started.md) articolo che illustra come usare lo Standard di Media Encoder per codificare un asset.
+## <a name="next-steps"></a>Passaggi successivi
+Dopo avere ottenuto un'istanza del processore di contenuti multimediali, passare all'articolo [Come codificare un asset](media-services-rest-get-started.md), che illustra come usare Media Encoder Standard per codificare un asset.
 

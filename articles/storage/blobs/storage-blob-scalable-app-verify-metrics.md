@@ -11,8 +11,13 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+=======
 ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
 ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+>>>>>>> e9608243da864c46ce93986fe11980d2656272ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/22/2018

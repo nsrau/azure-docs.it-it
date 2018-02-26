@@ -30,6 +30,9 @@
 #### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applicazioni nei set di scalabilità](virtual-machine-scale-sets-deploy-app.md)
 ### [Usare dischi di dati con set di scalabilità](virtual-machine-scale-sets-attached-disks.md)
+### Crittografare i dischi nei set di scalabilità
+#### [Usare PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md)
+#### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Usare set di scalabilità di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertire un modello di set di scalabilità per l'uso di dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
 
@@ -39,7 +42,7 @@
 #### [Usare Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [Ridimensionamento verticale in un set di scalabilità](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Aggiornamenti automatici del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md)
-### [Aggiornamenti per i set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Modificare un set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Uso di DSC e di set di scalabilità](virtual-machine-scale-sets-dsc.md)
 ### [Risorse di rete per i set di scalabilità](virtual-machine-scale-sets-networking.md)
 ### [Convertire un modello in dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
@@ -50,7 +53,7 @@
 ## Domande frequenti
 ### [Domande frequenti sui set di scalabilità](virtual-machine-scale-sets-faq.md)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)

@@ -17,7 +17,7 @@ ms.date: 11/21/2017
 ms.author: glenga
 ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -37,7 +37,7 @@ L'associazione di input di App per dispositivi mobili carica un record da un end
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [Script c# (con estensione csx)](#input---c-script-example)
+* [Script C# (file con estensione csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
@@ -128,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Input - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Per informazioni sulle proprietà degli attributi che è possibile configurare, vedere la [sezione seguente relativa alla configurazione](#input---configuration).
 
@@ -168,12 +168,12 @@ L'associazione di output di app per dispositivi mobili consente di scrivere un n
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script c# (con estensione csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che viene attivato da un messaggio nella coda e crea un record in una tabella di app per dispositivi mobili.
+L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che viene attivata da un messaggio in coda e che crea un record in una tabella di app per dispositivi mobili.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -274,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Output - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Per informazioni sulle proprietà degli attributi che è possibile configurare, vedere la sezione [Output - configurazione](#output---configuration). Di seguito è riportato un esempio dell'attributo `MobileTable` in una firma del metodo:
 
@@ -289,7 +289,7 @@ public static object Run(
 }
 ```
 
-Per un esempio completo, vedere [Output - esempio c#](#output---c-example).
+Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configurazione
 
@@ -311,7 +311,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="output---usage"></a>Output - uso
 
-Nelle funzioni script C# è necessario usare un parametro di output denominato di tipo `out object` per accedere al record di output. In c# librerie di classi, il `MobileTable` attributo può essere utilizzato con uno qualsiasi dei tipi seguenti:
+Nelle funzioni script C# è necessario usare un parametro di output denominato di tipo `out object` per accedere al record di output. Nelle librerie di classi C#, l'attributo `MobileTable` può essere usato con uno qualsiasi dei tipi seguenti:
 
 * `ICollector<T>` o `IAsyncCollector<T>`, dove `T` è `JObject` o qualsiasi tipo con una proprietà `public string Id`.
 * `out JObject`

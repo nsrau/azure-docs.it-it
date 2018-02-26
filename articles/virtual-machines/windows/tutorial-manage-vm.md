@@ -3,24 +3,24 @@ title: Creare e gestire macchine virtuali di Windows con il modulo Azure PowerSh
 description: 'Esercitazione: creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
-ms.author: nepeters
+ms.date: 02/09/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell
 
@@ -36,117 +36,23 @@ Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente 
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.3 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroupVM* nell'area *EastUS*. 
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupVM* nell'area *EastUS*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupVM -Location EastUS
+New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
 ```
 
 Il gruppo di risorse viene specificato quando si crea o si modifica una VM, come viene illustrato in questa esercitazione.
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-Una macchina virtuale deve essere connessa a una rete virtuale. Per comunicare con la macchina virtuale viene usato un indirizzo IP pubblico tramite una scheda di interfaccia di rete.
-
-### <a name="create-virtual-network"></a>Creare una rete virtuale
-
-Creare una subnet con [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
-
-```azurepowershell-interactive
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-```
-
-Creare una rete virtuale con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
-
-```azurepowershell-interactive
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName myResourceGroupVM `
-  -Location EastUS `
-  -Name myVnet `
-  -AddressPrefix 192.168.0.0/16 `
-  -Subnet $subnetConfig
-```
-### <a name="create-public-ip-address"></a>Creare un indirizzo IP pubblico
-
-Creare un indirizzo IP pubblico con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
-
-```azurepowershell-interactive
-$pip = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupVM `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIPAddress
-```
-
-### <a name="create-network-interface-card"></a>Creare una scheda di interfaccia di rete
-
-Creare una scheda di interfaccia di rete con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
-
-```azurepowershell-interactive
-$nic = New-AzureRmNetworkInterface `
-  -ResourceGroupName myResourceGroupVM  `
-  -Location EastUS `
-  -Name myNic `
-  -SubnetId $vnet.Subnets[0].Id `
-  -PublicIpAddressId $pip.Id
-```
-
-### <a name="create-network-security-group"></a>Creare un gruppo di sicurezza di rete
-
-Un [gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md) di Azure consente di controllare il traffico in ingresso e in uscita per una o più macchine virtuali. Le regole di un gruppo di sicurezza di rete consentono o impediscono il traffico di rete su una porta specifica o un intervallo di porte. Queste regole possono includere un prefisso dell'indirizzo di origine, in modo che solo il traffico proveniente da un'origine specificata possa comunicare con una macchina virtuale. Per accedere al server Web IIS che si sta installando, è necessario aggiungere una regola in ingresso per il gruppo di sicurezza di rete.
-
-Per creare una regola in ingresso per il gruppo di sicurezza di rete, usare [Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig). L'esempio seguente crea una regola per il gruppo di sicurezza di rete denominata *myNSGRule* che apre la porta *3389* per la macchina virtuale:
-
-```azurepowershell-interactive
-$nsgRule = New-AzureRmNetworkSecurityRuleConfig `
-  -Name myNSGRule `
-  -Protocol Tcp `
-  -Direction Inbound `
-  -Priority 1000 `
-  -SourceAddressPrefix * `
-  -SourcePortRange * `
-  -DestinationAddressPrefix * `
-  -DestinationPortRange 3389 `
-  -Access Allow
-```
-
-Creare un gruppo di sicurezza di rete usando *myNSGRule* con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
-
-```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName myResourceGroupVM `
-    -Location EastUS `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRule
-```
-
-Aggiungere il gruppo di sicurezza di rete alla subnet della rete virtuale con [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig):
-
-```azurepowershell-interactive
-Set-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -VirtualNetwork $vnet `
-    -NetworkSecurityGroup $nsg `
-    -AddressPrefix 192.168.1.0/24
-```
-
-Aggiornare la rete virtuale con [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork):
-
-```azurepowershell-interactive
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
-
-### <a name="create-virtual-machine"></a>Crea macchina virtuale
-
-Per la creazione di una macchina virtuale sono disponibili diverse opzioni, ad esempio l'immagine del sistema operativo, il ridimensionamento del disco e le credenziali amministrative. In questo esempio viene creata una macchina virtuale con un nome *myVM* che esegue la versione più recente di Windows Server 2016 Datacenter.
+Per la creazione di una macchina virtuale sono disponibili diverse opzioni, ad esempio l'immagine del sistema operativo, configurazione di rete e credenziali amministrative. In questo esempio viene creata una macchina virtuale con un nome *myVM* che esegue la versione predefinita più recente di Windows Server 2016 Datacenter.
 
 Impostare il nome utente e la password necessari per l'account amministratore della macchina virtuale con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -154,55 +60,18 @@ Impostare il nome utente e la password necessari per l'account amministratore de
 $cred = Get-Credential
 ```
 
-Creare la configurazione iniziale per la macchina virtuale con [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig):
-
-```azurepowershell-interactive
-$vm = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1
-```
-
-Aggiungere le informazioni sul sistema operativo nella configurazione della macchina virtuale con [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMOperatingSystem `
-    -VM $vm `
-    -Windows `
-    -ComputerName myVM `
-    -Credential $cred `
-    -ProvisionVMAgent -EnableAutoUpdate
-```
-
-Aggiungere le informazioni sull'immagine alla configurazione della macchina virtuale con [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter `
-    -Version latest
-```
-
-Aggiungere le impostazioni del disco del sistema operativo alla configurazione della macchina virtuale con [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk):
-
-```azurepowershell-interactive
-$vm = Set-AzureRmVMOSDisk `
-    -VM $vm `
-    -Name myOsDisk `
-    -DiskSizeInGB 128 `
-    -CreateOption FromImage `
-    -Caching ReadWrite
-```
-
-Aggiungere la scheda di interfaccia di rete creata precedentemente alla configurazione della macchina virtuale con [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
-
-```azurepowershell-interactive
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-```
-
 Creare la macchina virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
-New-AzureRmVM -ResourceGroupName myResourceGroupVM -Location EastUS -VM $vm
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -Credential $cred
 ```
 
 ## <a name="connect-to-vm"></a>Connettersi alla macchina virtuale
@@ -212,7 +81,7 @@ Dopo aver completato la distribuzione, creare una connessione desktop remoto con
 Eseguire i comandi seguenti per restituire l'indirizzo IP pubblico della macchina virtuale. Annotare questo indirizzo IP, in modo da potersi connettere ad esso con il browser per testare la connettività Web in un passaggio futuro.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupVM  | Select IpAddress
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
 Usare il comando seguente nel computer locale per creare una sessione desktop remoto con la macchina virtuale. Sostituire l'indirizzo IP con l'indirizzo *publicIPAddress* della macchina virtuale. Quando richiesto, immettere le credenziali utilizzate durante la creazione della macchina virtuale.
@@ -225,13 +94,13 @@ mstsc /v:<publicIpAddress>
 
 Azure Marketplace include diverse immagini di macchine virtuali che possono essere usate per creare nuove VM. Nei passaggi precedenti è stata creata una macchina virtuale usando un'immagine Windows Server 2016-Datacenter. In questo passaggio, viene usato il modulo PowerShell per cercare nel marketplace altre immagini di Windows da usare anche come base per le nuove macchine virtuali. Questo processo consiste nell'individuazione del server di pubblicazione, dell'offerta e del nome dell'immagine (Sku). 
 
-Usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) per restituire un elenco di server di pubblicazione di immagini.  
+Usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) per restituire un elenco di server di pubblicazione di immagini:
 
 ```powersehll
 Get-AzureRmVMImagePublisher -Location "EastUS"
 ```
 
-Usare [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) per restituire un elenco di offerte delle immagini. Con questo comando, l'elenco restituito viene filtrato nel server di pubblicazione specificato. 
+Usare [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer) per restituire un elenco di offerte delle immagini. Con questo comando, l'elenco restituito viene filtrato nel server di pubblicazione specificato:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
@@ -270,16 +139,24 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-È possibile usare queste informazioni per distribuire una macchina virtuale con un'immagine specifica. In questo esempio viene impostato il nome dell'immagine per l'oggetto della macchina virtuale. Fare riferimento agli esempi precedenti in questa esercitazione per la procedura di distribuzione completa.
+È possibile usare queste informazioni per distribuire una macchina virtuale con un'immagine specifica. Questo esempio distribuisce una macchina virtuale tramite Windows Server 2016 con immagine del contenitore.
 
 ```azurepowershell-interactive
-$vm = Set-AzureRmVMSourceImage `
-    -VM $vm `
-    -PublisherName MicrosoftWindowsServer `
-    -Offer WindowsServer `
-    -Skus 2016-Datacenter-with-Containers `
-    -Version latest
+New-AzureRmVm `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM2" `
+    -Location "East US" `
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress2" `
+    -ImageName "MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest" `
+    -Credential $cred `
+    -AsJob
 ```
+
+Il parametro `-AsJob` crea la VM come attività in background, in modo che i prompt di PowerShell vengano restituiti all'utente. È possibile visualizzare i dettagli dei processi in background con il cmdlet `Job`.
+
 
 ## <a name="understand-vm-sizes"></a>Informazioni sulle dimensioni delle VM
 
@@ -288,15 +165,14 @@ La dimensioni di una macchina virtuale determinano la quantità di risorse di ca
 ### <a name="vm-sizes"></a>Dimensioni delle VM
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
-
-| Tipo                     | Dimensioni           |    Descrizione       |
+| type                     | Dimensioni comuni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Scopo generico         |DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo o test e soluzioni di dati e applicazioni medio-piccole.  |
-| Ottimizzate per il calcolo      | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
-| Ottimizzate per la memoria       | GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e CPU. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
-| Ottimizzate per l'archiviazione       | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
-| GPU           | NV, NC            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica ed editing di video.       |
-| Prestazioni elevate | H, A8-11          | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). 
+| [Utilizzo generico](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
+| [Ottimizzate per il calcolo](sizes-compute.md)   | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
+| [Ottimizzate per la memoria](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
+| [Ottimizzate per l'archiviazione](sizes-storage.md)      | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NC            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video.       |
+| [Prestazioni elevate](sizes-hpc.md) | H, A8-11          | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). 
 
 
 ### <a name="find-available-vm-sizes"></a>Trovare le dimensioni delle macchine virtuali disponibili
@@ -304,7 +180,7 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 Per visualizzare un elenco delle dimensioni delle VM disponibili in una determinata area, usare il comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize).
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location EastUS
+Get-AzureRmVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>Ridimensionare una VM
@@ -314,25 +190,25 @@ Dopo la distribuzione di una VM, è possibile ridimensionarla per aumentare o ri
 Prima di ridimensionare una macchina virtuale, verificare che le dimensioni desiderate siano disponibili nel cluster della VM corrente. Il comando [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) restituisce un elenco di dimensioni. 
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName myResourceGroupVM -VMName myVM 
+Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
 Se le dimensioni desiderate sono disponibili, la VM può essere ridimensionata mentre è accesa, ma durante l'operazione viene riavviata.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM 
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_D4"
-Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
 ```
 
 Se nel cluster corrente non sono disponibili le dimensioni desiderate, è necessario deallocare la VM prima di poter eseguire l'operazione di ridimensionamento. Si noti che, quando la macchina virtuale viene riaccesa, vengono rimossi tutti i dati sul disco temporaneo, mentre l'indirizzo IP pubblico cambia a meno che non venga usato un indirizzo IP statico. 
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
-$vm = Get-AzureRmVM -ResourceGroupName myResourceGroupVM  -VMName myVM
+Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
+$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_F4s"
-Update-AzureRmVM -VM $vm -ResourceGroupName myResourceGroupVM 
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM  -Name $vm.name
+Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Start-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -Name $vm.name
 ```
 
 ## <a name="vm-power-states"></a>Stati di alimentazione di una macchina virtuale
@@ -341,11 +217,11 @@ Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione
 
 ### <a name="power-states"></a>Stati di alimentazione
 
-| Stato di alimentazione | Descrizione
+| Stato di alimentazione | DESCRIZIONE
 |----|----|
 | Avvio in corso | Indica che è in corso l'avvio della macchina virtuale. |
 | In esecuzione | Indica che la macchina virtuale è in esecuzione. |
-| Arresto in corso | Indica che è in corso l'arresto della macchina virtuale. | 
+| Stopping | Indica che è in corso l'arresto della macchina virtuale. | 
 | Arrestato | Indica che la macchina virtuale è stata arrestata. Si noti che alle macchine virtuali con stato arrestato continuano a essere addebitati i costi di calcolo.  |
 | Deallocazione | Indica che è in corso la deallocazione della macchina virtuale. |
 | Deallocato | Indica che la macchina virtuale è stata rimossa completamente dall'hypervisor, ma è ancora disponibile nel piano di controllo. Alle macchine virtuali con stato deallocato non vengono addebitati i costi di calcolo. |
@@ -357,8 +233,8 @@ Per recuperare lo stato di una determinata VM, usare il comando [Get-AzureRmVM](
 
 ```azurepowershell-interactive
 Get-AzureRmVM `
-    -ResourceGroupName myResourceGroupVM `
-    -Name myVM `
+    -ResourceGroupName "myResourceGroupVM" `
+    -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
@@ -379,7 +255,7 @@ Durante il ciclo di vita di una macchina virtuale si eseguono attività di gesti
 Arrestare e deallocare una macchina virtuale con [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroupVM -Name "myVM" -Force
+Stop-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM" -Force
 ```
 
 Se si vuole mantenere la macchina virtuale in uno stato di provisioning, usare il parametro -StayProvisioned.
@@ -387,7 +263,7 @@ Se si vuole mantenere la macchina virtuale in uno stato di provisioning, usare i
 ### <a name="start-virtual-machine"></a>Avviare la macchina virtuale
 
 ```azurepowershell-interactive
-Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
+Start-AzureRmVM -ResourceGroupName "myResourceGroupVM" -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>Eliminare un gruppo di risorse
@@ -395,7 +271,7 @@ Start-AzureRmVM -ResourceGroupName myResourceGroupVM -Name myVM
 Se si elimina un gruppo di risorse, vengono eliminate anche tutte le risorse in esso contenute.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupVM -Force
+Remove-AzureRmResourceGroup -Name "myResourceGroupVM" -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

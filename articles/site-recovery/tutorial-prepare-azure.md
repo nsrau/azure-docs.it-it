@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 63290127b298efced14ad34e9223840f3229f046
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d1aadd6b44d64f0bdb35ea02d628bedfc366ad3c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
@@ -60,8 +60,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 
 ## <a name="create-a-vault"></a>Creare un insieme di credenziali
 
-1. Nel menu del portale di Azure fare clic su **Nuovo** > **Monitoraggio e gestione** >
-   **Backup e ripristino**.
+1. Nel portale di Azure fare clic su **Crea una risorsa** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
 2. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Per questa esercitazione viene usato **ContosoVMVault**.
 3. Selezionare il gruppo di risorse esistente denominato **contosoRG**.
 4. Specificare l'area di Azure **Europa occidentale**, usata in questo set di esercitazioni.
@@ -75,8 +74,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 
 Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono aggiunte a questa rete.
 
-1. Nel menu del [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Rete** >
-   **Rete virtuale**
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa** >  **Rete** > **Rete virtuale**.
 2. Lasciare selezionato **Resource Manager** come modello di distribuzione. Resource Manager è il modello di distribuzione consigliato.
    - Specificare un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. Viene usato il nome **ContosoASRnet**
    - Usare il gruppo di risorse esistente **contosoRG**.

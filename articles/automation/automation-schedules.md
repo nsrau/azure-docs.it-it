@@ -16,12 +16,12 @@ ms.date: 09/29/2017
 ms.author: magoedte
 ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
-Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specifica, è necessario collegarlo a una o più pianificazioni. Pianificazione in esecuzione una sola volta o in un record oraria o giornaliera per i runbook nel portale di Azure, è possibile configurare una pianificazione. È inoltre possibile pianificare tali per quella settimanale, mensile, giorni specifici della settimana o i giorni del mese o un determinato giorno del mese.  Un runbook può essere collegato a più pianificazioni e a una pianificazione possono essere collegati più runbook.
+Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specifica, è necessario collegarlo a una o più pianificazioni. È possibile configurare una pianificazione in modo che i runbook vengano eseguiti una sola volta oppure con cadenza oraria o giornaliera nel portale di Azure. È inoltre possibile pianificare un'esecuzione settimanale, mensile o in giorni specifici della settimana o del mese oppure in un determinato giorno del mese.  Un runbook può essere collegato a più pianificazioni e a una pianificazione possono essere collegati più runbook.
 
 > [!NOTE]
 > Le pianificazioni attualmente non supportano le configurazioni DSC di automazione di Azure.

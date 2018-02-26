@@ -15,7 +15,7 @@ ms.date: 12/09/2017
 ms.author: juliako;
 ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -23,15 +23,15 @@ ms.lasthandoff: 12/11/2017
 ## <a name="overview"></a>Panoramica
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-In questo articolo fornisce informazioni dettagliate sulle **Azure Media Redactor** e viene illustrato come usarlo con Media Services SDK per .NET.
+Questo articolo contiene informazioni dettagliate su **Azure Media Redactor** e illustra come usare questa funzionalità con Media Services SDK per .NET.
 
 ## <a name="face-redaction-modes"></a>Modalità per l'offuscamento dei volti
-La funzionalità di offuscamento dei volti rileva i volti in ogni fotogramma del video e monitora l'oggetto volto avanti e indietro nel tempo in modo da consentire la sfocatura della stessa persona anche da altre angolazioni. Il processo di adattamento automatico è complesso e non sempre producono 100% dell'output desiderata per questo motivo Analitica supporti offre un paio di modi per modificare l'output finale.
+La funzionalità di offuscamento dei volti rileva i volti in ogni fotogramma del video e monitora l'oggetto volto avanti e indietro nel tempo in modo da consentire la sfocatura della stessa persona anche da altre angolazioni. Il processo di offuscamento automatizzato è complesso e non sempre produce al 100% l'output desiderato. Per tale motivo, Analisi Servizi multimediali offre alcuni modi per modificare l'output finale.
 
-Oltre a una modalità completamente automatica, è un flusso di lavoro in due passaggi, che consente la selezione o deserializzare-selection di facce trovate tramite un elenco di ID. Per apportare modifiche arbitrarie per singolo fotogramma, inoltre, il processore di contenuti multimediali usa un file di metadati in formato JSON. Il flusso di lavoro è suddiviso nelle modalità **analisi** e **offuscamento**. È possibile combinare le due modalità in un singolo passaggio che esegue entrambe le attività in un unico processo. Questa modalità è detta **combinata**.
+In aggiunta a una modalità interamente automatica, esiste un flusso di lavoro in due passaggi che consente di selezionare/deselezionare i volti trovati tramite un elenco di ID. Per apportare modifiche arbitrarie per singolo fotogramma, inoltre, il processore di contenuti multimediali usa un file di metadati in formato JSON. Il flusso di lavoro è suddiviso nelle modalità **analisi** e **offuscamento**. È possibile combinare le due modalità in un singolo passaggio che esegue entrambe le attività in un unico processo. Questa modalità è detta **combinata**.
 
 ### <a name="combined-mode"></a>Modalità combinata
-Ciò produce un adattamento mp4 automaticamente senza alcun input manuale.
+Questa modalità produce automaticamente un file mp4 offuscato senza alcun input manuale.
 
 | Fase | File Name | Note |
 | --- | --- | --- |
@@ -171,7 +171,7 @@ Il processore di contenuti multimediali per l'offuscamento offre funzionalità d
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Creare un processo con un'attività di adattamento faccia basata su un file di configurazione che contiene il set di impostazioni json seguente: 
+2. Creare un processo con un'attività di offuscamento dei volti in base a un file di configurazione contenente il set di impostazioni JSON seguente: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. Scaricare i file JSON di output. 

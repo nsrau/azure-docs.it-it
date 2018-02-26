@@ -1,10 +1,10 @@
 ---
 title: 'Panoramica del gateway VPN: creare connessioni VPN cross-premise alle reti virtuali di Azure | Microsoft Docs'
-description: Questa panoramica del gateway VPN illustra i modi per connettersi alle reti virtuali di Azure usando una connessione VPN tramite Internet. Sono inclusi i diagrammi delle configurazioni della connessione di base.
+description: "Questo articolo descrive che cos'è un gateway VPN e come connettersi alle reti virtuali di Azure usando una connessione VPN tramite Internet. Sono inclusi i diagrammi delle configurazioni della connessione di base."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: ebecbfa3279a71cda005f60c32247e9e95dd6646
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-vpn-gateway"></a>Informazioni sul gateway VPN
 
@@ -27,15 +27,11 @@ Un gateway VPN è un tipo di gateway di rete virtuale che invia traffico crittog
 
 Sebbene ogni rete virtuale possa avere solo un gateway VPN, è possibile creare più connessioni allo stesso gateway VPN. Una configurazione di connessione multisito ne è un esempio. Quando si creano più connessioni allo stesso gateway VPN, tutti i tunnel VPN, incluse le VPN da punto a sito, condividono la larghezza di banda disponibile per il gateway.
 
-### <a name="whatis"></a>Informazioni sul gateway di rete virtuale
+## <a name="whatis"></a>Informazioni sul gateway di rete virtuale
 
 Un gateway di rete virtuale è costituito da due o più macchine virtuali distribuite in una subnet specifica denominata GatewaySubnet. Le macchine virtuali presenti nella GatewaySubnet vengono create nel momento in cui si crea il gateway di rete virtuale. Le macchine virtuali del gateway di rete virtuale sono configurate per contenere tabelle di routing e servizi specifici del gateway. È possibile configurare direttamente le macchine virtuali che fanno parte del gateway di rete virtuale ed è opportuno non distribuire mai risorse aggiuntive nella GatewaySubnet.
 
 Quando si crea un gateway di rete virtuale usando il tipo di gateway "Vpn", viene creato un tipo specifico di gateway di rete virtuale che esegue la crittografia del traffico, ovvero un gateway VPN. Per la creazione di un gateway VPN possono essere necessari fino a 45 minuti. Le VM per il gateway VPN vengono infatti distribuite in GatewaySubnet e vengono configurate con le impostazioni specificate. Lo SKU di gateway selezionato determina le capacità delle VM.
-
-## <a name="gwsku"></a>SKU del gateway
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="configuring"></a>Configurazione di un gateway VPN
 
@@ -52,6 +48,10 @@ Le impostazioni scelte per ogni risorsa sono fondamentali per creare una conness
 ### <a name="models"></a>Modello di distribuzione
 
 Quando si configura un gateway VPN, i passaggi da eseguire dipendono dal modello di distribuzione usato per creare la rete virtuale. Ad esempio, se la rete virtuale è stata creata usando il modello di distribuzione classica, per creare e configurare le impostazioni del gateway VPN si usano le linee guida e le istruzioni per il modello di distribuzione classica. Per altre informazioni sui modelli di distribuzione, vedere [Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse](../azure-resource-manager/resource-manager-deployment-model.md).
+
+## <a name="gwsku"></a>SKU del gateway
+
+[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
 ## <a name="diagrams"></a>Diagrammi delle topologie di connessione
 

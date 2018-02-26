@@ -1,6 +1,6 @@
 ---
-title: "Filtri di sicurezza per la rimozione di risultati della ricerca di Azure utilizzando l'identità di Active Directory | Documenti Microsoft"
-description: "Controllo di accesso al contenuto di ricerca di Azure utilizzando i filtri di sicurezza e identità di Active Directory."
+title: "Filtri di sicurezza per limitare i risultati di Ricerca di Azure tramite le identità di Active Directory | Microsoft Docs"
+description: "Controllo di accesso sul contenuto di Ricerca di Azure con i filtri di sicurezza e le identità di Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -10,13 +10,13 @@ ms.date: 11/07/2017
 ms.author: revitalb
 ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per ottenere i risultati di ricerca di Azure utilizzando l'identità di Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 
-In questo articolo viene illustrato come utilizzare le identità di sicurezza di Azure Active Directory (AAD) con i filtri in ricerca di Azure per tagliare i risultati della ricerca in base all'utente di appartenenza.
+Questo articolo illustra come usare le identità di sicurezza di Azure Active Directory (AAD) insieme ai filtri in Ricerca di Azure per limitare i risultati della ricerca in base all'appartenenza a un gruppo utenti.
 
 Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ Questo articolo illustra le attività seguenti:
 >[!NOTE]
 > I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](http://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 L'indice in Ricerca di Azure deve includere un [campo di sicurezza](search-security-trimming-for-azure-search.md) per archiviare l'elenco delle identità di gruppo che dispongono dell'accesso in lettura al documento. Questo caso d'uso presuppone una corrispondenza uno a uno tra un elemento a protezione diretta (come la domanda di iscrizione all'università di un candidato) e un campo di sicurezza che specifica chi ha accesso a tale elemento (ad esempio, il personale dell'ufficio ammissioni).
 
@@ -187,6 +187,6 @@ In questa procedura dettagliata sono state illustrate le tecniche per l'uso degl
 
 ## <a name="see-also"></a>Vedere anche 
 
-+ [Controllo di accesso basate sulle identità utilizzando i filtri di ricerca di Azure](search-security-trimming-for-azure-search.md)
++ [Controllo degli accessi in base all'identità tramite i filtri di Ricerca di Azure](search-security-trimming-for-azure-search.md)
 + [Filtri in Ricerca di Azure](search-filters.md)
-+ [Controllo di accesso e protezione di dati nelle operazioni di ricerca di Azure](search-security-overview.md)
++ [Controllo di accesso e sicurezza dei dati nelle operazioni di Ricerca di Azure](search-security-overview.md)

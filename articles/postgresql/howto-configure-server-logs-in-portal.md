@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
 ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/04/2018
 ---
@@ -19,7 +19,7 @@ ms.lasthandoff: 01/04/2018
 
 È possibile configurare, elencare e scaricare i [log del server di Database di Azure per PostgreSQL](concepts-server-logs.md) dal portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per proseguire con questa guida, si richiedono:
 - [Un server di Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md)
 
@@ -75,5 +75,5 @@ Quando inizia la registrazione, è possibile visualizzare un elenco di log dispo
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni su come scaricare i log a livello di codice, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-using-cli.md).
 - Altre informazioni sui [Log del server](concepts-server-logs.md) in Database di Azure per PostgreSQL. 
-- Per ulteriori informazioni sulle definizioni di parametro e PostgreSQL registrazione, vedere la documentazione di PostgreSQL su [segnalazione errori e registrazione](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
+- Per altre informazioni sulle definizioni di parametri e sulla registrazione PostPostgreSQL, vedere la documentazione di PostgreSQL in merito a [Error reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) (Creazione di report e registrazione di errori).
 

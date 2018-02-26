@@ -16,13 +16,13 @@ ms.date: 08/10/2017
 ms.author: juliako
 ms.openlocfilehash: 3c752573be7c07f800b0dce3d12d4dabd7328922
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione
 
-Si consiglia di crittografare il contenuto localmente utilizzando la crittografia AES a 256 bit e quindi caricarlo in archiviazione di Azure in cui viene archiviato in forma crittografata.
+È consigliabile crittografare i propri contenuti localmente usando la crittografia AES a 256 bit e quindi caricarli nel servizio Archiviazione di Azure, dove verranno archiviati in forma crittografata.
 
 In questo articolo viene illustrata una panoramica della crittografia di archiviazione di AMS e viene specificato come caricare il contenuto crittografato per l'archiviazione:
 
@@ -31,7 +31,7 @@ In questo articolo viene illustrata una panoramica della crittografia di archivi
   
      Gli asset crittografati devono essere associati a chiavi simmetriche.
 * Collegare la chiave simmetrica all'asset.  
-* Impostare i parametri correlati alla crittografia per le entità AssetFile.
+* Impostare i parametri relativi alla crittografia sulle entità AssetFile.
 
 ## <a name="considerations"></a>Considerazioni 
 
@@ -44,7 +44,7 @@ Quando si accede alle entità in Servizi multimediali, è necessario impostare v
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="storage-encryption-overview"></a>Panoramica della crittografia di archiviazione.
-La crittografia di archiviazione di AMS applica la crittografia in modalità **AES-CTR** all'intero file.  La modalità CTR-AES è una crittografia a blocchi in grado di crittografare dati di lunghezza arbitraria senza bisogno di spaziatura interna. Funziona mediante la crittografia di un blocco di contatori con l'algoritmo AES e l'applicazione di XOR sull'output di AES con i dati da crittografare o decrittografare.  Il blocco di contatori usato viene creato copiando il valore di InitializationVector nei byte da 0 a 7 del valore del contatore, mentre i byte da 8 a 15 del valore del contatore vengono impostati su zero. Del blocco, il contatore byte a 16 byte 8 e 15 (vale a dire i byte meno significativi) vengono utilizzati come un intero senza segno a 64 bit semplice che viene incrementato di uno per ogni blocco successivo di dati elaborati e viene mantenuto nell'ordine dei byte di rete. Se il valore integer raggiunge il valore massimo (0xFFFFFFFFFFFFFFFF) quindi incrementarlo Reimposta il contatore di blocco per zero (8 e 15 byte) senza influenzare i 64 bit del contatore (vale a dire, byte 0-7).   Per mantenere la sicurezza della crittografia in modalità AES-CTR, il valore InitializationVector dell'identificatore chiave di ogni chiave simmetrica deve essere univoco per ogni file e i file devono essere di lunghezza inferiore a 2^64 blocchi.  Questo metodo serve a garantire che un valore del contatore non venga mai riutilizzato con una chiave specificata. Per altre informazioni sulla modalità CTR, vedere questa [pagina della wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) tenendo presente che l'articolo della wiki usa il termine "Nonce" anziché "InitializationVector".
+La crittografia di archiviazione di AMS applica la crittografia in modalità **AES-CTR** all'intero file.  La modalità CTR-AES è una crittografia a blocchi in grado di crittografare dati di lunghezza arbitraria senza bisogno di spaziatura interna. Funziona mediante la crittografia di un blocco di contatori con l'algoritmo AES e l'applicazione di XOR sull'output di AES con i dati da crittografare o decrittografare.  Il blocco di contatori usato viene creato copiando il valore di InitializationVector nei byte da 0 a 7 del valore del contatore, mentre i byte da 8 a 15 del valore del contatore vengono impostati su zero. Nel blocco del contatore a 16 byte, i byte da 8 a 15, vale a dire i byte meno significativi, vengono usati come semplice numero intero a 64 bit senza firma che viene aumentato di uno per ogni blocco di dati elaborato successivo e viene mantenuto nell'ordine dei byte di rete. Quando il numero intero raggiunge il valore massimo 0xFFFFFFFFFFFFFFFF, un incremento azzera i byte da 8 a 15 del contatore del blocco, senza influenzare gli altri 64 bit del contatore, vale a dire i byte da 0 a 7.   Per mantenere la sicurezza della crittografia in modalità AES-CTR, il valore InitializationVector dell'identificatore chiave di ogni chiave simmetrica deve essere univoco per ogni file e i file devono essere di lunghezza inferiore a 2^64 blocchi.  Questo metodo serve a garantire che un valore del contatore non venga mai riutilizzato con una chiave specificata. Per altre informazioni sulla modalità CTR, vedere questa [pagina della wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) tenendo presente che l'articolo della wiki usa il termine "Nonce" anziché "InitializationVector".
 
 Usare la **crittografia di archiviazione** per crittografare il contenuto localmente tramite crittografia AES a 256 bit, quindi caricarlo nel servizio Archiviazione di Azure dove viene archiviato in forma crittografata. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica. Se necessario, inoltre, possono essere ricrittografati prima del successivo caricamento come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
 
@@ -53,11 +53,11 @@ Per poter trasmettere l'asset crittografato di archiviazione, è necessario conf
 ## <a name="create-contentkeys-used-for-encryption"></a>Creare chiavi simmetriche per la crittografia
 Gli asset crittografati devono essere associati alle chiavi di crittografia di archiviazione. È necessario creare la chiave simmetrica da usare per la crittografia prima di creare i file di asset. Questa sezione descrive come creare una chiave simmetrica.
 
-Di seguito sono indicati i passaggi generali per la generazione di chiavi simmetriche che si associa alle risorse che si desidera essere crittografati. 
+Di seguito sono descritti i passaggi generali per la generazione di chiavi simmetriche da associare agli asset che si desidera crittografare. 
 
 1. Per la crittografia di archiviazione, generare in modo casuale una chiave AES a 32 byte. 
    
-    Questa è la chiave simmetrica dell'asset, ovvero tutti i file associati che asset devono utilizzare la stessa chiave simmetrica durante la decrittografia. 
+    Questa è la chiave simmetrica dell'asset. Ciò significa che tutti i file associati all'asset devono usare la stessa chiave simmetrica durante la decrittografia. 
 2. Chiamare i metodi [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) per ottenere il certificato X.509 corretto da usare per crittografare la chiave simmetrica.
 3. Crittografare la chiave simmetrica con la chiave pubblica del certificato X.509. 
    
@@ -98,7 +98,7 @@ Di seguito sono indicati i passaggi generali per la generazione di chiavi simmet
     ---|---
     ID | ID della chiave simmetrica generato dall'utente con il formato seguente: "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Tipo di chiave simmetrica, ovvero un numero intero per la chiave simmetrica. Per la crittografia di archiviazione viene passato il valore 1.
-    EncryptedContentKey | Si crea un nuovo valore di chiave simmetrica che è un valore a 256 bit (32 byte). La chiave viene crittografata utilizzando il certificato x. 509 di crittografia di archiviazione che viene recuperato da servizi multimediali di Microsoft Azure tramite l'esecuzione di una richiesta HTTP GET per il GetProtectionKeyId e GetProtectionKey metodi. Per un esempio, vedere il codice .NET seguente: il metodo **EncryptSymmetricKeyData** definito [qui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Viene creato un nuovo valore di chiave simmetrica che corrisponde a un valore a 256 bit (32 byte). La chiave viene crittografata mediante il certificato X.509 di crittografia di archiviazione recuperato da Servizi multimediali di Microsoft Azure eseguendo una richiesta HTTP GET per i metodi GetProtectionKeyId e GetProtectionKey. Per un esempio, vedere il codice .NET seguente: il metodo **EncryptSymmetricKeyData** definito [qui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | ID della chiave di protezione per il certificato X.509 di crittografia di archiviazione usato per crittografare la chiave simmetrica.
     ProtectionKeyType | Tipo di crittografia per la chiave di protezione usata per crittografare la chiave simmetrica. Per l'esempio questo valore è StorageEncryption(1).
     Checksum |Checksum MD5 calcolato per la chiave simmetrica. Viene ricavato crittografando l'ID contenuto con la chiave simmetrica. Il codice di esempio mostra come calcolare il checksum.
@@ -296,7 +296,7 @@ L'entità [AssetFile](https://docs.microsoft.com/rest/api/media/operations/asset
 
 Si noti che l'istanza di **AssetFile** e l'effettivo file multimediale sono due oggetti distinti. L'istanza di AssetFile contiene metadati relativi al file multimediale, mentre quest'ultimo contiene l'effettivo contenuto multimediale.
 
-Dopo aver caricato il file multimediale digitale in un contenitore blob, si utilizzerà il **MERGE** richiesta HTTP per l'aggiornamento all'elemento AssetFile con le informazioni nel file multimediale (non illustrato in questo articolo). 
+Dopo avere caricato il file multimediale digitale in un contenitore BLOB, è necessario usare la richiesta HTTP **MERGE** per aggiornare l'istanza AssetFile con le informazioni relative al file multimediale. La procedura non è illustrata in questo articolo. 
 
 **Richiesta HTTP**
 

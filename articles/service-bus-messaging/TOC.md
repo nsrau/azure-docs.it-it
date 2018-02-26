@@ -41,6 +41,8 @@
 #### [Trasferimenti, blocchi e compensazioni dei messaggi](message-transfers-locks-settlement.md)
 #### [Sequenze e timestamp dei messaggi](message-sequencing.md)
 #### [Scadenza del messaggio (durata)](message-expiration.md)
+#### [Gestione dei messaggi tramite Griglia di eventi di Azure](service-bus-to-event-grid-integration-concept.md)
+#### [Esempi di Griglia di eventi di Azure](service-bus-to-event-grid-integration-example.md)
 ### [Autenticazione e autorizzazione](service-bus-authentication-and-authorization.md)
 #### [Eseguire la migrazione da Servizio di controllo di accesso a firma di accesso condiviso](service-bus-migrate-acs-sas.md)
 #### [Autenticazione con firme di accesso condiviso](service-bus-sas.md)

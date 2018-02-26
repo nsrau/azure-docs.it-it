@@ -18,7 +18,7 @@ ms.date: 01/03/2018
 ms.author: jgao
 ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -221,7 +221,7 @@ L'esempio di PowerShell esegue questa procedura:
    > Ad eccezione delle informazioni sulla stringa di connessione, la procedura descritta in questa sezione dovrebbe funzionare per il database SQL di Azure e per SQL Server. La procedura è stata verificata con la configurazione seguente:
    > 
    > * **Configurazione da punto a sito della rete virtuale di Azure**: una rete virtuale che connette il cluster HDInsight a un SQL Server in un data center privato. Per altre informazioni, vedere [Configurare una VPN da punto a sito nel portale di gestione](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight**: vedere [cluster creare Hadoop in HDInsight mediante le opzioni personalizzate](../hdinsight-hadoop-provision-linux-clusters.md) per informazioni sulla creazione di un cluster in una rete virtuale.
+   > * **Azure HDInsight**: per informazioni sulla creazione di un cluster in una rete virtuale, vedere [Creare cluster Hadoop in HDInsight con opzioni personalizzate](../hdinsight-hadoop-provision-linux-clusters.md).
    > * **SQL Server 2014**: configurato per consentire l'autenticazione SQL e l'esecuzione del pacchetto di configurazione del client VPN per eseguire la connessione sicura alla rete virtuale.
    > 
    > 

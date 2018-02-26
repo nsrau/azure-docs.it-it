@@ -16,7 +16,7 @@ ms.date: 11/09/2017
 ms.author: mazha
 ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -43,9 +43,9 @@ Sono disponibili tre modalità di stringa di query:
    
    ![Endpoint del profilo di rete CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-2. Nel riquadro a sinistra in impostazioni, fare clic su **la memorizzazione nella cache regole**.
+2. Nel riquadro sinistro, in Impostazioni, fare clic su **Regole di memorizzazione nella cache**.
    
-    ![Pulsante regole di memorizzazione nella cache della rete CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. Nell'elenco **Comportamento di memorizzazione nella cache della stringa di query** selezionare una modalità per la stringa di query e quindi fare clic su **Salva**.
    

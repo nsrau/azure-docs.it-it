@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bdf49265b5ef88d11f4ed669aa05036839c574eb
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
 ## <a name="overview"></a>Panoramica
-Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. Vi sono tuttavia alcuni vantaggi per le app per dispositivi mobili, offerti dalla piattaforma del *servizio app di Azure* , a oggi non disponibili in Servizi mobili:
+Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. La piattaforma del *Servizio app di Azure* offre tuttavia alcuni vantaggi per l'app per dispositivi mobili non attualmente disponibili con Servizi mobili:
 
-* Offerte semplificate e più economiche per app che includono client sia Web che mobili.
+* Offerte semplificate e più economiche per app che includono client sia Web che mobili
 * Nuove funzionalità host che includono processi Web, CName personalizzati e monitoraggio migliorato.
-* Integrazione chiavi in mano con Gestione traffico.
+* Integrazione con Gestione traffico.
 * Connettività alle risorse locali e alle VPN attraverso reti virtuali e connessioni ibride.
-* Monitoraggio, avvisi e risoluzione dei problemi delle app con NewRelic o AppInsights
+* Monitoraggio, avvisi e risoluzione dei problemi delle app con AppInsights
 * Spettro più ampio di risorse di calcolo sottostanti e prezzi.
 * Scalabilità automatica predefinita, bilanciamento del carico e monitoraggio delle prestazioni.
 * Funzionalità predefinite di gestione temporanea, backup, rollback e test in ambiente di produzione.
 
 ## <a name="new-hosting-features"></a>Nuove funzionalità di hosting
-Nel *servizio app di Azure* il codice back-end dell'*app per dispositivi mobili* viene eseguito nello stesso contenitore dell'app Web e dell'app per le API. È pertanto possibile sfruttare tutte le funzionalità disponibili in questo contenitore, comprese alcune di quelle non attualmente presenti in Servizi mobili:
+Nel *servizio app di Azure* il codice back-end dell'*app per dispositivi mobili* viene eseguito nello stesso contenitore dell'app Web e dell'app per le API. È possibile sfruttare tutte le funzionalità disponibili in questo contenitore, comprese alcune non attualmente presenti in Servizi mobili:
 
 * Aggiunta di logica back-end in continua esecuzione tramite processi Web
 * Garanzia che il codice back-end sia sempre in esecuzione
 * Uso di CName personalizzati per fornire nomi descrittivi e stabili agli endpoint dei back-end mobili
 * Scalabilità geografica dell'app con Gestione traffico
 * Inserimento di tutte le librerie e i pacchetti desiderati.
-* (Per .NET) Uso delle funzionalità di ASP.NET, tra cui MVC
-* (Per Node. js) Sfruttare qualsiasi libreria JavaScript pura dell'ecosistema di Node, incluse le librerie comuni di MVC.
+* (Per .NET) Usare le funzionalità di ASP.NET, tra cui MVC.
+* (Per Node. js) Usare qualsiasi libreria JavaScript pura dell'ecosistema di Node, incluse le librerie comuni di MVC.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Accesso ai dati locali tramite reti virtuali
-Con Servizi mobili è già possibile usare le connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure* , è possibile usare la rete virtuale di Azure per il codice back-end delle app per dispositivi mobili.
+Con Servizi mobili è già possibile usare le connessioni ibride per accedere alle risorse locali. Vi sono tuttavia alcune situazioni in cui una soluzione VPN è preferibile. Con il *servizio app di Azure* è possibile usare la rete virtuale di Azure per il codice back-end delle app per dispositivi mobili.
 
 ## <a name="use-your-favorite-backend-language"></a>Uso del linguaggio back-end preferito
 Il *servizio app di Azure* offre un supporto più ampio e avanzato per le piattaforme ASP.NET e Node. js, incluso l'accesso ai runtime più recenti.
@@ -54,7 +54,7 @@ Il *servizio app di Azure* offre un supporto più ampio e avanzato per le piatta
 Con Servizi mobili, tutte le istanze del codice back-end vengono eseguite in macchine virtuali del tipo Piccola. *servizio app di Azure* permette di selezionare le dimensioni delle macchine virtuali da un set di opzioni molto più ampio. È anche possibile aumentare le prestazioni o il numero di istanze per gestire qualsiasi carico di lavoro in ingresso dei clienti, in base a varie metriche delle prestazioni.
 
 ## <a name="be-in-the-know"></a>Tutto sotto controllo
-Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di avanzate funzionalità analitiche e di monitoraggio fornite da New Relic e AppInsights consentono di ottenere informazioni ancora più complete sulle prestazioni dell'app per dispositivi mobili. Con il *servizio app di Azure* è ora possibile configurare avvisi in base a diverse metriche delle prestazioni, sia a livello di codice che tramite portale di Azure.
+Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di funzionalità avanzate di analisi e monitoraggio fornite da AppInsights per le app consente di ottenere informazioni dettagliate sulle prestazioni dell'app per dispositivi mobili. Con il *servizio app di Azure* è ora possibile configurare avvisi in base a diverse metriche delle prestazioni, sia a livello di codice che tramite portale di Azure.
 
 ## <a name="keep-your-assets-safe"></a>Asset sempre al sicuro
 Backup automatico del back-end e del database. Il codice e i dati sono sempre al sicuro in situazioni di emergenza e possono essere facilmente ripristinati, consentendo la conduzione del business in tutta serenità.

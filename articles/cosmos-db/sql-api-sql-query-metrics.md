@@ -1,5 +1,5 @@
 ---
-title: Le metriche di query SQL per l'API di SQL Azure Cosmos DB | Documenti Microsoft
+title: Metriche di query SQL per l'API SQL di Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come instrumentare ed eseguire il debug delle prestazioni delle query SQL per le richieste di Azure Cosmos DB.
 keywords: sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione
 services: cosmos-db
@@ -17,7 +17,7 @@ ms.date: 11/02/2017
 ms.author: arramac
 ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -34,7 +34,7 @@ Azure Cosmos DB fornisce un'[API SQL per le query sui dati](sql-api-sql-query.md
 
 ## <a name="about-sql-query-execution"></a>Informazioni sull'esecuzione di query SQL
 
-In Azure Cosmos DB i dati vengono archiviati in contenitori, che possono raggiungere [dimensioni di archiviazione o velocità effettive delle richieste](partition-data.md) illimitate. Azure Cosmos DB esegue automaticamente il ridimensionamento dei dati tra le partizioni fisiche per gestire la crescita dei dati o l'aumento della velocità effettiva con provisioning. È possibile eseguire query SQL a qualsiasi contenitore utilizzando l'API REST o uno dei supportati [SQL SDK](sql-api-sdk-dotnet.md).
+In Azure Cosmos DB i dati vengono archiviati in contenitori, che possono raggiungere [dimensioni di archiviazione o velocità effettive delle richieste](partition-data.md) illimitate. Azure Cosmos DB esegue automaticamente il ridimensionamento dei dati tra le partizioni fisiche per gestire la crescita dei dati o l'aumento della velocità effettiva con provisioning. È possibile eseguire query SQL su qualsiasi contenitore usando l'API REST o uno dei [SDK di SQL](sql-api-sdk-dotnet.md) supportati.
 
 Una breve panoramica del partizionamento: si definisce una chiave di partizione come "city", che determina il modo in cui vengono suddivisi i dati tra le partizioni fisiche. I dati che appartengono a una singola chiave di partizione (ad esempio, "city" == "Seattle") vengono archiviati in una partizione fisica, ma in genere una singola partizione fisica contiene più chiavi di partizione. Quando una partizione raggiunge la dimensione di archiviazione, il servizio suddivide automaticamente la partizione in due nuove partizioni e divide la chiave di partizione in modo uniforme tra queste partizioni. Poiché le partizioni sono temporanee, le API usano un'astrazione "intervallo di chiavi di partizione", che indica gli intervalli degli hash delle chiavi di partizione. 
 
@@ -53,7 +53,7 @@ L'SDK offre varie opzioni per l'esecuzione di query. Ad esempio, in .NET queste 
 | `EnableScanInQuery` | Deve essere impostato su true se è stata rifiutata esplicitamente l'indicizzazione, ma si vuole comunque eseguire la query tramite un'analisi. Applicabile solo se l'indicizzazione per il percorso di filtro richiesto è disabilitata. | 
 | `MaxItemCount` | Numero massimo di elementi da restituire per ogni round trip al server. Impostando -1, è possibile lasciare che sia il server a gestire il numero di elementi. In alternativa, è possibile ridurre questo valore per recuperare solo un numero limitato di elementi per ogni round trip. 
 | `MaxBufferedItemCount` | Questa è un'opzione sul lato client e viene usata per limitare l'uso della memoria durante l'esecuzione di clausole ORDER BY tra partizioni. Un valore più alto consente di ridurre la latenza di ordinamento tra partizioni. |
-| `MaxDegreeOfParallelism` | Ottiene o imposta il numero di operazioni simultanee eseguite sul lato client durante l'esecuzione di query parallele nel servizio del database Azure Cosmos DB. Un valore di proprietà positivo limita il numero di operazioni simultanee al valore impostato. Se è impostato un valore minore di 0, il sistema decide automaticamente il numero di operazioni simultanee da eseguire. |
+| `MaxDegreeOfParallelism` | Ottiene o imposta il numero di operazioni simultanee eseguite sul lato client durante l'esecuzione di query in parallelo nel servizio database di Azure Cosmos DB. Un valore di proprietà positivo limita il numero di operazioni simultanee al valore impostato. Se è impostato un valore minore di 0, il sistema decide automaticamente il numero di operazioni simultanee da eseguire. |
 | `PopulateQueryMetrics` | Consente la registrazione dettagliata delle statistiche sul tempo impiegato nelle varie fasi di esecuzione della query, come il tempo di compilazione, il tempo del ciclo di indice e il tempo di caricamento dei documenti. È possibile condividere l'output delle statistiche sulle query con il supporto tecnico di Azure per la diagnostica dei problemi di prestazioni delle query. |
 | `RequestContinuation` | È possibile riprendere l'esecuzione delle query passando il token di continuazione opaco restituito da qualsiasi query. Il token di continuazione incapsula tutti gli stati necessari per l'esecuzione delle query. |
 | `ResponseContinuationTokenLimitInKb` | È possibile limitare la dimensione massima del token di continuazione restituito dal server. Potrebbe essere necessario eseguire questa operazione se l'host applicazione applica limiti per le dimensioni delle intestazioni delle risposte. L'impostazione di questa opzione può determinare un aumento della durata complessiva e delle unità di richieste usate per la query.  |
@@ -140,7 +140,7 @@ Di seguito sono elencate le principali intestazioni di risposta restituite dalla
 | `x-ms-documentdb-query-metrics` | Le statistiche della query per l'esecuzione. Si tratta di una stringa delimitata contenente le statistiche relative al tempo impiegato nelle varie fasi di esecuzione della query. Viene restituita se `x-ms-documentdb-populatequerymetrics` è impostato su `True`. | 
 | `x-ms-request-charge` | Il numero di [unità richiesta](request-units.md) usate dalla query. | 
 
-Per informazioni dettagliate sulle intestazioni delle richieste API REST e le opzioni, vedere [l'esecuzione di query usando l'API REST di risorse](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Per informazioni dettagliate sulle intestazioni e le opzioni delle richieste API REST, vedere [Querying resources using the DocumentDB REST API](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api) (Esecuzione di query su risorse con l'API REST).
 
 ## <a name="best-practices-for-query-performance"></a>Procedure consigliate per le prestazioni delle query
 Di seguito sono indicati i fattori più comuni che influiscono sulle prestazioni delle query di Azure Cosmos DB. In questo articolo verrà esaminato in modo approfondito ognuno di questi argomenti.
@@ -215,7 +215,7 @@ Di seguito sono indicate le implicazioni sul comportamento delle query in parall
 * (P > 1) => Attività in parallelo minime (P, N) 
 * (P < 1) => Attività in parallelo minime (N, D)
 
-Per le note sulla versione di SDK e altre informazioni sulle classi implementate e sui metodi, vedere [SQL SDK](sql-api-sdk-dotnet.md)
+Per le note sulla versione degli SDK e altre informazioni sulle classi e i metodi implementati, vedere [SDK di SQL](sql-api-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Latenza di rete
 Per configurare la distribuzione globale e connettersi all'area più vicina, vedere [Distribuzione globale di Azure Cosmos DB](tutorial-global-distribution-sql-api.md). La latenza di rete ha un impatto significativo sulle prestazioni delle query quando è necessario eseguire più round trip o recuperare un set di risultati di grandi dimensioni dalla query. 

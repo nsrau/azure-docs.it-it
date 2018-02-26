@@ -16,7 +16,7 @@ ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -35,7 +35,7 @@ La directory Azure Active Directory (Azure AD) B2C viene fornita con un set pred
 4. Fornire un **Nome** per l'attributo personalizzato (ad esempio, "ShoeSize") e, facoltativamente, una **Descrizione**. Fare clic su **Crea**.
    
    > [!NOTE]
-   > Solo il "String", "Valore booleano" e "Int" **tipi di dati** sono attualmente disponibili.
+   > Come **tipi di dati** sono attualmente disponibili solo "String", "Boolean" e "Int".
    > 
    > 
 

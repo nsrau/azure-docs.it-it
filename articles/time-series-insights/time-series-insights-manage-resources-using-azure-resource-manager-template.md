@@ -1,6 +1,6 @@
 ---
-title: Come gestire l'ambiente di Azure Insights serie di tempo utilizzando i modelli di gestione risorse di Azure | Documenti Microsoft
-description: In questo articolo viene descritto come gestire l'ambiente di Azure Insights serie di tempo livello di programmazione tramite Gestione risorse di Azure.
+title: Gestione dell'ambiente di Azure Time Series Insights tramite i modelli di Azure Resource Manager | Microsoft Docs
+description: In questo articolo viene descritto come gestire l'ambiente di Azure Time Series Insights a livello di programmazione tramite Azure Resource Manager.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -14,37 +14,37 @@ ms.topic: article
 ms.date: 12/08/2017
 ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse Insights serie ora utilizzando i modelli di gestione risorse di Azure
+# <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
-In questo articolo viene descritto come creare e distribuire le risorse Insights serie ora utilizzando i modelli di gestione risorse di Azure, PowerShell e il provider di risorse Insights serie di tempo.
+Questo articolo descrive come creare e distribuire risorse di Time Series Insights usando i modelli di Azure Resource Manager, PowerShell e il provider di risorse di Time Series Insights.
 
-Approfondimenti serie ora supporta le seguenti risorse:
+Time Series Insights supporta le risorse seguenti:
    | Risorsa | DESCRIZIONE |
    | --- | --- |
-   | Environment | Un ambiente di tempo serie Insights è un raggruppamento logico di eventi che sono leggervi gestori di eventi, archiviati e reso disponibile per la query. Per ulteriori informazioni vedere [pianificazione dell'ambiente di Azure Insights serie di tempo](time-series-insights-environment-planning.md) |
-   | Origine evento | Un'origine eventi è una connessione a un gestore eventi da cui ora serie Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportati sono IoT Hub e Hub eventi. |
-   | Set di dati di riferimento | Set di dati di riferimento di fornire metadati sugli eventi nell'ambiente. Metadati nei set di dati di riferimento verranno aggiunto agli eventi durante in ingresso. Set di dati di riferimento sono definiti come risorse delle proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento viene caricato o modificato tramite il piano dati API. |
-   | Criteri di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query di dati, modificare i dati di riferimento nell'ambiente e condividere query salvate e alle prospettive associate all'ambiente. Per ulteriori informazioni vedere [concedere l'accesso ai dati in un ambiente di Insights serie ora tramite il portale di Azure](time-series-insights-data-access.md) |
+   | Environment | Un ambiente di Time Series Insights è un raggruppamento logico di eventi che vengono letti dai gestori di eventi, archiviati e resi disponibili per la query. Per altre informazioni, vedere [Pianificare un ambiente Azure Time Series Insights](time-series-insights-environment-planning.md) |
+   | Origine evento | Un'origine evento è una connessione a un gestore eventi da cui Time Series Insights legge e inserisce gli eventi nell'ambiente. Le origini eventi attualmente supportate sono hub IoT e hub eventi. |
+   | Set di dati di riferimento | I set di dati di riferimento forniscono metadati sugli eventi nell'ambiente. I metadati nei set di dati di riferimento verranno aggiunto agli eventi durante l'ingresso. I set di dati di riferimento sono definiti come risorse dalle relative proprietà chiave evento. I metadati effettivi che costituiscono il set di dati di riferimento vengono caricati o modificati tramite le API del piano dati. |
+   | Criterio di accesso | I criteri di accesso concedono le autorizzazioni per eseguire query sui dati, modificare i dati di riferimento nell'ambiente e condividere le prospettive e le query salvate associate all'ambiente. Per altre informazioni, vedere [Concedere l'accesso ai dati in un ambiente Time Series Insights con il portale di Azure](time-series-insights-data-access.md) |
 
-Un modello di gestione risorse è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. Per ulteriori informazioni, vedere i seguenti documenti:
+Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. Per altre informazioni, vedere i documenti seguenti:
 
-- [Panoramica di gestione risorse Azure - distribuzione modello](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Panoramica di Azure Resource Manager - Distribuzione modelli](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 
-Il [201-timeseriesinsights-ambiente-con-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) delle Guide rapide modello viene pubblicato su GitHub. Questo modello crea un ambiente di Insights di serie di tempo, un'origine evento figlio configurato per utilizzare gli eventi da un Hub eventi e criteri che concedono l'accesso ai dati dell'ambiente di accesso. Se non è specificato un Hub di eventi esistente, con la distribuzione verrà creato uno.
+Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) viene pubblicato su GitHub. Questo modello crea un ambiente Time Series Insights, un origine evento figlio configurato per usare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
-La procedura seguente viene descritto come utilizzare PowerShell per distribuire un modello di gestione risorse di Azure che crea un ambiente di Insights di serie di tempo, un'origine evento figlio configurato per utilizzare gli eventi da un Hub eventi e i criteri che concedono l'accesso di accesso di dati dell'ambiente. Se non è specificato un Hub di eventi esistente, con la distribuzione verrà creato uno.
+La procedura seguente descrive come usare PowerShell per distribuire un modello di Azure Resource Manager che crea un ambiente Time Series Insights, un origine evento figlio configurato per usare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
 
 Il flusso di lavoro è all'incirca il seguente:
 
 1. Installare PowerShell.
-1. Creare il modello e un file di parametro.
+1. Creare il modello e un file di parametri.
 1. In PowerShell accedere all'account Azure.
 1. Se non esiste, creare un nuovo gruppo di risorse.
 1. Testare la distribuzione.
@@ -56,11 +56,11 @@ Installare Azure PowerShell seguendo le istruzioni riportate in [Introduzione ai
 
 ### <a name="create-a-template"></a>Creare un modello
 
-Clone o copia di [201-timeseriesinsights-ambiente-con-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) modello da GitHub.
+Clone o copiare il modello [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) da GitHub.
 
 ### <a name="create-a-parameters-file"></a>Creare un file di parametri
 
-Per creare un file dei parametri, copiare il [201-timeseriesinsights-ambiente-con-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
+Per creare un file di parametri, copiare il file [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json).
 
 ```json
 {
@@ -90,28 +90,28 @@ Per creare un file dei parametri, copiare il [201-timeseriesinsights-ambiente-co
 
    | Parametro | DESCRIZIONE |
    | --- | --- |
-   | eventHubNamespaceName | Lo spazio dei nomi dell'hub di eventi di origine. |
-   | eventHubName | Il nome dell'hub di eventi di origine. |
-   | consumerGroupName | Il nome del gruppo di consumer che verrà utilizzato dal servizio di Insights di serie di tempo per leggere i dati dall'hub di eventi. **Nota:** per evitare conflitti di risorse, questo gruppo di consumer deve essere dedicato per il servizio ora serie Insights e non condiviso con altri utenti. |
-   | EnvironmentName | Il nome dell'ambiente. Non può includere il nome: ' <', ' >', '%', '&', ': ','\\','?', '/' e i caratteri di controllo. Tutti gli altri caratteri sono consentiti.|
-   | eventSourceName | Il nome della risorsa figlio origine evento. Non può includere il nome: ' <', ' >', '%', '&', ': ','\\','?', '/' e i caratteri di controllo. Tutti gli altri caratteri sono consentiti. |
+   | eventHubNamespaceName | Lo spazio dei nomi dello hub eventi di origine. |
+   | eventHubName | Il nome dello hub eventi di origine. |
+   | consumerGroupName | Il nome del gruppo di consumer che verrà usato dal servizio Time Series Insights per leggere i dati dall'hub eventi. **NOTA:** per evitare conflitti di risorse, questo gruppo di consumer deve essere dedicato al servizio Time Series Insights e non condiviso con altri lettori. |
+   | environmentName | Il nome dell'ambiente. Il nome non può includere i caratteri seguenti:    '<', '>', '%', '&', ':', '\\', '?', '/' né caratteri di controllo. Sono consentiti tutti gli altri caratteri.|
+   | eventSourceName | Specificare il nome della risorsa figlio dell'origine evento. Il nome non può includere i caratteri seguenti:    '<', '>', '%', '&', ':', '\\', '?', '/' né caratteri di controllo. Sono consentiti tutti gli altri caratteri. |
 
 #### <a name="optional-parameters"></a>Parametri facoltativi
 
    | Parametro | DESCRIZIONE |
    | --- | --- |
-   | existingEventHubResourceId | Un ID di risorsa facoltativo di un Hub di eventi esistente che verrà connesso all'ambiente di tempo serie Insights tramite l'origine evento. **Nota:** l'utente a cui il modello di distribuzione deve disporre dei privilegi necessari per eseguire l'operazione di elenco chiavi nell'Hub di eventi. Se viene passato alcun valore, un nuovo hub eventi verrà creato dal modello. |
-   | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce utente o strumenti anziché il nome dell'ambiente. |
-   | environmentSkuName | Il nome della sku. Per ulteriori informazioni, vedere il [dettagli prezzi di tempo serie Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
-   | environmentSkuCapacity | La capacità di unità della Sku. Per ulteriori informazioni, vedere il [dettagli prezzi di tempo serie Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-   | environmentDataRetentionTime | L'intervallo di tempo minimo eventi dell'ambiente sarà disponibili per query. Il valore deve essere specificato nel formato ISO 8601, ad esempio "P30D" per un criterio di conservazione di 30 giorni. |
-   | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce utente o strumenti anziché il nome dell'origine evento. |
-   | eventSourceTimestampPropertyName | La proprietà di evento che verrà utilizzata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o stringa vuota, verrà utilizzato l'ora di creazione di eventi. |
-   | eventSourceKeyName | Il nome della chiave di accesso condiviso che il servizio ora serie Insights userà per connettersi all'hub eventi. |
-   | accessPolicyReaderObjectIds | Un elenco di ID degli utenti o applicazioni in Azure AD che devono avere accesso in lettura per l'ambiente di oggetto. L'objectId dell'entità servizio può essere ottenuto chiamando il **Get AzureRMADUser** o **Get AzureRMADServicePrincipal** cmdlet. Creazione di un criterio di accesso per gruppi di Azure AD non è ancora supportata. |
-   | accessPolicyContributorObjectIds | Un elenco di ID degli utenti o applicazioni in Azure AD che devono avere accesso collaboratore all'ambiente di oggetto. L'objectId dell'entità servizio può essere ottenuto chiamando il **Get AzureRMADUser** o **Get AzureRMADServicePrincipal** cmdlet. Creazione di un criterio di accesso per gruppi di Azure AD non è ancora supportata. |
+   | existingEventHubResourceId | Un ID di risorsa facoltativo di un hub eventi esistente che verrà connesso all'ambiente di Time Series Insights tramite l'origine evento. **NOTA:** l'utente che distribuisce il modello deve disporre delle autorizzazioni necessarie per eseguire l'operazione listkey nell'hub eventi di origine. Se non viene superato alcun valore, verrà creato un nuovo hub eventi dal modello. |
+   | environmentDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'ambiente. |
+   | environmentSkuName | Il nome dello SKU. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+   | environmentSkuCapacity | La capacità unità dello Sku. Per altre informazioni, vedere la [pagina dedicata al tariffario di Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
+   | environmentDataRetentionTime | L'intervallo di tempo minimo in cui gli eventi dell'ambiente saranno disponibili per la query. Il valore deve essere specificato nel formato ISO 8601, ad esempio "P30D" per i criteri di conservazione di 30 giorni. |
+   | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'origine evento. |
+   | eventSourceTimestampPropertyName | La proprietà di evento che verrà usata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o una stringa vuota, verrà usata l'ora di creazione dell'evento. |
+   | eventSourceKeyName | Il nome della chiave di accesso condivisa che verrà usata dal servizio Time Series Insights per connettersi all'hub eventi. |
+   | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando i cmdlet **Get-AzureRMADUser** o **Get-AzureRMADServicePrincipal**. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+   | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando i cmdlet **Get-AzureRMADUser** o **Get-AzureRMADServicePrincipal**. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
 
-Ad esempio, file dei parametri seguenti sarebbe possibile creare un ambiente e un'origine evento che legge gli eventi da un hub di eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
+Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
 
 ```json
 {
@@ -170,7 +170,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Impostare il gruppo di risorse
 
-Se non è una risorsa esistente gruppo, creare un nuovo gruppo di risorse con il **New AzureRmResourceGroup** comando. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio: 
+Se non è disponibile un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio: 
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
@@ -264,11 +264,11 @@ Outputs                 :
 
 ## <a name="deploy-the-quickstart-template-through-the-azure-portal"></a>Distribuire il modello di avvio rapido tramite il portale di Azure
 
-Home page di avvio rapido del modello su GitHub include inoltre un **Distribuisci in Azure** pulsante. Viene visualizzato una pagina personalizzata distribuzione nel portale di Azure. In questa pagina, è possibile immettere o selezionare i valori per ognuno dei parametri dal [parametri obbligatori](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) o [parametri facoltativi](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabelle. Dopo aver immesso le impostazioni, fare clic su di **acquisto** pulsante verrà avviata la distribuzione del modello.
+La home page del modello di avvio rapido GitHub include inoltre il **Distribuisci in Azure**. Facendo clic su di esso si apre la pagina Distribuzione personalizzata nel portale di Azure. In questa pagina, è possibile immettere o selezionare i valori per ognuno dei parametri dalle tabelle dei [parametri obbligatori](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) o dei [parametri facoltativi](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters). Dopo aver immesso le impostazioni, facendo clic sul pulsante **Acquisto** si avvierà la distribuzione del modello.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla gestione di risorse Insights serie ora usando le API REST a livello di codice, vedere [gestione del tempo serie Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).
+- Per informazioni sulla gestione delle risorse di Time Series Insights tramite le API REST a livello di programmazione, vedere [Gestione di Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights-management/).

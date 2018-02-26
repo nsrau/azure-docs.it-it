@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -46,7 +46,7 @@ Il frammento seguente mostra come inizializzare un'applicazione in più aree. In
 * Configurato con `West US` come la prima area preferita per letture a bassa latenza
 * Configurato con `North Europe` come la seconda area preferita (per disponibilità elevata in caso di errori a livello di area)
 
-Nell'API di SQL, questa configurazione è simile nel frammento seguente:
+Nell'API SQL questa configurazione è simile al frammento di codice seguente:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ In questo articolo è stato illustrato come funzionano i failover manuali e auto
 ## <a id="NextSteps"></a>Passaggi successivi
 * Informazioni su come Cosmos DB supporta la [distribuzione globale](distribute-data-globally.md)
 * Informazioni sulla [coerenza globale con Azure Cosmos DB](consistency-levels.md)
-* Sviluppo con più aree tramite Azure Cosmos DB [API SQL](tutorial-global-distribution-sql-api.md)
-* Informazioni su come creare [architetture multiarea writer](multi-region-writers.md) con Azure Cosmos DB
+* Sviluppare in più aree usando l'[API SQL](tutorial-global-distribution-sql-api.md) di Azure Cosmos DB
+* Altre informazioni su come compilare [architetture di scrittura in più aree](multi-region-writers.md) con Azure Cosmos DB
 

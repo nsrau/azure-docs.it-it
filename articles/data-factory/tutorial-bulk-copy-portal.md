@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5f0703a3cb2ce912bfc042d0717ad8d921ec43e3
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
@@ -74,6 +74,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
 3. Nella pagina **Impostazioni del firewall** fare clic su **SÌ** per **Consenti l'accesso a Servizi Azure**.
 
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+1. Avviare il Web browser **Microsoft Edge** o **Google Chrome**. L'interfaccia utente di Data Factory è attualmente supportata solo nei Web browser Microsoft Edge e Google Chrome.
 1. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
    
    ![Nuovo->DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
@@ -286,7 +287,7 @@ Questa pipeline esegue due passaggi:
 2. Nella finestra Proprietà cambiare il nome della pipeline in **GetTableListAndTriggerCopyData**. 
 
     ![Nome della pipeline](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
-3. Nella casella degli strumenti **Attività** espandere **Database SQL** e trascinare l'attività **Cerca** nell'area di progettazione della pipeline, quindi seguire questa procedura:
+3. Nella casella degli strumenti **Attività** espandere **Generale**, trascinare l'attività **Cerca** nell'area di progettazione della pipeline e seguire questa procedura:
 
     1. Immettere **LookupTableList** per **Nome**. 
     2. Immettere **Retrieve the table list from Azure SQL database** (Recuperare l'elenco di tabelle dal database SQL di Azure) per **Descrizione**.
@@ -322,7 +323,7 @@ Questa pipeline esegue due passaggi:
 8. Per convalidare la pipeline, fare clic su **Convalida** sulla barra degli strumenti. Verificare che non siano presenti errori di convalida. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>**.
 
     ![Seconda pipeline - Report di convalida](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Per pubblicare entità (set di dati, pipeline e così via) nel servizio Data Factory, fare clic su **Pubblica**. Attendere fino al completamento della pubblicazione. 
+9. Per pubblicare le entità (set di dati, pipeline e così via) nel servizio Data Factory, fare clic su **Pubblica tutti**. Attendere fino al completamento della pubblicazione. 
 
     ![Pulsante Publish](./media/tutorial-bulk-copy-portal/publish.png)
 

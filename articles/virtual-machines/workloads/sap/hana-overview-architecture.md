@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 4246ecfa50176400c54cd80857e25675290e7170
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
 
@@ -36,18 +36,18 @@ L'isolamento dei clienti nello stamp dell'infrastruttura viene eseguito nei tena
 
 Queste unità server bare metal sono supportate solo per l'esecuzione di SAP HANA. Il livello dell'applicazione SAP o il livello del middleware del carico di lavoro è in esecuzione in Macchine virtuali di Microsoft Azure. Gli stamp dell'infrastruttura che eseguono le unità SAP HANA in Azure (istanza Large) sono connessi ai backbone di rete di Azure in modo che venga fornita connettività a bassa latenza tra le unità SAP HANA in Azure (istanza Large) e Macchine virtuali di Azure.
 
-Questo documento è uno dei più documenti, che riguardano SAP HANA in Azure (istanza di grandi dimensioni). In questo documento vengono illustrati l'architettura di base, le responsabilità, i servizi forniti e, a livello generale, le funzionalità della soluzione. La maggior parte delle aree, ad esempio rete e connettività, verrà approfondita in dettaglio negli altri quattro documenti. La documentazione di SAP HANA in Azure (istanza Large) non illustra l'installazione di SAP NetWeaver o le distribuzioni di SAP NetWeaver nelle VM di Azure. SAP NetWeaver in Azure viene trattata in documenti separati che si trovano nello stesso contenitore di documentazione di Azure. 
+Questo è uno di vari documenti dedicati all'argomento SAP HANA in Azure (istanza di grandi dimensioni). In questo documento vengono illustrati l'architettura di base, le responsabilità, i servizi forniti e, a livello generale, le funzionalità della soluzione. La maggior parte delle aree, ad esempio rete e connettività, verrà approfondita in dettaglio negli altri quattro documenti. La documentazione di SAP HANA in Azure (istanza Large) non illustra l'installazione di SAP NetWeaver o le distribuzioni di SAP NetWeaver nelle VM di Azure. SAP NetWeaver in Azure viene trattato in una documentazione separata disponibile nello stesso contenitore di documenti Azure. 
 
 
-I documenti della Guida per le istanze di grandi HANA diversi aspetti:
+I vari documenti della guida per HANA (istanza di grandi dimensioni) trattano le aree seguenti:
 
 - [Panoramica e architettura di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastruttura e connettività a SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Come installare e configurare SAP HANA (istanze di grandi dimensioni) in Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Risoluzione dei problemi e monitoraggio di SAP HANA in Azure (istanze di grandi dimensioni)](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Disponibilità elevata configurato in SUSE usando il STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Backup del sistema operativo e il ripristino di tipo II SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Configurazione della disponibilità elevata in SUSE con STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [Backup e ripristino del sistema operativo per SKU di tipo II](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>Definizioni
 
@@ -69,7 +69,7 @@ Nella guida all'architettura e alla distribuzione vengono comunemente usati alcu
     - **Classe di tipo II:** S384, S384m, S384xm, S576, S768 e S960
 
 
-Sono disponibili un'ampia gamma di risorse aggiuntive che sono stati pubblicati sulla distribuzione del carico di lavoro SAP nel cloud pubblico di Microsoft Azure. È consigliabile che la pianificazione e l'esecuzione di una distribuzione di SAP HANA in Azure vengano eseguite da utenti esperti che conoscono le entità di sicurezza dell'infrastruttura IaaS di Azure e la distribuzione dei carichi di lavoro SAP in tale infrastruttura. Le risorse seguenti forniscono altre informazioni ed è necessario fare riferimento a queste ultime prima di continuare:
+In merito alla distribuzione del carico di lavoro SAP nel cloud pubblico di Microsoft Azure sono disponibili numerose risorse aggiuntive. È consigliabile che la pianificazione e l'esecuzione di una distribuzione di SAP HANA in Azure vengano eseguite da utenti esperti che conoscono le entità di sicurezza dell'infrastruttura IaaS di Azure e la distribuzione dei carichi di lavoro SAP in tale infrastruttura. Le risorse seguenti forniscono altre informazioni ed è necessario fare riferimento a queste ultime prima di continuare:
 
 
 - [Uso di soluzioni SAP nelle macchine virtuali di Microsoft Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -137,21 +137,19 @@ A partire da luglio 2017, SAP HANA in Azure (istanze Large) è disponibile in di
 | Ottimizzata per OLAP: SAP BW, BW/4HANA<br /> o SAP HANA per carico di lavoro OLAP generico | SAP HANA in Azure S72<br /> – 2 x processore Intel® Xeon® E7-8890 v3<br /> 36 core CPU e 72 thread CPU |  768 GB |  3 TB | Disponibile |
 | --- | SAP HANA in Azure S144<br /> – 4 x processore Intel® Xeon® E7-8890 v3<br /> 72 core CPU e 144 thread CPU |  1,5 TB |  6 TB | Non più disponibile |
 | --- | SAP HANA in Azure S192<br /> – 4 x processore Intel® Xeon® E7-8890 v4<br /> 96 core CPU e 192 thread CPU |  2 TB |  8 TB | Disponibile |
-| --- | SAP HANA in Azure S384<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  4 TB |  16 TB | Disponibile per l'ordine |
+| --- | SAP HANA in Azure S384<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  4 TB |  16 TB | Disponibile |
 | Ottimizzata per OLTP: SAP Business Suite<br /> in SAP HANA o S/4HANA (OLTP),<br /> OLTP generico | SAP HANA in Azure S72m<br /> – 2 x processore Intel® Xeon® E7-8890 v3<br /> 36 core CPU e 72 thread CPU |  1,5 TB |  6 TB | Disponibile |
 |---| SAP HANA in Azure S144m<br /> – 4 x processore Intel® Xeon® E7-8890 v3<br /> 72 core CPU e 144 thread CPU |  3 TB |  12 TB | Non più disponibile |
 |---| SAP HANA in Azure S192m<br /> – 4 x processore Intel® Xeon® E7-8890 v4<br /> 96 core CPU e 192 thread CPU  |  4 TB |  16 TB | Disponibile |
-|---| SAP HANA in Azure S384m<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  6 TB |  18 TB | Disponibile per l'ordine |
-|---| SAP HANA in Azure S384xm<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  8 TB |  22 TB |  Disponibile per l'ordine |
-|---| SAP HANA in Azure S576<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  12 TB |  28 TB | Disponibile per l'ordine |
-|---| SAP HANA in Azure S768<br /> – 16 x processore Intel® Xeon® E7-8890 v4<br /> 384 core CPU e 768 thread CPU |  16 TB |  36 TB | Disponibile per l'ordine |
-|---| SAP HANA in Azure S960<br /> – 20 x processore Intel® Xeon® E7-8890 v4<br /> 480 core CPU e 960 thread CPU |  20 TB |  46 TB | Disponibile per l'ordine |
+|---| SAP HANA in Azure S384m<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  6 TB |  18 TB | Disponibile |
+|---| SAP HANA in Azure S384xm<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  8 TB |  22 TB |  Disponibile |
+|---| SAP HANA in Azure S576<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  12 TB |  28 TB | Disponibile |
+|---| SAP HANA in Azure S768<br /> – 16 x processore Intel® Xeon® E7-8890 v4<br /> 384 core CPU e 768 thread CPU |  16 TB |  36 TB | Disponibile |
+|---| SAP HANA in Azure S960<br /> – 20 x processore Intel® Xeon® E7-8890 v4<br /> 480 core CPU e 960 thread CPU |  20 TB |  46 TB | Disponibile |
 
 - Core CPU: somma di core CPU senza hyperthreading nella somma dei processori dell'unità server.
 - Thread CPU: somma di thread di calcolo forniti da core CPU con hyperthreading nella somma dei processori dell'unità server. Per impostazione predefinita, tutte le unità sono configurate per usare hyperthreading.
 
-
-Le diverse configurazioni indicate sopra coma "Disponibile" o "Non più disponibile" sono descritte in [ SAP Support Note #2316233 - SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E) (Nota di supporto SAP 2316233 - SAP HANA in Microsoft Azure, istanze Large). Le configurazioni contrassegnate come "Disponibile per l'ordine" verranno presto incluse nella nota SAP. Tali SKU delle istanze, tuttavia, possono già essere ordinati per sei diverse aree di Azure in cui è disponibile il servizio delle istanze Large di HANA.
 
 Le configurazioni specifiche scelte dipendono dal carico di lavoro, dalle risorse della CPU e dalla memoria desiderata. È possibile che il carico di lavoro OLTP sfrutti le SKU ottimizzate per il carico di lavoro OLAP. 
 
@@ -359,7 +357,7 @@ Queste dimensioni sono numeri approssimativi che possono variare leggermente in 
 
 Se necessario, il cliente può aggiungere più spazio di archiviazione acquistando altro spazio in unità di 1 TB. Tale spazio di archiviazione può essere aggiunto come ulteriore volume oppure essere usato per estendere uno o più dei volumi esistenti. Non è possibile ridurre le dimensioni dei volumi originariamente distribuiti, in gran parte documentati nelle tabelle precedenti, né modificare i nomi dei volumi o i nomi di montaggio. I volumi di archiviazione descritti sopra vengono collegati alle unità di istanze Large di HANA come volumi NFS4.
 
-Il cliente può scegliere di usare gli snapshot di archiviazione a scopo di backup/ripristino e di ripristino di emergenza. Ulteriori dettagli sono descritti in dettaglio in [SAP HANA (istanze di grandi dimensioni) la disponibilità elevata e ripristino di emergenza in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Il cliente può scegliere di usare gli snapshot di archiviazione a scopo di backup/ripristino e di ripristino di emergenza. Maggiori dettagli sono presenti in [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 La memoria usata per le istanze di grandi dimensioni HANA consente una crittografia trasparente dei dati al momento dell'archiviazione su dischi. In fase di distribuzione di un'unità di istanze Large di HANA, è possibile abilitare questo tipo di crittografia. È anche possibile scegliere di passare ai volumi crittografati in seguito alla distribuzione. Lo spostamento da volumi non crittografati a volumi crittografati è trasparente e non richiede un tempo di inattività. 
@@ -466,18 +464,18 @@ La distribuzione del livello applicazione SAP o dei componenti su più reti virt
 
 ### <a name="routing-in-azure"></a>Routing in Azure
 
-Esistono tre importanti rete routing considerazioni SAP HANA in Azure (istanze di grandi dimensioni):
+Tenere presenti tre importanti considerazioni sul routing di rete per SAP HANA in Azure (istanze di grandi dimensioni):
 
-1. SAP HANA in Azure (istanze di grandi dimensioni) è accessibile solo tramite macchine virtuali di Azure e la connessione ExpressRoute dedicata; non è direttamente da on-premise. Da locale l'accesso diretto alle unità HANA istanza di grandi dimensioni, distribuiti da Microsoft, non è possibile immediatamente a causa delle restrizioni di routine transitive dell'architettura di rete di Azure corrente utilizzato per le istanze di grandi dimensioni di SAP HANA. Alcuni client di amministrazione e le applicazioni che necessitano di accesso diretto, ad esempio SAP Solution Manager in esecuzione in locale, non possono connettersi al database SAP HANA.
+1. SAP HANA in Azure (istanze di grandi dimensioni) è accessibile solo con le VM di Azure nella connessione ExpressRoute dedicata, non direttamente dall'istanza locale. L'accesso diretto dall'istanza locale alle unità HANA (istanza di grandi dimensioni), come distribuito da Microsoft, non è consentito nell'immediato, a causa delle restrizioni di routing transitivo dell'architettura di rete di Azure corrente usata per le istanze di grandi dimensioni di SAP HANA. Alcuni client di amministrazione e le applicazioni che necessitano di accesso diretto, ad esempio SAP Solution Manager in esecuzione in locale, non possono connettersi al database SAP HANA.
 
-2. Se si dispone di unità di istanza di grandi dimensioni HANA distribuita in due diverse aree di Azure allo scopo di ripristino di emergenza, vengono applicate le stesse restrizioni di routine temporanee. O in altre parole, gli indirizzi IP di un'unità di istanza di grandi dimensioni HANA in un'unica area (ad esempio Stati Uniti occidentali) non verranno indirizzati a un'unità di istanza di grandi dimensioni HANA distribuita automaticamente in un'altra area (ad esempio Stati Uniti orientali). Questo è indipendente dell'utilizzo della rete di Azure peering in aree diverse o tra la connessione di circuiti ExpressRoute che si connettono unità istanza grande HANA a reti virtuali di Azure. Come indicato di un bit ulteriormente verso il basso in questa documentazione. Questa restrizione, che viene fornito con l'architettura distribuita, non sarà l'utilizzo immediato della replica di sistema HANA come funzionalità di ripristino di emergenza.
+2. Per un'unità HANA (istanza di grandi dimensioni) distribuita in due diverse aree di Azure allo scopo di ripristino di emergenza vengono applicate le stesse restrizioni di routing temporaneo. In altre parole, gli indirizzi IP di un'unità HANA (istanza di grandi dimensioni) in un'unica area (ad esempio, Stati Uniti occidentali) non verranno indirizzati a un'unità HANA (istanza di grandi dimensioni) distribuita automaticamente in un'altra area (ad esempio, Stati Uniti orientali). Questa condizione è indipendente dall'uso del peering di rete di Azure tra le aree o del collegamento incrociato dei circuiti ExpressRoute che connettono le unità HANA (istanza di grandi dimensioni) alle reti virtuali di Azure. Come indicato più avanti in questa documentazione. Questa restrizione, integrata nell'architettura distribuita, impedisce l'uso immediato della replica del sistema HANA come funzionalità di ripristino di emergenza.
 
 3. A SAP HANA sulle unità di Azure (istanze di grandi dimensioni) è stato assegnato un indirizzo IP dall'intervallo di indirizzi del pool di indirizzi IP del Server che l'utente, in qualità di cliente, ha inviato. Per altre informazioni vedere [Infrastruttura e connettività a SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  Questo indirizzo IP è accessibile tramite le sottoscrizioni di Azure e il collegamento ExpressRoute che connette le reti virtuali di Azure ad HANA in Azure (istanze Large). L'indirizzo IP assegnato all'esterno dell'intervallo di indirizzi del pool di indirizzi IP del server è stato direttamente assegnato all'unità di hardware e NON è più NAT, come avveniva nelle prime distribuzioni di questa soluzione. 
 
 > [!NOTE] 
-> Se è necessario superare la restrizione nel routing temporanei, come illustrato nel primo due elenco informazioni sopra indicate, è necessario utilizzare i componenti aggiuntivi per il routing. I componenti che consentono di superare la restrizione possono essere: un proxy inverso per dati della route da e verso. Ad esempio, F5 BIG-IP, NGINX con Gestione traffico distribuita in Azure come soluzione di routing del traffico o del firewall virtuale.
-> Utilizzando [IPTables regole](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in una VM Linux per abilitare il routing tra le sedi locali e unità HANA istanza di grandi dimensioni, o tra le unità di istanza di grandi dimensioni HANA in aree diverse.
-> Tenere presente che implementazione e il supporto per soluzioni personalizzate relative ai dispositivi di rete di terze parti o IPTables non viene fornita da Microsoft. Supporto deve essere fornito dal fornitore del componente utilizzato o integrator. 
+> Se è necessario superare la restrizione nel routing temporaneo, come illustrato nei primi due elementi dell'elenco precedente, è necessario usare componenti aggiuntivi per il routing. I componenti che consentono di superare la restrizione possono essere: un proxy inverso per instradare i dati in modo bidirezionale. Ad esempio, F5 BIG-IP, NGINX con Gestione traffico distribuita in Azure come soluzione di routing del traffico o del firewall virtuale.
+> L'uso di [regole di IPTable](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in una VM Linux per abilitare il routing tra le posizioni locali e le unità HANA (istanza di grandi dimensioni) o tra le unità HANA (istanza di grandi dimensioni) in aree diverse.
+> Tenere presente che l'implementazione e il supporto per soluzioni personalizzate che riguardano IPTable o appliance di rete di terze parti non vengono forniti da Microsoft. Il supporto deve essere reso disponibile dal fornitore del componente usato o dall'integratore. 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>Connettività Internet delle istanze di grandi dimensioni HANA
 Le istanze di grandi dimensioni HANA NON hanno una connettività internet diretta. Questo limita la possibilità di eseguire operazioni, ad esempio di registrare l'immagine del sistema operativo direttamente con il fornitore del sistema operativo. Di conseguenza potrebbe essere necessario usare il server SLES SMT locale o la gestione sottoscrizioni RHEL

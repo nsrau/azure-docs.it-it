@@ -16,7 +16,7 @@ ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
 ms.openlocfilehash: 03d1617eb64c48b6a90925ae76e1ab3ce0312ff1
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -53,7 +53,7 @@ L'oggetto **$WebhookData** disporrà delle proprietà seguenti:
 
 Non è richiesta alcuna configurazione del webhook per supportare il parametro **$WebhookData** e il Runbook non deve necessariamente accettarlo.  Se il Runbook non definisce il parametro, gli eventuali dettagli della richiesta inviata dal client verranno ignorati.
 
-Se si specifica un valore per $WebhookData durante la creazione del webhook, che valore verrà ignorato quando il webhook avvia il runbook con i dati da una richiesta POST del client, anche se il client non include tutti i dati nel corpo della richiesta.  Se si avvia un Runbook con l'oggetto $WebhookData che usa un metodo diverso da un webhook, è possibile specificare un valore per $Webhookdata che verrà riconosciuto dal Runbook.  Questo valore deve essere un oggetto con le stesse [proprietà](#details-of-a-webhook) di $Webhookdata in modo che il Runbook possa usarlo correttamente come se stesse usando con il WebhookData effettivo passato da un webhook.
+Se si specifica un valore per $WebhookData quando si crea il webhook, viene eseguito l'override di tale valore quando il webhook avvia il runbook con i dati della richiesta POST del client, anche se il client non include dati nel corpo della richiesta.  Se si avvia un Runbook con l'oggetto $WebhookData che usa un metodo diverso da un webhook, è possibile specificare un valore per $Webhookdata che verrà riconosciuto dal Runbook.  Questo valore deve essere un oggetto con le stesse [proprietà](#details-of-a-webhook) di $Webhookdata in modo che il Runbook possa usarlo correttamente come se stesse usando con il WebhookData effettivo passato da un webhook.
 
 Ad esempio, se si inizia il seguente runbook dal portale di Azure e si desidera passare alcuni esempi WebhookData per testarli, poiché WebhookData è un oggetto, deve essere passato come JSON nell'interfaccia utente.
 
@@ -85,10 +85,10 @@ Un'altra strategia consiste nel fare in modo che il Runbook esegua la convalida 
 ## <a name="creating-a-webhook"></a>Creazione di un webhook
 Seguire questa procedura per creare un nuovo webhook collegato a un Runbook nel portale di Azure.
 
-1. Dal **pagina runbook** nel portale di Azure, fare clic sul runbook che verrà avviato il webhook per visualizzare la pagina dei dettagli.
-2. Fare clic su **Webhook** nella parte superiore della pagina per aprire la **Webhook aggiungere** pagina. <br>
+1. Nella pagina **Runbook** nel portale di Azure fare clic sul runbook che verrà avviato dal webhook per visualizzare la pagina dei dettagli.
+2. Fare clic su **Webhook** nella parte superiore della pagina per aprire la pagina **Aggiungi webhook**. <br>
    ![Pulsante Webhooks](media/automation-webhooks/webhooks-button.png)
-3. Fare clic su **creare nuovo webhook** per aprire la **pagina webhook crea**.
+3. Fare clic su **Creare un nuovo webhook** per aprire la pagina **Crea webhook**.
 4. Specificare un valore per **Nome** e **Data scadenza** per il webhook e indicare se deve essere abilitato. Per altre informazioni su queste proprietà, vedere [Informazioni dettagliate sui webhook](#details-of-a-webhook) .
 5. Fare clic sull'icona di copia e premere CTRL+C per copiare l'URL del webhook.  Annotarlo in un luogo sicuro.  **Dopo aver creato il webhook, non è possibile recuperare di nuovo l'URL.** <br>
    ![URL di webhook](media/automation-webhooks/copy-webhook-url.png)

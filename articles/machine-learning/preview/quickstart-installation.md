@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1f25e6daa7378be4463bb0322cd702163dff5c3f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Creare account della versione di anteprima di Azure Machine Learning e installare Azure Machine Learning Workbench
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end. Consente ai data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -37,7 +37,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-azure-machine-learning-accounts"></a>Creare account di Azure Machine Learning
 Usare il portale di Azure per effettuare il provisioning degli account di Azure Machine Learning: 
-1. Selezionare il pulsante **Nuovo** (+) nell'angolo superiore sinistro del portale.
+1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
 
 2. Immettere **Machine Learning** nella barra di ricerca. Selezionare il risultato di ricerca denominato **Machine Learning Experimentation (anteprima)**.  Fare clic sull'icona a forma di stella per aggiungere la selezione agli elementi preferiti nel portale di Azure.
 

@@ -15,7 +15,7 @@ ms.date: 04/25/2017
 ms.author: sedusch
 ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -85,12 +85,12 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
 1. Creare un servizio di bilanciamento del carico (interno)  
    Selezionare la rete virtuale del passaggio precedente
 1. Creare la macchina virtuale 1  
-   Usare almeno SP1 12 SLES4SAP, in questo esempio utilizzeremo il https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 immagine SLES4SAP 12 SP1 BYOS  
+   Usare almeno SLES4SAP 12 SP1; in questo esempio verrà usata l'immagine BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Selezionare l'account di archiviazione 1  
    Selezionare il set di disponibilità  
 1. Creare la macchina virtuale 2  
-   Usare almeno SP1 12 SLES4SAP, in questo esempio utilizzeremo il https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 immagine SLES4SAP 12 SP1 BYOS  
+   Usare almeno SLES4SAP 12 SP1; in questo esempio verrà usata l'immagine BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Selezionare l'account di archiviazione 2   
    Selezionare il set di disponibilità  
@@ -124,11 +124,11 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
         1. Ripetere i passaggi precedenti per la porta 3**03**17
 
 ### <a name="deploy-with-template"></a>Eseguire la distribuzione con un modello
-È possibile utilizzare uno dei modelli di avvio rapido su github per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
+È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
-1. Aprire il [modello di database] [ template-multisid-db] o [convergente modello] [ template-converged] nel portale di Azure crea solo il modello di database di bilanciamento del carico delle regole per un database mentre il modello convergente crea inoltre le regole di bilanciamento del carico per un ASCS/SCS e un'istanza di Hiamanti (solo Linux). Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare anche l'istanza di ASCS/SCS nelle stesse macchine, usare il [modello con convergenza][template-converged].
+1. Aprire il [modello di database][template-multisid-db] o il [modello con convergenza][template-converged] nel portale di Azure. Il modello di database consente di creare solo le regole di bilanciamento del carico per un database, mentre il modello con convergenza crea anche le regole di bilanciamento del carico per un'istanza di ASCS/SCS ed ERS (solo Linux). Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare anche l'istanza di ASCS/SCS nelle stesse macchine, usare il [modello con convergenza][template-converged].
 1. Immettere i parametri seguenti
-    1. ID sistema SAP  
+    1. Sap System ID  
        Immettere l'ID del sistema SAP che si vuole installare. L'ID verrà usato come prefisso per le risorse distribuite.
     1. Tipo di stack (applicabile solo se si usa il modello con convergenza)  
        Selezionare il tipo di stack SAP NetWeaver
@@ -144,7 +144,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
        Verrà creato un nuovo utente con cui è possibile accedere alla macchina
     1. Subnet nuova o esistente  
        Determina se devono essere create una nuova rete virtuale e una nuova subnet o deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare "existing".
-    1. ID di subnet  
+    1. Subnet ID  
     ID della subnet a cui devono essere connesse le macchine virtuali. Selezionare la subnet della rete virtuale Express Route o VPN per connettere la macchina virtuale alla rete locale. L'ID si presenta in genere come segue: /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Configurazione della disponibilità elevata di Linux
@@ -450,7 +450,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 
 1. Passare a <https://portal.azure.com>
 1. Aprire il pannello Azure Active Directory  
-   Passare alle proprietà e annotare l'ID di Directory. Si tratta di **ID tenant**.
+   Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi.
 1. Immettere un nome, selezionare il tipo di applicazione "App Web/API", immettere un URL di accesso (ad esempio http://localhost) e fare clic su Crea
@@ -458,7 +458,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva
 1. Annotare il valore. Viene usato come **password** per l'entità servizio
-1. Annotare l'ID di applicazione. Viene utilizzato il nome utente (**ID di accesso** nella procedura riportata di seguito) dell'entità servizio
+1. Annotare l'ID applicazione. Viene usato come nome utente (**ID di accesso** nella procedura seguente) dell'entità servizio
 
 L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È necessario concedere all'entità servizio le autorizzazioni per avviare e arrestare (deallocare) tutte le macchine virtuali del cluster.
 
@@ -622,7 +622,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-La migrazione crea i vincoli di località che devono essere eliminati.
+La migrazione crea vincoli di posizione che devono essere eliminati di nuovo.
 
 <pre><code>
 crm configure edited
@@ -631,7 +631,7 @@ crm configure edited
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-È inoltre necessario pulire lo stato della risorsa nodo secondario
+È anche necessario eseguire la pulizia di stato della risorsa nodo secondario
 
 <pre><code>
 # switch back to root and cleanup the failed state

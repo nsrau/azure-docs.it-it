@@ -79,7 +79,7 @@ Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing 
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta che l'offerta è pubblicata, testare gli scenari dei clienti per convalidare il corretto funzionamento di tutti i contratti e le funzionalità nell'ambiente di produzione, come testato e convalidato nell'ambiente di gestione temporanea.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Guida introduttiva: Come pubblicare un'offerta in Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png

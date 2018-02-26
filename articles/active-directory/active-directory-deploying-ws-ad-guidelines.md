@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2a6ac8d9c2f3694cf08357d6ccec874f7e076514
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
 Questo articolo descrive le differenze più importanti tra la distribuzione di Servizi di dominio Active Directory di Windows Server e Active Directory Federation Services (AD FS) in locale rispetto alla distribuzione nelle macchine virtuali di Microsoft Azure.
@@ -433,7 +433,7 @@ Non usare SYSPREP per distribuire o clonare i controller di dominio. La possibil
 Selezionare la posizione per il database di Servizi di dominio Active Directory di Windows Server, i log e SYSVOL. Devono essere distribuiti nei dischi dati di Azure.
 
 > [!NOTE]
-> Le dimensioni dei dischi dati di Azure sono vincolate a 1 TB.
+> Le dimensioni dei dischi dati di Azure sono vincolate a 4 TB.
 > 
 > 
 

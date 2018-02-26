@@ -88,6 +88,7 @@
 #### [Esempi di Azure PowerShell per le licenze basate sui gruppi](active-directory-licensing-ps-examples.md)
 #### [Informazioni di riferimento per i prodotti e i piani di servizio in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Configurare la scadenza dei gruppi di Office 365](active-directory-groups-lifecycle-azure-portal.md)
+### [Applicare un criterio di denominazione per i gruppi](groups-naming-policy.md)
 ### [View all groups](active-directory-groups-view-azure-portal.md) (Visualizzare tutti i gruppi)
 ### [Aggiungere l'accesso dei gruppi alle app SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Ripristinare un gruppo eliminato di Office 365](active-directory-groups-restore-azure-portal.md)
@@ -110,7 +111,7 @@
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### riferimento
+### Riferimenti
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -217,7 +218,9 @@
 ##### [Desktop remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread)
 #### [Risolvere i problemi](active-directory-application-proxy-troubleshoot.md)
+
 
 ### Gestire le app aziendali
 #### [Assegnare utenti](active-directory-coreapps-assign-user-azure-portal.md)
@@ -358,7 +361,7 @@
 ### [Studio del modello di verifica: blocchi predefiniti](active-directory-playbook-building-blocks.md)
 
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)

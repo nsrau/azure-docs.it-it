@@ -15,7 +15,7 @@ ms.date: 08/12/2017
 ms.author: billmath
 ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -36,10 +36,10 @@ Sì. Dopo aver installato l'agente, è possibile completare il processo di regis
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**D: AADConnect supporta la sincronizzazione di due domini di Windows Azure?**</br>
-Sì, questa operazione è supportata. Fare riferimento a [più domini](active-directory-aadconnect-multiple-domains.md)
+**D: AADConnect supporta la sincronizzazione da due domini in Azure AD?**</br>
+Sì, questa operazione è supportata. Fare riferimento all'argomento relativo al [supporto di più domini](active-directory-aadconnect-multiple-domains.md)
  
-**D: si è supportata la presenza di più connettori per stesso dominio di Active Directory in Azure AD connect?**</br> No, non è supportato 
+**D: La presenza di più connettori per lo stesso dominio di Active Directory è supportata in Azure AD Connect?**</br> No, questa operazione non è supportata 
 
 ## <a name="network"></a>Rete
 **D: Ho un firewall, un dispositivo di rete o qualcos'altro che limita il tempo massimo in cui le connessioni possono rimanere aperte sulla mia rete. Quanto deve durare la soglia di timeout lato client quando si utilizza Connetti AD Azure?**  

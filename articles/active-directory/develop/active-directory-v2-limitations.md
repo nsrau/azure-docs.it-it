@@ -17,7 +17,7 @@ ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -110,7 +110,7 @@ L'endpoint 2.0 non supporta protocolli SAML o WS-Federation, ma solo Open ID Con
 * L'endpoint 2.0 non supporta attualmente l'emissione di attestazioni basate su ruolo o gruppo nei token ID.
 * La concessione [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) non è supportata dall'endpoint 2.0.
 
-Inoltre, l'endpoint v 2.0 non supporta qualsiasi forma dei protocolli SAML o WS-Federation.
+Tenere presente inoltre che l'endpoint v2.0 non supporta alcuna forma dei protocolli SAML o WS-Federation.
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata nell'endpoint 2.0, vedere l'articolo [Riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 

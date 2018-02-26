@@ -34,7 +34,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [Limita frequenza delle chiamate per chiave](api-management-access-restriction-policies.md#LimitCallRateByKey) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.  
     -   [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.  
     -   [Imposta quota di utilizzo per sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.  
-    -   [Imposta quota di utilizzo per chiave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
+    -   [Imposta quota di utilizzo per chiave](api-management-access-restriction-policies.md#SetUsageQuotaByKey): consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
     -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
 -   [Criteri avanzati](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Flusso di controllo](api-management-advanced-policies.md#choose): applica in modo condizionale le istruzioni dei criteri in base ai risultati della valutazione di espressioni booleane.  
@@ -57,7 +57,7 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
     -   [cache-lookup](api-management-caching-policies.md#StoreToCache) : memorizza nella cache la risposta in base alla configurazione del controllo cache specificata.  
     -   [Recupera valore dalla cache](api-management-caching-policies.md#GetFromCacheByKey) : recupera un elemento memorizzato nella cache per chiave.  
     -   [Archivia valore nella cache](api-management-caching-policies.md#StoreToCacheByKey) : archivia un elemento nella cache per chiave.  
-    -   [Rimuovi valore dalla cache](api-management-caching-policies.md#RemoveCacheByKey) : rimuove un elemento dalla cache in base alla chiave.  
+    -   [Rimuovi valore dalla cache](api-management-caching-policies.md#RemoveCacheByKey): rimuove un elemento dalla cache in base alla chiave.  
 -   [Criteri tra domini](api-management-cross-domain-policies.md#CrossDomainPolicies)  
     -   [Permetti chiamate tra i domini](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.  
     -   [CORS](api-management-cross-domain-policies.md#CORS) : aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.  
@@ -84,6 +84,6 @@ Questa sezione fornisce un riferimento per i seguenti criteri di Gestione API. P
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

@@ -14,6 +14,7 @@
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cronologia delle versioni di Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
+## [Conformità con GDPR e Azure AD Connect Health](active-directory-aadconnect-health-gdpr.md)
 
 # Risorse correlate
 ## [Integrazione delle identità locali con Azure Active Directory](../active-directory-aadconnect.md)

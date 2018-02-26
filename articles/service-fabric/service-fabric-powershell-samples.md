@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: 1825b2a58e1022f22c71395477a5fca54c715455
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -32,7 +32,7 @@ La tabella seguente include collegamenti a esempi di script PowerShell che crean
 |-|-|
 | **Creare cluster** ||
 | [Creare un cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Crea un cluster di Azure Service Fabric. |
-|[Creare un cluster di test (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Crea un cluster di Service Fabric tre nodi test in Azure.|
+|[Creare un cluster di test (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| Crea un cluster di Service Fabric di test a tre nodi in Azure.|
 | **Gestire cluster, nodi e infrastruttura** ||
 | [Aggiungere un certificato dell'applicazione](./scripts/service-fabric-powershell-add-application-certificate.md)| Aggiunge un certificato X.509 dell'applicazione a tutti i nodi di un cluster. |
 | [Aggiornare l'intervallo di porte RDP per le macchine virtuali del cluster](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Modifica l'intervallo di porte RDP nelle macchine virtuali del nodo del cluster in un cluster distribuito.|

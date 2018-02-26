@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 726bbafa9e4ba35cfa4a9cbf4d89056d52fe7963
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0f3ce7496427b6975eb4ac476e7d1737321ed2e9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-azure-iot-edge-modules---preview"></a>Informazioni sui moduli di Azure IoT Edge: anteprima
 
@@ -50,7 +50,7 @@ Ogni istanza del modulo ha anche un modulo gemello corrispondente che è possibi
 
 Un modulo gemello è un documento JSON che archivia le proprietà di configurazione e le informazioni del modulo. Questo concetto è parallelo a quello di [dispositivo gemello][lnk-device-twin] dell'hub IoT. La struttura di un modulo gemello è esattamente lo stessa di quella di un dispositivo gemello. Anche le API usate per interagire con entrambi i tipi di gemelli sono le stesse. L'unica differenza tra i due è l'identità usata per creare un'istanza dell'SDK client. 
 
-```
+```csharp
 // Create a DeviceClient object. This DeviceClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 

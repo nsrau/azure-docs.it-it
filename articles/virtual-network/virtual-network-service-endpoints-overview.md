@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2018
+ms.date: 02/07/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 61859e86f38e4666be01f218922ce00c698de960
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -28,7 +28,8 @@ Gli endpoint del servizio Rete virtuale estendono lo spazio di indirizzi privato
 Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 
 - **Archiviazione di Azure**: disponibile a livello generale. Tutte le aree nel cloud pubblico di Azure e di Azure per enti pubblici.
-- **Azure SQL**: disponibile in anteprima. Tutte le aree nel cloud pubblico di Azure.
+- **Database SQL di Azure**: disponibile a livello generale in tutte le aree di Azure. 
+- **Azure SQL Datawarehouse**: anteprima. Tutte le aree nel cloud pubblico di Azure.
 
 Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

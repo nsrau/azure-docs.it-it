@@ -18,7 +18,7 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
@@ -29,7 +29,7 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 | | |
 |-|-|
 |**Creare un'app**||
-| [Creare un'app web e distribuire i file con FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app web di Azure e distribuisce un file tramite FTP. |
+| [Creare un'app Web e distribuire i file con FTP](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'app Web di Azure e distribuisce un file all'app tramite FTP. |
 | [Creare un'app Web e distribuire il codice da GitHub](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'App Web di Azure e distribuisce il codice da un repository GitHub pubblico. |
 | [Creare un'App Web con distribuzione continua da GitHub](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un'App Web con la pubblicazione continua da un archivio GitHub di cui si è proprietari. |
 | [Creare un'App Web e distribuire il codice da un archivio Git locale](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'App Web di Azure e configura il push del codice da un archivio Git locale. |
@@ -49,7 +49,7 @@ La tabella seguente include collegamenti a script Bash compilati tramite l'inter
 |**Eseguire il backup e il ripristino delle app**||
 | [Eseguire il backup di un'app Web](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app Web di Azure e ne crea un backup monouso. |
 | [Creare un backup pianificato per un'app Web](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'app Web di Azure e ne crea un backup pianificato. |
-| [Ripristina un'app web da un backup](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Ripristina un'app web di Azure da un backup. |
+| [Ripristinare un'app Web da un backup](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Ripristina un'app Web di Azure da un backup. |
 |**Monitorare un'app**||
 | [Monitorare un'App Web con i log del server Web](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'App Web di Azure, consente la creazione di log per essa e scarica i log nel computer locale. |
 | | |

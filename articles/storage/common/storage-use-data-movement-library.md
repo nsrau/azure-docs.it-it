@@ -16,7 +16,7 @@ ms.date: 09/27/2017
 ms.author: seguler
 ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -27,7 +27,7 @@ La libreria per lo spostamento dei dati di Archiviazione di Microsoft Azure è u
 
 La libreria usa inoltre .NET Core, utile quando si creano app .NET per Windows, Linux e macOS. Per altre informazioni su .NET Core, consultare la [documentazione di .NET Core](https://dotnet.github.io/). La libreria è compatibile anche con le app .NET Framework tradizionali per Windows. 
 
-Questo documento viene illustrato come creare un'applicazione console .NET Core in esecuzione su Windows, Linux e macOS e consente di eseguire gli scenari seguenti:
+In questo documento viene spiegato come creare un'applicazione console di .NET Core da eseguire su Windows, Linux e macOS e vengono dimostrati gli scenari seguenti:
 
 - Caricare file e directory nell'archivio BLOB.
 - Definire il numero di operazioni parallele durante il trasferimento dati.

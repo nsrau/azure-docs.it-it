@@ -15,7 +15,7 @@ ms.date: 03/17/2017
 ms.author: mbullwin
 ms.openlocfilehash: eca3cddf3677aad440378e4071f080a588397cf9
 ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
 ---
@@ -57,7 +57,7 @@ Tendenze di Application Insights crea una visualizzazione basata su serie tempor
 
 Usare i controlli nella parte superiore della finestra per modificare i tipi di dati di telemetria visualizzati. Prima di tutto, scegliere i tipi di dati di telemetria a cui si è interessati.
 
-* **Tipo di dati di telemetria** -richieste al Server, le eccezioni, dipendenze o eventi personalizzati
+* **Tipo di telemetria**: richieste server, eccezioni, dipendenze o eventi personalizzati
 * **Intervallo di tempo** : qualsiasi intervallo dagli ultimi 30 minuti agli ultimi 3 giorni
 * **Raggruppa per** : tipo di eccezione, ID problema, paese/area geografica e altro ancora
 

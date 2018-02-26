@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: samacha
 ms.openlocfilehash: 82b9c861fee820cdb0ca1891e0e62436f422d838
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -27,14 +27,14 @@ La risorsa di livello principale nell’analisi di flusso di Azure è il process
 Per iniziare a usare Analisi di flusso, creare un nuovo processo di Analisi di flusso.  Si noti che questa azione non ha implicazioni sulla fatturazione fino a quando il processo non viene avviato.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **New** > **dati + Analitica** > **processo flusso Analitica**.
+2. Selezionare **Nuovo** > **Dati e analisi** > **Processo di Analisi di flusso**.
 3. Selezionare **Create**.
    
 3. Specificare la configurazione desiderata per il processo di analisi di flusso.
    
    * Nella casella **Nome processo** immettere un nome per identificare il processo di Analisi di flusso. Quando il **Nome processo** viene convalidato, appare un segno di spunta verde nella relativa casella. Il **Nome processo** può contenere solo caratteri alfanumerici e il carattere '-' e deve avere una lunghezza compresa tra 3 e 63 caratteri.
-   * Utilizzare **percorso** per specificare la posizione geografica in cui si desidera eseguire il processo.
-   * Specificare un nuovo o esistente **gruppo di risorse** per contenere le risorse correlate per l'applicazione.
+   * Usare **Posizione** per specificare la posizione geografica in cui si vuole eseguire il processo.
+   * Specificare un **gruppo di risorse** nuovo o esistente che contenga le risorse correlate per l'applicazione.
 4. Selezionare **Create**.
 La creazione del processo di analisi di flusso può richiedere alcuni minuti. Per verificare lo stato, è possibile monitorare l'avanzamento nell’hub delle notifiche.
     

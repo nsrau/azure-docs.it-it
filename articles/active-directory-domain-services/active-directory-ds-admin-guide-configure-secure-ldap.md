@@ -16,7 +16,7 @@ ms.date: 12/08/2017
 ms.author: maheshu
 ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -39,7 +39,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>Requisiti per il certificato LDAP sicuro
 Acquisire un certificato valido in base alle linee guida riportate di seguito prima di abilitare l'accesso LDAP sicuro. Se si prova ad abilitare l'accesso LDAP sicuro per il dominio gestito con un certificato non valido o non corretto, si verificano errori.
 
-1. **Autorità di certificazione attendibile** : il certificato deve essere emesso da un'autorità ritenuta attendibile dai computer connessi al dominio gestito tramite accesso LDAP sicuro. Questa autorità può essere un'autorità di certificazione pubblica (CA) o una CA dell'organizzazione considerato attendibile da questi computer.
+1. **Autorità di certificazione attendibile** : il certificato deve essere emesso da un'autorità ritenuta attendibile dai computer connessi al dominio gestito tramite accesso LDAP sicuro. L'autorità può essere un'autorità di certificazione pubblica o globale (enterprise) considerata attendibile da questi computer.
 2. **Durata** : il certificato deve essere valido almeno per i 3-6 mesi successivi. L'accesso LDAP sicuro al dominio gestito viene interrotto allo scadere del certificato.
 3. **Nome soggetto** : il nome del soggetto nel certificato deve includere un carattere jolly per il dominio gestito. Ad esempio, se il dominio è denominato "contoso100.com", il nome del soggetto nel certificato deve essere "*.contoso100.com". Impostare il nome DNS (nome soggetto alternativo) su questo nome con caratteri jolly.
 4. **Utilizzo chiavi** : il certificato deve essere configurato per l'uso nelle firme digitali e nella crittografia a chiave.
@@ -50,7 +50,7 @@ Acquisire un certificato valido in base alle linee guida riportate di seguito pr
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Attività 1: Ottenere un certificato per l'accesso LDAP sicuro
 La prima attività consiste nell'ottenere un certificato da usare per l'accesso LDAP sicuro al dominio gestito. Sono disponibili due opzioni:
 
-* Ottenere un certificato da una CA pubblica o da una CA dell'organizzazione.
+* Ottenere un certificato da un' autorità di certificazione pubblica o globale (enterprise).
 * Creare un certificato autofirmato.
 
 > [!NOTE]
@@ -58,7 +58,7 @@ La prima attività consiste nell'ottenere un certificato da usare per l'accesso 
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opzione A (scelta consigliata): ottenere un certificato LDAP sicuro da un'autorità di certificazione
-Se l'organizzazione Ottiene i certificati da una CA pubblica, è possibile ottenere il certificato LDAP sicuro da tale autorità di certificazione pubblica. Se si distribuisce una CA dell'organizzazione, è possibile ottenere il certificato LDAP sicuro da autorità di certificazione dell'organizzazione.
+Se l'organizzazione ottiene i propri certificati da un'autorità di certificazione pubblica, è necessario ottenere il certificato LDAP sicuro da quella autorità di certificazione pubblica. Se si distribuisce un'autorità di certificazione globale (enterprise), ottenere il certificato LDAP sicuro da quella autorità di certificazione globale (enterprise).
 
 > [!TIP]
 > **Usare i certificati autofirmati per domini gestiti con i suffissi di dominio ".onmicrosoft.com".**

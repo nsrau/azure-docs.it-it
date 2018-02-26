@@ -11,7 +11,7 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -32,9 +32,9 @@ Nelle esercitazioni successive, l'immagine del contenitore verrà caricata in un
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali. Se necessario, vedere [Introduzione a Docker] [ docker-get-started] per una panoramica sui concetti fondamentali di contenitore. 
+Questa esercitazione presuppone una conoscenza di base dei concetti principali di Docker, come contenitori, immagini dei contenitore e comandi essenziali. Se necessario, vedere [Introduzione a Docker][docker-get-started] per una panoramica sui concetti fondamentali relativi al contenitore. 
 
-Per completare questa esercitazione è necessario un ambiente di sviluppo Docker. Docker offre pacchetti che consente di configurare facilmente Docker in qualsiasi [Mac][docker-for-mac], [Windows][docker-for-windows], o [Linux] [ docker-for-linux] sistema.
+Per completare questa esercitazione è necessario un ambiente di sviluppo Docker. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
 Azure Cloud Shell non include i componenti di Docker necessari per completare ogni passaggio di questa esercitazione. È pertanto consigliabile usare un ambiente di sviluppo completo di Docker.
 
@@ -58,7 +58,7 @@ All'interno della directory sono disponibili il codice sorgente dell'applicazion
 
 ## <a name="create-container-images"></a>Creare immagini del contenitore
 
-[Docker Compose] [ docker-compose] possono essere utilizzati per automatizzare la generazione di immagini contenitore e la distribuzione di applicazioni multi-contenitore.
+[Docker Compose][docker-compose] può essere usato per automatizzare la creazione di immagini del contenitore e la distribuzione di applicazioni multi-contenitore.
 
 Eseguire il file `docker-compose.yaml` per creare l'immagine del contenitore, scaricare l'immagine Redis e avviare l'applicazione.
 
@@ -66,7 +66,7 @@ Eseguire il file `docker-compose.yaml` per creare l'immagine del contenitore, sc
 docker-compose up -d
 ```
 
-Al termine, utilizzare il [immagini docker] [ docker-images] comando per visualizzare le immagini create.
+Al termine usare il comando [docker images][docker-images] per vedere le immagini create.
 
 ```console
 docker images
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Eseguire il [docker ps] [ docker-ps] comando per visualizzare i contenitori in esecuzione.
+Eseguire il comando [docker ps][docker-ps] per vedere i contenitori in esecuzione.
 
 ```console
 docker ps
@@ -131,7 +131,7 @@ In questa esercitazione è stata testata un'applicazione e sono state create le 
 Passare alla prossima esercitazione per apprendere informazioni sull'archiviazione delle immagini del contenitore in un Registro contenitori di Azure.
 
 > [!div class="nextstepaction"]
-> [Immagini di push al Registro di sistema contenitore di Azure][aks-tutorial-prepare-acr]
+> [Eseguire il push delle immagini nel Registro contenitori di Azure][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

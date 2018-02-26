@@ -1,6 +1,6 @@
 ---
-title: Passare i token di autenticazione a servizi multimediali di Azure | Documenti Microsoft
-description: Informazioni su come inviare i token di autenticazione dal client al servizio di distribuzione delle chiavi di servizi multimediali di Azure
+title: Passaggio di token di autenticazione a Servizi multimediale di Azure | Microsoft Docs
+description: Informazioni su come inviare i token di autenticazione dal client al servizio di distribuzione delle chiavi di Servizi multimediali di Azure
 services: media-services
 keywords: protezione del contenuto, Digital Rights Management, autenticazione del token
 documentationcenter: 
@@ -17,22 +17,22 @@ ms.date: 12/01/2017
 ms.author: dwgeo
 ms.openlocfilehash: 7d143242231444b8557a303d1b504d5311693f1a
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
-# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informazioni su come i client passare token al servizio di distribuzione delle chiavi di servizi multimediali di Azure
-I clienti spesso chiedono come un lettore può passare token al servizio di distribuzione delle chiavi di servizi multimediali di Azure per la verifica in modo che il lettore può ottenere la chiave. Servizi multimediali supporta i token web semplice (SWT) e formatta JSON Web Token (JWT). L'autenticazione del token viene applicato a qualsiasi tipo di chiave, sia che si utilizzi la crittografia comune o busta Advanced Encryption Standard (AES) nel sistema.
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informazioni sul passaggio dei token al servizio di distribuzione delle chiavi di Servizi multimediali di Azure da parte dei client
+I clienti chiedono spesso informazioni su come passare i token da un lettore al servizio di distribuzione delle chiavi di Servizi multimediali di Azure per la verifica, in modo che il lettore possa ottenere la chiave. Servizi multimediali supporta i formati SWT (Simple Web Token, token Web semplice) e JWT (JSON Web Token, token JSON Web). L'autenticazione di token può essere applicata a qualsiasi tipo di chiave, indipendentemente dal fatto che si esegua la crittografia comune o la crittografia envelope AES (Advanced Encryption Standard).
 
- A seconda del lettore e piattaforma di destinazione, è possibile passare il token con il lettore nei modi seguenti:
+ Il token può essere passato con il lettore nei modi seguenti, a seconda del lettore e della piattaforma di destinazione:
 
 - Tramite l'intestazione dell'autorizzazione HTTP.
     > [!NOTE]
-    > Il prefisso "Bearer" è previsto per le specifiche di OAuth 2.0. Un lettore di esempio con la configurazione del token è ospitato in Azure Media Player [pagina demo](http://ampdemo.azureedge.net/). Per impostare l'origine video, scegliere **AES (Token JWT)** o **AES (Token SWT)**. Il token viene passato tramite l'intestazione di autorizzazione.
+    > Per le specifiche di OAuth 2.0 è previsto il prefisso "Bearer". Un lettore di esempio con la configurazione del token è ospitato nella [pagina di prova](http://ampdemo.azureedge.net/) di Azure Media Player. Scegliere **AES (token JWT)** o **AES (token SWT)** per impostare l'origine video. Il token viene passato tramite l'intestazione dell'autorizzazione.
 
-- Tramite l'aggiunta di un URL di parametro con query "token = tokenvalue."  
+- Tramite l'aggiunta di un parametro query URL con "token = tokenvalue".  
     > [!NOTE]
-    > Il prefisso "Bearer" non è quello previsto. Poiché il token viene inviato tramite un URL, è necessario per la blindatura la stringa del token. Di seguito è riportato un codice di esempio c# che illustra come eseguire questa operazione:
+    > Non è previsto il prefisso "Bearer". Poiché il token viene inviato tramite un URL, è necessario blindare la stringa del token. Di seguito è riportato un codice di esempio C# che illustra come eseguire questa operazione:
 
     ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
@@ -41,7 +41,7 @@ I clienti spesso chiedono come un lettore può passare token al servizio di dist
     ```
 
 - Tramite il campo CustomData.
-Questa opzione viene utilizzata per l'acquisizione della licenza PlayReady solo tramite il campo della proprietà CustomData della richiesta di acquisizione di licenze PlayReady. In questo caso, il token deve essere all'interno del documento XML come descritto di seguito:
+Questa opzione è utilizzata esclusivamente per l'acquisizione della licenza PlayReady tramite il campo CustomData della richiesta di acquisizione di licenze PlayReady. In questo caso, il token deve essere all'interno del documento XML, come descritto di seguito:
 
     ```xml
     <?xml version="1.0"?>
@@ -51,7 +51,7 @@ Questa opzione viene utilizzata per l'acquisizione della licenza PlayReady solo 
     ```
     Inserire il token di autenticazione nell'elemento Token.
 
-- Tramite una playlist HTTP Live Streaming (HLS) alternativo. Se è necessario configurare l'autenticazione del token per AES + HLS la riproduzione su iOS/Safari, non è un modo è possibile inviare direttamente nel token. Per ulteriori informazioni su come alternare la playlist per abilitare questo scenario, vedere questo [post di blog](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+- Tramite una playlist HTTP Live Streaming (HLS) alternativa. Se è necessario configurare l'autenticazione del token per AES + HLS la riproduzione su iOS/Safari, non esiste un modo per l'invio diretto nel token. Per ulteriori informazioni, vedere il [post di blog](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) su come alternare la playlist per abilitare questo scenario.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

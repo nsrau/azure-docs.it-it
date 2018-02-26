@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 993a8b71b29952394a2ab6a2bdddd0fc5fd241ae
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Ridimensionare un'applicazione nel servizio contenitore di Azure
 
@@ -32,16 +32,16 @@ Nelle esercitazioni successive l'applicazione Azure Vote viene aggiornata e Oper
 
 Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. L'applicazione è stata quindi eseguita nel cluster Kubernetes.
 
-Se si è già questi passaggi e si desidera seguire la procedura, tornare al [esercitazione 1: creare le immagini contenitore][aks-tutorial-prepare-app].
+Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Esercitazione 1: Creare immagini del contenitore][aks-tutorial-prepare-app].
 
 ## <a name="scale-aks-nodes"></a>Aumentare i nodi del servizio contenitore di Azure
 
 Se è stato creato usando i comandi nell'esercitazione precedente, il cluster Kubernetes include un nodo. Se si prevede un numero maggiore o minore di carichi di lavoro dei contenitori nel cluster, è possibile modificare manualmente il numero di nodi.
 
-Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubernetes denominato *myK8sCluster*. Il completamento del comando richiede alcuni minuti.
+Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubernetes denominato *myAKSCluster*. Il completamento del comando richiede alcuni minuti.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
 L'output è simile a:
@@ -52,7 +52,7 @@ L'output è simile a:
     "count": 3,
     "dnsPrefix": null,
     "fqdn": null,
-    "name": "myK8sCluster",
+    "name": "myAKSCluster",
     "osDiskSizeGb": null,
     "osType": "Linux",
     "ports": null,
@@ -64,7 +64,7 @@ L'output è simile a:
 
 ## <a name="manually-scale-pods"></a>Scalare manualmente i pod
 
-Fino a questo momento sono stati distribuiti il front-end di Azure Vote e l'istanza di Redis, ognuno con una replica singola. Per verificare, eseguire il [kubectl ottenere] [ kubectl-get] comando.
+Fino a questo momento sono stati distribuiti il front-end di Azure Vote e l'istanza di Redis, ognuno con una replica singola. Per verificare, eseguire il comando [kubectl get][kubectl-get].
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Modificare manualmente il numero di unità nel `azure-vote-front` distribuzione tramite il [kubectl scala] [ kubectl-scale] comando. In questo esempio il numero aumenta a 5.
+Modificare manualmente il numero di pod nella distribuzione `azure-vote-front` usando il comando [kubectl scale][kubectl-scale]. In questo esempio il numero aumenta a 5.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Eseguire [kubectl ottenere POD] [ kubectl-get] per verificare che Kubernetes sta creando il POD. Dopo circa un minuto i pod aggiuntivi sono in esecuzione:
+Eseguire [kubectl get pods][kubectl-get] per verificare che Kubernetes stia creando i pod. Dopo circa un minuto i pod aggiuntivi sono in esecuzione:
 
 ```azurecli
 kubectl get pods
@@ -104,7 +104,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Scalare automaticamente i pod
 
-Supporta Kubernetes [il ridimensionamento orizzontale pod] [ kubernetes-hpa] per regolare il numero di unità in una distribuzione a seconda della CPU o altri selezionare metriche.
+Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate.
 
 Per usare la scalabilità automatica, i pod devono avere richieste e limiti di CPU definiti. Nella distribuzione di `azure-vote-front` il contenitore front-end richiede un valore di 0,25 della CPU, con un limite pari a 0,5 della CPU. Le impostazioni sono simili:
 
@@ -116,7 +116,7 @@ resources:
      cpu: 500m
 ```
 
-L'esempio seguente usa il [scalabilità automatica kubectl] [ kubectl-autoscale] comando di ridimensionamento automatico, il numero di unità nel `azure-vote-front` distribuzione. In questo caso, se l'utilizzo della CPU supera il 50%, la scalabilità automatica aumenta il numero di pod fino al valore massimo di 10.
+L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione `azure-vote-front`. In questo caso, se l'utilizzo della CPU supera il 50%, la scalabilità automatica aumenta il numero di pod fino al valore massimo di 10.
 
 
 ```azurecli

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 29c74c2cc58e7cab1364b2fc2c74951440dea0ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creazione del servizio di bilanciamento del carico Internet attraverso il portale di Azure
 
@@ -57,7 +57,7 @@ In questa sede viene illustrata la sequenza delle singole attività da eseguire 
 > L'esempio presuppone che ci sia una rete virtuale denominata **myVNet**. A tal proposito, fare riferimento a [Creare una rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) . Presuppone anche la presenza di una subnet all'interno di **myVNet** chiamata **LB-Subnet-BE** e di due macchine virtuali denominate **web1** e **web2** rispettivamente all'interno dello stesso set di disponibilità denominato **myAvailSet** in **myVNet**. Fare riferimento a [questo collegamento](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per creare le macchine virtuali.
 
 1. Utilizzare un browser per accedere al portale di Azure ( [http://portal.azure.com](http://portal.azure.com) ) con il proprio account di Azure.
-2. In alto a sinistra nella schermata fare clic su **Nuovo** > **Rete** > **Bilanciamento del carico**.
+2. Nella parte superiore sinistra dello schermo selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 3. Nel pannello **Crea bilanciamento del carico** digitare un nome per il servizio di bilanciamento del carico. Qui viene chiamato **myLoadBalancer**.
 4. In **Tipo** selezionare **Pubblica**.
 5. In **Indirizzo IP pubblico** creare un nuovo indirizzo IP pubblico denominato **myPublicIP**.

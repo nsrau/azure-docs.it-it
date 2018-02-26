@@ -17,7 +17,7 @@ ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -64,7 +64,7 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 * Per il campo **Password** usare un token di firma di accesso condiviso. Il formato del token di firma di accesso condiviso è identico a quello per i protocolli HTTPS e AMQP:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
     >[!NOTE]
-    >Le password di token di firma di accesso condiviso non sono necessari se si utilizza l'autenticazione del certificato x. 509. Per ulteriori informazioni, vedere [impostare la sicurezza x. 509 nell'IoT Hub Azure][lnk-x509]
+    >Le password di token SAS non sono obbligatorie se si usa l'autenticazione dei certificati X.509. Per altre informazioni, vedere [Configurare la sicurezza X.509 nell'hub IoT di Azure][lnk-x509]
 
     Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
@@ -140,7 +140,7 @@ Per altre informazioni, vedere [Guida per gli sviluppatori sulla messaggistica][
 
 ### <a name="receiving-cloud-to-device-messages"></a>Ricezione di messaggi da cloud a dispositivo
 
-Per ricevere messaggi dall'hub IoT, un dispositivo deve eseguire la sottoscrizione con `devices/{device_id}/messages/devicebound/#` come **filtro di argomento**. Il carattere jolly a più livelli `#` nel filtro argomento viene utilizzato solo per consentire al dispositivo ricevere proprietà aggiuntive nel nome dell'argomento. IoT Hub non consente l'utilizzo del `#` o `?` i caratteri jolly per il filtro di argomenti secondari. Poiché l'hub IoT non è un broker di messaggistica di pubblicazione e sottoscrizione generico, supporta solo i nomi di argomento e i filtri di argomento documentati .
+Per ricevere messaggi dall'hub IoT, un dispositivo deve eseguire la sottoscrizione con `devices/{device_id}/messages/devicebound/#` come **filtro di argomento**. Il carattere jolly a più livelli `#` nel filtro argomento viene usato solo per consentire al dispositivo di ricevere proprietà aggiuntive nel nome dell'argomento. L'hub IoT non consente l'utilizzo dei caratteri jolly `#` o `?` per il filtro di argomenti secondari. Poiché l'hub IoT non è un broker di messaggistica di pubblicazione e sottoscrizione generico, supporta solo i nomi di argomento e i filtri di argomento documentati .
 
 Il dispositivo non riceverà i messaggi dall'hub IoT prima di aver effettuato la sottoscrizione all'endpoint del dispositivo specifico, rappresentato dal filtro argomento `devices/{device_id}/messages/devicebound/#`. Dopo aver stabilito la sottoscrizione correttamente, il dispositivo inizierà a ricevere solo messaggi da cloud a dispositivo che gli sono stati inviati dopo la sottoscrizione. Se il dispositivo si connette con il flag **CleanSession** impostato su **0**, la sottoscrizione sarà mantenuta tra sessioni diverse. In questo caso, alla connessione successiva con **CleanSession 0** il dispositivo riceverà i messaggi in sospeso che gli sono stati inviati mentre era disconnesso. Se il dispositivo usa il flag **CleanSession** impostato su **1** tuttavia, non riceverà i messaggi dall'hub IoT fino a quando non si registra presso l'endpoint del dispositivo.
 
@@ -150,9 +150,9 @@ Quando un'app del dispositivo esegue una sottoscrizione a un argomento con **QoS
 
 ### <a name="retrieving-a-device-twins-properties"></a>Recupero delle proprietà dei dispositivi gemelli
 
-Un dispositivo effettua la sottoscrizione a `$iothub/twin/res/#` per ricevere le risposte dell'operazione. Quindi, invia un messaggio vuoto per l'argomento `$iothub/twin/GET/?$rid={request id}`, con un valore popolato per **ID richiesta**. Il servizio invia un messaggio di risposta che contiene i dati di due dispositivi su argomento `$iothub/twin/res/{status}/?$rid={request id}`, utilizzando lo stesso **ID richiesta** della richiesta.
+Un dispositivo effettua la sottoscrizione a `$iothub/twin/res/#` per ricevere le risposte dell'operazione. Invia quindi un messaggio vuoto all'argomento `$iothub/twin/GET/?$rid={request id}`, con un valore popolato per **request ID**. Il servizio invierà quindi un messaggio di risposta con i dati del dispositivo gemello nell'argomento `$iothub/twin/res/{status}/?$rid={request id}`, usando lo stesso **request ID** della richiesta.
 
-ID richiesta può essere qualsiasi valore valido per un valore di proprietà del messaggio, in base [IoT Hub Guida per gli sviluppatori di messaggistica][lnk-messaging], e lo stato viene convalidato come numero intero.
+Request ID può essere qualsiasi valore valido per il valore della proprietà di un messaggio, come descritto nella [Guida per gli sviluppatori sulla messaggistica dell'hub IoT][lnk-messaging], e lo stato viene convalidato come valore intero.
 Il corpo della risposta contiene la sezione delle proprietà del dispositivo gemello:
 
 Il corpo della voce del registro delle identità sarà limitato al membro "properties", ad esempio:
@@ -187,9 +187,9 @@ La sequenza seguente descrive in che modo un dispositivo aggiorna le proprietà 
 
 1. Un dispositivo deve prima sottoscrivere l'argomento `$iothub/twin/res/#` per ricevere le risposte dell'operazione dall'hub IoT.
 
-1. Un dispositivo invia un messaggio che contiene l'aggiornamento di un dispositivo gemello per l'argomento `$iothub/twin/PATCH/properties/reported/?$rid={request id}`. Questo messaggio include un **ID richiesta** valore.
+1. Un dispositivo invia un messaggio che contiene l'aggiornamento di un dispositivo gemello per l'argomento `$iothub/twin/PATCH/properties/reported/?$rid={request id}`. Questo messaggio include un valore **request ID**.
 
-1. Il servizio invia un messaggio di risposta che contiene il nuovo valore ETag per la raccolta di proprietà dichiarate sull'argomento `$iothub/twin/res/{status}/?$rid={request id}`. Questo messaggio di risposta viene utilizzata la stessa **ID richiesta** della richiesta.
+1. Il servizio invia un messaggio di risposta che contiene il nuovo valore ETag per la raccolta di proprietà dichiarate sull'argomento `$iothub/twin/res/{status}/?$rid={request id}`. Questo messaggio di risposta usa lo stesso **request ID** della richiesta.
 
 Il corpo del messaggio di richiesta contiene un documento JSON che specifica nuovi valori per le proprietà segnalate. Non è possibile modificare altre proprietà o altri metadati.
 Ogni membro nel documento JSON aggiorna o aggiunge il membro corrispondente nel documento del dispositivo gemello. Un membro impostato su `null` elimina il membro dall'oggetto contenitore. Ad esempio: 
@@ -231,7 +231,7 @@ Per altre informazioni, vedere la [Guida per gli sviluppatori sui dispositivi ge
 
 Un dispositivo deve effettuare la sottoscrizione a `$iothub/methods/POST/#`. L'hub IoT invia le richieste di metodo all'argomento `$iothub/methods/POST/{method name}/?$rid={request id}` con un codice JSON valido o un corpo vuoto.
 
-Per rispondere, il dispositivo invia un messaggio con corpo vuoto di JSON valido per l'argomento `$iothub/methods/res/{status}/?$rid={request id}`, dove **ID richiesta** deve corrispondere a quello nel messaggio di richiesta, e **stato** deve essere un numero intero.
+Per rispondere, il dispositivo invia all'argomento `$iothub/methods/res/{status}/?$rid={request id}` un messaggio con un codice JSON valido o un corpo vuoto, dove **request ID** deve corrispondere al valore presente nel messaggio della richiesta e **status** deve essere un numero intero.
 
 Per altre informazioni, vedere la [Guida per gli sviluppatori sui metodi diretti][lnk-methods].
 
