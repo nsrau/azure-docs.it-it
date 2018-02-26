@@ -1,6 +1,6 @@
 ---
-title: Esempio di Script Azure CLI - un'app web da un backup di ripristino | Documenti Microsoft
-description: 'Azure CLI Script di esempio: ripristino di un''app web da un backup'
+title: 'Esempio di script dell''interfaccia della riga di comando di Azure: Ripristinare un''app Web da un backup | Microsoft Docs'
+description: 'Esempio di script dell''interfaccia della riga di comando di Azure: Ripristinare un''app Web da un backup'
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,7 +16,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: bec915f3e321cf2422f7cc2cad3ce1dfb6b3317a
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -28,7 +28,7 @@ Per eseguire questo script, è necessario un backup esistente di un'app Web. Per
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -43,7 +43,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | Comando | Note |
 |---|---|
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Ottiene un elenco di copie di backup per un'app Web. |
-| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Ripristina un'app web da un backup. |
+| [`az webapp config backup restore`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_restore) | Ripristina un'app Web da un backup. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

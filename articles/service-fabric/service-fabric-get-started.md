@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: a4000791afca35dca6d2e3d7a8fb6a003b17d066
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a24ca874abd29816a67f3bb7c83fb8b389d8435f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -88,6 +88,7 @@ Dopo avere configurato l'ambiente di sviluppo, iniziare a compilare ed eseguire 
 * [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Seguire il percorso di apprendimento di Service Fabric per un'ampia Introduzione alla piattaforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
+* [Automatizzare l'applicazione di patch al sistema operativo nel cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Pagina della campagna di Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

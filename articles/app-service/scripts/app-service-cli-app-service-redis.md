@@ -18,19 +18,19 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 248f26c0562b636caf74409fd76334601931d035
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-a-redis-cache"></a>Connettere un'App Web a una cache Redis
 
-Questo script di esempio crea una cache redis di Azure e un'app web di Azure. La cache redis è quindi collegato all'app web utilizzando le impostazioni dell'app.
+Questo script di esempio crea una cache Redis di Azure e un'app Web di Azure, quindi collega la cache Redis all'app Web usando le impostazioni dell'app.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -40,7 +40,7 @@ Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessa
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script utilizza i comandi seguenti per creare un gruppo di risorse, app web, cache redis e tutte le relative risorse. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per creare un gruppo di risorse, un'app Web, la cache Redis e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

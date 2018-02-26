@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 09/20/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 3ab8d32eb4b3f2748249f40139de76c8e7f4d971
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="respond-to-events-with-log-analytics-alerts"></a>Rispondere a eventi con avvisi di Log Analytics
-Gli avvisi in Log Analytics identificano informazioni importanti nel repository di Log Analytics.  Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Create and share dashboards of Log Analytics data](log-analytics-tutorial-dashboards.md) (Creare e condividere dashboard di dati di Log Analytics).   
+Gli avvisi in Log Analytics identificano informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](log-analytics-tutorial-dashboards.md).   
 
 In questa esercitazione si apprenderà come:
 
@@ -37,21 +37,21 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-alerts"></a>Creare avvisi
 
-Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricerche log a intervalli regolari.  È possibile creare avvisi in base a metriche di prestazioni specifiche o quando vengono creati determinati eventi, in assenza di un evento o per un numero di eventi creati all'interno di un intervallo di tempo specifico.  Ad esempio, è possibile usare gli avvisi per notificare all'utente che l'utilizzo medio della CPU supera una determinata soglia o viene generato un evento quando un servizio di Windows specifico o un daemon Linux non è in esecuzione.   Se i risultati della ricerca log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo. 
+Gli avvisi vengono creati da regole di avviso che eseguono automaticamente ricerche log a intervalli regolari.  È possibile creare avvisi in base a metriche di prestazioni specifiche o quando vengono creati determinati eventi, in assenza di un evento o per un numero di eventi creati all'interno di un intervallo di tempo specifico.  Ad esempio, è possibile usare gli avvisi per notificare all'utente che l'utilizzo medio della CPU supera una determinata soglia o viene generato un evento quando un servizio di Windows specifico o un daemon Linux non è in esecuzione.   Se i risultati della ricerca log corrispondono a criteri specifici, viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo. 
 
-L'esempio seguente crea una regola di avviso di misurazione delle metriche che creerà un avviso per ogni computer nella query con un valore superiore alla soglia del 90%.
+Nell'esempio seguente viene creata una regola di avviso di misurazione delle metriche che genera un avviso per ogni oggetto computer nella query con un valore superiore alla soglia del 90%.
 
-1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. **Selezionare Log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Avviare il portale di OMS, selezionando Portale di OMS e sulla pagina **Panoramica** selezionare **Ricerca log**.  
 3. Selezionare **Preferiti** dalla parte superiore del portale e nel riquadro **Ricerche salvate** a destra selezionare la query *Macchine virtuali di Azure - Utilizzo del processore*.  
 4. Fare clic su **Avviso** nella parte superiore della pagina per aprire la schermata **Aggiungi regola di avviso**.  
 5. Configurare la regola di avviso con le informazioni seguenti:  
    a. Fornire un **Nome** per l'avviso, ad esempio *Utilizzo del processore VM ha superato > 90*  
    b. Per **Intervallo di tempo**, specificare un intervallo di tempo per la query, ad esempio *30*.  La query restituisce solo i record creati in questo intervallo dell'ora corrente.  
-   c. **Frequenza di avviso** specifica la frequenza con cui deve essere eseguita la query.  Per questo esempio, specificare *5* minuti, che si verificheranno entro l'intervallo di tempo specificato.  
+   c. **Frequenza di avviso** specifica la frequenza con cui deve essere eseguita la query.  Per questo esempio, specificare *5* minuti, che rientrano nell'intervallo di tempo specificato.  
    d. Selezionare **Unità di misura della metrica** e immettere *90* per **Valore aggregato** e *3* per **Attiva l'avviso in base a**   
    e. In **Azioni**, disabilitare la notifica di posta elettronica.
-6. Fare clic su **Salva** per salvare la regola di avviso. Verrà avviata immediatamente l'esecuzione.<br><br> ![Esempio di regola di avviso](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+6. Fare clic su **Salva** per salvare la regola di avviso. L'esecuzione inizia immediatamente.<br><br> ![Esempio di regola di avviso](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
 
 I record degli avvisi creati dalle regole di avviso in Log Analytics hanno un Tipo impostato su **Avviso** e SourceSystem impostato su **OMS**.<br><br> ![Esempio di eventi di avviso generati](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
 
@@ -65,7 +65,7 @@ Le azioni di posta elettronica inviano un messaggio di posta elettronica con i d
 3. Nella sezione **Azioni** abilitare le notifiche di posta elettronica.
 4. Fornire un **Oggetto** per la posta elettronica, ad esempio *L'utilizzo del processore ha superato la soglia > 90*.
 5. Aggiungere gli indirizzi di uno o più destinatari di posta elettronica nel campo **Destinatari**.  Se si specifica più di un indirizzo, separare ognuno con un punto e virgola (;).
-6. Fare clic su **Salva** per salvare la regola di avviso. Verrà avviata immediatamente l'esecuzione.<br><br> ![Regola di avviso con la notifica tramite posta elettronica](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+6. Fare clic su **Salva** per salvare la regola di avviso. L'esecuzione inizia immediatamente.<br><br> ![Regola di avviso con la notifica tramite posta elettronica](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come le regole di avviso possono identificare e rispondere in modo proattivo a un problema durante l'esecuzione di ricerche nei log a intervalli pianificati e trovando corrispondenze a determinati criteri.  

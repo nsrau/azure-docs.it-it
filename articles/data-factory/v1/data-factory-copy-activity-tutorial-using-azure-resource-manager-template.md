@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 20a2e50fa3e1f81655566d9dfd7fb0cc62a2844c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 898d3a6fe7b3fa5be6f70eb2e0e7f3a48f82adef
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare un modello di Azure Resource Manager per creare una pipeline di Data Factory per copiare dati 
 > [!div class="op_single_selector"]
@@ -340,7 +340,7 @@ Creare un file JSON denominato **ADFCopyTutorialARM-Parameters.json** contenente
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
-2. Scegliere **Data factory** dal menu a sinistra o fare clic su **Altri servizi** e quindi su **Data factory** nella categoria **INTELLIGENCE E ANALISI**.
+2. Scegliere **Data factory** dal menu a sinistra o fare clic su **Tutti i servizi** e quindi su **Data factory** nella categoria **INTELLIGENCE E ANALISI**.
    
     ![Menu Data factory](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
 3. Nella pagina **Data factory** cercare e trovare la data factory (AzureBlobToAzureSQLDatabaseDF). 

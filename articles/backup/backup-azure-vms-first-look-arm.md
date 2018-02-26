@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50f908a166cb56d5654778ebb1f57ab956bf34a1
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
 
@@ -50,9 +50,9 @@ A seconda del numero di macchine virtuali da proteggere, è possibile iniziare d
 Usare i passaggi seguenti per configurare il processo di backup dal pannello di gestione della macchina virtuale nel portale di Azure. La procedura seguente è applicabile solo alle macchine virtuali nel portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Scegliere **Altri servizi** dal menu Hub e digitare **Macchine virtuali** nella finestra di dialogo Filtro. Durante la digitazione verrà filtrato l'elenco di risorse. Dopo averla individuata, selezionare la voce Macchine virtuali.
+2. Fare clic su **Tutti i servizi** nel menu Hub e digitare **Macchine virtuali** nella finestra di dialogo Filtro. Durante la digitazione verrà filtrato l'elenco di risorse. Dopo averla individuata, selezionare la voce Macchine virtuali.
 
-  ![Nel menu Hub, fare clic su Altri servizi per aprire una finestra di dialogo testuale. Digitare Macchine virtuali](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
+  ![Screenshot che illustra come passare a Macchine virtuali da Tutti i servizi](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)
 
   Verrà visualizzato l'elenco di macchine virtuali (VM) nella sottoscrizione.
 
@@ -131,7 +131,7 @@ Un insieme di credenziali dei servizi di ripristino è un'entità che archivia t
 Per creare un insieme di credenziali dei servizi di ripristino:
 
 1. Se questa operazione non è già stata eseguita, accedere al [portale di Azure](https://portal.azure.com/), usando la sottoscrizione di Azure.
-2. Scegliere **Altri servizi** dal menu Hub e digitare **Servizi di ripristino** nella finestra di dialogo Filtro. Durante la digitazione verrà filtrato l'elenco di risorse. Quando viene visualizzato, fare clic su Insiemi di credenziali dei servizi di ripristino nell'elenco.
+2. Fare clic su **Tutti i servizi** nel menu Hub e digitare **Servizi di ripristino** nella finestra di dialogo Filtro. Durante la digitazione verrà filtrato l'elenco di risorse. Quando viene visualizzato, fare clic su Insiemi di credenziali dei servizi di ripristino nell'elenco.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
@@ -202,7 +202,7 @@ Per modificare le impostazioni di replica di archiviazione:
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Selezionare un obiettivo di backup, impostare i criteri e definire gli elementi da proteggere
 Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire il processo di individuazione per verificare che vengano identificate le eventuali nuove macchine virtuali aggiunte alla sottoscrizione. Il processo esegue una query su Azure per ottenere l'elenco delle macchine virtuali disponibili nella sottoscrizione, insieme ad altre informazioni come il nome del servizio cloud e l'area. Nel portale di Azure lo scenario fa riferimento a ciò che si inserirà nell'insieme di credenziali dei servizi di ripristino. I criteri determinano la pianificazione relativa alla frequenza e al momento in cui acquisiti i punti di ripristino. I criteri includono anche il periodo di mantenimento dati per i punti di ripristino.
 
-1. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 2. Altrimenti, scegliere **Altri servizi** dal menu Hub e nell'elenco di risorse digitare **Servizi di ripristino**, quindi fare clic su **Insiemi di credenziali dei servizi di ripristino**.
+1. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 2. In caso contrario, fare clic su **Tutti i servizi**. Digitare **Servizi di ripristino** e fare clic su **Insiemi di credenziali di Servizi di ripristino**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 

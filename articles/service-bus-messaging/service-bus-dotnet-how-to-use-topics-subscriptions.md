@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
@@ -52,7 +52,7 @@ Se è già stato creato uno spazio dei nomi di messaggistica del bus di servizio
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Creare un argomento usando il portale di Azure
 
 1. Accedere al [portale di Azure][azure-portal].
-2. Nel riquadro di spostamento sinistro nel portale fare clic su **Bus di servizio** (se l'opzione **Bus di servizio** non è visualizzata, fare clic su **Altri servizi** oppure su **Tutte le risorse**). Fare clic sullo spazio dei nomi in cui si vuole creare l'argomento. 
+2. Nel riquadro di spostamento a sinistra del portale fare clic su **Bus di servizio**. Se l'opzione **Bus di servizio** non è visualizzata, fare clic su **Tutti i servizi** oppure su **Tutte le risorse**. Fare clic sullo spazio dei nomi in cui si vuole creare l'argomento. 
 3. Verrà visualizzata la finestra della panoramica dello spazio dei nomi. Fare clic su **Argomenti**:
    
     ![Creare un argomento][createtopic1]

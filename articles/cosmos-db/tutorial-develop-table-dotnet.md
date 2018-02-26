@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 41d7e42f203170e4fa3b8e3a8c973e23808f941b
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: bb08a60a9ec2db0fa145f75e00be96bc05664e32
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -55,7 +55,7 @@ Se attualmente si usa l'archiviazione tabelle di Azure, passando all'API Table d
 - Disponibilità al 99,99% all'interno di una singola area, possibilità di aggiungere altre aree per aumentare la disponibilità e [contratti di servizio completi leader nel settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sulla disponibilità generale
 - Usare la versione esistente di .NET SDK di Archiviazione di Azure senza apportare modifiche al codice dell'applicazione
 
-Questa esercitazione illustra l'API Table di Azure Cosmos DB tramite .NET SDK. È possibile scaricare [Azure Storage Preview SDK](https://aka.ms/tableapinuget) da NuGet.
+Questa esercitazione illustra l'API Table di Azure Cosmos DB tramite .NET SDK. È possibile scaricare [Azure Cosmos DB Table API .NET SDK](https://aka.ms/tableapinuget) da NuGet.
 
 Per altre informazioni sulle attività complesse di archiviazione tabelle di Azure, vedere:
 

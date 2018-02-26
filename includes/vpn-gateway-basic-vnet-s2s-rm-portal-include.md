@@ -6,7 +6,7 @@ Per creare una rete virtuale nel modello di distribuzione Resource Manager usand
 >
 
 1. In un browser passare al [portale di Azure](http://portal.azure.com) e accedere con l'account Azure.
-2. Fare clic su **Nuovo**. Nel campo **Cerca nel Marketplace** digitare "rete virtuale". Individuare **Rete virtuale** nell'elenco restituito e fare clic per aprire la pagina **Rete virtuale**.
+2. Fare clic su **Crea una risorsa**. Nel campo **Cerca nel Marketplace** digitare "rete virtuale". Individuare **Rete virtuale** nell'elenco restituito e fare clic per aprire la pagina **Rete virtuale**.
 3. Nella parte inferiore della pagina Rete virtuale selezionare **Resource Manager** nell'elenco **Selezionare un modello di distribuzione** e quindi fare clic su **Crea**. Verrà visualizzata la pagina "Crea rete virtuale".
 
     ![Pagina Crea rete virtuale](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/vnet.png "Pagina Crea rete virtuale")

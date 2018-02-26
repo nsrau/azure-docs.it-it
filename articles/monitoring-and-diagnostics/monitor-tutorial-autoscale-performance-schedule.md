@@ -7,14 +7,14 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: tutorial
-ms.date: 09/25/2017
+ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 012183b8e6c15d62eda2534985bf73140187d7af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creare un'impostazione di scalabilità automatica per le risorse di Azure in base ai dati sulle prestazioni o a una pianificazione
 
@@ -35,31 +35,29 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Creare un'app Web e un piano di servizio app
-1. Fare clic sull'opzione **Nuovo** nel riquadro di navigazione a sinistra.
-
+1. Fare clic sull'opzione **Crea una risorsa** nel riquadro di spostamento a sinistra.
 2. Cercare e selezionare l'elemento *App Web* e fare clic su **Crea**.
-
-3. Selezionare un nome per l'app, ad esempio *MyTestScaleWebApp*. Creare un nuovo gruppo di risorse *myResourceGroup* e posizionarlo in un gruppo di risorse di propria scelta.
+3. Selezionare un nome per l'app, ad esempio *MyTestScaleWebApp*. Creare un nuovo gruppo di risorse *myResourceGroup' e posizionarlo in un gruppo di risorse di propria scelta.
 
 Entro pochi minuti, verrà effettuato il provisioning delle risorse. Usare l'app Web e il piano di servizio app corrispondente nella restante parte di questa esercitazione.
 
    ![Creare un nuovo servizio app nel portale](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Passare alle impostazioni di scalabilità automatica
-1. Selezionare l'opzione **Monitoraggio** nel riquadro di navigazione a sinistra. Quando la pagina si è caricata selezionare la scheda **Scalabilità automatica**.
+1. Selezionare l'opzione **Monitoraggio** nel riquadro di navigazione a sinistra. Quando la pagina si è caricata, selezionare la scheda **Scalabilità automatica**.
 2. Qui viene mostrato un elenco delle risorse nella sottoscrizione che supporta la scalabilità automatica. Identificare il piano di servizio app che è stato creato in precedenza nell'esercitazione, fare clic su di esso.
 
     ![Passare alle impostazioni di scalabilità automatica](./media/monitor-tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
-3. Tra le impostazioni di scalabilità automatica fare clic sul pulsante **Abilita scalabilità automatica**
+3. Tra le impostazioni di scalabilità automatica fare clic sul pulsante **Abilita scalabilità automatica**.
 
-I passaggi successivi consentono di compilare la schermata di scalabilità automatica, che apparirà come illustrato nella figura seguente:
+I passaggi successivi consentono di compilare la schermata di scalabilità automatica, in modo da ottenere un risultato simile a quanto illustrato nella figura seguente:
 
    ![Salvare le impostazioni di scalabilità automatica](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
  ## <a name="configure-default-profile"></a>Configurare il profilo predefinito
-1. Inserire un **Nome** per l'impostazione di scalabilità automatica
-2. Nel profilo predefinito assicurarsi che **Modalità di ridimensionamento** sia impostato su "Ridimensiona in base a un numero di istanze specifico"
+1. Specificare il valore di **Nome** per l'impostazione di scalabilità automatica.
+2. Nel profilo predefinito assicurarsi che l'opzione **Modalità di ridimensionamento** sia impostata su "Ridimensiona in base a un numero di istanze specifico".
 3. Impostare il numero di istanze su **1**. Questa impostazione fa in modo che quando non sono attivi oppure operativi altri profili, il profilo predefinito restituisce 1 come numero di istanze.
 
   ![Passare alle impostazioni di scalabilità automatica](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
@@ -67,33 +65,33 @@ I passaggi successivi consentono di compilare la schermata di scalabilità autom
 
 ## <a name="create-recurrance-profile"></a>Creare un profilo di ricorrenza
 
-1. Fare clic sul collegamento **Add a scale condition** (Aggiungi una condizione di scalabilità) nel profilo predefinito
+1. Fare clic sul collegamento **Add a scale condition** (Aggiungi una condizione di scalabilità) nel profilo predefinito.
 
-2. Modificare il **Nome** del profilo impostandolo su "Monday to Friday profile" (Profilo da lunedì a venerdì)
+2. Modificare il valore di **Nome** del profilo impostandolo su "Monday to Friday profile" (Profilo da lunedì a venerdì).
 
-3. Verificare che **Modalità di ridimensionamento** sia impostato su "Ridimensiona in base a una metrica"
+3. Verificare che l'opzione **Modalità di ridimensionamento** sia impostata su "Ridimensiona in base a una metrica".
 
 4. Per **Limiti per le istanze** impostare **Minimo** su "1", **Massimo** su "2" e **Predefinito** su "1". Questa impostazione garantisce che il profilo non applichi la scalabilità automatica al piano di servizio per avere meno di 1 istanza o più di 2 istanze. Se il profilo non dispone di dati sufficienti per prendere una decisione, usa il numero predefinito di istanze, in questo caso 1.
 
-5. Selezionare "Ripeti in giorni specifici" per **Pianificazione**
+5. Per **Pianificazione** selezionare "Ripeti in giorni specifici".
 
 6. Impostare il profilo affinché si ripeta dal lunedì al venerdì, dalle 09:00 PST alle 18:00 PST. Questa impostazione garantisce che il profilo è attivo e applicabile solo dalle 09:00 alle 18:00, dal lunedì al venerdì. Al di fuori di questo orario, il profilo "Predefinito" è il profilo usato dall'impostazione di scalabilità automatica.
 
 ## <a name="create-a-scale-out-rule"></a>Creare un regola per aumentare il numero di istanze
 
-1. In "Monday to Friday profile" (Profilo da lunedì a venerdì)
+1. In "Monday to Friday profile" (Profilo da lunedì a venerdì).
 
-2. Fare clic sul collegamento **Aggiungi una regola**
+2. Fare clic sul collegamento **Aggiungi una regola**.
 
 3. Impostare **Origine metrica** su "other resource" (altra risorsa). Impostare **Tipo di risorsa** su "Servizi app" e **Risorsa** sull'app Web creata precedentemente in questa esercitazione.
 
-4. Impostare **Aggregazione temporale** su "Totale", **Nome metrica** su "Richieste" e **Statistica intervallo di tempo** su "Somma"
+4. Impostare **Aggregazione temporale** su "Totale", **Nome metrica** su "Richieste" e **Statistica intervallo di tempo** su "Somma".
 
 5. Impostare **Operatore** su "Greater than" (Maggiore di), **Soglia** su "10" e **Durata** su "5" minuti.
 
-6. Selezionare l'**operazione** "Aumenta numero di", impostare le opzioni **Numero di istanze** su "1" e **Tempo di raffreddamento** su "5" minuti
+6. Impostare **Operazione** su "Aumenta numero di", **Numero di istanze** su "1" e **Disattiva regole dopo** su "5" minuti.
 
-7. Fare clic sul pulsante **Aggiungi**
+7. Fare clic su **Add** .
 
 Questa regola fa in modo che se l'app Web riceve più di 10 richieste in un periodo massimo 5 minuti, viene aggiunta un'altra istanza al piano del servizio app per la gestione del carico.
 
@@ -102,23 +100,23 @@ Questa regola fa in modo che se l'app Web riceve più di 10 richieste in un peri
 ## <a name="create-a-scale-in-rule"></a>Creare un regola per ridurre il numero di istanze
 Si consiglia sempre di avere sempre una regola per ridurre il numero di istanze e una per aumentarle. La presenza di entrambe le regole fa in modo che non si esegua un provisioning eccessivo sulle risorse. Provisioning eccessivo significa che l'utente dispone di un numero maggiore istanze in esecuzione di quelle necessarie per gestire il carico corrente. 
 
-1. In "Monday to Friday profile" (Profilo da lunedì a venerdì)
+1. In "Monday to Friday profile" (Profilo da lunedì a venerdì).
 
-2. Fare clic sul collegamento **Aggiungi una regola**
+2. Fare clic sul collegamento **Aggiungi una regola**.
 
 3. Impostare **Origine metrica** su "other resource" (altra risorsa). Impostare **Tipo di risorsa** su "Servizi app" e **Risorsa** sull'app Web creata precedentemente in questa esercitazione.
 
-4. Impostare **Aggregazione temporale** su "Totale", **Nome metrica** su "Richieste" e **Statistica intervallo di tempo** su "Media"
+4. Impostare **Aggregazione temporale** su "Totale", **Nome metrica** su "Richieste" e **Statistica intervallo di tempo** su "Media".
 
 5. Impostare **Operatore** su "Less than" (Minore di), **Soglia** su "5" e **Durata** su "5" minuti.
 
-6. Selezionare l'**operazione** "Riduci numero di", impostare le opzioni **Numero di istanze** su "1" e **Tempo di raffreddamento** su "5" minuti
+6. Impostare **Operazione** su "Riduci numero di", **Numero di istanze** su "1" e **Disattiva regole dopo** su "5" minuti.
 
-7. Fare clic sul pulsante **Aggiungi**
+7. Fare clic su **Add** .
 
     ![Creare un regola per ridurre il numero di istanze](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
-8. **Salvare** le impostazione di scalabilità automatica
+8. Fare clic su **Salva** per salvare l'impostazione di scalabilità automatica.
 
     ![Salvare le impostazioni di scalabilità automatica](./media/monitor-tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
@@ -127,15 +125,15 @@ Per attivare una condizione per aumentare le istanze nella scalabilità automati
 
 1. Aprire una finestra del browser e passare all'app Web creata precedentemente in questa esercitazione. L'URL per l'app Web è disponibile nel portale di Azure passando alla risorsa dell'app Web e facendo clic sul pulsante **Sfoglia** nella scheda "Panoramica".
 
-2. In rapida successione ricaricare la pagina almeno 10 volte
+2. In rapida successione ricaricare la pagina più di 10 volte.
 
 3. Selezionare l'opzione **Monitoraggio** nel riquadro di navigazione a sinistra. Quando la pagina si è caricata selezionare la scheda **Scalabilità automatica**.
 
-4. Nell'elenco selezionare il piano di servizio app usato in questa esercitazione
+4. Nell'elenco selezionare il piano di servizio app usato in questa esercitazione.
 
-5. Nell'impostazione di scalabilità automatica, fare clic sulla scheda **Cronologia di esecuzione**
+5. Nell'impostazione di scalabilità automatica fare clic sulla scheda **Cronologia**.
 
-6. Viene visualizzato un grafico che riflette il numero di istanze del piano di servizio app nel tempo
+6. Viene visualizzato un grafico che riflette il numero di istanze del piano di servizio app nel tempo.
 
 7. In pochi minuti, il numero di istanze aumenterà da 1 a 2.
 
@@ -144,21 +142,21 @@ Per attivare una condizione per aumentare le istanze nella scalabilità automati
 ## <a name="trigger-scale-in-action"></a>Attivare un'azione per ridurre le istanze
 Condizione per ridurre le istanze nei trigger di scalabilità automatica se ci sono meno di 5 richieste per l'app Web in un periodo di 10 minuti. 
 
-1. Assicura che non vengano inviate richieste all'app Web
+1. Assicurarsi che non vengano inviate richieste all'app Web.
 
-2. Caricare il portale di Azure
+2. Caricare il portale di Azure.
 
 3. Selezionare l'opzione **Monitoraggio** nel riquadro di navigazione a sinistra. Quando la pagina si è caricata selezionare la scheda **Scalabilità automatica**.
 
-4. Nell'elenco selezionare il piano di servizio app usato in questa esercitazione
+4. Nell'elenco selezionare il piano di servizio app usato in questa esercitazione.
 
-5. Nell'impostazione di scalabilità automatica, fare clic sulla scheda **Cronologia di esecuzione**
+5. Nell'impostazione di scalabilità automatica fare clic sulla scheda **Cronologia**.
 
 6. Viene visualizzato un grafico che riflette il numero di istanze del piano di servizio app nel tempo.
 
 7. In pochi minuti, il numero di istanze scende da 2 a 1. Il processo richiede almeno 100 minuti.  
 
-8. Nel grafico, vengono visualizzate le voci del set del log attività corrispondenti per ogni azione di scalabilità adottata da questa impostazione di scalabilità automatica
+8. Sotto il grafico vengono visualizzate le voci del set del log attività corrispondenti per ogni azione di ridimensionamento eseguita dall'impostazione di scalabilità automatica.
 
     ![Visualizzare le azioni per ridurre le istanze](./media/monitor-tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
@@ -168,7 +166,7 @@ Condizione per ridurre le istanze nei trigger di scalabilità automatica se ci s
 
 2. Nella pagina della risorsa fare clic su **Elimina**, confermare l'eliminazione digitando **sì** nella casella di testo e quindi fare clic su **Elimina**.
 
-3. Quindi selezionare la risorsa del piano di servizio app e fare clic su **Elimina**
+3. Selezionare la risorsa del piano di servizio app e fare clic su **Elimina**.
 
 4. Confermare l'eliminazione digitando **sì** nella casella di testo e quindi fare clic su **Elimina**.
 

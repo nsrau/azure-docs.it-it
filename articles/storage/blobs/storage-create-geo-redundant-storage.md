@@ -2,23 +2,19 @@
 title: "Applicare la disponibilità elevata ai dati delle applicazioni in Azure | Microsoft Docs"
 description: "Usare l'archiviazione con ridondanza geografica e accesso in lettura per applicare la disponibilità elevata ai dati delle applicazioni"
 services: storage
-documentationcenter: 
-author: georgewallace
+author: tamram
 manager: jeconnoc
-editor: 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 12/23/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 612d6db6dff569c0ccbda1c88f7ef1c37e98cd47
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
@@ -64,7 +60,7 @@ Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli
 
 Seguire questa procedura per creare un account di archiviazione con ridondanza geografica e accesso in lettura:
 
-1. Selezionare il pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
+1. Selezionare il pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
 
 2. Selezionare **Archiviazione** nella pagina **Nuovo** e selezionare **Account di archiviazione: BLOB, File, Tabelle, Code** in **In primo piano**.
 3. Compilare il modulo dell'account di archiviazione con le informazioni seguenti, come illustrato nell'immagine seguente e selezionare **Crea**:

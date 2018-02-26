@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 251795f394d30418e1c03ec7b92fec40a75b2c3d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy"></a>Distribuire
 
@@ -28,7 +28,7 @@ In questa lezione vengono configurate le proprietà della distribuzione, specifi
 Tempo previsto per il completamento della lezione: **5 minuti**  
   
 ## <a name="prerequisites"></a>prerequisiti  
-Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 12: Analizzare in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
+Questo articolo fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 12: Analizzare in Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).  
 
 > [!IMPORTANT]  
 > È necessario avere [autorizzazioni di amministratore](../analysis-services-server-admins.md) per l'istanza remota del server Analysis Services per eseguire la distribuzione.  
@@ -67,6 +67,9 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
   
 3. Dopo aver completato correttamente la distribuzione, procedere e fare clic su **Chiudi**.  
   
+
+Questa lezione descrive il metodo più semplice e più comune per distribuire un modello tabulare da SSDT. Le opzioni di distribuzione avanzate, ad esempio la distribuzione guidata o l'automazione con XMLA e AMO, offrono flessibilità e coerenza maggiori e consentono distribuzioni pianificate. Per altre informazioni, vedere [Distribuzione della soluzione di modello tabulare ](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
+
 ## <a name="conclusion"></a>Conclusioni  
 Congratulazioni! Sono state completate le attività di creazione e distribuzione del primo modello tabulare di Analysis Services. In questa esercitazione sono state descritte le procedure per eseguire in modo guidato la maggior parte delle attività più comuni per la creazione di un modello tabulare. Dopo aver distribuito il modello Adventure Works Internet Sales, è possibile usare SQL Server Management Studio per gestire il modello, creare script di elaborazione e un piano di backup. Ora gli utenti possono anche connettersi al modello usando un'applicazione client per la creazione di report, come Microsoft Excel o Power BI.  
 

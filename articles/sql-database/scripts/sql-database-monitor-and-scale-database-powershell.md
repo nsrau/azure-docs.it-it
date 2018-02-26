@@ -18,7 +18,7 @@ ms.date: 12/14/2017
 ms.author: janeng
 ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
 ---
@@ -33,7 +33,7 @@ Questo esempio di script di PowerShell consente di monitorare le metriche delle 
 [!code-powershell[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=13-14 "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Utilizzare [Get AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) per ottenere lo stato delle operazioni di database e usare [Stop AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) per annullare un'operazione di aggiornamento nel database.
+> Usare [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) per ottenere lo stato delle operazioni di database e usare [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity) per annullare un'operazione di aggiornamento sul database.
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

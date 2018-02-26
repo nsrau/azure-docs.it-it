@@ -13,18 +13,18 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 04/20/2017
+ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7e9ccd26e7c066189576903c39be63a421d1da23
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2049de0adfd4be164cda69ca85782c528aeaf55c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Creare una funzione di Azure che si connette a un database Azure Cosmos DB | Documentazione Microsoft
 
-Questo script di esempio crea un'app per le funzioni di Azure e si connette a un database Azure Cosmos DB.
+Questo script di esempio di Funzioni di Azure crea un'app per le funzioni e connette la funzione a un database di Azure Cosmos DB. L'impostazione dell'app creata che contiene la connessione può essere usata con un [trigger o un binding di Azure Cosmos DB](..\functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,10 +38,6 @@ In questo esempio si crea un'app per le funzioni di Azure e si aggiunge un endpo
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 
-## <a name="clean-up-deployment"></a>Pulire la distribuzione
-
-Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere il gruppo di risorse e tutte le risorse correlate.
-
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -50,7 +46,7 @@ Lo script usa i seguenti comandi: ogni comando della tabella include collegament
 
 | Comando | Note |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/#login) | Accedere ad Azure. |
+| [az login](https://docs.microsoft.com/cli/azure/#az_login) | Accedere ad Azure. |
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creare un gruppo di risorse con una posizione |
 | [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | Creare un account di archiviazione |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | Creare una nuova app per le funzioni |

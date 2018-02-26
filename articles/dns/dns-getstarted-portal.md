@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introduzione a DNS Azure con il portale di Azure
 
@@ -34,8 +34,8 @@ Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. P
 
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
-1. Accedere al portale di Azure
-2. Scegliere **Nuovo > Rete >** dal menu Hub e quindi fare clic su **Zona DNS** per aprire la pagina **Crea zona DNS**.
+1. Accedere al portale di Azure.
+2. Nel menu Hub fare clic su **Crea una risorsa > Rete >** e quindi su **Zona DNS** per aprire la pagina **Crea zona DNS**.
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 

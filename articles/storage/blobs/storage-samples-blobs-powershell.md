@@ -17,7 +17,7 @@ ms.date: 11/07/2017
 ms.author: tamram
 ms.openlocfilehash: d07161cb5bc08410b0db552f7645e2af776c37df
 ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/23/2017
 ---
@@ -29,7 +29,7 @@ La tabella seguente include alcuni collegamenti a esempi di script PowerShell ch
 |---|---|
 |**Account di archiviazione**||
 | [Creare un account di archiviazione e recuperare/ruotare le relative chiavi di accesso](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account di archiviazione di Azure, recuperare e ruotare una delle relative chiavi di accesso. |
-| [Eseguire la migrazione di BLOB tra account di archiviazione tramite AzCopy in Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Eseguire la migrazione di BLOB tra account di archiviazione di Azure tramite AzCopy in Windows. |
+| [Eseguire la migrazione di BLOB tra account di archiviazione tramite AzCopy in Windows](../scripts/storage-common-transfer-between-storage-accounts.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Eseguire la migrazione di BLOB tra account di archiviazione tramite AzCopy in Windows. |
 |**Archiviazione BLOB**||
 | [Calcolare le dimensioni totali di un contenitore di archiviazione BLOB](../scripts/storage-blobs-container-calculate-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Calcolare le dimensioni totali di tutti i BLOB di un contenitore. |
 | [Calcolare le dimensioni di un contenitore di archiviazione BLOB per la fatturazione](../scripts/storage-blobs-container-calculate-billing-size-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Calcola le dimensioni di un contenitore nell'archivio BLOB allo scopo di stimare i costi per la fatturazione. |

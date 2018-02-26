@@ -7,18 +7,15 @@ ms.topic: overview
 ms.date: 01/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 3269b865c4ef3c11a674d7b755faab2bbf5970e3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
-Il servizio Azure Migrate valuta i carichi di lavoro locali per la migrazione ad Azure. Il servizio valuta l'idoneità alla migrazione e il dimensionamento in base alle prestazioni e offre stime dei costi per l'esecuzione dei computer locali in Azure. È il servizio ideale se si stanno prendendo in considerazione migrazioni in modalità lift-and-shift o si affrontano le prime fasi di valutazione della migrazione. Al termine della valutazione, si possono usare servizi come Azure Site Recovery e Migrazione del database di Azure per eseguire la migrazione dei computer ad Azure.
-
-> [!NOTE]
-> Azure Migrate è attualmente in anteprima e supporta carichi di lavoro di produzione.
+Il servizio Azure Migrate valuta i carichi di lavoro locali per la migrazione ad Azure. Il servizio valuta l'idoneità alla migrazione dei computer locali in Azure e il dimensionamento in base alle prestazioni e fornisce stime dei costi per l'esecuzione dei computer locali in Azure. È il servizio ideale se si stanno prendendo in considerazione migrazioni in modalità lift-and-shift o si affrontano le prime fasi di valutazione della migrazione. Al termine della valutazione, è possibile usare servizi come [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview), per eseguire la migrazione dei computer in Azure.
 
 ## <a name="why-use-azure-migrate"></a>Vantaggi di Azure Migrate
 
@@ -27,18 +24,17 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 - **Valutare l'idoneità per Azure**: valutare se i computer locali sono idonei per l'esecuzione in Azure. 
 - **Ottenere informazioni sulle dimensioni consigliate**: ottenere informazioni sulle dimensioni consigliate per le macchine virtuali di Azure in base alla cronologia delle prestazioni delle macchine virtuali locali. 
 - **Stimare i costi mensili**: ottenere una stima dei costi per l'esecuzione dei computer locali in Azure.  
-- **Eseguire la migrazione in tutta tranquillità**: visualizzare le dipendenze dei computer locali per creare gruppi di computer di cui eseguire la valutazione e la migrazione insieme. È possibile visualizzare con precisione le dipendenze per un computer specifico o per tutti i computer di un gruppo.
+- **Eseguire la migrazione in tutta tranquillità**: visualizzare le dipendenze dei computer locali per creare gruppi di computer di cui eseguire la valutazione e la migrazione insieme. 
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente è possibile valutare macchine virtuali (VM) VMware locali per la migrazione a VM di Azure.
+- Attualmente è possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a VM di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5)
 
 > [!NOTE]
-> Il supporto per Hyper-V è in programma e verrà abilitato a breve. Nel frattempo, per pianificare la migrazione di carichi di lavoro Hyper-V è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc). 
+> Il supporto per Hyper-V è in programma e sarà disponibile a breve. Nel frattempo, per pianificare la migrazione di carichi di lavoro Hyper-V è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc). 
 
 - È possibile individuare fino a 1000 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 400 VM in una singola valutazione. Se è necessario individuarne o valutarne di più, si può aumentare il numero di individuazioni o valutazioni. [Altre informazioni](how-to-scale-assessment.md).
-- Le VM da valutare devono essere gestite da un server vCenter versione 5.5, 6.0 o 6.5.
-- È possibile creare un progetto Azure Migrate solo nell'area Stati Uniti centro-occidentali. Ciò non impedisce, tuttavia, di pianificare una migrazione per una diversa località di Azure di destinazione. La località del progetto di migrazione viene usata solo per l'archiviazione dei metadati individuati nell'ambiente locale.
+- È possibile creare un progetto Azure Migrate solo nell'area Stati Uniti centro-occidentali o Stati Uniti orientali. Ciò non impedisce, tuttavia, di pianificare una migrazione per una diversa località di Azure di destinazione. La località del progetto di migrazione viene usata solo per l'archiviazione dei metadati individuati nell'ambiente locale.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 
 ## <a name="what-do-i-need-to-pay-for"></a>Costo del servizio
@@ -48,15 +44,16 @@ Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://az
 
 ## <a name="whats-in-an-assessment"></a>Elementi inclusi nella valutazione
 
-Una valutazione consente di identificare l'idoneità di Azure per le macchine virtuali locali e ottenere indicazioni sulle dimensioni consigliate e sui costi stimati per l'esecuzione delle macchine virtuali in Azure. Le valutazioni sono basate sulle proprietà riepilogate nella tabella seguente. È possibile modificare queste proprietà nel portale di Azure Migrate. 
+Una valutazione consente di identificare l'idoneità di Azure per le macchine virtuali locali e ottenere indicazioni sulle dimensioni consigliate e sui costi stimati per l'esecuzione delle macchine virtuali in Azure. È possibile personalizzare le valutazioni in base alle esigenze modificando le relative proprietà. Di seguito sono elencate le proprietà che vengono considerate nella creazione di una valutazione. 
 
 **Proprietà** | **Dettagli**
 --- | ---
 **Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione. La località predefinita è Stati Uniti occidentali 2. 
-**Ridondanza dell'archiviazione** | Tipo di archiviazione che verrà usato dalle VM di Azure dopo la migrazione. L'impostazione predefinita è l'archiviazione con ridondanza locale.
-**Piani dei prezzi** | La valutazione considera l'eventuale iscrizione a Software Assurance e la possibilità di usare il [vantaggio Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Considera anche le offerte di Azure da applicare e consente di indicare sconti specifici della sottoscrizione (%) di cui si può usufruire con l'offerta. 
-**Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) delle VM di Azure. Questo consente di eseguire la migrazione a una famiglia di VM di Azure idonea, a seconda che ci si trovi in un ambiente di produzione. Per impostazione predefinita viene usato il piano [Standard](../virtual-machines/windows/sizes-general.md).
-**Cronologia delle prestazioni** | Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia di un mese, con un valore percentile del 95%. È possibile modificare questa impostazione.
+**Ridondanza dell'archiviazione** | Tipo di [ridondanza dell'archiviazione](https://docs.microsoft.com/azure/storage/common/storage-redundancy) che le VM di Azure useranno dopo la migrazione. Per impostazione predefinita viene usata l'archiviazione con ridondanza locale. Si noti che Azure Migrate supporta solo valutazioni basate su Managed Disks e il servizio Managed Disks supporta solo l'archiviazione con ridondanza locale, per questo motivo la proprietà attualmente prevede solo l'opzione di archiviazione con ridondanza locale. 
+**Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per dimensionare correttamente le VM per Azure. È possibile definire il dimensionamento in base alla *cronologia delle prestazioni* delle VM locali o definire le dimensioni delle VM *come in locale* per Azure, senza considerare la cronologia delle prestazioni. Per impostazione predefinita viene usato il dimensionamento in base alle prestazioni.
+**Piani dei prezzi** | Per il calcolo dei costi, la valutazione considera l'eventuale iscrizione a Software Assurance e l'idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Vengono considerate anche le [offerte di Azure](https://azure.microsoft.com/support/legal/offer-details/) eventualmente sottoscritte ed è possibile specificare gli sconti specifici della sottoscrizione (%) di cui si può usufruire con l'offerta. 
+**Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le VM di Azure di destinazione. Se, ad esempio, si prevede di eseguire la migrazione di un ambiente di produzione, considerare il livello Standard, che offre VM con bassa latenza, anche se a un costo superiore. D'altra parte, se si ha un ambiente di sviluppo e test, potrebbe essere preferibile il livello Basic, che ha VM con latenza maggiore e costi minori. Per impostazione predefinita, viene usato il livello [Standard](../virtual-machines/windows/sizes-general.md).
+**Cronologia delle prestazioni** | Applicabile solo se il criterio di dimensionamento è basato sulle prestazioni. Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni dell'ultimo giorno, con un valore percentile del 95%. È possibile modificare questi valori nelle proprietà della valutazione. 
 **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. L'impostazione predefinita del fattore di comfort è 1.3x.
 
 

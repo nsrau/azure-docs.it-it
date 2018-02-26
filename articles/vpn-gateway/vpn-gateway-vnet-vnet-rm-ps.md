@@ -1,10 +1,10 @@
 ---
 title: 'Connettere una rete virtuale di Azure a un''altra rete virtuale tramite una connessione da rete virtuale a rete virtuale: PowerShell | Microsoft Docs'
-description: Questo articolo illustra in modo dettagliato la connessione tra reti virtuali tramite una connessione da rete virtuale a rete virtuale e PowerShell.
+description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f2ecf4f10c5506b79adb033c67c41a4b1e17777
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
-Questo articolo mostra come connettere reti virtuali tramite il tipo di connessione da rete virtuale a rete virtuale. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. Quando si connettono reti virtuali da sottoscrizioni diverse, non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
+Questo articolo descrive come connettere reti virtuali tramite il tipo di connessione da rete virtuale a rete virtuale. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. Quando si connettono reti virtuali da sottoscrizioni diverse, non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
 
 I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e usano PowerShell. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 

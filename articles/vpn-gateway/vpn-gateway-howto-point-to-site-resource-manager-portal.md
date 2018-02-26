@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: f7b1436901d1c2e3f7af18a8efaa058a13dc25fd
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a8af5fb2279f035d305ffc427ad831b0d5bf0cd4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
@@ -147,6 +147,11 @@ I file di configurazione del client VPN contengono le impostazioni per configura
 ## <a name="connect"></a>12. Connect to Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Per connettersi da un client VPN Windows
+
+>[!NOTE]
+>È necessario avere diritti di amministratore per il computer client Windows da cui ci si connette.
+>
+>
 
 1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connetti**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. Fare clic su **Continua** per usare privilegi elevati.
 

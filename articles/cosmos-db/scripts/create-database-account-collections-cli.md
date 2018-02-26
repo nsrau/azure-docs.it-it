@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script-creare un account Azure Cosmos DB SQL API, database e raccolta | Documenti Microsoft
-description: 'Azure CLI Script di esempio: creare un account Azure Cosmos DB SQL API, il database e raccolta'
+title: 'Script dell''interfaccia della riga di comando di Azure: Creare un account API SQL, un database e una raccolta di Azure Cosmos DB | Microsoft Docs'
+description: 'Esempio di script dell''interfaccia della riga di comando di Azure: Creare un account API SQL, un database e una raccolta di Azure Cosmos DB'
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/06/2017
 ms.author: mimig
-ms.openlocfilehash: f8225b074420983096ee89d5816b0bfe9bc138fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 3e66515c88b5b2a24d72ff5f40cd822521a71bcf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: Creare un account di SQL API tramite CLI
+# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: creare un account API SQL con l'interfaccia della riga di comando
 
-Questo script di esempio CLI crea un account Azure Cosmos DB SQL API, il database e raccolta.  
+Questo script di esempio dell'interfaccia della riga di comando di Azure crea un account API SQL, un database e una raccolta di Azure Cosmos DB.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -48,9 +48,9 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az cosmosdb create](/cli/azure/cosmosdb#create) | Crea un account Azure Cosmos DB. |
-| [az group delete](/cli/azure/resource#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Crea un account Azure Cosmos DB. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

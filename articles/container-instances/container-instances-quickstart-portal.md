@@ -1,5 +1,5 @@
 ---
-title: Avvio rapido - Creare il primo contenitore di Istanze di contenitore di Azure con il portale di Azure
+title: Avvio rapido - Creare il primo contenitore di 	Istanze di contenitore di Azure con il portale di Azure
 description: Distribuire e iniziare a usare Istanze di contenitore di Azure
 services: container-instances
 author: mmacy
@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 16e726d10b159d0a3f08f8bca197c675d748c764
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
 
@@ -27,7 +27,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 ## <a name="create-a-container-instance"></a>Creare un'istanza di contenitore
 
-Selezionare **Nuovo** > **Contenitori** > **Istanze di contenitore di Azure (anteprima)**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Istanze di contenitore di Azure (anteprima)**.
 
 ![Iniziare a creare una nuova istanza di contenitore nel portale di Azure][aci-portal-01]
 

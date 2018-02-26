@@ -6,14 +6,10 @@ Innanzitutto, creare un nuovo account di archiviazione generico da usare per que
 2. Immettere un nome univoco per l'account di archiviazione. Per la denominazione dell'account di archiviazione tenere presente queste regole:
     - Il nome deve avere una lunghezza compresa tra 3 e 24 caratteri.
     - Il nome può contenere solo lettere minuscole e numeri.
-3. Verificare che siano impostati i valori predefiniti seguenti: 
-    - **Modello di distribuzione** deve essere impostato su **Gestione risorse**.
-    - **Tipologia account** deve essere impostato su **Utilizzo generico**.
-    - **Prestazioni** deve essere impostato su **Standard**.
-    - **Replica** deve essere impostato su **Archiviazione con ridondanza locale**.
 4. Selezionare la propria sottoscrizione. 
-5. Per **Gruppo di risorse** crearne una nuova e assegnarle un nome univoco. 
-6. Selezionare la posizione da usare per l'account di archiviazione.
-7. Selezionare **Aggiungi al dashboard** e fare clic su **Crea** per creare l'account di archiviazione. 
+5. Scegliere **Gruppo di risorse** per creare un nuovo gruppo di risorse e assegnare al gruppo un nome univoco. 
+6. Selezionare il **Percorso** da usare per l'account di archiviazione.
+7. Mantenere i valori predefiniti per gli altri campi.
+8. Selezionare **Aggiungi al dashboard** e fare clic su **Crea** per creare l'account di archiviazione. 
 
-Dopo aver creato l'account di archiviazione, questo viene aggiunto al dashboard. Selezionare l'account per aprirlo. In **Impostazioni** selezionare **Chiavi di accesso**. Selezionare la chiave primaria e copiare la stringa di connessione associata negli Appunti. Incollare quindi la stringa in un editor di testo per usarla successivamente.
+Dopo aver creato l'account di archiviazione, questo viene aggiunto al dashboard del portale di Azure. Selezionare l'account di archiviazione per aprirlo. In **Impostazioni** selezionare **Chiavi di accesso**. Selezionare la chiave di accesso dell'account di archiviazione e fare clic sul pulsante **Copia** per copiare la stringa di connessione associata negli Appunti. Incollare quindi la stringa in un editor di testo per usarla successivamente.

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4105e0b4038f5dc09c503ac90ba7ad67c2fd93b8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure
 
@@ -41,9 +41,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Nel riquadro sinistro fare clic su **Nuovo**.
+1. Nel riquadro a sinistra fare clic su **Crea una risorsa**.
 
-1. Nel riquadro **Nuovo** fare clic su **Calcolo**.
+1. Nel riquadro **Crea una risorsa** fare clic su **Calcolo**.
 
 1. Fare clic su **Visualizza tutto** accanto all'intestazione **In primo piano**.
 

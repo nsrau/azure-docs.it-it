@@ -7,11 +7,11 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/07/2018
 ms.author: raynew
-ms.openlocfilehash: e7b925d2daed11ee4e070cda6bcbd4a3511d9c17
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di VM di Azure a un'altra area
 
@@ -75,7 +75,7 @@ Controllare che nelle macchine virtuali di Azure di cui eseguire la migrazione s
 Creare l'insieme di credenziali in tutte le aree, ad eccezione dell'area di origine.
 
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.
-2. Fare clic su **Nuovo** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
+2. Fare clic su **Crea una risorsa** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
 3. In **Nome** specificare il nome descrittivo **ContosoVMVault**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 4. Creare un gruppo di risorse **ContosoRG**.
 5. Specificare un'area di Azure. Per verificare le aree supportate, vedere la sezione relativa alla disponibilità a livello geografico in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/06/2017
+ms.date: 02/20/2018
 ms.author: barbkess
-ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedure consigliate per Azure SQL Data Warehouse
 Questo articolo è una raccolta di numerose procedure consigliate che consentono di ottenere prestazioni ottimali da Azure SQL Data Warehouse.  Alcuni concetti in questo articolo sono basilari e facili da spiegare, mentre altri sono più avanzati e verranno solo analizzati brevemente.  Lo scopo dell'articolo è quello di offrire alcune indicazioni di base e di far capire quali sono gli aspetti importanti su cui focalizzarsi per la creazione di un data warehouse.  Ogni sezione presenta un concetto e rimanda ad articoli più dettagliati che analizzano il concetto in modo più approfondito.
@@ -29,14 +29,8 @@ Chi è alle prime armi con Azure SQL Data Warehouse non deve farsi spaventare da
 Per linee guida relative al caricamento, vedere [Linee guida per il caricamento di dati ](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Ridurre i costi con sospensione e scalabilità
-Una funzionalità chiave di SQL Data Warehouse è la possibilità di sospendere il servizio quando non è in uso, interrompendo così la fatturazione delle risorse di calcolo.  Un'altra funzionalità fondamentale è la possibilità di ridimensionare le risorse.  È possibile sospendere e ridimensionare il servizio dal portale di Azure o usando i comandi di PowerShell.  Acquisire familiarità con queste funzionalità, perché possono ridurre notevolmente il costo del data warehouse quando non è in uso.  Se si vuole che il data warehouse sia sempre accessibile, è preferibile ridurlo fino alle dimensioni minime, DW100, invece che sospenderlo.
+Per altre informazioni sulla riduzione dei costi tramite sospensione e scalabilità, vedere [Gestire la potenza di calcolo](sql-data-warehouse-manage-compute-overview.md). 
 
-Vedere anche [Sospendere le risorse di calcolo][Pause compute resources], [Riavviare le risorse di calcolo][Resume compute resources] e [Ridimensionare le risorse di calcolo].
-
-## <a name="drain-transactions-before-pausing-or-scaling"></a>Scaricare le transazioni prima della sospensione o del ridimensionamento
-Quando si sospende o ridimensiona SQL Data Warehouse, dietro le quinte le query vengono annullate all'avvio di tale richiesta.  L'annullamento di una semplice query SELECT è un'operazione rapida senza quasi alcun impatto sul tempo necessario per sospendere o ridimensionare l'istanza.  Le query transazionali, che modificano i dati o la struttura dei dati, potrebbero tuttavia richiedere più tempo per l'arresto.  **Le query transazionali, per definizione, devono essere completate interamente oppure è necessario il rollback delle modifiche.**  Il rollback del lavoro svolto da una query transazionale può richiedere la stessa quantità di tempo, o anche maggiore, della modifica originale applicata dalla query.  Se, ad esempio, si annulla una query che sta eliminando righe e che è in esecuzione già da un'ora, potrebbe essere necessaria un'ora affinché il sistema inserisca di nuovo le righe che sono state eliminate.  Se si sospende o si ridimensiona il servizio mentre sono in corso transazioni, potrebbe sembrare che l'operazione richieda molto tempo perché per la sospensione o il ridimensionamento è necessario attendere il completamento del rollback.
-
-Vedere anche [Informazioni sulle transazioni][Understanding transactions] e [Ottimizzazione delle transazioni][Optimizing transactions]
 
 ## <a name="maintain-statistics"></a>Gestire le statistiche
 A differenza di SQL Server, che rileva e crea o aggiorna automaticamente le statistiche sulle colonne, SQL Data Warehouse richiede la manutenzione manuale delle statistiche.  Anche se per il futuro è prevista la modifica di questo comportamento, per il momento è consigliabile gestire le statistiche per garantire l'ottimizzazione dei piani di SQL Data Warehouse.  La qualità dei piani creati dall'utilità di ottimizzazione dipende dalla qualità delle statistiche disponibili.  **La creazione di statistiche campionate su ogni colonna è un modo semplice per iniziare a usare le statistiche.**  È altrettanto importante aggiornare le statistiche quando vengono apportate modifiche significative ai dati.  Un approccio conservativo consiste nell'aggiornare le statistiche ogni giorno o dopo ogni operazione di caricamento.  Sono sempre necessari compromessi tra le prestazioni e il costo di creazione e aggiornamento delle statistiche. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, è consigliabile provare a scegliere in modo più selettivo le colonne con le statistiche o quelle che richiedono aggiornamenti frequenti.  Potrebbe ad esempio essere consigliabile aggiornare le colonne di data, in cui potrebbero venire aggiunti nuovi valori ogni giorno. **Il massimo vantaggio è offerto dalle statistiche su colonne usate nei join, colonne usate nella clausola WHERE e colonne presenti in GROUP BY.**
@@ -138,7 +132,7 @@ Per inviare richieste di funzionalità è possibile usare la pagina dei [comment
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Ridimensionare le risorse di calcolo]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
 [Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
 [Troubleshooting]: ./sql-data-warehouse-troubleshoot.md

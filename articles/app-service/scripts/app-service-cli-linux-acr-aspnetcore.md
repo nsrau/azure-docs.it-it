@@ -18,20 +18,20 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 9412b7175cc8e6879779bc923aa6b40d01125df7
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>Creare un'App Web ASP.NET Core in un contenitore Docker dal Registro di sistema del contenitore di Azure
 
-Questo script di esempio crea un gruppo di risorse, un piano di Linux App Service e un'app web. Quindi distribuisce un'applicazione ASP.NET di base utilizzando un contenitore Docker dal Registro di sistema contenitore di Azure.
+Questo script di esempio crea un gruppo di risorse, un piano di servizio app Linux e un'app Web. Distribuisce quindi un'applicazione ASP.NET Core usando un contenitore Docker del Registro contenitori di Azure.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 

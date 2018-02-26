@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fe5717b6dece6c6d03586045fb5fa0ccadd5e262
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0bef14a03c27feb07683f4805aa4264eb91eda6e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
 
@@ -30,7 +30,7 @@ Nelle esercitazioni successive, questa istanza di Registro contenitori di Azure 
 
 Nell'[esercitazione precedente][aks-tutorial-prepare-app] è stata creata un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Voting non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.27 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
 

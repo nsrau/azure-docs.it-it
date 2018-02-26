@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -116,7 +116,7 @@ Per eseguire l'applicazione nel cloud, eseguire i passaggi seguenti:
 Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) nel browser.
-2. Fare clic su **Nuovo > Calcolo > Servizio cloud**.
+2. Fare clic su **Crea una risorsa > Calcolo > Servizio cloud**.
 
 3. Nella casella di input Nome DNS immettere un prefisso URL per il servizio cloud.
 
@@ -135,7 +135,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 ### <a name="create-an-azure-sql-database"></a>Creare un database SQL di Azure
 Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo > Database > Database SQL**.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa > Database > Database SQL**.
 2. Nella casella **Nome database** immettere *contosoads*.
 3. In **Gruppo di risorse** fare clic su **Usa esistente** e selezionare il gruppo di risorse usato per il servizio cloud.
 4. Nella schermata illustrata di seguito fare clic su **Server - Configurare le impostazioni necessarie** e **Creare un nuovo server**.
@@ -162,7 +162,7 @@ Un account di archiviazione di Azure offre risorse per l'archiviazione di dati d
 
 In un'applicazione effettiva si creano in genere account separati per i dati dell'applicazione rispetto ai dati di registrazione e account separati per i dati di test rispetto ai dati di produzione. In questa esercitazione sarà usato un solo account.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo > Archiviazione > Account di archiviazione: BLOB, File, Tabelle, Code**.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa > Archiviazione > Account di archiviazione: BLOB, File, Tabelle, Code**.
 2. Nella casella **Nome** immettere un prefisso URL.
 
     La combinazione di questo prefisso e del testo visualizzato sotto la casella corrisponderà all'URL univoco dell'account di archiviazione. Se il prefisso immesso è già stato usato, sarà necessario scegliere un prefisso diverso.

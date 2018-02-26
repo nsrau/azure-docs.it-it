@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0013b3b1e95d733191aeafcffcda078a352d034f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 33889e391d3060f08294f81b35f180c1318d9f4c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js nel Servizio app di Azure in Linux
 
@@ -31,7 +31,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 ![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-È possibile seguire la procedura disponibile in questa esercitazione con un computer Mac, Windows o Linux.
+È possibile seguire la procedura disponibile in questa esercitazione con un computer Mac, Windows o Linux. È anche possibile seguire [il video](#video) relativo all'argomento di questo articolo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -180,6 +180,10 @@ Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile esegu
 Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+
+## <a name="video"></a>Video
+
+[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

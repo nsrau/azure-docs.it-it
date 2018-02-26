@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 959c0e8693f4bba49488bbe85e334599823ad0ed
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a5c95fc7ddf78987d8a7b135d54f359eb5c49946
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
@@ -93,16 +93,11 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
 * **Disabilitazione ed eliminazione di file di log IIS**: un avviso simile a questo indica che i file di log IIS sono stati disabilitati e/o eliminati. Tale operazione viene spesso usata dagli utenti malintenzionati per cercare di coprire le proprie tracce.
 * **Eliminazione sospetta di file**: un avviso simile a questo indica un'eliminazione sospetta di file, che può essere usata da un utente malintenzionato per rimuovere la prova di file binari dannosi.
 * **Tutte le copie shadow dei file sono state eliminate**: un avviso simile a questo indica che le copie shadow sono state eliminate.
-* **Un file della cronologia è stato cancellato**: un avviso simile a questo indica che il file di log della cronologia di un comando è stato cancellato. Tale operazione può essere usata da un utente malintenzionato per coprire le proprie tracce.
 * **Comandi sospetti di pulizia file**: un avviso simile a questo indica una combinazione di comandi systeminfo usati per eseguire un'attività di pulizia automatica successiva a una compromissione.  Anche se *systeminfo.exe* è uno strumento legittimo di Windows, è raro che venga eseguito due volte in successione, seguito da una comando di eliminazione come in questo caso.
 * **Creazione sospetta di account**: un avviso simile a questo indica che è stato creato un account molto somigliante a un account predefinito esistente con privilegi amministrativi. Questa tecnica può essere usata da utenti malintenzionati per creare un account non autorizzato senza essere rilevati.
-* **Attività di accesso sospetta**: un avviso simile a questo indica un'attività di accesso insolita, che può suggerire un attacco di forza bruta SMB (Server Message Block). Se la risorsa interessata funge da server IIS, questo avviso potrebbe essere generato da una specifica configurazione di autenticazione IIS legittima.
 * **Attività di copia Shadow del volume sospetta**: un avviso simile a questo indica un'attività di eliminazione della copia shadow sulla risorsa. Copia Shadow del volume è un importante elemento che archivia gli snapshot di dati. Questa attività, anche se in genere è associata a Ransowmare, può tuttavia essere legittima.
 * **Metodo di salvataggio permanente del Registro di sistema di Windows**: un avviso simile a questo indica un tentativo di salvare in modo permanente un file eseguibile nel Registro di sistema di Windows. Il malware usa spesso tale tecnica per superare un avvio.
-* **Windows Firewall è stato disabilitato**: un avviso simile a questo indica che Windows Firewall è stato disabilitato.
 * **Nuova regola del firewall sospetta**: un avviso simile a questo indica che è stata aggiunta una nuova regola del firewall tramite *netsh.exe* per consentire il traffico da un file eseguibile in una posizione sospetta.
-* **Un nuovo utente è stato aggiunto al gruppo Administrators**: un avviso simile a questo indica che un nuovo utente è stato aggiunto al gruppo dell'amministratore locale.
-* **È stato creato un nuovo servizio**: un avviso simile a questo indica che è stato creato un nuovo servizio.
 * **Esecuzioni XCOPY sospette**: un avviso simile a questo indica una serie di esecuzioni XCOPY che potrebbero segnalare che uno dei computer è stato compromesso ed è stato usato per propagare il malware.
 * **Eliminazione delle note legali visualizzate dagli utenti all'accesso**: un avviso simile a questo indica una modifica alla chiave del Registro di sistema che determina se le note legali vengono visualizzate dagli utenti quando effettuano l'accesso. Si tratta di un'attività comunemente eseguita dagli utenti malintenzionati dopo avere compromesso un host.
 * **Rilevata combinazione anomala di caratteri maiuscoli e minuscoli nella riga di comando**: un avviso simile a questo indica l'uso di una combinazione di caratteri maiuscoli e minuscoli nella riga di comando, che è una tecnica usata dagli utenti malintenzionati per nascondersi da regole del computer con distinzione tra maiuscole e minuscole o basate su hash.
@@ -123,15 +118,10 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
 * **Modifiche sospette a Set-ExecutionPolicy e WinRM**: un avviso simile a questo indica modifiche di configurazione, associate all'uso della shell Web ChinaChopper dannosa.
 * **Disabilitazione di servizi critici**: un avviso simile a questo indica che il comando "net.exe stop" è stato usato per arrestare servizi critici, ad esempio SharedAccess o il Centro sicurezza PC Windows.
 * **Uso sospetto dell'opzione -s dell'FTP**: un avviso simile a questo indica l'uso dell'opzione "-s" dell'FTP, che può essere usata dal malware per connettersi a un server FTP remoto e scaricare file binari dannosi aggiuntivi.
-* **Preparazione dell'esfiltrazione di documenti tramite la backdoor di IIS**: un avviso simile a questo indica che è in corso la raccolta e la preparazione di documenti per l'esfiltrazione.
 * **Esecuzione sospetta del comando VBScript.Encode**: un avviso simile a questo indica che è stato eseguito il comando *VBScript.Encode*, che codifica gli script in testo non leggibile, rendendo più difficile agli utenti esaminare il codice.
 * **Allocazione di un oggetto HTTP VBScript**: un avviso simile a questo indica la creazione di un file VBScript tramite il prompt dei comandi, che può essere usato per scaricare file dannosi.
 * **Attacco basato su tasti permanenti**: un avviso simile a questo indica che è possibile che un utente malintenzionato stia compromettendo un elemento binario di accessibilità (ad esempio, tasti permanenti, tastiera su schermo, assistente vocale) per fornire l'accesso tramite backdoor.
 * **Indicatori ransomware Petya**: un avviso simile a questo indica che sono state osservate le tecniche associate al ransomware Petya.
-* **È stato caricato un modulo kernel**: un avviso simile a questo indica che è stato caricato un modulo kernel.
-* **È stato rimosso un modulo kernel**: un avviso simile a questo indica che è stato rimosso un modulo kernel.
-* **Accesso anomalo a un computer**: un avviso simile a questo indica che un utente ha eseguito l'accesso da un indirizzo IP insolito.
-* **Un file è stato scaricato ed eseguito**: un avviso simile a questo indica che un file è stato scaricato nel computer, gli sono stati assegnati privilegi di esecuzione e quindi è stato eseguito.
 * **Tentativo di disabilitare l'interfaccia di analisi antimalware**: un avviso simile a questo indica un tentativo di disabilitare l'interfaccia di analisi antimalware per disabilitare il rilevamento antimalware.
 * **Indicatori ransomware**: un avviso simile a questo indica un'attività sospetta in genere associata a un ransomware relativo alla schermata di blocco e alla crittografia.
 * **File di output di raccolta delle tracce sospetto**: un avviso simile a questo indica che una traccia (ad esempio, di un'attività di rete) è stata raccolta e visualizzata in un tipo di file insolito.
@@ -145,14 +135,8 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
 * **Costruzione di script di PowerShell dinamica**: un avviso simile a questo indica che è in corso la costruzione dinamica di uno script di PowerShell. Gli utenti malintenzionati usano questa tecnica per la compilazione progressiva di uno script per potersi sottrarre ai sistemi di rilevamento delle intrusioni.
 * **Indicatori Metasploit**: un avviso simile a questo indica un'attività associata al framework Metasploit, in cui sono disponibili svariate funzionalità e strumenti per gli utenti malintenzionati.
 * **Attività sospetta di un account**: un avviso simile a questo indica un tentativo di connettersi a un computer usando un account compromesso di recente.
-* **Possibile accesso sospetto basato su attività di pianificazione**: un avviso simile a questo indica che è stato eseguito un processo CRON, che può essere usato da utenti malintenzionati per eseguire programmi dannosi in base a una pianificazione.
-* **Possibile accesso sospetto al file della cronologia dei comandi**: un avviso simile a questo indica un accesso insolito al file della cronologia dei comandi.
 * **Creazione di account**: un avviso simile a questo indica una creazione di un nuovo account nel computer.
-* **Modifica dell'impostazione di Bash**: un avviso simile a questo indica che è stato eseguito l'accesso a un file del profilo Bash. Tale operazione può suggerire che un utente malintenzionato sta provando a eseguire programmi dannosi in base a una pianificazione.
-* **Sequenza sospetta di tentativi sudo non riusciti**: un avviso simile a questo indica una sequenza di comandi sudo non riusciti, osservabile spesso nei tentativi di attacco di forza bruta il cui scopo è l'escalation dei privilegi tramite utenti non autorizzati.
-* **Tentativi sudo riusciti sospetti**: un avviso simile a questo indica una sequenza di comandi sudo non riusciti seguito da un tentativo sudo riuscito, osservabile spesso nei tentativi di attacco di forza bruta il cui scopo è l'escalation dei privilegi tramite utenti non autorizzati.
-* **È stato aggiunto un nuovo utente al gruppo sudoers**: un avviso simile a questo indica che un utente è stato aggiunto al gruppo sudoers per consentire ai membri di eseguire i comandi con privilegi elevati.
-* **Accesso alla rete con credenziali in testo non crittografato**: un avviso simile a questo indica che è stato osservato un accesso alla rete in cui la password è stata inviata in rete in formato non crittografato. Questo comportamento è comune per gli accessi da uno script ASP tramite ADVAPI o quando un utente accede ad IIS usando la modalità di autenticazione di base di IIS. L'autenticazione di base non è il metodo consigliato a meno che non ne venga eseguito il wrapping in un livello di crittografia come SSL (ad esempio, usando solo connessioni HTTPS).
+
 
 ### <a name="crash-analysis"></a>Analisi degli arresti anomali
 
@@ -206,6 +190,8 @@ Se sono disponibili ulteriori informazioni, verrà visualizzato nell'evento impr
 - Eventi di cancellazione di log
 - Dispositivi Plug and Play collegati da dispositivi sconosciuti
 - Avvisi non operativi
+- Creazione di nuovi account
+- File decodificato tramite lo strumento certutil 
 
 ![Avviso di accesso insolito](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

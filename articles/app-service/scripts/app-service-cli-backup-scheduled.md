@@ -1,6 +1,6 @@
 ---
-title: 'Azure CLI Script di esempio: creare un backup pianificato per un''app web | Documenti Microsoft'
-description: 'Azure CLI Script di esempio: creare un backup pianificato per un''app web'
+title: 'Esempio di script dell''interfaccia della riga di comando di Azure: Creare un backup pianificato per un''app Web | Microsoft Docs'
+description: 'Esempio di script dell''interfaccia della riga di comando di Azure: Creare un backup pianificato per un''app Web'
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,19 +16,19 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: fe5d2ca6fe5327f40adf134e94cf9b00ad98d243
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Creare un backup pianificato per un'app Web
 
-Questo script di esempio crea un'app web nel servizio App con le relative risorse correlate e quindi crea un backup pianificato per il. 
+Questo script di esempio crea un'app Web nel servizio app con le relative risorse e quindi crea un backup pianificato per tale app. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -48,8 +48,8 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_generate_sas) | Genera un token di firma di accesso condiviso per un contenitore di archiviazione di Azure.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | Consente di creare un piano di servizio app. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Crea un'App Web di Azure. |
-| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_update) | Configura una nuova pianificazione di backup per un'app web. |
-| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_show) | Mostra la pianificazione del backup per un'app web. |
+| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_update) | Configura una nuova pianificazione del backup per un'app Web. |
+| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_show) | Visualizza la pianificazione del backup per un'app Web. |
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az_webapp_config_backup_list) | Ottiene un elenco di copie di backup per un'app Web. |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: b7ea43419cbbb5f5d38f8ad721d564650c3681a6
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 84758fbf8f19728370280d5d94acb478ff739019
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creare una nuova istanza del servizio Gestione API di Azure
 
@@ -34,7 +34,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Creare un nuovo servizio
 
-1. Nel [portale di Azure](https://portal.azure.com/)selezionare **Nuova** > **Integrazione aziendale** > **Gestione API**.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Crea una risorsa** > **Integrazione aziendale** > **Gestione API**.
 
     In alternativa scegliere **Nuova**, digitare `API management` nella casella di ricerca e premere INVIO. Fare clic su **Crea**.
 

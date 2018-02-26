@@ -6,14 +6,14 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 471caa1b24dc7017c70782c072b2068f9635244b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 250f74b1a05959b93000452c4d5f025311f379d8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Distribuire un contenitore in Istanze di contenitore di Azure
 
@@ -50,13 +50,15 @@ Password del registro contenitori:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Per distribuire l'immagine del contenitore dal registro contenitori con una richiesta di risorse di 1 core CPU e 1 GB di memoria, eseguire il comando seguente: Sostituire `<acrLoginServer>` e `<acrPassword>` con i valori ottenuti dai due comandi precedenti.
+Per distribuire l'immagine del contenitore dal registro contenitori con una richiesta di risorse di 1 core CPU e 1 GB di memoria, eseguire il comando seguente: Sostituire `<acrLoginServer>` e `<acrPassword>` con i valori ottenuti dai due comandi precedenti. Sostituire `<acrName>` con il nome del registro contenitori.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure Resource Manager. Per visualizzare lo stato della distribuzione, usare il comando [az container show][az-container-show]:
+Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure Resource Manager. Il valore `--dns-name-label` deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Aggiornare il valore nell'esempio precedente se viene visualizzato un messaggio di errore relativo all'**etichetta del nome DNS** quando si esegue il comando.
+
+Per visualizzare lo stato della distribuzione, usare il comando [az container show][az-container-show]:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
@@ -66,15 +68,15 @@ Ripetere il comando [az container show][az-container-show] fino a quando lo stat
 
 ## <a name="view-the-application-and-container-logs"></a>Visualizzare l'applicazione e i log dei contenitori
 
-Quando la distribuzione ha esito positivo, visualizzare l'indirizzo IP pubblico del contenitore con il comando [az container show][az-container-show]:
+Dopo aver completato la distribuzione, visualizzare il nome di dominio completo (FQDN) del contenitore usando il comando [az container show][az-container-show]:
 
 ```bash
-az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.ip
+az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Output di esempio: `"13.88.176.27"`
+Output di esempio: `"aci-demo.eastus.azurecontainer.io"`
 
-Per visualizzare l'applicazione in esecuzione, esplorare l'indirizzo IP pubblico nel browser preferito.
+Per visualizzare l'applicazione in esecuzione, passare al nome DNS visualizzato in un browser a scelta:
 
 ![App Hello World nel browser][aci-app-browser]
 

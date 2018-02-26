@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aee1b0ded7a26df802ca2f05d6e93c153fa0476
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 76fcdff6804cd1fa66c846597218d351eb6f4c77
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster di Service Fabric che esegue Windows in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) e in un [gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) usando PowerShell e un modello. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni.  Per creare un cluster Linux usando l'interfaccia della riga di comando di Azure, vedere come [creare un cluster Linux protetto in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Creare un cluster sicuro in Azure
-> * [Aumentare o ridurre un cluster](/service-fabric-tutorial-scale-cluster.md)
+> * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
@@ -66,7 +66,7 @@ Il certificato del cluster deve:
 
 L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster.
 
-Questa esercitazione distribuisce un cluster con cinque nodi in un unico tipo di nodo. La [pianificazione della capacità](service-fabric-cluster-capacity.md), tuttavia, è un passaggio importante per qualsiasi distribuzione di cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
+Questa esercitazione visualizza un cluster con cinque nodi in un tipo a nodo singolo. La [pianificazione della capacità](service-fabric-cluster-capacity.md), tuttavia, è un passaggio importante per qualsiasi distribuzione di cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
 
 - Numero e tipi di nodi necessari per il cluster 
 - Proprietà di ogni tipo di nodo (ad esempio, dimensione, tipo primario, tipo per Internet e numero di macchine virtuali)

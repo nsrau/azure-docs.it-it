@@ -15,17 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/10/2018
 ms.author: owend
-ms.openlocfilehash: ecc95181f61f556b18fa820617ea5ad0636c7a4b
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 3bc0ed965aea043fd5c105752ec39d07c4af818f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: esercitazione su Adventure Works
 
 Questa esercitazione comprende una serie di lezioni sulla creazione e la distribuzione di un modello tabulare al livello di compatibilità 1400 tramite Visual Studio con [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Se non si ha familiarità con Analysis Services e la modellazione tabulare, completare questa esercitazione è il modo più rapido per imparare a creare un modello tabulare di base usando Visual Studio. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
+Se non si ha familiarità con Analysis Services e la creazione di modelli tabulari, completare questa esercitazione per imparare rapidamente a creare e distribuire un modello tabulare di base usando Visual Studio. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
   
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione   
   
@@ -43,7 +43,7 @@ Se non si ha familiarità con Analysis Services e la modellazione tabulare, comp
   
 -   Protezione di oggetti e dati del modello tramite la creazione di ruoli con membri utente.  
   
--   Distribuzione di un modello tabulare in un server **Azure Analysis Services** o in un server SQL Server 2017 Analysis Services locale.  
+-   Distribuzione di un modello tabulare in un server **Azure Analysis Services** o in un server **SQL Server 2017 Analysis Services** tramite SSDT.  
   
 ## <a name="prerequisites"></a>prerequisiti  
 Per completare questa esercitazione, sono necessari:  

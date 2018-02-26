@@ -17,13 +17,13 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Creare un backup pianificato per un'app Web
 
-Questo script di esempio crea un'app web nel servizio App con le relative risorse correlate e quindi crea un backup pianificato per il. 
+Questo script di esempio crea un'app Web nel servizio app con le relative risorse e quindi crea un backup pianificato per tale app. 
 
 Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure. 
 

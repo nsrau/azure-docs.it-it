@@ -1,6 +1,6 @@
 ---
-title: Esempio di Script CLI di Azure - backup di un'app web | Documenti Microsoft
-description: Esempio di Script CLI di Azure - backup di un'app web
+title: 'Esempio di script dell''interfaccia della riga di comando di Azure: Eseguire il backup di un''app Web | Microsoft Docs'
+description: 'Esempio di script dell''interfaccia della riga di comando di Azure: Eseguire il backup di un''app Web'
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -16,7 +16,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: e585c9b203145dcdaf2b63a6044ba2e3bded9572
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/08/2017
 ---
@@ -28,7 +28,7 @@ Questo script di esempio crea un'app Web nel servizio app con le relative risors
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario Azure CLI versione 2.0 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 

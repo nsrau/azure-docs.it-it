@@ -3,22 +3,20 @@ title: Caricare i dati immagine nel cloud con Archiviazione di Azure | Microsoft
 description: Usare l'archiviazione BLOB di Azure con un'applicazione Web per archiviare i dati dell'applicazione
 services: storage
 documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: 
+author: tamram
+manager: jeconnoc
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eae23bed2792e41f73c22658d238e2b03beba17b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e3c40d0f3db1a33a405a341a714a7ce199908ca4
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Caricare i dati immagine nel cloud con Archiviazione di Azure
 
@@ -67,11 +65,11 @@ az storage account create --name <blob_storage_account> \
  
 ## <a name="create-blob-storage-containers"></a>Creare contenitori di archiviazione BLOB
  
-L'app usa due contenitori nell'account di archiviazione BLOB. I contenitori sono simili alle cartelle e vengono usati per archiviare BLOB. Il contenitore _images_ è la posizione in cui l'applicazione carica le immagini ad alta risoluzione. Nella seconda parte della serie, un'app per le funzioni di Azure carica le anteprime delle immagini ridimensionate nel contenitore _thumbs_. 
+L'app usa due contenitori nell'account di archiviazione BLOB. I contenitori sono simili alle cartelle e vengono usati per archiviare BLOB. Il contenitore _images_ è la posizione in cui l'applicazione carica le immagini ad alta risoluzione. In una parte successiva della serie un'app per le funzioni di Azure carica le anteprime delle immagini ridimensionate nel contenitore _thumbnails_. 
 
 Usare il comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) per ottenere le chiavi dell'account di archiviazione. Usare quindi la chiave per creare due contenitori usando il comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
  
-In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato. L'accesso pubblico ai contenitori _images_ è impostato su `off`, l'accesso pubblico ai contenitori _thumbs_ è impostato su `container`. L'accesso pubblico `container` fa sì che le anteprime siano visibili agli utenti che visitano la pagina Web.
+In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato. L'accesso pubblico ai contenitori _images_ è impostato su `off`, mentre l'accesso pubblico ai contenitori _thumbails_ è impostato su `container`. L'accesso pubblico `container` fa sì che le anteprime siano visibili agli utenti che visitano la pagina Web.
  
 ```azurecli-interactive 
 blobStorageAccount=<blob_storage_account>
@@ -82,7 +80,7 @@ blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 az storage container create -n images --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access off 
 
-az storage container create -n thumbs --account-name $blobStorageAccount \
+az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your blob storage account key..." 
@@ -135,7 +133,7 @@ Nel comando seguente `<blob_storage_account>` è il nome dell'account di archivi
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbs \
+AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ``` 
 
@@ -196,15 +194,15 @@ Verificare che l'immagine venga visualizzata nel contenitore.
 
 Per testare la visualizzazione dell'anteprima, caricare un'immagine nel contenitore delle anteprime per garantire che l'applicazione sia in grado di leggere il contenitore delle anteprime.
 
-Accedere al [portale di Azure](https://portal.azure.com). Nel menu a sinistra selezionare **Account di archiviazione** e quindi selezionare il nome dell'account di archiviazione. Selezionare **Contenitori** in **Servizio BLOB** e selezionare il contenitore **thumbs**. Selezionare **Carica** per aprire il riquadro **Carica BLOB**.
+Accedere al [portale di Azure](https://portal.azure.com). Nel menu a sinistra selezionare **Account di archiviazione** e quindi selezionare il nome dell'account di archiviazione. Selezionare **Contenitori** in **Servizio BLOB** e quindi selezionare il contenitore **thumbnails**. Selezionare **Carica** per aprire il riquadro **Carica BLOB**.
 
 Scegliere un file usando il selettore di file e selezionare **Carica**.
 
-Tornare all'app per verificare che l'immagine caricata nel contenitore **thumbs** sia visibile.
+Tornare all'app per verificare che l'immagine caricata nel contenitore **thumbnails** sia visibile.
 
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/figure2.png)
 
-Nel contenitore **thumbs** nel portale di Azure selezionare l'immagine caricata e selezionare **Elimina** per eliminare l'immagine. Nella seconda parte della serie si automatizza la creazione delle immagini di anteprima, pertanto questa immagine di test non è necessaria.
+Nel contenitore **thumbnails** nel portale di Azure selezionare l'immagine caricata e quindi selezionare **Elimina** per eliminare l'immagine. Nella seconda parte della serie si automatizza la creazione delle immagini di anteprima, pertanto questa immagine di test non è necessaria.
 
 È possibile abilitare la rete CDN per memorizzare nella cache i contenuti dell'account di archiviazione di Azure. Benché non sia descritta in questa esercitazione, per informazioni su come abilitare la rete CDN con il proprio account di archiviazione di Azure è possibile visitare la pagina [Integrare un account di archiviazione di Azure con la rete CDN di Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 

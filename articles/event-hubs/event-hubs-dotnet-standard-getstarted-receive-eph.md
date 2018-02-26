@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard
 
@@ -42,7 +42,7 @@ Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azur
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure  
 
 1. Accedere al [portale di Azure](https://portal.azure.com).  
-2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Archiviazione** e quindi su **Account di archiviazione**.  
+2. Nel riquadro di spostamento sinistro del portale fare clic su **Crea una risorsa**, quindi su **Archiviazione** e infine su **Account di archiviazione**.  
 3. Completare i campi nella finestra dell'account di archiviazione e quindi fare clic su **Crea**.
 
     ![Crea account di archiviazione][1]

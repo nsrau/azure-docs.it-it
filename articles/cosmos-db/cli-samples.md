@@ -17,7 +17,7 @@ ms.date: 11/29/2017
 ms.author: mimig
 ms.openlocfilehash: 432ffc80d602a9e4eaf83fba15f0e6ebabd13603
 ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -30,7 +30,7 @@ La tabella seguente include collegamenti a esempi di script di interfaccia della
 | |  |
 |---|---|
 |**Creare account di database e contenitori di Azure Cosmos DB**||
-|[Creare un account SQL API](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un singolo account Azure Cosmos DB API, database e contenitore per l'utilizzo con l'API di SQL. |
+|[Creare un account API SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un account, un database e un contenitore dell'API Azure Cosmos DB da usare con l'API SQL. |
 | [Creare un account di API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un singolo account di API MongoDB, database e raccolta di Azure Cosmos DB. |
 |**Scalare Azure Cosmos DB**||
 | [Scalare la velocità effettiva del contenitore](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Modifica la velocità effettiva con provisioning in un contenitore.|

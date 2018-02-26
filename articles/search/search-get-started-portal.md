@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creare, eseguire query e filtrare un indice di Ricerca di Azure nel portale
 
@@ -46,7 +46,7 @@ Se non si vuole eseguire subito il provisioning di un servizio, è possibile gua
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Aprire il dashboard relativo al servizio Ricerca di Azure. Se il riquadro del servizio non è stato aggiunto al dashboard, seguire questa procedura per trovare il servizio: 
    
-   * Nell'indice fare clic su **Altri servizi** nella parte inferiore del riquadro di spostamento a sinistra.
+   * Nell'indice fare clic su **Tutti i servizi** nel riquadro di spostamento a sinistra.
    * Nella casella di ricerca digitare *cerca* per ottenere un elenco dei servizi di ricerca per la sottoscrizione. Il servizio verrà visualizzato nell'elenco. 
 
 ## <a name="check-for-space"></a>Verificare lo spazio

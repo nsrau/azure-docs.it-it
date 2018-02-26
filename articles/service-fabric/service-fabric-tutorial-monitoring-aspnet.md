@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb6aca8d99e32948b8a01a2f893bcf40d160a76c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric
 Questa è la quarta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md). 
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="set-up-an-application-insights-resource"></a>Configurare una risorsa di Application Insights
-Application Insights è la piattaforma di gestione delle prestazioni delle applicazioni di Azure e la piattaforma consigliata di Service Fabric per il monitoraggio delle applicazioni e la diagnostica. Per creare una risorsa di Application Insights, accedere al [portale di Azure](https://portal.azure.com). Fare clic su **Nuovo** nel menu di navigazione di sinistra per aprire Azure Marketplace. Fare clic su **Monitoraggio e gestione**, quindi su **Application Insights**.
+Application Insights è la piattaforma di gestione delle prestazioni delle applicazioni di Azure e la piattaforma consigliata di Service Fabric per il monitoraggio delle applicazioni e la diagnostica. Per creare una risorsa di Application Insights, accedere al [portale di Azure](https://portal.azure.com). Fare clic su **Crea una risorsa** nel menu di spostamento a sinistra per aprire Azure Marketplace. Fare clic su **Monitoraggio e gestione**, quindi su **Application Insights**.
 
 ![Creare una nuova risorsa di AI](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 

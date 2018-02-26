@@ -1,4 +1,4 @@
-Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Nuovo** > **Database** > **Cache Redis**.
+Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Crea una risorsa** > **Database** > **Cache Redis**.
 
 > [!NOTE]
 > Se non si ha un account Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in pochi minuti.
@@ -16,12 +16,12 @@ Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e
 > 
 > 
 
-Nel pannello **Nuova cache Redis** specificare la configurazione desiderata per la cache.
+In **Nuova cache Redis** specificare la configurazione desiderata per la cache.
 
 ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
 * In **Nome DNS**immettere il nome univoco di una cache da usare per l'endpoint della cache. Il nome della cache deve essere una stringa contenente da 1 a 63 caratteri che possono includere solo numeri, lettere e il carattere `-` . Il nome della cache non può iniziare o terminare con il carattere `-` e i caratteri `-` consecutivi non sono validi.
-* Per **Sottoscrizione**selezionare la sottoscrizione di Azure da usare per la cache. Se l'account ha una sola sottoscrizione, questa verrà selezionata automaticamente e l'elenco a discesa **Sottoscrizione** non verrà visualizzato.
+* Per **Sottoscrizione**selezionare la sottoscrizione di Azure da usare per la cache. Se l'account ha una sola sottoscrizione, questa viene selezionata automaticamente e l'elenco a discesa **Sottoscrizione** non viene visualizzato.
 * In **Gruppo di risorse**selezionare o creare un gruppo di risorse per la cache. Per altre informazioni, vedere [Uso di gruppi di risorse per gestire le risorse di Azure](../articles/azure-resource-manager/resource-group-overview.md). 
 * Usare **Posizione** per specificare la posizione geografica in cui viene ospitata la cache. Per prestazioni ottimali, è consigliabile creare la cache nella stessa area dell'applicazione client della cache.
 * Usare **Piano tariffario** per selezionare le dimensioni e le funzionalità desiderate per la cache.

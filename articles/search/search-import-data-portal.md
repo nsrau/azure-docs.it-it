@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importare dati in Ricerca di Azure tramite il portale
 Il portale di Azure include una procedura guidata **Importa dati** nel dashboard di Ricerca di Azure che permette di caricare i dati in un indice. 
@@ -49,7 +49,7 @@ La procedura guidata Importa dati supporta le origini dati seguenti:
 Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'importazione solo da una singola tabella, di una vista di database o di una struttura dei dati equivalente. È necessario creare la struttura dei dati prima di eseguire la procedura guidata.
 
 ## <a name="connect-to-your-data"></a>Connettersi ai dati
-1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il dashboard del servizio. Per cercare i servizi di ricerca esistenti nella sottoscrizione corrente, è possibile fare clic su **Altri servizi** nell'indice. 
+1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il dashboard del servizio. Per cercare i servizi di ricerca esistenti nella sottoscrizione corrente, è possibile fare clic su **Tutti i servizi** nell'indice. 
 2. Fare clic su **Importa dati** nella barra dei comandi per aprire il pannello corrispondente.  
 3. Fare clic su **Definisci la connessione ai dati** per specificare una definizione dell'origine dati usata da un indicizzatore. Per le origini dati all'interno della sottoscrizione, la procedura guidata può in genere rilevare e leggere le informazioni di connessione, riducendo al minimo i requisiti di configurazione complessivi.
 

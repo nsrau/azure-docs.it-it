@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 95934ce8be3570918f72ed7f8101a3599512abed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
 ## <a name="overview"></a>Panoramica
@@ -28,7 +28,7 @@ Il servizio mobile esistente è al sicuro e continuerà ad essere supportato. La
 * Nuove funzionalità host che includono processi Web, CName personalizzati e monitoraggio migliorato.
 * Integrazione con Gestione traffico.
 * Connettività alle risorse locali e alle VPN attraverso reti virtuali e connessioni ibride.
-* Monitoraggio, avvisi e risoluzione dei problemi delle app con NewRelic o AppInsights
+* Monitoraggio, avvisi e risoluzione dei problemi delle app con AppInsights
 * Spettro più ampio di risorse di calcolo sottostanti e prezzi.
 * Scalabilità automatica predefinita, bilanciamento del carico e monitoraggio delle prestazioni.
 * Funzionalità predefinite di gestione temporanea, backup, rollback e test in ambiente di produzione.
@@ -54,7 +54,7 @@ Il *servizio app di Azure* offre un supporto più ampio e avanzato per le piatta
 Con Servizi mobili, tutte le istanze del codice back-end vengono eseguite in macchine virtuali del tipo Piccola. *servizio app di Azure* permette di selezionare le dimensioni delle macchine virtuali da un set di opzioni molto più ampio. È anche possibile aumentare le prestazioni o il numero di istanze per gestire qualsiasi carico di lavoro in ingresso dei clienti, in base a varie metriche delle prestazioni.
 
 ## <a name="be-in-the-know"></a>Tutto sotto controllo
-Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di avanzate funzionalità analitiche e di monitoraggio fornite da New Relic e AppInsights consentono di ottenere informazioni dettagliate sulle prestazioni dell'app per dispositivi mobili. Con il *servizio app di Azure* è ora possibile configurare avvisi in base a diverse metriche delle prestazioni, sia a livello di codice che tramite portale di Azure.
+Il monitoraggio e gli avvisi consentono di reagire ai problemi in tempo reale grazie alle notifiche automatiche all'utente e al suo team. L'integrazione di funzionalità avanzate di analisi e monitoraggio fornite da AppInsights per le app consente di ottenere informazioni dettagliate sulle prestazioni dell'app per dispositivi mobili. Con il *servizio app di Azure* è ora possibile configurare avvisi in base a diverse metriche delle prestazioni, sia a livello di codice che tramite portale di Azure.
 
 ## <a name="keep-your-assets-safe"></a>Asset sempre al sicuro
 Backup automatico del back-end e del database. Il codice e i dati sono sempre al sicuro in situazioni di emergenza e possono essere facilmente ripristinati, consentendo la conduzione del business in tutta serenità.

@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2017
-ms.openlocfilehash: f427b23ca4b48da79759584bdcc98c1002c054c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 88fd06d45d0cd966199ce198578eedd349adc2c8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creare un database di Azure per il server MySQL con il portale di Azure
 Database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database MySQL a disponibilità elevata nel cloud. Questa guida introduttiva illustra come creare un database di Azure per il server MySQL in circa cinque minuti usando il portale di Azure.  
@@ -29,7 +29,7 @@ Si crea un database di Azure per il server MySQL con un set definito di [risorse
 
 Seguire questa procedura per creare un database di Azure per il server MySQL:
 
-1. Selezionare il pulsante **Nuovo** (+) nell'angolo superiore sinistro del portale.
+1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
 
 2. Selezionare **Database** > **Database di Azure per MySQL**. È anche possibile digitare **MySQL** nella casella di ricerca per trovare il servizio.
 

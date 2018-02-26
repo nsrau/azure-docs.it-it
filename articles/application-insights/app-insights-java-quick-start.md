@@ -5,16 +5,16 @@ services: application-insights
 keywords: 
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/10/2017
+ms.date: 12/12/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniziare a monitorare l'applicazione Web Java
 
@@ -42,7 +42,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 Application Insights può raccogliere dati di telemetria da un'applicazione connessa a Internet, indipendentemente dal fatto che sia in esecuzione in locale o nel cloud. Usare la procedura seguente per iniziare a visualizzare questi dati.
 
-1. Selezionare **Nuovo** > **Monitoraggio e gestione** > **Application Insights**.
+1. Selezionare **Crea una risorsa** > **Monitoraggio e gestione** > **Application Insights**.
 
    ![Aggiunta di una risorsa di Application Insights](./media/app-insights-java-quick-start/001-j.png)
 

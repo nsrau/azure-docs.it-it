@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: e705946dca839e6b8e11872ad5431f125b9fb41d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1e52b89cf8ac1a8ddeaa7e08ebd3734d1affe98e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurare gli endpoint del servizio Rete virtuale
 
@@ -62,8 +62,8 @@ Durante l'anteprima, la funzionalità degli endpoint del servizio Rete virtuale 
 
 1. Aprire il [portale di Azure](https://portal.azure.com/).
 Accedere ad Azure usando l'account Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una versione di valutazione gratuita. L'account deve avere le [autorizzazioni](#provisioning) necessarie per la creazione di una rete virtuale e di un endpoint di servizio.
-2. Fare clic su +Nuovo > Rete > Rete virtuale > +Aggiungi.
-3. In "Crea rete virtuale" immettere i valori seguenti e quindi fare clic su Crea:
+2. Fare clic su **Crea una risorsa** > **Rete** > **Rete virtuale** > **+Aggiungi**.
+3. In "Crea rete virtuale" immettere i valori seguenti e quindi fare clic su **Crea**:
 
 Impostazione | Valore
 ------- | -----
