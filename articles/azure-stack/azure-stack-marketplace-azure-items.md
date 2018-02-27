@@ -3,8 +3,8 @@ title: Elementi del Marketplace Azure disponibili per lo Stack di Azure | Docume
 description: "Nello Stack di Azure, è possono utilizzare questi elementi di Azure Marketplace."
 services: azure-stack
 documentationcenter: 
-author: JeffGoldner
-manager: bradleyb
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2018
-ms.author: JeffGoldner
-ms.openlocfilehash: a23b5ff4dc8b0cf18e529d9cdc9925ea7fcedba0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: jeffgo
+ms.openlocfilehash: bfc55a305fd0099af5cc2bb394420e547d2703bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
@@ -30,14 +31,14 @@ ms.lasthandoff: 02/01/2018
 
 |  | Nome dell'elemento | DESCRIZIONE | Editore | OS Type (Tipo di sistema operativo) |
 | --- | --- | --- | --- | --- |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Estensione SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download dell'estensione per distribuire un Server SQL nel elemento del Marketplace di Windows, questa operazione è necessaria.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/cse.png) | [Estensione Script personalizzata](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione nella casella dell'estensione Script personalizzato per Windows.</b> | Microsoft | Windows |
-|![](media/azure-stack-marketplace-azure-items/dsc.png) | [Estensione DSC PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Scaricare l'aggiornamento alla versione dell'estensione DSC PowerShell in uso.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Estensione Antimalware Microsoft](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione SQL IaaS ](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download dell'estensione per distribuire un Server SQL nel elemento del Marketplace di Windows, questa operazione è necessaria.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Script personalizzata ](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione nella casella dell'estensione Script personalizzato per Windows.</b> | Microsoft | Windows |
+|![](media/azure-stack-marketplace-azure-items/dsc.png) | [ Estensione DSC PowerShell ](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Scaricare l'aggiornamento alla versione dell'estensione DSC PowerShell in uso.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Estensione Antimalware Microsoft ](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Estensione docker per le macchine virtuali Linux. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Accesso alla VM per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Scaricare l'aggiornamento alla versione nella casella di VMAccess per estensione Linux. Questo è importante se si prevede di utilizzare le macchine virtuali Linux Debian.</b> | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Estensione di Backup Acronis per Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Linux |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Estensione Acronis Backup per Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [ Accesso alla VM per Linux ](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| <b>Scaricare l'aggiornamento alla versione nella casella di VMAccess per estensione Linux. Questo è importante se si prevede di utilizzare le macchine virtuali Linux Debian.</b> | Microsoft | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Estensione di Backup Acronis per Linux ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [ Estensione Acronis Backup per Windows ](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Windows |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Immagini di macchine virtuali di Microsoft e i modelli di soluzioni
 
@@ -70,9 +71,9 @@ Stack di Microsoft Azure supporta le seguenti macchine virtuali di Azure Marketp
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Express in SUSE Linux Enterprise Server 12 (SLES) SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | Versione express gratuita di SQL Server 2016 SP1. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise in SUSE Linux Enterprise Server 12 (SLES) SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017EnterpriseonSLES12SP2) | Piattaforma di database per le applicazioni cruciali intelligente. | Microsoft + SUSE |
 | ![](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Web su SUSE Linux Enterprise Server (SLES) SP2 12](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.Microsoft.SQLServer2017WebonSLES12SP2) | Piattaforma di database per le applicazioni cruciali intelligente. | Microsoft + SUSE |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning Server 9.2.1 in Windows Server 2016. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 in Ubuntu 16.04. | Microsoft + Canonical |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Linux CentOS 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning Server 9.2.1 in Linux CentOS 7.2. | Microsoft + Rogue Wave |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Windows Server 2016 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016) | Microsoft Machine Learning Server 9.2.1 in Windows Server 2016. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Ubuntu 16.04 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604) | Microsoft Machine Learning Server 9.2.1 in Ubuntu 16.04. | Microsoft + Canonical |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.2.1 in Linux CentOS 7.2 ](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72) | Microsoft Machine Learning Server 9.2.1 in Linux CentOS 7.2. | Microsoft + Rogue Wave |
 
 
 ## <a name="linux-distributions"></a>Distribuzioni di Linux
@@ -209,5 +210,5 @@ Stack di Microsoft Azure supporta le seguenti macchine virtuali di Azure Marketp
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [Commutatore ADC contenuto servizio di bilanciamento carico di loadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Bilanciamento del carico di livello 4-7 applicazione recapito Controller (ADC), opzione di contenuto e gestione traffico. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatibe NooBaa ibrida AWS S3 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Servizio di archiviazione compatibili S3 che si estende su pubblico e capacità risorse locali. | NooBaa |
 | ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise consente di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. <b>Scaricare entrambi gli elementi Puppet Marketplace.</b> | Puppet |
-| ![](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy gestione 3.0 SUSE (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Best-in-class aprire Gestione dell'infrastruttura di origine. | SUSE |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | Software ZeroDown |
+| ![](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy gestione 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Best-in-class aprire Gestione dell'infrastruttura di origine. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | Software ZeroDown |

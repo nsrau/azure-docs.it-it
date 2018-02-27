@@ -3,8 +3,8 @@ title: Connettersi dello Stack di Azure ad Azure tramite VPN
 description: Come connettere reti virtuali in Azure Stack alle reti virtuali in Azure tramite VPN.
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: 
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
-ms.author: victorh
-ms.openlocfilehash: 5d963fe8b1b576768156500af39254f45939f90d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: brenduns
+ms.reviewer: scottnap
+ms.openlocfilehash: 16cc1962eb72ac219adc8483f38cecf41a4296c1
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connettersi dello Stack di Azure ad Azure tramite VPN
 
@@ -40,7 +41,7 @@ Per completare la configurazione della connessione, accertarsi di avere i seguen
 ## <a name="network-example-values-table"></a>Tabella dei valori di esempio rete
 La tabella di valori di esempio rete vengono illustrati i valori di esempio utilizzati in questo articolo. È possibile utilizzare questi valori o è possibile fare riferimento a essi per comprendere meglio gli esempi in questo articolo.
 
-**Tabella dei valori di esempio rete**
+Tabella dei valori di esempio rete
 |   |Azure Stack|Azure|
 |---------|---------|---------|
 |Nome di rete virtuale     |Azs-VNet|AzureVNet |
