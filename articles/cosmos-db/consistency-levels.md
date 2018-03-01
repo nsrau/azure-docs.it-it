@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
 Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile e più modelli di coerenza meno rigidi e ben definiti. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. I modelli di coerenza con obsolescenza associata, sessione, finale e con prefisso coerente vengono definiti "modelli di coerenza meno rigidi" in quanto forniscono un livello di coerenza inferiore alla coerenza assoluta, ovvero il modello di coerenza massima disponibile. 
@@ -65,7 +65,7 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * la coerenza assoluta offre una garanzia di [linearità](https://aphyr.com/posts/313-strong-consistency-models) ovvero la garanzia che le letture restituiscano la versione più recente di un elemento. 
 * la coerenza assoluta garantisce che una scrittura sia visibile solo dopo che ne è stato eseguito il commit in modo permanente dal quorum di maggioranza delle repliche. Una scrittura può ottenere o il commit sincrono e permanente da parte della replica primaria e della maggioranza delle repliche secondarie o l'interruzione. Una lettura viene sempre confermata dalla quorum di maggioranza per le letture: un client non potrà mai vedere una scrittura parziale o di cui non sia stato eseguito il commit e leggerà sempre la più recente scrittura confermata. 
 * Gli account Azure Cosmos DB configurati per usare la coerenza assoluta non possono associare più di un'area di Azure con il loro account Azure Cosmos DB.  
-* Il costo di un'operazione di lettura (in termini di [unità richiesta](request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con obsolescenza associata.
+* Il costo di un'operazione di lettura (in termini di [unità richiesta](request-units.md) consumate) con il livello di coerenza assoluta è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello con decadimento ristretto.
 
 **Obsolescenza associata**: 
 
@@ -74,7 +74,7 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
 * Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della "finestra di decadimento". 
 * Il decadimento ristretto offre una maggiore garanzia di coerenza rispetto alla coerenza di sessione, con prefisso coerente o finale. Per le applicazioni distribuite a livello globale, è consigliabile usare il decadimento ristretto per gli scenari in cui si desidera una coerenza assoluta ma si desidera anche il 99,99% di disponibilità e bassa latenza.   
 * Gli account Azure Cosmos DB configurati con la coerenza con decadimento ristretto possono associare qualsiasi numero di aree di Azure con il proprio account Azure Cosmos DB. 
-* Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con l'obsolescenza associata è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
+* Il costo di un'operazione di lettura (in termini di unità richiesta consumate) con il decadimento ristretto è più alto rispetto ai livelli sessione e finale, ma uguale a quello del livello assoluto.
 
 **Sessione**: 
 
@@ -112,11 +112,15 @@ Per impostazione predefinita, per le risorse definite dall'utente, il livello di
 
 | Modalità di indicizzazione | Letture | Query |
 | --- | --- | --- |
-| Coerente (impostazione predefinita) |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Selezionare tra assoluta, con obsolescenza associata, sessione o finale |
+| Coerente (impostazione predefinita) |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Selezionare tra assoluta, con decadimento ristretto, sessione o finale |
 | Differita |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Finale |
-| Nessuno |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Non applicabile |
+| Nessuna |Selezionare tra assoluta, con decadimento ristretto, sessione, prefisso coerente o finale |Non applicabile |
 
 Come per le richieste di lettura, è possibile abbassare il livello di coerenza per una particolare richiesta di query specifica in ogni API.
+
+## <a name="consistency-levels-for-the-mongodb-api"></a>Livelli di coerenza per l'API di MongoDB
+
+Azure Cosmos DB implementa attualmente la versione 3.4 di MongoDB, che include due impostazioni di coerenza: assoluta e finale. Azure Cosmos DB è un'applicazione multi-API e, pertanto, le impostazioni di coerenza sono applicabili a livello di account e l'applicazione della coerenza è controllata da ogni API.  Fino a MongoDB 3.6 non esisteva il concetto di coerenza della sessione e, se si imposta un account di API MongoDB per l'uso della coerenza di sessione, quando si usano le API di MongoDB viene eseguito il downgrade della coerenza a "finale". Se è necessaria una garanzia di tipo Read Your Own Write (RYOW) per un account di API MongoDB, il livello di coerenza predefinito per l'account deve essere impostato su "assoluta" o "decadimento ristretto".
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si desidera eseguire ulteriori informazioni sui livelli di coerenza e i compromessi, è consigliabile che le risorse seguenti:

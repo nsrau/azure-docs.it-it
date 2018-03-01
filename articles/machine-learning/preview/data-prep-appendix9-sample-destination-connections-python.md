@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4cad3343461a6c7eda78566b3d2552b1e3591960
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 203c8399153d2bc2d855fc2602b01ed074852687
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-destination-connections-python"></a>Esempio di connessioni di destinazione (Python) 
 Prima di leggere questa appendice, leggere la [panoramica dell'estendibilità di Python](data-prep-python-extensibility-overview.md).
@@ -29,7 +29,7 @@ La scrittura in Excel richiede una raccolta aggiuntiva; l'aggiunta di nuove racc
 
 Prima della scrittura in Excel potrebbero essere necessarie alcune altre modifiche. Alcuni tipi di dati usati nella preparazione dei dati non sono supportati in alcuni formati di destinazione. Se ad esempio esistono oggetti "Error", questi non verranno serializzati correttamente in Excel. È quindi necessaria una trasformazione "Replace Error Values" (Sostituisci valori di errore) che rimuove gli errori da tutte le colonne prima di provare a scrivere in Excel.
 
-Se tutto il lavoro precedente è stato completato, la riga seguente scrive la tabella dati in un unico foglio di un documento di Excel. Aggiungere una trasformazione Write Dataflow - Script (Scrivi flusso di dati - Script) e quindi immettere il codice seguente in una sezione di espressione.
+Se tutto il lavoro precedente è stato completato, la riga seguente scrive la tabella dati in un unico foglio di un documento di Excel. Aggiungere una trasformazione Transform Dataflow - Script (Trasforma flusso di dati - Script) e quindi immettere il codice seguente in una sezione di espressione.
 
 
 ### <a name="on-windows"></a>In Windows 

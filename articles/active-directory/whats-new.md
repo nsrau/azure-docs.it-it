@@ -14,18 +14,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 34826332db2e63d442d47ada74fcbad4cad600ae
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 7cdeb0a996835f976e6c80e9831479a2ff917434
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
-
-
 
 
 > Per restare sempre aggiornati sulle novità di Azure Active Directory (Azure AD), sottoscrivere il [![feed](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
@@ -125,7 +123,7 @@ A partire dall'8 gennaio 2018, l'esperienza di amministrazione di Azure AD nel p
  
 ---
 
-### <a name="azure-ad-administration-experience-in-azure-classic-portal-has-been-retired"></a>Esperienza di amministrazione di Azure AD nel portale di Azure classico ritirata
+### <a name="the-phonefactor-web-portal-has-been-retired"></a>Il portale Web di PhoneFactor è stato ritirato
 
 **Tipo:** Deprecato  
 **Categoria di servizio:** Azure AD  
@@ -221,7 +219,7 @@ Per altre informazioni, vedere [Fewer sign-in prompts: The new "keep me signed i
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Condizioni per l'utilizzo  
-**Funzionalità del prodotto:** Governance
+**Funzionalità del prodotto:** Governance/conformità
  
 Un'opzione per gli amministratori richiede che gli utenti espandano le condizioni per l'utilizzo prima di accettarle.
 
@@ -668,7 +666,7 @@ Per altri dettagli, vedere [Informazioni di riferimento sui report dell'autentic
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Condizioni per l'utilizzo  
-**Funzionalità del prodotto:** Governance  
+**Funzionalità del prodotto:** Governance/conformità  
 
 
 
@@ -711,7 +709,7 @@ Per altre informazioni, vedere [Privileged Identity Management for Azure resourc
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Verifiche di accesso  
-**Funzionalità del prodotto:** Governance  
+**Funzionalità del prodotto:** Governance/conformità  
 
 
 

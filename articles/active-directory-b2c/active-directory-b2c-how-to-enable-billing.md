@@ -1,5 +1,5 @@
 ---
-title: Come collegare una sottoscrizione di Azure ad Azure AD B2C | Documentazione Microsoft
+title: Come collegare una sottoscrizione di Azure ad Azure AD B2C | Microsoft Docs
 description: Guida dettagliata all'abilitazione della fatturazione per tenant Azure AD B2C in una sottoscrizione di Azure.
 services: active-directory-b2c
 documentationcenter: dev-center-name
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c61cf24083ac3422e30dabf8514dcbd3aec0599d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Collegamento di una sottoscrizione di Azure a un tenant di Azure AD B2C
 
@@ -44,7 +44,7 @@ Passare al tenant di Azure AD che mostra la sottoscrizione di Azure. Aprire il [
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Trovare Azure Active Directory B2C in Azure Marketplace
 
-Fare clic sul pulsante **Nuovo**. Nel campo **Cerca nel Marketplace** immettere `B2C`.
+Fare clic sul pulsante **Crea una risorsa**. Nel campo **Cerca nel Marketplace** immettere `B2C`.
 
 ![Pulsante Aggiungi evidenziato e testo Azure Active Directory B2C nel campo Cerca nel Marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

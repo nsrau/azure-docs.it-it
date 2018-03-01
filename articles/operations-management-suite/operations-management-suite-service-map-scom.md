@@ -1,6 +1,6 @@
 ---
 title: Integrazione di Elenco dei servizi con System Center Operations Manager | Microsoft Docs
-description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo illustra l'uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in Operations Manager."
+description: "Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo illustra l'uso di Elenco dei servizi per creare automaticamente diagrammi applicazioni distribuite in Operations Manager."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 906a90acb8754ff4b70235256cd184e2611ff5a0
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
   > [!NOTE]
   > Questa funzionalità è disponibile in anteprima pubblica.
   > 
   
-Elenco dei servizi di Operations Management Suite individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue il mapping della comunicazione fra i servizi. Elenco dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza bisogno di alcuna configurazione a parte l'installazione di un agente. Per altre informazioni, vedere la [documentazione su Elenco dei servizi](operations-management-suite-service-map.md).
+Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Elenco dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Elenco dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza bisogno di alcuna configurazione a parte l'installazione di un agente. Per altre informazioni, vedere la [documentazione su Elenco dei servizi](operations-management-suite-service-map.md).
 
 Con questa integrazione tra Elenco dei servizi e System Center Operations Manager è possibile creare automaticamente diagrammi applicazioni distribuite in Operations Manager basati sulle mappe delle dipendenze dinamiche in Elenco dei servizi.
 
 ## <a name="prerequisites"></a>prerequisiti
 * Gruppo di gestione di Operations Manager (2012 R2 o successiva) che gestisce un set di server.
-* Area di lavoro di Operations Manager con la soluzione Elenco dei servizi abilitata.
+* Area di lavoro di Log Analytics con la soluzione Mapping dei servizi abilitata.
 * Set di server (almeno uno) che vengono gestiti da Operations Manager e inviano dati a Elenco dei servizi. Sono supportati server Windows e Linux.
-* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di Operations Management Suite. Per altre informazioni, vedere [Creare un'entità servizio](#creating-a-service-principal).
+* Un'entità servizio con accesso alla sottoscrizione di Azure associata all'area di lavoro di Log Analytics. Per altre informazioni, vedere [Creare un'entità servizio](#creating-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installare il management pack di Elenco dei servizi
 L'integrazione tra Operations Manager ed Elenco dei servizi viene abilitata importando il bundle di management pack Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). È possibile scaricare il bundle del Management Pack da [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Il bundle contiene i management pack seguenti:
@@ -55,7 +55,7 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Finestra di configurazione della connessione](media/oms-service-map/scom-config-spn.png)
 
-3. Nella finestra **Subscription Selection** (Selezione della sottoscrizione), selezionare la sottoscrizione di Azure, il gruppo di risorse di Azure contenente l'area di lavoro di Operations Management Suite e infine l'area di lavoro stessa, quindi fare clic su **Avanti**.
+3. Nella finestra **Selezione sottoscrizione**, selezionare la sottoscrizione di Azure, il gruppo di risorse di Azure contenente l'area di lavoro di Log Analytics e infine l'area di lavoro stessa, quindi fare clic su **Avanti**.
 
     ![Area di lavoro di configurazione di Operations Manager](media/oms-service-map/scom-config-workspace.png)
 
@@ -73,22 +73,22 @@ Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seg
 
     ![Gruppo di configurazione di Operations Manager](media/oms-service-map/scom-config-group.png)
 
-6. Facoltativo: selezionare il pool di risorse server di gestione per comunicare con Operations Management Suite, quindi fare clic su **Aggiungi area di lavoro**.
+6. Facoltativo: selezionare il pool di risorse del server di gestione per comunicare con Log Analytics e fare clic su **Aggiungi area di lavoro**.
 
     ![Pool di risorse di configurazione di Operations Manager](media/oms-service-map/scom-config-pool.png)
 
-    Per configurare e registrare l'area di lavoro di Operations Management Suite potrebbero essere necessari alcuni minuti. Dopo averlo configurato, Operations Manager avvia la prima sincronizzazione di Elenco dei servizi da Operations Management Suite.
+    Per configurare e registrare l'area di lavoro di Log Analytics potrebbero essere necessari alcuni minuti. Dopo averlo configurato, Operations Manager avvia la prima sincronizzazione di Mapping dei servizi.
 
     ![Pool di risorse di configurazione di Operations Manager](media/oms-service-map/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Monitorare le metriche del servizio
-Dopo aver connesso l'area di lavoro di Operations Management Suite, nel riquadro **Monitoraggio** della console di Operations Manager comparirà una nuova cartella denominata Elenco dei servizi.
+Dopo aver connesso l'area di lavoro di Log Analytics, nel riquadro **Monitoraggio** della console di Operations Manager comparirà una nuova cartella denominata Mapping dei servizi.
 
 ![Riquadro Monitoraggio di Operations Manager](media/oms-service-map/scom-monitoring.png)
 
 La cartella Mapping dei servizi ha quattro nodi:
-* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e Mapping dei servizi.  Si noti che tali avvisi non corrispondono agli avvisi di Operations Management Suite sincronizzati con Operations Manager. 
+* **Avvisi attivi**: elenca tutti gli avvisi attivi per le comunicazioni tra Operations Manager e Mapping dei servizi.  Si noti che tali avvisi non corrispondono agli avvisi di Log Analytics sincronizzati con Operations Manager. 
 
 * **Server**: contiene l'elenco dei server monitorati configurati per la sincronizzazione da Elenco dei servizi.
 
@@ -103,7 +103,7 @@ La cartella Mapping dei servizi ha quattro nodi:
     ![Diagramma applicazioni distribuite di Operations Manager](media/oms-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Modificare o eliminare l'area di lavoro
-È possibile modificare o eliminare l'area di lavoro configurata tramite il riquadro **Service Map Overview** (Panoramica di Elenco dei servizi): riquadro **Amministrazione** --> **Operations Management Suite** > **Elenco dei servizi**. Attualmente è possibile configurare una sola area di lavoro di Operations Management Suite.
+È possibile modificare o eliminare l'area di lavoro configurata tramite il riquadro **Service Map Overview** (Panoramica di Elenco dei servizi): riquadro **Amministrazione** --> **Operations Management Suite** > **Elenco dei servizi**. Per il momento è possibile configurare una sola area di lavoro di Log Analytics.
 
 ![Riquadro Modifica area di lavoro di Operations Manager](media/oms-service-map/scom-edit-workspace.png)
 
@@ -120,7 +120,7 @@ Viene creata una regola _Microsoft.SystemCenter.ServiceMapImport.Rule_ per recup
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
 La progettazione attuale presenta i problemi e le limitazioni seguenti:
-* È possibile connettersi a una sola area di lavoro di Operations Management Suite.
+* È possibile connettersi a una sola area di lavoro di Log Analytics.
 * Anche se è possibile aggiungere manualmente server al gruppo di server di Mapping dei servizi tramite il riquadro **Creazione e modifica**, le mappe di tali server non vengono sincronizzate immediatamente.  Verranno sincronizzate da Mapping dei servizi durante il ciclo di sincronizzazione successivo.
 * Se si apportano modifiche ai diagrammi applicazioni distribuite creati dal Management Pack, tali modifiche verranno probabilmente sovrascritte durante la sincronizzazione successiva con Mapping dei servizi.
 

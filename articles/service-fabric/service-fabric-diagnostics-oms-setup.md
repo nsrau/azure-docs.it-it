@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric - Configurazione del monitoraggio con Log Analytics di OMS | Microsoft Docs
-description: Informazioni su come configurare OMS per visualizzare e analizzare gli eventi per il monitoraggio dei cluster di Azure Service Fabric.
+description: Informazioni su come configurare Operations Management Suite (OMS) per visualizzare e analizzare gli eventi per il monitoraggio dei cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,67 +14,71 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 53b06c5a1395f34c96d4011366835a920d5c670b
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="set-up-oms-log-analytics-for-a-cluster"></a>Configurare Log Analytics di OMS per un cluster
+# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurare Log Analytics di Operations Management Suite per un cluster
 
-È possibile configurare un'area di lavoro di OMS tramite Azure Resource Manager, PowerShell o Azure Marketplace. Quando si gestisce un modello di Resource Manager aggiornato della distribuzione, per un utilizzo futuro, usare lo stesso modello per configurare l'ambiente di OMS. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta distribuendo OMS, usare PowerShell o eseguire la distribuzione tramite il modello di Resource Manager.
+È possibile configurare un'area di lavoro di Operations Management Suite (OMS) tramite Azure Resource Manager, PowerShell o Azure Marketplace. Quando si gestisce un modello di Resource Manager aggiornato della distribuzione, per un utilizzo futuro, usare lo stesso modello per configurare l'ambiente di OMS. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta distribuendo OMS, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
 
 > [!NOTE]
-> È necessario che il servizio di diagnostica sia abilitato per il cluster affinché sia possibile visualizzare i cluster o affinché gli eventi a livello di piattaforma siano in grado di configurare OMS per il monitoraggio del cluster.
+> Per configurare OMS per il monitoraggio del cluster, è necessario che il servizio di diagnostica sia abilitato affinché sia possibile visualizzare gli eventi a livello di cluster o di piattaforma.
 
-## <a name="deploying-oms-using-azure-marketplace"></a>Distribuzione di OMS tramite Azure Marketplace
+## <a name="deploy-oms-by-using-azure-marketplace"></a>Distribuire OMS tramite Azure Marketplace
 
-Se si preferisce aggiungere un'area di lavoro di OMS dopo aver distribuito un cluster, passare in Azure Marketplace (nel portale) e cercare *"Analisi Service Fabric"*.
+Se si intende aggiungere un'area di lavoro di OMS dopo aver distribuito un cluster, andare al portale di Azure Marketplace e cercare **Analisi Service Fabric**:
 
-1. Fare clic su **Nuovo** nel riquadro di spostamento sinistro. 
+1. Selezionare **Nuovo** nel menu di spostamento a sinistra. 
 
-2. Cercare *Analisi Service Fabric*. Fare clic sulla risorsa visualizzata.
+2. Cercare **Analisi Service Fabric**. Selezionare la risorsa visualizzata.
 
-3. Fare clic su **Crea**
+3. Selezionare **Create**.
 
     ![Analisi SF OMS in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Nella finestra di creazione di Analisi Service Fabric fare clic su **Selezionare un'area di lavoro** per il campo *Area di lavoro OMS* e quindi su **Crea una nuova area di lavoro**. Compilare le voci necessarie: l'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro OMS devono essere gli stessi. Dopo aver convalidato le voci, verrà avviata la distribuzione dell'area di lavoro di OMS. Dovrebbero essere necessari solo alcuni minuti.
+4. Nella finestra di creazione di Analisi Service Fabric scegliere **Selezionare un'area di lavoro** per il campo **Area di lavoro di OMS** e quindi su **Crea una nuova area di lavoro**. Compilare le voci necessarie. L'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro di OMS sia la stessa. Dopo aver convalidato le voci, verrà avviata la distribuzione dell'area di lavoro di OMS. La distribuzione richiede solo alcuni minuti.
 
-5. Al termine, fare di nuovo clic su **Crea** nella parte inferiore della finestra di creazione di Analisi Service Fabric. Assicurarsi che la nuova area di lavoro sia visualizzata in *Area di lavoro OMS*. La soluzione viene aggiunta all'area di lavoro appena creata.
+5. Al termine, selezionare di nuovo **Crea** nella parte inferiore della finestra di creazione di Analisi Service Fabric. Assicurarsi che la nuova area di lavoro sia visualizzata in **Area di lavoro OMS**. Questa azione aggiunge la soluzione all'area di lavoro creata.
 
-Se si usa Windows, continuare con i passaggi seguenti per associare OMS all'account di archiviazione in cui vengono archiviati gli eventi cluster. Non è ancora possibile eseguire correttamente questa operazione per i cluster Linux. Nel frattempo, procedere con l'aggiunta dell'agente OMS al cluster.  
+Se si usa Windows, continuare con i passaggi seguenti per connettere OMS all'account di archiviazione in cui vengono archiviati gli eventi cluster. 
 
-1. L'area di lavoro deve ancora essere connessa ai dati di diagnostica provenienti dal cluster. Passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Verrà visualizzata l'indicazione *ServiceFabric (\<nomeAreaDiLavoroOMS\>)*. Fare clic sulla soluzione per passare alla relativa pagina di panoramica, da dove è possibile modificare le impostazioni della soluzione e le impostazioni dell'area di lavoro e passare al portale di OMS.
+>[!NOTE]
+>L'abilitazione di questa esperienza per i cluster Linux non è ancora disponibile. 
 
-2. Nel menu di spostamento a sinistra fare clic su **Log account di archiviazione** in *Origini dati dell'area di lavoro*.
+### <a name="add-the-oms-agent-to-your-cluster"></a>Aggiungere l'agente di OMS al cluster 
 
-3. Nella pagina *Log account di archiviazione* fare clic su **Aggiungi** nella parte superiore per aggiungere i log del cluster all'area di lavoro.
+1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfOMSWorkspace\>** e andare alla relativa pagina di panoramica. Da qui, è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere al portale OMS.
 
-4. Fare clic su **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, il nome dell'account di archiviazione è *sfdg\<NomeGruppoDiRisorse\>*. È anche possibile verificare controllando il modello di Azure Resource Manager usato per distribuire il cluster, esaminando il valore usato per `applicationDiagnosticsStorageAccountName`. Potrebbe anche essere necessario scorrere verso il basso e fare clic su **Carica altro** se il nome non è visualizzato. Fare clic sul nome dell'account di archiviazione corretto per selezionarlo.
+2. Nel menu di spostamento a sinistra in **Origini dati dell'area di lavoro** selezionare **Log account di archiviazione**.
 
-5. Sarà quindi necessario specificare il valore di *Tipo di dati*, che deve essere impostato su **Eventi di Service Fabric**.
+3. Nella pagina **Log account di archiviazione** selezionare **Aggiungi** nella parte superiore per aggiungere i log del cluster all'area di lavoro.
 
-6. Il valore di *Origine* dovrebbe essere impostato automaticamente su *WADServiceFabric\*EventTable*.
+4. Selezionare **Account di archiviazione** per aggiungere l'account appropriato creato nel cluster. Se è stato usato il nome predefinito, l'account di archiviazione è **sfdg\<resourceGroupName\>**. È anche possibile verificare con il modello di Azure Resource Manager usato per distribuire il cluster, controllando il valore usato per **applicationDiagnosticsStorageAccountName**. Se il nome non viene visualizzato, scorrere verso il basso e selezionare **Carica altro**. Selezionare il nome dell'account di archiviazione.
 
-7. Fare clic su **OK** per connettere l'area di lavoro ai log del cluster.
+5. Specificare il Tipo di dati. Impostarlo su **Eventi di Service Fabric**.
+
+6. Assicurarsi che il valore di Origine sia impostato automaticamente su **WADServiceFabric\*EventTable**.
+
+7. Selezionare **OK** per connettere l'area di lavoro ai log del cluster.
 
     ![Aggiungere i log dell'account di archiviazione a OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
-L'account dovrebbe ora essere visualizzato in *Log account di archiviazione* nelle origini dati dell'area di lavoro.
+L'account viene ora visualizzato come parte dei log degli account di archiviazione nelle origini dati dell'area di lavoro.
 
-In questo modo, la soluzione Analisi Service Fabric è stata aggiunta in un'area di lavoro di OMS Log Analytics, che è ora connessa correttamente alla piattaforma del cluster e alla tabella del log dell'applicazione. È possibile aggiungere altre origini all'area di lavoro nello stesso modo.
+La soluzione Analisi Service Fabric è stata aggiunta in un'area di lavoro di OMS Log Analytics, che è ora connessa correttamente alla piattaforma del cluster e alla tabella del registro applicazioni. È possibile aggiungere altre origini all'area di lavoro nello stesso modo.
 
 
-## <a name="deploying-oms-using-a-resource-manager-template"></a>Distribuzione di OMS con il modello di Resource Manager
+## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Distribuire OMS con un modello di Resource Manager
 
-Quando si distribuisce un cluster con un modello di Resource Manager, il modello deve creare una nuova area di lavoro OMS, aggiungervi la soluzione Service Fabric e configurarla per leggere i dati dalle tabelle di archiviazione appropriate.
+Quando si distribuisce un cluster con un modello di Resource Manager, il modello crea una nuova area di lavoro OMS, aggiunge la soluzione Service Fabric all'area di lavoro e la configura per leggere i dati dalle tabelle di archiviazione appropriate.
 
-[Qui](https://azure.microsoft.com/resources/templates/service-fabric-oms/) viene illustrato un modello di esempio che è possibile usare e modificare in base alle necessità. Altri modelli che offrono varie opzioni per configurare un'area di lavoro di OMS sono disponibili nella pagina [Modelli di Service Fabric e OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+È possibile usare e modificare [questo modello di esempio](https://azure.microsoft.com/resources/templates/service-fabric-oms/) per soddisfare i requisiti. I modelli che offrono varie opzioni per configurare un'area di lavoro di OMS sono disponibili nella pagina [Modelli di Service Fabric e OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
 
-Di seguito sono descritte le principali modifiche apportate:
-
-1. Aggiunta di `omsWorkspaceName` e `omsRegion` ai parametri. Questo significa aggiungere il frammento di codice seguente ai parametri definiti nel file *template.json*. È possibile modificare i valori predefiniti nel modo desiderato. È anche necessario aggiungere due nuovi parametri al file *parameters.json* per definire i relativi valori per la distribuzione di risorse:
+Apportare le modifiche seguenti:
+1. Aggiungere `omsWorkspaceName` e `omsRegion` ai paramatri aggiungendo il frammento di codice seguente ai parametri definiti nel file *template.json*. È possibile modificare i valori predefiniti nel modo desiderato. Aggiungere anche due nuovi parametri al file *parameters.json* per definire i relativi valori per la distribuzione di risorse:
     
     ```json
     "omsWorkspacename": {
@@ -98,9 +102,9 @@ Di seguito sono descritte le principali modifiche apportate:
     }
     ```
 
-    I valori `omsRegion` devono essere conformi a un set specifico di valori. È consigliabile scegliere il valore più vicino alla distribuzione del cluster.
+    I valori `omsRegion` devono essere conformi a un set specifico di valori. Scegliere il valore più vicino alla distribuzione del cluster.
 
-2. Se i registri applicazioni vengono inviati a OMS, assicurarsi che `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` siano inclusi come parametri nel modello. In caso contrario, aggiungerli alla sezione delle variabili come indicato di seguito e modificare i relativi valori in base alle esigenze. Se lo si desidera, è anche possibile includerli come parametri seguendo il formato usato in precedenza.
+2. Se i registri applicazioni vengono inviati a OMS, assicurarsi prima che `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` siano inclusi come parametri nel modello. Se non sono inclusi, aggiungerli alla sezione delle variabili e modificare i relativi valori in base alle esigenze. È anche possibile includerli come parametri seguendo il formato precedente.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
@@ -114,7 +118,7 @@ Di seguito sono descritte le principali modifiche apportate:
     "solutionName": "ServiceFabric"
     ```
 
-4. Aggiunta delle informazioni seguenti alla fine della sezione resources, dopo la posizione in cui viene dichiarata la risorsa del cluster Service Fabric.
+4. Aggiungere le informazioni seguenti alla fine della sezione resources, dopo la posizione in cui viene dichiarata la risorsa del cluster Service Fabric:
 
     ```json
     {
@@ -175,19 +179,19 @@ Di seguito sono descritte le principali modifiche apportate:
     > [!NOTE]
     > Se si è aggiunto `applicationDiagnosticsStorageAccountName` come variabile, assicurarsi di sostituire ogni riferimento a esso con `variables('applicationDiagnosticsStorageAccountName')` invece che con `parameters('applicationDiagnosticsStorageAccountName')`.
 
-5. Distribuzione del modello come aggiornamento di Resource Manager nel cluster. Questa operazione viene eseguita usando l'API `New-AzureRmResourceGroupDeployment` nel modulo AzureRM PowerShell. Un comando di esempio potrebbe essere:
+5. Distribuire il modello come un aggiornamento di Gestione risorse al cluster tramite l'API `New-AzureRmResourceGroupDeployment` nel modulo AzureRM PowerShell. Un comando di esempio potrebbe essere:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName "sfcluster1" -TemplateFile "<path>\template.json" -TemplateParameterFile "<path>\parameters.json"
     ``` 
 
-    Azure Resource Manager sarà in grado di rilevare che si tratta di un aggiornamento a una risorsa esistente. Elaborerà solo le modifiche tra il modello di distribuzione che definisce la distribuzione esistente e il nuovo modello fornito.
+    Azure Resource Manager rileva che questo comando è un aggiornamento a una risorsa esistente. Elabora solo le modifiche tra il modello che definisce la distribuzione esistente e il nuovo modello fornito.
 
-## <a name="deploying-oms-using-azure-powershell"></a>Distribuzione di OMS tramite Azure PowerShell
+## <a name="deploy-oms-by-using-azure-powershell"></a>Distribuire OMS usando Azure PowerShell
 
-È anche possibile distribuire la risorsa Log Analytics di OMS tramite PowerShell. Questo risultato viene ottenuto usando il comando `New-AzureRmOperationalInsightsWorkspace`. A questo scopo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Usare questo script per creare una nuova area di lavoro di Log Analytics di OMS e aggiungervi la soluzione Service Fabric: 
+È anche possibile distribuire la risorsa Log Analytics di OMS tramite PowerShell usando il comando `New-AzureRmOperationalInsightsWorkspace`. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Usare questo script per creare una nuova area di lavoro di Log Analytics di OMS e aggiungervi la soluzione Service Fabric: 
 
-```ps
+```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
@@ -211,9 +215,9 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Al termine, se il cluster è un cluster Windows, seguire i passaggi della sezione precedente per associare Log Analytics di OMS all'account di archiviazione appropriato.
+Al termine, seguire i passaggi nella sezione precedente per connettere OMS Log Analytics all'account di archiviazione appropriato.
 
-È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro di OMS usando PowerShell. Per altre informazioni, vedere [Gestire Log Analytics con PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md)
+È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro di OMS usando PowerShell. Per altre informazioni, vedere [Gestire Log Analytics con PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di OMS](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere i contatori delle prestazioni, le statistiche Docker e registri per i contenitori

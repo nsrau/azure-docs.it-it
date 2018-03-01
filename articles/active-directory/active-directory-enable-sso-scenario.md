@@ -1,5 +1,5 @@
 ---
-title: Gestione di applicazioni con Azure Active Directory | Documentazione Microsoft
+title: Gestione di applicazioni con Azure Active Directory | Microsoft Docs
 description: Questo articolo illustra i vantaggi dell'integrazione di Azure Active Directory con le applicazioni locali, cloud e SaaS.
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: e825e6be79efad5dfb385f96901a2b5682027963
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f4035e4c1ef2bc78256ed842bc4b1ac65ecf8b53
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale le aziende prevedono due requisiti di base per tutte le applicazioni:
@@ -80,9 +80,9 @@ Quando si usa Azure AD per gestire le applicazioni e abilitare l'accesso Single 
 
 È importante comprendere che la modalità in cui l'autorizzazione viene applicata all'applicazione di destinazione varia in base al modo in cui l'applicazione è stata integrata con Azure AD.
 
-* **Applicazioni preintegrate dal provider di servizi** : come Office 365 e Azure, si tratta di applicazioni basate su Azure AD e che dipendono da Azure AD per tutte le funzionalità di gestione delle identità e degli accessi. L'accesso a queste applicazioni viene abilitato tramite le informazioni disponibili nella directory e il rilascio di token.
-* **Applicazioni preintegrate da Microsoft e applicazioni personalizzate** : si tratta di applicazioni cloud indipendenti che si basano su una directory dell'applicazione interna e che possono operare indipendentemente da Azure AD. L'accesso a queste applicazioni viene abilitato tramite il rilascio di credenziali specifiche dell'applicazione mappate a un account dell'applicazione. A seconda delle funzionalità dell'applicazione, le credenziali possono essere costituite da un token federativo o da nome utente e password per un account di cui è stato precedentemente eseguito il provisioning nell'applicazione.
-* **Applicazioni locali** : si tratta di applicazioni pubblicate tramite il proxy di applicazione di Azure AD che abilita l'accesso alle applicazioni locali. Queste applicazioni si basano su una directory locale centralizzata, ad esempio Windows Server Active Directory. L'accesso a queste applicazioni viene abilitato tramite l'attivazione del proxy per la distribuzione del contenuto dell'applicazione all'utente finale, rispettando il requisito di accesso locale.
+* **Applicazioni preintegrate dal provider di servizi**: come Office 365 e Azure, si tratta di applicazioni basate su Azure AD e che dipendono da Azure AD per tutte le funzionalità di gestione delle identità e degli accessi. L'accesso a queste applicazioni viene abilitato tramite le informazioni disponibili nella directory e il rilascio di token.
+* **Applicazioni preintegrate da Microsoft e applicazioni personalizzate**: si tratta di applicazioni cloud indipendenti che si basano su una directory dell'applicazione interna e che possono operare indipendentemente da Azure AD. L'accesso a queste applicazioni viene abilitato tramite il rilascio di credenziali specifiche dell'applicazione mappate a un account dell'applicazione. A seconda delle funzionalità dell'applicazione, le credenziali possono essere costituite da un token federativo o da nome utente e password per un account di cui è stato precedentemente eseguito il provisioning nell'applicazione.
+* **Applicazioni locali**: si tratta di applicazioni pubblicate tramite il proxy di applicazione di Azure AD che abilita l'accesso alle applicazioni locali. Queste applicazioni si basano su una directory locale centralizzata, ad esempio Windows Server Active Directory. L'accesso a queste applicazioni viene abilitato tramite l'attivazione del proxy per la distribuzione del contenuto dell'applicazione all'utente finale, rispettando il requisito di accesso locale.
 
 Ad esempio, quando un utente viene assunto dall'organizzazione, sarà necessario creare un account utente in Azure AD per le operazioni di accesso principali. Se l'utente deve accedere a un'applicazione gestita, come ad esempio Salesforce, sarà necessario creare un account per l'utente in Salesforce e collegarlo all'account Azure, affinché l'accesso Single Sign-On possa funzionare. Quando un utente lascia l'organizzazione, è opportuno eliminare l'account Azure AD e tutti gli altri account negli archivi di gestione delle identità e degli accessi delle applicazioni a cui l'utente era autorizzato ad accedere.
 
@@ -90,13 +90,13 @@ Ad esempio, quando un utente viene assunto dall'organizzazione, sarà necessario
 Nelle aziende moderne, i reparti IT spesso non sono a conoscenza di tutte le applicazioni cloud usate dai dipendenti. Con Cloud App Discovery, Azure AD fornisce anche una soluzione per individuare tali applicazioni.
 
 ## <a name="account-management"></a>Gestione account
-Per tradizione, la gestione degli account nelle applicazioni è un processo manuale svolto dal personale IT o di supporto all'interno dell'organizzazione. Azure AD offre una soluzione di gestione degli account completamente automatizzata per tutte le applicazioni integrate dai provider di servizi e per quelle preintegrate da Microsoft che supportano il provisioning utenti automatizzato o il formato SAML JIT.
+Per tradizione, la gestione degli account nelle applicazioni è un processo manuale svolto dal personale IT o di supporto all'interno dell'organizzazione. Azure AD offre una soluzione di gestione degli account completamente automatizzata per tutte le applicazioni integrate dai provider di servizi e per quelle preintegrate da Microsoft che supportano il provisioning utenti automatizzato o il provisioning SAML Just-In-Time.
 
 ## <a name="automated-user-provisioning"></a>Provisioning utenti automatizzato
 Alcune applicazioni offrono interfacce di automazione per la creazione e la rimozione (o disattivazione) di account. Se un provider offre un'interfaccia di questo tipo, questa verrà usata da Azure AD. In questo modo è possibile ridurre i costi operativi perché le attività amministrative vengono svolte automaticamente e migliorare la sicurezza dell'ambiente riducendo al minimo i rischi derivanti da accessi non autorizzati.
 
 ## <a name="access-management"></a>gestione degli accessi
-Azure AD permette di gestire gli accessi alle applicazioni tramite assegnazioni singole o basate su ruolo. È anche possibile delegare la gestione degli accessi alle persone appropriate all'interno dell'organizzazione prevedendo una supervisione ottimale e riducendo il carico di lavoro del supporto tecnico.
+Con Azure AD è possibile gestire gli accessi alle applicazioni tramite assegnazioni singole o basate su ruolo. È anche possibile delegare la gestione degli accessi alle persone appropriate all'interno dell'organizzazione prevedendo una supervisione ottimale e riducendo il carico di lavoro del supporto tecnico.
 
 ## <a name="on-premises-applications"></a>Applicazioni locali
 Il proxy di applicazione incorporato consente di pubblicare le applicazioni locali per gli utenti, al fine di garantire un'esperienza di accesso coerente per le applicazioni cloud e offrire i vantaggi delle funzionalità di monitoraggio, creazione di report e sicurezza disponibili in Azure AD.

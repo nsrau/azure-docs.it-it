@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/24/2018
+ms.date: 02/15/2018
 ms.author: saurinsh
-ms.openlocfilehash: 6284b246c071fb99a8b47845aca34b6262e5b856
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: b4d71eeb0aab75e67e851f867f194ed7578d0d1c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurare l'ambiente sandbox HDInsight aggiunto al dominio
 
-In questo articolo viene descritto come configurare un cluster Azure HDInsight con un'istanza autonoma di Active Directory e [Apache Ranger](http://hortonworks.com/apache/ranger/) per sfruttare l'autenticazione avanzata e i criteri di controllo degli accessi in base al ruolo. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio).
+In questo articolo viene descritto come configurare un cluster Azure HDInsight con un'istanza autonoma di Active Directory e [Apache Ranger](http://hortonworks.com/apache/ranger/) per sfruttare l'autenticazione avanzata e i criteri di controllo degli accessi in base al ruolo. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio). 
+
+> [!IMPORTANT]
+> Per impostazione predefinita, questa configurazione può essere usata solo con gli account di archiviazione di Azure. Per l'uso con Azure Data Lake Store, sincronizzare Active Directory con un nuovo Azure Active Directory.
 
 Senza un cluster HDInsight aggiunto al dominio, ogni cluster può avere solo un account utente Hadoop HTTP e un account utente SSH.  È possibile ottenere l'autenticazione multiutente usando:
 
@@ -40,6 +43,7 @@ Questo articolo illustra l'uso di un'istanza autonoma di Active Directory in ese
     - Creare un cluster HDInsight
 
 > [!IMPORTANT]
+> 
 > Oozie non è abilitato su HDInsight appartenente al dominio.
 
 ## <a name="prerequisite"></a>Prerequisito

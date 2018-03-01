@@ -8,7 +8,7 @@ Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istan
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Acquistare un'istanza di macchine virtuali riservata
 1. Accedere al [Portale di Azure](https://portal.azure.com).
-2. Selezionare **Altri servizi** > **Prenotazioni**.
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare **Aggiungi** per acquistare una nuova prenotazione.
 4. Compilare i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 

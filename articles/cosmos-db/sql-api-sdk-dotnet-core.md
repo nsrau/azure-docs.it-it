@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK e risorse | Documenti Microsoft'
-description: Tutte le informazioni di SQL .NET Core API e SDK tra date di rilascio, date di ritiro e le modifiche apportate tra ogni versione di Azure Cosmos DB .NET Core SDK.
+title: 'Azure Cosmos DB: risorse, SDK e API SQL.NET Core | Microsoft Docs'
+description: Informazioni complete sull'SDK e sull'API SQL.NET Core, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: c62ea8efe56186a2f3ee934823b4ea03775037b0
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK per l'API di SQL: note sulla versione e le risorse
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -58,6 +58,14 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name180181"></a><a name="1.8.0"/>1.8.1
+
+* Correzione della regressione in cui FeedOptions.MaxItemCount = -1 ha generato un errore System.ArithmeticException: dimensioni pagina negative.
+* Aggiunta di una nuova funzione ToString() a QueryMetrics.
+* Esposizione delle statistiche della partizione nelle raccolte di lettura.
+* Aggiunta della proprietà PartitionKey a ChangeFeedOptions.
+* Correzione di bug di minore entità.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
  
@@ -157,6 +165,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.8.1](#1.8.1) |05 febbraio 2018 |--- |
 | [1.7.1](#1.7.1) |16 novembre 2017 |--- |
 | [1.7.0](#1.7.0) |10 novembre 2017 |--- |
 | [1.6.0](#1.6.0) |17 ottobre 2017 |--- |

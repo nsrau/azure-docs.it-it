@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 01/29/2018
 ms.author: adegeo
-ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f3a3a1beb8540ee8ab0502379396c06ea505fb44
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
 
@@ -39,9 +39,9 @@ Il monitoraggio di base non richiede un account di archiviazione.
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-Il monitoraggio avanzato comporta l'uso dell'estensione **Diagnostica di Azure** (e facoltativamente di Application Insights SDK) sul ruolo che si vuole monitorare. L'estensione di diagnostica usa un file di configurazione (per ruolo) denominato **diagnostics.wadcfgx** per configurare le metriche di diagnostica monitorate. I dati raccolti dall'estensione Diagnostica di Azure vengono archiviati in un account di Archiviazione di Azure, configurato nei file con estensione **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Il monitoraggio avanzato comporta perciò un costo aggiuntivo.
+Il monitoraggio avanzato comporta l'uso dell'estensione **Diagnostica di Azure** (e facoltativamente di Application Insights SDK) sul ruolo che si vuole monitorare. L'estensione di diagnostica usa un file di configurazione (per ruolo) denominato **diagnostics.wadcfgx** per configurare le metriche di diagnostica monitorate. L'estensione Diagnostica di Azure raccoglie e archivia i dati in un account di archiviazione di Azure. Queste impostazioni vengono configurate nei file **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Il monitoraggio avanzato comporta perciò un costo aggiuntivo.
 
-In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnostica di Azure. Questa estensione può raccogliere i tipi di informazioni seguenti:
+In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnostica di Azure. Questa estensione di diagnostica può raccogliere i tipi di informazioni seguenti:
 
 * Contatori delle prestazioni personalizzati
 * Log applicazioni
@@ -55,19 +55,13 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 > [!IMPORTANT]
 > Tutti questi dati vengono aggregati nell'account di archiviazione, ma il portale **non** fornisce un modo nativo per rappresentarli graficamente. È consigliabile integrare un altro servizio, come ad esempio Application Insights, nell'applicazione.
 
-### <a name="use-application-insights"></a>Usare Application Insights
-
-Quando si pubblica il servizio cloud da Visual Studio, si può scegliere di inviare i dati di diagnostica ad Application Insights. È possibile creare la risorsa Azure Application Insights in quel momento o inviare i dati a una risorsa Azure esistente. Il servizio cloud può essere monitorato da Application Insights in termini di disponibilità, prestazioni, errori e utilizzo. È possibile aggiungere grafici personalizzati ad Application Insights che mostrino i dati più importanti. I dati delle istanze dei ruoli possono essere raccolti con Application Insights SDK nel progetto del servizio cloud. Per altre informazioni su come integrare Application Insights, vedere [Application Insights per Servizi cloud di Azure](../application-insights/app-insights-cloudservices.md).
-
-Si noti che sebbene sia possibile usare Application Insights per visualizzare i contatori delle prestazioni (e le altre impostazioni) specificati tramite l'estensione Diagnostica di Azure, per ottenere un'esperienza più completa è necessario integrare Application Insights SDK nei ruoli di lavoro e Web.
-
 ## <a name="setup-diagnostics-extension"></a>Configurare l'estensione di Diagnostica
 
 In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-create-storage-account.md#create-a-storage-account). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
 
 Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni** > **Chiavi di accesso** e copiare il valore **Stringa di connessione primaria**. Questo valore è necessario per il servizio cloud. 
 
-Ci sono due file di configurazione che è necessario modificare per poter abilitare la diagnostica avanzata: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
+Per poter abilitare la diagnostica avanzata, è necessario modificare i due file di configurazione seguenti: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 
 ### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
@@ -96,7 +90,15 @@ Molto probabilmente si avranno due file con estensione **.cscfg**, uno denominat
       -->
 ```
 
+## <a name="use-application-insights"></a>Usare Application Insights
+
+Quando si pubblica il servizio cloud da Visual Studio, si può scegliere di inviare i dati di diagnostica ad Application Insights. È possibile creare la risorsa Azure Application Insights in quel momento o inviare i dati a una risorsa Azure esistente. Il servizio cloud può essere monitorato da Application Insights in termini di disponibilità, prestazioni, errori e utilizzo. È possibile aggiungere grafici personalizzati ad Application Insights che mostrino i dati più importanti. I dati delle istanze dei ruoli possono essere raccolti con Application Insights SDK nel progetto del servizio cloud. Per altre informazioni su come integrare Application Insights, vedere [Application Insights per Servizi cloud di Azure](../application-insights/app-insights-cloudservices.md).
+
+Sebbene sia possibile usare Application Insights per visualizzare i contatori delle prestazioni (e le altre impostazioni) specificati tramite l'estensione Diagnostica di Azure, per ottenere un'esperienza più completa è necessario integrare Application Insights SDK nei ruoli di lavoro e Web.
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su Application Insights con i Servizi cloud](../application-insights/app-insights-cloudservices.md)
+- [Set up performance counters](diagnostics-performance-counters.md) (Impostare i contatori delle prestazioni)
 

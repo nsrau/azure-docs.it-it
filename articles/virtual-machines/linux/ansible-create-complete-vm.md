@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: d5e3f3db4726bfb16cbb389cf99b9bf7c511da97
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Creare un ambiente completo per la macchina virtuale Linux in Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire le macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa. In questo articolo viene illustrato come creare un ambiente Linux completo e le risorse di supporto con Ansible. È anche possibile apprendere come [creare una macchina virtuale di base con Ansible](ansible-create-vm.md).
@@ -105,7 +105,7 @@ Una scheda di interfaccia di rete virtuale, NIC, connette la macchina virtuale a
 
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
-Il passaggio finale consiste nel creare una macchina virtuale e usare tutte le risorse create. La sezione seguente in un playbook Ansible crea una macchina virtuale denominata *myVM* e associa la scheda di rete virtuale denominata *myNIC*. Immettere i propri dati di chiave pubblici completati nel *key_data* coppia come indicato di seguito:
+Il passaggio finale consiste nel creare una macchina virtuale e usare tutte le risorse create. La sezione seguente in un playbook Ansible crea una macchina virtuale denominata *myVM* e associa la scheda di rete virtuale denominata *myNIC*. Immettere i dati completi della chiave pubblica nella coppia *key_data* come indicato di seguito:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Il passaggio finale consiste nel creare una macchina virtuale e usare tutte le r
 ```
 
 ## <a name="complete-ansible-playbook"></a>Completare il playbook Ansible
-Per riunire tutte queste sezioni, creare un playbook Ansible denominato *azure_create_complete_vm.yml* e incollare il contenuto seguente. Immettere i propri dati di chiave pubblici completati nel *key_data* coppia:
+Per riunire tutte queste sezioni, creare un playbook Ansible denominato *azure_create_complete_vm.yml* e incollarvi i contenuti seguenti. Immettere i dati completi della chiave pubblica nella coppia *key_data*:
 
 ```yaml
 - name: Create Azure VM
@@ -187,7 +187,7 @@ Per riunire tutte queste sezioni, creare un playbook Ansible denominato *azure_c
         version: latest
 ```
 
-Ansible deve distribuire tutte le risorse in un gruppo di risorse. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/vm#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Ansible deve distribuire tutte le risorse in un gruppo di risorse. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/vm#az_vm_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

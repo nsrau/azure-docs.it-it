@@ -1,6 +1,6 @@
 ---
-title: Controlli nell'accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Informazioni sul funzionamento dei controlli nell'accesso condizionale di Azure Active Directory.
+title: Controlli di accesso nell'accesso condizionale di Azure Active Directory | Microsoft Docs
+description: Informazioni sul funzionamento dei controlli di accesso nell'accesso condizionale di Azure Active Directory.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -13,28 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 533229ae90828a0aeba9f10cbdfdb70afa21e1c5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="controls-in-azure-active-directory-conditional-access"></a>Controlli nell'accesso condizionale di Azure Active Directory 
+# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlli di accesso nell'accesso condizionale di Azure Active Directory 
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") a una specifica condizione ("quando accade questo"). Nel contesto dell'accesso condizionale, 
+Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato i criteri ("quando accade questo"). 
 
-- "**Quando accade questo**" è l'**istruzione della condizione**
+![Controllo](./media/active-directory-conditional-access-controls/10.png)
 
-- "**Fare questo**" sono i **controlli**
 
-![Controllo](./media/active-directory-conditional-access-controls/11.png)
+Nel contesto dell'accesso condizionale, 
+
+- "**Quando accade questo**" è la **condizione**.
+
+- "**Fare questo**" è il **controllo di accesso**.
+
 
 La combinazione di un'istruzione della condizione con i controlli rappresenta un criterio di accesso condizionale.
 
-![Controllo](./media/active-directory-conditional-access-controls/12.png)
+![Controllo](./media/active-directory-conditional-access-controls/61.png)
 
 Ogni controllo è un requisito che deve essere soddisfatto dalla persona o dal sistema che esegue l'accesso o una restrizione sulle operazioni che l'utente può eseguire dopo l'accesso. 
 

@@ -4,13 +4,13 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 10bc249aa70852dce71c96e46319925cececdd8b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -35,7 +35,7 @@ Per usare la visualizzazione delle dipendenze, è necessario scaricare e install
 
 ## <a name="do-i-need-to-pay-for-it"></a>Il servizio è a pagamento?
 
-Sì. L'area di lavoro di Log Analytics viene creata per impostazione predefinita, ma viene usata solo per la visualizzazione delle dipendenze in Azure Migrate. Se si usa la visualizzazione delle dipendenze, oppure l'area di lavoro all'esterno di Azure Migrate, viene addebitato un costo per l'utilizzo dell'area di lavoro.  Per altre informazioni sul prezzo della soluzione Elenco dei servizi, vedere [questa pagina](https://azure.microsoft.com/pricing/details/insight-analytics/). 
+Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Come si gestisce l'area di lavoro?
 

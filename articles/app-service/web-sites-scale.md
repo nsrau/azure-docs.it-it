@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentare le prestazioni di un'app in Azure
 
 > [!NOTE]
-> Il nuovo livello **PremiumV2** consente di avere CPU più veloci, spazio di archiviazione su unità SSD e di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. Per passare al livello **PremiumV2**, vedere [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md) (Configurare il livello PremiumV2 per il servizio app).
+> Il nuovo livello **PremiumV2** consente di avere CPU più veloci e spazio di archiviazione SSD, nonché di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. I vantaggi di prestazioni che ne derivano consentono di eseguire le app su un minor numero di istanze e garantiscono quindi un risparmio economico. Per passare al livello **PremiumV2**, vedere [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md) (Configurare il livello PremiumV2 per il servizio app).
 >
 
 Questo articolo illustra come passare a un piano superiore per un'app nel servizio app di Azure. Sono disponibili due flussi di lavoro per la scalabilità, l'aumento delle prestazioni e l'aumento del numero di istanze. Questo articolo illustra come aumentare le prestazioni.
@@ -81,11 +81,6 @@ Se l'app dipende da altri servizi, ad esempio database SQL o Archiviazione di Az
 ## <a name="compare-pricing-tiers"></a>Confrontare i piani tariffari
 Per informazioni dettagliate, ad esempio sulle dimensioni delle macchine virtuali per ogni piano tariffario, vedere [Informazioni sui prezzi del servizio app](https://azure.microsoft.com/pricing/details/web-sites/).
 Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funzionalità supportate di ogni piano, vedere [Limiti relativi a Servizio app](../azure-subscription-service-limits.md#app-service-limits).
-
-> [!NOTE]
-> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/) , dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
 
 <a name="Next Steps"></a>
 

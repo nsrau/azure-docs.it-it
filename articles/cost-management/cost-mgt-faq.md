@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d33f434dccae7836ae7774afbdf9b80d4685eb4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Domande frequenti su Gestione costi di Azure
 
@@ -116,9 +116,9 @@ Per aggiungere altri account CSP a un'entità, selezionare **MSP Access** (Acces
 
 Potrebbero essere presenti più account Azure che usano valute diverse. I report dei costi in Cloudyn tuttavia non visualizzano più di un tipo di valuta per report.
 
-Se si hanno più sottoscrizioni che usano valute diverse, un'entità padre e le valute delle entità figlio vengono visualizzate con il simbolo **$**. La procedura consigliata consiste nell'evitare di usare valute diverse nella stessa gerarchia di entità. In altre parole, tutte le sottoscrizioni organizzate in una struttura di entità devono usare la stessa valuta.
+Se si hanno più sottoscrizioni che usano valute diverse, un'entità padre e le valute delle entità figlio vengono visualizzate in **$** USD. La procedura consigliata consiste nell'evitare di usare valute diverse nella stessa gerarchia di entità. In altre parole, tutte le sottoscrizioni organizzate in una struttura di entità devono usare la stessa valuta.
 
-Cloudyn rileva automaticamente la valuta della sottoscrizione Enterprise Agreement e la visualizza correttamente nei report.  Cloudyn tuttavia visualizza il simbolo **$** solo per gli account Azure con accesso Web diretto e CSP.
+Cloudyn rileva automaticamente la valuta della sottoscrizione Enterprise Agreement e la visualizza correttamente nei report.  Cloudyn tuttavia visualizza **$** USD solo per gli account Azure con accesso Web diretto e CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Quali sono le tempistiche di aggiornamento dei dati di Cloudyn?
 

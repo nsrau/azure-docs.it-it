@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -36,8 +36,8 @@ Se si è interessati a questo scenario, invitiamo a contattarci tramite [Service
 
 Alcuni aspetti da considerare: 
 
-1. La risorsa cluster di Service Fabric in Azure è ora divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Ciò significa che in caso di malfunzionamento di un'area si potrebbe perdere la possibilità di gestire il cluster tramite Azure Resource Manager o il Portale di Azure. Questa situazione può verificarsi anche se il cluster resta in esecuzione ed è possibile interagire direttamente con esso. Azure inoltre attualmente non offre la possibilità di disporre di una singola rete virtuale che può essere usata tra le aree. Ciò significa che un cluster con più aree in Azure richiede [indirizzi IP pubblici per ogni macchina virtuale nei set di scalabilità di macchine virtuali di Microsoft Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Queste opzioni di rete hanno effetti diversi sui costi, sulle prestazioni e su alcuni livelli di progettazione di applicazioni. È richiesta un'attenta analisi e una pianificazione prima di affrontare un ambiente di questo tipo.
-2. La manutenzione, gestione e monitoraggio di tali computer possono diventare complicati, soprattutto quando estesi su _tipi_ di ambienti, ad esempio tra provider di cloud diversi o tra risorse locali e Azure. È necessario determinare accuratamente gli aggiornamenti, il monitoraggio, la gestione e la diagnostica per il cluster e le applicazioni prima di eseguire i carichi di lavoro di produzione in tale ambiente. Se si ha già grande esperienza di risoluzione di questi problemi in Azure o nei propri Data center, è possibile che si possano applicare queste stesse soluzioni durante la compilazione o l'esecuzione del cluster di Service Fabric. 
+1. La risorsa cluster di Service Fabric in Azure è ora divisa in aree, così come i set di scalabilità di macchine virtuali su cui viene creato il cluster. Ciò significa che in caso di malfunzionamento di un'area si potrebbe perdere la possibilità di gestire il cluster tramite Azure Resource Manager o il portale di Azure. Questa situazione può verificarsi anche se il cluster resta in esecuzione ed è possibile interagire direttamente con esso. Azure inoltre attualmente non offre la possibilità di disporre di una singola rete virtuale che può essere usata tra le aree. Ciò significa che un cluster con più aree in Azure richiede [indirizzi IP pubblici per ogni macchina virtuale nei set di scalabilità di macchine virtuali di Microsoft Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) o [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md). Queste opzioni di rete hanno effetti diversi sui costi, sulle prestazioni e su alcuni livelli di progettazione di applicazioni. È richiesta un'attenta analisi e una pianificazione prima di affrontare un ambiente di questo tipo.
+2. La manutenzione, gestione e monitoraggio di tali computer possono diventare complicati, soprattutto quando estesi su _tipi_ di ambienti, ad esempio tra provider di cloud diversi o tra risorse locali e Azure. È necessario determinare accuratamente gli aggiornamenti, il monitoraggio, la gestione e la diagnostica per il cluster e le applicazioni prima di eseguire i carichi di lavoro di produzione in tale ambiente. Se si ha già esperienza di risoluzione di questi problemi in Azure o nei propri data center, è possibile che si possano applicare queste stesse soluzioni durante la compilazione o l'esecuzione del cluster di Service Fabric. 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>I nodi di Service Fabric ricevono automaticamente aggiornamenti del sistema operativo?
 
@@ -53,7 +53,7 @@ In futuro Microsoft intende supportare un criterio di aggiornamento del sistema 
 
 **Risposta breve**: no. 
 
-**Risposta lunga**: anche se con i set di scalabilità di macchine virtuali di grandi dimensioni è possibile arrivare fino a 1000 istanze di VM, per farlo è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento 1 ha una topologia di dominio di errore 0 e VM9 nel gruppo di posizionamento 2 ha una topologia di domini di errore 4, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
+**Risposta lunga**: anche se con i set di scalabilità di macchine virtuali di grandi dimensioni è possibile arrivare fino a 1.000 istanze di VM, per farlo è necessario usare i gruppi di posizionamento. I domini di errore e i domini di aggiornamento sono coerenti solo in un gruppo di posizionamento. Service Fabric usa i domini di errore e i domini di aggiornamento per prendere decisioni relative al posizionamento delle repliche del servizio/istanze del servizio. Poiché i domini di errore e i domini di aggiornamento sono confrontabili solo in un gruppo di posizionamento, Service Fabric non può usarli. Se, ad esempio, VM1 nel gruppo di posizionamento 1 ha una topologia di domini di errore 0 e VM9 nel gruppo di posizionamento 2 ha una topologia di domini di errore 4, non significa che VM1 e VM2 siano in due diversi rack hardware, quindi Service Fabric in questo caso non può usare i valori dei domini di errore per prendere decisioni relative al posizionamento.
 
 I set di scalabilità di macchine virtuali di grandi dimensioni attualmente presentano altri problemi, ad esempio la mancanza di supporto per il bilanciamento del carico di livello 4. Per altre informazioni, vedere i [dettagli sui set di scalabilità di grandi dimensioni](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
@@ -86,6 +86,9 @@ Se si desidera creare cluster per testare l'applicazione prima di distribuirla, 
 
 Mentre Microsoft sviluppa un'esperienza migliorata oggi l'utente è responsabile dell'aggiornamento. È necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster per una macchina virtuale per volta. 
 
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile crittografare i dischi dati collegati in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
+Sì.  Per altre informazioni, vedere l'articolo [Creare un cluster di Service Fabric con dischi dati collegati](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e gli articoli relativi a come [crittografare i dischi (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) e [crittografare i dischi (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
 ## <a name="container-support"></a>Supporto dei contenitori
 
 ### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Perché i contenitori distribuiti in Service Fabric non riescono a risolvere gli indirizzi DNS?
@@ -112,14 +115,14 @@ Le raccolte Reliable Collections sono in genere [partizionate](service-fabric-co
 
 Gli attori sono progettati per essere unità indipendenti di stato e calcolo, pertanto è consigliabile non eseguire query generali dello stato degli attori in fase di esecuzione. Se è necessario eseguire query nel set completo di stati degli attori, è consigliabile piuttosto:
 
-- Sostituire i servizi di attori con servizi Reliable con stato, come il numero delle richieste di rete per raccogliere tutti i dati, dal numero di attori al numero di partizioni nel servizio.
+- Sostituire i servizi di attori con servizi Reliable con stato, in modo che il numero delle richieste di rete raccolga tutti i dati dal numero di attori al numero di partizioni nel servizio.
 - Progettare gli attori per l'invio periodico del relativo stato a un'archiviazione esterna per facilitare le query. Come in precedenza, questo approccio è ideale solo se le query in esecuzione non sono richieste per il comportamento di runtime.
 
 ### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>Quanti dai è possibile archiviare in una raccolta Reliable Collections?
 
 In genere i servizi Reliable sono partizionati. Pertanto, la quantità di dati archiviabili è limitata solo dal numero di macchine presenti nel cluster e dalla quantità di memoria disponibile su tali macchine.
 
-Ad esempio, si supponga di avere una raccolta Reliable Collections in un servizio con 100 partizioni e 3 replica, con archiviati oggetti di dimensioni pari a 1 KB di media. Si supponga quindi di disporre di un cluster di 10 macchine con 16 GB di memoria per macchina. Per ragioni di semplicità e cautela, si supponga che il sistema operativo, i servizi di sistema, il runtime di Service Fabric e i servizi consumino 6 GB di quella memoria, lasciandone così 10 disponibili per ogni macchina o 100 per il cluster.
+Ad esempio, si supponga di avere una raccolta Reliable Collections in un servizio con 100 partizioni e 3 repliche, con archiviati oggetti di dimensioni pari a 1 KB di media. Si supponga quindi di disporre di un cluster di 10 macchine con 16 GB di memoria per macchina. Per ragioni di semplicità e cautela, si supponga che il sistema operativo, i servizi di sistema, il runtime di Service Fabric e i servizi consumino 6 GB di quella memoria, lasciando così 10 GB disponibili per ogni macchina o 100 GB per il cluster.
 
 Tenendo presente che ciascun oggetto deve essere archiviato tre volte (una primaria e due repliche), si avrà una memoria sufficiente per circa 35 milioni di oggetti nella raccolta, con funzionamento a piena capacità. Tuttavia, si consiglia di essere preparati in caso di perdita simultanea di un dominio di errore e di un dominio di aggiornamento, che rappresentano circa 1/3 di capacità e ne ridurrebbero così il numero a circa 23 milioni.
 
@@ -129,7 +132,7 @@ Si noti che questo calcolo presuppone inoltre:
 
 - Che il servizio Reliable in questione sia l'unico ad archiviare stato nel cluster. Poiché è possibile distribuire più servizi in un cluster, è necessario tenere conto delle risorse di esecuzione e gestione dello stato richieste da ciascun servizio.
 
-- Che il cluster stesso non si stia ampliando o riducendo. Se si aggiungono più macchine, Service Fabric bilancerà nuovamente le repliche per sfruttare la capacità aggiuntiva fino a quando il numero di macchine sarà superiore al numero di partizioni nel servizio, poiché una replica singola non può estendersi alle macchine. Al contrario, se si riduce la dimensione del cluster rimuovendo le macchine, le repliche saranno raggruppate più strettamente e avranno una minore capacità totale.
+- Che il cluster stesso non si stia ampliando o riducendo. Se si aggiungono più macchine, Service Fabric bilancerà nuovamente le repliche per sfruttare la capacità aggiuntiva fino a quando il numero di macchine sarà superiore al numero di partizioni nel servizio, poiché una replica singola non può estendersi alle macchine. Al contrario, se si riduce la dimensione del cluster rimuovendo le macchine, le repliche sono raggruppate più strettamente e hanno una minore capacità totale.
 
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>Quanti dati è possibile archiviare in un attore?
 
@@ -143,7 +146,7 @@ I contenitori offrono un modo semplice per racchiudere i servizi e le relative d
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Si prevede di rendere disponibile Service Fabric in open source?
 
-Microsoft prevede di rendere disponibili in open source i framework di Reliable Services e Reliable Actors in GitHub e accetterà i contributi della community per questi progetti. Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) per le informazioni più recenti.
+Microsoft prevede di rendere disponibili in open source i framework di Reliable Services e Reliable Actors in GitHub e accetta i contributi della community per questi progetti. Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/) per le informazioni più recenti.
 
 Non si prevede attualmente di rendere disponibile in open source il runtime di Service Fabric.
 

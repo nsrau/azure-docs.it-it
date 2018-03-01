@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c0bbe6f80370515fa783b12757434897fe2221b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88c854a6a2bc98a6851246c0ac3481869bbd9c34
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali
 ## <a name="overview"></a>Panoramica
@@ -50,6 +50,8 @@ Il riepilogo video consente di creare un riepilogo per video lunghi selezionando
 Il riconoscimento ottico dei caratteri (OCR) di Analisi Servizi multimediali di Azure consente di convertire il contenuto di testo dei file video in testo digitale modificabile e sui cui è possibile eseguire ricerche. È possibile automatizzare così l'estrazione di metadati importanti dal segnale video del contenuto multimediale.
 ### <a name="scalable-face-redaction"></a>Offuscamento dei volti scalabile
 Azure Media Redactor è un processore di contenuti multimediali di Analisi Servizi multimediali di Azure che offre funzionalità scalabili di offuscamento dei volti nel cloud. Usando l'offuscamento dei volti è possibile modificare un video per sfocare i volti di persone selezionate. Si potrebbe scegliere di usare tale servizio in scenari di notizie giornalistiche o pubblica sicurezza. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio l'offuscamento dei volti richiederà pochi semplici passaggi. Per altre informazioni, vedere l'articolo [Offuscare i volti con Analisi Servizi multimediali di Azure](media-services-face-redaction.md).
+### <a name="content-moderation"></a>Moderazione dei contenuti
+Azure Content Moderator consente di usare funzionalità di moderazione automatica per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale. La moderazione manuale dei video per i contenuti indesiderati è un'attività costosa, che richiede molto tempo. Con questo servizio e gli strumenti di revisione associati, vengono combinate funzionalità di moderazione automatica e manuale allo scopo di ottenere risultati migliori in termini di efficacia ed efficienza. Per altre informazioni, vedere l'articolo [Process your videos with Azure Content Moderator](media-services-content-moderation.md) (Analizzare i video con Azure Content Moderator).
 
 ## <a name="common-scenarios"></a>Scenari comuni
 Analisi Servii multimediali può aiutare le organizzazioni e le aziende a scoprire nuovi orizzonti nel mondo dei video e gestire più efficacemente grandi volumi di contenuti video. Di seguito sono descritti diversi scenari:
@@ -69,6 +71,7 @@ Questa sezione elenca tutti i processori di contenuti multimediali di Analisi Se
 * Rilevatore multimediale di movimento Azure
 * Anteprime video multimediali di Azure
 * Riconoscimento ottico dei caratteri multimediale di Azure
+* Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
 La funzione seguente acquisisce uno dei nomi di processori di contenuti multimediali specificati e restituisce un oggetto.
@@ -123,11 +126,6 @@ Risposta:
 ## <a name="demos"></a>Demo
 Vedere le [demo di Analisi Servizi multimediali di Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="next-steps"></a>Passaggi successivi
-Analizzare i percorsi di apprendimento di Servizi multimediali.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -137,3 +135,8 @@ Vedere l'[annuncio di Analisi Servizi multimediali di Azure](https://azure.micro
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## <a name="next-steps"></a>Passaggi successivi
+Analizzare i percorsi di apprendimento di Servizi multimediali.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

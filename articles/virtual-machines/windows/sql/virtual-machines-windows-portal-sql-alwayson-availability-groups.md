@@ -4,7 +4,7 @@ description: "Questa esercitazione mostra come creare un gruppo di disponibilit�
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurare manualmente un gruppo di disponibilità Always On nelle macchine virtuali di Azure tramite Resource Manager
 
@@ -63,8 +63,8 @@ In questa esercitazione verrà usato il portale di Azure per:
 Azure offre un'immagine della raccolta per l'intera soluzione. Per individuare il modello:
 
 1. Accedere al Portale di Azure con il proprio account.
-2. Nel Portale di Azure, fare clic su **+ Nuovo** per aprire il pannello **Nuovo**.
-3. Nel pannello **Nuovo** cercare **AlwaysOn**.
+2. Nel portale di Azure, fare clic su **Crea una risorsa** per aprire la pagina **Nuovo**.
+3. Nel riquadro **Nuovo** cercare **AlwaysOn**.
    ![Individuare il modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
 4. Nei risultati della ricerca trovare **SQL Server AlwaysOn Cluster** (Cluster AlwaysOn di SQL Server).
    ![Modello AlwaysOn](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
@@ -184,7 +184,7 @@ In **Impostazioni di SQL Server** rivedere e modificare il prefisso del nome del
 
 Rivedere le impostazioni e fare clic su **OK**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 Convalidare le impostazioni nella pagina di riepilogo di Azure. È anche possibile scaricare il modello. Esaminare il riepilogo. Fare clic su **OK**.
 
 ### <a name="buy"></a>Acquistare
@@ -206,7 +206,7 @@ Per connettersi mediante RDP al server SQL, seguire questa procedura:
 2. Fare clic su **Risorse**.
 3. Nel pannello **Risorse** fare clic su **sqlserver-0**, ovvero il nome computer di una delle macchine virtuali che eseguono SQL Server.
 4. Nel pannello di **sqlserver-0** fare clic su **Connetti**. Il browser chiederà se si desidera aprire o salvare l'oggetto di connessione remota. Fare clic su **Apri**.
-5. La **connessione Desktop remoto** potrebbe visualizzare un avviso che l'entità di pubblicazione della connessione remota non può essere identificato. Fare clic su **Connect**.
+5. La **connessione Desktop remoto** potrebbe visualizzare un avviso che l'entità di pubblicazione della connessione remota non può essere identificato. Fare clic su **Connetti**.
 6. Il sistema di sicurezza di Windows chiede all'utente di immettere le proprie credenziali per eseguire la connessione all'indirizzo IP del controller di dominio primario. Fare clic su **Usa un altro account**. In **Nome utente** digitare **contoso\DomainAdmin**. Questo account è stato configurato quando è stato impostato il nome utente dell'amministratore nel modello. Usare la password complessa scelta durante la configurazione del modello.
 7. **Desktop remoto** potrebbe segnalare che il computer remoto non può essere autenticato a causa di problemi relativi al certificato di sicurezza. Mostra il nome del certificato di sicurezza. Se sono stati eseguiti i passaggi dell'esercitazione, il nome è **sqlserver-0.contoso.com**. Fare clic su **Sì**.
 

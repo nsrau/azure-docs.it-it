@@ -10,13 +10,13 @@ ms.service: iot-hub
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 096fcce979bd488a0fe9dead2b1232a057d0ae02
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni - Anteprima
 
@@ -107,7 +107,7 @@ Per una descrizione dettagliata di ogni proprietà, vedere [Schema di eventi di 
 
 ## <a name="filter-events"></a>Filtrare gli eventi
 
-Le sottoscrizioni degli eventi dell'hub IoT possono filtrare gli eventi in base al tipo di evento e al nome del dispositivo. I filtri dell'oggetto in Griglia di eventi si basano sulle corrispondenze di **prefisso** e **suffisso**. In questo modo gli eventi con un argomento corrispondente vengono recapitati al sottoscrittore. 
+Le sottoscrizioni degli eventi dell'hub IoT possono filtrare gli eventi in base al tipo di evento e al nome del dispositivo. Il funzionamento dei filtri oggetto in Griglia di eventi avviene in base alle corrispondenze con **prefisso** e **suffisso**. Il filtro utilizza un `AND` operatore in modo che gli eventi con un oggetto che corrisponde sia al prefisso che al suffisso viene recapitato al sottoscrittore. 
 
 L'oggetto di eventi IoT usa il formato:
 

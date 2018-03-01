@@ -1,6 +1,6 @@
 ---
-title: Esplorare la nuova esperienza di avvisi (anteprima) in Monitor di Azure | Documenti Microsoft
-description: "Comprendere come i nuovi avvisi semplici e scalabili esperienza in Azure permette di creazione, visualizzazione e la gestione degli avvisi più semplici"
+title: Esplorare la nuova esperienza Avvisi (anteprima) in Monitoraggio di Azure | Microsoft Docs
+description: "Comprendere come la nuova esperienza semplice e scalabile di Azure per gli avvisi consente di creare, visualizzare e gestire gli avvisi con maggiore facilità"
 author: manishsm-msft
 manager: kmadnani1
 editor: 
@@ -12,72 +12,76 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 02/02/2018
 ms.author: mamit
 ms.custom: 
-ms.openlocfilehash: 5ded43548d9aea106c6e083476df4e735b8c00a6
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 316dcd53509897a6efc387749ca6f9ec268cb7ac
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/09/2018
 ---
-# <a name="explore-the-new-alerts-preview-experience-in-azure-monitor"></a>Esplorare la nuova esperienza di avvisi (anteprima) in Monitor di Azure
+# <a name="explore-the-new-alerts-preview-experience-in-azure-monitor"></a>Esplorare la nuova esperienza Avvisi (anteprima) in Monitoraggio di Azure
 
 ## <a name="overview"></a>Panoramica
- Avvisi esperienza in Azure è un nuovo aspetto e funzionalità aggiornate. Questa nuova esperienza è disponibile il **avvisi (anteprima)** scheda in Monitor di Azure. Di seguito sono indicati alcuni dei vantaggi dell'utilizzo la nuova esperienza di avvisi (anteprima):
+ L'esperienza Avvisi di Azure è stata migliorata con una nuova grafica e funzionalità aggiornate. La nuova esperienza è accessibile dalla scheda **Avvisi (anteprima)** in Monitoraggio di Azure. Tra i vantaggi offerti dalla nuova esperienza Avvisi (anteprima) sono inclusi:
 
- - **Separazione di avvisi generato e regole di avviso** : nella esperienza Alerts(Preview) Avviso regole (la definizione della condizione che attiva un avviso) e si differenzino solo gli avvisi generati (un'istanza di esecuzione della regola di avviso), pertanto l'operative e viste di configurazione sono separate. 
- - **Oggetto unificata esperienza per gli avvisi di metrica e di log di creazione** - nuovi avvisi (anteprima) authoring guide di esperienza utente lungo il processo di configurazione di una regola di avviso, che rende più semplice individuare le funzioni nel modo corretto per ricevere gli avvisi nel. 
- - **Visualizzazione generato gli avvisi di Log Analitica nel portale di Azure** -esperienza In avvisi (anteprima), è ora possibile anche vedere generato gli avvisi di Log Analitica nella sottoscrizione.  
+ - **Separazione tra avvisi attivati e regole di avviso**: l'esperienza Avvisi (anteprima) fa distinzione tra regole di avviso (le definizioni delle condizioni che attivano gli avvisi) e avvisi attivati (le istanze di attivazione delle regole di avviso) e sono pertanto disponibili visualizzazioni separate per le attività operative e la configurazione.
+ - **Esperienza unificata per la creazione di avvisi di log e metriche**: la nuova esperienza Avvisi (anteprima) offre una procedura guidata per la configurazione di una regola di avviso. In questo modo è possibile definire più facilmente le condizioni per cui è opportuno ricevere un avviso.
+ - **Visualizzazione degli avvisi di Log Analytics attivati nel portale di Azure**: nell'esperienza Avvisi (anteprima) è ora possibile visualizzare anche gli avvisi di Log Analytics attivati in una sottoscrizione.  
+ - **Esperienza unificata per la creazione di avvisi del log attività**: è ora possibile creare avvisi del log attività direttamente da **Monitoraggio** > **Avvisi (anteprima)**. In precedenza era possibile creare questi avvisi solo tramite **Monitoraggio** > **Log attività**.
 
-Nelle sezioni seguenti vengono descritti, in modo più dettagliato, funzionamento la nuova esperienza. 
+Le sezioni seguenti descrivono in modo più dettagliato come funziona la nuova esperienza.
 
 ## <a name="taxonomy"></a>Tassonomia
-L'esperienza Alerts(preview) Usa seguenti concetti per separare gli oggetti regola di avviso e di avviso generato durante unificare l'esperienza di creazione tra tipi diversi di avviso.
+L'esperienza Avvisi (anteprima) si basa sui concetti seguenti per separare gli oggetti di regola di avviso e avviso attivato offrendo al tempo stesso un'esperienza unificata per tipi di avviso diversi.
 
-- **Risorsa di destinazione** -una destinazione può essere qualsiasi risorsa di Azure. Risorsa di destinazione che definisce l'ambito e segnali disponibili per gli avvisi. Destinazioni di esempio: una macchina virtuale, un account di archiviazione, un set di scalabilità della macchina virtuale, un Log Analitica area di lavoro o soluzione. 
+- **Risorsa di destinazione**: come destinazione può essere configurata una qualsiasi risorsa di Azure. La risorsa di destinazione definisce l'ambito e i segnali disponibili per la generazione di avvisi. Esempi di destinazione: una macchina virtuale, un account di archiviazione, un set di scalabilità di macchine virtuali, una soluzione o un'area di lavoro di Log Analytics.
 
-- **Criteri** : i criteri sono una combinazione di segnale e applicata la logica su una risorsa di destinazione. Esempi: Percentuale CPU > 70%, tempo di risposta Server > 4 ms, il conteggio di risultati di un log di query > 100 e così via. 
+- **Criteri**: una combinazione di segnale e logica applicata a una risorsa di destinazione. Esempi: Percentuale d'uso della CPU > 70%, Tempo di risposta del server > 4 ms, Numero di risultati di una query su log > 100 e così via. 
 
-- **Segnale** - segnala vengono generati dalla risorsa di destinazione e può essere di tipi diversi. Questa versione di anteprima supporta i tipi di segnali metrica e di Log.
+- **Segnale**: il segnale emesso dalla risorsa di destinazione. I segnali possono essere di vari tipi. Come tipi di segnale, questa versione di anteprima supporta **Metrica**, **Log attività**, **Application Insights** e **Log**.
 
-- **Logica** -logica definita dall'utente per verificare se il segnale è all'interno di previsto o valori di intervallo.  
+- **Logica**: la logica definita dall'utente per verificare se il segnale è compreso nell'intervallo o nei valori previsti.  
  
-- **Azione** -una chiamata specifica inviata a un ricevitore di una notifica (ad esempio, l'invio di un indirizzo o la registrazione in un URL del webhook). Le notifiche possono in genere attivare più azioni. I tipi di avviso supportati in questa versione di anteprima, gruppi di azioni di supporto.  
+- **Azione**: una chiamata specifica inviata al destinatario di una notifica, ad esempio l'invio di un indirizzo tramite posta elettronica o la pubblicazione in un URL webhook. Le notifiche possono in genere attivare più azioni. I tipi di avviso supportati in questa versione di anteprima consentono di attivare gruppi di azioni.  
  
-- **Regola di avviso** -la definizione di una condizione che attiverà l'avviso. In questa versione di anteprima, la regola di avviso acquisisce la destinazione e i criteri per gli avvisi. La regola di avviso può essere un abilitato o uno stato disabilitato. 
+- **Regola di avviso**: la definizione di una condizione che attiverà l'avviso. In questa versione di anteprima la regola di avviso acquisisce la destinazione e i criteri per la generazione di avvisi. Lo stato della regola di avviso può essere Abilitato o Disabilitato.
  
-- **Generato avviso** -creato quando viene generata una regola di avviso abilitata. L'oggetto di avvisi attivato può essere generato o uno stato non risolto.
+- **Avviso attivato**: l'avviso che viene creato al momento dell'attivazione di una regola di avviso abilitata. Lo stato di un oggetto di questo tipo può essere attivato o non risolto.
 
     > [!NOTE]
-    > Questa è diversa dall'esperienza di avvisi corrente in cui l'avviso rappresenta la regola e avviso generato e pertanto può essere in uno stato di avviso, attivo o disabilitato.
+    > Questo oggetto si comporta quindi in modo diverso rispetto all'esperienza degli avvisi corrente, dove rappresenta sia la regola sia l'avviso attivato e pertanto può avere uno stato attivo, disabilitato o di avviso.
     >
 
-## <a name="single-place-to-view-and-manage-alerts"></a>Posizione unica da visualizzare e gestire gli avvisi
-L'obiettivo dell'esperienza avvisi (anteprima) è il luogo solo per visualizzare e gestire tutti gli avvisi di Azure. Le sottosezioni seguenti descrivono le funzioni di ogni singola schermata della nuova esperienza.
+## <a name="single-place-to-view-and-manage-alerts"></a>Un'unica area per visualizzare e gestire gli avvisi
+L'obiettivo dell'esperienza Avvisi (anteprima) è quello di offrire un'unica area per visualizzare e gestire tutti gli avvisi di Azure. Le sottosezioni seguenti descrivono le funzioni di ogni schermata della nuova esperienza.
 
-### <a name="alerts-preview-overview-page"></a>Pagina Panoramica avvisi (anteprima)
-**Monitoraggio, avvisi (anteprima)** pagina Panoramica Mostra riepilogo aggregata di tutti gli avvisi attivati e totale configurato abilitato le regole di avviso. Viene inoltre un elenco di tutti gli avvisi attivati. Modifica le sottoscrizioni o i parametri di filtro Aggiorna le aggregazioni e gli avvisi generati elenco.
+### <a name="alerts-preview-overview-page"></a>Pagina di panoramica Avvisi (anteprima)
+La pagina di panoramica **Monitoraggio - Avvisi (anteprima)** mostra un riepilogo aggregato di tutti gli avvisi attivati e di tutte le regole di avviso configurate o abilitate, oltre a un elenco di tutti gli avvisi attivati. Se si cambiano le sottoscrizioni o i parametri di filtro, i dati aggregati e l'elenco degli avvisi attivati vengono aggiornati di conseguenza.
 
 > [!NOTE]
-> Avvisi attivati visualizzati negli avvisi (anteprima) sono limitati agli avvisi di log e metrica supportati; Monitoraggio di Azure Mostra numero di avvisi attivati inclusi quelli meno recenti di avvisi di Azure
+> La visualizzazione degli avvisi attivati in Avvisi (anteprima) è limitata agli avvisi di log e metriche supportati. Monitoraggio di Azure mostra il numero di avvisi attivati, inclusi quelli della versione precedente di Avvisi di Azure.
 
- ![Cenni preliminari su avvisi anteprima](./media/monitoring-overview-unified/alerts-preview-overview.png) 
+ ![alerts-preview-overview](./media/monitoring-overview-unified/alerts-preview-overview.png) 
 
 ### <a name="alert-rules-management"></a>Gestione delle regole di avviso
-**Monitoraggio, avvisi (anteprima) > regole** è una singola pagina per gestire tutte le regole di avviso tra le sottoscrizioni di Azure. Elenca tutte le regole di avviso (abilitato o disabilitato) e possono essere ordinati in base alle risorse di destinazione, i gruppi di risorse, il nome della regola o stato. Anche le regole di avviso possono essere attivata e disattivata o modificate da questa pagina.  
+**Monitoraggio - Avvisi (anteprima)>Regole** è una singola pagina da cui è possibile gestire tutte le regole di avviso nelle varie sottoscrizioni di Azure. Include l'elenco di tutte le regole di avviso (abilitate o disabilitate), che può essere ordinato in base alle risorse di destinazione, ai gruppi di risorse, al nome della regola o allo stato. È possibile abilitare o disabilitare o anche modificare le regole di avviso da questa pagina.  
 
- ![regole di anteprima di avvisi](./media/monitoring-overview-unified/alerts-preview-rules.png)
+ ![alerts-preview-rules](./media/monitoring-overview-unified/alerts-preview-rules.png)
 
 
-## <a name="one-alert-authoring-experience-across-all-monitoring-sources"></a>Esperienza di creazione in tutte le origini di monitoraggio di un avviso
-Esperienza in avvisi (anteprima), gli avvisi possono essere creati in modo coerente indipendentemente dal servizio di monitoraggio o tipo di segnale. Tutti gli avvisi generati e relativi dettagli sono disponibili in una singola pagina.  
+## <a name="one-alert-authoring-experience-across-all-monitoring-sources"></a>Un'unica esperienza per la creazione di avvisi in tutte le origini di monitoraggio
+Nell'esperienza Avvisi (anteprima) è possibile creare avvisi in modo coerente, indipendentemente dal servizio di monitoraggio o dal tipo di segnale. Tutti gli avvisi attivati e i relativi dettagli sono disponibili in un'unica pagina.  
  
-La creazione di un avviso è un'attività in tre passaggi in cui l'utente sceglie innanzitutto una destinazione per l'avviso, quindi selezionando il segnale di destra e quindi specificare la logica da applicare al segnale come parte della regola di avviso. Questo processo di creazione semplificato non richiede all'utente di conoscere il monitoraggio di origine o segnali supportati prima di selezionare una risorsa di Azure. L'esperienza di creazione comune Filtra l'elenco di segnali disponibili in base a una risorsa di destinazione selezionata automaticamente e consente la creazione della logica di avviso
+La procedura per creare un avviso prevede tre passaggi. L'utente sceglie prima di tutto una destinazione per l'avviso, quindi seleziona il segnale appropriato e infine specifica la logica da applicare al segnale come parte della regola di avviso. Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'esperienza di creazione comune filtra automaticamente l'elenco dei segnali disponibili in base alla risorsa di destinazione selezionata e fornisce indicazioni per definire la logica degli avvisi.
 
-Per altre informazioni su come creare i seguenti tipi di avviso [qui](monitor-alerts-unified-usage.md). 
-- Metrici avvisi (denominati in tempo quasi reale metrica avvisi esperienza corrente)
-- Avvisi del registro (Log Analitica)
+Per altre informazioni su come creare i tipi di avviso seguenti, vedere [questo articolo](monitor-alerts-unified-usage.md).
+- Avvisi di metriche (denominati Avvisi metriche near real time nell'esperienza corrente)
+- Avvisi di log (Log Analytics)
+- Avvisi di log (Log attività)
+- Avvisi di log (Application Insights)
+
  
 
 ## <a name="alert-types-supported-in-this-preview"></a>Tipi di avviso supportati in questa versione di anteprima
@@ -85,16 +89,17 @@ Per altre informazioni su come creare i seguenti tipi di avviso [qui](monitor-al
 
 | **Tipo di segnale** | **Origine di monitoraggio** | **Descrizione** | 
 |-------------|----------------|-------------|
-| Metrica | Monitoraggio di Azure | Chiamato [ **gli avvisi in tempo quasi reale metrica** ](monitoring-near-real-time-metric-alerts.md) esperienza corrente, questi avvisi metrica supporta la valutazione delle condizioni di metrica con una frequenza 1 minuto e consentire per le regole più metriche. È disponibile un elenco di tipi di risorse supportati [qui](monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for). Altre metriche avvisi in base a quanto definito [qui](monitoring-overview-alerts.md#alerts-in-different-azure-services) non sono supportate nell'esperienza avvisi (anteprima).|
-| Log  | Log Analytics | Ricevere notifiche o eseguire azioni automatizzate quando una query di ricerca Log sui dati di metrica e/o evento soddisfa determinati criteri.|
-| Log  | Log attività | Non supportato nell'esperienza di avvisi (anteprima). |
-| Log  | Application Insights | Non supportato nell'esperienza di avvisi (anteprima). |
-| Metrica | Application Insights | Non supportato nell'esperienza di avvisi (anteprima). |
-| Test di disponibilità | Application Insights | Non supportato nell'esperienza di avvisi (anteprima). |
+| Metrica | Monitoraggio di Azure | Denominati [**Avvisi metriche near real time**](monitoring-near-real-time-metric-alerts.md) nell'esperienza corrente, questi avvisi supportano la valutazione delle condizioni delle metriche alla frequenza di un minuto e consentono l'uso di regole relative a più metriche. Un elenco dei tipi di risorse supportati è disponibile in [questa sezione](monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for). Altri avvisi di metriche definiti in [questa sezione](monitoring-overview-alerts.md#alerts-in-different-azure-services) non sono supportati nell'esperienza Avvisi (anteprima).|
+| Log  | Log Analytics | Questa categoria di avvisi consente di ricevere notifiche o eseguire ricerche automatizzate quando una query di ricerca log su dati relativi a metriche e/o eventi soddisfa determinati criteri.|
+| Log  | Log attività | Questa categoria include i record di tutte le azioni di creazione, aggiornamento ed eliminazione eseguite sulla destinazione selezionata (risorsa/gruppo di risorse/sottoscrizione). |
+| Log  | Log di integrità dei servizi | Questa categoria non è supportata nell'esperienza Avvisi (anteprima).   |
+| Log  | Application Insights | Questa categoria include i log con i dettagli sulle prestazioni dell'applicazione. Usando una query di analisi, è possibile definire le condizioni per le azioni da eseguire, in base ai dati dell'applicazione. |
+| Metrica | Application Insights | Questa categoria non è supportata nell'esperienza Avvisi (anteprima). |
+| Test di disponibilità | Application Insights | Questa categoria non è supportata nell'esperienza Avvisi (anteprima). |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Informazioni su come utilizzare la nuova esperienza di avvisi (anteprima) per creare, visualizzare e gestire gli avvisi](monitor-alerts-unified-usage.md)
-- [Informazioni sugli avvisi di log nell'esperienza di avvisi (anteprima)](monitor-alerts-unified-log.md)
-- [Informazioni sulle metrici avvisi nell'esperienza di avvisi (anteprima)](monitoring-near-real-time-metric-alerts.md)
-
+- [Informazioni su come usare la nuova esperienza Avvisi (anteprima) per creare, visualizzare e gestire gli avvisi](monitor-alerts-unified-usage.md)
+- [Informazioni sugli avvisi di log nell'esperienza Avvisi (anteprima)](monitor-alerts-unified-log.md)
+- [Informazioni sugli avvisi di metriche nell'esperienza Avvisi (anteprima)](monitoring-near-real-time-metric-alerts.md)
+- [Informazioni sugli avvisi del log attività nell'esperienza Avvisi (anteprima)](monitoring-activity-log-alerts-new-experience.md)

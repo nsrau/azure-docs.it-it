@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 152c5a1103d32af27f689086cfcc9cc1a7acc5d3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot 
 
@@ -65,7 +65,7 @@ L'output dovrebbe essere simile a quanto segue:
 ## <a name="use-azure-portal-to-take-a-snapshot"></a>Usare il portale di Azure per creare uno snapshot 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. In alto a sinistra fare clic su **Nuovo** e cercare **Snapshot**.
+2. In alto a sinistra fare clic su **Crea una risorsa** e cercare **Snapshot**.
 3. Nel pannello Snapshot, fare clic su **Crea**.
 4. Immettere un **Nome** per lo snapshot.
 5. Selezionare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md#resource-groups) esistente o specificare il nome di un nuovo gruppo. 

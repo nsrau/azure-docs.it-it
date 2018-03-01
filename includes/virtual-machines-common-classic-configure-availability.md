@@ -21,9 +21,7 @@ A tale scopo, è possibile usare il portale di Azure o i comandi di Azure PowerS
 Per usare il Portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com), se questa operazione non è già stata eseguita.
-2. Nel menu Hub fare clic su **+ Nuovo**, quindi su **Macchina virtuale**.
-   
-    ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/ChooseVMImage.png)
+2. Fare clic su **Crea una risorsa** > **Calcolo**.
 3. Selezionare l'immagine della macchina virtuale del Marketplace che si desidera usare. È possibile scegliere di creare una macchina virtuale Linux o Windows.
 4. Per la macchina virtuale selezionata verificare che il modello di distribuzione sia impostato su **Classico**, quindi fare clic su **Crea**
    
@@ -42,7 +40,7 @@ Per usare i comandi di Azure PowerShell per creare una macchina virtuale di Azur
 Nel Portale di Azure è possibile aggiungere le macchine virtuali classiche a un set di disponibilità esistente oppure creare un set nuovo per le macchine. (si noti che le macchine virtuali presenti nello stesso set di disponibilità devono appartenere allo stesso servizio cloud). La procedura è quasi la stessa: con Azure PowerShell è possibile aggiungere la macchina virtuale a un set di disponibilità esistente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com), se questa operazione non è già stata eseguita.
-2. Fare clic su **Macchine virtuali (classico)**nel menu Hub.
+2. Nel menu a sinistra fare clic su **Macchine virtuali (versione classica)**.
    
     ![Testo immagine alt](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Nell'elenco delle macchine virtuali selezionare il nome della macchina virtuale che si desidera aggiungere al set.

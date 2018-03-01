@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: vikdesai
-ms.openlocfilehash: e23eea52ff5d27beacf938a1ef153172e24f1aee
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: f3f5f974630c4bf1c68599e26612ed729b55bcfc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-reserved-virtual-machine-instances"></a>Gestire le istanze di macchina virtuale riservate
 
@@ -28,7 +28,7 @@ Dopo aver acquistato un'istanza di macchina virtuale riservata di Azure potrebbe
 
 Per aggiornare l'ambito di una prenotazione: 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
-2. Selezionare **Altri servizi** > **Prenotazioni**.
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare la prenotazione.
 4. Selezionare **Impostazioni** > **Configurazione**.
 5. Modificare l'ambito. Se si passa da un ambito condiviso a un ambito singolo, è possibile selezionare solo le sottoscrizioni di cui l'utente è proprietario. È possibile selezionare solo le sottoscrizioni all'interno dello stesso contesto di fatturazione della prenotazione. Il contesto di fatturazione è determinato dalla sottoscrizione selezionata quando viene acquistata la prenotazione. L'ambito è valido solo per le sottoscrizioni con pagamento in base al consumo MS-AZR-0003P e le sottoscrizioni di tipo Enterprise MS-AZR-0017P. Per i contratti Enterprise le sottoscrizioni di sviluppo/test non sono idonee per ottenere lo sconto associato alla prenotazione.
@@ -69,12 +69,22 @@ Per aggiornare l'ambito di una prenotazione:
  
 Per delegare la gestione dell'accesso per una prenotazione: 
 1.  Accedere al [Portale di Azure](https://portal.azure.com).
-2.  Selezionare **Altri servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
+2.  Selezionare **Tutti i servizi** > **Prenotazione** per visualizzare l'elenco delle prenotazioni a cui è possibile accedere.
 3.  Selezionare la prenotazione per la quale si desidera delegare l'accesso ad altri utenti.
 4.  Selezionare **Controllo di accesso (IAM)** nel menu.
 5.  Selezionare **Aggiungi** > **Ruolo** > **Proprietario** oppure un ruolo diverso se si desidera concedere un ruolo limitato. 
 6. Digitare l'indirizzo di posta elettronica dell'utente che si vuole aggiungere come proprietario. 
 7. Selezionare l'utente e quindi selezionare **Salva**.
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate](billing-save-compute-costs-reservations.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
+- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

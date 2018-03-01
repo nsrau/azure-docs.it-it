@@ -1,4 +1,4 @@
-Fare clic sul pulsante **Nuovo**. Nel campo **Cerca nel Marketplace** immettere `Azure Active Directory B2C`.
+Fare clic sul pulsante **Crea una risorsa**. Nel campo **Cerca nel Marketplace** immettere `Azure Active Directory B2C`.
 
 ![Pulsante Aggiungi evidenziato e testo Azure Active Directory B2C nel campo Cerca nel Marketplace](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 

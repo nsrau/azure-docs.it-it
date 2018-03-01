@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 0e9a47e6a1a5c7a44c5553742d6c5c81f8ca7286
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorare Azure Cosmos DB
 È possibile monitorare gli account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/). Per ogni account di Azure Cosmos DB, è disponibile un set completo di metriche per il monitoraggio di velocità effettiva, archiviazione, disponibilità, latenza e coerenza.
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/11/2017
 È possibile esaminare le metriche nella pagina Account, nella nuova pagina Metriche o in Monitoraggio di Azure.
 
 ## <a name="view-performance-metrics-on-the-metrics-page"></a>Visualizzare le metriche delle prestazioni nella pagina Metriche
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, scorrere fino a **Database**, fare clic su **Azure Cosmos DB** e quindi fare clic sul nome dell'account Azure Cosmos DB per il quale si vogliono visualizzare le metriche delle prestazioni.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Tutti i servizi**, scorrere fino a **Database**, fare clic su **Azure Cosmos DB** e quindi fare clic sul nome dell'account Azure Cosmos DB per il quale si vogliono visualizzare le metriche delle prestazioni.
 2. Una volta caricata la nuova pagina, nel menu delle risorse, sotto **Monitoraggio**, fare clic su **Metriche**.
 3. Nella pagina Metriche selezionare la raccolta da esaminare dall'elenco a discesa **Raccolte**.
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 5. Nell'elenco delle **Metriche disponibili** selezionare le metriche da visualizzare. Utilizzare il tasto CTRL per selezionare più voci. 
 
 ## <a name="view-performance-metrics-on-the-account-page"></a>Visualizzare le metriche delle prestazioni nella pagina Account
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, scorrere fino a **Database**, fare clic su **Azure Cosmos DB** e quindi fare clic sul nome dell'account Azure Cosmos DB per il quale si vogliono visualizzare le metriche delle prestazioni.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Tutti i servizi**, scorrere fino a **Database**, fare clic su **Azure Cosmos DB** e quindi fare clic sul nome dell'account Azure Cosmos DB per il quale si vogliono visualizzare le metriche delle prestazioni.
 2. La sezione **Monitoraggio** visualizza i seguenti riquadri per impostazione predefinita:
    
    * Richieste totali per il giorno corrente.
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 4. La pagina **Metrica** mostra i dettagli relativi alle richieste totali. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configurare gli avvisi nel portale
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Altri servizi**, **Azure Cosmos DB** e infine sul nome dell'account Azure Cosmos DB per cui si vogliono configurare gli avvisi relativi alle metriche delle prestazioni.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Tutti i servizi**, **Azure Cosmos DB** e infine sul nome dell'account Azure Cosmos DB per cui si vogliono configurare gli avvisi relativi alle metriche delle prestazioni.
 2. Nel menu delle risorse fare clic su **Regole di avviso** per aprire la relativa pagina.  
    ![Screenshot della parte di regole di avviso selezionata](./media/monitor-accounts/madocdb10.5.png)
 3. Nella pagina **Regole di avviso** fare clic su **Aggiungi avviso**.  
@@ -69,7 +69,7 @@ ms.lasthandoff: 12/11/2017
      ![Schermata della pagina Aggiungi una regola di avviso](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitorare Azure Cosmos DB a livello di codice
-Le metriche di livello di account disponibili nel portale, quali richieste di utilizzo e il totale di archiviazione account, non sono disponibili tramite le API di SQL. Tuttavia, è possibile recuperare i dati di utilizzo a livello di raccolta utilizzando le API di SQL. Per recuperare i dati a livello di raccolta, eseguire le operazioni seguenti:
+Le metriche a livello di account disponibili nel portale, ad esempio l'uso delle risorse di archiviazione dell'account e il numero totale di richieste, non sono disponibili tramite le API SQL. È tuttavia possibile recuperare dati di utilizzo a livello di raccolta tramite le API SQL. Per recuperare i dati a livello di raccolta, eseguire le operazioni seguenti:
 
 * Per usare l'API REST, [eseguire il comando GET sulla raccolta](https://msdn.microsoft.com/library/mt489073.aspx). Nelle intestazioni x-ms-resource-quota e x-ms-resource-usage della risposta verranno restituite le informazioni relative alla quota e all'utilizzo per la raccolta.
 * Per usare .NET SDK, usare il metodo [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx), che restituisce un oggetto [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) contenente alcune proprietà d'uso, ad esempio **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** e altro ancora.

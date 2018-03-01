@@ -13,61 +13,76 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 16f9179b6cbaee00a2afbe2efe090cb3eb8b204a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
-Questo argomento fornisce informazioni sugli aspetti da conoscere e su ciò che è consigliabile evitare quando si configurano i criteri di accesso condizionale. Prima di procedere nella lettura, occorre acquisire familiarità con i concetti e la terminologia descritti in [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Questo articolo illustra quanto segue:
 
-## <a name="what-you-should-know"></a>Informazioni utili
+- Informazioni utili 
+- Azioni da evitare nella configurazione dei criteri di accesso condizionale 
 
-### <a name="whats-required-to-make-a-policy-work"></a>Elementi necessari per il funzionamento di un criterio
+Questo articolo presuppone che l'utente abbia familiarità con i concetti e la terminologia descritti in [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-Quando si crea un nuovo criterio, non sono selezionti utenti, gruppi, app o controlli di accesso.
+
+
+## <a name="whats-required-to-make-a-policy-work"></a>Elementi necessari per il funzionamento di un criterio
+
+Quando si crea un nuovo criterio, non sono presenti utenti, gruppi, app o controlli di accesso selezionati.
 
 ![App cloud](./media/active-directory-conditional-access-best-practices/02.png)
 
 
-Per far funzionare il criterio, è necessario configurare quanto segue:
+Affinché il criterio funzioni, è necessario configurare quanto segue:
 
 
 |Cosa           | Come                                  | Motivo|
 |:--            | :--                                  | :-- |
-|**App cloud** |È necessario selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di ottimizzare il modo in cui gli utenti autorizzati possono accedere alle app.|
-| **Utenti e gruppi** | È necessario selezionare almeno un utente o gruppo che è autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato. |
-| **Controlli di accesso** | È necessario selezionare almeno un controllo di accesso. | Il processore del criterio deve sapere cosa fare se vengono soddisfatte le condizioni.|
+|**App cloud** |È necessario selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti potranno accedere alle app cloud.|
+| **Utenti e gruppi** | È necessario selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato. |
+| **Controlli di accesso** | È necessario selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte.|
 
 
-Oltre a questi requisiti di base, in molti casi è necessario anche configurare una condizione. Mentre un criterio funzionerebbe anche senza una condizione configurata, le condizioni rappresentano il fattore determinante per ottimizzare l'accesso alle app.
 
 
-![App cloud](./media/active-directory-conditional-access-best-practices/04.png)
-
-
+## <a name="what-you-should-know"></a>Informazioni utili
 
 ### <a name="how-are-assignments-evaluated"></a>Come vengono valutate le assegnazioni?
 
-Tutte le assegnazioni vengono collegate logicamente con l'operatore **AND**. Se è configurata più di un'assegnazione, per attivare un criterio, devono essere soddisfatte tutte le assegnazioni.  
+Tutte le assegnazioni vengono collegate logicamente con l'operatore **AND**. Se sono configurate più assegnazioni, per attivare un criterio devono essere soddisfatte tutte.  
 
-Se è necessario configurare una condizione della località che si applica a tutte le connessioni stabilite dall'esterno della rete dell'organizzazione, è possibile:
+Se è necessario configurare una condizione relativa alla località applicata a tutte le connessioni stabilite dall'esterno della rete dell'organizzazione:
 
 - Includere **Tutte le località**
 - Escludere **Tutti gli indirizzi IP attendibili**
 
+
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>Quali operazioni è necessario eseguire se non si riesce ad accedere al portale di amministrazione di Azure AD?
+
+Se non si riesce ad accedere al portale di Azure AD a causa di un'impostazione errata in un criterio di accesso condizionale:
+
+- Verificare se siano presenti altri amministratori dell'organizzazione che non sono ancora stati bloccati. Un amministratore con accesso al portale di Azure può disabilitare il criterio che impedisce l'accesso. 
+
+- Se nessun amministratore dell'organizzazione può aggiornare il criterio, è necessario inviare una richiesta di supporto. Il supporto tecnico Microsoft può esaminare e aggiornare i criteri di accesso condizionale che impediscono l'accesso.
+
+
 ### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>Che cosa accade se sono configurati criteri nel portale di Azure classico e nel portale di Azure?  
+
 Entrambi i criteri vengono applicati da Azure Active Directory e l'utente ottiene l'accesso solo quando tutti i requisiti vengono soddisfatti.
 
 ### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>Che cosa accade se sono presenti criteri nel portale di Intune Silverlight e nel portale di Azure?
+
 Entrambi i criteri vengono applicati da Azure Active Directory e l'utente ottiene l'accesso solo quando tutti i requisiti vengono soddisfatti.
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Che cosa accade se sono configurati più criteri per lo stesso utente?  
+
 Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che tutti i requisiti vengano soddisfatti prima di concedere l'accesso all'utente.
 
 
@@ -76,9 +91,13 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 Sì, è possibile usare Exchange ActiveSync in criteri di accesso condizionale.
 
 
+
+
+
+
 ## <a name="what-you-should-avoid-doing"></a>Azioni da evitare
 
-Il framework di accesso condizionale offre ottima flessibilità di configurazione. Tuttavia, questa flessibilità ideale comporta anche che è opportuno esaminare attentamente ogni criterio di configurazione prima che venga rilasciato, in modo da evitare risultati indesiderati. In questo contesto, è necessario prestare particolare attenzione alle assegnazioni che interessano set completi, ad esempio **tutti gli utenti/i gruppi/le applicazioni cloud**.
+Il framework di accesso condizionale offre ottima flessibilità di configurazione. Con un'elevata flessibilità, tuttavia, è consigliabile esaminare attentamente ogni criterio di configurazione prima del rilascio per evitare risultati indesiderati. In questo contesto, è necessario prestare particolare attenzione alle assegnazioni che interessano set completi, ad esempio **tutti gli utenti/i gruppi/le applicazioni cloud**.
 
 Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
@@ -97,10 +116,27 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 
 
+## <a name="how-should-you-deploy-a-new-policy"></a>Come distribuire un nuovo criterio
+
+Come primo passaggio, è consigliabile valutare il criterio con lo [strumento per l'analisi di simulazione](active-directory-conditional-access-whatif.md).
+
+Quando si è pronti a distribuire un nuovo criterio nel proprio ambiente, è consigliabile procedere per fasi:
+
+1. Applicare un criterio a un set ridotto di utenti e verificare che abbia il comportamento previsto. 
+
+2.  Quando si espande un criterio per includere un maggior numero di utenti, continuare a escludere tutti gli amministratori dal criterio. In questo modo, gli amministratori potranno comunque accedere e aggiornare il criterio, se è necessaria una modifica.
+
+3. Applicare un criterio a tutti gli utenti solo se realmente necessario. 
+
+Come procedura consigliata, creare un account utente che sia:
+
+- Dedicato all'amministrazione dei criteri 
+- Escluso da tutti i criteri
+
 
 ## <a name="policy-migration"></a>Migrazione dei criteri
 
-È consigliabile eseguire la migrazione di criteri non creati nel portale di Azure per i motivi seguenti:
+Valutare la possibilità di eseguire la migrazione dei criteri che non sono stati creati nel portale di Azure per i motivi seguenti:
 
 - È ora possibile gestire scenari che in precedenza non era possibile gestire.
 
@@ -108,7 +144,7 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 - È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centralizzata.
 
-- Il portale di Azure classico verrà ritirato.   
+- Il portale di Azure classico è stato ritirato.   
 
 
 Per altre informazioni, vedere [Migrare i criteri classici nel portale di Azure](active-directory-conditional-access-migration.md).

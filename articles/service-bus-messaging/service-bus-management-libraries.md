@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 02/05/2018
 ms.author: sethm
-ms.openlocfilehash: 3b7096a073b509217a6ed29b53f88f912e6613f6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 
@@ -33,7 +33,7 @@ Le librerie di gestione del bus di servizio di Azure possono eseguire il provisi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare a usare le librerie di gestione del bus di servizio, è necessario eseguire l'autenticazione con il servizio Azure Active Directory (AAD). AAD richiede l'autenticazione come entità servizio, che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
+Per iniziare a usare le librerie di gestione del bus di servizio, è necessario eseguire l'autenticazione con il servizio Azure Active Directory (Azure AD). Azure AD richiede l'autenticazione come entità servizio, che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
 
 * [Usare il portale di Azure per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
@@ -45,13 +45,13 @@ Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `Te
 
 Il modello di modifica delle risorse del bus di servizio segue un protocollo comune:
 
-1. Ottenere un token da Azure Active Directory usando la libreria **Microsoft.IdentityModel.Clients.ActiveDirectory**.
+1. Ottenere un token da Azure AD usando la libreria **Microsoft.IdentityModel.Clients.ActiveDirectory**:
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
-2. Creare l'oggetto `ServiceBusManagementClient`.
+2. Creare l'oggetto `ServiceBusManagementClient`:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -60,7 +60,7 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Impostare i parametri `CreateOrUpdate` sui valori specificati.
+3. Impostare i parametri `CreateOrUpdate` sui valori specificati:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -69,12 +69,13 @@ Il modello di modifica delle risorse del bus di servizio segue un protocollo com
        EnablePartitioning = true
    };
    ```
-4. Effettuare la chiamata.
+4. Eseguire la chiamata:
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Esempio di gestione .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Informazioni di riferimento sull'API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

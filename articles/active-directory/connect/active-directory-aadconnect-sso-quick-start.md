@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/21/2017
 ms.author: billmath
-ms.openlocfilehash: b533df58d24b3bc76a229ad09c682d1d8aeaf741
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2d172b22d00f21062237a1af1742bad6a03c864c
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -75,10 +75,10 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
-Per distribuire la funzionalità agli utenti, è necessario aggiungere gli URL di Azure AD seguenti alle impostazioni dell'area Intranet degli utenti usando Criteri di gruppo in Active Directory:
+Per distribuire la funzionalità agli utenti, è necessario aggiungere l'URL di Azure AD seguente alle impostazioni dell'area Intranet degli utenti usando Criteri di gruppo in Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-- https://aadg.windows.net.nsatc.net
+
 
 Inoltre, attraverso Criteri di gruppo è necessario abilitare l'impostazione **Consenti aggiornamenti alla barra di stato tramite script** relativa ai criteri dell'area Intranet. 
 
@@ -87,7 +87,7 @@ Inoltre, attraverso Criteri di gruppo è necessario abilitare l'impostazione **C
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Motivo per cui è necessario modificare le impostazioni della zona Intranet degli utenti
 
-Per impostazione predefinita, il browser calcola automaticamente l'area corretta, Internet o Intranet, in base a un URL specifico. Ad esempio, "http://contoso/" esegue il mapping all'area Intranet, mentre "http://intranet.contoso.com/" esegue il mapping all'area Internet perché l'URL contiene un punto. I browser non inviano ticket Kerberos a un endpoint del cloud, come i due URL di Azure AD, a meno che l'URL in questione non venga esplicitamente aggiunto all'area Intranet del browser.
+Per impostazione predefinita, il browser calcola automaticamente l'area corretta, Internet o Intranet, in base a un URL specifico. Ad esempio, "http://contoso/" esegue il mapping all'area Intranet, mentre "http://intranet.contoso.com/" esegue il mapping all'area Internet perché l'URL contiene un punto. I browser non invieranno ticket Kerberos a un endpoint del cloud, come l'URL di Azure AD, a meno che l'URL in questione non venga esplicitamente aggiunto all'area Intranet del browser.
 
 ### <a name="detailed-steps"></a>Procedura dettagliata
 
@@ -96,7 +96,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 3. Passare a **Configurazione utente** > **Modelli amministrativi** > **Componenti di Windows** > **Internet Explorer** > **Pannello di controllo Internet** > **Scheda Sicurezza**. Selezionare quindi **Elenco di assegnazione siti ad aree**.
     ![Single Sign-On](./media/active-directory-aadconnect-sso/sso6.png)
 4. Abilitare i criteri e quindi immettere i valori seguenti nella finestra di dialogo:
-   - **Nome valore**: sono gli URL di Azure AD a cui vengono inviati i ticket Kerberos.
+   - **Nome valore**: l'URL di Azure AD a cui vengono inoltrati i ticket Kerberos.
    - **Valore** (dati): **1** indica l'area Intranet.
 
    Il risultato sarà analogo a questo:
@@ -104,13 +104,9 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
     Valore: https://autologon.microsoftazuread-sso.com
   
     Data 1
-        
-   Valore: https://aadg.windows.net.nsatc.net
-
-    Data 1
 
    >[!NOTE]
-   > Se si vuole impedire ad alcuni utenti di usare l'accesso SSO facile, ad esempio se questi utenti accedono da chioschi multimediali condivisi, impostare i valori precedenti su **4**. Aggiungendo gli URL di Azure AD all'area con restrizioni, questa operazione fa sì che l'accesso SSO facile abbia sempre esito negativo.
+   > Se si vuole impedire ad alcuni utenti di usare l'accesso SSO facile, ad esempio se questi utenti accedono da chioschi multimediali condivisi, impostare i valori precedenti su **4**. In questo modo si aggiunge l'URL di Azure AD all'area con restrizioni e l'accesso SSO facile avrà sempre esito negativo.
    >
 
 5. Fare clic su **OK** e quindi nuovamente su **OK**.
@@ -146,9 +142,9 @@ Nel caso siano state ignorate le impostazioni dei criteri [AuthNegotiateDelegate
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (solo Mac OS)
 
-Per Google Chrome su Mac OS e altre piattaforme non Windows, fare riferimento a [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) (Elenco criteri dei progetti Chromium) per informazioni su come aggiungere gli URL di Azure AD all'elenco elementi consentiti per l'autenticazione integrata.
+Per Google Chrome su Mac OS e altre piattaforme non Windows, vedere l'[elenco dei criteri dei progetti Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) per informazioni su come aggiungere l'URL di Azure AD all'elenco elementi consentiti per l'autenticazione integrata.
 
-L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per distribuire gli URL di Azure AD in Firefox e Google Chrome su Mac esula dall'ambito di questo articolo.
+L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per distribuire l'URL di Azure AD a utenti di Firefox e Google Chrome su Mac esula dall'ambito di questo articolo.
 
 #### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 

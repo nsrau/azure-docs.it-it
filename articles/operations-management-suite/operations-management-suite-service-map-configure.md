@@ -1,6 +1,6 @@
 ---
-title: Configurare Mapping dei servizi in Operations Management Suite | Microsoft Docs
-description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari."
+title: Configurare Mapping dei servizi in Azure | Microsoft Docs
+description: "Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: d535c738943b4fea81798b6fc2eedc60ae6be41f
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="configure-service-map-in-operations-management-suite"></a>Configurare Mapping dei servizi in Operations Management Suite
+# <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
-Questo articolo descrive in dettaglio come configurare l'elenco dei servizi e il caricamento degli agenti. Per informazioni sull'uso di Mapping dei servizi, vedere [Configurare la soluzione di elenco dei servizi in Operations Management Suite (OMS)](operations-management-suite-service-map.md).
+Questo articolo descrive in dettaglio come configurare l'elenco dei servizi e il caricamento degli agenti. Per informazioni sull'uso di Mapping dei servizi, vedere [Usare la soluzione di Mapping dei servizi in Azure](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.1 | 1E4ED4CA5940BEA462FC7CAEDF4DF1C7F92C927DE6D538C4DC61DCFDFFAB1A0B  |
 
 
 ## <a name="connected-sources"></a>Origini connesse
-Elenco dei servizi ottiene i dati da Microsoft Dependency Agent, che dipende dall'agente OMS per le connessioni a Operations Management Suite. È quindi necessario che OMS Agent venga installato e configurato nel server prima di Microsoft Dependency Agent. La tabella seguente descrive le origini connesse che sono supportate dalla soluzione di Mapping dei servizi.
+Elenco dei servizi ottiene i dati da Microsoft Dependency Agent, Dependency Agent dipende dall'agente OMS per le connessioni a Log Analytics, È quindi necessario che OMS Agent venga installato e configurato nel server prima di Microsoft Dependency Agent. La tabella seguente descrive le origini connesse che sono supportate dalla soluzione di Mapping dei servizi.
 
 | Origine connessa | Supportato | DESCRIZIONE |
 |:--|:--|:--|
 | Agenti di Windows | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-windows-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Agenti Linux | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Linux. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-linux-agents.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
-| Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Operations Management Suite. I dati vengono inoltrati dal gruppo di gestione al repository Operations Management Suite.|
+| Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro di Log Analytics.|
 | Account di archiviazione di Azure | No  | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
 Mapping dei servizi supporta solo piattaforme a 64 bit.
 
-In Windows Microsoft Monitoring Agent (MMA) viene usato da System Center Operations Manager e Operations Management Suite per raccogliere e inviare i dati di monitoraggio. Questo agente viene chiamato agente System Center Operations Manager, agente OMS, agente Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Operations Management Suite offrono versioni diverse pronte all'uso di MMA. Ognuna di queste versioni può inviare delle segnalazioni a System Center Operations Manager a Operations Management Suite o a entrambi.  
+In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. Questo agente viene chiamato agente System Center Operations Manager, agente OMS, agente Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Log Analytics offrono versioni diverse pronte all'uso dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
 
-In Linux, l'agente OMS per Linux raccoglie e invia i dati di monitoraggio a Operations Management Suite. È possibile usare Mapping dei servizi nei server con agenti diretti OMS o nei server collegati a Operations Management Suite tramite gruppi di gestione di System Center Operations Manager.  
+In Linux, l'agente OMS per Linux raccoglie e invia i dati di monitoraggio a Log Analytics. È possibile usare Mapping dei servizi in server con agenti OMS diretti o in server collegati a Log Analytics tramite gruppi di gestione di System Center Operations Manager.  
 
-In questo articolo tutti gli agenti, Linux o Windows, connessi a un gruppo di gestione di System Center Operations Manager o direttamente a Operations Management Suite, verranno chiamati "agenti OMS". Il nome della distribuzione specifica dell'agente verrà usato solo se è necessario per il contesto.
+In questo articolo, si fa riferimento a tutti gli agenti, sia Linux che Windows, sia connessi a un gruppo di gestione di System Center Operations Manager sia direttamente a Log Analytics, con l'espressione "Agente OMS". Il nome della distribuzione specifica dell'agente verrà usato solo se necessario per il contesto.
 
-L'agente dell'elenco dei servizi non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati di Mapping dei servizi sono sempre trasmessi dall'agente OMS a Operations Management Suite, direttamente o tramite il gateway OMS.
+L'agente dell'elenco dei servizi non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati in Mapping dei servizi vengono sempre trasmessi dall'Agente OMS a Log Analytics, direttamente o tramite il gateway OMS.
 
 ![Agenti di Mapping dei servizi](media/oms-service-map/agents.png)
 
-Se l'utente è un cliente di System Center Operations Manager con un gruppo di gestione connesso a Operations Management Suite:
+Per un cliente di System Center Operations Manager con un gruppo di gestione connesso a Log Analytics:
 
-- Se gli agenti System Center Operations Manager possono accedere a Internet per connettersi a Operations Management Suite, non è richiesta alcuna configurazione aggiuntiva.  
-- Se gli agenti System Center Operations Manager non possono accedere a Operations Management Suite tramite Internet, è necessario configurare il gateway di OMS affinché funzioni con System Center Operations Manager.
+- Non è necessaria alcuna configurazione aggiuntiva se gli agenti System Center Operations Manager possono accedere a Internet per connettersi a Log Analytics.  
+- È necessario configurare il gateway OMS in modo da usare System Center Operations Manager quando gli agenti System Center Operations Manager non possono connettersi a Log Analytics tramite Internet.
   
-Se si usa l'agente diretto OMS, è necessario configurare l'agente OMS in modo che si connetta a Operations Management Suite o al gateway OMS. Il gateway OMS può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
+Se si usa l'Agente OMS diretto, è necessario configurare l'Agente OMS in modo che si connetta a Log Analytics o al gateway OMS. Il gateway OMS può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ### <a name="management-packs"></a>Management Pack
-Quando viene attivato Mapping dei servizi in un'area di lavoro Operations Management Suite, un management pack da 300 KB viene inviato a tutti i server Windows nell'area di lavoro. Se si usano gli agenti System Center Operations Manager in un [gruppo di gestione connesso](../log-analytics/log-analytics-om-agents.md), il management pack di Mapping dei servizi viene distribuito da System Center Operations Manager. Se gli agenti sono connessi direttamente, Operations Management Suite consente di recapitare il management pack.
+Quando viene attivato Mapping dei servizi in un'area di lavoro di Log Analytics, a tutti i server Windows nell'area di lavoro viene inviato un Management Pack di 300 KB. Se si usano gli agenti System Center Operations Manager in un [gruppo di gestione connesso](../log-analytics/log-analytics-om-agents.md), il management pack di Mapping dei servizi viene distribuito da System Center Operations Manager. Se gli agenti sono connessi direttamente, il Management Pack viene fornito da Log Analytics.
 
-Il management pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Viene scritto in %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. L'origine dati usata dal management pack è %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
+Il Management Pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor Viene scritto in %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. L'origine dati usata dal management pack è %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="installation"></a>Installazione
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Installare Dependency Agent in Microsoft Windows
@@ -147,7 +147,7 @@ Per distribuire l'estensione di VM Azure tramite PowerShell, è possibile usare 
 # Deploy the Dependency Agent to every VM in a Resource Group
 #
 
-$version = "9.1"
+$version = "9.3"
 $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
@@ -180,7 +180,7 @@ Un modo ancora più semplice per assicurarsi che Dependency Agent sia presente i
 "properties": {
     "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
     "type": "DependencyAgentWindows",
-    "typeHandlerVersion": "9.1",
+    "typeHandlerVersion": "9.3",
     "autoUpgradeMinorVersion": true
 }
 
@@ -235,7 +235,7 @@ sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent
+sudo apt -y purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
@@ -267,11 +267,11 @@ Se l'installazione di Dependency Agent è stata completata correttamente, ma nel
 
 * L'utente dispone del [piano tariffario gratuito di Log Analytics/Operations Management Suite](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Il piano gratuito consente di avere fino a cinque server univoci dell'Elenco dei servizi. Tutti i server successivi non verranno visualizzati nell'Elenco dei servizi, anche se i primi cinque non inviano più dati.
 
-* Il server invia il log e i dati delle prestazioni a Operations Management Suite? Passare a Ricerca log ed eseguire la query seguente per il computer: 
+* Il server invia il log e i dati delle prestazioni a Log Analytics? Passare a Ricerca log ed eseguire la query seguente per il computer: 
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  I risultati mostrano eventi diversi? I dati sono aggiornati? In questo caso, l'agente OMS funziona correttamente e comunica con il servizio Operations Management Suite. In caso contrario, controllare l'agente OMS sul server: [Risoluzione dei problemi dell'agente OMS per Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) o [Risoluzione dei problemi dell'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  I risultati mostrano eventi diversi? I dati sono aggiornati? In questo caso, l'Agente OMS funziona correttamente e comunica con Log Analytics. In caso contrario, controllare l'agente OMS sul server: [Risoluzione dei problemi dell'agente OMS per Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) o [Risoluzione dei problemi dell'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Il server viene visualizzato in Mapping dei servizi, ma non dispone di alcun processo
 Se il server viene visualizzato nell'Elenco dei servizi, ma non presenta processi o dati di connessione, vuol dire che Dependency Agent è installato ed è in esecuzione, ma non è stato caricato il driver del kernel. 
@@ -350,8 +350,8 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 16.04 | 4.4.0-103<br>4.11.0-1016 |
-| 14.04 | 3.13.0-137<br>4.4.0-103 |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux con Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6

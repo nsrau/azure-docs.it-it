@@ -3,7 +3,7 @@ title: Risolvere i problemi delle configurazioni della delega vincolata Kerberos
 description: Risolvere i problemi delle configurazioni della delega vincolata Kerberos per il proxy di applicazione.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 7b31f53e14e3f9a175e5dda95a18eb89dbca99dc
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 02/09/2018
+ms.author: markvi
+ms.reviewer: harshja
+ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi delle configurazioni della delega vincolata Kerberos per il proxy di applicazione
 
@@ -33,11 +34,11 @@ L'articolo presuppone quanto segue:
 
 -   L'applicazione di destinazione pubblicata è basata su IIS e sull'implementazione Microsoft di Kerberos.
 
--   Gli host del server e dell'applicazione si trovano in un unico dominio di Active Directory. Informazioni dettagliate sugli scenari tra diversi domini e foreste sono disponibili nel [white paper sulla delega vincolata Kerberos](http://aka.ms/KCDPaper).
+-   Gli host del server e dell'applicazione si trovano in un unico dominio di Active Directory. Informazioni dettagliate sugli scenari tra diversi domini e foreste sono disponibili nel [white paper sulla delega vincolata Kerberos](https://aka.ms/KCDPaper).
 
 -   L'applicazione in questione viene pubblicata in un tenant di Azure con preautenticazione abilitata e gli utenti devono usare l'autenticazione basata su moduli per autenticarsi in Azure. Gli scenari di autenticazione dei rich client non sono trattati in questo articolo, ma verranno aggiunti in futuro.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Il proxy di applicazione Azure può essere distribuito in numerosi tipi di infrastrutture o ambienti e indubbiamente le architetture variano in base all'organizzazione. Una delle cause più comuni dei problemi correlati alla delega vincolata Kerberos non è rappresentata dagli ambienti stessi, ma piuttosto da semplici errori di configurazione o disattenzioni.
 
@@ -51,7 +52,7 @@ Si noti in particolare la sezione sulla configurazione della delega vincolata Ke
 
 -   Laddove possibile, è consigliabile evitare di posizionare dispositivi IPS/IDS attivi tra gli host del connettore e i controller di dominio, in quanto sono spesso altamente intrusivi e interferiscono con il traffico RPC di base
 
-È consigliabile testare la delega nel più semplice degli scenari. Il numero di variabili introdotte è direttamente proporzionale ai problemi da risolvere. Ad esempio, limitare i test a un singolo connettore permette di risparmiare tempo prezioso e, dopo aver risolto i problemi, sarà possibile aggiungere altri connettori.
+È consigliabile testare la delega negli scenari più semplici. Il numero di variabili introdotte è direttamente proporzionale ai problemi da risolvere. Ad esempio, limitare i test a un singolo connettore permette di risparmiare tempo prezioso e, dopo aver risolto i problemi, sarà possibile aggiungere altri connettori.
 
 I problemi possono essere legati anche ad alcuni fattori ambientali. Durante i test, ridurre al minimo l'architettura per evitare questi fattori ambientali. Spesso, ad esempio, si verificano errori di configurazione negli elenchi di controllo di accesso (ACL) del firewall interno. Se possibile, quindi, consentire tutto il traffico di un connettore direttamente verso i controller di dominio e l'applicazione back-end. 
 
@@ -79,7 +80,7 @@ Se si è giunti a questo punto, è senza dubbio presente un problema importante.
 
 **Preautenticazione del client**: l'utente esterno che esegue l'autenticazione in Azure tramite un browser.
 
-Per garantire il funzionamento dell'accesso SSO della delega vincolata Kerberos, è essenziale poter eseguire la preautenticazione in Azure. Questa fase deve essere verificata e gestita in prima istanza, in presenza di errori. La fase di preautenticazione non è in alcun modo correlata alla delega vincolata Kerberos o all'applicazione pubblicata. Dovrebbe essere abbastanza semplice risolvere eventuali discrepanze eseguendo un test di integrità per verificare che l'account sia presente in Azure e non sia disabilitato o bloccato. La risposta di errore nel browser è in genere sufficientemente descrittiva per comprendere la causa. In caso di dubbi, è anche possibile controllare i nostri documenti aggiuntivi sulla risoluzione dei problemi.
+Per garantire il funzionamento dell'accesso SSO della delega vincolata Kerberos, è essenziale poter eseguire la preautenticazione in Azure. È consigliabile eseguire test e risolvere gli eventuali problemi. La fase di preautenticazione non è in alcun modo correlata alla delega vincolata Kerberos o all'applicazione pubblicata. Dovrebbe essere abbastanza semplice risolvere eventuali discrepanze eseguendo un test di integrità per verificare che l'account sia presente in Azure e non sia disabilitato o bloccato. La risposta di errore nel browser è in genere sufficientemente descrittiva per comprendere la causa. In caso di dubbi, è anche possibile controllare i nostri documenti aggiuntivi sulla risoluzione dei problemi.
 
 **Servizio di delega**: il connettore del proxy di Azure che ottiene un ticket di servizio Kerberos da un centro di distribuzione Kerberos (KDC, Kerberos Distribution Center) per conto degli utenti.
 
@@ -105,11 +106,11 @@ E le voci corrispondenti visualizzate nel log eventi verrebbero interpretate com
 
 Una traccia di rete che acquisisca gli scambi tra l'host del connettore e una delega vincolata Kerberos del dominio rappresenta quindi il successivo passaggio ideale per ottenere un livello maggiore di dettaglio sui problemi. Per altre informazioni, vedere il [white paper di approfondimento sulla risoluzione dei problemi](https://aka.ms/proxytshootpaper).
 
-Se la creazione di ticket non presenta problemi, verrà visualizzato un evento nei log a indicare che l'autenticazione ha avuto esito negativo a causa di un codice 401 restituito dall'applicazione. Ciò indica in genere che l'applicazione di destinazione ha rifiutato il ticket. Procedere alla fase successiva.
+Se la creazione di ticket non presenta problemi, verrà visualizzato un evento nei log a indicare che l'autenticazione ha avuto esito negativo a causa di un codice 401 restituito dall'applicazione. Questo indica in genere che l'applicazione di destinazione ha rifiutato il ticket. Passare quindi alla fase successiva seguente.
 
 **Applicazione di destinazione**: il consumer del ticket Kerberos fornito dal connettore
 
-In questa fase il connettore dovrebbe aver inviato un ticket di servizio Kerberos al back-end, sotto forma di intestazione all'interno della prima richiesta dell'applicazione.
+In questa fase, il connettore dovrebbe aver inviato un ticket di servizio Kerberos al back-end, sotto forma di intestazione all'interno della prima richiesta dell'applicazione.
 
 -   Tramite l'URL interno dell'applicazione definito nel portale, confermare che l'applicazione sia accessibile direttamente dal browser nell'host del connettore. A questo punto sarà possibile eseguire l'accesso. I dettagli a questo proposito sono disponibili nella pagina di risoluzione dei problemi del connettore.
 
@@ -125,7 +126,7 @@ In questa fase il connettore dovrebbe aver inviato un ticket di servizio Kerbero
 
 2.  Rimuovere temporaneamente NTLM dall'elenco dei provider nel sito IIS e accedere all'app direttamente da Internet Explorer nell'host del connettore. Dopo aver rimosso NTLM dall'elenco dei provider, sarà possibile accedere all'applicazione solo mediante Kerberos. In caso di errore, si è verificato un problema con la configurazione dell'applicazione e l'autenticazione Kerberos non funziona.
 
-Se Kerberos non è disponibile, controllare le impostazioni di autenticazione dell'applicazione in IIS per verificare che Negotiate si trovi in cima all'elenco e NTLM al di sotto di esso (Non Negotiate: Kerberos o Negotiate: PKU2U). Procedere solo se Kerberos funziona.
+Se Kerberos non è disponibile, controllare le impostazioni di autenticazione dell'applicazione in IIS per verificare che Negotiate si trovi in cima all'elenco e NTLM al di sotto di esso (non Negotiate: Kerberos o Negotiate: PKU2U). Procedere solo se Kerberos funziona.
 
    ![Provider di autenticazione di Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
@@ -147,11 +148,21 @@ Se Kerberos non è disponibile, controllare le impostazioni di autenticazione de
 
 -   Controllare che il nome SPN definito in base alle impostazioni dell'applicazione nel portale corrisponda al nome SPN configurato in base all'account AD di destinazione usato dal pool di applicazioni
 
-   ![Configurazione del nome SPN nel Portale di Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
+   ![Configurazione del nome dell'entità servizio nel portale di Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
 -   Passare a IIS e selezionare l'opzione **Editor di configurazione** per l'applicazione, quindi passare a **system.webServer/security/authentication/windowsAuthentication** per verificare che il valore di **UseAppPoolCredentials** sia **True**
 
    ![Opzione delle credenziali dei pool di applicazioni della configurazione IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
+
+Dopo la modifica di questo valore in **True**, è necessario rimuovere tutti i ticket Kerberos memorizzati nella cache dal server back-end. A questo scopo, è possibile eseguire questo comando:
+
+```powershell
+Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
+``` 
+
+Per altre informazioni, vedere [Purge the Kerberos client ticket cache for all sessions](https://gallery.technet.microsoft.com/scriptcenter/Purge-the-Kerberos-client-b56987bf) (Ripulire la cache dei ticket client Kerberos per tutte le sessioni).
+
+
 
 Oltre a risultare utile per migliorare le prestazioni delle operazioni Kerberos, l'abilitazione della modalità Kernel determina la decrittografia del ticket per il servizio richiesto con l'account del computer. Questo è anche noto come sistema locale, pertanto la sua impostazione su true interrompe la delega vincolata Kerberos quando l'applicazione è ospitata in più server in una farm.
 

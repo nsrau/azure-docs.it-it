@@ -1,6 +1,6 @@
 ---
-title: Distribuire con Terraform con Bash in Azure Cloud Shell | Microsoft Docs
-description: Distribuire risorse di Azure con Terraform in Bash
+title: Distribuzione con Terraform da Bash in Azure Cloud Shell | Microsoft Docs
+description: Distribuire con Terraform da Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: 
 author: tomarcher
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: c75b5d521dc3eacaf5c5921c35442b1afeb4fa13
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="terraform-and-bash-in-cloud-shell"></a>Terraform e Bash in Cloud Shell
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuire con Terraform da Bash in Azure Cloud Shell
 Questo articolo descrive in modo dettagliato come creare un gruppo di risorse con il [provider AzureRM di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 
 
 Lo strumento open source [Hashicorp Terraform](https://www.terraform.io/) consente di codificare le API in file di configurazione dichiarativi che è possibile condividere tra i membri del team per la modifica, la revisione e il controllo della versione. Il provider Microsoft AzureRM viene usato per interagire con le risorse supportate da Azure Resource Manager tramite le API AzureRM. 

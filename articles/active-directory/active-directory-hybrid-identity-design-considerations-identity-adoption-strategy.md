@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 238f8451f1d00b14563486ca5df9e77612a32654
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
-In questa attività verrà definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
+In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
 
 * [Determinare le esigenze aziendali](active-directory-hybrid-identity-design-considerations-business-needs.md)
 * [Determinare i requisiti di sincronizzazione della directory](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
@@ -39,7 +39,7 @@ Microsoft ha previsto tre principali scenari di integrazione, ovvero identità c
 Gli scenari definiti nella figura precedente sono:
 
 * **Identità cloud**: si tratta di identità che esistono solo nel cloud.  Nel caso di Azure AD, risiedono nella directory di Azure AD dell'organizzazione.
-* **Identità sincronizzate**: si tratta di identità che esistono sia in locale che nel cloud.  Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  L'hash della password dell'utente viene sincronizzato dall'ambiente locale al cloud in ciò che viene chiamato un hash della password.  Lo svantaggio di questa soluzione è che se un utente viene disabilitato nell'ambiente locale, la visualizzazione dello stato dell'account aggiornato in Azure AD può richiedere fino a 3 ore.  Questo è dovuto all'intervallo di tempo del processo di sincronizzazione.
+* **Identità sincronizzate**: si tratta di identità che esistono sia in locale che nel cloud.  Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  L'hash della password dell'utente viene sincronizzato dall'ambiente locale al cloud in ciò che viene chiamato un hash della password.  Lo svantaggio di questa soluzione è che se un utente viene disabilitato nell'ambiente locale, la visualizzazione dello stato dell'account aggiornato in Azure AD può richiedere fino a tre ore.  Questo è dovuto all'intervallo di tempo del processo di sincronizzazione.
 * **Identità federate**: si tratta di identità che esistono sia in locale che nel cloud.  Grazie ad Azure AD Connect, questi utenti vengono creati o associati ad account Azure AD esistenti.  
 
 > [!NOTE]
@@ -51,12 +51,12 @@ La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna
 
 | Strategia | Vantaggi | Svantaggi: |
 | --- | --- | --- |
-| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Niente da installare in locale, nessun hardware aggiuntivo necessario<br>Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud  <br> Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud  <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br> Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
-| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
+| **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Niente da installare in locale, nessun hardware aggiuntivo necessario<br>Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br> Le password per le identità cloud e locale possono essere uguali oppure no |
+| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br> Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
-La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tabelle seguenti forniscono informazioni su ciò che gli utenti dovranno aspettarsi dall'esperienza di accesso.  Si noti che non tutti i provider di identità federate supportano l'accesso Single Sign-On in tutti gli scenari.
+La strategia scelta determinerà l'esperienza di accesso per gli utenti.  Le tabelle seguenti forniscono informazioni su ciò che gli utenti dovranno aspettarsi dall'esperienza di accesso.  Non tutti i provider di identità federate supportano l'accesso Single Sign-On in tutti gli scenari.
 
 **Applicazioni di rete privata e aggiunte a un dominio**:
 
@@ -85,12 +85,12 @@ Se nel corso dell'attività 1 è stato determinato che è in uso un provider di 
 
 È anche importante conoscere quali funzionalità non saranno disponibili:
 
-* Senza WS-Trust/Federation tutti gli altri client attivi verranno interrotti
+* Senza WS-Trust/Federation tutti gli altri client attivi vengono interrotti
   * Questo significa che non sarà possibile usare le versioni del client Lync, del client OneDrive, dell'abbonamento a Office e di Office Mobile precedenti a Office 2016
-* La transizione di Office all'autenticazione passiva consentirà di supportare solo provider di identità SAML 2.0, ma il supporto sarà garantito esclusivamente client per client
+* La transizione di Office all'autenticazione passiva consente di supportare solo provider di identità SAML 2.0, ma il supporto sarà garantito esclusivamente client per client
 
 > [!NOTE]
-> Per l'elenco più aggiornato, vedere l'articolo http://aka.ms/ssoproviders.
+> Per l'elenco più aggiornato, vedere l'articolo https://aka.ms/ssoproviders.
 > 
 > 
 
@@ -101,7 +101,7 @@ Questa attività permette di definire gli strumenti che verranno usati per sincr
 Negli anni sono stati creati numerosi strumenti di sincronizzazione per diversi scenari.  Al momento, Azure AD Connect è lo strumento preferito per tutti gli scenari supportati.  Anche AAD Sync e DirSync sono ancora in circolazione e potrebbero ancora essere presenti nell'ambiente in uso. 
 
 > [!NOTE]
-> Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-hybrid-identity-design-considerations-tools-comparison.md) .  
+> Per le informazioni più recenti relative alle funzionalità supportate per ogni strumento, vedere l'articolo [Confronto degli strumenti di integrazione directory](active-directory-hybrid-identity-design-considerations-tools-comparison.md).  
 > 
 > 
 
@@ -131,7 +131,7 @@ In questo caso, se le affermazioni seguenti sono vere, sarà necessario valutare
 * Se è disponibile una cassetta postale collegata, è presente anche un altro account in una foresta diversa usato per l'accesso.
 
 > [!NOTE]
-> Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. [Concetti di progettazione per Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) .
+> Gli oggetti presenti sia in locale sia nel cloud sono "connessi" tramite un identificatore univoco. Nel contesto della sincronizzazione della directory questo identificatore univoco viene indicato come SourceAnchor. Nel contesto del servizio Single Sign-On invece questo identificatore viene indicato come ImmutableId. [Concetti di progettazione per Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor).
 > 
 > 
 
@@ -141,7 +141,7 @@ Se le affermazioni precedenti non sono vere e sono presenti più account attivi 
 
 **Topologia multipla di Azure AD a più foreste**
 
-È opportuno che in Azure AD sia presente una singola directory per ogni organizzazione ma è supportato lo scenario multiplo se si mantiene una relazione 1:1 tra il server del servizio di sincronizzazione Azure AD Connect e una directory Azure AD.  Per ogni istanza di Azure AD, sarà necessaria un'installazione di Azure AD Connect.  Per impostazione predefinita, Azure AD è isolato e gli utenti in una istanza di Azure AD non potranno visualizzare gli utenti in un'altra istanza.
+È opportuno che in Azure AD sia presente una singola directory per ogni organizzazione ma è supportato lo scenario multiplo se si mantiene una relazione 1:1 tra il server del servizio di sincronizzazione Azure AD Connect e una directory Azure AD.  Per ogni istanza di Azure AD è necessaria un'installazione di Azure AD Connect.  Per impostazione predefinita, Azure AD è isolato e gli utenti in una istanza di Azure AD non potranno visualizzare gli utenti in un'altra istanza.
 
 È invece consentita e supportata la connessione di un'istanza locale di Active Directory a più directory di Azure AD, come illustrato nella figura seguente:
 
@@ -159,7 +159,7 @@ Per questo scenario, devono essere vere le affermazioni seguenti:
   * Writeback dei gruppi con la configurazione predefinita
   * Writeback dei dispositivi
 
-Tenere presente che le funzionalità seguenti non sono supportate e non devono essere scelte come implementazione:
+Le funzionalità seguenti non sono supportate e non devono essere scelte come implementazione:
 
 * Non è supportato lo scenario che prevede più server del servizio di sincronizzazione Azure AD Connect connessi alla stessa directory di Azure AD, anche se sono configurati per sincronizzare set di oggetti che si escludono a vicenda
 * Non è supportata la sincronizzazione dello stesso utente in più directory di Azure AD. 
