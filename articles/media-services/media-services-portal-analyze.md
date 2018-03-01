@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 22032aef0cc8b7b015503043028873e70c21ee85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee9f8d2204869cbe5cac7f446e8011305e92bfa
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Panoramica
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale, con conformità, sicurezza e copertura globale di livello enterprise, che semplificano alle aziende e alle organizzazioni l'acquisizione di informazioni dettagliate dai file video. Per una panoramica più dettagliata di Analisi Servizi multimediali, vedere [questo](media-services-analytics-overview.md) argomento. 
 
-Questo argomento illustra come elaborare i contenuti multimediali con processori di contenuti multimediali (MP) di Analisi Servizi multimediali tramite il portale di Azure. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file dall'archiviazione BLOB di Azure. 
+Questo argomento illustra come elaborare i contenuti multimediali con processori di contenuti multimediali (MP) di Analisi Servizi multimediali tramite il portale di Azure. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file da Archiviazione BLOB di Azure. 
 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Scegliere un asset da analizzare
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
@@ -45,7 +45,7 @@ Questo argomento illustra come elaborare i contenuti multimediali con processori
 5. Premere **Crea** per iniziare un processo.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-Il processore di contenuti multimediali **Azure Media Indexer** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce per i sottotitoli codificati. Questa sezione offre alcuni dettagli sulle opzioni che è possibile specificare per questo Management Pack.
+Il processore di contenuti multimediali **Azure Media Indexer** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce per i sottotitoli codificati. Questa sezione offre alcuni dettagli sulle opzioni che è possibile specificare per questo processore di contenuti multimediali.
 
 ![Analizzare i video](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
@@ -74,11 +74,11 @@ Nome descrittivo che consente di identificare il processo. [Questo](media-servic
 Nome descrittivo che consente di identificare il contenuto di output. 
 
 ## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse è un processore multimediale che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione.  Per altre informazioni, vedere [questo](media-services-hyperlapse-content.md) argomento. Questa sezione offre alcuni dettagli sulle opzioni che è possibile specificare per questo Management Pack.
+Azure Media Hyperlapse è un processore multimediale che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione.  Per altre informazioni, vedere [questo](media-services-hyperlapse-content.md) argomento. Questa sezione offre alcuni dettagli sulle opzioni che è possibile specificare per questo processore di contenuti multimediali.
 
 ![Analizzare i video](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
-### <a name="speed"></a>Velocità
+### <a name="speed"></a>speed
 Specificare la velocità di riproduzione del video di input. L'output è costituito da un rendering stabilizzato e in time-lapse del video di input.
 
 ### <a name="job-name"></a>Nome processo
@@ -135,6 +135,17 @@ Nome descrittivo che consente di identificare il processo. [Questo](media-servic
 ### <a name="output-file"></a>File di output
 Nome descrittivo che consente di identificare il contenuto di output. 
 
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Questo processore consente di rilevare contenuti potenzialmente pornografici e per adulti nei video. Il processore rileva automaticamente scatti e fotogrammi chiave nei video. Cerca nei fotogrammi chiave eventuali contenuti pornografici o per adulti e suggerisce una revisione in base a soglie predefinite. Per informazioni dettagliate ed esempi, vedere [Use Azure Media Content Moderator to moderate videos](media-services-content-moderation.md) (Usare Azure Media Content Moderator per moderare i video)
+
+![Moderare i video](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
+
+### <a name="version"></a>Versione 
+Usare "2.0".
+
+### <a name="mode"></a>Mode
+La versione 2.0 ignora l'impostazione `Mode`.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
@@ -142,4 +153,3 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

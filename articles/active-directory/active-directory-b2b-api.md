@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: 9e1dcd38e7c05a234e4b8d7a6190770d813a227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 06de162a82fa096780b4d7faa79ca1c91f9202fa
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
@@ -77,7 +77,7 @@ L'API può essere eseguita nelle modalità di autorizzazione seguenti:
 In questa modalità, chiunque usi l'API deve disporre delle autorizzazioni per creare gli inviti B2B.
 
 ### <a name="app-only-mode"></a>Modalità solo app
-In un contesto solo app, per garantire l'esito positivo dell'invio è necessario che l'app disponga dell'ambito User.ReadWrite.All o Directory.ReadWrite.All.
+In un contesto di solo app l'invito viene inviato solo se nell'app è presente l'ambito User.Invite.All.
 
 Per altre informazioni, vedere https://graph.microsoft.io/docs/authorization/permission_scopes
 

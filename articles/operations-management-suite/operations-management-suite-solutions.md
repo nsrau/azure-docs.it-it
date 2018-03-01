@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b9ad6da3963fefc5441581d113f6f690bd72be0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d46b869815fef44a8137bb5121133a1c0140ca30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="working-with-management-solutions-in-azure-preview"></a>Uso delle soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
@@ -36,7 +36,7 @@ Ci sono diversi metodi per trovare e installare soluzioni di gestione, come desc
 Le soluzioni di gestione fornite da Microsoft e dai partner qualificati possono essere installate da Azure Marketplace nel portale di Azure.
 
 1. Accedere al portale di Azure.
-2. Nel riquadro sinistro selezionare **Altri servizi**.
+2. Nel riquadro sinistro selezionare **Tutti i servizi**.
 3. Scorrere verso il basso fino a **Soluzioni** oppure digitare *soluzioni* nella finestra di dialogo **Filtra**.
 4. Fare clic sul pulsante **+ Aggiungi**.
 5. Cercare le soluzioni di interesse esaminando le soluzioni disponibili, facendo clic sul pulsante **Filtra** oppure digitando nella casella **Cerca tutti gli elementi**.
@@ -92,7 +92,7 @@ La modalità con cui si specificano l'area di lavoro di Log Analytics e l'accoun
 Usare la procedura seguente per visualizzare le soluzioni di gestione nelle aree di lavoro collegate alla sottoscrizione di Azure.
 
 1. Accedere al portale di Azure.
-2. Nel riquadro sinistro selezionare **Altri servizi**.
+2. Nel riquadro sinistro selezionare **Tutti i servizi**.
 3. Scorrere verso il basso fino a **Soluzioni** oppure digitare *soluzioni* nella finestra di dialogo **Filtra**.
 4. Verranno elencate le soluzioni installate in tutte le aree di lavoro.
 

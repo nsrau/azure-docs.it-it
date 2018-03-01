@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/15/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d8943db3ec6ef5875b2b884d42ea25dbb44a30e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Esplorare le funzionalità della soluzione preconfigurata di monitoraggio remoto
 
@@ -31,6 +31,7 @@ In questa esercitazione si apprenderà come:
 > * Rispondere a un allarme
 > * Aggiornare il firmware nei dispositivi
 > * Organizzare gli asset
+> * Arrestare e avviare dispositivi simulati
 
 Il video seguente illustra in dettaglio la soluzione di monitoraggio remoto:
 
@@ -230,6 +231,16 @@ Per semplificare l'organizzazione e la gestione dei dispositivi per un operatore
 
 A questo punto, l'operatore Contoso può eseguire query sui dispositivi in base al team operativo senza dover modificare alcun elemento nei dispositivi.
 
+## <a name="stop-simulated-devices"></a>Arrestare i dispositivi simulati
+
+Per arrestare i dispositivi simulati, si può usare il menu delle impostazioni. Ciò consente di ridurre i costi di test ed esplorazione della soluzione. Per avviare o arrestare i dispositivi simulati:
+
+1. Scegliere l'icona **Impostazioni**.
+
+1. Quindi attivare o disattivare **In esecuzione**:
+
+    ![Menu Impostazioni](media/iot-suite-remote-monitoring-explore/settings.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questa esercitazione illustra come:
@@ -239,6 +250,7 @@ Questa esercitazione illustra come:
 > * Rispondere a un allarme
 > * Aggiornare il firmware nei dispositivi
 > * Organizzare gli asset
+> * Arrestare e avviare dispositivi simulati
 
 Ora che è stata esplorata la soluzione di monitoraggio remoto, i passaggi successivi consigliati consistono nell'acquisire familiarità con le funzionalità avanzate della soluzione di monitoraggio remoto:
 

@@ -15,46 +15,46 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 122dbdb838377a36020f9ec692b38544004e676c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
 Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
-Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **More Services** (Altri servizi) &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
+Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **Tutti i servizi** &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
 
-![Pannello Applicazioni aziendali][0]
+![Riquadro Applicazioni aziendali][0]
 
-Se si seleziona il collegamento **Tutte le applicazioni** a sinistra, viene visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta. Se si seleziona un'app, viene caricato il pannello delle risorse per tale app, in cui è possibile visualizzare i report per l'app e gestire diverse impostazioni.
+Se si seleziona il collegamento **Tutte le applicazioni** a sinistra, viene visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta. Se si seleziona un'app, viene caricato il riquadro delle risorse per tale app, in cui è possibile visualizzare i report per l'app e gestire diverse impostazioni.
 
 Le impostazioni del provisioning degli account utente possono essere gestite selezionando **Provisioning** a sinistra.
 
-![Pannello Risorsa applicazione][1]
+![Riquadro della risorsa dell'applicazione][1]
 
 ## <a name="provisioning-modes"></a>Modalità di provisioning
-Il pannello **Provisioning** inizia con un menu **Modalità**, che mostra le modalità di provisioning supportate per un'applicazione aziendale e ne consente la configurazione. Le opzioni disponibili includono:
+Il riquadro **Provisioning** inizia con un menu **Modalità**, che mostra le modalità di provisioning supportate per un'applicazione aziendale e ne consente la configurazione. Le opzioni disponibili includono:
 
-* **Automatico** : questa opzione viene visualizzata se Azure AD supporta il provisioning e/o il deprovisioning automatico basato su API di account utente in questa applicazione. Se si seleziona questa modalità, viene visualizzata un'interfaccia che fornisce agli amministratori informazioni dettagliate sulla configurazione di Azure AD per la connessione all'API di gestione degli utenti dell'applicazione, sulla creazione di mapping di account e flussi di lavoro che definiscono il modo in cui i dati relativi agli account utente devono essere trasmessi tra Azure AD e l'app e sulla gestione del servizio di provisioning di Azure AD.
-* **Manuale** : questa opzione viene visualizzata se Azure AD non supporta il provisioning automatico di account utente in questa applicazione. Questa opzione indica che i record relativi agli account utente archiviati nell'applicazione devono essere gestiti usando un processo esterno, in base alle funzionalità di gestione degli utenti e di provisioning fornite dall'applicazione, che possono includere il provisioning just-in-time SAML.
+* **Automatico**: questa opzione viene visualizzata se Azure AD supporta il provisioning e/o il deprovisioning automatico basato su API di account utente in questa applicazione. Se si seleziona questa modalità, viene visualizzata un'interfaccia che fornisce agli amministratori informazioni dettagliate sulla configurazione di Azure AD per la connessione all'API di gestione degli utenti dell'applicazione, sulla creazione di mapping di account e flussi di lavoro che definiscono il modo in cui i dati relativi agli account utente devono essere trasmessi tra Azure AD e l'app e sulla gestione del servizio di provisioning di Azure AD.
+* **Manuale**: questa opzione viene visualizzata se Azure AD non supporta il provisioning automatico di account utente in questa applicazione. Questa opzione indica che i record relativi agli account utente archiviati nell'applicazione devono essere gestiti usando un processo esterno, in base alle funzionalità di gestione degli utenti e di provisioning fornite dall'applicazione, che possono includere il provisioning just-in-time SAML.
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Configurazione del provisioning automatico degli account utente
-Se si seleziona l'opzione **Automatico** , viene visualizzata una schermata suddivisa in quattro sezioni:
+Se si seleziona l'opzione **Automatico**, viene visualizzata una schermata suddivisa in quattro sezioni:
 
 ### <a name="admin-credentials"></a>Credenziali di amministratore
 In questa sezione vengono immesse le credenziali necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. L'input necessario dipende dall'applicazione. Per informazioni sui tipi di credenziali e sui requisiti per applicazioni specifiche, vedere l' [esercitazione sulla configurazione per l'applicazione specifica](active-directory-saas-app-provisioning.md).
 
-Se si seleziona il pulsante **Test connessione** , è possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
+Se si seleziona il pulsante **Test connessione**, è possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
 
 ### <a name="mappings"></a>Mapping
 In questa sezione gli amministratori possono visualizzare e modificare gli attributi utente trasmessi tra Azure AD e l'applicazione di destinazione durante il provisioning o l'aggiornamento degli account utente.
 
 Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, quali Gruppi o Contatti. Se si seleziona uno di questi mapping nella tabella, viene visualizzato l'editor di mapping, che consente di visualizzare e personalizzare i mapping.
 
-![Pannello Risorsa applicazione][2]
+![Riquadro della risorsa dell'applicazione][2]
 
 Le personalizzazioni supportate includono:
 
@@ -81,6 +81,6 @@ Sono disponibili collegamenti al **report dell'attività di provisioning**, che 
 Speriamo che gli utenti apprezzino Azure AD e inviino commenti e suggerimenti. È possibile inviare commenti e idee per apportare miglioramenti nella sezione **Portale di amministrazione** del [forum dei commenti](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Microsoft accoglie i suggerimenti degli utenti per definire nuove funzionalità ogni giorno.
 
 
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
+[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

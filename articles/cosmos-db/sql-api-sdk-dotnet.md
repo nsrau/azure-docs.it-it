@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Le API .NET di SQL, SDK & risorse | Documenti Microsoft'
-description: Tutte le informazioni di SQL .NET API e SDK tra date di rilascio, date di ritiro e le modifiche apportate tra ogni versione di Azure Cosmos DB .NET SDK.
+title: 'Azure Cosmos DB: API .NET, risorse e SDK per SQL | Microsoft Docs'
+description: Tutte le informazioni sull'SDK e sull'API .NET per SQL, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni di Azure Cosmos DB .NET SDK.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 02/12/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6937cc0fc744d6e3a783d77b2a16b6fc09f3bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 796a455ffb906a47ab4ac9ae069537b0d7a31156
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per l'API di SQL: scaricare e note sulla versione
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -53,6 +53,14 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
+
+* Correzione della regressione in cui FeedOptions.MaxItemCount = -1 ha generato un errore System.ArithmeticException: dimensioni pagina negative.
+* Aggiunta di una nuova funzione ToString() a QueryMetrics.
+* Esposizione delle statistiche della partizione nelle raccolte di lettura.
+* Aggiunta della proprietà PartitionKey a ChangeFeedOptions.
+* Correzione di bug di minore entità.
+
 ### <a name="a-name11911191"></a><a name="1.19.1"/>1.19.1
 
 * Aggiunge la possibilità di specificare gli indici univoci per i documenti usando proprietà UniqueKeyPolicy in DocumentCollection.
@@ -88,7 +96,7 @@ ms.lasthandoff: 12/18/2017
 *   Aggiunta del supporto per la definizione di JsonSerializerSettings personalizzate durante la creazione di un'istanza di [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   Risolto un problema che interessate x64 computer che non supporta l'istruzione SSE4 e generare un SEHException durante l'esecuzione di query SQL di Azure Cosmos DB.
+*   Risoluzione di un problema riguardante i computer x64 che non supportano l'istruzione SSE4 e generano SEHException durante l'esecuzione di query SQL di Azure Cosmos DB.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Aggiunta del supporto per un nuovo livello di coerenza denominato ConsistentPrefix.
@@ -277,6 +285,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.20.1](#1.20.1) |05 febbraio 2018 |--- |
 | [1.19.1](#1.19.1) |16 novembre 2017 |--- |
 | [1.19.0](#1.19.0) |10 novembre 2017 |--- |
 | [1.18.1](#1.18.1) |07 novembre 2017 |--- |

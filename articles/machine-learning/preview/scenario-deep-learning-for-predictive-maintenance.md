@@ -2,49 +2,51 @@
 title: Apprendimento avanzato per scenari reali di manutenzione predittiva - Azure| Microsoft Docs
 description: "Si apprenderà come replicare l'esercitazione sull'apprendimento avanzato per la manutenzione predittiva con Azure Machine Learning Workbench."
 services: machine-learning
-author: FrancescaLazzeri
-ms.author: Lazzeri
+author: ehrlinger
+ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
+ms.custom: mvc
 ms.devlang: 
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: a55209256c29fa62cc2da72f9653fbc7fc0e7c54
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 7d4fe98b5c45767fb06391218e80789fc0c96a3b
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Apprendimento avanzato per scenari reali di manutenzione predittiva
+# <a name="deep-learning-for-predictive-maintenance-real-world-scenario"></a>Apprendimento avanzato per scenari reali di manutenzione predittiva.
 
-L'apprendimento avanzato costituisce una delle tendenze più diffuse nell'ambito dell'apprendimento automatico. Viene usato in diversi campi e in svariate applicazioni, tra cui automobili senza pilota, riconoscimento vocale e delle immagini, robotica e finanza. L'apprendimento avanzato è costituito da un set di algoritmi ispirato alla forma del cervello (reti neurali biologiche) e all'apprendimento automatico. In genere, gli scienziati cognitivi fanno riferimento all'apprendimento avanzato come a reti neurali artificiali (ANN, Artificial Neural Network).
+L'apprendimento avanzato è una delle tendenze più diffuse nell'ambito dell'apprendimento automatico, con applicazioni in molte aree tra cui:
+- automobili senza conducente e robotica
+- riconoscimento vocale e di immagini
+- previsioni finanziarie.
 
-Anche la manutenzione predittiva è ampiamente diffusa. Nell'ambito della manutenzione predittiva vengono usate molte tecniche diverse per consentire di determinare le condizioni delle apparecchiature e per prevedere quando deve essere eseguita la manutenzione. Alcuni usi comuni della manutenzione predittiva comprendono la stima dei guasti, la diagnosi degli errori (analisi della causa radice), il rilevamento degli errori, la classificazione dei tipi di errori e la raccomandazione di azioni di mitigazione o manutenzione dopo un guasto.
+Noti anche come Reti neurali profonde, questi metodi sono ispirati ai singoli neuroni all'interno del cervello, ovvero alle reti neurali biologiche.
 
-Negli scenari di manutenzione predittiva i dati vengono raccolti nel corso del tempo per monitorare lo stato delle apparecchiature. L'obiettivo è quello di individuare modelli in grado di stimare e, in ultima analisi, evitare che si verifichino errori. L'uso di reti [Long Short Term Memory (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) è un metodo di apprendimento avanzato particolarmente interessante nell'ambito della manutenzione predittiva. Le reti LSTM sono efficaci nell'apprendimento da sequenze. I dati delle serie temporali possono essere usati per analizzare periodi di tempo più lunghi in modo da rilevare modelli di errore.
+L'impatto del tempo di inattività delle apparecchiature non pianificato può danneggiare un'azienda. È fondamentale mantenere in funzione le attrezzature sul campo per massimizzare l'uso e le prestazioni, riducendo il costoso tempo di inattività non pianificato. L'identificazione preventiva dei problemi può aiutare ad allocare una quantità limitata di risorse di manutenzione in modo più conveniente e migliorare la qualità e i processi della supply chain. 
 
-In questa esercitazione viene creata una rete LSTM per il set di dati e lo scenario descritti nel modello di [manutenzione predittiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3). La rete verrà usata per stimare la vita utile rimanente dei motori di un aereo. Il modello usa valori simulati dei sensori dell'aereo per prevedere quando si verificherà un guasto del motore. Sulla base di questa stima la manutenzione può essere pianificata in anticipo, in modo da evitare il guasto.
+Una strategia di manutenzione predittiva usa i metodi di apprendimento automatico per determinare la condizione delle attrezzature per eseguire preventivamente operazioni di manutenzione ed evitare cattive prestazioni del computer. Nella manutenzione predittiva i dati, raccolti nel tempo per monitorare lo stato del computer, vengono analizzati per individuare i criteri da usare per stimare gli errori. Le reti [Long Short Term Memory, ovvero LSTM](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) sono interessanti per questa impostazione, poiché sono state progettate per poter apprendere dalle sequenze di dati.
 
-Questa esercitazione usa la libreria di apprendimento avanzato [Keras](https://keras.io/) e il Microsoft Cognitive Toolkit [CNTK](https://docs.microsoft.com/cognitive-toolkit/Using-CNTK-with-Keras) come back-end.
+## <a name="link-to-the-gallery-github-repository"></a>Collegamento al repository GitHub delle raccolte
 
-Il repository GitHub pubblico con gli esempi per questa esercitazione è disponibile all'indirizzo [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance).
+Il collegamento al repository GitHub pubblico per i report e i contributi è il seguente: [https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) 
 
 ## <a name="use-case-overview"></a>Panoramica del caso d'uso
 
-Questa esercitazione usa l'esempio di eventi "run-to-failure" simulati dei motori di un aereo per illustrare il processo di modellazione per la manutenzione predittiva. 
+Questa esercitazione usa l'esempio di eventi "run-to-failure" simulati dei motori di un aereo per illustrare il processo di modellazione per la manutenzione predittiva. Lo scenario viene descritto in [Manutenzione predittiva](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3)
 
-Il presupposto implicito dei dati di modellazione descritti in questo articolo è che la risorsa presenta un modello di riduzione delle prestazioni in progressione. Il modello si riflette nelle misure dei sensori della risorsa. Esaminando i valori dei sensori della risorsa nel tempo, l'algoritmo di apprendimento automatico è in grado di comprendere la relazione tra i valori dei sensori, i cambiamenti che subentrano in tali valori e la cronologia dei guasti. Questa relazione viene usata per prevedere gli errori che potrebbero verificarsi in futuro. 
+Il presupposto principale in questo caso è che il motore viene progressivamente ridotto per tutta la durata. La riduzione delle prestazioni può essere rilevata nelle misurazioni del sensore del motore. La manutenzione predittiva tenta di modellare la relazione tra le modifiche nei valori del sensore e gli errori cronologici. Il modello può quindi stimare quando potrebbero verificarsi errori nel motore in futuro in base allo stato attuale delle misurazioni del sensore.
 
-È consigliabile esaminare il formato dei dati e completare tutti e tre i passaggi del modello prima di sostituire i dati di esempio con quelli personalizzati.
+Questo scenario crea una rete LSTM per stimare la vita utile rimanente dei motori degli aeroplani usando i valori cronologici del sensore. Usando [Keras](https://keras.io/) con il framework di apprendimento avanzato [Tensorflow](https://www.tensorflow.org/) come motore di calcolo, lo scenario esegue il training di LSTM con un insieme di motori e testa la rete su un set di motori non visibili.
 
-## <a name="prerequisites"></a>Prerequisiti
-
+## <a name="prerequisites"></a>prerequisiti
 - Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 - Azure Machine Learning Workbench, con un'area di lavoro creata.
-- Per l'operazionalizzazione del modello: operazionalizzazione di Azure Machine Learning con un ambiente di distribuzione locale configurato e un [account di Gestione modelli di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview).
+- Per l'operazionalizzazione del modello: operazionalizzazione di Azure Machine Learning con un ambiente di distribuzione locale configurato e un [account di Gestione modelli di Azure Machine Learning](model-management-overview.md).
 
 ## <a name="create-a-new-workbench-project"></a>Creare un nuovo progetto Workbench
 
@@ -53,38 +55,53 @@ Creare un nuovo progetto usando questo esempio come modello:
 1. Aprire Machine Learning Workbench.
 2. Nella pagina **Projects** (Progetti) selezionare **+** e quindi selezionare **New Project** (Nuovo progetto).
 3. Nel riquadro **Create New Project** (Crea nuovo progetto) immettere le informazioni per il nuovo progetto.
-4. Nella casella di ricerca **Search Project Templates** (Cerca modelli di progetto) immettere **Predictive Maintenance** (Manutenzione predittiva) e quindi selezionare il modello.
-5. Selezionare **Create**.
+4. Nella casella di ricerca **Cerca modelli di progetto** digitare "Manutenzione predittiva" e selezionare il modello **Deep Learning for Predictive Maintenance Scenario** (Apprendimento avanzato per scenari di manutenzione predittiva).
+5. Fare clic sul pulsante **Crea**
 
 ## <a name="prepare-the-notebook-server-computation-target"></a>Preparare la destinazione di calcolo del server del notebook
 
-Nel computer locale dal menu **File** di Machine Learning Workbench scegliere **Open Command Prompt** (Apri prompt dei comandi) o **Open PowerShell** (Apri PowerShell). Nella finestra del prompt dei comandi dell'opzione scelta eseguire i comandi seguenti:
+Per l'esecuzione nel computer locale, dal menu `File` del Workbench AML, selezionare `Open Command Prompt` o `Open PowerShell CLI`. L'interfaccia della riga di comando consente di accedere ai servizi di Azure usando i comandi `az`. Per prima cosa, accedere al proprio account di Azure con il comando:
 
-`az ml experiment prepare --target docker --run-configuration docker`
+```
+az login
+``` 
 
-È consigliabile eseguire il server del notebook in una [macchina virtuale di data science (DSVM) per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) DS4_V2 standard. Dopo avere configurato la macchina virtuale di data science, eseguire i comandi seguenti per preparare le immagini Docker:
+Questo comando fornisce una chiave di autenticazione da usare con l'URL `https:\\aka.ms\devicelogin`. L'interfaccia della riga di comando attende fino a quando viene restituita l'operazione di accesso al dispositivo e vengono fornite alcune informazioni di connessione. Quindi, se si dispone di un'installazione [docker](https://www.docker.com/get-docker) locale, preparare l'ambiente di calcolo locale con i comandi seguenti:
 
-`az ml computetarget attach remotedocker --name [connection_name] --address [VM_IP_address] --username [VM_username] --password [VM_password]`
+```
+az ml experiment prepare --target docker --run-configuration docker
+```
 
-`az ml experiment prepare --target [connection_name] --run-configuration [connection_name]`
+È preferibile procedere all'esecuzione in una [macchina virtuale di data science per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) per i requisiti di memoria e disco. Dopo avere configurato la macchina virtuale di data science, preparare l'ambiente docker remoto con i due comandi seguenti:
 
-Con le immagini Docker preparate, aprire il server del notebook di Jupyter. Per aprire il server del notebook di Jupyter, passare alla scheda **Notebooks** (Notebook) di Machine Learning Workbench o avviare un server basato su browser: `az ml notebook start`
+```
+az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]
+```
 
-I notebook vengono archiviati nella directory Code nell'ambiente Jupyter. Eseguire questi notebook in sequenza in base alla numerazione, partendo da Code\1_data_ingestion_and_preparation.ipynb.
+Una volta eseguita la connessione al contenitore docker remoto, preparare l'ambiente di calcolo docker per la macchina virtuale di data science usando: 
 
-Selezionare il kernel corrispondente a [project_name]_Template [connection_name] e quindi selezionare **Set Kernel** (Imposta kernel).
+```
+az ml experiment prepare --target [Connection_Name] --run-configuration [Connection_Name]
+```
+
+Con l'ambiente di calcolo docker preparato, aprire il server del notebook di Jupyter all'interno della scheda Notebooks (Notebook) di Azure Machine Learning Workbench o avviare un server basato su browser con: 
+```
+az ml notebook start
+```
+
+I notebook di esempio sono archiviati nella directory `Code`. I notebook sono configurati per essere eseguiti in sequenza, a partire dal primo notebook (`Code\1_data_ingestion.ipynb`). Quando si apre ciascun notebook, viene chiesto di selezionare il kernel di calcolo. Scegliere il kernel `[Project_Name]_Template [Connection_Name]` da eseguire nella macchina virtuale di data science configurata in precedenza.
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-Il modello usa tre set di dati come input, nei file PM_train.txt, PM_test.txt e PM_truth.txt.
+Il modello usa tre set di dati come input, nei file **PM_train.txt**, **PM_test.txt** e **PM_truth.txt**. 
 
 -  **Dati di training**: dati "run-to-failure" dei motori dell'aereo. I dati di training (PM_train.txt) sono costituiti da più serie temporali multivariate, con il *ciclo* come unità di tempo. Includono 21 letture dei sensori per ogni ciclo. 
 
-    Ogni serie temporale può essere considerata generata da un motore diverso dello stesso tipo. Si presuppone che ogni motore parta con gradi diversi di usura iniziale e variazione di produzione. Queste informazioni non sono note all'utente. 
+    - Ogni serie temporale viene generata da un motore diverso dello stesso tipo. Ogni motore parte con gradi diversi di usura iniziale e alcune variazioni di produzione univoche. Queste informazioni non sono note all'utente. 
 
-    In questi dati simulati si presuppone che il motore funzioni normalmente all'inizio di ogni serie temporale e che parta per ridurre le prestazioni in un determinato punto durante la serie di cicli operativi. La riduzione delle prestazioni avanza e aumenta in termini di grandezza. 
+    - In questi dati simulati si presuppone che il motore funzioni normalmente all'inizio di ogni serie temporale e che parta per ridurre le prestazioni in un determinato punto durante la serie di cicli operativi. La riduzione delle prestazioni avanza e aumenta in termini di grandezza. 
 
-    Quando viene raggiunta una soglia predefinita, il motore è considerato non sicuro per un ulteriore funzionamento. L'ultimo ciclo in ogni serie temporale può essere considerato il punto di guasto del motore corrispondente.
+    - Quando viene raggiunta una soglia predefinita, il motore è considerato non sicuro per un ulteriore funzionamento. L'ultimo ciclo di ogni serie temporale è il punto di errore del motore.
 
 -   **Dati di test**: dati di funzionamento dei motori dell'aereo, senza eventi di errore registrati. I dati di test (PM_test.txt) hanno lo stesso schema di dati di quelli di training. L'unica differenza è che i dati non indicano quando si verifica l'errore (l'ultimo periodo di tempo *non* rappresenta il punto di guasto). Non è possibile sapere quanti altri cicli può durare il motore prima che si verifichi il guasto.
 
@@ -92,44 +109,49 @@ Il modello usa tre set di dati come input, nei file PM_train.txt, PM_test.txt e 
 
 ## <a name="scenario-structure"></a>Struttura dello scenario
 
-Il contenuto per lo scenario è disponibile nel [repository GitHub] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance). 
-
-Nel repository un file [Leggimi] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/blob/master/README.md) illustra i processi, dalla preparazione dei dati alla creazione e all'operazionalizzazione del modello. I tre notebook di Jupyter sono disponibili nella cartella [Code] (https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance/tree/master/Code) nel repository. 
-
-Di seguito viene descritto il flusso di lavoro dettagliato dello scenario.
+Il flusso di lavoro dello scenario è suddiviso in tre passaggi, ognuno dei quali viene eseguito in un notebook di Jupyter. Ogni notebook produce gli elementi dati che vengono salvati in modo permanente in locale e che possono essere usati nei notebook seguenti: 
 
 ### <a name="task-1-data-ingestion-and-preparation"></a>Attività 1. Inserimento e preparazione dei dati
 
-Il notebook di Jupyter per l'inserimento dati in Code/1_data_ingestion_and_preparation.ipnyb carica i tre set di dati di input nel formato del frame di dati Pandas. Quindi prepara i dati per la modellazione ed esegue alcune visualizzazioni dei dati preliminari. I dati vengono infine trasformati nel formato PySpark e archiviati in un contenitore di archiviazione BLOB di Azure nella sottoscrizione di Azure per essere usati nell'attività di modellazione successiva.
+Il notebook di Jupyter per l'inserimento dati in `Code/1_data_ingestion_and_preparation.ipnyb` carica i tre set di dati di input nel formato del frame di dati Pandas. Quindi prepara i dati per la modellazione ed esegue alcune visualizzazioni dei dati preliminari. I set di dati vengono archiviati in locale nel contesto di calcolo per essere usati nel notebook di compilazione del modello.
 
 ### <a name="task-2-model-building-and-evaluation"></a>Attività 2. Creazione e valutazione del modello
 
-Il notebook di Jupyter per la creazione del modello in Code/2_model_building_and_evaluation.ipnyb legge i set di dati di training e di test PySpark dall'archivio BLOB. Quindi una rete LSTM viene compilata con i training set. Le prestazioni del modello vengono misurate nel set di test. Il modello risultante è serializzato e archiviato nel contesto di calcolo locale per essere usato nell'attività di operazionalizzazione.
+Il notebook Jupyter di compilazione del modello in `Code/2_model_building_and_evaluation.ipnyb` legge i set di dati di training e test dal disco e genera una rete LSTM nel set di dati di training. Le prestazioni del modello vengono misurate nel set di test. Il modello risultante è serializzato e archiviato nel contesto di calcolo locale per essere usato nell'attività di operazionalizzazione.
 
 ### <a name="task-3-operationalization"></a>Attività 3. Operazionalizzazione
 
-Il notebook di Jupyter per l'operazionalizzazione in Code/3_operationalization.ipnyb usa il modello archiviato per compilare le funzioni e lo schema richiesti per chiamare il modello in un servizio Web ospitato in Azure. Il notebook testa le funzioni e quindi comprime le risorse di operazionalizzazione in un file ZIP.
+Il notebook di Jupyter per l'operazionalizzazione in `Code/3_operationalization.ipnyb` usa il modello archiviato per compilare le funzioni e lo schema per chiamare il modello in un servizio Web ospitato in Azure. Il notebook testa le funzioni di test e quindi comprime gli asset nel file `LSTM_o16n.zip`, che viene caricato nel contenitore di Archiviazione di Azure per la distribuzione.
 
-Il file compresso contiene i file seguenti:
+Il file di distribuzione `LSTM_o16n.zip` contiene i seguenti elementi:
 
-- **modellstm.json**: file di definizione dello schema per la distribuzione. 
-- **lstmscore.py**: funzioni **init()** e **run()** richieste dal servizio Web di Azure.
-- **lstm.model**: directory di definizione del modello.
+- `webservices_conda.yaml` definisce i pacchetti di Python necessari per eseguire il modello LSTM nella destinazione di distribuzione.  
+- `service_schema.json` definisce lo schema di dati previsto dal modello LSTM.     
+- `lstmscore.py` definisce le funzioni che la destinazione di distribuzione esegue per ottenere nuovi dati.    
+- `modellstm.json` definisce l'architettura LSTM. Le funzioni lstmscore.py leggono l'architettura e i pesi per inizializzare il modello.
+- `modellstm.h5` definisce i pesi del modello.
+- `test_service.py` uno script di test che chiama l'endpoint di distribuzione con record dei dati di test. 
+- `PM_test_files.pkl` lo script `test_service.py` legge i dati cronologici del motore dal file `PM_test_files.pkl` e invia al servizio Web cicli sufficienti affinché LSTM restituisca la probabilità di errore del motore.
 
-Il notebook verifica le funzioni usando la definizione del modello prima di creare il pacchetto delle risorse di operazionalizzazione per la distribuzione. Le istruzioni per la distribuzione sono incluse alla fine del blocco appunti.
-
+Il notebook testa le funzioni usando la definizione del modello prima di creare il pacchetto delle risorse di operazionalizzazione per la distribuzione. Le istruzioni per la configurazione e il test del servizio Web sono incluse alla fine del notebook `Code/3_operationalization.ipnyb`.
 
 ## <a name="conclusion"></a>Conclusioni
 
-Questa esercitazione si basa su uno scenario semplice in cui viene usata solo un'origine dati (valori dei sensori) per le stime. Negli scenari di manutenzione predittiva più avanzati, ad esempio [Predictive Maintenance Modeling Guide R Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) (Notebook R di guida alla modellazione per la manutenzione predittiva), potrebbero essere usate molte origini dati. Altre origini dati possono includere record di manutenzione cronologici, log degli errori e funzioni relative a macchine e operatore. Ulteriori origini dati potrebbero richiedere diversi tipi di trattamento per l'uso nell'ambito delle reti di apprendimento avanzato. È anche importante ottimizzare i modelli sulla base dei parametri corretti, ad esempio le dimensioni della finestra. 
-
-È possibile modificare le parti pertinenti di questo scenario e provare diversi scenari dei problemi, come quelli descritti in [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1) (Guida alla modellazione per la manutenzione predittiva), che interessa diverse altre origini dati.
+Questa esercitazione usa uno scenario semplice servendosi dei valori del sensore per fare stime. Gli scenari di manutenzione predittiva più avanzati, ad esempio il [notebook R della guida di modellazione per la manutenzione predittiva](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1), possono usare molte origini dati, ad esempio record cronologici di manutenzione, log degli errori e funzionalità del computer. Altre origini dati potrebbero richiedere l'uso di trattamenti diversi nell'ambito dell'apprendimento avanzato.
 
 
 ## <a name="references"></a>Riferimenti
 
-- [Modello di soluzione per la manutenzione predittiva](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance)
-- [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1) (Guida alla modellazione per la manutenzione predittiva)
-- [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1) (Notebook Python di guida alla modellazione per la manutenzione predittiva)
-- [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark) (Manutenzione predittiva con PySpark)
+Su molte altre piattaforme sono disponibili altri esempi di casi d'uso di manutenzione predittiva:
 
+* [Modello di soluzione per la manutenzione predittiva](https://docs.microsoft.com/azure/machine-learning/cortana-analytics-playbook-predictive-maintenance)
+* [Predictive Maintenance Modeling Guide](https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Modelling-Guide-1) (Guida alla modellazione per la manutenzione predittiva)
+* [Predictive Maintenance Modeling Guide using SQL R Services](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-Modeling-Guide-using-SQL-R-Services-1) (Guida alla modellazione per la manutenzione predittiva con SQL R Services)
+* [Predictive Maintenance Modeling Guide Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1) (Notebook Python di guida alla modellazione per la manutenzione predittiva)
+* [Predictive Maintenance using PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark) (Manutenzione predittiva con PySpark)
+
+* [Scenario reale di manutenzione predittiva](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-predictive-maintenance)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Sono disponibili molti altri scenari di esempio all'interno del workbench di Azure Machine Learning che dimostrano le funzionalità aggiuntive del prodotto. 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 216745f9f540235ee48661eae922a5ae0e716e01
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>Connettersi a origini dati in locale da app per la logica con il gateway dati locale
 
@@ -63,21 +63,19 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
   > [!NOTE]
   > Questo account del servizio Windows è diverso dall'account usato per la connessione a origini dati locali e dall'account di Azure aziendale o dell'istituto di istruzione usato per accedere ai servizi cloud.
 
-## <a name="set-up-the-data-gateway-connection"></a>Configurare la connessione al gateway dati
-
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Installare il gateway dati locale
+## <a name="install-the-on-premises-data-gateway"></a>Installare il gateway dati locale
 
 Se l'utente non lo hai già fatto, seguire la [procedura per installare il gateway dati locale](logic-apps-gateway-install.md). Prima di continuare con gli altri passaggi, assicurarsi di aver installato il gateway dati in un computer locale.
 
 <a name="create-gateway-resource"></a>
 
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Creare una risorsa di Azure per il gateway dati locale
+## <a name="create-an-azure-resource-for-the-on-premises-data-gateway"></a>Creare una risorsa di Azure per il gateway dati locale
 
 Dopo aver installato il gateway in un computer locale, è necessario creare il gateway dati come una risorsa in Azure. Questo passaggio associa anche la risorsa di gateway con la sottoscrizione di Azure.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). Assicurarsi di usare lo stesso indirizzo di posta elettronica aziendale o dell'istituto di istruzione usato per installare il gateway.
 
-2. Nel menu principale di Azure scegliere **Nuovo** > **Integrazione aziendale** > **Gateway dati locale**, come mostrato qui:
+2. Nel menu principale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **Gateway dati locale**:
 
    ![Trovare "Gateway dati locale"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
@@ -115,7 +113,7 @@ Dopo aver installato il gateway in un computer locale, è necessario creare il g
 
 <a name="connect-logic-app-gateway"></a>
 
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Connettere l'app per la logica al gateway dati locale
+## <a name="connect-your-logic-app-to-the-on-premises-data-gateway"></a>Connettere l'app per la logica al gateway dati locale
 
 Ora che è stata creata la risorsa per il gateway dati ed è stata associata la sottoscrizione di Azure alla risorsa, creare una connessione tra l'app per la logica e il gateway dati.
 
@@ -157,6 +155,7 @@ Dopo aver creato una connessione al gateway per l'app per la logica, è possibil
    > Se gli aggiornamenti non hanno effetto, provare ad [arrestare e riavviare il servizio Windows del gateway](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
+
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Cambiare o eliminare una risorsa gateway dati locale
 
 Per creare una risorsa del gateway diversa, associare il gateway a una risorsa diversa o rimuovere la risorsa per il gateway, è possibile eliminare la risorsa del gateway senza modificare l'installazione del gateway. 
@@ -166,6 +165,7 @@ Per creare una risorsa del gateway diversa, associare il gateway a una risorsa d
 3. Scegliere **Gateway dati locale** e, sulla barra degli strumenti della risorse, scegliere **Elimina**.
 
 <a name="faq"></a>
+
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]

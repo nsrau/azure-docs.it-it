@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 62e56a611d3f720172ace83a4b407a962ec69ea8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introduzione all'API Apache Cassandra per Azure Cosmos DB
 
@@ -64,7 +64,7 @@ L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB 
 
 Se si dispone già di una sottoscrizione di Azure, è possibile iscriversi al programma dell'API Cassandra (anteprima) nel [portale di Azure](https://aka.ms/cosmosdb-cassandra-signup).  Se non si ha familiarità con Azure, registrarsi per una [versione di prova gratuita](https://azure.microsoft.com/free) che prevede 12 mesi di accesso libero ad Azure Cosmos DB. Per richiedere l'accesso al programma API Cassandra (anteprima), completare i passaggi seguenti.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Database** > **Azure Cosmos DB**. 
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa** > **Database** > **Azure Cosmos DB**. 
 
 2. Nella pagina Nuovo account selezionare **Cassandra** nella casella API. 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 0d48d0b008d76cfb2d7d7815a69774976e184467
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -43,7 +43,7 @@ Si supponga, ad esempio, di iniziare con la configurazione e i presupposti segue
 1. 10 partizioni.
 1. 1000 eventi distribuiti in modo uniforme tra tutte le partizioni = > 100 messaggi in ogni partizione.
 
-Quando la funzione è stata abilitata, è solo 1 istanza della funzione. Denominiamo questa istanza della funzione Function_0. Function_0 avrà un EPH che gestisce per ottenere un lease in tutte le 10 partizioni. Inizierà la lettura degli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
+Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. Denominiamo questa istanza della funzione Function_0. Function_0 avrà un EPH che gestisce per ottenere un lease in tutte le 10 partizioni. Inizierà la lettura degli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
 
 * **È necessaria una sola istanza della funzione**  - Function_0 è in grado di elaborare tutti i 1000 eventi prima che si attivi la logica di ridimensionamento delle Funzioni di Azure. Di conseguenza, tutti i 1000 messaggi vengono elaborati da Function_0.
 
@@ -60,13 +60,13 @@ Se tutte le esecuzioni delle funzioni riescono senza errori, i checkpoint vengon
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script c# (con estensione csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che registra il corpo del messaggio del trigger di hub eventi.
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che registra il corpo del messaggio del trigger per Hub eventi.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -199,7 +199,7 @@ module.exports = function (context, myEventHubMessage) {
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Il costruttore dell'attributo accetta il nome di Hub eventi, il nome del gruppo di consumer e il nome di un'impostazione di app che contiene la stringa di connessione. Per altre informazioni su queste impostazioni, vedere la [sezione relativa alla configurazione dei trigger](#trigger---configuration). Di seguito è riportato un esempio di attributo `EventHubTriggerAttribute`:
 
@@ -211,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Per un esempio completo, vedere [Trigger - esempio c#](#trigger---c-example).
+Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Trigger - configurazione
 
@@ -243,13 +243,13 @@ Il file [host.json](functions-host-json.md#eventhub) contiene le impostazioni ch
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script c# (con estensione csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che scrive un messaggio a un hub eventi, utilizzando il valore restituito del metodo come output:
+L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che scrive un messaggio in un Hub eventi usando il valore restituito del metodo come output:
 
 ```csharp
 [FunctionName("EventHubOutput")]
@@ -371,7 +371,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Output - attributi
 
-Per [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+Per le [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Il costruttore dell'attributo accetta il nome di Hub eventi e il nome di un'impostazione di app che contiene la stringa di connessione. Per altre informazioni su queste impostazioni, vedere la [sezione relativa alla configurazione dell'output](#output---configuration). Di seguito è riportato un esempio di attributo `EventHub`:
 
@@ -384,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Per un esempio completo, vedere [Output - esempio c#](#output---c-example).
+Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configurazione
 
@@ -405,6 +405,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 In C# e negli script C# è possibile inviare messaggi con un parametro del metodo, ad esempio `out string paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. Per scrivere più messaggi, è possibile usare `ICollector<string>` o `IAsyncCollector<string>` al posto di `out string`.
 
 In JavaScript accedere all'evento di output usando `context.bindings.<name>`. `<name>` è il valore specificato nella proprietà `name` di *function.json*.
+
+## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
+
+| Associazione | riferimento |
+|---|---|
+| Hub eventi | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

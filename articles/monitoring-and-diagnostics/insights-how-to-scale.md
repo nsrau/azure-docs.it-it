@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 9ff52bd29644c7c585d2a85fcbe49e8800f6a035
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Scalare il conteggio delle istanze manualmente o automaticamente
 Nel [portale di Azure](https://portal.azure.com/)è possibile impostare manualmente il conteggio delle istanze del servizio oppure impostare i parametri per la scalabilità automatica in base alla domanda. Questa impostazione è definita in genere *aumento* o *riduzione del numero di istanze*.
@@ -30,7 +30,7 @@ Prima di scalare in base al conteggio delle istanze, occorre tenere presente che
 ## <a name="scaling-manually"></a>Scalabilità manuale
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia** e quindi passare alla risorsa cui applicare la scalabilità, ad esempio **piano di servizio app**.
 2. Fare clic su **Impostazioni > Scalabilità orizzontale (piano di servizio app).**
-3. Nella parte superiore del pannello **Scala** è possibile visualizzare una cronologia delle azioni di scalabilità automatica del servizio.
+3. Nella parte superiore del pannello **Scala**, nella scheda **Cronologia**, è possibile visualizzare una cronologia delle azioni di scalabilità automatica del servizio.
    
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
@@ -38,7 +38,7 @@ Prima di scalare in base al conteggio delle istanze, occorre tenere presente che
    > In questo grafico verranno visualizzate solo le azioni eseguite con la scalabilità automatica. Se si regola manualmente il conteggio delle istanze, la modifica non verrà applicata nel grafico.
    > 
    > 
-4. È possibile regolare manualmente il numero di **Istanze** con il dispositivo di scorrimento.
+4. È possibile modificare manualmente il numero di **Istanze** nella scheda **Configura**.
 5. Fare clic sul comando **Salva** e si passerà quasi immediatamente a quel numero di istanze.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Scalabilità basata su una metrica preimpostata

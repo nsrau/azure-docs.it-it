@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 8799931f6233f0f18b56bea39e3cbcbbf51274e9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 0cf26846a8f42238de09727a03dc6b50dff746b6
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
 
@@ -78,7 +78,7 @@ Per impostazione predefinita, solo gli attributi cloud Telefono ufficio e Cellul
 
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati e richiesti dall'amministratore.
 
-Se gli utenti non desiderano che il numero di telefono cellulare sia visibile nella directory, ma vogliono comunque utilizzarlo per la reimpostazione della password, gli amministratori non devono inserire i relativi dati nella directory. Gli utenti devono quindi popolare il proprio attributo **Telefono per autenticazione** tramite il [portale di registrazione per la reimpostazione della password](http://aka.ms/ssprsetup). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
+Se gli utenti non desiderano che il numero di telefono cellulare sia visibile nella directory, ma vogliono comunque utilizzarlo per la reimpostazione della password, gli amministratori non devono inserire i relativi dati nella directory. Gli utenti devono quindi popolare il proprio attributo **Telefono per autenticazione** tramite il [portale di registrazione per la reimpostazione della password](https://aka.ms/ssprsetup). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
 
 ### <a name="the-number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
@@ -180,7 +180,7 @@ Per abilitare questa opzione è necessario che un utente abilitato alla reimpost
 * Applicazioni federate
 * Applicazioni personalizzate tramite Azure AD
 
-Quando la richiesta di registrazione è disabilitata, gli utenti possono comunque registrare manualmente le informazioni di contatto. È possibile visitare [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) oppure selezionare il collegamento **Registrazione per reimpostazione password** nella scheda **Profilo** nel riquadro di accesso.
+Quando la richiesta di registrazione è disabilitata, gli utenti possono comunque registrare manualmente le informazioni di contatto. È possibile visitare [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) oppure selezionare il collegamento **Registrazione per reimpostazione password** nella scheda **Profilo** nel pannello di accesso.
 
 > [!NOTE]
 > Gli utenti possono chiudere il portale per la registrazione della reimpostazione della password selezionando **Annulla** o chiudendo la finestra. Ogni volta che gli utenti eseguono l'accesso verrà tuttavia visualizzata una richiesta di registrazione finché non viene completato il processo di registrazione.

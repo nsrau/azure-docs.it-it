@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: f07e05a1786f8afc1ccecf21994b1ad263ead285
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 12/11/2017
 > Questo articolo descrive in modo approfondito come funziona la personalizzazione dell'interfaccia utente e come abilitarla con i criteri personalizzati B2C, usando il framework di esperienza di gestione delle identità
 
 
-Un'esperienza utente integrata è fondamentale per qualsiasi soluzione Business to Consumer. Per esperienza utente integrata si intende un'esperienza, con un dispositivo o un browser, in cui il percorso di un utente nel servizio non sia distinguibile dal quello del servizio clienti usato.
+Un'esperienza utente integrata è fondamentale per qualsiasi soluzione Business to Consumer. Per esperienza utente integrata si intende un'esperienza, con un dispositivo o un browser, in cui il percorso di un utente nel servizio non sia distinguibile da quello del servizio clienti usato.
 
 ## <a name="understand-the-cors-way-for-ui-customization"></a>Informazioni sulla modalità CORS per la personalizzazione dell'interfaccia utente
 
-Azure AD B2C consente di personalizzare l'aspetto dell'esperienza utente nelle diverse pagine che possono essere potenzialmente rese disponibili e visualizzate da Azure AD B2C tramite i criteri personalizzati.
+Azure AD B2C consente di personalizzare l'aspetto dell'esperienza utente nelle diverse pagine rese disponibili e visualizzate da Azure AD B2C tramite i criteri personalizzati.
 
 A tale scopo, Azure AD B2C esegue il codice nel browser del cliente e usa il moderno approccio standard [Condivisione risorse tra le origini (CORS)](http://www.w3.org/TR/cors/) per caricare il contenuto personalizzato da un determinato URL che punta ai modelli HTML5/CSS, come si specifica in un criterio personalizzato. CORS è un meccanismo che consente alle risorse limitate, ad esempio i tipi di carattere, in una pagina Web di essere richieste da un altro dominio esterno al dominio da cui la risorsa è stata originata.
 
@@ -60,7 +60,7 @@ In ogni modello HTML5/CSS si inserisce un elemento *anchor*, che corrisponde all
 </html>
 ```
 
-Il contenuto relativo ad Azure AD B2C per la pagina verrà inserito in questo div, mentre il resto della pagina può essere controllato dall'utente. Il codice JavaScript di Azure AD B2C effettua il pull del contenuto e inserisce il codice HTML in questo specifico elemento div. Azure AD B2C inserisce i controlli seguenti secondo le esigenze: controllo di scelta account, controlli di accesso, controlli a più fattori (attualmente basati sul telefono) e controlli di raccolta di attributi. Azure AD B2C assicura che tutti i controlli siano conformi a HTML5 e accessibili, che tutti i controlli possano essere completamente personalizzati con stili e che la versione di un controllo non regredisca.
+Il contenuto relativo ad Azure AD B2C per la pagina viene inserito in questo div, mentre il resto della pagina può essere controllato dall'utente. Il codice JavaScript di Azure AD B2C effettua il pull del contenuto e inserisce il codice HTML in questo specifico elemento div. Azure AD B2C inserisce i controlli seguenti secondo le esigenze: controllo di scelta account, controlli di accesso, controlli a più fattori (attualmente basati sul telefono) e controlli di raccolta di attributi. Azure AD B2C assicura che tutti i controlli siano conformi a HTML5 e accessibili, che tutti i controlli possano essere completamente personalizzati con stili e che la versione di un controllo non regredisca.
 
 Il contenuto unito viene infine visualizzato dal cliente come documento dinamico.
 
@@ -72,53 +72,53 @@ Per assicurarsi che tutto funzioni come previsto, è necessario:
 - Usare URL assoluti, ad esempio https://yourdomain/content per tutti i collegamenti e il contenuto CSS.
 
 > [!TIP]
-> Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, è possibile usare il sito http://test-cors.org/. Da questo sito è semplicemente possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
+> Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, è possibile usare il sito http://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
 
 > [!TIP]
 > Il sito http://enable-cors.org/ costituisce anche una risorsa più che utile per CORS.
 
-Grazie a questo approccio basato su CORS, gli utenti finali avranno quindi esperienze coerenti nell'applicazione e nelle pagine rese disponibili da Azure AD B2C.
+Grazie a questo approccio basato su CORS, le esperienze degli utenti finali saranno coerenti nell'applicazione e nelle pagine rese disponibili da Azure AD B2C.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Come prerequisito, è necessario creare un account di archiviazione. Per creare un account di archiviazione BLOB di Azure è necessaria una sottoscrizione di Azure. È possibile registrarsi per una versione di valutazione gratuita nel [sito Web di Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
+Come prerequisito, è necessario creare un account di archiviazione. Per creare un account di archiviazione BLOB di Azure, è necessaria una sottoscrizione di Azure. È possibile registrarsi per una versione di valutazione gratuita nel [sito Web di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 1. Aprire una sessione del browser e passare al [portale di Azure](https://portal.azure.com).
 2. Accedere con le credenziali amministrative.
-3. Fare clic su **Nuovo** > **Dati e archiviazione** > **Account di archiviazione**.  Viene aperto un pannello **Crea account di archiviazione**.
-4. In **Nome** specificare un nome per l'account di archiviazione, ad esempio *contoso369b2c*. Questo valore più avanti verrà indicato come *storageAccountName*.
+3. Fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione**.  Viene aperto un riquadro **Crea account di archiviazione**.
+4. In **Nome** specificare un nome per l'account di archiviazione, ad esempio *contoso369b2c*. Questo valore viene indicato più avanti come *storageAccountName*.
 5. Impostare le selezioni appropriate per il piano tariffario, il gruppo di risorse e la sottoscrizione. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Crea**.
-6. Tornare alla schermata iniziale e fare clic sull'account di archiviazione appena creato.
-7. Nella sezione **Servizi** fare clic su **BLOB**. Viene aperto un pannello **Servizio BLOB**.
+6. Tornare alla schermata iniziale e fare clic sull'account di archiviazione creato.
+7. Nella sezione **Servizi** fare clic su **BLOB**. Viene aperto un riquadro **Servizio BLOB**.
 8. Fare clic su **+ Contenitore**.
-9. In **Nome** specificare un nome per il contenitore, ad esempio *b2c*. Questo valore più avanti verrà indicato come *containerName*.
+9. In **Nome** specificare un nome per il contenitore, ad esempio *b2c*. Questo valore viene indicato più avanti come *containerName*.
 9. Selezionare **BLOB** come **Tipo di accesso**. Fare clic su **Crea**.
-10. Il contenitore appena creato verrà visualizzato nell'elenco nel pannello  **Servizio BLOB**.
-11. Chiudere il pannello **BLOB** .
-12. Nel pannello **Account di archiviazione** fare clic sull'icona **Chiave**. Viene aperto un pannello **Chiavi di accesso**.  
-13. Annotare il valore di **key1**. Questo valore più avanti verrà indicato come *key1*.
+10. Il contenitore appena creato verrà visualizzato nell'elenco nel riquadro **Servizio BLOB**.
+11. Chiudere il riquadro **BLOB**.
+12. Nel riquadro **Account di archiviazione** fare clic sull'icona **Chiave**. Viene aperto un riquadro **Chiavi di accesso**.  
+13. Annotare il valore di **key1**. Questo valore viene indicato più avanti come *key1*.
 
 ## <a name="downloading-the-helper-tool"></a>Download dello strumento di supporto
 
 1.  [Scaricare lo strumento di supporto da ](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)GitHub.
 2.  Salvare il file *B2C-AzureBlobStorage-Client-master.zip* nel computer locale.
-3.  Estrarre il contenuto del file B2C-AzureBlobStorage-Client-master.zip nel disco locale, ad esempio nella cartella **UI-Customization-Pack**. Verrà creata una cartella *B2C-AzureBlobStorage-Client-master*.
+3.  Estrarre il contenuto del file B2C-AzureBlobStorage-Client-master.zip nel disco locale, ad esempio nella cartella **UI-Customization-Pack**. Verrà creata sotto una cartella *B2C-AzureBlobStorage-Client-master*.
 4.  Aprire tale cartella ed estrarre il contenuto del file di archivio *B2CAzureStorageClient.zip*.
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>Caricare i file di esempio di UI-Customization-Pack
 
 1.  Usando Esplora risorse, passare alla cartella *B2C-AzureBlobStorage-Client-master* nella cartella *UI-Customization-Pack* creata nella sezione precedente.
-2.  Eseguire il file *B2CAzureStorageClient.exe*. Questo programma caricherà semplicemente tutti i file nella directory specificata per l'account di archiviazione e abiliterà l'accesso CORS per tali file.
+2.  Eseguire il file *B2CAzureStorageClient.exe*. Questo programma carica tutti i file nella directory specificata per l'account di archiviazione e abilita l'accesso CORS per tali file.
 3.  Quando richiesto, specificare: a.  Il nome dell'account di archiviazione, *storageAccountName*, ad esempio *contoso369b2c*.
     b.  La chiave di accesso primaria dell'archivio BLOB di Azure, *key1*, ad esempio *contoso369b2c*.
     c.  Il nome del contenitore dell'archivio BLOB del servizio di archiviazione, *containerName*, ad esempio *b2c*.
     d.  Il percorso dei file di esempio dello *starter pack*, ad esempio *..\B2CTemplates\wingtiptoys*.
 
-Se la procedura precedente è stata eseguita, i file HTML5 e CSS di *UI-Customization-Pack* per la società fittizia **wingtiptoys** punteranno così all'account di archiviazione.  Per verificare che il contenuto sia stato caricato correttamente, aprire il pannello del contenitore correlato nel portale di Azure. In alternativa, per verificare che il contenuto sia stato caricato correttamente, accedere alla pagina da un browser. Per altre informazioni, vedere [Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Se è stata eseguita la procedura precedente, i file HTML5 e CSS di *UI-Customization-Pack* per la società fittizia **wingtiptoys** puntano cora all'account di archiviazione.  Per verificare che il contenuto sia stato caricato correttamente, aprire il riquadro del contenitore correlato nel portale di Azure. In alternativa, per verificare che il contenuto sia stato caricato correttamente, accedere alla pagina da un browser. Per altre informazioni, vedere [Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Assicurarsi che CORS sia abilitato per l'account di archiviazione
 
-La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endpoint in modo che Azure AD B2C Premium possa caricare il contenuto. Infatti il contenuto è ospitato in un dominio diverso dal dominio da cui Azure AD B2C Premium renderà disponibile la pagina.
+La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endpoint in modo che Azure AD B2C Premium possa caricare il contenuto, dal momento che il contenuto è ospitato in un dominio diverso rispetto a quello da cui Azure AD B2C Premium rende disponibile la pagina.
 
 Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si ospita il contenuto, procedere con i passaggi seguenti:
 
@@ -129,7 +129,7 @@ Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si 
 -->
 
 3. In **Remote URL** (URL remoto) immettere l'URL completo per il contenuto di unified.html e fare clic su **Send Request** (Invia richiesta).
-4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200). Questa impostazione indica che CORS è abilitato.
+4. Verificare che l'output nella sezione **Results** (Risultati) contenga *XHR status: 200* (Stato XHR: 200). Tale valore indica che CORS è abilitato.
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->
@@ -141,7 +141,7 @@ L'account di archiviazione ora includerà un contenitore BLOB denominato *b2c* n
 
 La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
-| Modello HTML5 | DESCRIZIONE |
+| Modello HTML5 | Descrizione |
 |----------------|-------------|
 | *phonefactor.html* | Questa pagina può essere usata come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Questa pagina può essere usata come modello per una pagina Password dimenticata. |
@@ -157,7 +157,7 @@ I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 
-| ID definizione del contenuto | DESCRIZIONE |
+| ID definizione del contenuto | Descrizione |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Sono presenti provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali (basati su indirizzo di posta elettronica o nome utente). |

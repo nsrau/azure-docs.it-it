@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: b76f6f7f53bc649fbc740a79e182f81f3fd983c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurare Tomcat7 in una macchina virtuale Linux con Azure
 Apache Tomcat (o semplicemente Tomcat, precedentemente chiamato anche Jakarta Tomcat) è un server Web e contenitore di servlet open source sviluppato da Apache Software Foundation (ASF). Tomcat implementa le specifiche Java Servlet e Java Server Pages (JSP) di Sun Microsystems. Tomcat fornisce un ambiente server Web HTTP Java puro in cui eseguire codice Java. Nella configurazione più semplice, Tomcat viene eseguito in un singolo processo del sistema operativo. Questo processo esegue una macchina virtuale Java (JVM). Ogni richiesta HTTP da un browser a Tomcat viene elaborata nel processo di Tomcat come un thread separato.  
@@ -64,7 +64,7 @@ Attenersi a questa procedura per generare la chiave di autenticazione SSH.
 6. Fare clic su **Save private key** e salvarla in un file denominato privateKey.ppk.
 
 ### <a name="step-2-create-the-image-in-the-azure-portal"></a>Passaggio 2: creare l'immagine nel portale di Azure
-1. Nel [portale](https://portal.azure.com/) fare clic su **Nuovo** nella barra delle applicazioni per creare un'immagine. Scegliere quindi l'immagine Linux in base alle esigenze. Il seguente esempio usa l'immagine Ubuntu 14.04.
+1. Nel [portale](https://portal.azure.com/) fare clic su **Crea una risorsa** nella barra delle applicazioni per creare un'immagine. Scegliere quindi l'immagine Linux in base alle esigenze. Il seguente esempio usa l'immagine Ubuntu 14.04.
 ![Schermata del portale che mostra il pulsante Nuovo][3]
 
 2. In **Nome host** specificare il nome per l'URL che verrà usato dall'utente e dai client Internet per accedere a questa macchina virtuale. Definire l'ultima parte del nome DNS, ad esempio tomcatdemo. Azure genera quindi l'URL tomcatdemo.cloudapp.net.  
@@ -204,15 +204,15 @@ Il server Tomcat7 si avvia automaticamente durante l'installazione. È possibile
 
     sudo /etc/init.d/tomcat7 start
 
-Per arrestare Tomcat7：
+Per arrestare Tomcat7:
 
     sudo /etc/init.d/tomcat7 stop
 
-Per visualizzare lo stato di Tomcat7：
+Per visualizzare lo stato di Tomcat7:
 
     sudo /etc/init.d/tomcat7 status
 
-Per riavviare i servizi Tomcat： 
+Per riavviare i servizi Tomcat: 
 
     sudo /etc/init.d/tomcat7 restart
 
@@ -221,7 +221,7 @@ Per riavviare i servizi Tomcat：
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
-Di seguito è fornito un esempio:  
+Di seguito è fornito un esempio:   
 ![Schermata che mostra l'output del comando sudo vi][17]  
 
 > [!NOTE]
@@ -246,7 +246,7 @@ Dopo la connessione, si dovrebbe visualizzare una schermata simile alla seguente
 
      Controllare le impostazioni dell'endpoint della porta pubblica e privata e assicurarsi che la porta privata corrisponda alla porta di ascolto di Tomcat. Per istruzioni sulla configurazione degli endpoint per la macchina virtuale vedere la sezione di questo articolo "Fase 1: creare un'immagine".  
 
-     Per determinare la porta di ascolto di Tomcat, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/tomcat7/server.xml (versione Debian). Per impostazione predefinita la porta di ascolto di Tomcat è 8080. Di seguito è fornito un esempio:  
+     Per determinare la porta di ascolto di Tomcat, aprire /etc/httpd/conf/httpd.conf (versione Red Hat) o /etc/tomcat7/server.xml (versione Debian). Per impostazione predefinita la porta di ascolto di Tomcat è 8080. Di seguito è fornito un esempio:   
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
@@ -303,7 +303,7 @@ Questa installazione è stata effettuata su CentOS 6.3.
 
   Usare l'opzione -R per applicare le autorizzazioni per tutti i file anche all'interno di una directory.  
 
-  Questo comando funziona anche per le directory. L'opzione -R modifica le autorizzazioni per tutti i file e le directory all'interno della directory. Di seguito è fornito un esempio:  
+  Questo comando funziona anche per le directory. L'opzione -R modifica le autorizzazioni per tutti i file e le directory all'interno della directory. Di seguito è fornito un esempio:   
 
      sudo chown -R username:group directory  
 

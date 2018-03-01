@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-activity-log-alerts"></a>Creare avvisi del log attività
 
 ## <a name="overview"></a>Panoramica
 Gli avvisi del log attività vengono attivati quando si verifica un nuovo evento del log attività che corrisponde alle condizioni specificate nell'avviso. Si tratta di risorse di Azure e possono essere create usando un modello di Azure Resource Manager. Possono essere create, aggiornate o eliminate anche nel portale di Azure. In questo articolo vengono presentati i concetti alla base degli avvisi del log attività. Questo articolo illustra come usare il portale di Azure per configurare un avviso sugli eventi del log attività.
+
+> [!NOTE]
+
+>  [Avvisi (anteprima)](monitoring-overview-unified-alerts.md) offre attualmente un'esperienza ottimizzata per la creazione e la gestione dei log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
 
 In genere, si creano avvisi del log attività per ricevere notifiche quando:
 
@@ -43,15 +47,13 @@ In ogni caso, un avviso del log attività monitora solo degli eventi nella sotto
 - **Stato**: lo stato dell'evento, in genere Avviato, Non riuscito o Riuscito.
 - **Evento avviato da**: noto anche come "chiamante". L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
 
->[!NOTE]
->È necessario specificare nell'avviso almeno due dei criteri precedenti e uno di questi deve rappresentare la categoria. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
->
->
+> [!NOTE]
+> Se la categoria è impostata su "Amministrativo", nell'avviso è necessario specificare almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
 
 Quando un avviso del log di attività viene attivato, usa un gruppo di azione per generare azioni o notifiche. Un gruppo di azione è un set riutilizzabile di ricevitori di notifica, ad esempio gli indirizzi di posta elettronica, gli URL webhook o i numeri di telefono di SMS. Più avvisi possono fare riferimento ai ricevitori per centralizzare e raggruppare i canali di notifica. Quando si definisce l'avviso del log di attività, sono disponibili due opzioni. È possibile:
 
-* Usare un gruppo di azione esistente nell'avviso del log attività. 
-* Creare un nuovo gruppo di azione. 
+* Usare un gruppo di azione esistente nell'avviso del log attività.
+* Creare un nuovo gruppo di azione.
 
 Per altre informazioni sui gruppi di azione, vedere [Creare e gestire gruppi di azione nel portale di Azure](monitoring-action-groups.md).
 

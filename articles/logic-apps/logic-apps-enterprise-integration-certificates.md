@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 0570aab14283b38f9efcc50636f0c0c1c8e3ed13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0357e67a8920a57b2ab8b79ebd8dd3a64d888478
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Informazioni sui certificati ed Enterprise Integration Pack
 ## <a name="overview"></a>Panoramica
@@ -44,7 +44,7 @@ Dopo che è stato caricato, un certificato diventa disponibile per proteggere i 
 
 Ecco i passaggi dettagliati per caricare i certificati pubblici nell'account di integrazione dopo l'accesso al portale di Azure:
 
-1. Selezionare **Altri servizi** e immettere **integrazione** nella casella di ricerca Filtro. Selezionare **Account di integrazione** nell'elenco dei risultati.     
+1. Selezionare **Tutti i servizi** e immettere **integrazione** nella casella di ricerca di filtro. Selezionare **Account di integrazione** nell'elenco dei risultati.     
 ![Selezionare Esplora](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
 2. Selezionare l'account di integrazione a cui aggiungere il certificato.  
 ![Selezionare l'account di integrazione a cui aggiungere il certificato](media/logic-apps-enterprise-integration-certificates/overview-3.png)  

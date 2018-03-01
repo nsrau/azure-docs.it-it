@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/4/2018
+ms.date: 2/4/2018
 ms.author: raiye
-ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: 7e6b16465be1e032bd5e5fe94c95e6b2259a6704
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -26,20 +26,26 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 ## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-| N/D | [4056898] |Solo sicurezza di Windows |4.50 |3 gennaio 2018 |
-| N/D | [4056890] |Solo sicurezza di Windows |5.15 |3 gennaio 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Solo sicurezza di Windows |2.70, 3.57, 4.50 |3 gennaio 2018 |
+| Rel 18-01 | [4056890], [4056892] |Solo sicurezza di Windows |5.15 |3 gennaio 2018 |
+| N/D | [4054518] |Rollup del mese di dicembre non correlato alla sicurezza |2.70 |12 dicembre 2017 |
+| N/D | [4054520] |Rollup del mese di dicembre non correlato alla sicurezza |3.57 |12 dicembre 2017 |
+| N/D | [4054519] |Rollup del mese di dicembre non correlato alla sicurezza |4.50 |12 dicembre 2017 |
+| N/D | [4051956] |Aggiornamento del fuso orario - Gennaio |2.70, 3.57, 4.50 |12 dicembre 2017 |
+
+
 
 ## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-| Rel 17-12 | [4053579], [4054517] |Aggiornamenti della sicurezza di Windows 10 |4.49, 5.14 |12 dicembre 2017. |
-| Rel 17-12 | [4054521], [4054522], [4054523] |Solo sicurezza di Windows |2.69, 3.56, 4.49 |12 dicembre 2017. |
-| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 dicembre 2017. |
-| Rel 17-12 | [4052978] |Lampeggiante |3.56, 4.49, 5.14 |12 dicembre 2017. |
-| N/D | [4048957] |Cumulativo di novembre non correlato alla sicurezza |2.67 |14 novembre 2017 |
-| N/D | [4048959] |Cumulativo di novembre non correlato alla sicurezza |3.56 |14 novembre 2017 |
-| N/D | [4048958] |Cumulativo di novembre non correlato alla sicurezza |4.49 |14 novembre 2017 |
-| N/D | [4049068] |Aggiornamento di dicembre Timezone |2.69, 3.56, 4.49 |12 dicembre 2017. |
+| Rel 17-12 | [4053579], [4054517] |Aggiornamenti della sicurezza di Windows 10 |4.49, 5.14 |12 dicembre 2017 |
+| Rel 17-12 | [4054521], [4054522], [4054523] |Solo sicurezza di Windows |2.69, 3.56, 4.49 |12 dicembre 2017 |
+| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 dicembre 2017 |
+| Rel 17-12 | [4052978] |Lampeggiante |3.56, 4.49, 5.14 |12 dicembre 2017 |
+| N/D | [4048957] |Rollup del mese di novembre non correlato alla sicurezza |2.69 |14 novembre 2017 |
+| N/D | [4048959] |Rollup del mese di novembre non correlato alla sicurezza |3.56 |14 novembre 2017 |
+| N/D | [4048958] |Rollup del mese di novembre non correlato alla sicurezza |4.49 |14 novembre 2017 |
+| N/D | [4049068] |Aggiornamento del fuso orario - Dicembre |2.69, 3.56, 4.49 |12 dicembre 2017 |
 
 ## <a name="november-guest-os"></a>Sistema operativo guest di novembre
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -48,9 +54,9 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | Rel 17-11 | [4048960], [4048962], [4048961] |Solo sicurezza di Windows |2.68, 3.55, 4.48 |14 novembre 2017 |
 | Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 novembre 2017 |
 | Rel 17-11 | [4048951] |Lampeggiante |3.55, 4.48, 5.13 |14 novembre 2017 |
-| N/D | [4041681] |Rollup di ottobre non correlato alla sicurezza |2.67 |10 ottobre 2017 |
-| N/D | [4041690] |Rollup di ottobre non correlato alla sicurezza |3.55 |10 ottobre 2017 |
-| N/D | [4041693] |Rollup di ottobre non correlato alla sicurezza |4.48 |10 ottobre 2017 |
+| N/D | [4041681] |Rollup del mese di ottobre non correlato alla sicurezza |2.68 |10 ottobre 2017 |
+| N/D | [4041690] |Rollup del mese di ottobre non correlato alla sicurezza |3.55 |10 ottobre 2017 |
+| N/D | [4041693] |Rollup del mese di ottobre non correlato alla sicurezza |4.48 |10 ottobre 2017 |
 | N/D | [3191566] |Aggiornamento per Windows Management Framework 5.1  |2.68 |14 novembre 2017 |
 | N/D | [3191565] |Aggiornamento per Windows Management Framework 5.1  |3.55 |14 novembre 2017 |
 | N/D | [3191564] |Aggiornamento per Windows Management Framework 5.1  |4.48 |14 novembre 2017 |
@@ -582,7 +588,14 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 
 [4056898]: http://support.microsoft.com/kb/4056898
+[4056897]: http://support.microsoft.com/kb/4056897
+[4056899]: http://support.microsoft.com/kb/4056899
 [4056890]: http://support.microsoft.com/kb/4056890 
+[4056892]: http://support.microsoft.com/kb/4056892
+[4054518]: http://support.microsoft.com/kb/4054518
+[4054520]: http://support.microsoft.com/kb/4054520
+[4054519]: http://support.microsoft.com/kb/4054519
+[4051956]: http://support.microsoft.com/kb/4051956
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

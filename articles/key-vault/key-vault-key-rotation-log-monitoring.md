@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
 ## <a name="introduction"></a>Introduzione
@@ -255,12 +255,12 @@ Il passaggio successivo consiste nella [creazione di una coda del bus di servizi
 
 1. Creare uno spazio dei nomi del bus di servizio. Se è già presente uno spazio dei nomi da usare a questo scopo, andare direttamente al passaggio 2.
 2. Passare al bus di servizio nel portale di Azure e selezionare lo spazio dei nomi nel quale creare la coda.
-3. Selezionare **Nuovo**, scegliere **Bus di servizio -> Coda** e immettere i dettagli necessari.
+3. Selezionare **Crea una risorsa**, **Integrazione aziendale**, **Bus di servizio**, quindi immettere i dettagli richiesti.
 4. Selezionare le informazioni di connessione del bus di servizio scegliendo lo spazio dei nomi e facendo clic su **Informazioni di connessione**. Queste informazioni saranno necessarie per la sezione successiva.
 
 [Creare una funzione di Azure](../azure-functions/functions-create-first-azure-function.md) per eseguire il polling dei log dell'insieme di credenziali delle chiavi nell'account di archiviazione e selezionare i nuovi eventi. Questa funzione verrà attivata in base alla pianificazione.
 
-Per creare una funzione di Azure, scegliere **Nuovo -> App per le funzioni** nel portale di Azure. Durante la creazione è possibile usare un piano di hosting esistente o crearne uno nuovo. È anche possibile optare per l'hosting dinamico. Altre informazioni sulle opzioni di hosting delle funzioni sono disponibili in [Scalabilità di Funzioni di Azure](../azure-functions/functions-scale.md).
+Per creare una funzione di Azure, scegliere **Crea una risorsa**, cercare _App per le funzioni_ nel Marketplace e fare clic su **Crea**. Durante la creazione è possibile usare un piano di hosting esistente o crearne uno nuovo. È anche possibile optare per l'hosting dinamico. Altre informazioni sulle opzioni di hosting delle funzioni sono disponibili in [Scalabilità di Funzioni di Azure](../azure-functions/functions-scale.md).
 
 Dopo aver creato la funzione di Azure, passare alla funzione e scegliere una funzione timer e C\#, quindi fare clic su **Creare questa funzione**.
 

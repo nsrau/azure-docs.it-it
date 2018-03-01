@@ -8,7 +8,7 @@ Questi passaggi possono facilitare la risoluzione di molti errori di allocazione
 * Ridimensionare la macchina virtuale con una dimensione diversa della macchina virtuale.<br>
     Fare clic su **Esplora tutto** > **Macchine virtuali (versione classica)** > macchina virtuale > **Impostazioni** > **Dimensioni**. Per i passaggi dettagliati, vedere l'articolo relativo al [Ridimensionamento della macchina virtuale](https://msdn.microsoft.com/library/dn168976.aspx).
 * Eliminare tutte le VM dal servizio cloud e ricrearle.<br>
-    Fare clic su **Esplora tutto** > **Macchine virtuali (versione classica)** > macchina virtuale > **Elimina**. Fare quindi clic su **Nuovo** > **Calcolo** > [immagine macchina virtuale].
+    Fare clic su **Esplora tutto** > **Macchine virtuali (versione classica)** > macchina virtuale > **Elimina**. Fare quindi clic su **Crea una risorsa** > **Calcolo** > [immagine macchina virtuale].
 
 ### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>Risolvere i problemi relativi a errori comuni di allocazione nel modello di distribuzione di Gestione risorse di Azure
 Questi passaggi possono facilitare la risoluzione di molti errori di allocazione nelle macchine virtuali:

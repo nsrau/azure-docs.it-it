@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
 Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
@@ -57,7 +57,7 @@ In generale, per completare le attività illustrate in questo articolo, è neces
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Creare un contenitore di archiviazione e caricare il file di input CSV
 Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello disponibile da GitHub.
 
-1. Nel portale di Azure fare clic su **Nuovo** &gt; **Archiviazione** &gt; **Account di archiviazione**.
+1. Nel portale di Azure fare clic su **Crea una risorsa** &gt; **Archiviazione** &gt; **Account di archiviazione**.
 
    ![creare un nuovo account di archiviazione](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
 
@@ -128,7 +128,7 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).  
 
-2. Fare clic su **Nuovo** > **Internet delle cose** > **Processo di Analisi di flusso**. 
+2. Fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**. 
 
    ![Percorso del portale di Azure per ottenere un nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
    

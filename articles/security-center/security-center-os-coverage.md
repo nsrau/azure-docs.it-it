@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Piattaforme supportate nel Centro sicurezza di Azure
-Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disponibili per le macchine virtuali create usando i modelli di distribuzione classica e Resource Manager.
+Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disponibili per le macchine virtuali (VM), create usando i modelli di distribuzione classica e Resource Manager, e i computer.
 
 > [!NOTE]
 > È consigliabile leggere altre informazioni sui [modelli di distribuzione Azure Resource Manager e classica](../azure-classic-rm.md) per le risorse di Azure.
 >
 >
 
-## <a name="supported-platforms-for-windows-vms"></a>Piattaforme supportate per le macchine virtuali Windows
+## <a name="supported-platforms-for-windows-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Windows
 Sistemi operativi Windows supportati:
 
 * Windows Server 2008
@@ -38,7 +38,7 @@ Sistemi operativi Windows supportati:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-vms"></a>Piattaforme supportate per le macchine virtuali Linux
+## <a name="supported-platforms-for-linux-computers-and-vms"></a>Piattaforme supportate per i computer e le macchine virtuali Linux
 Sistemi operativi Linux supportati:
 
 * Versioni di Ubuntu 12.04, 14.04, 16.04, 16.10

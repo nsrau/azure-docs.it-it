@@ -15,11 +15,11 @@ ms.date: 01/04/2018
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 00307311ca2bc1432f2de3755575adf1804f9c77
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: dc314d8d2a0e7a099b0eff294d43995ea3809c90
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Nascondere un'applicazione dall'esperienza utente in Azure Active Directory
 
@@ -38,8 +38,8 @@ Per nascondere le applicazioni dal pannello di accesso è possibile seguire ques
 Seguire questa procedura per nascondere un'applicazione dal pannello di accesso e dalle schermate di avvio delle app di Office 365 di un utente.
 
 1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2.  Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
-3.  Nella schermata **Azure Active Directory - *nomedirectory***, vale a dire la schermata di Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
+2.  Selezionare **Tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **Invio**.
+3.  Nella schermata **Azure Active Directory - *nomedirectory*** , vale a dire la schermata di Azure AD per la directory che si sta gestendo, selezionare **Applicazioni aziendali**.
 ![App aziendali](media/active-directory-coreapps-hide-third-party-app/app1.png)
 4.  Nella schermata **Applicazioni aziendali** selezionare **Tutte le applicazioni**. Viene visualizzato un elenco di app che è possibile gestire.
 5.  Nella schermata **Applicazioni aziendali - Tutte le applicazioni** selezionare un'app.</br>
@@ -54,8 +54,8 @@ Seguire questa procedura per nascondere un'applicazione dal pannello di accesso 
 Seguire questa procedura per nascondere tutte le applicazioni di Office 365 dal pannello di accesso. Queste app saranno ancora visibili nel portale di Office 365.
 
 1.  Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
-2.  Selezionare **Altri servizi**, immettere **Azure Active Directory** nella casella di testo e quindi selezionare **Invio**.
-3.  Nella schermata **Azure Active Directory - *nomedirectory***, vale a dire la schermata di Azure AD per la directory che si sta gestendo, selezionare **Impostazioni utente**.
+2.  Selezionare **Tutti i servizi**, immettere **Azure Active Directory** nella casella di testo e quindi premere **Invio**.
+3.  Nella schermata **Azure Active Directory - *nomedirectory*** , vale a dire la schermata di Azure AD per la directory che si sta gestendo, selezionare **Impostazioni utente**.
 4.  Nell'area **Applicazioni aziendali** della schermata **Impostazioni utente** selezionare **Sì** per **Gli utenti possono visualizzare solo le app di Office 365 nel portale di Office 365**.
 
 ![App aziendali](media/active-directory-coreapps-hide-third-party-app/apps4.png)

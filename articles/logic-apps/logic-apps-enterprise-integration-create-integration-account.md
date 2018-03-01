@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7ec63810fe78b38c574ec39369d5926f80e595e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="what-is-an-integration-account"></a>Cos'è un account di integrazione?
 
@@ -26,9 +26,9 @@ Un account di integrazione consente alle app di integrazione aziendale di gestir
 
 ## <a name="create-an-integration-account"></a>Creare un account di integrazione
 
-1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra.
+1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Nel menu a sinistra selezionare **Tutti i servizi**.
 
-    ![Selezionare "Altri servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Selezionare "Tutti i servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
 
@@ -85,9 +85,9 @@ Ora che l'account di integrazione è collegato all'app per la logica, è possibi
 
 ## <a name="delete-your-integration-account"></a>Eliminare l'account di integrazione
 
-1. Selezionare **Altri servizi**.
+1. Selezionare **Tutti i servizi**.
 
-    ![Selezionare "Altri servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Selezionare "Tutti i servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
 
@@ -110,9 +110,9 @@ Per spostare un account di integrazione a un'altra sottoscrizione o gruppo di ri
 > [!IMPORTANT]
 > Dopo lo spostamento di un account di integrazione è necessario aggiornare tutti gli script in modo che usino i nuovi ID risorsa.
 
-1. Selezionare **Altri servizi**.
+1. Selezionare **Tutti i servizi**.
 
-    ![Selezionare "Altri servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
+    ![Selezionare "Tutti i servizi"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
 2. Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0caa3397723f9cd0476e85d52a8d30ae283b6e47
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
 
@@ -50,7 +50,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
 
 ### <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
 
-1. Nel [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo** > **Integrazione aziendale** > **Bus di servizio**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Integrazione aziendale** > **Bus di servizio**.
 1. Specificare le informazioni seguenti:
 
    **Nome**: il nome del bus di servizio.
@@ -111,7 +111,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Nel [portale di Azure](https://portal.azure.com/), fare clic su **Nuovo** > **Integrazione aziendale** > **App per la logica**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
 1. Immettere le seguenti informazioni:
 
    **Nome**: il nome dell'app per la logica.

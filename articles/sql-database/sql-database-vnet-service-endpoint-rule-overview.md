@@ -4,7 +4,7 @@ description: Contrassegnare una subnet come endpoint del servizio Rete virtuale.
 services: sql-database
 documentationcenter: 
 author: MightyPen
-manager: jhubbard
+manager: craigg
 editor: 
 tags: 
 ms.assetid: 
@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 01/31/2018
-ms.author: genemi
-ms.openlocfilehash: d4179c590ef418633158dd5a5dbadbc8c20bcde7
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.date: 02/20/2018
+ms.reviewer: genemi
+ms.author: dmalik
+ms.openlocfilehash: 33ce521903265f60715f66220c4d038cf6d86671
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
@@ -127,9 +128,6 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 
 Per il database SQL di Azure, la funzionalità delle regole della rete virtuale presenta le limitazioni seguenti:
 
-- Un'app Web di Azure non funziona ancora come previsto in una subnet in cui sono attivati gli **endpoint di servizio**. Questa funzionalità sarà presto disponibile.
-    - Finché questa funzionalità non sarà implementata completamente, è consigliabile spostare l'app Web in un'altra subnet in cui non sono abilitati gli endpoint di servizio per SQL.
-
 - Nel firewall per il database SQL ogni regola della rete virtuale fa riferimento a una subnet. Tutte queste subnet cui viene fatto riferimento devono essere ospitate nella stessa area geografica che ospita il database SQL.
 
 - Ogni server di database SQL di Azure può includere fino a 128 voci ACL per qualsiasi rete virtuale specificata.
@@ -142,6 +140,12 @@ Per il database SQL di Azure, la funzionalità delle regole della rete virtuale 
 - Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole della rete virtuale:
     - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
     - Ambiente locale tramite [ExpressRoute][expressroute-indexmd-744v]
+
+#### <a name="considerations-when-using-service-endpoints"></a>Considerazioni sull'uso di endpoint del servizio
+Quando si usano gli endpoint del servizio per il Database SQL di Azure, rivedere le considerazioni seguenti:
+
+- **In uscita verso gli indirizzi IP pubblici del Database SQL di Azure è necessario che** i gruppi di sicurezza di rete devono essere aperti gli indirizzi IP del Database SQL di Azure per consentire la connettività. È possibile farlo tramite i [Tag dei servizi](../virtual-network/security-overview.md#service-tags) del Gruppo di sicurezza di rete per il Database SQL di Azure.
+- **Non sono supportati i Database di Azure per PostgreSQL e MySQL**: gli endpoint del servizio non sono supportati per il Database di Azure per PostgreSQL o MySQL. Abilitando gli endpoint del servizio al Database SQL si interromperà la connettività a questi servizi. È disponibile una mitigazione per questo, contattare *dmalik@microsoft.com*.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -170,6 +174,8 @@ L'editor di query del database SQL di Azure viene distribuito nelle VM in Azure.
 #### <a name="table-auditing"></a>Controllo tabelle
 Al momento è possibile abilitare il controllo sul database SQL in due modi. Il controllo tabelle non riesce dopo avere abilitato gli endpoint di servizio nel server di Azure SQL. Per mitigare il problema, in questo caso passare al controllo BLOB.
 
+#### <a name="impact-on-data-sync"></a>Impatto sulla sincronizzazione dati
+SQLDB di Azure è dotato della funzionalità di sincronizzazione dei dati che si connette ai database dell'utente tramite gli indirizzi IP di Azure. Quando si usano gli endpoint del servizio, è probabile che si spenga l'accesso **Consenti tutti i servizi Azure** per il server logico. Questa operazione interromperà la funzionalità di sincronizzazione dei dati.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure
 
@@ -177,7 +183,7 @@ Archiviazione di Azure ha implementato la stessa funzionalità che consente di l
 Se si sceglie di usare questa funzionalità con un account di archiviazione usato da un server di Azure SQL, è possibile che si verifichino problemi. Di seguito sono riportati un elenco e una spiegazione delle funzionalità del database SQL di interessate.
 
 #### <a name="azure-sqldw-polybase"></a>PolyBase per Azure SQLDW
-PolyBase viene in genere usato per caricare i dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta.
+PolyBase viene in genere usato per caricare i dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione da cui si caricano i dati limita l'accesso solo a un set di subnet della rete virtuale, la connettività da PolyBase all'account verrà interrotta. È disponibile una mitigazione per questo oggetto; contattare *dmalik@microsoft.com* per altre informazioni.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Controllo BLOB del database SQL di Azure
 Il controllo BLOB esegue il push dei log di controllo nell'account di archiviazione. Se questo account di archiviazione usa la funzionalità degli endpoint di servizio di rete virtuale, la connettività dal database SQL di Azure all'account di archiviazione verrà interrotta.

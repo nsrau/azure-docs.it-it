@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -46,8 +46,8 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 
 È possibile visualizzare l'elenco completo delle regole di sicurezza effettive in un'interfaccia di rete dalla VM stessa. È anche possibile aggiungere, modificare ed eliminare le regole dei gruppi di sicurezza di rete per subnet e interfacce di rete usando il pannello delle regole effettive, se si hanno le autorizzazioni per eseguire queste operazioni.
 
-1. Account di accesso per il portale di Azure all'indirizzo https://portal.azure.com con un account di Azure. L'account deve essere assegnato il *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operazione per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [creare ruoli personalizzati per gestire il controllo di accesso](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
-2. Fare clic su **Altri servizi** e quindi su **Macchine virtuali** nell'elenco visualizzato.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com con un account Azure. All'account deve essere assegnata l'operazione *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+2. Fare clic su **Tutti i servizi** e quindi su **Macchine virtuali** nell'elenco visualizzato.
 3. Selezionare una VM in cui risolvere i problemi nell'elenco visualizzato. Verrà visualizzato un pannello della VM contenente opzioni.
 4. Fare clic su **Diagnostica e risoluzione dei problemi** e quindi selezionare un problema comune. Per questo esempio si seleziona **Non è possibile connettersi alla macchina virtuale Windows** . 
    
@@ -96,7 +96,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 In caso di problemi con il flusso del traffico della VM in un'interfaccia di rete specifica, è possibile visualizzare un elenco completo delle regole effettive nel contesto dell'interfaccia di rete seguendo questa procedura:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-2. Fare clic su **Altri servizi** e quindi su **Interfacce di rete** nell'elenco visualizzato.
+2. Fare clic su **Tutti i servizi** e quindi su **Interfacce di rete** nell'elenco visualizzato.
 3. Selezionare un'interfaccia di rete. Nell'immagine seguente è stata selezionata un'interfaccia di rete denominata *VM1-NIC1* .
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image5.png)
@@ -113,7 +113,7 @@ In caso di problemi con il flusso del traffico della VM in un'interfaccia di ret
 Quando si modificano le regole del gruppo di sicurezza di rete, può essere opportuno esaminare l'impatto delle regole aggiunte in una determinata VM. È possibile visualizzare l'elenco completo delle regole di sicurezza effettive per tutte le interfacce di rete a cui è applicato un determinato gruppo di sicurezza di rete, restando nel contesto del pannello dello specifico gruppo di sicurezza di rete. Per risolvere i problemi delle regole effettive in un gruppo di sicurezza di rete, seguire questa procedura:
 
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
-2. Fare clic su **Altri servizi** e quindi su **Gruppi di sicurezza di rete** nell'elenco visualizzato.
+2. Fare clic su **Tutti i servizi** e quindi su **Gruppi di sicurezza di rete** nell'elenco visualizzato.
 3. Selezionare un gruppo di sicurezza di rete. Nell'immagine seguente è stato selezionato un gruppo di sicurezza di rete denominato VM1-nsg.
    
     ![](./media/virtual-network-nsg-troubleshoot-portal/image6.png)

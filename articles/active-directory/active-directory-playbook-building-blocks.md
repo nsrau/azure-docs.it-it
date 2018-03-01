@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
 ## <a name="catalog-of-roles"></a>Catalogo dei ruoli
 
-| Ruolo | DESCRIZIONE | Responsabilità del modello di verifica |
+| Ruolo | Descrizione | Responsabilità del modello di verifica |
 | --- | --- | --- |
 | **Team di sviluppo e architettura identità** | Questo è in genere quello che progetta la soluzione, implementa i prototipi, indirizza le approvazioni e gestisce le consegne al team operativo | Disponibilità degli ambienti e valutazione dei diversi scenari dal punto di vista della gestibilità |
 | **Team di gestione dell'identità locale** | Gestisce le diverse origini di identità locali: foreste di Active Directory, directory LDAP, sistemi HR e provider di identità federativa. | Disponibilità dell'accesso alle risorse locali necessarie per gli scenari PoC.<br/>Deve essere coinvolto nella misura minore possibile|
@@ -391,7 +391,7 @@ Tempo previsto per il completamento: 15 minuti
 | Passare al portale di gestione di Azure AD, pagina di reimpostazione delle password | [Portale di gestione di Azure AD: Reimpostazione delle password](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Determinare i criteri di reimpostazione delle password. Ai fini del modello di verifica è possibile usare le chiamate telefoniche e la sezione di domande e risposte. È consigliabile abilitare la registrazione obbligatoria per accedere al Pannello di accesso |  |
 | Disconnettersi e accedere di nuovo come Information Worker |  |
-| Specificare i dati di reimpostazione self-service delle password come indicato per il passaggio 2 | http://aka.ms/ssprsetup |
+| Specificare i dati di reimpostazione self-service delle password come indicato per il passaggio 2 | https://aka.ms/ssprsetup |
 | Chiudere il browser |  |
 | Ripetere la procedura di accesso come l'Information Worker usato nel passaggio 4 |  |
 | Reimpostare la password | [Aggiornare la password: Reimpostare la password](active-directory-passwords-update-your-own-password.md) |
@@ -442,7 +442,7 @@ Tempo previsto per il completamento: 10 minuti
 | L'applicazione SaaS è già stata configurata |  |
 | Gli utenti del modello di verifica sono già stati assegnati all'applicazione |  |
 | Le credenziali per l'utente del modello di verifica sono disponibili |  |
-| L'utente del modello di verifica è registrato per MFA. Uso di un telefono con buona ricezione | http://aka.ms/ssprsetup |
+| L'utente del modello di verifica è registrato per MFA. Uso di un telefono con buona ricezione | https://aka.ms/ssprsetup |
 | Dispositivo nella rete interna. Indirizzo IP configurato nell'intervallo di indirizzi interni | Individuare l'indirizzo IP: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo nella rete esterna (può essere un telefono che usa la rete mobile del vettore) |  |
 
@@ -533,7 +533,7 @@ Tempo previsto per il completamento: 10 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Accedere come amministratore globale a https://portal.azure.com e aprire il pannello Identity Protection | https://aka.ms/aadipgetstarted |
-| Abilitare un criterio di rischio di accesso come segue:<br/>- Assegnato a: utente del modello di verifica<br/>- Condizioni: rischio di accesso medio o alto (l'accesso da una posizione anonima viene considerato come livello di rischio medio)<br/>- Controlli: richiesto MFA | [Studio di Azure Active Directory Identity Protection: Rischio di accesso](active-directory-identityprotection-playbook.md#sign-in-risk) |
+| Abilitare un criterio di rischio di accesso come segue:<br/>- Assegnato a: utente del modello di verifica<br/>- Condizioni: rischio di accesso medio o alto (l'accesso da una posizione anonima viene considerato come livello di rischio medio)<br/>- Controlli: richiesto MFA | [Studio di Azure Active Directory Identity Protection: Rischio di accesso](active-directory-identityprotection-playbook.md) |
 | Aprire Tor Browser | [Download di Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Accedere con l'account utente del modello di verifica a https://myapps.microsoft.com |  |
 | Si noti la richiesta dell'autenticazione a più fattori | [Esperienze di accesso con Azure AD Identity Protection: Ripristino di un accesso rischioso](active-directory-identityprotection-flows.md#risky-sign-in-recovery)

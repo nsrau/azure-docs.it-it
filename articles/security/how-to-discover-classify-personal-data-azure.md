@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Individuare, identificare e classificare i dati personali in Microsoft Azure
 
@@ -59,22 +59,22 @@ Questa operazione è particolarmente utile se si vuole trovare o modificare i da
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 
-2. Selezionare **Altri servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi premere **INVIO**.
+2. Selezionare **Tutti i servizi**, immettere **Utenti e gruppi** nella casella di testo e quindi selezionare **Invio**.
 
    ![come individuare le informazioni sul profilo utente e sull'ufficio](media/how-to-discover-classify-personal-data-azure/user-profile.png)
 
 3. Nel pannello **Utenti e gruppi** selezionare **Utenti**.
 
-  ![Apertura del pannello Utenti e gruppi](media/how-to-discover-classify-personal-data-azure/users-groups.png)
+      ![Apertura del pannello Utenti e gruppi](media/how-to-discover-classify-personal-data-azure/users-groups.png)
 
 4. Nel pannello **Utenti e gruppi - Utenti** selezionare un utente nell'elenco, quindi scegliere **Profilo** nel pannello dell'utente selezionato per visualizzare le informazioni sul profilo utente che potrebbero contenere dati personali.
 
-  ![Seleziona utente](media/how-to-discover-classify-personal-data-azure/select-user.png)
+      ![Seleziona utente](media/how-to-discover-classify-personal-data-azure/select-user.png)
 
 5. Se si vuole aggiungere o modificare le informazioni sul profilo utente, è possibile eseguire questa operazione e selezionare **Salva** nella barra dei comandi.
 6. Nel pannello per l'utente selezionato scegliere **Ufficio** per visualizzare le informazioni sull'ufficio dell'utente che possono contenere dati personali.
 
- ![visualizzazione delle informazioni sull'ufficio](media/how-to-discover-classify-personal-data-azure/work-info.png)
+     ![visualizzazione delle informazioni sull'ufficio](media/how-to-discover-classify-personal-data-azure/work-info.png)
 
 7. Se è necessario aggiungere o modificare le informazioni sull'ufficio dell'utente, è possibile eseguire questa operazione e selezionare **Salva** nella barra dei comandi.
 
@@ -185,7 +185,7 @@ Per iniziare con le nozioni base, visitare l'esercitazione [Azure Cosmos DB: Pro
 
 Per altre informazioni dettagliate sulla creazione di query SQL, visitare [Query SQL per l'API DocumentDB di Azure Cosmos DB](../cosmos-db/sql-api-sql-query.md).
 
-Se si ha familiarità con Azure Cosmos DB e si desidera imparare a creare un database, aggiungere una raccolta e si aggiungono dati, visitare il [DB Cosmos Azure: creare un'app web API SQL](../cosmos-db/create-sql-api-dotnet.md) esercitazione di avvio rapido. Se si vuole eseguire questa operazione in un linguaggio diverso da .NET, come Java o Python, selezionare solo il linguaggio preferito quando si raggiunge il sito.
+Se non si ha familiarità con Azure Cosmos DB e si vuole imparare a creare un database, aggiungere una raccolta e aggiungere i dati, leggere l'esercitazione di avvio rapido [Azure Cosmos DB: creare un'app Web per le API SQL](../cosmos-db/create-sql-api-dotnet.md). Se si vuole eseguire questa operazione in un linguaggio diverso da .NET, come Java o Python, selezionare solo il linguaggio preferito quando si raggiunge il sito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

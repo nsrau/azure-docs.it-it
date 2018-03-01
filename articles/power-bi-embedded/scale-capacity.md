@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 9b7d0bc31946d6022e9bfae463f4a22eb12c2a58
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Ridimensionare la capacità di Power BI Embedded
 
@@ -33,9 +33,9 @@ Si presuppone che sia stata creata una capacità di Power BI Embedded. In caso c
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **Altri servizi** > **Power BI Embedded** per visualizzare le capacità.
+2. Selezionare **Tutti i servizi** > **Power BI Embedded** per visualizzare le capacità.
 
-    ![Altri servizi nel portale di Azure](media/scale-capacity/azure-portal-more-services.png)
+    ![Tutti i servizi nel portale di Azure](media/scale-capacity/azure-portal-more-services.png)
 
 3. Selezionare la capacità a cui si vuole passare.
 

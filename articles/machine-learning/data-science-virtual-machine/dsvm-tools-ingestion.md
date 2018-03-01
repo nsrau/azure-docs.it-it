@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
@@ -35,7 +35,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 | Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Importazione di più BLOB di Archiviazione di Azure in Azure Data Lake Store.      |
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `adlcopy` per ottenere assistenza.    |
-| Collegamenti agli esempi      | Https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob [utilizzando AdlCopy])      |
+| Collegamenti agli esempi      | [Uso di AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Strumenti correlati nella macchina virtuale per data science      | AzCopy, riga di comando di Azure     |
 
 ## <a name="azure-command-line"></a>Riga di comando di Azure
@@ -62,11 +62,11 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 | Strumenti correlati nella macchina virtuale per data science      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-data-migration-tool"></a>Strumento di migrazione dei dati DB Cosmos di Azure
+## <a name="azure-cosmos-db-data-migration-tool"></a>Utilità di migrazione dati a Azure Cosmos DB
 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Strumento per importare dati da diverse origini, tra cui i file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure, Amazon DynamoDB e API di SQL Azure Cosmos DB raccolte in Azure Cosmos DB.      |
+| Che cos'è?   | Uno strumento per importare dati da diverse origini, tra cui file JSON, file CSV, SQL, MongoDB, archivio tabelle di Azure, Amazon DynamoDB e raccolte di API SQL di Azure Cosmos DB in Azure Cosmos DB.      |
 | Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Importazione di file da una macchina virtuale in CosmosDB, importazione di dati dall'archiviazione in tabelle di Azure in CosmosDB o importazione di dati da un database di SQL Server in CosmosDB.     |
 |  Come usarla o eseguirla?    |   Per usare la versione della riga di comando, aprire un prompt dei comandi e digitare `dt`. Per usare lo strumento GUI, aprire un prompt dei comandi e digitare `dtui`.    |
@@ -84,6 +84,17 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `bcp` per ottenere assistenza.    |
 | Collegamenti agli esempi      | [Utilità di copia bulk](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Strumenti correlati nella macchina virtuale per data science      | SQL Server, sqlcmd      |
+
+## <a name="blobfuse"></a>blobfuse
+
+|    |           |
+| ------------- | ------------- |
+| Che cos'è?   | Uno strumento per montare un contenitore BLOB di Azure nel file system di Linux.      |
+| Versioni supportate della macchina virtuale per data science      | Linux      |
+| Usi tipici      | Lettura e scrittura in BLOB in un contenitore      |
+|  Come usarla o eseguirla?    |   Eseguire _blobfuse_ in un terminale.    |
+| Collegamenti agli esempi      | [blobfuse on GitHub) [https://github.com/Azure/azure-storage-fuse]      |
+| Strumenti correlati nella macchina virtuale per data science      | Riga di comando di Azure      |
 
 
 ## <a name="microsoft-data-management-gateway"></a>Gateway di gestione dati di Microsoft

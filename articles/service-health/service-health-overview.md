@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 5f2b68e800f484a64e79f965fc855aebe090186a
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-service-health"></a>Integrità dei servizi di Azure
 Integrità dei servizi di Azure offre informazioni tempestive e personalizzate quando nei servizi di Azure si verificano problemi che influiscono sui servizi.  Consente inoltre di preparare una manutenzione pianificata per il futuro.
@@ -32,8 +32,13 @@ Integrità dei servizi registra tre tipi di eventi di integrità che possono inf
     ![Eventi di Integrità dei servizi](./media/service-health-overview/azure-service-health-overview-7.png)
 
 ## <a name="get-started-with-service-health"></a>Introduzione a Integrità dei servizi
-Per avviare il dashboard di Integrità dei servizi, selezionare il riquadro Integrità dei servizi nel dashboard del portale. Se in precedenza il riquadro è stato rimosso o si una un dashboard personalizzato, cercare il servizio Integrità dei servizi in "Altri servizi" in basso a sinistra nel dashboard.
+Per avviare il dashboard di Integrità dei servizi, selezionare il riquadro Integrità dei servizi nel dashboard del portale. 
+
 ![Introduzione a Integrità dei servizi](./media/service-health-overview/azure-service-health-overview-1.png)
+
+Se in precedenza il riquadro è stato rimosso o si usa un dashboard personalizzato, cercare il servizio Integrità dei servizi in **Tutti i servizi** in alto a sinistra nel dashboard.
+
+![Introduzione a Integrità dei servizi](./media/service-health-overview/azure-service-health-overview-1a.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>Vedere i problemi che attualmente influiscono su servizi
 La visualizzazione **Problemi del servizio** indica eventuali problemi presenti nei servizi di Azure che influiscono sulle risorse. È possibile capire quando è iniziato il problema e quali sono le aree e i servizi interessati. È anche possibile leggere l'aggiornamento più recente per comprendere che cosa sta facendo Azure per risolvere il problema. 

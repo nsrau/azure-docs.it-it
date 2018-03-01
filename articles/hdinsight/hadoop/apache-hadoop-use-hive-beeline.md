@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/02/2018
 ms.author: larryfr
-ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usare il client Beeline con Apache Hive
 
@@ -44,7 +44,7 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
 
 ## <a id="prereq"></a>Prerequisiti
 
-* Un cluster Hadoop basato su Linux in HDInsight.
+* Un cluster Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
 
   > [!IMPORTANT]
   > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -53,7 +53,7 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
 
     Per altre informazioni sull'uso di SSH, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="beeline"></a>Usare Beeline
+## <a id="beeline"></a>Eseguire una query Hive
 
 1. Quando si avvia Beeline, è necessario fornire una stringa di connessione per HiveServer2 nel cluster HDInsight:
 
@@ -116,10 +116,19 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
 
     ```hiveql
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4jLogs (
+        t1 string,
+        t2 string,
+        t3 string,
+        t4 string,
+        t5 string,
+        t6 string,
+        t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
+        WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+        GROUP BY t4;
     ```
 
     Le istruzioni eseguono queste azioni:
@@ -167,7 +176,7 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Beeline u
 
 5. Per uscire da Beeline, usare `!exit`.
 
-## <a id="file"></a>Usare Beeline per eseguire un file HiveQL
+### <a id="file"></a>Usare Beeline per eseguire un file HiveQL
 
 Usare la procedura seguente per creare un file, quindi eseguirlo tramite Beeline.
 

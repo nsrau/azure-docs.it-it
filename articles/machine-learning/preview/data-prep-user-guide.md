@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: a75ad760fe7f9663c5b43500581170d5f8671a13
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 2879daf4b5ba072a3a9b11ec87c01e5904b6a5dc
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-preparations-user-guide"></a>Guida dell'utente per la preparazione dati 
 La preparazione dati di Azure Machine Learning è caratterizzata da numerose funzionalità avanzate. In questo articolo sono descritti gli aspetti più interessanti di queste funzionalità.
@@ -89,7 +89,7 @@ Per creare una copia tramite fork:
 4. Dopo **Conditions** (Condizioni) selezionare **Create Dataflow Containing the Filtered Out Rows** (Crea un flusso di dati contenente le righe escluse dal filtro) per creare una copia tramite fork del set di risultati non visualizzato in un nuovo flusso di dati.
 
 
-Questa procedura viene spesso usata per separare un set di dati che richiede ulteriore preparazione. Dopo avere eseguito il wrangling del set di dati di cui è stata creata una copia tramite fork, i dati vengono spesso uniti con il set dei risultati nel flusso di dati originale. Per eseguire una "unione" (il contrario di un'operazione di "creazione di una copia tramite fork") eseguire una delle azioni seguenti:
+Questa procedura viene spesso usata per separare un set di dati che richiede ulteriore preparazione. Dopo avere preparato il set di dati di cui è stata creata una copia tramite fork, i dati vengono spesso uniti con il set dei risultati nel flusso di dati originale. Per eseguire una "unione" (il contrario di un'operazione di "creazione di una copia tramite fork") eseguire una delle azioni seguenti:
 
 - **Accodare le righe**. Unire due o più flussi di dati in verticale (per riga). 
 - **Accodare le colonne**. Unire due o più flussi di dati in orizzontale (per colonna).
