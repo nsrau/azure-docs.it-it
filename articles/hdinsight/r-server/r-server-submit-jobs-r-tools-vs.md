@@ -45,7 +45,7 @@ RTVS migliora il flusso di lavoro R offrendo strumenti come la [finestra R inter
 6. È possibile applicare le Impostazioni di Data Science all'ambiente di Visual Studio, ottenendo un nuovo layout per l'area di lavoro per gli strumenti R.
     1. Per salvare le impostazioni correnti di Visual Studio, usare il comando **Strumenti > Importa/Esporta impostazioni**, quindi selezionare **Esporta le impostazioni di ambiente selezionate** e specificare un nome file. Per ripristinare tali impostazioni, usare lo stesso comando e selezionare **Importa le impostazioni di ambiente selezionate**.
 
-    2. Passare alla voce di menu **Strumenti R**, quindi selezionare **	Impostazioni di Data Science**.
+    2. Passare alla voce di menu **Strumenti R**, quindi selezionare **Impostazioni di Data Science**.
 
         ![Impostazioni di Data Science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 

@@ -73,7 +73,7 @@ Dopo aver aggiunto un trigger, seguire questi passaggi per aggiungere un'azione 
    ![Immagine di azione FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
    Si apre il controllo **Recuperare i contenuti del file**. **Nota**: verrà richiesto di autorizzare l'app per la logica ad accedere all'account sul server FTP, se non lo si è già fatto in precedenza.  
    ![Immagine di azione FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Selezionare il controllo **File** (lo spazio vuoto sotto **FILE***). In questo caso è possibile usare le varie proprietà dal file nuovo o modificato individuato sul server FTP.  
+5. Selezionare il controllo **File** (lo spazio vuoto sotto **FILE**\*). In questo caso è possibile usare le varie proprietà dal file nuovo o modificato individuato sul server FTP.  
 6. Selezionare l'opzione **Contenuto file**.  
    ![Immagine di azione FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
 7. Il controllo viene aggiornato e indica che l'azione **FTP - Recuperare i contenuti del file** recupererà il *contenuto del file* nuovo o modificato nel server FTP.      
