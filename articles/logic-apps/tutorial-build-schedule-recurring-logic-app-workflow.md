@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: ff9a396f09b675e798e2b2a04fdf0fdb0cdaa09d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Controllare il traffico con un'app per la logica basata su utilità di pianificazione
 
@@ -53,7 +53,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 
-1. Dal menu principale di Azure scegliere **Nuovo** > **Enterprise Integration** > **App per la logica**.
+1. Nel menu principale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
 
    ![Creare l'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app.png)
 

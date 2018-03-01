@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 2b4c6128d9b50f200a40c8d96faede1e80fbee9e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1094a5ea3c000707aa7736d22d4df0558da32b5e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Operazioni del file system in Azure Data Lake Store con .NET SDK
 > [!div class="op_single_selector"]
@@ -107,21 +107,24 @@ Il frammento di codice seguente crea l'oggetto client del file system di Data La
 Aggiungere il frammento di codice seguente all'applicazione. Questo frammento di codice aggiunge un file ed eventuali directory padre ancora inesistenti.
 
     // Create a file - automatically creates any parent directories that don't exist
-    
-    string fileName = "/Test/testFilename1.txt";
-    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
+    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
-        streamWriter.WriteLine("This is test data to write");
-        streamWriter.WriteLine("This is line 2");
+        byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
+
+        textByteArray = Encoding.UTF8.GetBytes("This is the second line.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
     }
 
 ## <a name="append-to-a-file"></a>Aggiungere a un file
 Il frammento di codice seguente accoda dati a un file esistente nell'account Data Lake Store.
 
     // Append to existing file
-    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
+    using (var stream = client.GetAppendStream(fileName))
     {
-        streamWriter.WriteLine("This is the added line");
+        byte[] textByteArray = Encoding.UTF8.GetBytes("This is the added line.\r\n");
+        stream.Write(textByteArray, 0, textByteArray.Length);
     }
 
 ## <a name="read-a-file"></a>Leggere un file

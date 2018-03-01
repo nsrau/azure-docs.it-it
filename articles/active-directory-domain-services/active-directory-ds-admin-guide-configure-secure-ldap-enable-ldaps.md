@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 02/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 8b6c1dec6f97311e5fb92f2adef8685b59cbeb2c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD Domain Services
 
@@ -113,7 +113,6 @@ La tabella seguente illustra un esempio di gruppo di sicurezza di rete che è po
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 Nel caso di problemi di connessione al dominio gestito tramite il protocollo LDAP sicuro, seguire questa procedura di risoluzione dei problemi:
 * Verificare che la catena di autorità di certificazione del certificato LDAP sicuro sia considerata attendibile nel client. È possibile scegliere di aggiungere l'autorità di certificazione radice nell'archivio certificati radice attendibili nel client per stabilire la relazione di attendibilità.
-* Verificare che il certificato LDAP sicuro non sia stato emesso da un'autorità di certificazione intermedia, che, per impostazione predefinita, non viene considerata attendibile in un computer Windows aggiornato.
 * Verificare che il client LDAP (ad esempio ldp.exe) si connetta all'endpoint LDAP sicuro usando un nome DNS, non l'indirizzo IP.
 * Verificare che il nome DNS a cui si connette il client LDAP venga risolto nell'indirizzo IP pubblico per il protocollo LDAP sicuro nel dominio gestito.
 * Verificare che il certificato LDAP sicuro per il dominio gestito contenga il nome DNS nell'attributo soggetto o nell'attributo nomi alternativi del soggetto.
