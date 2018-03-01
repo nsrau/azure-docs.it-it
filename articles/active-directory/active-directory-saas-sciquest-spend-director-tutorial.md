@@ -16,28 +16,28 @@ ms.date: 12/12/2017
 ms.author: jeedes
 ms.openlocfilehash: be9b17f31bedca1ae5704b484760c3ad24fbb14d
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Esercitazione: Integrazione di Azure Active Directory con SciQuest Spend Director
 
-In questa esercitazione, informazioni su come integrare SciQuest spesa Director con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare SciQuest Spend Director con Azure Active Directory (Azure AD).
 
 L'integrazione di SciQuest Spend Director con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al direttore spesa SciQuest.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato SciQuest spesa Director (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a SciQuest Spend Director.
+- È possibile abilitare gli utenti per l'accesso automatico a SciQuest Spend Director (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con SciQuest Spend Director, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Un direttore di spesa SciQuest single sign-on abilitato sottoscrizione
+- Sottoscrizione di SciQuest Spend Director abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -70,33 +70,33 @@ Per configurare l'integrazione di SciQuest Spend Director in Azure AD, è necess
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **SciQuest spesa Director**selezionare **SciQuest spesa Director** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **SciQuest Spend Director**, selezionare **SciQuest Spend Director** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Director spesa SciQuest nell'elenco dei risultati](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_addfromgallery.png)
+    ![SciQuest Spend Director nell'elenco dei risultati](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con Director SciQuest spesa in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SciQuest Spend Director usando un utente di test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in SciQuest direttore di spesa per un utente in Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SciQuest Spend Director.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di SciQuest Spend Director corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SciQuest Spend Director.
 
-In Director spesa SciQuest, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in SciQuest Spend Director assegnare il valore del **nome utente** in Azure AD come valore di **Username** (Nome utente).
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con SciQuest Spend Director, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test Director spesa SciQuest](#create-a-sciquest-spend-director-test-user)**  - disporre di un equivalente di Britta Simon in SciQuest spesa Director collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di SciQuest Spend Director](#create-a-sciquest-spend-director-test-user)**: per avere una controparte di Britta Simon in SciQuest Spend Director collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione SciQuest spesa Director.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione SciQuest Spend Director.
 
 **Per configurare Single Sign-On di Azure AD con SciQuest Spend Director, eseguire la procedura seguente:**
 
-1. Nel portale di Azure, sul **SciQuest spesa Director** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **SciQuest Spend Director** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,9 +104,9 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_samlbase.png)
 
-3. Nel **SciQuest spesa Director dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio SciQuest Spend Director** seguire questa procedura:
 
-    ![SciQuest spesa Director informazioni domini e gli URL single sign-on](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SciQuest Spend Director](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
@@ -115,7 +115,7 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Contatto [team di supporto Client direttore di spesa SciQuest](https://www.jaggaer.com/contact-us/) per ottenere questi valori. 
+    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di SciQuest Spend Director](https://www.jaggaer.com/contact-us/). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -125,7 +125,7 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso single sign-on in **SciQuest spesa Director** lato, è necessario inviare scaricato **Metadata XML** a [team di supporto SciQuest spesa Director](https://www.jaggaer.com/contact-us/).
+6. Per configurare l'accesso Single Sign-On sul lato **SciQuest Spend Director**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di SciQuest Spend Director](https://www.jaggaer.com/contact-us/).
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -163,20 +163,20 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-sciquest-spend-director-test-user"></a>Creare un utente test SciQuest spesa Director
+### <a name="create-a-sciquest-spend-director-test-user"></a>Creare un utente di test di SciQuest Spend Director
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in SciQuest Spend Director.
 
-È necessario contattare il [team di supporto SciQuest spesa Director](https://www.jaggaer.com/contact-us/) e fornire i dettagli sull'account di test eseguire questa operazione è stata creata.
+È necessario contattare il [team del supporto tecnico di SciQuest Spend Director](https://www.jaggaer.com/contact-us/) e fornire i dettagli relativi all'account di test perché possa essere creato.
 
 In alternativa, è anche possibile sfruttare il provisioning JIT, una funzionalità Single Sign-On supportata da SciQuest Spend Director.  
 Se il provisioning JIT è abilitato, gli utenti vengono creati automaticamente da SciQuest Spend Director durante un tentativo di accesso Single Sign-ON, se non esistono già. Questa funzionalità elimina la necessità di creare manualmente le controparti per l'accesso Single Sign-On.
 
-Per ottenere just-in-time provisioning abilitato, è necessario contattare il [team di supporto SciQuest spesa Director](https://www.jaggaer.com/contact-us/).
+Per abilitare il provisioning JIT, è necessario contattare il [team del supporto tecnico di SciQuest Spend Director](https://www.jaggaer.com/contact-us/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso al direttore spesa SciQuest.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SciQuest Spend Director.
 
 ![Assegnare il ruolo utente][200] 
 
@@ -188,7 +188,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 2. Nell'elenco delle applicazioni selezionare **SciQuest Spend Director**.
 
-    ![Il collegamento SciQuest spesa Director nell'elenco delle applicazioni](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_app.png)  
+    ![Collegamento di SciQuest Spend Director nell'elenco delle applicazioni](./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquestspenddirector_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

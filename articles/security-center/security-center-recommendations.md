@@ -1,5 +1,5 @@
 ---
-title: Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Documentazione Microsoft
+title: Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
 description: "Questo documento dimostra come le raccomandazioni presenti nel Centro sicurezza di Azure facilitino la protezione delle risorse di Azure e garantiscano la conformità ai criteri di sicurezza."
 services: security-center
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: terrylan
 ms.openlocfilehash: 2cb4a1c944d6893ca7913eef4e93620059f2a839
 ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2018
 ---
@@ -73,7 +73,7 @@ Usare la tabella seguente come riferimento per conoscere le raccomandazioni disp
 | Raccomandazione | DESCRIZIONE |
 | --- | --- |
 | [Abilita la raccolta di dati per le sottoscrizioni](security-center-enable-data-collection.md) |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali di Azure e i computer non Azure. |
-| [Monitorare e aggiornare le configurazioni di sicurezza](security-center-remediate-os-vulnerabilities.md) |Si consiglia di allineare le configurazioni del sistema operativo con le regole di configurazione consigliata per la protezione, ad esempio, non consentire password da salvare. |
+| [Correggere le configurazioni di sicurezza](security-center-remediate-os-vulnerabilities.md) |Consiglia di allineare le configurazioni dei sistemi operativi alle regole di configurazione della sicurezza raccomandate, ad esempio impedendo il salvataggio delle password. |
 | [Applicare gli aggiornamenti di sistema](security-center-apply-system-updates.md) |Consiglia di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali e nei computer Windows e Linux. |
 | [Applicare un controllo di accesso alla rete JIT](security-center-just-in-time.md) | Consiglia di applicare l'accesso Just-In-Time alla macchina virtuale. La funzionalità Just-In-Time è in anteprima e disponibile nel livello Standard di Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). |
 | [Riavvia dopo gli aggiornamenti del sistema](security-center-apply-system-updates.md#reboot-after-system-updates) |Consiglia di riavviare una macchina virtuale per completare il processo di applicazione degli aggiornamenti del sistema. |
