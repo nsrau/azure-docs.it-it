@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 16c72f8c22307a124fdb670aabca771084c0d1ec
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>File di configurazione del servizio Sperimentazione di Azure Machine Learning
 
@@ -166,8 +166,8 @@ _"az ml experiment submit foo.runconfig"_ esegue automaticamente il comando con 
 **Environment Variables**: questa sezione consente agli utenti di impostare le variabili di ambiente come parte delle proprie esecuzioni. L'utente può specificare le variabili di ambiente usando coppie nome-valore nel formato seguente:
 ```
 EnvironmentVariables:
-"EXAMPLE_ENV_VAR1": "Example Value1"
-"EXAMPLE_ENV_VAR2": "Example Value2"
+  "EXAMPLE_ENV_VAR1": "Example Value1"
+  "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
 Queste variabili di ambiente sono accessibili nel codice dell'utente. Ad esempio, il codice Phyton stampa la variabile di ambiente denominata "EXAMPLE_ENV_VAR"
