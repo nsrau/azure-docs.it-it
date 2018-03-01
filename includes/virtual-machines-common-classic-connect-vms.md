@@ -12,11 +12,11 @@ Le reti virtuali sono il metodo consigliato per connettere le macchine virtuali 
 Per connettere le macchine virtuali in una rete virtuale:
 
 1. Creare la rete virtuale nel [portale di Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) e specificare "distribuzione classica".
-2. Creare il set di servizi cloud per la tua distribuzione al fine di mostrare il tuo design per i set di disponibilità e il bilanciamento del carico. Nel portale di Azure fare clic su **Nuovo > Calcolo > Servizio cloud** per ogni servizio cloud.
+2. Creare il set di servizi cloud per la tua distribuzione al fine di mostrare il tuo design per i set di disponibilità e il bilanciamento del carico. Nel portale di Azure fare clic su **Crea una risorsa > Calcolo > Servizio cloud** per ogni servizio cloud.
 
   Durante la compilazione dei dettagli del servizio cloud, scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
 
-3. Per creare ogni nuova macchina virtuale, fare clic su **Nuovo > Calcolo** e selezionare l'immagine di macchina virtuale appropriata da **App in primo piano**.
+3. Per creare ogni nuova macchina virtuale, fare clic su **Crea una risorsa > Calcolo** e quindi selezionare l'immagine di VM appropriata in **App in primo piano**.
 
   Nel pannello **Nozioni di base** della macchina virtuale scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
 

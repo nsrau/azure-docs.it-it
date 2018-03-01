@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a59ea7c9e111f8ae5b0d9bd620faa5495c3924b7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Creare una rete virtuale usando un modello di Azure Resource Manager
 
@@ -39,9 +39,9 @@ Questo articolo illustra come creare una rete virtuale tramite il modello di dis
 - [PowerShell (versione classica)](virtual-networks-create-vnet-classic-netcfg-ps.md)
 - [Interfaccia della riga di comando (versione classica)](virtual-networks-create-vnet-classic-cli.md)
 
-Verrà illustrato come scaricare e modificare un modello di Gestione risorse di Azure esistente da GitHub e distribuire il modello da GitHub, PowerShell e dall'interfaccia della riga di comando di Azure.
+Vengono fornite informazioni su come scaricare e modificare un modello di Azure Resource Manager esistente da GitHub e distribuire il modello da GitHub, da PowerShell e dall'interfaccia della riga di comando di Azure.
 
-Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure direttamente da GitHub, senza alcuna modifica, ignorare il passaggio per [distribuire un modello da github](#deploy-the-arm-template-by-using-click-to-deploy).
+Se si sta distribuendo il modello di Azure Resource Manager direttamente da GitHub, senza alcuna modifica, andare al passaggio che illustra la [distribuzione di un modello da GitHub](#deploy-the-arm-template-by-using-click-to-deploy).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -52,11 +52,11 @@ Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure dir
 2. Fare clic su **azuredeploy.json**, quindi fare clic su **RAW**.
 3. Salvare il file in una cartella locale nel computer in uso.
 4. Se si ha familiarità con i modelli, procedere al passaggio 7.
-5. Aprire il file appena salvato e visualizzare il contenuto in **parameters** nella riga 5. I parametri del modello ARM costituiscono un segnaposto per i valori che possono essere compilati durante la distribuzione.
+5. Aprire il file salvato e visualizzare il contenuto in **parameters** nella riga 5. La sezione parameters del modello di Gestione risorse di Azure è un segnaposto per i valori che possono essere inseriti durante la distribuzione.
    
    | Parametro | DESCRIZIONE |
    | --- | --- |
-   | **Località** |Area di Azure in cui verrà creata la rete virtuale |
+   | **location** |Area di Azure in cui verrà creata la rete virtuale |
    | **vnetName** |Nome per la nuova rete virtuale |
    | **addressPrefix** |Spazio di indirizzi per la rete virtuale, nel formato CIDR |
    | **subnet1Name** |Nome per la prima rete virtuale |
@@ -71,7 +71,7 @@ Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure dir
 6. Controllare il contenuto in **resources** e prendere nota di quanto segue:
    
    * **type**. Tipo di risorsa che sarà creato dal modello. In questo caso, **Microsoft.Network/virtualNetworks**, che rappresenta una rete virtuale.
-   * **name**. Nome della risorsa. Notare l'utilizzo di **[parameters('vnetName')]**con cui si indica che il nome verrà specificato come input dall'utente o tramite un file di parametri durante la distribuzione.
+   * **name**. Nome della risorsa. Notare l'uso di **[parameters('vnetName')]**con cui si indica che il nome specificato come input dall'utente o tramite un file di parametri durante la distribuzione.
    * **properties**. Elenco di proprietà per la risorsa. Questo modello utilizza le proprietà relative allo spazio di indirizzi e alla subnet durante la creazione della rete virtuale.
 7. Tornare alla [pagina del modello di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Fare clic su **azuredeploy-parameters.json** e quindi su **RAW**.
@@ -231,7 +231,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
    
     ![Invio del riquadro di distribuzione nel portale di anteprima](./media/virtual-networks-create-vnet-arm-template-click-include/figure4.png)
 
-10. Dopo il completamento dell'operazione, nel portale di Azure fare clic su **More services** (Altri servizi), digitare *reti virtuali* nella casella dei filtri visualizzata e quindi fare clic su Reti virtuali per visualizzare il pannello Reti virtuali. Nel pannello fare clic su *TestVNet*. Nel pannello *TestVNet* fare clic su **Subnet** per visualizzare le subnet create, come mostrato nella figura seguente:
+10. Dopo il completamento dell'operazione, nel portale di Azure fare clic su **Tutti i servizi**, digitare *reti virtuali* nella casella dei filtri visualizzata e quindi fare clic su Reti virtuali per visualizzare il pannello Reti virtuali. Nel pannello fare clic su *TestVNet*. Nel pannello *TestVNet* fare clic su **Subnet** per visualizzare le subnet create, come mostrato nella figura seguente:
     
      ![Creare una rete virtuale nel portale di anteprima](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.png)
 

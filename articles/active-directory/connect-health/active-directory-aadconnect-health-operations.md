@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operazioni di Azure Active Directory Connect Health
 Questo argomento descrive le varie operazioni che è possibile eseguire tramite Azure Active Directory (Azure AD) Connect Health.
@@ -42,6 +42,9 @@ Questo argomento descrive le varie operazioni che è possibile eseguire tramite 
 
 ## <a name="delete-a-server-or-service-instance"></a>Eliminare un server o un'istanza del servizio
 
+>[!NOTE] 
+> Per i passaggi di eliminazione, è richiesta la licenza Azure AD Premium.
+
 In alcuni casi può essere utile fare in modo che un server non venga più monitorato. Ecco cosa si deve sapere per rimuovere un server dal servizio Azure AD Connect Health.
 
 Quando si elimina un server, tenere presente quanto segue:
@@ -51,7 +54,11 @@ Quando si elimina un server, tenere presente quanto segue:
 * Questa azione non elimina i dati già raccolti da questo server. I dati vengono eliminati in conformità con i criteri di conservazione dei dati di Azure.
 * Dopo avere eseguito questa azione, per avviare di nuovo il monitoraggio dello stesso server, disinstallare e reinstallare l'agente per l'integrità.
 
-### <a name="to-delete-a-server-from-the-azure-ad-connect-health-service"></a>Per eliminare un server dal servizio Azure AD Connect Health
+### <a name="delete-a-server-from-the-azure-ad-connect-health-service"></a>Eliminare un server dal servizio Azure AD Connect Health
+
+>[!NOTE] 
+> Per i passaggi di eliminazione, è richiesta la licenza Azure AD Premium.
+
 Azure AD Connect Health per Active Directory Federation Services (AD FS) e Azure AD Connect (sincronizzazione):
 
 1. Aprire il pannello **Server** dal pannello **Elenco server** selezionando il nome del server da rimuovere.
@@ -133,7 +140,7 @@ Ora gli utenti e i gruppi elencati hanno accesso, in base ai relativi ruoli asse
 >
 
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Passaggio 3: Condividere il percorso del pannello con utenti o gruppi
-1. Dopo che le autorizzazioni sono state assegnate, un utente può accedere ad Azure AD Connect Health da [qui](http://aka.ms/aadconnecthealth).
+1. Dopo che le autorizzazioni sono state assegnate, un utente può accedere ad Azure AD Connect Health da [qui](https://aka.ms/aadconnecthealth).
 2. Nel pannello l'utente può aggiungere il pannello o parti di esso al dashboard. Fare semplicemente clic sull'icona **Aggiungi a dashboard**.<br>
    ![Schermata del pannello di aggiunta del Controllo degli accessi in base al ruolo di Azure AD Connect Health con l'icona di aggiunta evidenziata](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 

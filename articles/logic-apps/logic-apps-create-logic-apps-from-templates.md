@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49b4bbfda4518b03ef6080bec1e2a493933af4f5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Creare flussi di lavoro di app per la logica da modelli predefiniti
 
@@ -42,7 +42,7 @@ Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account di A
 
 1. Accedere al [portale di Azure](https://portal.azure.com "Azure portal"), se questa operazione non è già stata eseguita.
 
-2. Dal menu principale di Azure scegliere **Nuovo** > **Enterprise Integration** > **App per la logica**.
+2. Nel menu principale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
 
    ![Portale di Azure, Nuovo, Enterprise Integration, App per la logica](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 

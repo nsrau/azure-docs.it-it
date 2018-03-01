@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: ded90be3da52770a88dd1746fae2bd3584ba9280
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Procedura per espandere i dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una VM Linux in Azure. È possibile [aggiungere dischi dati](add-disk.md) per aumentare lo spazio di archiviazione, ma è anche possibile espandere un disco dati esistente. Questo articolo illustra come espandere i dischi gestiti di una macchina virtuale Linux tramite l'interfaccia della riga di comando 2.0 di Azure. È anche possibile espandere il disco del sistema operativo non gestito con l'[interfaccia della riga di comando 1.0 di Azure](expand-disks-nodejs.md).
@@ -26,14 +26,14 @@ Le dimensioni predefinite del disco rigido virtuale per il sistema operativo son
 > [!WARNING]
 > Assicurarsi sempre di eseguire il backup dei dati prima di eseguire operazioni di ridimensionamento dei dischi. Per altre informazioni, vedere [Eseguire il backup di macchine virtuali Linux in Azure](tutorial-backup-vms.md).
 
-## <a name="expand-azure-managed-disk"></a>Disco gestito di Azure espandere
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login).
+## <a name="expand-azure-managed-disk"></a>Creare un disco gestito di Azure
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login).
 
 Questo articolo richiede una VM esistente in Azure con almeno un disco dati collegato e preparato. Se non si ha già una VM da usare, vedere [Creare e preparare una VM con dischi dati](tutorial-manage-disks.md#create-and-attach-disks).
 
 Negli esempi seguenti sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup* e *myVM*.
 
-1. Non è possibile eseguire operazioni sui dischi rigidi virtuali quando la macchina virtuale è in esecuzione. Deallocare la macchina virtuale con [az vm deallocate](/cli/azure/vm#deallocate). L'esempio seguente dealloca la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
+1. Non è possibile eseguire operazioni sui dischi rigidi virtuali quando la macchina virtuale è in esecuzione. Deallocare la macchina virtuale con [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L'esempio seguente dealloca la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -42,7 +42,7 @@ Negli esempi seguenti sostituire i nomi dei parametri di esempio con i valori de
     > [!NOTE]
     > Per espandere il disco rigido virtuale è necessario deallocare la macchina virtuale. `az vm stop` non rilascia le risorse di calcolo. Per rilasciare le risorse di calcolo, usare `az vm deallocate`.
 
-2. Vedere un elenco di dischi gestiti presenti nel gruppo di risorse con [az disk list](/cli/azure/disk#list). L'esempio seguente mostra un elenco di dischi gestiti nel gruppo di risorse denominato *myResourceGroup*:
+2. Vedere un elenco di dischi gestiti presenti nel gruppo di risorse con [az disk list](/cli/azure/disk#az_disk_list). L'esempio seguente mostra un elenco di dischi gestiti nel gruppo di risorse denominato *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -51,7 +51,7 @@ Negli esempi seguenti sostituire i nomi dei parametri di esempio con i valori de
         --output table
     ```
 
-    Espandere il disco richiesto con [az disk update](/cli/azure/disk#update). L'esempio seguente espande il disco gestito denominato *myDataDisk* per portarlo a *200*Gb:
+    Espandere il disco richiesto con [az disk update](/cli/azure/disk#az_disk_update). L'esempio seguente espande il disco gestito denominato *myDataDisk* per portarlo a *200*Gb:
 
     ```azurecli
     az disk update \
@@ -63,17 +63,17 @@ Negli esempi seguenti sostituire i nomi dei parametri di esempio con i valori de
     > [!NOTE]
     > Quando si espande un disco gestito, si esegue il mapping delle dimensioni aggiornate per le dimensioni del disco gestito più vicino. Per consultare una tabella delle dimensioni e dei livelli dei dischi disponibili, vedere [Panoramica di Azure Managed Disks - Prezzi e fatturazione](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Avviare la macchina virtuale con [az vm start](/cli/azure/vm#start). L'esempio seguente avvia la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
+3. Avviare la macchina virtuale con [az vm start](/cli/azure/vm#az_vm_start). L'esempio seguente avvia la VM denominata *myVM* nel gruppo di risorse *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 
-## <a name="expand-disk-partition-and-filesystem"></a>Espandere i file System e partizione del disco
+## <a name="expand-disk-partition-and-filesystem"></a>Espandere il file system e la partizione del disco
 Per usare il disco espanso, è necessario espandere la partizione e il file system sottostanti.
 
-1. Eseguire SSH nella macchina virtuale con le credenziali appropriate. È possibile ottenere l'indirizzo IP pubblico della VM con [az vm show](/cli/azure/vm#show):
+1. Eseguire SSH nella macchina virtuale con le credenziali appropriate. È possibile ottenere l'indirizzo IP pubblico della VM con [az vm show](/cli/azure/vm#az_vm_show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

@@ -1,5 +1,5 @@
 ---
-title: Usare Docker Machine per creare host Linux in Azure | Documentazione Microsoft
+title: Usare Docker Machine per creare host Linux in Azure | Microsoft Docs
 description: Descrive l'uso di Docker Machine per creare host Docker in Azure.
 services: virtual-machines-linux
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: a7c346b259f6635589f80a9c52c748fc0c05eef1
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: 26e54efc32aa316e1da93598cc861003aefff182
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Come usare Docker Machine per creare host in Azure
 Questa articolo illustra come usare [Docker Machine](https://docs.docker.com/machine/) per creare host in Azure. Il comando `docker-machine` crea una macchina virtuale (VM) Linux in Azure e quindi installa Docker. Ciò consentirà di gestire gli host Docker in Azure usando gli stessi strumenti e flussi di lavoro locali. Per usare docker-machine in Windows 10, è necessario usare la bash di Linux.
 
 ## <a name="create-vms-with-docker-machine"></a>Creare VM con Docker Machine
-Ottenere prima di tutto l'ID sottoscrizione di Azure con [az account show](/cli/azure/account#show) nel modo seguente:
+Ottenere prima di tutto l'ID sottoscrizione di Azure con [az account show](/cli/azure/account#az_account_show) nel modo seguente:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -94,7 +94,7 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Per definire le impostazioni di connessione, è possibile eseguire il comando configurazione consigliata (`eval $(docker-machine env myvm)`), oppure è possibile impostare manualmente le variabili di ambiente. 
+Per definire le impostazioni di connessione, è possibile eseguire il comando di configurazione suggerito (`eval $(docker-machine env myvm)`) o impostare manualmente le variabili di ambiente. 
 
 ## <a name="run-a-container"></a>Eseguire un contenitore
 Per vedere un contenitore in azione, verrà eseguito un server Web NGINX di base. Creare un contenitore con `docker run` ed esporre la porta 80 al traffico Web nel modo seguente:

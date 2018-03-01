@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c078ae22255190a37d75a4100ebfffcb6288c4cb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc243f4ca6d323bf2b90cb9ab8fa9b77e1df9f8e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-windows-phone-getting-started"></a>Introduzione a Windows Phone per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -55,7 +55,7 @@ Per consentire all'applicazione di ottenere i token, sarà innanzitutto necessar
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra in alto fare clic sull'account e nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
-3. Fare clic su **Altri servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
+3. Fare clic su **Tutti i servizi** nella barra di spostamento a sinistra e scegliere **Azure Active Directory**.
 4. Fare clic su **App registrations (Registrazioni app)** e scegliere **Aggiungi**.
 5. Seguire le istruzioni e creare una nuova **Applicazione client nativa**.
   * Il **Nome** dell'applicazione deve essere una descrizione per gli utenti finali.

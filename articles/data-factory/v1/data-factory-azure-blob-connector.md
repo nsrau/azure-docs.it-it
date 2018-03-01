@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f66ddecd6b999400b05a4b00aa781ffef3f7887d
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,8 +184,8 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     ```
 ### <a name="create-the-data-factory"></a>Creare la data factory
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **+ NUOVO** nell'angolo in alto a sinistra e quindi su **Intelligence e analisi** e su **Data Factory**.
-3. Nel pannello **Nuova data factory** :   
+2. Fare clic su **Crea una risorsa** nell'angolo in alto a sinistra, selezionare **Intelligence e analisi** e quindi **Data factory**.
+3. Nel riquadro **Nuova data factory**:   
     1. Immettere **ADFBlobConnectorDF** come **nome**. È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore `*Data factory name “ADFBlobConnectorDF” is not available`, modificare il nome della data factory, ad esempio, nomeutenteADFBlobConnectorDF, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
     2. Selezionare la **sottoscrizione**di Azure.
     3. Per Gruppo di risorse, selezionare **Usa esistente** per selezionare un gruppo di risorse esistente oppure selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.

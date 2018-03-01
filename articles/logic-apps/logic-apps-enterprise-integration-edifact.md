@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68009b74a410f7e854de675a1d8d0c32e310d2c9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi EDIFACT per l'integrazione Enterprise con le app per la logica
 
@@ -42,12 +42,12 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-edifact-agreement"></a>Creare un contratto EDIFACT 
 
-1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra.
+1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Nel menu a sinistra selezionare **Tutti i servizi**.
 
     > [!TIP]
-    > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
+    > Se **Tutti i servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
 
-    ![Fare clic su "Altri servizi" nel menu a sinistra](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
+    ![Nel menu a sinistra selezionare "Tutti i servizi"](./media/logic-apps-enterprise-integration-edifact/edifact-0.png)
 
 2. Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
 

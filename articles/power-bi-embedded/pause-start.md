@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
-ms.openlocfilehash: ab5d184fde2cbcb517b325624c8405954b4d0972
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f86ebf3e79812eb50e58cbb320336cbd1149e6
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="pause-and-start-your-power-bi-embedded-capacity-in-the-azure-portal"></a>Sospendere e avviare la capacità di Power BI Embedded nel portale di Azure
 
@@ -35,9 +35,9 @@ La sospensione della capacità impedisce di generare addebiti. La sospensione de
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **Altri servizi** > **Power BI Embedded** per visualizzare le capacità.
+2. Selezionare **Tutti i servizi** > **Power BI Embedded** per visualizzare le capacità.
 
-    ![Altri servizi nel portale di Azure](media/pause-start/azure-portal-more-services.png)
+    ![Tutti i servizi nel portale di Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Selezionare la capacità che si vuole sospendere.
 
@@ -57,9 +57,9 @@ Riprendere l'uso avviando la capacità. Quando si avvia la capacità, riprende a
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **Altri servizi** > **Power BI Embedded** per visualizzare le capacità.
+2. Selezionare **Tutti i servizi** > **Power BI Embedded** per visualizzare le capacità.
 
-    ![Altri servizi nel portale di Azure](media/pause-start/azure-portal-more-services.png)
+    ![Tutti i servizi nel portale di Azure](media/pause-start/azure-portal-more-services.png)
 
 3. Selezionare la capacità che si vuole avviare.
 

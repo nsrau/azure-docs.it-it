@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a41c09cc5a13c8326e22e315801b81c86d125c0e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Come configurare il provisioning degli utenti in un'applicazione della raccolta di Azure AD
 
 Il *provisioning degli account utente* è l'atto di creazione, aggiornamento e/o la disabilitazione di record di account utente nell'archivio di profili utente locale di un'applicazione. La maggior parte delle applicazioni cloud e SaaS archiviano i ruoli e le autorizzazioni utente in un proprio archivio di profili utente locale e la presenza di tali record utente nell'archivio locale è *necessaria* per il funzionamento degli accessi e del Single Sign-on.
 
-Nel portale di Azure, la scheda **Provisioning** nel riquadro di spostamento a sinistra di un'applicazione Enterprise mostra le modalità di provisioning supportate per l'applicazione. Può essere uno dei due valori:
+Nel portale di Azure, la scheda **Provisioning** nel riquadro di spostamento sinistro di un'applicazione Enterprise mostra le modalità di provisioning supportate per l'applicazione. Può essere uno dei due valori:
 
 ## <a name="configuring-an-application-for-manual-provisioning"></a>Configurazione di un'applicazione per il Provisioning manuale
 
@@ -31,7 +31,7 @@ Con il provisioning *manuale* gli account utente devono essere creati manualment
 
 Se Manuale è l'unica modalità disponibile per una determinata applicazione, significa che non è stato creato alcun connettore di provisioning automatico AD Azure per l'applicazione. O significa che l'applicazione non supporta l'API prerequisita di gestione degli utenti in base a cui creare un connettore di provisioning automatico.
 
-Se si intende richiedere supporto per il provisioning automatico per una determinata applicazione, è possibile inviare una richiesta all'indirizzo <http://aka.ms/aadapprequest>.
+Se si intende richiedere supporto per il provisioning automatico per una determinata applicazione, è possibile inviare una richiesta usando la pagina delle [richieste relative all'applicazione Azure Active Directory](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Configurazione di un'applicazione per il Provisioning automatico
 

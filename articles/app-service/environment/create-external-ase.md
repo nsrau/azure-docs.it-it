@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: e1beb06301807c35a1b070989a0f80f4c8097762
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 439fadeb01ccad58642492eb49ef25f866a9a9dd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno #
 
@@ -59,7 +59,7 @@ Il piano di servizio app è un contenitore di applicazioni. Quando si crea un'ap
 
 Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
-1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Nuovo** > **Web e dispositivi mobili** > **App Web**.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
 
     ![Creazione dell'app Web][1]
 
@@ -97,7 +97,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente del servizio app vuoto continua a dover pagare una quota mensile per l'infrastruttura. Seguire questa procedura per creare un ambiente del servizio app con bilanciamento del carico interno o per creare un ambiente del servizio app nel proprio gruppo di risorse. Dopo avere creato l'ambiente del servizio app, è possibile crearvi app usando il normale processo. Selezionare il nuovo ambiente del servizio app come località.
 
-1. In Azure Marketplace cercare **Ambiente del servizio app** o selezionare **Nuovo** > **Web e dispositivi mobili** > **Ambiente del servizio app**. 
+1. In Azure Marketplace cercare **Ambiente del servizio app** o selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Ambiente del servizio app**. 
 
 2. Immettere il nome dell'ambiente del servizio app. Questo nome viene usato per le app create nell'ambiente del servizio app. Se il nome è *mynewdemoase*, il nome del sottodominio è *.mynewdemoase.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo mytestapp.mynewdemoase.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome. Se si usa un servizio di bilanciamento del carico interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio, ma viene dichiarato in modo esplicito durante la creazione dell'ambiente.
 

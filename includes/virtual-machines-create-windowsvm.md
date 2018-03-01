@@ -1,6 +1,6 @@
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nell'angolo in alto a sinistra fare clic su **Nuovo > Calcolo > Windows Server 2016 Datacenter**.
+2. In altro a sinistra fare clic su **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
 
     ![Passare alle immagini della macchina virtuale di Azure nel portale](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -47,7 +47,7 @@ Al termine delle modifiche, fare clic su **OK**.
 
 ## <a name="4-summary-blade"></a>4. Pannello Riepilogo
 
-Il pannello Riepilogo elenca le impostazioni specificate nei pannelli precedenti. Quando si è pronti per creare l'immagine, fare clic su **OK** .
+Il pannello Riepilogo elenca le impostazioni specificate nei pannelli precedenti. Quando si è pronti per creare l'immagine, fare clic su **OK**.
 
  ![Il report del pannello di riepilogo offre impostazioni specifiche della macchina virtuale](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 

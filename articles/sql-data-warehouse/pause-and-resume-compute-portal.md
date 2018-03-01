@@ -14,14 +14,14 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/23/2018
 ms.author: barbkess
-ms.openlocfilehash: f8b4e29595c6a71696cf2c4939ad4c6c096a28b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30dede32b35f995f89e2946af34da10353f55212
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guida introduttiva: sospendere e riprendere il calcolo per un Azure SQL Data Warehouse nel portale di Azure
-Sospendere il calcolo per un'istanza di Azure SQL Data Warehouse per risparmiare sui costi. Riprendere il calcolo quando si è pronti a utilizzare il data warehouse.
+Sospendere il calcolo per un'istanza di Azure SQL Data Warehouse per risparmiare sui costi. [Riprendere il calcolo](sql-data-warehouse-manage-compute-overview.md) quando si è pronti a usare il data warehouse.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -34,12 +34,12 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 Usare [Creare e connettere - portale](create-data-warehouse-portal.md) per creare un data warehouse denominato **mySampleDataWarehouse**. 
 
 ## <a name="pause-compute"></a>Sospendere le risorse di calcolo
-Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitate le risorse di calcolo. Verranno tuttavia applicati comunque addebiti per l'archiviazione. 
+Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitati costi per le risorse di calcolo. Verranno tuttavia applicati comunque addebiti per l'archiviazione. 
 
 Per sospendere un SQL Data Warehouse, seguire questa procedura.
 
 1. Nella pagina di sinistra del portale di Azure fare clic su **Database SQL**.
-2. Selezionare **mySampleDataWarehouse** nella pagina **SQL database**. Verrà aperto il data warehouse. 
+2. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse. 
 3. Nella pagina **mySampleDataWarehouse** verificare che **Stato** sia **Online**.
 
     ![Calcolo delle risorse online](media/pause-and-resume-compute-portal/compute-online.png)
@@ -60,7 +60,7 @@ Per sospendere un SQL Data Warehouse, seguire questa procedura.
 Per riprendere un SQL Data Warehouse, seguire questa procedura.
 
 1. Nella pagina di sinistra del portale di Azure fare clic su **Database SQL**.
-2. Selezionare **mySampleDataWarehouse** nella pagina **SQL database**. Verrà aperto il data warehouse. 
+2. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse. 
 3. Nella pagina **mySampleDataWarehouse** verificare che **Stato** sia **Sospeso**.
 
     ![Calcolo delle risorse offline](media/pause-and-resume-compute-portal/compute-offline.png)
@@ -99,7 +99,7 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo modo è stato sospeso e ripreso il calcolo per il data warehouse. Per altre informazioni su Azure SQL Data Warehouse, continuare con l'esercitazione per il caricamento dei dati.
+È stato sospeso e ripreso il calcolo per il data warehouse. Per altre informazioni su Azure SQL Data Warehouse, continuare con l'esercitazione per il caricamento dei dati.
 
 > [!div class="nextstepaction"]
 >[Caricare i dati in SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

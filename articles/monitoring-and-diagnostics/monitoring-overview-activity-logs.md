@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: a101039b59eb1a4a3bcac25162c7f6373283e1b6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 Il **log attività di Azure** è un log delle sottoscrizioni che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Ciò include un intervallo di dati che vanno dai dati operativi di Azure Resource Manager agli aggiornamenti sugli eventi di integrità del servizio. Il log attività era noto in precedenza come "log di controllo" o "log operativo", perché la categoria amministrativa segnala eventi del piano di controllo per le sottoscrizioni. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. Il log attività non include le operazioni di lettura (GET) o quelle per le risorse che usano il modello classico/"RDFE".
@@ -29,18 +29,21 @@ Figura 1: Log attività o altri tipi di log
 
 Il log attività è diverso dal [log di diagnostica](monitoring-overview-of-diagnostic-logs.md). I log attività contengono dati relativi alle operazioni su una risorsa esterna (il "piano di controllo"). I log di diagnostica vengono generati da una risorsa e contengono informazioni sul funzionamento di tale risorsa (il "piano dati").
 
+> [!WARNING]
+> Il log attività di Azure è destinato principalmente alle attività che si verificano in Azure Resource Manager. Non tiene traccia delle risorse che usano il modello classico/RDFE. Alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se un utente interagisce con un tipo di risorsa classica all'esterno dei proxy di Azure Resource Manager, le azioni dell'utente verranno registrate solo nel log delle operazioni. È possibile esaminare il log delle operazioni in una sezione distinta del portale.
+>
+>
+
 Per recuperare eventi dal log attività è possibile usare il portale di Azure, l'interfaccia della riga di comando, i cmdlet di PowerShell e l'API REST di Monitoraggio di Azure.
 
+> [!NOTE]
 
-> [!WARNING]
-> Il log attività di Azure è destinato principalmente alle attività che si verificano in Azure Resource Manager. Non tiene traccia delle risorse che usano il modello classico/RDFE. Alcuni tipi di risorse classiche dispongono di un provider di risorse proxy in Azure Resource Manager (ad esempio, Microsoft.ClassicCompute). Se un utente interagisce con un tipo di risorsa classica tramite Azure Resource Manager con questi provider di risorse di proxy, le operazioni verranno visualizzate nel log attività. Se si interagisce con un tipo di risorsa all'esterno dei proxy di gestione risorse di Azure classico, le azioni vengono registrate solo nel Log operazioni. È possibile esaminare il log delle operazioni in una sezione distinta del portale.
->
->
+>  [Avvisi (anteprima)](monitoring-overview-unified-alerts.md) offre attualmente un'esperienza ottimizzata per la creazione e la gestione delle regole degli avvisi del log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
+
 
 Guardare il video seguente di introduzione al log attività.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
-> 
->
+
 
 ## <a name="categories-in-the-activity-log"></a>Categorie nel log attività
 Il log attività contiene diverse categorie di dati. Per informazioni dettagliate sugli schemi di queste categorie, [vedere questo articolo](monitoring-activity-log-schema.md). incluse le seguenti:
@@ -70,9 +73,9 @@ Ecco alcune delle attività che è possibile eseguire con il log attività:
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Eseguire query sul log attività nel portale di Azure
 Nel portale di Azure è possibile visualizzare il log attività in diverse posizioni:
-* Il **pannello Log attività**, a cui è possibile accedere cercando Log attività in "Altri servizi" nel riquadro di spostamento sinistro.
-* Il **pannello Monitoraggio**, che per impostazione predefinita viene visualizzato nel riquadro di spostamento sinistro. Il log attività è una sezione di questo pannello Monitoraggio di Azure.
-* Tutti i **pannelli delle risorse**, ad esempio il pannello di configurazione di una macchina virtuale. Il log attività è una delle sezioni nella maggior parte di questi pannelli delle risorse e, facendovi clic, vengono automaticamente filtrati gli eventi correlati alla risorsa specifica.
+* Il **log attività**, a cui è possibile accedere cercando Log attività in **Tutti i servizi** nel riquadro di spostamento sinistro.
+* **Monitoraggio** viene visualizzato per impostazione predefinita nel riquadro di spostamento sinistro. Il log attività è una sezione di Monitoraggio di Azure.
+* Tutti i pannelli **risorsa** di una risorsa, ad esempio il pannello di configurazione di una macchina virtuale. Il log attività è una delle sezioni nella maggior parte di questi pannelli delle risorse e, facendovi clic, vengono automaticamente filtrati gli eventi correlati alla risorsa specifica.
 
 Nel portale di Azure è possibile filtrare il log attività in base a questi campi:
 * Intervallo di tempo: ora di inizio e di fine degli eventi.
@@ -110,7 +113,7 @@ Queste impostazioni possono essere configurate tramite l'opzione "Esporta" nel p
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurare i profili di log tramite il portale di Azure
 È possibile trasmettere il log attività a un hub eventi o memorizzarlo in un account di archiviazione usando l'opzione "Esporta" nel portale di Azure.
 
-1. Passare al pannello **Log attività** usando il menu sul lato sinistro del portale.
+1. Passare al **log attività** usando il menu sul lato sinistro del portale.
 
     ![Passare al log attività nel portale](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Fare clic sul pulsante **Esporta** nella parte superiore del pannello.
@@ -179,6 +182,6 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 azure insights logprofile delete --name my_log_profile
 ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sul log attività (in precedenza, log di controllo)](../azure-resource-manager/resource-group-audit.md)
 * [Trasmettere il log attività di Azure a Hub eventi](monitoring-stream-activity-logs-event-hubs.md)

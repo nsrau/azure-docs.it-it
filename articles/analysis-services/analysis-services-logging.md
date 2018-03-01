@@ -1,6 +1,6 @@
 ---
-title: Registrazione Diganostic per Azure Analysis Services | Documenti Microsoft
-description: Informazioni sull'impostazione della registrazione diagnostica per Azure Analysis Services.
+title: Registrazione diagnostica per Azure Analysis Services | Microsoft Docs
+description: Informazioni sulla configurazione della registrazione diagnostica per Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,97 +13,97 @@ ms.devlang: NA
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/29/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
-Una parte importante di qualsiasi soluzione di Analysis Services esegue il monitoraggio delle prestazioni di server. Con [i log di diagnostica di risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), è possibile monitorare e inviare i log per [di archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmessi a [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)e di esportarle in [Log Analitica](https://azure.microsoft.com/services/log-analytics/), fa parte del [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito dal monitoraggio delle prestazioni dei server. I [log di diagnostica delle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) consentono di monitorare e inviare log ad [Archiviazione di Microsoft Azure](https://azure.microsoft.com/services/storage/), trasmetterli agli [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) ed esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/), che è una funzionalità di [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
 ![Registrazione diagnostica in Archiviazione, hub eventi oppure Operations Management Suite mediante Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
-## <a name="whats-logged"></a>Informazioni di connessione?
+## <a name="whats-logged"></a>Informazioni registrate
 
-È possibile selezionare **motore**, **servizio**, e **metriche** categorie.
+È possibile selezionare le categorie **Engine** (Motore), **Service** (Servizio) e **Metrics** (Metriche).
 
 ### <a name="engine"></a>Engine (Motore)
 
-Selezione **motore** registra tutte le [XEvent](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). È possibile selezionare singoli eventi. 
+Se si seleziona la categoria **Engine** (Motore) vengono registrati nel log tutti gli [eventi estesi](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events) (XEvent). Non è possibile selezionare eventi singoli. 
 
-|Categorie di XEvent |Nome evento  |
+|Categorie di eventi estesi |Nome evento  |
 |---------|---------|
-|Controllo di sicurezza    |   Audit Login      |
-|Controllo di sicurezza    |   Audit Logout      |
-|Controllo di sicurezza    |   Audit Server Starts And Stops      |
-|Report di stato     |   Lo stato di avanzamento Report Begin      |
-|Report di stato     |   Progress Report End      |
-|Report di stato     |   Lo stato di avanzamento corrente di Report      |
-|Query     |  Inizio della query       |
-|Query     |   Fine della query      |
-|Comandi:     |  Inizio del comando       |
+|Controllo di sicurezza    |   Connessione di controllo      |
+|Controllo di sicurezza    |   Disconnessione di controllo      |
+|Controllo di sicurezza    |   Inizi e arresti server di controllo      |
+|Report di stato     |   Inizio report di stato      |
+|Report di stato     |   Fine report di stato      |
+|Report di stato     |   Report di stato corrente      |
+|Query     |  Inizio query       |
+|Query     |   Fine query      |
+|Comandi:     |  Inizio comando       |
 |Comandi:     |  Fine comando       |
 |Errori e avvisi     |   Tipi di errore      |
-|Scoprire     |   Individuazione di fine      |
+|Scoprire     |   Fine individuazione      |
 |Notifica     |    Notifica     |
-|sessione     |  Inizializzazione della sessione       |
-|Blocchi    |  deadlock       |
-|Elaborazione di query     |   Inizio Query SE VertiPaq      |
-|Elaborazione di query     |   Fine della Query SE VertiPaq      |
-|Elaborazione di query     |   Corrispondenza di Cache di Query SE VertiPaq      |
-|Elaborazione di query     |   Inizio di DirectQuery      |
-|Elaborazione di query     |  Fine di DirectQuery       |
+|sessione     |  Inizializzazione sessione       |
+|Blocchi    |  Deadlock       |
+|Elaborazione di query     |   Inizio query SE VertiPaq      |
+|Elaborazione di query     |   Fine query SE VertiPaq      |
+|Elaborazione di query     |   Corrispondenza cache query SE VertiPaq      |
+|Elaborazione di query     |   Inizio query diretta      |
+|Elaborazione di query     |  Fine query diretta       |
 
 ### <a name="service"></a>Service
 
-|Nome operazione  |Si verifica quando  |
+|Nome operazione  |Ambito  |
 |---------|---------|
-|CreateGateway     |   Utente configura un gateway nel server      |
+|CreateGateway     |   Configurazione di un gateway nel server      |
 |ResumeServer     |    Ripresa di un server     |
-|SuspendServer    |   Sospendere un server      |
+|SuspendServer    |   Sospensione di un server      |
 |DeleteServer     |    Eliminazione di un server     |
 |RestartServer    |     Riavvio di un server tramite SQL Server Management Studio o PowerShell    |
-|GetServerLogFiles    |    Utente Esporta log del server tramite PowerShell     |
-|ExportModel     |   Utente esporta un modello nel portale usando aperto in Visual Studio     |
+|GetServerLogFiles    |    Esportazione di un log del server tramite PowerShell     |
+|ExportModel     |   Esportazione di un modello nel portale tramite Apri in Visual Studio     |
 
 ### <a name="all-metrics"></a>Tutte le metriche
 
-La categoria di metriche registra lo stesso [metriche Server](analysis-services-monitor.md#server-metrics) nella metrica.
+Se si seleziona la categoria Metriche, vengono registrate nel log le stesse [metriche del server](analysis-services-monitor.md#server-metrics) visualizzate in Metrics (Metriche).
 
-## <a name="setup-diagnostics-logging"></a>Registrazione della diagnostica del programma di installazione
+## <a name="setup-diagnostics-logging"></a>Configurare la registrazione diagnostica
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. In [portale di Azure](https://portal.azure.com) > server, fare clic su **log di diagnostica** nella navigazione a sinistra e quindi fare clic su **attivare la diagnostica**.
+1. Nel [portale di Azure](https://portal.azure.com) > server fare clic su **Log di diagnostica** nel riquadro di sinistra e quindi fare clic su **Abilita diagnostica**.
 
     ![Abilitare la registrazione diagnostica per Azure Cosmos DB nel portale di Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. In **le impostazioni di diagnostica**, eseguire le operazioni seguenti: 
+2. In **Impostazioni di diagnostica** specificare le opzioni seguenti: 
 
     * **Nome**. Immettere un nome per i log da creare.
 
-    * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). Seguire le istruzioni per creare un gestore delle risorse, account di uso generale. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
-    * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per creare uno spazio dei nomi dell'hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
+    * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). Seguire le istruzioni per creare un account di Resource Manager di uso generale, quindi selezionare l'account di archiviazione ritornando in questa pagina del portale. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
+    * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
     * **Invia a Log Analytics**. Per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
 
-    * **Motore**. Selezionare questa opzione per accedere XEvent. Se si desidera archiviare per un account di archiviazione, è possibile selezionare il periodo di memorizzazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Engine** (Motore). Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Metriche**. Selezionare questa opzione per archiviare i dati dettagliati in [metriche](analysis-services-monitor.md#server-metrics). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Metrics** (Metriche). Selezionare questa opzione per archiviare informazioni dettagliate in [Metrics](analysis-services-monitor.md#server-metrics) (Metriche). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
 3. Fare clic su **Save**.
 
     Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
-    Se si desidera modificare la modalità ai log di diagnostica vengono salvati in un punto qualsiasi in futuro, è possibile tornare a questa pagina per modificare le impostazioni.
+    Se in seguito si vuole modificare la modalità di salvataggio dei log di diagnostica, è possibile tornare in questa pagina e modificare le impostazioni.
 
 ### <a name="powershell"></a>PowerShell
 
-Ecco i comandi di base per iniziare a usarlo. Se si desidera della Guida dettagliata su come configurare la registrazione per un account di archiviazione usando PowerShell, vedere l'esercitazione più avanti in questo articolo.
+Ecco i comandi di base per iniziare. Se si desiderano istruzioni dettagliate su come configurare la registrazione per un account di archiviazione usando PowerShell, vedere l'esercitazione più avanti in questo articolo.
 
 Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i comandi seguenti:
 
@@ -143,67 +143,67 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
 
 ### <a name="rest-api"></a>API REST
 
-Informazioni su come [modificare le impostazioni di diagnostica utilizzando l'API REST di Azure monitoraggio](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Informazioni su come [modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
 
 ### <a name="resource-manager-template"></a>Modello di Resource Manager
 
-Informazioni su come [abilitare le impostazioni di diagnostica al momento della creazione di risorse utilizzando un modello di gestione risorse](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+Informazioni su come [abilitare le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
 
 ## <a name="manage-your-logs"></a>Gestire i log
 
-I log sono in genere disponibili entro due ore di impostare la registrazione. La gestione dei log nell'account di archiviazione è compito dell'utente:
+I log sono in genere disponibili entro due ore dall'impostazione della registrazione. La gestione dei log nell'account di archiviazione è compito dell'utente:
 
 * Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
-* Assicurarsi di impostare un periodo di memorizzazione per in modo che i log precedenti vengono eliminati dall'account di archiviazione.
+* Assicurarsi di impostare un periodo di conservazione dopo il quale i log obsoleti vengono eliminati dall'account di archiviazione.
 
 ## <a name="view-logs-in-log-analytics"></a>Visualizzare i log in Log Analytics
 
-Eventi metriche e i server sono integrati con XEvent in Analitica di Log per l'analisi side-by-side. Log Analitica può anche essere configurato per ricevere eventi da altri servizi di Azure fornendo una visualizzazione olistica registrazione dei dati di diagnostica tra l'architettura.
+Le metriche e gli eventi del server sono integrati con gli eventi estesi in Log Analytics per consentirne l'analisi affiancata. Log Analytics può anche essere configurato in modo da ricevere gli eventi da altri servizi di Azure e offrire una vista olistica dei dati della registrazione diagnostica in tutta l'architettura.
 
-Per visualizzare i dati di diagnostica nel Log Analitica, aprire la pagina di ricerca nei Log dal menu a sinistra o nell'area di gestione, come illustrato di seguito.
+Per visualizzare i dati di diagnostica in Log Analytics, aprire la pagina Ricerca log dal menu a sinistra o nell'area Gestione, come illustrato nella figura seguente.
 
 ![Opzioni di Ricerca log nel portale di Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Ora che aver abilitato la raccolta di dati, in **ricerca nei Log**, fare clic su **tutti i dati raccolti**.
+Dopo aver abilitato la raccolta dei dati, in **Ricerca log** fare clic su **Tutti i dati raccolti**.
 
-In **tipo**, fare clic su **AzureDiagnostics**, quindi fare clic su **applica**. AzureDiagnostics include gli eventi del motore e il servizio. Si noterà che una query Log Analitica viene creata in tempo reale. La classe di evento\_campo s contiene nomi di xEvent, che potrebbero avere un aspetto familiari se è stato usato XEvent per la registrazione in locale.
+In **Tipo** fare clic su **AzureDiagnostics** e quindi su **Applica**. AzureDiagnostics include eventi del motore e del servizio. Notare che viene creata una query di Log Analytics nell'immediato. Il campo EventClass\_s contiene nomi di eventi estesi, che possono apparire familiari a chi ha usato gli eventi estesi per la registrazione locale.
 
-Fare clic su **EventClass\_s** o uno dei nomi degli eventi e Log Analitica continua creazione di una query. Assicurarsi di salvare le query da riutilizzare in un secondo momento.
+Fare clic su **EventClass\_s** o su uno dei nomi di evento per consentire a Log Analytics di proseguire con la creazione della query. Assicurarsi di salvare le query per un successivo riutilizzo.
 
-Assicurarsi di estrazione Operations Management Suite, che fornisce un sito Web di query avanzata, creare dashboard e le funzionalità di avvisi sui dati di Log Analitica.
+Vedere Operations Management Suite, che fornisce al sito Web funzionalità avanzate di query, dashboard e avvisi sui dati di Log Analytics.
 
 ### <a name="queries"></a>Query
 
-Sono disponibili centinaia di query che è possibile utilizzare. Ecco alcuni per iniziare.
-Per ulteriori informazioni sull'utilizzo di nuovo linguaggio di query di ricerca nei Log, vedere [Understanding log eseguire ricerche nei Log Analitica](../log-analytics/log-analytics-log-search-new.md). 
+Sono disponibili centinaia di query. Di seguito ne sono riportate alcune per iniziare.
+Per altre informazioni sull'uso del nuovo linguaggio di query di Ricerca log, vedere [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
 
-* Query di restituire le query inviate a Azure Analysis Services che impiega più di cinque minuti (300.000 millisecondi) per il completamento.
+* Query che restituiscono query inviate a Azure Analysis Services che hanno richiesto più di cinque minuti (300.000 millisecondi) per il completamento.
 
     ```
     search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
     ```
 
-* Identificare le repliche di scalabilità.
+* Identificare le repliche di scale-out.
 
     ```
     search * | summarize count() by ServerName_s
     ```
-    Quando si utilizza la scalabilità orizzontale, è possibile identificare le repliche di sola lettura perché ServerName\_valori di campo s dispone del numero di istanza di replica aggiunto al nome. Il campo contiene il nome di risorsa di Azure, che corrisponde al nome del server che gli utenti di visualizzare. Il campo IsQueryScaleoutReadonlyInstance_s è uguale a true per le repliche.
+    Quando si usa la funzionalità di scale-out, è possibile identificare le repliche di sola lettura perché ai valori del campo ServerName\_s viene accodato il numero di istanza della replica. Il campo della risorsa contiene il nome della risorsa di Azure, che corrisponde al nome del server visibile agli utenti. Il campo IsQueryScaleoutReadonlyInstance_s è impostato su true per le repliche.
 
 
 
 > [!TIP]
-> Dispone di una query Log Analitica grande che si desidera condividere? Se si dispone di un account GitHub, è possibile aggiungerlo in questo articolo. Fare clic su **modificare** in alto a destra della pagina.
+> Se si dispone di una query di Log Analytics interessante da condividere, è possibile aggiungerla a questo articolo, purché si disponga di un account GitHub. È sufficiente fare clic su **Modifica** in alto a destra in questa pagina.
 
 
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Esercitazione - attiva la registrazione tramite PowerShell
-In questa esercitazione rapida crei un account di archiviazione nella stessa sottoscrizione e gruppo di risorse del server di Analysis Services. È quindi possibile utilizzare Set-AzureRmDiagnosticSetting per attivare la registrazione, l'invio di output per il nuovo account di archiviazione di diagnostica.
+## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Esercitazione: Attivare la registrazione mediante PowerShell
+In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. Viene poi usato il cmdlet Set-AzureRmDiagnosticSetting per attivare la registrazione diagnostica e inviare i risultati al nuovo account di archiviazione.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
-* Un server di Azure Analysis Services esistente. Per istruzioni sulla creazione di una risorsa del server, vedere [creare un server nel portale Azure](analysis-services-create-server.md), o [creare un server Azure Analysis Services usando PowerShell](analysis-services-create-powershell.md).
+* Un server di Azure Analysis Services esistente. Per istruzioni sulla creazione di una risorsa del server, vedere [Creare un server nel portale di Azure](analysis-services-create-server.md) o [Creare un server Azure Analysis Services tramite PowerShell](analysis-services-create-powershell.md).
 
 ### <a name="aconnect-to-your-subscriptions"></a></a>Connettersi alle sottoscrizioni
 
@@ -221,22 +221,22 @@ Se sono disponibili più sottoscrizioni, potrebbe essere necessario indicarne un
 Get-AzureRmSubscription
 ```
 
-Quindi, per specificare la sottoscrizione associata all'account Azure Analysis Services che si esegue l'accesso, digitare:
+Per specificare quindi la sottoscrizione associata all'account di Azure Analysis Services per la registrazione, digitare:
 
 ```powershell
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
-> Se si dispone di più sottoscrizioni associate all'account, è importante specificare la sottoscrizione.
+> Se più sottoscrizioni sono associate all'account, è importante specificarne una.
 >
 >
 
 ### <a name="create-a-new-storage-account-for-your-logs"></a>Creare un nuovo account di archiviazione per i log
 
-È possibile utilizzare un account di archiviazione esistente per i log, purché sia nella stessa sottoscrizione del server. Per questa esercitazione si crea un nuovo account di archiviazione dedicato per i log di Analysis Services. Per semplificare questa operazione, si desidera archiviare i dettagli di account di archiviazione in una variabile denominata **sa**.
+È possibile usare un account di archiviazione esistente per i log, purché sia nella stessa sottoscrizione del server. Per questa esercitazione si crea un nuovo account di archiviazione dedicato ai log di Analysis Services. Per praticità, i dettagli dell'account di archiviazione vengono memorizzati in una variabile denominata **sa**.
 
-È inoltre possibile utilizzare il gruppo di risorse stesso di quello che contiene il server Analysis Services. Sostituire i valori per `awsales_resgroup`, `awsaleslogs`, e `West Central US` con valori personalizzati:
+Viene usato anche lo stesso gruppo di risorse che contiene il server Analysis Services. Sostituire i valori di `awsales_resgroup`, `awsaleslogs` e `West Central US` con valori di propria scelta:
 
 ```powershell
 $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
@@ -245,7 +245,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 
 ### <a name="identify-the-server-account-for-your-logs"></a>Identificare l'account del server per i log
 
-Impostare il nome dell'account a una variabile denominata **account**, dove ResourceName è il nome dell'account.
+Impostare il nome dell'account su una variabile denominata **account**, dove ResourceName è il nome dell'account.
 
 ```powershell
 $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
@@ -254,7 +254,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Abilitazione della registrazione
 
-Per abilitare la registrazione, utilizzare il cmdlet Set-AzureRmDiagnosticSetting con le variabili per il nuovo account di archiviazione, account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
+Per abilitare la registrazione, usare il cmdlet Set-AzureRmDiagnosticSetting con le variabili create per il nuovo account di archiviazione, l'account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
 
 ```powershell
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -299,9 +299,9 @@ Location                    :
 Tags                        :
 ```
 
-Questo conferma che è ora abilitata per il server, il salvataggio delle informazioni per l'account di archiviazione.
+Ciò conferma che la registrazione è abilitata per il server. Le informazioni vengono salvate nell'account di archiviazione.
 
-È inoltre possibile impostare criteri di conservazione per i log in modo registri meno recenti vengono eliminati automaticamente. Ad esempio, impostare criteri di conservazione mediante **- RetentionEnabled** flag **$true**e impostare **- RetentionInDays** parametro **90**. Vengono eliminati automaticamente i log antecedenti a 90 giorni.
+È possibile anche impostare criteri di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente. È, ad esempio, possibile impostare i criteri di conservazione usando il flag **-RetentionEnabled** impostato su **$true** e impostare il parametro **-RetentionInDays** su **90**. I log antecedenti a 90 giorni vengono eliminati automaticamente.
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
@@ -311,6 +311,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni, vedere [registrazione diagnostica di risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
-Vedere [Set AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) nella Guida di PowerShell.
+Vedere [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) nella Guida di PowerShell.

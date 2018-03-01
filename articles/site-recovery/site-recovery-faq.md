@@ -2,23 +2,17 @@
 title: 'Azure Site Recovery: domande frequenti | Microsoft Docs'
 description: Questo articolo illustra le domande frequenti su Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
-editor: 
-ms.assetid: 5cdc4bcd-b4fe-48c7-8be1-1db39bd9c078
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/19/2017
+ms.date: 02/18/2018
 ms.author: raynew
-ms.openlocfilehash: 82cec6df5d5d6ecf1147cac29b8fc46966ea57de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1a7d57c1f1f84e7ce3b931c2911ae7394b066f8d
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
 In questo articolo sono riportate le domande frequenti su Azure Site Recovery. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -168,8 +162,8 @@ Per avviarlo in automatico, è possibile usare Orchestrator o Operations Manager
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>Se l'host locale non risponde o è bloccato, è possibile eseguire il failback a un host diverso?
 Sì, è possibile usare il ripristino nel percorso alternativo per eseguire il failback in un host diverso da Azure. Sono disponibili altre informazioni sulle opzioni indicate dai collegamenti seguenti per le macchine virtuali Hyper-V e VMware.
 
-* [Per macchine virtuali VMware](site-recovery-how-to-failback-azure-to-vmware.md#fail-back-to-the-original-or-alternate-location)
-* [Per macchine virtuali Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md#failback-to-an-alternate-location)
+* [Per macchine virtuali VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Per macchine virtuali Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Provider di servizi
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Per i provider di servizi, Site Recovery funziona per modelli di infrastruttura dedicati e condivisi?

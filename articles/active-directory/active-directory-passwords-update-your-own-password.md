@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 5c850fe9eaf78ab5ee6a175e5433998e1f15ab2e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o scolastica
 
@@ -125,12 +125,12 @@ Selezionare il collegamento **Reimposta password** per avviare la procedura di r
 | Quando si tenta di modificare la password viene visualizzato un errore. | La password contiene una parola o una frase o segue uno schema che la rende facile da indovinare. Riprovare con una password diversa. | Scegliere una password più difficile da indovinare. |
 | Dopo aver immesso l'ID utente viene visualizzata una pagina "Contattare l'amministratore" | Contattare l'amministratore. <br> <br> È stato rilevato che la password dell'account utente non è gestita da Microsoft. Di conseguenza, non può essere reimpostata automaticamente. <br> <br> È necessario contattare il personale IT per ricevere assistenza aggiuntiva. | Si sta visualizzato questo messaggio perché il personale IT gestisce la password nell'ambiente locale. Non è possibile reimpostare la password dal collegamento "Problemi di accesso all'account?". <br> <br> Per reimpostare la password, contattare direttamente il personale IT per ricevere assistenza e informare i membri del fatto che si intende reimpostare la password, in modo che abilitino questa funzionalità per l'utente.|
 | Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Account non abilitato per la reimpostazione della password" | Account non abilitato per la reimpostazione della password. <br> <br> Il personale IT non ha configurato l'account per l'uso di questo servizio. <br> <br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. | Questo messaggio viene visualizzato perché il personale IT non ha abilitato la reimpostazione della password per l'organizzazione dal collegamento "Problemi di accesso all'account?" o non consente all'utente di usare la funzionalità. <br> <br> Per reimpostare la password selezionare il "collegamento per contattare un amministratore" e inviare un messaggio di posta elettronica al personale IT della società per richiedere che venga abilitata la funzionalità di reimpostazione della password per l'utente. |
-| Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Non è stato possibile verificare l'account" | Non è stato possibile verificare l'account. <br> <br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. | Questo messaggio viene visualizzato perché è abilitata la reimpostazione della password da parte dell'utente, ma non è stata eseguita la registrazione per usare il servizio. Per registrarsi per la reimpostazione della password, andare alla pagina http://aka.ms/ssprsetup dopo aver recuperato l'accesso al proprio account. <br> <br> Per reimpostare la password, selezionare il "collegamento per contattare un amministratore" e inviare un messaggio di posta elettronica al personale della società. |
+| Dopo aver immesso l'ID utente viene visualizzato il messaggio di errore "Non è stato possibile verificare l'account" | Non è stato possibile verificare l'account. <br> <br> Se necessario, Microsoft può contattare un amministratore dell'organizzazione e richiedere la reimpostazione della password. | Questo messaggio viene visualizzato perché è abilitata la reimpostazione della password da parte dell'utente, ma non è stata eseguita la registrazione per usare il servizio. Per registrarsi per la reimpostazione della password, andare alla pagina https://aka.ms/ssprsetup dopo aver recuperato l'accesso al proprio account. <br> <br> Per reimpostare la password, selezionare il "collegamento per contattare un amministratore" e inviare un messaggio di posta elettronica al personale della società. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come eseguire la registrazione per usare la reimpostazione password self-service](active-directory-passwords-reset-register.md)
-* [Pagina di registrazione per la reimpostazione della password](http://aka.ms/ssprsetup)
+* [Pagina di registrazione per la reimpostazione della password](https://aka.ms/ssprsetup)
 * [Portale di reimpostazione della password](https://passwordreset.microsoftonline.com/)
 * [Non è possibile accedere all'account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 5e6a79a9b716b6797a1af21f0dcb911219b77207
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Raccogliere i dati di modello tramite la raccolta dati
 
@@ -44,7 +44,7 @@ La raccolta dati di modello dipende da due variabili di ambiente. AML_MODEL_DC_S
 
 Tali variabili di ambiente sono già impostate automaticamente quando il servizio Web è in esecuzione in un cluster in Azure. Quando il servizio è in esecuzione in locale, è necessario impostare le variabili manualmente. In Docker, usare il parametro -e del comando run del docker per passare le variabili di ambiente.
 
-## <a name="collect-data"></a>Raccogli dati
+## <a name="collect-data"></a>Raccogliere i dati
 
 Per usare la raccolta dati di modello, è necessario apportare le modifiche seguenti al file dei punteggi:
 
@@ -88,7 +88,7 @@ Per usare la raccolta dati di modello, è necessario apportare le modifiche segu
 Per visualizzare i dati raccolti nell'archiviazione blob:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Altri servizi**.
+2. Selezionare **Tutti i servizi**.
 3. Nella casella di ricerca digitare **Account di archiviazione** e premere INVIO.
 4. Dal pannello di ricerca **Account di archiviazione**, selezionare la risorsa **Account di archiviazione**. Per determinare l'account di archiviazione, usare la procedura seguente:
 

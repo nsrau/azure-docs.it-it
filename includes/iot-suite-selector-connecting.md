@@ -23,40 +23,38 @@ Per completare l'esercitazione, è necessario un account Azure attivo. Se non si
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-Prima di scrivere un codice per il dispositivo, occorre eseguire la soluzione preconfigurata di monitoraggio remoto e poi effettuare il provisioning di un nuovo dispositivo personalizzato all'interno della soluzione in questione.
+Prima di scrivere il codice per il dispositivo, distribuire la soluzione preconfigurata di monitoraggio remoto e aggiungere un nuovo dispositivo fisico alla soluzione.
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Eseguire il provisioning della soluzione preconfigurata per il monitoraggio remoto
+### <a name="deploy-your-remote-monitoring-preconfigured-solution"></a>Distribuire la soluzione preconfigurata per il monitoraggio remoto
 
 Il dispositivo **Chiller** creato in questa esercitazione invia dati a un'istanza della soluzione preconfigurata per il [monitoraggio remoto](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Se nel proprio account Azure non è già stato effettuato il provisioning della soluzione preconfigurata per il monitoraggio remoto, vedere [Distribuire la soluzione preconfigurata di monitoraggio remoto](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
-Al termine del processo di provisioning della soluzione di monitoraggio remoto, fare clic su **Avvia** per aprire il dashboard della soluzione nel browser.
+Al termine del processo di distribuzione della soluzione di monitoraggio remoto, fare clic su **Avvia** per aprire il dashboard della soluzione nel browser.
 
 ![Dashboard della soluzione](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Effettuare il provisioning del dispositivo nella soluzione di monitoraggio remoto
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Aggiungere il dispositivo alla soluzione di monitoraggio remoto
 
 > [!NOTE]
-> Se è già stato eseguito il provisioning di un dispositivo nella soluzione, è possibile saltare questo passaggio. Quando si crea l'applicazione client, è necessaria la stringa di connessione del dispositivo, che è possibile recuperare dal portale di Azure.
+> Se è già stato aggiunto un dispositivo nella soluzione, è possibile saltare questo passaggio. Per il passaggio successivo sarà però necessaria la stringa di connessione del dispositivo. È possibile recuperare la stringa di connessione di un dispositivo dal [portale di Azure](https://portal.azure.com) oppure usando lo strumento [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) dell'interfaccia della riga di comando.
 
-Per connettere un dispositivo alla soluzione preconfigurata, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene le credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
+Per connettere un dispositivo alla soluzione preconfigurata, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 
 Per aggiungere un dispositivo alla soluzione per il monitoraggio remoto, completare i passaggi seguenti nella pagina **Dispositivi** della soluzione:
 
 1. Scegliere **Nuovo dispositivo** e quindi come **Tipo di dispositivo** scegliere **Fisico**:
 
-    ![Effettuare il provisioning di un dispositivo fisico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Aggiungere un dispositivo fisico](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Immettere **Fisico-chiller** come ID del dispositivo. Scegliere le opzioni **Chiave simmetrica** e **Genera chiavi automaticamente**:
 
     ![Scegliere le opzioni per il dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Scegliere **Applica**. Prendere quindi nota dei valori di **ID dispositivo**, **Chiave primaria**, e **Connection string primary key** (Chiave primaria della stringa di connessione):
+1. Scegliere **Applica**. Prendere quindi nota dei valori di **ID dispositivo**, **Chiave primaria**, e **Stringa di connessione - chiave primaria**:
 
     ![Recuperare le credenziali](media/iot-suite-selector-connecting/credentials.png)
 
-Per individuare le credenziali che il dispositivo deve usare per la connessione alla soluzione preconfigurata, passare al portale di Azure nel browser. Accedere alla sottoscrizione.
-
-È stato ora effettuato il provisioning di un dispositivo fisico nella soluzione preconfigurata per il monitoraggio remoto. Nelle sezioni seguenti si implementerà l'applicazione client che usa le credenziali del dispositivo per connettersi alla soluzione.
+A questo punto è stato aggiunto un dispositivo fisico alla soluzione preconfigurata di monitoraggio remoto e ne è stata annotata la stringa di connessione. Nelle sezioni seguenti si implementerà l'applicazione client che usa la stringa di connessione del dispositivo per connettersi alla soluzione.
 
 L'applicazione client implementa il modello di dispositivo **Chiller** predefinito. Un modello di dispositivo per la soluzione preconfigurata specifica le informazioni seguenti per il dispositivo:
 

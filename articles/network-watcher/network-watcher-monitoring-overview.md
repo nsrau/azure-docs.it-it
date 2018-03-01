@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: eecb20d4a53478471c238018d8fbd5a5f9cb79d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8a8e0653221af126ea137b1450ce27c29791ae3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Panoramica del monitoraggio della rete in Azure
 
@@ -46,7 +46,7 @@ Di seguito sono elencate le funzionalità attualmente disponibili in Network Wat
 * **[Risoluzione dei problemi di connessione e gateway di rete virtuale](network-watcher-troubleshoot-manage-rest.md)**: permette di risolvere i problemi relativi al gateway di rete virtuale e alle connessioni.
 * **[Limite sottoscrizioni di rete](#network-subscription-limits)**: permette di visualizzare l'utilizzo delle risorse di rete rispetto ai limiti.
 * **[Configurazione del log di diagnostica](#diagnostic-logs)**: permette di abilitare o disabilitare i log di diagnostica per le risorse di rete in un gruppo di risorse da un unico riquadro.
-* **[Connettività (Anteprima)](network-watcher-connectivity-overview.md)**: verifica se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
+* **[Risoluzione dei problemi di connessione](network-watcher-connectivity-overview.md)**: verifica se è possibile stabilire una connessione TCP diretta da una macchina virtuale a un determinato endpoint arricchito con contesto Azure.
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Controllo degli accessi in base al ruolo in Network Watcher
 

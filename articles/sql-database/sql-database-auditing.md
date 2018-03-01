@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.openlocfilehash: 9be945493cf013f472566a2c7a1dda05fd9b0ca9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0994bdc7e6c86e10f7002649830fc59ad3d1a045
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
@@ -39,8 +39,11 @@ Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di
 
 È possibile configurare il controllo per diversi tipi di categorie di eventi, come spiegato nella sezione [Configurare il controllo per il database](#subheading-2).
 
-I log di controllo vengono scritti nell'archivio BLOB di Azure della sottoscrizione di Azure.
-
+> [!IMPORTANT]
+> I log di controllo vengono scritti in **Accodare BLOB**nell'archivio BLOB di Azure della sottoscrizione di Azure.
+>
+> * **Archiviazione Premium** attualmente **non è supportata** da Accodare BLOB.
+> * **Storage in VNet** attualmente **non è supportato**.
 
 ## <a id="subheading-8"></a>Definire criteri di controllo a livello di server o a livello di database
 
@@ -80,7 +83,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
    >Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
 
     <a id="storage-screenshot"></a>![Riquadro di spostamento][4]
-6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST. 
+6. Per personalizzare gli eventi controllati, è possibile usare PowerShell o l'API REST.
 7. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 8. Fare clic su **Save**.
 

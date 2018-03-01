@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 35064c792b72222d59b1d3f0913a92a4a2b34612
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5143abdde715424a41a53bb661db342acf817e0c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-cost-of-data-retention-with-your-log-analytics-workspace"></a>Gestire i costi di conservazione dei dati con l'area di lavoro di Log Analytics
 Con l'iscrizione a Log Analytics, a seconda del piano selezionato, è previsto un limite sul tempo di archiviazione dei dati generati da origini connesse nell'area di lavoro.  Questo articolo evidenzia le considerazioni che possono influenzare i costi per la conservazione dei dati per diversi periodi di tempo e come configurare tale limite.   
@@ -44,7 +44,7 @@ Quando si usa il piano *Gratuito*, se si superano le quantità consentite, è po
 ## <a name="change-the-data-retention-period"></a>Cambiare il periodo di conservazione dei dati 
 
 1. Accedere al [portale di Azure](http://portal.azure.com). 
-2. Fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+2. Fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 3. Nel riquadro di sottoscrizione di Log Analytics selezionare dall'elenco l'area di lavoro da modificare.
 4. Nella pagina dell'area di lavoro fare clic su **Conservazione** dal riquadro di sinistra.
 5. Nel riquadro di conservazione dell'area di lavoro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **Salva**.  Se si usa il livello *gratuito*, non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.<br><br> ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/log-analytics-manage-cost/manage-cost-change-retention.png)
