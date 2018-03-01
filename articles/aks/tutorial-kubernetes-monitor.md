@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0f55e368586910b771115b39b5ec9b286f031069
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2fedd615733e3bf51469d3b69d5fe51e3e99087e
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-azure-container-service-aks"></a>Monitoraggio di Servizio contenitore di Azure (AKS)
 
@@ -133,13 +133,13 @@ spec:
 
 Creare il DaemonSet con il comando seguente:
 
-```azurecli-interactive
+```azurecli
 kubectl create -f oms-daemonset.yaml
 ```
 
 Per verificare che sia stato creato il DaemonSet, eseguire:
 
-```azurecli-interactive
+```azurecli
 kubectl get daemonset
 ```
 
