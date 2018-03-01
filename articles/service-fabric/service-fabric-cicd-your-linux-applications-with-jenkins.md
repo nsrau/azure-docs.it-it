@@ -16,7 +16,7 @@ ms.date: 11/27/2017
 ms.author: saysa
 ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/19/2017
 ---
@@ -128,7 +128,7 @@ ssh user@PublicIPorFQDN -p [port]
 A questo punto, quando si esegue ``docker info`` nel terminale, l'output indica che il servizio Docker è in esecuzione.
 
 ### <a name="steps"></a>Passaggi
-  1. Effettuare il pull dell'immagine contenitore servizio Fabric Jenkins: ``docker pull rapatchi/jenkins:v10``. Questa immagine viene fornito con plug-in servizi dell'infrastruttura Jenkins pre-installato.
+  1. Eseguire il pull dell'immagine del contenitore di Jenkins per Service Fabric: ``docker pull rapatchi/jenkins:v10``. Questa immagine viene fornita con il plug-in di Jenkins per Service Fabric preinstallato.
   2. Eseguire l'immagine del contenitore: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Ottenere l'ID istanza dell'immagine del contenitore. È possibile elencare tutti i contenitori Docker con il comando ``docker ps –a``
   4. Accedere al portale di Jenkins seguendo questa procedura:

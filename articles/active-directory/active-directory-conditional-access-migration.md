@@ -1,6 +1,6 @@
 ---
 title: Migrare i criteri classici nel portale di Azure | Microsoft Docs
-description: Informazioni su cosa occorre per eseguire la migrazione di criteri classici nel portale di Azure.
+description: "Informazioni che è necessario conoscere per eseguire la migrazione dei criteri classici nel portale di Azure."
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
@@ -18,43 +18,43 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrare i criteri classici nel portale di Azure 
 
 
-L'[accesso condizionale](active-directory-conditional-access-azure-portal.md) è una capacità di Azure Active Directory che consente di controllare come gli utenti autorizzati accedono alle app cloud. Mentre lo scopo è comunque lo stesso, la versione del nuovo portale di Azure ha introdotto i miglioramenti significativi di funzionamento dell'accesso condizionale.
+L'[accesso condizionale](active-directory-conditional-access-azure-portal.md) è una capacità di Azure Active Directory che consente di controllare come gli utenti autorizzati accedono alle app cloud. Anche se la finalità è la stessa, il nuovo portale di Azure ha introdotto miglioramenti significativi nel funzionamento dell'accesso condizionale.
 
-È consigliabile eseguire la migrazione di criteri che non è stato creato nel portale di Azure perché:
+È consigliabile eseguire la migrazione di criteri non creati nel portale di Azure per i motivi seguenti:
 
-- È possibile soddisfare gli scenari che non è possibile gestire prima.
+- È ora possibile gestire scenari che in precedenza non era possibile gestire.
 
 - Il consolidamento consente di ridurre il numero di criteri da gestire.   
 
 - È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centrale.
 
-- Portale di Azure classico verrà ritirato.   
+- Il portale di Azure classico verrà ritirato.   
 
-Questo articolo spiega cosa occorre per eseguire la migrazione i criteri di accesso condizionale esistenti per il nuovo framework.
+Questo articolo spiega cosa è necessario sapere per eseguire la migrazione dei criteri di accesso condizionale esistenti nel nuovo framework.
  
 ## <a name="classic-policies"></a>Criteri classici
 
-Nel [portale di Azure](https://portal.azure.com), [accesso condizionale - criteri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) pagina è il punto di ingresso per l'accesso condizionale, i criteri. Tuttavia, nell'ambiente in uso, può inoltre essere criteri di accesso condizionale che non è stato creato tramite questa pagina. Questi criteri sono note come *criteri classici*. Criteri classici sono criteri di accesso condizionale, è stato creato in:
+Nel [portale di Azure](https://portal.azure.com) la pagina [Accesso condizionale - Criteri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) è il punto di ingresso per i criteri di accesso condizionale. È tuttavia possibile che nel proprio ambiente siano impostati criteri di accesso condizionale che non sono stati creati tramite questa pagina, ovvero i *criteri classici*. Per criteri classici si intendono i criteri di accesso condizionale creati in uno dei portali seguenti:
 
-- portale di Azure classico
-- Il portale classico di Intune
-- Il portale di Intune App Protection
+- Portale di Azure classico
+- Portale di Intune classico
+- Portale di Protezione app di Intune
 
 
-Nel **accesso condizionale** pagina, è possibile accedere ai criteri classici, fare clic su [ **criteri classica (anteprima)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) nel **Gestisci** sezione. 
+Nella pagina **Accesso condizionale** è possibile accedere ai criteri classici facendo clic su [**Criteri classici (anteprima)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) nella sezione **Gestione**. 
 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
 
-Il **criteri classica** visualizzazione fornisce un'opzione per:
+La visualizzazione **Criteri classici** consente di eseguire queste operazioni:
 
 - Filtrare i criteri classici.
  
@@ -64,99 +64,99 @@ Il **criteri classica** visualizzazione fornisce un'opzione per:
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
    
-- Verificare le impostazioni dei criteri classico (e per disabilitarlo).
+- Rivedere le impostazioni dei criteri classici e disabilitarli.
 
     ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
 
 
-Se un criterio classico è disabilitata, è non possibile ripristinare più questo passaggio. È per questo motivo è possibile modificare l'appartenenza al gruppo in un criterio classico con il **dettagli** visualizzazione. 
+Una volta disabilitati, i criteri classici non possono più essere ripristinati. È per questo motivo che è possibile modificare l'appartenenza ai gruppi nei criteri classici usando la visualizzazione **Dettagli**. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
 
-Modificando i gruppi selezionati o escludendo i gruppi specifici, è possibile testare l'effetto dei criteri disabilitati classico per alcuni utenti di test prima di disabilitare i criteri per inclusi tutti gli utenti e gruppi. 
+Modificando i gruppi selezionati o escludendo gruppi specifici, è possibile testare l'effetto dei criteri classici disabilitati per alcuni utenti di test prima di disabilitare i criteri per tutti gli utenti e i gruppi inclusi. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Criteri di accesso condizionale di Azure Active Directory
 
-Con l'accesso condizionale nel portale di Azure, è possibile gestire tutti i criteri in un'unica posizione centrale. Poiché l'implementazione dell'accesso condizionale è stato modificato in modo significativo, è necessario acquisire familiarità con i concetti di base prima della migrazione dei criteri classici.
+Con l'accesso condizionale nel portale di Azure è possibile gestire tutti i criteri in un'unica posizione centrale. Poiché l'implementazione dell'accesso condizionale è cambiata in modo significativo, è necessario acquisire familiarità con i concetti di base prima di eseguire la migrazione dei criteri classici.
 
 Vedere:
 
 - [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md) per apprendere i concetti di base e la terminologia.
 
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md) per ottenere alcune indicazioni sulla distribuzione di accesso condizionale all'interno dell'organizzazione.
+- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md) per ottenere alcune indicazioni su come distribuire l'accesso condizionale all'interno di un'organizzazione.
 
-- [Iniziare con l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) per acquisire familiarità con l'interfaccia utente nel portale di Azure.
+- [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) per acquisire familiarità con l'interfaccia utente nel portale di Azure.
 
 
  
 ## <a name="migration-considerations"></a>Considerazioni sulla migrazione
 
-In questo articolo, criteri di accesso condizionale di Azure AD sono anche detto *nuovi criteri*.
-I criteri classici continuano a funzionare in modo affiancato con i nuovi criteri finché non si disabilita o eliminarli. 
+In questo articolo si fa riferimento ai criteri di accesso condizionale di Azure AD anche con il termine *criteri nuovi*.
+I criteri classici continuano a funzionare in parallelo con quelli nuovi finché non vengono disabilitati o eliminati. 
 
-Gli aspetti seguenti sono importanti nel contesto di un consolidamento di criteri:
+Nella prospettiva di un consolidamento dei criteri è importante considerare gli aspetti seguenti:
 
-- Mentre classici criteri sono legati a un'applicazione specifica cloud, è possibile selezionare quante più App cloud che è necessario in un nuovo criterio.
+- Diversamente dai criteri classici, che sono legati a un'app cloud specifica, i criteri nuovi consentono di selezionare tutte le app cloud desiderate.
 
-- I controlli di un criterio classico e un nuovo criterio per un'applicazione cloud richiedono tutti i controlli (*AND*) venga soddisfatta. 
+- I controlli applicati da criteri classici e criteri nuovi per un'app cloud devono risultare tutti soddisfatti (*AND*). 
 
 
-- In un nuovo criterio, è possibile:
+- Nei criteri nuovi è possibile:
  
-    - Combinare più condizioni, se richiesto dal proprio scenario. 
+    - Combinare più condizioni, se necessarie per lo specifico scenario. 
 
-    - Selezionare diversi concedere requisiti di accesso di controllo e combinano con una logica *OR* (richiede uno dei controlli selezionati) o con una logica *AND* (richiedono tutti i controlli selezionati).
+    - Selezionare più requisiti di controllo di accesso e combinarli con un *OR* logico (per richiedere uno dei controlli selezionati) o con un *AND* logico (per richiedere tutti i controlli selezionati).
 
         ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange online
+### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
-Se si desidera eseguire la migrazione di criteri classici per **Office 365 Exchange online** che includono **Exchange Active Sync** come condizione di App client, potrebbe non essere in grado di consolidare in un nuovo criterio. 
+Se si intende eseguire la migrazione di criteri classici per **Office 365 Exchange Online** che includono **Exchange Active Sync** come condizione per le app client, può non essere possibile consolidarli in un unico criterio nuovo. 
 
-Questo avviene, ad esempio, se si desidera supportare tutti i tipi di app client. In un nuovo criterio con **Exchange Active Sync** come condizione di App client, non è possibile selezionare altre applicazioni client.
+Ciò avviene, ad esempio, quando si vuole includere il supporto per tutti i tipi di app client. In un criterio nuovo con **Exchange Active Sync** come condizione per le app client, non è possibile selezionare altre app client.
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
-Un consolidamento in un nuovo criterio non è possibile se i criteri classici contengano diverse condizioni. Un nuovo criterio con **Exchange Active Sync** condizione configurato come le applicazioni client non supporta altre condizioni:   
+Il consolidamento in un criterio nuovo non è possibile nemmeno se i criteri classici contengono più condizioni. Un criterio nuovo con **Exchange Active Sync** configurato come condizione per le app client non supporta altre condizioni:   
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-Se si dispone di un nuovo criterio con **Exchange Active Sync** come le applicazioni client condizione configurato, è necessario assicurarsi che tutte le altre condizioni non sono configurate. 
+Se si ha un criterio nuovo con **Exchange Active Sync** configurato come condizione per le app client, è necessario assicurarsi che tutte le altre condizioni non siano configurate. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
  
 
-[Basato su app](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) classici criteri per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione di App client consentire **supportati** e **non supportato** [piattaforme per dispositivi](active-directory-conditional-access-technical-reference.md#device-platform-condition). Mentre non è possibile configurare le piattaforme per dispositivi singoli in un nuovo criterio correlato, è possibile limitare il supporto per [piattaforme per dispositivi supportate](active-directory-conditional-access-technical-reference.md#device-platform-condition) solo. 
+I criteri classici [basati su app](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione per le app client consentono l'uso di [piattaforme di dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition) **supportate** e **non supportate**. Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-È possibile consolidare più classici criteri che includono **Exchange Active Sync** come condizione di App client se dispongono di:
+È possibile consolidare più criteri classici che includono **Exchange Active Sync** come condizione per le app client se questi hanno:
 
 - Solo **Exchange Active Sync** come condizione 
 
-- Diversi requisiti per la concessione dell'accesso configurato
+- Più requisiti configurati per concedere l'accesso
 
-Uno scenario comune è il consolidamento di:
+Uno scenario comune consiste nel consolidamento dei criteri seguenti:
 
-- Un criterio basato su dispositivi classico dal portale di Azure classico 
-- Un criterio basato su app classico nel portale di protezione di Intune app 
+- Un criterio classico basato su dispositivo configurato nel portale di Azure classico 
+- Un criterio classico basato su app configurato nel portale di Protezione app di Intune 
  
-In questo caso, è possibile consolidare i criteri classici in un nuovo criterio con entrambi i requisiti selezionati.
+In questo caso, è possibile consolidare i criteri classici in un unico criterio nuovo con entrambi i requisiti selezionati.
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-### <a name="device-platforms"></a>Piattaforme del dispositivo
+### <a name="device-platforms"></a>Piattaforme di dispositivo
 
-Criteri classici con [controlli basati su app](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) sono preconfigurati con iOS e Android come il [condizione piattaforma dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
+I criteri classici con [controlli basati su app](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) sono preconfigurati con iOS e Android come [condizione per le piattaforme di dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-In un nuovo criterio, è necessario selezionare il [piattaforme per dispositivi](active-directory-conditional-access-technical-reference.md#device-platform-condition) si desidera supportare singolarmente.
+In un criterio nuovo è necessario selezionare le [piattaforme di dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition) da supportare singolarmente.
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 

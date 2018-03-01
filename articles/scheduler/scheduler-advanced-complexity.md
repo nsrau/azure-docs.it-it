@@ -16,7 +16,7 @@ ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2018
 ---
@@ -127,9 +127,9 @@ La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto *sche
 |:--- |:--- |:--- |
 | **minutes** |Minuti dell'ora in cui verrà eseguito il processo |<ul><li>Matrice di numeri interi</li></ul> |
 | **hours** |Ora del giorno in cui verrà eseguito il processo |<ul><li>Matrice di numeri interi</li></ul> |
-| **weekDays** |Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale. |<ul><li>Matrice di uno del sotto valori (dimensione matrice massima 7)<ul><li>"Lunedì"</li><li>"Martedì"</li><li>"Mercoledì"</li><li>"Giovedì"</li><li>"Venerdì"</li><li>"Sabato"</li><li>"Domenica"</li></ul></li></ul>*Non* viene applicata la distinzione tra maiuscole e minuscole |
+| **weekDays** |Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale. |<ul><li>Matrice dei valori seguenti (dimensione massima della matrice: 7)<ul><li>"Monday"</li><li>"Tuesday"</li><li>"Wednesday"</li><li>"Thursday"</li><li>"Friday"</li><li>"Saturday"</li><li>"Sunday"</li></ul></li></ul>*Non* viene applicata la distinzione tra maiuscole e minuscole |
 | **monthlyOccurrences** |Determina in quali giorni del mese verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di oggetti monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* è il giorno della settimana in cui verrà eseguito il processo, ad esempio {Sunday} corrisponde a ogni domenica del mese. Richiesto.</p><p>*occurrence* è l'occorrenza del giorno durante il mese, ad esempio {Sunday, -1} corrisponde all'ultima domenica del mese. facoltativo.</p> |
-| **monthDays** |Giorno del mese in cui verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di valori di sotto</li><ul><li>Qualsiasi valore <= -1 e >= -31.</li><li>Qualsiasi valore >= 1 e <= 31.</li></ul></ul> |
+| **monthDays** |Giorno del mese in cui verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice dei valori seguenti</li><ul><li>Qualsiasi valore <= -1 e >= -31.</li><li>Qualsiasi valore >= 1 e <= 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: Pianificazioni di ricorrenza
 Di seguito sono riportati diversi esempi di pianificazioni di ricorrenza – concentrarsi sull'oggetto pianificazione e i relativi elementi secondari.

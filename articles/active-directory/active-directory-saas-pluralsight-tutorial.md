@@ -16,7 +16,7 @@ ms.date: 12/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
 ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/22/2017
 ---
@@ -26,13 +26,13 @@ Questa esercitazione descrive come integrare Pluralsight con Azure Active Direct
 
 L'integrazione di Pluralsight con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al Pluralsight.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato Pluralsight (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a Pluralsight.
+- È possibile abilitare gli utenti per l'accesso automatico a Pluralsight (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Pluralsight, sono necessari gli elementi seguenti:
 
@@ -70,7 +70,7 @@ Per configurare l'integrazione di Pluralsight in Azure AD, è necessario aggiung
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **Pluralsight**selezionare **Pluralsight** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Pluralsight**, selezionare **Pluralsight** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Pluralsight nell'elenco dei risultati](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addfromgallery.png)
 
@@ -86,7 +86,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Pluralsight, 
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test Pluralsight](#create-a-pluralsight-test-user)**  - disporre un equivalente di Britta Simon di Pluralsight collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test Pluralsight](#create-a-pluralsight-test-user)**: per avere una controparte di Britta Simon in Pluralsight collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -104,9 +104,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_samlbase.png)
 
-3. Nel **Pluralsight dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio Pluralsight** seguire questa procedura:
 
-    ![Pluralsight informazioni domini e gli URL single sign-on](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Pluralsight](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<instancename>.pluralsight.com/sso/<companyname>`
 
@@ -115,7 +115,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<instancename>.pluralsight.com/sp/ACS.saml2`
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Contatto [team di supporto Pluralsight Client](mailto:support@pluralsight.com) per ottenere questi valori. 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Pluralsight](mailto:support@pluralsight.com). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -207,7 +207,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Pluralsight**.
 
-    ![Il collegamento Pluralsight nell'elenco delle applicazioni](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
+    ![Collegamento di Pluralsight nell'elenco delle applicazioni](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

@@ -16,7 +16,7 @@ ms.date: 12/28/2017
 ms.author: jeedes
 ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -32,7 +32,7 @@ L'integrazione di Zoom con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Zoom, sono necessari gli elementi seguenti:
 
@@ -115,18 +115,18 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc).
 
-4. L'applicazione dello Zoom prevede le asserzioni SAML in un formato specifico, che è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. 
+4. L'applicazione Zoom prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. 
 
     ![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
 
 5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
     
-    | Nome attributo | Valore attributo | Valore di Namespace |
+    | Nome attributo | Valore attributo | Valore spazio dei nomi |
     | ------------------- | -----------|--------- |    
     | Indirizzo di posta elettronica | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
     | Nome | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
     | Cognome | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
-    | Numero di telefono | User. telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | Numero di telefono | user.telephonenumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
     | department | user.department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
@@ -139,7 +139,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
 
-    d. Nel **Namespace** casella di testo, digitare il valore dello spazio dei nomi indicato per la riga.
+    d. Nella casella di testo **Spazio dei nomi**, digitare il valore dello spazio dei nomi indicato per la riga.
     
     e. Fare clic su **OK**. 
  
@@ -178,7 +178,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     e. Fare clic su **Save**.
 
     > [!NOTE] 
-    > Per altre informazioni, vedere la documentazione di zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
+    > Per altre informazioni, vedere la documentazione di Zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
