@@ -11,22 +11,22 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ce3d6d5aa721f84bda6d8de6eac161deb934a1e5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
-> * [Node.JS](batch-nodejs-get-started.md)
+> * [Node.js](batch-nodejs-get-started.md)
 >
 >
 
-Questo articolo illustra i concetti di base relativi alla compilazione di un client Batch in Node.js con l'[SDK di Azure Batch per Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Verrà adottato un approccio graduale che prevede la definizione di uno scenario per un'applicazione batch e quindi la relativa configurazione con un client Node.js.  
+Questo articolo illustra i concetti di base relativi alla compilazione di un client Batch in Node.js con l'[SDK di Azure Batch per Node.js](/javascript/api/overview/azure/batch). Verrà adottato un approccio graduale che prevede la definizione di uno scenario per un'applicazione batch e quindi la relativa configurazione con un client Node.js.  
 
 ## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone che l'utente sappia usare Node.js e abbia familiarità con Linux. Presuppone anche che abbia un account Azure configurato con i diritti di accesso necessari per creare servizi Batch e Archiviazione.
@@ -73,7 +73,7 @@ Questo comando installa l'ultima versione dell'SDK azure-batch per Node.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Passaggio 2: Creare un account Azure Batch
 
-È possibile creare l'account dal [portale di Azure](batch-account-create-portal.md) o dalla riga di comando ([Powershell](batch-powershell-cmdlets-get-started.md) /[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview)).
+È possibile creare l'account dal [portale di Azure](batch-account-create-portal.md) o dalla riga di comando ([Powershell](batch-powershell-cmdlets-get-started.md) /[interfaccia della riga di comando di Azure](/cli/azure/overview)).
 
 Di seguito sono riportati i comandi per creare un account tramite l'interfaccia della riga di comando di Azure.
 
@@ -360,5 +360,5 @@ Il portale offre visualizzazioni dettagliate delle attività e degli stati del p
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Se non si ha familiarità con il servizio, è consigliabile vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) .
-- Per esplorare l'API Batch, vedere le [informazioni di riferimento su Node.js per Batch](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/).
+- Per esplorare l'API Batch, vedere le [informazioni di riferimento su Node.js per Batch](/javascript/api/overview/azure/batch).
 

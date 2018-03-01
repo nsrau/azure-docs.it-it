@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: a49da33c8038ad467389c66e59727c7e195baf82
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 6dc8b573e66eaae1b5cb923ae72333fb959d0969
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-multi-tenancy-with-the-cloud-solution-provider-csp-program"></a>Gestire il multi-tenancy con il programma Cloud Solution Provider (CSP)
 
@@ -122,6 +122,6 @@ I partner possono anche aggiungere un nuovo utente alla sottoscrizione del tenan
   Azure Site Recovery ha anche tre [ruoli utente predefiniti](site-recovery-role-based-linked-access-control.md) che possono essere utilizzati per limitare ulteriormente i livelli di accesso in base alle esigenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
-  [Ulteriori informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery.
+  [Altre informazioni](site-recovery-role-based-linked-access-control.md) sul controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery.
 
   [Gestire gli ambienti VMware multi-tenant](site-recovery-multi-tenant-support-vmware-using-csp.md)

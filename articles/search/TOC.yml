@@ -5,6 +5,7 @@
     - name: Informazioni su Ricerca di Azure
       href: search-what-is-azure-search.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Creare un servizio
       href: search-create-service-portal.md
@@ -170,7 +171,7 @@
           href: search-monitor-usage.md
         - name: Analisi del traffico di ricerca
           href: search-traffic-analytics.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99c9740e3f19e2a09332317b08e06352ffa8eee7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introduzione ad Application Insights in un progetto Web Java
 
@@ -70,12 +70,12 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
         <!-- or applicationinsights-core for bare API -->
-        <version>[1.0,)</version>
+        <version>[2.0,)</version>
       </dependency>
     </dependencies>
 ```
 
-* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>1.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Errori di convalida checksum o compilazione?* Provare a usare una versione specifica, ad esempio `<version>2.0.n</version>`. La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o negli [elementi Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *È necessario eseguire l'aggiornamento a un nuovo SDK?* Aggiornare le dipendenze del progetto.
 
 #### <a name="if-youre-using-gradle"></a>Se si usa Gradle...
@@ -90,19 +90,19 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '2.+'
       // or applicationinsights-core for bare API
     }
 ```
 
-* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'1.0.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Errori di convalida checksum o compilazione? Provare a usare una versione specifica, come* `version:'2.0.n'`. *La versione più recente è disponibile nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Per eseguire l'aggiornamento a un nuovo SDK*
   * Aggiornare le dipendenze del progetto.
 
 #### <a name="otherwise-"></a>In caso contrario...
 Aggiungere manualmente SDK:
 
-1. Scaricare [Application Insights SDK per Java](https://aka.ms/aijavasdk).
+1. Scaricare [Application Insights SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest).
 2. Estrarre i file binari dal file ZIP e aggiungerli al progetto.
 
 ### <a name="questions"></a>Domande...
@@ -112,7 +112,7 @@ Aggiungere manualmente SDK:
   * `applicationinsights-web` fornisce le metriche che consentono di tenere traccia del numero e dei tempi di risposta delle richieste HTTP. Questo componente può essere omesso se non si vuole che questi dati di telemetria vengano raccolti automaticamente. Ad esempio se si preferisce scrivere dati personalizzati.
 * *Per aggiornare il SDK, quando si pubblicano le modifiche*
 
-  * Scaricare la versione più recente di [Application Insights SDK per Java](https://aka.ms/qqkaq6) e sostituire le versioni precedenti.
+  * Scaricare la versione più recente di [Application Insights SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e sostituire le versioni precedenti.
   * Le modifiche sono descritte nelle [note sulla versione dell'SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Aggiungere un file XML di Application Insights

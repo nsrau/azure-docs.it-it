@@ -1,20 +1,20 @@
 ---
-title: "Configurare la connettività SSL nel Database di Azure per PostgreSQL | Microsoft Docs"
+title: "Configurare la connettività SSL nel Database di Azure per PostgreSQL"
 description: Indicazioni e informazioni per configurare il Database di Azure per PostgreSQL e delle applicazioni associate per usare correttamente le connessioni SSL.
 services: postgresql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
-manager: jhubbard
+manager: kfile
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 11/01/2017
-ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 02/28/2018
+ms.openlocfilehash: 0a4a7041a905470f895921cfedf2bd94e8466966
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurare la connettività SSL nel Database di Azure per PostgreSQL
 Il Database di Azure per PostgreSQL preferisce connettere le applicazioni client al servizio di PostgreSQL usando la connettività SSL (Secure Sockets Layer). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -40,7 +40,7 @@ Visitare il Database di Azure per il server PostgreSQL e fare clic su **Sicurezz
 È possibile abilitare o disabilitare il parametro **ssl-enforcement** usando rispettivamente i valori `Enabled` o `Disabled` nell'interfaccia della riga di comando di Azure.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Verificare che le connessioni SSL siano supportate dall'applicazione o dal framework
@@ -116,11 +116,11 @@ L'esempio seguente illustra come connettersi al server PostgreSQL tramite l'util
 
 Usando l'interfaccia della riga di comando di PostgreSQL, eseguire il comando seguente:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 Se l'operazione va a buon fine, si dovrebbe ottenere l'output seguente:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

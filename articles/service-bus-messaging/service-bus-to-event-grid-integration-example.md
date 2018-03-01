@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 8aff62dd32395c1ef292942e977467779f945931
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2a4d17673340d145de9a3514f920c74f7eebf6b6
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-examples"></a>Esempi relativi al bus di servizio di Azure e Griglia di eventi di Azure
 
@@ -29,7 +29,7 @@ Questo documento illustra come configurare funzioni di Azure e un'app per la log
 * Creare una [funzione di Azure per ricevere ed elaborare i messaggi del bus di servizio](#receive-messages-using-azure-function) in base agli eventi di Griglia di eventi.
 * Utilizzare [app per la logica](#receive-messages-using-azure-logic-app).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="service-bus-namespace"></a>Spazio dei nomi del bus di servizio
 
@@ -118,7 +118,7 @@ Fare clic su Salva ed esegui.
 
 ## <a name="connect-function-and-namespace-via-event-grid"></a>Connettere la funzione e lo spazio dei nomi tramite Griglia di eventi
 
-Il passaggio successivo consiste nel collegare tra loro la funzione e lo spazio dei nomi del bus di servizio. Per questo esempio, usare il portale di Azure. Per informazioni su come eseguire questa operazione con PowerShell o l'interfaccia della riga di comando di Azure, vedere la pagina contenente la [panoramica concettuale](service-bus-to-event-grid-integration-concept.md).
+Il passaggio successivo consiste nel collegare tra loro la funzione e lo spazio dei nomi del bus di servizio. Per questo esempio, usare il portale di Azure. Per informazioni su come eseguire questa operazione con PowerShell o l'interfaccia della riga di comando di Azure, vedere la pagina contenente la [panoramica concettuale](service-bus-to-event-grid-integration-concept.md.
 
 Per creare una nuova sottoscrizione di Griglia di eventi di Azure, passare allo spazio dei nomi nel portale di Azure e selezionare il pannello Griglia di eventi. Fare clic su "+ Sottoscrizione di eventi".
 
@@ -190,10 +190,10 @@ Salvare l'app per la logica e inviare un messaggio all'argomento del bus di serv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni su [Griglia di eventi di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Altre informazioni su [App per la logica di Azure](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Altre informazioni sul [bus di servizio di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Altre informazioni su [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/).
+* Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
+* Altre informazioni su [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/).
+* Altre informazioni sul [bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus/).
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

@@ -3,7 +3,7 @@ title: Come pianificare un runtime di integrazione SSIS di Azure | Microsoft Doc
 description: Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Data Factory.
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: douglaslMS
 manager: jhubbard
 editor: 
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: spelluru
-ms.openlocfilehash: 814ef63f317c2c0c9081579c16a12a908c05ff74
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: douglasl
+ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure 
 Eseguire un runtime di integrazione SSIS (SQL Server Integration Services) di Azure ha un costo. Di conseguenza, è opportuno eseguire il runtime di integrazione solo quando si devono eseguire pacchetti SSIS in Azure ed è consigliabile arrestarlo quando non è necessario. Per [avviare o arrestare manualmente un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente di Data Factory o Azure PowerShell. Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Azure Data Factory. Di seguito sono riportate le procedure generali descritte in questo articolo:

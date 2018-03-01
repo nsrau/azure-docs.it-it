@@ -4,17 +4,17 @@ description: Questo documento descrive la procedura e i concetti coinvolti nell'
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
-manager: neerajkh
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: hjerez
+ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="consuming-web-services"></a>Uso dei servizi Web
 Dopo aver distribuito un modello come un servizio Web in tempo reale è possibile inviare dati e ottenere stime da un'ampia gamma di piattaforme e applicazioni. Il servizio web in tempo reale espone un'API REST per l'ottenimento delle stime. È possibile inviare dati al servizio Web nel formato di riga singola o multipla per ottenere una o più stime contemporaneamente.
@@ -35,7 +35,7 @@ L'interfaccia della riga di comando di Azure Machine Learning e l'API forniscono
 Dopo che il servizio Web è stato distribuito correttamente, usare il comando seguente per ottenere l'URL del servizio e altri dettagli per chiamare l'endpoint di servizio. 
 
 ```
-az ml service usage realtime -i <service name>
+az ml service usage realtime -i <web service id>
 ```
 
 Questo comando stampa l'URL del servizio, le intestazioni di richiesta necessarie, l'URL Swagger e i dati di esempio per chiamare il servizio se lo schema API del servizio è stato fornito in fase di distribuzione.
@@ -43,7 +43,7 @@ Questo comando stampa l'URL del servizio, le intestazioni di richiesta necessari
 È possibile testare il servizio direttamente dall'interfaccia della riga di comando senza la composizione di una richiesta HTTP immettendo il comando dell'interfaccia della riga di comando di esempio con i dati di input:
 
 ```
-az ml service run realtime -i <service name> -d "Your input data"
+az ml service run realtime -i <web service id> -d "Your input data"
 ```
 
 ## <a name="get-the-service-api-key"></a>Ottenere la chiave API del servizio

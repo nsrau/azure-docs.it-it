@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2018
+ms.date: 02/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 59053e4beda48fd8474da675e50e02438c79a98e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2b39ff3665a4cc3aeddf81b83e0c90c7f770da72
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
@@ -41,19 +41,25 @@ Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili off
 |set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportato.<br>Aggiungere più istanze di una scala impostata utilizzando il portale, i modelli di gestione risorse o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
+Azure impone limiti delle risorse in diversi modi per evitare l'utilizzo eccessivo delle risorse (server locali e a livello di servizio). Senza inserire alcuni limiti in un consumo di tenant di risorsa, l'esperienza di tenant può risultare compromesse quando un vicino fastidioso overconsumes risorse. 
+- Rete in uscita dalla macchina virtuale, siano estremità della larghezza di banda in uso. Estremità nello Stack di Azure corrispondere i delimitatori in Azure.  
+- Per le risorse di archiviazione, Stack di Azure implementa i limiti di IOPs di archiviazione per evitare l'uso eccessivo di base delle risorse dai tenant per l'accesso all'archiviazione. 
+- Per le macchine virtuali con più dischi dati collegati, la velocità effettiva massima di ogni disco dati individuali è 500 operazioni di IOPS per HHDs e 2300 IOPS per unità SSD.
 
-Stack di Azure supporta le dimensioni seguenti:
+Nella tabella seguente sono elencate le macchine virtuali che sono supportate nello Stack di Azure con la relativa configurazione:
 
-| type | Dimensione | Intervallo di dimensioni supportate |
-| --- | --- | --- |
-|Scopo generico |Basic A|A0 - A4|
-|Scopo generico |A standard|A0-A7|
-|Scopo generico |Serie D|D1 - D4|
-|Scopo generico |Serie Dv2|D1_v2 - D5_v2|
-|Scopo generico |Serie DS|DS1 - DS4|
-|Scopo generico |Serie DSv2|DS1_v2 - DS5_v2|
-|Ottimizzate per la memoria|Serie DS|DS11 - DS14|
-|Ottimizzate per la memoria |Serie DSv2|DS11_v2 - DS14_v2|
+| type           | Dimensione          | Intervallo di dimensioni supportate |
+| ---------------| ------------- | ------------------------ |
+|Scopo generico |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Scopo generico |A standard     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|Scopo generico |Serie D       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|Scopo generico |Serie Dv2     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|Scopo generico |Serie DS      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|Scopo generico |Serie DSv2    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|Ottimizzate per la memoria|Serie D       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|Ottimizzate per la memoria|Serie DS      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Ottimizzate per la memoria|Serie Dv2     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Ottimizzate per la memoria|DSv2-series-  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, questa coerenza include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
 

@@ -12,17 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 036d5c2945bd6730d65f88f72c9377047fefcde6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Gestire le interfacce di rete della macchina virtuale per gli scenari dall'ambiente locale ad Azure
 
-Una macchina virtuale (VM) in Azure deve avere almeno un'interfaccia di rete collegata, fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa. 
+Una macchina virtuale (VM) in Azure deve avere almeno un'interfaccia di rete collegata, fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa.
 
 Per impostazione predefinita, la prima interfaccia di rete collegata a una macchina virtuale di Azure è definita interfaccia di rete primaria. Tutte le altre interfacce di rete nella macchina virtuale sono interfacce di rete secondarie. Sempre per impostazione predefinita, tutto il traffico in uscita dalla macchina virtuale viene inviato all'indirizzo IP assegnato alla configurazione IP primaria dell'interfaccia di rete primaria.
 

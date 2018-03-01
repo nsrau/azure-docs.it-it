@@ -79,13 +79,13 @@
 ### [Usare i cmdlet di PowerShell](batch-powershell-cmdlets-get-started.md)
 ### [Usare l'interfaccia della riga di comando di Azure](batch-cli-get-started.md)
 
-# Riferimenti
+# riferimento
 
 ## [Interfaccia della riga di comando di Azure](/cli/azure/batch)
 ## [Azure PowerShell](/powershell/module/azurerm.batch)
-## [.NET](/dotnet/api/microsoft.azure.batch)
-## [Java](/java/api/com.microsoft.azure.batch)
-## [Node.JS](/nodejs/api/overview/azure/batch)
+## [.NET](/dotnet/api/overview/azure/batch)
+## [Java](/java/api/overview/azure/batch)
+## [Node.JS](/javascript/api/overview/azure/batch)
 ## [Python](/python/api/overview/azure/batch)
 ## REST
 ### [Servizio Batch](/rest/api/batchservice)
@@ -100,7 +100,6 @@
 ### [Evento di completamento attività](batch-task-complete-event.md)
 ### [Evento di attività non riuscita](batch-task-fail-event.md)
 ## [Variabili di ambiente per i nodi di calcolo di Batch](batch-compute-node-environment-variables.md)
-### [Modello di Resource Manager](/templates/microsoft.batch/batchaccounts)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
@@ -110,6 +109,7 @@
 ## [Soluzioni HPC in Azure](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/batch/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
+## [Modello di Resource Manager](/azure/templates/microsoft.batch/batchaccounts)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=batch)

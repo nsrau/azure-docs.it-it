@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 5ec0412dc91a7e5c28ee9ee820df9584ffa80cd8
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigazione e dashboard nel portale Application Insights
 Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md), i dati di telemetria sull'uso e le prestazioni dell'app verranno visualizzati nella risorsa di Application Insights del progetto nel [portale di Azure](https://portal.azure.com).
@@ -117,7 +117,6 @@ Il pannello Panoramica è il gateway per altre informazioni sull'app.
 
 ### <a name="essentials-tab"></a>Scheda Informazioni di base
 * [Chiave di strumentazione](app-insights-create-new-resource.md#copy-the-instrumentation-key): identifica la risorsa dell'app.
-* Prezzi: rende disponibili le funzionalità e imposta i limiti per i volumi.
 
 ### <a name="app-navigation-bar"></a>Barra di spostamento delle app
 ![Barra di spostamento sinistra](./media/app-insights-dashboards/app-left-nav-bar.png)

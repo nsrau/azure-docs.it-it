@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 27b575a1baa793794480d16e91f0f96355b3d303
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 3437bc9f164cbdc6c923498b978291ced6278744
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare gli elementi di marketplace da Azure allo Stack di Azure
 
@@ -109,7 +109,7 @@ Dal computer con connettività internet, utilizzare la procedura seguente per sc
 
 ### <a name="import-the-image-and-publish-it-to-azure-stack-marketplace"></a>Importare l'immagine e pubblicarla in marketplace Azure Stack
 
-1. Dopo aver scaricato il pacchetto di raccolta e di immagine, salvare loro e il relativo contenuto nella cartella AzureStack-strumenti-master per un'unità disco rimovibile e copiarlo in un ambiente dello Stack di Azure (è possibile copiarlo in locale in qualsiasi posizione, ad esempio: "C:\MarketplaceImages").   
+1. Dopo aver scaricato il pacchetto di raccolta e di immagine, salvare loro e il relativo contenuto nella cartella AzureStack-strumenti-master per un'unità disco rimovibile e copiarlo in un ambiente dello Stack di Azure (è possibile copiarlo in locale in qualsiasi posizione, ad esempio: "C:\MarketplaceImages").     
 
 2. Prima di importare l'immagine, è necessario connettersi all'ambiente dell'operatore dello Stack di Azure tramite la procedura descritta in [configurare l'ambiente di PowerShell Azure Stack operatore](azure-stack-powershell-configure-admin.md).  
 
