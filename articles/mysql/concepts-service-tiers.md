@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 11/03/2017
 ms.openlocfilehash: ae7e57e9b40f5194c15525a48843060bbccaa956
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opzioni e prestazioni disponibili per il database per MySQL di Azure: identificare gli elementi disponibili in ogni piano tariffario
 Quando si crea un database di Azure per il server MySQL, si può scegliere tra tre opzioni principali per configurare le risorse allocate per tale server. Queste scelte influenzano le prestazioni e la scalabilità del server.

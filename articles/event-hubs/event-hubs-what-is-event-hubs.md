@@ -12,25 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 9b7be70d726edfa9dbda3719d431e532106724b6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 08b78f59dc758f12556f332546ccb6043bef2812
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-event-hubs"></a>Che cos'è Hub eventi?
 
 Hub eventi di Azure è una piattaforma di streaming di dati estremamente scalabile e un servizio di inserimento degli eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Con la possibilità di fornire [funzionalità di pubblicazione-sottoscrizione](/biztalk/core/publish-and-subscribe-architecture) con una latenza bassa e su larga scala, Hub eventi funge da "rampa di ingresso" per i Big Data.
-
-## <a name="why-use-event-hubs"></a>Vantaggi dell'uso di Hub eventi
-
-Gli eventi e le funzionalità di gestione della telemetria di Hub eventi sono particolarmente utili per:
-
-* Strumentazione dell'applicazione
-* Esperienza dell'utente o l'elaborazione del flusso di lavoro
-* Scenari Internet of Things (IoT)
 
 Hub eventi consente, ad esempio, il rilevamento del comportamento nelle app per dispositivi mobili, il traffico di informazioni da Web farm, l'acquisizione di eventi nei giochi per console e la raccolta di dati di telemetria da computer industriali, veicoli connessi o altri dispositivi.
 

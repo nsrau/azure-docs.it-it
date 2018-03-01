@@ -58,9 +58,7 @@
     - name: Risorse
       items:
         - name: Piani tariffari
-          href: concepts-service-tiers.md
-        - name: Unità di calcolo
-          href: concepts-compute-unit-and-storage.md
+          href: concepts-pricing-tiers.md
         - name: Limiti
           href: concepts-limits.md
     - name: Accesso ai dati e sicurezza
@@ -69,6 +67,12 @@
           href: concepts-firewall-rules.md
         - name: Configurare SSL
           href: concepts-ssl-connection-security.md
+    - name: Continuità aziendale
+      items:
+        - name: Panoramica
+          href: concepts-business-continuity.md
+        - name: Backup e ripristino
+          href: concepts-backup.md
     - name: Monitorare
       href: concepts-monitoring.md
     - name: Sviluppo.
@@ -77,7 +81,9 @@
           href: concepts-connection-libraries.md
 - name: Guide alle procedure
   items:
-    - name: Regole del firewall
+    - name: Creare gli utenti
+      href: howto-create-users.md
+    - name: Gestire il firewall
       items:
         - name: Portale di Azure
           href: howto-manage-firewall-using-portal.md
@@ -113,7 +119,7 @@
       items:
         - name: Creare avvisi relativi alle metriche
           href: howto-alert-on-metric.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/postgres

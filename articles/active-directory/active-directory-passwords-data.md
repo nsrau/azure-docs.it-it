@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 929843825d19c003b5a97363a03ffdd3ae2a2f7d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -112,7 +112,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Usare PowerShell versione 2
 
-Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell versione 2](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure%20AD%20Cmdlets/AzureAD/index.md). Al termine dell'installazione, è possibile seguire la procedura seguente per configurare tutti i campi.
+Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell versione 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0). Al termine dell'installazione, è possibile seguire la procedura seguente per configurare tutti i campi.
 
 Per eseguire l'installazione rapida da versioni recenti di PowerShell che supportano Install-Module, eseguire i comandi seguenti. La prima riga controlla se il modulo è già installato.
 

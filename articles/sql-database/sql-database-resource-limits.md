@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 531b162f2c3d6165c3ca8a54a5822bc10e7c0eff
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 839705b902b8e1343c1e0bda97a2ec1dc6b47042
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limiti delle risorse del database SQL di Azure
 
@@ -53,7 +53,7 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 
 * Se si esegue l'aggiornamento a un livello di servizio o di prestazioni superiore, le dimensioni massime del database non aumentano a meno che non si specifichino esplicitamente dimensioni più elevate (massime).
 * Per effettuare il downgrade di un database, la relativa quantità di spazio usato deve essere inferiore alle dimensioni massime consentite per il livello di servizio di destinazione e il livello di prestazioni. 
-* Quando si effettua il downgrade dal livello **Premium** o **Premium RS** al livello **Standard**, viene applicato un costo per le risorse di archiviazione extra se (1) le dimensioni massime del database sono supportate nel livello di prestazioni di destinazione e (2) le dimensioni massime superano la quantità inclusa di risorse di archiviazione del livello di prestazioni di destinazione. Se ad esempio un database P1 con una dimensione massima di 500 GB viene ridotto a S3, viene applicato un costo per le risorse di archiviazione extra, poiché S3 supporta una dimensione massima di 500 GB e la quantità di risorse di archiviazione inclusa è solo di 250 GB. La quantità di risorse di archiviazione extra è quindi 500 GB - 250 GB = 250 GB. Per i prezzi delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa. 
+* Quando si effettua il downgrade dal livello **Premium** al livello **Standard**, viene applicato un costo per le risorse di archiviazione extra se (1) le dimensioni massime del database sono supportate nel livello di prestazioni di destinazione e (2) le dimensioni massime superano la quantità inclusa di risorse di archiviazione del livello di prestazioni di destinazione. Se ad esempio un database P1 con una dimensione massima di 500 GB viene ridotto a S3, viene applicato un costo per le risorse di archiviazione extra, poiché S3 supporta una dimensione massima di 500 GB e la quantità di risorse di archiviazione inclusa è solo di 250 GB. La quantità di risorse di archiviazione extra è quindi 500 GB - 250 GB = 250 GB. Per i prezzi delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa. 
 * Quando si aggiorna un database con [replica geografica](sql-database-geo-replication-portal.md) abilitata, l'indicazione generale è aggiornare i database secondari al livello di prestazioni desiderato prima di aggiornare il database primario. Durante l'aggiornamento a un'edizione diversa è necessario aggiornare per primo il database secondario.
 * Quando si effettua il downgrade di un database con [replica geografica](sql-database-geo-replication-portal.md) abilitata, l'indicazione generale è di eseguire il downgrade dei database primari al livello di prestazioni desiderato prima di eseguire questa operazione per il database secondario. Al momento del downgrade a un'edizione diversa, è necessario eseguire questa operazione iniziando dal database primario.
 * Le offerte per il ripristino del servizio sono diverse per i vari livelli di servizio. In caso di downgrade al livello **Basic**, il periodo di conservazione dei backup sarà inferiore. Vedere la sezione relativa ai [backup del database SQL di Azure](sql-database-automated-backups.md).
@@ -111,6 +111,19 @@ La tabella seguente descrive le proprietà per i database in pool.
 - In generale, la durata per modificare il numero minimo di eDTU per database o il numero massimo di eDTU per database è di cinque minuti o meno.
 - Quando si riducono le dimensioni delle eDTU del pool, lo spazio del pool usato deve essere inferiore alle dimensioni massime consentite per il livello di servizio e il livello di prestazioni di destinazione.
 - Durante il ridimensionamento delle eDTU del pool viene applicato un costo per le risorse di archiviazione extra se (1) le dimensioni massime delle risorse di archiviazione del pool sono supportate dal pool di destinazione e (2) la dimensione massima delle risorse di archiviazione supera la quantità inclusa del pool di destinazione. Se ad esempio un pool standard da 100 eDTU con una dimensione massima di 100 GB viene ridotto a un pool standard da 50 eDTU, viene applicato un costo per le risorse di archiviazione extra, poiché il pool di destinazione supporta una dimensione massima di 100 GB e la quantità di risorse di archiviazione inclusa è solo di 50 GB. La quantità di risorse di archiviazione extra è quindi 100 GB - 50 GB = 50 GB. Per i prezzi delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa. 
+
+## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Che cos'è il numero massimo di server e database?
+
+| Massima | Valore |
+| :--- | :--- |
+| Database per server | 5000 |
+| Numero di server per sottoscrizione per area | 21 |
+|||
+
+> [!IMPORTANT]
+> Poiché il numero di database si avvicina al limite per ogni server, può verificarsi quanto segue:
+> <br> •    Latenza in aumento nelle query in esecuzione nel database master.  Ciò include le visualizzazioni delle statistiche di utilizzo delle risorse, ad esempio sys.resource_stats.
+> <br> •    Latenza in aumento nelle operazioni di gestione e nel portale di esecuzione del rendering dei punti di visualizzazione che coinvolgono l'enumerazione dei database nel server.
 
 ## <a name="what-happens-when-database-and-elastic-pool-resource-limits-are-reached"></a>Cosa accade quando vengono raggiunti i limiti delle risorse del pool elastico e del database?
 

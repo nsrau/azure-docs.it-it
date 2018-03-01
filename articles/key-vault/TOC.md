@@ -1,3 +1,5 @@
+# [Documentazione su Key Vault](index.md)
+
 # Panoramica
 ## [Informazioni sull'insieme di credenziali delle chiavi](key-vault-whatis.md)
 ## [Panoramica del servizio](https://azure.microsoft.com/services/key-vault/)
