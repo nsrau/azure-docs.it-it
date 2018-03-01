@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: 8f5d4ba82fcf3c963373b0e90b707a7d86fc0fea
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrare l'applicazione nel tenant di Azure Active Directory
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
-3. Nel riquadro di spostamento a sinistra scegliere **More Services** (Altri servizi), fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
+3. Nel riquadro di spostamento sinistro scegliere **Tutti i servizi**, fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
 4. Seguire le istruzioni e creare una nuova applicazione. Per ottenere esempi specifici per applicazioni Web o per applicazioni native, vedere le [Guide introduttive](active-directory-developers-guide.md).
   * Per le applicazioni Web fornire l'**URL accesso**, ovvero l'URL di base dell'app con cui gli utenti possono accedere, ad esempio `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
@@ -40,12 +40,12 @@ ms.lasthandoff: 12/11/2017
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
-3. Nel riquadro di spostamento a sinistra scegliere **More Services** (Altri servizi), fare clic su**Registrazioni per l'app** e quindi scegliere l'applicazione dall'elenco.
+3. Nel riquadro di spostamento a sinistra scegliere **Tutti i servizi**, fare clic su**Registrazioni per l'app** e quindi scegliere l'applicazione dall'elenco.
 4. Fare clic su **Impostazioni** per aprire la pagina delle impostazioni per l'applicazione.
   * La pagina **Proprietà** consente di modificare le informazioni generali per l'applicazione, inclusi il nome dell'applicazione, l'URL di accesso e l'URL di disconnessione.
   * La pagina **URL di risposta** consente di aggiungere un URL di risposta, a cui Azure AD invia le risposte dei token.
   * La pagina **Proprietari** consente di aggiungere proprietari dell'applicazione.
-  * Il **delle autorizzazioni necessarie** pagina consente di configurare le autorizzazioni per l'app. Per accedere all'API Graph Microsoft, ad esempio, fare clic su **Aggiungi**, selezionare **Microsoft Graph** nel selettore di API e quindi scegliere l'autorizzazione necessaria, ad esempio **Lettura dati directory**.
+  * La pagina **Autorizzazioni necessarie** consente di configurare le autorizzazioni per l'app. Per accedere all'API Graph Microsoft, ad esempio, fare clic su **Aggiungi**, selezionare **Microsoft Graph** nel selettore di API e quindi scegliere l'autorizzazione necessaria, ad esempio **Lettura dati directory**.
   * La pagina **Chiavi** consente di aggiungere segreti dell'applicazione. Il segreto verrà visualizzato solo immediatamente dopo la creazione, quindi assicurarsi di copiarlo per un uso futuro.
 
 ## <a name="use-the-inline-manifest-editor"></a>Usare l'editor manifesto incorporato
@@ -54,11 +54,11 @@ ms.lasthandoff: 12/11/2017
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD selezionando l'account nell'angolo superiore destro della pagina.
-3. Nel riquadro di spostamento a sinistra scegliere **More Services** (Altri servizi), fare clic su**Registrazioni per l'app** e quindi scegliere l'applicazione dall'elenco.
+3. Nel riquadro di spostamento a sinistra scegliere **Tutti i servizi**, fare clic su**Registrazioni per l'app** e quindi scegliere l'applicazione dall'elenco.
 4. Fare clic su **Manifesto** nella pagina dell'applicazione per aprire l'editor manifesto incorporato.
 5. È possibile modificare direttamente il manifesto e salvarlo al termine delle modifiche. In alternativa è possibile scaricare il manifesto per aprirlo nell'editor preferito e caricare il manifesto aggiornato.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 1. Per procedure dettagliate relative all'autenticazione delle applicazioni tramite Azure AD, vedere le [Guide introduttive](active-directory-developers-guide.md).
 2. Per un elenco completo di esempi di codice, vedere [GitHub](https://github.com/azure-samples).

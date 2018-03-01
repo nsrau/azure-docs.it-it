@@ -1,6 +1,6 @@
 ---
-title: "Programma FedRAMP per l'automazione dei progetti di Azure - Integrità del sistema e delle informazioni"
-description: "Applicazioni Web per FedRAMP - Integrità del sistema e delle informazioni"
+title: "Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Integrità del sistema e delle informazioni"
+description: "Automazione di applicazioni Web per FedRAMP - Integrità del sistema e delle informazioni"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1dc6805a5a1f610f06ce58bd4bd644346436294e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Integrità del sistema e delle informazioni
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce la soluzione OMS Automation & Control per tenere traccia dello stato degli aggiornamenti per le macchine virtuali di Windows distribuite in questa architettura. Nel riquadro Gestione aggiornamenti del dashboard OMS viene visualizzato lo stato della correzione degli errori per tutti i server Windows distribuiti. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Automazione e controllo per tenere traccia dello stato degli aggiornamenti per le macchine virtuali di Windows distribuite in questa architettura. Nel riquadro Gestione aggiornamenti del dashboard OMS viene visualizzato lo stato della correzione degli errori per tutti i server Windows distribuiti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali Windows distribuite tramite questo progetto di Azure vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione OMS Automation & Control tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze. |
+| **Cliente** | Le macchine virtuali Windows distribuite tramite questo progetto vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione OMS Automation & Control tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce la soluzione OMS Automation & Control per tenere traccia dello stato degli aggiornamenti per le macchine virtuali di Windows distribuite in questa architettura. Nel riquadro Gestione aggiornamenti del dashboard OMS viene visualizzato lo stato della correzione degli errori per tutti i server Windows distribuiti. È possibile creare distribuzioni di aggiornamento per distribuire le patch ai server Windows quando necessario. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Automazione e controllo per tenere traccia dello stato degli aggiornamenti per le macchine virtuali di Windows distribuite in questa architettura. Nel riquadro Gestione aggiornamenti del dashboard OMS viene visualizzato lo stato della correzione degli errori per tutti i server Windows distribuiti. È possibile creare distribuzioni di aggiornamento per distribuire le patch ai server Windows quando necessario. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce la soluzione OMS Automation & Control per tenere traccia dello stato degli aggiornamenti per le macchine virtuali di Windows distribuite in questa architettura. Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti, l'API Windows viene chiamata per eseguire una query per la data/ora dell'ultimo aggiornamento e determinare se lo stato è stato modificato. In caso affermativo viene avviata un'analisi di conformità. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Automazione e controllo per tenere traccia dello stato degli aggiornamenti per le macchine virtuali di Windows distribuite in questa architettura. Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti, l'API Windows viene chiamata per eseguire una query per la data/ora dell'ultimo aggiornamento e determinare se lo stato è stato modificato. In caso affermativo viene avviata un'analisi di conformità. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. |
+| **Cliente** | Questo progetto distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione è configurata in modo da aggiornare automaticamente sia il motore antimalware sia le firme di protezione nel momento in cui vengono rilasciate nuove versioni. |
+| **Cliente** | Questo progetto distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione è configurata in modo da aggiornare automaticamente sia il motore antimalware sia le firme di protezione nel momento in cui vengono rilasciate nuove versioni. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione viene configurata per eseguire analisi in tempo reale e periodiche (settimanali), aggiornare automaticamente il motore antimalware e le firme di protezione ed eseguire azioni automatiche di correzione. |
+| **Cliente** | Questo progetto distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione viene configurata per eseguire analisi in tempo reale e periodiche (settimanali), aggiornare automaticamente il motore antimalware e le firme di protezione ed eseguire azioni automatiche di correzione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. OMS Azure fornisce una funzionalità centralizzata per esaminare lo stato corrente della soluzione antimalware. |
+| **Cliente** | Questo progetto distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. OMS Azure fornisce una funzionalità centralizzata per esaminare lo stato corrente della soluzione antimalware. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione è configurata in modo da aggiornare automaticamente sia il motore antimalware sia le firme di protezione nel momento in cui vengono rilasciate nuove versioni. |
+| **Cliente** | Questo progetto distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione è configurata in modo da aggiornare automaticamente sia il motore antimalware sia le firme di protezione nel momento in cui vengono rilasciate nuove versioni. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione è configurata per eseguire il rilevamento euristico. |
+| **Cliente** | Questo progetto distribuisce funzionalità di protezione antimalware basate su host per tutte le macchine virtuali Windows distribuite, implementate tramite l'estensione per macchine virtuali Microsoft Antimalware. Questa estensione è configurata per eseguire il rilevamento euristico. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce il servizio Log Analytics e la soluzione OMS Sicurezza e controllo. Questa soluzione fornisce una panoramica completa a livello di condizioni di sicurezza, attacchi e indicatori dei potenziali attacchi. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
+| **Cliente** | Questo progetto distribuisce il servizio Log Analytics e la soluzione OMS Sicurezza e controllo. Questa soluzione fornisce una panoramica completa a livello di condizioni di sicurezza, attacchi e indicatori dei potenziali attacchi. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce la soluzione OMS Sicurezza e controllo. Il dominio Identify and Access (Identificazione e accesso) fornisce un dashboard con una panoramica sullo stato delle identità nel sistema informativo, ad esempio il numero di tentativi di accesso non riusciti e il numero corrente di account che hanno eseguito l'accesso. Le informazioni disponibili in questo dashboard consentono di identificare una potenziale attività sospetta. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Il dominio Identify and Access (Identificazione e accesso) fornisce un dashboard con una panoramica sullo stato delle identità nel sistema informativo, ad esempio il numero di tentativi di accesso non riusciti e il numero corrente di account che hanno eseguito l'accesso. Le informazioni disponibili in questo dashboard consentono di identificare una potenziale attività sospetta. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce il servizio Log Analytics e la soluzione OMS Sicurezza e controllo. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite, nonché informazioni dettagliate sui dati di monitoraggio del sistema operativo delle macchine virtuali. |
+| **Cliente** | Questo progetto distribuisce il servizio Log Analytics e la soluzione OMS Sicurezza e controllo. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite, nonché informazioni dettagliate sui dati di monitoraggio del sistema operativo delle macchine virtuali. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I controlli dell'accesso logico vengono usati per proteggere le informazioni di monitoraggio in questo progetto di Azure da eventi di accesso, modifica ed eliminazione non autorizzati. Azure Active Directory applica l'accesso logico approvato tramite le appartenenze ai gruppi basati sui ruoli. La possibilità di visualizzare le informazioni di monitoraggio e usare gli strumenti di monitoraggio può essere limitata agli utenti che necessitano di tali autorizzazioni. |
+| **Cliente** | I controlli dell'accesso logico vengono usati per proteggere le informazioni di monitoraggio in questo progetto da eventi di accesso, modifica ed eliminazione non autorizzati. Azure Active Directory applica l'accesso logico approvato tramite le appartenenze ai gruppi basati sui ruoli. La possibilità di visualizzare le informazioni di monitoraggio e usare gli strumenti di monitoraggio può essere limitata agli utenti che necessitano di tali autorizzazioni. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce il servizio Log Analytics e varie soluzioni OMS, ad esempio la soluzione Sicurezza e controllo. Log Analytics fornisce analisi quasi in tempo reale degli eventi nelle risorse distribuite. Le soluzioni OMS offrono una panoramica completa sul comportamento di sicurezza tra domini di soluzioni. OMS offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. OMS può essere configurato in modo da generare avvisi in base ai criteri definiti. |
+| **Cliente** | Questo progetto distribuisce il servizio Log Analytics e varie soluzioni OMS, ad esempio la soluzione Sicurezza e controllo. Log Analytics fornisce analisi quasi in tempo reale degli eventi nelle risorse distribuite. Le soluzioni OMS offrono una panoramica completa sul comportamento di sicurezza tra domini di soluzioni. OMS offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. OMS può essere configurato in modo da generare avvisi in base ai criteri definiti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce varie soluzioni OMS, ad esempio la soluzione Sicurezza e controllo. Log Analytics fornisce analisi quasi in tempo reale degli eventi nelle risorse distribuite. Le soluzioni OMS offrono una panoramica completa sul comportamento di sicurezza tra domini di soluzioni. OMS può essere configurato in modo da generare avvisi in base ai criteri definiti. |
+| **Cliente** | Questo progetto distribuisce varie soluzioni OMS, ad esempio la soluzione Sicurezza e controllo. Log Analytics fornisce analisi quasi in tempo reale degli eventi nelle risorse distribuite. Le soluzioni OMS offrono una panoramica completa sul comportamento di sicurezza tra domini di soluzioni. OMS può essere configurato in modo da generare avvisi in base ai criteri definiti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce il servizio Log Analytics e varie soluzioni OMS, ad esempio la soluzione Sicurezza e controllo. OMS offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
+| **Cliente** | Questo progetto distribuisce il servizio Log Analytics e varie soluzioni OMS, ad esempio la soluzione Sicurezza e controllo. OMS offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure raccoglie dati di monitoraggio dalle risorse implementate, inclusi i dati dalle funzionalità di monitoraggio basate su host. Microsoft Monitoring Agent viene installato in tutte le macchine virtuali Windows per raccogliere i dati di monitoraggio usati da Log Analytics e da altre soluzioni OMS. |
+| **Cliente** | Questo progetto raccoglie dati di monitoraggio dalle risorse distribuite, inclusi i dati dalle funzionalità di monitoraggio basate su host. Microsoft Monitoring Agent viene installato in tutte le macchine virtuali Windows per raccogliere i dati di monitoraggio usati da Log Analytics e da altre soluzioni OMS. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Windows fornisce servizi di convalida dell'integrità dei file in tempo reale, di protezione e di ripristino dei file di sistema di base, installati nell'ambito di Windows o di aggiornamenti di sistema di Windows autorizzati, tramite la funzionalità Protezione risorse di Windows. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows fornisce servizi di convalida dell'integrità dei file in tempo reale, di protezione e di ripristino dei file di sistema di base, installati nell'ambito di Windows o di aggiornamenti di sistema di Windows autorizzati, tramite la funzionalità Protezione risorse di Windows. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Windows fornisce servizi di convalida dell'integrità dei file in tempo reale, di protezione e di ripristino dei file di sistema di base, installati nell'ambito di Windows o di aggiornamenti di sistema di Windows autorizzati, tramite la funzionalità Protezione risorse di Windows. La funzionalità Protezione risorse di Windows consente l'esecuzione del controllo di integrità in tempo reale. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows fornisce servizi di convalida dell'integrità dei file in tempo reale, di protezione e di ripristino dei file di sistema di base, installati nell'ambito di Windows o di aggiornamenti di sistema di Windows autorizzati, tramite la funzionalità Protezione risorse di Windows. La funzionalità Protezione risorse di Windows consente l'esecuzione del controllo di integrità in tempo reale. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Windows fornisce servizi di convalida dell'integrità dei file in tempo reale, di protezione e di ripristino dei file di sistema di base, installati nell'ambito di Windows o di aggiornamenti di sistema di Windows autorizzati, tramite la funzionalità Protezione risorse di Windows.  |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows fornisce servizi di convalida dell'integrità dei file in tempo reale, di protezione e di ripristino dei file di sistema di base, installati nell'ambito di Windows o di aggiornamenti di sistema di Windows autorizzati, tramite la funzionalità Protezione risorse di Windows.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto di Azure. |
+| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto di Azure. |
+| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto di Azure. |
+| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto di Azure. |
+| **Cliente** | Non sono presenti server di posta distribuiti nell'ambito di questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -819,7 +819,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questo progetto di Azure usano sistemi operativi e applicazioni software commerciali. Questo software usa procedure consigliate specifiche del settore per garantire la non divulgazione di informazioni riservate tramite i messaggi di errore. |
+| **Cliente** | Le risorse distribuite da questo progetto usano sistemi operativi e applicazioni software commerciali. Questo software usa procedure consigliate specifiche del settore per garantire la non divulgazione di informazioni riservate tramite i messaggi di errore. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -833,7 +833,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questo progetto di Azure usano sistemi operativi e applicazioni software commerciali. Questo software usa procedure consigliate specifiche del settore per generare messaggi di errore appropriati al contesto di ricezione del messaggio. |
+| **Cliente** | Le risorse distribuite da questo progetto usano sistemi operativi e applicazioni software commerciali. Questo software usa procedure consigliate specifiche del settore per generare messaggi di errore appropriati al contesto di ricezione del messaggio. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -861,5 +861,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Windows ha messo a punto le seguenti funzionalità di protezione per impedire l'esecuzione di codice in posizioni con capacità di memoria limitata: NX (No Execute), ASLR (Address Space Layout Randomization) e Protezione esecuzione programmi. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows ha messo a punto le seguenti funzionalità di protezione per impedire l'esecuzione di codice in posizioni con capacità di memoria limitata: NX (No Execute), ASLR (Address Space Layout Randomization) e Protezione esecuzione programmi. |
 | **Provider (Microsoft Azure)** | Non applicabile |

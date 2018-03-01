@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01f845e0cb987eb4e4e9baa62478d3ff6991fb7e
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 
@@ -493,6 +493,9 @@ Per impostazione predefinita, tutte le route di funzione sono precedute da *api*
 ### <a name="authorization-keys"></a>Chiavi di autorizzazione
 
 I trigger HTTP consentono di usare le chiavi per una maggiore sicurezza. Un trigger HTTP standard può usare queste chiavi come chiave API, richiedendone la presenza nella richiesta. I webhook possono usare le chiavi per autorizzare le richieste in svariati modi, a seconda di ciò che il provider supporta.
+
+> [!NOTE]
+> Durante l'esecuzione di funzioni in locale, l'autorizzazione viene disabilitata indipendentemente dal valore `authLevel` impostato in `function.json`. Subito dopo la pubblicazione in Funzioni di Azure, `authLevel` diventa immediatamente effettivo.
 
 Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crittografate inattive. Per visualizzare le chiavi, crearne di nuove o aggiornare le chiavi con nuovi valori, passare a una delle funzioni nel portale e selezionare "Gestisci". 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 441bb0a269de400c82abc083118f5e0642523640
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 901bacd450561ee5eb4811320626d6ecbcc8c916
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione e sottoscrizioni
 
@@ -33,18 +33,16 @@ I passaggi per creare un peering di rete virtuale sono diversi a seconda che le 
 |[Entrambi con Resource Manager](create-peering-different-subscriptions.md) |Diversa|
 |[Uno con Resource Manager, uno con una distribuzione classica](create-peering-different-deployment-models.md) |Uguale|
 
-Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. La possibilità di eseguire il peering di reti virtuali create tramite modelli di distribuzione diversi che esistono in sottoscrizioni diverse attualmente è in anteprima. Per completare questa esercitazione, è innanzitutto necessario [registrarsi](#register) per usare la funzionalità. Questa esercitazione usa le reti virtuali che esistono nella stessa area. Anche la possibilità di eseguire il peering di reti virtuali in aree diverse è in anteprima. Anche per usare tale funzionalità, è necessario [registrarsi](#register). Le due funzionalità sono indipendenti. Per completare questa esercitazione, è necessario registrarsi solo per la funzionalità di peering delle reti virtuali create tramite modelli di distribuzione diversi che esistono in sottoscrizioni diverse. 
+Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. Questa esercitazione usa le reti virtuali che esistono nella stessa area. La possibilità di eseguire il peering di reti virtuali in aree diverse è in anteprima. Per usare tale funzionalità, è necessario [registrarsi](#register). 
 
-Quando si crea un peering di rete virtuale tra reti virtuali incluse in sottoscrizioni diverse, entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory. Se non si ha già un tenant di Azure Active Directory, è possibile [crearne uno](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) rapidamente. 
-
-La possibilità di connettere reti virtuali create tramite un modello di distribuzione, diversi modelli di distribuzione, aree diverse o sottoscrizioni associate agli stessi tenant o a tenant diversi di Azure Active Directory tramite un [Gateway VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure è in versione di anteprima e non richiede la registrazione.
+Quando si crea un peering di rete virtuale tra reti virtuali incluse in sottoscrizioni diverse, entrambe le sottoscrizioni devono essere associate allo stesso tenant di Azure Active Directory. Se non si ha già un tenant di Azure Active Directory, è possibile [crearne uno](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) rapidamente. È possibile connettere reti virtuali in sottoscrizioni diverse e tenant di Azure Active Directory diversi tramite un [Gateway VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.
 
 Per creare un peering di rete virtuale, è possibile usare il [portale di Azure](#portal), l'[interfaccia della riga di comando](#cli) di Azure o [Azure PowerShell](#powershell). Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con il determinato strumento.
 
 ## <a name="portal"></a>Creare un peering - Portale di Azure
 
-Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione dal portale e quelli per l'assegnazione a un altro utente delle autorizzazioni per le reti virtuali. Prima di completare i passaggi seguenti, è necessario eseguire la registrazione per l'anteprima. Per eseguire la registrazione per l'anteprima, completare i passaggi nella sezione [Eseguire la registrazione per l'anteprima](#register) di questo articolo. I passaggi rimanenti non riescono se non si registrano entrambe le sottoscrizioni per l'anteprima.
- 
+Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione dal portale e quelli per l'assegnazione delle autorizzazioni per le reti virtuali a un altro utente.
+
 1. Accedere al [portale di Azure](https://portal.azure.com) come UserA. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Vedere la sezione [Autorizzazioni](#permissions) di questo articolo per informazioni dettagliate.
 2. Fare clic su **+ Nuovo**, **Rete** e quindi **Rete virtuale**.
 3. Nel pannello **Crea rete virtuale** immettere o selezionare i valori necessari per le impostazioni seguenti e quindi fare clic su **Crea**:
@@ -60,7 +58,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 6. Nel pannello **myVnetA - Controllo di accesso (IAM)** visualizzato fare clic su **+ Aggiungi**.
 7. Nel pannello **Aggiungi autorizzazioni** visualizzato selezionare **Collaboratore rete** nella casella **Ruolo**.
 8. Nella casella **Seleziona** selezionare UserB o digitare l'indirizzo di posta elettronica di UserB per cercarlo. L'elenco di utenti mostrato è tratto dallo stesso tenant di Azure Active Directory della rete virtuale per la quale si sta configurando il peering. Quando viene visualizzato nell'elenco, fare clic su UserB.
-9. Fare clic su **Salva**.
+9. Fare clic su **Save**.
 10. Disconnettersi dal portale come UserA e quindi accedere come UserB.
 11. Fare clic su **+ Nuovo**, digitare *Rete virtuale* nella casella **Cerca nel Marketplace**, quindi fare clic su **Rete virtuale** nei risultati della ricerca.
 12. Nel pannello **Rete virtuale** che viene visualizzato selezionare **Classico** nella casella **Selezionare un modello di distribuzione** e fare clic su **Crea**.
@@ -99,8 +97,6 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 ## <a name="cli"></a>Creare un peering - Interfaccia della riga di comando di Azure
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB. 
-
-Prima di completare i passaggi seguenti, è necessario eseguire la registrazione per l'anteprima. Per eseguire la registrazione per l'anteprima, completare i passaggi nella sezione [Eseguire la registrazione per l'anteprima](#register) di questo articolo. I passaggi rimanenti non riescono se non si registrano entrambe le sottoscrizioni per l'anteprima.
 
 1. [Installare](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) l'interfaccia della riga di comando di Azure 1.0 per creare la rete virtuale con modello di distribuzione classico.
 2. Aprire una sessione dell'interfaccia della riga di comando e accedere ad Azure come UserB usando il comando `azure login`.
@@ -187,8 +183,6 @@ Prima di completare i passaggi seguenti, è necessario eseguire la registrazione
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB. 
 
-Prima di completare i passaggi seguenti, è necessario eseguire la registrazione per l'anteprima. Per eseguire la registrazione per l'anteprima, completare i passaggi nella sezione [Eseguire la registrazione per l'anteprima](#register) di questo articolo. I passaggi rimanenti non riescono se non si registrano entrambe le sottoscrizioni per l'anteprima.
-
 1. Installare la versione più recente di [Azure](https://www.powershellgallery.com/packages/Azure) PowerShell e i moduli [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
 2. Avviare una sessione di PowerShell.
 3. In PowerShell accedere alla sottoscrizione di UserB come UserB immettendo il comando `Add-AzureAccount`.
@@ -208,7 +202,7 @@ Prima di completare i passaggi seguenti, è necessario eseguire la registrazione
     ```
 
     > [!WARNING]
-    > L'importazione di un file di configurazione di rete modificato può modificare le reti virtuali esistenti create con distribuzione classica nella sottoscrizione. Assicurarsi di aggiungere solo la rete virtuale precedente e di non modificare o rimuovere le reti virtuali esistenti dalla sottoscrizione. 
+    > L'importazione di un file di configurazione di rete modificato può modificare le reti virtuali esistenti create con la distribuzione classica nella sottoscrizione. Assicurarsi di aggiungere solo la rete virtuale precedente e di non modificare o rimuovere le reti virtuali esistenti dalla sottoscrizione. 
 
 5. Accedere alla sottoscrizione di UserB come UserB per usare i comandi di Resource Manager immettendo il comando `login-azurermaccount`.
 6. Assegnare le autorizzazioni utente di UserA alla rete virtuale B. Copiare lo script seguente in un editor di testo nel PC e sostituire `<SubscriptionB-id>` con l'ID della sottoscrizione B. Se non si conosce l'ID della sottoscrizione, immettere il comando `Get-AzureRmSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID della sottoscrizione. Azure ha creato la rete virtuale con distribuzione classica creata nel passaggio 4 in un gruppo di risorse denominato *Default-Networking*. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
@@ -341,62 +335,6 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 
     > [!WARNING]
     > L'importazione di un file di configurazione di rete modificato può modificare le reti virtuali esistenti create con distribuzione classica nella sottoscrizione. Assicurarsi di rimuovere solo la rete virtuale precedente e di non modificare o rimuovere altre reti virtuali esistenti dalla sottoscrizione. 
-
-## <a name="register"></a>Eseguire la registrazione per l'anteprima
-
-La possibilità di eseguire il peering di reti virtuali create tramite modelli di distribuzione di Azure diversi che esistono in sottoscrizioni diverse attualmente è in anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità in anteprima, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network). 
-
-Innanzitutto, è necessario registrarsi per la funzionalità tra sottoscrizioni, tra la modelli di distribuzione prima che sia possibile usarla. Completare i passaggi seguenti all'interno della sottoscrizione in cui si trovano le reti virtuali per cui si desidera eseguire il peering, tramite Azure PowerShell o l'interfaccia della riga di comando di Azure:
-
-### <a name="powershell"></a>PowerShell
-
-1. Installare la versione più recente del modulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) di PowerShell. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
-2. Avviare una sessione di PowerShell e accedere ad Azure usando il comando `Login-AzureRmAccount`.
-3. Registrare per l'anteprima la sottoscrizione in cui si trova ognuna delle reti virtuali di cui si vuole eseguire il peering immettendo i comandi seguenti:
-
-    ```powershell
-    Register-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    
-    Register-AzureRmResourceProvider `
-      -ProviderNamespace Microsoft.Network
-    ```
-4. Verificare di essere registrati per l'anteprima immettendo il comando seguente:
-
-    ```powershell    
-    Get-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
-      -ProviderNamespace Microsoft.Network
-    ```
-
-    Non completare i passaggi descritti nelle sezioni relative al portale, all'interfaccia della riga di comando di Azure, a PowerShell o al modello di Gestione risorse di questo articolo finché l'output di **RegistrationState** che si riceve dopo aver immesso il comando precedente non corrisponde a **Registrato** per entrambe le sottoscrizioni.
-
-> [!NOTE]
-> Questa esercitazione usa le reti virtuali che esistono nella stessa area. Anche la possibilità di eseguire il peering di reti virtuali in aree diverse è in anteprima. Per registrarsi al peering tra aree o globale, completare di nuovo i passaggi 1-4, usando `-FeatureName AllowGlobalVnetPeering` anziché `-FeatureName AllowClassicCrossSubscriptionPeering`. Le due funzionalità sono indipendenti l'una dall'altra. Non è necessario registrarsi per entrambe, a meno che non si desideri usarle entrambe. La funzionalità è disponibile in un set limitato di aree (inizialmente, Stati Uniti centro-occidentali, Canada centrale e Stati Uniti occidentali 2).
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-1. [Installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
-2. Assicurarsi di usare la versione 2.0.18 o successiva dell'interfaccia della riga di comando di Azure immettendo il comando `az --version`. Se non si usa questa versione, installare la versione più recente.
-3. Accedere ad Azure con il comando `az login`.
-4. Registrare all'anteprima immettendo i comandi seguenti:
-
-   ```azurecli-interactive
-   az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-   az provider register --name Microsoft.Network
-   ```
-
-5. Verificare di essere registrati per l'anteprima immettendo il comando seguente:
-
-    ```azurecli-interactive
-    az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-    ```
-
-    Non completare i passaggi descritti nelle sezioni relative al portale, all'interfaccia della riga di comando di Azure, a PowerShell o al modello di Resource Manager di questo articolo finché l'output di **RegistrationState** che si riceve dopo aver immesso il comando precedente non corrisponde a **Registered** (Registrato) per entrambe le sottoscrizioni.
-
-> [!NOTE]
-> Questa esercitazione usa le reti virtuali che esistono nella stessa area. Anche la possibilità di eseguire il peering di reti virtuali in aree diverse è in anteprima. Per registrarsi al peering tra aree o globale, completare di nuovo i passaggi 1-5, usando `--name AllowGlobalVnetPeering` anziché `--name AllowClassicCrossSubscriptionPeering`. Le due funzionalità sono indipendenti l'una dall'altra. Non è necessario registrarsi per entrambe, a meno che non si desideri usarle entrambe. La funzionalità è disponibile in un set limitato di aree (inizialmente, Stati Uniti centro-occidentali, Canada centrale e Stati Uniti occidentali 2).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 0cb7c7c33866ea078ab597e71cb56a601929f8f5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c5c9571b0a94fe353e37d27303cc1cd7c5373abc
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 > [!NOTE]
-> Processore di contenuti multimediali di flusso di lavoro Premium del codificatore multimediale descritti in questo articolo non è disponibile in Cina.
+> Il processore di contenuti multimediali del flusso di lavoro Premium del codificatore multimediale descritto in questo articolo non è disponibile in Cina.
 >
 >
 
-Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
+Per domande relative al codificatore Premium, inviare un messaggio di posta elettronica a mepd@microsoft.com.
 
 ## <a name="overview"></a>Panoramica
 Servizi multimediali di Microsoft Azure offre il processore di contenuti multimediali **Flusso di lavoro Premium del codificatore multimediale** . Questo processore offre funzionalità di codifica avanzata per i flussi di lavoro Premium su richiesta.
@@ -33,9 +33,9 @@ Servizi multimediali di Microsoft Azure offre il processore di contenuti multime
 Gli argomenti seguenti includono informazioni dettagliate sul **flusso di lavoro Premium del codificatore multimediale**:
 
 * [Formati supportati da Flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md) : vengono illustrati formati file e codec supportati da **Flusso di lavoro Premium del codificatore multimediale**.
-* [Panoramica e un confronto di codificatori multimediali di Azure su richiesta](media-services-encode-asset.md) confronta le funzionalità di codifica di **flusso di lavoro Premium del codificatore multimediale** e **Media Encoder Standard**.
+* [Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md) mette a confronto le funzionalità di codifica del **flusso di lavoro Premium del codificatore multimediale** e di **Media Encoder Standard**.
 
-In questo articolo viene illustrato come codificare con **flusso di lavoro Premium del codificatore multimediale** usando .NET.
+Questo articolo illustra come codificare con il **flusso di lavoro Premium del codificatore multimediale** mediante .NET.
 
 Le attività di codifica per **Flusso di lavoro Premium del codificatore multimediale** richiedono un file di configurazione separato, denominato file del flusso di lavoro. Questi file con estensione workflow vengono creati mediante lo strumento [Progettazione flussi di lavoro](media-services-workflow-designer.md) .
 
@@ -58,7 +58,7 @@ Vengono eseguiti questi passaggi:
 3. Ottenere il processore di contenuti multimediali "Flusso di lavoro Premium del codificatore multimediale".
 4. Creare un processo e un'attività.
 
-    Nella maggior parte dei casi, la stringa di configurazione per l'attività è vuota (come nell'esempio seguente). Esistono alcuni scenari avanzati (che è necessario impostare le proprietà di runtime in modo dinamico) in questo caso si fornirà una stringa XML per l'attività di codifica. Esempi di tali scenari sono: creazione di un overlay, unione sequenziale o parallela di supporti e aggiunta di sottotitoli.
+    Nella maggior parte dei casi, la stringa di configurazione per l'attività è vuota (come nell'esempio seguente). Esistono alcuni scenari avanzati in cui è necessario impostare dinamicamente le proprietà di runtime. In questo caso, specificare una stringa XML nell'attività di codifica. Esempi di tali scenari sono: creazione di un overlay, unione sequenziale o parallela di supporti e aggiunta di sottotitoli.
 5. Aggiungere due asset di input all'attività.
 
     1. In primo luogo, l'asset del flusso di lavoro.
@@ -230,7 +230,7 @@ namespace MediaEncoderPremiumWorkflowSample
 }
 ```
 
-Per domande relative al codificatore Premium, inviare mepd tramite un messaggio di posta elettronica a Microsoft.com.
+Per domande relative al codificatore Premium, inviare un messaggio di posta elettronica a mepd@microsoft.com.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

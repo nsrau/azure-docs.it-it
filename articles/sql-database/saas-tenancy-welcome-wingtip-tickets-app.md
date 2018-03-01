@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3f1a8bf6a0f05308f643f24dd4db7400c49b9e14
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>L'applicazione SaaS Wingtip Tickets
 
-La stessa applicazione *Wingtip ticket* viene implementata in ciascuno dei tre campioni. L'app è una semplice app SaaS di elencazione di eventi ed emissione di biglietti per locali di ritrovo di piccole dimensioni, come teatri, discoteche, ecc. Ogni locale è un tenant dell'app e dispone di propri dati: dettagli del locale, elenchi di eventi, clienti, ordini di biglietti e così via.  L'app, unitamente agli script di gestione e alle esercitazioni, illustra uno scenario SaaS completo. Sono inclusi i tenant di provisioning, il monitoraggio e la gestione delle prestazioni, la gestione dello schema e il reporting e analisi su più tenant.
+La stessa applicazione SaaS *Wingtip Tickets* viene implementata in ciascuno dei tre campioni. L'app è una semplice app SaaS di elencazione di eventi ed emissione di biglietti per locali di ritrovo di piccole dimensioni, come teatri, discoteche, ecc. Ogni locale è un tenant dell'app e dispone di propri dati: dettagli del locale, elenchi di eventi, clienti, ordini di biglietti e così via.  L'app, unitamente agli script di gestione e alle esercitazioni, illustra uno scenario SaaS completo. Sono inclusi i tenant di provisioning, il monitoraggio e la gestione delle prestazioni, la gestione dello schema e il reporting e analisi su più tenant.
 
-## <a name="three-saas-application-patterns"></a>Tre modelli di applicazione SaaS
+## <a name="three-saas-application-and-tenancy-patterns"></a>Tre modelli di applicazione SaaS e tenancy
 
-Sono disponibili tre versioni dell'app. Ognuna esplora un diverso modello di tenancy del database nel database SQL di Azure.  Il primo usa un'applicazione a tenant singolo con un solo tenant isolato. Il secondo usa un'app multi-tenant con un database per ogni tenant. Il terzo esempio usa un'app multi-tenant con database multi-tenant partizionati.
+Sono disponibili tre versioni dell'app. Ognuna esplora un diverso modello di tenancy del database nel database SQL di Azure.  Il primo usa un'applicazione autonoma per ogni tenant con il proprio database. Il secondo usa un'app multi-tenant con un database per ogni tenant. Il terzo esempio usa un'app multi-tenant con database multi-tenant partizionati.
 
 ![Tre modelli di tenancy][image-three-tenancy-patterns]
 
- Ogni esempio include script di gestione ed esercitazioni che esplorano una gamma di modelli di progettazione e gestione che è possibile usare nella propria applicazione.  Ogni esempio si distribuisce in meno di cinque minuti.  Tutti e tre possono essere distribuiti fianco a fianco in modo da poter vedere le differenze di gestione e progettazione.
+ Ogni esempio include il codice applicazione, gli script di gestione ed esercitazioni che esplorano una gamma di modelli di progettazione e gestione.  Ogni esempio si distribuisce in meno di cinque minuti.  Tutti e tre possono essere distribuiti fianco a fianco in modo da poter vedere le differenze di gestione e progettazione.
 
-## <a name="standalone-application-pattern"></a>Modello di applicazione autonoma
+## <a name="standalone-application-per-tenant-pattern"></a>Modello di applicazione autonoma per ogni tenant
 
-Il modello di app autonoma usa un'applicazione a tenant singolo con un database a tenant singolo per ogni tenant. L'app di ciascun tenant viene distribuita in un gruppo di risorse di Azure separato. Questo potrebbe trovarsi nella sottoscrizione del provider di servizi o in quella del tenant ed essere gestito dal provider per conto del tenant. Questo modello fornisce il massimo isolamento dei tenant, ma è in genere il più costoso perché non esiste alcuna possibilità di condividere le risorse su più tenant.
+Il modello di app autonoma per ogni tenant usa un'applicazione a tenant singolo con un database per ogni tenant. L'app di ciascun tenant, incluso il relativo database, viene distribuita in un gruppo di risorse di Azure separato. Il gruppo di risorse può essere distribuito nella sottoscrizione del provider di servizi o in quella del tenant ed essere gestito dal provider per conto del tenant. Il modello di applicazione autonoma per ogni tenant fornisce il massimo isolamento dei tenant, ma è in genere il più costoso perché non esiste alcuna possibilità di condividere le risorse tra più tenant.  Questo modello è particolarmente adatto ad applicazioni che potrebbero essere più complesse e che vengono distribuite in un numero inferiore di tenant.  Con le distribuzioni autonome, l'app può essere più facilmente personalizzata per ogni tenant rispetto ad altri modelli.  
 
 Vedere le [esercitazioni][docs-tutorials-for-wingtip-sa] e il codice su GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
@@ -47,9 +47,9 @@ Vedere le [esercitazioni][docs-tutorials-for-wingtip-dpt] e il codice in GitHub 
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Modello con database multi-tenant partizionati
 
-I database multi-tenant sono efficaci per i provider di servizi che cercano un costo per tenant inferiore e accettano un minore isolamento dei tenant. Questo modello consente di inserire un numero elevato di tenant in un unico database, riducendo il costo per tenant. Partizionando i tenant tra più database diventa possibile una scalabilità quasi infinita.  Anche in questo caso un database di catalogo esegue il mapping dei tenant ai database.  
+I database multi-tenant sono efficaci per i provider di servizi che cercano un costo per tenant inferiore e accettano un minore isolamento dei tenant. Questo modello consente di inserire un numero elevato di tenant in un unico database, riducendo il costo per tenant. Partizionando i tenant tra più database diventa possibile una scalabilità quasi infinita. Anche in questo caso un database di catalogo esegue il mapping dei tenant ai database.  
 
-Questo modello consente anche uno schema ibrido in cui è possibile ottimizzare i costi con più tenant in un database o ottimizzare l'isolamento con un singolo tenant nel proprio database. La scelta può essere effettuata tenant per tenant, quando viene eseguito il provisioning del tenant o in seguito, senza alcun impatto sull'applicazione.
+Questo modello consente anche uno schema *ibrido* in cui è possibile ottimizzare i costi con più tenant in un database o ottimizzare l'isolamento con un singolo tenant nel proprio database. La scelta può essere effettuata tenant per tenant, quando viene eseguito il provisioning del tenant o in seguito, senza alcun impatto sull'applicazione.  Questo modello può essere usato in modo efficace quando è necessario trattare in modo diverso i gruppi di tenant. Ad esempio, i tenant a basso costo possono essere assegnati a database condivisi, mentre i tenant premium possono essere assegnati ai propri database. 
 
 Vedere le [esercitazioni][docs-tutorials-for-wingtip-mt] e il codice su GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
@@ -61,7 +61,7 @@ Vedere le [esercitazioni][docs-tutorials-for-wingtip-mt] e il codice su GitHub [
 
 #### <a name="tutorials-and-code"></a>Esercitazioni e codice
 
-- App autonoma:
+- Applicazione autonoma per ogni tenant:
     - [Esercitazioni per l'app autonoma][docs-tutorials-for-wingtip-sa].
     - [Codice per l'app autonoma, in GitHub][github-code-for-wingtip-sa].
 

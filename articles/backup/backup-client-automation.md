@@ -16,7 +16,7 @@ ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
 ---
@@ -198,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. È possibile ripristinare dati da Azure senza questa passphrase.
+> Dopo l'impostazione, conservare le informazioni sulla passphrase al sicuro. Non è possibile ripristinare dati da Azure senza la passphrase.
 >
 >
 
@@ -419,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-È possibile visualizzare i dettagli del criterio di backup esistente usando il cmdlet [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . È possibile visualizzare usando il [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet per la pianificazione di backup e il [Get OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) cmdlet per i criteri di conservazione
+È possibile visualizzare i dettagli del criterio di backup esistente usando il cmdlet [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . È possibile eseguire un drill-down più approfondito usando il cmdlet [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) per la pianificazione dei backup e il cmdlet[Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) per i criteri di conservazione
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -460,7 +460,7 @@ IsRecursive : True
 ```
 
 ### <a name="performing-an-ad-hoc-backup"></a>Esecuzione di un backup ad hoc
-Una volta impostato un criterio di backup, i backup verranno eseguiti in base alla pianificazione. Attivazione di un backup ad hoc è inoltre possibile utilizzare il [inizio OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+Una volta impostato un criterio di backup, i backup verranno eseguiti in base alla pianificazione. È possibile attivare un backup ad hoc anche tramite il cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -500,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Scelta di un punto di backup da cui eseguire il ripristino
-Recuperare un elenco di punti di backup eseguendo il [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet con i parametri appropriati. Nell'esempio viene scelto il punto di backup più recente per il volume di origine *D:* , che viene usato per ripristinare un file specifico.
+Per recuperare un elenco di punti di backup, eseguire il cmdlet [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) con i parametri appropriati. Nell'esempio viene scelto il punto di backup più recente per il volume di origine *D:* , che viene usato per ripristinare un file specifico.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]

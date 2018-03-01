@@ -1,6 +1,6 @@
 ---
-title: Programma FedRAMP per l'automazione dei progetti di Azure - Protezione dei sistemi e delle comunicazioni
-description: Applicazioni Web per FedRAMP - Protezione dei sistemi e delle comunicazioni
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Protezione dei sistemi e delle comunicazioni
+description: Automazione delle applicazioni Web per FedRAMP - Protezione dei sistemi e delle comunicazioni
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protezione dei sistemi e delle comunicazioni (SC)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure separa le funzionalità utente dalle funzionalità di gestione del sistema tramite l'imposizione di controlli di accesso logici e tramite l'architettura del sistema. Le funzionalità utente sono limitate alle interfacce delle applicazioni Web distribuite ai clienti. Le interfacce delle funzionalità di gestione del sistema sono separate dalle interfacce utente. La connettività di gestione viene realizzata interamente tramite un bastion host (jumpbox) protetto situato in una subnet di gestione con regole di gruppo di sicurezza di rete appropriate per limitare l'accesso alle risorse di produzione. |
+| **Cliente** | Questo progetto separa le funzionalità utente dalle funzionalità di gestione del sistema tramite l'imposizione di controlli di accesso logici e tramite l'architettura del sistema. Le funzionalità utente sono limitate alle interfacce delle applicazioni Web distribuite ai clienti. Le interfacce delle funzionalità di gestione del sistema sono separate dalle interfacce utente. La connettività di gestione viene realizzata interamente tramite un bastion host (jumpbox) protetto situato in una subnet di gestione con regole di gruppo di sicurezza di rete appropriate per limitare l'accesso alle risorse di produzione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio di indirizzi virtuali privato a ogni processo. La soluzione implementa anche un'architettura e controlli di accesso progettati per isolare le funzionalità di sicurezza dove necessario. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio indirizzi virtuali privato a ogni processo. La soluzione implementa anche un'architettura e controlli di accesso progettati per isolare le funzionalità di sicurezza dove necessario. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Il sistema operativo gestisce le risorse (ad esempio la memoria e le risorse di archiviazione) in modo che tali informazioni siano accessibili solo a utenti e ruoli con le autorizzazioni appropriate. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Il sistema operativo gestisce le risorse (ad esempio la memoria e le risorse di archiviazione) in modo che tali informazioni siano accessibili solo a utenti e ruoli con le autorizzazioni appropriate. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un gateway applicazione che include funzionalità di web application firewall e bilanciamento del carico. Le macchine virtuali distribuite che supportano i livelli Web, database e Active Directory vengono distribuite in un set di disponibilità scalabile. |
+| **Cliente** | Questo progetto distribuisce un gateway applicazione che include funzionalità di web application firewall e bilanciamento del carico. Le macchine virtuali distribuite che supportano i livelli Web, database e Active Directory vengono distribuite in un set di disponibilità scalabile. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Ogni processo di Windows rende disponibili le risorse necessarie per l'esecuzione di un programma. La priorità delle risorse è gestita dal sistema operativo. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Ogni processo di Windows rende disponibili le risorse necessarie per l'esecuzione di un programma. La priorità delle risorse è gestita dal sistema operativo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un gateway applicazione e funzioni di bilanciamento del carico e configura regole di gruppo di sicurezza di rete per controllare le comunicazioni in corrispondenza dei limiti esterni e tra subnet interne. I log di diagnostica e degli eventi del gateway applicazione, del servizio di bilanciamento del carico e del gruppo di sicurezza di rete vengono raccolti da Log Analytics di OMS per consentire il monitoraggio dei clienti. |
+| **Cliente** | Questo progetto distribuisce un gateway applicazione e funzioni di bilanciamento del carico e configura regole di gruppo di sicurezza di rete per controllare le comunicazioni in corrispondenza dei limiti esterni e tra subnet interne. I log di diagnostica e degli eventi del gateway applicazione, del servizio di bilanciamento del carico e del gruppo di sicurezza di rete vengono raccolti da Log Analytics di OMS per consentire il monitoraggio dei clienti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce le risorse in un'architettura con una subnet Web, una subnet di database, una subnet Active Directory e una subnet di gestione separate. Le subnet sono separate logicamente da regole del gruppo di sicurezza di rete applicate alle singole subnet per limitare il traffico tra subnet esclusivamente a quello necessario per le funzionalità di sistema e di gestione (ad esempio, il traffico esterno non può accedere alle subnet del database, di gestione o di Active Directory). |
+| **Cliente** | Questo progetto distribuisce le risorse in un'architettura con una subnet Web, una subnet di database, una subnet Active Directory e una subnet di gestione separate. Le subnet sono separate logicamente da regole del gruppo di sicurezza di rete applicate alle singole subnet per limitare il traffico tra subnet esclusivamente a quello necessario per le funzionalità di sistema e di gestione (ad esempio, il traffico esterno non può accedere alle subnet del database, di gestione o di Active Directory). |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un gateway applicazione per gestire connessioni esterne ad applicazioni Web distribuite ai clienti. Le connessioni esterne per l'accesso per la gestione sono limitate a un bastion host/jumpbox distribuito in una subnet di gestione con regole di sicurezza di rete applicate per limitare le connessioni esterne a indirizzi IP autorizzati. |
+| **Cliente** | Questo progetto distribuisce un gateway applicazione per gestire connessioni esterne ad applicazioni Web distribuite ai clienti. Le connessioni esterne per l'accesso per la gestione sono limitate a un bastion host/jumpbox distribuito in una subnet di gestione con regole di sicurezza di rete applicate per limitare le connessioni esterne a indirizzi IP autorizzati. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce due indirizzi IP pubblici: uno associato al gateway applicazione e uno associato al bastion host/jumpbox di gestione. |
+| **Cliente** | Questo progetto distribuisce due indirizzi IP pubblici: uno associato al gateway applicazione e uno associato al bastion host/jumpbox di gestione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce due indirizzi IP pubblici: uno associato al gateway applicazione e uno associato al bastion host/jumpbox di gestione. La gestione di queste interfacce viene abilitata tramite rete software-defined. |
+| **Cliente** | Questo progetto distribuisce due indirizzi IP pubblici: uno associato al gateway applicazione e uno associato al bastion host/jumpbox di gestione. La gestione di queste interfacce viene abilitata tramite rete software-defined. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce due indirizzi IP pubblici: uno associato al gateway applicazione e uno associato al bastion host/jumpbox di gestione. La gestione di queste interfacce viene abilitata tramite rete software-defined. |
+| **Cliente** | Questo progetto distribuisce due indirizzi IP pubblici: uno associato al gateway applicazione e uno associato al bastion host/jumpbox di gestione. La gestione di queste interfacce viene abilitata tramite rete software-defined. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il gateway per applicazioni Web distribuito da questo progetto di Azure viene configurato con un listener HTTPS, garantendo la riservatezza e l'integrità delle sessioni di comunicazione. Anche le connessioni Desktop remoto al jumpbox vengono crittografate e garantiscono quindi integrità e riservatezza. |
+| **Cliente** | Il gateway per applicazioni Web distribuito da questo progetto viene configurato con un listener HTTPS, garantendo la riservatezza e l'integrità delle sessioni di comunicazione. Anche le connessioni Desktop remoto al jumpbox vengono crittografate e garantiscono quindi integrità e riservatezza. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I set di regole applicati ai gruppi di sicurezza di rete distribuiti da questo progetto di Azure sono configurati in base a uno schema Nega per impostazione predefinita. |
+| **Cliente** | I set di regole applicati ai gruppi di sicurezza di rete distribuiti da questo progetto sono configurati in base a uno schema Nega per impostazione predefinita. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure sono configurate con un firewall basato su host abilitato. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto sono configurate con un firewall basato su host abilitato. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce risorse in un'architettura con una subnet di gestione separata per la distribuzione ai clienti di strumenti e componenti di supporto per la sicurezza delle informazioni. Le subnet sono separate logicamente da regole di gruppo di sicurezza di rete. |
+| **Cliente** | Questo progetto distribuisce risorse in un'architettura con una subnet di gestione separata per la distribuzione ai clienti di strumenti e componenti di supporto per la sicurezza delle informazioni. Le subnet sono separate logicamente da regole di gruppo di sicurezza di rete. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce le risorse in un'architettura con una subnet Web, una subnet di database, una subnet Active Directory e una subnet di gestione separate. Le subnet sono separate logicamente da regole del gruppo di sicurezza di rete applicate alle singole subnet per limitare il traffico tra subnet esclusivamente a quello necessario per le funzionalità di sistema e di gestione. |
+| **Cliente** | Questo progetto distribuisce le risorse in un'architettura con una subnet Web, una subnet di database, una subnet Active Directory e una subnet di gestione separate. Le subnet sono separate logicamente da regole del gruppo di sicurezza di rete applicate alle singole subnet per limitare il traffico tra subnet esclusivamente a quello necessario per le funzionalità di sistema e di gestione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure configura le risorse in modo che comunichino solo tramite protocolli protetti. Il componente WAF del gateway applicazione è configurato in modo da accettare comunicazioni da usi esterni attraverso HTTPS/TLS e comunicare con il pool di back-end solo tramite HTTPS/TLS. SQL Server è configurato per la comunicazione solo tramite HTTPS/TLS. I servizi Desktop remoto sono configurati per l'uso di connessioni protette. |
+| **Cliente** | Questo progetto configura le risorse in modo che comunichino solo tramite protocolli protetti. Il componente WAF del gateway applicazione è configurato in modo da accettare comunicazioni da usi esterni attraverso HTTPS/TLS e comunicare con il pool di back-end solo tramite HTTPS/TLS. SQL Server è configurato per la comunicazione solo tramite HTTPS/TLS. I servizi Desktop remoto sono configurati per l'uso di connessioni protette. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce Azure Key Vault. L'insieme di credenziali chiave di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Azure Key Vault può generare chiavi usando la funzionalità di generazione di chiavi di un modulo di protezione hardware FIPS 140-2 livello 2. |
+| **Cliente** | Questo progetto distribuisce Azure Key Vault. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Azure Key Vault può generare chiavi usando la funzionalità di generazione di chiavi di un modulo di protezione hardware FIPS 140-2 livello 2. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Key Vault consente di archiviare chiavi crittografiche e segreti usati in questo progetto di Azure. Key Vault semplifica il processo di gestione delle chiavi che accedono ai dati e ne eseguono la crittografia. In Key Vault vengono archiviati gli autenticatori seguenti: la password di Azure per la distribuzione degli account, la password dell'amministratore delle macchine virtuali, la password dell'account del servizio SQL Server. |
+| **Cliente** | Azure Key Vault consente di archiviare le chiavi crittografiche e i segreti usati in questo progetto. Key Vault semplifica il processo di gestione delle chiavi che accedono ai dati e ne eseguono la crittografia. In Key Vault vengono archiviati gli autenticatori seguenti: la password di Azure per la distribuzione degli account, la password dell'amministratore delle macchine virtuali, la password dell'account del servizio SQL Server. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure usa l'autenticazione di Windows, Desktop remoto e BitLocker. Questi componenti possono essere configurati per basarsi su moduli di crittografia convalidati FIPS 140. |
+| **Cliente** | Questo progetto usa l'autenticazione di Windows, Desktop remoto e BitLocker. Questi componenti possono essere configurati per basarsi su moduli di crittografia convalidati FIPS 140. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nell'ambito di questo progetto di Azure non vengono distribuiti dispositivi di elaborazione di collaborazione. Nota: nell'ambito di sistemi distribuiti in Azure sono presenti dispositivi di elaborazione di collaborazione fisici. |
+| **Cliente** | Nell'ambito di questo progetto non vengono distribuiti dispositivi di elaborazione di collaborazione. Nota: nell'ambito di sistemi distribuiti in Azure sono presenti dispositivi di elaborazione di collaborazione fisici. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nell'ambito di questo progetto di Azure non vengono distribuiti dispositivi di elaborazione di collaborazione. Nota: nell'ambito di sistemi distribuiti in Azure sono presenti dispositivi di elaborazione di collaborazione fisici. |
+| **Cliente** | Nell'ambito di questo progetto non vengono distribuiti dispositivi di elaborazione di collaborazione. Nota: nell'ambito di sistemi distribuiti in Azure sono presenti dispositivi di elaborazione di collaborazione fisici. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nell'ambito di questo progetto di Azure non vengono distribuite tecnologie Voice over Internet Protocol. |
+| **Cliente** | Nell'ambito di questo progetto non vengono distribuite tecnologie VoIP (Voice over Internet Protocol). |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nell'ambito di questo progetto di Azure non vengono distribuite tecnologie Voice over Internet Protocol. |
+| **Cliente** | Nell'ambito di questo progetto non vengono distribuite tecnologie VoIP (Voice over Internet Protocol). |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso remoto alle risorse distribuite da questo progetto di Azure, inclusi il portale di Azure, la connessione Desktop remoto e il gateway di applicazioni Web, è protetto tramite TLS. Il protocollo TLS garantisce l'autenticità per le comunicazioni a livello di sessione. |
+| **Cliente** | L'accesso remoto alle risorse distribuite da questo progetto, inclusi il portale di Azure, la connessione Desktop remoto e il gateway di applicazioni Web, è protetto tramite TLS. Il protocollo TLS garantisce l'autenticità per le comunicazioni a livello di sessione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso remoto alle risorse distribuite da questo progetto di Azure, inclusi il portale di Azure, la connessione Desktop remoto e il gateway di applicazioni Web, è protetto tramite TLS. Il portale di Azure e le sessioni di Desktop remoto invalidano gli identificatori di sessione alla disconnessione. L'invalidamento della sessione Web viene applicata tramite gateway applicazione di Azure - regole WAF (Web Application Firewall). WAF applica l'affinità basata su cookie per sessione ed effettua il timeout della sessione dopo 30 minuti (configurabili dopo la distribuzione in base alle regole specifiche dell'organizzazione) di inattività del client. |
+| **Cliente** | L'accesso remoto alle risorse distribuite da questo progetto, inclusi il portale di Azure, la connessione Desktop remoto e il gateway di applicazioni Web, è protetto tramite TLS. Il portale di Azure e le sessioni di Desktop remoto invalidano gli identificatori di sessione alla disconnessione. L'invalidamento della sessione Web viene applicata tramite gateway applicazione di Azure - regole WAF (Web Application Firewall). WAF applica l'affinità basata su cookie per sessione ed effettua il timeout della sessione dopo 30 minuti (configurabili dopo la distribuzione in base alle regole specifiche dell'organizzazione) di inattività del client. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure implementano la crittografia dischi per proteggere la riservatezza e l'integrità delle informazioni inattive. Crittografia dischi di Azure per Windows viene implementata tramite la funzionalità BitLocker di Windows. SQL Server è configurato per l'uso di Transparent Data Encryption (TDE), che esegue la crittografia e la decrittografia in tempo reale dei dati e dei file di log per proteggere le informazioni inattive. TDE garantisce che i dati archiviati non siano soggetti ad accesso non autorizzato. Il cliente può scegliere di implementare controlli aggiuntivi a livello di applicazione per proteggere l'integrità delle informazioni archiviate. La riservatezza e l'integrità di tutti i BLOB di archiviazione distribuiti da questo progetto di Azure sono protetti tramite l'uso della crittografia del servizio Archiviazione di Azure (SSE, Storage Service Encryption). SSE protegge i dati inattivi all'interno degli account di archiviazione di Azure usando la crittografia AES a 256 bit. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto implementano la crittografia dischi per proteggere la riservatezza e l'integrità delle informazioni inattive. Crittografia dischi di Azure per Windows viene implementata tramite la funzionalità BitLocker di Windows. SQL Server è configurato per l'uso di Transparent Data Encryption (TDE), che esegue la crittografia e la decrittografia in tempo reale dei dati e dei file di log per proteggere le informazioni inattive. TDE garantisce che i dati archiviati non siano soggetti ad accesso non autorizzato. Il cliente può scegliere di implementare controlli aggiuntivi a livello di applicazione per proteggere l'integrità delle informazioni archiviate. La riservatezza e l'integrità di tutti i BLOB di archiviazione distribuiti da questo progetto sono protetti tramite l'uso della crittografia del servizio Archiviazione di Azure (SSE, Storage Service Encryption). SSE protegge i dati inattivi all'interno degli account di archiviazione di Azure usando la crittografia AES a 256 bit. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questo progetto di Azure eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio di indirizzi virtuali privato a ogni processo. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto eseguono sistemi operativi Windows. Windows gestisce domini di esecuzione separati per ogni processo in esecuzione tramite l'assegnazione di uno spazio indirizzi virtuali privato a ogni processo. |
 | **Provider (Microsoft Azure)** | Non applicabile |

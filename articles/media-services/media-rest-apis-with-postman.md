@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
-ms.openlocfilehash: a24b73a93bddbeb5b56ddfdf604fa99faccea442
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -33,7 +33,7 @@ Questo ambiente e raccolta viene usato negli articoli che illustrano come esegui
 
 ## <a name="configure-the-environment"></a>Configurare l'ambiente 
 
-1. Creare un file .json che contenga le variabili di ambiente usate nelle esercitazioni di AMS. Denominare il file **AzureMediaServices.postman_environment.json**. Aprire il file e incollare il codice che definisce l'ambiente di Postman da [questo elenco di codici](postman-environment.md). 
+1. Creare un file .json che contenga le variabili di ambiente usate nelle esercitazioni di AMS. Denominare il file (ad esempio, **AzureMediaServices.postman_environment.json**). Aprire il file e incollare il codice che definisce l'ambiente di Postman da [questo elenco di codici](postman-environment.md). 
 2. Aprire **Postman**.
 3. A destra dello schermo, selezionare l'opzione **Manage environment** (Gestisci ambiente).
 
@@ -48,7 +48,7 @@ Questo ambiente e raccolta viene usato negli articoli che illustrano come esegui
 
 ## <a name="configure-the-collection"></a>Configurare la raccolta
 
-1. Creare un file .json che contenga la raccolta di **Postman** con tutte le operazioni necessarie per caricare un file in Servizi multimediali. Denominare il file **AzureMediaServicesOperations.postman_collection.json**. Aprire il file e incollare il codice che definisce l'ambiente di **Postman** da [questo elenco di codici](postman-collection.md).
+1. Creare un file .json che contenga la raccolta di **Postman** con tutte le operazioni necessarie per caricare un file in Servizi multimediali. Denominare il file (ad esempio, **AzureMediaServicesOperations.postman_collection.json**). Aprire il file e incollare il codice che definisce l'ambiente di **Postman** da [questo elenco di codici](postman-collection.md).
 2. Fare clic su **Import** (Importa) per importare il file di raccolta.
 3. Scegliere il file **AzureMediaServicesOperations.postman_collection.json**.
 

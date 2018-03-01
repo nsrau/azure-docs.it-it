@@ -4,7 +4,7 @@ description: "Viene illustrata la funzionalità di backup automatico per macchin
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
-manager: jhubbard
+manager: craigg
 editor: 
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/05/2017
+ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ecae49e70a0fdd30be8a0872d02abcf4a4c228bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>Backup automatico v2 per macchine virtuali SQL Server 2016 in Azure (Resource Manager)
 
@@ -71,22 +71,22 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 | **Backup automatico** | Enable/Disable (disabilitato) | Abilita o disabilita il backup automatico per una macchina virtuale di Azure in cui viene eseguito SQL Server 2016 Standard o Enterprise. |
 | **Periodo di conservazione** | 1-30 giorni (30 giorni) | Numero di giorni di conservazione dei backup. |
 | **Storage Account** | Account di archiviazione di Azure | Account di archiviazione di Azure da usare per archiviare i file del backup automatico nell'archiviazione BLOB. In questa posizione viene creato un contenitore per archiviare tutti i file di backup. La convenzione di denominazione dei file di backup include la data, l'ora e il GUID database. |
-| **Crittografia** |Enable/Disable (disabilitato) | Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato, nello stesso contenitore **automaticbackup** con la stessa convenzione di denominazione. Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti. |
-| **Password** |Testo della password | Password per le chiavi di crittografia. Questa impostazione è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. |
+| **Crittografia** |Enable/Disable (disabilitato) | Abilita o disabilita la crittografia. Quando è abilitata la crittografia, i certificati usati per ripristinare il backup sono contenuti nell'account di archiviazione specificato nello stesso contenitore **automaticbackup** con la stessa convenzione di denominazione. Se la password viene modificata, viene generato un nuovo certificato con tale password, ma il certificato precedente viene mantenuto per ripristinare i backup precedenti. |
+| **Password** |Testo della password | Password per le chiavi di crittografia. Questa password è necessaria solo se la crittografia è abilitata. Per ripristinare un backup crittografato, è necessario disporre della password corretta e del certificato correlato usato al momento dell'esecuzione del backup. |
 
 ### <a name="advanced-settings"></a>Impostazioni avanzate
 
 | Impostazione | Intervallo (impostazione predefinita) | DESCRIZIONE |
 | --- | --- | --- |
-| **Backup dei database di sistema** | Enable/Disable (disabilitato) | Quando abilitata, questa funzionalità eseguirà inoltre il backup dei database di sistema: Master, MSDB e Model. Per i database MSDB e Model, verificare che siano in modalità di ripristino completo se si desidera eseguire il backup dei log. Non vengono mai eseguiti backup di log per Master, né backup di alcun tipo per TempDB. |
-| **Pianificazione backup** | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Per impostazione predefinita, la pianificazione del backup verrà determinata automaticamente in base all0aumento delle dimensioni dei log. Una pianificazione manuale del backup consente all'utente di specificare l'intervallo di tempo per i backup. In questo caso, i backup verranno eseguiti unicamente con la frequenza e nell'intervallo di tempo specificati per il giorno in questione. |
-| **Frequenza backup completo** | Giornaliera/settimanale | Frequenza dei backup completi. In entrambi i casi, i backup completi inizieranno nell'intervallo di tempo pianificato successivo. Quando si seleziona la frequenza settimanale, i backup potrebbero durare più giorni fino ad aver incluso tutti i database. |
+| **Backup dei database di sistema** | Enable/Disable (disabilitato) | Quando abilitata, questa funzionalità esegue inoltre il backup dei database di sistema: Master, MSDB e Model. Per i database MSDB e Model, verificare che siano in modalità di ripristino completo se si desidera eseguire il backup dei log. Non vengono mai eseguiti backup di log per Master, né backup di alcun tipo per TempDB. |
+| **Pianificazione backup** | Manual/Automated (Automated) (Manuale/Automatizzato - Automatizzato) | Per impostazione predefinita, la pianificazione del backup è determinata automaticamente in base all'aumento delle dimensioni dei log. Una pianificazione manuale del backup consente all'utente di specificare l'intervallo di tempo per i backup. In questo caso, i backup viene eseguiti unicamente con la frequenza e nell'intervallo di tempo specificati per il giorno in questione. |
+| **Frequenza backup completo** | Giornaliera/settimanale | Frequenza dei backup completi. In entrambi i casi, i backup completi iniziano nell'intervallo di tempo pianificato successivo. Quando si seleziona la frequenza settimanale, i backup potrebbero durare più giorni fino ad aver incluso tutti i database. |
 | **Ora di inizio backup completo** | 00:00 – 23:00 (01:00) | Ora di inizio di un determinato giorno in cui possono avere luogo i backup completi. |
 | **Intervallo di tempo per il backup completo** | 1-23 ore (1 ora) | Intervallo di tempo di un determinato giorno in cui possono avere luogo i backup completi. |
 | **Frequenza di backup del log** | 5-60 minuti (60 minuti) | Frequenza dei backup dei log. |
 
 ## <a name="understanding-full-backup-frequency"></a>Informazioni sulla frequenza dei backup completi
-È importante comprendere la differenza tra i backup completi giornalieri e settimanali. Per farlo, verranno illustrati due scenari di esempio.
+È importante comprendere la differenza tra i backup completi giornalieri e settimanali. Esaminare i due scenari di esempio seguenti.
 
 ### <a name="scenario-1-weekly-backups"></a>Scenario 1: Backup settimanali
 Si dispone di una macchina virtuale di SQL Server che contiene una serie di database di dimensioni molto grandi.
@@ -98,11 +98,11 @@ Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 - Ora di inizio backup completo: **01:00**
 - Intervallo di tempo dei backup completi: **1 ora**
 
-Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà martedì alle ore 01:00 per 1 ora. In quel momento, Backup automatico inizierà a eseguire il backup dei database, uno alla volta. In questo scenario, date le dimensioni dei database, il tempo è sufficiente per eseguire il backup dei primi due. Passata l'ora, tuttavia, il backup non è stato eseguito per tutti i database.
+Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà martedì alle ore 01:00 per 1 ora. In quel momento, Backup automatico inizia a eseguire il backup dei database, uno alla volta. In questo scenario, date le dimensioni dei database, il tempo è sufficiente per eseguire il backup dei primi due. Passata l'ora, tuttavia, il backup non è stato eseguito per tutti i database.
 
-In questo caso, Backup automatico inizierà a eseguire il backup dei database rimanenti il giorno dopo, ovvero mercoledì, sempre alle ore 01:00 per 1 ora. Se anche dopo quell'intervallo di tempo non è stato eseguito il backup di tutti i database, Backup automatico riproverà il giorno successivo, fe così via fino a quando non sarà stato eseguito il backup di tutti i database.
+In questo caso, Backup automatico inizierà a eseguire il backup dei database rimanenti il giorno dopo, ovvero mercoledì, sempre alle ore 01:00 per un'ora. Se anche dopo quell'intervallo di tempo non è stato eseguito il backup di tutti i database, Backup automatico riprova il giorno successivo, e così via fino a quando non viene stato eseguito il backup di tutti i database.
 
-Il martedì successivo, Backup automatico comincerà nuovamente il backup di tutti i database.
+Il martedì successivo, Backup automatico comincia nuovamente il backup di tutti i database.
 
 In questo scenario, Backup automatico opera unicamente nell'intervallo di tempo specificato e viene eseguito il backup di ogni database una volta alla settimana. Si noti anche come sia possibile distribuire i backup su più giorni nel caso in cui un unico giorno non sia sufficiente per completarli.
 
@@ -116,9 +116,9 @@ Il lunedì si abilita Backup automatico v2 con le seguenti impostazioni:
 - Ora di inizio backup completo: 22:00
 - Intervallo di tempo dei backup completi: 6 ore
 
-Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà lunedì alle ore 22:00 per 6 ore. In quel momento, Backup automatico inizierà a eseguire il backup dei database, uno alla volta.
+Ciò significa che l'intervallo di tempo disponibile successivo per il backup sarà lunedì alle ore 22:00 per 6 ore. In quel momento, Backup automatico inizia a eseguire il backup dei database, uno alla volta.
 
-Il backup sarà quindi eseguito nuovamente martedì alle 22:00 per 6 ore.
+Il backup viene quindi eseguito nuovamente martedì alle 22:00 per 6 ore.
 
 > [!IMPORTANT]
 > Quando si pianificano i backup giornalieri, si consiglia di scegliere un intervallo di tempo ampio che sia sufficiente per il backup di tutti i database. Questo aspetto è particolarmente importante nel caso in cui si debba eseguire il backup di una grande quantità di dati.

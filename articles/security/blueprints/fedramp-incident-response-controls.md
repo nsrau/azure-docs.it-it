@@ -1,6 +1,6 @@
 ---
-title: Applicazioni Web per FedRAMP - Risposta agli eventi imprevisti
-description: Applicazioni Web per FedRAMP - Risposta agli eventi imprevisti
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Risposta agli eventi imprevisti
+description: Automazione di applicazioni Web per FedRAMP - Risposta agli eventi imprevisti
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4db5e02bfe925c402ca19e6145c4f4c825bef54
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: bcdb2b151c4d14af59e8133bd871ef6c3c0b9f73
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="incident-response-ir"></a>Risposta agli eventi imprevisti
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti come parte del documento NIST Special Publication 800-53, Revisione 4. Consultare la pubblicazione NIST 800-53 Rev. 4 per informazioni sulle procedure e le indicazioni di test per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
 
 ## <a name="nist-800-53-control-ir-1"></a>Controllo IP-1 NIST 800-53
 

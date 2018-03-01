@@ -1,6 +1,6 @@
 ---
 title: Come installare un server di destinazione master Linux per il failover da Azure a locale | Microsoft Docs
-description: "Prima di eseguire la riprotezione di una macchina virtuale Linux, è necessario dotarsi di un server di destinazione master Linux. Di seguito viene descritto come installarlo."
+description: "Prima di eseguire la riprotezione di una macchina virtuale Linux, è necessario disporre di un server di destinazione master Linux. Di seguito viene descritto come installarlo."
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/22/2017
 ms.author: rajanaki
-ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 11f9385c1082011ee690f48f2579b6f3b156d125
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
-Dopo aver eseguito il failover delle macchine virtuali, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
+Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
 
 Se quella protetta è una macchina virtuale Windows, è necessario un server di destinazione master Windows. Per una macchina virtuale Linux è necessario un server di destinazione master Linux. Per informazioni su come creare e installare server di destinazione master Linux, vedere la procedura riportata di seguito.
 
@@ -33,16 +33,16 @@ Questo articolo contiene istruzioni per l'installazione di un server di destinaz
 
 Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum sui Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* Per scegliere l'host in cui distribuire il server di destinazione master, determinare se il failback verrà eseguito in una macchina virtuale locale esistente o in una macchina virtuale nuova. 
+* Per scegliere l'host in cui distribuire il server di destinazione master, determinare se il failback verrà eseguito in una macchina virtuale locale esistente o in una nuova. 
     * Se viene eseguito in una macchina virtuale esistente, l'host del server di destinazione master deve poter accedere agli archivi dati della macchina virtuale.
-    * Se la macchina virtuale locale non esiste, la macchina virtuale di failback viene creata nello stesso host del server di destinazione master. Per l'installazione del server di destinazione master è possibile scegliere qualsiasi host ESXi.
-* Il server deve trovarsi in una rete in grado di comunicare con il server di elaborazione e il server di configurazione.
+    * Se la macchina virtuale locale non esiste (in caso di ripristino del percorso alternativo), la macchina virtuale di failback viene creata nello stesso host del server di destinazione master. Per l'installazione del server di destinazione master è possibile scegliere qualsiasi host ESXi.
+* Il server di destinazione master deve trovarsi in una rete in grado di comunicare con il server di elaborazione e il server di configurazione.
 * La versione del server di destinazione master deve essere uguale o precedente a quella del server di elaborazione e del server di configurazione. Ad esempio, se la versione del server di configurazione è 9.4, la versione del server di destinazione master può essere 9.4 o 9.3 ma non 9.5.
 * Il server di destinazione master può essere solo una macchina virtuale VMware e non un server fisico.
 
-## <a name="create-the-master-target-according-to-the-sizing-guidelines"></a>Creare il server di destinazione master in base alle linee guida per il ridimensionamento
+## <a name="sizing-guidelines-for-creating-master-target-server"></a>Linee guida per il ridimensionamento per la creazione del server di destinazione master
 
 Creare il server di destinazione master in base alle linee guida per il ridimensionamento seguenti:
 - **RAM**: almeno 6 GB
@@ -66,119 +66,90 @@ Sono supportati i kernel Ubuntu seguenti.
 
 Attenersi ai passaggi seguenti per installare il sistema operativo a 64 bit di Ubuntu 16.04.2.
 
-**Passaggio 1:** andare al [collegamento per il download](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64) e scegliere il mirror più vicino da cui scaricare un file ISO di Ubuntu 16.04.2 Minimal a 64 bit.
-
+1.   Andare al [collegamento per il download](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), scegliere il mirror più vicino e scaricare un file ISO di Ubuntu 16.04.2 Minimal a 64 bit.
 Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il sistema.
 
-**Passaggio 2:** selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
+1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
+    
+    ![Selezionare una lingua](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+1. Selezionare **Install Ubuntu Server** (Installa server Ubuntu) e premere **Invio**.
 
-![Selezionare una lingua](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image1.png)
+    ![Selezionare Installa server Ubuntu](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
 
-**Passaggio 3:** selezionare **Install Ubuntu Server** (Installa server Ubuntu) e premere **Invio**.
+1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
 
-![Selezionare Installa server Ubuntu](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image2.png)
+    ![Selezionare English (Inglese) come lingua preferita](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
 
-**Passaggio 4:** selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
+1. Selezionare l'opzione appropriata nell'elenco di opzioni **Time Zone** (Fuso orario) e premere **Invio**.
 
-![Selezionare English (Inglese) come lingua preferita](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image3.png)
+    ![Selezionare il fuso orario corretto](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
 
-**Passaggio 5:** selezionare l'opzione appropriata nell'elenco di opzioni **Time Zone** (Fuso orario) e selezionare **Invio**.
+1. Selezionare **No** (opzione predefinita) e premere **Invio**.
 
-![Selezionare il fuso orario corretto](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image4.png)
+     ![Configurare la tastiera](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+1. Selezionare **English (US)** (Inglese Stati Uniti) come paese di origine per la tastiera e premere **Invio**.
 
-**Passaggio 6:** selezionare **No** (opzione predefinita), quindi selezionare **Invio**.
+1. Selezionare **English (US)** (Inglese Stati Uniti) come layout per la tastiera e premere **Invio**.
 
+1. Immettere il nome host del server nella casella **Hostname** (Nome host) e quindi fare clic su **Continue** (Continua).
 
-![Configurare la tastiera](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image5.png)
+1. Per creare un account utente, immettere il nome utente e quindi selezionare **Continue** (Continua).
 
-**Passaggio 7:** selezionare **English (US)** (Inglese Stati Uniti) come paese di origine per la tastiera e premere **Invio**.
+      ![Crea un account utente](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
 
-![Selezionare USA come paese di origine](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image6.png)
+1. Immettere la password per il nuovo account utente e quindi selezionare **Continue** (Continua).
 
-**Passaggio 8:** selezionare **English (US)** (Inglese Stati Uniti) come layout per la tastiera e premere **Invio**.
+1.  Confermare la password per il nuovo utente e quindi selezionare **Continue** (Continua).
 
-![Selezionare US English (Inglese USA) per il layout di tastiera](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image7.png)
+    ![Confermare le password](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
 
-**Passaggio 9:** immettere il nome host del server nella casella **Hostname** (Nome host) e quindi fare clic su **Continue** (Continua).
+1.  Nella selezione successiva per la crittografia della home directory selezionare **No** (opzione predefinita) e premere **Invio**.
 
-![Immettere il nome host per il server](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image8.png)
+1. Se il fuso orario visualizzato è corretto, selezionare **Yes** (Sì) (opzione predefinita) e premere **Invio**. Per riconfigurare il fuso orario, selezionare **No**.
 
-**Passaggio 10:** per creare un account utente, immettere il nome utente e quindi selezionare **Continue** (Continua).
+1. Tra le opzioni per il metodo di partizionamento selezionare **Guided - use entire disk** (Guidato - Usare l'intero disco) e premere **Invio**.
 
-![Crea un account utente](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image9.png)
+     ![Selezionare l'opzione per il metodo partizionamento](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
 
-**Passaggio 11:** immettere la password per il nuovo account utente e quindi selezionare **Continue** (Continua).
+1.  Selezionare il disco appropriato tra le opzioni **Select disk to partition** (Selezionare il disco da partizionare) e premere **Invio**.
 
-![Immettere la password](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image10.png)
+    ![Selezionare il disco](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
 
-**Passaggio 12:** confermare la password per il nuovo account utente e quindi selezionare **Continue** (Continua).
+1.  Selezionare **Yes** (Sì) per scrivere le modifiche su disco e premere **Invio**.
 
-![Confermare le password](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image11.png)
+1.  Nella selezione per la configurazione del proxy selezionare l'opzione predefinita, selezionare **Continue** (Continua) e premere **Invio**.
 
-**Passaggio 13:** selezionare **No** (opzione predefinita), quindi selezionare **Invio**.
+     ![Selezionare l'opzione predefinita](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
 
-![Configurare utenti e password](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image12.png)
+1.  Selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti) nella selezione per la gestione degli aggiornamenti del sistema e premere **Invio**.
 
-**Passaggio 14:** se il fuso orario visualizzato è corretto, selezionare **Sì** (opzione predefinita), quindi selezionare **Invio**.
+     ![Selezionare la modalità di gestione degli aggiornamenti](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
 
-Per riconfigurare il fuso orario, selezionare **No**.
+    > [!WARNING]
+    > Dato che il server di destinazione master per Azure Site Recovery richiede una versione molto specifica di Ubuntu, è necessario assicurarsi che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale. Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master. Assicurarsi di selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti).
 
-![Configurare l'orologio](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image13.png)
+1.  Selezionare le opzioni predefinite. Per usare connessioni openSSH per SSH, selezionare l'opzione **OpenSSH server** (Server OpenSSH) e selezionare **Continue** (Continua).
 
-**Passaggio 15:** tra le opzioni per il metodo di partizionamento selezionare **Guided - use entire disk** (Guidato - Usare l'intero disco) e premere **Invio**.
+    ![Selezionare il software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
 
-![Selezionare l'opzione per il metodo partizionamento](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image14.png)
+1. Nella selezione per l'installazione del caricatore di avvio GRUB selezionare **Yes** (Sì) e premere **Invio**.
 
-**Passaggio 16:** selezionare il disco appropriato tra le opzioni **Select disk to partition** (Selezionare il disco da partizionare) e premere **Invio**.
+1. Selezionare il dispositivo appropriato per l'installazione del caricatore di avvio (preferibilmente **/dev/sda**) e premere **Invio**.
 
+1. Selezionare **Continue** (Continua) e premere **Invio** per completare l'installazione.
 
-![Selezionare il disco](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image15.png)
+    ![Completare l'installazione](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
 
-**Passaggio 17:** selezionare **Sì** per scrivere le modifiche su disco e quindi selezionare **Invio**.
+1. Al termine dell'installazione, accedere alla macchina virtuale con le nuove credenziali utente. (Fare riferimento al **Passaggio 10** per ulteriori informazioni.)
 
-![Scrivere le modifiche su disco](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image16.png)
+1. Eseguire i passaggi descritti nella schermata seguente per impostare la password dell'utente ROOT. Quindi, accedere come utente ROOT.
 
-**Passaggio 18:** selezionare l'opzione predefinita, selezionare **Continue** (Continua) e premere **Invio**.
-
-![Selezionare l'opzione predefinita](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image17.png)
-
-**Passaggio 19:** selezionare l'opzione appropriata per la gestione degli aggiornamenti del sistema, quindi **Invio**.
-
-![Selezionare la modalità di gestione degli aggiornamenti](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image18.png)
-
-> [!WARNING]
-> Dato che il server di destinazione master per Azure Site Recovery richiede una versione molto specifica di Ubuntu, è necessario assicurarsi che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale. Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master. Assicurarsi di selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti).
+    ![Impostare la password dell'utente ROOT](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
 
 
-**Passaggio 20:** selezionare le opzioni predefinite. Per usare connessioni openSSH per SSH, selezionare l'opzione **OpenSSH server** (Server OpenSSH) e selezionare **Continue** (Continua).
+### <a name="configure-the-machine-as-a-master-target-server"></a>Configurare il computer come server di destinazione master
 
-![Selezionare il software](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image19.png)
-
-**Passaggio 21:** selezionare **Sì** e quindi **Invio**.
-
-![Installare il caricatore di avvio GRUB](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image20.png)
-
-**Passaggio 22:** selezionare il dispositivo appropriato per l'installazione del caricatore di avvio (preferibilmente **/dev/sda**), quindi selezionare **Invio**.
-
-![Selezionare un dispositivo per l'installazione del caricatore di avvio](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image21.png)
-
-**Passaggio 23:** selezionare **Continue** (Continua) e premere **Invio** per completare l'installazione.
-
-![Completare l'installazione](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image22.png)
-
-Al termine dell'installazione, accedere alla macchina virtuale con le nuove credenziali utente. (Fare riferimento al **Passaggio 10** per ulteriori informazioni.)
-
-Eseguire i passaggi descritti nella schermata seguente per impostare la password dell'utente ROOT. Quindi, accedere come utente ROOT.
-
-![Impostare la password dell'utente ROOT](./media/site-recovery-how-to-install-linux-master-target/ubuntu/image23.png)
-
-
-### <a name="prepare-the-machine-for-configuration-as-a-master-target-server"></a>Preparare il computer per la configurazione come server di destinazione master
-Successivamente, preparare il computer per la configurazione come server di destinazione master.
-
-Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, abilitare il parametro **disk.EnableUUID = TRUE**.
-
-Per abilitare il parametro, attenersi alla procedura seguente:
+Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il parametro **disk.EnableUUID = TRUE** deve essere abilitato. Per abilitare il parametro, attenersi alla procedura seguente:
 
 1. Arrestare la macchina virtuale.
 
@@ -206,18 +177,14 @@ Per abilitare il parametro, attenersi alla procedura seguente:
 
 #### <a name="disable-kernel-upgrades"></a>Disabilitare gli aggiornamenti del kernel
 
-Dato che il server di destinazione master per Azure Site Recovery richiede una versione specifica di Ubuntu, verificare che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale.
-
-Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master.
+Dato che il server di destinazione master per Azure Site Recovery richiede una versione specifica di Ubuntu, verificare che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale. Se gli aggiornamenti del kernel sono abilitati, possono causare malfunzionamenti del server di destinazione master.
 
 #### <a name="download-and-install-additional-packages"></a>Scaricare e installare i pacchetti aggiuntivi
 
 > [!NOTE]
 > Verificare di disporre della connettività Internet per scaricare e installare pacchetti aggiuntivi. Se non si dispone di connettività Internet, è necessario trovare manualmente i pacchetti RPM e installarli.
 
-```
-apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
-```
+ `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
 ### <a name="get-the-installer-for-setup"></a>Ottenere il programma di installazione per l'installazione
 
@@ -225,15 +192,14 @@ Se il server di destinazione master dispone della connettività Internet, è pos
 
 #### <a name="download-the-master-target-installation-packages"></a>Scaricare i pacchetti di installazione del server di destinazione master
 
-[Scaricare il file di installazione più recente del server di destinazione master Linux](https://aka.ms/latestlinuxmobsvc).
+[Scaricare i bit di installazione più recenti del server di destinazione master Linux](https://aka.ms/latestlinuxmobsvc).
 
 Per scaricarli usando Linux, digitare:
 
-```
-wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz
-```
+`wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
-Verificare di scaricare e decomprimere il programma di installazione nella home directory. Se il file viene decompresso nel percorso **/usr/Locale**, l'installazione avrà esito negativo.
+> [!WARNING]
+> Verificare di scaricare e decomprimere il programma di installazione nella home directory. Se il file viene decompresso nel percorso **/usr/Locale**, l'installazione avrà esito negativo.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Accedere al programma di installazione dal server di elaborazione
@@ -249,22 +215,22 @@ Per applicare le modifiche di configurazione personalizzate, attenersi alla proc
 
 
 1. Eseguire il seguente comando per decomprimere il file binario.
-    ```
-    tar -zxvf latestlinuxmobsvc.tar.gz
-    ```
+
+    `tar -zxvf latestlinuxmobsvc.tar.gz`
+
     ![Schermata del comando da eseguire](./media/site-recovery-how-to-install-linux-master-target/image16.png)
 
 2. Eseguire il comando seguente per fornire le autorizzazioni.
-    ```
-    chmod 755 ./ApplyCustomChanges.sh
-    ```
+
+    `chmod 755 ./ApplyCustomChanges.sh`
+
 
 3. Eseguire il comando seguente per eseguire lo script.
-    ```
-    ./ApplyCustomChanges.sh
-    ```
+    
+    `./ApplyCustomChanges.sh`
+
 > [!NOTE]
-> Eseguire lo script solo una volta sul server. Arrestare il server. Riavviare il server dopo aver aggiunto un disco come indicato nella sezione successiva.
+> Eseguire lo script solo una volta sul server. Quindi arrestare il server. Riavviare il server dopo avere aggiunto un disco, come indicato nella sezione successiva.
 
 ### <a name="add-a-retention-disk-to-the-linux-master-target-virtual-machine"></a>Aggiungere un disco di conservazione alla macchina virtuale del server di destinazione master Linux
 
@@ -273,20 +239,20 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 1. Collegare un nuovo disco da 1 TB alla macchina virtuale del server di destinazione master Linux e avviare il computer.
 
 2. Usare il comando **multipath -ll** per conoscere l'ID a percorsi multipli del disco di conservazione.
+    
+     `multipath -ll`
 
-    ```
-    multipath -ll
-    ```
-    ![ID a percorsi multipli del disco di conservazione](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
+        ![The multipath ID of the retention disk](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
 3. Formattare l'unità e creare un file system nella nuova unità.
 
-    ```
-    mkfs.ext4 /dev/mapper/<Retention disk's multipath id>
-    ```
+    
+    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
+    
     ![Creazione di un file system nell'unità](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
 4. Dopo aver creato il file system, montare il disco di conservazione.
+
     ```
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
@@ -294,9 +260,9 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     ![Montaggio del disco di conservazione](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
 5. Creare la voce **fstab** per montare l'unità di conservazione a ogni avvio del sistema.
-    ```
-    vi /etc/fstab
-    ```
+    
+    `vi /etc/fstab`
+    
     Selezionare **Inserisci** per iniziare a modificare il file. Creare una nuova riga e inserirvi il testo seguente. Modificare l'ID a percorsi multipli disco in base all'ID a percorsi multipli evidenziato dal comando precedente.
 
     **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
@@ -310,22 +276,18 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
 
 > [!NOTE]
-> Prima di installare il server master di destinazione, assicurarsi che il file **/etc/hosts** nella macchina virtuale contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
+> Prima di installare il server di destinazione master, assicurarsi che il file **/etc/hosts** nella macchina virtuale contenga le voci che eseguono il mapping del nome host locale agli indirizzi IP associati a tutte le schede di rete.
 
 1. Copiare la passphrase CS da **C:\ProgramData\Microsoft Azure Site Recovery\private\connection.passphrase** nel server di configurazione. Quindi salvarla come **passphrase.txt** nella stessa directory locale eseguendo il comando seguente:
 
-    ```
-    echo <passphrase> >passphrase.txt
-    ```
+    `echo <passphrase> >passphrase.txt`
+
     Esempio: 
+
+       `echo itUx70I47uxDuUVY >passphrase.txt`
     
-    ```
-    echo itUx70I47uxDuUVY >passphrase.txt
-    ```
 
-2. Prendere nota dell'indirizzo IP del server di configurazione, perché sarà necessario nel passaggio successivo.
-
-3. Eseguire il comando seguente per installare il server di destinazione master e registrarlo con il server di configurazione.
+2. Prendere nota dell'indirizzo IP del server di configurazione. Eseguire il comando seguente per installare il server di destinazione master e registrarlo con il server di configurazione.
 
     ```
     ./install -q -d /usr/local/ASR -r MT -v VmWare
@@ -338,7 +300,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-    Attendere il termine dello script. Se il server di destinazione master viene registrato correttamente, viene elencato nella pagina **Infrastruttura di Site Recovery** nel portale.
+Attendere il termine dello script. Se il server di destinazione master viene registrato correttamente, viene elencato nella pagina **Infrastruttura di Site Recovery** nel portale.
 
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>Installazione interattiva del server di destinazione master
@@ -369,27 +331,21 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Attendere il termine dello script. Se registrato correttamente, il server di destinazione master viene elencato nella pagina **Infrastruttura di Site Recovery** del portale.
+     Attendere il termine dello script. Se il server di destinazione master viene registrato correttamente, viene elencato nella pagina **Infrastruttura di Site Recovery** del portale.
 
 
-### <a name="upgrade-the-master-target"></a>Aggiornare il server di destinazione master
-
-Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Selezionare **Y** per eseguire l'aggiornamento.  Al termine dell'installazione, controllare la versione del server di destinazione master installata usando il comando seguente:
-
-    ```
-    cat /usr/local/.vx_version
-    ```
-
-È possibile vedere che il campo **Version** indica il numero di versione della destinazione master.
-
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Installare gli strumenti VMware nel server master di destinazione
+### <a name="install-vmware-tools-on-the-master-target-server"></a>Installare gli strumenti VMware nel server di destinazione master
 
 È necessario installare gli strumenti VMware per consentire al server di destinazione master di rilevare gli archivi dati. Se non sono installati gli strumenti, la schermata di riprotezione non viene elencata negli archivi dati. Dopo l'installazione degli strumenti VMware è necessario riavviare il computer.
 
-## <a name="next-steps"></a>Passaggi successivi
-Al termine dell'installazione e della registrazione del server di destinazione master, quest'ultimo viene visualizzato nella sezione **Destinazione master** della pagina **Infrastruttura di Site Recovery**, nelle informazioni generali sul server di configurazione.
+### <a name="upgrade-the-master-target-server"></a>Aggiornare il server di destinazione master
 
-È ora possibile procedere con la [riprotezione](site-recovery-how-to-reprotect.md), seguita dal failback.
+Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Selezionare **Y** per eseguire l'aggiornamento.  Al termine dell'installazione, controllare la versione del server di destinazione master installata usando il comando seguente:
+
+`cat /usr/local/.vx_version`
+
+
+È possibile vedere che il campo **Version** (Versione) indica il numero di versione del server di destinazione master.
 
 ## <a name="common-issues"></a>Problemi comuni
 
@@ -397,6 +353,13 @@ Al termine dell'installazione e della registrazione del server di destinazione m
 
 * Il server di destinazione master non deve includere snapshot nella macchina virtuale. Se sono presenti snapshot, il failback avrà esito negativo.
 
-* Per via delle configurazioni personalizzate della scheda di interfaccia di rete presso alcuni clienti, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Verificare le proprietà nei file della scheda Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.
+* A causa di alcune configurazioni personalizzate della scheda di interfaccia di rete, l'interfaccia di rete viene disabilitata durante l'avvio e non è possibile inizializzare l'agente del server di destinazione master. Verificare che le proprietà seguenti siano impostate correttamente. Verificare le proprietà nei file della scheda Ethernet /etc/sysconfig/network-scripts/ifcfg-eth*.
     * BOOTPROTO=dhcp
     * ONBOOT=yes
+
+
+## <a name="next-steps"></a>Passaggi successivi
+Al termine dell'installazione e della registrazione del server di destinazione master, quest'ultimo viene visualizzato nella sezione **Destinazione master** della pagina **Infrastruttura di Site Recovery** nelle informazioni generali sul server di configurazione.
+
+È ora possibile procedere con la [riprotezione](site-recovery-how-to-reprotect.md), seguita dal failback.
+

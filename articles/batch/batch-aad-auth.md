@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -92,7 +92,7 @@ Per eseguire l'autenticazione con l'autenticazione integrata, è necessario conc
 
 Dopo aver [registrato l'applicazione](#register-your-application-with-an-azure-ad-tenant), seguire questi passaggi nel portale di Azure per concedere l'accesso al servizio Batch:
 
-1. Nel riquadro di spostamento a sinistra del portale di Azure scegliere **Altri servizi** e fare clic su **Registrazioni per l'app**.
+1. Nel riquadro di spostamento a sinistra del portale di Azure scegliere **Tutti i servizi**. Fare clic su **Registrazioni per l'app**.
 2. Cercare il nome dell'applicazione nell'elenco di registrazioni di app:
 
     ![Cercare il nome dell'applicazione](./media/batch-aad-auth/search-app-registration.png)
@@ -124,7 +124,7 @@ Quando l'applicazione autentica con un'entità servizio, invia l'ID dell'applica
 
 Seguire questa procedura nel portale di Azure:
 
-1. Nel riquadro di spostamento a sinistra del portale di Azure scegliere **Altri servizi** e fare clic su **Registrazioni per l'app**.
+1. Nel riquadro di spostamento a sinistra del portale di Azure scegliere **Tutti i servizi**. Fare clic su **Registrazioni per l'app**.
 2. Cercare il nome dell'applicazione nell'elenco di registrazioni dell'app.
 3. Visualizzare il pannello **Impostazioni**. Nella sezione **Accesso all'API** selezionare **Chiavi**.
 4. Per creare una chiave, immettere una descrizione per la chiave. Quindi selezionare la durata della chiave di uno o due anni. 

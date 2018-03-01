@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: a21fdfbc4396f2b7aff50fae4ca796d8ea6a733b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creare e modificare un circuito ExpressRoute
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ In un browser passare al [portale di Azure](http://portal.azure.com) e accedere 
 > 
 > 
 
-1. È possibile creare un circuito ExpressRoute selezionando l'opzione che consente di creare una nuova risorsa. Fare clic su **Nuovo** > **Rete** > **ExpressRoute**, come illustrato nell'immagine seguente:
+1. È possibile creare un circuito ExpressRoute selezionando l'opzione che consente di creare una nuova risorsa. Fare clic su **Crea una risorsa** > **Rete** > **ExpressRoute**, come illustrato nell'immagine seguente:
 
   ![Creare un circuito ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
 2. Dopo aver fatto clic su **ExpressRoute**, viene visualizzata la pagina **Crea un circuito ExpressRoute**. Quando si inseriscono i valori in questa pagina, assicurarsi di specificare il livello di SKU (Standard o Premium) e il modello di fatturazione della misurazione dei dati (Senza limiti o A consumo) corretti.
@@ -130,7 +130,7 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 > [!IMPORTANT]
 > Se la capacità sulla porta esistente non è sufficiente, potrebbe essere necessario ricreare il circuito ExpressRoute. Il circuito non può essere aggiornato se in tale posizione non è disponibile capacità aggiuntiva.
 >
-> Non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
+> Anche se è possibile aggiornare facilmente la banda larga, non è possibile ridurre la larghezza di banda di un circuito ExpressRoute senza interruzioni. Il downgrade della larghezza di banda richiede il deprovisioning del circuito ExpressRoute e quindi il provisioning di un nuovo circuito ExpressRoute.
 > 
 > L'operazione di disabilitazione del componente aggiuntivo Premium può avere esito negativo se si usano risorse superiori a quelle consentite per il circuito standard.
 > 

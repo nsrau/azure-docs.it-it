@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
-ms.openlocfilehash: 61579af23acf466a11ae59832a02cb75ba39dc26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd251ca4696101911293caa59c54c3354a1627a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestione dell'accesso Single Sign-On per le app aziendali
 
 Questo articolo descrive come usare il [portale di Azure](https://portal.azure.com) per gestire impostazioni del Single Sign-On per le applicazioni aziendali. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione. Questo articolo si applica in particolare alle app aggiunte dalla [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
-Tutte le app aziendali impostate per il Single Sign-On possono essere visualizzate e gestite nel portale di Azure. Le applicazioni sono disponibili nella sezione **More Services** (Altri servizi) &gt; **Applicazioni aziendali** del portale. 
+Tutte le app aziendali impostate per il Single Sign-On possono essere visualizzate e gestite nel portale di Azure. Le applicazioni sono disponibili nella sezione **Tutti i servizi** &gt; **Applicazioni aziendali** del portale. 
 
 ![Pannello Applicazioni aziendali][1]
 
@@ -49,13 +49,13 @@ Per altre informazioni su queste modalità, vedere [Come funziona Single Sign-On
 L'opzione **Accesso basato su SAML** è suddivisa in quattro sezioni:
 
 ### <a name="domains-and-urls"></a>Domains and URLs (Domini e URL)
-In questa sezione vengono aggiunti alla directory di Azure AD tutti i dettagli sul dominio e sugli URL dell'applicazione. Tutti gli input necessari per il funzionamento dell'accesso Single Sign-On nell'app vengono visualizzati direttamente sullo schermo, mentre tutti gli input facoltativi possono essere visualizzati selezionando la casella di controllo **Mostra impostazioni URL avanzate** . L'elenco completo di input supportati include gli elementi seguenti:
+In questa sezione vengono aggiunti alla directory di Azure AD tutti i dettagli sul dominio e sugli URL dell'applicazione. Tutti gli input necessari per il funzionamento dell'accesso Single Sign-On nell'app vengono visualizzati direttamente sullo schermo, mentre tutti gli input facoltativi possono essere visualizzati selezionando la casella di controllo **Mostra impostazioni URL avanzate**. L'elenco completo di input supportati include gli elementi seguenti:
 
 * **URL di accesso** da cui l'utente accede all'applicazione. Se l'applicazione è configurata per eseguire l'accesso Single Sign-On avviato dal provider di servizi, quando un utente apre questo URL, il provider di servizi esegue il reindirizzamento ad Azure AD per l'autenticazione e l'accesso dell'utente. 
   * Se questo campo è popolato, Azure AD usa questo URL per avviare l'applicazione da Office 365 e il pannello di accesso di AD Azure.
   * Se questo campo è omesso, Azure AD esegue l'accesso Single Sign-On avviato dal provider di identità quando l'app viene avviata da Office 365, dal pannello di accesso di Azure AD o dall'URL di accesso Single Sign-On di Azure AD.
 * **Identificatore**: questo URI deve identificare in modo univoco l'applicazione per cui viene configurato l'accesso Single Sign-On. Si tratta del valore che Azure AD invia all'applicazione come parametro Audience del token SAML e l'applicazione deve convalidarlo. Questo valore viene inoltre visualizzato come ID entità in tutti i metadati SAML forniti dall'applicazione.
-* **URL di risposta** : è l'indirizzo a cui l'applicazione prevede di ricevere il token SAML. Viene anche definito URL del servizio consumer di asserzione (ACS). Dopo averli immessi, fare clic su Avanti per passare alla schermata successiva. Questa schermata fornisce informazioni su ciò che è necessario configurare sul lato applicazione in modo che questa accetti un token SAML da Azure AD.
+* **URL di risposta**: è l'indirizzo a cui l'applicazione prevede di ricevere il token SAML. Viene anche definito URL del servizio consumer di asserzione (ACS). Dopo averli immessi, fare clic su Avanti per passare alla schermata successiva. Questa schermata fornisce informazioni su ciò che è necessario configurare sul lato applicazione in modo che questa accetti un token SAML da Azure AD.
 * **Relay State** (Stato di inoltro): lo stato di inoltro è un parametro facoltativo che può indicare all'applicazione dove reindirizzare l'utente dopo il completamento dell'autenticazione. Sebbene questo valore sia, in genere, un URL valido nell'applicazione, alcune applicazioni usano questo campo in modo diverso. Per informazioni dettagliate, vedere la documentazione sull'accesso Single Sign-On dell'app. La possibilità di configurare lo stato di inoltro è una nuova funzionalità esclusiva del nuovo portale di Azure.
 
 ### <a name="user-attributes"></a>Attributi utente

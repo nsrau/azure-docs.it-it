@@ -1,5 +1,5 @@
 ---
-title: Gestione dell'ordine degli eventi e del ritardo con Analisi di flusso di Azure | Documentazione Microsoft
+title: Gestione dell'ordine degli eventi e del ritardo con Analisi di flusso di Azure | Microsoft Docs
 description: Informazioni su come funziona Analisi di flusso con gli eventi non in ordine o in ritardo nei flussi di dati.
 keywords: non in ordine, in ritardo, eventi
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure
 
@@ -70,6 +70,9 @@ Gli eventi che non arrivano in ordine, ma entro la finestra di tolleranza degli 
 * **Eliminati**: rimossi.
 
 Quando Analisi di flusso di Azure riordina gli eventi ricevuti entro la finestra di tolleranza degli elementi non in ordine, l'output della query è ritardato in base alla finestra di tolleranza elementi non in ordine.
+
+### <a name="early-events"></a>Eventi anticipati
+Durante l'elaborazione in base al tempo applicazione, gli eventi con tempo applicazione superiore di 5 minuti rispetto alla rispettiva ora di arrivo vengono eliminati o modificati in base all'opzione di configurazione selezionata.
 
 ### <a name="example"></a>Esempio
 

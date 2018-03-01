@@ -15,28 +15,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2489d4bfda5d9a08b35e8d80b6cc9d00bf69117b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 4a10df360249b4b0b28ecbe4762bbb165ef9bb8d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Come crittografare i dischi virtuali in una VM di Linux
-Per la sicurezza avanzata macchina virtuale (VM) e la conformità, è possibile crittografare i dischi virtuali e la macchina virtuale stessa. Macchine virtuali vengono crittografate con chiavi di crittografia sono protetti in un insieme di credenziali chiave di Azure. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Linux tramite l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per migliorare gli aspetti di sicurezza e conformità delle macchine virtuali, i dischi virtuali e la macchina virtuale stessa possono essere crittografati. Le macchine virtuali vengono crittografate usando chiavi di crittografia protette in Azure Key Vault. È possibile controllare queste chiavi di crittografia e il loro uso. Questo articolo descrive come crittografare i dischi virtuali in una VM di Linux tramite l'interfaccia della riga di comando di Azure 2.0. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si necessita di eseguire rapidamente l'attività, nella sezione seguente sono illustrati i comandi di base per crittografare i dischi rigidi della VM. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#overview-of-disk-encryption).
 
-È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myKey* e *myVM*.
+È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myKey* e *myVM*.
 
-Per prima cosa, abilitare il provider dell'insieme di credenziali delle chiavi di Azure nella sottoscrizione di Azure con [az provider register](/cli/azure/provider#register) e creare un gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un nome del gruppo di risorse *myResourceGroup* nella località *stati uniti orientali*:
+Per prima cosa, abilitare il provider dell'insieme di credenziali delle chiavi di Azure nella sottoscrizione di Azure con [az provider register](/cli/azure/provider#az_provider_register) e creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un nome del gruppo di risorse *myResourceGroup* nella località *stati uniti orientali*:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare un insieme di credenziali delle chiavi di Azure con [az keyvault create](/cli/azure/keyvault#create) e abilitare l'insieme di credenziali delle chiavi per l'utilizzo con crittografia del disco. Specificare un nome univoco di Key Vault per *keyvault_name* come indicato di seguito:
+Creare un insieme di credenziali delle chiavi di Azure con [az keyvault create](/cli/azure/keyvault#az_keyvault_create) e abilitare l'insieme di credenziali delle chiavi per l'utilizzo con crittografia del disco. Specificare un nome univoco di Key Vault per *keyvault_name* come indicato di seguito:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -47,21 +47,21 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-Creare una chiave di crittografia nell'insieme di credenziali delle chiavi con [az keyvault key create](/cli/azure/keyvault/key#create). Nell'esempio seguente viene creata una chiave denominata *myKey*:
+Creare una chiave di crittografia nell'insieme di credenziali delle chiavi con [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create). Nell'esempio seguente viene creata una chiave denominata *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
 ```
 
-Creare un'entità servizio usando Azure Active Directory con [az ad sp creare-per-rbac](/cli/azure/ad/sp#create-for-rbac). L'entità servizio gestisce l'autenticazione e lo scambio di chiavi di crittografia dall'insieme di credenziali delle chiavi. Nell'esempio seguente legge i valori per l'ID dell'entità servizio e la password per l'uso nei comandi di versioni successive:
+Creare un'entità servizio usando Azure Active Directory con [az ad sp creare-per-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). L'entità servizio gestisce l'autenticazione e lo scambio di chiavi di crittografia dall'insieme di credenziali delle chiavi. L'esempio seguente legge i valori per l'ID e la password dell'entità servizio per usarli nei comandi successivi:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-La password viene restituita solo quando si crea l'entità servizio. Se lo si desidera, visualizzare e registrare la password (`echo $sp_password`). È possibile elencare le entità servizio con [az ad sp list](/cli/azure/ad/sp#list) e visualizzare informazioni aggiuntive su un'entità servizio specifica con [az ad sp show](/cli/azure/ad/sp#show).
+La password viene restituita solo quando si crea l'entità servizio. Se lo si desidera, visualizzare e registrare la password (`echo $sp_password`). È possibile elencare le entità servizio con [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) e visualizzare informazioni aggiuntive su un'entità servizio specifica con [az ad sp show](/cli/azure/ad/sp#az_ad_sp_show).
 
-Impostare le autorizzazioni per l'insieme di credenziali delle chiavi con [az keyvault set-policy](/cli/azure/keyvault#set-policy). Nell'esempio seguente l'ID dell'entità servizio viene fornita dal comando precedente:
+Impostare le autorizzazioni per l'insieme di credenziali delle chiavi con [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy). Nell'esempio seguente l'ID dell'entità servizio viene fornita dal comando precedente:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -69,7 +69,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
     --secret-permissions set
 ```
 
-Creare una macchina virtuale con [az vm create](/cli/azure/vm#create) e collegare un disco dati di 5 Gb. Solo determinate immagini di marketplace supportano la crittografia del disco. Nell'esempio seguente viene creata una VM denominata *myVM* tramite un'immagine di *CentOS 7.2n*:
+Creare una macchina virtuale con [az vm create](/cli/azure/vm#az_vm_create) e collegare un disco dati di 5 Gb. Solo determinate immagini di marketplace supportano la crittografia del disco. Nell'esempio seguente viene creata una VM denominata *myVM* tramite un'immagine di *CentOS 7.2n*:
 
 ```azurecli
 az vm create \
@@ -81,9 +81,9 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH per la macchina virtuale con il *publicIpAddress* illustrato nell'output del comando precedente. Creare una partizione e un file system, quindi montare il disco dati. Per ulteriori informazioni, vedere [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk) (Connettersi a una VM Linux per montare il nuovo disco). Chiudere la sessione SSH.
+Stabilire una connessione alla macchina virtuale con SSH usando il valore *publicIpAddress* indicato nell'output dal comando precedente. Creare una partizione e un file system, quindi montare il disco dati. Per ulteriori informazioni, vedere [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk) (Connettersi a una VM Linux per montare il nuovo disco). Chiudere la sessione SSH.
 
-Crittografare la macchina virtuale con [az vm encryption enable](/cli/azure/vm/encryption#enable). L'esempio seguente usa il *$sp_id* e *sp_password $* variabili dal precedente `ad sp create-for-rbac` comando:
+Crittografare la macchina virtuale con [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable). L'esempio seguente usa le variabili *$sp_id* e *$sp_password* dal comando precedente `ad sp create-for-rbac`:
 
 ```azurecli
 az vm encryption enable \
@@ -96,19 +96,19 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Il completamento del processo di crittografia del disco richiede qualche istante. Monitorare lo stato del processo con [z vm encryption show](/cli/azure/vm/encryption#show):
+Il completamento del processo di crittografia del disco richiede qualche istante. Monitorare lo stato del processo con [z vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
 ```
 
-Lo stato mostra **EncryptionInProgress**. Attendere che lo stato per il sistema operativo del disco indichi **VMRestartPending**, quindi riavviare la macchina virtuale con [az vm restart](/cli/azure/vm#restart):
+Lo stato mostra **EncryptionInProgress**. Attendere che lo stato per il sistema operativo del disco indichi **VMRestartPending**, quindi riavviare la macchina virtuale con [az vm restart](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
-Il processo di crittografia del disco è finalizzato durante il processo di avvio, pertanto, attendere alcuni minuti prima di verificare di nuovo lo stato della crittografia con [az vm encryption show](/cli/azure/vm/encryption#show):
+Il processo di crittografia del disco è finalizzato durante il processo di avvio, pertanto, attendere alcuni minuti prima di verificare di nuovo lo stato della crittografia con [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -144,7 +144,7 @@ Requisiti relativi alla crittografia dei dischi e scenari supportati:
 
 * I seguenti SKU dei server Linux: Ubuntu, CentOS, SUSE e SUSE Linux Enterprise Server (SLES) e Red Hat Enterprise Linux.
 * Tutte le risorse, come l'insieme di credenziali delle chiavi, l'account di archiviazione e la VM, devono risiedere nella stessa area e nella stessa sottoscrizione di Azure.
-* Standard A, D, DS, G, GS, e così via, macchine virtuali di serie.
+* Macchine virtuali standard delle serie A, D, DS, G, GS e così via.
 * Aggiornare le chiavi di crittografia in una VM Linux già crittografata.
 
 La crittografia del disco non è attualmente supportata negli scenari seguenti:
@@ -152,24 +152,24 @@ La crittografia del disco non è attualmente supportata negli scenari seguenti:
 * VM di base.
 * VM create con il modello di distribuzione classica.
 * Disabilitare la crittografia del disco del sistema operativo nelle VM Linux.
-* Utilizzo di immagini personalizzate di Linux.
+* Uso di immagini personalizzate di Linux.
 
-Per ulteriori informazioni su scenari supportati e limitazioni, vedere [crittografia del disco di Azure per le macchine virtuali IaaS](../../security/azure-security-disk-encryption.md)
+Per altre informazioni su scenari supportati e limitazioni, vedere [Crittografia dischi di Azure per le macchine virtuali IaaS](../../security/azure-security-disk-encryption.md)
 
 
 ## <a name="create-azure-key-vault-and-keys"></a>Creare le chiavi e l'insieme di credenziali delle chiavi di Azure
-È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myKey* e *myVM*.
+È necessario aver installato l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myKey* e *myVM*.
 
 Il primo passaggio consiste nel creare un insieme di credenziali delle chiavi di Azure in cui archiviare le chiavi di crittografia. L'insieme di credenziali delle chiavi di Azure consente di archiviare chiavi, chiavi private o password da implementare in tutta sicurezza in applicazioni e servizi. Per la crittografia del disco virtuale, usare l'insieme di credenziali delle chiavi per archiviare una chiave di crittografia usata per crittografare o decrittografare i dischi virtuali.
 
-Abilitare il provider dell'insieme di credenziali delle chiavi di Azure nella sottoscrizione di Azure con [az provider register](/cli/azure/provider#register) e creare un gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un nome del gruppo di risorse *myResourceGroup* nella posizione `eastus`:
+Abilitare il provider dell'insieme di credenziali delle chiavi di Azure nella sottoscrizione di Azure con [az provider register](/cli/azure/provider#az_provider_register) e creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un nome del gruppo di risorse *myResourceGroup* nella posizione `eastus`:
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 az group create --name myResourceGroup --location eastus
 ```
 
-L'insieme di credenziali delle chiavi di Azure contenente le chiavi di crittografia e le risorse di calcolo associate, come l'archiviazione e la VM stessa, devono risiedere nella stessa area. Creare un insieme di credenziali delle chiavi di Azure con [az keyvault create](/cli/azure/keyvault#create) e abilitare l'insieme di credenziali delle chiavi per l'utilizzo con crittografia del disco. Specificare un nome univoco di Key Vault per *keyvault_name* come indicato di seguito:
+L'insieme di credenziali delle chiavi di Azure contenente le chiavi di crittografia e le risorse di calcolo associate, come l'archiviazione e la VM stessa, devono risiedere nella stessa area. Creare un insieme di credenziali delle chiavi di Azure con [az keyvault create](/cli/azure/keyvault#az_keyvault_create) e abilitare l'insieme di credenziali delle chiavi per l'utilizzo con crittografia del disco. Specificare un nome univoco di Key Vault per *keyvault_name* come indicato di seguito:
 
 ```azurecli
 keyvault_name=myuniquekeyvaultname
@@ -180,9 +180,9 @@ az keyvault create \
     --enabled-for-disk-encryption True
 ```
 
-È possibile archiviare le chiavi di crittografia usando il software o il modulo di protezione hardware. L'uso di un modulo di protezione hardware richiede un insieme di credenziali delle chiavi premium. Esiste un costo aggiuntivo per creare un insieme di credenziali delle chiavi premium, anziché standard, in cui archiviare le chiavi protette tramite software. Per creare un insieme di credenziali delle chiavi premium, aggiungere `--sku Premium` al comando del passaggio precedente. L'esempio seguente usa le chiavi protette da software, poiché è stato creato un insieme di credenziali chiave standard.
+È possibile archiviare le chiavi di crittografia usando il software o il modulo di protezione hardware. L'uso di un modulo di protezione hardware richiede un insieme di credenziali delle chiavi premium. Esiste un costo aggiuntivo per creare un insieme di credenziali delle chiavi premium, anziché standard, in cui archiviare le chiavi protette tramite software. Per creare un insieme di credenziali delle chiavi premium, aggiungere `--sku Premium` al comando del passaggio precedente. L'esempio seguente usa chiavi protette tramite software, poiché è stato creato un insieme di credenziali delle chiavi standard.
 
-Per entrambi i modelli di protezione, è necessario consentire alla piattaforma Azure di accedere all'avvio della VM per richiedere le chiavi di crittografia con cui decrittografare i dischi virtuali. Creare una chiave di crittografia nell'insieme di credenziali delle chiavi con [az keyvault key create](/cli/azure/keyvault/key#create). Nell'esempio seguente viene creata una chiave denominata *myKey*:
+Per entrambi i modelli di protezione, è necessario consentire alla piattaforma Azure di accedere all'avvio della VM per richiedere le chiavi di crittografia con cui decrittografare i dischi virtuali. Creare una chiave di crittografia nell'insieme di credenziali delle chiavi con [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create). Nell'esempio seguente viene creata una chiave denominata *myKey*:
 
 ```azurecli
 az keyvault key create --vault-name $keyvault_name --name myKey --protection software
@@ -192,15 +192,15 @@ az keyvault key create --vault-name $keyvault_name --name myKey --protection sof
 ## <a name="create-the-azure-active-directory-service-principal"></a>Creare un'entità servizio di Azure Active Directory
 Al momento di crittografare o decrittografare i dischi virtuali, specificare un account per gestisce l'autenticazione e lo scambio delle chiavi di crittografia dall'insieme di credenziali delle chiavi. Tale account, un'entità servizio di Azure Active Directory, consente alla piattaforma Azure di richiedere le chiavi di crittografia appropriate per conto della VM. Un'istanza di Azure Active Directory predefinita è già disponibile nella sottoscrizione, anche se molte organizzazioni hanno directory di Azure Active Directory dedicate.
 
-Creare un'entità servizio usando Azure Active Directory con [az ad sp creare-per-rbac](/cli/azure/ad/sp#create-for-rbac). Nell'esempio seguente vengono letti i valori per l'ID e la password dell'entità servizio per l'uso nei comandi successivi:
+Creare un'entità servizio usando Azure Active Directory con [az ad sp creare-per-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac). Nell'esempio seguente vengono letti i valori per l'ID e la password dell'entità servizio per l'uso nei comandi successivi:
 
 ```azurecli
 read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
 ```
 
-La password viene visualizzata solo quando si crea l'entità servizio. Se lo si desidera, visualizzare e registrare la password (`echo $sp_password`). È possibile elencare le entità servizio con [az ad sp list](/cli/azure/ad/sp#list) e visualizzare informazioni aggiuntive su un'entità servizio specifica con [az ad sp show](/cli/azure/ad/sp#show).
+La password viene visualizzata solo quando si crea l'entità servizio. Se lo si desidera, visualizzare e registrare la password (`echo $sp_password`). È possibile elencare le entità servizio con [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) e visualizzare informazioni aggiuntive su un'entità servizio specifica con [az ad sp show](/cli/azure/ad/sp#az_ad_sp_show).
 
-Per crittografare o decrittografare correttamente i dischi virtuali, le autorizzazioni per la chiave di crittografia archiviata nell'insieme di credenziali delle chiavi devono essere impostate in modo tale da consentire all'entità servizio di Azure Active Directory di leggere le chiavi. Impostare le autorizzazioni per l'insieme di credenziali delle chiavi con [az keyvault set-policy](/cli/azure/keyvault#set-policy). Nell'esempio seguente l'ID dell'entità servizio viene fornita dal comando precedente:
+Per crittografare o decrittografare correttamente i dischi virtuali, le autorizzazioni per la chiave di crittografia archiviata nell'insieme di credenziali delle chiavi devono essere impostate in modo tale da consentire all'entità servizio di Azure Active Directory di leggere le chiavi. Impostare le autorizzazioni per l'insieme di credenziali delle chiavi con [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy). Nell'esempio seguente l'ID dell'entità servizio viene fornita dal comando precedente:
 
 ```azurecli
 az keyvault set-policy --name $keyvault_name --spn $sp_id \
@@ -210,7 +210,7 @@ az keyvault set-policy --name $keyvault_name --spn $sp_id \
 
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
-Creare una macchina virtuale da crittografare con [az vm create](/cli/azure/vm#create) e collegare un disco dati di 5 Gb. Solo determinate immagini di marketplace supportano la crittografia del disco. Nell'esempio seguente viene creata una VM denominata *myVM* tramite un'immagine di *CentOS 7.2n*:
+Creare una macchina virtuale da crittografare con [az vm create](/cli/azure/vm#az_vm_create) e collegare un disco dati di 5 Gb. Solo determinate immagini di marketplace supportano la crittografia del disco. Nell'esempio seguente viene creata una VM denominata *myVM* tramite un'immagine di *CentOS 7.2n*:
 
 ```azurecli
 az vm create \
@@ -222,7 +222,7 @@ az vm create \
     --data-disk-sizes-gb 5
 ```
 
-SSH per la macchina virtuale con il *publicIpAddress* illustrato nell'output del comando precedente. Creare una partizione e un file system, quindi montare il disco dati. Per ulteriori informazioni, vedere [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk) (Connettersi a una VM Linux per montare il nuovo disco). Chiudere la sessione SSH.
+Stabilire una connessione alla macchina virtuale con SSH usando il valore *publicIpAddress* indicato nell'output dal comando precedente. Creare una partizione e un file system, quindi montare il disco dati. Per ulteriori informazioni, vedere [Connect to a Linux VM to mount the new disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#connect-to-the-linux-vm-to-mount-the-new-disk) (Connettersi a una VM Linux per montare il nuovo disco). Chiudere la sessione SSH.
 
 
 ## <a name="encrypt-virtual-machine"></a>Crittografare una macchina virtuale
@@ -233,7 +233,7 @@ Per crittografare i dischi virtuali, è necessario riunire tutti i componenti pr
 3. Specificare le chiavi di crittografia da usare per la crittografia e la decrittografia effettive.
 4. Specificare se si desidera crittografare il disco del sistema operativo, i dischi dati o tutti i dischi.
 
-Crittografare la macchina virtuale con [az vm encryption enable](/cli/azure/vm/encryption#enable). L'esempio seguente usa il *$sp_id* e *sp_password $* variabili dal precedente [az ad sp creare-per-rbac](/cli/azure/ad/sp#create-for-rbac) comando:
+Crittografare la macchina virtuale con [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable). L'esempio seguente usa le variabili *$sp_id* e *$sp_password* dal comando precedente [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac):
 
 ```azurecli
 az vm encryption enable \
@@ -246,7 +246,7 @@ az vm encryption enable \
     --volume-type all
 ```
 
-Il completamento del processo di crittografia del disco richiede qualche istante. Monitorare lo stato del processo con [z vm encryption show](/cli/azure/vm/encryption#show):
+Il completamento del processo di crittografia del disco richiede qualche istante. Monitorare lo stato del processo con [z vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show):
 
 ```azurecli
 az vm encryption show --resource-group myResourceGroup --name myVM
@@ -261,7 +261,7 @@ L'output è simile all'esempio troncato seguente:
 ]
 ```
 
-Attendere che lo stato per il sistema operativo del disco indichi **VMRestartPending**, quindi riavviare la macchina virtuale con [az vm restart](/cli/azure/vm#restart):
+Attendere che lo stato per il sistema operativo del disco indichi **VMRestartPending**, quindi riavviare la macchina virtuale con [az vm restart](/cli/azure/vm#az_vm_restart):
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM

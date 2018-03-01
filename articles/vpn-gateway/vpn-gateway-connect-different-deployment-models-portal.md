@@ -1,10 +1,10 @@
 ---
 title: 'Connettere le reti virtuali classiche alle reti virtuali di Azure Resource Manager: portale| Documentazione Microsoft'
-description: Informazioni su come creare una connessione VPN tra le reti virtuali classiche e le reti virtuali di Resource Manager usando il gateway VPN e il portale
+description: Creare una connessione VPN tra le reti virtuali classiche e le reti virtuali di Resource Manager usando il gateway VPN e il portale.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 02/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 40a380a04088e948a7e81625963a5915980764c3
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -33,7 +33,7 @@ Questo articolo descrive come connettere reti virtuali classiche a reti virtuali
 
 La connessione di una rete virtuale classica a una rete virtuale di Resource Manager è simile alla connessione di una rete virtuale a una posizione del sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. È possibile creare una connessione tra reti virtuali in sottoscrizioni diverse e in aree diverse. È anche possibile connettere reti virtuali che già dispongono di connessioni alle reti locali, purché il gateway con cui sono state configurate sia dinamico o basato su route. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo. 
 
-Se le reti virtuali si trovano nella stessa area, è consigliabile considerare invece la possibilità di connetterle tramite peering reti virtuali. Peering reti virtuali non usa un gateway VPN. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md). 
+Se non si dispone di un gateway di rete virtuale e non si vuole crearne uno, prendere in considerazione l'idea di connettere le reti virtuali tramite Peering reti virtuali. Peering reti virtuali non usa un gateway VPN. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Prima di iniziare
 
@@ -80,7 +80,7 @@ Per questa configurazione si crea una connessione gateway VPN tramite un tunnel 
 
 La tabella seguente illustra un esempio di come sono definiti le reti virtuali e i siti locali:
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
+| Rete virtuale | Spazio indirizzi | Region | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |
@@ -110,7 +110,7 @@ Se si dispone già di una rete virtuale con un gateway VPN, verificare che il ga
 4. In **Sito locale** fare clic su **Configurare le impostazioni necessarie**. Verrà visualizzata la pagina **Sito locale**.
 5. Nella pagina **Sito locale** creare un nome da usare per fare riferimento alla rete virtuale di Resource Manager, ad esempio "RMVNetLocal".
 6. Se il gateway VPN per la rete virtuale di Resource Manager ha già un indirizzo IP pubblico, usare il valore del campo **Indirizzo IP del gateway VPN**. Se si stanno eseguendo questi passaggi come esercizio o non si dispone ancora di un gateway di rete virtuale per la rete virtuale di Resource Manager, è possibile creare un indirizzo IP segnaposto. Assicurarsi che l'indirizzo IP segnaposto usi un formato valido. In seguito sarà necessario sostituire l'indirizzo IP segnaposto con l'indirizzo IP pubblico del gateway di rete virtuale di Resource Manager.
-7. Per **Spazio indirizzi client** usare i [valori](#connectoverview) per gli spazi di indirizzi IP di rete virtuale per la rete virtuale di Resource Manager. Questa impostazione viene usata per specificare gli spazi indirizzi per il routing alla rete virtuale di Resource Manager. Nell'esempio viene usato 192.168.0.0/16, l'intervallo di indirizzi per RMVNet.
+7. Per **Spazio indirizzi client** usare i [valori](#connectoverview) per gli spazi indirizzi IP di rete virtuale per la rete virtuale di Resource Manager. Questa impostazione viene usata per specificare gli spazi indirizzi per il routing alla rete virtuale di Resource Manager. Nell'esempio viene usato 192.168.0.0/16, l'intervallo di indirizzi per RMVNet.
 8. Fare clic su **OK** per salvare i valori e tornare alla pagina **Nuova connessione VPN**.
 
 ### <a name="classicgw"></a>3. Creare il gateway di rete virtuale
@@ -179,7 +179,7 @@ Prima di creare un gateway di rete virtuale è necessario creare una subnet del 
 
 **Valori di esempio:**Gateway di rete locale = ClassicVNetLocal
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
+| Rete virtuale | Spazio indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|
@@ -196,16 +196,16 @@ In questa sezione si sostituisce l'indirizzo IP segnaposto usato nella specifica
 2. Nella pagina della rete virtuale fare clic su **Panoramica**.
 3. Nella sezione **Connessioni VPN** fare clic sul nome del sito locale nell'elemento grafico.
 
-    ![Connessioni VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connessioni VPN")
+  ![Connessioni VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connessioni VPN")
 4. Nella pagina **Connessioni VPN da sito a sito** fare clic sul nome del sito.
 
-    ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nome del sito locale")
+  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nome del sito locale")
 5. Nella pagina della connessione per il sito locale fare clic sul nome del sito locale per aprire la pagina **Sito locale**.
 
-    ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Aprire il sito locale")
+  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Aprire il sito locale")
 6. Nella pagina **Sito locale** sostituire l'**indirizzo IP del gateway VPN** con l'indirizzo IP del gateway di Resource Manager.
 
-    ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Indirizzo IP del gateway")
+  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Indirizzo IP del gateway")
 7. Fare clic su **OK** per aggiornare l'indirizzo IP.
 
 ## <a name="RMtoclassic"></a>Sezione 4: Creare una connessione da Resource Manager alla rete classica
@@ -223,34 +223,46 @@ In questa procedura si configura la connessione dalla rete virtuale di Resource 
 9. Creare una **chiave condivisa**. Questa chiave viene usata anche nella connessione creata dalla rete virtuale classica alla rete virtuale di Resource Manager. È possibile generare la chiave o crearne una. Per questo esempio è stato usato "abc123", ma è possibile e consigliabile usare un elemento più complesso.
 10. Fare clic su **OK** per creare la connessione.
 
-##<a name="classictoRM"></a>Sezione 5: Creare una connessione dalla rete classica a Resource Manager
+## <a name="classictoRM"></a>Sezione 5: Creare una connessione dalla rete classica a Resource Manager
 
 In questa procedura si configura la connessione dalla rete virtuale classica alla rete virtuale di Resource Manager. Per questa procedura è necessario PowerShell. Non è possibile creare questa connessione nel portale. Assicurarsi di aver scaricato e installato sia i cmdlet di PowerShell classici di Gestione dei servizi (SM) che di Resource Manager (RM).
 
 ### <a name="1-connect-to-your-azure-account"></a>1. Connettersi all'account di Azure
 
-Aprire la console di PowerShell con diritti elevati e accedere all'account Azure. Il cmdlet seguente richiede le credenziali di accesso per l'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell.
+Aprire la console di PowerShell con diritti elevati e accedere all'account Azure. Dopo l'accesso, vengono scaricate le impostazioni dell'account in modo che siano disponibili per Azure PowerShell. Il cmdlet seguente richiede le credenziali di accesso per l'account Azure per il modello di distribuzione Resource Manager:
 
 ```powershell
 Login-AzureRmAccount
 ```
-   
-Ottenere un elenco delle sottoscrizioni di Azure se si dispone di più di una sottoscrizione.
+
+Ottenere un elenco delle sottoscrizioni di Azure.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Specificare la sottoscrizione da usare. 
+Se sono disponibili più sottoscrizioni, specificare la sottoscrizione da usare.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 ```
 
-Aggiungere l'account Azure per usare i cmdlet di PowerShell classici (SM). A tale scopo, è possibile usare il comando seguente:
+Eseguire quindi l'accesso per usare i cmdlet di PowerShell classici (Gestione dei servizi). Usare il comando seguente per aggiungere l'account Azure per il modello di distribuzione classica:
 
 ```powershell
 Add-AzureAccount
+```
+
+Ottenere un elenco delle sottoscrizioni. Questo passaggio potrebbe essere necessario quando si aggiungono i cmdlet di Gestione dei servizi, a seconda dell'installazione del modulo di Azure.
+
+```powershell
+Get-AzureSubscription
+```
+
+Se sono disponibili più sottoscrizioni, specificare la sottoscrizione da usare.
+
+```powershell
+Select-AzureSubscription -SubscriptionName "Name of subscription"
 ```
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Visualizzare i valori del file di configurazione di rete

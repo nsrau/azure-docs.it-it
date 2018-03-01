@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 120611f98c97fa4c5bfa2a44aece47f246d9ec57
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="consuming-web-services"></a>Uso dei servizi Web
 Dopo aver distribuito un modello come un servizio Web in tempo reale è possibile inviare dati e ottenere stime da un'ampia gamma di piattaforme e applicazioni. Il servizio web in tempo reale espone un'API REST per l'ottenimento delle stime. È possibile inviare dati al servizio Web nel formato di riga singola o multipla per ottenere una o più stime contemporaneamente.
 
-Con il [servizio Web di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy) un'applicazione esterna comunica con un modello predittivo in modo sincrono effettuando una chiamata HTTP POST all'URL del servizio. Per chiamare un servizio Web, l'applicazione client deve specificare la chiave API che viene creata quando si distribuisce una stima e si inseriscono i dati della richiesta nel corpo della richiesta POST.
+Con il [servizio Web di Azure Machine Learning](model-management-service-deploy.md) un'applicazione esterna comunica con un modello predittivo in modo sincrono effettuando una chiamata HTTP POST all'URL del servizio. Per chiamare un servizio Web, l'applicazione client deve specificare la chiave API che viene creata quando si distribuisce una stima e si inseriscono i dati della richiesta nel corpo della richiesta POST.
 
 Si noti che le chiavi API sono disponibili solo in modalità di distribuzione di cluster. I servizi Web locali non dispongono di chiavi.
 
@@ -29,7 +29,7 @@ I servizi Web di Machine Learning di Azure possono essere distribuiti ai cluster
 L'interfaccia della riga di comando di Azure Machine Learning e l'API forniscono comandi utili per la creazione e la gestione di ambienti di calcolo per le distribuzioni dei servizi usando l'opzione ```az ml env```. 
 
 ## <a name="list-deployed-services-and-images"></a>Elenco dei servizi e delle immagini distribuite
-È possibile elencare i servizi e le immagini Docker attualmente distribuiti usando il comando ```az ml service list realtime -o table``` dell'interfaccia della riga di comando. Si noti che questo comando opera sempre nel contesto dell'ambiente di calcolo corrente e non visualizza i servizi distribuiti in un ambiente che non è impostato come ambiente corrente. Per impostare l'ambiente usare ```az ml env set```. 
+È possibile elencare i servizi e le immagini Docker attualmente distribuiti usando il comando ```az ml service list realtime -o table``` dell'interfaccia della riga di comando. Si noti che questo comando funziona sempre nel contesto dell'ambiente di calcolo corrente. Non visualizza i servizi distribuiti in un ambiente non impostato come corrente. Per impostare l'ambiente usare ```az ml env set```. 
 
 ## <a name="get-service-information"></a>Ottenere informazioni sul servizio
 Dopo che il servizio Web è stato distribuito correttamente, usare il comando seguente per ottenere l'URL del servizio e altri dettagli per chiamare l'endpoint di servizio. 

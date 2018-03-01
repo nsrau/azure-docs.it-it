@@ -1,6 +1,6 @@
 ---
-title: Programma FedRAMP per l'automazione dei progetti di Azure - Valutazione dei rischi
-description: Applicazioni Web per FedRAMP - Valutazione dei rischi
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Valutazione dei rischi
+description: Automazione di applicazioni Web per FedRAMP - Valutazione dei rischi
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="risk-assessment-ra"></a>Valutazione dei rischi
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del Commercio degli Stati Uniti come parte del documento NIST Special Publication 800-53, Revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure di test e indicazioni per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del Commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure di test e indicazioni per ogni controllo.
 
 ## <a name="nist-800-53-control-ra-1"></a>Controllo RA-1 NIST 800-53
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto Azure distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una visuale completa sul comportamento di sicurezza. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione baseline valuta un set di chiavi del Registro di sistema, impostazioni dei criteri di controllo e impostazioni di criteri di sicurezza, oltre ai valori consigliati di Microsoft per queste impostazioni. La valutazione dell'aggiornamento valuta lo stato degli aggiornamenti disponibili su tutte le macchine virtuali distribuite. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione baseline valuta un set di chiavi del Registro di sistema, impostazioni dei criteri di controllo e impostazioni di criteri di sicurezza, oltre ai valori consigliati di Microsoft per queste impostazioni. La valutazione dell'aggiornamento valuta lo stato degli aggiornamenti disponibili su tutte le macchine virtuali distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto Azure distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. Ai problemi individuati vengono assegnati punteggi di gravità. Per le regole di valutazione baseline sono forniti ID di enumerazione della configurazione comune.  |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. Ai problemi individuati vengono assegnati punteggi di gravità. Per le regole di valutazione baseline sono forniti ID di enumerazione della configurazione comune.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto Azure distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto Azure distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. I criteri con cui queste soluzioni eseguono la valutazione sono aggiornati automaticamente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto Azure distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione degli aggiornamenti esegue le valutazioni sia con macchine virtuali Windows sia Linux. La valutazione baseline esegue le valutazioni con macchine virtuali Windows che utilizzano una baseline sviluppata da Windows in base alle procedure consigliate del settore. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. All'interno della soluzione, sono disponibili due domini di sicurezza, valutazione degli aggiornamenti e valutazione baseline. La valutazione degli aggiornamenti esegue le valutazioni sia con macchine virtuali Windows sia Linux. La valutazione baseline esegue le valutazioni con macchine virtuali Windows che utilizzano una baseline sviluppata da Windows in base alle procedure consigliate del settore. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il servizio Microsoft Monitoring Agent, configurato su macchine virtuali distribuite da questo progetto Azure, è configurato come servizio automatico con i privilegi necessari per le attività di valutazione. |
+| **Cliente** | Il servizio Microsoft Monitoring Agent, configurato nelle macchine virtuali distribuite da questo progetto, è configurato come servizio automatico con i privilegi necessari per le attività di valutazione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto Azure distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una visuale completa sul comportamento di sicurezza. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo offre informazioni di alto livello sullo stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |

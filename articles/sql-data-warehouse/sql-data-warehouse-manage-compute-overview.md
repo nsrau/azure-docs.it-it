@@ -1,6 +1,6 @@
 ---
-title: Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica) | Documentazione Microsoft
-description: "Funzionalità relative alla scalabilità orizzontale delle prestazioni in Azure SQL Data Warehouse. Eseguire il ridimensionamento modificando le impostazioni DWU o sospendendo e riavviando le risorse di calcolo per ridurre i costi."
+title: Gestire risorse di calcolo in Azure SQL Data Warehouse | Microsoft Docs
+description: "Informazioni sulle funzionalità di scalabilità orizzontale per le prestazioni in Azure SQL Data Warehouse. Applicare la scalabilità orizzontale modificando le DWU o ridurre i costi tramite la sospensione delle funzioni di data warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -13,36 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 3/23/2017
+ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: d795abe5254d47a72a468b0989e46829a5c5142a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)
-> [!div class="op_single_selector"]
-> * [Panoramica](sql-data-warehouse-manage-compute-overview.md)
-> * [Portale](sql-data-warehouse-manage-compute-portal.md)
-> * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-> * [REST](sql-data-warehouse-manage-compute-rest-api.md)
-> * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
->
->
+# <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gestire le risorse di calcolo in Azure SQL Data Warehouse
+Informazioni sulla gestione delle risorse di calcolo in Azure SQL Data Warehouse. Ridurre i costi sospendendo il data warehouse o ridimensionare il data warehouse per soddisfare le esigenze in termini di prestazioni. 
 
-L'architettura di SQL Data Warehouse separa le risorse di archiviazione e calcolo consentendo a entrambe di eseguire il ridimensionamento in modo indipendente. Pertanto, è possibile ridimensionare il calcolo per soddisfare le richieste di prestazioni, a prescindere dalla quantità di dati. Come conseguenza logica di questa architettura, la [fatturazione][billed] è separata per calcolo e archiviazione. 
+## <a name="what-is-compute-management"></a>Informazioni sulla gestione del calcolo
+L'architettura di SQL Data Warehouse separa le risorse di archiviazione e calcolo consentendo a entrambe di eseguire il ridimensionamento in modo indipendente. Di conseguenza, è possibile ridimensionare il calcolo per soddisfare le esigenze in termini di prestazioni indipendenti dall'archiviazione dei dati. È anche possibile sospendere e riprendere le risorse di calcolo. Come conseguenza logica di questa architettura, la [fatturazione](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) per calcolo e archiviazione è separata. Se non è necessario usare il data warehouse per un periodo di tempo, è possibile sospendere le funzioni di calcolo al fine di risparmiare i costi associati. 
 
-Questa panoramica descrive il funzionamento della scalabilità orizzontale con SQL Data Warehouse e come usare le funzionalità di sospensione, ripresa e ridimensionamento di SQL Data Warehouse. 
+## <a name="scaling-compute"></a>Ridimensionamento delle risorse di calcolo
+È possibile applicare la scalabilità orizzontale o ridurre le risorse di calcolo modificando l'impostazione delle [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) per il data warehouse in uso. Le prestazioni di caricamento e relative alle query possono aumentare in modo lineare man mano che si aggiungono più unità di data warehouse. SQL Data Warehouse offre [livelli di servizio](performance-tiers.md#service-levels) per le unità di data warehouse che determinano una modifica significativa delle prestazioni quando si aumentano o si diminuiscono le risorse. 
 
-## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Funzionamento delle operazioni di gestione del calcolo in SQL Data Warehouse
-L'architettura di SQL Data Warehouse consiste in un nodo di controllo, nodi di calcolo e di un livello di archiviazione suddiviso in 60 distribuzioni. 
+Per le procedure per la scalabilità orizzontale, vedere le guide introduttive al [portale di Azure](quickstart-scale-compute-portal.md), a [PowerShell](quickstart-scale-compute-powershell.md) oppure a [T-SQL](quickstart-scale-compute-tsql.md). È anche possibile eseguire le operazioni di scalabilità orizzontale con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
-Durante una normale sessione attiva in SQL Data Warehouse, il nodo head del sistema gestisce i metadati e contiene l'ottimizzazione delle query distribuite. Al di sotto del nodo head si trovano i nodi di calcolo e il livello di archiviazione. Considerando 400 DWU, il sistema dispone di un nodo head, di quattro nodi di calcolo e del livello di archiviazione, per 60 distribuzioni. 
+Per eseguire un'operazione di ridimensionamento, SQL Data Warehouse interrompe prima tutte le query in ingresso e quindi esegue il rollback delle transazioni per garantire uno stato coerente. Il ridimensionamento ha effetto solo quando il rollback della transazione è completato. Per un'operazione di ridimensionamento, il sistema disconnette il livello di archiviazione dai nodi di calcolo, aggiunge nodi di calcolo e quindi ricollega il livello di archiviazione a quello di calcolo. Ogni data warehouse viene archiviato come 60 distribuzioni, uniformemente distribuite ai nodi di calcolo. L'aggiunta di più nodi di calcolo determina un aumento della potenza di calcolo. Con l'aumento del numero di nodi di calcolo si riduce il numero di distribuzioni per ogni nodo di calcolo, con un conseguente incremento della potenza di calcolo per le query. In modo analogo, la diminuzione delle unità di data warehouse riduce il numero di nodi di calcolo e di conseguenza le risorse di calcolo per le query.
 
-Quando si eseguono operazioni di ridimensionamento o sospensione, il sistema termina innanzitutto le query in entrata, quindi esegue il rollback delle transazioni per garantire la coerenza. Per le operazioni di scalabilità, quest'ultima si verificherà solamente al completamento del rollback di transazione. Per le operazioni di scalabilità verticale con aumento di prestazioni, il sistema esegue il provisioning del numero di nodi di calcolo aggiuntivi desiderati, quindi inizia a ricollegare i nodi di calcolo al livello di archiviazione. Per un'operazione di scalabilità verticale con diminuzione delle prestazioni, i nodi non più necessari vengono rilasciati e quelli rimanenti si ricollegano al numero appropriato di distribuzioni. Per un'operazione di sospensione, vengono rilasciati tutti i nodi di calcolo e nel sistema vengono eseguite varie operazioni di metadati per lasciarlo in uno stato stabile.
+La tabella seguente illustra come il numero di distribuzioni per nodo di calcolo si modifica in base alla modifica delle unità di data warehouse.  DWU6000 fornisce 60 nodi di calcolo e consente di ottenere prestazioni delle query molto più elevate di DWU100. 
 
-| DWU  | \# di nodi di calcolo | \# di distribuzioni per nodo |
+| Unità di data warehouse  | \# di nodi di calcolo | \# di distribuzioni per nodo |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -57,163 +51,72 @@ Quando si eseguono operazioni di ridimensionamento o sospensione, il sistema ter
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-Le tre funzioni principali per la gestione del calcolo sono:
 
-1. Sospendi
-2. Riprendi
-3. Scalabilità
+## <a name="finding-the-right-size-of-data-warehouse-units"></a>Ricerca delle dimensioni giuste delle unità di data warehouse
 
-Ciascuna di queste operazioni può richiedere alcuni minuti. In caso di operazioni automatiche di ridimensionamento/sospensione/ripresa, si potrebbe voler implementare la logica per assicurare il completamento di determinate operazioni prima di procedere con altre. 
+Per ottenere vantaggi della scalabilità orizzontale in termini di prestazioni, in particolare per le unità di warehouse dati di dimensioni maggiori, è necessario usare un set di dati di almeno 1 TB. Per trovare la quantità di unità di data warehouse più adatta per il data warehouse in uso, provare ad aumentarne e a ridurne il numero. Dopo il caricamento dei dati, eseguire alcune query con numeri di unità di data warehouse diversi. Poiché il ridimensionamento è rapido, è possibile provare diversi livelli di prestazioni in un'ora o meno. 
 
-Verificando lo stato del database in vari endpoint sarà possibile implementare correttamente l'automazione di tali operazioni. Il portale invierà notifiche una volta completata un'operazione e indicherà lo stato corrente del database. Tuttavia non è possibile verificare lo stato in maniera programmatica. 
+Indicazioni per la ricerca del numero di unità di data warehouse più adatto.
 
->  [!NOTE]
->
->  La funzionalità di gestione del calcolo non è presente in tutti gli endpoint.
->
->  
+- Per un data warehouse in fase di sviluppo, iniziare selezionando un numero minore di unità di data warehouse.  Un buon punto di partenza è DW400 o DW200.
+- Monitorare le prestazioni dell'applicazione, osservando il numero di unità di data warehouse selezionato rispetto alle prestazioni ottenute.
+- Presupporre una scalabilità lineare e determinare quanto è necessario aumentare o ridurre le unità di data warehouse. 
+- Continuare ad apportare modifiche finché non si raggiunge un livello di prestazioni ottimale per i propri requisiti aziendali.
 
-|              | Sospensione/ripresa | Scalabilità | Controllare lo stato del database |
-| ------------ | ------------ | ----- | -------------------- |
-| Portale di Azure | Sì          | Sì   | **No**               |
-| PowerShell   | Sì          | Sì   | Sì                  |
-| API REST     | Sì          | Sì   | Sì                  |
-| T-SQL        | **No**       | Sì   | Sì                  |
+## <a name="when-to-scale-out"></a>Quando applicare la scalabilità orizzontale
+L'aumento del numero di unità di data warehouse influisce sugli aspetti delle prestazioni indicati di seguito.
+
+- Aumento lineare delle prestazioni del sistema per analisi, aggregazione e istruzioni CTAS
+- Aumento del numero di lettori e scrittori per il caricamento dei dati.
+- Numero massimo di query simultanee e slot di concorrenza.
+
+Indicazioni per i momenti in cui è opportuno aumentare le unità di data warehouse.
+
+- Prima di eseguire un'operazione di caricamento o di trasformazione di dati con impatto elevato, applicare la scalabilità orizzontale per rendere disponibili i dati più rapidamente.
+- Durante le ore lavorative di maggiore picco, applicare la scalabilità orizzontale per gestire un numero maggiore di query simultanee. 
+
+## <a name="what-if-scaling-out-does-not-improve-performance"></a>Cosa accade se la scalabilità orizzontale non migliora le prestazioni?
+
+L'aggiunta di unità di data warehouse determina un aumento del parallelismo. Se il lavoro viene suddiviso in modo uniforme tra i nodi di calcolo, il maggiore parallelismo migliora le prestazioni delle query. Se la scalabilità orizzontale non modifica le prestazioni, i motivi possono essere diversi. I dati potrebbero essere presenti in modo non uniforme tra le distribuzioni o le query potrebbero introdurre spostamenti dei dati in notevole quantità. Per analizzare i problemi di prestazioni delle query, vedere [Risoluzione dei problemi di prestazioni](sql-data-warehouse-troubleshoot.md#performance). 
+
+## <a name="pausing-and-resuming-compute"></a>Sospensione e ripresa del calcolo
+La sospensione del calcolo determina la disconnessione del livello di archiviazione dai nodi di calcolo. Le risorse di calcolo vengono rilasciate dall'account dell'utente. Durante la sospensione del calcolo, non viene addebitato alcun costo correlato. Alla ripresa del calcolo, l'archiviazione viene ricollegata ai nodi di calcolo e le spese di calcolo vengono nuovamente addebitate. La sospensione di un data warehouse provoca gli effetti seguenti:
+
+* Le risorse di calcolo e memoria vengono restituite al pool di risorse disponibili nel data center.
+* I costi delle unità di data warehouse sono pari a zero per la durata della sospensione.
+* L'archivio dati non è interessato e i dati rimangano invariati. 
+* SQL Data Warehouse annulla tutte le operazioni in esecuzione o in coda.
+
+La ripresa di un data warehouse provoca gli effetti seguenti:
+
+* SQL Data Warehouse acquisisce risorse di calcolo e memoria per le impostazioni delle unità di data warehouse.
+* I costi di calcolo per le unità di data warehouse vengono nuovamente addebitati.
+* I dati diventano disponibili.
+* Dopo che il data warehouse è online, è necessario riavviare le query del carico di lavoro.
+
+Se si vuole che il data warehouse sia sempre accessibile, è opportuno ridurne al minimo le dimensioni anziché sospenderlo. 
+
+Per le procedure di sospensione e ripresa, vedere le guide introduttive al [portale di Azure](pause-and-resume-compute-portal.md) oppure a [PowerShell](pause-and-resume-compute-powershell.md). È anche possibile usare l'[API REST di sospensione](sql-data-warehouse-manage-compute-rest-api.md#pause-compute) o l'[API REST di ripresa](sql-data-warehouse-manage-compute-rest-api.md#resume-compute).
+
+## <a name="drain-transactions-before-pausing-or-scaling"></a>Scaricare le transazioni prima della sospensione o del ridimensionamento
+Prima di avviare un'operazione di sospensione o ridimensionamento, è consigliabile consentire il completamento delle transazioni esistenti.
+
+Quando si sospende o ridimensiona SQL Data Warehouse, dietro le quinte le query vengono annullate all'avvio di tale richiesta.  L'annullamento di una semplice query SELECT è un'operazione rapida senza quasi alcun impatto sul tempo necessario per sospendere o ridimensionare l'istanza.  Le query transazionali, che modificano i dati o la struttura dei dati, potrebbero tuttavia richiedere più tempo per l'arresto.  **Le query transazionali, per definizione, devono essere completate interamente oppure è necessario il rollback delle modifiche.**  Il rollback del lavoro svolto da una query transazionale può richiedere la stessa quantità di tempo, o anche maggiore, della modifica originale applicata dalla query.  Se, ad esempio, si annulla una query che sta eliminando righe e che è in esecuzione già da un'ora, potrebbe essere necessaria un'ora affinché il sistema inserisca di nuovo le righe che sono state eliminate.  Se si sospende o si ridimensiona il servizio mentre sono in corso transazioni, potrebbe sembrare che l'operazione richieda molto tempo perché per la sospensione o il ridimensionamento è necessario attendere il completamento del rollback.
+
+Vedere anche [Transazioni in SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) e [Ottimizzazione delle transazioni per SQL Data Warehouse][Ottimizzazione delle transazioni per SQL Data Warehouse](sql-data-warehouse-develop-best-practices-transactions.md).
+
+## <a name="automating-compute-management"></a>Automazione della gestione del calcolo
+Per automatizzare le operazioni di gestione di calcolo, vedere [Manage compute with Azure functions](manage-compute-with-azure-functions.md) (Gestire il calcolo con Funzioni di Azure).
+
+Ogni operazione di scalabilità orizzontale, sospensione e ripresa può richiedere alcuni minuti. Se queste operazioni vengono eseguite automaticamente, è consigliabile implementare la logica necessaria per garantire che determinate operazioni siano completate prima di procedere con un'altra azione. La verifica dello stato del data warehouse tramite vari endpoint consente di implementare correttamente l'automazione di tali operazioni. 
+
+Per verificare lo stato del data warehouse, vedere le guide introduttive a [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) oppure a [T-SQL](quickstart-scale-compute-tsql.md#check-database-state). È anche possibile verificare lo stato del data warehouse con un'[API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
+## <a name="permissions"></a>Autorizzazioni
 
-<a name="scale-compute-bk"></a>
+Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
 
-## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
-
-Le prestazioni in SQL Data Warehouse vengono misurate in [unità data warehouse (DWU)][unità data warehouse (DWU)], una misura astratta delle risorse di calcolo come CPU, memoria e larghezza di banda I/O. Un utente che desidera aumentare le prestazioni del sistema può farlo in vari modi, ad esempio tramite il portale, T-SQL e le API REST. 
-
-### <a name="how-do-i-scale-compute"></a>In che modo è possibile ridimensionare le risorse di calcolo?
-La potenza di calcolo è gestita da SQL Data Warehouse modificando l'impostazione DWU. Le prestazioni aumentano in modo lineare man mano che si aggiungono più DWU per determinate operazioni.  Esistono varie offerte di DWU per assicurare un cambiamento netto delle prestazioni durante il ridimensionamento verticale del sistema. 
-
-Per modificare le DWU, è possibile usare uno di questi metodi singoli.
-
-* [Ridimensionare la potenza di calcolo con il portale di Azure][Scale compute power with Azure portal]
-* [Ridimensionare la potenza di calcolo con PowerShell][Scale compute power with PowerShell]
-* [Ridimensionare la potenza di calcolo con le API REST][Scale compute power with REST APIs]
-* [Ridimensionare la potenza di calcolo con TSQL][Scale compute power with TSQL]
-
-### <a name="how-many-dwus-should-i-use"></a>Quante DWU è consigliabile usare?
-
-Per comprendere il valore di DWU ideale, provare ad aumentarlo e diminuirlo ed eseguire alcune query dopo il caricamento dei dati. Poiché il ridimensionamento è rapido, è possibile provare diversi livelli di prestazioni in un'ora o meno. 
-
-> [!Note] 
-> SQL Data Warehouse è progettato per elaborare grandi quantità di dati. Per constatarne le reali funzionalità di ridimensionamento, specialmente per DWU di dimensioni maggiori, si consiglia di usare un set di dati di grandi dimensioni, possibilmente 1 TB o più.
-
-Raccomandazioni per individuare l'impostazione DWU più adatta al proprio carico di lavoro:
-
-1. Per un data warehouse in sviluppo, iniziare con un numero più limitato di prestazioni DWU.  Un buon punto di partenza è DW400 o DW200.
-2. Monitorare le prestazioni dell'applicazione, osservare che il numero di DWUs selezionato in relazione alle prestazioni che si osservano.
-3. Determinare di quanto si vogliono aumentare o ridurre le prestazioni per raggiungere il livello ottimale per i propri requisiti presupponendo una scalabilità lineare.
-4. Aumentare o diminuire il numero di DWU proporzionalmente alla velocità desiderata per le prestazioni del proprio carico di lavoro. 
-5. Continuare ad apportare modifiche finché non si raggiunge un livello di prestazioni ottimale per i propri requisiti aziendali.
-
-> [!NOTE]
->
-> Le prestazioni delle query aumentano con maggiore parallelizzazione solo se il lavoro può essere suddivise tra i nodi di calcolo. Se si ritiene che la scalabilità non stia modificando le prestazioni, si consiglia di leggere gli articoli sull'ottimizzazione di queste ultime per verificare qualora i dati siano distribuiti in modo ineguale o se si stiano introducendo grandi quantità di movimenti di dati. 
-
-### <a name="when-should-i-scale-dwus"></a>Quando è necessario ridimensionare le DWU?
-Il ridimensionamento delle DWU modifica i seguenti scenari importanti:
-
-1. Modifica lineare delle prestazioni del sistema per le analisi, l'aggregazione e le istruzioni CTAS
-2. Aumento del numero di lettori e writer durante il caricamento con PolyBase
-3. Numero massimo di query simultanee e slot di concorrenza
-
-Raccomandazioni sul momento più indicato per il ridimensionamento delle DWU:
-
-1. Prima di eseguire un'operazione di caricamento o trasformazione di quantità di dati elevate, ridimensionare le DWU in modo che i dati siano disponibili più rapidamente.
-2. Durante le ore lavorative più intense, eseguire il ridimensionamento per poter ricevere un numero maggiori di query simultanee. 
-
-<a name="pause-compute-bk"></a>
-
-## <a name="pause-compute"></a>Sospendere le risorse di calcolo
-[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
-
-Per sospendere un database, usare uno di questi metodi singoli.
-
-* [Sospendere le risorse di calcolo con il portale di Azure][Pause compute with Azure portal]
-* [Sospendere le risorse di calcolo con PowerShell][Pause compute with PowerShell]
-* [Sospendere le risorse di calcolo con le API REST][Pause compute with REST APIs]
-
-<a name="resume-compute-bk"></a>
-
-## <a name="resume-compute"></a>Riavviare le risorse di calcolo
-[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
-
-Per riavviare un database, usare uno di questi metodi singoli.
-
-* [Riavviare le risorse di calcolo con il portale di Azure][Resume compute with Azure portal]
-* [Riavviare le risorse di calcolo con PowerShell][Resume compute with PowerShell]
-* [Riavviare le risorse di calcolo con le API REST][Resume compute with REST APIs]
-
-<a name="check-compute-bk"></a>
-
-## <a name="check-database-state"></a>Controllare lo stato del database 
-
-Per riavviare un database, usare uno di questi metodi singoli.
-
-- [Controllare lo stato del database con T-SQL][Check database state with T-SQL]
-- [Controllare lo stato del database con PowerShell][Check database state with PowerShell]
-- [Controllare lo stato del database con le API REST][Check database state with REST APIs]
-
-## <a name="permissions"></a>autorizzazioni
-
-Il ridimensionamento del database richiede le autorizzazioni descritte in [ALTER DATABASE][ALTER DATABASE].  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL][SQL DB Contributor], in particolare Microsoft.Sql/servers/databases/action.
-
-<a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per comprendere più facilmente altri concetti importanti sulle prestazioni, vedere gli articoli seguenti:
-
-* [Gestione della concorrenza e del carico di lavoro][Workload and concurrency management]
-* [Panoramica delle tabelle][Table design overview]
-* [Distribuzione di tabelle][Table distribution]
-* [Indicizzazione di tabelle][Table indexing]
-* [Partizionamento di tabelle][Table partitioning]
-* [Statistiche delle tabelle][Table statistics]
-* [Procedure consigliate][Best practices]
-
-<!--Image reference-->
-
-<!--Article references-->
-[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
-
-[capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
-
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
-
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
-
-[Check database state with T-SQL]: ./sql-data-warehouse-manage-compute-tsql.md#check-database-state-and-operation-progress
-[Check database state with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#check-database-state
-[Check database state with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#check-database-state
-
-[Workload and concurrency management]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
-
-<!--MSDN references-->
-[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
-
-<!--Other Web references-->
-[Azure portal]: http://portal.azure.com/
+Un altro aspetto della gestione delle risorse di calcolo è l'allocazione di risorse diverse per ogni singola query. Per altre informazioni, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).

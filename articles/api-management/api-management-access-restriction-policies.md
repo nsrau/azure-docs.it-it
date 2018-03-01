@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -30,7 +30,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   [Limita frequenza delle chiamate per chiave](#LimitCallRateByKey) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.  
 -   [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.  
 -   [Imposta quota di utilizzo per sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.  
--   [Imposta quota di utilizzo per chiave](#SetUsageQuotaByKey) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
+-   [Imposta quota di utilizzo per chiave](#SetUsageQuotaByKey): consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
 -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
   
 ##  <a name="CheckHTTPHeader"></a> Intestazione check-header  
@@ -55,14 +55,14 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |check-header|Elemento radice.|Sì|  
-|value|Valore dell'intestazione HTTP consentito. Quando vengono specificati più elementi per il valore, in caso di corrispondenza di uno dei valori il controllo ha esito positivo.|No|  
+|value|Valore dell'intestazione HTTP consentito. Quando vengono specificati più elementi per il valore, in caso di corrispondenza di uno dei valori il controllo ha esito positivo.|No |  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|Messaggio di errore da restituire nel corpo della risposta HTTP se l'intestazione non esiste o presenta un valore non valido. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.|Sì|N/D|  
 |failed-check-httpcode|Codice di stato HTTP da restituire se l'intestazione non esiste o presenta un valore non valido.|Sì|N/D|  
@@ -110,15 +110,15 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento radice.|Sì|  
-|api|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente.|No|  
-|operation|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente.|No|  
+|api|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente.|No |  
+|operation|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente.|No |  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |name|Il nome dell'API a cui si desidera applicare il limite di frequenza.|Sì|N/D|  
 |calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Sì|N/D|  
@@ -169,17 +169,17 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Sì|N/D|  
 |counter-key|La chiave deve essere usata per i criteri relativi ai limiti di frequenza.|Sì|N/D|  
-|increment-condition|Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).|No|N/D|  
+|increment-condition|Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).|No |N/D|  
 |renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
@@ -212,7 +212,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |ip-filter|Elemento radice.|Sì|  
 |Address|Specifica un singolo indirizzo IP su cui applicare il filtro.|È obbligatorio almeno un elemento `address` o `address-range`.|  
@@ -220,7 +220,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Intervallo di indirizzi IP per cui permettere o negare l'accesso.|Obbligatorio quando viene usato l'elemento `address-range`.|N/D|  
 |ip-filter action="allow &#124; forbid"|Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati.|Sì|N/D|  
@@ -265,15 +265,15 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |quota|Elemento radice.|Sì|  
-|api|Aggiungere almeno uno di questi elementi per imporre una quota alle API all'interno del prodotto. Le quote delle API e del prodotto vengono applicate in modo indipendente.|No|  
-|operation|Aggiungere almeno uno di questi elementi per imporre una quota alle operazioni all'interno di un'API. Le quote delle operazioni, delle API e del prodotto vengono applicate in modo indipendente.|No|  
+|api|Aggiungere almeno uno di questi elementi per imporre una quota alle API all'interno del prodotto. Le quote delle API e del prodotto vengono applicate in modo indipendente.|No |  
+|operation|Aggiungere almeno uno di questi elementi per imporre una quota alle operazioni all'interno di un'API. Le quote delle operazioni, delle API e del prodotto vengono applicate in modo indipendente.|No |  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |name|Nome dell'API o dell'operazione per cui è applicabile la quota.|Sì|N/D|  
 |bandwidth|Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
@@ -326,18 +326,18 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Nome|Descrizione|Obbligatorio|  
+|NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
 |quota|Elemento radice.|Sì|  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
 |calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
 |counter-key|La chiave deve essere usata per i criteri relativi alla quota.|Sì|N/D|  
-|increment-condition|Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).|No|N/D|  
+|increment-condition|Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).|No |N/D|  
 |renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
@@ -483,32 +483,32 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 ### <a name="elements"></a>Elementi  
   
-|Elemento|Descrizione|Obbligatorio|  
+|Elemento|DESCRIZIONE|Obbligatoria|  
 |-------------|-----------------|--------------|  
 |validate-jwt|Elemento radice.|Sì|  
-|audiences|Contiene un elenco di attestazioni "audience" accettabili che possono essere presenti nel token. Se sono presenti più valori "audience", viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo. È necessario specificare almeno un "audience".|No|  
-|issuer-signing-keys|Elenco di chiavi di sicurezza con codifica Base64 usato per convalidare i token firmati. Se sono presenti più chiavi di sicurezza, viene provata ogni chiave fino al completamento di tutte le chiavi (caso in cui la convalida ha esito negativo) o fino a quando una chiave non ha esito positivo. Gli elementi chiave contengono un attributo `id` facoltativo, usato per il confronto con l'attestazione `kid`.|No|  
-|issuers|Elenco di entità accettabili che hanno emesso il token. Se sono presenti più valori emittenti, viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo.|No|  
-|openid-config|Elemento usato per specificare un endpoint di configurazione Open ID conforme da cui è possibile ottenere le chiavi di firma e l'emittente.|No|  
-|required-claims|Contiene un elenco di attestazioni da includere nel token affinché possa essere considerato valido. Perché la convalida abbia esito positivo, quando l'attributo `match` è impostato su `all` ogni valore dell'attestazione nel criterio deve essere presente nel token. Perché la convalida abbia esito positivo, quando l'attributo `match` è impostato su `any` almeno un'attestazione deve essere presente nel token.|No|  
-|zumo-master-key|Chiave master per i token rilasciati da Servizi mobili di Azure|No|  
+|audiences|Contiene un elenco di attestazioni "audience" accettabili che possono essere presenti nel token. Se sono presenti più valori "audience", viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo. È necessario specificare almeno un "audience".|No |  
+|issuer-signing-keys|Elenco di chiavi di sicurezza con codifica Base64 usato per convalidare i token firmati. Se sono presenti più chiavi di sicurezza, viene provata ogni chiave fino al completamento di tutte le chiavi (caso in cui la convalida ha esito negativo) o fino a quando una chiave non ha esito positivo. Gli elementi chiave contengono un attributo `id` facoltativo, usato per il confronto con l'attestazione `kid`.|No |  
+|issuers|Elenco di entità accettabili che hanno emesso il token. Se sono presenti più valori emittenti, viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo.|No |  
+|openid-config|Elemento usato per specificare un endpoint di configurazione Open ID conforme da cui è possibile ottenere le chiavi di firma e l'emittente.|No |  
+|required-claims|Contiene un elenco di attestazioni da includere nel token affinché possa essere considerato valido. Perché la convalida abbia esito positivo, quando l'attributo `match` è impostato su `all` ogni valore dell'attestazione nel criterio deve essere presente nel token. Perché la convalida abbia esito positivo, quando l'attributo `match` è impostato su `any` almeno un'attestazione deve essere presente nel token.|No |  
+|zumo-master-key|Chiave master per i token rilasciati da Servizi mobili di Azure|No |  
   
 ### <a name="attributes"></a>Attributi  
   
-|Nome|Descrizione|Obbligatorio|Default|  
+|NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|clock-skew|TimeSpan. Fornisce un minimo margine temporale nel caso in cui nel token sia presente l'attestazione di scadenza del token e abbia superato la data/l'ora corrente.|No|0 secondi|  
-|failed-validation-error-message|Messaggio di errore da restituire nel corpo della risposta HTTP se il token JWT non supera la convalida. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.|No|Il messaggio di errore predefinito dipende dal problema della convalida, ad esempio "JWT not present" ("JWT non presente").|  
-|failed-validation-httpcode|Codice di stato HTTP da restituire se il token JWT non supera la convalida.|No|401|  
-|header-name|Il nome dell'intestazione HTTP che contiene il token.|È necessario specificare `header-name` o `query-paremeter-name`, ma non entrambi.|N/D|  
-|id|L'attributo `id` nell'elemento `key` consente di specificare la stringa che verrà confrontata con l'attestazione `kid` nel token (se presente) per individuare la chiave appropriata da usare per la convalida della firma.|No|N/D|  
-|match|Perché la convalida abbia esito positivo, l'attributo `match` sull'elemento `claim` specifica se il valore dell'attestazione nel criterio deve essere presente nel token. I valori possibili sono:<br /><br /> -                          `all`: ogni valore dell'attestazione nel criterio deve essere presente nel token perché la convalida abbia esito positivo.<br /><br /> -                          `any`: almeno un valore dell'attestazione deve essere presente nel token perché la convalida abbia esito positivo.|No|tutti|  
+|clock-skew|TimeSpan. Usare per specificare la differenza massima di tempo previsto tra gli orologi di sistema dell'autorità emittente di token e l'istanza di Gestione API.|No |0 secondi|  
+|failed-validation-error-message|Messaggio di errore da restituire nel corpo della risposta HTTP se il token JWT non supera la convalida. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.|No |Il messaggio di errore predefinito dipende dal problema della convalida, ad esempio "JWT not present" ("JWT non presente").|  
+|failed-validation-httpcode|Codice di stato HTTP da restituire se il token JWT non supera la convalida.|No |401|  
+|header-name|Il nome dell'intestazione HTTP che contiene il token.|È necessario specificare `header-name` o `query-parameter-name`, ma non entrambi.|N/D|  
+|id|L'attributo `id` nell'elemento `key` consente di specificare la stringa che verrà confrontata con l'attestazione `kid` nel token (se presente) per individuare la chiave appropriata da usare per la convalida della firma.|No |N/D|  
+|match|Perché la convalida abbia esito positivo, l'attributo `match` sull'elemento `claim` specifica se il valore dell'attestazione nel criterio deve essere presente nel token. I valori possibili sono:<br /><br /> -                          `all`: ogni valore dell'attestazione nel criterio deve essere presente nel token perché la convalida abbia esito positivo.<br /><br /> -                          `any`: almeno un valore dell'attestazione deve essere presente nel token perché la convalida abbia esito positivo.|No |tutti|  
 |query-paremeter-name|Nome di parametro di query che contiene il token.|È necessario specificare `header-name` o `query-paremeter-name`, ma non entrambi.|N/D|  
-|require-expiration-time|Booleano. Specifica se è necessaria un'attestazione di scadenza nel token.|No|true|
-|require-scheme|Il nome dello schema di token, ad esempio "Bearer". Quando questo attributo è impostato, il criterio assicura che lo schema specificato sia presente nel valore dell'intestazione di autorizzazione.|No|N/D|
-|require-signed-tokens|Booleano. Specifica se è necessario firmare un token.|No|true|  
-|separator|Stringa. Specifica un separatore (ad esempio ",") da usare per l'estrazione di un set di valori da un'attestazione multivalore.|No|N/D| 
-|URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Sì|N/D|  
+|require-expiration-time|Booleano. Specifica se è necessaria un'attestazione di scadenza nel token.|No |true|
+|require-scheme|Il nome dello schema di token, ad esempio "Bearer". Quando questo attributo è impostato, il criterio assicura che lo schema specificato sia presente nel valore dell'intestazione di autorizzazione.|No |N/D|
+|require-signed-tokens|Booleano. Specifica se è necessario firmare un token.|No |true|  
+|separator|Stringa. Specifica un separatore (ad esempio ",") da usare per l'estrazione di un set di valori da un'attestazione multivalore.|No |N/D| 
+|URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Sì|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -521,6 +521,6 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

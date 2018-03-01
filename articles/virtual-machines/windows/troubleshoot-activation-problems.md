@@ -14,17 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f6095d98ada2974bce03ec8f5527367837daafd3
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Se si verificano problemi durante l'attivazione della macchina virtuale (VM) Windows di Azure creata da un'immagine personalizzata, è possibile usare le informazioni contenute in questo documento per risolvere il problema. 
+
+## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Informazioni sugli endpoint del servizio di gestione delle chiavi di Azure per l'attivazione del prodotto Windows di macchine virtuali di Azure
+Azure usa endpoint diversi per l'attivazione del servizio di gestione delle chiavi, a seconda dell'area del cloud in cui risiede la macchina virtuale. Quando si usa questa guida alla risoluzione dei problemi, usare l'endpoint del servizio di gestione delle chiavi appropriato applicabile alla propria area.
+
+* Aree del cloud pubblico di Azure: kms.core.windows.net:1688
+* Aree del cloud nazionale cinese di Azure: kms.core.chinacloudapi.cn:1688
+* Aree del cloud nazionale tedesco di Azure: kms.core.cloudapi.de:1688
+* Aree del cloud nazionale US Gov di Azure: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Sintomo
 
@@ -120,5 +128,5 @@ Sì.
  
 Se il periodo di prova è scaduto e Windows non è ancora attivato, Windows Server 2008 R2 e le versioni successive di Windows visualizzeranno altre notifiche sull'attivazione. Lo sfondo del desktop rimane nero e Windows Update installerà solo gli aggiornamenti della sicurezza e quelli critici, ma non quelli facoltativi. Vedere la sezione Notifications (Notifiche) alla fine della pagina [Licensing Conditions](http://technet.microsoft.com/en-us/library/ff793403.aspx) (Condizioni di licenza).   
 
-## <a name="need-help-contact-support"></a>Serve aiuto? Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

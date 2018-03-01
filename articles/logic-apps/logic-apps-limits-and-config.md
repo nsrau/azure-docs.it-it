@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limiti e configurazione per App per la logica
 
-Questo argomento descrive gli attuali limiti e dettagli di configurazione per App per la logica di Azure.
+Questo articolo descrive gli attuali limiti e dettagli di configurazione per App per la logica di Azure.
 
 ## <a name="limits"></a>Limiti
 
@@ -66,7 +66,7 @@ Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 | Intervallo di ricorrenza massimo | 500 giorni | 
 ||| 
 
-Per superare i limiti di durata dell'esecuzione o di conservazione della risorsa di archiviazione nel normale flusso di elaborazione, [contattare il supporto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
+Per superare i limiti di durata dell'esecuzione o di conservazione della risorsa di archiviazione nel normale flusso di elaborazione, [contattare il team di prodotto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
 ### <a name="looping-and-debatching-limits"></a>Limiti di esecuzione di cicli e debatching
 
@@ -82,18 +82,18 @@ Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 
 ### <a name="throughput-limits"></a>Limiti di velocità effettiva
 
-Questi limiti si applicano a una singola istanza di app per la logica.
+Questi limiti si applicano a una singola risorsa di app per la logica.
 
 | NOME | Limite | Note | 
 | ----- | ----- | ----- | 
-| Esecuzioni di azioni per 5 minuti | 100.000 |<p>Il limite può essere aumentato fino a 300.000 eseguendo un'app per la logica in modalità `High Througput`. Ciò è possibile impostando la proprietà `operationOptions` in `runtimeConfiguration` della risorsa del flusso di lavoro su `OptimizedForHighThroughput`. <p>Si noti che la modalità High Throughput è in anteprima. Un carico di lavoro può anche essere distribuito tra più app in base alle esigenze. | 
+| Esecuzioni di azioni per 5 minuti | 100.000 |<p>Il limite può essere aumentato a 300.000 eseguendo un'app per la logica in modalità `High Througput`. È possibile configurare la modalità di velocità effettiva elevata impostando la proprietà `operationOptions` in `runtimeConfiguration` della risorsa del flusso di lavoro su `OptimizedForHighThroughput`. <p>Si noti che la modalità di velocità effettiva elevata è in anteprima. Un carico di lavoro può anche essere distribuito tra più app in base alle esigenze. | 
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: chiamate in ingresso simultanee |~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
 | Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 |È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
 |||| 
 
-Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il supporto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
+Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di prodotto](mailto://logicappsemail@microsoft.com) per ottenere assistenza per i requisiti specifici.
 
 ### <a name="logic-app-definition-limits"></a>Limiti delle definizioni delle app per la logica
 

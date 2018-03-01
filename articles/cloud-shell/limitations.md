@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
 
@@ -33,7 +33,6 @@ Il computer che distribuisce la sessione Cloud Shell è temporaneo e viene ricic
 * Con l'archiviazione montata vengono rese persistenti soltanto le modifiche apportate all'interno della directory `clouddrive`. In Bash anche la directory `$Home` è permanente.
 * Le condivisioni file di Azure possono essere implementate solo dall'interno dell'[area assegnata](persisting-shell-storage.md#mount-a-new-clouddrive).
   * In Bash, eseguire `env` per trovare l'area geografica impostata come `ACC_LOCATION`.
-* File di Azure supporta solo account di archiviazione con ridondanza locale e account di archiviazione con ridondanza geografica.
 
 ### <a name="browser-support"></a>Supporto browser
 
@@ -55,18 +54,11 @@ Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiv
 
 ### <a name="user-permissions"></a>Autorizzazioni utente
 
-Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` non è permanente.
-
-### <a name="clouddrive-smb-limited-permissions"></a>Autorizzazioni limitate SMB per clouddrive
-Alcuni comandi all'interno della directory `clouddrive`, ad esempio `git clone`, non hanno le autorizzazioni appropriate per eseguire operazioni di lettura/scrittura in determinati file. Se si riscontra questo problema, provare nuovamente a eseguire l'operazione dalla directory `$Home` che non ha limitazioni SMB.
+Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` o `clouddrive` non è permanente.
 
 ### <a name="editing-bashrc"></a>Modifica di .bashrc
 
-Fare attenzione quando si modifica il file con estensione bashrc, poiché questa operazione può provocare errori imprevisti in Cloud Shell.
-
-### <a name="bashhistory"></a>.bash_history
-
-È possibile che la cronologia dei comandi bash sia incoerente a causa dell'interruzione della sessione Cloud Shell o di sessioni simultanee.
+Fare attenzione quando si modifica il file con estensione bashrc, poiché questa operazione può provocare errori imprevisti con Bash in Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitazioni PowerShell
 

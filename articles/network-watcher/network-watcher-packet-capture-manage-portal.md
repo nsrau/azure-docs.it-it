@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: a43d2ea10bfd6de2f8177283821f7aad59e9f610
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
@@ -61,7 +61,10 @@ Andare al [portale di Azure](https://portal.azure.com) e fare clic su **Rete** >
 La pagina della panoramica visualizza un elenco di tutte le acquisizioni di pacchetti esistenti indipendentemente dallo stato.
 
 > [!NOTE]
-> L'acquisizione di pacchetti richiede la connettività all'account di archiviazione tramite la porta 443.
+> L'acquisizione di pacchetti richiede la connettività seguente.
+> * Connettività in uscita all'account di archiviazione tramite la porta 443.
+> * Connettività in ingresso e in uscita a 169.254.169.254
+> * Connettività in ingresso e in uscita a 168.63.129.16
 
 ![Schermata della panoramica di acquisizione di pacchetti][1]
 
@@ -81,7 +84,7 @@ Le proprietà che possono essere definite in un'acquisizione di pacchetti sono:
 **Acquisisci configurazione**
 
 - **Percorso file locale**: percorso locale nella macchina virtuale in cui viene salvata l'acquisizione di pacchetti (valido solo quando è selezionato **[file]**). È necessario specificare un percorso valido. Se si usa una macchina virtuale Linux, il percorso deve iniziare con /var/captures.
-- **Account di archiviazione**: determina se l'acquisizione di pacchetti viene salvata in un account di archiviazione.
+- **Account di archiviazione**: determina se l'acquisizione di pacchetti viene salvata in un'account di archiviazione.
 - **File**: determina se un'acquisizione di pacchetti viene salvata in locale nella macchina virtuale.
 - **Account di archiviazione**: account di archiviazione selezionato in cui salvare l'acquisizione di pacchetti. Il percorso predefinito è https://{nome account di archiviazione}.blob.core.windows.net/network-watcher-logs/subscriptions/{ID sottoscrizione}/resourcegroups/{nome gruppo di risorse}/providers/microsoft.compute/virtualmachines/{nome macchina virtuale}/{AA}/{MM}/{GG}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap. È abilitato solo se viene selezionato **Archiviazione**.
 - **Percorso file locale**: percorso locale in una macchina virtuale in cui salvare l'acquisizione di pacchetti. È abilitato solo se viene selezionato **File**. È necessario specificare un percorso valido. Per una macchina virtuale Linux, il percorso deve iniziare con *var/captures*.

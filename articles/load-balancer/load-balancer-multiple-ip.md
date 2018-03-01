@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
@@ -43,7 +43,7 @@ In questo scenario viene usata la configurazione seguente:
 - Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web. Gli indirizzi front-end vengono usati per distribuire il traffico verso la rispettiva configurazione IP per ciascun sito Web.
 - Lo stesso numero di porta viene usato per gli indirizzi IP front-end e gli indirizzi IP del pool back-end.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo scenario di esempio presuppone che sia disponibile un gruppo di risorse, denominato **contosofabrikam**, con la configurazione seguente:
 
@@ -89,7 +89,7 @@ Creare il servizio di bilanciamento del carico per la configurazione:
 
 1. Passare al portale di Azure all'indirizzo http://portal.azure.com. Accedere con l'account Azure.
 
-2. In alto a sinistra nella schermata selezionare **Nuovo** > **Rete** > **Bilanciamento del carico**. Quindi selezionare **Crea**.
+2. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**. Quindi selezionare **Crea**.
 
 3. In **Crea servizio di bilanciamento del carico** digitare un nome per il servizio. In questo scenario viene usato il nome **mylb**.
 

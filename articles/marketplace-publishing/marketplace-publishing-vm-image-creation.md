@@ -1,5 +1,5 @@
 ---
-title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
+title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Microsoft Docs
 description: Istruzioni dettagliate su come creare un'immagine di macchina virtuale per Azure Marketplace acquistabile dagli utenti.
 services: Azure Marketplace
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 8915abbb27184c2f0b47747e422e5a4fa7bc1cbb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
 Questo articolo, **Passaggio 2**, illustra la preparazione di dischi rigidi virtuali (VHD) da distribuire in Azure Marketplace. I dischi rigidi virtuali costituiscono la base dello SKU. Il processo varia a seconda che si stia offrendo uno SKU basato su Linux o su Windows. In questo articolo vengono descritti entrambi gli scenari. Questo processo può essere eseguito parallelamente alla [creazione e registrazione dell'account][link-acct-creation].
@@ -127,7 +127,7 @@ Con pochi semplici passaggi, dal portale di Microsoft Azure è possibile creare 
 
 **Connettersi tramite RDP usando il [portale di Microsoft Azure][link-azure-portal]**
 
-1. Selezionare **Sfoglia** > **Macchine virtuali**.
+1. Selezionare **Tutti i servizi** > **Macchine virtuali**.
 2. Verrà visualizzato il pannello Macchine virtuali. Assicurarsi che la macchina virtuale a cui connettersi sia in esecuzione e selezionarla nell'elenco delle macchine virtuali distribuite.
 3. Viene visualizzato un pannello contenente la descrizione della macchina virtuale selezionata. Nella parte superiore fare clic su **Connetti**.
 4. Verrà richiesto di immettere il nome utente e la password specificati durante il provisioning.
@@ -136,7 +136,7 @@ Con pochi semplici passaggi, dal portale di Microsoft Azure è possibile creare 
 
 Per scaricare un file desktop remoto in una macchina locale, usare il [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Per usare questo cmdlet, è necessario conoscere il nome del servizio e quello della macchina virtuale. Se la macchina virtuale è stata creata nel [portale di Microsoft Azure][link-azure-portal], queste informazioni sono disponibili nella sezione delle proprietà della macchina virtuale:
 
-1. Nel portale di Microsoft Azure selezionare **Sfoglia** > **Macchine virtuali**.
+1. Nel portale di Microsoft Azure selezionare **Tutti i servizi** > **Macchine virtuali**.
 2. Verrà visualizzato il pannello Macchine virtuali. Selezionare la macchina virtuale distribuita.
 3. Viene visualizzato un pannello contenente la descrizione della macchina virtuale selezionata.
 4. Fare clic su **Proprietà**.
@@ -214,7 +214,6 @@ Per distribuire una macchina virtuale da un'immagine di macchina virtuale degli 
 
 1. Selezionare **Nuovo** > **Elabora** > **Macchina virtuale** > **Da raccolta**.
 
-    ![disegno][img-manage-vm-new]
 2. Passare a **Immagini personali**e selezionare l'immagine di macchina virtuale da cui distribuire una macchina virtuale.
 
    1. Selezionare con attenzione l'immagine, perché la visualizzazione **Immagini personali** contiene sia immagini del sistema operativo che immagini di macchina virtuale.

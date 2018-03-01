@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: d61b29f1327f57bc32b2c53de3fe58e53fcf3cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Proteggere i dati personali con le funzionalità di sicurezza di rete: gruppi di sicurezza di rete e gateway applicazione di Azure
 
@@ -59,18 +59,9 @@ Il Web application firewall di Azure gestisce varie categorie di attacco, tra cu
 
 Per creare un nuovo gateway applicazione con WAF abilitato, seguire questa procedura:
 
-1. Accedere al portale di Azure e nel riquadro **Preferiti** del portale fare clic su **Nuovo**.
-
-2. Nel pannello **Nuovo** fare clic su **Rete**.
-
-3. Fare clic su **Gateway applicazione**.
-
-4. Passare al portale di Azure e fare clic su **Nuovo \> Rete \> Gateway applicazione**.
-
-   ![Creazione di gateway applicazione](media/protect-netsec/app-gateway-01.png)
-
+1. Accedere al [Portale di Azure](https://portal.azure.com).
+2. Selezionare **Crea una risorsa** > **Rete** > **Gateway applicazione**.
 5. Nel pannello **Informazioni di base** visualizzato immettere i valori per i campi seguenti: Nome, Livello (Standard o WAF), Dimensioni SKU (Small, Medium o Large), Numero di istanze (2 per la disponibilità elevata), Sottoscrizione, Gruppo di risorse e Località.
-
 6. Nel pannello **Impostazioni** che viene visualizzato in **Rete virtuale**, fare clic su **Scegliere una rete virtuale**. Con questo passaggio si apre il pannello Scegli rete virtuale.
 
 7. Fare clic su **Crea nuovo** per aprire il pannello **Crea rete virtuale**.
@@ -126,7 +117,7 @@ Per altre indicazioni per la pianificazione e l'implementazione di gruppi di sic
 
 Per creare regole in ingresso in un gruppo di sicurezza di rete esistente, seguire questa procedura:
 
-1. Fare clic su **Esplora** e quindi su **Gruppi di sicurezza di rete**.
+1. Fare clic su **Tutti i servizi** e quindi su **Gruppi di sicurezza di rete**.
 
 2. Nell'elenco dei gruppi di sicurezza di rete fare clic su **NSG-FrontEnd** e quindi su **Regole di sicurezza in ingresso**.
 

@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 981bf5555d1941509e787adf656fe6310dd43cb9
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Trigger e azioni dei flussi di lavoro di app per la logica
 
-Tutte le app per la logica iniziano con un trigger seguito da azioni. Questo argomento descrive i tipi di trigger e azioni che è possibile usare per la creazione di integrazioni di sistema e l'automazione di processi o flussi di lavoro aziendali tramite la compilazione di app per la logica. 
+Tutte le app per la logica iniziano con un trigger seguito da azioni. Questo articolo descrive i tipi di trigger e azioni che è possibile usare per la creazione di integrazioni di sistema e l'automazione di processi o flussi di lavoro aziendali tramite la compilazione di app per la logica. 
   
 ## <a name="triggers-overview"></a>Panoramica dei trigger 
 
@@ -51,7 +51,7 @@ Tutti i trigger contengono questi elementi di livello superiore:
 
 Ogni tipo di trigger ha un'interfaccia e *input* diversi che ne definiscono il comportamento. 
 
-| Tipo di trigger | Descrizione | 
+| Tipo di trigger | DESCRIZIONE | 
 | ------------ | ----------- | 
 | **Ricorrenza** | Attivato in base a una pianificazione definita. È possibile impostare una data e un'ora future per l'attivazione di questo trigger. In base alla frequenza, è anche possibile specificare le ore e i giorni per l'esecuzione del flusso di lavoro. | 
 | **Richiesta**  | Trasforma l'app per la logica in un endpoint che è possibile chiamare. È denominato anche trigger "manuale". | 
@@ -111,15 +111,15 @@ Ecco la definizione per questo trigger:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
-| frequency | Sì | String | Unità di tempo per la frequenza di attivazione del trigger. Usare solo uno di questi valori: "second", "minute", "hour", "day", "week" o "month" | 
+| frequency | Sì | string | Unità di tempo per la frequenza di attivazione del trigger. Usare solo uno di questi valori: "second", "minute", "hour", "day", "week" o "month" | 
 | interval | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. <p>Ecco gli intervalli minimo e massimo: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "month", la ricorrenza è ogni 6 mesi. | 
-| timeZone | No | String | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Specificare il fuso orario che si vuole applicare. | 
-| startTime | No | String | Specificare la data e l'ora di inizio in questo formato: <p>AAAA-MM-GGThh:mm:ss se si specifica un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si specifica un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14.00, specificare "2017-09-18T14:00:00" e indicare un fuso orario, ad esempio l'ora solare del Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si specifica un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. Per altre informazioni sulle date e le ore di inizio, vedere [Creare e pianificare attività eseguite regolarmente](../connectors/connectors-native-recurrence.md). | 
-| weekDays | No | Stringa o matrice di stringhe | Se si specifica "Week" per `frequency`, è possibile specificare uno o più giorni, separati da virgole, in cui eseguire il flusso di lavoro: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" e "Sunday" | 
-| hours | No | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 23, separati da virgole, come ore del giorno in cui eseguire il flusso di lavoro. <p>Ad esempio, se si specifica "10", "12" e "14", gli indicatori di ora corrisponderanno alle 10.00, alle 12.00 e alle 14.00. | 
-| minutes | No | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 59, separati da virgole, come minuti dell'ora in cui eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
+| timeZone | No  | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Specificare il fuso orario che si vuole applicare. | 
+| startTime | No  | string | Specificare la data e l'ora di inizio in questo formato: <p>AAAA-MM-GGThh:mm:ss se si specifica un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si specifica un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14.00, specificare "2017-09-18T14:00:00" e indicare un fuso orario, ad esempio l'ora solare del Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si specifica un fuso orario, è necessario aggiungere la lettera "Z" alla fine senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. Per altre informazioni sulle date e le ore di inizio, vedere [Creare e pianificare attività eseguite regolarmente](../connectors/connectors-native-recurrence.md). | 
+| weekDays | No  | Stringa o matrice di stringhe | Se si specifica "Week" per `frequency`, è possibile specificare uno o più giorni, separati da virgole, in cui eseguire il flusso di lavoro: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" e "Sunday" | 
+| hours | No  | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 23, separati da virgole, come ore del giorno in cui eseguire il flusso di lavoro. <p>Ad esempio, se si specifica "10", "12" e "14", gli indicatori di ora corrisponderanno alle 10.00, alle 12.00 e alle 14.00. | 
+| minutes | No  | Intero o matrice di intero | Se si specifica "Day" o "Week" per `frequency`, è possibile specificare uno o più numeri interi compresi tra 0 e 59, separati da virgole, come minuti dell'ora in cui eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
 |||||| 
 
 Ad esempio, il trigger di ricorrenza specifica che l'app per la logica viene eseguita ogni settimana di lunedì alle 10.30, 12.30 e 14.30 ora solare Pacifico, a partire non prima del 9 settembre 2017 alle 14.00:
@@ -178,9 +178,9 @@ Questo trigger funge da endpoint che è possibile usare per chiamare l'app per l
 
 Questo trigger include anche una proprietà facoltativa denominata *schema*:
   
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | ------------ | -------- | ---- | ----------- |
-| schema | No | Oggetto | Schema JSON che convalida la richiesta in ingresso. È utile per indicare le proprietà a cui fare riferimento nei passaggi successivi del flusso di lavoro. | 
+| schema | No  | Oggetto | Schema JSON che convalida la richiesta in ingresso. È utile per indicare le proprietà a cui fare riferimento nei passaggi successivi del flusso di lavoro. | 
 ||||| 
 
 Per richiamare questo endpoint, è necessario chiamare l'API *listCallbackUrl*. Vedere [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows) (API REST del servizio di flusso di lavoro).
@@ -189,24 +189,24 @@ Per richiamare questo endpoint, è necessario chiamare l'API *listCallbackUrl*. 
 
 I trigger HTTP eseguono il polling di un endpoint specificato e controllano la risposta per determinare se il flusso di lavoro deve essere eseguito. In questo caso, l'oggetto `inputs` accetta i parametri necessari per la costruzione di una chiamata HTTP:  
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
-| statico | Sì | String | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
-| Uri | Sì| String | Endpoint HTTP o HTTPS controllato dal trigger. Dimensione massima della stringa: 2 KB | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). <p>Oltre all'Utilità di pianificazione, è supportata un'altra proprietà: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non è specificato, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. | 
+| statico | Sì | string | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
+| Uri | Sì| string | Endpoint HTTP o HTTPS controllato dal trigger. Dimensione massima della stringa: 2 KB | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| retryPolicy | No  | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
+| authentication | No  | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). <p>Oltre all'Utilità di pianificazione, è supportata un'altra proprietà: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non è specificato, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. | 
 ||||| 
  
 Con il trigger HTTP, l'API HTTP deve essere conforme a un modello specifico per poter interagire correttamente con l'app per la logica. Il trigger riconosce queste proprietà:  
   
-| Response | Obbligatorio | Descrizione | 
+| Risposta | Obbligatoria | DESCRIZIONE | 
 | -------- | -------- | ----------- |  
 | Codice di stato | Sì | Il codice di stato 200 ("OK") determina un'esecuzione. Nessun altro codice di stato attiva un'esecuzione. | 
-| Intestazione retry-after | No | Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint. | 
-| Intestazione Location | No | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
+| Intestazione retry-after | No  | Numero di secondi prima che l'app per la logica esegua di nuovo il polling dell'endpoint. | 
+| Intestazione Location | No  | URL da chiamare al successivo intervallo di polling. Se non è specificato, viene usato l'URL originale. | 
 |||| 
 
 Ecco alcuni esempi di comportamento per tipi di richieste diversi:
@@ -222,15 +222,15 @@ Ecco alcuni esempi di comportamento per tipi di richieste diversi:
 
 Ecco gli output del trigger HTTP: 
   
-| Nome dell'elemento | Tipo | Descrizione |
+| Nome dell'elemento | type | DESCRIZIONE |
 | ------------ | ---- | ----------- |
 | headers | Oggetto | Intestazioni della risposta HTTP | 
-| body | Oggetto | Corpo della risposta HTTP | 
+| Corpo | Oggetto | Corpo della risposta HTTP | 
 |||| 
 
 ## <a name="api-connection-trigger"></a>Trigger ApiConnection  
 
-Il trigger ApiConnection è simile al trigger HTTP dal punto di vista della funzionalità di base. I parametri per identificare l'azione sono tuttavia diversi. Di seguito è fornito un esempio:  
+Il trigger ApiConnection è simile al trigger HTTP dal punto di vista della funzionalità di base. I parametri per identificare l'azione sono tuttavia diversi. Di seguito è fornito un esempio:   
   
 ```json
 "myDailyReportTrigger": {
@@ -252,20 +252,20 @@ Il trigger ApiConnection è simile al trigger HTTP dal punto di vista della funz
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sì | Oggetto | Gateway ospitato e ID per l'app per le API | 
-| statico | Sì | String | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). | 
+| statico | Sì | string | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| retryPolicy | No  | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
+| authentication | No  | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
 Ecco le proprietà per l'oggetto `host`:  
   
-| Nome dell'elemento | Obbligatorio | Descrizione | 
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE | 
 | ------------ | -------- | ----------- | 
 | api runtimeUrl | Sì | Endpoint per l'API gestita | 
 | connection name |  | Nome della connessione API gestita usata dal flusso di lavoro. Deve fare riferimento a un parametro denominato `$connection`. |
@@ -273,12 +273,14 @@ Ecco le proprietà per l'oggetto `host`:
 
 Ecco gli output per un trigger ApiConnection:
   
-| Nome dell'elemento | Tipo | Descrizione |
+| Nome dell'elemento | type | DESCRIZIONE |
 | ------------ | ---- | ----------- |
 | headers | Oggetto | Intestazioni della risposta HTTP | 
-| body | Oggetto | Corpo della risposta HTTP | 
+| Corpo | Oggetto | Corpo della risposta HTTP | 
 |||| 
-  
+
+Altre informazioni sul [funzionamento dei prezzi per i trigger di connessione API](../logic-apps/logic-apps-pricing.md#triggers).
+
 ## <a name="httpwebhook-trigger"></a>Trigger HTTPWebhook  
 
 Il trigger HTTPWebhook fornisce un endpoint, analogamente al trigger Request, ma il trigger HTTPWebhook chiama anche un URL specificato per la registrazione e l'annullamento della registrazione. Ecco un esempio di come si presenta un trigger HTTPWebhook:  
@@ -316,10 +318,10 @@ Il trigger HTTPWebhook fornisce un endpoint, analogamente al trigger Request, ma
 
 Molte di queste sezioni sono facoltative e il comportamento del trigger HTTPWebhook dipende dalle sezioni specificate o omesse. Ecco le proprietà per il trigger HTTPWebhook:
   
-| Nome dell'elemento | Obbligatorio | Descrizione | 
+| Nome dell'elemento | Obbligatoria | DESCRIZIONE | 
 | ------------ | -------- | ----------- |  
-| subscribe | No | Specifica la richiesta in uscita da chiamare quando viene creato il trigger ed esegue la registrazione iniziale. | 
-| unsubscribe | No | Specifica la richiesta in uscita da chiamare quando viene eliminato il trigger. | 
+| subscribe | No  | Specifica la richiesta in uscita da chiamare quando viene creato il trigger ed esegue la registrazione iniziale. | 
+| unsubscribe | No  | Specifica la richiesta in uscita da chiamare quando viene eliminato il trigger. | 
 |||| 
 
 È possibile specificare i limiti per un'azione webhook allo stesso modo dei [limiti asincroni HTTP](#asynchronous-limits). Ecco altre informazioni sulle azioni `subscribe` e `unsubscribe`:
@@ -338,15 +340,15 @@ Molte di queste sezioni sono facoltative e il comportamento del trigger HTTPWebh
 
 Ecco gli output del trigger HTTPWebhook e il contenuto della richiesta in ingresso:
   
-| Nome dell'elemento | Tipo | Descrizione |
+| Nome dell'elemento | type | DESCRIZIONE |
 | ------------ | ---- | ----------- |
 | headers | Oggetto | Intestazioni della risposta HTTP | 
-| body | Oggetto | Corpo della risposta HTTP | 
+| Corpo | Oggetto | Corpo della risposta HTTP | 
 |||| 
 
 ## <a name="conditions"></a>Condizioni  
 
-Per qualsiasi trigger, è possibile usare una o più condizioni per determinare se il flusso di lavoro deve essere eseguito o meno. Ad esempio:  
+Per qualsiasi trigger, è possibile usare una o più condizioni per determinare se il flusso di lavoro deve essere eseguito o meno. Ad esempio:   
 
 ```json
 "myDailyReportTrigger": {
@@ -374,7 +376,7 @@ In questo caso, il report viene attivato solo mentre il parametro `sendReports` 
 ```  
   
 > [!NOTE]  
-> Quando un'espressione fa riferimento a un codice di stato del trigger, il comportamento predefinito, ovvero l'attivazione solo con il codice 200 ("OK"), viene sostituito. Se, ad esempio, si vuole eseguire l'attivazione sia con il codice di stato 200 che con il codice di stato 201, è necessario includere `@or(equals(triggers().code, 200),equals(triggers().code,201))` come condizione.
+> Quando un'espressione fa riferimento a un codice di stato del trigger, viene sostituito il comportamento predefinito, ovvero l'attivazione solo con il codice 200 ("OK"). Se, ad esempio, si vuole eseguire l'attivazione sia con il codice di stato 200 che con il codice di stato 201, è necessario includere `@or(equals(triggers().code, 200),equals(triggers().code,201))` come condizione.
   
 ## <a name="start-multiple-runs-for-a-request"></a>Avviare più esecuzioni per una richiesta
 
@@ -460,7 +462,7 @@ Esistono molti tipi di azioni, ognuna con un comportamento univoco. Ogni tipo di
 
 ### <a name="standard-actions"></a>Azioni standard  
 
-| Tipo di azione | Descrizione | 
+| Tipo di azione | DESCRIZIONE | 
 | ----------- | ----------- | 
 | **HTTP** | Chiama un endpoint Web HTTP. | 
 | **ApiConnection**  | Funziona come l'azione HTTP, ma usa [API gestite da Microsoft](https://docs.microsoft.com/azure/connectors/apis-list). | 
@@ -478,7 +480,7 @@ Esistono molti tipi di azioni, ognuna con un comportamento univoco. Ogni tipo di
 
 ### <a name="collection-actions"></a>Azioni di raccolta
 
-| Tipo di azione | Descrizione | 
+| Tipo di azione | DESCRIZIONE | 
 | ----------- | ----------- | 
 | **Condition** | Valuta un'espressione e, in base al risultato, esegue il ramo corrispondente. | 
 | **Ambito** | Da usare per il raggruppamento logico di altre azioni. | 
@@ -488,7 +490,7 @@ Esistono molti tipi di azioni, ognuna con un comportamento univoco. Ogni tipo di
 
 ## <a name="http-action"></a>Azione HTTP  
 
-Le azioni HTTP chiamano un endpoint specificato e controllano la risposta per determinare se il flusso di lavoro deve essere eseguito. ad esempio:
+Le azioni HTTP chiamano un endpoint specificato e controllano la risposta per determinare se il flusso di lavoro deve essere eseguito. Ad esempio: 
   
 ```json
 "myLatestNewsAction": {
@@ -502,16 +504,16 @@ Le azioni HTTP chiamano un endpoint specificato e controllano la risposta per de
 
 In questo caso, l'oggetto `inputs` accetta i parametri necessari per la costruzione di una chiamata HTTP: 
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
-| statico | Sì | String | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
-| Uri | Sì| String | Endpoint HTTP o HTTPS controllato dal trigger. Dimensione massima della stringa: 2 KB | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
-| authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). <p>Oltre all'Utilità di pianificazione, è supportata un'altra proprietà: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non è specificato, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. | 
+| statico | Sì | string | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
+| Uri | Sì| string | Endpoint HTTP o HTTPS controllato dal trigger. Dimensione massima della stringa: 2 KB | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| retryPolicy | No  | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | No  | string | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
+| authentication | No  | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). <p>Oltre all'Utilità di pianificazione, è supportata un'altra proprietà: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non è specificato, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. | 
 ||||| 
 
 Questa azione HTTP di esempio riprova il recupero delle ultime notizie per due volte, se si verificano errori intermittenti, per un totale di tre esecuzioni e con un ritardo di 30 secondi tra un tentativo e l'altro:
@@ -537,7 +539,7 @@ L'intervallo tra i tentativi viene specificato nel [formato ISO 8601](https://en
 
 Per impostazione predefinita, tutte le azioni basate su HTTP supportano il modello di operazione asincrono standard. Di conseguenza, se il server remoto indica che la richiesta viene accettata per l'elaborazione con una risposta "202 ACCEPTED", il motore di App per la logica continua il polling dell'URL specificato nell'intestazione location della risposta fino a raggiungere uno stato terminale, che corrisponde a una risposta diversa da 202.
   
-Per disabilitare il comportamento asincrono descritto in precedenza, impostare `operationOptions` su `DisableAsyncPattern` negli input dell'azione. In questo caso, l'output dell'azione è basato sulla risposta 202 iniziale dal server. ad esempio:
+Per disabilitare il comportamento asincrono descritto in precedenza, impostare `operationOptions` su `DisableAsyncPattern` negli input dell'azione. In questo caso, l'output dell'azione è basato sulla risposta 202 iniziale dal server. Ad esempio: 
   
 ```json
 "invokeLongRunningOperationAction": {
@@ -594,17 +596,17 @@ Ecco un esempio di azione APIConnection:
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sì | Oggetto | Rappresenta le informazioni sul connettore, ad esempio `runtimeUrl`, e il riferimento all'oggetto connection. | 
-| statico | Sì | String | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
-| path | Sì | String | Percorso per l'operazione API | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
-| authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
+| statico | Sì | string | Usare uno di questi metodi HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD" | 
+| path | Sì | string | Percorso per l'operazione API | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| retryPolicy | No  | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | No  | string | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
+| authentication | No  | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="apiconnection-webhook-action"></a>Azione webhook APIConnection
@@ -638,16 +640,16 @@ L'azione APIConnectionWebhook fa riferimento a un connettore gestito da Microsof
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sì | Oggetto | Rappresenta le informazioni sul connettore, ad esempio `runtimeUrl`, e il riferimento all'oggetto connection. | 
-| path | Sì | String | Percorso per l'operazione API | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
-| operationsOptions | No | String | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
-| authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
+| path | Sì | string | Percorso per l'operazione API | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| retryPolicy | No  | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
+| operationsOptions | No  | string | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
+| authentication | No  | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
 
 ## <a name="response-action"></a>Azione di risposta  
@@ -706,13 +708,13 @@ Questa azione consente di rappresentare e chiamare una [funzione di Azure](../az
     "runAfter": {}
 }
 ```
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- |  
-| function id | Sì | String | ID risorsa per la funzione di Azure che si vuole chiamare. | 
-| statico | No | String | Metodo HTTP usato per chiamare la funzione. Se non è specificato, "POST" è il metodo predefinito. | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| function id | Sì | string | ID risorsa per la funzione di Azure che si vuole chiamare. | 
+| statico | No  | string | Metodo HTTP usato per chiamare la funzione. Se non è specificato, "POST" è il metodo predefinito. | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
 |||||
 
 Quando si salva l'app per la logica, App per la logica di Azure esegue controlli sulla funzione cui si fa riferimento:
@@ -756,12 +758,12 @@ In alternativa, per attendere fino a un determinato momento, è possibile usare 
 > [!NOTE]  
 > L'attesa può essere specificata usando l'oggetto `until` o `interval`, ma non entrambi.
   
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- | 
-| until | No | Oggetto | Attesa in base a una data e un'ora | 
-| until timestamp | Sì | String | Data e ora in [formato UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) in corrispondenza delle quali termina l'attesa | 
-| interval | No | Oggetto | Attesa in base all'unità e al valore dell'intervallo | 
-| interval unit | Sì | String | Unità di tempo. Usare solo uno di questi valori: "second", "minute", "hour", "day", "week" o "month" | 
+| until | No  | Oggetto | Attesa in base a una data e un'ora | 
+| until timestamp | Sì | string | Data e ora in [formato UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) in corrispondenza delle quali termina l'attesa | 
+| interval | No  | Oggetto | Attesa in base all'unità e al valore dell'intervallo | 
+| interval unit | Sì | string | Unità di tempo. Usare solo uno di questi valori: "second", "minute", "hour", "day", "week" o "month" | 
 | interval count | Sì | Integer | Numero intero positivo che rappresenta il numero di unità dell'intervallo usate per l'attesa | 
 ||||| 
 
@@ -795,13 +797,13 @@ Gli output di questa azione sono basati su quanto definito nell'azione `response
 }
 ```
 
-| Nome dell'elemento | Obbligatoria | Tipo | Descrizione | 
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE | 
 | ------------ | -------- | ---- | ----------- |  
-| host id | Sì | String| ID risorsa per il flusso di lavoro che si vuole chiamare | 
-| host triggerName | Sì | String | Nome del trigger che si vuole richiamare | 
-| query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
-| headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
+| host id | Sì | string| ID risorsa per il flusso di lavoro che si vuole chiamare | 
+| host triggerName | Sì | string | Nome del trigger che si vuole richiamare | 
+| query | No  | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
+| headers | No  | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| Corpo | No  | Oggetto | Rappresenta il payload inviato all'endpoint. | 
 |||||   
 
 ## <a name="compose-action"></a>Azione compose
@@ -839,7 +841,7 @@ Ad esempio, per convertire un array di numeri in un array di oggetti è possibil
 }
 ```
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
 | from | Sì | Array | Matrice di origine |
 | seleziona | Sì | Qualsiasi | Proiezione applicata a ogni elemento nella matrice di origine |
@@ -866,10 +868,10 @@ L'output dell'azione `query` è una matrice con elementi della matrice di input 
 > [!NOTE]
 > Se nessun valore soddisfa la condizione `where`, il risultato è una matrice vuota.
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
 | from | Sì | Array | Matrice di origine |
-| dove | Sì | String | Condizione applicata a ogni elemento della matrice di origine |
+| dove | Sì | string | Condizione applicata a ogni elemento della matrice di origine |
 ||||| 
 
 ## <a name="table-action"></a>azione Tabella
@@ -929,15 +931,15 @@ Per personalizzare la tabella, è possibile specificare le colonne in modo espli
 
 Il risultato di questo esempio sarà simile a questa tabella HTML: 
 
-<table><thead><tr><th>Produce ID</th><th>Descrizione</th></tr></thead><tbody><tr><td>0</td><td>mele fresche</td></tr><tr><td>1</td><td>arance fresche</td></tr></tbody></table>
+<table><thead><tr><th>Produce ID</th><th>DESCRIZIONE</th></tr></thead><tbody><tr><td>0</td><td>mele fresche</td></tr><tr><td>1</td><td>arance fresche</td></tr></tbody></table>
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
 | from | Sì | Array | Matrice di origine. Se il valore della proprietà `from` è un array vuoto, l'output sarà una tabella vuota. | 
-| format | Sì | String | Il formato della tabella desiderato, **CSV** o **HTML** | 
-| columns | No | Array | Colonne di tabella desiderate. Da usare per eseguire l'override della forma di tabella predefinita. | 
-| intestazione di colonna | No | String | Intestazione di colonna | 
-| valore colonna | Sì | String | Valore della colonna | 
+| format | Sì | string | Il formato della tabella desiderato, **CSV** o **HTML** | 
+| columns | No  | Array | Colonne di tabella desiderate. Da usare per eseguire l'override della forma di tabella predefinita. | 
+| intestazione di colonna | No  | string | Intestazione di colonna | 
+| valore colonna | Sì | string | Valore della colonna | 
 ||||| 
 
 ## <a name="terminate-action"></a>Azione terminate
@@ -959,12 +961,12 @@ Ad esempio, per arrestare un'esecuzione con stato "Failed", è possibile usare q
 }
 ```
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
-| runStatus | Sì | String | Stato dell'esecuzione di destinazione, che può essere `Failed` o `Cancelled` |
-| runError | No | Oggetto | Dettagli dell'errore. Supportato solo quando `runStatus` è impostato su `Failed`. |
-| runError code | No | String | Codice di errore dell'esecuzione |
-| runError message | No | String | Messaggio di errore dell'esecuzione |
+| runStatus | Sì | string | Stato dell'esecuzione di destinazione, che può essere `Failed` o `Cancelled` |
+| runError | No  | Oggetto | Dettagli dell'errore. Supportato solo quando `runStatus` è impostato su `Failed`. |
+| runError code | No  | string | Codice di errore dell'esecuzione |
+| runError message | No  | string | Messaggio di errore dell'esecuzione |
 ||||| 
 
 ## <a name="collection-actions-overview"></a>Panoramica delle azioni di raccolta
@@ -1005,11 +1007,11 @@ Questa azione consente di valutare una condizione e di eseguire un ramo in base 
 }
 ``` 
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
 | Azioni | Sì | Oggetto | Azioni interne da eseguire quando `expression` restituisce `true` | 
-| expression | Sì | String | Espressione da valutare |
-| else | No | Oggetto | Azioni interne da eseguire quando `expression` restituisce `false` |
+| expression | Sì | string | Espressione da valutare |
+| else | No  | Oggetto | Azioni interne da eseguire quando `expression` restituisce `false` |
 ||||| 
 
 Se una condizione restituisce un valore corretto, viene contrassegnata come `Succeeded`. Le azioni nell'oggetto `actions` o `else` restituiscono: 
@@ -1047,7 +1049,7 @@ Questa azione consente di raggruppare logicamente le azioni in un flusso di lavo
 }
 ```
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- |  
 | Azioni | Sì | Oggetto | Azioni interne da eseguire all'interno dell'ambito |
 ||||| 
@@ -1083,11 +1085,11 @@ Questa azione di esecuzione a ciclo continuo scorre una matrice ed esegue azioni
 }
 ```
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
 | Azioni | Sì | Oggetto | Azioni interne da eseguire all'interno del ciclo | 
-| foreach | Sì | String | Matrice da scorrere | 
-| operationOptions | No | String | Specifica le opzioni dell'operazione per la personalizzazione del comportamento. Attualmente supporta solo `Sequential` per l'esecuzione in sequenza di iterazioni in cui il comportamento predefinito è parallelo. |
+| foreach | Sì | string | Matrice da scorrere | 
+| operationOptions | No  | string | Specifica le opzioni dell'operazione per la personalizzazione del comportamento. Attualmente supporta solo `Sequential` per l'esecuzione in sequenza di iterazioni in cui il comportamento predefinito è parallelo. |
 ||||| 
 
 ## <a name="until-action"></a>Azione Until
@@ -1116,13 +1118,13 @@ Questa azione di esecuzione a ciclo continuo esegue azioni interne finché una c
 }
 ```
 
-| Nome | Obbligatoria | Tipo | Descrizione | 
+| NOME | Obbligatoria | type | DESCRIZIONE | 
 | ---- | -------- | ---- | ----------- | 
 | Azioni | Sì | Oggetto | Azioni interne da eseguire all'interno del ciclo | 
-| expression | Sì | String | Espressione da valutare dopo ogni iterazione | 
+| expression | Sì | string | Espressione da valutare dopo ogni iterazione | 
 | limit | Sì | Oggetto | Limiti per il ciclo. Deve definire almeno un limite. | 
-| count | No | Integer | Limite al numero di iterazioni da eseguire | 
-| timeout | No | String | Limite di timeout in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica per quanto tempo deve essere eseguito il ciclo |
+| count | No  | Integer | Limite al numero di iterazioni da eseguire | 
+| timeout | No  | string | Limite di timeout in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) che specifica per quanto tempo deve essere eseguito il ciclo |
 ||||| 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -16,7 +16,7 @@ ms.date: 01/04/2018
 ms.author: chackdan
 ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
@@ -69,7 +69,7 @@ Il livello di durabilità viene usato per indicare al sistema i privilegi delle 
 
 Questo privilegio viene espresso con i valori seguenti:
 
-* Gold: i processi dell'infrastruttura possono essere sospesi per una durata di due ore per ogni dominio di aggiornamento. Durabilità Gold può essere abilitata solo nel nodo completo SKU VM come L32s, GS5, G5, DS15_v2 e così via D15_v2 (In genere tutte le dimensioni di VM elencati in http://aka.ms/vmspecs, che sono contrassegnati come 'Istanza è isolata all'hardware dedicato a un singolo cliente' nella nota sono macchine virtuali del nodo completa)
+* Gold: i processi dell'infrastruttura possono essere sospesi per una durata di due ore per ogni dominio di aggiornamento. La durabilità Gold può essere abilitata solo per gli SKU di VM con tutti i nodi come L32s, GS5, G5, DS15_v2, D15_v2 e così via (in generale tutte le dimensioni di macchine virtuali elencate all'indirizzo http://aka.ms/vmspecs e contrassegnate nella nota come "L'istanza è isolata e prevede hardware dedicato per un singolo cliente" sono VM con tutti i nodi).
 * Silver: i processi dell'infrastruttura possono essere sospesi per una durata di 10 minuti per ogni dominio di aggiornamento. È disponibile per tutte le VM standard a core singolo e superiori.
 * Bronze: nessun privilegio. Questa è la modalità predefinita. Usare solo questo livello di durabilità per i tipi di nodi che eseguono _solo_ carichi di lavoro senza stato. 
 
@@ -107,7 +107,7 @@ Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi
 
 
 > [!WARNING]
-> Modifica le dimensioni della VM SKU per il set di scalabilità di macchine Virtuali non è in esecuzione almeno argento durabilità è sconsigliato. La modifica delle dimensioni della SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza almeno in grado di ritardo o monitorare questa modifica, è possibile che l'operazione può causare la perdita di dati per i servizi con stati o altri problemi operativi imprevisti, anche per i carichi di lavoro senza stati. 
+> Non è consigliabile modificare le dimensioni dello SKU di VM per i set di scalabilità di macchine virtuali che non siano eseguiti almeno con il livello di durabilità Silver. La modifica delle dimensioni della SKU della macchina virtuale è un'operazione dell'infrastruttura sul posto distruttiva per i dati. Senza almeno la capacità di ritardare o monitorare questa modifica, è possibile che l'operazione causi una perdita di dati per i servizi con stato o provochi altri problemi operativi non previsti, anche per i carichi di lavoro senza stato. 
 > 
     
 3. Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
-ms.openlocfilehash: d449b53d348471275cea3c7129245569e2151864
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gestione del controllo degli accessi in base al ruolo con l'API REST
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.lasthandoff: 02/09/2018
 > * [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
-Il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager aiuta a gestire l'accesso alla sottoscrizione e alle risorse a un livello estremamente specifico. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
+Con la funzionalità Controllo degli accessi in base al ruolo è possibile definire l'accesso per utenti, gruppi ed entità servizio assegnando loro dei ruoli in un determinato ambito. Questo articolo descrive come gestire l'accesso con l'API REST.
 
 ## <a name="list-all-role-assignments"></a>Elencare tutte le assegnazioni di ruolo
 Elenca tutte le assegnazioni di ruolo all'ambito specificato e agli ambiti secondari.
@@ -81,7 +81,7 @@ Codice di stato: 200
 ## <a name="get-information-about-a-role-assignment"></a>Ottenere informazioni su un'assegnazione di ruolo
 È possibile ottenere informazioni su una singola assegnazione di ruolo specificata dall'identificatore di assegnazione di ruolo.
 
-Per ottenere informazioni su un'assegnazione di ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/read` . L'accesso a questa operazione viene concesso a tutti i ruoli predefiniti. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
+Per ottenere informazioni su un'assegnazione di ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/read`. L'accesso a questa operazione viene concesso a tutti i ruoli predefiniti. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Richiesta
 Usare il metodo **GET** con l'URI seguente:
@@ -122,7 +122,7 @@ Codice di stato: 200
 ## <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 È possibile creare un'assegnazione di ruolo nell'ambito specificato per l'entità specificata, concedendo il ruolo specificato.
 
-Per creare un'assegnazione di ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write` . Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli *Proprietario* e *Amministratore Accesso utenti*. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
+Per creare un'assegnazione di ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/write`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli *Proprietario* e *Amministratore Accesso utenti*. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Richiesta
 Usare il metodo **PUT** con l'URI seguente:
@@ -151,7 +151,7 @@ Per il corpo della richiesta, specificare i valori nel formato seguente:
 
 ```
 
-| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
 | --- | --- | --- | --- |
 | roleDefinitionId |Sì |string |Identificatore del ruolo. Il formato dell'identificatore è: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
 | principalId |Sì |string |objectId dell'entità di Azure AD (utente, gruppo o entità servizio) a cui deve essere assegnato il ruolo. |
@@ -180,7 +180,7 @@ Codice di stato: 201
 ## <a name="delete-a-role-assignment"></a>Eliminare un'assegnazione di ruolo
 È possibile eliminare un'assegnazione di ruolo nell'ambito specificato.
 
-Per eliminare un'assegnazione di ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/delete` . Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli *Proprietario* e *Amministratore Accesso utenti*. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
+Per eliminare un'assegnazione di ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleAssignments/delete`. Tra i ruoli predefiniti, l'accesso a questa operazione viene concesso soltanto ai ruoli *Proprietario* e *Amministratore Accesso utenti*. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Richiesta
 Usare il metodo **DELETE** con l'URI seguente:
@@ -304,7 +304,7 @@ Codice di stato: 200
 ## <a name="get-information-about-a-role"></a>Ottenere informazioni su un ruolo
 È possibile ottenere informazioni su un singolo ruolo specificato dall'identificatore di definizione. Per ottenere informazioni su un singolo ruolo usando il relativo nome visualizzato, vedere [Elencare tutti i ruoli](role-based-access-control-manage-access-rest.md#list-all-roles).
 
-Per ottenere informazioni su un ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleDefinitions/read` . L'accesso a questa operazione viene concesso a tutti i ruoli predefiniti. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
+Per ottenere informazioni su un ruolo, è necessario avere accesso all'operazione `Microsoft.Authorization/roleDefinitions/read`. L'accesso a questa operazione viene concesso a tutti i ruoli predefiniti. Per altre informazioni sulle assegnazioni di ruolo e la gestione dell'accesso per le risorse di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](role-based-access-control-configure.md).
 
 ### <a name="request"></a>Richiesta
 Usare il metodo **GET** con l'URI seguente:
@@ -434,7 +434,7 @@ Per il corpo della richiesta, specificare i valori nel formato seguente:
 
 ```
 
-| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
 | --- | --- | --- | --- |
 | name |Sì |string |Identificatore GUID del ruolo personalizzato. |
 | properties.roleName |Sì |string |Nome visualizzato del ruolo personalizzato. La dimensione massima è di 128 caratteri. |
@@ -537,7 +537,7 @@ Per il corpo della richiesta, specificare i valori nel formato seguente:
 
 ```
 
-| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
 | --- | --- | --- | --- |
 | name |Sì |string |Identificatore GUID del ruolo personalizzato. |
 | properties.roleName |Sì |string |Nome visualizzato del ruolo personalizzato aggiornato. |

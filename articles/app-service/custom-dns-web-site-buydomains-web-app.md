@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acquistare un nome di dominio personalizzato per app Web Azure
 
@@ -26,7 +26,7 @@ I domini del servizio app (anteprima) sono i domini di primo livello che sono ge
 
 Questo articolo è per il Servizio app di Azure (app Web, app per le API, app per dispositivi mobili, app per la logica). Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Assegnare il dominio del servizio app alla macchina virtuale di Azure o ad Archiviazione di Azure). Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -94,9 +94,9 @@ Nella pagina **Domini personalizzati** fare clic su **Acquista il dominio**.
 >
 >
 
-### <a name="configure-the-domain-purchase"></a>Configurare l’acquisto del dominio
+### <a name="configure-the-domain-purchase"></a>Configurare l'acquisto del dominio
 
-Nella pagina **Dominio del servizio app**, digitare il nome di dominio che si desidera acquistare nel riquadro **Ricerca dominio** , quindi digitare `Enter`. I domini disponibili suggeriti vengono visualizzati sotto la casella di testo. Selezionare uno o più domini che si desidera acquistare.
+Nella pagina **Dominio del servizio app**, digitare il nome di dominio che si desidera acquistare nel riquadro **Ricerca dominio**, quindi digitare `Enter`. I domini disponibili suggeriti vengono visualizzati sotto la casella di testo. Selezionare uno o più domini che si desidera acquistare.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
@@ -111,7 +111,7 @@ Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di 
 
 Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella seguente per alcune spiegazioni:
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
 |Protezione della privacy | Abilita | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
 | Assegnare i nomi host predefiniti | **www** e **@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app Web è accessibile tramite i nomi host selezionati. Se l'app Web è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
@@ -186,7 +186,7 @@ Una volta completata l'operazione, viene visualizzata una notifica di esito posi
 ### <a name="close-add-hostname"></a>Chiudere Aggiungi il nome host
 Nella pagina **Aggiungi il nome host**, assegnare qualsiasi nome host all'app Web, in base alle proprie esigenze. Al termine, chiudere la pagina **Aggiungi il nome host**.
 
-Viene visualizzato il nome host appena assegnato nella pagina dell’app **Domini personalizzati**.
+Viene visualizzato il nome host appena assegnato nella pagina dell'app **Domini personalizzati**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added2.png)
 
@@ -220,7 +220,7 @@ In Azure, i record DNS per un dominio del servizio app vengono gestiti tramite [
 
 ### <a name="open-app-service-domain"></a>Aprire Dominio del servizio app
 
-Nel portale di Azure, nel menu a sinistra, selezionare **Più servizi** > **Domini del servizio app**.
+Nel menu a sinistra del portale di Azure selezionare **Tutti i servizi** > **Domini del servizio app**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -240,7 +240,7 @@ Dopo aver acquistato il dominio del servizio app, si hanno a disposizione cinque
 
 ### <a name="open-app-service-domain"></a>Aprire Dominio del servizio app
 
-Nel portale di Azure, nel menu a sinistra, selezionare **Più servizi** > **Domini del servizio app**.
+Nel menu a sinistra del portale di Azure selezionare **Tutti i servizi** > **Domini del servizio app**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-access.png)
 
@@ -268,7 +268,7 @@ Se non è trascorso il periodo di cancellazione del dominio acquistato, selezion
 
 Per confermare l'operazione, selezionare **ì**.
 
-Al termine dell’operazione, il dominio viene rilasciato dalla sottoscrizione e può essere riacquistato dagli altri utenti. 
+Al termine dell'operazione, il dominio viene rilasciato dalla sottoscrizione e può essere riacquistato dagli altri utenti. 
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>Indirizzare l'URL predefinito a una directory personalizzata
 

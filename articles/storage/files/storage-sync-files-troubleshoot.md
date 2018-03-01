@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7562e43f58f303ea34a08b8b9e056a0c3d0c10d0
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -43,6 +43,10 @@ Esaminare il file installer.log per determinare la causa dell'errore di installa
 > [!Note]  
 > L'installazione dell'agente ha esito negativo se il computer è configurato per usare Microsoft Update e il servizio Microsoft Update non è in esecuzione.
 
+<a id="agent-installation-on-DC"></a>**Esito negativo dell'installazione dell'agente sul Controller di dominio di Active Directory** Se si tenta di installare l'agente di sincronizzazione in un controller di dominio di Active Directory in cui il proprietario di ruolo si trova in un Windows Server 2008 R2 o una versione precedente del sistema operativo, è possibile riscontrare il problema di esito negativo dell'installazione dell'agente.
+
+Per risolverlo, trasferire il ruolo PDC in un altro controller di dominio su cui è in esecuzione Windows Server 2012R2 o una versioni più recente, quindi installare la sincronizzazione.
+
 <a id="agent-installation-websitename-failure"></a>**L'installazione dell'agente ha esito negativo e restituisce un messaggio di errore che indica che la procedura guidata dell'agente di sincronizzazione archiviazione è stata interrotta prima del completamento**  
 Questo problema può verificarsi se viene modificato il nome predefinito del sito Web IIS. Per risolvere questo problema, rinominare il sito Web predefinito IIS come "Sito Web predefinito" e ripetere l'installazione. Questo problema verrà risolto in un aggiornamento futuro. 
 
@@ -51,6 +55,8 @@ Se un server non è presente nell'elenco **Server registrati** per un servizio d
 1. Accedere al server da registrare.
 2. Aprire Esplora File e quindi passare alla directory di installazione dell'agente di sincronizzazione archiviazione (il percorso predefinito è C:\Program Files\Azure\StorageSyncAgent). 
 3. Eseguire il file ServerRegistration.exe e completare la registrazione guidata del server con un servizio di sincronizzazione archiviazione.
+
+
 
 <a id="server-already-registered"></a>**Durante l'installazione dell'agente Sincronizzazione file di Azure, Registrazione server visualizza il messaggio seguente: "Il server è già registrato"** 
 
@@ -95,9 +101,7 @@ Per creare un endpoint cloud, l'account utente deve avere le autorizzazioni Micr
 
 I seguenti ruoli predefiniti dispongono delle necessarie autorizzazioni Microsoft:  
 * Proprietario
-* Amministratore accessi utente
-
-Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazioni necessarie:  
+* Amministratore Accesso utenti Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazioni necessarie:  
 1. Nel portale di Azure fare clic su **Gruppi di risorse**.
 2. Selezionare il gruppo di risorse in cui si trova l'account di archiviazione e quindi selezionare **Controllo di accesso (IAM)**.
 3. Selezionare il **ruolo** per l'account utente, ad esempio proprietario o collaboratore.
@@ -105,11 +109,24 @@ Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazi
     * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
     * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
 
-<a id="server-endpoint-createjobfailed"></a>**La creazione dell'endpoint server ha esito negativo e restituisce il messaggio di errore: "MgmtServerJobFailed" (codice di errore: -2134375898)**                                                                                                                           
+<a id="server-endpoint-createjobfailed"></a>**La creazione dell'endpoint server ha esito negativo e restituisce il messaggio di errore: "MgmtServerJobFailed" (codice di errore: -2134375898)**                                                                                                                    
 Questo problema si verifica se il percorso dell'endpoint server si trova sul volume di sistema ed è abilitata la suddivisione in livelli nel cloud. La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint server nel volume di sistema, disabilitare la suddivisione in livelli nel cloud durante la creazione dell'endpoint server.
 
 <a id="server-endpoint-deletejobexpired"></a>**L'eliminazione dell'endpoint server ha esito negativo e restituisce il messaggio di errore: "MgmtServerJobExpired"**                
 Questo problema si verifica se il server è offline o non si dispone di connettività di rete. Se il server non è più disponibile, annullare la registrazione del server nel portale. In questo modo, si annullano gli endpoint server. Per eliminare gli endpoint server, seguire la procedura descritta in [Annullare la registrazione del server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+<a id="server-endpoint-provisioningfailed"></a>**Impossibile aprire la pagina delle proprietà dell'endpoint server o aggiornare i criteri di suddivisione in livelli nel cloud**
+
+Questo problema può verificarsi se un'operazione di gestione nell'endpoint server ha esito negativo. Se la pagina delle proprietà dell'endpoint server non si apre nel portale di Azure, l'aggiornamento dell'endpoint server mediante i comandi di PowerShell dal server potrebbe risolvere il problema. 
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+# Get the server endpoint id based on the server endpoint DisplayName property
+Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+
+# Update the free space percent policy for the server endpoint
+Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+```
 
 ## <a name="sync"></a>Sincronizzazione
 <a id="afs-change-detection"></a>**Se è stato creato un file direttamente nella condivisione file di Azure su SMB o nel portale, quanto tempo richiede la sincronizzazione del file nei server nel gruppo di sincronizzazione?**  

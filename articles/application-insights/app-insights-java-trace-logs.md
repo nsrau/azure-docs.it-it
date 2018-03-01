@@ -11,23 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2016
+ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e441c9cbd15bb1528ea8e8a781f90900af90cf2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ef813ec3f9f654fb3786fba4135a04e403928e9a
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Esplorare i log di traccia Java in Application Insights
 Se si usa Logback o Log4J (v1.2 o v2.0) per la traccia, è possibile inviare automaticamente i log di traccia ad Application Insights dove è possibile esplorarli e eseguirvi ricerche.
 
 ## <a name="install-the-java-sdk"></a>Installare Java SDK
 
-Installare [Application Insights SDK per Java][java], se questa operazione non è già stata eseguita.
-
-Se non si desidera tenere traccia delle richieste HTTP, è possibile omettere gran parte del file di configurazione .xml, ma è necessario includere almeno l'elemento `InstrumentationKey`. È anche necessario chiamare `new TelemetryClient()` per inizializzare il SDK.
-
+Seguire le istruzioni per installare [Application Insights SDK per Java][java], se questa operazione non è già stata eseguita.
 
 ## <a name="add-logging-libraries-to-your-project"></a>Aggiungere le librerie di registrazione al progetto
 *Scegliere il modo più appropriato per il progetto.*
@@ -101,13 +98,14 @@ Aggiornare quindi le dipendenze progetto per fare in modo che i file binari veng
 ```
 
 #### <a name="otherwise-"></a>In caso contrario...
-Scaricare ed estrarre l'appender appropriato e quindi aggiungere la libreria appropriata al progetto:
+Seguire le linee guida per installare manualmente Application Insights SDK per Java, scaricare il file jar (dopo aver raggiunto la pagina del repository centrale Maven, fare clic sul collegamento 'jar' nella sezione di download) per l'appender appropriato e aggiungere il file jar dell'appender scaricato al progetto.
 
-| Logger | Scaricare | Libreria |
+| Logger | Download | Libreria |
 | --- | --- | --- |
-| Logback |[SDK con appender Logback](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
-| Log4J v2.0 |[SDK con appender Log4J v2](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
-| Log4J v1.2 |[SDK con appender Log4J v1.2](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1_2 |
+| Logback |[Jar dell'appender logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Jar dell'appender Log4J versione 2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J v1.2 |[Jar dell'appender Log4J versione 1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Aggiungere l'appender per il framework di registrazione
 Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al file di configurazione Log4J o Logback: 
@@ -128,7 +126,7 @@ Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al fi
 
 ```XML
 
-    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+    <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
         <ApplicationInsightsAppender name="aiAppender" />
       </Appenders>
@@ -157,6 +155,8 @@ Per iniziare la raccolta di tracce, unire il frammento di codice rilevante al fi
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Esplorare le tracce nel portale Application Insights.
 Ora che è stato configurato il progetto per inviare tracce in Application Insights, è possibile visualizzare e cercare queste tracce nel portale di Application Insights nel pannello [Ricerca][diagnostic].
+
+Le eccezioni inviate tramite logger vengono visualizzate nel portale come telemetria delle eccezioni.
 
 ![Nel portale di Application Insights, aprire Ricerca diagnostica](./media/app-insights-java-trace-logs/10-diagnostics.png)
 

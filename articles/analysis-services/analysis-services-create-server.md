@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: 10f34fe17c6b8faad3bcb7bcffe9d9c3c0d8b10a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 54b9c9df1c368575c271a44e4738a2fc25ac4798
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Creare un server Azure Analysis Services nel portale di Azure
 Questo articolo illustra la creazione di una risorsa server Analysis Services nella sottoscrizione di Azure.
@@ -50,7 +50,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
    * **Piano tariffario**: selezionare un piano tariffario. Sono supportati modelli tabulari fino a 400 GB. Per altre informazioni, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 4. Fare clic su **Crea**.
 
-La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **More services** (Altri servizi) > **Analysis Services** per vedere se il server è pronto.
+La creazione richiede in genere meno di un minuto e spesso solo alcuni secondi. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **Tutti i servizi** > **Analysis Services** per vedere se il server è pronto.
 
  ![dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 

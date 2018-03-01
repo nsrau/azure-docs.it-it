@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: af185725433b0eacc5d57b90fb2e75edd143a59a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 02850243caaa66a354f06b650a5505a79d7aee54
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Domande frequenti sulla Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
@@ -119,36 +119,36 @@ Di seguito alcune considerazioni per la scelta di un'offerta cache.
 <a name="cache-performance"></a>
 
 ### <a name="azure-redis-cache-performance"></a>Prestazioni di Cache Redis di Azure
-La tabella seguente mostra i valori massimi per la larghezza di banda osservati durante il test di diverse dimensioni di cache Standard e Premium usando `redis-benchmark.exe` da una macchina virtuale IaaS nell'endpoint della Cache Redis di Azure. 
+La tabella seguente mostra i valori massimi per la larghezza di banda osservati durante il test di diverse dimensioni di cache Standard e Premium usando `redis-benchmark.exe` da una macchina virtuale IaaS nell'endpoint della Cache Redis di Azure. Per la velocità effettiva SSL, per connettersi all'endpoint di Cache Redis di Azure si usa redis-benchmark con stunnel.
 
 >[!NOTE] 
 >Questi valori non sono garantiti e che non è disponibile alcun contratto di servizio per questi numeri, che dovrebbero essere tuttavia tipici. È consigliabile testare l'applicazione per determinare le dimensioni di cache ottimali per l'applicazione specifica.
->
+>Questi numeri possono cambiare man mano che si pubblicano periodicamente risultati più recenti.
 >
 
 Da questa tabella è possibile trarre le seguenti conclusioni:
 
-* La velocità effettiva per cache con dimensioni simili è superiore nel Premium rispetto al livello Standard. Ad esempio, con una cache di 6 GB, la velocità effettiva di P1 è 180.000 RPS rispetto a 49.000 per C3.
+* La velocità effettiva per cache con dimensioni simili è superiore nel Premium rispetto al livello Standard. Con una cache di 6 GB, ad esempio, la velocità effettiva di P1 è 180.000 RPS rispetto a 100.000 per C3.
 * Con il clustering di Redis, la velocità effettiva aumenta in modo lineare man mano che aumenta il numero di partizioni (nodi) nel cluster. Ad esempio, se si crea un cluster P4 di 10 partizioni, la velocità effettiva disponibile sarà 400.000 *10 = 4 milioni di RPS.
 * La velocità effettiva per dimensioni maggiori di chiave è superiore nel Premium rispetto al livello Standard.
 
-| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB |
-| --- | --- | --- | --- | --- |
-| **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS)** |
-| C0 |250 MB |Condiviso |5 / 0,625 |600 |
-| C1 |1 GB |1 |100 / 12,5 |12,200 |
-| C2 |2,5 GB |2 |200 / 25 |24,000 |
-| C3 |6 GB |4 |400 / 50 |49,000 |
-| C4 |13 GB |2 |500 / 62,5 |61,000 |
-| C5 |26 GB |4 |1,000 / 125 |115,000 |
-| C6 |53 GB |8 |2,000 / 250 |150.000 |
-| **Dimensioni della cache livello Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) per partizione** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |
-| P2 |13 GB |4 |3,000 / 375 |360,000 |
-| P3 |26 GB |4 |3,000 / 375 |360,000 |
-| P4 |53 GB |8 |6,000 / 750 |400.000 |
+| Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB | Dimensioni del valore di 1 KB |
+| --- | --- | --- | --- | --- | --- |
+| **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL** |**Richieste al secondo (RPS) SSL** |
+| C0 |250 MB |Condiviso |100 / 12,5 |15.000 |7.500 |
+| C1 |1 GB |1 |500 / 62,5 |38.000 |20.720 |
+| C2 |2,5 GB |2 |500 / 62,5 |41.000 |37.000 |
+| C3 |6 GB |4 |1000 / 125 |100.000 |90.000 |
+| C4 |13 GB |2 |500 / 62,5 |60.000 |55.000 |
+| C5 |26 GB |4 |1,000 / 125 |102.000 |93.000 |
+| C6 |53 GB |8 |2,000 / 250 |126.000 |120.000 |
+| **Dimensioni della cache livello Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL, per partizione** |**Richieste al secondo (RPS) SSL, per partizione** |
+| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172.000 |
+| P2 |13 GB |4 |3,000 / 375 |350.000 |341.000 |
+| P3 |26 GB |4 |3,000 / 375 |350.000 |341.000 |
+| P4 |53 GB |8 |6,000 / 750 |400.000 |373.000 |
 
-Per istruzioni sul download degli strumenti Redis quali `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands) .
+Per istruzioni sulla configurazione di stunnel o sul download degli strumenti Redis, ad esempio `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 
 <a name="cache-region"></a>
 
