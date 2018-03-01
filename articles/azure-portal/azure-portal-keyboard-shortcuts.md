@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 6c37dcbf14ee765aa803f41b91445c8f1cabcfdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Tasti di scelta rapida nel portale di Azure
 Questo articolo riporta i tasti di scelta rapida disponibili nel portale di Azure. È possibile che i singoli servizi abbiano tasti di scelta rapida.
@@ -28,7 +28,7 @@ Questo articolo riporta i tasti di scelta rapida disponibili nel portale di Azur
 |Per |Premere |
 | --- | --- |
 |Creare una nuova risorsa|G+N|
-|Aprire il riquadro "Altri servizi"|G+B|
+|Aprire il riquadro "Tutti i servizi"|G+B|
 |Cercare risorse|G+/| 
 |Cercare voci di menu delle risorse|CTRL+/ |
 |Spostare l'elemento del riquadro di sinistra selezionato verso l'alto |ALT+MAIUSC+FRECCIA SU|

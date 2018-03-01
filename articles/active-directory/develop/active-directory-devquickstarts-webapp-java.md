@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle app Web Java per Azure AD | Documentazione Microsoft
+title: Introduzione alle app Web Java per Azure AD | Microsoft Docs
 description: Compilare un'app Web Java che gestisce l'accesso degli utenti con un account aziendale o dell'istituto di istruzione.
 services: active-directory
 documentationcenter: java
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21dfd8cc79c83b2c091249c7f214d394ad119c4c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Introduzione alle app Web Java per Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Per configurare l'app per l'autenticazione degli utenti, registrarla innanzitutt
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sul nome dell'account. Nell'elenco **Directory** selezionare il tenant di Active Directory in cui si vuole registrare l'app.
-3. Fare clic su **Altri servizi** nel riquadro a sinistra e scegliere **Azure Active Directory**.
+3. Fare clic su **Tutti i servizi** nel riquadro sinistro e quindi selezionare **Azure Active Directory**.
 4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
 5. Seguire le istruzioni per creare una nuova **applicazione Web e/o API Web**.
   * Il **nome** descrive l'app agli utenti.
@@ -1718,7 +1718,7 @@ A questo punto nella directory /targets dovrebbe essere presente un file denomin
 
 Per riferimenti aggiuntivi, è possibile ottenere l'esempio completato, senza i valori di configurazione immessi in questo articolo, in uno dei due modi seguenti:
 
-* Scaricare l'esempio come [file .zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
+* Scaricare l'esempio come [file ZIP](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
 * Clonare il file da GitHub immettendo il comando seguente:
 
  ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```

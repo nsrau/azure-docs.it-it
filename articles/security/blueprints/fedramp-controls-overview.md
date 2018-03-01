@@ -1,6 +1,6 @@
 ---
-title: Programma FedRAMP per l'automazione dei progetti di Azure - Panoramica
-description: Panoramica del programma FedRAMP
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Panoramica
+description: Automazione di applicazioni Web per FedRAMP - Panoramica
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 505a2fdc90abfcdd269b5e30537ea338b8c3774b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 968f9013dcf438ccb3a97f0bbc291b1c58a392ea
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="fedramp-overview"></a>Panoramica del programma FedRAMP
 
 Il [programma FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) è un programma governativo degli Stati Uniti che stabilisce un approccio standard per quanto riguarda valutazione della sicurezza, autorizzazione e monitoraggio continuo per i prodotti e i servizi cloud. Il programma FedRAMP definisce un processo di valutazione della sicurezza basato su un set standard di requisiti derivati dai controlli di sicurezza definiti nel documento [National Institute of Standards and Technology (NIST) Special Publication SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/final).
 
-Scegliere tra i gruppi di controlli seguenti per capire in che modo l'automazione dei progetti è allineata ai requisiti dei controlli.
+Scegliere tra i gruppi di controlli seguenti per capire in che modo l'automazione di Azure Security and Compliance Blueprint è allineata ai requisiti dei controlli.
 
 | | |
 |---|---|

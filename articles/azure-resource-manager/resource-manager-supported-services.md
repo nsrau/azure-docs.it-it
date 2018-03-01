@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b1915288feff8f1d9fc780fef40a247d1c35839
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="resource-providers-and-types"></a>Provider e tipi di risorse
 
@@ -263,9 +263,9 @@ La registrazione di un provider di risorse configura la sottoscrizione per l'uti
 
 Non è possibile annullare la registrazione di un provider di risorse quando nella sottoscrizione sono ancora presenti tipi di risorsa di tale provider di risorse.
 
-Per visualizzare informazioni su un provider di risorse specifico, selezionare **Altri servizi**.
+Per visualizzare informazioni su un provider di risorse specifico, selezionare **Tutti i servizi**.
 
-![selezionare altri servizi](./media/resource-manager-supported-services/more-services.png)
+![Selezionare Tutti i servizi](./media/resource-manager-supported-services/more-services.png)
 
 Cercare **Resource Explorer** e selezionarlo dalle opzioni disponibili.
 

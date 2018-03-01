@@ -1,10 +1,10 @@
 ---
 title: 'Creare e installare i file di configurazione del client VPN per connessioni RADIUS da punto a sito: PowerShell - Azure | Microsoft Docs'
-description: Questo articolo illustra come creare il file di configurazione del client VPN per connessioni da punto a sito che usano l'autenticazione RADIUS.
+description: Creare file di configurazione di client VPN Windows, Mac OS X e Linux per connessioni che usano l'autenticazione RADIUS.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,39 +13,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 02/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 838065287279f1c17e7f294bc919c4a0421e2a58
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: ce914d2fd0472855ad7a17bf64ae43a76ceb5743
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
-I file di configurazione del client VPN sono contenuti in un file ZIP. I file di configurazione forniscono le impostazioni necessarie a un client VPN IKEv2 Mac o Windows nativo per connettersi a una rete virtuale con una connessione da punto a sito. Il server RADIUS offre più opzioni di autenticazione e la configurazione del client VPN varia per ogni singola opzione.
+Per connettersi a una rete virtuale tramite connessione da punto a sito, è necessario configurare il dispositivo client da cui si effettuerà la connessione. È possibile creare connessioni VPN da punto a sito da dispositivi client Windows, Mac OSX e Linux. Quando si usa l'autenticazione RADIUS, sono disponibili più opzioni di autenticazione: autenticazione con nome utente/password, autenticazione del certificato e altri tipi di autenticazione. La configurazione dei client VPN è diversa per ogni tipo di autenticazione. Per configurare il client VPN, usare i file di configurazione client che contengono le impostazioni necessarie. Questo articolo consente di creare e installare la configurazione del client VPN per il tipo di autenticazione RADIUS che si vuole usare.
 
-### <a name="workflow"></a>Flusso di lavoro
+Di seguito è riportato il flusso di lavoro di configurazione per l'autenticazione RADIUS da punto a sito:
 
-  1. [Configurare il gateway VPN di Azure per la connettività da punto a sito](point-to-site-how-to-radius-ps.md).
-  2. [Configurare il server RADIUS per l'autenticazione](point-to-site-how-to-radius-ps.md#radius). 
-  3. (Questo articolo): ottenere la configurazione del client VPN per l'opzione di autenticazione scelta e usarla per configurare il client VPN nel dispositivo Windows. Sarà così possibile connettersi alle reti virtuali di Azure tramite una connessione da punto a sito.
-  4. [Completare la configurazione da punto a sito e connettersi](point-to-site-how-to-radius-ps.md).
+1. [Configurare il gateway VPN di Azure per la connettività da punto a sito](point-to-site-how-to-radius-ps.md).
+2. [Configurare il server RADIUS per l'autenticazione](point-to-site-how-to-radius-ps.md#radius). 
+3. **Ottenere la configurazione del client VPN per l'opzione di autenticazione scelta e usarla per configurare il client VPN**. (Questo articolo)
+4. [Completare la configurazione da punto a sito e connettersi](point-to-site-how-to-radius-ps.md).
 
 >[!IMPORTANT]
 >Se vengono apportate modifiche alla configurazione VPN da punto a sito, ad esempio al tipo di autenticazione o al tipo di protocollo VPN, dopo la generazione del profilo di configurazione del client VPN, è necessario generare e installare una nuova configurazione del client VPN nei dispositivi utente.
 >
 >
 
-## <a name="adeap"></a>Informazioni sull'autenticazione con nome utente/password
+Per seguire le istruzioni contenute nelle sezioni di questo articolo è necessario prima decidere il tipo di autenticazione da usare: nome utente/password, certificato o altri tipi di autenticazione. In ogni sezione sono descritte le procedure per Windows, Mac OS X e Linux (sono attualmente disponibili procedure limitate).
 
-* **Autenticazione di AD:** uno scenario comune è l'autenticazione del dominio di AD. In questo scenario, gli utenti si connettono alle reti virtuali di Azure usando le credenziali del dominio. È possibile creare i file di configurazione del client VPN per l'autenticazione RADIUS di AD.
+## <a name="adeap"></a>Autenticazione con nome utente/password
 
-* **Autenticazione senza AD:** è anche possibile configurare lo scenario di autenticazione RADIUS con nome utente/password senza AD.
+Esistono due modi per configurare l'autenticazione con nome utente/password. È possibile configurare l'autenticazione per l'uso di Active Directory oppure eseguire l'autenticazione senza usare Active Directory. In ogni scenario, verificare che tutti gli utenti che effettuano la connessione abbiano credenziali nome utente/password autenticabili tramite RADIUS.
 
-Verificare che tutti gli utenti che effettuano la connessione abbiano credenziali nome utente/password autenticabili tramite RADIUS. È possibile creare una configurazione solo per il protocollo di autenticazione con nome utente/password EAP-MSCHAPv2. Come "-AuthenticationMethod" viene specificato "EapMSChapv2".
+* Quando si configura l'autenticazione con nome utente/password, è possibile creare una configurazione solo per il protocollo di autenticazione con nome utente e password EAP-MSCHAPv2.
+* "-AuthenticationMethod" è "EapMSChapv2".
 
-## <a name="usernamefiles"></a> 1. Generare i file di configurazione del client VPN
+### <a name="usernamefiles"></a> 1. Generare i file di configurazione del client VPN
 
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con nome utente/password. È possibile generare i file di configurazione del client VPN con il comando seguente:
 
@@ -67,9 +68,15 @@ Per recuperare i file di configurazione client generati in precedenza, usare il 
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
-## <a name="setupusername"></a> 2. Configurare client VPN Windows e Mac
+### <a name="setupusername"></a> 2. Configurare client VPN
+
+È possibile configurare i client VPN seguenti:
+
+* [Windows](#adwincli)
+* [Mac (OS X)](#admaccli)
+* [Linux con strongSwan](#adlinuxcli)
  
-### <a name="adwincli"></a>Configurazione di un client VPN Windows
+#### <a name="adwincli"></a>Configurazione di un client VPN Windows
 
 È possibile usare lo stesso pacchetto di configurazione del client VPN in ogni computer client Windows, a condizione che la versione corrisponda all'architettura del client. Per l'elenco dei sistemi operativi client supportati, vedere la sezione Connessioni da punto a sito delle [domande frequenti](vpn-gateway-vpn-faq.md#P2S).
 
@@ -79,7 +86,7 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
 2. Fare doppio clic sul pacchetto per installarlo. Se viene visualizzato un popup SmartScreen, fare clic su **Altre informazioni** e quindi su **Esegui comunque** per installare il pacchetto.
 3. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette. 
 
-### <a name="admaccli"></a>Configurazione di un client VPN Mac (OSX)
+#### <a name="admaccli"></a>Configurazione di un client VPN Mac (OS X)
 
 1. Selezionare il file **VpnClientSetup mobileconfig** e inviarlo a ogni utente, tramite posta elettronica o un altro metodo.
 
@@ -112,15 +119,45 @@ Per configurare il client VPN Windows nativo per l'autenticazione del certificat
   ![authenticate](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 11. Fare clic su **Applica** per salvare le modifiche. Per avviare la connessione, fare clic su **Connetti**.
 
-## <a name="certeap"></a>Informazioni sull'autenticazione con certificato
+#### <a name="adlinuxcli"></a>Configurazione di un client VPN Linux con strongSwan
+
+Le istruzioni seguenti sono state create usando strongSwan 5.5.1 in Ubuntu 17.0.4. È possibile che le schermate effettive siano diverse, in base alle versione di Linux e strongSwan in uso.
+
+1. Aprire il **Terminale** per installare **strongSwan** e il relativo gestore di rete eseguendo il comando riportato nell'esempio. Se si riceve un errore relativo a "libcharon-extra-plugin", sostituirlo con "strongswan-plugin-eap-mschapv2".
+
+  ```Terminal
+  sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+  ```
+2. Fare clic sull'icona **Network Manager** (Gestione rete) (freccia su/freccia giù) e selezionare **Modifica connessioni**.
+
+  ![modifica connessione](./media/point-to-site-vpn-client-configuration-radius/EditConnection.png)
+3. Fare clic sul pulsante **Aggiungi** per creare una nuova connessione.
+
+  ![aggiungi connessione](./media/point-to-site-vpn-client-configuration-radius/AddConnection.png)
+4. Selezionare **IPsec/IKEv2 (strongswan)** dal menu a discesa e fare clic su **Crea**. In questo passaggio è possibile rinominare la connessione.
+
+  ![aggiungere ikev2](./media/point-to-site-vpn-client-configuration-radius/AddIKEv2.png)
+5. Aprire il file **VpnSettings.xml** dalla cartella **Generic** dei file di configurazione client scaricati. Trovare il tag denominato **VpnServer** e copiare il nome, che inizia con "azuregateway" e termina con ".cloudapp.net".
+
+  ![impostazioni vpn](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
+6. Incollare il nome nel campo **Indirizzo** della nuova connessione VPN all'interno della sezione **Gateway**. Successivamente, fare clic sull'icona di cartella presente alla fine del campo **Certificato**, passare alla cartella Generic e selezionare il file **VpnServerRoot** memorizzato al suo interno.
+7. Nella sezione **Client** della connessione scegliere **EAP** per **Autenticazione** e immettere il nome utente e la password personali. Per salvare queste informazioni, è possibile che sia necessario selezionare l'icona di blocco a destra. Fare quindi clic su **Salva**.
+
+  ![modifica impostazioni di connessione](./media/point-to-site-vpn-client-configuration-radius/editconnectionsettings.png)
+8. Fare clic sull'icona **Network Manager** (Gestione rete) (freccia su/freccia giù) e passare il mouse su **Connessioni VPN**. Verrà visualizzata la connessione VPN creata. Per avviare la connessione, selezionarla.
+
+  ![connettersi a radius](./media/point-to-site-vpn-client-configuration-radius/ConnectRADIUS.png)
+
+## <a name="certeap"></a>Autenticazione del certificato
  
 È possibile creare i file di configurazione del client VPN per l'autenticazione del certificato RADIUS con il protocollo EAP-TLS. Per l'autenticazione di un utente per una VPN viene in genere usato un certificato rilasciato dalla CA globale (enterprise). Verificare che nel dispositivo di tutti gli utenti che effettuano la connessione sia installato un certificato e che questo possa essere convalidato dal server RADIUS.
  
 * "-AuthenticationMethod" è "EapTls".
-* Durante l'autenticazione del certificato, il client convalida il server RADIUS convalidando il certificato. "-RadiusRootCert" è il file CER contenente il certificato radice usato per convalidare il server RADIUS.  
+* Durante l'autenticazione del certificato, il client convalida il server RADIUS convalidando il certificato. "-RadiusRootCert" è il file CER contenente il certificato radice usato per convalidare il server RADIUS.
+* Ogni dispositivo client VPN richiede un certificato client installato.
 * Un dispositivo Windows ha talvolta più certificati client. Durante l'autenticazione può pertanto essere visualizzata una finestra di dialogo popup con un elenco di tutti i certificati. L'utente deve quindi scegliere il certificato da usare. È possibile filtrare il certificato corretto specificando il certificato radice a cui dovrebbe essere concatenato il certificato client. "-ClientRootCert" è il file CER contenente il certificato radice ed è un parametro facoltativo. Se il dispositivo da cui si vuole effettuare la connessione ha un solo certificato client, non è necessario specificare questo parametro.
 
-## <a name="certfiles"></a>1. Generare i file di configurazione del client VPN
+### <a name="certfiles"></a>1. Generare i file di configurazione del client VPN
 
 Generare i file di configurazione del client VPN per l'uso con l'autenticazione con certificato. È possibile generare i file di configurazione del client VPN con il comando seguente:
  
@@ -141,14 +178,21 @@ Per recuperare i file di configurazione client generati in precedenza, usare il 
 Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
-## <a name="setupusername"></a> 2. Configurare client VPN Windows e Mac
+### <a name="setupusername"></a> 2. Configurare client VPN
 
-### <a name="certwincli"></a>Configurazione di un client VPN Windows
+È possibile configurare i client VPN seguenti:
+
+* [Windows](#certwincli)
+* [Mac (OS X)](#certmaccli)
+* Linux (supportato, procedura non ancora disponibile)
+
+#### <a name="certwincli"></a>Configurazione di un client VPN Windows
 
 1. Selezionare un pacchetto di configurazione e installarlo nel dispositivo client. Per un'architettura con processore a 64 bit, scegliere il pacchetto di installazione "VpnClientSetupAmd64". Per un'architettura con processore a 32 bit, scegliere il pacchetto di installazione "VpnClientSetupX86". Se viene visualizzato un popup SmartScreen, fare clic su **Altre informazioni** e quindi su **Esegui comunque** per installare il pacchetto. È anche possibile salvare il pacchetto per l'installazione su altri computer client.
-2. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette.
+2. Ogni client deve avere un certificato client per poter eseguire l'autenticazione. Installare il certificato client. Per informazioni sui certificati client, vedere [Client certificates for Point-to-Site](vpn-gateway-certificates-point-to-site.md) (Certificati client per connessioni da punto a sito). Per installare un certificato generato, vedere [Installare un certificato in client Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
+3. Nel computer client passare a **Impostazioni di rete** e fare clic su **VPN**. La connessione VPN viene visualizzata con il nome della rete virtuale a cui si connette.
 
-### <a name="certmaccli"></a>Configurazione di un client VPN Mac (OSX)
+#### <a name="certmaccli"></a>Configurazione di un client VPN Mac (OS X)
 
 È necessario creare un profilo separato per ogni dispositivo Mac che si connette alla rete virtuale di Azure. Per questi dispositivi è infatti necessario che il certificato utente per l'autenticazione sia specificato nel profilo. La cartella **Generic** contiene tutte le informazioni necessarie per creare un profilo.
 
@@ -161,34 +205,35 @@ Per configurare il client VPN nativo in Mac per l'autenticazione del certificato
 1. Importare i certificati radice **VpnServerRoot** e **RadiusServerRoot** nel computer Mac. A tale scopo, copiare il file nel computer Mac e fare doppio clic su di esso.  
 Fare clic su **Aggiungi** per eseguire l'importazione.
 
-  **Aggiungere VpnServerRoot**
+  *Aggiungere VpnServerRoot*
 
   ![Aggiungere il certificato](./media/point-to-site-vpn-client-configuration-radius/addcert.png)
 
-  **Aggiungere RadiusServerRoot**
+  *Aggiungere RadiusServerRoot*
 
   ![Aggiungere il certificato](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
-2. Aprire la finestra di dialogo **Rete** in **Network Preferences** (Preferenze di rete) e fare clic su **+** per creare un nuovo profilo di connessione del client VPN per una connessione da punto a sito alla rete virtuale di Azure.
+2. Ogni client deve avere un certificato client per poter eseguire l'autenticazione. Installare il certificato client nel dispositivo client.
+3. Aprire la finestra di dialogo **Rete** in **Network Preferences** (Preferenze di rete) e fare clic su **+** per creare un nuovo profilo di connessione del client VPN per una connessione da punto a sito alla rete virtuale di Azure.
 
   Il valore di **Interface** (Interfaccia) è "VPN" e quello di **Tipo VPN** è "IKEv2". Specificare un nome per il profilo nel campo **Nome servizio** e quindi fare clic su **Crea** per creare il profilo di connessione del client VPN.
 
   ![Rete](./media/point-to-site-vpn-client-configuration-radius/network.png)
-3. Nella cartella **Generic** copiare il valore del tag **VpnServer** dal file **VpnSettings.xml**. Incollare tale valore nei campi **Server Address** (Indirizzo server) e **Remote ID** (ID remoto) del profilo. Lasciare vuoto il campo **Local ID** (ID locale).
+4. Nella cartella **Generic** copiare il valore del tag **VpnServer** dal file **VpnSettings.xml**. Incollare tale valore nei campi **Server Address** (Indirizzo server) e **Remote ID** (ID remoto) del profilo. Lasciare vuoto il campo **Local ID** (ID locale).
 
   ![Informazioni sul server](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
-4. Fare clic su **Authentication Settings** (Impostazioni autenticazione) e selezionare **Certificato**. 
+5. Fare clic su **Authentication Settings** (Impostazioni autenticazione) e selezionare **Certificato**. 
 
   ![Impostazioni di autenticazione](./media/point-to-site-vpn-client-configuration-radius/certoption.png)
-5. Fare clic su **Seleziona** per scegliere il certificato da usare per l'autenticazione.
+6. Fare clic su **Seleziona** per scegliere il certificato da usare per l'autenticazione.
 
   ![certificato](./media/point-to-site-vpn-client-configuration-radius/certificate.png)
-6. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.
+7. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.
 
   ![identity](./media/point-to-site-vpn-client-configuration-radius/identity.png)
-7. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 5). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
+8. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 6). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
 
   ![apply](./media/point-to-site-vpn-client-configuration-radius/applyconnect.png)
-8. Nella finestra di dialogo **Rete** fare clic su **Applica** per salvare tutte le modifiche. Fare quindi clic su **Connect** (Connetti) per avviare la connessione da punto a sito alla rete virtuale di Azure.
+9. Nella finestra di dialogo **Rete** fare clic su **Applica** per salvare tutte le modifiche. Fare quindi clic su **Connect** (Connetti) per avviare la connessione da punto a sito alla rete virtuale di Azure.
 
 ## <a name="otherauth"></a>Uso di altri protocolli o di altri tipi di autenticazione
 
@@ -203,8 +248,10 @@ Per usare un diverso tipo di autenticazione, ad esempio OTP anziché nome utente
   * VpnServer: FQDN del gateway VPN di Azure. È l'indirizzo a cui si connette il client.
   * VpnType: tipo di tunnel usato per la connessione.
   * Routes: route da configurare nel profilo affinché sul tunnel da punto a sito venga inviato solo il traffico associato alla rete virtuale di Azure.
-  * La cartella GenenericDevice include anche un file CER denominato "VpnServerRoot" che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione da punto a sito. Installare il certificato in tutti i dispositivi che si connetteranno alla rete virtuale di Azure. 
- 
+  * La cartella GenenericDevice include anche un file CER denominato "VpnServerRoot" che contiene il certificato radice necessario per convalidare il gateway VPN di Azure durante la configurazione della connessione da punto a sito. Installare il certificato in tutti i dispositivi che si connetteranno alla rete virtuale di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Tornare all'articolo per [completare la configurazione della connessione da punto a sito](point-to-site-how-to-radius-ps.md).
+
+Per informazioni sulla risoluzione dei problemi della connessione da punto a sito, vedere [Risoluzione dei problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

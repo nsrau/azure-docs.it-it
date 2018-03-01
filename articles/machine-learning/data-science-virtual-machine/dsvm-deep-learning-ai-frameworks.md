@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: c6dba433536e07970ad5ce338e33b5d19f4532b2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 89a8cde0dbb7fe7ccfbb6d068411aaf5488c532f
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
 La [macchina virtuale per data science](http://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](http://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio. 
@@ -67,7 +67,7 @@ Di seguito sono riportati i dettagli su tutti i framework di apprendimento avanz
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe è installato in `/opt/caffe`.    |
 | Collegamenti agli esempi      | Gli esempi sono inclusi in `/opt/caffe/examples`.      |
 | Strumenti correlati nella macchina virtuale per data science      | Caffe2      |
@@ -87,7 +87,7 @@ Si apre una nuova finestra del browser con i blocchi appunti di esempio.
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Caffe2 è installato in `/opt/caffe2`. È anche disponibile per l'ambiente conda Python 2.7, _radice_.     |
 | Collegamenti agli esempi      | Sono inclusi i blocchi appunti Jupyter di esempio     |
 | Strumenti correlati nella macchina virtuale per data science      | Caffe      |
@@ -114,7 +114,7 @@ In un terminale attivare la versione di Python desiderata, ovvero _radice_ o _py
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Framework per l'apprendimento avanzato per H2O      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Deep Water viene installato in `/dsvm/tools/deep_water`.   |
 | Collegamenti agli esempi      | Gli esempi sono disponibili nel server di Deep Water.      |
 | Strumenti correlati nella macchina virtuale per data science      | H2O, Sparkling Water      |
@@ -145,7 +145,7 @@ Quindi aprire un browser e connettersi a `http://localhost:54321`.
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Sistema di apprendimento avanzato di NVIDIA per eseguire un training rapido sui modelli di apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | DIGITS viene installato in `/dsvm/tools/DIGITS` ed è disponibile come servizio denominato _digits_.   |
 ### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?  
 
@@ -173,7 +173,7 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Theano viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
 | Strumenti correlati nella macchina virtuale per data science      | Keras      |
 | Come usarla o eseguirla?    | In un terminale attivare la versione di Python desiderata, ovvero radice o py35, eseguire python, quindi importare Theano. In Jupyter selezionare il kernel Python 2.7 o 3.5, quindi importare Theano.  |
@@ -185,7 +185,42 @@ L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare a
 |    |           |
 | ------------- | ------------- |
 | Che cos'è?   | Framework per l'apprendimento avanzato      |
-| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Edizioni supportate della macchina virtuale per data science      | Ubuntu     |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Torch è installato in `/dsvm/tools/torch`. PyTorch viene installato in Python 2.7, _radice_, e nell'ambiente Python 3.5, _py35_.   |
 | Collegamenti agli esempi      | Gli esempi di Torch si trovano in `/dsvm/samples/torch`. Gli esempi di PyTorch si trovano in `/dsvm/samples/pytorch`.      |
 
+
+## <a name="pytorch"></a>PyTorch
+
+|    |           |
+| ------------- | ------------- |
+| Che cos'è?   | Framework per l'apprendimento avanzato      |
+| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | PyTorch viene installato nell'ambiente Python 3.5 (_py35_).   |
+| Collegamenti agli esempi      | Sono inclusi notebook di Jupyter di esempio e altri esempi sono disponibili in /dsvm/samples/pytorch.      |
+| Strumenti correlati nella macchina virtuale per data science      | Torch      |
+
+### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?  
+
+Eseguire _python_ in un terminale, quindi importare Torch. In Jupyter selezionare il kernel Python 3.5, quindi importare Torch.
+
+
+## <a name="mxnet-model-server"></a>MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| Che cos'è?   | Un server per la creazione di endpoint HTTP per i modelli MXNet e ONNX      |
+| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | _mxnet-model-server_ è disponibile nel terminale.   |
+| Collegamenti agli esempi      | Cercare gli esempi aggiornati nella [pagina di MXNet Model Server](https://github.com/awslabs/mxnet-model-server).    |
+| Strumenti correlati nella macchina virtuale per data science      | MXNet      |
+
+## <a name="tensorflow-serving"></a>TensorFlow Serving
+
+|    |           |
+| ------------- | ------------- |
+| Che cos'è?   | Un server per l'esecuzione di inferenza in un modello TensorFlow      |
+| Edizioni supportate della macchina virtuale per data science      | Linux     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | _tensorflow_model_server_ è disponibile nel terminale.   |
+| Collegamenti agli esempi      | Sono disponibili esempi [online](https://www.tensorflow.org/serving/).      |
+| Strumenti correlati nella macchina virtuale per data science      | TensorFlow      |

@@ -1,5 +1,5 @@
 ---
-title: Monitorare operazioni, eventi e contatori per i gruppi di sicurezza di rete | Documentazione Microsoft
+title: Monitorare operazioni, eventi e contatori per i gruppi di sicurezza di rete | Microsoft Docs
 description: Informazioni su come abilitare la registrazione di contatori, eventi e operazioni per i gruppi di sicurezza di rete
 services: virtual-network
 documentationcenter: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Analisi dei log per i gruppi di sicurezza di rete
 
@@ -46,7 +46,7 @@ Deve essere abilitata la registrazione diagnostica per *ogni* gruppo di sicurezz
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per usare li portale per abilitare la registrazione, accedere al [portale](https://portal.azure.com). Fare clic su **Altri servizi**, quindi digitare *gruppi di sicurezza di rete*. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso. Seguire le istruzioni per le risorse non di calcolo nell'articolo [Abilitare i log di diagnostica nel portale](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selezionare **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** o entrambe le categorie di log.
+Per usare li portale per abilitare la registrazione, accedere al [portale](https://portal.azure.com). Fare clic su **Tutti i servizi**, quindi digitare *gruppi di sicurezza di rete*. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso. Seguire le istruzioni per le risorse non di calcolo nell'articolo [Abilitare i log di diagnostica nel portale](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selezionare **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** o entrambe le categorie di log.
 
 ### <a name="powershell"></a>PowerShell
 

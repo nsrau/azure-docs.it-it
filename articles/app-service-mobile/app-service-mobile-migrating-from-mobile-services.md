@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -32,7 +32,7 @@ La migrazione trasforma il servizio mobile di Azure in un'app del [servizio app 
 È consigliabile eseguire la migrazione da Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure, tra cui:
 
 * Nuove funzionalità host, come [Processi Web] e [nomi di dominio personalizzati].
-* Monitoraggio e risoluzione dei problemi con New Relic o [Application Insights].
+* Monitoraggio e risoluzione dei problemi con [Application Insights].
 * Strumenti DevOps incorporati, tra cui [slot di staging], rollback e test nell'ambiente di produzione.
 * [Scalabilità automatica], bilanciamento del carico e [monitoraggio delle prestazioni].
 
@@ -83,7 +83,7 @@ Come punto di partenza, è consigliabile scegliere i livelli seguenti:
 | Basic |B1 Basic |
 | Standard |S1 Standard |
 
-C'è una notevole flessibilità nella scelta del piano tariffario per l'applicazione.  Per informazioni dettagliate sui prezzi del nuovo servizio app, vedere [Prezzi di Servizio app] .
+C'è una notevole flessibilità nella scelta del piano tariffario per l'applicazione.  Per informazioni dettagliate sui prezzi del nuovo servizio app, vedere [Prezzi di Servizio app].
 
 > [!TIP]
 > Il livello Standard del servizio app include l'accesso a molte funzionalità utili, come ad esempio [slot di staging], backup automatico e scalabilità automatica.  Sono anche disponibili nuove funzionalità interessanti.
@@ -233,7 +233,7 @@ I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-mi
 ### <a name="notification-hubs"></a>Hub di notifica
 Servizi mobili usa Hub di notifica per le notifiche push.  Le impostazioni app riportate di seguito vengono usate per collegare l'hub di notifica al servizio mobile dopo la migrazione:
 
-| Impostazione dell'applicazione | DESCRIZIONE |
+| Impostazione dell'applicazione | Descrizione |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |Spazio dei nomi dell'hub di notifica |
 | **MS\_NotificationHubName** |Nome dell'hub di notifica |
@@ -251,7 +251,7 @@ L'hub di notifica viene gestito attraverso il [Portale di Azure].  Prendere nota
 >
 >
 
-Per altre informazioni, vedere la documentazione relativa a [Hub di notifica] .
+Per altre informazioni, vedere la documentazione relativa a [Hub di notifica].
 
 > [!TIP]
 > Le funzionalità di gestione di Hub di notifica nel [Portale di Azure] sono ancora in anteprima.  Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
@@ -266,7 +266,7 @@ Nel frattempo tutte le impostazioni push legacy, con l'importante eccezione del 
 ### <a name="app-settings"></a>Altre impostazioni app
 Per le impostazioni app aggiuntive riportate di seguito viene eseguita la migrazione dal servizio mobile e sono disponibili in *Impostazioni* > *App Impostazioni*:
 
-| Impostazione dell'applicazione | DESCRIZIONE |
+| Impostazione dell'applicazione | Descrizione |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Nome dell'app |
 | **MS\_MobileServiceDomainSuffix** |Prefisso del dominio, vale a dire azure-mobile.net |
@@ -311,7 +311,7 @@ Nel servizio app di Azure la registrazione diagnostica è generalmente disabilit
 4. Selezionare **Log di diagnostica** nel menu FUNZIONALITÀ.
 5. Fare clic su **SÌ** per i log seguenti: **Registrazione applicazioni (file system)**, **Messaggi di errore dettagliati** e **Traccia delle richieste non riuscite**.
 6. Fare clic su **File System** per la registrazione del server Web.
-7. Fare clic su **Save**
+7. Fare clic su **Salva**
 
 Per visualizzare i log:
 

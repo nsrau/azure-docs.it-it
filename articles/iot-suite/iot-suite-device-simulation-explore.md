@@ -1,6 +1,6 @@
 ---
-title: Iniziare con la soluzione - simulazione del dispositivo di Azure | Documenti Microsoft
-description: "La soluzione di simulazione IoT Suite è uno strumento che può essere usato per facilitare lo sviluppo e test di una soluzione IoT. Il servizio di simulazione è un computer autonomo che può essere utilizzato in combinazione con altre soluzioni preconfigurate o con soluzioni personalizzate di offerta."
+title: Introduzione alla soluzione Simulazione dispositivi - Azure | Microsoft Docs
+description: "La soluzione di simulazione IoT Suite è uno strumento che può essere usato per facilitare sviluppo e test di una soluzione IoT. Il servizio di simulazione è un'offerta autonoma utilizzabile in combinazione con altre soluzioni preconfigurate o con soluzioni personalizzate."
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -14,128 +14,128 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: 25b9d1c7debe0d98a87b7d0b47dea6ab6f36c8af
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="device-simulation-walkthrough"></a>Procedura dettagliata di simulazione di dispositivo
+# <a name="device-simulation-walkthrough"></a>Procedura dettagliata per Simulazione dispositivi
 
-Simulazione del dispositivo IoT Azure è uno strumento che può essere usato per facilitare lo sviluppo e test di una soluzione IoT. Simulazione del dispositivo è un computer autonomo offerta che è possibile utilizzare in combinazione con altre soluzioni preconfigurate o con soluzioni personalizzate.
+Simulazione dispositivi di Azure IoT è uno strumento che può essere usato per facilitare sviluppo e test di una soluzione IoT. Simulazione dispositivi è un'offerta autonoma utilizzabile in combinazione con altre soluzioni preconfigurate o con soluzioni personalizzate.
 
-In questa esercitazione illustra alcune delle funzionalità della simulazione del dispositivo. Illustrato il funzionamento e consente di utilizzarlo per testare le proprie soluzioni IoT.
+Questa esercitazione illustra alcune delle funzionalità di Simulazione dispositivi. Viene illustrato il funzionamento e come usare questo strumento per testare le proprie soluzioni IoT.
 
 In questa esercitazione si apprenderà come:
 
 >[!div class="checklist"]
 > * Configurare una simulazione
 > * Avvio e arresto di una simulazione
-> * Visualizza le metriche di telemetria
+> * Visualizzare le metriche di telemetria
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione, è necessario un'istanza distribuita di simulazione del dispositivo IoT Azure nella sottoscrizione di Azure.
+Per completare questa esercitazione, è necessaria un'istanza distribuita di Simulazione dispositivi di Azure IoT nella sottoscrizione di Azure.
 
-Se non è stato ancora distribuito simulazione del dispositivo, è necessario completare il [distribuire simulazione del dispositivo IoT Azure](iot-suite-device-simulation-explore.md) esercitazione.
+Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione Simulazione dispositivi di Azure IoT](iot-suite-device-simulation-explore.md).
 
-## <a name="configuring-device-simulation"></a>Configurazione di simulazione del dispositivo
+## <a name="configuring-device-simulation"></a>Configurazione di Simulazione dispositivi
 
-È possibile configurare ed eseguire simulazione del dispositivo da completamente all'interno del dashboard. Aprire il dashboard da IoT Suite [il provisioning delle soluzioni](https://www.azureiotsuite.com/) pagina. Fare clic su **avviare** sotto la nuova distribuzione di simulazione del dispositivo.
+È possibile configurare ed eseguire Simulazione dispositivi completamente dall'interno del dashboard. Aprire il dashboard dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsuite.com/) di IoT Suite. Fare clic su **Avvia** per la nuova distribuzione di Simulazione dispositivi.
 
 ### <a name="target-iot-hub"></a>Hub IoT di destinazione
 
-È possibile utilizzare simulazione del dispositivo con un hub IoT pre-provisioning o con qualsiasi altro hub IoT:
+È possibile usare Simulazione dispositivi con un hub IoT di cui è già stato effettuato il provisioning o con qualsiasi altro hub IoT:
 
 ![Hub IoT di destinazione](media/iot-suite-device-simulation-explore/targethub.png)
 
 > [!NOTE]
-> L'opzione per usare un IoT Hub pre-provisioning è disponibile solo se si sceglie di creare un nuovo IoT Hub per la distribuzione di simulazione del dispositivo. Se non si dispone di un hub IoT, è sempre possibile crearne uno nuovo dal [portale di Azure](https://portal.azure.com).
+> L'opzione per usare un hub IoT di cui è già stato effettuato il preprovisioning è disponibile solo se si è scelto di creare un nuovo hub IoT durante la distribuzione di Simulazione dispositivi. Se non è disponibile un hub IoT, è sempre possibile crearne uno nuovo dal [portale di Azure](https://portal.azure.com).
 
-Per impostare come destinazione un hub IoT specifico, fornire il **iothubowner** stringa di connessione. È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com):
+Per impostare un hub IoT specifico come destinazione, specificare la stringa di connessione **iothubowner**. È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com):
 
-1. Nella pagina Configurazione IoT Hub nel portale di Azure, fare clic su **criteri di accesso condiviso**.
+1. Nella pagina di configurazione dell'hub IoT nel portale di Azure, fare clic su **Criteri di accesso condiviso**.
 1. Fare clic su **iothubowner**.
-1. Copiare sia la chiave primaria o secondaria.
-1. Incollare questo valore nella casella di testo in IoT Hub di destinazione.
+1. Copiare la chiave primaria o la chiave secondaria.
+1. Incollare questo valore nella casella di testo sotto a Target IoT Hub (Hub IoT di destinazione).
 
-![Hub IoT di destinazione](media/iot-suite-device-simulation-explore/connectionstring.png)
+![Target IoT Hub (Hub IoT di destinazione)](media/iot-suite-device-simulation-explore/connectionstring.png)
 
 ### <a name="device-model"></a>Modello del dispositivo
 
-Il modello del dispositivo consente di scegliere il tipo di dispositivo per simulare. È possibile scegliere uno dei modelli di dispositivo preconfigurata o definire un elenco di sensori per un modello di dispositivo personalizzata:
+Il modello del dispositivo consente di scegliere il tipo di dispositivo da simulare. È possibile scegliere uno dei modelli di dispositivo preconfigurati o definire un elenco di sensori per un modello di dispositivo personalizzato:
 
 ![Modello del dispositivo](media/iot-suite-device-simulation-explore/devicemodel.png)
 
-#### <a name="pre-configured-device-models"></a>Modelli di dispositivo preconfigurato
+#### <a name="pre-configured-device-models"></a>Modelli di dispositivo preconfigurati
 
-Simulazione del dispositivo fornisce tre modelli di dispositivi configurati in precedenza. Modelli di dispositivo per Chillers ascensori e camion sono disponibili.
+Simulazione dispositivi include tre modelli di dispositivi preconfigurati. Sono disponibili modelli di dispositivo per Chillers (Refrigeratori), Elevators (Montacarichi) e Trucks (Veicoli).
 
-Modelli di dispositivo preconfigurata che includono più con una frequenza di telemetria predeterminato. Non è possibile personalizzare la frequenza di telemetria per questi dispositivi.
+I modelli di dispositivo preconfigurati includono più sensori con una frequenza di raccolta dei dati di telemetria predeterminata. Non è possibile personalizzare la frequenza di raccolta dei dati di telemetria per questi dispositivi.
 
-Nella tabella seguente mostra un elenco delle configurazioni per ogni modello di dispositivo configurati in precedenza:
+La tabella seguente mostra un elenco delle configurazioni per ogni modello di dispositivo preconfigurato:
 
-| Modello del dispositivo | Sensore | Unità | Frequenza di telemetria
+| Modello del dispositivo | Sensore | Unità | Frequenza telemetria
 | -------------| ------ | -----| --------------------|
-| Chiller (Refrigeratore) | Umidità | % | 5 secondi |
+| Chiller (Refrigeratore) | umidità | % | 5 secondi |
 | | pressure | psig | 5 secondi |
-| | Temperatura | F | 5 secondi |
-| Elevator (Montacarichi) | floor | | 5 secondi |
-| | resistenza alle vibrazioni | MM | 5 secondi |
+| | temperatura | F | 5 secondi |
+| Elevator (Montacarichi) | Piano | | 5 secondi |
+| | Vibrazione | MM | 5 secondi |
 | | Temperatura | F | 5 secondi |
 | Truck (Veicolo) | Latitude | | 3 secondi |
 | | Longitudine | | 3 secondi |
-| | Velocità | m/h | 5 secondi |
-| | cargotemperature | F | 5 secondi |
+| | velocità | mph | 5 secondi |
+| | temperatura carico | F | 5 secondi |
 
 #### <a name="custom-device-model"></a>Modello di dispositivo personalizzato
 
-Modelli di dispositivo personalizzate consentono di sensori di modello che rappresentano meglio i propri dispositivi. Un dispositivo personalizzato può avere fino a 10 sensori personalizzati.
+I modelli di dispositivo personalizzati consentono di definire sensori che rappresentano più fedelmente dispositivi specifici. Un dispositivo personalizzato può avere fino a 10 sensori personalizzati.
 
-Quando si seleziona il tipo di modello di dispositivo personalizzata, è possibile aggiungere nuovi sensori facendo **+ Aggiungi sensore**.
+Quando si seleziona il tipo di modello di dispositivo personalizzato, è possibile aggiungere nuovi sensori facendo clic su **+Add sensor** (Aggiungi sensore).
 
 ![Aggiungere sensori](media/iot-suite-device-simulation-explore/customsensors.png)
 
-Sensori personalizzati hanno le seguenti proprietà:
+Per i sensori personalizzati sono disponibili le proprietà seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 | ----- | ----------- |
-| Nome del sensore | Un nome descrittivo per il sensore, ad esempio **temperatura** o **velocità**. |
-| Comportamento | I comportamenti consentono di dati di telemetria a variare da un messaggio a altro per simulare i dati reali. **Incremento** aumenta il valore di uno in ogni messaggio inviato a partire dal valore minimo. Una volta che il valore massimo viene soddisfatta, quindi avvia su nuovamente al valore minimo. **Decremento** si comporta allo stesso modo come **incremento** ma conto alla rovescia. Il **casuali** comportamento genera un valore casuale compreso tra il valore minimo e massimi valori. |
-| Valore minimo | Il numero più basso che rappresenta l'intervallo di valori accettabili. |
-| Valore massimo | Il numero massimo che rappresenta l'intervallo di valori accettabili. |
-| Unità | L'unità di misura per il sensore, ad esempio ° F o m/h. |
+| Sensor Name (Nome del sensore) | Nome descrittivo per il sensore, ad esempio **temperatura** o **velocità**. |
+| Behavior (Comportamento) | I comportamenti consentono di ottenere dati di telemetria variabili da un messaggio all'altro, per simulare dati reali. Il comportamento **Increment** (Incremento) consente di aumentare il valore di un'unità per ogni messaggio inviato a partire dal valore minimo. Quando viene raggiunto il valore massimo, il processo riparte dal valore minimo. Il comportamento **Decrement** (Decremento) è uguale a **increment** (Incremento), ma alla rovescia. Il comportamento **Random** (Casuale) genera un valore casuale compreso tra i valori minimo e massimo. |
+| Min Value (Valore minimo) | Il numero più basso che rappresenta l'intervallo di valori accettabili. |
+| Max Value (Valore massimo) | Il numero massimo che rappresenta l'intervallo di valori accettabili. |
+| Unit (Unità) | Unità di misura per il sensore, ad esempio °C o km/h. |
 
-### <a name="number-of-devices"></a>Numero di dispositivi
+### <a name="number-of-devices"></a>Number of devices (Numero di dispositivi)
 
-Simulazione del dispositivo consente di simulare fino a 1.000 dispositivi.
+Simulazione dispositivi consente attualmente di simulare fino a 1.000 dispositivi.
 
-![Numero di dispositivi](media/iot-suite-device-simulation-explore/numberofdevices.png)
+![Number of devices (Numero di dispositivi)](media/iot-suite-device-simulation-explore/numberofdevices.png)
 
-### <a name="telemetry-frequency"></a>Frequenza di telemetria
+### <a name="telemetry-frequency"></a>Telemetry frequency (Frequenza telemetria)
 
-Frequenza di telemetria consente di specificare la frequenza con cui i dispositivi simulati devono inviare i dati per l'hub IoT. È possibile inviare dati come spesso come ogni 10 secondi o come raramente ogni come 99 ore, 59 minuti e 59 secondi.
+Questa opzione consente di specificare la frequenza con cui i dispositivi simulati devono inviare dati all'hub IoT. È possibile inviare dati con la frequenza minima di 10 secondi o raramente con la frequenza massima di 99 ore, 59 minuti e 59 secondi.
 
-![Frequenza di telemetria](media/iot-suite-device-simulation-explore/frequency.png)
+![Telemetry frequency (Frequenza telemetria)](media/iot-suite-device-simulation-explore/frequency.png)
 
 > [!NOTE]
-> Se si utilizza un hub IoT diverso da hub IoT pre-provisioning, considerare i limiti dei messaggi per l'hub IoT di destinazione. Ad esempio, se si dispone di 1.000 dispositivi simulati l'invio di dati di telemetria ogni 10 secondi a un hub S1 si raggiunge il limite di telemetria per l'hub in più di un'ora.
+> Se si usa un hub IoT diverso dall'hub IoT di cui è stato effettuato il pre-provisioning, valutare la possibilità di limitare i messaggi per l'hub IoT di destinazione. Ad esempio, in presenza di 1.000 dispositivi simulati che inviano dati di telemetria ogni 10 secondi a un hub S1, il limite di telemetria per l'hub viene raggiunto in poco più di un'ora.
 
-### <a name="simulation-duration"></a>Durata di simulazione
+### <a name="simulation-duration"></a>Simulation duration (Durata simulazione)
 
-È possibile scegliere di eseguire la simulazione di un determinato periodo di tempo o per l'esecuzione fino a quando non si arresta in modo esplicito. Quando si sceglie un periodo di tempo specifico, è possibile scegliere qualsiasi durata da 10 minuti fino a 99 ore, 59 minuti e 59 secondi.
+È possibile scegliere di eseguire la simulazione per un determinato periodo di tempo o fino a quando non viene arrestata in modo esplicito. Quando si sceglie un periodo di tempo specifico, è possibile scegliere qualsiasi durata da 10 minuti fino a 99 ore, 59 minuti e 59 secondi.
 
-![Durata di simulazione](media/iot-suite-device-simulation-explore/duration.png)
+![Simulation duration (Durata simulazione)](media/iot-suite-device-simulation-explore/duration.png)
 
 ### <a name="start-and-stop-the-simulation"></a>Avviare e arrestare la simulazione
 
-Dopo aver aggiunto tutti i dati di configurazione necessarie per il modulo, il **avviare simulazione** pulsante è abilitato. Per avviare la simulazione, fare clic su questo pulsante.
+Dopo aver aggiunto tutti i dati di configurazione necessari nella schermata, viene abilitato il pulsante **Start Simulation** (Avvia simulazione). Per avviare la simulazione, fare clic su questo pulsante.
 
-![Avvia simulazione](media/iot-suite-device-simulation-explore/start.png)
+![Start Simulation (Avvia simulazione)](media/iot-suite-device-simulation-explore/start.png)
 
-Se è stato specificato un periodo di tempo specifico per la simulazione, viene arrestato automaticamente quando viene raggiunto il tempo. È sempre possibile arrestare tempestivamente la simulazione facendo **arrestare simulazione.**
+Se per la simulazione viene impostata una durata specifica, verrà arrestata automaticamente una volta trascorso il tempo specificato. È sempre possibile arrestare prima la simulazione facendo clic su **Stop Simulation** (Arresta simulazione).
 
-Se si sceglie di eseguire la simulazione all'infinito, quindi viene eseguito fino a quando non si fa clic su **arrestare simulazione**. È possibile chiudere il browser e tornare alla pagina della simulazione del dispositivo per arrestare la simulazione in qualsiasi momento.
+Se si sceglie di eseguire la simulazione all'infinito, verrà eseguita fino a quando non si fa clic su **Stop Simulation** (Arresta simulazione). È possibile chiudere il browser e tornare alla pagina Simulazione dispositivi per arrestare la simulazione in qualsiasi momento.
 
-![Arresta simulazione](media/iot-suite-device-simulation-explore/stop.png)
+![Stop Simulation (Arresta simulazione)](media/iot-suite-device-simulation-explore/stop.png)
 
 > [!NOTE]
-> È possibile eseguire solo una simulazione alla volta. È necessario arrestare la simulazione attualmente in esecuzione prima di iniziare una simulazione di nuovo.
+> È possibile eseguire una sola simulazione alla volta. È necessario arrestare la simulazione in esecuzione prima di avviare una nuova simulazione.

@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: dd603f07c20811543e07b21683b065bc873786a5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="data-source-wizard"></a>Creazione guidata dell'origine dati #
 
-La creazione guidata dell'origine dati è un modo semplice e rapido per portare un set di dati in Azure Machine Learning Workbench senza codice. Consente anche di scegliere una strategia di esempio per il set di dati. 
+La creazione guidata dell'origine dati è un modo semplice e rapido per portare un set di dati in Azure Machine Learning Workbench senza codice. Consente anche di scegliere una strategia di esempio per il set di dati e i tipi di dati di ogni colonna. 
 
 ## <a name="step-1-trigger-the-data-source-wizard"></a>Passaggio 1: Avviare la creazione guidata dell'origine dati ## 
 
@@ -27,7 +27,7 @@ Per spostare i dati in un progetto usando la creazione guidata dell'origine dati
 ![aggiungere l'origine dati](media/data-source-wizard/add-data-source.png)
 
 ## <a name="step-2-select-where-data-is-stored"></a>Passaggio 2: Selezionare il percorso in cui archiviare i dati ##
-Innanzitutto, specificare la provenienza dei dati. Possono essere archiviati in un file flat o in una directory, in file parquet, di Excel o in un database. Per altre informazioni, vedere [Archivi dati supportati](data-prep-appendix2-supported-data-sources.md).
+Innanzitutto, specificare la provenienza dei dati. Possono essere archiviati in un file flat o in una directory, in file parquet, di Excel o in un database. Per altre informazioni, vedere [Origini dati supportate](data-prep-appendix2-supported-data-sources.md).
 
 ![passaggio 1](media/data-source-wizard/step1.png)
 
@@ -49,13 +49,15 @@ La creazione guidata dell'origine dati può rilevare automaticamente il tipo di 
 
 ## <a name="step-5-set-data-types-for-columns"></a>Passaggio 5: Impostare i tipi di dati per le colonne ##
 
-La creazione guidata dell'origine dati rileva automaticamente i tipi di dati delle colonne del set di dati. Se ne manca uno o si desidera applicare un tipo di dati, è possibile modificare manualmente il tipo di dati. La colonna **SAMPLE OUTPUT DATA** (DATI DI OUTPUT DI ESEMPIO) mostra gli esempi di come apparirebbero i dati.
+La creazione guidata dell'origine dati rileva automaticamente i tipi di dati delle colonne del set di dati. Se ne manca uno o si desidera applicare un tipo di dati, è possibile modificare manualmente il tipo di dati. La colonna **SAMPLE OUTPUT DATA** (DATI DI OUTPUT DI ESEMPIO) mostra alcuni esempi di come appaiono i dati.
+
+Per le colonne in cui la funzione di preparazione dei dati prevede siano contenute date, può essere richiesto di selezionare l'ordine del mese e del giorno nel formato della data. Ad esempio, 1/2/2013 può rappresentare il 2 gennaio (a questo scopo, selezionare *Day-Month*, (Giorno-Mese)) o l'1 febbraio (selezionare *Month-Day* (Mese-Giorno)).
 
 ![passaggio 6](media/data-source-wizard/step4.png)
 
 ## <a name="step-6-choose-sampling-strategy-for-data"></a>Passaggio 6: Scegliere la strategia di campionamento per i dati ##
 
-È possibile specificare una o più strategie di campionamento per il set di dati e sceglierne una come strategia attiva. Il valore predefinito prevede il caricamento delle prime 10.000 righe. È possibile modificare questo esempio facendo clic sul pulsante **Modifica** nella barra degli strumenti oppure aggiungere una nuova strategia facendo clic su +Nuovo. Le strategie che sono attualmente supportate sono
+È possibile specificare una o più strategie di campionamento per il set di dati e sceglierne una come strategia attiva. Il valore predefinito prevede il caricamento delle prime 10.000 righe. È possibile modificare questo esempio facendo clic sul pulsante **Modifica** nella barra degli strumenti oppure aggiungere una nuova strategia facendo clic su +Nuovo. Di seguito sono indicate le strategie attualmente supportate:
 
 -     Numero superiore di righe
 -     Numero casuale di righe
@@ -64,14 +66,14 @@ La creazione guidata dell'origine dati rileva automaticamente i tipi di dati del
 
 È possibile specificare tutte le strategie di campionamento desiderato, ma è possibile impostarne una sola come attiva durante la preparazione dei dati. È possibile impostare qualsiasi strategia come attiva selezionando la strategia e facendo clic su Imposta come attivo nella barra degli strumenti.
 
-A seconda della provenienza dei dati, alcune strategie di esempio potrebbero non essere supportate. Per altre informazioni sul campionamento, consultare la sezione sul campionamento in [questo documento](data-prep-user-guide.md) 
+A seconda della provenienza dei dati, alcune strategie di esempio potrebbero non essere supportate. Per altre informazioni sul campionamento, consultare la sezione sul campionamento in [questo documento](data-prep-user-guide.md). 
 
 ![passaggio 6](media/data-source-wizard/step5.png)
 
 ## <a name="step-7-path-column-handling"></a>Passaggio 7: Gestione delle colonne relative al percorso ##
 
-Se il percorso del file include dati importanti, è possibile scegliere di includerlo come prima colonna del set di dati. Questo è utile se si importano più file. In caso contrario, è possibile scegliere di non includerlo.
+Se il percorso del file include dati importanti, è possibile scegliere di includerlo come prima colonna del set di dati. Questa opzione è utile se si importano più file. In caso contrario, è possibile scegliere di non includerlo.
 
 ![passaggio 7](media/data-source-wizard/step6.png)
 
-Dopo aver fatto clic su Fine, verrà aggiunta al progetto una nuova origine dati. È possibile trovarla nel gruppo Origini dati in Visualizzazione Dati o come file .dsource in **Visualizzazione file**.
+Dopo aver fatto clic su Fine, verrà aggiunta al progetto una nuova origine dati. È possibile trovarla nel gruppo Origini dati in Data View (Visualizzazione dati) o come file con estensione dsource in **Visualizzazione file**.

@@ -14,15 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7176ebd0515008147bd3797dcb760f35e2d85d45
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: e68b70ce87a6fedab1b85bf2800a50e512910dea
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
 Se un oggetto non esegue la sincronizzazione come previsto in Azure AD, le cause possono essere diverse. Se si riceve un'email di errore da Azure AD o viene visualizzato l'errore in Azure AD Connect Health, leggere l'articolo sulla [risoluzione degli errori di esportazione](active-directory-aadconnect-troubleshoot-sync-errors.md). Tuttavia se si vuole risolvere un problema per cui l'oggetto non è in Azure AD, questo è l'argomento adatto. Viene descritto come individuare gli errori di sincronizzazione nella componente locale di Azure AD Connect.
+
+>[!IMPORTANT]
+>Per la distribuzione di Azure Active Directory (AAD) Connect versione <verison> o successiva, usare l'attività specifica nella procedura guidata per la [risoluzione dei problemi](active-directory-aadconnect-troubleshoot-objectsync.md) di sincronizzazione degli oggetti. 
 
 Per individuare gli errori è necessario esaminare vari punti nell'ordine seguente:
 
@@ -36,7 +39,7 @@ Avviare [Synchronization Service Manager](active-directory-aadconnectsync-servic
 La risoluzione dei problemi deve essere avviata dalla scheda Operazioni in Synchronization Service Manager. La scheda Operazioni mostra i risultati delle ultime operazioni.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/operations.png)  
 
-Nella metà superiore sono mostrate tutte le esecuzioni in ordine cronologico. Per impostazione predefinita, il log delle operazioni mantiene le informazioni relative agli ultimi sette giorni, ma è possibile modificare questa impostazione tramite l' [utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md). Si vogliono cercare le esecuzioni che non hanno lo stato di operazione riuscita. È possibile modificare l'ordinamento facendo clic sulle intestazioni.
+La metà superiore mostra tutte le esecuzioni in ordine cronologico. Per impostazione predefinita, il log delle operazioni mantiene le informazioni relative agli ultimi sette giorni, ma è possibile modificare questa impostazione tramite l' [utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md). Si vogliono cercare le esecuzioni che non hanno lo stato di operazione riuscita. È possibile modificare l'ordinamento facendo clic sulle intestazioni.
 
 La colonna **Status** (Stato) visualizza le informazioni più importanti e segnala il problema più grave di un'esecuzione. Ecco un breve riepilogo degli stati disponibili, ordinati in base alla priorità con cui vanno analizzati (dove * indica diverse stringhe di errore possibili).
 
@@ -78,7 +81,7 @@ Se non si trova l'oggetto che si sta cercando, questo potrebbe essere stato filt
 
 Un'altra ricerca utile consiste nel selezionare il connettore Azure AD: nell'**Ambito** selezionare **Importazione in sospeso** e quindi la casella di controllo **Aggiungi**. Questa ricerca restituisce tutti gli oggetti sincronizzati in Azure AD che non possono essere associati a un oggetto locale.  
 ![Orfano ricerca spazio connettore](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssearchorphan.png)  
-Tali oggetti sono stati creati da un altro motore di sincronizzazione o da un motore di sincronizzazione con una diversa configurazione filtro. Questa vista contiene un elenco di oggetti **orfani** non più gestiti. È opportuno esaminare questo elenco e considerare la possibilità di rimuovere questi oggetti tramite il cmdlet [Azure AD PowerShell](http://aka.ms/aadposh).
+Tali oggetti sono stati creati da un altro motore di sincronizzazione o da un motore di sincronizzazione con una diversa configurazione filtro. Questa vista contiene un elenco di oggetti **orfani** non più gestiti. È opportuno esaminare questo elenco e considerare la possibilità di rimuovere questi oggetti tramite il cmdlet [Azure AD PowerShell](https://aka.ms/aadposh).
 
 ### <a name="cs-import"></a>Importazione CS
 Quando si apre un oggetto cs, nella parte superiore sono presenti diverse schede. La scheda **Import** (Importa) visualizza i dati di gestione temporanea dopo l'importazione.  

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: tamram
-ms.openlocfilehash: 26d4adf4f74f9aacc4cf8cf24be293ebdb4d63c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 054e9686a1acae09f4dd3b7d841d82eae1fc88a9
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticare le soluzioni di gestione Batch con Active Directory
 
@@ -49,7 +49,7 @@ Successivamente, sarà necessario delegare l'accesso all'applicazione all'API di
 
 Seguire questa procedura nel portale di Azure:
 
-1. Nel riquadro di spostamento sinistro del portale di Azure scegliere **Altri servizi** e fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
+1. Nel riquadro di spostamento sinistro del portale di Azure scegliere **Tutti i servizi** e fare clic su **Registrazioni per l'app** e quindi su **Aggiungi**.
 2. Cercare il nome dell'applicazione nell'elenco di registrazioni di app:
 
     ![Cercare il nome dell'applicazione](./media/batch-aad-auth-management/search-app-registration.png)

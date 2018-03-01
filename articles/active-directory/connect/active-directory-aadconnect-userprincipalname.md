@@ -8,11 +8,11 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 1fca41a8498cec506298748acd3511a5c5802d26
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Popolamento di UserPrincipalName di Azure AD
 
@@ -67,9 +67,10 @@ Poiché il valore dell'attributo UserPrincipalName di Azure AD può essere impos
 Quando un oggetto utente viene sincronizzato con un tenant di Azure AD per la prima volta, Azure AD controlla gli elementi seguenti nell'ordine indicato e imposta il valore dell'attributo MailNickName sul primo elemento esistente:
 
 - Attributo mailNickName locale
-- Prefisso dell'attributo mail locale
 - Prefisso dell'indirizzo SMTP primario
+- Prefisso dell'attributo mail locale
 - Prefisso dell'attributo userPrincipalName locale/ID di accesso alternativo
+- Prefisso dell'indirizzo SMTP secondario
 
 Quando gli aggiornamenti a un oggetto utente vengono sincronizzati con il tenant di Azure AD, Azure AD aggiorna il valore dell'attributo MailNickName solo in caso di aggiornamento al valore dell'attributo mailNickName locale.
 
@@ -85,12 +86,12 @@ Di seguito sono illustrati scenari di esempio di come viene calcolato l'UPN in b
 
 Oggetto utente locale:
 - mailNickName: &lt;non impostato&gt;
-- mail: us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- mail: us2@contoso.com
 - userPrincipalName: us3@contoso.com`
 
 Sincronizzazione dell'oggetto utente con il tenant di Azure AD per la prima volta
-- Impostazione dell'attributo MailNickName di Azure AD sul prefisso dell'attributo mail locale.
+- Impostare l'attributo MailNickName di Azure AD sul prefisso dell'indirizzo SMTP primario.
 - Impostazione dell'indirizzo MOERA su &lt;MailNickName&gt;&#64;&lt;dominio iniziale&gt;.
 - Impostazione dell'attributo UserPrincipalName di Azure AD sull'indirizzo MOERA.
 
@@ -103,8 +104,8 @@ Oggetto utente del tenant di Azure AD:
 
 Oggetto utente locale:
 - mailNickName: us4
-- mail: us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- mail: us2@contoso.com
 - userPrincipalName: us3@contoso.com
 
 Sincronizzazione dell'aggiornamento dell'attributo mailNickName locale con il tenant di Azure AD
@@ -119,8 +120,8 @@ Oggetto utente del tenant di Azure AD:
 
 Oggetto utente locale:
 - mailNickName: us4
-- mail: us1@contoso.com
-- proxyAddresses: {SMTP:us2@contoso.com}
+- proxyAddresses: {SMTP:us1@contoso.com}
+- mail: us2@contoso.com
 - userPrincipalName: us5@contoso.com
 
 Sincronizzazione dell'aggiornamento dell'attributo userPrincipalName locale con il tenant di Azure AD
@@ -132,12 +133,12 @@ Oggetto utente del tenant di Azure AD:
 - MailNickName: us4
 - UserPrincipalName: us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-on-premises-mail-attribute-and-primary-smtp-address"></a>Scenario 4: Suffisso UPN non verificato - aggiornamento dell'attributo mail locale e dell'indirizzo SMTP primario
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Suffisso UPN non verificato - aggiornamento dell'indirizzo SMTP primario e dell'attributo mail locale
 
 Oggetto utente locale:
 - mailNickName: us4
-- mail: us6@contoso.com
-- proxyAddresses: {SMTP:us7@contoso.com}
+- proxyAddresses: {SMTP:us6@contoso.com}
+- mail: us7@contoso.com
 - userPrincipalName: us5@contoso.com
 
 Sincronizzazione dell'aggiornamento dell'attributo mail locale e dell'indirizzo SMTP primario con il tenant di Azure AD
@@ -151,8 +152,8 @@ Oggetto utente del tenant di Azure AD:
 
 Oggetto utente locale:
 - mailNickName: us4
-- mail: us6@contoso.com
-- proxyAddresses: {SMTP:us7@contoso.com}
+- proxyAddresses: {SMTP:us6@contoso.com}
+- mail: us7@contoso.com
 - userPrincipalName: us5@verified.contoso.com
 
 Sincronizzazione dell'aggiornamento dell'attributo userPrincipalName locale con il tenant di Azure AD

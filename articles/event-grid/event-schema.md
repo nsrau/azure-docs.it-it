@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 2b0039c7b90ef6f003641e096521f84885171c26
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema di eventi di Griglia di eventi di Azure
 
@@ -30,7 +30,7 @@ L'esempio seguente illustra le proprietà usate da tutti gli autori di eventi:
 [
   {
     "topic": string,
-    "subject": string,    
+    "subject": string,
     "id": string,
     "eventType": string,
     "eventTime": string,
@@ -72,7 +72,7 @@ Ad esempio, lo schema pubblicato per un evento di archiviazione BLOB di Azure è
   }
 ]
 ```
- 
+
 ## <a name="event-properties"></a>Proprietà degli eventi
 
 Tutti gli eventi contengono gli stessi dati di livello principale indicati di seguito:
@@ -93,6 +93,8 @@ Per informazioni sulle proprietà nell'oggetto dati, vedere l'origine dell'event
 * [Sottoscrizioni di Azure (operazioni di gestione)](event-schema-subscriptions.md)
 * [Archiviazione BLOB](event-schema-blob-storage.md)
 * [Hub eventi](event-schema-event-hubs.md)
+* [Bus di servizio](event-schema-service-bus.md)
+* [Hub IoT](event-schema-iot-hub.md)
 * [Gruppi di risorse (operazioni di gestione)](event-schema-resource-groups.md)
 
 Per gli argomenti personalizzati, l'autore dell'evento stabilisce l'oggetto dati. I dati di livello principale devono contenere gli stessi campi degli eventi standard definiti dalle risorse. Quando si pubblicano eventi in argomenti personalizzati, prendere in considerazione la modellazione dell'oggetto degli eventi in modo da supportare le operazioni di instradamento e filtro.

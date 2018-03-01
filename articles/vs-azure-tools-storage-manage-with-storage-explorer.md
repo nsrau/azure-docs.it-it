@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: d2b93eec9d3ac575e771bceb0ac45823254c142d
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Guida introduttiva a Storage Explorer (anteprima)
 ## <a name="overview"></a>Panoramica
@@ -28,6 +28,16 @@ Azure Storage Explorer (anteprima) è un'app autonoma che consente di usare faci
 
 ## <a name="prerequisites"></a>prerequisiti
 * [Scaricare e installare Storage Explorer (anteprima)](http://www.storageexplorer.com)
+
+> [!NOTE]
+> Per distribuzioni Linux diverse da Ubuntu 16.04, è necessario installare manualmente alcune dipendenze. In generale sono necessari i pacchetti seguenti:
+> * libgconf-2-4
+> * libsecret
+> * GCC aggiornato
+>
+> A seconda del tipo di distribuzione, potrebbe essere necessario installare altri pacchetti. Le [note sulla versione](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) di Storage Explorer contengono passaggi specifici per alcune distribuzioni.
+>
+>
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Connettersi a un account o a un servizio di archiviazione
 Storage Explorer (anteprima) offre numerosi modi per connettersi agli account di archiviazione. Ad esempio, è possibile:
@@ -239,6 +249,20 @@ Oltre a gestire gli account Azure Cosmos DB tramite la sottoscrizione di Azure, 
 
     ![connection-string][22]
 
+ ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Connettersi a Azure Data Lake Store mediante URI
+Se si vuole accedere a risorse che non sono incluse nella propria sottoscrizione ma per le quali altri utenti concedono di ottenere l'URI, è possibile connettersi a Data Lake Store usando l'URI dopo aver effettuato l'accesso. Vedere la procedura seguente.
+1. Aprire Storage Explorer (anteprima).
+2. Nel riquadro sinistro espandere **Local and Attached** (Locale e collegato).
+3. Fare clic con il pulsante destro del mouse su **Data Lake Store** e scegliere **Connect to Data Lake Store** (Connetti a Data Lake Store) dal menu di scelta rapida.
+
+    ![Menu di scelta rapida per la connessione a Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach.png)
+
+4. Immettere l'URI. Lo strumento passerà quindi alla posizione dell'URL appena immesso.
+
+    ![Finestra di dialogo contestuale per la connessione a Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+
+    ![Risultato della connessione a Data Lake Store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storageexplorer-adls-attach-finish.png)
+
 ## <a name="search-for-storage-accounts"></a>Cercare gli account di archiviazione
 Se è necessario trovare una risorsa di archiviazione ma non se ne conosce la posizione, è possibile usare la casella di ricerca nella parte superiore del riquadro di sinistra per cercare la risorsa.
 
@@ -254,6 +278,7 @@ Mentre si digita nella casella di ricerca, il riquadro di sinistra mostra tutte 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer (anteprima)](vs-azure-tools-storage-explorer-blobs.md)
 * [Gestire Azure Cosmos DB in Azure Storage Explorer (anteprima)](./cosmos-db/storage-explorer.md)
+* [Gestire le risorse di Azure Data Lake Store con Storage Explorer (anteprima)](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

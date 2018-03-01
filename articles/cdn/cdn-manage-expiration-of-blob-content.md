@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete per la distribuzione di contenuti di Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Il [servizio di archiviazione BLOB](../storage/common/storage-introduction.md#blob-storage) in Archiviazione di Azure è una delle diverse origini basate su Azure integrate nella rete per la distribuzione di contenuti (CDN) di Azure. Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive vari modi in cui è possibile impostare l'intestazione `Cache-Control` in un BLOB in Archiviazione di Azure.
 
-È inoltre possibile controllare le impostazioni della cache dal portale di Azure mediante l'impostazione delle [regole di memorizzazione nella cache della rete CDN](cdn-caching-rules.md). Se si imposta una o più regole di memorizzazione nella cache e il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
+È inoltre possibile controllare le impostazioni della cache dal portale di Azure mediante l'impostazione delle [regole di memorizzazione nella cache della rete CDN](#setting-cache-control-headers-by-using-caching-rules). Se si crea una regola di memorizzazione nella cache e si imposta il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
 
 > [!TIP]
 > È possibile scegliere di non impostare alcuna durata (TTL) per un BLOB. In questo caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni, a meno che non siano state configurate le regole di memorizzazione nella cache nel portale di Azure. Questa impostazione predefinita di durata (TTL) si applica solo alle ottimizzazioni di distribuzione web generali. Per le ottimizzazioni di file di grandi dimensioni, il valore TTL predefinito è un giorno e per le ottimizzazioni dei flussi dei file multimediali, il valore TTL predefinito è un anno.
@@ -38,6 +38,52 @@ Il [servizio di archiviazione BLOB](../storage/common/storage-introduction.md#bl
 > 
 > Per altre informazioni su Archiviazione BLOB di Azure, vedere [Introduzione all'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
+
+## <a name="setting-cache-control-headers-by-using-cdn-caching-rules"></a>Impostazione delle intestazioni Cache-Control tramite le regole di memorizzazione nella cache della rete CDN
+Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di un BLOB consiste nell'usare le regole di memorizzazione nella cache nel portale di Azure. Per altre informazioni sulle regole di memorizzazione nella cache della rete CDN, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole](cdn-caching-rules.md).
+
+> [!NOTE] 
+> Le regole di memorizzazione nella cache sono disponibili solo per profili di **rete CDN di Azure di Verizon Standard** e di **rete CDN di Azure di Akamai Standard**. Per i profili di **rete CDN di Azure di Verizon Premium** è possibile usare il [motore delle regole della rete CDN di Azure](cdn-rules-engine.md) nel portale a cui si accedere tramite il pulsante **Gestisci** per funzionalità analoghe.
+
+**Per passare alla pagina delle regole di memorizzazione nella cache della rete CDN**:
+
+1. Nel portale di Azure selezionare un profilo della rete CDN, quindi selezionare l'endpoint per il BLOB.
+
+2. In Impostazioni nel riquadro sinistro selezionare **Regole di memorizzazione nella cache**.
+
+   ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-rules-btn.png)
+
+   Viene visualizzata la pagina **Regole di memorizzazione nella cache**.
+
+   ![Pagina Regole di memorizzazione nella cache della rete CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
+
+
+**Per configurare le intestazioni Cache-Control di un servizio di archiviazione BLOB tramite regole di memorizzazione nella cache globali:**
+
+1. In **Regole di memorizzazione nella cache globali**, impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query** e impostare **Comportamento di memorizzazione nella cache** su **Ignora**.
+      
+2. Per **Durata scadenza cache** immettere 3600 nella casella **Secondi** o 1 nella casella **Ore**. 
+
+   ![Esempio di regole di memorizzazione nella cache globali della rete CDN](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
+
+   Questa regola di memorizzazione nella cache globale imposta una durata di un'ora per la cache e influisce su tutte le richieste per l'endpoint. Esegue l'override di qualsiasi intestazione HTTP `Cache-Control` o `Expires` inviata dal server di origine specificato dall'endpoint.   
+
+3. Selezionare **Salva**.
+ 
+**Per configurare le intestazioni Cache-Control di un file di BLOB tramite regole di memorizzazione nella cache personalizzate:**
+
+1. In **Regole di memorizzazione nella cache personalizzate** creare due condizioni di corrispondenza:
+
+     R. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/*` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 4 nella casella **Ore**.
+
+    B. Per la seconda condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/blobcontainer1/blob1.txt` per **Valori di corrispondenza**. Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 2 nella casella **Ore**.
+
+    ![Esempio di regole di memorizzazione nella cache personalizzate della rete CDN](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
+
+    La prima regola di memorizzazione nella cache personalizzata imposta una durata della cache di quattro ore per qualsiasi file BLOB nella cartella `/blobcontainer1` nel server di origine specificato dall'endpoint. La seconda regola esegue l'override della prima regola solo per il file BLOB `blob1.txt` e imposta una durata della cache di due ore per tale file.
+
+2. Selezionare **Salva**.
+
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Impostazione delle intestazioni Cache-Control tramite Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzureStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
@@ -64,7 +110,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Impostazione delle intestazioni Cache-Control tramite .NET
-Per impostare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+Per specificare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
 
 Ad esempio: 
 
@@ -81,10 +127,10 @@ class Program
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
         // Create a reference to the container
-        CloudBlobContainer container = blobClient.GetContainerReference("<container name>");
+        CloudBlobContainer <container name> = blobClient.GetContainerReference("<container name>");
 
         // Create a reference to the blob
-        CloudBlob blob = container.GetBlobReference("<blob name>");
+        CloudBlob <blob name> = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
         blob.Properties.CacheControl = "max-age=3600";
@@ -107,7 +153,7 @@ Con [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-
 Per aggiornare la proprietà *CacheControl* di un BLOB con Azure Storage Explorer:
    1. Selezionare un BLOB e quindi selezionare **Proprietà** nel menu di scelta rapida. 
    2. Scorrere verso il basso fino a visualizzare la proprietà *CacheControl*.
-   3. Immettere un valore e quindi fare clic su **Salva**.
+   3. Immettere un valore e quindi selezionare **Salva**.
 
 
 ![Proprietà di Azure Storage Explorer](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
@@ -116,7 +162,7 @@ Per aggiornare la proprietà *CacheControl* di un BLOB con Azure Storage Explore
 Con l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), è possibile gestire le risorse BLOB di Azure dalla riga di comando. Per impostare l'intestazione di controllo della cache quando si carica un blob con l'interfaccia della riga di comando di Azure, impostare la proprietà *cacheControl* usando l'opzione `-p`. Il seguente esempio mostra come impostare la durata TTL su un'ora (3600 secondi):
   
 ```azurecli
-azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>API REST dei servizi di archiviazione di Azure

@@ -1,27 +1,14 @@
----
-title: Importare la raccolta Postman
-description: In questo articolo viene fornita una definizione della raccolta Postman per le chiamate REST di Servizi multimediali di Microsoft Azure.
-services: media-services
-documentationcenter: 
-author: Juliako
-manager: cfowler
-editor: 
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/04/2017
-ms.author: juliako
-ms.openlocfilehash: 9d1937f11d379910437a2e4ea21d4a963aacbc9a
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
----
-# <a name="import-the-postman-collection"></a>Importare la raccolta Postman
+ ---
+title: Importare la raccolta Postman con operazioni di streaming on demand di Azure description: Questo articolo fornisce una definizione della raccolta Postman per le chiamate REST di Servizi multimediali di Azure.
+services: media-services documentationcenter: '' author: Juliako manager: cfowler editor: ''
 
-Questo articolo contiene una definizione della raccolta **Postman** contenente richieste HTTP raggruppate che chiamano le API REST di Servizi multimediali. Questa definizione viene usata dall'esercitazione [Configurare Postman per le chiamate API REST di Servizi multimediali](media-rest-apis-with-postman.md).
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 01/04/2017 ms.author: juliako
+
+---
+
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importare una raccolta Postman con operazioni di streaming on demand
+
+Questo articolo contiene una definizione della raccolta **Postman** contenente richieste HTTP raggruppate che chiamano le API REST di Servizi multimediali di Azure. Per informazioni su come configurare **Postman** per poterlo usare per chiamare le API REST di Servizi multimediali, vedere l'esercitazione [Configurare Postman per le chiamate API REST di Servizi multimediali](media-rest-apis-with-postman.md).
 
 ```
 {

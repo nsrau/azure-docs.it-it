@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 83d23323f050f670680499ecb428c07c94096418
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 
@@ -59,7 +59,7 @@ Possibilità di registrare (creare) applicazioni | Impostando questa opzione su 
 Gli amministratori e gli utenti nel ruolo Mittente dell'invito guest possono inviare inviti agli utenti guest | Impostando questa opzione su No, nessun utente può inviare inviti agli utenti guest. Vedere Configurazione delle autorizzazioni predefinite per gli utenti membro. Per altre informazioni, vedere [App, autorizzazioni e consenso in Azure Active Directory](active-directory-apps-permissions-consent.md).
 I membri possono invitare gli utenti guest | Impostando questa opzione su No, gli utenti non possono invitare gli utenti guest. Gli amministratori globali, gli amministratori account utente e i mittenti dell'invito guest potranno tuttavia invitare gli utenti guest. Per altre informazioni, vedere [App, autorizzazioni e consenso in Azure Active Directory](active-directory-apps-permissions-consent.md).
 Limita l'accesso al portale di amministrazione di Azure AD | Impostando questa opzione su No, gli utenti non possono accedere al portale di Azure Active Directory.
-Possibilità di leggere altri utenti | Per altre informazioni, vedere [App, autorizzazioni e consenso in Azure Active Directory](active-directory-apps-permissions-consent.md).
+Possibilità di leggere altri utenti | Questa impostazione è disponibile solo in PowerShell. Impostandola su $false si impedisce a tutti gli amministratori di leggere le informazioni utente dalla directory, ma non si impedisce la lettura delle informazioni utente in altri servizi Microsoft come Exchange Online. Questa impostazione deve essere usata in casi speciali e impostarla su $false è sconsigliato.
 
 ## <a name="object-ownership"></a>Proprietà di un oggetto
 

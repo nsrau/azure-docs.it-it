@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 68d4f9cb5fc9c9f15a355d9fdade922889d2aa30
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure
 
@@ -31,35 +31,35 @@ Il WAF del gateway applicazione è una raccomandazione del Centro sicurezza per 
 
 ![integrazione con il Centro sicurezza][1]
 
-Se si fa clic su una raccomandazione relativa a web application firewall, viene aperto un nuovo pannello che visualizza i dettagli della raccomandazione.
+Se si fa clic su una raccomandazione relativa a web application firewall, viene aperta una nuova pagina che visualizza i dettagli della raccomandazione.
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Aggiungere un web application firewall a una risorsa esistente
 
-Passare ad **Altri servizi** > **Sicurezza e identità** > **Centro sicurezza PC** e nel pannello **Centro sicurezza PC - Panoramica** fare clic su **Applicazioni**. La tabella nel pannello **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
+Passare a **Tutti i servizi** > **Sicurezza e identità** > **Centro sicurezza PC** e nel pannello **Centro sicurezza PC - Panoramica** fare clic su **Applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
 
 ![applicazioni Web][3]
 
-Se si fa clic su un'applicazione Web con un problema critico, viene visualizzato il pannello **Integrità della sicurezza dell'applicazione**. Nell'immagine seguente è illustrata l'applicazione Web che non è protetta da un web application firewall. 
+Se si fa clic su un'applicazione Web con un problema critico, viene visualizzata la pagina **Integrità della sicurezza dell'applicazione**. Nell'immagine seguente è illustrata l'applicazione Web che non è protetta da un web application firewall. 
 
 ![risorse Web non protette][2]
 
-Fare clic su **Aggiungi un web application firewall** in **Raccomandazioni** per aprire il pannello **Aggiungi un web application firewall**.
+Fare clic su **Aggiungi un web application firewall** in **Raccomandazioni** per aprire la pagina **Aggiungi un web application firewall**.
 
-Se non è presente un gateway applicazione o si vuole crearne uno nuovo, fare clic su **Crea nuovo** e nel pannello **Nuovo web application firewall** fare clic su **Microsoft - Gateway applicazione**. Vengono descritti i passaggi per la creazione di un gateway applicazione. A questo punto, l'applicazione Web viene aggiunta come risorsa protetta e il Centro sicurezza rileva che la risorsa è protetta da un web application firewall. La risorsa non viene aggiunta come membro del pool back-end.
+Se esiste alcun gateway applicazione o se ne vuole creare uno nuovo, fare clic su **Crea nuovo** e in **Nuovo web application firewall** fare clic su **Microsoft - Gateway applicazione**. Vengono descritti i passaggi per la creazione di un gateway applicazione. A questo punto, l'applicazione Web viene aggiunta come risorsa protetta e il Centro sicurezza rileva che la risorsa è protetta da un web application firewall. La risorsa non viene aggiunta come membro del pool back-end.
 
 Se è presente un gateway applicazione, è possibile selezionarlo in **Usa la soluzione esistente**
 
-![pannello di aggiunta di web application firewall][4]
+![pagina di aggiunta di web application firewall][4]
 
-Poiché l'aggiunta di un'applicazione Web a un gateway applicazione tramite il Centro sicurezza non aggiunge la risorsa come membro del pool back-end, questa operazione deve essere eseguita direttamente nella risorsa del gateway applicazione.
+L'aggiunta di un'applicazione Web a un gateway applicazione tramite il Centro sicurezza non implica l'aggiunta della risorsa come membro del pool back-end. Questa operazione deve essere eseguita direttamente nella risorsa del gateway applicazione.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Aggiungere una risorsa a un web application firewall esistente
 
-Passare ad **Altri servizi** > **Sicurezza e identità** > **Centro sicurezza PC** e nel pannello **Centro sicurezza PC - Panoramica** fare clic su **Soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nel pannello **Soluzioni partner**.
+Passare a **Tutti i servizi** > **Sicurezza e identità** > **Centro sicurezza PC** e nel pannello **Centro sicurezza PC - Panoramica** fare clic su **Soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
 
 ![soluzioni partner][7]
 
-Fare clic su **Collega app** per aprire il pannello **Collega applicazioni** nel quale sarà possibile selezionare le applicazioni esistenti. Scegliere le applicazioni da proteggere e fare clic su **OK**. Questa operazione non aggiunge l'applicazione Web al pool back-end del gateway applicazione. ma imposta la risorsa come risorsa protetta in modo che il Centro sicurezza possa rilevarla. Per aggiungere la risorsa come membro del pool back-end è necessario eseguire questa operazione nel gateway applicazione: dal pannello corrente fare clic su **Console della soluzione** per passare alla risorsa del gateway applicazione nella quale è possibile aggiungere l'applicazione Web al pool back-end.
+Fare clic su **Collega app** per aprire **Collega applicazioni** nel quale sarà possibile selezionare le applicazioni esistenti. Scegliere le applicazioni da proteggere e fare clic su **OK**. Questa operazione non aggiunge l'applicazione Web al pool back-end del gateway applicazione. ma imposta la risorsa come risorsa protetta in modo che il Centro sicurezza possa rilevarla. Per aggiungere la risorsa come membro del pool back-end, è necessario eseguire questa operazione nel gateway applicazione: dalla pagina corrente fare clic su **Console della soluzione** per passare alla risorsa del gateway applicazione nella quale è possibile aggiungere l'applicazione Web al pool back-end.
 
 ![applicazioni di soluzioni partner][6]
 
@@ -67,7 +67,7 @@ Fare clic su **Collega app** per aprire il pannello **Collega applicazioni** nel
 
 Il Centro sicurezza rileva le applicazioni aggiunte a un gateway applicazione come risorse protette.  Il Centro sicurezza monitora l'integrità della risorsa e verifica che sia protetta da un gateway applicazione. Il passaggio successivo consiste nell'aggiungere l'IP privato, l'IP pubblico o la scheda di interfaccia di rete della macchina virtuale al pool back-end del gateway applicazione. Prima del completamento del passaggio, viene visualizzata la raccomandazione aggiuntiva **Finalizza la protezione dell'applicazione** fino a quando la risorsa non viene aggiunta.
 
-![pannello di aggiunta di web application firewall][5]
+![pagina di aggiunta di web application firewall][5]
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 

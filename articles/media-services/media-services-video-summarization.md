@@ -16,7 +16,7 @@ ms.date: 12/09/2017
 ms.author: milanga;juliako;
 ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -26,7 +26,7 @@ Il processore multimediale delle **anteprime video multimediali di Azure** proce
 
 Al momento, il processore multimediale di **anteprime video multimediali di Azure** è disponibile in Anteprima.
 
-In questo articolo fornisce informazioni dettagliate sulle **anteprima di Azure Media Video** e viene illustrato come usarlo con Media Services SDK per .NET.
+Questo articolo contiene informazioni dettagliate su **Azure Media Video Thumbnails** e illustra come usare questa funzionalità con Media Services .NET SDK.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -77,7 +77,7 @@ Il codice JSON seguente imposta i parametri disponibili.
 Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
-2. Crea un processo con un'attività di anteprima video in base a un file di configurazione che contiene il set di impostazioni json seguente: 
+2. Creare un processo con un'attività di anteprima video in base al file di configurazione che contiene il set di impostazioni JSON seguente: 
    
         {                
             "version": "1.0",

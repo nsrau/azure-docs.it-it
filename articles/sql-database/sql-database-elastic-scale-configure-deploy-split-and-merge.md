@@ -1,5 +1,5 @@
 ---
-title: Distribuire un servizio di divisione e unione | Documentazione Microsoft
+title: Distribuire un servizio di divisione e unione | Microsoft Docs
 description: Usare anche lo strumento di divisione e unione per spostare i dati tra database partizionati.
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4505aebc8919a5d7b8f3debe0db9f49b465176bf
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuire un servizio di divisione e unione
 Lo strumento di divisione e unione sposta i dati tra database partizionati. Vedere [Spostamento di dati tra database cloud con numero maggiore di istanze](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -39,8 +39,8 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
    
    ![Servizi consentiti][1]
-3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al portale di Azure. Nella barra di sinistra fare clic su **Nuovo**, fare clic su **Dati e archiviazione** e quindi su **Archiviazione**.
-4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione.  Accedere al portale di Azure. Nella barra di sinistra fare clic su **Nuovo**, fare clic su **Calcolo**, **Servizio cloud** e quindi su **Crea**. 
+3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al portale di Azure. Nella barra di sinistra fare clic su **Crea una nuova risorsa**, fare clic su **Dati e archiviazione** e quindi su **Archiviazione**.
+4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione.  Accedere al portale di Azure. Nella barra di sinistra fare clic su **Crea nuova risorsa**, fare clic su **Calcolo**, **Servizio cloud** e quindi su **Crea**. 
 
 ## <a name="configure-your-split-merge-service"></a>Configurare il servizio di divisione e unione
 ### <a name="split-merge-service-configuration"></a>Configurazione del servizio di divisione e unione

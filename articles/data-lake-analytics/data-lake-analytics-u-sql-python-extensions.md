@@ -16,19 +16,19 @@ ms.date: 06/20/2017
 ms.author: saveenr
 ms.openlocfilehash: a8acaa16265070308753c2a0df3a9e7b8a3a841a
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Esercitazione: Introduzione all'estensione di U-SQL con Python
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Prima di iniziare, verificare che le estensioni di Python vengono installate nell'account di Azure Data Lake Analitica.
+Prima di iniziare, verificare che le estensioni di Python siano installate nell'account di Azure Data Lake Analytics.
 
-* Passare all'utente Account Data Lake Analitica nel portale di Azure
-* Nel menu a sinistra, sotto **Introduzione** fare clic su **gli script di esempio**
-* Fare clic su **installare le estensioni U-SQL** quindi **OK**
+* Passare all'account di Data Lake Analytics nel portale di Azure
+* Nel menu a sinistra, in **ATTIVITÀ INIZIALI** fare clic su **Script di esempio**
+* Fare clic su **Installa estensioni U-SQL** e quindi su **OK**
 
 ## <a name="overview"></a>Panoramica 
 

@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sulla rete virtuale di Azure | Documentazione Microsoft
+title: Domande frequenti sulla rete virtuale di Azure | Microsoft Docs
 description: "Risposte alle domande più frequenti sulla rete virtuale di Microsoft Azure."
 services: virtual-network
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
-ms.openlocfilehash: c71e188b74ebfd9420f840957e83190cf476b584
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042bc44df7d3d61bf52d28a910dae1b125b9fdb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -66,7 +66,7 @@ Sì. Per altre informazioni sugli intervalli di indirizzi IP pubblici, vedere l'
 Sì. Per informazioni dettagliate, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md#networking-limits). Gli spazi degli indirizzi della subnet non possono sovrapporsi.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?
-Sì. Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l’ultimo indirizzo IP delle subnet sono riservati per conformità al protocollo, con altri 3 indirizzi usati per i servizi di Azure.
+Sì. Azure riserva alcuni indirizzi IP all'interno di ogni subnet. Il primo e l'ultimo indirizzo IP delle subnet sono riservati per conformità al protocollo, con altri 3 indirizzi usati per i servizi di Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quanto piccole o grandi possono essere le reti virtuali e le subnet?
 La subnet più piccola supportata è /29 e la più grande è /8 (usando le definizioni di subnet CIDR).
@@ -81,7 +81,7 @@ Sì. È possibile usare User Defined Routing (UDR). Per altre informazioni su UD
 di serie La distribuzione multicast o broadcast non è supportata.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quali protocolli è possibile usare all'interno delle reti virtuali?
-All'interno delle reti virtuali è possibile usare i protocolli TCP, UDP e ICMP TCP/IP. I pacchetti incapsulati IP in IP, multicast e broadcast e i pacchetti Generic Routing Encapsulation (GRE) sono bloccati all'interno delle reti virtuali. 
+All'interno delle reti virtuali è possibile usare i protocolli TCP, UDP e ICMP TCP/IP. Unicast è supportato all'interno delle reti virtuali, fatta eccezione per Dynamic Host Configuration Protocol (DHCP) tramite Unicast (porta di origine UDP/68/porta di destinazione UDP/67). I pacchetti incapsulati IP in IP, multicast e broadcast e i pacchetti Generic Routing Encapsulation (GRE) sono bloccati all'interno delle reti virtuali. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>È possibile eseguire il ping dei router predefiniti all'interno di una rete virtuale?
 di serie
@@ -180,7 +180,7 @@ Sì. È possibile distribuire le app Web all'interno di una rete virtuale tramit
 
 * [Creare app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 * [Integrare un'app in una rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md)
-* [Utilizzo dell’integrazione della rete virtuale e delle connessioni ibride con app Web](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [Utilizzo dell'integrazione della rete virtuale e delle connessioni ibride con app Web](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>È possibile distribuire i servizi cloud con ruolo di lavoro e Web (PaaS) in una rete virtuale?
 Sì. Facoltativamente, è possibile distribuire istanze del ruolo dei servizi cloud all'interno di reti virtuali. A tale scopo, specificare il nome della rete virtuale e i mapping dei ruoli e delle subnet nella sezione di configurazione della rete della configurazione del servizio. Non è necessario aggiornare i file binari.
@@ -188,13 +188,13 @@ Sì. Facoltativamente, è possibile distribuire istanze del ruolo dei servizi cl
 ### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>È possibile connettere un set di scalabilità di macchine virtuali (VMSS) a una rete virtuale?
 Sì. È necessario connettere un set di scalabilità di macchine virtuali a una rete virtuale.
 
-### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all’interno e all’esterno delle reti virtuali?
+### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>È possibile spostare i servizi all'interno e all'esterno delle reti virtuali?
 di serie Non è possibile spostare i servizi all'interno e all'esterno delle reti virtuali. Sarà necessario eliminare e ridistribuire il servizio per spostarlo in un'altra rete virtuale.
 
 ## <a name="security"></a>Sicurezza
 
 ### <a name="what-is-the-security-model-for-vnets"></a>Che cos'è il modello di sicurezza per le reti virtuali?
-Le reti virtuali sono completamente isolate l’una dall’altra e gli altri servizi sono ospitati nell'infrastruttura di Azure. Una rete virtuale è un limite di attendibilità.
+Le reti virtuali sono completamente isolate l'una dall'altra e gli altri servizi sono ospitati nell'infrastruttura di Azure. Una rete virtuale è un limite di attendibilità.
 
 ### <a name="can-i-restrict-inbound-or-outbound-traffic-flow-to-vnet-connected-resources"></a>È possibile limitare il flusso del traffico in ingresso o in uscita alle risorse connesse alla rete virtuale?
 Sì. È possibile applicare [gruppi di sicurezza di rete](virtual-networks-nsg.md) a singole subnet all'interno di una rete virtuale e/o a schede di interfaccia di rete collegate a una rete virtuale.

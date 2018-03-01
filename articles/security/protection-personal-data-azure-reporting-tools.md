@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentare la protezione dei dati personali con gli strumenti di creazione di report di Azure
 
@@ -144,7 +144,7 @@ Ad esempio, restituisce un record quando un amministratore elimina un gruppo di 
 
 - È possibile eseguire query sui dati usando l'API REST di Monitoraggio di Azure, i comandi dell'interfaccia della riga di comando, i cmdlet di [PowerShell](https://docs.microsoft.com/powershell/) o .NET SDK.
 
-Per iniziare a usare Monitoraggio di Azure, selezionare **Altri servizi** nel portale di Azure.
+Per iniziare a usare Monitoraggio di Azure, selezionare **Tutti i servizi** nel portale di Azure.
 
 1. Nella sezione di **monitoraggio e gestione** scorrere fino a **Monitoraggio**.
 

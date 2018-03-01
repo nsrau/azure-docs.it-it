@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509e891207d1469ed244eab4512ec66420284fd5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e ripristino di macchine virtuali crittografate con Backup di Azure
 Questo articolo illustra i passaggi per eseguire il backup e il ripristino di macchine virtuali tramite Backup di Azure. L'articolo contiene anche informazioni sugli scenari supportati, sui prerequisiti e sui passaggi per la risoluzione dei problemi per i casi di errore.
@@ -48,7 +48,7 @@ Questo articolo illustra i passaggi per eseguire il backup e il ripristino di ma
 Per impostare l'obiettivo di un backup, definire i criteri, configurare gli elementi e attivare un backup, seguire questa procedura.
 
 ### <a name="configure-backup"></a>Configurare il backup
-1. Se l'insieme di credenziali di Servizi di ripristino è già aperto, procedere al passaggio successivo. Se non è presente un insieme di credenziali di Servizi di ripristino aperto, ma si opera nel portale di Azure, nel menu **Hub** selezionare **Sfoglia**.
+1. Se l'insieme di credenziali di Servizi di ripristino è già aperto, procedere al passaggio successivo. Se non è presente un insieme di credenziali di Servizi di ripristino aperto, ma ci si trova nel portale di Azure, selezionare **Tutti i servizi**.
 
    a. Nell'elenco di risorse digitare **servizi di ripristino**.
 
@@ -98,7 +98,7 @@ Se sono presenti macchine virtuali per cui è già stato eseguito il backup in u
 
 ## <a name="provide-permissions-to-backup"></a>Concedere le autorizzazioni al servizio Backup
 Seguire questa procedura per concedere le autorizzazioni rilevanti al servizio Backup per l'accesso a Key Vault e l'esecuzione del backup delle macchine virtuali crittografate.
-1. Selezionare **Altri servizi** e cercare **Insiemi di credenziali delle chiavi**.
+1. Selezionare **Tutti i servizi** e cercare **Insiemi di credenziali delle chiavi**.
 
     ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
     

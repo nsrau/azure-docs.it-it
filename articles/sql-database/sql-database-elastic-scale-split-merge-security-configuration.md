@@ -17,7 +17,7 @@ ms.date: 05/27/2016
 ms.author: torsteng
 ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---

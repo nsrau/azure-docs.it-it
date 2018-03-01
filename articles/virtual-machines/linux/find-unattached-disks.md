@@ -1,6 +1,6 @@
 ---
 title: Trovare ed eliminare dischi gestiti e non gestiti di Azure scollegati | Microsoft Docs
-description: Come trovare ed eliminare dischi gestiti e non gestiti di Azure (dischi rigidi virtuali/BLOB di pagine) scollegati tramite l'interfaccia della riga di comando di Azure
+description: Come trovare ed eliminare dischi gestiti e non gestiti di Azure (dischi rigidi virtuali/BLOB di pagine) scollegati tramite l'interfaccia della riga di comando di Azure.
 services: virtual-machines-linux
 documentationcenter: 
 author: ramankumarlive
@@ -15,23 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: ramankum
-ms.openlocfilehash: 9ada768cd4128b9dd6949b5a96c557496c6bb11c
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 281e51783af05e02346b537f0abccdb2def38b31
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure scollegati
-Quando si elimina una macchina virtuale in Azure, i dischi collegati a questa non vengono eliminati per impostazione predefinita. Ciò impedisce perdite di dati dovute all'eliminazione di macchine virtuali per errore, ma in questo modo si continua a pagare per i dischi scollegati. Usare questo articolo per trovare ed eliminare tutti i dischi scollegati e risparmiare sui costi. 
+Quando si elimina una macchina virtuale (VM) in Azure, per impostazione predefinita, nessun disco collegato alla macchina virtuale viene eliminato. Questa funzionalità consente di prevenire la perdita di dati a causa dell'eliminazione accidentale di macchine virtuali. Dopo l'eliminazione di una macchina virtuale, si continuerà a pagare per i dischi scollegati. Questo articolo illustra come trovare ed eliminare tutti i dischi scollegati e ridurre i costi non necessari. 
 
 
-## <a name="find-and-delete-unattached-managed-disks"></a>Trovare ed eliminare dischi gestiti scollegati 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Dischi gestiti: trovare ed eliminare dischi scollegati 
 
-Lo script seguente illustra come trovare dischi gestiti scollegati tramite la proprietà ManagedBy.  Lo script esegue un ciclo in tutti i dischi gestiti di una sottoscrizione e trova i dischi scollegati verificando se la proprietà *ManagedBy* è Null. La proprietà *ManagedBy* memorizza l'ID risorsa della macchina virtuale a cui è collegato un disco gestito. 
+Lo script seguente cerca i [dischi gestiti](managed-disks-overview.md) non collegati esaminando il valore della proprietà **ManagedBy**. Quando un disco gestito è collegato a una macchina virtuale, la proprietà **ManagedBy** contiene l'ID risorsa della macchina virtuale. Quando un disco gestito è scollegato, la proprietà **ManagedBy** è null. Lo script esamina tutti i dischi gestiti in una sottoscrizione di Azure. Quando lo script individua un disco gestito con la proprietà **ManagedBy** impostata su null, lo script determina che il disco è scollegato.
 
-È consigliabile visualizzare prima tutti i dischi scollegati eseguendo lo script con la variabile *deleteUnattachedDisks* impostata su 0. Dopo aver esaminato i dischi scollegati, eseguire lo script impostando *deleteUnattachedDisks* su 1 per eliminarli tutti.
+>[!IMPORTANT]
+>In primo luogo, eseguire lo script impostando la variabile **deleteUnattachedDisks** su 0. Questa azione consente di individuare e visualizzare tutti i dischi gestiti scollegati.
+>
+>Dopo aver verificato tutti i dischi scollegati, eseguire nuovamente lo script e impostare la variabile **deleteUnattachedDisks** su 1. Questa azione consente di eliminare tutti i dischi gestiti scollegati.
+>
 
- ```azurecli
+```azurecli
 
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
@@ -51,16 +55,19 @@ do
         echo $id
     fi
 done
-
 ```
-## <a name="find-and-delete-unattached-unmanaged-disks"></a>Trovare ed eliminare dischi non gestiti scollegati 
 
-I dischi non gestiti sono file disco rigido virtuale archiviati come [BLOB di pagine](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) in [account di Archiviazione di Azure](../../storage/common/storage-create-storage-account.md). Lo script seguente illustra come trovare dischi non gestiti scollegati (BLOB di pagine) tramite la proprietà LeaseStatus. Lo script esegue un ciclo in tutti i dischi non gestiti di tutti gli account di archiviazione di una sottoscrizione e trova i dischi non gestiti scollegati verificando se la proprietà *LeaseStatus* corrisponde a Unlocked. La proprietà *LeaseStatus* è impostata su Locked se un disco non gestito è collegato a una macchina virtuale. 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Dischi non gestiti: trovare ed eliminare dischi scollegati 
 
-È consigliabile visualizzare prima tutti i dischi scollegati eseguendo lo script con la variabile *deleteUnattachedVHDs* impostata su 0. Dopo aver esaminato i dischi scollegati, eseguire lo script impostando *deleteUnattachedVHDs* su 1 per eliminarli tutti.
+I dischi non gestiti sono file disco rigido virtuale che sono archiviati come [BLOB di pagine](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) negli [account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md). Lo script seguente cerca i dischi non gestiti scollegati (BLOB di pagine) esaminando il valore della proprietà **LeaseStatus**. Quando un disco non gestito è collegato a una macchina virtuale, la proprietà **LeaseStatus** è impostata su **Bloccato**. Quando un disco non gestito è scollegato, la proprietà **LeaseStatus** è impostata su **Sbloccato**. Lo script esamina tutti i dischi non gestiti in tutti gli account di archiviazione di Azure in una sottoscrizione di Azure. Quando lo script individua un disco non gestito con la proprietà **LeaseStatus** impostata su **Sbloccato**, lo script determina che il disco è scollegato.
 
+>[!IMPORTANT]
+>In primo luogo, eseguire lo script impostando la variabile **deleteUnattachedVHDs** su 0. Questa azione consente di individuare e visualizzare tutti i dischi rigidi virtuali non gestiti scollegati.
+>
+>Dopo aver verificato tutti i dischi scollegati, eseguire nuovamente lo script e impostare la variabile **deleteUnattachedVHDs** su 1. Questa azione consente di eliminare tutti i dischi rigidi virtuali non gestiti scollegati.
+>
 
- ```azurecli
+```azurecli
    
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the details of the unattached VHDs
@@ -101,7 +108,6 @@ do
         done
     done
 done 
-
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

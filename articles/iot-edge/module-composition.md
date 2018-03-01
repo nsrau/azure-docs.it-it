@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 5de67b6f1ce79934a3a6aab623d2e77a56a8ce76
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Informazioni su come usare, configurare e riusare i moduli IoT Edge - Anteprima
 
@@ -24,11 +24,11 @@ Il *manifesto della distribuzione* è un documento JSON che descrive:
 
 * I moduli IoT Edge da distribuire, oltre alle relative opzioni di creazione e gestione;
 * La configurazione dell'hub Edge, con la descrizione della procedura di flusso dei messaggi tra i moduli e tra i moduli e l'hub IoT;
-* Facoltativamente, i valori da impostare nelle proprietà desiderate dei dispositivi gemelli dei moduli, per configurare le singole applicazioni dei moduli.
+* Facoltativamente, i valori da impostare nelle proprietà desiderate dei moduli gemelli, per configurare le singole applicazioni dei moduli.
 
 Nelle esercitazioni di Azure IoT Edge viene creato un manifesto della distribuzione seguendo una procedura guidata nel portale di Azure IoT Edge. È anche possibile applicare un manifesto della distribuzione a livello di codice usando REST o IoT Hub Service SDK. Per altre informazioni sulle distribuzioni IoT Edge, fare riferimento a [Deploy and monitor][lnk-deploy] (Distribuire e monitorare).
 
-A livello generale, il manifesto della distribuzione configura le proprietà desiderate dei moduli IoT Edge distribuiti in un dispositivo IoT Edge. Due di questi moduli sono sempre presenti: l'agente Edge e l'hub Edge.
+A livello generale, il manifesto della distribuzione configura le proprietà desiderate di un modulo gemello per i moduli IoT Edge distribuiti in un dispositivo IoT Edge. Due di questi moduli sono sempre presenti: l'agente Edge e l'hub Edge.
 
 Il manifesto segue questa struttura:
 
@@ -62,7 +62,7 @@ Un esempio di un manifesto della distribuzione è riportato alla fine di questa 
 > Tutti i dispositivi IoT Edge devono essere configurati con un manifesto della distribuzione. Un runtime IoT Edge appena installato segnala un codice di errore finché non verrà configurato con un manifesto valido. 
 
 ### <a name="specify-the-modules"></a>Specificare i moduli
-Le proprietà desiderate del dispositivo gemello del modulo dell'agente Edge contengono i moduli desiderati, le opzioni di configurazione e gestione e i parametri di configurazione per l'agente Edge.
+Le proprietà desiderate del modulo gemello dell'agente Edge contengono i moduli desiderati, le opzioni di configurazione e gestione e i parametri di configurazione per l'agente Edge.
 
 A livello generale, questa sezione del manifesto contiene i riferimenti alle immagini dei moduli e alle opzioni di gestione per i moduli di runtime IoT Edge (agente Edge e hub Edge) e i moduli specificati dall'utente.
 
@@ -83,7 +83,7 @@ Le route hanno la sintassi seguente:
 
 L'*origine* può essere un elemento seguente qualsiasi:
 
-| Sorgente | DESCRIZIONE |
+| Sorgente | Descrizione |
 | ------ | ----------- |
 | `/*` | Tutti i messaggi da dispositivo a cloud da qualsiasi dispositivo o modulo |
 | `/messages/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un dispositivo o un modulo con o senza output |
@@ -96,7 +96,7 @@ La condizione può essere una condizione qualsiasi supportata dal [linguaggio di
 
 Il sink può essere uno dei seguenti:
 
-| Sink | DESCRIZIONE |
+| Sink | Descrizione |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio all'input `{input}` del modulo`{moduleId}` |
@@ -105,13 +105,15 @@ Il sink può essere uno dei seguenti:
 
 L'hub Edge archivia i messaggi fino all'ora specificata nella proprietà `storeAndForwardConfiguration.timeToLiveSecs` delle proprietà desiderate dell'hub Edge.
 
-### <a name="specifying-the-desired-properties-of-the-module-twin"></a>Definizione delle proprietà desiderate del dispositivo gemello del modulo
+### <a name="specifying-the-desired-properties-of-the-module-twin"></a>Definizione delle proprietà desiderate del modulo gemello
 
-Il manifesto della distribuzione consente di specificare le proprietà desiderate del dispositivo gemello di ogni modulo utente specificato nella sezione dell'agente Edge.
+Il manifesto della distribuzione consente di specificare le proprietà desiderate del modulo gemello di ogni modulo utente specificato nella sezione dell'agente Edge.
 
-Quando nel manifesto di distribuzione vengono specificate le proprietà desiderate, queste sovrascrivono le proprietà desiderate attualmente specificate nel dispositivo gemello del modulo.
+Quando nel manifesto di distribuzione vengono specificate le proprietà desiderate, queste sovrascrivono le proprietà desiderate attualmente specificate nel modulo gemello.
 
-Se nel manifesto della distribuzione non si specificano le proprietà desiderate del dispositivo gemello di un modulo, l'hub IoT non modifica il dispositivo in alcun modo e sarà possibile impostare le proprietà desiderate a livello di codice.
+Se nel manifesto della distribuzione non si specificano le proprietà desiderate di un modulo gemello, l'hub IoT non modifica il dispositivo in alcun modo e sarà possibile impostare le proprietà desiderate a livello di codice.
+
+Gli stessi meccanismi che consentono di modificare i dispositivi gemelli vengono usati per modificare i moduli gemelli. Per altre informazioni, vedere la [guida per sviluppatori sui dispositivi gemelli](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins).   
 
 ### <a name="deployment-manifest-example"></a>Esempio di manifesto della distribuzione
 
@@ -186,14 +188,14 @@ Questo è un esempio di un documento JSON di manifesto della distribuzione.
     }
     }
 
-## <a name="reference-edge-agent-module-twin"></a>Riferimento: dispositivo gemello del modulo dell'agente Edge
+## <a name="reference-edge-agent-module-twin"></a>Riferimento: modulo gemello dell'agente Edge
 
-Il dispositivo gemello del modulo per l'agente Edge è denominato `$edgeAgent` e coordina le comunicazioni tra l'agente Edge in esecuzione su un dispositivo e l'hub IoT.
+Il modulo gemello per l'agente Edge è denominato `$edgeAgent` e coordina le comunicazioni tra l'agente Edge in esecuzione su un dispositivo e l'hub IoT.
 Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. Per altre informazioni su come distribuire i moduli nei dispositivi IoT Edge, vedere [Deployment and monitoring][lnk-deploy] (Distribuzione e monitoraggio).
 
-### <a name="edge-agent-twin-desired-properties"></a>Proprietà desiderate del dispositivo gemello dell'agente Edge
+### <a name="edge-agent-twin-desired-properties"></a>Proprietà desiderate del modulo gemello dell'agente Edge
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | -------- | ----------- | -------- |
 | schemaVersion | Deve essere "1.0" | Sì |
 | runtime.type | Deve essere "docker" | Sì |
@@ -231,7 +233,7 @@ Quest'ultima informazione è utile nel caso in cui le proprietà desiderate più
 
 La tabella seguente non include le informazioni copiate dalle proprietà desiderate.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | -------- | ----------- |
 | lastDesiredVersion | Questo int si riferisce all'ultima versione delle proprietà desiderate elaborate dall'agente Edge. |
 | lastDesiredStatus.code | Questo è il codice di stato che fa riferimento alle ultime proprietà desiderate visualizzate dall'agente Edge. Valori consentiti: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
@@ -257,14 +259,14 @@ La tabella seguente non include le informazioni copiate dalle proprietà desider
 | modules.{moduleId}.lastRestartTimeUtc | Ora dell'ultimo riavvio del modulo |
 | modules.{moduleId}.restartCount | Numero di tentativi di riavvio del modulo nell'ambito dei criteri di riavvio. |
 
-## <a name="reference-edge-hub-module-twin"></a>Riferimento: dispositivo gemello del modulo dell'hub Edge
+## <a name="reference-edge-hub-module-twin"></a>Riferimento: modulo gemello dell'hub Edge
 
-Il dispositivo gemello del modulo per l'hub Edge è denominato `$edgeHub` e coordina le comunicazioni tra l'hub Edge in esecuzione su un dispositivo e l'hub IoT.
+Il modulo gemello per l'hub Edge è denominato `$edgeHub` e coordina le comunicazioni tra l'hub Edge in esecuzione su un dispositivo e l'hub IoT.
 Le proprietà desiderate vengono impostate durante l'applicazione di un manifesto della distribuzione in un dispositivo specifico nell'ambito di una distribuzione di un singolo dispositivo o su larga scala. Per altre informazioni su come distribuire i moduli nei dispositivi IoT Edge, vedere [Distribuzioni][lnk-deploy].
 
-### <a name="edge-hub-twin-desired-properties"></a>Proprietà desiderate del dispositivo gemello dell'hub Edge
+### <a name="edge-hub-twin-desired-properties"></a>Proprietà desiderate del modulo gemello dell'hub Edge
 
-| Proprietà | DESCRIZIONE | Obbligatoria nel manifesto della distribuzione |
+| Proprietà | Descrizione | Obbligatoria nel manifesto della distribuzione |
 | -------- | ----------- | -------- |
 | schemaVersion | Deve essere "1.0" | Sì |
 | routes.{routeName} | Stringa che rappresenta una route dell'hub Edge. | L'elemento `routes` può essere presente, ma vuoto. |
@@ -272,7 +274,7 @@ Le proprietà desiderate vengono impostate durante l'applicazione di un manifest
 
 ### <a name="edge-hub-twin-reported-properties"></a>Proprietà segnalate del dispositivo gemello dell'hub Edge
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | -------- | ----------- |
 | lastDesiredVersion | Questo int si riferisce all'ultima versione delle proprietà desiderate elaborate dall'hub Edge. |
 | lastDesiredStatus.code | Questo è il codice di stato che fa riferimento alle ultime proprietà desiderate visualizzate dall'hub Edge. Valori consentiti: `200` Success, `400` Invalid configuration, `500` Failed |

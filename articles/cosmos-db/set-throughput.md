@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 8797910651c54baa3529b015d4195cf2a5c06ece
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: afbb3392a4726ea067bf19c117792b866d9e79f3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Impostare la velocità effettiva per i contenitori di Azure Cosmos DB
 
@@ -49,7 +49,7 @@ La tabella seguente elenca la velocità effettiva disponibile per i contenitori:
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Per impostare la velocità effettiva tramite il Portale di Azure
 
 1. In una nuova finestra accedere al [Portale di Azure](https://portal.azure.com).
-2. Fare clic su **Azure Cosmos DB** nella barra a sinistra oppure fare clic su **Altri servizi** nella parte inferiore, scorrere fino a **Database**, quindi fare clic su **Azure Cosmos DB**.
+2. Fare clic su **Azure Cosmos DB** nella barra di sinistra oppure fare clic su **Tutti i servizi** nella parte inferiore, scorrere fino a **Database** e quindi fare clic su **Azure Cosmos DB**.
 3. Selezionare l'account Cosmos DB.
 4. Nella nuova finestra fare clic su **Esplora dati** dal menu di spostamento.
 5. Nella nuova finestra espandere il database e il contenitore e quindi fare clic su **Scale & Settings** (Scalabilità e impostazioni).

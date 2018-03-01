@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 12/14/2017
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 0f88b09c342c1849a5c61fdb5dc048d7cbadc83b
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2c179c3b0704a6e88d718ba9f102e71c0ee1d6ef
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gestire le risorse per un database singolo nel database SQL di Microsoft Azure
 
@@ -35,9 +35,9 @@ Per impostare o modificare il livello di servizio, il livello di prestazioni o l
 
 ![Configurare il livello di servizio e di prestazioni](./media/sql-database-single-database-resources/change-service-tier.png)
 
-Fare clic su **Panoramica** per il monitoraggio e di annullare un'operazione in corso.
+Fare clic su **Panoramica** per monitorare e/o annullare un'operazione in corso.
 
-![Operazione di annullamento.](./media/sql-database-single-database-resources/cancel-operation.png)
+![Annulla operazione](./media/sql-database-single-database-resources/cancel-operation.png)
 
 > [!IMPORTANT]
 > Se si seleziona un livello di servizio P11 o P15, vedere [Limitazioni correnti dei database P11 e P15 con dimensioni massime di 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
@@ -70,8 +70,8 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 |[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra i dettagli di una regola del firewall|
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Aggiorna una regola del firewall|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regola del firewall|
-|[elenco di operazioni db sql AZ](/cli/azure/sql/db/op?#az_sql_db_op_list)|Ottiene un elenco di operazioni eseguite nel database.|
-|[annullamento di operazioni db sql AZ](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Annulla l'operazione asincrona per il database.|
+|[az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list)|Ottiene un elenco delle operazioni eseguite nel database.|
+|[az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel)|Annulla l'operazione asincrona nel database.|
 
 > [!TIP]
 > Per uno script di esempio dell'interfaccia della riga di comando di Azure che ridimensiona un database SQL di Azure singolo passando a un livello di prestazioni diverso dopo l'esecuzione di query sulle dimensioni del database, vedere l'articolo su come [usare l'interfaccia della riga di comando per monitorare e ridimensionare un database SQL singolo](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -109,7 +109,7 @@ Per impostare o modificare i livelli di servizio, i livelli di prestazioni e lo 
 |[Database: elenca da pool elastico consigliato](/rest/api/sql/databases/listbyrecommendedelasticpool)|Restituisce un elenco di database in un pool elastico consigliato.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
-|[Operazioni - elenco](/rest/api/sql/Operations/List)|Elenca tutte le operazioni API Rest di SQL disponibili.|
+|[Operations - List](/rest/api/sql/Operations/List)|Elenca tutte le operazioni API Rest SQL disponibili.|
 
 
 
