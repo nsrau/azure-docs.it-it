@@ -54,7 +54,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
 1. Nella pagina **Azure Cosmos DB** del portale di Azure selezionare l'account dell'API per MongoDB. 
-2. Nella barra a sinistra del pannello Account fare clic su **Avvio rapido**. 
+2. Nella barra a sinistra del pannello Account fare clic su **Guida introduttiva**. 
 3. Scegliere la piattaforma (*driver .NET*, *driver Node.js*, *MongoDB Shell*, *driver Java*, *driver Python*). Se il driver o lo strumento non è visualizzato nell'elenco, tenere presente che altri frammenti di codice di connessione vengono continuamente documentati. 
 4. Copiare e incollare il frammento di codice nell'app MongoDB per iniziare.
 
