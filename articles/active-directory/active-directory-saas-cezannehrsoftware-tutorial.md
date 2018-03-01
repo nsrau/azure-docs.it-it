@@ -16,7 +16,7 @@ ms.date: 11/28/2017
 ms.author: jeedes
 ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -32,7 +32,7 @@ L'integrazione di Cezanne HR Software con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Cezanne HR Software, sono necessari gli elementi seguenti:
 
@@ -129,7 +129,7 @@ In questa sezione nel portale di Azure viene abilitato l'accesso Single Sign-On 
 
     ![Configurazione di Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Scorrere verso il basso il **riferimento rapido** sezione. Copia il **SAML Single Sign-On Service URL e l'ID entità SAML** dal **sezione di riferimento rapido.**
+7. Scorrere verso il basso fino alla sezione di **riferimento rapido**. Copiare l'**URL del servizio Single Sign-On SAML e l'ID di entità SAML** dalla **sezione di riferimento rapido.**
 
     ![Configurazione di Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
 
