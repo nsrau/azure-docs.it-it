@@ -55,7 +55,7 @@ Clonare ora un'app per le API MongoDB da GitHub, impostare la stringa di conness
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve panoramica delle operazioni eseguite nell'app. Aprire il file **Dal.cs** nella directory **DAL**. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Ecco una breve panoramica delle operazioni da eseguire nell'app. Aprire il file **Dal.cs** nella directory **DAL**. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
 * Inizializzare il client Mongo.
 
