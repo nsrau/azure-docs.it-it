@@ -5,7 +5,7 @@
 
 3. Nel riquadro **Nuovo account** specificare la configurazione desiderata per l'account Azure Cosmos DB. 
 
-    Con Azure Cosmos DB è possibile scegliere uno dei quattro modelli di programmazione: Gremlin (Grafo), MongoDB, Cassandra, SQL e Tabella di Azure. 
+    Con Azure Cosmos DB è possibile scegliere uno dei quattro modelli di programmazione: Gremlin (grafo), MongoDB, Cassandra, SQL e Tabella di Azure. 
        
     In questa guida introduttiva eseguiremo la programmazione in base all'API MongoDB, per cui occorrerà scegliere **MongoDB** nella compilazione del modulo. Tuttavia, se si dispone di dati grafo per un'app social media, dati documento di un'app di catalogo o dati chiave-valore (tabella), tenere presente che Azure Cosmos DB può fornire una piattaforma di servizi di database distribuiti a livello globale e a disponibilità elevata per tutte le applicazioni cruciali.
 
@@ -26,6 +26,6 @@
 
     ![Notifica di distribuzione avviata](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-nosql-notification.png)
 
-6.  Al termine della distribuzione aprire il nuovo account dal riquadro **Tutte le risorse**. 
+6. Al termine della distribuzione aprire il nuovo account dal riquadro Tutte le risorse. 
 
     ![Account Azure Cosmos DB nel riquadro Tutte le risorse](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
