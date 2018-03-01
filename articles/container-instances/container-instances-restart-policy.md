@@ -10,7 +10,7 @@ ms.date: 11/16/2017
 ms.author: marsma
 ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/02/2018
 ---
@@ -20,13 +20,13 @@ La semplicità e la velocità della distribuzione di contenitori in Istanze di c
 
 Con un criterio di riavvio configurabile, è possibile specificare l'arresto dei contenitori al completamento dei processi. Poiché le istanze del contenitore vengono fatturate al secondo, vengono addebitate solo le risorse di calcolo usate mentre il contenitore che esegue l'attività è in esecuzione.
 
-Gli esempi presentati in questo articolo usano l'interfaccia della riga di comando di Azure. È necessario disporre di Azure CLI versione 2.0.21 o maggiore [installato localmente][azure-cli-install], oppure utilizzare l'interfaccia CLI nel [Azure Cloud Shell](../cloud-shell/overview.md).
+Gli esempi presentati in questo articolo usano l'interfaccia della riga di comando di Azure. È necessario avere [installato in locale][azure-cli-install] l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva o in alternativa usare l'interfaccia della riga di comando di Azure in [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Criteri di riavvio del contenitore
 
 Quando si crea un contenitore in Istanze di contenitore di Azure, è possibile specificare una delle tre impostazioni dei criteri di riavvio.
 
-| Criterio di riavvio   | DESCRIZIONE |
+| Criterio di riavvio   | Descrizione |
 | ---------------- | :---------- |
 | `Always` | I contenitori nel gruppo contenitore vengono sempre riavviati. Questa è l'impostazione **predefinita** applicata quando non si specifica alcun criterio di riavvio al momento della creazione del contenitore. |
 | `Never` | I contenitori nel gruppo contenitore non vengono riavviati mai. I contenitori vengono eseguiti al massimo una volta. |
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Eseguire l'esempio di completamento
 
-Per visualizzare i criteri di riavvio in azione, creare un'istanza del contenitore dal [aci/microsoft-wordcount] [ aci-wordcount-image] immagine e specificare il `OnFailure` criterio di riavvio. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
+Per visualizzare i criteri di riavvio in azione, creare un'istanza del contenitore dall'immagine [microsoft/aci-wordcount][aci-wordcount-image] e specificare il criterio di riavvio `OnFailure`. Questo contenitore di esempio esegue uno script di Python che, per impostazione predefinita, analizza il testo [Amleto](http://shakespeare.mit.edu/hamlet/full.html) di Shakespeare, scrive le 10 parole più comuni in STDOUT ed esce.
 
 Eseguire il contenitore di esempio con il comando seguente [az container create][az-container-create]:
 

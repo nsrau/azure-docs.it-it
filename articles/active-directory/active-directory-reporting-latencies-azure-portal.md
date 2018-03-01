@@ -17,7 +17,7 @@ ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
@@ -39,8 +39,8 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i report 
 
 | Report | Minima | Media | Osservazioni |
 | :-- | --- | --- | :-- |
-| Log di controllo | 30 minuti  | 1 ora  |In alcuni casi, può richiedere fino a 2 ore per dati di attività di controllo da visualizzare.|
-| Accessi | 15 minuti  | 2 ore |In alcuni casi, può richiedere fino a 24 ore per i dati di attività di accesso da visualizzare. Sono inclusi i dati di attività accessi provenienti da applicazioni di office legacy. |
+| Log di controllo | 30 minuti  | 1 ora  |In alcuni casi, possono essere necessarie fino a 2 ore per poter visualizzare i dati delle attività di controllo.|
+| Accessi | 15 minuti  | 2 ore |In alcuni casi, possono essere necessarie fino a 24 ore per poter visualizzare i dati delle attività di accesso, inclusi quelli provenienti da applicazioni legacy di office. |
 
 
 

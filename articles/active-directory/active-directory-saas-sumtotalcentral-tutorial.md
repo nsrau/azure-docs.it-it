@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SumTotalCentral | Documenti Microsoft'
-description: Informazioni su come configurare single sign-on tra Azure Active Directory e SumTotalCentral.
+title: 'Esercitazione: Integrazione di Azure Active Directory con SumTotalCentral | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SumTotalCentral.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 12/12/2017
 ms.author: jeedes
 ms.openlocfilehash: ad623de53e7dd6e433eee52470b89896bdb5bd6c
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Esercitazione: Integrazione di Azure Active Directory con SumTotalCentral
 
-In questa esercitazione informazioni su come integrare SumTotalCentral con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare SumTotalCentral con Azure Active Directory (Azure AD).
 
-Integrazione SumTotalCentral con Azure AD offre i vantaggi seguenti:
+L'integrazione di SumTotalCentral con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al SumTotalCentral.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato SumTotalCentral (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a SumTotalCentral.
+- È possibile abilitare gli utenti per l'accesso automatico a SumTotalCentral (Single Sign-On) con gli account Azure AD personali.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con SumTotalCentral, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con SumTotalCentral, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Un SumTotalCentral single sign-on abilitato sottoscrizione
+- Sottoscrizione di SumTotalCentral abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -54,9 +54,9 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-sumtotalcentral-from-the-gallery"></a>Aggiunta di SumTotalCentral dalla raccolta
-Per configurare l'integrazione di SumTotalCentral in Azure AD, è necessario aggiungere all'elenco di App SaaS gestite SumTotalCentral dalla raccolta.
+Per configurare l'integrazione di SumTotalCentral in Azure AD, è necessario aggiungere SumTotalCentral dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere SumTotalCentral dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere SumTotalCentral dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -70,33 +70,33 @@ Per configurare l'integrazione di SumTotalCentral in Azure AD, è necessario agg
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **SumTotalCentral**selezionare **SumTotalCentral** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **SumTotalCentral**, selezionare **SumTotalCentral** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![SumTotalCentral nell'elenco dei risultati](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_addfromgallery.png)
+    ![SumTotalCentral nell'elenco risultati](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con SumTotalCentral in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SumTotalCentral usando un utente di test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in SumTotalCentral a un utente in Azure AD. In altre parole, una relazione di collegamento tra un utente AD Azure e l'utente correlato in SumTotalCentral deve essere stabilito.
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di SumTotalCentral corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SumTotalCentral.
 
-In SumTotalCentral, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, in SumTotalCentral assegnare il valore del **nome utente** di Azure AD come valore di **Username** (Nome utente).
 
-Per configurare e testare Azure AD single sign-on con SumTotalCentral, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con SumTotalCentral, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test SumTotalCentral](#create-a-sumtotalcentral-test-user)**  - disporre di un equivalente di Britta Simon in SumTotalCentral collegato per la rappresentazione di Azure AD dell'utente.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+3. **[Creare un utente di test di SumTotalCentral](#create-a-sumtotalcentral-test-user)**: per avere una controparte di Britta Simon in SumTotalCentral collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione SumTotalCentral.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione SumTotalCentral.
 
-**Per configurare Azure AD single sign-on con SumTotalCentral, eseguire la procedura seguente:**
+**Per configurare l'accesso Single Sign-On di Azure AD con SumTotalCentral, seguire questa procedura:**
 
-1. Nel portale di Azure, sul **SumTotalCentral** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **SumTotalCentral** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,16 +104,16 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_samlbase.png)
 
-3. Nel **SumTotalCentral dominio e gli URL** sezione, eseguire la procedura seguente:
+3. Nella sezione **URL e dominio SumTotalCentral** seguire questa procedura:
 
-    ![SumTotalCentral informazioni domini e gli URL single sign-on](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SumTotalCentral](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.sumtotalsystems.com/sites/default`
 
     b. Nella casella di testo **Identificatore** digitare un valore: `SumTotalFederationGateway`
 
     > [!NOTE] 
-    > Il valore di URL Sign-on non è di tipo real. è necessario aggiornare questo valore con l'URL di accesso effettivo. Contatto [team di supporto SumTotalCentral Client](http://www.sumtotalsystems.com/support/) per ottenere il valore. 
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di SumTotalCentral](http://www.sumtotalsystems.com/support/). 
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -123,19 +123,19 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso single sign-on in **SumTotalCentral** lato, è necessario inviare scaricato **Metadata XML** a [team di supporto SumTotalCentral](http://www.sumtotalsystems.com/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Per configurare l'accesso Single Sign-On sul lato **SumTotalCentral**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di SumTotalCentral](http://www.sumtotalsystems.com/support/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-   ![Creare un utente test di Azure AD][100]
+   ![Creare un utente di test di Azure AD][100]
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**Per creare un utente di test in Azure AD, seguire questa procedura:**
 
 1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
@@ -161,25 +161,25 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-sumtotalcentral-test-user"></a>Creare un utente test SumTotalCentral
+### <a name="create-a-sumtotalcentral-test-user"></a>Creare un utente di test di SumTotalCentral
 
-In questa sezione si crea un utente denominato Britta Simon in SumTotalCentral. Lavorare con [team di supporto SumTotalCentral](http://www.sumtotalsystems.com/support/) per aggiungere gli utenti nella piattaforma SumTotalCentral. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.  
+In questa sezione viene creato un utente di nome Britta Simon in SumTotalCentral. Collaborare con il [team di supporto di SumTotalCentral](http://www.sumtotalsystems.com/support/) per aggiungere gli utenti alla piattaforma SumTotalCentral. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.  
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso a SumTotalCentral.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SumTotalCentral.
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon SumTotalCentral, procedere come segue:**
+**Per assegnare Britta Simon a SumTotalCentral, seguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **SumTotalCentral**.
+2. Nell'elenco delle applicazioni selezionare **SumTotalCentral**.
 
-    ![Il collegamento SumTotalCentral nell'elenco delle applicazioni](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_app.png)  
+    ![Collegamento di SumTotalCentral nell'elenco delle applicazioni](./media/active-directory-saas-sumtotalcentral-tutorial/tutorial_sumtotalcentral_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -199,7 +199,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro SumTotalCentral nel Pannello di accesso, dovrebbe ottenere automaticamente firmato-on all'applicazione SumTotalCentral.
+Quando si fa clic sul riquadro SumTotalCentral nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SumTotalCentral.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

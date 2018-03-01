@@ -1,6 +1,6 @@
 ---
-title: Visualizzare le latenze relative alle aree di Azure da percorsi specifici | Documenti Microsoft
-description: Informazioni su come visualizzare le latenze relative provider Internet per le aree di Azure da percorsi specifici.
+title: "Visualizzare le latenze relative da località specifiche alle aree di Azure | Microsoft Docs"
+description: "Informazioni su come visualizzare le latenze relative attraverso i provider Internet da località specifiche alle aree di Azure."
 services: network-watcher
 documentationcenter: 
 author: jimdial
@@ -18,31 +18,31 @@ ms.author: jdial
 ms.custom: 
 ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
-# <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Latenza relativa visualizzazione di aree di Azure da percorsi specifici
+# <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visualizzare le latenze relative da località specifiche alle aree di Azure
 
-In questa esercitazione, imparare a usare Azure [Watcher di rete](network-watcher-monitoring-overview.md) utili per decidere quale area di Azure per distribuire l'applicazione o il servizio del servizio, in base all'utente demografico. Inoltre, è possibile utilizzare per consentire di valutare le connessioni ai provider di servizi di Azure.  
+Questa esercitazione descrive come usare il servizio [Network Watcher](network-watcher-monitoring-overview.md) di Azure per determinare più facilmente l'area di Azure in cui distribuire un'applicazione o un servizio, in base ai dati demografici degli utenti. Questo servizio è utile anche per valutare con più facilità le connessioni dei provider di servizi ad Azure.  
         
-## <a name="create-a-network-watcher"></a>creare un controllo di rete
+## <a name="create-a-network-watcher"></a>Creare un'istanza di Network Watcher
 
-Se dispone già di un watcher di rete in almeno Azure [area](https://azure.microsoft.com/regions), è possibile ignorare le attività in questa sezione. Creare un gruppo di risorse per il controllo di rete. In questo esempio viene creato il gruppo di risorse nell'area Stati Uniti orientali, ma è possibile creare il gruppo di risorse in qualsiasi area di Azure.
+Se è già disponibile un'istanza di Network Watcher in almeno un'[area](https://azure.microsoft.com/regions) di Azure, è possibile ignorare le attività in questa sezione. Creare un gruppo di risorse per l'istanza di Network Watcher. In questo esempio il gruppo di risorse viene creato nell'area Stati Uniti orientali, ma è possibile crearlo in qualsiasi area di Azure.
 
 ```powershell
 New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
-Creare un controllo di rete. È necessario disporre di un controllo di rete creato in almeno un'area di Azure. In questo esempio viene creato un controllo di rete nell'area orientale Microsoft Azure.
+Creare un'istanza di Network Watcher. È necessario che sia disponibile un'istanza di Network Watcher in almeno un'area di Azure. In questo esempio viene creata un'istanza di Network Watcher nell'area Stati Uniti orientali di Azure.
 
 ```powershell
 New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
-## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Confrontare le latenze di rete relativo a una singola regione di Azure da una posizione specifica
+## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Confrontare le latenze di rete relative da una località specifica a una singola area di Azure
 
-Valutare i provider di servizi o risolvere i problemi relativi a un utente di un problema di creazione report come "il sito è risultata lento," da una posizione specifica all'area di azure in cui viene distribuito un servizio. Ad esempio, il comando seguente restituisce le latenze medie provider del servizio Internet relative tra lo stato di Washington, Stati Uniti e l'area occidentale ci 2 Azure tra dicembre 13-15, 2017:
+Valutare i provider di servizi o risolvere i problemi segnalati dagli utenti, come ad esempio la lentezza del sito, da una località specifica all'area di Azure in cui viene distribuito un servizio. Ad esempio, il comando seguente restituisce le latenze medie relative dei provider di servizi Internet tra lo stato di Washington negli Stati Uniti e l'area Stati Uniti occidentali 2 di Azure fra il 13 e il 15 dicembre 2017:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -56,10 +56,10 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> L'area in cui che è specificato nel comando precedente non deve necessariamente coincidere con l'area specificata quando è stato recuperato il watcher di rete. Il comando precedente semplicemente è necessario specificare un controllo di rete esistente. Il watcher di rete può essere in qualsiasi area. Se si specificano valori per `-Country` e `-State`, devono essere validi. I valori tra maiuscole e minuscole. Sono disponibili dati per un numero limitato di paesi, stati e città. Eseguire i comandi in [visualizzare disponibili paesi, stati, città e provider](#view-available) per visualizzare un elenco di paesi disponibili, città e gli stati da utilizzare con il comando precedente. 
+> L'area specificata nel comando precedente non deve necessariamente coincidere con quella specificata al momento del recupero dell'istanza di Network Watcher. Per il comando precedente è sufficiente specificare un'istanza di Network Watcher esistente. L'istanza di Network Watcher può trovarsi in qualsiasi area. Se si specificano valori per `-Country` e `-State`, questi devono essere validi, con l'esatta distinzione tra maiuscole e minuscole. Sono disponibili dati per un numero limitato di paesi, stati e città. Eseguire i comandi descritti in [Visualizzare i paesi, gli stati, le città e i provider disponibili](#view-available) per visualizzare un elenco di paesi, città e stati disponibili da usare con il comando precedente. 
 
 > [!WARNING]
-> È necessario specificare una data successiva 14 novembre 2017 per `-StartTime` e `-EndTime`. Specificare una data prima 14 novembre 2017 non restituisce alcun dato. 
+> Per `-StartTime` e `-EndTime` è necessario specificare una data successiva al 14 novembre 2017, altrimenti non viene restituito alcun dato. 
 
 Di seguito è riportato l'output del comando precedente:
 
@@ -101,11 +101,11 @@ ReachabilityReport : [
                      ]
 ```
 
-Nell'output restituito, il valore per **punteggio** è la latenza relativa in aree e i provider. Un punteggio pari a 1 è la peggiore latenza (massima), mentre 100 è la latenza più bassa. Le latenze relative vengono calcolata la media per il giorno. Nell'esempio precedente, mentre è ovvio che le latenze sono gli stessi entrambi i giorni e che è presente una piccola differenza tra la latenza dei due provider, è anche ovvio che le latenze per entrambi i provider sono basse sulla scala 1-100. Mentre è previsto, poiché lo stato di Washington, Stati Uniti è fisicamente vicino area occidentale ci 2 Azure, talvolta risultati non sono come previsto. Maggiore è l'intervallo di date specificato, maggiore è possibile latenza media del tempo.
+Nell'output restituito il valore di **Score** corrisponde alla latenza relativa attraverso le aree e i provider. Se il punteggio è 1, la latenza è massima (peggiore). Se invece è 100, la latenza è minima. Le latenze relative vengono calcolate in base a una media giornaliera. Nell'esempio precedente è evidente che le latenze sono le stesse in entrambi i giorni e vi è una piccola differenza tra la latenza dei due provider, ma è altrettanto evidente che entrambi i provider hanno latenze basse nella scala da 1 a 100. Se nel caso specifico questo comportamento è prevedibile, poiché lo stato di Washington negli Stati Uniti è fisicamente vicino all'area Stati Uniti occidentali 2 di Azure, talvolta non si ottengono risultati come previsto. Specificando un intervallo di date più ampio, è possibile ottenere un valore medio più preciso per la latenza nel tempo.
 
-## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Confrontare le latenze di rete relativo in aree geografiche di Azure da una posizione specifica
+## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Confrontare le latenze di rete relative da una località specifica a tutte le aree di Azure
 
-Se, invece di specificare le latenze relative tra una posizione specifica e una regione di Azure specifico utilizzando `-Location`, si desiderava determinare le latenze relative a tutte le aree di Azure da un percorso fisico specifico, è possibile farlo troppo. Ad esempio, il comando seguente consente di valutare quale area di azure per distribuire un servizio in se gli utenti primari sono utenti di Comcast che si trovano nello stato di Washington:
+Anziché specificare le latenze relative tra una località e una determinata area di Azure tramite `-Location`, è possibile determinare le latenze relative da una località fisica specifica a tutte le aree di Azure. Il comando seguente, ad esempio, consente di valutare l'area di Azure in cui distribuire un servizio se gli utenti principali sono utenti di Comcast che si trovano nello stato di Washington:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityReport `
@@ -119,19 +119,19 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 ```
 
 >[!NOTE]
-A differenza di quando si specifica un'unica posizione, se non specificare un percorso o specificare più percorsi, ad esempio "Occidentale US2", "Stati Uniti occidentali", è necessario specificare un provider di servizi Internet quando si esegue il comando. 
+Diversamente dal caso in cui si specifica un'unica località, se non si definisce una località o se ne definiscono più di una, ad esempio "West US2", "West US", quando si esegue il comando è necessario specificare un provider di servizi Internet. 
 
-## <a name="view-available"></a>Visualizzazione disponibili paesi, stati, città e provider
+## <a name="view-available"></a>Visualizzare i paesi, gli stati, le città e i provider disponibili
 
-Sono disponibili dati per le città, paesi, stati e provider di servizi Internet specifico. Per visualizzare un elenco di tutti i provider di servizi Internet disponibili, paesi, stati e città, che è possibile visualizzare i dati, immettere il comando seguente:
+Sono disponibili dati per paesi, stati, città e provider di servizi Internet specifici. Per visualizzare un elenco di tutti i provider di servizi Internet, i paesi, gli stati e le città disponibili per cui è possibile visualizzare i dati, immettere il comando seguente:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Dati sono disponibili solo per i paesi, stati e città restituita dal comando precedente. Il comando precedente è necessario specificare un controllo di rete esistente. Nell'esempio viene specificato il *NetworkWatcher_eastus* watcher di rete in un gruppo di risorse denominato *NetworkWatcherRG*, ma è possibile specificare qualsiasi watcher di rete esistente. Se non si dispone di un controllo di rete esistente, crearne uno, completare le attività di [creare un controllo di rete](#create-a-network-watcher). 
+I dati sono disponibili solo per i paesi, gli stati e le città restituiti dal comando precedente. Per il comando precedente è necessario specificare un'istanza di Network Watcher esistente. Nell'esempio è specificata l'istanza di Network Watcher *NetworkWatcher_eastus* in un gruppo di risorse denominato *NetworkWatcherRG*, ma è possibile specificare qualsiasi istanza di Network Watcher esistente. Se non è disponibile un'istanza di Network Watcher esistente, crearne una eseguendo le attività descritte in [Creare un'istanza di Network Watcher](#create-a-network-watcher). 
 
-Dopo aver eseguito il comando precedente, è possibile filtrare l'output restituito specificando i valori validi per **paese**, **stato**, e **Città**, se necessario.  Per visualizzare l'elenco dei provider di servizi Internet disponibile in Seattle, Washington, Stati Uniti, ad esempio, immettere il comando seguente:
+Dopo aver eseguito il comando precedente, è possibile filtrare l'output restituito specificando valori validi per **Country**, **State** e **City**, se necessario.  Ad esempio, per visualizzare l'elenco dei provider di servizi Internet disponibili a Seattle nello stato di Washington negli Stati Uniti, immettere il comando seguente:
 
 ```powershell
 Get-AzureRmNetworkWatcherReachabilityProvidersList `
@@ -143,4 +143,4 @@ Get-AzureRmNetworkWatcherReachabilityProvidersList `
 ```
 
 > [!WARNING]
-> Il valore specificato per **paese** devono essere lettere maiuscole e minuscole. I valori specificati per **stato** e **Città** devono essere minuscole. I valori devono essere inclusi nell'output restituito dopo l'esecuzione del comando senza valori per **paese**, **stato**, e **Città**. Se è specificare il case non corretto o specificare un valore per **paese**, **stato**, o **Città** che non è presente nell'output restituito dopo l'esecuzione del comando senza valori per questi proprietà, l'output restituito è vuoto.
+> Per **Country** deve essere specificato un valore in lettere maiuscole e minuscole, mentre per **State** e **City** i valori devono essere in lettere minuscole. I valori devono essere inclusi nell'output restituito dopo l'esecuzione del comando senza valori per **Country**, **State** e **City**. Se l'uso di maiuscole e minuscole non è corretto o si specifica un valore per **Country**, **State** o **City** che non è presente nell'output restituito dopo l'esecuzione del comando senza valori per queste proprietà, l'output restituito è vuoto.

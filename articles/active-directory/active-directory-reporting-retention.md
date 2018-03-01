@@ -1,5 +1,5 @@
 ---
-title: Criteri di conservazione dei report di Azure Active Directory | Documentazione Microsoft
+title: Criteri di conservazione dei report di Azure Active Directory | Microsoft Docs
 description: Criteri di conservazione dei dati di report in Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
 ---
@@ -40,8 +40,8 @@ Questo argomento offre le risposte alle domande più comuni sulla conservazione 
 
 **R:**
 
-- **Immediatamente** : se sta già utilizzando i report nel portale di Azure
-- **Entro 2 ore** : se è stato attivato reporting nel portale di Azure
+- **Immediatamente**: se si usano già i report nel portale di Azure
+- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure
 
 ---
 **D: Come è possibile avviare la raccolta dei segnali di sicurezza?**  

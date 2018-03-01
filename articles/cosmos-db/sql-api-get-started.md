@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: API SQL esercitazione introduttiva | Documenti Microsoft'
-description: Un'esercitazione che consente di creare un database online e l'applicazione console c# tramite l'API di SQL.
+title: 'Azure Cosmos DB: Esercitazione introduttiva per l''API SQL | Microsoft Docs'
+description: Esercitazione che crea un database online e un'applicazione console in C# con l'API SQL.
 keywords: esercitazione su nosql, database online, applicazione console C#
 services: cosmos-db
 documentationcenter: .net
@@ -17,16 +17,16 @@ ms.date: 08/16/2017
 ms.author: anhoh
 ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: API SQL esercitazione introduttiva
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Esercitazione introduttiva per l'API SQL
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js per MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [C++](sql-api-cpp-get-started.md)
 >  
@@ -34,7 +34,7 @@ ms.lasthandoff: 12/18/2017
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Introduzione all'esercitazione introduttiva API di SQL Azure Cosmos DB. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
+Questa è un'esercitazione introduttiva per l'API SQL di Azure Cosmos DB. Dopo aver seguito questa esercitazione, si otterrà un'applicazione console che consente di creare e ridefinire le query delle risorse Azure Cosmos DB.
 
 Contenuto dell'esercitazione:
 
@@ -61,7 +61,7 @@ Ecco come procedere.
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)].
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
-Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si utilizza l'emulatore di Azure Cosmos DB, seguire i passaggi in [emulatore di Azure Cosmos DB](local-emulator.md) per configurare l'emulatore e passare direttamente alla [soluzione di Visual Studio del programma di installazione](#SetupVS).
+Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore di Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali](local-emulator.md) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -73,9 +73,9 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è p
 4. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla nuova applicazione console, disponibile nella soluzione di Visual Studio, quindi scegliere **Gestisci pacchetti NuGet**.
     
     ![Screenshot del menu selezionato con il pulsante destro del mouse per il progetto](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
-5. Nel **NuGet** scheda, fare clic su **Sfoglia**e il tipo **azure documentdb** nella casella di ricerca.
+5. Nella scheda **NuGet** fare clic su **Sfoglia** e digitare **azure documentdb** nella casella di ricerca.
 6. Nei risultati trovare **Microsoft.Azure.DocumentDB** e fare clic su **Installa**.
-   È l'ID del pacchetto per la libreria Client API SQL di Azure Cosmos DB [libreria Client di Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   L'ID pacchetto per la libreria client dell'API SQL di Azure Cosmos DB è [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
    ![Screenshot del menu di NuGet per l'individuazione dell'SDK client di Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Se viene visualizzato un messaggio sulla verifica delle modifiche alla soluzione, fare clic su **OK**. Se viene visualizzato un messaggio sull'accettazione della licenza, fare clic su **Accetto**.
@@ -115,7 +115,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 
 Copiare l'URI dal portale e incollarlo in `<your endpoint URL>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your primary key>`.
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account Azure Cosmos DB, con l'hub attivo evidenziato, pulsante CHIAVI evidenziato nella pagina account di Azure Cosmos DB e i valori URI, chiave primaria e chiave SECONDARIA evidenziati nella pagina delle chiavi][keys]
+![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account di Azure Cosmos DB, con l'hub ATTIVO evidenziato, il pulsante CHIAVI evidenziato nella pagina dell'account di Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nella pagina Chiavi][keys]
 
 Verrà quindi avviata l'applicazione tramite la creazione di una nuova istanza di **DocumentClient**.
 

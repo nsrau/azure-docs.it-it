@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 12/04/2017
 ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
 ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/06/2018
 ---
@@ -40,7 +40,7 @@ Esiste un numero massimo di connessioni, unità di calcolo e archiviazione in og
 | Livello di servizio Basic         | 1 TB              |
 | Livello di servizio Standard      | 1 TB              |
 
-Il sistema Azure richiede cinque connessioni per il monitoraggio del Database di Azure per server PostgreSQL. Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
+Il sistema Azure richiede cinque connessioni per il monitoraggio del server di Database di Azure per PostgreSQL. Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
 
 

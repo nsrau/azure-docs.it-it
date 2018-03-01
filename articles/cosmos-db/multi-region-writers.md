@@ -17,7 +17,7 @@ ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
@@ -318,6 +318,6 @@ In questo articolo è stato illustrato come è possibile usare modelli di lettur
 * Altre informazioni sul modo in cui Cosmos DB supporta la [distribuzione globale](distribute-data-globally.md)
 * Altre informazioni sui [failover automatici o manuali in Azure Cosmos DB](regional-failover.md)
 * Informazioni sulla [coerenza globale con Azure Cosmos DB](consistency-levels.md)
-* Sviluppo con più aree tramite il [Azure Cosmos DB - API SQL](tutorial-global-distribution-sql-api.md)
+* Sviluppare in più aree usando [Azure Cosmos DB: API SQL](tutorial-global-distribution-sql-api.md)
 * Sviluppare in più aree usando [Azure Cosmos DB: API di MongoDB](tutorial-global-distribution-MongoDB.md)
 * Sviluppare in più aree usando [Azure Cosmos DB: API della tabella](tutorial-global-distribution-table.md)
