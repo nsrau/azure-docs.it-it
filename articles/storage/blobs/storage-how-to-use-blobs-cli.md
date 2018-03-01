@@ -2,23 +2,17 @@
 title: Eseguire operazioni nell'archiviazione BLOB di Azure (oggetto archiviazione) con l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: "Informazioni su come caricare e scaricare i BLOB nell'archiviazione BLOB di Azure, nonché creare una firma di accesso condiviso (SAS) per gestire l'accesso a un BLOB nell'account di archiviazione."
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: tamram
-ms.openlocfilehash: d47d85af7412def342437aedf35c3d129662451d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f781508652ee784fff61c8ecc76cb87ea47f0c2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Eseguire operazioni di archiviazione BLOB con l'interfaccia della riga di comando di Azure
 

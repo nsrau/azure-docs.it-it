@@ -2,17 +2,17 @@
 title: Gestire le applicazioni di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric
 description: Informazioni su come distribuire e rimuovere le applicazioni da un cluster Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric.
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: edwardsa
-ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: bikang
+ms.openlocfilehash: 2d330921b66a1c261298601dad46f00f66659037
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric
 

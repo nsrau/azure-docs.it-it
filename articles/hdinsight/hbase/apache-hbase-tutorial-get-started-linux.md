@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/03/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 1073c8eb0bfb8176f81826c4ea8967d5c04098ec
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 04c1f924e033fb690ebc086c7ea37156d0a8bbba
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Iniziare a usare un esempio di Apache HBase in HDInsight
 
@@ -28,7 +28,7 @@ Informazioni su come creare un cluster HBase in HDInsight, creare tabelle HBase 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare a provare questo esempio di HBase, sono necessari gli elementi seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -38,7 +38,7 @@ Prima di iniziare a provare questo esempio di HBase, sono necessari gli elementi
 ## <a name="create-hbase-cluster"></a>Nome del cluster HBase
 La procedura seguente usa un modello di Azure Resource Manager per creare un cluster HBase e il valore predefinito dipendente dall'account di archiviazione di Azure. Per comprendere i parametri usati nella procedure e altri metodi di creazione del cluster, vedere [Creare cluster Hadoop basati su Linux in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile tra i [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
+1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure. Il modello è disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Compilare i campi seguenti del pannello **Distribuzione personalizzata**:

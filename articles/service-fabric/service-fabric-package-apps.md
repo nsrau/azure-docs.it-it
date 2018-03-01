@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 93c86f4805257aee8e04ef80e33b3cec0fd3c67d
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 0db49b9bd50c640175292671f813d23d960b52e1
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 L'articolo descrive come inserire un'applicazione di Service Fabric in un pacchetto e prepararla per la distribuzione.
@@ -56,7 +56,7 @@ Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessar
 Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configurare i criteri per il punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
-## <a name="configure"></a>Configura
+## <a name="configure"></a>Configurare
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 Se si usa Visual Studio 2015 per creare un'applicazione, è possibile usare il comando Pacchetto per creare automaticamente un pacchetto corrispondente al layout descritto precedentemente.
 

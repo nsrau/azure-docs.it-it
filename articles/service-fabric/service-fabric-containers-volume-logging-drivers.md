@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cbe7e338ac7da9dc7e8d03cb1bb07a69af70cb17
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 79b4700b0b0b6897c19117044d37623a2f6ea8df
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Usare il plug-in di volume e driver di registrazione Docker per il contenitore
 Azure Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore. È possibile rendere persistenti i dati in [File di Azure](https://azure.microsoft.com/services/storage/files/) quando il contenitore viene spostato o riavviato in un host diverso.

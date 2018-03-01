@@ -2,23 +2,17 @@
 title: Configurare un nome di dominio personalizzato per l'endpoint dell'archiviazione BLOB di Azure | Documentazione Microsoft
 description: Usare il portale di Azure per eseguire il mapping del proprio nome canonico (CNAME) all'endpoint di archiviazione BLOB in un account di archiviazione di Azure.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
-ms.openlocfilehash: 4dfca37e3a369fdfb41b4064b72ccd027bd8cbd3
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB
 

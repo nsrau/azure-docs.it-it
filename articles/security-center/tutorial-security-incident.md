@@ -9,17 +9,17 @@ editor:
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
+ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2018
+ms.date: 02/22/2018
 ms.author: yurid
-ms.custom: mvc
-ms.openlocfilehash: b6adf4bec2d9f92ee3cde9c73a03beb5a58c3f3f
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 2eb6a2ea2cd9aa70c5b4f60ab2786b21d8996c29
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti della sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione si apprenderà come:
