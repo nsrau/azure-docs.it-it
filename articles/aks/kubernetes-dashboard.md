@@ -9,11 +9,27 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/27/2018
+=======
+<<<<<<< HEAD
+ms.openlocfilehash: 47608993320d987822422ea103e4e2043de2d2e8
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/27/2018
+=======
+ms.openlocfilehash: c830400ca1ccd7273ba3acfbd4f17eb2081add87
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/22/2018
+>>>>>>> ef264d3823deace652e9de26708b3ff46548277e
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Dashboard di Kubernetes con il servizio contenitore di Azure
 

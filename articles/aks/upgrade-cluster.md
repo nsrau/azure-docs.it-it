@@ -9,11 +9,27 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: gamonroy
 ms.custom: mvc
+<<<<<<< HEAD
 ms.openlocfilehash: 9b94f858aa896eaa93430a12cd74e12d9bf02008
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/27/2018
+=======
+<<<<<<< HEAD
+ms.openlocfilehash: 9b94f858aa896eaa93430a12cd74e12d9bf02008
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/27/2018
+=======
+ms.openlocfilehash: 6eaa0128c37d74fd2fd4c4bdb377ca76d7c37669
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/09/2018
+>>>>>>> ef264d3823deace652e9de26708b3ff46548277e
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Aggiornare un cluster del servizio contenitore di Azure
 
@@ -24,7 +40,15 @@ Il servizio contenitore di Azure (AKS) semplifica l'esecuzione di attività di g
 Prima di aggiornare un cluster, usare il comando `az aks get-upgrades` per verificare quali versioni di Kubernetes sono disponibili per l'aggiornamento.
 
 ```azurecli-interactive
+<<<<<<< HEAD
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
+=======
+<<<<<<< HEAD
+az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
+=======
+az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
+>>>>>>> ef264d3823deace652e9de26708b3ff46548277e
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ```
 
 Output:
