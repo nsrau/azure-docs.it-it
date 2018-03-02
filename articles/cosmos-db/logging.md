@@ -12,36 +12,61 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/20/2018
 ms.author: mimig
-ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
-Dopo aver iniziato a usare uno o più database di Azure Cosmos DB, sarà possibile scegliere di monitorare come e quando viene eseguito l'accesso ai database. La registrazione diagnostica in Azure Cosmos DB consente di eseguire questo monitoraggio. Abilitando la registrazione diagnostica, è possibile inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e/o esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/), che fa parte di [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Dopo aver iniziato a usare uno o più database di Azure Cosmos DB, sarà possibile scegliere di monitorare come e quando viene eseguito l'accesso ai database. Questo articolo fornisce una panoramica di tutti i log disponibili nella piattaforma di Azure e quindi spiega come abilitare la registrazione diagnostica per finalità di monitoraggio, in modo da inviare log ad [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), eseguirne lo streaming in [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) e/o esportali in [Log Analytics](https://azure.microsoft.com/services/log-analytics/), incluso in [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+
+## <a name="logs-available-in-azure"></a>Log disponibili in Azure
+
+Prima di passare al monitoraggio dell'account Azure Cosmos DB, occorre chiarire alcuni concetti sulla registrazione e sul monitoraggio. Nella piattaforma di Azure sono disponibili diversi tipi di log, ovvero [Log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventi, monitoraggio di heartbeat, registri operazioni e così via. Sono disponibili moltissimi log. Per un elenco completo dei log, vedere [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) nel portale di Azure. 
+
+L'immagine seguente mostra i diversi tipi di log di Azure disponibili.
+
+![Diversi tipi di log di Azure](./media/logging/azurelogging.png)
+
+Questo argomento è incentrato sui log per attività di Azure, diagnostica di Azure e metriche e sulle differenze tra questi tre tipi di log. 
+
+### <a name="azure-activity-log"></a>Azure Activity Log
+
+Il log attività di Azure è un log delle sottoscrizioni che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Il log attività segnala eventi a livello di piano di controllo per le sottoscrizioni sotto la categoria amministrativa. L'uso del log attività permette di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. 
+
+Il log attività è diverso dal log di diagnostica. I log attività contengono dati relativi alle operazioni su una risorsa esterna (il "piano di controllo"). Nel contesto di Azure Cosmos DB alcune operazioni a livello di piano di controllo creano raccolte, elencano chiavi, eliminano chiavi, elencano database e così via. I log di diagnostica vengono generati da una risorsa e contengono informazioni sul funzionamento di tale risorsa (il "piano dati"). Alcuni esempi di log di diagnostica del piano dati saranno operazioni di eliminazione, inserimento, lettura di feed e così via.
+
+I log attività (operazioni a livello di piano di controllo) possono essere più dettagliati, possono includere l'indirizzo di posta elettronica completo del chiamante, l'indirizzo IP del chiamante, il nome della risorsa, il nome dell'operazione, l'ID del tenant e così via. Il log attività contiene alcune [categorie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) di dati. Per informazioni dettagliate sugli schemi di queste categorie, vedere [Schema degli eventi del log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema).  I log di diagnostica, tuttavia, possono essere restrittivi, perché i dati relativi alle informazioni personali vengono spesso rimossi. È quindi possibile che sia disponibile l'indirizzo IP del chiamante, ma senza l'ultimo ottetto.
+
+### <a name="azure-metrics"></a>Metriche di Azure
+
+Le [metriche di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) includono il tipo più importante di dati di telemetria di Azure, definiti anche contatori delle prestazioni, emessi dalla maggior parte delle risorse di Azure. Le metriche consentono di visualizzare informazioni su velocità effettiva, risorse di archiviazione, coerenza, disponibilità e latenza delle risorse di Azure Cosmos DB. Per altre informazioni, vedere [Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB](use-metrics.md).
+
+### <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
+
+I log di diagnostica di Azure sono generati da una risorsa che offre dati completi e frequenti sul funzionamento della risorsa stessa. Il contenuto di questi log varia in base al tipo di risorsa. I log di diagnostica a livello di risorsa differiscono anche dal log di diagnostica a livello del sistema operativo guest. I log di diagnostica del sistema operativo guest vengono compilati da un agente in esecuzione all'interno di una macchina virtuale o di un altro tipo di risorsa supportato. I log di diagnostica a livello di risorsa non richiedono l'uso di un agente e acquisiscono i dati specifici della risorsa dalla piattaforma di Azure stessa, mentre i log di diagnostica a livello del sistema operativo guest acquisiscono i dati dal sistema operativo e dalle applicazioni in esecuzione in una macchina virtuale.
 
 ![Registrazione diagnostica in Archiviazione, hub eventi oppure Operations Management Suite mediante Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
 
-Usare questa esercitazione per un'introduzione alla registrazione di Azure Cosmos DB tramite il portale di Azure, l'interfaccia della riga di comando o PowerShell.
-
-## <a name="what-is-logged"></a>Che cosa viene registrato?
+### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Informazioni registrate dai log di diagnostica di Azure
 
 * Vengono registrate tutte le richieste back-end autenticate (TCP/REST) in tutte le API, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide. Il supporto per le richieste di API di tabella, Graph e Cassandra avviate dall'utente non è attualmente disponibile.
 * Operazioni nel database stesso, incluse le operazioni CRUD su tutti i documenti, i contenitori e i database.
 * Operazioni sulle chiavi di account, che includono la creazione, la modifica o l'eliminazione di queste chiavi.
 * Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
 
-## <a name="prerequisites"></a>prerequisiti
-Per completare l'esercitazione, sono necessarie le risorse seguenti:
+<a id="#turn-on"></a>
+## <a name="turn-on-logging-in-the-azure-portal"></a>Abilitare la registrazione nel portale di Azure
+
+Per abilitare la registrazione diagnostica, sono necessarie le risorse seguenti:
 
 * Un account, un database e un contenitore Azure Cosmos DB esistente. Per istruzioni sulla creazione di queste risorse, vedere [Create a database account using the Azure portal](create-sql-api-dotnet.md#create-a-database-account) (Creare un account di database tramite il portale di Azure), [Esempi dell'interfaccia della riga di comando](cli-samples.md) o [Esempi di PowerShell](powershell-samples.md).
 
-<a id="#turn-on"></a>
-## <a name="turn-on-logging-in-the-azure-portal"></a>Abilitare la registrazione nel portale di Azure
+Per abilitare la registrazione diagnostica nel portale di Azure, seguire questa procedura:
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com) fare clic su **Log di diagnostica** nel riquadro di spostamento a sinistra e quindi su **Abilita diagnostica**.
 
@@ -98,7 +123,7 @@ Per abilitare le metriche e la registrazione diagnostica tramite l'interfaccia d
 
 ## <a name="turn-on-logging-using-powershell"></a>Abilitare la registrazione mediante PowerShell
 
-Per abilitare la registrazione mediante PowerShell, è necessario avere almeno la versione 1.0.1 di Azure PowerShell.
+Per abilitare la registrazione diagnostica mediante PowerShell, è necessario avere almeno la versione 1.0.1 di Azure PowerShell.
 
 Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
@@ -315,7 +340,7 @@ Per informazioni sui dati in ogni BLOB JSON, vedere [Interpretare i log di Azure
 
 ## <a name="managing-your-logs"></a>Gestione dei log
 
-I log vengono resi disponibili nell'account due ore dopo aver eseguito l'operazione di Azure Cosmos DB. La gestione dei log nell'account di archiviazione è compito dell'utente:
+I log di diagnostica vengono resi disponibili nell'account due ore dopo aver eseguito l'operazione di Azure Cosmos DB. La gestione dei log nell'account di archiviazione è compito dell'utente:
 
 * Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
@@ -325,7 +350,7 @@ I log vengono resi disponibili nell'account due ore dopo aver eseguito l'operazi
 <a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Visualizzare i log in Log Analytics
 
-Se all'attivazione della registrazione è stata selezionata l'opzione **Invia a Log Analytics**, i dati di diagnostica della raccolta vengono inoltrati a Log Analytics entro due ore. Ciò significa che, immediatamente dopo l'attivazione della registrazione, in Log Analytics non sono visualizzati dati. È sufficiente attendere due ore e riprovare. 
+Se all'attivazione della registrazione diagnostica è stata selezionata l'opzione **Invia a Log Analytics**, i dati di diagnostica della raccolta vengono inoltrati a Log Analytics entro due ore. Ciò significa che, immediatamente dopo l'attivazione della registrazione, in Log Analytics non sono visualizzati dati. È sufficiente attendere due ore e riprovare. 
 
 Prima di visualizzare i log, è necessario verificare se l'area di lavoro di Log Analytics è stata aggiornata per l'uso del nuovo linguaggio di query di Log Analytics. A tale scopo, aprire il [portale di Azure](https://portal.azure.com), fare clic su **Log Analytics** all'estrema sinistra e quindi selezionare il nome dell'area di lavoro come illustrato nella figura seguente. La pagina **Area di lavoro di OMS** viene visualizzata come illustrato nella figura seguente.
 

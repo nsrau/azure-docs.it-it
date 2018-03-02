@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux completa con l'interfaccia della riga di comando di Azure
 Per creare rapidamente una macchina virtuale in Azure, è possibile usare un singolo comando dell'interfaccia della riga di comando di Azure che si serve dei valori predefiniti per creare tutte le risorse di supporto richieste. Le risorse, ad esempio una rete virtuale, l'indirizzo IP pubblico e regole del gruppo di sicurezza di rete, vengono create automaticamente. Per un maggiore controllo dell'ambiente di produzione è possibile creare queste risorse in anticipo e quindi aggiungervi le macchine virtuali. In questo articolo descrive come creare una macchina virtuale e tutte le risorse di supporto, una alla volta.
 
-Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/#login).
+Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale e delle risorse della rete virtuale di supporto. Creare il gruppo di risorse con [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Il gruppo di risorse deve essere creato prima della macchina virtuale e delle risorse della rete virtuale di supporto. Creare il gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Per impostazione predefinita, l'output del comando dell'interfaccia della riga di comando di Azure è in formato JSON, ovvero JavaScript Object Notation. Per trasformare l'output predefinito in un elenco o in una tabella, ad esempio, usare [az configure --output](/cli/azure/#configure). È possibile anche aggiungere `--output` a qualsiasi comando per apportare una modifica una sola volta nel formato di output. L'esempio seguente illustra l'output JSON ottenuto dal comando `az group create`:
+Per impostazione predefinita, l'output del comando dell'interfaccia della riga di comando di Azure è in formato JSON, ovvero JavaScript Object Notation. Per trasformare l'output predefinito in un elenco o in una tabella, ad esempio, usare [az configure --output](/cli/azure/#az_configure). È possibile anche aggiungere `--output` a qualsiasi comando per apportare una modifica una sola volta nel formato di output. L'esempio seguente illustra l'output JSON ottenuto dal comando `az group create`:
 
 ```json                       
 {
@@ -50,7 +50,7 @@ Per impostazione predefinita, l'output del comando dell'interfaccia della riga d
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
-Dopodiché è necessario creare una rete virtuale in Azure e una subnet in cui poter creare le macchine virtuali. Usare [az network vnet create](/cli/azure/network/vnet#create) per creare una rete virtuale denominata *myVnet* con il prefisso dell'indirizzo *192.168.0.0/16*. Aggiungere anche una subnet denominata *mySubnet* con un prefisso di indirizzo di *192.168.1.0/24*:
+Dopodiché è necessario creare una rete virtuale in Azure e una subnet in cui poter creare le macchine virtuali. Usare [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) per creare una rete virtuale denominata *myVnet* con il prefisso dell'indirizzo *192.168.0.0/16*. Aggiungere anche una subnet denominata *mySubnet* con un prefisso di indirizzo di *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-L'output mostra che la subnet viene creata in modo logico all'interno della rete virtuale:
+L'output mostra la subnet creata in modo logico all'interno della rete virtuale:
 
 ```json
 {
@@ -102,7 +102,7 @@ L'output mostra che la subnet viene creata in modo logico all'interno della rete
 
 
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
-Creare ora un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#create). L'indirizzo IP pubblico consente di connettersi alle macchine virtuali da Internet. Poiché l'indirizzo predefinito è dinamico, creare una voce DNS denominata con il `--domain-name-label` parametro. L'esempio seguente crea un indirizzo IP pubblico chiamato *myPublicIP* con il nome DNS *mypublicdns*. Dal momento che il nome DNS deve essere univoco, è necessario inserire il proprio nome DNS univoco:
+Creare ora un indirizzo IP pubblico con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). L'indirizzo IP pubblico consente di connettersi alle macchine virtuali da Internet. Poiché l'indirizzo predefinito è dinamico, è necessario creare una voce DNS denominata con il parametro `--domain-name-label`. L'esempio seguente crea un indirizzo IP pubblico chiamato *myPublicIP* con il nome DNS *mypublicdns*. Dal momento che il nome DNS deve essere univoco, è necessario inserire il proprio nome DNS univoco:
 
 ```azurecli
 az network public-ip create \
@@ -141,7 +141,7 @@ Output:
 
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
-Per controllare il flusso del traffico da e verso le macchine virtuali, si applica un gruppo di sicurezza di rete per una scheda di rete virtuale o una subnet. L'esempio seguente usa [az network nsg create](/cli/azure/network/nsg#create) per creare un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Per controllare il flusso del traffico in ingresso e in uscita dalle macchine virtuali, applicare un gruppo di sicurezza di rete a una subnet o una scheda di interfaccia di rete virtuale. L'esempio seguente usa [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) per creare un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Si definiscono regole che consentono o negano il traffico specifico. Per consentire le connessioni in ingresso sulla porta 22 (per consentire l'accesso SSH), creare una regola in ingresso con [creare una regola gruppo rete az](/cli/azure/network/nsg/rule#create). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRuleSSH*:
+È necessario definire le regole che consentono o bloccano un traffico specifico. Per consentire connessioni in ingresso sulla porta 22 (per abilitare l'accesso SSH), creare una regola di ingresso con il comando [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Per consentire le connessioni in ingresso sulla porta 80 (per il traffico web), aggiungere un'altra regola di gruppo di sicurezza di rete. L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRuleHTTP*:
+Per consentire connessioni in ingresso sulla porta 80, per il traffico Web, aggiungere un'altra regola del gruppo di sicurezza di rete. L'esempio seguente crea una regola denominata *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -175,7 +175,7 @@ az network nsg rule create \
     --access allow
 ```
 
-Esaminare il gruppo di sicurezza di rete e le regole con [az network nsg show](/cli/azure/network/nsg#show):
+Esaminare il gruppo di sicurezza di rete e le regole con [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
@@ -332,7 +332,7 @@ Output:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Creare una scheda di rete virtuale
-Le schede di interfaccia di rete virtuale sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di uso. A seconda di [dimensioni della macchina virtuale](sizes.md), è possibile collegare più schede di rete virtuale a una macchina virtuale. Nell'esempio seguente [az rete nic creare](/cli/azure/network/nic#create) comando, si crea una scheda di rete denominata *myNic* e associarlo a gruppo di sicurezza di rete. L'indirizzo IP pubblico *myPublicIP* è associato anche a una scheda di interfaccia di rete virtuale.
+Le schede di interfaccia di rete virtuale sono disponibili a livello di programmazione in quanto è possibile applicare delle regole di uso. In base alle [dimensioni della macchina virtuale](sizes.md), è possibile associare alla macchina virtuale più schede di interfaccia di rete virtuale. Nel comando seguente [az network nic create](/cli/azure/network/nic#az_network_nic_create) si crea una scheda di interfaccia di rete denominata *myNic* e la si associa al gruppo di sicurezza di rete. L'indirizzo IP pubblico *myPublicIP* è associato anche a una scheda di interfaccia di rete virtuale.
 
 ```azurecli
 az network nic create \
@@ -444,7 +444,7 @@ I domini di aggiornamento indicano gruppi di macchine virtuali e l'hardware fisi
 
 Azure distribuisce automaticamente le macchine virtuali tra i domini di errore e di aggiornamento durante il posizionamento in un set di disponibilità. Per altre informazioni, vedere [Gestione della disponibilità delle macchine virtuali](manage-availability.md).
 
-Creare un set di disponibilità per la macchina virtuale con [az vm availability-set create](/cli/azure/vm/availability-set#create). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:
+Creare un set di disponibilità per la macchina virtuale con [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). L'esempio seguente crea un set di disponibilità denominato *myAvailabilitySet*:
 
 ```azurecli
 az vm availability-set create \
@@ -477,11 +477,11 @@ L'output elenca i domini di errore e i domini di aggiornamento:
 
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
-Sono state create le risorse di rete per supportare le VM accessibili tramite Internet. A questo punto, creare una macchina virtuale e proteggerla con la chiave SSH. In questo esempio, creare una macchina virtuale in base il più recente LTS Ubuntu. È possibile trovare immagini aggiuntive con [az vm image list](/cli/azure/vm/image#list), come descritto nell'articolo sulla [ricerca di immagini della macchina virtuale di Azure](cli-ps-findimage.md).
+Sono state create le risorse di rete per supportare le VM accessibili tramite Internet. A questo punto, creare una macchina virtuale e proteggerla con la chiave SSH. In questo esempio si creerà una macchina virtuale Ubuntu basata sull'LTS più recente. È possibile trovare immagini aggiuntive con [az vm image list](/cli/azure/vm/image#az_vm_image_list), come descritto nell'articolo sulla [ricerca di immagini della macchina virtuale di Azure](cli-ps-findimage.md).
 
-Specificare una chiave SSH per l'autenticazione. Se non si dispone di una coppia di chiavi pubblica SSH, è possibile [crearla](mac-create-ssh-keys.md) o utilizzare il parametro `--generate-ssh-keys` per crearla automaticamente. Se si dispone già di una coppia di chiavi, questo parametro utilizza le chiavi esistenti nello `~/.ssh`.
+Specificare una chiave SSH da usare per l'autenticazione. Se non si dispone di una coppia di chiavi pubblica SSH, è possibile [crearla](mac-create-ssh-keys.md) o utilizzare il parametro `--generate-ssh-keys` per crearla automaticamente. Se si dispone già di una coppia di chiavi, questo parametro usa le chiavi esistenti in `~/.ssh`.
 
-Creare la macchina virtuale da riportare tutte le risorse e informazioni con il [creare vm az](/cli/azure/vm#create) comando. L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare la macchina virtuale unendo tutte le risorse e le informazioni con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM*:
 
 ```azurecli
 az vm create \
@@ -558,7 +558,7 @@ Per visualizzare il sito NGINX predefinito in azione, aprire il Web browser e im
 ![Sito NGINX predefinito nella macchina virtuale](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Esportare come modello
-È possibile creare ora un ambiente di sviluppo aggiuntivo usando gli stessi parametri oppure creare un ambiente di produzione compatibile? Azure Resource Manager utilizza i modelli JSON che definiscono tutti i parametri per l'ambiente. È possibile creare interi ambienti facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o esportare un ambiente esistente per creare il modello JSON desiderato. Usare [az group export](/cli/azure/group#export) per esportare il gruppo di risorse come segue:
+È possibile creare ora un ambiente di sviluppo aggiuntivo usando gli stessi parametri oppure creare un ambiente di produzione compatibile? Azure Resource Manager utilizza i modelli JSON che definiscono tutti i parametri per l'ambiente. È possibile creare interi ambienti facendo riferimento a questo modello JSON. È possibile [creare modelli JSON manualmente](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o esportare un ambiente esistente per creare il modello JSON desiderato. Usare [az group export](/cli/azure/group#az_group_export) per esportare il gruppo di risorse come segue:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json
@@ -566,7 +566,7 @@ az group export --name myResourceGroup > myResourceGroup.json
 
 Questo comando crea il file `myResourceGroup.json` nella directory di lavoro corrente. Quando si crea un ambiente da questo modello, vengono richiesti tutti i nomi delle risorse. È possibile inserire questi nomi nel file del modello aggiungendo il parametro `--include-parameter-default-value` al comando `az group export`. Modificare il modello JSON per specificare i nomi delle risorse, o [creare un file parameters.json](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nel quale vengono specificati i nomi delle risorse.
 
-Per creare un ambiente in base al modello, usare [az group deployment create](/cli/azure/group/deployment#create) come indicato di seguito:
+Per creare un ambiente in base al modello, usare [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) come indicato di seguito:
 
 ```azurecli
 az group deployment create \

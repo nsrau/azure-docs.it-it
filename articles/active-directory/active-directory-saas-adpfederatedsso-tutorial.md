@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 9ffac9ea033c1df462297fdb134bf0ead185b09f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ad12dfd525afe1bde7026535dceb25556abf0a96
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-federated-sso"></a>Esercitazione: Integrazione di Azure Active Directory con ADP Federated SSO
 
@@ -196,7 +196,7 @@ Al momento della ricezione della conferma dal rappresentante ADP, configurare i 
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
-7. Nella finestra di dialogo **Single Sign-On** selezionare **Modalità** come **Accesso collegato**. Per collegare l'applicazione ad **ADP Federated SSO**.
+7. Nella finestra di dialogo **Single Sign-On** selezionare **Modalità** come **Accesso collegato** per collegare l'applicazione all'**SSO federato ADP**.
 
     ![Single Sign-On collegato](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adpfederatedsso_linked.png)
 

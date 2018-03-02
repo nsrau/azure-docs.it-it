@@ -17,7 +17,7 @@ ms.date: 09/26/2017
 ms.author: kumud
 ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
 ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/09/2017
 ---
@@ -74,7 +74,7 @@ Per partecipare all'anteprima della funzionalità Porte a disponibilità elevata
 
 Di seguito sono elencate le configurazioni supportate o le eccezioni per la funzionalità Porte a disponibilità elevata:
 
-- Una sola configurazione IP front-end può avere un unico Direct Server Return (DSR - indirizzo IP mobile in Azure) con disponibilità elevata porte regola di bilanciamento del carico, oppure può avere una regola di bilanciamento del carico DSR solo con porte a disponibilità elevata. Non può averle entrambe.
+- Una singola configurazione IP front-end può avere una sola regola di bilanciamento del carico DSR (Direct Server Return - IP mobile in Azure) con porte a disponibilità elevata o una sola regola del servizio di bilanciamento del carico non DSR con porte a disponibilità elevata. Non può averle entrambe.
 - Una singola configurazione IP dell'interfaccia di rete può avere solo una regola di bilanciamento del carico non DSR con porte a disponibilità elevata. Non è possibile configurare qualsiasi altra regola per questa configurazione IP.
 - Una singola configurazione IP dell'interfaccia di rete può avere una o più regole di bilanciamento del carico DSR con porte a disponibilità elevata, purché tutte le rispettive configurazioni IP front-end siano univoche.
 - Se tutte le regole di bilanciamento del carico sono relative alle porte a disponibilità elevata (solo DSR), possono coesistere due o più regole di bilanciamento del carico che puntano allo stesso pool back-end. Lo stesso vale se tutte le regole sono relative a porte non a disponibilità elevata (DSR e non DSR). Due regole di bilanciamento del carico di questo tipo non possono coesistere se è presente una combinazione di regole per porte a disponibilità elevata e per porte non a disponibilità elevata.

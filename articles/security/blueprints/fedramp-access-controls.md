@@ -1,6 +1,6 @@
 ---
-title: Programma FedRAMP per l'automazione dei progetti di Azure - Controllo di accesso
-description: Applicazioni Web per FedRAMP - Controllo di accesso
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Controllo di accesso
+description: Automazione di applicazioni Web per FedRAMP - Controllo di accesso
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7a840b338af3aa6c6a71f2db3cff1e36a8a6794
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="access-control-ac"></a>Controllo di accesso
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni su procedure e linee guida di test per ogni controllo.
 
 ## <a name="nist-800-53-control-ac-1"></a>Controllo NIST 800-53 AC-1
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure è basato su e implementa questi tipi di account del sistema informatico: utenti di Azure Active Directory (usati per distribuire la soluzione e gestire l'accesso alle risorse di Azure), utenti del sistema operativo Windows (gestiti da Active Directory), account del servizio SQL Server. |
+| **Cliente** | Questo progetto è basato su e implementa i tipi di account di sistema seguenti: utenti di Azure Active Directory (usati per distribuire la soluzione e gestire l'accesso alle risorse di Azure), utenti del sistema operativo Windows (gestiti da Active Directory), account del servizio SQL Server. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il dashboard Identità e accesso della soluzione di sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il dashboard Identità e accesso della soluzione di sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile configurare OMS per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile configurare OMS per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure non distribuisce account temporanei o di emergenza. Se gli account non vengono disabilitati manualmente, il controller di dominio distribuito disabilita automaticamente tutti gli account inattivi dopo 35 giorni. |
+| **Cliente** | Questo progetto non distribuisce account temporanei o di emergenza. Se gli account non vengono disabilitati manualmente, il controller di dominio distribuito disabilita automaticamente tutti gli account inattivi dopo 35 giorni. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il controller di dominio distribuito da questo progetto di Azure è configurato per la disabilitazione di tutti gli account utente dopo 35 giorni di inattività. |
+| **Cliente** | Il controller di dominio distribuito da questo progetto è configurato per la disabilitazione di tutti gli account utente dopo 35 giorni di inattività. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa questi tipi di account del sistema: utenti di Azure Active Directory, utenti del sistema operativo Windows, account del servizio SQL Server. Le azioni di gestione degli account Azure Active Directory generano un evento nel log attività di Azure. Le azioni di gestione degli account a livello di sistema operativo generano un evento nel log di sistema. Questi log vengono raccolti da Log Analytics e archiviati nel repository di OMS. È possibile configurare OMS per inviare avvisi quando si verificano eventi predefiniti.  |
+| **Cliente** | Questo progetto implementa questi tipi di account del sistema: utenti di Azure Active Directory, utenti del sistema operativo Windows, account del servizio SQL Server. Le azioni di gestione degli account Azure Active Directory generano un evento nel log attività di Azure. Le azioni di gestione degli account a livello di sistema operativo generano un evento nel log di sistema. Questi log vengono raccolti da Log Analytics e archiviati nel repository di OMS. È possibile configurare OMS per inviare avvisi quando si verificano eventi predefiniti.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa questi tipi di account del sistema: utenti di Azure Active Directory, utenti del sistema operativo Windows, account del servizio SQL Server. I privilegi degli account Azure Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a ruoli. I privilegi degli account Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a gruppi di sicurezza. Questi schemi basati sui ruoli possono essere estesi dal cliente per soddisfare le esigenze correlate agli obiettivi. |
+| **Cliente** | Questo progetto implementa questi tipi di account del sistema: utenti di Azure Active Directory, utenti del sistema operativo Windows, account del servizio SQL Server. I privilegi degli account Azure Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a ruoli. I privilegi degli account Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a gruppi di sicurezza. Questi schemi basati sui ruoli possono essere estesi dal cliente per soddisfare le esigenze correlate agli obiettivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il dashboard Identità e accesso della soluzione di sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile interrogare la soluzione per segnalare le assegnazioni di ruolo con privilegi. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare l'uso degli account del sistema informatico. È possibile interrogare la soluzione per segnalare le assegnazioni di ruolo con privilegi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nessun account condiviso/di gruppo è consentito nelle risorse distribuite da questo progetto di Azure. |
+| **Cliente** | Nessun account condiviso/di gruppo è consentito nelle risorse distribuite da questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nessun account condiviso/di gruppo è consentito nelle risorse distribuite da questo progetto di Azure. |
+| **Cliente** | Nessun account condiviso/di gruppo è consentito nelle risorse distribuite da questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. È possibile definire criteri di gruppo in Active Directory e configurarli per implementare restrizioni per determinati momenti del giorno o in base ad altre condizioni di utilizzo degli account. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. È possibile definire criteri di gruppo in Active Directory e configurarli per implementare restrizioni per determinati momenti del giorno o in base ad altre condizioni di utilizzo degli account. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il dashboard Identità e accesso della soluzione di sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il dashboard Identità e accesso della soluzione di sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. È possibile configurare la soluzione per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
+| **Cliente** | Questo progetto implementa il dashboard Identità e accesso della soluzione Sicurezza e controllo di OMS. Questo dashboard consente ai responsabili degli account di monitorare i tentativi di accesso sulle risorse distribuite. È possibile configurare la soluzione per inviare avvisi in caso di attività atipica sospetta o se si verificano altri eventi predefiniti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure applica autorizzazioni di accesso logico tramite il controllo degli accessi in base al ruolo amministrato da Azure Active Directory assegnando utenti a ruoli, da Active Directory assegnando utenti a gruppi di sicurezza e da controlli a livello di sistema operativo Windows. I ruoli di Azure Active Directory assegnati a utenti o gruppi controllano l'accesso logico alle risorse in Azure a livello di risorsa, gruppo o sottoscrizione. I gruppi di sicurezza di Active Directory controllano l'accesso logico a risorse e funzioni a livello di sistema operativo. |
+| **Cliente** | Questo progetto applica autorizzazioni di accesso logico tramite il controllo degli accessi in base al ruolo amministrato da Azure Active Directory assegnando utenti a ruoli, da Active Directory assegnando utenti a gruppi di sicurezza e da controlli a livello di sistema operativo Windows. I ruoli di Azure Active Directory assegnati a utenti o gruppi controllano l'accesso logico alle risorse in Azure a livello di risorsa, gruppo o sottoscrizione. I gruppi di sicurezza di Active Directory controllano l'accesso logico a risorse e funzioni a livello di sistema operativo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure impone restrizioni relative ai flussi di informazioni tramite l'uso di gruppi di sicurezza di rete applicati alle subnet in cui sono distribuite le risorse, al gateway applicazione e al servizio di bilanciamento del carico. I gruppi di sicurezza di rete fanno sì che il flusso di informazioni tra le risorse sia controllato in base a regole approvate. Il gateway applicazione e il servizio di bilanciamento del carico instradano dinamicamente il traffico a risorse specifiche in base a regole approvate. |
+| **Cliente** | Questo progetto impone restrizioni relative ai flussi di informazioni tramite l'uso di gruppi di sicurezza di rete applicati alle subnet in cui sono distribuite le risorse, al gateway applicazione e al servizio di bilanciamento del carico. I gruppi di sicurezza di rete fanno sì che il flusso di informazioni tra le risorse sia controllato in base a regole approvate. Il gateway applicazione e il servizio di bilanciamento del carico instradano dinamicamente il traffico a risorse specifiche in base a regole approvate. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il controllo degli accessi in base al ruolo, che può essere configurato per separare i compiti in base ai requisiti dell'organizzazione. I privilegi degli account Azure Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a ruoli. I privilegi degli account Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a gruppi di sicurezza. |
+| **Cliente** | Questo progetto implementa il controllo degli accessi in base al ruolo, che può essere configurato per separare i compiti in base ai requisiti dell'organizzazione. I privilegi degli account Azure Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a ruoli. I privilegi degli account Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a gruppi di sicurezza. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il controllo degli accessi in base al ruolo per limitare gli utenti ai soli privilegi assegnati esplicitamente. I privilegi degli account Azure Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a ruoli. I privilegi degli account Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a gruppi di sicurezza.  |
+| **Cliente** | Questo progetto implementa il controllo degli accessi in base al ruolo per limitare gli utenti ai soli privilegi assegnati esplicitamente. I privilegi degli account Azure Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a ruoli. I privilegi degli account Active Directory vengono implementati tramite il controllo degli accessi in base al ruolo assegnando utenti a gruppi di sicurezza.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il controllo degli accessi in base al ruolo per limitare gli utenti ai soli privilegi assegnati esplicitamente. Le misure di protezione a livello di sistema operativo delle macchine virtuali non consentono l'esecuzione di software a livelli di privilegi superiori rispetto a quelli degli utenti che usano il software. |
+| **Cliente** | Questo progetto implementa il controllo degli accessi in base al ruolo per limitare gli utenti ai soli privilegi assegnati esplicitamente. Le misure di protezione a livello di sistema operativo delle macchine virtuali non consentono l'esecuzione di software a livelli di privilegi superiori rispetto a quelli degli utenti che usano il software. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il servizio Log Analytics in OMS. Le macchine virtuali e gli account di archiviazione di Diagnostica di Azure distribuiti sono origini connesse a Log Analytics che garantiscono il controllo dell'esecuzione di funzioni con privilegi. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Le macchine virtuali e gli account di archiviazione di Diagnostica di Azure distribuiti sono origini connesse a Log Analytics che garantiscono il controllo dell'esecuzione di funzioni con privilegi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -623,7 +623,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il controllo degli accessi in base al ruolo per limitare gli utenti ai soli privilegi assegnati esplicitamente.  |
+| **Cliente** | Questo progetto implementa il controllo degli accessi in base al ruolo per limitare gli utenti ai soli privilegi assegnati esplicitamente.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -637,7 +637,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il portale di Azure limita i tentativi di accesso non validi consecutivi effettuati dagli utenti. Vengono applicati criteri di gruppo a livello di sistema operativo per tutte le macchine virtuali distribuite tramite questo progetto di Azure. I criteri limitano i tentativi di accesso non validi consecutivi effettuati dagli utenti a non più di tre in un periodo di tempo di 15 minuti. |
+| **Cliente** | Il portale di Azure limita i tentativi di accesso non validi consecutivi effettuati dagli utenti. Vengono applicati criteri di gruppo a livello di sistema operativo per tutte le macchine virtuali distribuite tramite questo progetto. I criteri limitano i tentativi di accesso non validi consecutivi effettuati dagli utenti a non più di tre in un periodo di tempo di 15 minuti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il portale di Azure blocca gli account dopo un certo numero di tentativi di accesso non validi consecutivi effettuati dagli utenti. Vengono applicati criteri di gruppo a livello di sistema operativo per tutte le macchine virtuali distribuite tramite questo progetto di Azure. I criteri bloccano gli account per tre ore dopo tre tentativi di accesso non validi consecutivi effettuati dagli utenti. |
+| **Cliente** | Il portale di Azure blocca gli account dopo un certo numero di tentativi di accesso non validi consecutivi effettuati dagli utenti. Vengono applicati criteri di gruppo a livello di sistema operativo per tutte le macchine virtuali distribuite tramite questo progetto. I criteri bloccano gli account per tre ore dopo tre tentativi di accesso non validi consecutivi effettuati dagli utenti. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano una notifica sull'uso del sistema che viene visualizzata agli utenti prima dell'accesso. Nota: il progetto di Azure implementa una notifica sull'uso del sistema di esempio. Il cliente deve modificare questo testo per soddisfare i requisiti dell'organizzazione e/o dell'organismo regolatore. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano una notifica sull'uso del sistema che viene visualizzata agli utenti prima dell'accesso. Nota: questo progetto implementa una notifica sull'uso del sistema di esempio. Il cliente deve modificare questo testo per soddisfare i requisiti dell'organizzazione e/o dell'organismo regolatore. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano una notifica sull'uso del sistema che viene visualizzata agli utenti prima dell'accesso. L'utente deve confermare di aver letto la notifica per poter accedere. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano una notifica sull'uso del sistema che viene visualizzata agli utenti prima dell'accesso. L'utente deve confermare di aver letto la notifica per poter accedere. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Vengono implementati criteri per il sistema operativo per le macchine virtuali distribuite da questo progetto di Azure. I criteri implementano le restrizioni relative alle sessioni simultanee (due sessioni). |
+| **Cliente** | Vengono implementati criteri per il sistema operativo per le macchine virtuali distribuite da questo progetto. I criteri implementano le restrizioni relative alle sessioni simultanee (due sessioni). |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano un blocco di inattività per sessioni RDP. Gli utenti possono avviare manualmente il blocco. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano un blocco di inattività per sessioni RDP. Gli utenti possono avviare manualmente il blocco. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano un blocco di inattività per sessioni RDP. Gli utenti devono autenticarsi di nuovo per sbloccare la sessione.  |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano un blocco di inattività per sessioni RDP. Gli utenti devono autenticarsi di nuovo per sbloccare la sessione.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano un blocco di inattività per sessioni RDP. Il blocco della sessione nasconde informazioni precedentemente visibili. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Criteri di gruppo implementano un blocco di inattività per sessioni RDP. Il blocco della sessione nasconde informazioni precedentemente visibili. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | È possibile definire la configurazione host della sessione Desktop remoto per le macchine virtuali Windows distribuite da questo progetto di Azure per soddisfare i requisiti di terminazione della sessione dell'organizzazione. |
+| **Cliente** | È possibile definire la configurazione host della sessione Desktop remoto per le macchine virtuali Windows distribuite da questo progetto per soddisfare i requisiti di terminazione della sessione dell'organizzazione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il portale di Azure e i sistemi operativi delle macchine virtuali distribuiti da questo progetto di Azure consentono agli utenti di avviare una disconnessione. |
+| **Cliente** | Il portale di Azure e i sistemi operativi delle macchine virtuali distribuiti da questo progetto consentono agli utenti di avviare una disconnessione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -805,7 +805,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il portale di Azure e i sistemi operativi delle macchine virtuali distribuiti da questo progetto di Azure consentono agli utenti di avviare una disconnessione. Il processo di disconnessione fornisce un'indicazione agli utenti riguardo all'avvenuta terminazione della sessione. |
+| **Cliente** | Il portale di Azure e i sistemi operativi delle macchine virtuali distribuiti da questo progetto consentono agli utenti di avviare una disconnessione. Il processo di disconnessione fornisce un'indicazione agli utenti riguardo all'avvenuta terminazione della sessione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure consente l'accesso remoto al sistema informatico tramite il portale di Azure, una connessione Desktop remoto con un jumpbox e un'applicazione Web implementata dal cliente. Gli accessi tramite il portale di Azure e le sessioni Desktop remoto vengono controllati e possono essere monitorati con OMS. Il cliente deve implementare controlli di accesso remoto, in base a quanto necessario, per l'applicazione Web. |
+| **Cliente** | Questo progetto consente l'accesso remoto al sistema informatico tramite il portale di Azure, una connessione Desktop remoto con un jumpbox e un'applicazione Web implementata dal cliente. Gli accessi tramite il portale di Azure e le sessioni Desktop remoto vengono controllati e possono essere monitorati con OMS. Il cliente deve implementare controlli di accesso remoto, in base a quanto necessario, per l'applicazione Web. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso remoto alle risorse distribuite da questo progetto di Azure, inclusi il portale di Azure, la connessione Desktop remoto e il gateway di applicazioni Web, è protetto tramite TLS. |
+| **Cliente** | L'accesso remoto alle risorse distribuite da questo progetto, inclusi il portale di Azure, la connessione Desktop remoto e il gateway di applicazioni Web, è protetto tramite TLS. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -903,7 +903,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso remoto all'applicazione Web distribuita da questo progetto di Azure avviene tramite un gateway applicazione. L'accesso remoto a tutte le altre risorse avviene tramite un jumpbox. Non sono presenti altri endpoint accessibili pubblicamente. |
+| **Cliente** | L'accesso remoto all'applicazione Web distribuita da questo progetto avviene tramite un gateway applicazione. L'accesso remoto a tutte le altre risorse avviene tramite un jumpbox. Non sono presenti altri endpoint accessibili pubblicamente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -945,7 +945,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure consente l'accesso remoto al sistema informatico tramite il portale di Azure, una connessione Desktop remoto con un jumpbox e un'applicazione Web. Se un account Azure Active Directory viene disabilitato o rimosso, l'accesso al portale di Azure viene disconnesso immediatamente. Analogamente, se un account a livello di sistema operativo di una macchina virtuale viene disabilitato o rimosso, l'accesso tramite Desktop remoto con il jumpbox viene disconnesso immediatamente. I clienti devono implementare la disconnessione dell'accesso remoto per l'applicazione Web. |
+| **Cliente** | Questo progetto consente l'accesso remoto al sistema informatico tramite il portale di Azure, una connessione Desktop remoto con un jumpbox e un'applicazione Web. Se un account Azure Active Directory viene disabilitato o rimosso, l'accesso al portale di Azure viene disconnesso immediatamente. Analogamente, se un account a livello di sistema operativo di una macchina virtuale viene disabilitato o rimosso, l'accesso tramite Desktop remoto con il jumpbox viene disconnesso immediatamente. I clienti devono implementare la disconnessione dell'accesso remoto per l'applicazione Web. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

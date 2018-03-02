@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a0079c1f4265e1c2564b85247cf5f5e0289799db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 0a3bbfe32bde0cd3971450f5a9a909dcf8b5d793
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introduzione all'app Web Node.js per Azure AD
 Passport viene usato per:
@@ -37,7 +37,7 @@ Per effettuare questa operazione, eseguire i passaggi seguenti:
 3. Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD.
 4. Stampare dati relativi all'utente.
 
-Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  Per seguire la procedura, è possibile [scaricare la struttura dell'app come file .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonare la struttura:
+Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  Per seguire la procedura, è possibile [scaricare la struttura dell'app come file ZIP](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) o clonare la struttura:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -48,14 +48,14 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 2. Dal menu nella parte superiore della pagina selezionare il proprio account. Nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 
-3. Selezionare **More services** (Altri servizi) nel menu a sinistra della schermata, quindi scegliere **Azure Active Directory**.
+3. Selezionare **Tutti i servizi** nel menu a sinistra della schermata e quindi scegliere **Azure Active Directory**.
 
 4. Selezionare **Registrazioni per l'app**, quindi scegliere **Aggiungi**.
 
 5. Seguire le istruzioni e creare una nuova **applicazione Web** e/o **API Web**.
   * Il **nome** dell'applicazione descrive l'applicazione agli utenti.
 
-  * L' **URL accesso** è l'URL di base dell'app.  Il valore predefinito della struttura è `http://localhost:3000/auth/openid/return``.
+  * L' **URL accesso** è l'URL di base dell'app.  Il valore predefinito della struttura è `http://localhost:3000/auth/openid/return`.
 
 6. Dopo la registrazione, Azure AD assegna all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, è necessario copiarlo dalla pagina dell'applicazione.
 7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L' **URI ID app** è un identificatore univoco dell'applicazione. La convenzione consiste nell'usare il formato `https://<tenant-domain>/<app-name>`, ad esempio: `https://contoso.onmicrosoft.com/my-first-aad-app`.

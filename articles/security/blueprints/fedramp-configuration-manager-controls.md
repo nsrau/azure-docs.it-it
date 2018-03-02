@@ -1,6 +1,6 @@
 ---
-title: Automazione della soluzione Azure Blueprint per FedRAMP - Gestione della configurazione
-description: Applicazioni Web per FedRAMP - Gestione della configurazione
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Gestione della configurazione
+description: Automazione di applicazioni Web per FedRAMP - Gestione della configurazione
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: e93aa430b7150f07210f5d1f37e2027d95334a59
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="configuration-management-cm"></a>Gestione della configurazione (CM, Configuration Management)
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti come parte del documento NIST Special Publication 800-53, Revisione 4. Consultare la pubblicazione NIST 800-53 Rev. 4 per informazioni sulle procedure e le indicazioni di test per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
 
 ## <a name="nist-800-53-control-cm-1"></a>Controllo CM-1 NIST 800-53
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I modelli di Azure Resource Manager e le relative risorse che costituiscono questa soluzione Azure Blueprint rappresentano una base di tipo "configurazione come codice" per l'architettura distribuita. La soluzione viene fornita tramite GitHub, che può essere usato anche per il controllo della configurazione. La soluzione include una funzione di base di configurazione dello stato desiderato (DSC, Desired State Configuration) per ogni macchina virtuale distribuita. |
+| **Cliente** | I modelli di Azure Resource Manager e le relative risorse che compongono questo progetto rappresentano una baseline di tipo "configurazione come codice" per l'architettura distribuita. La soluzione viene fornita tramite GitHub, che può essere usato anche per il controllo della configurazione. La soluzione include una funzione di base di configurazione dello stato desiderato (DSC, Desired State Configuration) per ogni macchina virtuale distribuita. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I modelli di Azure Resource Manager e le relative risorse che costituiscono questa soluzione Azure Blueprint rappresentano una base di tipo "configurazione come codice" per l'architettura distribuita. La soluzione viene fornita tramite GitHub, che può essere usato anche per il controllo della configurazione. Nel portale di Azure è disponibile uno script di automazione per tutte le risorse distribuite di cui offre anche una rappresentazione sempre aggiornata.  |
+| **Cliente** | I modelli di Azure Resource Manager e le relative risorse che compongono questo progetto rappresentano una baseline di tipo "configurazione come codice" per l'architettura distribuita. La soluzione viene fornita tramite GitHub, che può essere usato anche per il controllo della configurazione. Nel portale di Azure è disponibile uno script di automazione per tutte le risorse distribuite di cui offre anche una rappresentazione sempre aggiornata.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali distribuite da questa soluzione Azure Blueprint implementano Windows AppLocker per specificare quali utenti possono installare e/o eseguire applicazioni specifiche. Tutti gli aggiornamenti del sistema operativo Windows sono inoltre firmati digitalmente. |
+| **Cliente** | Le macchine virtuali distribuite da questo progetto implementano Windows AppLocker per specificare quali utenti possono installare e/o eseguire applicazioni specifiche. Tutti gli aggiornamenti del sistema operativo Windows sono inoltre firmati digitalmente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint include una funzione di base di configurazione dello stato desiderato (DSC, Desired State Configuration) per ogni macchina virtuale distribuita. Questi script dichiarativi di PowerShell definiscono e configurano le risorse a cui sono applicati. La funzione di base DSC inclusa per le risorse distribuite da questa soluzione può essere estesa dal cliente per soddisfare le esigenze correlate agli obiettivi. |
+| **Cliente** | Questo progetto include una baseline DSC (Desired State Configuration) per ogni macchina virtuale distribuita. Questi script dichiarativi di PowerShell definiscono e configurano le risorse a cui sono applicati. La funzione di base DSC inclusa per le risorse distribuite da questa soluzione può essere estesa dal cliente per soddisfare le esigenze correlate agli obiettivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint include una funzione di base di configurazione dello stato desiderato (DSC, Desired State Configuration) per ogni macchina virtuale distribuita. Le funzioni di base vengono applicate automaticamente alle macchine virtuali durante la distribuzione usando l'estensione di macchina virtuale di script personalizzati. |
+| **Cliente** | Questo progetto include una baseline DSC (Desired State Configuration) per ogni macchina virtuale distribuita. Le funzioni di base vengono applicate automaticamente alle macchine virtuali durante la distribuzione usando l'estensione di macchina virtuale di script personalizzati. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -539,7 +539,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce Automation DSC che allinea le configurazioni di computer con una configurazione specifica definita dall'organizzazione. |
+| **Cliente** | Questo progetto distribuisce Automation DSC. che allinea le configurazioni di computer con una configurazione specifica definita dall'organizzazione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -553,7 +553,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce Automation DSC per Azure che allinea le configurazioni di computer con una configurazione specifica definita dall'organizzazione ed esegue continuamente il monitoraggio delle modifiche. |
+| **Cliente** | Questo progetto distribuisce Automation DSC di Azure. che allinea le configurazioni di computer con una configurazione specifica definita dall'organizzazione ed esegue continuamente il monitoraggio delle modifiche. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce Automation DSC per Azure Componente di OMS (Operations Management Suite) di Azure, Automation DSC può essere configurato per generare un avviso o per risolvere errori di configurazione, se rilevati. |
+| **Cliente** | Questo progetto distribuisce Automation DSC di Azure. Componente di OMS (Operations Management Suite) di Azure, Automation DSC può essere configurato per generare un avviso o per risolvere errori di configurazione, se rilevati. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questa soluzione Azure Blueprint sono configurate per offrire la funzionalità minima per lo scopo per cui sono implementate. Una funzione di base di configurazione dello stato desiderato (DSC, Desired State Configuration) è inclusa per ogni macchina virtuale distribuita. Questi script dichiarativi di PowerShell definiscono e configurano le risorse a cui sono applicati. La funzione di base DSC inclusa per le risorse distribuite da questa soluzione può essere estesa dal cliente per limitare ulteriormente la funzionalità per soddisfare le esigenze correlate agli obiettivi. |
+| **Cliente** | Le risorse distribuite da questo progetto sono configurate per offrire la funzionalità minima per lo scopo per cui sono implementate. Una funzione di base di configurazione dello stato desiderato (DSC, Desired State Configuration) è inclusa per ogni macchina virtuale distribuita. Questi script dichiarativi di PowerShell definiscono e configurano le risorse a cui sono applicati. La funzione di base DSC inclusa per le risorse distribuite da questa soluzione può essere estesa dal cliente per limitare ulteriormente la funzionalità per soddisfare le esigenze correlate agli obiettivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -595,7 +595,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce il gateway applicazione di Azure e gruppi di sicurezza di rete per limitare l'uso esclusivamente alle porte e ai protocolli necessari. Il gateway applicazione, i gruppi di sicurezza di rete e le funzioni di base DSC per le macchine virtuali possono essere configurati ulteriormente per limitare l'uso di funzioni, porte, protocolli e servizi esclusivamente per la funzionalità desiderata. |
+| **Cliente** | Questo progetto distribuisce il gateway applicazione di Azure e gruppi di sicurezza di rete per limitare l'uso di porte e protocolli esclusivamente a quelli necessari. Il gateway applicazione, i gruppi di sicurezza di rete e le funzioni di base DSC per le macchine virtuali possono essere configurati ulteriormente per limitare l'uso di funzioni, porte, protocolli e servizi esclusivamente per la funzionalità desiderata. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. In Azure Resource Manager è presente un elenco sempre aggiornato di risorse distribuite che può essere personalizzato per contrassegnare e raggruppare risorse per la gestione dell'inventario. Alle risorse distribuite da questa soluzione viene assegnato un tag specifico di risorsa che può essere associato al limite del sistema. |
+| **Cliente** | Questo progetto distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. In Azure Resource Manager è presente un elenco sempre aggiornato di risorse distribuite che può essere personalizzato per contrassegnare e raggruppare risorse per la gestione dell'inventario. Alle risorse distribuite da questa soluzione viene assegnato un tag specifico di risorsa che può essere associato al limite del sistema. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -707,7 +707,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. In Azure Resource Manager è presente un elenco sempre aggiornato di risorse distribuite disponibili per la verifica nel portale di Azure. |
+| **Cliente** | Questo progetto distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. In Azure Resource Manager è presente un elenco sempre aggiornato di risorse distribuite disponibili per la verifica nel portale di Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -721,7 +721,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. Nel pannello delle risorse nel portale di Azure sono elencate tutte le risorse distribuite ed è disponibile pertanto un inventario sempre aggiornato in base alle distribuzione e alla rimozione delle risorse. |
+| **Cliente** | Questo progetto distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. Nel pannello delle risorse nel portale di Azure sono elencate tutte le risorse distribuite ed è disponibile pertanto un inventario sempre aggiornato in base alle distribuzione e alla rimozione delle risorse. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. Nel pannello delle risorse nel portale di Azure sono elencate tutte le risorse distribuite ed è disponibile pertanto un inventario sempre aggiornato in base alle distribuzione e alla rimozione delle risorse. |
+| **Cliente** | Questo progetto distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. Nel pannello delle risorse nel portale di Azure sono elencate tutte le risorse distribuite ed è disponibile pertanto un inventario sempre aggiornato in base alle distribuzione e alla rimozione delle risorse. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. I tag delle risorse di Azure sono coppie chiave/valore che consentono di classificare le risorse per scopi di responsabilità e/o gestione. |
+| **Cliente** | Questo progetto distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. I tag delle risorse di Azure sono coppie chiave/valore che consentono di classificare le risorse per scopi di responsabilità e/o gestione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -791,7 +791,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questa soluzione Azure Blueprint distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. In Azure Resource Manager è presente un elenco di risorse distribuite sempre aggiornato. Alle risorse distribuite da questa soluzione viene assegnato un tag specifico di risorsa che può essere associato al limite del sistema. |
+| **Cliente** | Questo progetto distribuisce tutte le risorse in un gruppo di risorse di Azure Resource Manager. In Azure Resource Manager è presente un elenco di risorse distribuite sempre aggiornato. Alle risorse distribuite da questa soluzione viene assegnato un tag specifico di risorsa che può essere associato al limite del sistema. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -861,7 +861,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Licenze Windows e SQL Server sono incluse per le risorse distribuite da questa soluzione Azure Blueprint. Si tratta di una funzionalità predefinita di Azure. Le organizzazioni con contratti di licenza software esistenti possono prendere in considerazione la distribuzione di modelli di licenza alternativi. |
+| **Cliente** | Sono incluse licenze Windows e SQL Server per le risorse distribuite da questo progetto. Si tratta di una funzionalità predefinita di Azure. Le organizzazioni con contratti di licenza software esistenti possono prendere in considerazione la distribuzione di modelli di licenza alternativi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Licenze Windows e SQL Server sono incluse per le risorse distribuite da questa soluzione Azure Blueprint. Non è necessario che l'utente tenga traccia separatamente dell'uso delle licenze. |
+| **Cliente** | Sono incluse licenze Windows e SQL Server per le risorse distribuite da questo progetto. Non è necessario che l'utente tenga traccia separatamente dell'uso delle licenze. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Non è presente alcuna funzionalità di condivisione file peer-to-peer distribuita da questa soluzione Azure Blueprint. |
+| **Cliente** | Questo progetto non distribuisce alcuna funzionalità di condivisione file peer-to-peer. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

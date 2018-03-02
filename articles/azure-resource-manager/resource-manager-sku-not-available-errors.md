@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 25cea4ae23471d182105ca3f720aaf74f81bf8c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Risolvere gli errori dovuti all'indisponibilità di SKU
 
@@ -46,7 +46,7 @@ Per risolvere questo problema, è necessario determinare gli SKU disponibili in 
 Usare il comando [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) in PowerShell. Filtrare i risultati in base all'area. Per questo comando, è necessaria la versione più recente di PowerShell.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
 ```
 
 I risultati includono un elenco di SKU per la località e le eventuali limitazioni per tale SKU.

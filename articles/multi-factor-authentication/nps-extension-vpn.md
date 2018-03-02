@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1141245739f86a482bb0b5f550fd3b89d1213ce1
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 9b156f80ae2b52ea7cb07bcb2c047d35d07b9154
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -84,7 +84,7 @@ Quando l'estensione Server dei criteri di rete per Azure è integrata con Server
 
 8. All'utente viene concesso l'accesso alla porta virtuale nel server VPN e viene stabilito un tunnel VPN crittografato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questa sezione illustra in modo dettagliato i prerequisiti da completare prima di eseguire l'integrazione di Azure Multi-Factor Authentication con Gateway Desktop remoto. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti:
 
 * Infrastruttura VPN
@@ -300,7 +300,7 @@ In questa sezione si verifica che il client VPN sia autenticato e autorizzato da
 
     ![Finestra Proprietà evento](./media/nps-extension-vpn/image21.png)
 
-## <a name="troubleshooting-radius"></a>Risoluzione dei problemi di RADIUS
+## <a name="troubleshooting-radius"></a>Risoluzione dei problemi nel server RADIUS
 
 Si supponga che la configurazione VPN funzionasse prima della configurazione del server VPN per l'uso di un server RADIUS centralizzato per l'autenticazione e l'autorizzazione. In questo caso, è probabile che il problema sia causato da un errore di configurazione del server RADIUS o dall'uso di una password o un nome utente non valido. Ad esempio, se si usa il suffisso alternativo UPN nel nome utente, il tentativo di accesso potrebbe non riuscire. Usare lo stesso nome di account per ottenere risultati ottimali. 
 
@@ -310,7 +310,7 @@ Per risolvere questi problemi, è consigliabile iniziare esaminando i log eventi
  
 ## <a name="configure-multi-factor-authentication"></a>Configurare Multi-Factor Authentication
 
-Per informazioni di configurazione degli utenti per multi-Factor Authentication, vedere gli articoli [come richiedere la verifica per un utente o gruppo](multi-factor-authentication-get-started-user-states.md) e [Imposta account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md)
+Per informazioni sulla configurazione degli utenti per Multi-Factor Authentication, vedere gli articoli [Come richiedere la verifica in due passaggi per un utente o un gruppo](multi-factor-authentication-get-started-user-states.md) e [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installare e configurare l'estensione Server dei criteri di rete
 
@@ -376,7 +376,7 @@ Per usare lo script, specificare l'estensione con le credenziali amministrative 
 
 1. Eseguire Windows PowerShell come amministratore.
 
-2. Nel prompt dei comandi di PowerShell digitare **cd c:\Programmi\Microsoft\AzureMfa\Config** e premere Invio.
+2. Nel prompt dei comandi di PowerShell digitare **cd "c:\Programmi\Microsoft\AzureMfa\Config"** e premere Invio.
 
 3. Nel prompt dei comandi successivo digitare **.\AzureMfsNpsExtnConfigSetup.ps1** e quindi premere Invio. Lo script verifica che il modulo di PowerShell per Azure AD sia installato. Se non è installato, lo installa.
  

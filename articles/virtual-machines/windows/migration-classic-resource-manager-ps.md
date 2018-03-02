@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 38bc949917f6bb56486ad6267044ef2f19e33fcb
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Eseguire la migrazione di risorse IaaS dal modello classico al modello di Azure Resource Manager tramite Azure PowerShell
 Questi passaggi mostrano come usare i comandi di Azure PowerShell per eseguire la migrazione di risorse IaaS (infrastruttura distribuita come servizio) dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager.
@@ -59,7 +59,7 @@ Per le istruzioni di installazione, vedere [Come installare e configurare Azure 
 Per eseguire la migrazione, è necessario essere aggiunti come coamministratori della sottoscrizione nel [portale di Azure](https://portal.azure.com).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Nel menu Hub, selezionare **Sottoscrizione**. Se questa voce non viene visualizzata, selezionare **Altri servizi**.
+2. Nel menu Hub, selezionare **Sottoscrizione**. Se questa voce non viene visualizzata, selezionare **Tutti i servizi**.
 3. Cercare la voce di sottoscrizione appropriata, quindi esaminare il campo **Ruolo personale**. Per un coamministratore, il valore deve essere _amministratore account_.
 
 Se non è possibile aggiungere un coamministratore, contattare un amministratore o un coamministratore del servizio per essere aggiunti alla sottoscrizione.   

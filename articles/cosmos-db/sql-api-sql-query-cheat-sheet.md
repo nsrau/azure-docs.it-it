@@ -17,15 +17,15 @@ ms.date: 06/05/2017
 ms.author: mimig
 ms.openlocfilehash: 612941eb96f914348e185d12f573a7498292fc5c
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: Foglio informativo di query SQL PDF
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: foglio informativo PDF sulle query SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Il **DB Cosmos Azure: irregolarità finestra delle Query SQL** consente di scrivere rapidamente query per i dati delle API di SQL mediante la visualizzazione di query di database comuni, le parole chiave, le funzioni predefinite e gli operatori di stampa PDF un semplice riferimento foglio. 
+**Azure Cosmos DB: foglio informativo sulle query SQL** consente di scrivere rapidamente query per i dati dell'API SQL visualizzando query di database, parole chiave, funzioni predefinite e operatori comuni in un foglio di riferimento PDF facile da stampare. 
 
 Cosmos DB supporta l'esecuzione di query relazionali, gerarchiche e spaziali su documenti JSON usando [SQL](sql-api-sql-query.md) senza specificare uno schema o indici secondari. Oltre alle parole chiave e agli operatori standard ANSI SQL, Cosmos DB supporta funzioni JavaScript definite dall'utente (UDF), operatori JavaScript e una vasta gamma di funzioni predefinite.
 
@@ -41,7 +41,7 @@ Cosmos DB supporta l'esecuzione di query relazionali, gerarchiche e spaziali su 
 
 ## <a name="more-help-with-writing-sql-queries"></a>Ulteriore assistenza nella scrittura di query SQL
 * Per esplorare le opzioni delle query disponibili in Cosmos DB, vedere [Query di Cosmos DB](sql-api-sql-query.md).
-* Per la documentazione di riferimento correlato, vedere [API di SQL Azure Cosmos DB: riferimento alla sintassi SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Per la documentazione di riferimento correlata, vedere [API SQL per Azure Cosmos DB: riferimento per la sintassi SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Note sulla versione
 Aggiornata il 29/7/2016 per includere TOP.

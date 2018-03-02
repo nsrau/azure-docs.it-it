@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 8c3ceb8a455ea32ebbd1393aa2484b8b8c898ef8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ee8b89ab93fd10129cbb0e0634c5c920a928f1c1
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -63,7 +63,7 @@ Windows Server 2008 R2 SP1 o versione successiva.
 Queste librerie vengono installate automaticamente con l'estensione.
 
 -   [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-   [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 

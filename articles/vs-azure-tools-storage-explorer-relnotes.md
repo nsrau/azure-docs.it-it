@@ -14,25 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: fb47ceb63d45a3e896d55d8c304562cc667d0414
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: d23ddfb881695b2310d379a9112e6ab8305c0cce
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer (anteprima)
 
-Questo articolo contiene le note sulla versione di anteprima di Azure Storage Explorer 0.9.4, nonché sulle versioni precedenti.
+Questo articolo contiene le note sulla versione di anteprima di Azure Storage Explorer 0.9.5, nonché sulle versioni precedenti.
 
 [Microsoft Azure Storage Explorer (anteprima)](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
+
+## <a name="version-095"></a>Version 0.9.5
+02/06/2018
+
+### <a name="download-azure-storage-explorer-095-preview"></a>Download di Azure Storage Explorer 0.9.5 (anteprima)
+- [Azure Storage Explorer 0.9.5 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.5 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.5 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuovo
+
+* Supporto per gli snapshot delle condivisioni file:
+    * Creare e gestire snapshot per le condivisioni file.
+    * Cambiare le viste degli snapshot delle condivisioni file durante l'esplorazione.
+    * Ripristinare le versioni precedenti dei file.
+* Supporto dell'anteprima per Archivio Azure Data Lake:
+    * Connettersi alle risorse di Archivio Azure Data Lake tra più account.
+    * Connettersi e condividere le risorse di Archivio Azure Data Lake tramite gli URI ADL.
+    * Eseguire operazioni di base su file/cartella in modo ricorsivo.
+    * Aggiungere singole cartelle all'Accesso rapido.
+    * Visualizzare le statistiche della cartella.
+
+### <a name="fixes"></a>Correzioni
+* Miglioramenti delle prestazioni di avvio.
+* Varie correzioni di bug.
+
+### <a name="known-issues"></a>Problemi noti
+* Azure Storage Explorer non supporta gli account ADFS.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta di seguito.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* Il pannello delle impostazioni dell'account potrebbe indicare che è necessario immettere nuovamente le credenziali per filtrare le sottoscrizioni.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-094--093"></a>Versione 0.9.4/0.9.3
 21/01/2018
 
 ### <a name="download-azure-storage-explorer-094-preview"></a>Download di Azure Storage Explorer 0.9.4 (anteprima)
-- [Azure Storage Explorer 0.9.4 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.4 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.4 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Download di Azure Storage Explorer 0.9.4 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download di Azure Storage Explorer 0.9.4 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download di Azure Storage Explorer 0.9.4 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nuovo
 * La finestra Storage Explorer esistente verrà nuovamente usata nei casi seguenti:
@@ -76,15 +130,30 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
     sudo apt-get install libgconf-2-4
     ```
 
+## <a name="previous-releases"></a>Versioni precedenti
+
+* [Versione 0.9.2](#version-092)
+* [Versione 0.9.1/0.9.0](#version-091)
+* [ 0.8.16](#version-0816)
+* [Versione 0.8.14](#version-0814)
+* [Versione 0.8.13](#version-0813)
+* [Versione 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
+* [Versione 0.8.9/0.8.8](#version-089--088)
+* [Versione 0.8.7](#version-087)
+* [Versione 0.8.6](#version-086)
+* [Versione 0.8.5](#version-085)
+* [Versione 0.8.4](#version-084)
+* [Versione 0.8.3](#version-083)
+* [Versione 0.8.2](#version-082)
+* [Versione 0.8.0](#version-080)
+* [Versione 0.7.20160509.0](#version-07201605090)
+* [Versione 0.7.20160325.0](#version-07201603250)
+* [Versione 0.7.20160129.1](#version-07201601291)
+* [Versione 0.7.20160105.0](#version-07201601050)
+* [Versione 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-092"></a>Versione 0.9.2
 11/01/2017
-
-### <a name="download-azure-storage-explorer-092-preview"></a>Download di Azure Storage Explorer 0.9.2 (anteprima)
-* [Download di Azure Storage Explorer 0.9.2 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download di Azure Storage Explorer 0.9.2 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download di Azure Storage Explorer 0.9.2 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-
 
 ### <a name="hotfixes"></a>Hotfix
 * Erano possibili modifiche impreviste dei dati durante la modifica dei valori Edm.DateTime per le entità di tabella in base al fuso orario locale. Ora l'editor usa una casella di testo normale, fornendo un controllo preciso e coerente sui valori Edm.DateTime.
@@ -144,32 +213,6 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-## <a name="previous-releases"></a>Versioni precedenti
-
-* [Versione 0.9.1/0.9.0](#version-091)
-* [ 0.8.16](#version-0816)
-* [Versione 0.8.14](#version-0814)
-* [Versione 0.8.13](#version-0813)
-* [Versione 0.8.12/0.8.11/0.8.10](#version-0812--0811--0810)
-* [Versione 0.8.9/0.8.8](#version-089--088)
-* [Versione 0.8.7](#version-087)
-* [Versione 0.8.6](#version-086)
-* [Versione 0.8.5](#version-085)
-* [Versione 0.8.4](#version-084)
-* [Versione 0.8.3](#version-083)
-* [Versione 0.8.2](#version-082)
-* [Versione 0.8.0](#version-080)
-* [Versione 0.7.20160509.0](#version-07201605090)
-* [Versione 0.7.20160325.0](#version-07201603250)
-* [Versione 0.7.20160129.1](#version-07201601291)
-* [Versione 0.7.20160105.0](#version-07201601050)
-* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-091--090-preview"></a>Versione 0.9.1/0.9.0 (anteprima)
 10/20/2017

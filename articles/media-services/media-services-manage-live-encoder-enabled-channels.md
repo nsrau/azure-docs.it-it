@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 ## <a name="overview"></a>Panoramica
@@ -66,8 +66,8 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
 | In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
-| Arresto in corso |Arresto in corso |No (stato temporaneo) |
-| Arrestato |Arrestato |No |
+| Stopping |Stopping |No (stato temporaneo) |
+| Arrestato |Arrestato |No  |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Spegnimento automatico per i canali non usati
 A partire dal 25 gennaio 2016, Servizi multimediali ha distribuito un aggiornamento che interrompe automaticamente un canale (con la codifica live abilitata) dopo che è rimasto in esecuzione in stato di mancato utilizzo per un lungo periodo. Questa condizione si applica ai canali che non hanno programmi attivi e che non hanno ricevuto un feed di contributo di input per un lungo periodo di tempo.
@@ -83,7 +83,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
-> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived sul sito Microsoft.com. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione" vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
+> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived@microsoft.com. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione" vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
 > 
 > 
 
@@ -241,7 +241,7 @@ L'altra opzione valida è **Scte35** (consentita solo se il protocollo di stream
 Flag facoltativo che indica al codificatore live di ignorare i dati di tutti i sottotitoli codificati CEA 708 incorporati nel video in ingresso. Quando il flag è impostato su false (impostazione predefinita), il codificatore rileva e reinserisce i dati CEA 708 nei flussi video di output.
 
 ### <a name="video-stream"></a>Flusso video
-Facoltativo. Descrive il flusso video di input. Se questo campo non è specificato, viene usato il valore predefinito. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
+facoltativo. Descrive il flusso video di input. Se questo campo non è specificato, viene usato il valore predefinito. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
 
 #### <a name="index"></a>Indice
 Indice in base zero che specifica quale flusso video di input dovrà essere elaborato dal codificatore live all'interno del canale. Questa impostazione si applica solo se il protocollo di streaming di inserimento è RTP (MPEG-TS).
@@ -249,7 +249,7 @@ Indice in base zero che specifica quale flusso video di input dovrà essere elab
 Il valore predefinito è zero. È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 Video o H.264 e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
 
 ### <a name="audio-stream"></a>Flusso audio
-Facoltativo. Descrive i flussi audio di input. Se questo campo non è specificato, si applica il valore predefinito specificato. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
+facoltativo. Descrive i flussi audio di input. Se questo campo non è specificato, si applica il valore predefinito specificato. Questa impostazione è consentita solo se il protocollo di streaming di input è impostato su RTP (MPEG-TS).
 
 #### <a name="index"></a>Indice
 È consigliabile effettuare l'invio tramite un singolo flusso di trasporto del programma (SPTS). Se il flusso di input contiene più programmi, il codificatore live all'interno del canale analizza la tabella di mappa dei programmi (PMT, Program Map Table) nell'input, individua quindi gli input che presentano un nome del tipo di flusso MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio e li dispone in base all'ordine specificato nella tabella di mappa dei programmi. L'indice in base zero viene quindi usato per selezionare la voce n in tale disposizione.
@@ -262,7 +262,7 @@ Identificatore lingua del flusso audio, conforme alla specifica ISO 639-2, ad es
 ### <a id="preset"></a>Set di impostazioni del sistema
 Specifica il set di impostazioni che dovrà essere usato dal codificatore live all'interno del canale. Attualmente, l'unico valore consentito è **Default720p** (impostazione predefinita).
 
-Si noti che se sono necessari set di impostazioni personalizzati, si deve contattare amslived in Microsoft.com.
+Se sono necessari set di impostazioni personalizzati, contattare amslived@microsoft.com.
 
 **Default720p** il video sarà codificato nei 7 livelli seguenti.
 
@@ -290,14 +290,14 @@ Quando nel canale è abilitata la codifica live, nella pipeline è presente un c
 
 Di seguito sono elencate le proprietà che è possibile usare quando si inviano segnali pubblicitari. 
 
-### <a name="duration"></a>Durata
+### <a name="duration"></a>Duration
 Durata dell'interruzione pubblicitaria in secondi. Per avviare l'interruzione pubblicitaria, deve essere un valore positivo diverso da zero. Quando è in corso un'interruzione pubblicitaria e la durata è impostata su zero con ID battuta corrispondente all'interruzione pubblicitaria in corso, l'interruzione viene annullata.
 
 ### <a name="cueid"></a>ID battuta
 ID univoco dell'interruzione pubblicitaria che dovrà essere usato dall'applicazione downstream per eseguire le operazioni necessarie. Deve essere un intero positivo. È possibile impostare questo valore su qualsiasi intero positivo casuale oppure usare un sistema upstream per tenere traccia degli ID battuta. Assicurarsi di normalizzare tutti gli ID in interi positivi prima dell'invio tramite l'API.
 
 ### <a name="show-slate"></a>Visualizza slate
-Facoltativo. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
+facoltativo. Segnala al codificatore live di passare all'immagine dello [slate predefinito](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante un'interruzione pubblicitaria e nascondere il feed video in ingresso. Durante la visualizzazione dello slate viene disattivato anche l'audio. Il valore predefinito è **false**. 
 
 L'immagine usata sarà quella specificata tramite la proprietà ID asset dello slate predefinito al momento della creazione del canale. Lo slate verrà esteso per adattarsi alle dimensioni dell'immagine visualizzata. 
 
@@ -306,7 +306,7 @@ L'immagine usata sarà quella specificata tramite la proprietà ID asset dello s
 
 Il codificatore live può essere configurato per passare a un'immagine dello slate e nascondere il segnale video in ingresso in determinate situazioni, ad esempio, durante un'interruzione pubblicitaria. Se non è configurato uno slate, il video di input non viene mascherato durante l'interruzione pubblicitaria.
 
-### <a name="duration"></a>Durata
+### <a name="duration"></a>Duration
 Durata dello slate in secondi. Per avviare lo slate, deve essere un valore positivo diverso da zero. Se è in corso uno slate e viene specificata una durata pari a zero, lo slate in corso verrà terminato.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserisci slate su marcatore di annuncio
@@ -314,7 +314,7 @@ Quando è impostata su true, questa opzione configura il codificatore live in mo
 
 ### <a id="default_slate"></a>ID asset dello slate predefinito
 
-Facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
+facoltativo. Specifica l'ID asset di Servizi multimediali che contiene l'immagine dello slate. Il valore predefinito è Null. 
 
 
 >[!NOTE] 
@@ -365,8 +365,8 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
 | In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
-| Arresto in corso |Arresto in corso |No (stato temporaneo) |
-| Arrestato |Arrestato |No |
+| Stopping |Stopping |No (stato temporaneo) |
+| Arrestato |Arrestato |No  |
 
 > [!NOTE]
 > Attualmente, l'avvio del canale richiede in media 2 minuti ma può richiedere anche più di 20 minuti. La reimpostazione del canale può richiedere fino a 5 minuti.
@@ -381,7 +381,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 * Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Si tratta di una quota flessibile per tutti i nuovi account. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 * Non è possibile modificare il protocollo di input durante l'esecuzione del canale o dei relativi programmi associati. Se sono necessari protocolli diversi, è consigliabile creare canali separati per ciascun protocollo di input.
 * Il costo viene addebitato solo quando il canale è nello stato **In esecuzione** . Per altre informazioni, vedere [questa](media-services-manage-live-encoder-enabled-channels.md#states) sezione.
-* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived in Microsoft.com.
+* Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com.
 * Verificare che lo stato dell'endpoint di streaming da cui si vuole trasmettere il contenuto sia **In esecuzione**.
 * Quando si immettono più tracce di lingua e si esegue la codifica live con Azure, per l'input multilingua è supportato solo RTP. È tuttavia possibile definire fino a otto flussi audio usando MPEG-2 TS su RTP. Non è invece supportato l'inserimento di più tracce audio con RTMP o Smooth Streaming. Quando si esegue la codifica live con [codifiche live locali](media-services-live-streaming-with-onprem-encoders.md), questa limitazione non esiste perché qualsiasi informazione inviata ad AMS passa attraverso un canale senza ulteriori elaborazioni.
 * Il set di impostazioni di codifica usa la nozione di "frequenza fotogrammi massima" di 30 fps. Pertanto, se l'input è 60 fps/59.97 i, i fotogrammi di input vengono eliminati/de-interlacciati a 30/29.97 fps. Se l'input è 50 fps/50 i, i fotogrammi di input vengono eliminati/de-interlacciati a 25 fps. Se l'input è 25 fps, l'output rimane di 25 fps.

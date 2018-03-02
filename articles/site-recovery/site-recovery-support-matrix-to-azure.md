@@ -1,5 +1,5 @@
 ---
-title: Matrice di supporto di Azure Site Recovery per la replica in Azure | Documentazione Microsoft
+title: Matrice di supporto di Azure Site Recovery per la replica in Azure | Microsoft Docs
 description: Riepiloga i sistemi operativi e componenti supportati per Azure Site Recovery
 services: site-recovery
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 426a456f8d979c8fb68b469f01eb68f378e876e8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a17d0918ea5938daf81c469fd6402a7dc9764831
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
@@ -76,8 +76,8 @@ Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop)\*, Win
 >
 > Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di una versione/aggiornamento secondaria della distribuzione.
 >
-> Gli aggiornamenti tra versioni principali di una distribuzione di Linux in una macchina virtuale VMware o un server fisico protetto mediante Azure Site Recovery non sono supportati. Durante l'aggiornamento del sistema operativo tra versioni principali (ad esempio da CentOS 6.* a CentOS 7.*), disabilitare la replica per il computer, aggiornare il sistema operativo del computer e quindi abilitare nuovamente la replica.
-> 
+> Gli aggiornamenti tra versioni principali di una distribuzione di Linux in una macchina virtuale VMware o un server fisico protetto mediante Azure Site Recovery non sono supportati. Durante l'aggiornamento del sistema operativo tra versioni principali (ad esempio da CentOS 6.\* a CentOS 7.\*), disabilitare la replica per il computer, aggiornare il sistema operativo del computer e quindi abilitare nuovamente la replica.
+>
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versioni del kernel Ubuntu supportate per server VMware/fisici
@@ -166,7 +166,7 @@ Percorsi multipli (MPIO)<br></br>Testata con: DSM Microsoft, EMC PowerPath 5.7 S
 VMDK | Sì | N/D
 VHD/VHDX | N/D | Sì
 VM di seconda generazione | N/D | Sì
-EFI/UEFI| Solo migrazione ad Azure per Windows Server 2012 e versioni successive. </br></br> ** Vedere la nota alla fine della tabella.  | Sì
+EFI/UEFI| Migrazione ad Azure per macchine virtuali VMware con Windows Server 2012 e versioni successive. </br></br> ** Vedere la nota alla fine della tabella.  | Sì
 Disco cluster condiviso | No  | No 
 Disco crittografato | No  | No 
 NFS | No  | N/D
@@ -182,10 +182,11 @@ Esclusione disco | Sì | Sì
 Percorsi multipli (MPIO) | N/D | Sì
 
 > [!NOTE]
-> ** È possibile eseguire la migrazione in Azure di macchine virtuali VMware con avvio UEFI o server fisici che eseguono Windows Server 2012 o versioni successive. Si applicano le restrizioni seguenti.
+> ** È possibile eseguire la migrazione in Azure di macchine virtuali VMware con avvio UEFI che eseguono Windows Server 2012 o versioni successive. Si applicano le restrizioni seguenti.
 > - Solo migrazione ad Azure. Il failback nel sito VMware locale non è supportato.
 > - Non sono supportate più di 4 partizioni sul disco del sistema operativo del server.
 > - Richiede il servizio Mobility di Azure Site Recovery versione 9.13 o successiva.
+> - Non supportato per i server fisici.
 
 **Archiviazione di Azure** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
 --- | --- | ---

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8540409c6174ad02bd2d9d57c53e0279f49871
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -38,7 +38,7 @@ Questa esercitazione illustra come creare app Web e piani di servizio app in un 
 Questa esercitazione presuppone che l'utente abbia creato un ambiente del servizio app. Se questa operazione non è ancora stata eseguita, vedere [Creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuovo > Web e dispositivi mobili > App Web**. 
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa > Web e dispositivi mobili > App Web**. 
    
     ![][1]
 2. Selezionare la propria sottoscrizione.  

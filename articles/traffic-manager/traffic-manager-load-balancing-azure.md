@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86867a9d6d2c43e6505b1a06672546a017172bfe
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -63,8 +63,8 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Passaggio 1: creare un profilo di Gestione traffico
 
-1. Nel portale di Azure, fare clic su **Nuovo**, e cercare "Profilo di Gestione traffico" in Marketplace.
-2. Nel pannello **Crea profilo di Gestione traffico**, inserire le seguenti informazioni di base:
+1. Nel portale di Azure fare clic su **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
+2. Immettere le informazioni di base seguenti:
 
   * **Nome**: assegnare al profilo di Gestione traffico un nome del prefisso DNS.
   * **Metodo di routing**: selezionare il criterio per il metodo di routing del traffico. Per altre informazioni sui metodi, vedere [Informazioni sui metodi di routing del traffico di Gestione traffico](traffic-manager-routing-methods.md).
@@ -78,7 +78,7 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 
 ### <a name="step-2-create-the-application-gateways"></a>Passaggio 2: creare il gateway applicazione
 
-1. Nel portale di Azure fare clic su **Nuovo** > **Rete** > **Gateway applicazione** nel pannello a sinistra.
+1. Nel portale di Azure fare clic su **Crea una nuova risorsa** > **Rete** > **Gateway applicazione** nel pannello a sinistra.
 2. Inserire le seguenti informazioni di base sul gateway applicazione:
 
   * **Nome** : nome del gateway applicazione.
@@ -100,15 +100,15 @@ Quando si sceglie un pool back-end, un gateway applicazione configurato con una 
 
 1. Dal gruppo di risorse passare all'istanza del gateway applicazione creata nella sezione precedente.
 2. Nella sezione **Impostazioni** selezionare **Pool back-end**, quindi selezionare **Aggiungi** per aggiungere le macchine virtuali da associare ai pool back-end di livello Web.
-3. Nel pannello **Aggiungi pool back-end** immettere il nome del pool back-end e tutti gli indirizzi IP dei computer presenti nel pool. In questo scenario vengono connessi due pool back-end di server di macchine virtuali.
+3. Immettere il nome del pool back-end e tutti gli indirizzi IP dei computer presenti nel pool. In questo scenario vengono connessi due pool back-end di server di macchine virtuali.
 
-  ![Pannello "Aggiungi pool back-end" del gateway applicazione](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+  !["Aggiungi pool back-end" del gateway applicazione](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Nella sezione **Impostazioni** del gateway applicazione selezionare **Regole** e quindi fare clic sul pulsante **Basata sul percorso** per aggiungere una nuova regola.
 
   ![Pulsante "Basata sul percorso", regole del gateway applicazione](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. Nel pannello **Aggiungi regola basata sul percorso** immettere le informazioni seguenti per configurare la regola.
+5. Immettere le informazioni seguenti per configurare la regola.
 
    Impostazioni di base:
 
@@ -138,13 +138,13 @@ In questo scenario Gestione traffico è connesso ai gateway applicazione (come c
 
   ![Pulsante "Aggiungi" per gli endpoint di Gestione traffico](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. Nel pannello **Aggiungi endpoint** immettere le informazioni seguenti per creare un endpoint:
+3. Immettere le informazioni seguenti per creare un endpoint:
 
   * **Tipo**: selezionare il tipo di endpoint per il bilanciamento del carico. In questo scenario selezionare **Endpoint di Azure** perché ci si sta connettendo alle istanze del gateway applicazione configurate in precedenza.
   * **Nome**: inserire il nome dell'endpoint.
   * **Tipo di risorsa di destinazione**: selezionare **Indirizzo IP pubblico**, quindi, nell'impostazione **Risorsa di destinazione**, selezionare l'IP pubblico del gateway applicazione configurato in precedenza.
 
-   ![Pannello "Aggiungi endpoint" di Gestione traffico](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
+   !["Aggiungi endpoint" di Gestione traffico](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. È ora possibile testare la configurazione accedendovi con il DNS del profilo di Gestione traffico, in questo esempio TrafficManagerScenario.trafficmanager.net. È possibile inviare nuovamente le richieste, attivare/disattivare le macchine virtuali e i server Web creati in aree geografiche differenti e modificare le impostazioni del profilo di Gestione traffico per testare la configurazione.
 
@@ -156,8 +156,8 @@ Se il cluster di database a disponibilità elevata usa SQL Server AlwaysOn, per 
 
 Per altri dettagli sulla configurazione di un servizio di bilanciamento del carico interno, vedere [Creare un servizio di bilanciamento del carico interno nel portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. Nel portale di Azure fare clic su **Nuovo** > **Rete** > **Bilanciamento del carico** nel pannello a sinistra.
-2. Nel pannello **Crea servizio di bilanciamento del carico** scegliere un nome per il servizio di bilanciamento del carico.
+1. Nel portale di Azure fare clic su **Crea una nuova risorsa** > **Rete** > **Bilanciamento del carico** nel pannello a sinistra.
+2. Scegliere un nome per il bilanciamento del carico.
 3. Impostare **Tipo** su **Interno** e scegliere la rete virtuale e la subnet appropriate per il servizio di bilanciamento del carico.
 4. In **Assegnazione indirizzo IP** selezionare **Dinamico** o **Statico**.
 5. In **Gruppo di risorse** scegliere il gruppo di risorse per il servizio di bilanciamento del carico.
@@ -169,18 +169,18 @@ Per altri dettagli sulla configurazione di un servizio di bilanciamento del cari
 1. Dal gruppo di risorse individuare il servizio di bilanciamento del carico creato nei passaggi precedenti.
 2. Nella sezione **Impostazioni** fare clic su **Pool back-end** e quindi fare clic su **Aggiungi** per aggiungere un nuovo pool back-end.
 
-  ![Pannello "Aggiungi pool back-end" di Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+  !["Aggiungi pool back-end" di Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
-3. Nel pannello **Aggiungi pool back-end** immettere il nome del pool back-end.
+3. Immettere il nome del pool back-end
 4. Aggiungere singoli computer o un set di disponibilità per il pool back-end.
 
 #### <a name="configure-a-probe"></a>Configurare un probe
 
 1. Nella sezione **Impostazioni** del servizio di bilanciamento del carico selezionare **Probe** e quindi selezionare **Aggiungi** per aggiungere un nuovo probe.
 
- ![Pannello "Aggiungi probe" di Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+ !["Aggiungi probe" di Load Balancer](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
-2. Nel pannello **Aggiungi probe** immettere il nome del probe.
+2. Immettere il nome per il probe.
 3. Selezionare il **Protocollo** per il probe. Per un database, può essere preferibile un probe TCP anziché un probe HTTP. Per altre informazioni sui probe del servizio di bilanciamento del carico, vedere [Probe del servizio di bilanciamento del carico](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Immettere la **Porta** del database da usare per l'accesso al probe.
 5. In **Intervallo** specificare la frequenza di probe per l'applicazione.
@@ -190,7 +190,7 @@ Per altri dettagli sulla configurazione di un servizio di bilanciamento del cari
 #### <a name="configure-the-load-balancing-rules"></a>Configurare le regole del servizio di bilanciamento del carico
 
 1. Nella sezione **Impostazioni** del servizio di bilanciamento del carico selezionare **Regole di bilanciamento del carico** e quindi selezionare **Aggiungi** per creare una regola.
-2. Nel pannello **Aggiungi regola di bilanciamento del carico** immettere il **Nome** della regola di bilanciamento del carico.
+2. Immettere il **nome** per la regola di bilanciamento del carico.
 3. Impostare le opzioni **Indirizzo IP front-end** del servizio di bilanciamento del carico, **Protocollo** e **Porta**.
 4. In **Porta back-end** specificare la porta da usare nel pool di back-end.
 5. Selezionare il **Pool back-end** e il **Probe** creati nei passaggi precedenti per applicarvi la regola.
@@ -201,7 +201,7 @@ Per altri dettagli sulla configurazione di un servizio di bilanciamento del cari
 
 ### <a name="step-5-connect-web-tier-vms-to-the-load-balancer"></a>Passaggio 5: connettere macchine virtuali di livello Web al servizio di bilanciamento del carico
 
-Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilanciamento del carico nell'applicazione in esecuzione sulle macchine virtuali di livello Web per qualsiasi connessione di database. Questa configurazione è specifica delle applicazioni in esecuzione su tali macchine virtuali. Per configurare l'indirizzo IP e la porta di destinazione, fare riferimento alla documentazione dell'applicazione. Per individuare l'indirizzo IP del front-end, passare al pool di indirizzi IP front-end nel **pannello delle impostazioni del servizio di bilanciamento del carico** nel portale di Azure.
+Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilanciamento del carico nell'applicazione in esecuzione sulle macchine virtuali di livello Web per qualsiasi connessione di database. Questa configurazione è specifica delle applicazioni in esecuzione su tali macchine virtuali. Per configurare l'indirizzo IP e la porta di destinazione, fare riferimento alla documentazione dell'applicazione. Per individuare l'indirizzo IP del front-end, passare al pool di indirizzi IP front-end nelle **impostazioni del servizio di bilanciamento del carico** nel portale di Azure.
 
 ![Riquadro "Pool di indirizzi IP front-end" di Load Balancer](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 

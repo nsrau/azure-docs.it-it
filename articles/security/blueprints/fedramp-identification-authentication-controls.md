@@ -1,6 +1,6 @@
 ---
-title: Automazione FedRAMP di Azure Blueprint - Identificazione e autenticazione
-description: Applicazioni Web per FedRAMP - Identificazione e autenticazione
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Identificazione e autenticazione
+description: Automazione di applicazioni Web per FedRAMP - Identificazione e autenticazione
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5ceac04f3f5c58ac5810dda6c99b40ebc8ad736f
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificazione e autenticazione (IA, Identification and Authentication)
 
 ## <a name="nist-800-53-control-ia-1"></a>Controllo IA-1 NIST 800-53
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti come parte del documento NIST Special Publication 800-53, Revisione 4. Consultare la pubblicazione NIST 800-53 Rev. 4 per informazioni sulle procedure e le indicazioni di test per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
 
 #### <a name="identification-and-authentication-policy-and-procedures"></a>Procedure e criteri di identificazione e autenticazione
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli account creati da Azure Blueprint dispongono di identificatori univoci. Gli account predefiniti con identificatori non univoci vengono disabilitati o rimossi. |
+| **Cliente** | Gli account creati da questo progetto hanno identificatori univoci. Gli account predefiniti con identificatori non univoci vengono disabilitati o rimossi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nessun account condiviso/di gruppo è abilitato nelle risorse distribuite da Azure Blueprint. |
+| **Cliente** | Nessun account condiviso/di gruppo è consentito nelle risorse distribuite da questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso alle risorse distribuito da Azure Blueprint è protetto da attacchi di tipo replay dalla funzionalità incorporata Kerberos di Azure Active Directory, Active Directory e il sistema operativo Windows. Nell'autenticazione Kerberos l'autenticatore inviato dal client contiene dati aggiuntivi, ad esempio un elenco di indirizzi IP crittografato, timestamp di client e durata del ticket. Se un pacchetto viene riprodotto, viene controllato il timestamp. Se il timestamp è precedente o uguale a quello di un autenticatore precedente, il pacchetto viene rifiutato. |
+| **Cliente** | L'accesso alle risorse distribuite da questo progetto è protetto da attacchi di tipo replay dalla funzionalità incorporata Kerberos di Azure Active Directory, Active Directory e il sistema operativo Windows. Nell'autenticazione Kerberos l'autenticatore inviato dal client contiene dati aggiuntivi, ad esempio un elenco di indirizzi IP crittografato, timestamp di client e durata del ticket. Se un pacchetto viene riprodotto, viene controllato il timestamp. Se il timestamp è precedente o uguale a quello di un autenticatore precedente, il pacchetto viene rifiutato. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso alle risorse distribuito da Azure Blueprint è protetto da attacchi di tipo replay dalla funzionalità incorporata Kerberos di Azure Active Directory, Active Directory e il sistema operativo Windows. Nell'autenticazione Kerberos l'autenticatore inviato dal client contiene dati aggiuntivi, ad esempio un elenco di indirizzi IP crittografato, timestamp di client e durata del ticket. Se un pacchetto viene riprodotto, viene controllato il timestamp. Se il timestamp è precedente o uguale a quello di un autenticatore precedente, il pacchetto viene rifiutato. |
+| **Cliente** | L'accesso alle risorse distribuite da questo progetto è protetto da attacchi di tipo replay dalla funzionalità incorporata Kerberos di Azure Active Directory, Active Directory e il sistema operativo Windows. Nell'autenticazione Kerberos l'autenticatore inviato dal client contiene dati aggiuntivi, ad esempio un elenco di indirizzi IP crittografato, timestamp di client e durata del ticket. Se un pacchetto viene riprodotto, viene controllato il timestamp. Se il timestamp è precedente o uguale a quello di un autenticatore precedente, il pacchetto viene rifiutato. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Durante la distribuzione Azure Blueprint richiede gli identificatori specificati dal cliente per i singoli account.  |
+| **Cliente** | Durante la distribuzione questo progetto richiede gli identificatori specificati dal cliente per i singoli account.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint implementa un'attività pianificata per Active Directory per disabilitare automaticamente gli account dopo 35 giorni di inattività. |
+| **Cliente** | Questo progetto implementa un'attività pianificata per Active Directory per disabilitare automaticamente gli account dopo 35 giorni di inattività. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutto il contenuto iniziale degli autenticatori degli account creati da Azure Blueprint soddisfa i requisiti indicati in IA-5 (1) verificati quando specificato dall'utente durante la distribuzione.  |
+| **Cliente** | Tutto il contenuto iniziale degli autenticatori degli account creati da questo progetto soddisfa i requisiti indicati in IA-5 (1) verificati quando specificato dall'utente durante la distribuzione.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli autenticatori usati da Azure Blueprint soddisfano i requisiti di complessità richiesti da FedRAMP. |
+| **Cliente** | Gli autenticatori usati da questo progetto soddisfano i requisiti di complessità richiesti da FedRAMP. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti i valori predefiniti degli autenticatori per i componenti di Azure Blueprint sono stati modificati. Gli autenticatori sono specificati dal cliente durante la distribuzione di questa soluzione. |
+| **Cliente** | Tutti i valori predefiniti degli autenticatori per i componenti di questo progetto sono stati modificati. Gli autenticatori sono specificati dal cliente durante la distribuzione di questa soluzione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint distribuisce un controller di dominio a cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per implementare le restrizioni di durata delle password (60 giorni). |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per implementare le restrizioni di durata delle password (60 giorni). |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint implementa Key Vault per proteggere i contenuti degli autenticatori da divulgazione e modifica non autorizzate. Gli autenticatori seguenti vengono archiviati in Key Vault: la password di Azure per la distribuzione degli account, la password dell'amministratore delle macchine virtuali, la password dell'account del servizio SQL Server. |
+| **Cliente** | Questo progetto implementa Key Vault per proteggere i contenuti degli autenticatori da divulgazione e modifica non autorizzate. Gli autenticatori seguenti vengono archiviati in Key Vault: la password di Azure per la distribuzione degli account, la password dell'amministratore delle macchine virtuali, la password dell'account del servizio SQL Server. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint implementa Key Vault per proteggere i contenuti degli autenticatori da divulgazione e modifica non autorizzate. Gli autenticatori seguenti vengono archiviati in Key Vault: la password di Azure per la distribuzione degli account, la password dell'amministratore delle macchine virtuali, la password dell'account del servizio SQL Server. Key Vault esegue la crittografia delle chiavi e dei segreti, come le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati e le password, usando chiavi protette da moduli di protezione hardware (HSM). |
+| **Cliente** | Questo progetto implementa Key Vault per proteggere i contenuti degli autenticatori da divulgazione e modifica non autorizzate. Gli autenticatori seguenti vengono archiviati in Key Vault: la password di Azure per la distribuzione degli account, la password dell'amministratore delle macchine virtuali, la password dell'account del servizio SQL Server. Key Vault esegue la crittografia delle chiavi e dei segreti, come le chiavi di autenticazione, le chiavi dell'account di archiviazione, le chiavi di crittografia dei dati e le password, usando chiavi protette da moduli di protezione hardware (HSM). |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nessun account condiviso/di gruppo è abilitato nelle risorse distribuite da Azure Blueprint. |
+| **Cliente** | Nessun account condiviso/di gruppo è consentito nelle risorse distribuite da questo progetto. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint distribuisce un controller di dominio a cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per applicare i requisiti di complessità delle password per gli account locali delle macchine virtuali e per gli account AD.  |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per applicare i requisiti di complessità delle password per gli account locali delle macchine virtuali e per gli account AD.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint distribuisce un controller di dominio a cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per applicare restrizioni a livello di password che applicano una restrizione di durata minima (1 giorno) e massima (60 giorni) per gli account locali e gli account AD. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per applicare restrizioni a livello di password che applicano una restrizione di durata minima (1 giorno) e massima (60 giorni) per gli account locali e gli account AD. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint distribuisce un controller di dominio a cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per applicare restrizioni sulle condizioni di riutilizzo (24 password) per gli account locali e gli account AD. |
+| **Cliente** | Questo progetto distribuisce un controller di dominio cui vengono aggiunte tutte le macchine virtuali distribuite. Vengono stabiliti e configurati criteri di gruppo per applicare restrizioni sulle condizioni di riutilizzo (24 password) per gli account locali e gli account AD. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -581,7 +581,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli account utente distribuiti con Azure Blueprint includono AD e gli account utente locali. Entrambi forniscono meccanismi che forzano la conformità con i requisiti stabiliti per la creazione delle password iniziali e per la modifica delle password. Azure Active Directory è lo strumento automatico usato per determinare se gli autenticatori di password sono sufficientemente complessi da soddisfare le restrizioni relative a lunghezza, complessità, rotazione e durata delle password definite in IA-5 (1). Azure Active Directory assicura che la complessità dell'autenticatore di password nella fase di creazione rispetti questi standard. Le password specificate dai clienti usate per distribuire questa soluzione vengono controllate per verificare che soddisfino i requisiti di complessità. |
+| **Cliente** | Gli account utente distribuiti con questo progetto includono AD e gli account utente locali. Entrambi forniscono meccanismi che forzano la conformità con i requisiti stabiliti per la creazione delle password iniziali e per la modifica delle password. Azure Active Directory è lo strumento automatico usato per determinare se gli autenticatori di password sono sufficientemente complessi da soddisfare le restrizioni relative a lunghezza, complessità, rotazione e durata delle password definite in IA-5 (1). Azure Active Directory assicura che la complessità dell'autenticatore di password nella fase di creazione rispetti questi standard. Le password specificate dai clienti usate per distribuire questa soluzione vengono controllate per verificare che soddisfino i requisiti di complessità. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Azure Blueprint non fa alcun uso di autenticatori statici non crittografati incorporati in applicazioni, script di accesso o tasti funzione. Qualsiasi script o applicazione che usa un autenticatore effettua una chiamata a un contenitore di Azure Key Vault prima di ogni uso. L'accesso ai contenitori di Azure Key Vault viene controllato e ciò consente il rilevamento di violazioni del divieto, nel caso in cui un account del servizio venga usato per accedere a un sistema senza una chiamata corrispondente al contenitore di Azure Key Vault. |
+| **Cliente** | Questo progetto non fa alcun uso di autenticatori statici non crittografati incorporati in applicazioni, script di accesso o tasti funzione. Qualsiasi script o applicazione che usa un autenticatore effettua una chiamata a un contenitore di Azure Key Vault prima di ogni uso. L'accesso ai contenitori di Azure Key Vault viene controllato e ciò consente il rilevamento di violazioni del divieto, nel caso in cui un account del servizio venga usato per accedere a un sistema senza una chiamata corrispondente al contenitore di Azure Key Vault. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Nessuna risorsa distribuita da Azure Blueprint è configurata per consentire l'uso degli autenticatori memorizzati nella cache. L'autenticazione in macchine virtuali distribuite richiede l'immissione di un autenticatore al momento dell'autenticazione. |
+| **Cliente** | Nessuna risorsa distribuita da questo progetto è configurata per consentire l'uso degli autenticatori memorizzati nella cache. L'autenticazione in macchine virtuali distribuite richiede l'immissione di un autenticatore al momento dell'autenticazione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso alle risorse distribuite da Azure Blueprint avviene da Desktop remoto e si basa sull'autenticazione di Windows. Il comportamento predefinito delle sessioni di autenticazione di Windows nasconde le password mentre si inseriscono durante una sessione di autenticazione.  |
+| **Cliente** | L'accesso alle risorse distribuite da questo progetto avviene da Desktop remoto e si basa sull'autenticazione di Windows. Il comportamento predefinito delle sessioni di autenticazione di Windows nasconde le password mentre si inseriscono durante una sessione di autenticazione.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'autenticazione di Windows, desktop remoto e BitLocker vengono usati da Azure Blueprint. Questi componenti possono essere configurati per basarsi su moduli di crittografia convalidati FIPS 140. |
+| **Cliente** | Questo progetto usa l'autenticazione di Windows, Desktop remoto e BitLocker. Questi componenti possono essere configurati per basarsi su moduli di crittografia convalidati FIPS 140. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

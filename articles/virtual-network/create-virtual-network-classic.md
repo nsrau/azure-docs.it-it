@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creare una rete virtuale (classica) con più subnet
 
@@ -39,10 +39,10 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 ## <a name="portal"></a>Portale
 
 1. In un browser Internet passare al [Portale di Azure](https://portal.azure.com). Accedere usando l'[account Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
-2. Fare clic su **+Nuovo** nel portale.
-3. Immettere *Rete virtuale* nella casella **Cerca nel Marketplace** nella parte superiore del pannello **Nuovo** visualizzato.  Fare clic su **Rete virtuale** quando viene visualizzato nei risultati della ricerca.
-4. Nel pannello **Rete virtuale** visualizzato selezionare **Classico** nella casella **Selezionare un modello di distribuzione** e fare clic su **Crea**. 
-5. Nel pannello **Crea rete virtuale (classica)** immettere i valori seguenti e quindi fare clic su **Crea**:
+2. Nel portale fare clic su **Crea una risorsa**.
+3. Immettere *Rete virtuale* nella casella **Cerca nel Marketplace** nella parte superiore del riquadro **Nuovo** visualizzato. Fare clic su **Rete virtuale** quando viene visualizzato nei risultati della ricerca.
+4. Nel riquadro **Rete virtuale** visualizzato selezionare **Classico** nella casella **Selezionare un modello di distribuzione** e fare clic su **Crea**. 
+5. Nel riquadro **Crea rete virtuale (classica)** immettere i valori seguenti e quindi fare clic su **Crea**:
 
     |Impostazione|Valore|
     |---|---|
@@ -55,13 +55,13 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
     Se non si ha familiarità con Azure, acquisire altre informazioni su [gruppi di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [sottoscrizioni](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [località](https://azure.microsoft.com/regions), dette anche *aree*.
 4. Quando si crea una rete virtuale nel portale, è possibile creare una sola subnet. In questa esercitazione verrà creata una seconda subnet dopo la creazione della rete virtuale. In seguito sarà quindi possibile creare risorse accessibili da Internet nella subnet **pubblica**. Sarà anche possibile creare risorse non accessibili da Internet in una subnet **privata**. Per creare la seconda subnet immettere **myVnet** nella casella **Cerca risorse** nella parte superiore della pagina. Fare clic su **myVnet** quando questo elemento viene visualizzato nei risultati della ricerca.
-5. Fare clic su **Subnet** nella sezione **IMPOSTAZIONI** del pannello **Crea rete virtuale (classica)** visualizzato.
-6. Fare clic su **+ Aggiungi** nel pannello **myVnet - subnet** visualizzato.
-7. Immettere **Privata** per **Nome** nel pannello **Aggiungi subnet**. Immettere **10.0.1.0/24** per **Intervallo indirizzi**.  Fare clic su **OK**.
-8. Nel pannello **myVnet - subnet** è possibile visualizzare le subnet **pubblica** e **privata** create.
+5. Fare clic su **Subnet** nella sezione **IMPOSTAZIONI** del riquadro **Crea rete virtuale (classica)** visualizzato.
+6. Fare clic su **+ Aggiungi** nel riquadro **myVnet - subnet** visualizzato.
+7. Immettere **Privata** per **Nome** nel riquadro **Aggiungi subnet**. Immettere **10.0.1.0/24** per **Intervallo indirizzi**.  Fare clic su **OK**.
+8. Nel riquadro **myVnet - subnet** è possibile visualizzare le subnet **pubblica** e **privata** create.
 9. **Facoltativo**: al termine di questa esercitazione è possibile eliminare le risorse create per non incorrere in costi di utilizzo:
-    - Fare clic su **Panoramica** nel pannello **myVnet**.
-    - Fare clic sull'icona **Elimina** nel pannello **myVnet**.
+    - Fare clic su **Panoramica** nel riquadro **myVnet**.
+    - Fare clic sull'icona **Elimina** nel riquadro **myVnet**.
     - Per confermare l'eliminazione, nella casella **Elimina rete virtuale** fare clic su **Sì**.
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

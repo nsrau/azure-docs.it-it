@@ -1,5 +1,5 @@
 ---
-title: Eseguire query di analisi su database | Microsoft Docs
+title: "Eseguire l'analisi su più tenant con dati estratti| Microsoft Docs"
 description: "Query di analisi su più tenant con dati estratti da diversi database SQL di Azure."
 keywords: esercitazione database SQL
 services: sql-database
@@ -15,18 +15,18 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analisi su più tenant con dati estratti
 
-Questa esercitazione illustra in dettaglio uno scenario di analisi completo. Lo scenario dimostra come l'analisi possa consentire alle aziende di prendere decisioni oculate. Con i dati estratti dal database di ogni tenant, si usa l'analisi per ottenere informazioni dettagliate sul comportamento dei tenant, ad esempio sul rispettivo uso dell'applicazione SaaS Wingtip Tickets di esempio. Questo scenario include tre passaggi: 
+Questa esercitazione illustra in dettaglio uno scenario di analisi completo. Lo scenario dimostra come l'analisi possa consentire alle aziende di prendere decisioni oculate. Con i dati estratti dal database di ogni tenant, si usa l'analisi per ottenere informazioni dettagliate sul comportamento dei tenant e l'uso dell'applicazione. Questo scenario include tre passaggi: 
 
-1.  **Estrarre i dati** dal database di ogni tenant a un archivio di analisi.
-2.  **Ottimizzare i dati estratti** per l'elaborazione dell'analisi.
+1.  **Estrarre** i dati dal database di ogni tenant e **caricarli** in un archivio di analisi.
+2.  **Trasformare i dati estratti** per l'elaborazione dell'analisi.
 3.  Usare strumenti di **business intelligence** per ottenere informazioni dettagliate utili su cui basare il processo decisionale. 
 
 In questa esercitazione si apprenderà come:
@@ -42,29 +42,28 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="offline-tenant-analytics-pattern"></a>Modello di analisi dei tenant offline
 
-Le applicazioni SaaS sviluppate hanno accesso a un'elevata quantità di dati dei tenant archiviati nel cloud. I dati costituiscono un'esauriente fonte di informazioni dettagliate sul funzionamento e l'utilizzo dell'applicazione e sul comportamento dei tenant. Tali informazioni dettagliate possono essere utili come base per lo sviluppo di funzionalità, miglioramenti dell'usabilità e altri investimenti per l'app e la piattaforma.
+Le applicazioni SaaS multi-tenant in genere hanno un'elevata quantità di dati dei tenant archiviati nel cloud. Questi dati costituiscono un'esauriente fonte di informazioni dettagliate sul funzionamento e l'utilizzo dell'applicazione e sul comportamento dei tenant. Tali informazioni dettagliate possono essere utili come base per lo sviluppo di funzionalità, miglioramenti dell'usabilità e altri investimenti per l'app e la piattaforma.
 
-L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in migliaia di database. Un modo per superare tale complessità consiste nell'estrarre i dati in un database o un data warehouse di analisi. Si eseguono quindi query sull'archivio di analisi per raccogliere informazioni dettagliate dai dati relativi ai biglietti di tutti i tenant.
+L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in potenzialmente migliaia di database. Un modo per superare tale complessità e per ridurre l'impatto delle query di analisi sui dati transazionali consiste nell'estrarre i dati in un database o un data warehouse di analisi progettato specificatamente.
 
-Questa esercitazione presenta uno scenario di analisi completo per questa applicazione SaaS di esempio. Per prima cosa, si usano processi elastici per pianificare l'estrazione dei dati dal database di ogni tenant. I dati vengono inviati a un archivio di analisi, che può essere un database SQL o un'istanza di SQL Data Warehouse. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../data-factory/introduction.md).
+Questa esercitazione presenta uno scenario di analisi completo per l'applicazione SaaS Wingtip Tickets. Prima viene usato *Processi elastici* per estrarre i dati da ogni database tenant e caricarli nelle tabelle di staging in un archivio di analitica, che può essere un database SQL o un'istanza di SQL Data Warehouse. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../data-factory/introduction.md).
 
-I dati aggregati vengono quindi suddivisi in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate:
+I dati aggregati vengono quindi trasformati in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate.  Per Wingtip Tickets:
 
 - La tabella dei fatti centrale dello schema star contiene i dati relativi ai biglietti.
-- Le tabelle delle dimensioni contengono i dati relativi alle sedi, agli eventi, ai clienti e alle date di acquisto.
+- Le tabelle delle dimensioni descrivono i dati relativi alle sedi, agli eventi, ai clienti e alle date di acquisto.
 
-Insieme, la tabella centrale e quelle delle dimensioni supportano un'elaborazione analitica efficiente. L'immagine seguente illustra lo schema star usato in questa esercitazione:
+Insieme, la tabella dei fatti centrale e le tabelle delle dimensioni supportano un'elaborazione analitica efficiente. L'immagine seguente mostra lo schema star usato in questa esercitazione:
  
 ![architectureOverView](media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Vengono infine eseguite query sulle tabelle dello schema star. I risultati delle query vengono visualizzati in modo da evidenziare informazioni dettagliate sul comportamento dei tenant e sul rispettivo uso dell'applicazione. Con questo schema star, è possibile eseguire query che consentono di individuare elementi come i seguenti:
+Infine, viene eseguita una query dell'archivio di analisi usando **PowerBI** per evidenziare le informazioni dettagliate sul comportamento dei tenant e l'uso dell'applicazione Wingtip Tickets. Eseguire query che:
+ 
+- Mostrano la popolarità relativa di ogni sede
+- Evidenziano modelli nelle vendite di ticket per diversi eventi
+- Mostrano il successo relativo di diverse sedi nella vendita dei relativi eventi
 
-- Acquirenti dei biglietti e relativa sede.
-- Modelli e tendenze nascosti nelle aree seguenti:
-    - Vendite di biglietti.
-    - Popolarità relativa di ogni sede.
-
-Comprendendo quanto viene usato il servizio da ogni tenant è possibile creare piani di servizio per soddisfarne le esigenze. Questa esercitazione offre esempi di base delle informazioni dettagliate che è possibile ricavare dai dati dei tenant.
+Le informazioni sulle modalità in cui ogni tenant usa il servizio vengono usate per esplorare le opzioni per monetizzare e migliorare il servizio per aiutare i tenant a essere più efficienti. Questa esercitazione offre esempi di base del tipo di informazioni dettagliate che è possibile ricavare dai dati dei tenant.
 
 ## <a name="setup"></a>Configurazione
 
@@ -76,7 +75,7 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 - Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) dell'applicazione SaaS di database per tenant Wingtip Tickets sono stati scaricati da GitHub. Vedere le istruzioni di download. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 - Power BI Desktop è installato. Scaricare [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 - È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l'[**esercitazione sul provisioning di tenant**](saas-dbpertenant-provision-and-catalog.md).
-- Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell'[**esercitazione sulla gestione dello schema**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
+- Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell'[**esercitazione sulla gestione dello schema**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Creare dati per la dimostrazione
 

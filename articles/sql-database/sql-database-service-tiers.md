@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: af845d62b8e635449ada98cdea23f407815ffeb0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: c0dc3181d3cd5c642dfca1c0f6031b83726478c0
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quali sono i livelli di servizio del database SQL di Azure?
 
-Il [database SQL di Azure](sql-database-technical-overview.md) offre i livelli di servizio **Basic**, **Standard**, **Premium** e **Premium RS** per i [database singoli](sql-database-single-database-resources.md) e i [pool elastici](sql-database-elastic-pool.md). Le principali differenze tra i livelli di servizio sono dovute alla gamma di opzioni relative a livello di prestazioni, dimensioni di archiviazione e prezzo.  Tutti i livelli di servizio assicurano la flessibilità necessaria per modificare le dimensioni di archiviazione e il livello di prestazioni.  I database singoli e i pool elastici vengono fatturati su base oraria in base al livello di servizio, al livello di prestazioni e alle dimensioni di archiviazione.   
+Il [database SQL di Azure](sql-database-technical-overview.md) offre i livelli di servizio **Basic**, **Standard** e **Premium** per i [database singoli](sql-database-single-database-resources.md) e i [pool elastici](sql-database-elastic-pool.md). Le principali differenze tra i livelli di servizio sono dovute alla gamma di opzioni relative a livello di prestazioni, dimensioni di archiviazione e prezzo.  Tutti i livelli di servizio assicurano la flessibilità necessaria per modificare le dimensioni di archiviazione e il livello di prestazioni.  I database singoli e i pool elastici vengono fatturati su base oraria in base al livello di servizio, al livello di prestazioni e alle dimensioni di archiviazione.   
 
 ## <a name="choosing-a-service-tier"></a>Scelta di un piano di servizio
 
 La scelta di un livello di servizio dipende soprattutto dai requisiti in termini di continuità aziendale, archiviazione e prestazioni.
-| | **Basic** | **Standard** |**Premium** |**Premium RS** |
+| | **Basic** | **Standard** |**Premium**  |
 | :-- | --: |--:| --:| --:| 
-|Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione|Carico di lavoro in grado di tollerare la perdita di dati fino a 5 minuti a causa di errori del servizio|
+|Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione||
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|N/d in anteprima|
-|Conservazione backup|7 giorni|35 giorni|35 giorni|35 giorni|
-|CPU|Basso|Basso, medio, elevato|Medio, elevato|Media|
-|Velocità effettiva di I/O|Basso  | Media | Ordine di grandezza superiore a Standard|Come Premium|
-|Latenza di I/O|Superiore a Premium|Superiore a Premium|Inferiore a Basic e Standard|Come Premium|
-|Indici ColumnStore e OLTP in memoria|N/D|N/D|Supportato|Supportato|
+|Conservazione backup|7 giorni|35 giorni|35 giorni|
+|CPU|Basso|Basso, medio, elevato|Medio, elevato|
+|Velocità effettiva di I/O|Basso  | Media | Ordine di grandezza superiore a Standard|
+|Latenza di I/O|Superiore a Premium|Superiore a Premium|Inferiore a Basic e Standard|
+|Indici ColumnStore e OLTP in memoria|N/D|N/D|Supportato|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Livello di prestazioni e limiti delle dimensioni di archiviazione
@@ -46,21 +46,21 @@ I livelli di prestazioni per i database singoli sono espressi in unità di trans
 
 ### <a name="single-databases"></a>Database singoli
 
-|  | **Basic** | **Standard** | **Premium** | **Premium RS**|
+|  | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Dimensioni massime di archiviazione* | 2 GB | 1 TB | 4 TB  | 1 TB  |
-| DTU massime | 5 | 3000 | 4000 | 1000 |
+| Dimensioni massime di archiviazione* | 2 GB | 1 TB | 4 TB  | 
+| DTU massime | 5 | 3000 | 4000 | |
 ||||||
 
 ### <a name="elastic-pools"></a>Pool elastici
 
-| | **Basic** | **Standard** | **Premium** | **Premium RS**|
+| | **Basic** | **Standard** | **Premium** | 
 | :-- | --: | --: | --: | --: |
-| Dimensioni massime di archiviazione per ogni database*  | 2 GB | 1 TB | 1 TB | 1 TB |
-| Dimensioni massime di archiviazione per ogni pool* | 156 GB | 4 TB | 4 TB | 1 TB |
-| Numero massimo di eDTU per ogni database | 5 | 3000 | 4000 | 1000 |
-| Numero massimo di eDTU per ogni pool | 1600 | 3000 | 4000 | 1000 |
-| Numero massimo di database per pool | 500  | 500 | 100 | 100 |
+| Dimensioni massime di archiviazione per ogni database*  | 2 GB | 1 TB | 1 TB | 
+| Dimensioni massime di archiviazione per ogni pool* | 156 GB | 4 TB | 4 TB | 
+| Numero massimo di eDTU per ogni database | 5 | 3000 | 4000 | 
+| Numero massimo di eDTU per ogni pool | 1600 | 3000 | 4000 | 
+| Numero massimo di database per pool | 500  | 500 | 100 | 
 ||||||
 
 > [!IMPORTANT]

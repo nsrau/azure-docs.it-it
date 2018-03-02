@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -51,7 +51,7 @@ L'applicazione di esempio genera eventi e ne esegue il push a un hub eventi di A
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Creare uno spazio dei nomi dell'hub eventi e un hub eventi
 In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si aggiungerà un hub eventi a tale spazio. Gli spazi dei nomi degli hub eventi consentono di raggruppare in modo logico le istanze dei bus di eventi correlate. 
 
-1. Accedere al portale di Azure e fare clic su **Nuovo** > **Internet delle cose** > **Hub eventi**. 
+1. Accedere al portale di Azure e fare clic su **Crea una risorsa** > **Internet delle cose** > **Hub eventi**. 
 
 2. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi, ad esempio `<yourname>-socialtwitter-eh-ns`. È possibile usare qualsiasi nome per lo spazio dei nomi, a condizione che sia valido per un URL e univoco in Azure. 
     
@@ -200,7 +200,7 @@ La procedura seguente illustra entrambi gli approcci.
 
 Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, è possibile impostare un processo di Analisi di flusso per analizzare questi eventi in tempo reale.
 
-1. Nel portale di Azure fare clic su **Nuovo** > **Internet delle cose** > **Processo di Analisi di flusso**.
+1. Nel portale di Azure fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
 
 2. Assegnare il nome `socialtwitter-sa-job` al processo, specificare una sottoscrizione, un gruppo di risorse e un percorso.
 

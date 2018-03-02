@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c9e268aad5d3a7dcde9102216e9b3e8abfcca2cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2dca671d4813dac0709dacb17d39cd3af3b3292c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD
 
@@ -31,11 +31,11 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
+2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
+4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
@@ -43,11 +43,11 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
+7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi** per aprire il pannello **Aggiungi assegnazione**.
+8.  Per aprire il riquadro **Aggiungi assegnazione**, fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi**.
 
-9.  Fare clic sul selettore **Utenti e gruppi** nel pannello **Aggiungi assegnazione**.
+9.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
 10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
@@ -57,7 +57,7 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa p
 
 13. Dopo avere selezionato gli utenti, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
-14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel pannello **Aggiungi assegnazione** per scegliere un ruolo da assegnare agli utenti selezionati.
+14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel riquadro **Aggiungi assegnazione** per scegliere un ruolo da assegnare agli utenti selezionati.
 
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione agli utenti selezionati.
 
@@ -69,11 +69,11 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
+2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
+4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
@@ -81,11 +81,11 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 6.  Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione.
+7.  Dopo il caricamento dell'applicazione, fare clic su **Utenti e gruppi** nel menu di spostamento di sinistra dell'applicazione.
 
-8.  Fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi** per aprire il pannello **Aggiungi assegnazione**.
+8.  Per aprire il riquadro **Aggiungi assegnazione**, fare clic sul pulsante **Aggiungi** nella parte superiore dell'elenco **Utenti e gruppi**.
 
-9.  Fare clic sul selettore **Utenti e gruppi** nel pannello **Aggiungi assegnazione**.
+9.  Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
 10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo del gruppo** a cui si vuole eseguire l'assegnazione.
 
@@ -95,7 +95,7 @@ Per assegnare uno o più gruppi direttamente a un'applicazione, seguire questa p
 
 13. Dopo avere selezionato i gruppi, fare clic sul pulsante **Seleziona** per aggiungerli all'elenco di utenti e gruppi da assegnare all'applicazione.
 
-14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel pannello **Aggiungi assegnazione** per scegliere un ruolo da assegnare ai gruppi selezionati.
+14. **Facoltativo:** fare clic sul selettore **Seleziona ruolo** nel riquadro **Aggiungi assegnazione** per scegliere un ruolo da assegnare ai gruppi selezionati.
 
 15. Fare clic sul pulsante **Assegna** per assegnare l'applicazione ai gruppi selezionati.
 

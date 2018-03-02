@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: jgao
-ms.openlocfilehash: 864d34306dad2915a15b032a27600cefdc632bb9
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e1d7b46aeaf8f21fdf2942f986643746dad3313
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Spark per creare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -34,7 +34,7 @@ Informazioni su come usare **MLlib** Spark per creare un'applicazione di Machine
 
 MLlib è una libreria Spark di base che fornisce diverse utilità che agevolano le attività di Machine Learning, incluse utilità adatte a:
 
-* classificazione
+* Classificazione
 * Regressione
 * Clustering
 * Modellazione di argomenti
@@ -69,7 +69,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 1. Un nuovo notebook verrà creato e aperto con il nome Untitled.pynb. Fare clic sul nome del notebook nella parte superiore e immettere un nome descrittivo.
 
     ![Specificare un nome per il notebook](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-name-jupyter.png "Specificare un nome per il notebook")
-1. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare a compilare l'applicazione di Machine Learning  importando i tipi necessari per questo scenario. A tale scopo, posizionare il cursore nella cella e premere **MAIUSC + INVIO**.
+1. Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. È possibile iniziare a compilare l'applicazione di Machine Learning importando i tipi necessari per questo scenario. A tale scopo, posizionare il cursore nella cella e premere **MAIUSC + INVIO**.
 
         from pyspark.ml import Pipeline
         from pyspark.ml.classification import LogisticRegression
@@ -79,9 +79,9 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
         from pyspark.sql.types import *
 
 ## <a name="construct-an-input-dataframe"></a>Creare un frame di dati di input
-È possibile che venga usato `sqlContext` per eseguire trasformazioni sui dati strutturati. La prima attività è il caricamento dei dati di esempio (**Food_Inspections1.csv**) in un *frame di dati* Spark SQL.
+È possibile usare `sqlContext` per eseguire trasformazioni sui dati strutturati. La prima attività è il caricamento dei dati di esempio (**Food_Inspections1.csv**) in un *frame di dati* Spark SQL.
 
-1. Poiché i dati non elaborati sono in formato con estensione csv, è necessario usare il contesto Spark per eseguire il pull di ogni riga del file nella memoria come testo non strutturato, quindi si usa la libreria CSV di Python per analizzare ogni singola riga.
+1. Poiché i dati non elaborati sono in formato CSV, è necessario usare il contesto Spark per eseguire il pull di ogni riga del file nella memoria come testo non strutturato. Si usa quindi la libreria CSV di Python per analizzare ogni singola riga.
 
         def csvParse(s):
             import csv
@@ -93,7 +93,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
         inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                         .map(csvParse)
-1. Il file con estensione csv ora è disponibile come RDD.  Per comprendere lo schema dei dati, viene recuperata una riga da RDD.
+1. Si ottiene così il file in formato CVS da usare come RDD (Resilient Distributed Dataset).  Per comprendere lo schema dei dati, si recupera una riga dall'RDD.
 
         inspections.take(1)
 
@@ -120,7 +120,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
           '41.97583445690982',
           '-87.7107455232781',
           '(41.97583445690982, -87.7107455232781)']]
-1. L'output precedente dà un'idea dello schema del file di input. Include nome, tipo, indirizzo di ogni stabilimento, la data dei controlli e la loro ubicazione, oltre ad altre informazioni. Ora si selezionano alcune colonne utili per le analisi predittive e si raggruppano i risultati come dataframe, da usare poi per creare una tabella temporanea.
+1. L'output precedente dà un'idea dello schema del file di input. Include nome, tipo, indirizzo di ogni stabilimento, la data dei controlli e la loro ubicazione, oltre ad altre informazioni. A questo punto, si selezionano alcune colonne utili per le analisi predittive e si raggruppano i risultati come frame di dati, da usare successivamente per creare una tabella temporanea.
 
         schema = StructType([
         StructField("id", IntegerType(), False),
@@ -130,7 +130,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
         df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
         df.registerTempTable('CountResults')
-1. Ora è disponibile un *frame di dati*, `df`, su cui è possibile eseguire l'analisi. È presente anche la tabella temporanea **CountResults**. Nel dataframe sono state incluse quattro colonne importanti: **id**, **name**, **results** e **violations**.
+1. Si ottiene così un *frame di dati*, `df`, su cui è possibile eseguire l'analisi. È inoltre disponibile un tabella temporanea denominata **CountResults**. Nel frame di dati sono state incluse quattro colonne importanti: **id**, **name**, **results** e **violations**.
 
     Prendere un piccolo campione di dati:
 
@@ -153,7 +153,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
         +------+--------------------+-------+--------------------+
 
 ## <a name="understand-the-data"></a>Informazioni sui dati
-1. Ora si determinerà il contenuto del set di dati. Ad esempio, quali sono i diversi valori della colona **results** ?
+1. Ora si determinerà il contenuto del set di dati. Ad esempio, quali sono i diversi valori della colonna **results**?
 
         df.select('results').distinct().show()
 
@@ -172,7 +172,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
         |  Pass w/ Conditions|
         |     Out of Business|
         +--------------------+
-1. Una visualizzazione rapida aiuta a riflettere sulla distribuzione di questi risultati. Sono già disponibili i dati nella tabella temporanea **CountResults**. Per comprendere meglio il modo in cui i risultati vengono distribuiti, è possibile eseguire la query SQL seguente sulla tabella.
+1. Una visualizzazione rapida aiuta a riflettere sulla distribuzione di questi risultati. Si hanno già i dati nella tabella temporanea **CountResults**. Per comprendere meglio il modo in cui i risultati vengono distribuiti, è possibile eseguire la query SQL seguente sulla tabella.
 
         %%sql -o countResultsdf
         SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
@@ -207,8 +207,8 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
    * Pass w/ conditions
    * Out of Business
 
-     Sviluppare ora un modello che può ricavare il risultato di un controllo degli alimenti, una volta determinate le violazioni. Poiché la regressione logistica è un metodo di classificazione binaria, è consigliabile raggruppare i dati in due categorie: **Fail** e **Pass**. "Pass w/ Conditions" fa parte della categoria Pass, quindi, quando si esegue il training del modello, i due risultati saranno considerati equivalenti. I dati con gli altri risultati ("Business Not Located", "Out of Business"), non essendo utili, verranno rimossi dal set di training. Non dovrebbero verificarsi problemi, perché queste due categorie costituiscono solo una percentuale minima dei risultati.
-1. Ora si passerà alla conversione del frame di dati esistente (`df`) in un nuovo frame di dati in cui ogni controllo è rappresentato come coppia etichetta-violazioni. In questo caso, un'etichetta `0.0` rappresenta un controllo non superato, un'etichetta `1.0` rappresenta un controllo superato e un'etichetta `-1.0` rappresenta altri risultati, che verranno esclusi durante il calcolo del nuovo dataframe.
+     Sviluppare ora un modello che può ricavare il risultato di un controllo degli alimenti, una volta determinate le violazioni. Poiché la regressione logistica è un metodo di classificazione binaria, è consigliabile raggruppare i dati in due categorie: **Fail** e **Pass**. "Pass w/ Conditions" fa parte della categoria Pass. Pertanto, quando si esegue il training del modello, si considerano i due risultati come equivalenti. I dati con gli altri risultati ("Business Not Located", "Out of Business") non sono utili e quindi si rimuovono dal set di training. Non dovrebbero verificarsi problemi, perché queste due categorie costituiscono solo una percentuale minima dei risultati.
+1. Ora si passerà alla conversione del frame di dati esistente (`df`) in un nuovo frame di dati in cui ogni controllo è rappresentato come coppia etichetta-violazioni. In questo caso, un'etichetta `0.0` rappresenta un controllo non superato, un'etichetta `1.0` rappresenta un controllo superato e un'etichetta `-1.0` rappresenta altri risultati, che verranno esclusi durante il calcolo del nuovo frame di dati.
 
         def labelForResults(s):
             if s == 'Fail':
@@ -233,11 +233,11 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
         [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 ## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Creare un modello di regressione logistica dal frame di dati di input
-L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie etichetta-vettore di funzionalità*, dove il "vettore di funzionalità" è un vettore di numeri che rappresenta il punto di ingresso. È quindi necessario poter convertire la colonna "violations", che è semistrutturata e contiene numerosi commenti in testo libero, in una matrice di numeri reali facilmente comprensibili per un computer.
+L'ultima attività è la conversione dei dati con etichetta in un formato che possa essere analizzato dalla regressione logistica. L'input per un algoritmo di regressione logistica deve essere un set di *coppie etichetta-vettore di funzionalità*, dove il "vettore di funzionalità" è un vettore di numeri che rappresenta il punto di ingresso. È quindi necessario convertire la colonna "violations", che è semistrutturata e contiene numerosi commenti in testo libero, in una matrice di numeri reali facilmente comprensibili per un computer.
 
 Un approccio di apprendimento automatico standard per l'elaborazione del linguaggio naturale consiste nell'assegnare a ogni singola parola un "indice" e quindi nel passare un vettore all'algoritmo di apprendimento automatico in modo che ogni valore dell'indice contenga la frequenza relativa di tale parola nella stringa di testo.
 
-MLlib consente di eseguire facilmente questa operazione. In primo luogo, suddividere in token ogni stringa di violazione per ottenere le parole singole in ogni stringa. Quindi, usare un `HashingTF` per convertire ogni set di token in un vettore di funzione da passare successivamente all'algoritmo di regressione logistica per creare un modello. Tutti questi passaggi verranno eseguiti in sequenza con una "pipeline".
+MLlib consente di eseguire facilmente questa operazione. In primo luogo, suddividere in token ogni stringa di violazione per ottenere le parole singole in ogni stringa. Quindi, usare un `HashingTF` per convertire ogni set di token in un vettore di funzione da passare successivamente all'algoritmo di regressione logistica per creare un modello. Tutti questi passaggi vengono eseguiti in sequenza usando una "pipeline".
 
     tokenizer = Tokenizer(inputCol="violations", outputCol="words")
     hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
@@ -247,9 +247,9 @@ MLlib consente di eseguire facilmente questa operazione. In primo luogo, suddivi
     model = pipeline.fit(labeledData)
 
 ## <a name="evaluate-the-model-on-a-separate-test-dataset"></a>Valutare il modello in un set di dati di test separato
-È possibile usare il modello creato prima per *stimare* quali saranno i risultati dei nuovi controlli, in base alle violazioni osservate. Il training di questo modello è stato eseguito nel set di dati **Food_Inspections1.csv**. Si userà ora un secondo set di dati, **Food_Inspections2.csv**, per *valutare* l'efficacia di questo modello sui nuovi dati. Questo secondo set di dati (**Food_Inspections2.csv**) dovrebbe trovarsi già nel contenitore di archiviazione predefinito associato al cluster.
+È possibile usare il modello creato in precedenza per *stimare* quali saranno i risultati dei nuovi controlli, in base alle violazioni osservate. Il training di questo modello è stato eseguito sul set di dati **Food_Inspections1.csv**. Si userà ora un secondo set di dati, **Food_Inspections2.csv**, per *valutare* l'efficacia di questo modello sui nuovi dati. Questo secondo set di dati (**Food_Inspections2.csv**) dovrebbe trovarsi già nel contenitore di archiviazione predefinito associato al cluster.
 
-1. Il frammento di codice seguente crea un nuovo dataframe, **predictionsDf** contenente la stima generata dal modello. Il frammento di codice crea anche la tabella temporanea **Predictions** basata sul dataframe.
+1. Il frammento di codice seguente crea un nuovo frame di dati, **predictionsDf** contenente la stima generata dal modello. Il frammento di codice crea anche la tabella temporanea **Predictions** basata sul frame di dati.
 
         testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                  .map(csvParse) \
@@ -301,9 +301,9 @@ MLlib consente di eseguire facilmente questa operazione. In primo luogo, suddivi
     L'uso della regressione logistica con Spark offre un modello accurato della relazione tra le descrizioni delle violazioni in inglese e la probabilità che una determinata azienda superi o meno un controllo degli alimenti.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Creare una rappresentazione visiva della stima
-Per comprendere meglio i risultati di questo test, ora è possibile creare una visualizzazione finale.
+È ora possibile creare una visualizzazione finale per comprendere meglio i risultati di questo test.
 
-1. Iniziare dall'estrazione delle diverse stime e dei vari risultati dalla tabella temporanea **Predictions** creata in precedenza. Le query seguenti separano l'output in *true_positive*, *false_positive*, *true_negative* e *false_negative*. Nelle query seguenti disattivare la visualizzazione usando `-q` e tramite `-o` salvare l'output come frame di dati utilizzabili con il comando speciale `%%local`.
+1. Iniziare dall'estrazione delle diverse stime e dei vari risultati dalla tabella temporanea **Predictions** creata in precedenza. Le query seguenti separano l'output in *true_positive*, *false_positive*, *true_negative* e *false_negative*. Nelle query seguenti disattivare la visualizzazione usando `-q` e, tramite `-o`, salvare l'output come frame di dati utilizzabili con il comando speciale `%%local`.
 
         %%sql -q -o true_positive
         SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
@@ -342,8 +342,7 @@ Al termine dell'esecuzione dell'applicazione, è necessario arrestare il noteboo
 
 ### <a name="scenarios"></a>Scenari
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
-* [Spark con Machine Learning: usare Spark in HDInsight per l'analisi della temperatura di un edificio con sistemi HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](apache-spark-eventhub-streaming.md)
+* [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Analisi dei log del sito Web mediante Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni

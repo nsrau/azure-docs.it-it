@@ -10,10 +10,10 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: 2c4894ae9a4235f9ced4a8d9b991238543646f53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Descrizione delle unità di calcolo nel database di Azure per MySQL
 Questo argomento spiega i concetti relativi alle unità di calcolo e ciò che accade quando il carico di lavoro raggiunge il livello massimo per le unità di calcolo.

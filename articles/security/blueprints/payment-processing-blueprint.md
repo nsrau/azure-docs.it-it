@@ -1,6 +1,6 @@
 ---
-title: Piano per l'elaborazione dei pagamenti per ambienti conformi allo standard PCI DSS
-description: Requisito PCI DSS
+title: Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS
+description: Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS
 services: security
 documentationcenter: na
 author: simorjay
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/13/2018
 ---
-# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Progetto per l'automazione di Azure: elaborazione dei pagamenti per ambienti conformi allo standard PCI DSS
+# <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS
 
 ## <a name="overview"></a>Panoramica
 
@@ -43,7 +43,7 @@ L'architettura di base è costituita dai componenti seguenti:
 - **Modelli di distribuzione**. In questa distribuzione vengono usati [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) per distribuire automaticamente i componenti dell'architettura in Microsoft Azure specificando i parametri di configurazione durante l'installazione.
 - **Script di distribuzione automatizzata**. Questi script agevolano la distribuzione della soluzione end-to-end. Gli script sono costituiti da:
     - Uno script di installazione dei moduli e degli [amministratori globali](/azure/active-directory/active-directory-assign-admin-roles-azure-portal), usato per installare i moduli PowerShell e verificare che questi ultimi e i ruoli di amministratore globale siano configurati correttamente.
-    - Uno script PowerShell di installazione viene usato per distribuire la soluzione end-to-end, fornita tramite un file con estensione zip e un file con estensione bacpac contenenti un'applicazione Web demo precompilata con il contenuto del [database SQL di esempio](https://github.com/Microsoft/azure-sql-security-sample) . Il codice sorgente per questa soluzione è disponibile per la revisione in [Payment Processing Blueprint code repository][code-repo](Repository del codice del progetto per l'elaborazione dei pagamenti). 
+    - Uno script PowerShell di installazione viene usato per distribuire la soluzione end-to-end, fornita tramite un file con estensione zip e un file con estensione bacpac contenenti un'applicazione Web demo precompilata con il contenuto del [database SQL di esempio](https://github.com/Microsoft/azure-sql-security-sample) . Il codice sorgente per questa soluzione è disponibile per la revisione in [Blueprint code repository][code-repo](Repository del codice del progetto). 
 
 ## <a name="architectural-diagram"></a>Diagramma dell'architettura
 
@@ -111,8 +111,6 @@ Edna Benson è responsabile commerciale e della reception. Ha il dovere di assic
 - Può modificare le informazioni relative ai clienti.
 - Può sovrascrivere o sostituire il numero, la scadenza e le informazioni CVV delle carte di credito.
 
-> Per il test delle funzionalità dell'ambiente distribuito in Contoso Webstore, l'utente viene connesso automaticamente con l'account di **Edna**.
-
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore - Prezzi stimati
 
 L'architettura di base e l'applicazione Web di esempio hanno una struttura a corrispettivi mensili e un costo di utilizzo all'ora che devono essere tenuti in considerazione al momento di definire le dimensioni della soluzione. Questi costi possono essere stimati tramite la [calcolatrice di determinazione costi di Azure](https://azure.microsoft.com/pricing/calculator/). A partire da settembre 2017, il costo mensile stimato per questa soluzione è di circa 2500 dollari, incluso un addebito per l'utilizzo di 1000 dollari al mese per Ambiente del servizio app versione 2. Questi costi variano a seconda dell'utilizzo e sono soggetti a modifiche. Per una stima più accurata, è compito del cliente calcolare i costi mensili stimati al momento della distribuzione. 
@@ -123,7 +121,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 >- Azure Active Directory
 >- Ambiente del servizio app versione 2
 >- Log Analytics OMS
->- Insieme di credenziali chiave Azure
+>- Azure Key Vault
 >- Gruppi di sicurezza di rete
 >- Database SQL di Azure
 >- Azure Load Balancer
@@ -191,7 +189,7 @@ L'architettura protegge i dati inattivi, tra l'altro, tramite la crittografia e 
 
 Per soddisfare i requisiti dei dati crittografati inattivi, [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) usa sempre la [crittografia del servizio di archiviazione](/azure/storage/storage-service-encryption).
 
-#### <a name="azure-sql-database"></a>Database SQL di Azure
+#### <a name="azure-sql-database"></a>database SQL di Azure
 
 L'istanza di database SQL di Azure usa le misure di sicurezza del database seguenti:
 
@@ -355,9 +353,9 @@ Per distribuire la soluzione, è consigliabile usare un'installazione di PowerSh
  
 
     
-## <a name="threat-model"></a>Modello di rischio
+## <a name="threat-model"></a>Modello di minaccia
 
-Un diagramma di flusso dei dati e il modello di rischio di esempio per il [modello di rischio del progetto di elaborazione dei pagamenti](https://aka.ms/pciblueprintthreatmodel) di Contoso Webstore.
+Un diagramma di flusso dei dati e il modello di rischio di esempio per il [modello di rischio del progetto](https://aka.ms/pciblueprintthreatmodel) di Contoso Webstore.
 
 ![](images/pci-threat-model.png)
 

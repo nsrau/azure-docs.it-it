@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: fd27837e4b40b34551092be5d75eb770730d97a4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creare un cluster Hadoop con account di archiviazione con trasferimento sicuro in Azure HDInsight
 
@@ -45,7 +45,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando un [modello
 
 2. Seguire le istruzioni per creare il cluster con le specifiche seguenti: 
 
-    - Specificare HDInsight versione 3.6.  La versione predefinita è 3.5. È necessaria la versione 3.6 o successiva.
+    - Specificare HDInsight versione 3.6.  È necessaria la versione 3.6 o successiva.
     - Specificare un account di archiviazione con trasferimento sicuro abilitato.
     - Usare un nome breve per l'account di archiviazione.
     - È necessario creare prima l'account di archiviazione e il contenitore BLOB. 

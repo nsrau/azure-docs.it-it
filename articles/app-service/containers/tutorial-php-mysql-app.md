@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux
 
@@ -320,7 +320,7 @@ In questo passaggio viene distribuita l'applicazione PHP connessa a MySQL nel se
 L'applicazione Laravel viene avviata nella directory _/public_. L'immagine Docker PHP predefinita per il servizio app usa Apache e non consente di personalizzare `DocumentRoot` per Laravel. È tuttavia possibile usare `.htaccess` per riscrivere tutte le richieste in modo da puntare a _/public_ anziché alla directory radice. Nella radice del repository è già stato aggiunto un elemento `.htaccess` a tale scopo. In questo modo, l'applicazione Laravel è pronta per essere distribuita.
 
 > [!NOTE] 
-> Se si preferisce non usare la riscrittura con _.htaccess_, si può distribuire l'applicazione Laravel con un'[immagine Docker personalizzata](quickstart-custom-docker-image.md).
+> Se si preferisce non usare la riscrittura con _.htaccess_, si può distribuire l'applicazione Laravel con un'[immagine Docker personalizzata](quickstart-docker-go.md).
 >
 >
 

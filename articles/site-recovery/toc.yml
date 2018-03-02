@@ -24,13 +24,13 @@
         - name: Preparare Azure
           href: tutorial-prepare-azure.md
         - name: Preparare VMware locali
-          href: tutorial-prepare-on-premises-vmware.md
+          href: vmware-azure-tutorial-prepare-on-premises.md
         - name: Configurare il ripristino di emergenza
-          href: tutorial-vmware-to-azure.md
+          href: vmware-azure-tutorial.md
         - name: Eseguire una verifica del ripristino di emergenza
           href: tutorial-dr-drill-azure.md
         - name: Eseguire il failover e il failback
-          href: tutorial-vmware-to-azure-failover-failback.md
+          href: vmware-azure-tutorial-failover-failback.md
     - name: VM Hyper-V
       items:
         - name: Preparare Azure
@@ -50,9 +50,9 @@
         - name: Preparare Azure per la replica in locale
           href: tutorial-prepare-azure.md
         - name: Eseguire la migrazione di computer locali ad Azure
-          href: tutorial-migrate-on-premises-to-azure.md
+          href: migrate-tutorial-on-premises-azure.md
         - name: Eseguire la migrazione di istanze AWS ad Azure
-          href: tutorial-migrate-aws-to-azure.md
+          href: migrate-tutorial-aws-azure.md
         - name: Eseguire la migrazione di VM di Azure a un'altra area
           href: azure-to-azure-tutorial-migrate.md
 - name: Concetti
@@ -62,11 +62,11 @@
         - name: Architettura da Azure ad Azure
           href: azure-to-azure-architecture.md
         - name: Architettura da VMware ad Azure
-          href: concepts-vmware-to-azure-architecture.md
+          href: vmware-azure-architecture.md
         - name: Architettura da Hyper-V ad Azure
           href: hyper-v-azure-architecture.md
         - name: Architettura da server fisico ad Azure
-          href: concepts-physical-to-azure-architecture.md
+          href: physical-azure-architecture.md
         - name: Architettura da Hyper-V a un sito secondario
           href: hyper-v-vmm-architecture.md
     - name: Matrice dei requisiti di supporto
@@ -114,11 +114,11 @@
         - name: Ripristino di emergenza delle macchine virtuali di Azure dopo la migrazione in Azure
           href: azure-to-azure-replicate-after-migration.md
         - name: Ripristino di emergenza dei server fisici in Azure
-          href: tutorial-physical-to-azure.md
+          href: physical-azure-disaster-recovery.md
         - name: Ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario
           href: hyper-v-vmm-disaster-recovery.md
         - name: Ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
-          href: tutorial-vmware-to-vmware.md
+          href: vmware-physical-secondary-disaster-recovery.md
         - name: Eseguire un'esercitazione sul ripristino di emergenza in Azure
           href: site-recovery-test-failover-to-azure.md
         - name: Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
@@ -236,7 +236,7 @@
         - name: Configurare la replica Hyper-V in Azure senza VMM con PowerShell
           href: hyper-v-azure-powershell-resource-manager.md
         - name: Configurare la replica Hyper-V in Azure con VMM con PowerShell
-          href: site-recovery-vmm-to-azure-powershell-resource-manager.md
+          href: hyper-v-vmm-powershell-resource-manager.md
         - name: Configurare la replica Hyper-V in un sito VMM secondario con PowerShell
           href: hyper-v-vmm-powershell-resource-manager.md
     - name: Carichi di lavoro
@@ -290,10 +290,10 @@
         - name: Problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Problemi di riprotezione e failback
-          href: troubleshoot-failback-reprotect.md
+          href: vmware-azure-troubleshoot-failback-reprotect.md
         - name: Monitorare Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

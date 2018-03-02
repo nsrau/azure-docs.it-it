@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 83a93f433769e880a729cd918198909696071594
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
+ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/22/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -58,7 +58,7 @@ Esistono due tipi di firme di accesso condiviso:
 
 * Criteri di accesso archiviati: i criteri di accesso archiviati vengono definiti per un contenitore di risorse, ovvero un contenitore BLOB. I criteri di accesso archiviati possono essere usati per gestire i vincoli per una o più firme di accesso condiviso. Quando si associa una firma di accesso condiviso a criteri di accesso archiviati, la firma eredita i vincoli, ovvero ora di inizio, scadenza e autorizzazioni, definiti per i criteri di accesso archiviati.
 
-La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una firma di accesso condiviso è un URL, pertanto chiunque la ottiene può usarla indipendentemente da chi l'ha richiesta per iniziare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere usata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
+La differenza tra le due forme è importante un unico scenario chiave, la revoca. Una firma di accesso condiviso è un URL, pertanto chiunque la ottiene può utilizzarla indipendentemente da chi l'ha richiesta per iniziare. Se la firma di accesso condiviso è stata pubblicata e resa pubblica, può essere usata da chiunque in tutto il mondo. Una forma di accesso condiviso rimane valida finché non si verifica una delle quattro condizioni seguenti:
 
 1. Viene raggiunta la scadenza specificata nella firma.
 
@@ -69,7 +69,7 @@ La differenza tra le due forme è importante un unico scenario chiave, la revoca
 
 3. I criteri di accesso archiviati cui viene fatto riferimento nella firma di accesso condiviso vengono eliminati e ciò corrisponde a un altro modo per revocare la firma. Se si ricreano i criteri di accesso archiviati specificando lo stesso nome, tutti i token di firma di accesso condiviso relativi ai criteri precedenti restano validi, a condizione che l'ora di scadenza indicata nella firma di accesso condiviso non sia trascorsa. Se si intende revocare la firma di accesso condiviso, verificare di usare un nome diverso per ricreare i criteri di accesso archiviati con scadenza nel futuro.
 
-4. La chiave dell'account usata per creare la firma di accesso condiviso viene rigenerata. Se si rigenera la chiave, l'autenticazione di tutte le applicazioni che usano la chiave precedente avrà esito negativo. Aggiornare tutti i componenti con la nuova chiave.
+4. La chiave dell'account utilizzata per creare la firma di accesso condiviso viene rigenerata. Se si rigenera la chiave, l'autenticazione di tutte le applicazioni che usano la chiave precedente avrà esito negativo. Aggiornare tutti i componenti con la nuova chiave.
 
 > [!IMPORTANT]
 > L'URI di una firma di accesso condiviso è associato alla chiave dell'account usata per creare la firma e ai relativi criteri di accesso archiviati (se presenti). Se non sono specificati criteri di accesso archiviati, l'unico modo per revocare una firma di accesso condiviso consiste nel modificare la chiave dell'account.
@@ -211,12 +211,12 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
 5. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 
-    Al termine delle modifiche, fare clic su **OK**.
+    Al termine delle modifiche, fare clic su **OK** .
 
    > [!IMPORTANT]
    > Perché le modifiche siano effettive, è necessario riavviare diversi servizi.
 
-6. Nell'interfaccia utente Web di Ambari selezionare **HDFS** dall'elenco a sinistra e quindi selezionare **Restart All Affected** (Reimposta tutti gli interessati) dall'elenco a discesa **Service Actions** (Azioni servizio) a destra. Quando richiesto, selezionare __Conform Restart All__ (Conferma riavvio di tutti).
+6. Nell'interfaccia utente Web di Ambari selezionare **HDFS** dall'elenco a sinistra e quindi selezionare **Restart All Affected** (Reimposta tutti gli interessati) dall'elenco a discesa **Service Actions** (Azioni servizio) a destra. Quando viene chiesto, selezionare __Confirm restart all__ (Conferma riavvio di tutti).
 
     Ripetere il processo per MapReduce2 e YARN.
 
@@ -226,11 +226,11 @@ Se è disponibile un cluster basato su Linux esistente, è possibile aggiungere 
 
 Per verificare che l'accesso sia effettivamente limitato, usare i metodi seguenti:
 
-* Per i cluster HDInsight **basati su Windows**, usare Desktop remoto per connettersi al cluster. Per altre informazioni, vedere [Connettersi a HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+* Per i cluster HDInsight **basati su Windows** , usare Desktop remoto per connettersi al cluster. Per altre informazioni, vedere [Connettersi a HDInsight con RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
     Dopo aver stabilito la connessione, usare l'icona della **riga di comando di Hadoop** sul desktop per aprire il prompt dei comandi.
 
-* Per i cluster HDInsight **basati su Linux**, usare SSH per connettersi al cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Per i cluster HDInsight **basati su Linux** , usare SSH per connettersi al cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Dopo aver stabilito la connessione al cluster, usare la procedura seguente per verificare che nell'account di archiviazione della firma di accesso condiviso sia solo possibile leggere ed elencare gli elementi:
 

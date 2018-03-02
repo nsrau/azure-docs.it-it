@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 007b530cd7a14f063ae4f86d18daa9742c6655c2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e955aa1c3985e540246d964b4dce88d15fb85949
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Supporto dell'API MongoDB per le funzionalità e la sintassi MongoDB
 
@@ -212,7 +212,7 @@ Sono supportati gli operatori seguenti con esempi di uso. Vedere questo document
 }
 ```
 
-operatore | Esempio |
+Operatore | Esempio |
 --- | --- |
 $eq | ``` { "Volcano Name": { $eq: "Rainier" } } ``` |  | -
 $gt | ``` { "Elevation": { $gt: 4000 } } ``` |  | -
@@ -237,10 +237,37 @@ Nelle query $regex, le espressioni ancorate a sinistra consentono la ricerca nel
 Quando è necessario includere '$' o '|' è consigliabile creare due o più query regex. La query originale ```find({x:{$regex: /^abc$/})``` deve essere ad esempio modificata in ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 La prima parte userà l'indice per limitare la ricerca ai documenti che iniziano con ^abc, mentre la seconda parte individuerà le voci esatte. L'operatore barra '|' funge da funzione "or". La query ```find({x:{$regex: /^abc|^def/})``` individua i documenti in cui il campo 'x' ha un valore che inizia con "abc" o "def". Per usare l'indice è consigliabile per suddividere la query in due query diverse unite dall'operatore $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
+### <a name="update-operators"></a>Operatori di aggiornamento
+
+#### <a name="field-update-operators"></a>Operatori di aggiornamento di campo
+- $inc
+- $mul
+- $rename
+- $setOnInsert
+- $set
+- $unset
+- $min
+- $max
+- $currentDate
+
+#### <a name="array-update-operators"></a>Operatori di aggiornamento di matrice
+- $addToSet
+- $pop
+- $pullAll
+- $pull (nota: $pull con una condizione non è supportato)
+- $pushAll
+- $push
+- $each
+- $slice
+- $sort
+- $position
+
+#### <a name="bitwise-update-operator"></a>Operatore di aggiornamento bit per bit
+- $bit
 
 ### <a name="geospatial-operators"></a>Operatori geospaziali
 
-operatore | Esempio 
+Operatore | Esempio 
 --- | --- |
 $geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Sì
 $geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Sì
@@ -256,7 +283,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 ## <a name="additional-operators"></a>Altri operatori
 
-operatore | Esempio | Note 
+Operatore | Esempio | Note 
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` | 
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  

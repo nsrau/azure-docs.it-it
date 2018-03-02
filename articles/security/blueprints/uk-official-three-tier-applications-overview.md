@@ -1,6 +1,6 @@
 ---
-title: Automazione di Azure Blueprint - Applicazioni Web a tre livelli per UK-OFFICIAL
-description: Automazione di Azure Blueprint - Applicazioni Web a tre livelli per UK-OFFICIAL
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web su tre livelli UK-OFFICIAL
+description: Azure Security and Compliance Blueprint - Automazione di applicazioni Web su tre livelli UK-OFFICIAL
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 5f5694367d9be2ae66c7303cfea063b7f4979307
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation-three-tier-web-applications-for-uk-official"></a>Automazione di Azure Blueprint: Applicazioni Web a tre livelli per UK-OFFICIAL
+# <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure Security and Compliance Blueprint - Automazione di applicazioni Web su tre livelli UK-OFFICIAL
 
 ## <a name="overview"></a>Panoramica
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/16/2017
 
  NCSC consiglia l'adozione dei principi per la sicurezza cloud da parte dei clienti per valutare le proprietà di sicurezza del servizio e per contribuire alla comprensione della suddivisione delle responsabilità tra cliente e fornitore. Sono disponibili informazioni relative a ogni principio per semplificare la comprensione della suddivisione delle responsabilità.
 
- Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft intitolato [Azure Blueprint for the UK Government](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (Azure Blueprint per enti pubblici del Regno Unito). Questo documento illustra il modo in cui i servizi di Azure rispettano i principi per la sicurezza cloud di UK NCSC 14, consentendo quindi alle organizzazioni ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure.
+ Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). Questo documento illustra il modo in cui i servizi di Azure rispettano i principi per la sicurezza cloud di UK NCSC 14, consentendo quindi alle organizzazioni ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure.
 
  Questo modello distribuisce l'infrastruttura per il carico di lavoro. Il codice dell'applicazione e il software per il livello aziendale di supporto e per il livello dati devono essere installati e configurati. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukwebappblueprintrepo).
 
@@ -150,7 +150,7 @@ Archiviazione
 
 **Rete virtuale di gestione**: questa [rete virtuale](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contiene risorse che implementano funzionalità di gestione e monitoraggio per i carichi di lavoro in esecuzione nella rete virtuale di produzione.
 
-**Jumpbox**: definito anche [bastion host](https://en.wikipedia.org/wiki/Bastion_host), è una VM protetta in rete usata dagli amministratori per connettersi a macchine virtuali nella rete virtuale di produzione. Il jumpbox ha un gruppo di sicurezza di rete che consente il traffico remoto solo da indirizzi IP pubblici inclusi in un elenco di indirizzi attendibili. Per consentire il traffico di desktop remoto, l'origine del traffico deve essere definita nel gruppo di sicurezza di rete. La gestione delle risorse di produzione viene eseguita tramite RDP con una VM jumpbox protetta.
+**Jumpbox**: definito anche [bastion host](https://en.wikipedia.org/wiki/Bastion_host), è una VM protetta in rete usata dagli amministratori per connettersi a macchine virtuali nella rete virtuale di produzione. Il jumpbox ha un gruppo di sicurezza di rete (NSG) che consente il traffico remoto solo da Indirizzi IP pubblici inclusi in un elenco di indirizzi attendibili. Per consentire il traffico di desktop remoto, l'origine del traffico deve essere definita nel gruppo di sicurezza di rete. La gestione delle risorse di produzione viene eseguita tramite RDP con una VM jumpbox protetta.
 
 **Route definite dall'utente**: le [route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) vengono usate per definire il flusso del traffico IP nelle reti virtuali di Azure.
 
@@ -195,17 +195,17 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 ### <a name="security"></a>Sicurezza
 
-**Sicurezza della gestione**: Azure Blueprint consente agli amministratori di connettersi alla rete virtuale di gestione e al jumpbox tramite RDP da un'origine attendibile. Il traffico di rete per la rete virtuale di gestione viene controllato tramite gruppi di sicurezza di rete. L'accesso alla porta 3389 è limitato al traffico da un intervallo di indirizzi IP attendibile, che può accedere alla subnet contenente il jumpbox.
+**Sicurezza della gestione**: questo progetto consente agli amministratori di connettersi alla rete virtuale di gestione e al jumpbox tramite RDP da un'origine attendibile. Il traffico di rete per la rete virtuale di gestione viene controllato tramite gruppi di sicurezza di rete. L'accesso alla porta 3389 è limitato al traffico da un intervallo di indirizzi IP attendibile, che può accedere alla subnet contenente il jumpbox.
 
 I clienti possono prendere in considerazione l'uso di un [modello amministrativo di sicurezza avanzata](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) per proteggere l'ambiente in caso di connessione alla rete virtuale di gestione e al jumpbox. Per una sicurezza avanzata è consigliabile che i clienti usino una [workstation di accesso con privilegi](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) e una configurazione di tipo RDGateway. L'uso delle appliance di rete virtuali e di reti perimetrali pubbliche/private offrirà miglioramenti aggiuntivi della sicurezza.
 
-**Protezione della rete**: i [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sono consigliati per ogni subnet per offrire un secondo livello di protezione dal traffico in ingresso, ignorando un gateway non configurato correttamente o disabilitato. Esempio - [Modello di Azure Resource Manager per la distribuzione di un gruppo di sicurezza di rete](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Protezione della rete**: i [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sono consigliati per ogni subnet per offrire un secondo livello di protezione dal traffico in ingresso, ignorando un gateway non configurato correttamente o disabilitato. Esempio - [Modello di Resource Manager per la distribuzione di un gruppo di sicurezza di rete](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
 **Protezione di endpoint pubblici**: il gateway Internet espone i servizi dell'applicazione agli utenti tramite Internet. Il traffico che accede a tali servizi viene protetto tramite un [gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), che offre un web application firewall e la gestione del protocollo HTTPS.
 
 **Intervalli di indirizzi IP**: gli intervalli di indirizzi IP nell'architettura sono intervalli suggeriti. È consigliabile che i clienti esaminino i rispettivi ambienti e usino intervalli appropriati.
 
-**Connettività ibrida**: i carichi di lavoro basati sul cloud sono connessi al data center locale tramite rete privata virtuale IPSEC con gateway VPN di Azure. I clienti devono assicurarsi di usare un gateway VPN appropriato per la connessione ad Azure. Esempio - [Modello di Azure Resource Manager per il gateway VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). È consigliabile che i clienti che eseguono carichi di lavoro su larga scala e critici con requisiti per Big Data prendano in considerazione un'architettura di rete ibrida con [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) per la connettività di rete privata verso i servizi cloud Microsoft.
+**Connettività ibrida**: i carichi di lavoro basati sul cloud sono connessi al data center locale tramite rete privata virtuale IPSec con gateway VPN di Azure. I clienti devono assicurarsi di usare un gateway VPN appropriato per la connessione ad Azure. Esempio: [Modello di Resource Manager per un gateway VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). È consigliabile che i clienti che eseguono carichi di lavoro su larga scala e critici con requisiti per Big Data prendano in considerazione un'architettura di rete ibrida con [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) per la connettività di rete privata verso i servizi cloud Microsoft.
 
 **Separazione dei compiti**: questa architettura di riferimento separa le reti virtuali per operazioni di gestione e operazioni di business. La separazione di reti virtuali e subnet consente la gestione del traffico, incluse le limitazioni al traffico in ingresso e in uscita, tramite gruppi di sicurezza di rete tra segmenti di rete in base alle procedure consigliate illustrate in [Servizi cloud Microsoft e sicurezza di rete](https://docs.microsoft.com/azure/best-practices-network-security).
 
@@ -221,23 +221,23 @@ I clienti possono prendere in considerazione l'uso di un [modello amministrativo
 
 Il Crown Commercial Service, un'agenzia che si impegna per migliorare le attività commerciali e di approvvigionamento da parte del governo, ha rinnovato la classificazione dei servizi cloud aziendali Microsoft specifici su G-Cloud v6, coprendo tutte le offerte Microsoft per il livello OFFICIAL. Per informazioni dettagliate su Azure e G-Cloud, vedere il [riepilogo della valutazione della sicurezza UK G-Cloud per Azure](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud).
 
-Questa soluzione di Azure Blueprint per UK-OFFICIAL è conforme ai 14 principi per la sicurezza cloud documentati nei [principi per la sicurezza cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) di NCSC per contribuire a creare un ambiente che supporta carichi di lavoro classificati come UK-OFFICIAL.
+Questo progetto è conforme ai 14 principi per la sicurezza del cloud documentati nei [principi per la sicurezza del cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) di NCSC per contribuire a creare un ambiente che supporta carichi di lavoro classificati come UK-OFFICIAL.
 
 La [matrice di responsabilità dei clienti](https://aka.ms/blueprintuk-gcrm) (cartella di lavoro di Excel) elenca tutti i 14 principi per la sicurezza cloud e indica per ogni principio o sottoparte di principio se l'implementazione del principio è a carico di Microsoft, del cliente o è condivisa tra entrambi.
 
-La [matrice di implementazione dei principi](https://aka.ms/ukwebappblueprintpim) (cartella di lavoro di Excel) elenca tutti i 14 principi per la sicurezza cloud e indica per ogni principio o sottoparte di principio per cui è designata una responsabilità del cliente nella matrice di responsabilità dei clienti 1) se l'automazione di Azure Blueprint implementa il principio e 2) una descrizione del modo in cui l'implementazione risulta conforme ai requisiti del principio. Queste informazioni sono disponibili anche [qui](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+La [matrice di implementazione dei principi](https://aka.ms/ukwebappblueprintpim) (cartella di lavoro di Excel) elenca tutti i 14 principi per la sicurezza cloud e indica per ogni principio o sottoparte di principio per cui è designata una responsabilità del cliente nella matrice di responsabilità dei clienti 1) se l'automazione del progetto implementa il principio e 2) una descrizione del modo in cui l'implementazione risulta conforme ai requisiti del principio. Queste informazioni sono disponibili anche [qui](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
 
 Cloud Security Alliance (CSA) ha inoltre pubblicato la matrice di controllo cloud per supportare i clienti nella valutazione dei provider cloud e per identificare le domande per cui sono necessarie risposte prima del passaggio ai servizi cloud. Microsoft Azure ha a sua volta risposto al questionario CSA CAIQ ([CSA Consensus Assessment Initiative Questionnaire](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), che illustra il modo in cui Microsoft gestisce i principi suggeriti.
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Sono disponibili due metodi che gli utenti della distribuzione possono usare per distribuire questa soluzione di Azure Blueprint. Il primo metodo usa uno script di PowerShell, mentre il secondo metodo usa il portale di Azure per distribuire l'architettura di riferimento. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukwebappblueprintrepo).
+Sono disponibili due metodi che gli utenti della distribuzione possono usare per distribuire questa automazione del progetto. Il primo metodo usa uno script di PowerShell, mentre il secondo metodo usa il portale di Azure per distribuire l'architettura di riferimento. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukwebappblueprintrepo).
 
 ## <a name="disclaimer"></a>Dichiarazione di non responsabilità
 
- - Questo documento è esclusivamente a scopo informativo. MICROSOFT NON RILASCIA ALCUNA GARANZIA, ESPRESSA, IMPLICITA O DI LEGGE, RIGUARDO ALLE INFORMAZIONI CONTENUTE IN QUESTO DOCUMENTO. Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. I clienti che fanno riferimento a questo documento lo utilizzano a proprio rischio.
+ - Questo documento è esclusivamente a scopo informativo. MICROSOFT NON RILASCIA ALCUNA GARANZIA, ESPRESSA, IMPLICITA O DI LEGGE, RIGUARDO ALLE INFORMAZIONI CONTENUTE IN QUESTO DOCUMENTO. Questo documento viene fornito "così com'è". Le informazioni e le indicazioni riportate nel presente documento, inclusi URL e altri riferimenti a siti Internet, sono soggette a modifica senza preavviso. I clienti che fanno riferimento a questo documento lo usano a proprio rischio.
  - Questo documento non concede ai clienti diritti legali di proprietà intellettuale per alcun prodotto o soluzione Microsoft.
- - I clienti possono copiare e utilizzare questo documento per scopi di riferimento interni.
+ - I clienti possono copiare e usare questo documento per scopi di riferimento interni.
  - Alcune indicazioni contenute in questo documento possono comportare un maggiore utilizzo di risorse di dati, rete o calcolo in Azure, aumentando di conseguenza i costi di licenza o di sottoscrizione di Azure per il cliente.
  - Questa architettura è una soluzione di base che i clienti possono adattare ai propri requisiti specifici e che non deve essere usata così com'è in un ambiente di produzione.
- - Questo documento è stato sviluppato come riferimento e non deve essere utilizzato per definire tutti i mezzi attraverso cui un cliente può soddisfare requisiti e normative di conformità specifici. I clienti dovranno richiedere supporto legale all'organizzazione riguardo alle implementazioni approvate.
+ - Questo documento è stato sviluppato come riferimento e non deve essere usato per definire tutti i mezzi attraverso cui un cliente può soddisfare requisiti e normative di conformità specifici. I clienti dovranno richiedere supporto legale all'organizzazione riguardo alle implementazioni approvate.

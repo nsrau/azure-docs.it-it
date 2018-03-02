@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Aggiornamento di un'applicazione di infrastruttura di servizi
 Un'applicazione di Azure Service Fabric è una raccolta di servizi. Durante un aggiornamento, Service Fabric confronta il nuovo [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) con la versione precedente e determina quali servizi dell'applicazione richiedono aggiornamenti. Service Fabric confronta i numeri di versione nel manifesto del servizio con quelli della versione precedente. Se un servizio non è cambiato, non viene aggiornato.
@@ -47,16 +47,16 @@ La modalità consigliata per l'aggiornamento dell'applicazione è la modalità m
 La modalità UnmonitoredManual richiede l'intervento manuale dopo ogni aggiornamento eseguito in un dominio di aggiornamento per passare al dominio di aggiornamento successivo. Non viene eseguito alcun controllo di integrità su Service Fabric. L'amministratore esegue i controlli di integrità o di stato previsti prima di avviare l'aggiornamento nel dominio di aggiornamento successivo.
 
 ## <a name="upgrade-default-services"></a>Aggiornare i servizi predefiniti
-I servizi predefiniti all'interno dell'applicazione Service Fabric possono essere aggiornati durante il processo di aggiornamento di un'applicazione. I servizi predefiniti sono definiti nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md). Le regole standard di aggiornamento dei servizi predefiniti sono:
+Alcuni parametri di servizi predefiniti nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) possono essere aggiornati anche durante un aggiornamento dell'applicazione. Durante un aggiornamento possono essere modificati solo i parametri di servizi che supportano la modifica tramite [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps). Di seguito viene illustrato il comportamento in caso di modifica dei servizi predefiniti durante l'aggiornamento dell'applicazione:
 
-1. I servizi predefiniti nel nuovo [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) che non esistono nel cluster vengono creati.
+1. I servizi predefiniti presenti nel nuovo manifesto dell'applicazione che ancora non esistono nel cluster vengono creati.
+2. I servizi predefiniti che esistono sia nel manifesto dell'applicazione precedente sia in quello nuovo vengono aggiornati. I parametri del servizio predefinito presente nel nuovo manifesto dell'applicazione sovrascrivono i parametri del servizio esistente. Se si verifica un errore durante l'aggiornamento di un servizio predefinito, verrà eseguito il rollback automatico dell'aggiornamento dell'applicazione.
+3. I servizi predefiniti che non esistono nel nuovo manifesto dell'applicazione ma sono presenti nel cluster vengono eliminati. **Si noti che l'eliminazione di un servizio predefinito comporterà l'eliminazione di tutti gli stati del servizio e questa operazione non potrà essere annullata.**
+
+Quando viene eseguito il rollback di un aggiornamento dell'applicazione, vengono ripristinati i valori dei parametri del servizio predefinito precedenti all'avvio dell'aggiornamento. Tuttavia, non è possibile ricreare i servizi eliminati con lo stato precedente.
+
 > [!TIP]
-> È necessario impostare [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) su true per abilitare le regole seguenti. Questa funzionalità è supportata dalla versione 5.5.
-
-2. I servizi predefiniti che esistono sia nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) precedente sia nella nuova versione vengono aggiornati. Le descrizioni dei servizi della nuova versione sovrascrivono quelle già presenti nel cluster. L'aggiornamento di un'applicazione subisce automaticamente il rollback in caso di errore dell'aggiornamento del servizio predefinito.
-3. I servizi predefiniti del [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) precedente che non sono presenti nella nuova versione vengono eliminati. **Si noti che questa eliminazione dei servizi predefiniti non è reversibile.**
-
-In caso di rollback dell'aggiornamento di un'applicazione, i servizi predefiniti vengono riportati allo stato precedente l'avvio dell'aggiornamento. I servizi eliminati non possono in alcun caso essere creati.
+> Il valore dell'impostazione di configurazione del cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) deve essere *true* per abilitare le regole 2) e 3) indicate in precedenza (aggiornamento ed eliminazione di un servizio predefinito). Questa funzionalità è supportata in Service Fabric a partire dalla versione 5.5.
 
 ## <a name="application-upgrade-flowchart"></a>Diagramma di flusso di aggiornamento di un'applicazione
 Il diagramma di flusso che segue questo paragrafo aiuta a capire il processo di aggiornamento di un'applicazione di Service Fabric. In particolare, il flusso descrive in che modo i valori di timeout, ad esempio *HealthCheckStableDuration*, *HealthCheckRetryTimeout* e *UpgradeHealthCheckInterval*, consentono di verificare se l'aggiornamento in un dominio di aggiornamento viene considerato riuscito o non riuscito.

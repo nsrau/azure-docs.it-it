@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 9d9fbefd81fed506bcc025fa0f44315ec831cf0d
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Rilevare i problemi usando regole basate su soglie
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 > * Modificare una regola esistente
 > * Eliminare una regola
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
@@ -40,7 +40,7 @@ Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è neces
 
 ## <a name="view-the-rules-in-your-solution"></a>Visualizzare le regole nella soluzione
 
-Il **regole e le azioni** pagina nella soluzione viene visualizzato un elenco di tutte le regole corrente:
+La pagina **Rules and Actions** (Regole e azioni) nella soluzione visualizza un elenco di tutte le regole correnti:
 
 ![Pagina Rules & Actions (Regole e azioni)](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -67,7 +67,7 @@ Usare i valori seguenti per creare la regola:
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
 | NOME             | Chiller warning (Avviso refrigeratore)                       |
-| Sorgente           | **Chillers** gruppo di dispositivi             |
+| Sorgente           | Gruppo di dispositivi **Chillers** (Refrigeratori)             |
 | Field (Campo)    | pressure                              |
 | Operator (Operatore) | Maggiore di                          |
 | Value (Valore)    | 150                                   |
@@ -76,7 +76,7 @@ Usare i valori seguenti per creare la regola:
 
 Per salvare la nuova regola, scegliere **Apply** (Applica).
 
-È possibile visualizzare quando la regola è attivata per il **regole e le azioni** pagina oppure il **Dashboard** pagina.
+È possibile visualizzare quando viene attivata la regola nella pagina **Rules and Actions** (Regole e azioni) o nella pagina **Dashboard**.
 
 ## <a name="edit-an-existing-rule"></a>Modificare una regola esistente
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d6ee96b17c6bc85a2278bbe98867a579ff9c550a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -132,7 +132,8 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 | Microsoft Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup |
 | Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup |
 
-Per il backup di macchine virtuali di Azure, ogni macchina virtuale può avere fino a 16 dischi di dati, ognuno dei quali di dimensioni pari o inferiori a 1023 GB. 
+Per il backup di macchine virtuali di Azure, ogni macchina virtuale può avere fino a 16 dischi di dati, ognuno dei quali di dimensioni pari o inferiori a 1024 GB. <br>
+È disponibile un'[anteprima privata](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) per il supporto di dischi con dimensioni fino a 4 TB. 
 
 ## <a name="retention-policy-and-recovery-points"></a>Criteri di conservazione e punti di ripristino
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Esistono differenze tra i criteri di conservazione per DPM e Windows Server/client Windows (ossia in Windows Server senza DPM)?<br/>

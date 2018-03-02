@@ -1,6 +1,6 @@
 ---
-title: Usare la soluzione Mapping dei servizi in Operations Management Suite | Microsoft Docs
-description: "Elenco dei servizi è una soluzione di Operations Management Suite che individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione fra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari."
+title: Uso del Mapping dei servizi in Azure | Microsoft Docs
+description: "Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 993dff7657a73803ca21677e19b08946fb89bfa2
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 84a43a4f04d7cd89d0d968acb436d196353eb81d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usare la soluzione Mapping dei servizi in Operations Management Suite
+# <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
-Questo articolo fornisce i dettagli su come usare Mapping dei servizi. Per informazioni sulla configurazione di Mapping dei servizi e sugli agenti di caricamento, vedere [Configurare la soluzione di elenco dei servizi in Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md).
+Questo articolo fornisce i dettagli su come usare Mapping dei servizi. Per informazioni sulla configurazione di Mapping dei servizi e sugli agenti di caricamento, vedere [Configurare la soluzione di elenco dei servizi in Azure](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi di utilizzo: Riconoscimento delle dipendenze nei processi IT
@@ -32,7 +32,7 @@ Questo articolo fornisce i dettagli su come usare Mapping dei servizi. Per infor
 Mapping dei servizi genera automaticamente una mappa di riferimento delle dipendenze tra server, processi e servizi di terze parti. La soluzione rileva e mappa tutte le dipendenze TCP, identificando le connessioni impreviste, i sistemi remoti di terze parti da cui si dipende e le dipendenze da aree tradizionali non note della rete, ad esempio Active Directory. Mapping dei servizi rileva i tentativi di connessione di rete non riusciti effettuati dai sistemi gestiti permettendo di identificare potenziali configurazioni del server errate, interruzioni dei servizi e problemi di rete.
 
 ### <a name="incident-management"></a>Gestione di eventi imprevisti
-Mapping dei servizi consente di eliminare i tentativi di isolamento del problema visualizzando le connessioni tra i sistemi e la loro influenza reciproca. In aggiunta all'identificazione delle informazioni sulle connessioni non riuscite, consente di identificare i bilanciamenti del carico errati, il carico imprevisto o eccessivo sui servizi critici e i client non autorizzati, ad esempio i computer per lo sviluppo in comunicazione con i sistemi di produzione. L'uso dei flussi di lavoro integrati in Rilevamento modifiche di Operations Management Suite consente anche di verificare se un evento di modifica in un computer o servizio back-end descrive la causa principale di un evento imprevisto.
+Mapping dei servizi consente di eliminare i tentativi di isolamento del problema visualizzando le connessioni tra i sistemi e la loro influenza reciproca. In aggiunta all'identificazione delle informazioni sulle connessioni non riuscite, consente di identificare i bilanciamenti del carico errati, il carico imprevisto o eccessivo sui servizi critici e i client non autorizzati, ad esempio i computer per lo sviluppo in comunicazione con i sistemi di produzione. L'uso dei flussi di lavoro integrati in Rilevamento modifiche consente anche di verificare se un evento di modifica in un computer o servizio back-end descrive la causa principale di un evento imprevisto.
 
 ### <a name="migration-assurance"></a>Garanzia di migrazione
 L'uso di Mapping dei servizi consente di pianificare in modo efficace, accelerare e convalidare le migrazioni di Azure, garantendo che non venga tralasciato nulla e non si verifichino interruzioni impreviste. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire la migrazione insieme, valutare la configurazione e la capacità del sistema e determinare se un sistema in esecuzione è ancora utile agli utenti oppure è un candidato alla rimozione delle autorizzazioni anziché alla migrazione. Dopo aver eseguito lo spostamento, è possibile verificare il caricamento e l'identità dei client per assicurarsi che i sistemi di test e i clienti siano connessi. Se ci sono problemi nella pianificazione delle subnet e nelle definizioni dei firewall, le connessioni non riuscite nelle mappe di Mapping dei servizi indicano i sistemi che necessitano di connettività.
@@ -41,7 +41,7 @@ L'uso di Mapping dei servizi consente di pianificare in modo efficace, accelerar
 Se si usa Azure Site Recovery e si necessita di aiuto per definire la sequenza di ripristino dell'ambiente delle applicazioni, Mapping dei servizi visualizza automaticamente le dipendenze reciproche tra i sistemi, consentendo di verificare l'affidabilità del proprio piano di ripristino. Scegliendo un server o un gruppo critico e visualizzandone i client è possibile identificare i sistemi front-end che devono essere ripristinati soltanto dopo aver ripristinato e reso disponibile il server critico. Al contrario, osservando le dipendenze back-end di un server critico è possibile identificare i sistemi che devono essere ripristinati prima di ripristinare il sistema critico.
 
 ### <a name="patch-management"></a>Gestione delle patch
-Mapping dei servizi ottimizza l'uso di System Update Assessment di Operations Management Suite mostrando gli altri team e server che dipendono da un servizio, in modo che sia possibile inviare una notifica prima di arrestare i sistemi per l'applicazione di patch. Mapping dei servizi migliora anche la gestione delle patch in Operations Management Suite indicando se i servizi sono disponibili e connessi correttamente dopo l'applicazione delle patch e il riavvio.
+Mapping dei servizi ottimizza l'uso di System Update Assessment mostrando gli altri team e server che dipendono da un servizio, in modo che sia possibile inviare una notifica prima di arrestare i sistemi per l'applicazione di patch. Mapping dei servizi migliora anche la gestione delle patch indicando se i servizi sono disponibili e connessi correttamente dopo l'applicazione delle patch e il riavvio.
 
 
 ## <a name="mapping-overview"></a>Panoramica sui mapping
@@ -54,7 +54,7 @@ Gli agenti di Mapping dei servizi raccolgono informazioni su tutti i processi co
 Per impostazione predefinita, Mapping dei servizi mostra le informazioni sulle dipendenze per gli ultimi 30 minuti. Usando i controlli temporali in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica. I dati di Mapping dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
 
 ## <a name="status-badges-and-border-coloring"></a>Notifiche di stato e colorazione del bordo
-Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server. Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione Operations Management Suite. Facendo clic su una notifica, vengono visualizzati direttamente i dettagli dello stato nel riquadro di destra. Le notifiche di stato attualmente disponibili includono Avvisi, Service Desk, Modifiche, Sicurezza e Aggiornamenti.
+Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server. Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione. Facendo clic su una notifica, vengono visualizzati direttamente i dettagli dello stato nel riquadro di destra. Le notifiche di stato attualmente disponibili includono Avvisi, Service Desk, Modifiche, Sicurezza e Aggiornamenti.
 
 In base alla gravità della notifica di stato, i bordi del nodo del computer possono essere colorati di rosso (critico), giallo (avviso) o blu (informativi). Il colore rappresenta lo stato di gravità di una notifica di stato. Un bordo grigio indica un nodo senza indicatori di stato.
 
@@ -124,7 +124,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 ## <a name="role-icons"></a>Icone di ruolo
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona del ruolo | Descrizione |
+| Icona del ruolo | DESCRIZIONE |
 |:--|:--|
 | ![Server Web](media/oms-service-map/role-web-server.png) | Server Web |
 | ![Server app](media/oms-service-map/role-application-server.png) | Server applicazioni |
@@ -168,12 +168,12 @@ Facendo clic su **Carica mappa del server** è possibile passare a una nuova map
 Facendo clic su **Mostra collegamenti automatici** il nodo del server viene ridisegnato, inclusi eventuali collegamenti automatici, ovvero connessioni TCP che si avviano e terminano con i processi nel server. Se i collegamenti automatici sono visibili, il comando di menu viene modificato in **Nascondi collegamenti automatici**, in modo che sia possibile disattivarli.
 
 ## <a name="computer-summary"></a>Riepilogo del computer
-Il riquadro di **riepilogo del computer** include una panoramica del sistema operativo di un server, i conteggi di dipendenza e i dati delle soluzioni di Operations Management Suite. Tali dati includono le metriche delle prestazioni, i ticket del Service Desk, il rilevamento delle modifiche, la sicurezza e gli aggiornamenti.
+Il riquadro di **riepilogo del computer** include una panoramica del sistema operativo di un server, i conteggi di dipendenza e i dati delle soluzioni. Tali dati includono le metriche delle prestazioni, i ticket del Service Desk, il rilevamento delle modifiche, la sicurezza e gli aggiornamenti.
 
 ![Riquadro di riepilogo del computer](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Proprietà dei computer e dei processi
-In una mappa di Mapping dei servizi è possibile selezionare computer e processi per visualizzare ulteriori informazioni sulle loro proprietà. I computer visualizzano informazioni sul nome DNS, gli indirizzi IPv4, la capacità di CPU e di memoria, il tipo di macchina virtuale, la versione del sistema operativo, l'ora dell'ultimo riavvio e gli ID degli agenti Operations Management Suite e di Mapping dei servizi.
+In una mappa di Mapping dei servizi è possibile selezionare computer e processi per visualizzare ulteriori informazioni sulle loro proprietà. I computer visualizzano informazioni sul nome DNS, gli indirizzi IPv4, la capacità di CPU e di memoria, il tipo di macchina virtuale, la versione del sistema operativo, l'ora dell'ultimo riavvio e gli ID degli agenti OMS e di Mapping dei servizi.
 
 ![Riquadro Proprietà del computer](media/oms-service-map/machine-properties.png)
 
@@ -185,8 +185,8 @@ Il riquadro di **riepilogo del processo** visualizza informazioni aggiuntive sul
 
 ![Riquadro del riepilogo del processo](media/oms-service-map/process-summary.png)
 
-## <a name="operations-management-suite-alerts-integration"></a>Integrazione degli avvisi in Operations Management Suite
-Gli avvisi Operations Management Suite integrati in Mapping dei servizii consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato. Se ci sono avvisi correnti, viene visualizzata un'icona per il server e nel riquadro degli **avvisi del computer** vengono elencati gli avvisi.
+## <a name="alerts-integration"></a>Integrazione degli avvisi
+Gli avvisi integrati in Log Analytics di Mapping dei servizi consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato. Se ci sono avvisi correnti, viene visualizzata un'icona per il server e nel riquadro degli **avvisi del computer** vengono elencati gli avvisi.
 
 ![Riquadro degli avvisi del computer](media/oms-service-map/machine-alerts.png)
 
@@ -197,13 +197,13 @@ Per abilitare Mapping dei servizi al fine di visualizzare i relativi avvisi, cre
 ![Configurazione degli avvisi](media/oms-service-map/alert-configuration.png)
 
 
-## <a name="operations-management-suite-log-events-integration"></a>Integrazione degli eventi del registro in Operations Management Suite
+## <a name="log-events-integration"></a>Integrazione eventi log
 Mapping dei servizi si integra con ricerca di log per visualizzare un conteggio di tutti gli eventi di log disponibili per il server selezionato durante l'intervallo di tempo selezionato. È possibile fare clic su una riga qualsiasi nell'elenco di conteggi degli eventi per passare alla ricerca log e visualizzare i singoli eventi di log.
 
 ![Riquadro degli eventi del registro del computer](media/oms-service-map/log-events.png)
 
-## <a name="operations-management-suite-service-desk-integration"></a>Integrazione del Service Desk in Operations Management Suite
-L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Operations Management Suite. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## <a name="service-desk-integration"></a>Integrazione di Service Desk
+L'integrazione di Mapping dei servizi con il connettore di gestione dei servizi IT è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics. L'integrazione in Mapping dei servizi è indicata come "Service Desk". Per informazioni vedere [Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 Il riquadro del **Service Desk del computer** elenca tutti gli eventi di gestione dei servizi IT per il server selezionato nell'intervallo di tempo selezionato. Se ci sono elementi correnti, viene visualizzata un'icona per il server e il riquadro del Service Desk del computer elenca gli elementi.
 
@@ -214,8 +214,8 @@ Per aprire l'elemento nella soluzione ITSM connessa fare clic su **Visualizza el
 Fare clic su **Mostra in Ricerca log** per visualizzare i dettagli dell'elemento nella ricerca log.
 
 
-## <a name="operations-management-suite-change-tracking-integration"></a>Integrazione del Rilevamento modifiche in Operations Management Suite
-L'integrazione del rilevamento delle modifiche in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Operations Management Suite.
+## <a name="change-tracking-integration"></a>Integrazione con Rilevamento modifiche
+L'integrazione del rilevamento delle modifiche in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
 
 Il riquadro di **rilevamento modifiche del computer** elenca tutte le modifiche a partire dalla più recente e un collegamento per eseguire una ricerca nel log per ulteriori dettagli.
 
@@ -226,7 +226,7 @@ L'immagine seguente è una vista dettagliata di un evento ConfigurationChange ch
 ![Evento ConfigurationChange](media/oms-service-map/configuration-change-event.png)
 
 
-## <a name="operations-management-suite-performance-integration"></a>Integrazione delle prestazioni in Operations Management Suite
+## <a name="performance-integration"></a>Integrazione delle prestazioni
 Il riquadro relativo alle **prestazioni del computer** mostra le metriche di prestazioni standard relative al server selezionato. Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.
 
 ![Riquadro delle prestazioni del computer](media/oms-service-map/machine-performance.png)
@@ -245,20 +245,20 @@ Linux:
 - Scheda di rete(*)\\Byte inviati/sec
 - Scheda di rete(*)\\Byte ricevuti/sec
 
-Per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 in Operations Management Suite.
+Per ottenere i dati sulle prestazioni di rete è necessario anche aver abilitato la soluzione Wire Data 2.0 nell'area di lavoro.
  
-## <a name="operations-management-suite-security-integration"></a>Integrazione della sicurezza in Operations Management Suite
-L'integrazione di Sicurezza e controllo in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Operations Management Suite.
+## <a name="security-integration"></a>Integrazione della sicurezza
+L'integrazione di sicurezza e controllo in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
 
-Il riquadro relativo alla **sicurezza del computer** mostra i dati provenienti dalla soluzione di sicurezza e controllo di Operations Management Suite relativi al server selezionato. Il riquadro elenca un riepilogo dei problemi di sicurezza del server non risolti durante l'intervallo di tempo selezionato. Facendo clic su uno dei problemi di sicurezza, verrà eseguito il drill-down in una ricerca log per ottenerne i dettagli.
+Il pannello relativo alla **sicurezza del computer** mostra i dati provenienti dalla soluzione di sicurezza e controllo relativi al server selezionato. Il riquadro elenca un riepilogo dei problemi di sicurezza del server non risolti durante l'intervallo di tempo selezionato. Facendo clic su uno dei problemi di sicurezza, verrà eseguito il drill-down in una ricerca log per ottenerne i dettagli.
 
 ![Riquadro relativo alla sicurezza dei computer](media/oms-service-map/machine-security.png)
 
 
-## <a name="operations-management-suite-updates-integration"></a>Integrazione degli aggiornamenti in Operations Management Suite
-L'integrazione della Gestione aggiornamenti in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro Operations Management Suite.
+## <a name="updates-integration"></a>Integrazione degli aggiornamenti
+La gestione degli aggiornamenti di Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Anlaytics.
 
-Il riquadro relativo agli **aggiornamenti del computer** mostra i dati provenienti dalla soluzione di gestione degli aggiornamenti di Operations Management Suite relativi al server selezionato. Il riquadro elenca un riepilogo degli aggiornamenti mancanti per il server durante l'intervallo di tempo selezionato.
+Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenienti dalla soluzione di gestione degli aggiornamenti relativi al server selezionato. Il riquadro elenca un riepilogo degli aggiornamenti mancanti per il server durante l'intervallo di tempo selezionato.
 
 ![Riquadro di rilevamento modifiche del computer](media/oms-service-map/machine-updates.png)
 
@@ -272,17 +272,17 @@ Ogni ora viene generato un record per ogni computer e processo univoco che si ag
 
 Sono disponibili proprietà generate internamente che è possibile usare per identificare processi e computer univoci:
 
-- Computer: usare ResourceId o ResourceName_s per identificare in modo univoco un computer all'interno di un'area di lavoro di Operations Management Suite.
-- Processi: usare ResourceId o ResourceName_s per identificare in modo univoco un processo all'interno di un'area di lavoro di Operations Management Suite. ResourceName_s è univoco all'interno del contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
+- Computer: usare ResourceId o ResourceName_s per identificare in modo univoco un computer all'interno di un'area di lavoro di Log Analytics.
+- Processo: usare ResourceId per identificare in modo univoco un computer all'interno di un'area di lavoro di Log Analytics. ResourceName_s è univoco all'interno del contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
 
 Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
 
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificatore univoco per il computer nell'area di lavoro |
 | ResourceName_s | Identificatore univoco per il computer nell'area di lavoro |
@@ -307,9 +307,9 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificatore univoco per il processo nell'area di lavoro |
 | ResourceName_s | Identificatore univoco per il processo nel computer in cui è in esecuzione|
@@ -326,7 +326,7 @@ I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi a
 | CommandLine_s | Riga di comando |
 | ExecutablePath _s | Percorso del file eseguibile |
 | WorkingDirectory_s | La directory di lavoro |
-| Nome utente | Account con cui è in esecuzione il processo |
+| UserName | Account con cui è in esecuzione il processo |
 | UserDomain | Dominio in cui è in esecuzione il processo |
 
 
@@ -347,7 +347,7 @@ ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Trovare un computer (record più recente) in base al nome di risorsa
 search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
-### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Trovare un computer, ovvero il record più recente, in base all’indirizzo IP
+### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Trovare un computer, ovvero il record più recente, in base all'indirizzo IP
 search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Elencare tutti i processi noti su un computer specifico

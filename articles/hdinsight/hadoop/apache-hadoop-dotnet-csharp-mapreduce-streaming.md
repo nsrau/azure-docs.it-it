@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: cb07f173a0ff669cc8fa56d1ba37a4a3df8d8753
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Hadoop in HDInsight
 
@@ -33,7 +33,7 @@ Hadoop streaming è un'utilità che consente di eseguire processi MapReduce tram
 
 ## <a name="net-on-hdinsight"></a>.NET su HDInsight
 
-__I cluster HDInsight basati su Linux__ usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.5 di HDInsight. Per altre informazioni sulla versione Mono compresa in HDInsight, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](../hdinsight-component-versioning.md). Per usare una versione specifica di Mono, vedere il documento [Install or update Mono](../hdinsight-hadoop-install-mono.md) (Installare o aggiornare Mono).
+__I cluster HDInsight basati su Linux__ usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.6 di HDInsight. Per altre informazioni sulla versione Mono compresa in HDInsight, vedere [Componenti e versioni di Hadoop disponibili in HDInsight](../hdinsight-component-versioning.md). Per usare una versione specifica di Mono, vedere il documento [Install or update Mono](../hdinsight-hadoop-install-mono.md) (Installare o aggiornare Mono).
 
 Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framework, vedere il documento relativo alla [compatibilità Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 

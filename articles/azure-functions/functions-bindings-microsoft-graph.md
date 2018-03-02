@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 5d0f266047e1b083cdf23f8d1c55950a46406f61
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 346fd26696480b6226c5e836e9876685fb408f96
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -49,10 +49,10 @@ Per informazioni su come impostare un'app per le funzioni per l'uso della versio
 
 Per installare un'estensione dal portale di Azure, passare a un modello o a un'associazione che vi fa riferimento. Creare una nuova funzione e nella schermata di selezione del modello, scegliere lo scenario "Microsoft Graph". Selezionare uno dei modelli di questo scenario. In alternativa, è possibile passare alla scheda "Integrazione" di una funzione esistente e selezionare una delle associazioni trattate in questo articolo.
 
-In entrambi i casi, verrà visualizzato un avviso che specifica l'estensione da installare. Fare clic su **Installa** per ottenere l'estensione.
+In entrambi i casi, verrà visualizzato un avviso che specifica l'estensione da installare. Fare clic su **Installa** per ottenere l'estensione. Ogni estensione deve essere installata una sola volta per ogni app per le funzioni. 
 
 > [!Note] 
-> Ogni estensione deve essere installata una sola volta per ogni app per le funzioni. In un piano a consumo il processo di installazione nel portale può richiedere fino a 10 minuti.
+> In un piano a consumo il processo di installazione nel portale può richiedere fino a 10 minuti.
 
 Se si usa Visual Studio, è possibile ottenere le estensioni installando questi pacchetti NuGet:
 - [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 41ead775c8ce1919d8c3813b58c8a4d648c8bc64
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e166e73ba45e229d8049738fa4a79f5dc117d806
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'account di archiviazione di Azure. Prendere nota del **nome** e della **chiave** per l'account di archiviazione di Azure.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Altri servizi** nel menu a sinistra e selezionare **Account di archiviazione**.
+2. Scegliere **Tutti i servizi** dal menu a sinistra e selezionare **Account di archiviazione**.
 
     ![Sfoglia - Account di archiviazione](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. Nel pannello **Account di archiviazione** selezionare l'**account di archiviazione di Azure** da usare in questa esercitazione.
@@ -70,7 +70,7 @@ Per eseguire questa esercitazione, sono necessari il nome e la chiave dell'accou
 ## <a name="collect-sql-server-database-user-names"></a>Raccogliere i nomi del server, del database e dell'utente per il database SQL
 Per eseguire questa esercitazione, sono necessari i nomi del server, del database e dell'utente di Azure SQL. Annotare i nomi di **server**, **database** e **utente** per il database SQL di Azure.
 
-1. Nel **portale di Azure** fare clic su **Altri servizi** a sinistra e selezionare **Database SQL**.
+1. Nel **portale di Azure** fare clic su **Tutti i servizi** a sinistra e selezionare **Database SQL**.
 2. Nel pannello **Database SQL** selezionare il **database** da usare nell'esercitazione. Annotare il **nome database**.  
 3. Nel pannello **Database SQL**, fare clic su **Proprietà** in **IMPOSTAZIONI**.
 4. Annotare i valori per **NOME SERVER** e **ACCOUNT DI ACCESSO AMMINISTRATORE SERVER**.
@@ -79,7 +79,7 @@ Per eseguire questa esercitazione, sono necessari i nomi del server, del databas
 ## <a name="allow-azure-services-to-access-sql-server"></a>Consentire ai servizi di Azure di accedere a SQL Server
 Assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **ATTIVA** per il server di Azure SQL, in modo che il servizio Data Factory possa accedere al server di Azure SQL. Per verificare e attivare l'impostazione, seguire questa procedura:
 
-1. Fare clic sull'hub **Altri servizi** a sinistra e selezionare **Server SQL**.
+1. Fare clic sull'hub **Tutti i servizi** a sinistra e selezionare **Server SQL**.
 2. Selezionare il server e fare clic su **Firewall** in **IMPOSTAZIONI**.
 3. Nel pannello **Impostazioni del firewall** fare clic su **ATTIVA** per **Consenti l'accesso a Servizi Azure**.
 4. Fare clic su **X**per chiudere tutti i pannelli.

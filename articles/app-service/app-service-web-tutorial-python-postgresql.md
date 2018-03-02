@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 87ed4015e06e0a05e628e8e356b835b9b886eb5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Creare un'app Web Python e PostgreSQL in Azure
 
@@ -247,7 +247,7 @@ Il repository Git contiene già i file seguenti, necessari per eseguire l'app We
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
 ### <a name="create-a-web-app"></a>Creare un'app Web

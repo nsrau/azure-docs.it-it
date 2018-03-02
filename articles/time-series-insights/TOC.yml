@@ -1,10 +1,11 @@
-- name: Azure Time Series Insights
+- name: Documentazione di Azure Time Series Insights
   href: index.yml
 - name: Panoramica
   items:
     - name: Informazioni su Time Series Insights
       href: time-series-insights-overview.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Esplorare Time Series Insights
       href: time-series-quickstart.md
@@ -50,7 +51,7 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: Gestire le risorse usando modelli
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: API di query
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi

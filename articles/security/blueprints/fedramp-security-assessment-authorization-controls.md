@@ -1,6 +1,6 @@
 ---
-title: Automazione dei progetti Azure FedRAMP - Valutazione della sicurezza e autorizzazione
-description: Applicazioni Web per FedRAMP - Valutazione della sicurezza e autorizzazione
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Valutazione della sicurezza e autorizzazione
+description: Automazione di applicazioni Web per FedRAMP - Valutazione della sicurezza e autorizzazione
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: d1c9846589adaef0baeeaf16077c8e74bef1cd9f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="security-assessment-and-authorization-ca"></a>Valutazione della sicurezza e autorizzazione
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti come parte del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
 
 ## <a name="nist-800-53-control-ca-1"></a>Controllo CA-1 NIST 800-53
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Per limitare la connettività esterna alle risorse distribuite da questo progetto Azure, si distribuiscono gateway applicazione e gruppi di sicurezza di rete. I set di regole applicati ai gruppi di sicurezza di rete sono configurati in base a uno schema Nega per impostazione predefinita. |
+| **Cliente** | Per limitare la connettività esterna alle risorse distribuite da questo progetto, vengono distribuiti il gateway applicazione di Azure e gruppi di sicurezza di rete. I set di regole applicati ai gruppi di sicurezza di rete sono configurati in base a uno schema Nega per impostazione predefinita. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f6b334dbc9903d0080b74052062de7564aa4a993
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Salvare i messaggi dell'hub IoT che contengono dati di sensori nel servizio Archiviazione BLOB di Azure
 
@@ -45,7 +45,7 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Nuova** > **Archiviazione** > **Account di archiviazione** > **Crea**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione** > **Crea**.
 
 2. Immettere le informazioni necessarie per l'account di archiviazione:
 

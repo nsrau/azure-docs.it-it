@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 7fbca027d02512671cb380e9b440b03ffef86b89
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 66c356d6d42254e7443b645bff3393daca67012b
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Esempio di connessioni di origine personalizzate (Python) 
 Prima di leggere questa appendice, leggere la [panoramica dell'estendibilità di Python](data-prep-python-extensibility-overview.md).
@@ -45,7 +45,7 @@ A questo punto dovrebbe essere possibile importare le raccolte data.world.
 
 #### <a name="load-data-into-data-preparation"></a>Caricare i dati nella preparazione dei dati
 
-Creare un nuovo flusso di dati basato su script. Usare quindi lo script seguente per caricare i dati da data.world.
+Creare una trasformazione Transform Dataflow (Script) (Trasforma flusso di dati - Script). Usare quindi lo script seguente per caricare i dati da data.world.
 
 ```python
 #paths = df['Path'].tolist()

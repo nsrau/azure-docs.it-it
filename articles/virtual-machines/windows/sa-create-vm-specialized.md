@@ -1,5 +1,5 @@
 ---
-title: Creare una macchina virtuale da un disco specializzato in Azure | Documentazione Microsoft
+title: Creare una macchina virtuale da un disco specializzato in Azure | Microsoft Docs
 description: Creare una nuova macchina virtuale collegando un disco non gestito specializzato nel modello di distribuzione Resource Manager.
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92a9d5900e3e0fe71084e5003010d419e44cb39
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Creare una VM da un disco rigido virtuale specializzato in un account di archiviazione
 
@@ -118,7 +118,7 @@ L'esecuzione del comando potrebbe richiedere del tempo, a seconda della connessi
 ### <a name="before-you-begin"></a>Prima di iniziare
 Verificare quanto segue:
 
-* Disporre delle informazioni sugli **account di archiviazione di origine e destinazione**. Per la VM di origine è necessario disporre dei nomi degli account di archiviazione e dei contenitori. In genere il nome del contenitore sarà **vhds**. È inoltre necessario disporre di un account di archiviazione di destinazione. Se non si dispone già di un account di archiviazione, è possibile crearne uno usando il portale (**Servizi** > Account di archiviazione > Aggiungi) oppure mediante il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
+* Disporre delle informazioni sugli **account di archiviazione di origine e destinazione**. Per la VM di origine è necessario disporre dei nomi degli account di archiviazione e dei contenitori. In genere il nome del contenitore sarà **vhds**. È inoltre necessario disporre di un account di archiviazione di destinazione. Se non si dispone già di un account di archiviazione, è possibile crearne uno usando il portale (**Tutti i servizi** > Account di archiviazione > Aggiungi) oppure mediante il cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount). 
 * Avere scaricato e installato lo [strumento AzCopy](../../storage/common/storage-use-azcopy.md). 
 
 ### <a name="deallocate-the-vm"></a>Deallocare la VM
@@ -138,7 +138,7 @@ Sono necessari gli URL degli account di archiviazione di origine e destinazione.
 
 Per ottenere l'URL è possibile usare il portale di Azure o Azure PowerShell:
 
-* **Portale**: fare clic su **>** per **Altri servizi** > **Account di archiviazione** > *account di archiviazione* > **BLOB**. Il file VHD di origine si trova probabilmente nel contenitore **vhds**. Fare clic su **Proprietà** per il contenitore e copiare il testo con l'etichetta **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. 
+* **Portale**: fare clic su **>** per **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **BLOB**. Il file VHD di origine si trova probabilmente nel contenitore **vhds**. Fare clic su **Proprietà** per il contenitore e copiare il testo con l'etichetta **URL**. Sono necessari gli URL di entrambi i contenitori di origine e di destinazione. 
 * **PowerShell**: usare [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) per ottenere le informazioni dalla VM denominata **myVM** nel gruppo di risorse **myResourceGroup**. Nei risultati esaminare la sezione **Storage profile** (Profilo archiviazione) per l'**URI VHD**. La prima parte dell'URI è l'URL del contenitore, mentre l'ultima parte è il nome del disco rigido virtuale del sistema operativo della VM.
 
 ```powershell
@@ -148,7 +148,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="get-the-storage-access-keys"></a>Ottenere le chiavi di accesso alle risorse di archiviazione
 Trovare le chiavi di accesso per gli account di archiviazione di origine e destinazione. Per altre informazioni sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
 
-* **Portale**: fare clic su **Altri servizi** > **Account di archiviazione** > *account di archiviazione* > **Chiavi di accesso**. Copiare la chiave denominata **key1**.
+* **Portale**: fare clic su **Tutti i servizi** > **Account di archiviazione** > *account di archiviazione* > **Chiavi di accesso**. Copiare la chiave denominata **key1**.
 * **PowerShell**: usare [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) per ottenere la chiave di archiviazione per l'account di archiviazione **mystorageaccount** nel gruppo di risorse **myResourceGroup**. Copiare la chiave denominata **key1**.
 
 ```powershell
@@ -312,7 +312,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verificare che la VM sia stata creata
-La VM appena creata verrà visualizzata nel [portale di Azure](https://portal.azure.com) in **Sfoglia** > **Macchine virtuali** oppure usando i comandi di PowerShell seguenti:
+La VM appena creata verrà visualizzata nel [portale di Azure](https://portal.azure.com) in **Tutti i servizi** > **Macchine virtuali** oppure usando i comandi di PowerShell seguenti:
 
 ```powershell
 $vmList = Get-AzureRmVM -ResourceGroupName $rgName

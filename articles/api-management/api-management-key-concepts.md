@@ -14,21 +14,15 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
 
 Gestione API consente alle organizzazioni di pubblicare API per permettere a sviluppatori esterni, partner e interni di sfruttare tutte le potenzialità dei dati e dei servizi. Le aziende di tutto il mondo avvertono l'esigenza di estendere le proprie attività come piattaforma digitale, creando nuovi canali, trovando nuovi clienti e stimolando un coinvolgimento maggiore con quelli esistenti. Gestione API fornisce le competenze fondamentali per assicurare un programma API di successo attraverso il coinvolgimento degli sviluppatori, informazioni aziendali approfondite, strumenti di analisi, sicurezza e protezione. È possibile usare Gestione API di Azure per avviare un programma API completo basato su qualsiasi back-end.
-
-Guardare il video seguente per ottenere una panoramica di Gestione API di Azure e informazioni su come usare Gestione API per aggiungere molte funzionalità all'API, incluso il controllo degli accessi, i limiti di frequenza, il monitoraggio, la registrazione di eventi e la memorizzazione di risposte nella cache, con un intervento minimo da parte dell'utente.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
-> 
-> 
 
 Questo articolo offre una panoramica degli scenari comuni correlati a Gestione API.  Viene fornita anche una breve panoramica dei componenti principali del sistema di Gestione API. Infine, ogni componente viene analizzato più in dettaglio.
 

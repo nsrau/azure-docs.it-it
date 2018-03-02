@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
 ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Descrizione delle unità di calcolo nel database di Azure per PostgreSQL
 Questo argomento spiega i concetti relativi alle unità di calcolo e ciò che accade quando il carico di lavoro raggiunge il livello massimo per le unità di calcolo.

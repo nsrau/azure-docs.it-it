@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 26ef6f69ef2f2d50628f4d0b021159526c9a04a7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gestire le richieste di sottoscrizione di una lista di distribuzione con un'app per la logica
 
@@ -43,7 +43,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account di Azure gratuito</a> prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account MailChimp. Creare una lista denominata "test-members-ML", in cui l'app per la logica può aggiungere gli indirizzi di posta elettronica per i membri approvati. Se non si ha un account, [registrarsi per ottenerne uno gratuito](https://login.mailchimp.com/signup/) e vedere [How to create a list](https://us17.admin.mailchimp.com/lists/#) (Come creare una lista di distribuzione). 
 
@@ -55,7 +55,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 
-1. Dal menu principale di Azure scegliere **Nuovo** > **Enterprise Integration** > **App per la logica**.
+1. Nel menu principale di Azure scegliere **Crea una risorsa** > **Integrazione aziendale** > **App per la logica**.
 
    ![Creare l'app per la logica](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
 
@@ -69,7 +69,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
    | **Gruppo di risorse** | LA-MailingList-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate | 
    | **Posizione** | Stati Uniti orientali 2 | Area in cui archiviare le informazioni sull'app per la logica | 
-   | **Log Analytics** | No | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
+   | **Log Analytics** | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    |||| 
 
 3. Dopo che Azure distribuisce l'app, si apre Progettazione app per la logica, che mostra un video introduttivo e alcuni modelli di app per la logica comuni. In **Modelli** scegliere **App per la logica vuota**.

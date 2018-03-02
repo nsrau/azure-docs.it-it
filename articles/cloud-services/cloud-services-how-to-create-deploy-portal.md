@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
@@ -59,15 +59,15 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 
 ## <a name="create-and-deploy"></a>Creazione e distribuzione
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Nuovo > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
+2. Fare clic su **Crea una risorsa > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. Nel nuovo pannello **Servizio cloud** immettere un valore per il **nome DNS**.
+3. Nel nuovo riquadro **Servizio cloud** immettere un valore per il **nome DNS**.
 4. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
 5. Selezionare un **percorso**.
-6. Fare clic su **Pacchetto**. Verrà visualizzato il pannello **Carica un pacchetto** . Compilare i campi obbligatori. Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
+6. Fare clic su **Pacchetto**. Verrà visualizzato il riquadro **Carica un pacchetto**. Compilare i campi obbligatori. Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Assicurarsi che l'opzione **Avvia distribuzione** sia selezionata.
-8. Fare clic su **OK** per chiudere il pannello **Carica un pacchetto**.
+8. Fare clic su **OK** per chiudere il riquadro **Carica un pacchetto**.
 9. Se non è disponibile un certificato da aggiungere, fare clic su **Crea**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -75,9 +75,9 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 ## <a name="upload-a-certificate"></a>Caricamento di un certificato
 Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
 
-1. Selezionare **Certificati** e nel pannello **Aggiungi certificati** selezionare il file con estensione pfx del certificato SSL e fornire la **password** per il certificato.
-2. Fare clic su **Collega certificato** e quindi su **OK** nel pannello **Aggiungi certificati**.
-3. Fare clic su **Crea** nel pannello **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
+1. Selezionare **Certificati** e nel riquadro **Aggiungi certificati** selezionare il file PFX del certificato SSL e fornire la **password** per il certificato.
+2. Fare clic su **Collega certificato** e quindi su **OK** nel riquadro **Aggiungi certificati**.
+3. Fare clic su **Crea** nel riquadro **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 

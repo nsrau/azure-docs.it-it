@@ -2,7 +2,7 @@
 
 1.  Usare le credenziali dell'account Microsoft per accedere al portale di Azure all'URL seguente: <https://portal.azure.com/>. Se si esegue la distribuzione del dispositivo nel portale per enti pubblici, accedere a: <https://portal.azure.us/>
 
-2.  Nel portale di Azure fare clic su **+ Nuovo** &gt; **Archiviazione** &gt; **Serie di dispositivi virtuali StorSimple**.
+2.  Nel portale di Azure fare clic su **Crea una risorsa** &gt; **Archiviazione** &gt; **Serie di dispositivi virtuali StorSimple**.
 
     ![Creare un nuovo servizio](./media/storsimple-virtual-array-create-new-service/createnewservice2.png) 
 
@@ -14,7 +14,7 @@
 
     3.  Per **Gruppo di risorse** selezionare un gruppo esistente o creare un nuovo gruppo. Per altre informazioni, vedere [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) (Gruppi di risorse di Azure).
 
-    4.  Fornire una **Località** per il servizio. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services) . In generale, scegliere la **posizione** più vicina all'area geografica in cui si vuole distribuire il dispositivo. È inoltre possibile tenere in considerazione quanto segue:
+    4.  Fornire una **Località** per il servizio. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services). In generale, scegliere la **posizione** più vicina all'area geografica in cui si vuole distribuire il dispositivo. È inoltre possibile tenere in considerazione quanto segue:
 
         -   Se sono presenti altri carichi di lavoro in Azure che si intende distribuire con il dispositivo StorSimple, è consigliabile usare il data center specifico.
 

@@ -16,10 +16,10 @@ ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Tutti gli argomenti per il servizio SQL Data Warehouse di Azure
 Questo argomento elenca tutti gli argomenti che si applicano direttamente al servizio **SQL Data Warehouse** di Azure. È possibile cercare la pagina Web per le parole chiave utilizzando **Ctrl+F**, per trovare gli argomenti di interesse corrente.
@@ -73,7 +73,7 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 30 |[Decisioni di progettazione e tecniche di codifica per SQL Data Warehouse](sql-data-warehouse-overview-develop.md) |Concetti di sviluppo, decisioni di progettazione, suggerimenti e tecniche di codifica per SQL Data Warehouse. |
 
 ## <a name="manage"></a>Gestisci
-| &nbsp; | Title | DESCRIZIONE |
+| &nbsp; | Titolo | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 31 |[Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)](sql-data-warehouse-manage-compute-overview.md) |Funzionalità relative alla scalabilità orizzontale delle prestazioni in Azure SQL Data Warehouse. Eseguire il ridimensionamento modificando le impostazioni DWU o sospendendo e riavviando le risorse di calcolo per ridurre i costi. |
 | 32 |[Gestire la potenza di calcolo in Azure SQL Data Warehouse (portale di Azure)](sql-data-warehouse-manage-compute-portal.md) |Attività del portale di Azure per la gestione della potenza di calcolo. Ridimensionare le risorse di calcolo cambiando il numero di DWU. In alternativa, sospendere e riprendere le risorse di calcolo per ridurre i costi. |
@@ -89,7 +89,7 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 42 |[Ripristinare un'istanza di Azure SQL Data Warehouse (API REST)](sql-data-warehouse-restore-database-rest-api.md) |Attività dell'API REST per il ripristino di un'istanza di Azure SQL Data Warehouse. |
 
 ## <a name="tables-and-indexes"></a>Tabelle e indici
-| &nbsp; | Title | DESCRIZIONE |
+| &nbsp; | Titolo | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 43 |[Tipi di dati per le tabelle in SQL Data Warehouse](sql-data-warehouse-tables-data-types.md) |Introduzione ai tipi di dati per le tabelle di Azure SQL Data Warehouse. |
 | 44 |[Distribuzione di tabelle in SQL Data Warehouse](sql-data-warehouse-tables-distribute.md) |Introduzione alla distribuzione di tabelle in SQL Data Warehouse di Azure. |
@@ -100,7 +100,7 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 49 |[Tabelle temporanee in SQL Data Warehouse](sql-data-warehouse-tables-temporary.md) |Introduzione alle tabelle temporanee di SQL Data Warehouse di Azure. |
 
 ## <a name="integrate"></a>Integrare
-| &nbsp; | Titolo | DESCRIZIONE |
+| &nbsp; | Title | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 50 |[Usare Data factory di Azure con SQL Data Warehouse](sql-data-warehouse-integrate-azure-data-factory.md) |Suggerimenti per l'uso di Data factory di Azure con Azure SQL Data Warehouse per lo sviluppo di soluzioni. |
 | 51 |[Usare Azure Machine Learning con SQL Data Warehouse](sql-data-warehouse-integrate-azure-machine-learning.md) |Suggerimenti per l'uso di Azure Machine Learning con Azure SQL Data Warehouse per lo sviluppo di soluzioni. |
@@ -132,14 +132,14 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 69 |[Eseguire la migrazione della soluzione in SQL Data Warehouse](sql-data-warehouse-overview-migrate.md) |Indicazioni sulla migrazione per spostare la soluzione nella piattaforma Azure SQL Data Warehouse. |
 
 ## <a name="partners"></a>Partner
-| &nbsp; | Titolo | DESCRIZIONE |
+| &nbsp; | Title | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 70 |[Partner di business intelligence per SQL Data Warehouse](sql-data-warehouse-partner-business-intelligence.md) |Elenco di partner di business intelligence di terze parti con soluzioni che supportano SQL Data Warehouse. |
 | 71 |[Partner di integrazione di dati di SQL Data Warehouse](sql-data-warehouse-partner-data-integration.md) |Elenco di partner di terze parti con soluzioni per l'integrazione dei dati che supportano Azure SQL Data Warehouse. |
 | 72 |[Partner di gestione di dati di SQL Data Warehouse](sql-data-warehouse-partner-data-management.md) |Elenco di partner di gestione dati di terze parti con soluzioni che supportano SQL Data Warehouse. |
 
 ## <a name="reference"></a>riferimento
-| &nbsp; | Title | DESCRIZIONE |
+| &nbsp; | Titolo | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 73 |[Argomenti di riferimento per SQL Data Warehouse](sql-data-warehouse-overview-reference.md) |Collegamenti a contenuto di riferimento per SQL Data Warehouse. |
 | 74 |[Usare i cmdlet di PowerShell e le API REST con SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md) |I cmdlet principali di PowerShell per Azure SQL Data Warehouse, compresi quelli per sospendere e riavviare un database. |
@@ -157,7 +157,7 @@ Questa sezione elenca gli articoli aggiornati di recente, in cui l'aggiornamento
 | 82 |[Proteggere un database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md) |Suggerimenti per proteggere un database in Azure SQL Data Warehouse per lo sviluppo di soluzioni. |
 
 ## <a name="miscellaneous"></a>Miscellaneous
-| &nbsp; | Title | DESCRIZIONE |
+| &nbsp; | Titolo | DESCRIZIONE |
 | ---:|:--- |:--- |
 | 83 |[Installare Visual Studio e SSDT per SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md) |Installare Visual Studio e SQL Server Data Tools (SSDT) per Azure SQL Data Warehouse |
 | 84 |[Dettagli sulla migrazione ad Archiviazione Premium](sql-data-warehouse-migrate-to-premium-storage.md) |Istruzioni per la migrazione di un SQL Data Warehouse esistente all’archiviazione Premium |

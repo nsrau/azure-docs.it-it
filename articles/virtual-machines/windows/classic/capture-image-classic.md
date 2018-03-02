@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6f7d8e8b3d1ed7c8a06f7e11fea492eec8b60409
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ee6371faa9c3cc72104ba0eb05d17226679fa420
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/21/2018
 ---
-# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico.
+# <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Acquisire un'immagine di una macchina virtuale Windows di Azure creata con il modello di distribuzione classico
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per informazioni sul modello di Gestione risorse, vedere [Acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure](../capture-image-resource.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -57,7 +57,7 @@ Prima dell'acquisizione dell'immagine di una macchina virtuale di Azure, si cons
 
    ![Eseguire Sysprep.](./media/capture-image/SysprepGeneral.png)
 5. Sysprep arresta la macchina virtuale il cui stato nel portale di Azure diventa **Arrestato**.
-6. Nel portale di Azure, fare clic su **Immagini VM (classico)** e selezionare la macchina virtuale che si desidera acquisire. Il gruppo **Immagini VM (classico)** è elencato in **Calcolo** quando si visualizza **Altri servizi**.
+6. Nel portale di Azure, fare clic su **Immagini VM (classico)** e selezionare la macchina virtuale che si desidera acquisire. Il gruppo **Immagini VM (classico)** è elencato in **Calcolo** quando si visualizza **Tutti i servizi**.
 
 7. Nella barra dei comandi fare clic su **Capture**.
 
@@ -74,7 +74,7 @@ Prima dell'acquisizione dell'immagine di una macchina virtuale di Azure, si cons
     ![Acquisizione dell'immagine eseguita correttamente](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-L'immagine è pronta per essere utilizzata per creare macchine virtuali. A tale scopo, si creerà una macchina virtuale selezionando la voce di menu **Altri servizi** nella parte inferiore del menu dei servizi, quindi **Immagini VM (classico)** nel gruppo **Calcolo**. Per istruzioni, vedere [Creare una macchina virtuale da un'immagine](createportal.md).
+L'immagine è pronta per essere utilizzata per creare macchine virtuali. A tale scopo, si creerà una macchina virtuale selezionando la voce di menu **Tutti i servizi** nella parte inferiore del menu dei servizi, quindi **Immagini VM (classico)** nel gruppo **Calcolo**. Per istruzioni, vedere [Creare una macchina virtuale da un'immagine](createportal.md).
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

@@ -3,7 +3,7 @@ title: Configurazione dell'indirizzo IP per la connessione dopo il failover su A
 description: Descrive come configurare l'indirizzo IP per la connessione alle macchine virtuali di Azure dopo il failover da un sito locale con Azure Site Recovery
 services: site-recovery
 documentationcenter: 
-author: prateek9us
+author: mayanknayar
 manager: carmonm
 editor: 
 ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2017
-ms.author: pratshar
-ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 02/27/2018
+ms.author: manayar
+ms.openlocfilehash: b9aeaf1dc6d471ba993dd470403ba60ce68153fc
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurazione dell'indirizzo IP per la connessione dopo il failover in Azure
 
@@ -36,7 +36,7 @@ Questo articolo contiene informazioni relative agli argomenti seguenti:
 Quando si pianifica la strategia di replica e di failover, una delle domande principali che si deve porre riguarda la modalità di connessione alla VM di Azure dopo il failover. Quando si progetta la strategia di rete per la replica di VM di Azure, sono disponibili due opzioni:
 
 - **Usare un indirizzo IP diverso**: è possibile scegliere di usare un intervallo di indirizzi IP diverso per la rete di VM di Azure di cui viene eseguita la replica. In questo scenario, la VM ottiene un nuovo indirizzo IP dopo il failover ed è necessario un aggiornamento del DNS.
-- **Mantenere lo stesso indirizzo IP**: si potrebbe voler usare lo stesso intervallo di indirizzi del sito primario locale per la rete di Azure dopo il failover. Il mantenimento degli stessi indirizzi IP semplifica il ripristino riducendo i problemi di rete dopo il failover. Quando si esegue la replica in Azure, è tuttavia necessario aggiornare le route con la nuova posizione degli indirizzi IP dopo il failover. 
+- **Mantenere lo stesso indirizzo IP**: si potrebbe voler usare lo stesso intervallo di indirizzi del sito primario locale per la rete di Azure dopo il failover. Il mantenimento degli stessi indirizzi IP semplifica il ripristino riducendo i problemi di rete dopo il failover. Quando si esegue la replica in Azure, è tuttavia necessario aggiornare le route con la nuova posizione degli indirizzi IP dopo il failover.
 
 ## <a name="retaining-ip-addresses"></a>Mantenimento degli indirizzi IP
 
@@ -86,11 +86,7 @@ Oltre alla connessione da rete virtuale a rete virtuale, dopo il failover Woodgr
 
 ## <a name="assigning-new-ip-addresses"></a>Assegnazione di nuovi indirizzi IP
 
-Questo [post di blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) spiega come configurare l'infrastruttura di rete di Azure quando non è necessario mantenere gli indirizzi IP dopo il failover. Inizia con una descrizione dell'applicazione, analizza come impostare la rete locale e in Azure e conclude con informazioni sull'esecuzione dei failover. 
+Questo [post di blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) spiega come configurare l'infrastruttura di rete di Azure quando non è necessario mantenere gli indirizzi IP dopo il failover. Inizia con una descrizione dell'applicazione, analizza come impostare la rete locale e in Azure e conclude con informazioni sull'esecuzione dei failover.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire un failover](site-recovery-failover.md)
-
-
-
-

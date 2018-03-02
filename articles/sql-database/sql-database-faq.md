@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 02/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: da463bcaf91321b65c8ad1067e457b88c8dcd58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/12/2018
+ms.author: carlrab
+ms.openlocfilehash: 4efa053afd26bde208441c4b841c5d02142a2d18
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -44,7 +44,7 @@ Database SQL emette fattura in base a una tariffa oraria stimabile in base al li
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Cosa succede se un database singolo è attivo per meno di un'ora o utilizza un maggiore livello di servizio per meno di un'ora?
 Viene fatturata ogni ora per cui un database esiste utilizzando il livello di servizio più elevato + il livello di prestazioni applicati in quell'ora, indipendentemente dall'utilizzo o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database. 
 
-esempi
+Esempi:
 
 * Se si crea un database di livello Basic e quindi si esegue immediatamente l'aggiornamento al livello Standard S1, sarà addebitata la tariffa Standard S1 per la prima ora.
 * Se si aggiorna un database da Basic a Premium alle 22:00 e l'aggiornamento viene completato alle ore 01:35 del giorno successivo, viene addebitata la tariffa Premium a partire dalle ore 01:00. 
@@ -53,7 +53,7 @@ esempi
 ## <a name="how-does-elastic-pool-usage-show-up-on-my-bill-and-what-happens-when-i-change-edtus-per-pool"></a>Come viene indicato l'utilizzo del pool elastico nella fattura e cosa accade quando si modificano le eDTU per ciascun pool?
 Gli addebiti relativi ai pool elastici vengono riportati in fattura come DTU elastiche (eDTU) sotto agli incrementi indicati nelle eDTU per ciascun pool nella [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/sql-database/). Non è previsto alcun costo per database per i pool elastici. Viene fatturata ogni ora che un pool esiste con le eDTU più alte, indipendentemente dall'utilizzo o dal fatto che il pool sia stato attivo per meno di un'ora. 
 
-Esempi
+Esempi:
 
 * Se si crea un pool elastico Standard con 200 eDTU alle 11:18, con l'aggiunta di cinque database al pool viene addebitato il costo di 200 eDTU per l'intera ora a partire dalle 11:00 e per la restante parte della giornata.
 * Nel giorno 2, alle ore 5:05 di mattina, il Database 1 inizia a utilizzare 50 DTU e rimane stabile per tutto il giorno. Il Database 2-5 fluttua tra le 0 e le 80 DTU. Durante il giorno vengono aggiunti altri cinque database che utilizzano DTU che variano nel corso della giornata. Il giorno 2 viene fatturato interamente a 200 DTU. 
@@ -76,17 +76,17 @@ Per comprendere i livelli di eDTU e servizio, vedere l'articolo relativo a [opzi
 A differenza dei database singoli, l'uso della [replica geografica attiva](sql-database-geo-replication-overview.md) con i database elastici non ha un impatto diretto sulla fatturazione.  Vengono addebitate solo le DTU della quali si è effettuato il provisioning per ognuno dei pool (pool primario e secondario)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>In che modo l'utilizzo della funzionalità di controllo influisce sulla fatturazione?
-La funzionalità di controllo è integrata nel servizio del database SQL, senza costi aggiuntivi, ed è disponibile per i database Basic, Standard, Premium e Premium RS. Tuttavia, per archiviare i log di controllo, la funzionalità di controllo utilizza un account di archiviazione di Azure e le tariffe per le tabelle e code di archiviazione di Azure si applicano in base alle dimensioni del registro di controllo.
+La funzionalità di controllo è integrata nel servizio del database SQL, senza costi aggiuntivi, ed è disponibile per i database Basic, Standard e Premium. Tuttavia, per archiviare i log di controllo, la funzionalità di controllo utilizza un account di archiviazione di Azure e le tariffe per le tabelle e code di archiviazione di Azure si applicano in base alle dimensioni del registro di controllo.
 
 ## <a name="how-do-i-find-the-right-service-tier-and-performance-level-for-single-databases-and-elastic-pools"></a>Come è possibile trovare i livelli di servizio e delle prestazioni corretti per i database singoli e per i pool elastici?
-Sono disponibili alcuni strumenti. 
+Sono disponibili alcuni strumenti: 
 
 * Per i database locali, utilizzare la [gestione del ridimensionamento delle DTU](http://dtucalculator.azurewebsites.net/), che consiglia i database e le DTU necessarie e valuta più database per i pool elastici.
 * Se un database singolo potrebbe trarre vantaggio dal far parte di un pool, il motore intelligente di Azure consiglia un pool elastico se rileva un modello di utilizzo cronologico che garantisca tale vantaggio. Vedere [Monitorare e gestire un pool elastico con il portale di Azure](sql-database-elastic-pool-manage-portal.md). Per informazioni dettagliate su come eseguire i calcoli di persona, vedere [Considerazioni sul prezzo e sulle prestazioni per un pool elastico](sql-database-elastic-pool.md).
 * Per vedere se è necessario aumentare o diminuire il livello di un database singolo, vedere [Indicazioni sulle prestazioni per database singoli](sql-database-performance-guidance.md).
 
 ## <a name="how-often-can-i-change-the-service-tier-or-performance-level-of-a-single-database"></a>Con quale frequenza è possibile modificare il livello di servizio o di prestazioni di un database singolo?
-È possibile modificare il livello di servizio (tra Basic, Standard, Premium e Premium RS) o il livello di prestazioni all'interno di un livello di servizio (ad esempio, da S1 a S2) con la frequenza che più si desidera. Per i database con le versioni precedenti, è possibile modificare il livello di prestazioni o di servizio fino a quattro volte in un periodo di 24 ore.
+È possibile modificare il livello di servizio (tra Basic, Standard e Premium) o il livello di prestazioni all'interno di un livello di servizio (ad esempio, da S1 a S2) con la frequenza che si vuole. Per i database con le versioni precedenti, è possibile modificare il livello di prestazioni o di servizio fino a quattro volte in un periodo di 24 ore.
 
 ## <a name="how-often-can-i-adjust-the-edtus-per-pool"></a>Con quale frequenza è possibile modificare le DTU per un pool?
 Numero di volte desiderato.
@@ -101,7 +101,7 @@ In generale, i pool elastici sono progettati per un [modello di applicazione tip
 L'archiviazione dei backup è l'archiviazione associata ai backup dei database automatizzati che vengono usati per il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) e il [ripristino geografico](sql-database-recovery-using-backups.md#geo-restore). Il database SQL di Microsoft Azure offre fino al 200% delle risorse di archiviazione massime del database sottoposto a provisioning per la risorsa di archiviazione di backup senza costi aggiuntivi. Ad esempio, se si usa un'istanza di database Standard con una dimensione di database con provisioning pari a 250 GB, sono disponibili 500 GB di archiviazione di backup senza costi aggiuntivi. Se il database supera lo spazio di archiviazione di backup fornito, è possibile scegliere di ridurre il periodo di conservazione contattando il supporto tecnico di Azure oppure di pagare lo spazio di archiviazione di backup aggiuntivo, che viene addebitato in base alla tariffa standard per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS, Read-Access Geographically Redundant Storage). Per altre informazioni sui costi per il servizio RA-GRS, vedere Dettagli prezzi di archiviazione.
 
 ## <a name="im-moving-from-webbusiness-to-the-new-service-tiers-what-do-i-need-to-know"></a>Se si sta passando da un livello Web/Business a nuovi livelli di servizio, cosa è necessario sapere?
-I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium, Premium RS ed Elastic. 
+I database SQL di Azure Web e Business sono stati ritirati e sostituiti dai livelli Basic, Standard, Premium ed Elastic. 
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>Qual è l'intervallo di replica previsto durante la replica geografica di un database tra due aree della stessa area geografica di Azure?
 È supportato un RPO pari a cinque secondi e l'intervallo di replica è minore se la replica geografica secondaria è ospitata nell'area associata di Azure consigliata e appartiene allo stesso livello di servizio.
@@ -119,7 +119,7 @@ La replica geografica secondaria è una replica asincrona per la quale non viene
 L'intervallo di replica in tempo reale tra il database primario e la replica geografica secondaria è esposto attraverso una vista a gestione dinamica (DMV). Per informazioni dettagliate, vedere [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx).
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>Per spostare un database in un server diverso nella stessa sottoscrizione
-* Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, selezionare un database dall'elenco e quindi fare clic su **Copia**. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md) .
+Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, selezionare un database dall'elenco e quindi fare clic su **Copia**. Per altre informazioni, vedere [Copiare un database SQL di Azure](sql-database-copy.md) .
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Per spostare un database tra sottoscrizioni
-* Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
+Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.

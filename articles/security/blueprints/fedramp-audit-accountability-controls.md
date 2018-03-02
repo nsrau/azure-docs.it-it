@@ -1,6 +1,6 @@
 ---
-title: "Programma FedRAMP per l'automazione dei progetti di Azure - Controllo e responsabilità"
-description: "Applicazioni Web per FedRAMP - Controllo e responsabilità"
+title: "Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Controllo e responsabilità"
+description: "Automazione di applicazioni Web per FedRAMP - Controllo e responsabilità"
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 83ef9cbb7652bf128d7758237a8e6fbeed6c6565
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: c37d027882882c637585d745ce81111ba30f6257
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="audit-and-accountability-au"></a>Controllo e responsabilità
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le funzionalità di controllo per questo progetto di Azure sono fornite da Monitoraggio di Azure e dal servizio Log Analytics in OMS. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nel repository di OMS. Log Analytics mette in correlazione i dati di controllo tra le risorse distribuite da questa soluzione e può essere esteso all'applicazione Web distribuita dal cliente. |
+| **Cliente** | Le funzionalità di controllo per questo progetto sono fornite da Monitoraggio di Azure e dal servizio Log Analytics in OMS. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nel repository di OMS. Log Analytics mette in correlazione i dati di controllo tra le risorse distribuite da questa soluzione e può essere esteso all'applicazione Web distribuita dal cliente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli eventi controllati da questo progetto di Azure includono informazioni sufficienti a determinare quando si verificano gli eventi, l'origine dell'evento, il risultato dell'evento e altre informazioni dettagliate che supportano l'analisi degli eventi imprevisti correlati alla sicurezza. |
+| **Cliente** | Gli eventi controllati da questo progetto includono informazioni sufficienti a determinare quando si verificano gli eventi, l'origine dell'evento, il risultato dell'evento e altre informazioni dettagliate che supportano l'analisi degli eventi imprevisti correlati alla sicurezza. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli eventi controllati da questo progetto di Azure includono quelli controllati dai log attività di Azure per le risorse distribuite, dai log a livello del sistema operativo, dai log di Active Directory e dai log di SQL Server. I clienti possono selezionare altri eventi da controllare per soddisfare le esigenze correlate agli obiettivi. |
+| **Cliente** | Gli eventi controllati da questo progetto includono quelli controllati dai log attività di Azure per le risorse distribuite, dai log a livello del sistema operativo, dai log di Active Directory e dai log di SQL Server. I clienti possono selezionare altri eventi da controllare per soddisfare le esigenze correlate agli obiettivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure si basa sulle funzionalità di controllo predefinite di Azure, Windows Server e SQL Server. Queste soluzioni di controllo acquisiscono record di controllo di acquisizione di soluzioni con dettagli sufficienti a soddisfare i requisiti di questo controllo. |
+| **Cliente** | Questo progetto si basa sulle funzionalità di controllo predefinite di Azure, Windows Server e SQL Server. Queste soluzioni di controllo acquisiscono record di controllo di acquisizione di soluzioni con dettagli sufficienti a soddisfare i requisiti di questo controllo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli eventi del log attività di Azure usano uno schema dettagliato contenente campi per più di 20 tipi di informazioni di controllo. Oltre al log attività, questo progetto di Azure distribuisce la soluzione Log Analytics in OMS, che supporta un'ampia gamma di origini dati, inclusi log di Windows, log di Linux, log di Diagnostica di Azure e log del cliente.  |
+| **Cliente** | Gli eventi del log attività di Azure usano uno schema dettagliato contenente campi per più di 20 tipi di informazioni di controllo. Oltre al log attività, questo progetto distribuisce la soluzione Log Analytics in OMS, che supporta un'ampia gamma di origini dati, inclusi log di Windows, log di Linux, log di Diagnostica di Azure e log del cliente.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutte le macchine virtuali distribuite da questo progetto di Azure vengono aggiunte al dominio di Active Directory distribuito. Tutte le macchine virtuali aggiunte al dominio implementano criteri di gruppo che possono essere configurati per gestire centralmente la configurazione del sistema di controllo a livello del sistema operativo. |
+| **Cliente** | Tutte le macchine virtuali distribuite da questo progetto vengono aggiunte al dominio di Active Directory distribuito. Tutte le macchine virtuali aggiunte al dominio implementano criteri di gruppo che possono essere configurati per gestire centralmente la configurazione del sistema di controllo a livello del sistema operativo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure alloca una capacità di archiviazione sufficiente a conservare i record di controllo per un periodo di un anno. Tutti i record di controllo vengono raccolti da Log Analytics che è configurato per la conservazione di un anno. |
+| **Cliente** | Questo progetto alloca una capacità di archiviazione sufficiente a conservare i record di controllo per un periodo di un anno. Tutti i record di controllo vengono raccolti da Log Analytics che è configurato per la conservazione di un anno. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti i record di controllo generati dalle risorse distribuite da questo progetto di Azure vengono raccolti da Log Analytics e conservati per un periodo di un anno. L'allocazione della memoria per questa archiviazione dei record di controllo viene allocata dinamicamente per garantire che sia disponibile una capacità sufficiente. |
+| **Cliente** | Tutti i record di controllo generati dalle risorse distribuite da questo progetto vengono raccolti da Log Analytics e conservati per un periodo di un anno. L'allocazione della memoria per questa archiviazione dei record di controllo viene allocata dinamicamente per garantire che sia disponibile una capacità sufficiente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti i record di controllo generati dalle risorse distribuite da questo progetto di Azure vengono raccolti da Log Analytics e conservati per un periodo di un anno. L'allocazione della memoria per questa archiviazione dei record di controllo viene allocata dinamicamente per garantire che sia disponibile una capacità sufficiente. |
+| **Cliente** | Tutti i record di controllo generati dalle risorse distribuite da questo progetto vengono raccolti da Log Analytics e conservati per un periodo di un anno. L'allocazione della memoria per questa archiviazione dei record di controllo viene allocata dinamicamente per garantire che sia disponibile una capacità sufficiente. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa la soluzione Log Analytics in OMS per centralizzare i dati di controllo tra le risorse distribuite, a supporto della consapevolezza della situazione a livello dell'organizzazione. I clienti possono scegliere di integrare ulteriormente Log Analytics con altri sistemi. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS per centralizzare i dati di controllo tra le risorse distribuite, a supporto della consapevolezza della situazione a livello dell'organizzazione. I clienti possono scegliere di integrare ulteriormente Log Analytics con altri sistemi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa la soluzione Log Analytics in OMS per centralizzare i dati di controllo tra le risorse distribuite, a supporto delle funzionalità di verifica, analisi e report centralizzate. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS per centralizzare i dati di controllo tra le risorse distribuite, a supporto delle funzionalità di verifica, analisi e report centralizzate. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce la soluzione Sicurezza e controllo di OMS. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo fornisce una visione generale dello stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite, integrando dati di log e dati di vulnerabilità dalla valutazione della baseline e delle patch. |
+| **Cliente** | Questo progetto distribuisce la soluzione OMS Sicurezza e controllo. Questa soluzione offre una panoramica completa delle condizioni di sicurezza. Il dashboard Sicurezza e controllo fornisce una visione generale dello stato di sicurezza delle risorse distribuite usando i dati disponibili nelle soluzioni OMS distribuite, integrando dati di log e dati di vulnerabilità dalla valutazione della baseline e delle patch. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le macchine virtuali Windows distribuite da questo progetto di Azure implementano autorizzazioni a livello del sistema operativo che limitano le azioni che un utente può eseguire rispetto alle informazioni di controllo. In Azure gli utenti o i gruppi di utenti possono essere assegnati ai ruoli (ad esempio, proprietario, collaboratore, lettore o un ruolo personalizzato) per limitare le azioni disponibili rispetto alle risorse o alle soluzioni distribuite, incluso Log Analytics.  |
+| **Cliente** | Le macchine virtuali Windows distribuite da questo progetto implementano autorizzazioni a livello del sistema operativo che limitano le azioni che un utente può eseguire rispetto alle informazioni di controllo. In Azure gli utenti o i gruppi di utenti possono essere assegnati ai ruoli (ad esempio, proprietario, collaboratore, lettore o un ruolo personalizzato) per limitare le azioni disponibili rispetto alle risorse o alle soluzioni distribuite, incluso Log Analytics.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Il contenuto e l'ordine cronologico dei record di controllo non sono alterati quando vengono raccolti da Log Analytics. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Il contenuto e l'ordine cronologico dei record di controllo non sono alterati quando vengono raccolti da Log Analytics. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Log Analytics include un linguaggio di query avanzato per estrarre i dati archiviati nel repository. |
+| **Cliente** | Questo progetto implementa la soluzione Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione. Log Analytics include un linguaggio di query avanzato per estrarre i dati archiviati nel repository. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questo progetto di Azure usano orologi interni del sistema per generare timestamp per i record di controllo. |
+| **Cliente** | Le risorse distribuite da questo progetto usano orologi interni del sistema per generare timestamp per i record di controllo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questo progetto di Azure usano orologi interni del sistema per generare timestamp per i record di controllo. I timestamp vengono registrati in formato UTC. |
+| **Cliente** | Le risorse distribuite da questo progetto usano orologi interni del sistema per generare timestamp per i record di controllo. I timestamp vengono registrati in formato UTC. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -427,7 +427,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questo progetto di Azure usano orologi interni del sistema per generare timestamp per i record di controllo. Gli orologi interni del sistema sono configurati per la sincronizzazione con un'origine di ora autorevole. |
+| **Cliente** | Le risorse distribuite da questo progetto usano orologi interni del sistema per generare timestamp per i record di controllo. Gli orologi interni del sistema sono configurati per la sincronizzazione con un'origine di ora autorevole. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le risorse distribuite da questo progetto di Azure usano orologi interni del sistema per generare timestamp per i record di controllo. Gli orologi interni del sistema sono configurati per la sincronizzazione con un'origine di ora autorevole. |
+| **Cliente** | Le risorse distribuite da questo progetto usano orologi interni del sistema per generare timestamp per i record di controllo. Gli orologi interni del sistema sono configurati per la sincronizzazione con un'origine di ora autorevole. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I controlli dell'accesso logico vengono usati per proteggere le informazioni e gli strumenti di controllo in questo progetto di Azure da accesso, modifica ed eliminazione non autorizzati. Azure Active Directory applica l'accesso logico approvato tramite le appartenenze ai gruppi basati sui ruoli. La possibilità di visualizzare le informazioni di controllo e usare gli strumenti di controllo può essere limitata agli utenti che necessitano di tali autorizzazioni. |
+| **Cliente** | I controlli dell'accesso logico vengono usati per proteggere le informazioni e gli strumenti di controllo in questo progetto da accesso, modifica ed eliminazione non autorizzati. Azure Active Directory applica l'accesso logico approvato tramite le appartenenze ai gruppi basati sui ruoli. La possibilità di visualizzare le informazioni di controllo e usare gli strumenti di controllo può essere limitata agli utenti che necessitano di tali autorizzazioni. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il servizio Log Analytics in OMS. Le macchine virtuali distribuite e gli account di archiviazione diagnostica di Azure sono origini connesse a Log Analytics e vengono conservati separatamente dall'origine. I dati vengono raccolti da OMS quasi in tempo reale. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Le macchine virtuali distribuite e gli account di archiviazione diagnostica di Azure sono origini connesse a Log Analytics e vengono conservati separatamente dall'origine. I dati vengono raccolti da OMS quasi in tempo reale. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il servizio Log Analytics in OMS. Per garantire che i dati in arrivo provengano da un'origine attendibile, Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Per garantire che i dati in arrivo provengano da un'origine attendibile, Log Analytics convalida i certificati e l'integrità dei dati con l'autenticazione di Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -497,7 +497,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I controlli dell'accesso logico vengono usati per proteggere le informazioni e gli strumenti di controllo in questo progetto di Azure da accesso, modifica ed eliminazione non autorizzati. Azure Active Directory applica l'accesso logico approvato tramite le appartenenze ai gruppi basati sui ruoli. La possibilità di visualizzare le informazioni di controllo e usare gli strumenti di controllo può essere limitata agli utenti che necessitano di tali autorizzazioni.
+| **Cliente** | I controlli dell'accesso logico vengono usati per proteggere le informazioni e gli strumenti di controllo in questo progetto da accesso, modifica ed eliminazione non autorizzati. Azure Active Directory applica l'accesso logico approvato tramite le appartenenze ai gruppi basati sui ruoli. La possibilità di visualizzare le informazioni di controllo e usare gli strumenti di controllo può essere limitata agli utenti che necessitano di tali autorizzazioni.
  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
@@ -512,7 +512,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Le funzionalità di controllo per questo progetto di Azure sono fornite da Monitoraggio di Azure e dal servizio Log Analytics in OMS. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nel repository di OMS. Questi log contengono record dettagliati di eventi del sistema informativo e assicurano protezione dal non ripudio. Inoltre, l'accesso ai dati di log è limitato tramite il controllo degli accessi in base al ruolo per impedire la modifica o l'eliminazione non autorizzate dei dati di log. |
+| **Cliente** | Le funzionalità di controllo per questo progetto sono fornite da Monitoraggio di Azure e dal servizio Log Analytics in OMS. Monitoraggio di Azure fornisce log di controllo dettagliati sull'attività associata alle risorse distribuite. Questi log e quelli a livello del sistema operativo vengono raccolti da Log Analytics e archiviati nel repository di OMS. Questi log contengono record dettagliati di eventi del sistema informativo e assicurano protezione dal non ripudio. Inoltre, l'accesso ai dati di log è limitato tramite il controllo degli accessi in base al ruolo per impedire la modifica o l'eliminazione non autorizzate dei dati di log. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -526,7 +526,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il servizio Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati vengono conservati per un anno in base alla configurazione di Log Analytics. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Dopo essere stati raccolti, i dati vengono conservati per un anno in base alla configurazione di Log Analytics. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -540,7 +540,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli eventi controllati da questo progetto di Azure includono quelli controllati dai log attività di Azure per le risorse distribuite, dai log a livello del sistema operativo, dai log di Active Directory e dai log di SQL Server. I clienti possono selezionare altri eventi da controllare per soddisfare le esigenze correlate agli obiettivi. |
+| **Cliente** | Gli eventi controllati da questo progetto includono quelli controllati dai log attività di Azure per le risorse distribuite, dai log a livello del sistema operativo, dai log di Active Directory e dai log di SQL Server. I clienti possono selezionare altri eventi da controllare per soddisfare le esigenze correlate agli obiettivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -554,7 +554,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso alle funzioni di controllo è limitato tramite il controllo degli accessi in base al ruolo in Azure e a livello del sistema operativo della macchina virtuale. La configurazione degli eventi selezionati per essere controllati dalle risorse distribuite da questo progetto di Azure può essere impostata dagli utenti che dispongono di autorizzazioni appropriate basate sui ruoli. |
+| **Cliente** | L'accesso alle funzioni di controllo è limitato tramite il controllo degli accessi in base al ruolo in Azure e a livello del sistema operativo della macchina virtuale. La configurazione degli eventi selezionati per essere controllati dalle risorse distribuite da questo progetto può essere impostata dagli utenti che dispongono di autorizzazioni appropriate basate sui ruoli. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -568,7 +568,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Gli eventi controllati da questo progetto di Azure includono quelli controllati dai log attività di Azure per le risorse distribuite, dai log a livello del sistema operativo, dai log di Active Directory e dai log di SQL Server. I clienti possono selezionare altri eventi da controllare per soddisfare le esigenze correlate agli obiettivi. |
+| **Cliente** | Gli eventi controllati da questo progetto includono quelli controllati dai log attività di Azure per le risorse distribuite, dai log a livello del sistema operativo, dai log di Active Directory e dai log di SQL Server. I clienti possono selezionare altri eventi da controllare per soddisfare le esigenze correlate agli obiettivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -582,7 +582,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure implementa il servizio Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. I timestamp dei record di controllo non vengono modificati, pertanto l'audit trail è correlato al tempo. |
+| **Cliente** | Questo progetto implementa il servizio Log Analytics in OMS. Log Analytics fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. I timestamp dei record di controllo non vengono modificati, pertanto l'audit trail è correlato al tempo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -596,5 +596,5 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | L'accesso alle funzioni di controllo è limitato tramite il controllo degli accessi in base al ruolo in Azure e a livello del sistema operativo della macchina virtuale. La configurazione degli eventi selezionati per essere controllati dalle risorse distribuite da questo progetto di Azure può essere impostata dagli utenti che dispongono di autorizzazioni appropriate basate sui ruoli. |
+| **Cliente** | L'accesso alle funzioni di controllo è limitato tramite il controllo degli accessi in base al ruolo in Azure e a livello del sistema operativo della macchina virtuale. La configurazione degli eventi selezionati per essere controllati dalle risorse distribuite da questo progetto può essere impostata dagli utenti che dispongono di autorizzazioni appropriate basate sui ruoli. |
 | **Provider (Microsoft Azure)** | Non applicabile |

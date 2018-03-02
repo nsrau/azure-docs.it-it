@@ -1,6 +1,6 @@
 ---
-title: Automazione dei progetti di Azure per FedRAMP - Acquisizione del sistema e dei servizi
-description: Applicazioni Web per FedRAMP - Acquisizione del sistema e dei servizi
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Acquisizione del sistema e dei servizi
+description: Automazione di applicazioni Web per FedRAMP - Acquisizione del sistema e dei servizi
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f38f2c7069c4edd0983fd1c2a723287950ace708
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 490632a77fd9fb72bda075b996c40378a394f389
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="system-and-services-acquisition-sa"></a>Acquisizione del sistema e dei servizi (SA)
 
 > [!NOTE]
-> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti come parte del documento NIST Special Publication 800-53, Revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure di test e indicazioni per ogni controllo.
+> Questi controlli sono definiti dal NIST e dal Ministero del commercio degli Stati Uniti nell'ambito del documento NIST Special Publication 800-53, revisione 4. Fare riferimento al documento NIST 800-53 Rev. 4 per informazioni sulle procedure e indicazioni di test per ogni controllo.
 
 ## <a name="nist-800-53-control-sa-1"></a>Controllo SA-1 NIST 800-53
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Il cliente è responsabile della gestione delle risorse distribuite dal cliente stesso utilizzando il ciclo di vita dello sviluppo del sistema. |
+| **Cliente** | Il cliente è responsabile della gestione delle risorse distribuite dal cliente stesso usando il ciclo di vita dello sviluppo del sistema. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP definisce i requisiti di sicurezza a cui i CSP devono conformarsi. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da un'organizzazione di valutazione di terze parti approvata da FedRAMP (3PAO, Third-Party Assessment Organization) per verificare la conformità ai requisiti FedRAMP relativi ai controlli di sicurezza e di altro tipo. |
+| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP definisce i requisiti di sicurezza a cui i CSP devono conformarsi. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da una società di valutazione di terze parti approvata da FedRAMP per la verifica della conformità ai requisiti relativi ai controlli di sicurezza FedRAMP e di altro tipo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP fornisce un processo di vigilanza per conformità ai requisiti di sicurezza FedRAMP. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da un'organizzazione di valutazione di terze parti approvata da FedRAMP (3PAO, Third-Party Assessment Organization) per verificare la conformità ai requisiti FedRAMP relativi ai controlli di sicurezza e di altro tipo. |
+| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP fornisce un processo di vigilanza per conformità ai requisiti di sicurezza FedRAMP. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da una società di valutazione di terze parti approvata da FedRAMP per la verifica della conformità ai requisiti relativi ai controlli di sicurezza FedRAMP e di altro tipo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP fornisce un processo di vigilanza per conformità ai requisiti di sicurezza FedRAMP. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da un'organizzazione di valutazione di terze parti approvata da FedRAMP (3PAO, Third-Party Assessment Organization) per verificare la conformità ai requisiti FedRAMP relativi ai controlli di sicurezza e di altro tipo. |
+| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP fornisce un processo di vigilanza per conformità ai requisiti di sicurezza FedRAMP. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da una società di valutazione di terze parti approvata da FedRAMP per la verifica della conformità ai requisiti relativi ai controlli di sicurezza FedRAMP e di altro tipo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP è progettato per affrontare i rischi associati a un modello di responsabilità condivisa della sicurezza. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da un'organizzazione di valutazione di terze parti approvata da FedRAMP (3PAO, Third-Party Assessment Organization) per verificare la conformità ai requisiti FedRAMP relativi ai controlli di sicurezza e di altro tipo.  |
+| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP è progettato per affrontare i rischi associati a un modello di responsabilità condivisa della sicurezza. Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da una società di valutazione di terze parti approvata da FedRAMP per la verifica della conformità ai requisiti relativi ai controlli di sicurezza FedRAMP e di altro tipo.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP è progettato per affrontare i rischi associati a un modello di responsabilità condivisa della sicurezza.  Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da un'organizzazione di valutazione di terze parti approvata da FedRAMP (3PAO, Third-Party Assessment Organization) per verificare la conformità ai requisiti FedRAMP relativi ai controlli di sicurezza e di altro tipo. |
+| **Cliente** | I criteri di acquisizione di servizi esterni per il sistema informativo a livello aziendale del cliente possono includere una disposizione relativa all'uso di servizi cloud ai sensi di FedRAMP. FedRAMP è progettato per affrontare i rischi associati a un modello di responsabilità condivisa della sicurezza.  Ad Azure è stata concessa un'autorizzazione P-ATO (Provisional Authorities to Operate) dall'ente JAB (Joint Authorization Board) di FedRAMP. Azure viene valutato da una società di valutazione di terze parti approvata da FedRAMP per la verifica della conformità ai requisiti relativi ai controlli di sicurezza FedRAMP e di altro tipo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

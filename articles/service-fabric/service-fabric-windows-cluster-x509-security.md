@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: ca858408ecb258cc64645571d048de93449689d6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: ee1a2eeeda95b03b185090841cf93c4183c5fce2
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -48,6 +48,12 @@ Per iniziare, [scaricare il pacchetto Service Fabric per Windows Server](service
             ],
             "X509StoreName": "My"
         },
+        "ClusterCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -62,6 +68,12 @@ Per iniziare, [scaricare il pacchetto Service Fabric per Windows Server](service
             ],
             "X509StoreName": "My"
         },
+        "ServerCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames" : "Root"
+            }
+        ],
         "ClientCertificateThumbprints": [
             {
                 "CertificateThumbprint": "[Thumbprint]",
@@ -79,6 +91,12 @@ Per iniziare, [scaricare il pacchetto Service Fabric per Windows Server](service
                 "IsAdmin": true
             }
         ],
+        "ClientCertificateIssuerStores": [
+            {
+                "IssuerCommonName": "[IssuerCommonName]",
+                "X509StoreNames": "Root"
+            }
+        ]
         "ReverseProxyCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
@@ -110,10 +128,13 @@ La tabella seguente include un elenco dei certificati necessari per la configura
 | --- | --- |
 | ClusterCertificate |Consigliato per un ambiente di test. Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare due diversi certificati, uno primario e uno secondario per l'aggiornamento. Impostare l'identificazione personale del certificato primario nella sezione Identificazione personale e quella del certificato secondario nelle variabili ThumbprintSecondary. |
 | ClusterCertificateCommonNames |Consigliato per un ambiente di produzione. Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare uno o due nomi comuni del certificato del cluster. CertificateIssuerThumbprint corrisponde all'identificazione personale dell'autorità emittente del certificato. È possibile specificare più di un'identificazione personale dell'autorità emittente se si usa più di un certificato con lo stesso nome comune.|
+| ClusterCertificateIssuerStores |Consigliato per un ambiente di produzione. Questo certificato corrisponde all'autorità di certificazione del certificato cluster. È possibile specificare il nome comune dell'autorità di certificazione e il nome dell'archivio corrispondente in questa sezione, anziché specificare l'identificazione personale dell'autorità di certificazione in ClusterCertificateCommonNames.  Ciò semplifica il rollover dei certificati dell'autorità di certificazione cluster. È possibile specificare più autorità di certificazione se viene usato più di un certificato cluster. Un valore IssuerCommonName vuoto consente di aggiungere all'elenco elementi consentiti tutti i certificati negli archivi corrispondenti specificati in X509StoreNames.|
 | ServerCertificate |Consigliato per un ambiente di test. Questo certificato viene presentato al client quando tenta di connettersi al cluster. Per praticità, è possibile scegliere di usare lo stesso certificato per ClusterCertificate e ServerCertificate. È possibile usare due diversi certificati del server, uno primario e uno secondario per l'aggiornamento. Impostare l'identificazione personale del certificato primario nella sezione Identificazione personale e quella del certificato secondario nelle variabili ThumbprintSecondary. |
 | ServerCertificateCommonNames |Consigliato per un ambiente di produzione. Questo certificato viene presentato al client quando tenta di connettersi al cluster. CertificateIssuerThumbprint corrisponde all'identificazione personale dell'autorità emittente del certificato. È possibile specificare più di un'identificazione personale dell'autorità emittente se si usa più di un certificato con lo stesso nome comune. Per praticità, è possibile scegliere di usare lo stesso certificato per ClusterCertificateCommonNames e ServerCertificateCommonNames. È possibile usare uno o due nomi comuni del certificato del server. |
+| ServerCertificateIssuerStores |Consigliato per un ambiente di produzione. Questo certificato corrisponde all'autorità di certificazione del certificato server. È possibile specificare il nome comune dell'autorità di certificazione e il nome dell'archivio corrispondente in questa sezione, anziché specificare l'identificazione personale dell'autorità di certificazione in ServerCertificateCommonNames.  Ciò semplifica il rollover dei certificati dell'autorità di certificazione server. È possibile specificare più autorità di certificazione se viene usato più di un certificato server. Un valore IssuerCommonName vuoto consente di aggiungere all'elenco elementi consentiti tutti i certificati negli archivi corrispondenti specificati in X509StoreNames.|
 | ClientCertificateThumbprints |Installare questo set di certificati nei client autenticati. È possibile avere diversi certificati client installati nei computer a cui si vuole consentire l'accesso al cluster. Impostare l'identificazione personale di ogni certificato nella variabile CertificateThumbprint. Se si imposta IsAdmin su *true*, il client in cui è installato questo certificato può eseguire attività di gestione degli amministratori sul cluster. Se IsAdmin è *false*, il client con questo certificato può eseguire solo le azioni consentite con diritti di accesso utente, in genere di sola lettura. Per altre informazioni sui ruoli, vedere [Controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#role-based-access-control-rbac). |
 | ClientCertificateCommonNames |Impostare il nome comune del primo certificato client per CertificateCommonName. CertificateIssuerThumbprint è l'identificazione personale dell'autorità emittente del certificato. Per altre informazioni sui nomi comuni e sull'autorità emittente, vedere [Utilizzo dei certificati](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Consigliato per un ambiente di produzione. Questo certificato corrisponde all'autorità di certificazione del certificato client (ruoli di amministratore e non). È possibile specificare il nome comune dell'autorità di certificazione e il nome dell'archivio corrispondente in questa sezione, anziché specificare l'identificazione personale dell'autorità di certificazione in ClientCertificateCommonNames.  Ciò semplifica il rollover dei certificati dell'autorità di certificazione client. È possibile specificare più autorità di certificazione se viene usato più di un certificato client. Un valore IssuerCommonName vuoto consente di aggiungere all'elenco elementi consentiti tutti i certificati negli archivi corrispondenti specificati in X509StoreNames.|
 | ReverseProxyCertificate |Consigliato per un ambiente di test. Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
 | ReverseProxyCertificateCommonNames |Consigliato per un ambiente di produzione. Si tratta di un certificato facoltativo che è possibile specificare se si vuole proteggere il [proxy inverso](service-fabric-reverseproxy.md). Se si usa questo certificato, assicurarsi che reverseProxyEndpointPort sia impostato in nodeTypes. |
 
@@ -123,7 +144,7 @@ Ecco un esempio di una configurazione cluster in cui sono stati specificati cert
  {
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
-    "apiVersion": "2016-09-26",
+    "apiVersion": "10-2017",
     "nodes": [{
         "nodeName": "vm0",
         "metadata": "Replace the localhost below with valid IP address or FQDN",
@@ -162,12 +183,21 @@ Ecco un esempio di una configurazione cluster in cui sono stati specificati cert
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName",
-                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
+                      "CertificateCommonName": "myClusterCertCommonName"
                     }
                   ],
                   "X509StoreName": "My"
                 },
+                "ClusterCertificateIssuerStores": [
+                    {
+                        "IssuerCommonName": "ClusterIssuer1",
+                        "X509StoreNames" : "Root"
+                    },
+                    {
+                        "IssuerCommonName": "ClusterIssuer2",
+                        "X509StoreNames" : "Root"
+                    }
+                ],
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
@@ -221,6 +251,7 @@ Ecco un esempio di una configurazione cluster in cui sono stati specificati cert
 
 ## <a name="certificate-rollover"></a>Rollover dei certificati
 Quando si usa il nome comune del certificato al posto dell'identificazione personale, il rollover del certificato non richiede l'aggiornamento della configurazione del cluster. Per gli aggiornamenti dell'identificazione personale dell'autorità di certificazione, verificare che ci sia un'intersezione tra il nuovo elenco di identificazione personale e l'elenco precedente. Sarà necessario innanzitutto eseguire un aggiornamento della configurazione con la nuova identificazione personale dell'autorità di certificazione e quindi installare i nuovi certificati (sia il certificato cluster/server che i certificati dell'autorità di certificazione) nell'archivio. Mantenere il vecchio certificato dell'autorità di certificazione nell'archivio certificati per almeno due ore dopo aver installato il nuovo certificato dell'autorità di certificazione.
+Se si usano archivi dell'autorità di certificazione, non deve essere eseguito alcun aggiornamento di configurazione per il rollover dei certificati dell'autorità di certificazione. Installare il nuovo certificato dell'autorità di certificazione con una data di scadenza più recente nell'archivio certificati corrispondente e rimuovere il certificato dell'autorità di certificazione precedente dopo alcune ore.
 
 ## <a name="acquire-the-x509-certificates"></a>Acquisire i certificati X.509
 Per proteggere la comunicazione nel cluster, è prima necessario ottenere i certificati X.509 per i nodi del cluster. Per limitare inoltre la connessione al cluster a computer o utenti autorizzati, è necessario ottenere e installare i certificati per i computer client.
@@ -255,7 +286,7 @@ Esportare ora il certificato in un file con estensione pfx con una password prot
    Write-Host $cert.ToString($true)
    ```
 
-In alternativa, se si dispone di una sottoscrizione di Azure, seguire i passaggi in [creare un cluster di Service Fabric usando Gestione risorse di Azure](service-fabric-cluster-creation-via-arm.md).
+In alternativa, se si dispone di una sottoscrizione di Azure, seguire i passaggi in [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Installare i certificati
 Dopo aver ottenuto i certificati, è possibile installarli nei nodi del cluster. È necessario che nei nodi sia già installata la versione più recente di Windows PowerShell 3.x. È necessario ripetere questi passaggi in ogni nodo, sia per i certificati cluster e server che per gli eventuali certificati secondari.

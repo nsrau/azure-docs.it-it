@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 1ad6ba7126b210ddc671026244c4c614d7010000
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con lo streaming Hive e Pig in Hadoop in HDInsight
 
@@ -49,7 +49,7 @@ Sia Hive sia Pig sono in grado di passare i dati alle applicazioni esterne per l
 
 ## <a name="net-on-hdinsight"></a>.NET su HDInsight
 
-* Cluster __HDInsight basati su Linux__ che usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione mono 4.2.1 è inclusa nella versione 3.5 di HDInsight.
+* Cluster __HDInsight basati su Linux__ che usano [Mono (https://mono-project.com)](https://mono-project.com) per eseguire le applicazioni .NET. La versione Mono 4.2.1 è inclusa nella versione 3.6 di HDInsight.
 
     Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framework, vedere il documento relativo alla [compatibilità Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 

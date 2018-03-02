@@ -1,6 +1,6 @@
 ---
-title: Programma FedRAMP per l'automazione dei progetti di Azure - Pianificazione di emergenza
-description: Applicazioni Web per FedRAMP - Pianificazione di emergenza
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP - Piani di emergenza
+description: Automazione di applicazioni Web per FedRAMP - Piani di emergenza
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: f6e07903b9d7bd69398f23ace168299c6c1bdf44
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: f993271656e9484881ccac357acb3d50830c219e
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="contingency-planning-cp"></a>Piani di emergenza
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto di Azure vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica assicura che i dati vengano replicati in un'area secondaria. Sei copie di tutti i dati sono mantenute su nodi distinti in due data center. |
+| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica assicura che i dati vengano replicati in un'area secondaria. Sei copie di tutti i dati sono mantenute su nodi distinti in due data center. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -385,7 +385,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto di Azure vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). I controlli di sicurezza fisica vengono implementati in modo uniforme tra data center di Azure. |
+| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). I controlli di sicurezza fisica vengono implementati in modo uniforme tra data center di Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto di Azure vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica garantisce la replica dei dati in un'area geografica secondaria. Le aree primarie e secondarie vengono abbinate per assicurare la distanza necessaria tra i data center, in modo da garantire la disponibilità in caso di interruzione del servizio o emergenza che interessa l'intera area. |
+| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica garantisce la replica dei dati in un'area geografica secondaria. Le aree primarie e secondarie vengono abbinate per assicurare la distanza necessaria tra i data center, in modo da garantire la disponibilità in caso di interruzione del servizio o emergenza che interessa l'intera area. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -413,7 +413,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto di Azure vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica garantisce la replica dei dati in un'area geografica secondaria. I clienti devono assicurarsi che il modello di replica dei dati di Azure sia compatibile con gli obiettivi di emergenza. |
+| **Cliente** | Tutti gli account di archiviazione distribuiti da questo progetto vengono replicati per garantire la disponibilità elevata tramite l'archiviazione con ridondanza geografica (GRS). L'archiviazione con ridondanza geografica garantisce la replica dei dati in un'area geografica secondaria. I clienti devono assicurarsi che il modello di replica dei dati di Azure sia compatibile con gli obiettivi di emergenza. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. |
+| **Cliente** | Questo progetto contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -455,7 +455,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Durante la distribuzione in un'area geografica alternativa di Azure, il provisioning delle attrezzature viene gestito in modo trasparente da Azure. |
+| **Cliente** | Questo progetto contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Durante la distribuzione in un'area geografica alternativa di Azure, il provisioning delle attrezzature viene gestito in modo trasparente da Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Le misure di sicurezza vengono implementate in modo uniforme nei data center di Azure. |
+| **Cliente** | Questo progetto contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Le misure di sicurezza vengono implementate in modo uniforme nei data center di Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -483,7 +483,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. I data center di Azure sono geograficamente separati. |
+| **Cliente** | Questo progetto contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. I data center di Azure sono geograficamente separati. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Durante la distribuzione in un'area geografica alternativa di Azure, la disponibilità delle risorse viene gestita in modo trasparente da Azure. |
+| **Cliente** | Questo progetto contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Durante la distribuzione in un'area geografica alternativa di Azure, la disponibilità delle risorse viene gestita in modo trasparente da Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -525,7 +525,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Durante la distribuzione in un'area geografica alternativa di Azure, la preparazione delle risorse fisiche viene gestita in modo trasparente da Azure. |
+| **Cliente** | Questo progetto contiene indicazioni su come questa soluzione può essere distribuita contemporaneamente in più aree geografiche e configurata per fornire ridondanza completa in un sito di elaborazione alternativo. Durante la distribuzione in un'area geografica alternativa di Azure, la preparazione delle risorse fisiche viene gestita in modo trasparente da Azure. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -651,7 +651,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un insieme di credenziali dei servizi di ripristino. Le informazioni a livello di utente nel database SQL distribuito vengono implementate tramite l'estensione IaaS della macchina virtuale SQL. |
+| **Cliente** | Questo progetto distribuisce un insieme di credenziali di Servizi di ripristino. Le informazioni a livello di utente nel database SQL distribuito vengono implementate tramite l'estensione IaaS della macchina virtuale SQL. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -665,7 +665,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce un insieme di credenziali dei servizi di ripristino. Vengono stabiliti criteri di backup di Azure per tutte le macchine virtuali che implementano la conservazione di un'immagine di backup giornaliera, settimanale, mensile e annuale.  |
+| **Cliente** | Questo progetto distribuisce un insieme di credenziali di Servizi di ripristino. Vengono stabiliti criteri di backup di Azure per tutte le macchine virtuali che implementano la conservazione di un'immagine di backup giornaliera, settimanale, mensile e annuale.  |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | La riservatezza e l'integrità di tutti i BLOB di archiviazione distribuiti da questo progetto di Azure sono protetti tramite l'uso della crittografia del servizio di archiviazione di Azure, che usa la crittografia AES a 256 bit per tutti i dati inattivi. |
+| **Cliente** | La riservatezza e l'integrità di tutti i BLOB di archiviazione distribuiti da questo progetto sono protetti tramite l'uso della crittografia del servizio di archiviazione di Azure, che usa la crittografia AES a 256 bit per tutti i dati inattivi. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Tutti gli account di archiviazione distribuiti in questo progetto di Azure, inclusi quelli usati per il backup, implementano l'archiviazione con ridondanza geografica, assicurando che vengano mantenute sei copie di tutti i dati in nodi distinti in due data center. |
+| **Cliente** | Tutti gli account di archiviazione distribuiti in questo progetto, inclusi quelli usati per il backup, implementano l'archiviazione con ridondanza geografica, assicurando che vengano mantenute sei copie di tutti i dati in nodi distinti in due data center. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 
@@ -777,7 +777,7 @@ ms.lasthandoff: 11/23/2017
 
 |||
 |---|---|
-| **Cliente** | Questo progetto di Azure distribuisce SQL Server in un gruppo di disponibilità Always On. SQL Server mantiene un log delle transazioni che supporta il ripristino delle transazioni in caso di errore di sistema. |
+| **Cliente** | Questo progetto distribuisce SQL Server in un gruppo di disponibilità Always On. SQL Server mantiene un log delle transazioni che supporta il ripristino delle transazioni in caso di errore di sistema. |
 | **Provider (Microsoft Azure)** | Non applicabile |
 
 

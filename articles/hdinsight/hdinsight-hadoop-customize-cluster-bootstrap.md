@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2bead1a879811349e4bee5dfebdcbbb838130b81
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -86,7 +86,7 @@ Uno script di PowerShell completo funzionante è disponibile nell'[appendice](#a
 **Per verificare la modifica:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Scegliere **Cluster HDInsight** dal menu di sinistra. Se non viene visualizzato, prima fare clic su **Altri servizi**.
+2. Scegliere **Cluster HDInsight** dal menu di sinistra. Se non viene visualizzato, prima fare clic su **Tutti i servizi**.
 3. Fare clic sul cluster appena creato usando lo script di PowerShell.
 4. Fare clic su **Dashboard** nella parte superiore del pannello per aprire l'interfaccia utente di Ambari.
 5. Fare clic su **Hive** nel menu di sinistra.

@@ -11,7 +11,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Ottenere la stringa di connessione dal portale di Azure
 Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il database SQL di Azure. 
 
-1. Selezionare **ESPLORA TUTTO** > **Database SQL**.
+1. Selezionare **Tutti i servizi** > **Database SQL**.
 
 2. Immettere il nome del database nella casella di testo di filtro vicino alla parte superiore sinistra del pannello **Database SQL**.
 
@@ -19,7 +19,6 @@ Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa d
 
 4. Quando viene visualizzato il pannello del database, per una visualizzazione più chiara selezionare i pulsanti **Riduci a icona** per comprimere i pannelli usati per la ricerca e il filtro del database. 
    
-    ![Filtro per isolare il database][10-FilterDatabase]
 5. Nel pannello del database selezionare **Mostra stringhe di connessione del database**.
 
 6. Se si prevede di utilizzare la libreria di connessione ADO.NET, copiare la stringa di etichetta **ADO**. 
@@ -31,7 +30,7 @@ Per altre informazioni, vedere [Stringhe di connessione e file di configurazione
 
 <!-- Image references. -->
 
-[10-FilterDatabase]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-a.png
+
 
 [20-CopyAdoConnectionString]: ./media/sql-database-include-connection-string-20-portalshots/connqry-connstr-b.png
 

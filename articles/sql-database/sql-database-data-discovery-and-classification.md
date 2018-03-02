@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 4538ad9c048a3e84bbe793572f569dd7126803da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Individuazione dati e classificazione nel database SQL di Azure
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'individuazione, la classificazione e la protezione dei dati sensibili presenti nel database, nonché per l'aggiunta di etichette a tali dati.
-L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la  & protezione** dei dati sensibili presenti nel database.
+L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
+* Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati, come GDPR.
 * Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 * Controllare l'accesso ai database che contengono dati riservati e rafforzare la sicurezza di questi.
-* Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati, come GDPR.
 
 ## <a id="subheading-1"></a>Panoramica
 Individuazione dati e classificazione introduce un set di servizi avanzati e nuove funzionalità SQL, che formano un nuovo paradigma di Information Protection per SQL finalizzato a proteggere i dati e non solo il database:
@@ -93,7 +93,9 @@ La classificazione include due attributi di metadati:
 
 ## <a id="subheading-3"></a>Controllo dell'accesso ai dati sensibili
 
-[Il servizio di controllo del database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) è stato aggiornato e nel log di controllo è stato aggiunto un nuovo campo, denominato *data_sensitivity_information*, in cui viene registrata la classificazione (etichette) di sensibilità dei dati effettivi restituiti dalla query.
+Un aspetto importante del paradigma di Information Protection è la possibilità di monitorare l'accesso ai dati sensibili.
+
+Il [servizio di controllo del database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) è stato aggiornato e nel log di controllo è stato aggiunto un nuovo campo denominato *data_sensitivity_information*, in cui vengono registrate le classificazioni (etichette) di sensibilità dei dati effettivi restituiti dalla query.
 
 ![Riquadro di spostamento][11]
 

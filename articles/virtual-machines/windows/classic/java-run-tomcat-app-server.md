@@ -1,5 +1,5 @@
 ---
-title: Eseguire server applicazioni Java in una macchina virtuale di Azure classica | Documentazione Microsoft
+title: Eseguire server applicazioni Java in una macchina virtuale di Azure classica | Microsoft Docs
 description: Questa esercitazione usa le risorse create con il modello di distribuzione classica e illustra come creare una macchina virtuale di Windows e configurarla per eseguire il server dell'applicazione Apache Tomcat.
 services: virtual-machines-windows
 documentationcenter: java
@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-ms.openlocfilehash: 768c94fe0d2d6cfafc1f8b57256012e01de0f7a9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b166d2af56051b7d90eba0d50e1ea41f96c1109e
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>Come eseguire un server di applicazione di Java in una macchina virtuale creata con il modello di distribuzione classica.
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ Il completamento dell'installazione comporta l'esecuzione di Tomcat su una macch
 
 ## <a name="to-create-a-virtual-machine"></a>Per creare una macchina virtuale
 1. Accedere al [portale di Azure](https://portal.azure.com).  
-2. Fare clic su **Nuovo**, **Calcola**, quindi fare clic su **See all** (Vedi tutto) in **App in primo piano**.
+2. Fare clic su **Crea una risorsa**, **Calcola**, quindi fare clic su **See all** (Vedi tutto) in **App in primo piano**.
 3. Fare clic su **JDK**, quindi su **JDK 8** nel riquadro **JDK**.  
    Se si dispone di applicazioni legacy non ancora predisposte per l'esecuzione in JDK 8, sono disponibili macchine virtuali che supportano **JDK 6** e **JDK 7**.
 4. Nel riquadro di JDK 8, selezionare **Classico**, quindi fare clic su **Crea**.
@@ -75,7 +75,7 @@ Il completamento dell'installazione comporta l'esecuzione di Tomcat su una macch
 
 In questa esercitazione Tomcat viene usato come server per le applicazioni Java da installare.
 
-1. Una volta eseguito l’accesso alla macchina virtuale, aprire una sessione del browser alla pagina [Apache Tomcat](http://tomcat.apache.org/download-80.cgi).
+1. Una volta eseguito l'accesso alla macchina virtuale, aprire una sessione del browser alla pagina [Apache Tomcat](http://tomcat.apache.org/download-80.cgi).
 2. Fare doppio clic sul collegamento per **32-bit/64-bit Windows Service Installer**. Questa tecnica consente di installare Tomcat come servizio di Windows.
 3. Quando richiesto, scegliere di eseguire il programma di installazione.
 4. Nella procedura guidata **Apache Tomcat Setup** attenersi ai prompt per installare Tomcat. Ai fini di questa esercitazione, è possibile accettare le impostazioni predefinite. Quando si arriva alla finestra di dialogo **Completing the Apache Tomcat Setup Wizard** (Completamento della configurazione guidata di Apache Tomcat), è possibile selezionare **Run Apache Tomcat** (Esegui Apache Tomcat) per avviare subito Tomcat. Fare clic su **Finish** per completare il processo di installazione di Tomcat.
@@ -121,7 +121,7 @@ Per vedere Tomcat in esecuzione da macchine esterne, è necessario creare un end
 10. Nella schermata **Nome** specificare un nome per la regola, come **HttpIn** (non è tuttavia necessario che il nome della regola coincida con quello dell'endpoint), quindi fare clic su **Fine**.  
     ![Nome della nuova regola connessioni in entrata][NewRuleName]
 
-A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno. Nella finestra dell'indirizzo del browser digitare un URL nel formato **http://*nome\_DNS\_in uso*.cloudapp.net**, dove ***il nome\_DNS\_***in uso è il nome DNS specificato durante la creazione della macchina virtuale.
+A questo punto, il sito Web Tomcat dovrebbe essere visibile da un browser esterno. Nella finestra dell'indirizzo del browser digitare un URL nel formato **http://*nome\_DNS\_in uso*.cloudapp.net**, dove ***il nome\_DNS\_in uso*** è il nome DNS specificato durante la creazione della macchina virtuale.
 
 ## <a name="application-lifecycle-considerations"></a>Considerazioni sul ciclo di vita delle applicazioni
 * È possibile creare il proprio archivio di applicazioni Web (WAR) e aggiungerlo alla cartella **webapps** . Ad esempio, creare un progetto Web dinamico di una pagina JSP (Java Service Page) di base ed esportarlo come file con estensione WAR. Successivamente, copiare il file con estensione WAR nella cartella **webapps** di Apache Tomcat nella macchina virtuale e quindi eseguirlo in un browser.

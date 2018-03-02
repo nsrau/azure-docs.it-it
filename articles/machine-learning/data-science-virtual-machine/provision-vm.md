@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale data science Windows di Azure
 La macchina virtuale di Data Science di Microsoft è un'immagine di macchina virtuale (VM) di Windows Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) Workbench
-* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
+* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Distribuzione Anaconda Python
 * Notebook Jupyter (con kernel R, Python, PySpark)
 * Visual Studio Community Edition
@@ -35,7 +35,7 @@ La macchina virtuale di Data Science di Microsoft è un'immagine di macchina vir
   * Framework di apprendimento avanzato: nella VM è inclusa un'ampia gamma di framework di intelligenza artificiale, tra cui [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema di apprendimento automatico rapido che supporta tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): strumento che consente un'implementazione dell'albero con boosting rapida e accurata.
-  * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento che rende semplice la fase introduttiva all'analisi dei dati e al Machine Learning in R, grazie a funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
+  * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): strumento grafico che consente di iniziare a usare in modo semplice analisi dei dati e Machine Learning in R. Include funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): software di apprendimento automatico e data mining visivo in Java.
   * [Apache Drill](https://drill.apache.org/): motore di query SQL senza schema per Hadoop, NoSQL e Cloud Storage.  Supporta le interfacce ODBC e JDBC per consentire l'esecuzione di query in NoSQL e in file di strumenti di Business Intelligence standard come Power BI, Excel e Tableau.
 * Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
@@ -57,14 +57,14 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Altre versioni della macchina virtuale per l'analisi scientifica dei dati
 È disponibile anche un'immagine [Ubuntu](dsvm-ubuntu-intro.md), con molti strumenti simili, oltre ad alcuni framework aggiuntivi di apprendimento avanzato. È anche disponibile un'immagine [CentOS](linux-dsvm-intro.md). Viene poi offerta un'[edizione Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) della macchina virtuale per l'analisi scientifica dei dati anche se alcuni strumenti sono disponibili solo nell'edizione Windows Server 2016.  In caso contrario, questo articolo si applica anche all'edizione Windows Server 2012.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di creare una macchina virtuale per l'analisi scientifica dei dati di Microsoft, è necessario quanto segue:
 
 * **Sottoscrizione di Azure**: per ottenerne una, vedere [Ottenere una versione di valutazione gratuita di Azure](http://azure.com/free).
 
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Creare la macchina virtuale per l'analisi scientifica dei dati di Microsoft
-Di seguito sono riportati i passaggi necessari per creare un'istanza della macchina virtuale per l'analisi scientifica dei dati di Microsoft:
+Per creare un'istanza della macchina virtuale per l'analisi scientifica dei dati di Microsoft, seguire questa procedura:
 
 1. Passare alla macchina virtuale nel [portale di Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Fare clic sul pulsante **Crea** in basso per visualizzare una procedura guidata.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -83,8 +83,8 @@ Di seguito sono riportati i passaggi necessari per creare un'istanza della macch
    3. **Impostazioni**:
       
       1. **Usa il servizio Managed Disks**: scegliere Gestito se si vuole che Azure gestisca i dischi per la VM.  In caso contrario, è necessario specificare un account di archiviazione nuovo o esistente. 
-      2. **Altri parametri**: in genere si usano semplicemente i valori predefiniti. Nel caso in cui si desideri usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni su campi specifici.
-   4. **Riepilogo**: verificare che tutte le informazioni immesse siano corrette e fare clic su **Crea**. **NOTA**: la macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Dimensioni**. 
+      2. **Altri parametri**: in genere si usano semplicemente i valori predefiniti. Se si vuole provare a usare valori non predefiniti, è possibile passare il puntatore sul collegamento informativo per visualizzare informazioni sui campi specifici.
+    a. **Riepilogo**: verificare che tutte le informazioni immesse siano corrette e fare clic su **Crea**. **NOTA**: la macchina virtuale non prevede costi aggiuntivi oltre a quelli per il calcolo delle dimensioni del server scelto nel passaggio **Dimensioni**. 
 
 > [!NOTE]
 > Per il provisioning sono necessari circa 10-20 minuti. Lo stato del provisioning viene visualizzato nel portale di Azure.
@@ -114,7 +114,7 @@ Per lo sviluppo tramite Python, è installata la distribuzione Anaconda Python 2
 > 
 > 
 
-Anaconda Python 2.7 viene installato in C:\Anaconda e Anaconda Python 3.5 viene installato in C:\Anaconda\envs\py35. Per la procedura dettagliata, vedere la [documentazione di PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) . 
+Anaconda Python 2.7 viene installato in C:\Anaconda e Anaconda Python 3.5 viene installato in C:\Anaconda\envs\py35. Per la procedura dettagliata, vedere la [documentazione di PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) . 
 
 ### <a name="jupyter-notebook"></a>Notebook Jupyter
 La distribuzione Anaconda include anche Jupyter Notebook, un ambiente per la condivisione di codice e analisi. Un server Jupyter Notebook è stato preconfigurato con Python 2.7, Python 3.5, PySpark, Julia e i kernel R. Sul desktop è disponibile un'icona denominata "Notebook di Jupyter" per avviare il server Jupyter e aprire il browser per accedere al server Notebook. 
@@ -196,9 +196,9 @@ Diversi strumenti di Azure vengono installati nella macchina virtuale:
 Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione. 
 
 * Esaminare i vari strumenti di analisi scientifica dei dati nella VM per l'analisi scientifica dei dati facendo clic sul menu Start e verificando gli strumenti elencati nel menu.
-* Per informazioni su Azure Machine Learning Services e Workbench, visitare la [pagina delle guide introduttive e delle esercitazioni](https://docs.microsoft.com/azure/machine-learning/preview/) del prodotto. 
+* Per informazioni su Azure Machine Learning Services e Workbench, visitare la [pagina delle guide introduttive e delle esercitazioni](../preview/index.yml) del prodotto. 
 * Per esempi d'uso della libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale, passare a **C:\Programmi\Microsoft ML Server\R_SERVER\library\RevoScaleR\demoScripts**.  
 * Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
-* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [processo di analisi scientifica dei dati per i team](../team-data-science-process/index.yml).
 * Per esempi di apprendimento avanzato e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure, visitare la [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com). Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
 

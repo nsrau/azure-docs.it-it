@@ -1,5 +1,5 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: muralikk
 manager: syadav
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 37860425460496c5fc2451713d1d3ec58ac9106d
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati in Archiviazione di Azure
 Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazione/Esportazione di Azure per trasferire in modo sicuro grandi quantità di dati in Archiviazione di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati da Archiviazione di Azure a unità disco rigido per la spedizione al sito locale. È possibile importare i dati da un'unica unità disco SATA interna ad Archiviazione BLOB di Azure o a File di Azure. 
@@ -83,11 +83,11 @@ Il servizio può essere usato in scenari simili ai seguenti:
 * Backup: esecuzione di backup dei dati locali da memorizzare in Archiviazione di Azure.
 * Ripristino di dati: ripristino di una grande quantità di dati memorizzati nell'archivio perché vengano recapitati al percorso locale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 In questa sezione sono elencati i prerequisiti per l'uso di questo servizio. Leggerli attentamente prima di spedire le unità.
 
 ### <a name="storage-account"></a>Account di archiviazione
-Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sottoscrizione di Azure esistente e uno o più account di archiviazione . Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
+Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sottoscrizione di Azure esistente e uno o più account di archiviazione . Importazione/esportazione di Azure supporta solo gli account classico, di archiviazione BLOB e gli account di archiviazione di utilizzo generico v1. Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Tipi di dati
 È possibile usare il servizio Importazione/Esportazione di Azure per copiare dati in BLOB in **blocchi**, in BLOB di **pagine** o in **file**. Al contrario, usando questo servizio è possibile esportare solo BLOB in **blocchi**, BLOB di **pagine** o BLOB di **aggiunta** da Archiviazione di Azure. Il servizio supporta solo l'importazione di dati di File di Azure in Archiviazione di Azure. L'esportazione di dati di File di Azure non è attualmente supportato.
@@ -251,7 +251,7 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 
 Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui si trova l'unità nel processo.
 
-| Stato processo | Descrizione |
+| Stato processo | DESCRIZIONE |
 |:--- |:--- |
 | Creating | Dopo aver creato un processo, lo stato è impostato su Creazione. Mentre il processo si trova nello stato Creazione, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere nello stato Creazione fino a due settimane; al termine di questo periodo viene automaticamente eliminato dal servizio. |
 | Spedizione | Dopo aver spedito il pacchetto, è consigliabile aggiornare le informazioni di tracciabilità nel portale di Azure.  Il processo passerà allo stato "Spedizione". Il processo rimarrà in tale stato per un massimo di due settimane. 
@@ -264,7 +264,7 @@ Viene visualizzato uno degli stati di processo seguenti, in base al punto in cui
 La tabella di seguito descrive il ciclo di vita di una singola unità attraverso un processo di importazione o esportazione. Lo stato attuale di ogni unità in un processo è ora visibile dal portale di Azure.
 La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un processo.
 
-| Stato dell'unità | Descrizione |
+| Stato dell'unità | DESCRIZIONE |
 |:--- |:--- |
 | Specificata | Per un processo di importazione, quando il processo viene creato dal portale di Azure, lo stato iniziale di un'unità è Specificata. Per un processo di esportazione, lo stato iniziale dell'unità è Ricevuta perché non è stata specificata un'unità in fase di creazione del processo. |
 | Ricevuto | Le unità passano allo stato Ricevuta quando l'operatore del servizio Importazione/Esportazione elabora le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è Ricevuta. |
@@ -299,7 +299,7 @@ Quando si spediscono unità ad Azure, si paga il costo di spedizione al vettore.
 
 **Costi di transazione**
 
-Non ci sono costi di transazione quando si importano dati in Archiviazione di Azure. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati.](https://azure.microsoft.com/pricing/details/data-transfers/)
+Non vi sono costi per le transazioni oltre a quelli della transazione di archiviazione standard quando si importano dati in archiviazione di Azure. Sono applicabili spese di uscita standard quando si esportano dati dall'archiviazione BLOB. Per altre informazioni sui costi della transazione, vedere [Dettagli prezzi dei trasferimenti di dati.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -415,7 +415,7 @@ Per preparare le unità per un processo di esportazione si consiglia di eseguire
    
    La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selettore | Percorso BLOB | Descrizione |
+   | Selettore | Percorso BLOB | DESCRIZIONE |
    | --- | --- | --- |
    | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
    | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |

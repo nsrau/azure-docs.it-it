@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: 064ccec58406e08ae68320b59fcf2a96952a41ee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Note sulla versione di anteprima pubblica dei criteri personalizzati di Azure Active Directory B2C
 Il set di funzionalità dei criteri personalizzati è ora disponibile per la valutazione in anteprima pubblica per tutti i clienti di Azure Active Directory B2C (Azure AD B2C). Questo set di funzionalità è destinato agli sviluppatori esperti che creano le soluzioni di gestione delle identità più complesse.  
@@ -60,7 +60,7 @@ Per sfruttare appieno l'anteprima pubblica, è consigliabile che gli sviluppator
 ## <a name="features-by-stage-and-known-issues"></a>Funzionalità per fase e problemi noti
 Le funzionalità dei criteri personalizzati e del framework dell'esperienza di gestione delle identità sono in costante e rapida evoluzione.  Questa tabella è un indice di funzionalità/disponibilità dei componenti.
 
-Pubblicare domande su Stack Overflow all'indirizzo [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+Pubblicare domande su Stack Overflow all'indirizzo [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Provider di identità, token, protocolli

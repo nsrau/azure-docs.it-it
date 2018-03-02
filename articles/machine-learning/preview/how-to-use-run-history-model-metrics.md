@@ -2,19 +2,19 @@
 title: Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench | Microsoft Docs
 description: "Guida all'utilizzo della funzionalità Cronologia di esecuzione e delle metriche del modello di Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 2d1bce6463ac7880fd9091b4f3f2cbb226ea516d
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench
 
@@ -23,7 +23,7 @@ Azure Machine Learning Workbench supporta esperimenti di data science tramite la
 **Le metriche del modello** possono essere registrate in qualsiasi punto degli script, e consentono di tracciare i valori più importanti negli esperimenti di data science eseguiti.
 Questo articolo descrive come usare al meglio queste funzionalità per aumentare la velocità e la qualità degli esperimenti di data science.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per proseguire con questa guida è necessario:
 * [Creare e installare istanze di Azure Machine Learning](quickstart-installation.md)
 - [Creare un progetto](quickstart-installation.md)
@@ -32,7 +32,7 @@ Per proseguire con questa guida è necessario:
 ## <a name="azure-ml-logging-api-overview"></a>Cenni preliminari sull'API di registrazione di Azure Machine Learning
 L'[API di registrazione di Azure Machine Learning](reference-logging-api.md) è disponibile tramite il modulo **azureml.logging** di Python (installato con Azure Machine Learning Workbench.) Dopo aver importato il modulo, è possibile usare il metodo **get_azureml_logger** per creare un'istanza dell'oggetto **logger**.
 È quindi possibile usare il metodo **log** del logger per archiviare le coppie chiave/valore generate tramite gli script Python.
-Attualmente, le metriche di modello di registrazione dello scalare e i tipi di elenco sono supportati come illustrato.
+Al momento sono supportate le metriche del modello di registrazione di tipo scalare ed elenco, come illustrato.
 
 ```Python
 # create a logger instance in already set up environment 
@@ -230,7 +230,7 @@ $ az ml history list -o table
 ```
 L'**interfaccia della riga di comando** rappresenta un metodo alternativo per sfruttare tutte potenzialità di Azure Machine Learning Workbench.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Queste funzionalità sono disponibili per semplificare gli esperimenti di data science.
 Ci auguriamo che possano essere utili. Tutti i commenti e suggerimenti saranno apprezzati.
 Si tratta solo dell'implementazione iniziale e sono già previsti molti miglioramenti,

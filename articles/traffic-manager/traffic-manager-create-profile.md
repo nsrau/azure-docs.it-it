@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1994c8374244b62e65b1a54234775d9a39f72bb3
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 
@@ -28,8 +28,8 @@ In questo articolo, due endpoint di App Web di Azure creati in precedenza vengon
 
 ### <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 1. Da un browser accedere al [portale di Azure](http://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
-2. Nel menu **Hub** fare clic su **Nuovo** > **Reti** > **Vedi tutto**, fare clic su **Profilo di Gestione traffico** per aprire il pannello **Crea profilo di Gestione traffico** e quindi fare clic su **Crea**.
-3. Nel pannello **Crea profilo di Gestione traffico** procedere come segue:
+2. Fare clic su **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
+4. In **Crea profilo di Gestione traffico** procedere come segue:
     1. In **Nome** specificare un nome per il profilo. Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS <name>,trafficmanager.net che viene usato per accedere al profilo di Gestione traffico.
     2. In **Metodo di routing** selezionare il metodo di routing **Priorità**.
     3. In **Sottoscrizione** selezionare la sottoscrizione in cui si vuole creare il profilo.
@@ -43,28 +43,28 @@ In questo articolo, due endpoint di App Web di Azure creati in precedenza vengon
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
 
 1. Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente e fare clic sul profilo di gestione traffico nei risultati visualizzati.
-2. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**.
-3. Nel pannello **Endpoint** visualizzato fare clic su **Aggiungi**.
-4. Nel pannello **Aggiungi endpoint** procedere come segue:
+2. In **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**.
+3. Fare clic su **Aggiungi**.
+4. Completare come segue:
     1. In **Tipo** fare clic su **Endpoint di Azure**.
     2. Specificare un **Nome** con il quale si vuole identificare questo endpoint.
     3. In **Tipo di risorsa di destinazione** fare clic su **Servizio app**.
-    4. In **Risorsa di destinazione** fare clic su **Scegliere un servizio app** per visualizzare l'elenco delle App Web nella stessa sottoscrizione. Nel pannello **Risorsa** visualizzato selezionare il servizio App che si vuole aggiungere come primo endpoint.
+    4. In **Risorsa di destinazione** fare clic su **Scegliere un servizio app** per visualizzare l'elenco delle App Web nella stessa sottoscrizione. In **Risorsa** selezionare il servizio App che si vuole aggiungere come primo endpoint.
     5. In **Priorità** selezionare **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
     6. Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
     7. Fare clic su **OK**
 5.  Ripetere i passaggi 3 e 4 per il successivo endpoint di App Web di Azure. Assicurarsi di aggiungerlo con il valore di **Priorità** impostato su **2**.
-6.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati nel pannello **Profilo di gestione traffico** insieme al relativo stato di monitoraggio **Online**.
+6.  Una volta completata l'aggiunta di entrambi gli endpoint, essi vengono visualizzati in **Profilo di Gestione traffico** insieme al relativo stato di monitoraggio **Online**.
 
     ![Aggiungere un endpoint di Gestione traffico](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>Usare il profilo di Gestione traffico
 1.  Nella barra di ricerca del portale cercare il nome del **Profilo di Gestione traffico** creato nella sezione precedente. Fare clic sul profilo di Gestione traffico nei risultati visualizzati.
-2. Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
-3. Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere instradato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
+2. Fare clic su **Panoramica**.
+3. Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) che deve essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso, tutte le richieste vengono instradate al primo endpoint e se Gestione traffico rileva che tale endpoint non è integro, viene eseguito automaticamente il failover del traffico sull'endpoint successivo.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminare il profilo di Gestione traffico
-Quando non sono più necessari, eliminare il gruppo di risorse e il profilo di Gestione traffico creati. A tale scopo selezionare il gruppo di risorse nel pannello **Profilo di Gestione traffico** e fare clic su **Elimina**.
+Quando non sono più necessari, eliminare il gruppo di risorse e il profilo di Gestione traffico creati. A tale scopo selezionare il gruppo di risorse nel riquadro **Profilo di Gestione traffico** e fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

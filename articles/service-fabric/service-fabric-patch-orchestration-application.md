@@ -12,19 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/9/2017
+ms.date: 1/16/2018
 ms.author: nachandr
-ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-patch-orchestration-application.md)
+> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+>
+>
+
 Patch Orchestration Application è un'applicazione Azure Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività.
 
-Patch Orchestration Application offre quanto segue:
+L'app Patch Orchestration offre le funzionalità seguenti:
 
 - **Installazione automatica dell'aggiornamento del sistema operativo**. Gli aggiornamenti del sistema operativo vengono scaricati e installati automaticamente. I nodi del cluster vengono riavviati in base alle esigenze senza tempi di inattività del cluster.
 
@@ -64,12 +70,12 @@ I cluster di Azure al livello di durabilità silver hanno il servizio di gestion
 È possibile abilitare il servizio di gestione della riparazione dal portale di Azure al momento della configurazione del cluster. Selezionare l'opzione **Includi funzionalità di gestione ripristini** in **Aggiungi funzionalità** durante la configurazione del cluster.
 ![Immagine dell'attivazione del servizio di gestione della riparazione dal portale di Azure](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-##### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
-In alternativa, è possibile usare il [modello di Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio di gestione della riparazione nei cluster nuovi ed esistenti di Service Fabric. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di Resource Manager. 
+##### <a name="azure-resource-manager-deployment-model"></a>Modello di distribuzione di Azure Resource Manager
+In alternativa, è possibile usare il [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio di gestione della riparazione nei cluster nuovi ed esistenti di Service Fabric. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di distribuzione Azure Resource Manager personalizzato. 
 
-Per abilitare il servizio di gestione della riparazione tramite il [modello di Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Per abilitare il servizio di gestione della riparazione tramite i [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
-1. Verificare prima che il `apiversion` sia impostato su `2017-07-01-preview` per la risorsa `Microsoft.ServiceFabric/clusters` come illustrato nel frammento riportato di seguito. Se il valore è diverso, è necessario aggiornare `apiVersion` a `2017-07-01-preview`:
+1. Verificare prima di tutto che `apiversion` sia impostato su `2017-07-01-preview` per la risorsa `Microsoft.ServiceFabric/clusters`. Se il valore è diverso, è necessario aggiornare `apiVersion` al valore `2017-07-01-preview` o superiore:
 
     ```json
     {
@@ -142,12 +148,12 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).
 |LogsDiskQuotaInMB   |long  <br> Predefinito: 1024               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
 | WUQuery               | stringa<br>Impostazione predefinita: "IsInstalled = 0"                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | Booleano <br> Predefinito: True                 | Questo flag consente l'installazione degli aggiornamenti del sistema operativo Windows.            |
+| InstallWindowsOSOnlyUpdates | boolean <br> Predefinito: True                 | Questo flag consente l'installazione degli aggiornamenti del sistema operativo Windows.            |
 | WUOperationTimeOutInMinutes | int <br>Predefinito: 90                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | int <br> Predefinito: 5                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
 | WURescheduleTimeInMinutes | int <br>Predefinito: 30 | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
-| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>-   Monthly, DD,HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> -   Weekly, DAY,HH:MM:SS, ad esempio, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> SI noti che tutti gli orari sono in formato UTC.|
-| AcceptWindowsUpdateEula | Booleano <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
+| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>- Monthly, DD, HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> - Weekly, DAY, HH:MM:SS, ad esempio, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> Si noti che gli orari sono in formato UTC.|
+| AcceptWindowsUpdateEula | boolean <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]
 > Se si desidera che Windows Update venga eseguito immediatamente, impostare `WUFrequency` in relazione al tempo di distribuzione dell'applicazione. Ad esempio, si supponga di disporre di un cluster di test a cinque nodi e si prevede di distribuire l'app all'incirca alle 17:00:00 UTC. Se si presuppone che l'aggiornamento o la distribuzione dell'applicazione richiedano un massimo di 30 minuti, impostare il WUFrequency su "Daily, 17:30:00".
@@ -307,7 +313,7 @@ R. Il tempo impiegato da Patch Orchestration App dipende principalmente dai segu
 
 D: **Qual è il motivo per cui vengono visualizzati alcuni aggiornamenti nei risultati di Windows Update ottenuti tramite l'API REST, ma non nella cronologia di Windows Update sul computer?**
 
-R. Alcuni aggiornamenti del prodotto devono essere archiviati nella rispettiva cronologia patch/di aggiornamento. Ad esempio: gli aggiornamenti di Windows Defender non vengono visualizzati nella cronologia di Windows Update in Windows Server 2016.
+R. Alcuni aggiornamenti del prodotto vengono visualizzati solo nella rispettiva cronologia patch/di aggiornamento. Ad esempio: gli aggiornamenti di Windows Defender non vengono visualizzati nella cronologia di Windows Update in Windows Server 2016.
 
 ## <a name="disclaimers"></a>Dichiarazioni di non responsabilità
 

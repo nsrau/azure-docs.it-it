@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Rollbar | Documenti Microsoft'
-description: Informazioni su come configurare single sign-on tra Azure Active Directory e Rollbar.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Rollbar | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Rollbar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,28 +16,28 @@ ms.date: 1/04/2017
 ms.author: jeedes
 ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
 ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Esercitazione: Integrazione di Azure Active Directory con Rollbar
 
-In questa esercitazione informazioni su come integrare Rollbar con Azure Active Directory (Azure AD).
+Questa esercitazione descrive come integrare Rollbar con Azure Active Directory (Azure AD).
 
-Integrazione Rollbar con Azure AD offre i vantaggi seguenti:
+L'integrazione di Rollbar con Azure AD offre i vantaggi seguenti:
 
-- È possibile controllare in Azure AD che ha accesso al Rollbar.
-- È possibile abilitare gli utenti per automaticamente ottenere firmato Rollbar (Single Sign-On) con i propri account Azure AD.
+- È possibile controllare in Azure AD chi può accedere a Rollbar.
+- È possibile abilitare gli utenti per l'accesso automatico a Rollbar (Single Sign-On) con i rispettivi account di Azure AD.
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Per configurare l'integrazione di Azure AD con Rollbar, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD con Rollbar, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Un Rollbar single sign-on abilitato sottoscrizione
+- Sottoscrizione di Rollbar abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -54,9 +54,9 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-rollbar-from-the-gallery"></a>Aggiunta di Rollbar dalla raccolta
-Per configurare l'integrazione di Rollbar in Azure AD, è necessario aggiungere all'elenco di App SaaS gestite Rollbar dalla raccolta.
+Per configurare l'integrazione di Rollbar in Azure AD, è necessario aggiungere Rollbar dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Rollbar dalla raccolta, eseguire la procedura seguente:**
+**Per aggiungere Rollbar dalla raccolta, eseguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -70,33 +70,33 @@ Per configurare l'integrazione di Rollbar in Azure AD, è necessario aggiungere 
 
     ![Pulsante Nuova applicazione][3]
 
-4. Nella casella di ricerca, digitare **Rollbar**selezionare **Rollbar** dal pannello risultati quindi fare clic su **Aggiungi** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Rollbar**, nel pannello dei risultati selezionare **Rollbar** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Rollbar nell'elenco dei risultati](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_addfromgallery.png)
+    ![Rollbar nell'elenco risultati](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, configurare e testare Azure AD single sign-on con Rollbar in base a un utente di test denominato "Laura Giussani".
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Rollbar in base a un utente di test di nome "Britta Simon".
 
-Per single sign-on a funzionare, Azure AD deve conoscere l'utente corrispondente in Rollbar a un utente in Azure AD. In altre parole, una relazione di collegamento tra un utente AD Azure e l'utente correlato in Rollbar deve essere stabilito.
+Per il funzionamento dell'accesso Single Sign-On per un utente di Azure AD, Azure AD deve conoscere l'utente corrispondente in Rollbar. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Rollbar.
 
-In Rollbar, assegnare il valore della **nome utente** in Azure AD come valore della **Username** per stabilire la relazione di collegamento.
+Per stabilire la relazione di collegamento, assegnare il valore del **nome utente**in Azure AD al valore del **nome utente** in Rollbar.
 
-Per configurare e testare Azure AD single sign-on con Rollbar, è necessario completare i seguenti blocchi predefiniti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Rollbar, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creare un utente test Rollbar](#create-a-rollbar-test-user)**  - disporre di un equivalente di Britta Simon in Rollbar collegato per la rappresentazione di Azure AD dell'utente.
+3. **[Creare un utente di test di Rollbar](#create-a-rollbar-test-user)** per avere una controparte di Britta Simon in Rollbar collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
-In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e configurare l'accesso single sign-on nell'applicazione Rollbar.
+In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Rollbar.
 
-**Per configurare Azure AD single sign-on con Rollbar, eseguire la procedura seguente:**
+**Per configurare l'accesso Single Sign-On di Azure AD con Rollbar, eseguire questa procedura:**
 
-1. Nel portale di Azure, sul **Rollbar** pagina di integrazione dell'applicazione, fare clic su **Single sign-on**.
+1. Nella pagina di integrazione dell'applicazione **Rollbar** del portale di Azure fare clic su **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On][4]
 
@@ -104,9 +104,9 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_samlbase.png)
 
-3. Nel **Rollbar dominio e gli URL** sezione, eseguire la procedura seguente se si desidera configurare l'applicazione in **IDP** modalità iniziata da:
+3. Nella sezione **URL e dominio Rollbar**, se si vuole configurare l'applicazione in modalità avviata da **IDP** eseguire questa procedura:
 
-    ![Rollbar informazioni domini e gli URL single sign-on](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Rollbar](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url.png)
 
     a. Nella casella di testo **Identificatore** digitare l'URL: `https://saml.rollbar.com`
 
@@ -114,12 +114,12 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
 4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Rollbar informazioni domini e gli URL single sign-on](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Rollbar](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_url1.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://rollbar.com/<accountname>/saml/login/azure/`
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Contatto [team di supporto Rollbar Client](mailto:support@rollbar.com) per ottenere questi valori. 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Rollbar](mailto:support@rollbar.com). 
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -129,31 +129,31 @@ In questa sezione, si abilita Azure AD single sign-on nel portale di Azure e con
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-rollbar-tutorial/tutorial_general_400.png)
     
-7. In una finestra del web browser, accedere al sito della società Rollbar come amministratore.
+7. In un'altra finestra del Web browser accedere al sito aziendale Rollbar come amministratore.
 
-8. Fare clic su di **le impostazioni del profilo** nell'angolo superiore destro e quindi fare clic su **le impostazioni del nome di Account**.
+8. Fare clic sulle **impostazioni del profilo** nell'angolo superiore destro e quindi fare clic sulle **impostazioni del nome account**.
     
     ![Configurazione](./media/active-directory-saas-rollbar-tutorial/general.png)
 
-9. Fare clic su **Provider di identità** in sicurezza.
+9. Fare clic su **Identity Provider** (Provider di identità) in SECURITY (SICUREZZA).
 
     ![Configurazione](./media/active-directory-saas-rollbar-tutorial/configure1.png)
 
-10. Nel **Provider di identità SAML** sezione, eseguire la procedura seguente:
+10. Nella sezione **SAML Identity Provider** (Provider di identità SAML) eseguire questa procedura:
     
     ![Configurazione](./media/active-directory-saas-rollbar-tutorial/configure2.png)
 
-    a. Selezionare **AZURE** dal **Provider di identità SAML** elenco a discesa.
+    a. Selezionare **AZURE** dall'elenco a discesa **SAML Identity Provider** (Provider di identità SAML).
 
-    b. Aprire il file di metadati nel blocco note, copiarne il contenuto negli Appunti e quindi incollarlo il **SAML Metadata** casella di testo.
+    b. Aprire il certificato scaricato in Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML Metadata** (Metadati SAML).
 
     c. Fare clic su **Save**.
 
-11. Dopo aver scelto di salvataggio pulsante, la schermata sarà simile al seguente. In questa sezione, eseguire la procedura seguente:
+11. Dopo che si è fatto clic su Save (Salva), la schermata avrà l'aspetto seguente. In questa sezione eseguire la procedura seguente:
     
     ![Configurazione](./media/active-directory-saas-rollbar-tutorial/configure3.png)
 
-    a. Selezionare **richiedono account di accesso tramite il Provider di identità SAML** casella di controllo.
+    a. Selezionare la casella di controllo **Require login via SAML Identity Provider** (Richiedi l'accesso tramite provider di identità SAML).
 
     b. Fare clic su **Save**.
 
@@ -192,15 +192,15 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
  
-### <a name="create-a-rollbar-test-user"></a>Creare un utente test Rollbar
+### <a name="create-a-rollbar-test-user"></a>Creare un utente di test Rollbar
 
 Per consentire agli utenti di Azure AD di accedere a Rollbar, è necessario eseguirne il provisioning in Rollbar. Nel caso di Rollbar, il provisioning è un'attività manuale.
 
 **Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al sito della società Rollbar come amministratore.
+1. Accedere al sito aziendale Rollbar come amministratore.
 
-2. Fare clic su di **le impostazioni del profilo** nell'angolo superiore destro e quindi fare clic su **le impostazioni del nome di Account**.
+2. Fare clic sulle **impostazioni del profilo** nell'angolo superiore destro e quindi fare clic sulle **impostazioni del nome account**.
 
     ![Utente](./media/active-directory-saas-rollbar-tutorial/general.png)
 
@@ -208,31 +208,31 @@ Per consentire agli utenti di Azure AD di accedere a Rollbar, è necessario eseg
     
     ![Aggiungere un dipendente](./media/active-directory-saas-rollbar-tutorial/user1.png)
 
-4. Fare clic su **invitare i membri del Team**.
+4. Fare clic su **Invite Team Members** (Invita membri del team).
 
     ![Invita persone](./media/active-directory-saas-rollbar-tutorial/user2.png)
 
-5. Nella casella di testo, immettere il nome dell'utente come  **brittasimon@contoso.com**  e fare clic su **Add/invito**.
+5. Nella casella di testo immettere il nome dell'utente, ad esempio  **brittasimon@contoso.com**  e fare clic su **Add/Invite** (Aggiungi/Invita).
 
     ![Invita persone](./media/active-directory-saas-rollbar-tutorial/user3.png)
 
-6. Utente riceve un invito e dopo aver accettato si potrà create nel sistema.
+6. L'utente riceve un invito. Dopo che questo è stato accettato, l'utente viene creato nel sistema.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure concedendo l'accesso a Rollbar.
+In questa sezione, Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure tramite concessione dell'accesso a Rollbar.
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon Rollbar, procedere come segue:**
+**Per assegnare Britta Simon a Rollbar, eseguire questa procedura:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 
     ![Assegna utente][201] 
 
-2. Nell'elenco delle applicazioni, selezionare **Rollbar**.
+2. Nell'elenco delle applicazioni selezionare **Rollbar**.
 
-    ![Il collegamento Rollbar nell'elenco delle applicazioni](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_app.png)  
+    ![Collegamento a Rollbar nell'elenco delle applicazioni](./media/active-directory-saas-rollbar-tutorial/tutorial_rollbar_app.png)  
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -252,7 +252,7 @@ In questa sezione è abilitare Britta Simon utilizzare single sign-on Azure conc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Rollbar nel Pannello di accesso, dovrebbe ottenere automaticamente firmato-on all'applicazione Rollbar.
+Quando si fa clic sul riquadro Rollbar nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Rollbar.
 Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

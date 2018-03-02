@@ -1,6 +1,6 @@
 ---
-title: Distribuire la soluzione di simulazione del dispositivo - Azure | Documenti Microsoft
-description: In questa esercitazione viene illustrato come eseguire il provisioning della soluzione di simulazione del dispositivo da azureiotsuite.com.
+title: Distribuire la soluzione Simulazione dispositivi - Azure | Microsoft Docs
+description: Questa esercitazione mostra come effettuare il provisioning della soluzione Simulazione dispositivi da azureiotsuite.com.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
 ---
-# <a name="deploy-the-azure-iot-device-simulation-solution"></a>Distribuire la soluzione di simulazione del dispositivo IoT Azure
+# <a name="deploy-the-azure-iot-device-simulation-solution"></a>Distribuire la soluzione Simulazione dispositivi di Azure IoT
 
-In questa esercitazione viene illustrato come eseguire il provisioning di una soluzione di simulazione del dispositivo. È necessario distribuire la soluzione dall'indirizzo azureiotsuite.com.
+Questa esercitazione mostra come effettuare il provisioning di una soluzione Simulazione dispositivi. È necessario distribuire la soluzione dall'indirizzo azureiotsuite.com.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Configurare la soluzione di simulazione del dispositivo
-> * Distribuire la soluzione di simulazione del dispositivo
-> * Accedi alla soluzione simulazione del dispositivo
+> * Configurare la soluzione Simulazione dispositivi
+> * Distribuire la soluzione Simulazione dispositivi
+> * Accedere alla soluzione Simulazione dispositivi
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva.
 
@@ -37,42 +37,42 @@ Se non si dispone di un account, è possibile creare un account di valutazione g
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Prima di distribuire la soluzione per la sottoscrizione di Azure, è necessario scegliere alcune opzioni di configurazione:
+Prima di distribuire la soluzione nella sottoscrizione di Azure, è necessario scegliere alcune opzioni di configurazione:
 
-1. Accedi a [azureiotsuite.com](https://www.azureiotsuite.com) di Azure utilizzando le credenziali dell'account e fare clic su  **+**  per creare una nuova soluzione:
+1. Accedere ad [azureiotsuite.com](https://www.azureiotsuite.com) usando le credenziali dell'account Azure e quindi fare clic su **+** per creare una nuova soluzione:
 
     ![Creare una nuova soluzione](media/iot-suite-device-simulation-deploy/createnewsolution.png)
 
-1. Fare clic su **selezionare** sul **simulazione del dispositivo** riquadro:
+1. Fare clic su **Seleziona** nel riquadro **Simulazione dispositivi**:
 
-    ![Scegliere una simulazione del dispositivo](media/iot-suite-device-simulation-deploy/select.png)
+    ![Scegliere Simulazione dispositivi](media/iot-suite-device-simulation-deploy/select.png)
 
-1. Nel **soluzione simulazione crea dispositivo** pagina, immettere un **Nome soluzione** per la soluzione di simulazione del dispositivo.
+1. Nella pagina **Crea soluzione Simulazione dispositivi** immettere un **Nome della soluzione** per la soluzione Simulazione dispositivi.
 
 1. Selezionare la **sottoscrizione** e l'**area** da usare per il provisioning della soluzione.
 
-1. Specificare se si desidera che un nuovo IoT Hub distribuiti con la soluzione di simulazione del dispositivo. Se si seleziona questa casella, viene distribuito un nuovo IoT Hub nella sottoscrizione. Indipendentemente dall'opzione selezionata, è sempre possibile puntare la simulazione di un hub IoT.
+1. Specificare se si vuole distribuire un nuovo hub IoT con la soluzione Simulazione dispositivi. Se si seleziona questa casella, viene distribuito un nuovo hub IoT nella sottoscrizione. Indipendentemente dall'opzione selezionata, è sempre possibile associare la simulazione a qualsiasi hub IoT.
 
 1. Fare clic su **Crea soluzione** per iniziare il processo di provisioning. In genere il processo richiede alcuni minuti:
 
-    ![Dettagli sulla soluzione di simulazione di dispositivo](media/iot-suite-device-simulation-deploy/createsolution.png)
+    ![Dettagli sulla soluzione Simulazione dispositivi](media/iot-suite-device-simulation-deploy/createsolution.png)
 
-## <a name="sign-in-to-the-solution"></a>Accedi alla soluzione
+## <a name="sign-in-to-the-solution"></a>Accedere alla soluzione
 
-Una volta completato il processo di provisioning, è possibile accedere alla soluzione simulazione del dispositivo.
+Al termine del processo di provisioning, è possibile accedere alla soluzione Simulazione dispositivi.
 
-1. Nel **il provisioning delle soluzioni** pagina, fare clic su **avviare** sotto la nuova soluzione di simulazione del dispositivo:
+1. Nella pagina **Soluzioni di cui è stato effettuato il provisioning** fare clic su **Avvia** per la nuova soluzione Simulazione dispositivi:
 
     ![Scegliere nuova soluzione](media/iot-suite-device-simulation-deploy/newsolution.png)
 
-1. È possibile visualizzare informazioni sulla soluzione simulazione del dispositivo nel pannello visualizzato. Scegliere **dashboard soluzione** per connettersi alla soluzione simulazione del dispositivo.
+1. È possibile esaminare le informazioni sulla soluzione Simulazione dispositivi nel pannello visualizzato. Scegliere **Dashboard soluzione** per connettersi alla soluzione Simulazione dispositivi.
 
     > [!NOTE]
-    > Dopo aver terminato con esso, è possibile eliminare la soluzione di simulazione del dispositivo da questo pannello.
+    > È possibile eliminare la soluzione Simulazione dispositivi da questo pannello quando non la si usa più.
 
     ![Riquadro della soluzione](media/iot-suite-device-simulation-deploy/properties.png)
 
-1. Consente di visualizzare il dashboard di soluzioni di simulazione del dispositivo nel browser.
+1. Il dashboard della soluzione Simulazione dispositivi viene visualizzato nel browser.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -81,8 +81,8 @@ Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Configurare la soluzione
 > * Distribuire la soluzione
-> * Accedi alla soluzione
+> * Accedere alla soluzione
 
-Ora che è stata distribuita la soluzione di simulazione del dispositivo, il passaggio successivo consiste nel [esplorare le funzionalità della soluzione simulazione del dispositivo](./iot-suite-device-simulation-explore.md).
+Ora che è stata distribuita la soluzione Simulazione dispositivi, il passaggio successivo consiste nell'[esplorare le funzionalità del dashboard della soluzione Simulazione dispositivi](./iot-suite-device-simulation-explore.md).
 
 <!-- Next tutorials in the sequence -->

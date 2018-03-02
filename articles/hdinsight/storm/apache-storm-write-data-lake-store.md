@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Scrivere da Apache Storm a HDFS in HDInsight
 
@@ -160,7 +160,7 @@ Per informazioni sull'uso di questo script con il cluster, vedere il documento [
 
 1. Usare il comando seguente per copiare la topologia nel cluster HDInsight. Sostituire **USER** con il nome utente SSH usato durante la creazione del cluster. Sostituire **CLUSTERNAME** con il nome del cluster.
    
-        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
     Quando richiesto, immettere la password usata durante la creazione dell'utente SSH per il cluster. Se è stata usata una chiave pubblica anziché una password, può essere necessario usare il parametro `-i` per specificare il percorso della chiave privata corrispondente.
    

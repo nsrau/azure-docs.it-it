@@ -14,20 +14,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: bb5557eb0672b9ad137bc5817e47bf4f89e1c34d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
 
 Questo documento elenca tutti i problemi noti relativi all'anteprima pubblica di HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Livy perde la sessione interattiva
-Quando Livy viene riavviato (da Ambari oppure a causa del riavvio della macchina virtuale con nodo head 0) con una sessione interattiva ancora attiva, una sessione di processo interattiva andrà persa. Per questo motivo, i nuovi processi possono rimanere bloccati in stato Accettato e non possono essere avviati.
+Quando Livy viene riavviato (da Ambari oppure a causa del riavvio della macchina virtuale con nodo head 0) con una sessione interattiva ancora attiva, una sessione di processo interattiva va persa. Per questo motivo, i nuovi processi possono rimanere bloccati in stato Accettato e non possono essere avviati.
 
 **Soluzione:**
 
@@ -39,12 +39,12 @@ Seguire questa procedura per risolvere il problema:
    
         yarn application –list
    
-    I nomi di processo predefiniti corrispondono a Livy se i processi sono stati avviati con una sessione interattiva Livy senza specificare nomi espliciti. Per la sessione Livy avviata dal notebook di Jupyter, il nome del processo verrà avviato con remotesparkmagics_*. 
+    I nomi di processo predefiniti sono Livy se i processi sono stati avviati con una sessione interattiva di Livy senza nomi espliciti specificati. Per la sessione di Livy avviata tramite notebook di Jupyter, il nome del processo inizia con remotesparkmagics_*. 
 3. Eseguire il comando seguente per terminare questi processi. 
    
         yarn application –kill <Application ID>
 
-Verranno avviati nuovi processi. 
+Vengono avviati nuovi processi. 
 
 ## <a name="spark-history-server-not-started"></a>Il server cronologia Spark non viene avviato
 Il server cronologia Spark non viene avviato automaticamente dopo la creazione di un cluster.  
@@ -69,13 +69,13 @@ Attualmente, il connettore Spark-Phoenix non è supportato in un cluster HDInsig
 
 **Soluzione:**
 
-Usare il connettore Spark-HBase. Per istruzioni, vedere [Come usare un connettore Spark-HBase](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Usare il connettore Spark-HBase. Per istruzioni, vedere [How to use Spark-HBase connector](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/) (Come usare un connettore Spark-HBase).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemi relativi ai notebook Jupyter
 Seguito alcuni problemi noti relativi ai notebook Jupyter.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Notebook con nomi di file contenenti caratteri non ASCII
-I notebook Jupyter utilizzabili nei cluster HDInsight Spark non devono contenere nei nomi di file caratteri non ASCII. Se si tenta di caricare tramite l'interfaccia utente Jupyter un file con un nome di file non ASCII, l'operazione si interromperà senza avvisi. Questo significa che Jupyter non consentirà di caricare il file, ma non genererà un errore visibile. 
+I notebook Jupyter utilizzabili nei cluster HDInsight Spark non devono contenere nei nomi di file caratteri non ASCII. Se tramite l'interfaccia utente di Jupyter si prova a caricare un file con un nome non ASCII, l'operazione si interrompe senza avvisi. In altre parole, Jupyter non consente di caricare il file, ma non genera nemmeno un errore visibile. 
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Errore durante il caricamento di notebook di maggiori dimensioni
 Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore **`Error loading notebook`** .  
@@ -84,11 +84,11 @@ Quando si caricano notebook di maggiori dimensioni, potrebbe comparire l'errore 
 
 Se viene visualizzato questo errore, non significa che i dati sono danneggiati o persi.  I notebook sono ancora disponibili su disco in `/var/lib/jupyter`ed è possibile usare SSH nel cluster per accedervi. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Dopo aver effettuato la connessione al cluster usando SSH, è possibile copiare i notebook dal cluster nel computer locale (tramite SCP o WinSCP) come backup per evitare la perdita di dati importanti del notebook. È quindi possibile usare SSH per il tunneling al nodo head sulla porta 8001 e accedere a Jupyter senza passare attraverso il gateway.  Qui è possibile cancellare l'output del notebook e salvarlo di nuovo per ridurne le dimensioni.
+Dopo aver effettuato la connessione al cluster usando SSH, è possibile copiare i notebook dal cluster nel computer locale (tramite SCP o WinSCP) come backup per evitare la perdita di dati importanti del notebook. È quindi possibile usare SSH per il tunneling al nodo head sulla porta 8001 e accedere a Jupyter senza passare attraverso il gateway.  Da qui è possibile cancellare l'output del notebook e salvarlo di nuovo per ridurne le dimensioni.
 
 Per evitare questo errore in futuro, è necessario seguire alcune procedure consigliate:
 
-* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  Con Jupyter in genere è consigliabile evitare di eseguire `.collect()` su RDD o frame di dati di grandi dimensioni. Se si vuole visualizzare il contenuto di un RDD, considerare invece la possibilità di eseguire `.take()` o `.sample()` per evitare la crescita eccessiva dell'output.
+* È importante mantenere ridotte le dimensioni del notebook. L'output dei processi Spark inviato a Jupyter viene salvato in modo permanente nel notebook.  Con Jupyter è in genere consigliabile evitare di eseguire `.collect()` su RDD o frame di dati di grandi dimensioni. Se si vuole visualizzare il contenuto di un RDD, considerare in alternativa la possibilità di eseguire `.take()` o `.sample()` per evitare che l'output assuma dimensioni troppo grandi.
 * Quando si salva un notebook, cancellare anche tutte le celle di output per ridurre le dimensioni.
 
 ### <a name="notebook-initial-startup-takes-longer-than-expected"></a>L'avvio iniziale del notebook richiede più tempo del previsto
@@ -99,7 +99,7 @@ La prima istruzione del codice nel notebook di Jupyter tramite il magic Spark po
 Ciò accade quando viene eseguita la prima cella di codice. In background viene avviata la configurazione della sessione e vengono impostati i contesti Spark, SQL e Hive. La prima istruzione viene eseguita dopo l'impostazione di questi contesti, dando l'impressione che l'esecuzione dell'istruzione impieghi molto tempo.
 
 ### <a name="jupyter-notebook-timeout-in-creating-the-session"></a>Timeout del notebook di Jupyter durante la creazione della sessione
-Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei kernel Spark e Pyspark nel notebook di Jupyter quando si cerca di creare la sessione. 
+Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel Spark e PySpark nel notebook di Jupyter durante il tentativo di creare la sessione. 
 
 **Soluzioni:** 
 
@@ -116,8 +116,7 @@ Quando il cluster Spark esaurisce le risorse, si verificherà il timeout dei ker
 * [Spark con Business Intelligence: eseguire l'analisi interattiva dei dati con strumenti di Business Intelligence mediante Spark in HDInsight](apache-spark-use-bi-tools.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per l'analisi della temperatura di compilazione utilizzando dati HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark con Machine Learning: utilizzare Spark in HDInsight per stimare i risultati dell'ispezione cibo](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usare Spark in HDInsight per la creazione di applicazioni di streaming in tempo reale](apache-spark-eventhub-streaming.md)
-* [Analisi dei log del sito Web mediante Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Analisi dei log del sito Web con Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creare ed eseguire applicazioni
 * [Creare un'applicazione autonoma con Scala](apache-spark-create-standalone-application.md)

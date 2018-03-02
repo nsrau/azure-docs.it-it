@@ -16,11 +16,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
+<<<<<<< HEAD
+ms.openlocfilehash: 084d3e4244bc6f19797fadab93265291494cf066
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/27/2018
+=======
 ms.openlocfilehash: aee7352ce6f8dd854ce0c6c61c5485fb9a35bb23
 ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2018
+>>>>>>> ef264d3823deace652e9de26708b3ff46548277e
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -70,7 +78,7 @@ L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
@@ -80,7 +88,7 @@ Per ottenere l'accesso ai metadati dell'evento, associare un oggetto [EventData]
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData myEventHubMessage, TraceWriter log)
 {
     log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
 }
@@ -89,7 +97,7 @@ Per ricevere gli eventi in un batch, impostare `string` o `EventData` come matri
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
@@ -110,7 +118,7 @@ Ecco i dati di associazione nel file *function.json*:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 Ecco il codice script C#:
@@ -161,7 +169,7 @@ Ecco i dati di associazione nel file *function.json*:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -184,7 +192,7 @@ Ecco i dati di associazione nel file *function.json*:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionString"
+  "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
 
@@ -205,7 +213,7 @@ Il costruttore dell'attributo accetta il nome di Hub eventi, il nome del gruppo 
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string myEventHubMessage, TraceWriter log)
 {
     ...
 }
@@ -224,7 +232,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**nome** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. | 
 |**path** |**EventHubName** | Nome di Hub eventi. | 
 |**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa usata per impostare il [gruppo di consumer](../event-hubs/event-hubs-features.md#event-consumers) usato per effettuare la sottoscrizione agli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. | 
-|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
+|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo [spazio dei nomi](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -253,7 +261,7 @@ L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md)
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -272,7 +280,7 @@ Ecco i dati di associazione nel file *function.json*:
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -313,7 +321,7 @@ Ecco i dati di associazione nel file *function.json*:
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -338,7 +346,7 @@ Ecco i dati di associazione nel file *function.json*:
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
-    "connection": "MyEventHubSend",
+    "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
 ```
@@ -377,7 +385,7 @@ Il costruttore dell'attributo accetta il nome di Hub eventi e il nome di un'impo
 
 ```csharp
 [FunctionName("EventHubOutput")]
-[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
     ...
@@ -408,7 +416,11 @@ In JavaScript accedere all'evento di output usando `context.bindings.<name>`. `<
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
+<<<<<<< HEAD
+| Associazione | Riferimenti |
+=======
 | Associazione | riferimento |
+>>>>>>> ef264d3823deace652e9de26708b3ff46548277e
 |---|---|
 | Hub eventi | [Operations Guide](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) (Guida operativa) |
 

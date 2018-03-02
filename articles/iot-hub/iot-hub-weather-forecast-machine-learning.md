@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
-ms.openlocfilehash: 50ae54b9476c49b80236e295c0bf244df8236cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec6bd6b053f6546c77508d29065de25739619d96
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsioni meteo usando i dati sensore dell'hub IoT in Azure Machine Learning
 
@@ -80,7 +80,7 @@ Si apprende come usare Azure Machine Learning per formulare previsioni meteo (po
 
 ### <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
-1. Nel [portale di Azure](https://ms.portal.azure.com/) fare clic su **Nuovo** > **Internet delle cose** > **Processo di Analisi di flusso**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
 1. Immettere le seguenti informazioni per il processo.
 
    **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale.

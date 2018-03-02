@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ea91fdd58dd3b5c118fe390afe1eb355e3c26570
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39680d4e70cc47cfa119b3a46e8d51ea87fa618d
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 
@@ -47,7 +47,7 @@ Questo argomento illustra come usare il [portale di Azure](https://portal.azure.
 
 Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Marketplace. Marketplace fornisce soluzioni predefinite per scenari comuni.
 
-1. Per avviare una distribuzione, selezionare **Nuovo**.
+1. Per avviare una distribuzione, selezionare **Crea una risorsa**.
 
    ![Nuova risorsa](./media/resource-group-template-deploy-portal/new-resources.png)
 
@@ -79,7 +79,7 @@ Dopo aver creato il gruppo di risorse, è possibile distribuire le risorse da Ma
 
 Se si desidera eseguire una distribuzione ma non usare i modelli in Marketplace, è possibile creare un modello personalizzato che definisce l'infrastruttura per la soluzione. Per informazioni sulla creazione di modelli, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. Per distribuire un modello personalizzato tramite il portale, selezionare **Nuovo** e quindi cercare **Distribuzione modello** fino a quando non è selezionabile nelle opzioni.
+1. Per distribuire un modello personalizzato tramite il portale, selezionare **Crea una risorsa** e quindi cercare **Distribuzione modello** fino a quando non è selezionabile nelle opzioni.
 
    ![Cercare la distribuzione del modello](./media/resource-group-template-deploy-portal/search-template.png)
 

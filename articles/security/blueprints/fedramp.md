@@ -1,6 +1,6 @@
 ---
-title: Automazione dei progetti di Azure - Applicazioni Web per FedRAMP
-description: Automazione dei progetti di Azure - Applicazioni Web per FedRAMP
+title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
+description: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d0521d68bab8bd0b7db53a512da6d37033abd85e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
+ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 02/11/2018
 ---
-# <a name="azure-blueprint-automation---web-applications-for-fedramp"></a>Automazione dei progetti di Azure - Applicazioni Web per FedRAMP
+# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
 
 ## <a name="overview"></a>Panoramica
 
-Il [programma FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) è un programma governativo degli Stati Uniti che stabilisce un approccio standard per quanto riguarda valutazione della sicurezza, autorizzazione e monitoraggio continuo per i prodotti e i servizi cloud. Questo articolo, Automazione dei progetti di Azure - Applicazioni Web per FedRAMP, contiene le linee guida per la distribuzione di un ambiente di infrastruttura distribuita come servizio (IaaS) conforme a FedRAMP adatto per una semplice applicazione Web per Internet. Questa soluzione automatizza la distribuzione e la configurazione delle risorse di Azure per un'architettura di riferimento comune, mostrando i diversi modi in cui i clienti possono soddisfare requisiti specifici di sicurezza e conformità, e costituisce un'architettura di base con cui i clienti possono creare e configurare soluzioni personalizzate in Azure. La soluzione implementa un subset di controlli basati sui principi di base di FedRAMP High e su NIST SP 800-53. Per altre informazioni sui requisiti di FedRAMP High e su questa soluzione, vedere [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md) (Requisiti di FedRAMP High - Panoramica generale). ***Nota: questa soluzione viene distribuita in Azure per enti pubblici.***
+Il [programma FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) è un programma governativo degli Stati Uniti che stabilisce un approccio standard per quanto riguarda valutazione della sicurezza, autorizzazione e monitoraggio continuo per i prodotti e i servizi cloud. Questo progetto di automazione Azure Security and Compliance Blueprint contiene le linee guida per la distribuzione di un ambiente di infrastruttura distribuita come servizio (IaaS) conforme a FedRAMP adatto per una semplice applicazione Web per Internet. Questa soluzione automatizza la distribuzione e la configurazione delle risorse di Azure per un'architettura di riferimento comune, mostrando i diversi modi in cui i clienti possono soddisfare requisiti specifici di sicurezza e conformità, e costituisce un'architettura di base con cui i clienti possono creare e configurare soluzioni personalizzate in Azure. La soluzione implementa un subset di controlli basati sui principi di base di FedRAMP High e su NIST SP 800-53. Per altre informazioni sui requisiti di FedRAMP High e su questa soluzione, vedere [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md) (Requisiti di FedRAMP High - Panoramica generale). ***Nota: questa soluzione viene distribuita in Azure per enti pubblici.***
 
 Questa architettura è una soluzione di base che i clienti possono adattare ai propri requisiti specifici e che non deve essere usata così com'è in un ambiente di produzione. La distribuzione di un'applicazione in questo ambiente senza modifiche non è sufficiente a soddisfare completamente i requisiti dei principi di base di FedRAMP High. Tenere presente quanto segue:
 - Questa architettura offre una soluzione di base per aiutare i clienti a usare Azure in modo conforme a FedRAMP.
@@ -36,13 +36,13 @@ Fare clic [qui](https://aka.ms/fedrampblueprintrepo) per le istruzioni di distri
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-Questa soluzione di automazione dei progetti di Azure distribuisce automaticamente un'architettura di riferimento per applicazioni Web IaaS con controlli di sicurezza preconfigurati per aiutare i clienti a realizzare la conformità ai requisiti di FedRAMP. La soluzione è costituita da modelli di Azure Resource Manager e script di PowerShell che semplificano la distribuzione e la configurazione delle risorse. Viene fornita la [documentazione sulla conformità](#compliance-documentation) dei progetti di Azure correlata, che indica i controlli di sicurezza ereditati da Azure e le risorse e le configurazioni distribuite allineate ai controlli di sicurezza NIST SP 800-53, per consentire alle organizzazioni di accelerare gli obblighi in materia di conformità.
+Questo progetto di automazione Azure Security and Compliance Blueprint distribuisce automaticamente un'architettura di riferimento per applicazioni Web IaaS con controlli di sicurezza preconfigurati per aiutare i clienti a realizzare la conformità ai requisiti di FedRAMP. La soluzione è costituita da modelli di Azure Resource Manager e script di PowerShell che semplificano la distribuzione e la configurazione delle risorse. Viene fornita la [documentazione sulla conformità](#compliance-documentation) correlata, che indica i controlli di sicurezza ereditati da Azure e le risorse e le configurazioni distribuite allineate ai controlli di sicurezza NIST SP 800-53, per consentire alle organizzazioni di adeguarsi agli obblighi in materia di conformità.
 
 ## <a name="architecture-diagram"></a>Diagramma dell'architettura
 
 Questa soluzione distribuisce un'architettura di riferimento per un'applicazione Web IaaS con back-end di database. L'architettura include un livello Web, un livello dati, un'infrastruttura Active Directory, un gateway applicazione e un servizio di bilanciamento del carico. Le macchine virtuali distribuite nei livelli Web e dati sono configurate in un set di disponibilità, mentre le istanze di SQL Server sono configurate in un gruppo di disponibilità AlwaysOn per disponibilità elevata. Le macchine virtuali sono aggiunte a un dominio e vengono usati criteri di gruppo di Active Directory per applicare le configurazioni di sicurezza e conformità a livello di sistema operativo. Un jumpbox di gestione (bastion host) fornisce una connessione sicura agli amministratori per accedere alle risorse distribuite.
 
-![Testo alternativo](images/fedramp-architectural-diagram.png?raw=true "Automazione dei progetti di applicazione Web IaaS per ambienti conformi a FedRAMP")
+![testo alternativo](images/fedramp-architectural-diagram.png?raw=true "Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP")
 
 Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
@@ -74,7 +74,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 * **Insieme di credenziali chiave Azure**
     - (1) Key Vault
 * **Azure Active Directory**
-* **Gestione risorse di Azure**
+* **Azure Resource Manager**
 * **Log Analytics di Azure**
 * **Automazione di Azure**
     - (1) Account di automazione
@@ -87,7 +87,7 @@ La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e impl
 
 ### <a name="network-segmentation-and-security"></a>Segmentazione e sicurezza della rete
 
-#### <a name="application-gateway"></a>Gateway applicazione
+#### <a name="application-gateway"></a>gateway applicazione
 
 L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione con web application firewall (WAF) e il set di regole OWASP abilitati. Altre funzionalità:
 
@@ -182,7 +182,7 @@ Un jumpbox di gestione (bastion host) fornisce una connessione sicura agli ammin
 
 ### <a name="patch-management"></a>Gestione delle patch
 
-Le macchine virtuali Windows distribuite tramite questa soluzione di automazione dei progetti vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione OMS di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
+Le macchine virtuali Windows distribuite tramite questo progetto di automazione Azure Security and Compliance Blueprint vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione OMS di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
 
 ### <a name="operations-management"></a>Operations Management
 
@@ -211,11 +211,11 @@ La [matrice delle responsabilità del cliente](https://aka.ms/blueprinthighcrm) 
 
 ### <a name="control-implementation-matrix"></a>Matrice di implementazione dei controlli
 
-La [matrice di implementazione dei controlli](https://aka.ms/blueprintwacim) (cartella di lavoro di Excel) elenca tutti i controlli di sicurezza richiesti dai principi di base di FedRAMP High. La matrice indica, per ogni controllo (o sottoparte di un controllo) per cui è assegnata una responsabilità al cliente nella matrice delle responsabilità del cliente, 1) se la soluzione di automazione dei progetti implementa il controllo e 2) una descrizione dell'allineamento dell'implementazione ai requisiti di controllo. Queste informazioni sono disponibili anche [qui](fedramp-controls-overview.md).
+La [matrice di implementazione dei controlli](https://aka.ms/blueprintwacim) (cartella di lavoro di Excel) elenca tutti i controlli di sicurezza richiesti dai principi di base di FedRAMP High. La matrice indica, per ogni controllo (o sottoparte di un controllo) per cui è assegnata una responsabilità al cliente nella matrice delle responsabilità del cliente, 1) se la soluzione di automazione implementa il controllo e 2) una descrizione dell'allineamento dell'implementazione ai requisiti di controllo. Queste informazioni sono disponibili anche [qui](fedramp-controls-overview.md).
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Questa soluzione di automazione dei progetti di Azure è costituita da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/fedrampblueprintrepo). ***Nota: questa soluzione viene distribuita in Azure per enti pubblici.***
+Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/fedrampblueprintrepo). ***Nota: questa soluzione viene distribuita in Azure per enti pubblici.***
 
 #### <a name="quickstart"></a>Guida introduttiva
 1. Clonare o scaricare [questo](https://aka.ms/fedrampblueprintrepo) repository GitHub nella workstation locale.

@@ -2,18 +2,18 @@
 title: Video su Database di Azure per PostgreSQL
 description: Questa pagina elenca il contenuto video rilevante per informazioni su Database di Azure per PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/01/2017
-ms.openlocfilehash: 6f11be7216cf9d7aadc03af6f15237fa4c3afdde
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.date: 02/28/2018
+ms.openlocfilehash: ddc5249bb5b001a93f2695f9df2fb8e870988095
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Video su Database di Azure per PostgreSQL
 

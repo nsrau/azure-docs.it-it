@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
+ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/21/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -35,21 +35,21 @@ Esistono due modi per acquisire i campi di accesso per le applicazioni personali
 
 L'**acquisizione automatica dei campi di accesso** funziona bene con la maggior parte delle pagine di accesso basate su HTML, se usano **ID DIV noti per il campo di input del nome utente e della password**. Questo approccio esamina il codice HTML nella pagina alla ricerca di ID DIV che corrispondano ai criteri specifici e salva i metadati per questa applicazione consentendo così di riprodurre le password in momenti successivi.
 
-L'**acquisizione manuale dei campi di accesso** può essere usata nel caso in cui il **fornitore dell'applicazione non etichetti** i campi di input usati per l'accesso. L'acquisizione manuale dei campi di accesso può inoltre essere usata nel caso in cui il **fornitore fornisce più campi** che non possono essere rilevati automaticamente. Azure AD può archiviare i dati per tutti i campi presenti nella pagina di accesso purché venga indicato dove si trovano questi campi nella pagina.
+L'**acquisizione manuale dei campi di accesso** può essere usata nel caso in cui il **fornitore dell'applicazione non etichetti** i campi di input usati per l'accesso. L'acquisizione manuale dei campi di accesso può inoltre essere usata nel caso in cui il **fornitore esegue il rendering di più campi** che non possono essere rilevati automaticamente. Azure AD può archiviare i dati per tutti i campi presenti nella pagina di accesso purché venga indicato dove si trovano questi campi nella pagina.
 
-Come regola generale, **se non funziona l'acquisizione automatica dei campi di accesso, è consigliabile provare l'approccio manuale.**
+Come regola generale, **se non funziona l'acquisizione automatica dei campi di accesso, provare l'approccio manuale.**
 
 ### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Come acquisire automaticamente i campi di accesso per un'applicazione
 
 Per configurare l'**accesso Single Sign-On basato su password** per un'applicazione usando l'**acquisizione automatica dei campi di accesso**, seguire questa procedura:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
+2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
+4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
@@ -57,13 +57,13 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 6.  Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di navigazione a sinistra dell'applicazione.
+7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
 8.  Selezionare la modalità **Accesso basato su password**.
 
-9.  Immettere l'**URL di accesso**. Questo è l'URL in cui gli utenti immettono il nome utente e la password per accedere. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
+9.  Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
-10. Fare clic sul pulsante **Salva** .
+10. Fare clic sul pulsante **Salva**.
 
 11. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso.
 
@@ -73,13 +73,13 @@ Per acquisire manualmente i campi di accesso, è necessario prima di tutto avere
 
 Per configurare l'**accesso Single Sign-On basato su password** per un'applicazione usando l'**acquisizione manuale dei campi di accesso**, seguire questa procedura:
 
-1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
+2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
+4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
@@ -87,13 +87,13 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 6.  Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di navigazione a sinistra dell'applicazione.
+7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
 8.  Selezionare la modalità **Accesso basato su password**.
 
-9.  Immettere l'**URL di accesso**. Questo è l'URL in cui gli utenti immettono il nome utente e la password per accedere. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
+9.  Immettere l'**URL di accesso**, ovvero l'URL in cui gli utenti immetteranno il nome utente e la password per eseguire l'accesso. **Assicurarsi che i campi di accesso siano visibili nell'URL fornito**.
 
-10. Fare clic sul pulsante **Salva** .
+10. Fare clic sul pulsante **Salva**.
 
 11. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso. Nel caso in cui l'operazione non riesca, è possibile **modificare la modalità di accesso per usare l'acquisizione manuale dei campi di accesso** andando al passaggio 12.
 
@@ -103,7 +103,7 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 14. Fare clic su **OK**.
 
-15. Fare clic su **Save**.
+15. Fare clic su **Salva**.
 
 16. Seguire le istruzioni visualizzate per usare il pannello di accesso.
 
@@ -139,7 +139,7 @@ Se si verifica uno di questi problemi, verificare quanto segue:
 
 -   Provare di nuovo il processo di acquisizione manuale, assicurarsi che gli indicatori rossi si trovino sui campi corretti.
 
--   Se il processo di acquisizione manuale sembra bloccarsi o nella pagina di accesso non esegue alcuna operazione (caso 3 precedente), tentare di eseguirlo nuovamente. Questa volta, tuttavia, al termine del processo, premere il tasto **F12** per aprire la console per sviluppatori del browser. Aprire la **console** e digitare **window.location="&lt;immettere l'URL di accesso specificato durante la configurazione dell'app&gt;"** e quindi premere **INVIO**. Questa operazione forza il reindirizzamento della pagina, termina il processo di acquisizione e memorizza i campi che sono stati acquisiti.
+-   Se il processo di acquisizione manuale sembra bloccarsi o nella pagina di accesso non esegue alcuna operazione (caso 3 precedente), provare a eseguirlo nuovamente. Questa volta, tuttavia, al termine del processo, premere il tasto **F12** per aprire la console per sviluppatori del browser. Aprire la **console** e digitare **window.location="&lt;immettere l'URL di accesso specificato durante la configurazione dell'app&gt;"** e quindi premere **INVIO**. Questa operazione forza il reindirizzamento della pagina, che termina il processo di acquisizione e archivia i campi acquisiti.
 
 Se nessuno di questi approcci risolve il problema, rivolgersi al supporto Microsoft. Aprire una richiesta di assistenza con i dettagli delle azioni tentate, nonché le informazioni raccolte nelle sezioni [Come visualizzare i dettagli di una notifica del portale](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se applicabile).
 
@@ -171,7 +171,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 È possibile visualizzare i dettagli di qualsiasi notifica del portale seguendo questa procedura:
 
-1.  Fare clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure
+1.  Fare clic sull'icona **Notifiche** (la campanella) in alto a destra nel portale di Azure
 
 2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
 
@@ -179,17 +179,17 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
   >
   >
 
-3.  Verrà aperto il pannello **Dettagli notifica**.
+3.  Viene aperto il riquadro **Dettagli notifica**.
 
-4.  Usare queste informazioni per ottenere più dettagli sul problema.
+4.  Usare le informazioni per ottenere maggiori dettagli sul problema.
 
-5.  In caso sia ancora necessaria assistenza sul problema, è possibile condividere queste informazioni con un tecnico di supporto o con il gruppo del prodotto.
+5.  Nel caso in cui sia ancora necessaria assistenza sul problema, è possibile condividere le informazioni con un tecnico di supporto o con il gruppo del prodotto.
 
 6.  Fare clic sull'**icona** **Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o con il gruppo del prodotto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto
 
-È molto importante condividere **tutti i dettagli elencati di seguito** con un tecnico del supporto per poter ricevere assistenza immediata. A tale scopo, è possibile **acquisire uno screenshot** o fare clic sull'**icona Copia errore** che si trova a destra della casella di testo **Copia errore**.
+È molto importante condividere **tutti i dettagli elencati di seguito** con un tecnico del supporto per poter ricevere assistenza immediata. È possibile **acquisire uno screenshot** o fare clic sull'**icona Copia errore** che si trova a destra della casella di testo **Copia errore**.
 
 ## <a name="notification-details-explained"></a>Spiegazione dei dettagli della notifica
 
@@ -205,11 +205,11 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **L'URL interno immesso è già usato da un'altra applicazione**
 
--   **ID notifica**: l'ID univoco della notifica
+-   **ID notifica**: ID univoco della notifica
 
     -   Esempio: **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID richiesta client**: l'ID specifico della richiesta creato dal browser
+-   **ID richiesta client**: ID specifico della richiesta creato dal browser
 
     -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
@@ -217,7 +217,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **2017-03-23T19:50:43.7583681Z**
 
--   **ID transazione interna**: l'ID interno che è possibile usare per cercare l'errore nei sistemi
+-   **ID transazione interna**: ID interno usato per cercare l'errore nei sistemi
 
     -   Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
@@ -225,11 +225,11 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio: **tperkins@f128.info**
 
--   **ID tenant**: l'ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
+-   **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
 
     -   Esempio: **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID oggetto utente**: l'ID univoco dell'utente che ha eseguito l'operazione
+-   **ID oggetto utente**: ID univoco dell'utente che ha eseguito l'operazione
 
     -   Esempio: **17f84be4-51f8-483a-b533-383791227a99**
 
@@ -243,7 +243,7 @@ La sezione seguente illustra in dettaglio il significato degli elementi della no
 
     -   Esempio*: **Operazione non riuscita**
 
--   **ID oggetto**: **(può essere vuoto)** l'ID dell'oggetto su cui è stata eseguita l'operazione
+-   **ID oggetto**: **(può essere vuoto)** ID dell'oggetto su cui è stata eseguita l'operazione
 
     -   Esempio: **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 

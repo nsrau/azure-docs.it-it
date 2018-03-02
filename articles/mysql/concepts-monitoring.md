@@ -1,19 +1,19 @@
 ---
-title: Monitoraggio in Database di Azure per MySQL | Microsoft Docs
+title: Monitoraggio in Database di Azure per MySQL
 description: Questo articolo illustra le metriche di monitoraggio e avviso per Database di Azure per MySQL, che includono statistiche relative a CPU, limiti, archiviazione e connessioni.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/24/2017
-ms.openlocfilehash: 9af447d54faa8ee96e4b79beb274b437eea57626
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 02/28/2018
+ms.openlocfilehash: 7ecfb8151cd81fb588f964fdfa3a74aacab24874
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione per il carico di lavoro. Database di Azure per MySQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server MySQL. 
@@ -41,9 +41,6 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 |active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Numero di connessioni al server attive.|
 |connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Numero di connessioni al server non riuscite.|
 
-
-> [!NOTE]
-> Un'unità di calcolo è costituita da memoria e CPU. La percentuale delle unità di calcolo è data da max(memory%, cpu%). Esaminare i grafici relativi a memoria e CPU per individuare quale dei due elementi contribuisce alle modifiche nella percentuale delle unità di calcolo. Per altre informazioni, vedere l'articolo relativo alle [unità di calcolo](concepts-compute-unit-and-storage.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per indicazioni dettagliate, vedere l'articolo su come [configurare gli avvisi](howto-alert-on-metric.md). 

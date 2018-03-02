@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: af373e2770ad020b3a3eb669424c001670ec9204
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
+ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -66,14 +66,11 @@ Tutti i modelli di Criteri di Azure di esempio sono disponibili nella pagina [Mo
 
 ## <a name="mode"></a>Mode
 
-È consigliabile impostare `mode` su `all` affinché un'assegnazione di criteri valuti tutti i tipi e i gruppi di risorse. È possibile visualizzare un esempio di definizione dei criteri che applica tag a un gruppo di risorse in [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md) (Consentire l'uso di un'immagine di macchina virtuale personalizzata da un gruppo di risorse).
+Il parametro **mode** (modalità) determina quali tipi di risorse verranno valutate per l'assegnazione dei criteri. Le modalità supportate sono:
+* `all`: vengono valutati i gruppi di risorse e tutti i tipi di risorse 
+* `indexed`: vengono valutati solo i tipi di risorse che supportano tag e il percorso
 
-Quando l'impostazione è **tutti** i gruppi di risorse e tutti i tipi di risorse vengono valutati per il criterio. Il portale usa **tutti** per tutti i criteri. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro `mode` e impostarlo su **tutti**.
-
-Tutte le definizioni di criteri create tramite il portale usano una modalità `all`. Tuttavia, se si desidera usare PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro `mode` e impostarlo su `all`.
-
-Se si imposta la modalità su `indexed`, l'assegnazione dei criteri verrà valutata solo sui tipi di risorse che supportano i tag e il percorso.
-
+È consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il parametro **mode** e impostarlo su `all`. 
 
 ## <a name="parameters"></a>Parametri
 
@@ -265,6 +262,7 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 | Microsoft.Compute/virtualMachines/imageVersion | Impostare la versione dell'immagine di piattaforma o immagine del marketplace utilizzata per creare la macchina virtuale. |
 | Microsoft.Compute/virtualMachines/osDisk.Uri | Impostare l'URI del disco rigido virtuale. |
 | Microsoft.Compute/virtualMachines/sku.name | Impostare le dimensioni della macchina virtuale. |
+| Microsoft.Compute/virtualMachines/availabilitySet.id | Imposta l'ID del set di disponibilità per la macchina virtuale. |
 
 **Microsoft.Compute/virtualMachines/extensions**
 
@@ -335,6 +333,7 @@ Usare gli alias delle proprietà per accedere alle proprietà specifiche per un 
 | Microsoft.Storage/storageAccounts/enableFileEncryption | Specificare se il servizio crittografa i dati quando vengono archiviati nel servizio di archiviazione file. |
 | Microsoft.Storage/storageAccounts/sku.name | Impostare il nome di SKU. |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Impostato per consentire solo il traffico https al servizio di archiviazione. |
+| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Controllare che l'endpoint del servizio di rete virtuale sia abilitato. |
 
 ## <a name="initiatives"></a>Iniziative
 

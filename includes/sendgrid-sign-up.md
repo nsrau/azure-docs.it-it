@@ -2,7 +2,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Per iscriversi a un account SendGrid
 1. Accedere al [Portale di Azure][Azure portal].
-2. Fare clic su **Nuovo** dal menu a sinistra.
+2. Nel menu a sinistra fare clic su **Crea una risorsa**.
 
     ![command-bar-new][command-bar-new]
 3. Fare clic su **Componenti aggiuntivi** e quindi **SendGrid Email Delivery** (Recapito email di SendGrid).
@@ -33,7 +33,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
     Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
 
-    ![Scheda Impostazioni][settings]
+    ![Impostazioni][settings]
 
     Per inviare un'email tramite SendGrid, è necessario specificare la chiave API.
 
@@ -45,7 +45,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
     ![chiavi API][api-keys]
 
-3. Fare clic sul menu a discesa **Crea chiave API** e selezionare **General API Key** (Chiave API generale).
+3. Fare clic su **Crea chiave API**.
 
     ![chiave API generale][general-api-key]
 4. Indicare almeno il **nome di questa chiave** e garantire l'accesso completo a **Mail Send** (Invio email) e selezionare **Salva**.
