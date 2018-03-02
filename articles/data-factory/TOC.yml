@@ -205,6 +205,8 @@
               href: connector-mongodb.md
             - name: MySQL
               href: connector-mysql.md
+            - name: Netezza
+              href: connector-netezza.md
             - name: OData
               href: connector-odata.md
             - name: ODBC
@@ -231,6 +233,8 @@
               href: connector-sap-business-warehouse.md
             - name: SAP Cloud for Customer
               href: connector-sap-cloud-for-customer.md
+            - name: SAP ECC
+              href: connector-sap-ecc.md
             - name: SAP HANA
               href: connector-sap-hana.md
             - name: ServiceNow
@@ -249,6 +253,8 @@
               href: connector-sybase.md
             - name: Teradata
               href: connector-teradata.md
+            - name: Vertica
+              href: connector-vertica.md
             - name: Tabella Web
               href: connector-web-table.md
             - name: Xero
@@ -358,7 +364,7 @@
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory

@@ -1,3 +1,5 @@
+# [Documentazione di Azure Active Directory](index.md)
+
 # Panoramica
 ## [Informazioni su Azure Active Directory](active-directory-whatis.md)
 ## [Informazioni sulla Gestione delle identità di Azure](identity-fundamentals.md)
@@ -111,7 +113,7 @@
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Riferimenti
+### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -248,6 +250,13 @@
 ##### [Configurazione](active-directory-application-config-content-map.md)
 ##### [Accesso](active-directory-application-sign-in-content-map.md)
 ##### [Provisioning](active-directory-application-provisioning-content-map.md)
+###### [Verifica del provisioning di un utente](application-provisioning-when-will-provisioning-finish-specific-user.md)
+###### [Tempi di provisioning eccessivi](application-provisioning-when-will-provisioning-finish.md)
+###### [Come configurare il provisioning utenti](application-provisioning-config-how-to.md)
+###### [Problema con la configurazione del provisioning](application-provisioning-config-problem.md)
+###### [Problema con il salvataggio delle credenziali di amministratore](application-provisioning-config-problem-storage-limit.md)
+###### [Nessun utente è sottoposto a provisioning](application-provisioning-config-problem-no-users-provisioned.md)
+###### [Provisioning di utenti non corretti](application-provisioning-config-problem-wrong-users-provisioned.md)
 ##### [Gestione dell'accesso](active-directory-application-access-content-map.md)
 ##### [Pannello di accesso](active-directory-application-access-panel-content-map.md)
 ##### [Proxy dell'applicazione](active-directory-application-proxy-content-map.md)
@@ -300,7 +309,7 @@
 #### [Condizioni](active-directory-conditional-access-conditions.md)
 #### [Condizione relativa alla posizione](active-directory-conditional-access-locations.md)
 #### [Controlli](active-directory-conditional-access-controls.md)
-#### [Attività iniziali](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
 #### [Informazioni sui criteri relativi ai dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
 #### [Eseguire la migrazione di criteri classici](active-directory-conditional-access-migration.md)
@@ -322,7 +331,7 @@
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Attività iniziali](active-directory-certificate-based-authentication-get-started.md)
+#### [Introduzione](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Abilitazione](active-directory-identityprotection-enable.md)

@@ -1,3 +1,5 @@
+# [Documentazione sulla rete CDN](index.md)
+
 # [Panoramica](cdn-overview.md)
 ## [Che cos'è la rete CDN di Azure?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 

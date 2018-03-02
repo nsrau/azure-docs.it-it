@@ -12,10 +12,6 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-<<<<<<< HEAD
-ms.date: 2/23/2018
-=======
-<<<<<<< HEAD
 ms.date: 2/23/2018
 ms.author: subramar;chackdan
 ms.openlocfilehash: 1bb3a5e215e3a664cf67727255840696c7f58e8c
@@ -23,20 +19,6 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/24/2018
-=======
-ms.date: 2/5/2018
->>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
-ms.author: subramar;chackdan
-ms.openlocfilehash: 1bb3a5e215e3a664cf67727255840696c7f58e8c
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-<<<<<<< HEAD
-ms.lasthandoff: 02/24/2018
-=======
-ms.lasthandoff: 02/09/2018
->>>>>>> ef264d3823deace652e9de26708b3ff46548277e
->>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento di un'applicazione di Service Fabric: argomenti avanzati
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Aggiunta o rimozione di tipi di servizio durante l'aggiornamento di un'applicazione

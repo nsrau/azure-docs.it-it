@@ -1,3 +1,5 @@
+# [Documentazione di Azure Resource Manager](index.md)
+
 # Panoramica
 ## [Informazioni su Resource Manager](resource-group-overview.md)
 ## [Provider e tipi di risorse](resource-manager-supported-services.md)
@@ -43,13 +45,11 @@
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
 ### [Azure portal](resource-group-portal.md)
-### [API REST](resource-manager-rest-api.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
 ### [Creare gruppi di gestione](management-groups-create.md)
 ### [Gestire i gruppi di gestione](management-groups-manage.md)
 ### [Esempi di governance](resource-manager-subscription-examples.md)
-### [Applicazioni gestite](../managed-applications/overview.md)
 
 ## Controllare l'accesso
 ### Creare un'entità servizio
@@ -80,7 +80,7 @@
 #### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
 
-# riferimento
+# Riferimenti
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)

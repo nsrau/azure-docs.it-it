@@ -1,3 +1,5 @@
+# [Documentazione di DevTest Labs](index.md)
+
 # Panoramica
 ## [Informazioni su Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concetti](devtest-lab-concepts.md)
@@ -65,7 +67,7 @@
 ## Integrazione con integrazione continua/distribuzione continua
 ### [Integrare i lab nella pipeline di integrazione continua/distribuzione continua di Visual Studio Team Services](devtest-lab-integrate-ci-cd-vsts.md)
 
-# Riferimento
+# riferimento
 ## [Interfaccia della riga di comando 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Creare o modificare automaticamente i lab](devtest-lab-use-arm-and-powershell-for-lab-resources.md)

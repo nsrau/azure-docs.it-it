@@ -1,3 +1,5 @@
+# [Documentazione sulla rete virtuale](index.md)
+
 # Panoramica
 ## [Reti virtuali](virtual-networks-overview.md)
 ## [Routing](virtual-networks-udr-overview.md)
@@ -180,7 +182,7 @@
 ### [Problemi di connettività da VM a VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configurare PTR per il controllo del banner SMTP](create-ptr-for-smtp-service.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (versione classica)](/powershell/module/azure/)
