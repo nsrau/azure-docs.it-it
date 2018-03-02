@@ -14,6 +14,9 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 <<<<<<< HEAD
 ms.date: 02/27/2018
+=======
+<<<<<<< HEAD
+ms.date: 02/27/2018
 ms.author: manayar
 ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
 ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
@@ -22,13 +25,18 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
 =======
 ms.date: 12/15/2017
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ms.author: manayar
-ms.openlocfilehash: d7dd35a8382f4a99ababbe804c5c71b29148c44a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8f347827c640729112e2e8f4c11288b6bcb176ea
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
+<<<<<<< HEAD
+ms.lasthandoff: 02/28/2018
+=======
 ms.lasthandoff: 02/13/2018
 >>>>>>> ef264d3823deace652e9de26708b3ff46548277e
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Eseguire il mapping delle reti virtuali in aree di Azure differenti
 
@@ -83,8 +91,12 @@ Se il mapping di rete è già stato eseguito, non è possibile modificare la ret
 <<<<<<< HEAD
 La subnet della macchina virtuale di destinazione viene selezionata in base al nome della subnet della macchina virtuale di origine. Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della macchina virtuale di origine, tale subnet verrà impostata per la macchina virtuale di destinazione. Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, verrà scelta come subnet di destinazione la prima subnet in ordine alfabetico.
 =======
+<<<<<<< HEAD
+La subnet della macchina virtuale di destinazione viene selezionata in base al nome della subnet della macchina virtuale di origine. Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della macchina virtuale di origine, tale subnet verrà impostata per la macchina virtuale di destinazione. Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, verrà scelta come subnet di destinazione la prima subnet in ordine alfabetico.
+=======
 La subnet della macchina virtuale di destinazione viene selezionata in base al nome della subnet della macchina virtuale di origine. Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della macchina virtuale di origine, tale subnet verrà impostata per la macchina virtuale di destinazione. Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, verrà scelta come subnet di destinazione la prima subnet in ordine alfabetico. 
 >>>>>>> ef264d3823deace652e9de26708b3ff46548277e
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 
 Per modificare la subnet, passare alle impostazioni **Calcolo e rete** per la macchina virtuale.
 

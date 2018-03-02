@@ -21,12 +21,20 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/27/2018
 =======
+<<<<<<< HEAD
+ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/27/2018
+=======
 ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
 ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
 >>>>>>> ef264d3823deace652e9de26708b3ff46548277e
+>>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -126,7 +134,7 @@ Aprire la soluzione Visual Studio `B2CGraphClient\B2CGraphClient.sln` in Visual 
 Fare quindi clic con il pulsante destro del mouse sulla soluzione `B2CGraphClient` e ricompilare l'esempio. Se l'operazione riesce, sarà disponibile un file eseguibile `B2C.exe` in `B2CGraphClient\bin\Debug`.
 
 ## <a name="build-user-crud-operations-by-using-the-graph-api"></a>Creare operazioni CRUD utente usando l'API Graph
-Per usare B2CGraphClient aprire un prompt dei comandi `cmd` di Windows e passare alla directory `Debug`. Eseguire quindi il comando `B2C Help`.
+Per usare B2CGraphClient aprire un prompt dei comandi `cmd` di Windows e passare alla directory `Debug`. Eseguire quindi il comando `B2C Help` .
 
 ```cmd
 cd B2CGraphClient\bin\Debug
@@ -162,7 +170,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-Verrà usato come esempio il comando `B2C Get-User`. Quando si richiama `B2C Get-User` senza input aggiuntivi, l'interfaccia della riga di comando chiama il metodo `B2CGraphClient.GetAllUsers(...)`. Questo metodo chiama `B2CGraphClient.SendGraphGetRequest(...)`, che invia una richiesta HTTP GET all'API Graph. Prima di inviare la richiesta GET, `B2CGraphClient.SendGraphGetRequest(...)` ottiene un token di accesso usando ADAL:
+Verrà usato come esempio il comando `B2C Get-User` . Quando si richiama `B2C Get-User` senza input aggiuntivi, l’interfaccia della riga di comando chiama il metodo `B2CGraphClient.GetAllUsers(...)`. Questo metodo chiama `B2CGraphClient.SendGraphGetRequest(...)`, che invia una richiesta HTTP GET all'API Graph. Prima di inviare la richiesta GET, `B2CGraphClient.SendGraphGetRequest(...)` ottiene un token di accesso usando ADAL:
 
 ```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -196,7 +204,7 @@ Esistono due aspetti importanti da notare:
 * Il token di accesso acquisito tramite ADAL viene aggiunto all'intestazione `Authorization` usando lo schema `Bearer`.
 * Per i tenant B2C, è necessario usare il parametro della query `api-version=1.6`.
 
-Entrambi questi dettagli vengono gestiti con il metodo `B2CGraphClient.SendGraphGetRequest(...)`:
+Entrambi questi dettagli vengono gestiti con il metodo `B2CGraphClient.SendGraphGetRequest(...)` :
 
 ```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
