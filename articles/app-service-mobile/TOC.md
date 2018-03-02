@@ -1,3 +1,5 @@
+# [Documentazione sulle app per dispositivi mobili](index.md)
+
 # Panoramica
 ## [Informazioni sulle app per dispositivi mobili](app-service-mobile-value-prop.md)
 ## [Piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

@@ -1,3 +1,5 @@
+# [Documentazione sul gateway applicazione](index.md)
+
 # Panoramica
 ## [Che cos'è il servizio Gateway applicazione?](application-gateway-introduction.md)
 ## [Domande frequenti sul gateway applicazione](application-gateway-faq.md)
@@ -64,12 +66,12 @@
 ### [Risolvere gli errori nel gateway applicazione](application-gateway-troubleshooting-502.md)
 ### [Metriche e registrazione diagnostica](application-gateway-diagnostics.md)
 ### [Problemi di affinità delle sessioni del gateway applicazione](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)

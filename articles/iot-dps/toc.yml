@@ -7,8 +7,10 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Configurare il provisioning automatico
+    - name: Configurare il provisioning automatico - Portale
       href: quick-setup-auto-provision.md
+    - name: Configurare il provisioning automatico - Modello
+      href: quick-setup-auto-provision-rm.md
     - name: Creare un dispositivo simulato
       items:
         - name: TPM
@@ -91,6 +93,8 @@
       href: how-to-revoke-device-access-portal.md
     - name: Annullare il provisioning dei dispositivi
       href: how-to-unprovision-devices.md
+    - name: Eseguire la proof-of-possession per certificati X.509 della CA
+      href: how-to-verify-certificates.md
     - name: Usare il modulo di protezione hardware con SDK
       href: use-hsm-with-sdk.md
     - name: Controllare l'accesso al servizio di provisioning
@@ -99,6 +103,8 @@
       href: how-to-manage-dps-with-cli.md
     - name: Usare gli strumenti SDK per lo sviluppo
       href: how-to-use-sdk-tools.md
+    - name: Connettersi a MXChip IoT DevKit
+      href: how-to-connect-mxchip-iot-devkit.md
 - name: Riferimenti
   items:
     - name: REST

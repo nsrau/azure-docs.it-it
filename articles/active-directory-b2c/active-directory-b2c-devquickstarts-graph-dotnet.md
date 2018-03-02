@@ -14,27 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-<<<<<<< HEAD
 ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
 ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/27/2018
-=======
-<<<<<<< HEAD
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
-=======
-ms.openlocfilehash: dd84a8da348d0d534ba19a3d61970ec0d8c66cc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
->>>>>>> ef264d3823deace652e9de26708b3ff46548277e
->>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 

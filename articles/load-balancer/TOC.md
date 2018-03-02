@@ -1,3 +1,5 @@
+# [Documentazione su Load Balancer](index.md)
+
 # Panoramica
 ## [Che cos'è il servizio di bilanciamento del carico?](load-balancer-overview.md)
 ## [Informazioni su Load Balancer Standard](load-balancer-standard-overview.md)
@@ -60,7 +62,7 @@
 ## [Interfaccia della riga di comando di Azure per Azure](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
