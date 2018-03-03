@@ -1,8 +1,11 @@
+# [Documentazione di Azure AD Domain Services](index.md)
+
 # Panoramica
 ## [Informazioni su Azure AD Domain Services](active-directory-ds-overview.md)
 ## È la scelta giusta?
 ### [Confronto con AD di Windows Server](active-directory-ds-comparison.md)
 ### [Confronto con l'aggiunta ad Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
+## [Novità](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Funzionalità](active-directory-ds-features.md)
 ## [Scenari](active-directory-ds-scenarios.md)
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
@@ -16,8 +19,10 @@
 ## [Attività 5: Abilitare la sincronizzazione password](active-directory-ds-getting-started-password-sync.md)
 
 # Procedure
+## [Verificare l'integrità di un dominio gestito](active-directory-ds-check-health.md)
 ## [Usare Azure AD Domain Services nelle sottoscrizioni CSP di Azure](active-directory-ds-csp.md)
 ## [Abilitare Azure AD Domain Services con PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Verificare l'integrità del dominio](active-directory-ds-check-health.md)
 ## Aggiungere un dominio gestito
 ### [VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [VM Windows Server da un modello](active-directory-ds-join-windows-vm-template.md)
@@ -28,7 +33,6 @@
 ## Amministrare un dominio gestito
 ### [Amministrare un dominio gestito](active-directory-ds-admin-guide-administer-domain.md)
 ### [Amministrare DNS in un dominio gestito](active-directory-ds-admin-guide-administer-dns.md)
-### [Verificare l'integrità del dominio](active-directory-ds-check-health.md)
 ### Configurare l'accesso LDAP sicuro per un dominio gestito
 #### [Attività 1: Ottenere un certificato per l'accesso LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Attività 2: Esportare il certificato LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
@@ -52,7 +56,7 @@
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
 
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 
 # Risorse correlate
