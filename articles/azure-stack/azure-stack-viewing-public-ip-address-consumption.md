@@ -3,8 +3,8 @@ title: Visualizzare l'uso di indirizzo IP pubblico nello Stack di Azure | Docume
 description: Gli amministratori possono visualizzare il consumo di indirizzi IP pubblici in un'area
 services: azure-stack
 documentationcenter: 
-author: ScottNapolitan
-manager: darmour
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
@@ -12,48 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: scottnap
-ms.openlocfilehash: 7651565eebf6272f307a4ce4790ca19b41bfa826
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: 50bf01d6de6105d3041c6bb88e803f3d110f751d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Visualizzare l'uso di indirizzo IP pubblico nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Come un amministratore del cloud, è possibile visualizzare il numero di indirizzi IP pubblici che sono stati assegnati ai tenant, il numero di indirizzi IP pubblici che sono ancora disponibili per l'allocazione e la percentuale di indirizzi IP pubblici che sono state allocate in quella posizione.
+Come un amministratore del cloud, è possibile visualizzare:
+ - Il numero di indirizzi IP pubblici che sono stati assegnati ai tenant.
+ - Il numero di indirizzi IP pubblici che sono ancora disponibili per l'allocazione.
+ - La percentuale di indirizzi IP pubblici che sono state allocate in quella posizione.
 
-Il **utilizzo pool di IP pubblico** riquadro mostra il numero totale di indirizzi IP pubblici utilizzati in tutti i pool di indirizzi IP pubblici nell'infrastruttura, se sono stati usati per il tenant istanze VM IaaS, infrastruttura servizi o le risorse indirizzo IP pubbliche che sono state create in modo esplicito dai tenant.
+Il **utilizzo pool di IP pubblico** riquadro mostra il numero di indirizzi IP pubblici utilizzati tra i pool di indirizzi IP pubblici. Per ogni indirizzo IP, il riquadro mostra l'utilizzo per tenant VM IaaS istanze, i servizi di infrastruttura dell'infrastruttura e le risorse indirizzo IP pubbliche che sono state create in modo esplicito dai tenant.
 
-Lo scopo di questo riquadro è per fornire agli amministratori di Azure Stack senso del numero complessivo di indirizzi IP pubblici utilizzati in questa posizione. Consente agli amministratori di determinare se eseguono basse per questa risorsa.
+Lo scopo del riquadro è per gli operatori di Azure Stack un'idea del numero di indirizzi IP pubblici utilizzati in questa posizione. Il numero consente agli amministratori di determinare se eseguono basse per questa risorsa.
 
-Nel **i provider di risorse**, **rete** Pannello di **gli indirizzi IP pubblici** voce di menu in **risorse Tenant** Elenca solo tali pubblico Gli indirizzi IP che sono stati *create in modo esplicito dai tenant*. Questa situazione, il numero di **utilizzato** gli indirizzi IP pubblici nel **utilizzo pool di IP pubblico** riquadro sempre è diverso da (maggiore di) numero sul **gli indirizzi IP pubblici** riquadro in **risorse del Tenant**.
+Il **gli indirizzi IP pubblici** voce di menu in **risorse Tenant** Elenca solo gli indirizzi IP pubblici che sono stati *create in modo esplicito dai tenant*. È possibile trovare la voce di menu nel **i provider di risorse**, **rete** riquadro. Il numero di **utilizzato** gli indirizzi IP pubblici nel **utilizzo pool di IP pubblico** riquadro sempre è diverso da (maggiore di) sul numero di **gli indirizzi IP pubblici** riquadro sotto  **Risorse del tenant**.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>Visualizzare le informazioni sull'utilizzo di indirizzi IP pubbliche
 Per visualizzare il numero totale di indirizzi IP pubblici utilizzati nell'area:
 
-1. Nel portale di amministrazione di Azure Stack, fare clic su **più servizi**in **risorse amministrative**, fare clic su **i provider di risorse**.
+1. Nel portale di amministrazione di Azure Stack selezionare **più servizi**in **risorse amministrative**selezionare **i provider di risorse**.
 2. Dall'elenco di **i provider di risorse**selezionare **rete**.
-3. Il **rete** pannello viene visualizzato il **utilizzo pool di IP pubblico** riquadro nel **Panoramica** sezione.
+3. Il **rete** riquadro viene visualizzato il **utilizzo pool di IP pubblico** riquadro nel **Panoramica** sezione.
 
-![Pannello di Provider di risorse di rete](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![Riquadro di Provider di risorse di rete](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
-Tenere presente che il **utilizzato** numero rappresenta il numero di indirizzi IP pubblici da tutte pubbliche pool di indirizzi IP in tale percorso assegnati. Il **libero** numero rappresenta il numero degli indirizzo IP pubblico indirizzi dall'indirizzo IP pubblico a tutti i pool che non siano stati assegnati e sono ancora disponibili di indirizzi. Il **% utilizzate** numero rappresenta il numero di utilizzato o assegnati indirizzi come percentuale del numero totale di indirizzi IP pubblici in tutti i pool di indirizzi IP pubblici in tale percorso.
+Il **utilizzato** numero rappresenta il numero di assegnati indirizzi IP da pool di indirizzi IP pubblici. Il **libero** numero rappresenta il numero degli indirizzo IP pubblico indirizzi IP pubblici indirizzo pool che non sono stati assegnati e sono ancora disponibili. Il **% utilizzate** numero rappresenta il numero di utilizzato o assegnati indirizzi come percentuale del numero totale di indirizzi IP pubblici nel pool di indirizzi IP pubblici in tale percorso.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Visualizzare gli indirizzi IP pubblici che sono stati creati dalle sottoscrizioni di tenant
-Per visualizzare un elenco di indirizzi IP pubblici che sono stati creati in modo esplicito dalle sottoscrizioni tenant in un'area specifica, fare clic su **gli indirizzi IP pubblici** in **risorse Tenant**.
+Selezionare **gli indirizzi IP pubblici** in **risorse Tenant**. Esaminare l'elenco di indirizzi IP pubblici creati in modo esplicito dalle sottoscrizioni tenant in un'area specifica.
 
 ![Indirizzi IP pubblici tenant](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
-È possibile notare che alcuni indirizzi IP pubblici che sono stati assegnati in modo dinamico vengono visualizzate nell'elenco ma non dispone di un indirizzo al ancora. Questo avviene perché la risorsa di indirizzo è ancora stata creata nel Provider di risorse di rete, ma non nel Controller di rete.
+È possibile notare che alcuni indirizzi IP pubblici che sono stati assegnati in modo dinamico vengono visualizzate nell'elenco. Tuttavia, un indirizzo non è stato associato a essi ancora. La risorsa di indirizzo è stata creata nel Provider di risorse di rete, ma non ancora nel Controller di rete.
 
-Il Controller di rete non assegna un indirizzo per questa risorsa fino a quando non è effettivamente associato a un'interfaccia, una scheda di interfaccia di rete (NIC), un bilanciamento del carico o un gateway di rete virtuale. Quando l'indirizzo IP pubblico è associato a un'interfaccia, Controller di rete consente di allocare un indirizzo IP e viene visualizzato nel **indirizzo** campo.
+Il Controller di rete non assegna un indirizzo per la risorsa fino a quando non è associata a un'interfaccia, una scheda di interfaccia di rete (NIC), un bilanciamento del carico o un gateway di rete virtuale. Quando l'indirizzo IP pubblico viene associato a un'interfaccia, Controller di rete consente di allocare un indirizzo IP. L'indirizzo viene visualizzato nel **indirizzo** campo.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>Visualizzare il pubblico informazioni riepilogo tabella di indirizzi IP
-Esistono una serie di diversi casi in cui vengono assegnati indirizzi IP pubblici che determinano se l'indirizzo viene visualizzato un elenco o un altro.
+In diversi casi, vengono assegnati indirizzi IP pubblici che determinano se l'indirizzo viene visualizzato un elenco o un altro.
 
 | **Caso di assegnazione indirizzo IP pubblico** | **Viene visualizzata nel riepilogo di utilizzo** | **Viene visualizzata nell'elenco di indirizzi IP pubblico tenant** |
 | --- | --- | --- |

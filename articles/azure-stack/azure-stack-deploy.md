@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prerequisiti per la distribuzione di Azure Stack
 
@@ -122,9 +122,9 @@ Assicurarsi che sia disponibile un server DHCP nella rete a cui si connette la s
 ### <a name="internet-access"></a>Accesso a Internet
 Stack di Azure richiede l'accesso a Internet, direttamente o tramite un proxy trasparente. Stack di Azure non supporta la configurazione di un proxy web per abilitare l'accesso a Internet. L'IP dell'host sia il nuovo indirizzo IP assegnato al BGPNAT01 di definiti, tramite DHCP o indirizzo IP statico, deve essere in grado di accedere a Internet. Con i domini graph.windows.net e login.microsoftonline.com vengono utilizzate porte 80 e 443.
 
+D: è possibile eseguire ASDK in una macchina virtuale di Azure? R: No. A partire da oggi, non è ufficialmente supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Scaricare il pacchetto di distribuzione kit di sviluppo di Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [Distribuire il kit di sviluppo di Azure Stack](azure-stack-run-powershell-script.md)
-

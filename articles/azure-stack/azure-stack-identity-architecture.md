@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: 
-ms.openlocfilehash: 0f3e28f7726afab02211902b5ba2e478ae8065df
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7f2ec78da38f3c97fde810fb8fc965cfbb6fda08
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Architettura di identità per lo Stack di Azure
 Prima di scegliere un provider di identità da usare con lo Stack di Azure, comprendere le differenze importanti tra le opzioni di Azure Active Directory (Azure AD) e Active Directory Federated Services (ADFS). 
@@ -86,7 +86,7 @@ Con questa topologia:
 
   Per interagire con Active Directory, l'API Graph richiede credenziali utente da Active Directory che dispone dell'autorizzazione di sola lettura di Active Directory. 
   - ADFS incorporato è basato su Server 2016. 
-  - ADFS e il deve essere basata su Server 2012 o versioni precedenti. 
+  - ADFS e il deve essere basata su Server 2012 o versioni successive.  
   
   Tra Active Directory e ADFS predefinite, interazioni non sono limitate a OpenID Connect e possono utilizzare qualsiasi protocollo reciprocamente supportato.  
   - Gli account utente vengono creati e gestiti in locale Active Directory.

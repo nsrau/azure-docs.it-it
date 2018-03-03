@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 89571468e7f74f45bc1b679737f634fa0c76fa07
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c42aaabd27afeb9e7fdd0b9add3de62a2d00eeaf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -83,7 +83,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image03.png)
 
-8. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo del File Server, ad esempio \\\appservicefileserver.local.cloudapp.azurestack.external\websites o l'indirizzo IP, ad esempio \\\10.0.0.1\websites.
+8. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo del File Server o l'indirizzo IP. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image04.png)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: d4394463be02d067b8228099acd30a0421ce4be9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 570ef0b782e073220af8bc7299cc4ad388d47136
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -70,7 +70,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image03.png)
 
-7. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo del File Server, ad esempio \\\appservicefileserver.local.cloudapp.azurestack.external\websites o l'indirizzo IP, ad esempio \\\10.0.0.1\websites.
+7. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo del File Server o l'indirizzo IP. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image04.png)
 
@@ -83,7 +83,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image05.png)
 
-9. Per ognuna delle tre caselle di file del certificato, fare clic su **Sfoglia** e passare al file di certificato appropriato. È necessario fornire la password per ogni certificato. Questi certificati sono quelli creati nel [passaggio di creazione certificati richiesti](azure-stack-app-service-deploy.md#create-the-required-certificates). Fare clic su **Avanti** dopo aver immesso tutte le informazioni.
+9. Per ognuna delle tre caselle di file del certificato, fare clic su **Sfoglia** e passare al file di certificato appropriato. Fornire la password per ogni certificato. Questi certificati sono quelli creati nel [passaggio di creazione certificati richiesti](azure-stack-app-service-deploy.md#create-the-required-certificates). Fare clic su **Avanti** dopo aver immesso tutte le informazioni.
 
     | Box | Esempio di nome file di certificato |
     | --- | --- |
@@ -99,7 +99,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
 
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Esaminare le opzioni di SKU e l'istanza del ruolo. Le impostazioni predefinite vengono popolate con il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK. Viene fornito un riepilogo dei requisiti di memoria e CPU virtuali per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
+11. Esaminare le opzioni di SKU e l'istanza del ruolo. Il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK inserire i valori predefiniti. Viene fornito un riepilogo dei requisiti di memoria e CPU virtuali per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
 
     > [!NOTE]
     > Per le distribuzioni di produzione, le istruzioni disponibili in [pianificazione della capacità di ruoli del server di servizio App di Azure in Azure Stack](azure-stack-app-service-capacity-planning.md).

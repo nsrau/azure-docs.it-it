@@ -3,22 +3,21 @@ title: Esplora archivi di connettersi a una sottoscrizione di Azure Stack
 description: Informazioni su come connettersi Exporer archiviazione a una sottoscrizione di Azure Stack
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: xiaofmao
-ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bad4b6b0d829fb68dc25e84406a453071a36476a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Esplora archivi di connettersi a una sottoscrizione di Azure Stack
 

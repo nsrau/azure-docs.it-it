@@ -3,8 +3,8 @@ title: Informazioni sui controlli di sicurezza di Azure Stack | Documenti Micros
 description: Come amministratore del servizio informazioni relative ai controlli di sicurezza applicati allo Stack di Azure
 services: azure-stack
 documentationcenter: 
-author: Heathl17
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: 106fcf7b0edc095a52e82d58ad48a73084b65d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/28/2018
+ms.author: mabrigg
+ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Condizioni di sicurezza di Azure Stack infrastruttura
 
@@ -31,10 +31,10 @@ Nello Stack di Azure, esistono due livelli di situazione sicurezza coesistono. I
 ## <a name="security-approach"></a>Approccio di sicurezza
 Stack di Azure è stato progettato con una condizione di sicurezza per difendersi da minacce moderne ed è stato compilato per soddisfare i requisiti degli standard di conformità principali. Di conseguenza, le condizioni di sicurezza dell'infrastruttura di Azure Stack si basa su due aree:
 
- - **Si supponga di violazione.** A partire dal presupposto che il sistema non è già stata soddisfatta, ci concentreremo invece sui *rilevare e limitare l'impatto delle violazioni* rispetto solo tentando di impedire attacchi. 
- - **Finalizzazione per impostazione predefinita.**  Poiché l'infrastruttura viene eseguito su hardware ben definiti e software, è *abilitare, configurare e convalidare le funzionalità di sicurezza* che sono in genere compiti ai clienti di implementare.
+ - **Si supponga di violazione.** A partire dal presupposto che il sistema non è già stata soddisfatta, lo stato attivo su *rilevare e limitare l'impatto delle violazioni* rispetto solo tentando di impedire attacchi. 
+ - **Finalizzazione per impostazione predefinita.**  Poiché l'infrastruttura viene eseguito su hardware ben definiti e software, *abilitare, configurare e convalidare le funzionalità di sicurezza* che vengono lasciati ai clienti di implementare.
 
-Poiché Azure Stack viene recapitato come un sistema integrato, le condizioni di sicurezza dell'infrastruttura di Azure Stack sono definita da Microsoft.  Come in Azure, i tenant sono responsabili per definire le condizioni di sicurezza dei rispettivi carichi di lavoro tenant. Questo documento fornisce una conoscenza di base in condizioni di sicurezza dell'infrastruttura di Azure Stack.
+Poiché Azure Stack viene recapitato come un sistema integrato, le condizioni di sicurezza dell'infrastruttura di Azure Stack sono definita da Microsoft. Come in Azure, i tenant sono responsabili per definire le condizioni di sicurezza dei rispettivi carichi di lavoro tenant. Questo documento fornisce una conoscenza di base in condizioni di sicurezza dell'infrastruttura di Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Dati a crittografia rest
 Tutti i dati dell'infrastruttura e tenant di Azure Stack vengono crittografati a riposo mediante Bitlocker. La crittografia protegge contro fisica perdita o furto dei componenti di archiviazione di Azure Stack. 
@@ -54,7 +54,7 @@ I segreti rimanenti che non possono essere ruotati manualmente gli account del s
 ## <a name="code-integrity"></a>Integrità del codice
 Stack di Azure viene utilizzato il più recente di Windows Server 2016 le funzionalità di sicurezza. Uno di essi è Windows Defender controllo dispositivo, che fornisce whitelist applicazione e garantisce che solo autorizzati codice viene eseguito all'interno dell'infrastruttura di Azure Stack. 
 
-Codice non autorizzato è firmato da Microsoft o il partner OEM ed è incluso nell'elenco dei software consentito che è specificato in un criterio definito da Microsoft. In altre parole, è possibile eseguire solo il software che è stato approvato per l'esecuzione nell'infrastruttura di Azure Stack. Qualsiasi tentativo di eseguire codice non autorizzato sono bloccati e viene generato un controllo.
+Codice non autorizzato è firmato da Microsoft o il partner OEM ed è incluso nell'elenco dei software consentito che è specificato in un criterio definito da Microsoft. In altre parole, è possibile eseguire solo il software che è stato approvato per l'esecuzione nell'infrastruttura di Azure Stack. Qualsiasi tentativo di eseguire codice non autorizzato è bloccato e viene generato un controllo.
 
 I criteri di controllo dispositivo impedisce inoltre agli agenti di terze parti o software in esecuzione nell'infrastruttura di Azure Stack.
 
@@ -71,7 +71,7 @@ Amministrazione nello Stack di Azure viene controllato tramite l'utilizzo di tre
 3. Per specifiche operazioni di basso livello, ad esempio dati center integrazione o supportano gli scenari, Stack di Azure espone un endpoint di PowerShell denominato [Endpoint con privilegi](azure-stack-privileged-endpoint.md). L'endpoint espone solo un set consentito di cmdlet e viene ampiamente eseguito il controllo.
 
 ## <a name="network-controls"></a>Controlli di rete
-Infrastruttura di Azure Stack viene fornito con diversi livelli di List(ACL) di controllo di accesso di rete.  Gli ACL impediscono accessi non autorizzati per i componenti dell'infrastruttura e limitare le comunicazioni con infrastruttura solo i percorsi che sono necessari per il funzionamento. 
+Infrastruttura di Azure Stack viene fornito con diversi livelli di List(ACL) di controllo di accesso di rete. Gli ACL impediscono accessi non autorizzati per i componenti dell'infrastruttura e limitare le comunicazioni con infrastruttura solo i percorsi che sono necessari per il funzionamento. 
 
 Gli ACL di rete vengono applicati in tre livelli:
 1.  Parte superiore del Rack attiva

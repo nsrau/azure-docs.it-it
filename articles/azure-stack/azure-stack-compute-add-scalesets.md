@@ -8,15 +8,15 @@ editor:
 ms.assetid: 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 02/28/2018
 ms.author: brenduns
 ms.reviewer: anajod
 keywords: 
-ms.openlocfilehash: 6e4c1145b8ff4665024b4532cf9cc9ac6a0a24a1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili nello Stack di Azure
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 02/21/2018
 
 Set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure Stack. È possibile utilizzare tali per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurati allo stesso set di scalabilità non richiedono pre-provisioning di macchine virtuali. Risulta più semplice compilare servizi su larga scala destinati a una soluzione big compute, dati e i carichi di lavoro nei contenitori.
 
-Questo argomento descrive il processo per rendere disponibili i set di scalabilità in Azure Marketplace dello Stack. Dopo aver completato questa procedura, è possibile che gli utenti possono aggiungere scalabilità della macchina virtuale imposta per le sottoscrizioni.
+In questo articolo in modo semplificato il processo per rendere disponibili i set di scalabilità in Azure Marketplace dello Stack. Dopo aver completato questa procedura, è possibile che gli utenti possono aggiungere scalabilità della macchina virtuale imposta per le sottoscrizioni.
 
 Set di scalabilità di macchine virtuali nello Stack di Azure sono simili a set di scalabilità di macchine virtuali in Azure. Per ulteriori informazioni, vedere i video seguenti:
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich illustra i set di scalabilità di Azure)
@@ -81,7 +81,7 @@ Per rimuovere una macchina virtuale elemento della raccolta di set di scalabilit
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> L'elemento della raccolta non può essere rimosso immediatamente. Si potrebbe essere necessario aggiornare il portale più volte prima che venga rimossa dal Marketplace.
+> L'elemento della raccolta non può essere rimosso immediatamente. Si potrebbe essere necessario aggiornare il portale più volte prima che l'elemento viene mostrato come rimossa dal Marketplace.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
