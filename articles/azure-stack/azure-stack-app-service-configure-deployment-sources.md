@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 310bea356ac611a92d9e3899da5d4fb19c50e94e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 277ed277b14886d386e097e0ce4bef8add5d4ba1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Servizio app in Azure Stack supporta la distribuzione su richiesta da più provider del controllo del codice sorgente. Questa funzionalità consente agli sviluppatori di applicazioni distribuzione diretta dal loro repository del controllo codice sorgente. Se gli utenti desiderano configurare servizio App di connettersi ai propri repository, è necessario un operatore cloud innanzitutto configurare l'integrazione tra servizio App nello Stack di Azure e il provider del controllo del codice sorgente.  
 
-I provider del controllo del codice sorgente, oltre al Git locale, sono:
+Oltre a Git locale, sono supportati i seguenti provider controllo codice sorgente:
 
 * GitHub
 * BitBucket
@@ -56,7 +56,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 7.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
 8.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 9. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
-10. Copiare e incollare l'**ID client** e il **segreto client** nelle caselle di input corrispondenti per GitHub.
+10. Copiare e incollare il **ID Client** e **segreto Client** all'input corrispondenti caselle per GitHub.
 11. Fare clic su **Save**.
 
 ## <a name="configure-bitbucket"></a>Configurare BitBucket
@@ -79,7 +79,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 9.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
 10.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 11. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
-12. Copiare e incollare la **chiave** nella casella di input **ID client** e **la chiave privata** nella casella di input **Segreto client** per BitBucket.
+12. Copiare e incollare il **chiave** nel **ID Client** casella di input e **Secret** nel **segreto Client** casella di input per BitBucket.
 13. Fare clic su **Save**.
 
 
@@ -94,7 +94,8 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 2. In **applicazioni personali**, fare clic su **aggiungere un'app**.
 ![Applicazioni OneDrive][10]
 3. Immettere un **nome** per la registrazione della nuova applicazione, immettere **Servizio App di Azure Stack** e fare clic su **Crea applicazione**
-4. Nella schermata successiva sono elencate le proprietà della nuova applicazione. Record di **Id applicazione**. ![Proprietà dell'applicazione OneDrive][11]
+4. Nella schermata successiva sono elencate le proprietà della nuova applicazione. Record di **ID applicazione**.
+![Proprietà dell'applicazione OneDrive][11]
 5. In **applicazione segreti**, fare clic su **generare una nuova Password**. Prendere nota del **nuova password generata**. Questo è il segreto dell'applicazione e non è recuperabile dopo aver fatto clic **OK** in questa fase.
 6. In **piattaforme** fare clic su **aggiungere piattaforma** e selezionare **Web**.
 7. Immettere l'**URI di reindirizzamento**.  In una distribuzione di Azure Stack predefinita, l'URI di reindirizzamento è in https://portal.local.azurestack.external/tokenauthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per azurestack.local ![applicazione OneDrive - Aggiungi Piattaforma Web][12]
@@ -106,7 +107,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 10.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
 11.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 12. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
-13. Copiare e incollare l'**ID applicazione** nella casella di input **ID client** e **la password** nella casella di input **Segreto client** per OneDrive.
+13. Copiare e incollare il **ID applicazione** nel **ID Client** casella di input e **Password** nel **segreto Client** casella di input per OneDrive.
 14. Fare clic su **Save**.
 
 ## <a name="configure-dropbox"></a>Configurare Dropbox
@@ -130,7 +131,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 9.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
 10.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 11. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
-12. Copiare e incollare la **chiave applicazione** nella casella di input **ID client** e la **chiave privata app** nella casella di input **Segreto client** per DropBox.
+12. Copiare e incollare il **chiave applicazione** nel **ID Client** casella di input e **segreto dell'App** nel **segreto Client** casella di input per DropBox.
 13. Fare clic su **Save**.
 
 

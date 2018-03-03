@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/01/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 5cd8d4045764b753c5fdd81ade98d69c72709881
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87f7157f8ab826553d8fb638b9f28d5594f68ed6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-telemetry"></a>Dati di telemetria di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Dati di sistema Azure Stack o dati di telemetria, viene caricata automaticamente a Microsoft tramite l'esperienza dell'utente connesso. Dati raccolti dai dati di telemetria dello Stack di Azure vengono utilizzati dal team Microsoft principalmente per migliorare l'esperienza dei clienti e per l'analisi di sicurezza, integrità, la qualità e prestazioni.
+Dati di sistema Azure Stack o dati di telemetria, viene caricata automaticamente a Microsoft tramite l'esperienza dell'utente connesso. Dati raccolti dai dati di telemetria dello Stack di Azure vengono utilizzati dal team Microsoft principalmente per migliorare l'esperienza dei clienti e per l'analisi delle prestazioni, l'integrità, qualità e sicurezza.
 
 Come operatore di Stack di Azure, dati di telemetria può fornire informazioni dettagliate preziose sulle distribuzioni aziendali e offre una voce che consente di versioni future di forma dello Stack di Azure.
 
@@ -38,11 +38,11 @@ Telemetria Stack Azure si basa sul componente esperienza per utente connesso di 
 > Per supportare il flusso di dati di telemetria, la porta 443 (HTTPS) deve essere aperta nella rete. Il componente esperienza dell'utente connesso e i dati di telemetria si connette al servizio di gestione di dati di Microsoft in https://v10.vortex-win.data.microsoft.com. Il componente esperienza dell'utente connesso e i dati di telemetria è collegato a https://settings-win.data.microsoft.com per scaricare le informazioni di configurazione.
 
 ## <a name="privacy-considerations"></a>Considerazioni sulla privacy
-Il servizio ETW instrada i dati di telemetria archiviazione cloud protetto. Il principio dei privilegiato minimi accesso guide ai dati di telemetria. Solo il personale di Microsoft con aziendali valido, è necessario sono consentito l'accesso ai dati di telemetria. Microsoft non condivide dati personali, i clienti di terze parti, ad eccezione di a discrezione del cliente o per gli scopi limitati descritto nel [informativa sulla Privacy di Azure Stack](http://windows.microsoft.com/windows/preview-privacy-statement). Si condividono i report di business con gli OEM e i partner che includono informazioni di telemetria anonimi, aggregati. Le decisioni di condivisione dei dati vengono effettuati da un team di Microsoft interno, tra cui le parti interessate di gestione dati, legali e privacy.
+Il servizio ETW instrada i dati di telemetria archiviazione cloud protetto. Il principio dei privilegiato minimi accesso guide ai dati di telemetria. Solo il personale di Microsoft con aziendali valido, è necessario sono consentito l'accesso ai dati di telemetria. Microsoft non condivide dati personali con terze parti, ad eccezione di a discrezione del cliente o per gli scopi limitati descritto nel [informativa sulla Privacy Microsoft](https://privacy.microsoft.com/PrivacyStatement). Report aziendali vengono condivisi con gli OEM e i partner che includono informazioni di telemetria anonimi, aggregati. Le decisioni di condivisione dei dati vengono effettuati da un team di Microsoft interno, tra cui le parti interessate di gestione dati, legali e privacy.
 
-Microsoft crede nella e consigliate minimizzazione di informazioni. Si impegna a raccogliere solo le informazioni che è necessario perché viene archiviata per solo fino a quando è necessario fornire un servizio o per l'analisi. La maggior parte delle informazioni sulla modalità di funzionamento del sistema di Stack di Azure e Azure services viene eliminata all'interno di sei mesi. Riepilogare o dati aggregati verranno conservati per un periodo più lungo.
+Microsoft crede nella e consigliate minimizzazione di informazioni. Si impegna a raccogliere solo le informazioni necessarie e perché viene archiviata per solo fino a quando è necessario fornire un servizio o per l'analisi. La maggior parte delle informazioni sulla modalità di funzionamento del sistema di Stack di Azure e Azure services viene eliminata all'interno di sei mesi. Riepilogare o dati aggregati verranno conservati per un periodo più lungo.
 
-Siamo consapevoli che è molto importante garantire la privacy e protezione delle informazioni dei clienti.  È stato reindirizzato l'approccio attento e completo per la privacy dei clienti e la protezione dei dati dei clienti con lo Stack di Azure. Gli amministratori IT sono controlli per personalizzare le funzionalità e le impostazioni di privacy in qualsiasi momento. Impegno di trasparenza e l'attendibilità è ovvia:
+Siamo consapevoli che è importante garantire la privacy e protezione delle informazioni sui clienti.  È stato reindirizzato l'approccio attento e completo per la privacy dei clienti e la protezione dei dati dei clienti con lo Stack di Azure. Gli amministratori IT sono controlli per personalizzare le funzionalità e le impostazioni di privacy in qualsiasi momento. Impegno di trasparenza e l'attendibilità è ovvia:
 - Ci sono aperti con i clienti sui tipi di dati che è raccogliere.
 - I clienti aziendali è stato inserito nel controllo, è possibile personalizzare le proprie impostazioni di privacy.
 - È inserito prima della protezione e privacy dei clienti.
@@ -64,7 +64,7 @@ Non è consigliabile disattivare la telemetria dell'organizzazione come dati di 
 In questi casi, è possibile configurare il livello di dati di telemetria inviato a Microsoft usando la pre-distribuzione delle impostazioni del Registro di sistema o di post-distribuzione di dati di telemetria relativi endpoint.
 
 ### <a name="asdk-set-telemetry-level-in-the-windows-registry"></a>ASDK: impostare il livello di dati di telemetria del Registro di sistema
-L'Editor del Registro di sistema di Windows viene utilizzato per impostare manualmente il livello di dati di telemetria nel computer host fisico prima di distribuire Azure Stack. Se un criterio di gestione già esistente, ad esempio criteri di gruppo, esso sostituirà l'impostazione del Registro di sistema. 
+L'Editor del Registro di sistema di Windows viene utilizzato per impostare manualmente il livello di dati di telemetria nel computer host fisico prima di distribuire Azure Stack. Se un criterio di gestione già esistente, ad esempio criteri di gruppo, viene eseguito l'override di questa impostazione del Registro di sistema. 
 
 Prima di distribuire Azure Stack nell'host di kit di sviluppo, avviare il CloudBuilder.vhdx ed eseguire lo script seguente in una finestra di PowerShell con privilegi elevata:
 
@@ -91,8 +91,8 @@ I livelli dati di telemetria sono cumulativi e suddiviso in categorie in quattro
  - Processore e gli attributi di memoria, ad esempio il numero di core, dimensioni della memoria, 
  - Attributi di archiviazione, ad esempio il numero di unità, tipo e dimensioni.
 - **Funzionalità di telemetria**, tra cui percentuale di eventi caricati, eventi eliminati e l'ultimo caricamento ora.
-- **Informazioni relative alla qualità** che consente a Microsoft di sviluppare una conoscenza di base della modalità di esecuzione di Stack di Azure. Un esempio è il numero di avvisi critici in una configurazione hardware specifica.
-- **Dati di compatibilità** che fornisce informazioni sui provider di risorse vengono installati in un sistema e di una macchina virtuale e identifica i potenziali problemi di compatibilità.
+- **Le informazioni relative alla qualità** che consente a Microsoft di sviluppare una conoscenza di base della modalità di esecuzione di Stack di Azure. Un esempio è il numero di avvisi critici in una configurazione hardware specifica.
+- * * Dati compatibilità che consente di fornire informazioni sui provider di risorse vengono installati in un sistema e di una macchina virtuale e identifica i potenziali problemi di compatibilità.
 
 **2 (avanzato)**. Informazioni aggiuntive, tra cui: utilizzo del sistema operativo e altri servizi Azure Stack, valutarne, i dati sull'affidabilità avanzate e dati dai livelli di sicurezza e di base. 
 
@@ -101,7 +101,7 @@ I livelli dati di telemetria sono cumulativi e suddiviso in categorie in quattro
 > [!NOTE]
 > Il valore di livello dati di telemetria predefinito è 2 (avanzata).
 
-Si noti che la disattivazione di telemetria di Windows e Azure Stack disabiliterà anche telemetria di SQL. Per ulteriori informazioni sulle implicazioni di dati di telemetria di Windows Server, impostazioni, consultare il [white paper telemetria Windows](https://aka.ms/winservtelemetry). 
+Disattivazione della telemetria di Windows e Azure Stack disattiva anche i dati di telemetria SQL. Per ulteriori informazioni sulle implicazioni delle impostazioni di telemetria di Windows Server, vedere il [white paper telemetria Windows](https://aka.ms/winservtelemetry). 
 
 > [!IMPORTANT]
 > Questi livelli di dati di telemetria vengono applicate solo ai componenti dello Stack di Microsoft Azure. I componenti software non Microsoft e i servizi in esecuzione nell'Host del ciclo di vita di Hardware da partner hardware dello Stack di Azure possono comunicare con i servizi cloud di fuori di questi livelli di dati di telemetria. È necessario collaborare con il provider di soluzione hardware di Azure Stack per comprendere i criteri di telemetria e come è possibile partecipare o rifiutare esplicitamente. 
@@ -109,7 +109,7 @@ Si noti che la disattivazione di telemetria di Windows e Azure Stack disabiliter
 ### <a name="asdk-and-multinode-enable-or-disable-telemetry-after-deployment"></a>ASDK e MultiNode: abilitare o disabilitare i dati di telemetria dopo la distribuzione
 
 Per abilitare o disabilitare i dati di telemetria dopo la distribuzione, è necessario disporre di accesso per il punto finale con privilegi (PEP) che viene esposto in macchine virtuali di ERCS.
-1.  Per abilitare:  `Set-Telemetry -Enable`
+1.  Per abilitare: `Set-Telemetry -Enable`
 2.  Per disabilitare: `Set-Telemetry -Disable`
 
 Dettaglio di parametro: 

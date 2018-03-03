@@ -3,31 +3,32 @@ title: 'Azure dello Stack di integrazione di datacenter: pubblicare endpoint'
 description: Viene descritto come pubblicare endpoint dello Stack di Azure nel Data Center
 services: azure-stack
 author: jeffgilb
+manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: 
-ms.openlocfilehash: 8af533147f3cc12f2334a43e7b672c69d0d25802
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8dec686b9ccf87009a23cedf6023f15b84a0f155
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure dello Stack di integrazione di datacenter: pubblicare endpoint
-Stack di Azure consente di impostare vari virtuali indirizzi IP (VIP) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di rete definita dal software. Gli ACL vengono usati anche tra i commutatori fisici (tori e BMC) per un'ulteriore protezione avanzata della soluzione. Una voce DNS viene creata per ogni endpoint nella zona DNS esterna che è stata specificata in fase di distribuzione.
+Azure Stack Imposta indirizzi IP virtuali (VIP) per i ruoli di infrastruttura. Questi indirizzi VIP sono allocati dal pool di indirizzi IP pubblici. Ogni indirizzo IP virtuale è protetta con un elenco di controllo di accesso (ACL) nel livello di rete definita dal software. Gli ACL vengono usati anche tra i commutatori fisici (tori e BMC) per un'ulteriore protezione avanzata della soluzione. Una voce DNS viene creata per ogni endpoint nella zona DNS esterna specificati in fase di distribuzione.
 
 
 Il diagramma dell'architettura seguente illustra i vari livelli della rete e gli ACL:
 
-![Diagramma dell'architettura](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![Immagine strutturale](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>Porte e protocolli (in ingresso)
 
-Di seguito sono elencate gli indirizzi VIP infrastruttura necessari per una pubblicazione di endpoint Azure Stack a reti esterne. L'elenco Mostra ogni endpoint, la porta richiesta e protocollo. Gli endpoint necessari per i provider di risorse aggiuntive, come il provider di risorse SQL e altri, sono vedere la documentazione sulla distribuzione di provider di risorse specifico.
+Un set di infrastruttura di indirizzi VIP sono necessari per una pubblicazione di endpoint Azure Stack a reti esterne. Il *Endpoint (VIP)* tabella mostra ogni endpoint, la porta richiesta e protocollo. Consultare la documentazione sulla distribuzione di provider di risorse specifico per gli endpoint che richiedono i provider di risorse aggiuntive, ad esempio il provider di risorse SQL.
 
-Gli indirizzi VIP infrastruttura interna che non sono elencate perché non sono necessarie per la pubblicazione dello Stack di Azure.
+Infrastruttura interna che non sono elencati gli indirizzi VIP perché non sono necessarie per la pubblicazione dello Stack di Azure.
 
 > [!NOTE]
 > Gli indirizzi VIP utente sono dinamici, definiti dagli utenti stessi senza il controllo dall'operatore dello Stack di Azure.
@@ -70,4 +71,5 @@ Stack di Azure supporta solo i server proxy trasparente. In una distribuzione in
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Requisiti di infrastruttura a chiave pubblica dello Stack di Azure](azure-stack-pki-certs.md)
