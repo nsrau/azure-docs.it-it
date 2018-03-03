@@ -10,6 +10,8 @@
       href: tutorial-assessment-vmware.md
 - name: Concetti
   items:
+    - name: Concetti relativi ad Agente di raccolta
+      href: concepts-collector.md
     - name: Calcoli delle valutazioni
       href: concepts-assessment-calculation.md
     - name: Visualizzazione delle dipendenze
