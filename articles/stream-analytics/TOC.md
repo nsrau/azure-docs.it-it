@@ -1,3 +1,5 @@
+# [Documentazione di Analisi di flusso](index.md)
+
 # Panoramica
 ## [Che cos'è Analisi di flusso?](stream-analytics-introduction.md)
 ## [Confrontare Storm e l'analisi di flusso](stream-analytics-comparison-storm.md)
@@ -68,7 +70,7 @@
 ### [Usare .NET SDK per la gestione](stream-analytics-dotnet-management-sdk.md)
 ### [Azure PowerShell con un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.streamanalytics)

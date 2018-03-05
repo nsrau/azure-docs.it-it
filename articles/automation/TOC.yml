@@ -19,7 +19,7 @@
       href: automation-watchers-tutorial.md
     - name: Gestire gli aggiornamenti per la VM
       href: automation-tutorial-update-management.md
-    - name: Eseguire l'onboarding di soluzioni di aggiornamento e rilevamento modifiche
+    - name: Eseguire l'onboarding di soluzioni di aggiornamento e rilevamento modifiche con runbook
       href: automation-onboard-solutions.md
     - name: Identificare il software in una VM
       href: automation-tutorial-installed-software.md
@@ -27,20 +27,24 @@
       href: automation-tutorial-troubleshoot-changes.md
 - name: Procedure
   items:
+    - name: Onboarding
+      items:
+        - name: Eseguire l'onboarding da una VM di Azure
+          href: automation-onboard-solutions-from-vm.md
+        - name: Eseguire l'onboarding dall'account di Automazione
+          href: automation-onboard-solutions-from-automation-account.md
     - name: Gestione degli aggiornamenti
       items:
-        - name: Panoramica
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json
+        - name: Panoramica di Gestione aggiornamenti
+          href: automation-update-management.md
         - name: Gestire gli aggiornamenti per più macchine virtuali
           href: manage-update-multi.md
-        - name: Integrare SCCM con Gestione aggiornamenti OMS
+        - name: Integrare SCCM con Gestione aggiornamenti
           href: oms-solution-updatemgmt-sccmintegration.md
-    - name: Rilevamento modifiche
+    - name: Change Tracking
       items:
-        - name: Panoramica
-          href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Tenere traccia delle modifiche nelle macchine virtuali
-          href: automation-vm-change-tracking.md
+        - name: Panoramica di Rilevamento modifiche
+          href: automation-change-tracking.md
     - name: Inventario
       items:
         - name: Gestire una macchina virtuale con la raccolta dell'inventario

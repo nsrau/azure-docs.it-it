@@ -1,3 +1,4 @@
+# [Documentazione sul bus di servizio](index.md)
 # [Bus di servizio](/azure/service-bus-messaging)
 # [Inoltro](/azure/service-bus-relay)
 # Risorse
