@@ -49,7 +49,7 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
 
-La sincronizzazione del gruppo di impostazioni del browser Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Edge.
+La sincronizzazione del gruppo di impostazioni del browser Microsoft Edge (Preferiti, Elenco di lettura) può essere abilitata o disabilitata dagli utenti finali tramite la relativa opzione del menu Impostazioni del browser Microsoft Edge.
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
@@ -86,8 +86,8 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sync |X |Tema |
 | **Personalizzazione del desktop**: layout della schermata Start |X |backup | |
 | **Dispositivi**: stampanti condivise a cui è stata eseguita la connessione |X |X |Altre |
-| **Browser Edge**: Elenco di lettura |sync |sync |Interne |
-| **Browser Edge**: Preferiti |sync |sync |Interne |
+| **Browser Microsoft Edge**: Elenco di lettura |sync |sync |Interne |
+| **Browser Microsoft Edge**: Preferiti |sync |sync |Interne |
 | **Browser Edge**: siti principali <sup> [[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Edge**: URL digitati <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |
 | **Browser Edge**: impostazioni barra Preferiti <sup>[[1]](#footnote-1)</sup> |sync |sync |Interne |

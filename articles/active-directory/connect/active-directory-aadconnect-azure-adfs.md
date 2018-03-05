@@ -55,7 +55,7 @@ Come indicato in precedenza, è possibile creare due subnet in una singola rete 
 ![Creare una rete virtuale](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 Nel portale di Azure selezionare la rete virtuale. È possibile distribuire immediatamente la rete virtuale e una subnet con un solo clic. Viene definita anche la subnet INT, che è pronta per l'aggiunta di VM.
-Il passaggio successivo consiste nell’aggiungere un’altra subnet (denominata “rete perimetrale”) alla rete. Per creare la subnet DMZ, è sufficiente:
+Il passaggio successivo consiste nell’aggiungere un’altra subnet (denominata “rete perimetrale”) alla rete. Per creare la subnet della rete perimetrale, è sufficiente:
 
 * Selezionare la rete appena creata
 * Nelle proprietà selezionare Subnet
@@ -64,7 +64,7 @@ Il passaggio successivo consiste nell’aggiungere un’altra subnet (denominata
 
 ![Subnet](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
 
-![Subnet DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+![Subnet della rete perimetrale](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
 
 **1.2. Creare i gruppi di sicurezza di rete**
 

@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2017
+ms.date: 03/02/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 2410b1a3c3c2856cceda87ced7e66f140ea0c323
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 03682e7f5867360cc3d854f0dff2bc5d1c1c9619
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prerequisiti per la distribuzione di Azure Stack
 
 *Si applica a: Azure Stack Development Kit*
 
-Prima di distribuire [Kit di sviluppo di Azure Stack](azure-stack-poc.md), assicurarsi che il computer soddisfi i requisiti seguenti:
+Prima di distribuire il [Azure Stack Development Kit (ASDK)](azure-stack-poc.md), assicurarsi che il computer host kit di sviluppo soddisfi i requisiti descritti in questo articolo.
 
+> [!NOTE]
+> Il ASDK deve essere installato in un computer host fisico. L'installazione di ASDK in una macchina virtuale di Azure non è supportata.
 
 ## <a name="hardware"></a>Hardware
 | Componente | Minima | Consigliato |
@@ -122,7 +124,6 @@ Assicurarsi che sia disponibile un server DHCP nella rete a cui si connette la s
 ### <a name="internet-access"></a>Accesso a Internet
 Stack di Azure richiede l'accesso a Internet, direttamente o tramite un proxy trasparente. Stack di Azure non supporta la configurazione di un proxy web per abilitare l'accesso a Internet. L'IP dell'host sia il nuovo indirizzo IP assegnato al BGPNAT01 di definiti, tramite DHCP o indirizzo IP statico, deve essere in grado di accedere a Internet. Con i domini graph.windows.net e login.microsoftonline.com vengono utilizzate porte 80 e 443.
 
-D: è possibile eseguire ASDK in una macchina virtuale di Azure? R: No. A partire da oggi, non è ufficialmente supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Scaricare il pacchetto di distribuzione kit di sviluppo di Azure Stack](https://azure.microsoft.com/overview/azure-stack/try/?v=try)

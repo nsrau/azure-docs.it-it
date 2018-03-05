@@ -44,8 +44,8 @@ Per iniziare a rispondere alle domande con lo strumento Impatto, scegliere una v
 ![Strumento Impatto](./media/app-insights-usage-impact/0002-dropdown.png)
 
 1. Selezionare una visualizzazione pagina dall'elenco a discesa **For the page view** (Per la visualizzazione pagina).
-2. Lasciare l'elenco a discesa **analyze how its** (analizzare come l'elemento) impostato sul valore predefinito **Durata**. In questo contesto **Durata** è un alias di **Tempo di caricamento pagina**.
-3. Per l'elenco a discesa **impacts the usage of** (ha impatto sull'utilizzo di) selezionare un evento personalizzato. Questo evento deve corrispondere a un elemento dell'interfaccia utente nella visualizzazione pagina selezionata nel passaggio 1.
+2. Lasciare l'elenco a discesa **analyze how its** (analizza come l'elemento) impostato sul valore predefinito **Durata**. In questo contesto **Durata** è un alias di **Tempo di caricamento pagina**.
+3. Per l'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato. Questo evento deve corrispondere a un elemento dell'interfaccia utente nella visualizzazione pagina selezionata nel passaggio 1.
 
 ![Screenshot dei risultati](./media/app-insights-usage-impact/0003-results.png)
 
@@ -58,8 +58,8 @@ Lo strumento Impatto supporta proprietà e misure sia standard che personalizzat
 ## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>Gli utenti di aree o paesi diversi presentano tassi di conversione diversi?
 
 1. Selezionare una visualizzazione pagina dall'elenco a discesa **For the page view** (Per la visualizzazione pagina).
-2. Scegliere "Country or region" (Paese o area) nell'elenco a discesa **analyze how its** (analizzare come l'elemento).
-3. Nell'elenco a discesa **impacts the usage of** (ha impatto sull'utilizzo di) selezionare un evento personalizzato corrispondente a un elemento dell'interfaccia utente nella visualizzazione pagina scelta nel passaggio 1.
+2. Scegliere "Country or region" (Paese o area geografica) nell'elenco a discesa **analyze how its** (analizza come l'elemento).
+3. Nell'elenco a discesa **impacts the usage of** (influisce sull'utilizzo di) selezionare un evento personalizzato corrispondente a un elemento dell'interfaccia utente nella visualizzazione pagina scelta nel passaggio 1.
 
 In questo caso i risultati non rientrano più in un modello di asse x continuo come nel primo esempio. Al contrario, viene presentata una visualizzazione simile a un grafico a imbuto segmentato. Ordinare in base all'opzione **Utilizzo** per visualizzare la variazione di conversione dell'evento personalizzato in base al paese.
 
@@ -72,7 +72,7 @@ L'analisi di impatto funziona in base alla suddivisione di base seguente:
 
 _A_ = visualizzazione pagina/evento personalizzato/richiesta principale selezionato nel primo elenco a discesa, **For the page view** (Per la visualizzazione pagina).
 
-_B_ = visualizzazione pagina/evento personalizzato secondario selezionato in **impacts the usage of** (ha impatto sull'utilizzo di).
+_B_ = visualizzazione pagina/evento personalizzato secondario selezionato in **impacts the usage of** (influisce sull'utilizzo di).
 
 Lo strumento Impatto esamina un campione di tutte le sessioni di utenti nell'intervallo di tempo selezionato. Per ogni sessione esegue la ricerca di tutte le occorrenze di _A_.
 
