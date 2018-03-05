@@ -9,27 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-<<<<<<< HEAD
 ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
 ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/24/2018
-=======
-<<<<<<< HEAD
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
-=======
-ms.openlocfilehash: 409dd26cc1dfcb1c562d175a43e842b213501d03
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
->>>>>>> ef264d3823deace652e9de26708b3ff46548277e
->>>>>>> 3cdcfb9758822206261533a254367aa0a136c59e
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architettura della replica da Azure ad Azure
 
