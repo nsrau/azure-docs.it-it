@@ -52,7 +52,15 @@
           href: msi-qs-configure-template-windows-vm.md
         - name: Uso di Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: Concedere un accesso a Resource Manager con l'identità del servizio gestito della VM
+    - name: Configurare un'identità del servizio gestito per set di scalabilità di macchine virtuali di Azure
+      items:
+        - name: Uso del portale di Azure
+          href: msi-qs-configure-portal-windows-vmss.md
+        - name: Utilizzare l'interfaccia della riga di comando di Azure
+          href: msi-qs-configure-cli-windows-vmss.md
+        - name: Uso del modello di Azure Resource Manager
+          href: msi-qs-configure-template-windows-vmss.md
+    - name: Concedere un accesso a Resource Manager con l'identità del servizio gestito della VM o del set di scalabilità di macchine virtuali
       items:
         - name: Uso del portale di Azure
           href: msi-howto-assign-access-portal.md

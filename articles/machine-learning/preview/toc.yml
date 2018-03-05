@@ -9,17 +9,17 @@
       href: model-management-overview.md
 - name: Guide introduttive
   items:
-    - name: Installare e creare
+    - name: Installare e avviare
       href: quickstart-installation.md
 - name: Esercitazioni
   items:
-    - name: 1 - Preparazione dei dati
+    - name: '1: Preparazione dei dati'
       href: tutorial-classifying-iris-part-1.md
-    - name: 2 - Compilazione di un modello
+    - name: '2: Creazione dei modelli'
       href: tutorial-classifying-iris-part-2.md
-    - name: 3 - Distribuzione di un modello
+    - name: '3: Distribuzione dei modelli'
       href: tutorial-classifying-iris-part-3.md
-    - name: 4 - Preparazione avanzata dei dati
+    - name: '4: Preparazione avanzata dei dati'
       href: tutorial-bikeshare-dataprep.md
 - name: Concetti
   items:
@@ -194,25 +194,15 @@
   items:
     - name: Domande frequenti
       href: frequently-asked-questions.md
-    - name: Problemi noti e risoluzione dei problemi
+    - name: Problemi e risoluzione
       href: known-issues-and-troubleshooting-guide.md
-    - name: Documentazione del processo di analisi scientifica dei dati per i team
-      href: ../team-data-science-process/overview.md
-    - name: Documentazione delle VM per l'analisi scientifica dei dati
-      href: ../data-science-virtual-machine/overview.md
+    - name: Supporto e training
+      href: support-for-aml-services.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Video
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Forum di commenti e suggerimenti
-      href: 'https://feedback.azure.com/forums/257792-machine-learning'
+      href: aml-services-pricing.md
     - name: Aree di disponibilità
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Opzioni di supporto
-      href: 'https://azure.microsoft.com/support/options/'
+    - name: Processo di analisi scientifica dei dati per i team
+      href: ../team-data-science-process/overview.md
