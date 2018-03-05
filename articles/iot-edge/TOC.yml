@@ -5,6 +5,7 @@
     - name: Informazioni su Azure IoT Edge
       href: how-iot-edge-works.md
 - name: Guide introduttive
+  expanded: true
   items:
     - name: Distribuire in un dispositivo perimetrale - Linux/Mac
       href: quickstart-linux.md

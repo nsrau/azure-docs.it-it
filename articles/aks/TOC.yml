@@ -77,7 +77,11 @@
       items:
         - name: Usare il dashboard Kubernetes
           href: kubernetes-dashboard.md
-- name: riferimento
+    - name: Risolvere problemi
+      items:
+        - name: Accesso SSH ai nodi
+          href: aks-ssh.md
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/aks

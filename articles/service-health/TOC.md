@@ -1,3 +1,5 @@
+# [Integrità dei servizi di Azure](index.md)
+
 # Panoramica
 ## [Informazioni su Integrità dei servizi di Azure](service-health-overview.md)
 ## [Informazioni su Integrità risorse di Azure](resource-health-overview.md)

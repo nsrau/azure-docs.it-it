@@ -1,3 +1,5 @@
+# [Documentazione di SQL Data Warehouse](index.md)
+
 # Panoramica
 
 ## [Informazioni su SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)

@@ -1,3 +1,5 @@
+# [Documentazione di Gestione traffico](index.md)
+
 # Panoramica
 ## [Gestione traffico di Azure](traffic-manager-overview.md)
 ## [Metodi di routing](traffic-manager-routing-methods.md)
