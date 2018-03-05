@@ -29,7 +29,7 @@ Questo argomento fornisce le risposte ad alcune possibili domande degli amminist
 
 * *Tema*, che include caratteristiche come il tema del desktop e le impostazioni della barra delle applicazioni.
 * *Impostazioni di Internet Explorer*, tra cui le schede e i Preferiti aperti di recente.
-* *Impostazioni del browser Edge*, come i Preferiti e l'elenco di lettura.
+* *Impostazioni del browser Microsoft Edge*, come i Preferiti e l'elenco di lettura.
 * *Password*, tra cui le password Internet, i profili Wi-Fi e così via.
 * *Preferenze della lingua*, tra cui le impostazioni di layout della tastiera, lingua del sistema, data e ora e così via.
 * *Caratteristiche di accessibilità*, come i temi a contrasto elevato, l'Assistente vocale e la Lente di ingrandimento.
