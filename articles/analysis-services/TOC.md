@@ -1,3 +1,5 @@
+# [Documentazione su Analysis Services](index.md)
+
 # Panoramica
 ## [Informazioni su Analysis Services](analysis-services-overview.md)
 ## [Origini dati supportate](analysis-services-datasource.md)
@@ -14,6 +16,7 @@
 
 # Procedura 
 ## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
+## [Importare un file di Power BI Desktop](analysis-services-import-pbix.md)
 ## [Backup e ripristino](analysis-services-backup.md)
 ## [Eseguire l'aggiornamento con l'API REST](analysis-services-async-refresh.md)
 ## [Configurare l'aumento del numero di istanze](analysis-services-scale-out.md)
@@ -30,25 +33,26 @@
 ### [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
 ### [Creare un file con estensione odc](analysis-services-odc.md)
 ## Esercitazioni
+### [1 - Aggiungere un modello di esempio](analysis-services-create-sample-model.md)
 ### [Modellazione dei dati - Esercitazione Adventure Works](tutorials/aas-adventure-works-tutorial.md)
-### [1 - Creare un progetto di modello tabulare](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
-### [2: Ottenere i dati](tutorials/aas-lesson-2-get-data.md)
-### [3: Contrassegnare come tabella data](tutorials/aas-lesson-3-mark-as-date-table.md) 
-### [4: Creare relazioni](tutorials/aas-lesson-4-create-relationships.md) 
-### [5: Creare colonne calcolate](tutorials/aas-lesson-5-create-calculated-columns.md)
-### [6: Creare misure](tutorials/aas-lesson-6-create-measures.md)  
-### [7 - Creare indicatori di prestazioni chiave](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
-### [8: Creare prospettive](tutorials/aas-lesson-8-create-perspectives.md) 
-### [9: Creare gerarchie](tutorials/aas-lesson-9-create-hierarchies.md) 
-### [10: Creare partizioni](tutorials/aas-lesson-10-create-partitions.md) 
-### [11: Creare ruoli](tutorials/aas-lesson-11-create-roles.md)
-### [12: Analizzare in Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
-### [13: Distribuire](tutorials/aas-lesson-13-deploy.md)
-### [Lezione supplementare: Righe di dettaglio](tutorials/aas-supplemental-lesson-detail-rows.md)
-### [Lezione supplementare: Sicurezza dinamica](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [Lezione supplementare: Gerarchie incomplete](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+#### [1 - Creare un progetto di modello tabulare](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
+#### [2: Ottenere i dati](tutorials/aas-lesson-2-get-data.md)
+#### [3: Contrassegnare come tabella data](tutorials/aas-lesson-3-mark-as-date-table.md) 
+#### [4: Creare relazioni](tutorials/aas-lesson-4-create-relationships.md) 
+#### [5: Creare colonne calcolate](tutorials/aas-lesson-5-create-calculated-columns.md)
+#### [6: Creare misure](tutorials/aas-lesson-6-create-measures.md)  
+#### [7 - Creare indicatori di prestazioni chiave](tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+#### [8: Creare prospettive](tutorials/aas-lesson-8-create-perspectives.md) 
+#### [9: Creare gerarchie](tutorials/aas-lesson-9-create-hierarchies.md) 
+#### [10: Creare partizioni](tutorials/aas-lesson-10-create-partitions.md) 
+#### [11: Creare ruoli](tutorials/aas-lesson-11-create-roles.md)
+#### [12: Analizzare in Excel](tutorials/aas-lesson-12-analyze-in-excel.md)
+#### [13: Distribuire](tutorials/aas-lesson-13-deploy.md)
+#### [Lezione supplementare: Righe di dettaglio](tutorials/aas-supplemental-lesson-detail-rows.md)
+#### [Lezione supplementare: Sicurezza dinamica](tutorials/aas-supplemental-lesson-dynamic-security.md)
+#### [Lezione supplementare: Gerarchie incomplete](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)

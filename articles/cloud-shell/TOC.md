@@ -4,10 +4,9 @@
 ## [Bash - Guida introduttiva](quickstart.md)
 ## [PowerShell - Guida introduttiva](quickstart-powershell.md)
 
-# Concetti
+# Strumenti e funzionalità
 ## [Bash - Strumenti e funzionalità](features.md)
 ## [PowerShell - Strumenti e funzionalità](features-powershell.md)
-## [Limitazioni](limitations.md)
 
 # Procedura
 ## [Bash - Archiviazione persistente](persisting-shell-storage.md)
@@ -20,7 +19,7 @@
 
 # [Incorporare Cloud Shell](embed-cloud-shell.md)
 
-# [Risoluzione dei problemi](troubleshooting.md)
+# [Risoluzione dei problemi e limitazioni](troubleshooting.md)
 
 # Riferimenti
 ## [Interfaccia della riga di comando di Azure](/cli/azure)

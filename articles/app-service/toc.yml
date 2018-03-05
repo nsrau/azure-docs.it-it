@@ -43,7 +43,7 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python con PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - Creare un'API RESTful
+    - name: 1 - Ospitare un'API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: 2 - Eseguire il mapping di un dominio personalizzato
       href: app-service-web-tutorial-custom-domain.md
@@ -57,6 +57,8 @@
       href: app-service-cli-samples.md
     - name: Azure PowerShell
       href: app-service-powershell-samples.md
+    - name: Modelli di Gestione risorse
+      href: app-service-rm-template-samples.md
 - name: Concetti
   items:
     - name: Funzionamento del Servizio app
@@ -111,6 +113,8 @@
           href: app-service-deployment-credentials.md
         - name: Creare ambienti di staging
           href: web-sites-staged-publishing.md
+        - name: Linee guida per i modelli di Resource Manager
+          href: web-sites-rm-template-guidance.md
     - name: Eseguire il mapping di un dominio personalizzato
       items:
         - name: Acquistare un dominio
@@ -226,7 +230,7 @@
     - name: Guide di riferimento dettagliate
       items:
         - name: Architetture di riferimento
-          href: ../guidance/guidance-ra-app-service.md
+          href: /azure/architecture/reference-architectures/app-service-web-app/
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: risoluzione dei problemi

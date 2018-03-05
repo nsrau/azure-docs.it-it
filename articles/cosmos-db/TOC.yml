@@ -258,6 +258,8 @@
               href: mongodb-robomongo.md
             - name: Utilizzo di Mongoose
               href: mongodb-mongoose.md
+            - name: Uso della preferenza di lettura
+              href: mongodb-readpreference.md
             - name: Supporto per le funzionalità di MongoDB
               href: mongodb-feature-support.md
             - name: Serie di esercitazioni su Angular
@@ -389,12 +391,14 @@
           href: odbc-driver.md
         - name: Usare Spring Boot Starter con le API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: API SQL
       items:
+        - name: Async Java
+          href: sql-api-sdk-async-java.md
         - name: Java
           href: sql-api-sdk-java.md
         - name: .NET

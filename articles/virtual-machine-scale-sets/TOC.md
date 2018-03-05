@@ -1,3 +1,5 @@
+# [Documentazione sui set di scalabilità di macchine virtuali](index.md)
+
 # Panoramica
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
@@ -12,6 +14,7 @@
 # Procedure
 ## Pianificare e progettare
 ### [Considerazioni sulla progettazione](virtual-machine-scale-sets-design-overview.md)
+### [Informazioni sugli ID istanza](virtual-machine-scale-sets-instance-ids.md)
 
 ## Creare un modello
 ### [Informazioni sui modelli dei set di scalabilità](virtual-machine-scale-sets-mvss-start.md)
@@ -53,7 +56,7 @@
 ## Domande frequenti
 ### [Domande frequenti sui set di scalabilità](virtual-machine-scale-sets-faq.md)
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
