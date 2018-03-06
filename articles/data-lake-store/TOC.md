@@ -5,6 +5,7 @@
 ## [Confrontare Azure Data Lake Store e Archiviazione di Azure](data-lake-store-comparison-with-blob-storage.md)
 ## [Azure Data Lake Store per l'elaborazione di Big Data](data-lake-store-data-scenarios.md)
 ## [Applicazioni open source che usano Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+## [Procedure consigliate per l'uso di Data Lake Store](data-lake-store-best-practices.md)
 
 # Attività iniziali
 ## [Uso del portale](data-lake-store-get-started-portal.md)
@@ -82,7 +83,7 @@
 ### [Accedere ai log di diagnostica](data-lake-store-diagnostic-logs.md)
 ### [Pianificare la disponibilità elevata](data-lake-store-disaster-recovery-guidance.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
