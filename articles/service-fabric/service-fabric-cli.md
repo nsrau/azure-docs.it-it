@@ -2,17 +2,17 @@
 title: Introduzione all'interfaccia della riga di comando di Azure Service Fabric
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure Service Fabric e su come connettersi al cluster e gestire le applicazioni.
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: get-started-article
 ms.date: 10/20/2017
-ms.author: edwardsa
-ms.openlocfilehash: 3d7c79e00d2b41669296d08250cb73434000cbb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: bikang
+ms.openlocfilehash: 9ad1286ffdf0c45a73b0f4a472bc0de683d20ee5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -32,7 +32,8 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recente (~=3)  | Più recente (~=6.0)            |
+| Più recenti (~=4)  | Più recenti (~=6.1)            |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `==<version>` come suffisso al comando `pip install`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:

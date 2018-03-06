@@ -1,6 +1,6 @@
 ---
 title: Creare un'applicazione .NET Service Fabric in Azure | Microsoft Docs
-description: Creare un'applicazione .NET per Azure usando l'esempio disponibile nella guida introduttiva a Service Fabric.
+description: In questa guida introduttiva viene creata un'applicazione .NET per Azure usando l'applicazione Reliable Services Service Fabric di esempio.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ff9860ee2313c20b4a30e1b4410327e03e6dfcc6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ea0d32674aa770b5f25b0b62eb69007f3fd6bf5c
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>Creare un'applicazione .NET Service Fabric in Azure
+# <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Guida introduttiva: Creare un'applicazione .NET Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
 
-In questa guida introduttiva viene illustrato come distribuire la prima applicazione .NET in Service Fabric. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
+Questa guida introduttiva spiega come distribuire la prima applicazione .NET in Service Fabric. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
 
 ![Screenshot dell'applicazione](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
@@ -38,7 +38,7 @@ Usando questa applicazione, si apprenderà come:
 > * Scalare orizzontalmente l'applicazione in più nodi
 > * Eseguire un aggiornamento in sequenza delle applicazioni
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida introduttiva:
 1. [Installare Visual Studio 2017](https://www.visualstudio.com/) con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 2. [Installare Git](https://git-scm.com/)

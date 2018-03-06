@@ -1,23 +1,23 @@
 ---
-title: Creare un database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: 'Guida introduttiva: Creare un''istanza di Database di Azure per PostgreSQL con l''interfaccia della riga di comando di Azure'
 description: Guida di avvio rapido alla creazione e alla gestione di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure.
 services: postgresql
-author: sanagama
-ms.author: sanagama
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: ab07172d62806631f73c1df35c7d646e83ad5221
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 50bb3f8ca1032e704b9805beb54fbd4ea4f8e7c1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Creare un database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Guida introduttiva: Creare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure
 Il database di Azure per PostgreSQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida di avvio rapido mostra come creare un database di Azure per il server PostgreSQL in un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tramite l'interfaccia della riga di comando di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -42,14 +42,18 @@ Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-
+## <a name="add-the-extension"></a>Aggiungere l'estensione
+Aggiungere l'estensione di gestione di Database di Azure per PostgreSQL aggiornata con il comando seguente:
+```azurecli-interactive
+az extension add --name rdbms
+``` 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL
 
 Creare un [database di Azure per il server PostgreSQL](overview.md) tramite il comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Un server contiene un gruppo di database gestiti come gruppo. 
 
-L'esempio seguente crea un server chiamato `mypgserver-20170401` nel gruppo di risorse `myresourcegroup` con account di accesso dell'amministratore del server `mylogin`. Poiché viene eseguito il mapping del nome di un server a un nome DNS, il nome deve essere univoco a livello globale in Azure. Sostituire `<server_admin_password>` con il proprio valore.
+L'esempio seguente crea negli Stati Uniti occidentali un server denominato `mydemoserver` nel gruppo di risorse `myresourcegroup` con l'account di accesso amministratore server `myadmin`. Questo è un server per **utilizzo generico** di **generazione 4** con 2 **vCore**. Poiché viene eseguito il mapping del nome di un server a un nome DNS, il nome deve essere univoco a livello globale in Azure. Sostituire `<server_admin_password>` con il proprio valore.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mypgserver-20170401  --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
 > [!IMPORTANT]
@@ -64,7 +68,7 @@ Creare una regola del firewall a livello di server per PostgreSQL Azure tramite 
 
 È possibile impostare una regola del firewall relativa a un intervallo IP per consentire la connessione dalla rete. L'esempio seguente usa [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) per creare una regola del firewall `AllowAllIps` per un intervallo di indirizzi IP. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
@@ -74,27 +78,32 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 
 Per connettersi al server, è necessario specificare le informazioni sull'host e le credenziali di accesso.
 ```azurecli-interactive
-az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 Il risultato è in formato JSON. Annotare i valori di **administratorLogin** e **fullyQualifiedDomainName**.
 ```json
 {
-  "administratorLogin": "mylogin",
-  "fullyQualifiedDomainName": "mypgserver-20170401.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mypgserver-20170401",
+  "administratorLogin": "myadmin",
+  "earliestRestoreDate": null,
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
   "location": "westus",
-  "name": "mypgserver-20170401",
+  "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
-    "capacity": 50,
-    "family": null,
-    "name": "PGSQLS2M50",
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
-    "tier": "Basic"
+    "tier": "GeneralPurpose"
   },
-  "sslEnforcement": null,
-  "storageMb": 51200,
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
   "tags": null,
   "type": "Microsoft.DBforPostgreSQL/servers",
   "userVisibleState": "Ready",
@@ -111,10 +120,10 @@ Se nel computer client è installato PostgreSQL, è possibile usare un'istanza l
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Ad esempio, il comando seguente permette di connettersi al database predefinito chiamato **postgres** nel server PostgreSQL **mypgserver-20170401.postgres.database.azure.com** usando le credenziali di accesso. Immettere il valore di `<server_admin_password>` scelto quando viene chiesta la password.
+  Ad esempio, il comando seguente consente di connettersi al database predefinito denominato **postgres** nel server PostgreSQL **mydemoserver.postgres.database.azure.com** usando le credenziali di accesso. Immettere il valore di `<server_admin_password>` scelto quando viene chiesta la password.
   
   ```azurecli-interactive
-psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Dopo aver eseguito la connessione al server, creare un database vuoto nel prompt.
@@ -122,33 +131,56 @@ psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --userna
 CREATE DATABASE mypgsqldb;
 ```
 
-3.  Nel prompt eseguire il comando seguente per cambiare la connessione e connettersi al nuovo database **mypgsqldb** appena creato:
+3.  Nel prompt, eseguire il comando seguente per cambiare la connessione nel database appena creato **mypgsqldb**:
 ```sql
 \c mypgsqldb
 ```
 
-## <a name="connect-to-postgresql-database-using-pgadmin"></a>Connettersi al database PostgreSQL tramite pgAdmin
+## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>Connettersi al server PostgreSQL usando pgAdmin
 
-Per connettersi al server PostgreSQL Azure tramite lo strumento dell'interfaccia utente grafica _pgAdmin_
-1.  Avviare l'applicazione _pgAdmin_ nel computer client. È possibile installare _pgAdmin_ da http://www.pgadmin.org/.
-2.  Scegliere **Add New Server** (Aggiungi nuovo server) dal menu **Quick Links** (Collegamenti rapidi).
-3.  Nella finestra di dialogo **Create - Server** (Creazione server), nella scheda **General** (Generale), immettere un nome descrittivo univoco per il server. Ad esempio, **Azure PostgreSQL Server**.
- ![Strumento pgAdmin - Finestra di creazione del server](./media/quickstart-create-server-database-azure-cli/1-pgadmin-create-server.png)
-4.  Nella finestra di dialogo **Create - Server** (Creazione server) fare clic sulla scheda **Connection** (Connessione):
-    - Immettere il nome del server completo, ad esempio **mypgserver-20170401.postgres.database.azure.com**, nella casella **Host Name/ Address** (Nome host/Indirizzo). 
-    - Immettere la porta 5432 nella casella **Port** (Porta). 
-    - Immettere l'**account di accesso dell'amministratore del server (user@mypgserver)** ottenuto in precedenza in questa guida di avvio rapido e la password immessa alla creazione del server rispettivamente nelle caselle **Username** (Nome utente) e **Password**.
-    - Selezionare **SSL Mode** (Modalità SSL) e impostare **Require** (Richiedi). Per impostazione predefinita, tutti i server PostgreSQL Azure vengono creati con l'opzione di applicazione del protocollo SSL attivata. Per disattivare questa opzione, vedere le informazioni dettagliate in [Enforcing SSL](./concepts-ssl-connection-security.md) (Applicazione di SSL).
+pgAdmin è uno strumento open source usato con PostgreSQL. È possibile installare pgAdmin dal [sito Web pgadmin](http://www.pgadmin.org/). La versione di pgAdmin può essere diversa da quella usata in questa guida introduttiva. Se è necessario altro materiale sussidiario, vedere la documentazione di pgAdmin.
 
-    ![pgAdmin - Finestra di creazione del server](./media/quickstart-create-server-database-azure-cli/2-pgadmin-create-server.png)
-5.  Fare clic su **Save**.
-6.  Nel riquadro sinistro Browser espandere i gruppi **Server**. Scegliere il server **Azure PostgreSQL Server**.
-7.  In **Server** scegliere il server a cui si è connessi e quindi scegliere **Databases** (Database) sotto il server. 
-8.  Fare clic con il pulsante destro del mouse su **Databases** (Database) per creare un database.
-9.  Scegliere il nome di database **mypgsqldb** e il proprietario, rappresentato dall'account di accesso dell'amministratore del server **mylogin**.
-10. Fare clic su **Save** (Salva) per creare un database vuoto.
-11. In **Browser** espandere il gruppo **Servers** (Server). Espandere il server creato e visualizzare il database **mypgsqldb** al di sotto.
- ![pgAdmin - Finestra di creazione del database](./media/quickstart-create-server-database-azure-cli/3-pgadmin-database.png)
+1. Aprire l'applicazione pgAdmin nel computer client.
+
+2. Dalla barra degli strumenti passare a **Object** (Oggetto), passare il puntatore del mouse su **Create** (Crea) e selezionare **Server**.
+
+3. Nella finestra di dialogo **Create - Server** (Creazione server) immettere un nome descrittivo univoco per il server nella scheda **General** (Generale), ad esempio **mydemoserver**.
+
+   ![Scheda "General" (Generale)](./media/quickstart-create-server-database-azure-cli/9-pgadmin-create-server.png)
+
+4. Nella finestra di dialogo **Create - Server** (Creazione server) compilare la tabella delle impostazioni nella scheda **Connection** (Connessione).
+
+   ![Scheda "Connection" (Connessione)](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
+
+    Parametro di pgAdmin |Valore|DESCRIZIONE
+    ---|---|---
+    Host name/address (Nome host/indirizzo) | Nome server | Nome del server usato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Il server di esempio è **mydemoserver.postgres.database.azure.com**. Usare il nome di dominio completo (**\*.postgres.database.azure.com**) come nell'esempio. Se non si ricorda il nome del server, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. 
+    Porta | 5432 | Porta da usare quando ci si connette al database di Azure per il server PostgreSQL. 
+    Maintenance Database (Database manutenzione) | *postgres* | Nome del database predefinito generato dal sistema.
+    Username | Nome di accesso amministratore server | Nome utente di accesso amministratore del server specificato in precedenza al momento della creazione del database di Azure per il server PostgreSQL. Se non si ricorda il nome utente, seguire la procedura descritta nella sezione precedente per ottenere le informazioni di connessione. Il formato è *username@servername*.
+    Password | Password amministratore dell'utente | Password scelta in precedenza in questa guida introduttiva durante la creazione del server.
+    Ruolo | Lasciare vuoto | Non è necessario specificare un nome di ruolo in questa fase. Lasciare vuoto questo campo.
+    SSL Mode (Modalità SSL) | *Require* (Richiedi) | La modalità SSL può essere impostata nella scheda SSL di pgAdmin. Per impostazione predefinita, tutti i server Database di Azure per PostgreSQL vengono creati con l'opzione di applicazione del protocollo SSL attivata. Per disattivare l'applicazione del protocollo SSL, vedere [Applicazione delle connessioni SSL](./concepts-ssl-connection-security.md).
+    
+5. Selezionare **Salva**.
+
+6. Nel riquadro **Browser** a sinistra espandere il nodo **Servers** (Server). Selezionare il server, ad esempio **mydemoserver**. Fare clic per connettersi.
+
+7. Espandere il nodo del server e quindi il nodo **Databases** (Database) sottostante. L'elenco includerà il database *postgres* esistente e qualsiasi altro database creato. Con Database di Azure per PostgreSQL è possibile creare più database per ogni server.
+
+8. Fare clic con il pulsante destro del mouse su **Databases** (Database), scegliere il menu **Create** (Crea) e quindi selezionare **Database**.
+
+9. Digitare un nome di database a scelta nel campo **Database**, ad esempio **mypgsqldb2**.
+
+10. Selezionare il **proprietario** del database nella casella di riepilogo. Scegliere il nome di accesso amministratore server, ad esempio **myadmin**.
+
+   ![Creare un database in pgAdmin](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
+
+11. Selezionare **Save** (Salva) per creare un nuovo database vuoto.
+
+12. Il database creato verrà visualizzato nel riquadro **Browser** nell'elenco dei database sotto il nome del server.
+
+
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -164,9 +196,10 @@ az group delete --name myresourcegroup
 
 Se si vuole eliminare solo il server appena creato, è possibile eseguire il comando [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete).
 ```azurecli-interactive
-az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
+az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./howto-migrate-using-export-and-import.md)
+

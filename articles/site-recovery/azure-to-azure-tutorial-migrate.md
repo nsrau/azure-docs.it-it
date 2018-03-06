@@ -5,13 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/07/2018
+ms.date: 02/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb815f7d9c0556efcce58b53d6037e3fc8ed9c78
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: MVC
+ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Eseguire la migrazione di VM di Azure a un'altra area
 
@@ -32,7 +33,7 @@ Per questa esercitazione si presuppone che sia già disponibile una sottoscrizio
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessarie macchine virtuali di Azure un'area di Azure da cui si vuole eseguire la migrazione. Prima di iniziare è inoltre necessario verificare un certo numero di impostazioni.
 
@@ -123,7 +124,8 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 2. In **Failover** selezionare **Più recente**. L'impostazione della chiave di crittografia non è rilevante per questo scenario.
 3. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery proverà ad arrestare la macchina virtuale di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 4. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
-5. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Il processo di migrazione viene completato e la replica per la macchina virtuale viene arrestata.
+5. In **Elementi replicati** fare clic con il pulsante destro del mouse su Macchina virtuale > **Esegui commit**. Questa operazione completa il processo di migrazione.
+6. Al termine del commit fare clic su **Disabilita replica**.  La replica per la macchina virtuale viene arrestata.
 
 
 

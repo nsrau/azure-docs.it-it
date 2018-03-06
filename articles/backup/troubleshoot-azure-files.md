@@ -10,11 +10,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: ce4e53b3fa839bfc2da6bedecca0b4f730a6adbe
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Risolvere i problemi del backup di file di Azure
 
@@ -26,8 +26,14 @@ Il backup di file di Azure è disponibile in anteprima. Gli scenari di backup se
 - Protezione delle condivisioni file negli account di archiviazione con reti virtuali abilitate.
 - Backup di file di Azure con PowerShell o l'interfaccia della riga di comando.
 
+### <a name="limitations"></a>Limitazioni
+- Il numero massimo di backup pianificati al giorno è 1.
+- Il numero massimo di backup su richiesta al giorno è 4.
+- Usare i blocchi delle risorse nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
+- Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino
+
 ## <a name="configuring-backup"></a>Configurazione del backup
-La configurazione del backup è illustrata nella tabella seguente.
+La configurazione del backup è illustrata nella tabella seguente:
 
 | Configurazione del backup | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |

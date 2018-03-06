@@ -1,6 +1,6 @@
 ---
 title: Monitoraggio e diagnostica per i contenitori di Windows in Azure Service Fabric | Microsoft Docs
-description: Impostare il monitoraggio e la diagnostica per i contenitori di Windows orchestrati in Azure Service Fabric.
+description: "In questa esercitazione si apprenderà come configurare il monitoraggio e la diagnostica per i contenitori di Windows orchestrati in Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: de77d10e4875173c7a067e945e473887d3cc7422
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitorare i contenitori di Windows in Service Fabric usando OMS
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-oms"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando OMS
 
 Questa è la terza parte di un'esercitazione in cui si spiega come impostare OMS per monitorare i contenitori di Windows orchestrati in Service Fabric.
 

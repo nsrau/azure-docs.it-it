@@ -1,27 +1,25 @@
 ---
-title: Guida rapida di Azure - Trasferire oggetti da e verso Archiviazione BLOB di Azure con il portale di Azure | Microsoft Docs
-description: Informazioni su come usare il portale di Azure per caricare, scaricare ed elencare BLOB in Archiviazione BLOB di Azure.
+title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con il portale di Azure | Microsoft Docs'
+description: In questa guida introduttiva si usa il portale di Azure per creare un account di archiviazione e un contenitore. Si usa quindi il portale di Azure per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-documentationcenter: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
 ms.topic: quickstart
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: f647a5b78ee2fa362c4dea6ee9003ac56e0f7f7d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-portal"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con il portale di Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure
 
-In questa guida introduttiva si apprenderà come usare il [portale di Azure](https://portal.azure.com/) per creare un contenitore in Archiviazione di Azure e per caricare e scaricare BLOB in blocchi in tale contenitore.
+Questa guida introduttiva spiega come usare il [portale di Azure](https://portal.azure.com/) per creare un contenitore in Archiviazione di Azure e per caricare e scaricare BLOB in blocchi in tale contenitore.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -69,7 +67,7 @@ Per caricare un BLOB in blocchi nel nuovo contenitore nel portale di Azure, segu
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere le risorse create in questa guida rapida, è sufficiente eliminare il contenitore. Verranno eliminati anche tutti i BLOB presenti nel contenitore.
+Per rimuovere le risorse create in questa guida introduttiva, è sufficiente eliminare il contenitore. Verranno eliminati anche tutti i BLOB presenti nel contenitore.
 
 Per eliminare il contenitore:
 
@@ -82,7 +80,7 @@ Per eliminare il contenitore:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida rapida è stato descritto il trasferimento di file tra il disco locale e un Archiviazione BLOB di Azure con .NET. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
+In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con .NET. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](storage-dotnet-how-to-use-blobs.md)

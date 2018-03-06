@@ -17,21 +17,24 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: aa4df1854b15198ede1ee143afeff47b24dc567f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portale di Azure: usare l'editor di query SQL per connettersi ai dati ed eseguire query
 
 L'editor di query SQL è uno strumento di query basato su browser che offre un modo semplice ed efficiente per eseguire query SQL sul database SQL di Azure o su Azure SQL Data Warehouse senza uscire dal portale di Azure. Questa guida introduttiva illustra come usare l'editor di query per connettersi a un database SQL e quindi usare istruzioni Transact-SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+> [!NOTE]
+> Verificare che l'opzione "Consenti l'accesso a Servizi di Azure" sia attiva nelle impostazioni del firewall di SQL Server. Questa opzione consente all'editor di query SQL di accedere a database e data warehouse.
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
@@ -39,12 +42,10 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Connettersi con l'autenticazione SQL
-> [!NOTE]
-> Verificare che l'opzione "Consenti l'accesso a Servizi di Azure" sia attiva nelle impostazioni del firewall di SQL Server. Questa opzione consente all'editor di query SQL di accedere a database e data warehouse.
 
 1. Fare clic su **Database SQL** nel menu a sinistra e quindi sul database su cui si vogliono eseguire query.
 
-2. Nella pagina del database SQL in uso individuare **Esplora dati (anteprima)** nel menu a sinistra e fare clic su questa opzione.
+2. Nella pagina del database SQL in uso individuare **Editor di query (anteprima)** nel menu a sinistra e fare clic su questa opzione.
 
     ![Cercare l'editor di query](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 

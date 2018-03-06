@@ -1,6 +1,6 @@
 ---
 title: Aggiornare il runtime di Azure Service Fabric | Microsoft Docs
-description: Informazioni su come usare PowerShell per aggiornare il runtime di Service Fabric ospitato da Azure.
+description: "In questa esercitazione si apprenderà come usare PowerShell per aggiornare il runtime di un cluster di Service Fabric ospitato in Azure."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 49211a88e004bbcbcc41b6674a34934db39513c7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Aggiornare il runtime di un cluster di Service Fabric
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric
 
 Questa esercitazione, che costituisce la terza parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric autonomi.
 

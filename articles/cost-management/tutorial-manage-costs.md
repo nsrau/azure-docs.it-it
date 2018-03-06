@@ -1,22 +1,22 @@
 ---
-title: Gestire i costi tramite Gestione costi di Azure | Microsoft Docs
-description: Gestire i costi usando l'allocazione dei costi e i report di showback e chargeback.
+title: 'Esercitazione: Gestire i costi tramite Gestione costi di Azure | Microsoft Docs'
+description: "In questa esercitazione si apprenderà come gestire i costi usando l'allocazione dei costi e i report di showback e chargeback."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 804b50d6ba054bbb0eb60b659c98f161ea5272ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="manage-costs-by-using-azure-cost-management"></a>Gestire i costi tramite Gestione costi di Azure
+# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Esercitazione: Gestire i costi tramite Gestione costi di Azure
 
 Per gestire i costi e generare i report di showback in Gestione costi di Azure di Cloudyn, si esegue l'allocazione dei costi in base a tag. Il processo di allocazione dei costi assegna i costi alle risorse cloud utilizzate. I costi sono interamente allocati quando tutte le risorse sono suddivise in categorie con tag. Dopo aver allocato i costi, è possibile mostrare agli utenti le informazioni di showback o chargeback usando dashboard e report. Tuttavia, quando si inizia a usare Gestione costi, è possibile che molte risorse non siano contrassegnate né contrassegnabili con tag.
 
@@ -27,6 +27,13 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Usare tag personalizzati per allocare i costi.
 > * Creare report di showback e chargeback.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+## <a name="prerequisites"></a>prerequisiti
+
+- È necessario disporre di un account Azure.
+- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Usare tag personalizzati per allocare i costi
 
@@ -122,7 +129,7 @@ Questa esercitazione illustra come:
 
 
 
-Per altre informazioni introduttive a Cloudyn e per altri dettagli sull'uso delle funzionalità di questa soluzione, passare alla documentazione di Cloudyn.
+Passare all'esercitazione successiva per apprendere come controllare l'accesso ai dati.
 
 > [!div class="nextstepaction"]
-> [Documentazione di Cloudyn](https://support.cloudyn.com/hc/)
+> [Controllo dell'accesso ai dati](tutorial-user-access.md)

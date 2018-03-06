@@ -1,24 +1,24 @@
 ---
-title: Connettersi a Database di Azure per PostgreSQL da Python | Microsoft Docs
+title: Connettersi a Database di Azure per PostgreSQL da Python
 description: "Questa guida introduttiva fornisce un esempio di codice Python che può essere usato per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: daa0345e64676b6cd876e8fdd6b9d8895b0a4c4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query
-Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per PostgreSQL. Descrive anche come usare istruzioni SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database dalle piattaforme macOS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per PostgreSQL. Per altri dettagli sullo SDK, vedere la documentazione di [riferimento sulle librerie PostgreSQL di Azure per Python SDK](/python/api/overview/azure/postgresql) e un [esempio psycopg](http://initd.org/psycopg/docs/usage.html).
+Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per PostgreSQL. Descrive anche come usare istruzioni SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database dalle piattaforme macOS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per PostgreSQL.
 
 ## <a name="prerequisites"></a>prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
@@ -50,11 +50,10 @@ Installare il pacchetto [psycopg2](http://initd.org/psycopg/docs/install.html), 
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Scegliere **Tutte le risorse** dal menu a sinistra nel portale di Azure e cercare **mypgserver-20170401**, ossia il server creato.
-3. Fare clic sul nome del server **mypgserver-20170401**.
-4. Selezionare la pagina **Panoramica** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
- ![Database di Azure per PostgreSQL - Accesso dell'amministratore del server](./media/connect-python/1-connection-string.png)
-5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+3. Fare clic sul nome del server.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+ ![Nome del server Database di Azure per PostgreSQL](./media/connect-python/1-connection-string.png)
 
 ## <a name="how-to-run-python-code"></a>Come eseguire codice Python
 Questo articolo contiene in totale quattro esempi di codice, ognuno dei quali esegue una funzione specifica. Le istruzioni seguenti indicano come creare un file di testo, inserire un blocco di codice e quindi salvare il file per poterlo eseguire in un secondo momento. Assicurarsi di creare quattro file separati, uno per ogni blocco di codice.
@@ -75,8 +74,8 @@ Usare il codice seguente per connettersi e caricare i dati usando la funzione [p
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -119,8 +118,8 @@ Usare il codice seguente per leggere i dati inseriti usando la funzione [cursor.
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -153,8 +152,8 @@ Usare il codice seguente per aggiornare la riga d'inventario inserita in precede
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"
@@ -183,8 +182,8 @@ Usare il codice seguente per eliminare un articolo di magazzino inserito in prec
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mypgserver-20170401.postgres.database.azure.com"
-user = "mylogin@mypgserver-20170401"
+host = "mydemoserver.postgres.database.azure.com"
+user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
 sslmode = "require"

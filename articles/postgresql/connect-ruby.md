@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Database di Azure per PostgreSQL usando Ruby | Microsoft Docs
+title: Connettersi a Database di Azure per PostgreSQL con Ruby
 description: "Questa guida introduttiva fornisce un esempio di codice Ruby che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 911dcd49273edb202c64d046424418b7db048291
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Ruby per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [Ruby](https://www.ruby-lang.org). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per PostgreSQL.
@@ -60,11 +60,10 @@ Installare Ruby nel computer.
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **mypgserver-20170401**.
-3. Fare clic sul nome del server **mypgserver-20170401**.
-4. Selezionare la pagina **Panoramica** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
- ![Database di Azure per PostgreSQL - Accesso dell'amministratore del server](./media/connect-ruby/1-connection-string.png)
-5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server. Se necessario, reimpostare la password.
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+3. Fare clic sul nome del server.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+ ![Nome del server Database di Azure per PostgreSQL](./media/connect-ruby/1-connection-string.png)
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
 Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
@@ -77,9 +76,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -120,9 +119,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -154,9 +153,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -188,9 +187,9 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mypgserver-20170401.postgres.database.azure.com')
+    host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mypgserver-20170401')
+    user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.

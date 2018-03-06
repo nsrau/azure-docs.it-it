@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Database di Azure per MySQL da Node.js | Microsoft Docs
+title: Connettersi a Database di Azure per MySQL da Node.js
 description: "Questa guida introduttiva fornisce diversi esempi di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: dcfd5dc0dbfb4f7aed4d2f940059d5cb8244cbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: 2c1d13fc802fc3d2cd50ebe72c40266136e40d15
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Node.js per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando [Node.js](https://nodejs.org/) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per MySQL.
@@ -85,11 +85,10 @@ A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel riquadro a sinistra fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **myserver4demo**.
-3. Fare clic sul nome server **myserver4demo**.
-4. Selezionare la pagina **Proprietà** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
- ![Database di Azure per MySQL - Accesso dell'amministratore del server](./media/connect-nodejs/1_server-properties-name-login.png)
-5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+3. Fare clic sul nome del server.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+ ![Nome del server del database di Azure per MySQL](./media/connect-nodejs/1_server-overview-name-login.png)
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Esecuzione del codice JavaScript in Node.js
 1. Incollare il codice JavaScript nei file di testo e quindi salvarli in una cartella di progetto con estensione js, ad esempio C:\nodejsmysql\createtable.js o /home/username/nodejsmysql/createtable.js.
@@ -109,8 +108,8 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'myserver4demo.mysql.database.azure.com',
-    user: 'myadmin@myserver4demo',
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
@@ -176,8 +175,8 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'myserver4demo.mysql.database.azure.com',
-    user: 'myadmin@myserver4demo',
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
@@ -228,8 +227,8 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'myserver4demo.mysql.database.azure.com',
-    user: 'myadmin@myserver4demo',
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,
@@ -276,8 +275,8 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'myserver4demo.mysql.database.azure.com',
-    user: 'myadmin@myserver4demo',
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
     port: 3306,

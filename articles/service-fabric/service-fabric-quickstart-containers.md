@@ -1,6 +1,6 @@
 ---
 title: Creare un'applicazione contenitore Windows di Azure Service Fabric | Microsoft Docs
-description: Creare la prima applicazione contenitore Windows in Azure Service Fabric.
+description: In questa guida introduttiva viene creata la prima applicazione contenitore Windows in Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/18
+ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Distribuire un'applicazione contenitore Windows in Azure Service Fabric
+# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Guida introduttiva: Distribuire un'applicazione contenitore Windows in Azure Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
 
-Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questa guida introduttiva illustra come distribuire un'immagine del contenitore Docker predefinita in un'applicazione di Service Fabric. Al termine, saranno in esecuzione Nano Server per Windows Server 2016 e un contenitore IIS. Questa guida introduttiva descrive la distribuzione di un contenitore Windows. Vedere [questa guida introduttiva](service-fabric-quickstart-containers-linux.md) per distribuire un contenitore Linux.
+Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questa guida introduttiva spiega come distribuire un'immagine del contenitore Docker predefinita in un'applicazione di Service Fabric. Al termine, saranno in esecuzione Nano Server per Windows Server 2016 e un contenitore IIS. Questa guida introduttiva descrive la distribuzione di un contenitore Windows. Vedere [questa guida introduttiva](service-fabric-quickstart-containers-linux.md) per distribuire un contenitore Linux.
 
 ![Pagina Web predefinita di IIS][iis-default]
 
@@ -35,7 +35,7 @@ Con guida introduttiva si apprende come:
 > * Compilare l'applicazione di Service Fabric e creare il pacchetto
 > * Distribuire l'applicazione del contenitore in Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. È possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un computer di sviluppo che esegue:
   * Visual Studio 2015 o Visual Studio 2017.
@@ -48,21 +48,25 @@ Avviare Visual Studio come "Amministratore".  Selezionare **File** > **Nuovo** >
 
 Selezionare l'**applicazione di Service Fabric**, denominarla "MyFirstContainer" e fare clic su **OK**.
 
-Scegliere **Contenitore** dall'elenco dei **modelli di servizio**.
+Selezionare **Contenitore** dai modelli **Applicazioni e contenitori ospitati**.
 
 In **Nome immagine** immettere "microsoft/iis:nanoserver", l'[immagine di base di IIS e Nano Server per Windows Server](https://hub.docker.com/r/microsoft/iis/). 
 
 Assegnare al servizio il nome "MyContainerService" e fare clic su **OK**.
 
 ## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Configurare la comunicazione e il mapping tra porta del contenitore e porta dell'host
-Il servizio richiede un endpoint per la comunicazione.  È ora possibile aggiungere il protocollo, la porta e il tipo a un `Endpoint` nel file ServiceManifest.xml. Per questa guida introduttiva, il servizio in contenitori è in ascolto sulla porta 80: 
+Il servizio richiede un endpoint per la comunicazione.  Per questa guida introduttiva il servizio in contenitori è in ascolto sulla porta 80.  In Esplora soluzioni aprire *MyFirstContainer/ApplicationPackageRoot/MyContainerServicePkg/ServiceManifest.xml*.  Aggiornare l'elemento `Endpoint` esistente nel file ServiceManifest.xml e aggiungere il protocollo, la porta e lo schema URI: 
 
 ```xml
-<Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+<Resources>
+    <Endpoints>
+        <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
+   </Endpoints>
+</Resources>
 ```
 Se si specifica `UriScheme`, l'endpoint del contenitore viene registrato automaticamente con Service Fabric Naming Service per l'individuazione. Alla fine di questo articolo viene fornito un file di esempio completo di ServiceManifest.xml. 
 
-Configurare il mapping tra la porta del contenitore e la porta dell'host specificando i criteri `PortBinding` in `ContainerHostPolicies` nel file ApplicationManifest.xml.  Per questa guida introduttiva, `ContainerPort` è 80 ed `EndpointRef` è "MyContainerServiceTypeEndpoint" (l'endpoint definito nel manifesto del servizio).  Per le richieste in ingresso per il servizio sulla porta 80 viene eseguito il mapping alla porta 80 del contenitore.  
+Configurare il mapping dalla porta all'host del contenitore in modo che per le richieste in ingresso per il servizio sulla porta 80 venga eseguito il mapping alla porta 80 del contenitore.  In Esplora soluzioni aprire *MyFirstContainer/ApplicationPackageRoot/ApplicationManifest.xml* e specificare i criteri `PortBinding` in `ContainerHostPolicies`.  Per questa guida introduttiva, `ContainerPort` è 80 ed `EndpointRef` è "MyContainerServiceTypeEndpoint" (l'endpoint definito nel manifesto del servizio).    
 
 ```xml
 <ServiceManifestImport>
@@ -79,9 +83,7 @@ Configurare il mapping tra la porta del contenitore e la porta dell'host specifi
 Alla fine di questo articolo viene fornito un file di esempio completo di ApplicationManifest.xml.
 
 ## <a name="create-a-cluster"></a>Creare un cluster
-Per distribuire l'applicazione in un cluster in Azure, è possibile aggiungere un party cluster oppure [creare un proprio cluster in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
-
-I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Il cluster usa un solo certificato autofirmato per la sicurezza da nodo a nodo e da client a nodo. 
+Per distribuire l'applicazione in un cluster in Azure, è possibile aggiungere un party cluster. I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Il cluster usa un solo certificato autofirmato per la sicurezza da nodo a nodo e da client a nodo. 
 
 Eseguire l'accesso e [aggiungere un cluster Windows](http://aka.ms/tryservicefabric). Scaricare il certificato PFX nel computer facendo clic sul collegamento **PFX**. Il certificato e il valore di **Endpoint connessione** vengono usati nei passaggi seguenti.
 
@@ -108,7 +110,7 @@ Ora che l'applicazione è pronta, è possibile distribuirla in un cluster dirett
 
 Fare clic con il pulsante destro del mouse su **MyFirstContainer** in Esplora soluzioni e scegliere **Pubblica**. Verrà visualizzata la finestra di dialogo Pubblica.
 
-Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione**. Ad esempio, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Fare clic su **Parametri di connessione avanzati** e specificare le informazioni seguenti.  I valori di *FindValue* e *ServerCertThumbprint* devono corrispondere all'identificazione personale del certificato installato nel passaggio precedente. 
+Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione**. Ad esempio, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Fare clic su **Parametri di connessione avanzati** e verificare le informazioni sui parametri di connessione.  I valori di *FindValue* e *ServerCertThumbprint* devono corrispondere all'identificazione personale del certificato installato nel passaggio precedente. 
 
 ![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -187,7 +189,6 @@ Di seguito sono riportati i manifesti completi del servizio e dell'applicazione 
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
-
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

@@ -1,6 +1,6 @@
 ---
 title: Creare un pacchetto e distribuire un'applicazione contenitore di Service Fabric | Microsoft Docs
-description: Informazioni su come generare una definizione di applicazione di Azure Service Fabric usando Yeoman e creare il pacchetto dell'applicazione.
+description: "In questa esercitazione si apprenderà come generare una definizione di applicazione di Azure Service Fabric usando Yeoman e creare il pacchetto dell'applicazione."
 services: service-fabric
 documentationcenter: 
 author: suhuruli
@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: eb838903802de5a04084a60924fc52d988180c11
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric
 
 Questa è la seconda di una serie di esercitazioni. In questa esercitazione viene usato uno strumento generatore di modelli (Yeoman) per generare una definizione di applicazione di Service Fabric. Questa applicazione può quindi essere usata per distribuire i contenitori in Service Fabric. In questa esercitazione si apprenderà come: 
 

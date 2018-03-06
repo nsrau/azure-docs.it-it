@@ -1,25 +1,25 @@
 ---
-title: Guida introduttiva di Azure - Trasferire oggetti da e verso Archiviazione BLOB di Azure con Node.js | Microsoft Docs
-description: Apprendere rapidamente a trasferire oggetti da e verso Archiviazione BLOB di Azure con Node.js
+title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Node.js | Microsoft Docs'
+description: In questa guida introduttiva viene creato un account di archiviazione e un contenitore. Si usa quindi la libreria client di archiviazione per Node.js per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: 07845d0e1917c00dbd6098ef2bfbd9dcbbf2f97b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 02/22/2018
+ms.author: cshoe
+ms.openlocfilehash: ad0d4a2242aef99e0307f732175e0c50010580ce
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con Node.js
+# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Node.js
 
-Questa guida introduttiva mostra come usare Node.js per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
+Questa guida introduttiva spiega come usare Node.js per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 

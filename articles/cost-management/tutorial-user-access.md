@@ -1,22 +1,22 @@
 ---
-title: Assegnare un accesso in Gestione dei costi di Azure | Microsoft Docs
-description: "Assegnare un accesso ai dati di Gestione dei costi con account utente che definiscono i livelli di accesso alle entità."
+title: 'Esercitazione: Assegnare un accesso in Gestione costi di Azure | Microsoft Docs'
+description: "In questa esercitazione si apprenderà come assegnare un accesso ai dati di gestione costi con account utente che definiscono i livelli di accesso alle entità."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 89639e6d9c06edf110dc8432fbefe1fbfd1298c9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="assign-access-to-cost-management-data"></a>Assegnare l'accesso ai dati di Gestione dei costi
+# <a name="tutorial-assign-access-to-cost-management-data"></a>Esercitazione: Assegnare l'accesso ai dati di gestione costi
 
 L'accesso ai dati di Gestione dei costi è fornito per utente o gestione di entità. Gli account utente Cloudyn determinano l'accesso a *entità* e le funzioni amministrative. Esistono due tipi di accesso: amministratore e utente. A meno che non sia modificato per ogni utente, l'accesso amministrativo consente all'utente di usare senza restrizioni tutte le funzioni del portale Cloudyn, tra cui: gestione degli utenti, la gestione degli elenchi di destinatari e accesso all'entità radice per tutti i dati di entità. L'accesso utente consente agli utenti finali di visualizzare e creare report usando l'accesso di cui dispongono ai dati di entità.
 
@@ -29,7 +29,12 @@ Al momento della registrazione dell'account o del contratto di Azure, in Cloudyn
 > * Creare un utente con accesso utente
 > * Creare entità
 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
+## <a name="prerequisites"></a>prerequisiti
+
+- È necessario disporre di un account Azure.
+- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
 
 ## <a name="create-a-user-with-admin-access"></a>Creare un utente con accesso amministrativo
 
@@ -83,7 +88,7 @@ Questa esercitazione illustra come:
 > * Creare un utente con accesso utente
 > * Creare entità
 
-Passare alla prossima esercitazione per imparare come prevedere la spesa usando i dati cronologici.
+Se non è già stato abilitato l'accesso all'API di Azure Resource Manager per gli account, vedere l'articolo seguente.
 
 > [!div class="nextstepaction"]
-> [Prevedere la spesa futura](tutorial-forecast-spending.md)
+> [Attivare sottoscrizioni e account di Azure](activate-subs-accounts.md)
