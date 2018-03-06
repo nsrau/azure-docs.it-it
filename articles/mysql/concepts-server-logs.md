@@ -1,19 +1,19 @@
 ---
-title: Log del server per il Database di Azure per MySQL | Microsoft Docs
+title: Log del server per Database di Azure per MySQL
 description: Descrive i log disponibili nel Database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 13b30df82c1a6c4c45a621a1f7a40148a55a7648
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.date: 02/28/2018
+ms.openlocfilehash: ce6b6208b74063ea5d6e9868ca414f833b1a2045
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Log del server nel Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi. 

@@ -1,19 +1,19 @@
 ---
-title: Configurare e accedere ai log del server per PostgreSQL nel portale di Azure | Microsoft Docs
+title: Configurare e accedere ai log del server per PostgreSQL nel portale di Azure
 description: L'articolo descrive come configurare e accedere ai log del server in Database di Azure per PostgreSQL dal portale di Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.date: 02/28/2018
+ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 
@@ -36,19 +36,13 @@ Configurare l'accesso per i log di query e i log degli errori.
 
 4. Selezionare l'intestazione **Fare clic qui per abilitare i log e configurare i parametri dei log** per visualizzare i parametri del server.
 
-5. Selezionare **Mostra più** per visualizzare un elenco esteso dei parametri disponibili. 
-
-   Per altre informazioni sulle definizioni di parametri, vedere la documentazione PostgreSQL in merito a [Error Reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) (Creazione di report e registrazione di errori).
-
-   ![Elenco breve di parametri di log. Fare clic su Mostra più per un elenco più lungo](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Modificare i parametri che è necessario rettificare. Tutte le modifiche apportate in questa sessione vengono evidenziate in viola.
+5. Modificare i parametri che è necessario rettificare. Tutte le modifiche apportate in questa sessione vengono evidenziate in viola.
 
    Dopo avere modificato i parametri, è possibile fare clic su **Salva**. In alternativa è possibile **annullare** le modifiche. 
 
    ![Elenco di parametri lungo con le modifiche da salvare o annullare](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Tornare all'elenco di log facendo clic sul **pulsante di chiusura** (icona X) nella pagina **Parametri del server**.
+6. Tornare all'elenco di log facendo clic sul **pulsante di chiusura** (icona X) nella pagina **Parametri del server**.
 
 ## <a name="view-list-and-download-logs"></a>Visualizzare l'elenco e scaricare i log
 Quando inizia la registrazione, è possibile visualizzare un elenco di log disponibili e scaricare i singoli file di log nel riquadro Log del server. 

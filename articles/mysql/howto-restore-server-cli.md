@@ -1,20 +1,20 @@
 ---
-title: Come eseguire il backup e ripristinare un server nel Database di Azure per MySQL | Microsoft Docs
+title: Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL
 description: Informazioni su come eseguire la procedura di backup e ripristino di un server in Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.date: 02/28/2018
+ms.openlocfilehash: b954e26c9ecb1767b971117fc9102e8573beaaac
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure
 
@@ -32,7 +32,7 @@ Per completare questa guida, è necessario:
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
 Quando si usa Database di Azure per MySQL, il servizio di database esegue automaticamente il backup del servizio ogni 5 minuti. 
 
-Per il livello di base, il servizio di backup è disponibile per 7 giorni. Per il livello standard, il servizio di backup è disponibile per 35 giorni. Per altre informazioni, vedere [Piano tariffario di Database di Azure per MySQL](concepts-service-tiers.md).
+Per il livello di base, il servizio di backup è disponibile per 7 giorni. Per il livello standard, il servizio di backup è disponibile per 35 giorni. Per altre informazioni, vedere [Piano tariffario di Database di Azure per MySQL](concepts-pricing-tiers.md).
 
 Con questa funzionalità di backup automatico è possibile ripristinare il server e i suoi database a una data precedente o a un precedente punto nel tempo.
 
@@ -46,16 +46,16 @@ Per ripristinare il server, usare il comando [az mysql server restore](/cli/azur
 Per ripristinare il server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
 
 ```azurecli-interactive
-az mysql server restore --resource-group myResourceGroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server myserver4demo
+az mysql server restore --resource-group myresourcegroup --name myserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mydemoserver
 ```
 
 Il comando `az mysql server restore` richiede i parametri seguenti:
 | Impostazione | Valore consigliato | DESCRIZIONE  |
 | --- | --- | --- |
-| resource-group | myResourceGroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| resource-group | myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | myserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2017-04-13T13:59:00Z`. |
-| source-server | myserver4demo | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
+| source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
 
 Quando si ripristina un server a un punto precedente nel tempo, viene creato un nuovo server. Il server originale e i database dal punto nel punto specificato vengono copiati nel nuovo server.
 

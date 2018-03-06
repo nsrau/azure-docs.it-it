@@ -1,19 +1,19 @@
 ---
-title: Usare estensioni di PostgreSQL nel database di Azure per PostgreSQL | Microsoft Docs
+title: Usare le estensioni di PostgreSQL in Database di Azure per PostgreSQL
 description: "Descrive la capacità di estendere le funzionalità del database usando le estensioni nel database di Azure per PostgreSQL."
 services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/28/2017
-ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.date: 02/28/2018
+ms.openlocfilehash: 0b4150fcd7d32c823173c3e2676e226634346a2b
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Estensioni di PostgreSQL in Database di Azure per PostgreSQL
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni consentono di creare bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo averle caricate nel database, le estensioni possono operare come funzionalità predefinite. Per altre informazioni sulle estensioni di PostgreSQL, vedere [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html) (Creare un pacchetto di oggetti correlati formando un'estensione).
