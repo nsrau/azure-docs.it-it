@@ -1,19 +1,19 @@
 ---
-title: Configurare e accedere ai log del server per il Database di Azure per MySQL nel Portale di Azure | Microsoft Docs
+title: Configurare e accedere ai log del server per Database di Azure per MySQL nel portale di Azure
 description: Questo articolo descrive come configurare e accedere ai log del server nel Database di Azure per MySQL dal Portale di Azure.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/19/2017
-ms.openlocfilehash: 89674c133b458c16fbdacd771be24830624dde7c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 02/28/2018
+ms.openlocfilehash: b68d92688b18e69f74c0e0a9b2e572795a288579
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 
@@ -35,19 +35,13 @@ Configurare l'accesso al log di query lente MySQL.
 
 4. Selezionare l'intestazione **Fare clic qui per abilitare i log e configurare i parametri dei log** per visualizzare i parametri del server.
 
-5. Selezionare **Mostra più** per visualizzare un elenco esteso dei parametri disponibili. 
-
-   Per altre informazioni sulle definizioni di parametri, vedere la documentazione MySQL sui [log](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
-
-   ![Fare clic su mostra più per un elenco più lungo](./media/howto-configure-server-logs-in-portal/2-show-more.png)
-
-6. Modificare i parametri che è necessario adattare. Tutte le modifiche apportate in questa sessione vengono evidenziate in viola. 
+5. Modificare i parametri che è necessario rettificare. Tutte le modifiche apportate in questa sessione vengono evidenziate in viola. 
 
    Dopo avere modificato i parametri, è possibile fare clic su **Salva**. In alternativa è possibile **annullare** le modifiche.
 
    ![Fare clic su Salva o Annulla](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-7. Tornare all'elenco di log facendo clic sul **pulsante di chiusura** (icona X) nella pagina **Parametri del server**.
+6. Tornare all'elenco di log facendo clic sul **pulsante di chiusura** (icona X) nella pagina **Parametri del server**.
 
 ## <a name="view-list-and-download-logs"></a>Visualizzare l'elenco e scaricare i log
 Quando inizia la registrazione, è possibile visualizzare un elenco di log disponibili e scaricare i singoli file di log nel riquadro Log del server. 

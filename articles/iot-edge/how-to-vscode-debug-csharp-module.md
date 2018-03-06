@@ -9,16 +9,16 @@ ms.author: xshi
 ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 46d9ca0bf6c9ddf95c147fc2eb62d275c973845e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Usare Visual Studio Code per eseguire il debug di un modulo C# con Azure IoT Edge
 Questo articolo fornisce istruzioni dettagliate per l'uso di [Visual Studio Code](https://code.visualstudio.com/) come strumento di sviluppo principale per eseguire il debug dei moduli Azure IoT Edge.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questa esercitazione presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
 
 Completare l'esercitazione seguente prima di procedere con queste istruzioni:
@@ -47,7 +47,7 @@ Dopo aver completato l'esercitazione precedente, è necessario avere a disposizi
 
 2. In `launch.json` passare alla sezione **Debug IoT Edge Custom Module (.NET Core)** (Debug del modulo personalizzato IoT Edge - .NET Core). In **pipeArgs** compilare il campo `<container_name>`. In questa esercitazione, specificare `filtermodule`.
 
-    ![Screenshot della finestra di debug di Visual Studio Code](./media/how-to-debug-csharp-module/f5-debug-option.png)
+    ![Screenshot del file launch.json di Visual Studio Code](./media/how-to-debug-csharp-module/add-container-name.png)
 
 3. Passare a **Program.cs**. Aggiungere un punto di interruzione in `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
 4. Premere di nuovo **F5** e selezionare il processo a cui collegarsi. In questa esercitazione, il nome del processo deve essere `FilterModule.dll`.

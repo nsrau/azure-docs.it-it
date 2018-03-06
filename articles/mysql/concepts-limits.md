@@ -1,43 +1,49 @@
 ---
-title: Limiti del Database di Azure per MySQL | Microsoft Docs
-description: Descrive i limiti dell'anteprima del Database di Azure per MySQL.
+title: Limiti di Database di Azure per MySQL
+description: Questo articolo descrive i limiti di Database di Azure per MySQL, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
 services: mysql
-author: jasonh
-ms.author: kamathsun
-manager: jhubbard
+author: kamathsun
+ms.author: sukamat
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 01/11/2018
-ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 02/28/2018
+ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Il servizio Database di Azure per MySQL è in anteprima pubblica. Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
 ## <a name="service-tier-maximums"></a>Valori massimi del livello di servizio
-Database di Azure per MySQL offre più livelli di servizio tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni vedere [Opzioni e prestazioni disponibili in ogni livello di servizio](concepts-service-tiers.md).  
+Database di Azure per MySQL offre più livelli di servizio tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni, vedere [Piano tariffario di Database di Azure per MySQL](concepts-pricing-tiers.md).  
 
 Esiste una quantità massima di connessioni, unità di calcolo e spazio di archiviazione in ogni livello di servizio durante l'anteprima del servizio, come indicato di seguito: 
 
-|                            |                   |
-| :------------------------- | :---------------- |
-| **Numero massimo di connessioni**        |                   |
-| Base con 50 unità di calcolo     | 50 connessioni    |
-| Base con 100 unità di calcolo    | 100 connessioni   |
-| Standard con 100 unità di calcolo | 200 connessioni   |
-| Standard con 200 unità di calcolo | 400 connessioni   |
-| Standard con 400 unità di calcolo | 800 connessioni   |
-| Standard con 800 unità di calcolo | 1600 connessioni  |
-| **Unità di calcolo massime**      |                   |
-| Livello di servizio Basic         | 100 unità di calcolo |
-| Livello di servizio Standard      | 800 unità di calcolo |
-| **Spazio di archiviazione massimo**            |                   |
-| Livello di servizio Basic         | 1 TB              |
-| Livello di servizio Standard      | 1 TB              |
+|**Piano tariffario**| **Generazione di calcolo**|**vCore**| **Numero massimo di connessioni**|
+|---|---|---|---|
+|Basic| Generazione 4| 1| 50|
+|Basic| Generazione 4| 2| 100|
+|Basic| Generazione 5| 1| 50|
+|Basic| Generazione 5| 2| 100|
+|Utilizzo generico| Generazione 4| 2| 200|
+|Utilizzo generico| Generazione 4| 4| 400|
+|Utilizzo generico| Generazione 4| 8| 800|
+|Utilizzo generico| Generazione 4| 16| 1600|
+|Utilizzo generico| Generazione 4| 32| 3200|
+|Utilizzo generico| Generazione 5| 2| 200|
+|Utilizzo generico| Generazione 5| 4| 400|
+|Utilizzo generico| Generazione 5| 8| 800|
+|Utilizzo generico| Generazione 5| 16| 1600|
+|Utilizzo generico| Generazione 5| 32| 3200|
+|Con ottimizzazione per la memoria| Generazione 5| 2| 600|
+|Con ottimizzazione per la memoria| Generazione 5| 4| 1250|
+|Con ottimizzazione per la memoria| Generazione 5| 8| 2500|
+|Con ottimizzazione per la memoria| Generazione 5| 16| 5000|
+|Con ottimizzazione per la memoria| Generazione 5| 32| 10000| 
 
 Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
 > ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
@@ -57,7 +63,7 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 ## <a name="privilege-support"></a>Supporto dei privilegi
 
 ### <a name="unsupported"></a>Non supportato
-- Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto ai clienti. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente ai clienti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita. 
+- Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita. 
 - Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) presentano limitazioni.
 
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
@@ -71,8 +77,7 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 ## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima
 
 ### <a name="scale-operations"></a>Operazioni di scalabilità
-- La scalabilità dinamica dei server tra i livelli di servizio non è attualmente supportata, vale a dire il passaggio tra i livelli di servizio Base e Standard.
-- L'aumento dinamico su richiesta dell'archiviazione sul server creato in precedenza non è attualmente supportato.
+- Non è attualmente supportata la scalabilità dinamica dei server tra i piani tariffari, ovvero il passaggio tra i piani Basic, Utilizzo generico e Con ottimizzazione per la memoria.
 - La riduzione delle dimensioni di archiviazione del server non è supportato.
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
@@ -91,5 +96,5 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 - Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta dell'istanza del server, digitare il comando select version(); al prompt di MySQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Opzioni e prestazioni disponibili in ogni livello di servizio](concepts-service-tiers.md)
+- [Opzioni e prestazioni disponibili in ogni livello di servizio](concepts-pricing-tiers.md)
 - [Versioni supportate del database MySQL](concepts-supported-versions.md)

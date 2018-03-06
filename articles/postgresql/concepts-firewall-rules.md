@@ -1,19 +1,19 @@
 ---
-title: Regole firewall per Database di Azure per il server PostgreSQL | Microsoft Docs
-description: Descrive le regole firewall per il Database di Azure per il server PostgreSQL.
+title: Regole firewall per Database di Azure per PostgreSQL
+description: Questo articolo descrive le regole firewall per il database di Azure per il server PostgreSQL.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 2/12/2018
-ms.openlocfilehash: 253cf9a47f04cf551ce8abee216477dedb54a53b
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.date: 02/28/2018
+ms.openlocfilehash: 8a3f5d9fa8f1c36d8468c38f7dda803d3ca1d832
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Regole firewall per Database di Azure per PostgreSQL
 Il firewall del Database di Azure per il server PostgreSQL impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
