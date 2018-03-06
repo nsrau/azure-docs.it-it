@@ -1,27 +1,21 @@
 ---
-title: Guida rapida di Azure - Trasferire oggetti da e verso Archiviazione BLOB di Azure con PowerShell | Microsoft Docs
-description: Apprendere rapidamente a trasferire oggetti da e verso Archiviazione BLOB di Azure con PowerShell
+title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Azure PowerShell | Microsoft Docs'
+description: In questa guida introduttiva si usa Azure PowerShell per creare un account di archiviazione e un contenitore. Si usa quindi PowerShell per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-documentationcenter: storage
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 1ffed1eea8d159ccd05331d741624d8bc9e84b50
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Trasferire oggetti da e verso la risorsa di archiviazione BLOB di Azure usando Azure PowerShell
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questa guida descrive l'uso di PowerShell per trasferire file tra dischi locali e l'archiviazione BLOB di Azure.
 

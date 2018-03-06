@@ -1,39 +1,39 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Creare un database di Azure per MySQL | Microsoft Docs
+title: Script dell'interfaccia della riga di comando di Azure - Creare un'istanza di Database di Azure per MySQL
 description: Questo script dell'interfaccia della riga di comando di Azure di esempio crea un singolo database di Azure per il server MySQL e configura una regola di firewall a livello di server.
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: ajlam
+ms.author: andrela
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 11/02/2017
-ms.openlocfilehash: ee0d7e1d060492cabc78eeff098057bf9c09c6d1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.date: 02/28/2018
+ms.openlocfilehash: 217b3d1ba8d9bc1f287327eb376a789dbfb4ee27
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Creare un server MySQL e configurare una regola di firewall tramite l'interfaccia della riga di comando di Azure
 Questo script dell'interfaccia della riga di comando di Azure di esempio crea un singolo database di Azure per il server MySQL e configura una regola di firewall a livello di server. Una volta che lo script è stato eseguito correttamente, il server MySQL è accessibile da tutti i servizi di Azure e dall'indirizzo IP configurato.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di eseguire l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Controllare la versione eseguendo `az --version`. Per installare l'interfaccia della riga di comando di Azure o aggiornarne la versione, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
-In questo script di esempio modificare le righe evidenziate per personalizzare il nome utente e la password dell'amministratore.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
+In questo script di esempio modificare le righe evidenziate per aggiornare il nome utente e la password amministratore con i propri valori.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=18-19 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
-Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
+Dopo l'esecuzione dello script, usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/delete-mysql.sh "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
-Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi illustrati nella tabella seguente:
 
 | **Comando** | **Note** |
 |---|---|

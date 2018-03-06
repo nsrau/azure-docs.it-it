@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e0d5bd57a40fca837ead42e691e1fa0c802dc013
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
 
@@ -30,10 +30,11 @@ Nelle esercitazioni successive, l'applicazione Azure Vote viene distribuita nel 
 
 Nelle esercitazioni precedenti, un'immagine del contenitore è stata creata e caricata in un'istanza di Registro contenitori di Azure. Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images][aks-tutorial-prepare-app] (Esercitazione 1: Creare immagini del contenitore).
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Abilitazione dell'anteprima AKS per la sottoscrizione di Azure
+## <a name="enable-aks-preview"></a>Abilitare l'anteprima del servizio contenitore di Azure
+
 Mentre AKS è disponibile in anteprima, per creare nuovi cluster è necessario un flag funzionalità per la sottoscrizione. È possibile richiedere questa funzionalità per tutte le sottoscrizioni da usare. Usare il comando `az provider register` per registrare il provider AKS:
 
-```azurecli-interactive
+```azurecli
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -48,6 +49,59 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio contenitore di Azure.
+
+```azurecli
+{
+  "additionalProperties": {},
+  "agentPoolProfiles": [
+    {
+      "additionalProperties": {},
+      "count": 1,
+      "dnsPrefix": null,
+      "fqdn": null,
+      "name": "nodepool1",
+      "osDiskSizeGb": null,
+      "osType": "Linux",
+      "ports": null,
+      "storageProfile": "ManagedDisks",
+      "vmSize": "Standard_DS1_v2",
+      "vnetSubnetId": null
+    }
+    ...
+```
+
+## <a name="getting-information-about-your-cluster"></a>Ottenimento di informazioni sul cluster
+
+Dopo aver distribuito il cluster è possibile usare `az aks show` per eseguire query sul cluster e recuperare informazioni importanti. Questi dati possono essere usati come parametro quando si eseguono operazioni più complesse nel cluster. Se ad esempio si vogliono ottenere informazioni sul profilo Linux in esecuzione nel cluster, è possibile eseguire questo comando,
+
+```azurecli
+az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
+
+{
+  "additionalProperties": {},
+  "adminUsername": "azureuser",
+  "ssh": {
+    "additionalProperties": {},
+    "publicKeys": [
+      {
+        "additionalProperties": {},
+        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
+      }
+    ]
+  }
+}
+```
+
+che visualizzerà informazioni sull'utente amministratore e le chiavi pubbliche SSH. È anche possibile eseguire query più dettagliate aggiungendo proprietà JSON alla stringa di query, come illustrato di seguito.
+
+```azurecli
+az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
+{
+  "name": "nodepool1",
+  "nodeCount": 1
+}
+```
+Ciò può essere utile per accedere rapidamente ai dati sul cluster distribuito. Altre informazioni sulle query JMESPath sono disponibili [qui](http://jmespath.org/tutorial.html).
 
 ## <a name="install-the-kubectl-cli"></a>Installare l'interfaccia della riga di comando di kubectl
 
@@ -77,10 +131,32 @@ Output:
 
 ```
 NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.7
+k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
 ```
 
 Al termine dell'esercitazione, sarà disponibile un cluster del servizio contenitore di Azure pronto per i carichi di lavoro. Nelle esercitazioni successive, in questo cluster viene distribuita un'applicazione multi-contenitore, quindi viene scalata orizzontalmente, aggiornata e monitorata.
+
+## <a name="configure-acr-authentication"></a>Configurare l'autenticazione del record di controllo di accesso
+
+È necessario configurare l'autenticazione tra il servizio contenitore di Azure e il registro dei record di controllo di accesso. Per questa operazione è necessario concedere all'identità del servizio di controllo di accesso i diritti appropriati per eseguire il pull di immagini dal registro dei record di controllo di accesso.
+
+Ottenere prima l'ID dell'entità servizio configurata per il servizio contenitore di Azure. Aggiornare il nome del gruppo di risorse e il nome del cluster del servizio contenitore di Azure affinché corrispondano al proprio ambiente.
+
+```azurecli
+$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+```
+
+Ottenere l'ID risorsa del registro dei record di controllo di accesso. Modificare il nome del registro con quello del registro dei record di controllo di accesso e il gruppo di risorse con il gruppo di risorse in cui si trova il registro.
+
+```azurecli
+$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+```
+
+Creare l'assegnazione di ruolo che concede l'accesso appropriato.
+
+```azurecli
+az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

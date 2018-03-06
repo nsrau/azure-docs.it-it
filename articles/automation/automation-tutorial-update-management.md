@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gestire gli aggiornamenti di Windows con Automazione di Azure
 
@@ -65,12 +65,9 @@ Per eseguire altre azioni nelle macchine virtuali che richiedono gli aggiornamen
 Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido per runbook di Automazione.
 L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sullo stato dell'aggiornamento.
 
-Se non vengono soddisfatti questi prerequisiti, viene visualizzato un banner che offre l'opzione per abilitare la soluzione.
+Scegliere l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
-![Banner di configurazione di caricamento di Gestione aggiornamenti](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
-
-Per abilitare la soluzione, fare clic sul banner.
-Se risultano mancanti dopo la convalida, i prerequisiti seguenti vengono aggiunti automaticamente:
+Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggiunti automaticamente:
 
 * Area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * [Automazione](./automation-offering-get-started.md)

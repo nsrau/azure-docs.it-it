@@ -106,7 +106,7 @@ Il valore di configurazione proxy ha la sintassi seguente:
 Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Se si usano caratteri speciali, ad esempio "@" nella password, viene visualizzato un errore di connessione proxy perché il valore viene analizzato in modo non corretto.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  
+> Se si usano caratteri speciali, ad esempio \"\@\" nella password, viene visualizzato un errore di connessione proxy perché il valore viene analizzato in modo non corretto.  Per aggirare il problema, codificare la password nell'URL usando uno strumento come [URLDecode](https://www.urldecoder.org/).  
 
 ## <a name="install-and-configure-agent"></a>Installare e configurare l'agente 
 Per connettere i computer locali direttamente con Log Analytics, è possibile usare metodi diversi a seconda dei requisiti. Nella tabella seguente illustra ogni metodo per determinare quello più adatto alla propria organizzazione.

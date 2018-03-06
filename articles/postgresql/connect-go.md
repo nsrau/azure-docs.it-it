@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Database di Azure per PostgreSQL usando il linguaggio Go | Microsoft Docs
+title: Connettersi a Database di Azure per PostgreSQL con il linguaggio Go
 description: "Questa guida introduttiva fornisce un esempio di linguaggio di programmazione Go che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL."
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 11/03/2017
-ms.openlocfilehash: 8b52aeaadf7ba94d6b79ef447600cd7b57e70dfa
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 305a9ad066ad504b7564945d8ccce1be19a4135a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare il linguaggio Go per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando il codice scritto nel linguaggio [Go](https://golang.org/) (golang). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Go, ma non con Database di Azure per PostgreSQL.
@@ -81,11 +81,10 @@ Installare [Go](https://golang.org/doc/install) e il [driver Pure Go per Postgre
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **mypgserver-20170401**.
-3. Fare clic sul nome del server **mypgserver-20170401**.
-4. Selezionare la pagina **Panoramica** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
- ![Database di Azure per PostgreSQL - Accesso dell'amministratore del server](./media/connect-go/1-connection-string.png)
-5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** e visualizzare il nome di accesso dell'amministratore del server. Se necessario, reimpostare la password.
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+3. Fare clic sul nome del server.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+ ![Nome del server Database di Azure per PostgreSQL](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>Compilare ed eseguire il codice Go 
 1. Per scrivere codice Golang, è possibile usare un editor di testo normale, ad esempio Blocco note di Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) o [Nano](https://www.nano-editor.org/) in Ubuntu oppure TextEdit in macOS. Se si preferisce un ambiente IDE (Interactive Development Environment) avanzato, provare [Gogland](https://www.jetbrains.com/go/) di Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) di Microsoft o [Atom](https://atom.io/).
@@ -115,9 +114,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -181,9 +180,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -247,9 +246,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 
@@ -300,9 +299,9 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mypgserver-20170401.postgres.database.azure.com"
+    HOST     = "mydemoserver.postgres.database.azure.com"
     DATABASE = "mypgsqldb"
-    USER     = "mylogin@mypgserver-20170401"
+    USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
 )
 

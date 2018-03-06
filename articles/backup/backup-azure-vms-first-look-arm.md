@@ -16,11 +16,11 @@ ms.topic: hero-article
 ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b91da3e3c99cec3a63d747062d4ae9f62720a872
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fdaf1349ddf623e2634360e891d959105c504093
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
 
@@ -239,7 +239,7 @@ Prima di registrare una macchina virtuale in un insieme di credenziali, eseguire
 
     ![Selezionare il carico di lavoro](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    Viene convalidata la macchina virtuale selezionata. Se le macchine virtuali non sono visibili, controllare che esistano nello stesso percorso di Azure dell'insieme di credenziali di Servizi di ripristino. La posizione dell'insieme dei credenziali dei Servizi di ripristino viene visualizzata nel dashboard dell'insieme.
+    Viene convalidata la macchina virtuale selezionata. Se le macchine virtuali previste non sono visibili, verificare che si trovino nella stessa posizione di Azure dell'insieme di credenziali di Servizi di ripristino e che non siano già protette. La posizione dell'insieme dei credenziali dei Servizi di ripristino viene visualizzata nel dashboard dell'insieme.
 
 6. Dopo aver definito tutte le impostazioni per l'insieme di credenziali, nel pannello Backup fare clic su **Abilita backup** per distribuire il criterio nell'insieme di credenziali e nelle macchine virtuali. La distribuzione del criterio di backup non crea il punto di ripristino iniziale per la macchina virtuale.
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creare una funzione attivata da un webhook GitHub
 
@@ -80,8 +80,8 @@ Viene successivamente creato un webhook nel repository GitHub.
 | Impostazione | Valore consigliato | DESCRIZIONE |
 |---|---|---|
 | **Payload URL** (URL payload) | Valore copiato | Usare il valore restituito da **</> Get function URL** (Ottieni URL funzione). |
-| **Segreto**   | Valore copiato | Usare il valore restituito da **</> Get GitHub secret** (Ottieni segreto GitHub). |
 | **Tipo contenuto** | application/json | La funzione prevede un payload JSON. |
+| **Segreto**   | Valore copiato | Usare il valore restituito da **</> Get GitHub secret** (Ottieni segreto GitHub). |
 | Trigger di evento | Selezione di singoli eventi | Attivazione solo in caso di eventi di commento al problema.  |
 | | Commento al problema |  |
 
@@ -107,7 +107,7 @@ Il webhook ora è configurato per attivare la funzione quando un nuovo commento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata creata una funzione che viene eseguita quando viene ricevuta una richiesta da un webhook GitHub.
+È stata creata una funzione che viene attivata quando viene ricevuta una richiesta da un webhook GitHub.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

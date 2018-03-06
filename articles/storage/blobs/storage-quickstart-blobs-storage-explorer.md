@@ -1,27 +1,27 @@
 ---
-title: Guida rapida di Azure - Trasferire oggetti da e verso la risorsa di archiviazione BLOB con Azure Storage Explorer | Microsoft Docs
-description: Apprendere rapidamente a trasferire oggetti da e verso la risorsa di archiviazione BLOB di Azure usando Azure Storage Explorer
+title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Azure Storage Explorer | Microsoft Docs'
+description: In questa guida introduttiva si usa Azure Storage Explorer per creare un account di archiviazione e un contenitore. Si usa quindi Storage Explorer per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 5a91a39a340f20197e49a8045f0ee65c924469cb
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-storage-explorer"></a>Trasferire oggetti da e verso la risorsa di archiviazione BLOB di Azure usando Azure Storage Explorer
+# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un'interfaccia utente multipiattaforma usata per gestire i contenuti degli account di archiviazione. Questa guida descrive l'uso di Azure Storage Explorer per trasferire file tra un disco locale e l'archiviazione BLOB di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-La guida rapida richiede l'installazione di Azure Storage Explorer. Se è necessario installarlo, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricarlo per Windows, Macintosh o Linux.
+Questa guida introduttiva richiede l'installazione di Azure Storage Explorer. Se è necessario installarlo, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricarlo per Windows, Macintosh o Linux.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 

@@ -1,39 +1,39 @@
 ---
-title: 'Script dell''interfaccia della riga di comando di Azure: Ripristinare un server di Database di Azure per PostgreSQL'
-description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare un database di Azure per il server MySQL e i relativi database a un momento precedente.
+title: Script dell'interfaccia della riga di comando di Azure - Ripristinare un server Database di Azure per PostgreSQL
+description: Questo script di esempio dell'interfaccia della riga di comando di Azure mostra come ripristinare un server Database di Azure per PostgreSQL e i relativi database a un momento precedente.
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.openlocfilehash: 242dd836a629d3accd0c43a72b4549e93145168f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: c8b099e859e9ab418fd121a987920d037ed3f36d
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>Ripristinare un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 Questo script di esempio dell'interfaccia della riga di comando di Azure ripristina a un momento precedente un singolo server di Database di Azure per PostgreSQL.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo esempio è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di eseguire l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Controllare la versione eseguendo `az --version`. Per installare l'interfaccia della riga di comando di Azure o aggiornarne la versione, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
-In questo script di esempio modificare le righe evidenziate per personalizzare nome utente e password amministratore. Sostituire l'ID sottoscrizione usato nei comandi az monitor con il proprio ID sottoscrizione.
-[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/backup-restore/backup-restore.sh?highlight=15-16 "Restore Azure Database for PostgreSQL.")]
+In questo script di esempio modificare le righe evidenziate per aggiornare il nome utente e la password amministratore con i propri valori. Sostituire l'ID sottoscrizione usato nei comandi `az monitor` con il proprio ID sottoscrizione.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/backup-restore/backup-restore.sh?highlight=18-19 "Restore Azure Database for PostgreSQL.")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
-Dopo l'esecuzione dello script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse ad esso associate.
+Dopo l'esecuzione dello script, usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/backup-restore/delete-postgresql.sh  "Delete the resource group.")]
 
 ## <a name="script-explanation"></a>Spiegazione dello script
-Questo script usa i comandi seguenti. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi illustrati nella tabella seguente:
 
 | **Comando** | **Note** |
 |---|---|

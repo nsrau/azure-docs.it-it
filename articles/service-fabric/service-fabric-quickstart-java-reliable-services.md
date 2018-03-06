@@ -1,6 +1,6 @@
 ---
 title: Creare un'applicazione Java di Azure Service Fabric | Microsoft Docs
-description: Creare un'applicazione Java per Azure usando l'esempio disponibile nella guida introduttiva a Service Fabric.
+description: In questa guida introduttiva viene creata un'applicazione Java per Azure usando un'applicazione Reliable Services Service Fabric di esempio.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8f4d121ba76d63b70fa6976125457942a0e98aa9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0b284194abbbdd38524c0ae74ab7e05977d6883f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="create-a-java-application"></a>Creare un'applicazione Java
+# <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services di Service Fabric per Java in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
 
-In questa guida introduttiva viene illustrato come distribuire l'applicazione Java in Service Fabric tramite l'IDE Eclipse in un computer di sviluppo Linux. Al termine, sarà disponibile un'applicazione di voto con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
+Questa guida introduttiva spiega come distribuire l'applicazione Java in Service Fabric tramite l'IDE Eclipse in un computer di sviluppo Linux. Al termine, sarà disponibile un'applicazione di voto con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
 
 ![Screenshot dell'applicazione](./media/service-fabric-quickstart-java/votingapp.png)
 
-In questa guida introduttiva si apprende come:
+Questa guida introduttiva spiega come:
 
 > [!div class="checklist"]
 > * Usare Eclipse come strumento per le applicazioni Java di Service Fabric
@@ -36,7 +36,7 @@ In questa guida introduttiva si apprende come:
 > * Distribuire l'applicazione in un cluster in Azure
 > * Scalare orizzontalmente l'applicazione in più nodi
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida introduttiva:
 1. [Installare Service Fabric SDK e l'interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installare Git](https://git-scm.com/)

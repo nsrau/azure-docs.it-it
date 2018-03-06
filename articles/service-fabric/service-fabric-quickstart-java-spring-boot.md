@@ -1,6 +1,6 @@
 ---
 title: Distribuire un'applicazione Spring Boot in Azure Service Fabric | Microsoft Docs
-description: Distribuire un'applicazione Spring Boot in Azure Service Fabric usando Introduzione a Spring Boot.
+description: In questa guida introduttiva viene distribuita un'applicazione Spring Boot per Azure Service Fabric usando un'applicazione Spring Boot di esempio.
 services: service-fabric
 documentationcenter: java
 author: suhuruli
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8e57ed29560baeea6279a45e8769f4005c123b56
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab860b8525bcb77d3ab35d3f649532713c661b61
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-a-spring-boot-application"></a>Distribuire un'applicazione Spring Boot
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Guida introduttiva: Distribuire un'applicazione Spring Boot Java in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
 
 Questa guida introduttiva illustra come distribuire un'applicazione Spring Boot in Service Fabric usando il progetto di esempio [Introduzione](https://spring.io/guides/gs/spring-boot/) disponibile nel sito Web di Spring. Usando i comuni strumenti da riga di comando, questa guida introduttiva fornisce le istruzioni per distribuire l'applicazione Spring Boot di esempio come applicazione di Service Fabric. Al termine del processo, il progetto di esempio Introduzione a Spring Boot sarà in esecuzione in Service Fabric. 
 
 ![Screenshot dell'applicazione](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
-In questa guida introduttiva si apprende come:
+Questa guida introduttiva spiega come:
 
 > [!div class="checklist"]
 > * Distribuire un'applicazione Spring Boot in Service Fabric
@@ -37,7 +37,7 @@ In questa guida introduttiva si apprende come:
 > * Scalare orizzontalmente l'applicazione in più nodi
 > * Eseguire il failover del servizio senza compromettere la disponibilità
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida introduttiva:
 1. [Installare Service Fabric SDK e l'interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Installare Git](https://git-scm.com/)

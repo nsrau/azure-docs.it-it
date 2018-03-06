@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b946964c162f47a283c37c6eae7e7152e27b6033
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -36,10 +36,10 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-hyper-v-to-azure
 ## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 
 
-1. In **Tutti i servizi** > **Insiemi di credenziali dei servizi di ripristino** fare clic sul nome dell'insieme di credenziali preparato nell'esercitazione precedente, **ContosoVMVault**.
-2. In **Attività iniziali** fare clic su **Site Recovery**. Fare quindi clic su **Preparare l'infrastruttura**.
+1. In **Tutti i servizi** > **Insiemi di credenziali dei servizi di ripristino** selezionare l'insieme di credenziali **ContosoVMVault**, preparato nell'esercitazione precedente.
+2. In **Attività iniziali** fare clic su **Site Recovery** e quindi su **Preparare l'infrastruttura**.
 3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
-4. Per **In quale destinazione si vuole eseguire la replica dei computer?** selezionare **In Azure**.
+4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
 5. In **I computer sono virtualizzati?** selezionare **No**. Fare quindi clic su **OK**.
 
     ![Obiettivo di replica](./media/hyper-v-azure-tutorial/replication-goal.png)
@@ -49,7 +49,7 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-hyper-v-to-azure
 Per configurare l'ambiente di origine, aggiungere gli host Hyper-V a un sito Hyper-V, scaricare e installare il provider di Azure Site Recovery e l'agente di Servizi di ripristino di Azure, quindi registrare il sito Hyper-V nell'insieme di credenziali. 
 
 1. In **Preparare l'infrastruttura** fare clic su **Origine**.
-2. Fare clic su **+ Sito Hyper-V** e specificare il nome del sito creato nell'esercitazione precedente, **ContosoHyperVSite**.
+2. Fare clic su **+ Sito Hyper-V** e specificare il nome del sito **ContosoHyperVSite**, creato nell'esercitazione precedente.
 3. Fare clic su **+ Server Hyper-V**.
 4. Scaricare il file di installazione del provider.
 5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria durante la configurazione del provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
@@ -68,7 +68,7 @@ Eseguire il file di installazione del provider (AzureSiteRecoveryProvider.exe) i
 5. In **Impostazioni proxy** selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy**.
 6. Dopo avere registrato il server nell'insieme di credenziali, in **Registrazione** fare clic su **Fine**.
 
-I metadati del server Hyper-V vengono recuperati da Azure Site Recovery e il server viene visualizzato in **S Infrastruttura di Site Recovery** > **Host Hyper-V**. Questa operazione può richiedere fino a 30 minuti.
+I metadati del server Hyper-V vengono recuperati da Azure Site Recovery e il server viene visualizzato in **S Infrastruttura di Site Recovery** > **Host Hyper-V**. Il processo potrebbe richiedere fino a 30 minuti.
 
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
@@ -84,12 +84,15 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 
 ## <a name="set-up-a-replication-policy"></a>Configurare criteri di replica
 
+> [!NOTE]
+> Per i criteri di replica da Hyper-V ad Azure l'opzione relativa alla frequenza di copia ogni 15 minuti verrà ritirata a favore delle impostazioni della frequenza di copia ogni cinque e 30 minuti. I criteri di replica che usano una frequenza di copia pari a 15 minuti verranno aggiornati automaticamente in modo che usino l'impostazione della frequenza di copia ogni 5 minuti. Le opzioni relative alla frequenza di copia ogni cinque e 30 minuti garantiscono prestazioni di replica e obiettivi del punto di recupero migliori rispetto alla frequenza di copia ogni 15 minuti, con un impatto minimo sull'utilizzo della larghezza di banda e sul volume di trasferimento dei dati.
+
 1. Fare clic su **Preparare l'infrastruttura** > **Impostazioni della replica** > **+Crea e associa**.
-2. In **Criteri di creazione e associazione** specificare il nome dei criteri, ovvero **ContosoReplicationPolicy**.
-3. Lasciare l'impostazione predefinita e fare clic su **OK**.
-    - **Frequenza di copia** indica che i dati differenziali (dopo la replica iniziale) verranno replicati ogni 5 minuti.
-    - **Conservazione del punto di ripristino** indica un intervallo di conservazione di due ore per ogni punto di ripristino.
-    - **Frequenza snapshot coerenti con l'app** indica che verranno creati ogni ora punti di ripristino contenenti snapshot coerenti con l'app.
+2. In **Creare e associare i criteri** specificare il nome **ContosoReplicationPolicy**.
+3. Lasciare le impostazioni predefinite e fare clic su **OK**.
+    - **Frequenza di copia**: indica che i dati delta (dopo la replica iniziale) verranno replicati ogni 5 minuti.
+    - **Conservazione del punto di ripristino**: indica che i periodi di conservazione di ogni punto di ripristino avranno una durata di due ore.
+    - **Frequenza snapshot coerenti con l'app**: indica che i punti di ripristino contenenti snapshot coerenti con l'app verranno creati ogni ora.
     - **Ora di inizio della replica iniziale** indica che la replica iniziale verrà avviata immediatamente.
 4. Dopo aver creato i criteri, fare clic su **OK**. Quando si creano nuovi criteri, questi vengono associati automaticamente al sito Hyper-V specificato, ovvero **ContosoHyperVSite**.
 
@@ -102,10 +105,10 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 1. In **Eseguire la replica dell'applicazione** fare clic su **Origine**. 
 2. In **Origine** selezionare il sito **ContosoHyperVSite**. Fare quindi clic su **OK**.
 3. In **Destinazione**, verificare che sia impostato Azure come destinazione e controllare la sottoscrizione dell'insieme di credenziali e il modello di distribuzione **Resource Manager**.
-4. Selezionare l'account di archiviazione **contosovmsacct1910171607** creato nell'esercitazione precedente per i dati replicati e la rete **ContosoASRnet** in cui si troveranno le VM di Azure dopo il failover.
+4. Selezionare l'account di archiviazione **contosovmsacct1910171607** creato nell'esercitazione precedente per i dati replicati e la rete **ContosoASRnet** in cui si troveranno le macchine virtuali di Azure dopo il failover.
 5. In **Macchine virtuali** > **Seleziona** selezionare la macchina virtuale da replicare. Fare quindi clic su **OK**.
 
- È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo il completamento del processo **Finalizza protezione**, la replica iniziale è completata e la macchina virtuale è pronta per il failover.
+ È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Processi di Site Recovery**. Dopo il completamento del processo **Finalizza protezione**, la replica iniziale è completata e la macchina virtuale è pronta per il failover.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)

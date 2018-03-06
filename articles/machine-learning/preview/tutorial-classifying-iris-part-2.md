@@ -1,23 +1,23 @@
 ---
-title: Creare un modello per i servizi di Azure Machine Learning (anteprima) | Microsoft Docs
+title: Esercitazione sulla creazione di un modello per i servizi di Azure Machine Learning (anteprima) | Microsoft Docs
 description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. In questa seconda parte viene illustrata la sperimentazione.
 services: machine-learning
 author: hning86
-ms.author: haining
+ms.author: haining, j-martens
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/06/2017
-ms.openlocfilehash: 3337ba9fa6845deb98813259821f77ff713f9eb1
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 02/28/2018
+ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/27/2018
 ---
-# <a name="classify-iris-part-2-build-a-model"></a>Classificare i dati Iris - Parte 2: Creare un modello
+# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Esercitazione: Classificazione del set di dati - Parte 2: Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
 Questa esercitazione è la seconda di una serie in tre parti. In questa parte dell'esercitazione si usano i servizi di Azure Machine Learning (anteprima) per:
@@ -33,6 +33,8 @@ Questa esercitazione è la seconda di una serie in tre parti. In questa parte de
 > * Eseguire script in un ambiente HDInsight cloud di Azure.
 
 Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set). Gli screenshot sono specifici di Windows, ma l'esperienza in Mac OS è quasi identica.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="prerequisites"></a>prerequisiti
 Completare la prima parte di questa serie di esercitazioni. Prima di eseguire i passaggi in questa esercitazione, seguire l'[esercitazione sulla preparazione dei dati](tutorial-classifying-iris-part-1.md) per creare le risorse di Azure Machine Learning e installare l'applicazione Azure Machine Learning Workbench.
@@ -374,6 +376,10 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
    >Quando l'esecuzione avviene in un cluster HDInsight remoto, è anche possibile visualizzare i dettagli dell'esecuzione del processo YARN (Yet Another Resource Negotiator) in `https://<cluster_name>.azurehdinsight.net/yarnui` usando l'account utente `admin`.
 
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
 ## <a name="next-steps"></a>Passaggi successivi
 In questa seconda parte della serie di esercitazioni in tre parti si è appreso come usare i servizi di Azure Machine Learning per:
 > [!div class="checklist"]
@@ -389,4 +395,4 @@ In questa seconda parte della serie di esercitazioni in tre parti si è appreso 
 È ora possibile passare alla terza parte della serie. Ora che è stato creato il modello di regressione logistica, lo si distribuirà come servizio Web in tempo reale.
 
 > [!div class="nextstepaction"]
-> [Distribuire un modello](tutorial-classifying-iris-part-3.md)
+> [Esercitazione 3 - Classificazione del set di dati: Distribuire modelli](tutorial-classifying-iris-part-3.md)

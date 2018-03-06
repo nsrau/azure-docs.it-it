@@ -1,35 +1,29 @@
 ---
-title: Guida rapida di Azure - Trasferire oggetti da e verso la risorsa di archiviazione BLOB con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Apprendere rapidamente a trasferire oggetti da e verso la risorsa di archiviazione BLOB di Azure usando l'interfaccia della riga di comando di Azure
+title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con l''interfaccia della riga di comando di Azure | Microsoft Docs'
+description: In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un account di archiviazione e un contenitore. Si usa quindi l'interfaccia della riga di comando per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/19/2017
+ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 1bb55c75c9929d995fc3ac0795fd1777d7fe4c5f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Trasferire oggetti da e verso la risorsa di archiviazione BLOB con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per caricare e scaricare dati nella risorsa di archiviazione BLOB di Azure.
+L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. È possibile usarla nel browser con Azure Cloud Shell. È anche possibile installarla in macOS, Linux o Windows ed eseguirla dalla riga di comando. Questa guida introduttiva spiega come usare l'interfaccia della riga di comando di Azure per caricare e scaricare dati in Archiviazione BLOB di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per determinare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-cli](../../../includes/storage-quickstart-tutorial-intro-include-cli.md)]
 
@@ -109,7 +103,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse del gruppo risorse non sono più necessarie, incluso l'account di archiviazione creato in questa Guida rapida, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group#az_group_delete).
+Quando le risorse del gruppo risorse non sono più necessarie, incluso l'account di archiviazione creato in questa guida introduttiva, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -117,7 +111,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida rapida è stato descritto il trasferimento di file tra il disco locale e un contenitore nell'archiviazione BLOB di Azure. Per altre informazioni sull'uso dei BLOB in Archiviazione di Azure, continuare con l'esercitazione per l'uso dell'archiviazione BLOB di Azure.
+In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e un contenitore di Archiviazione BLOB di Azure. Per altre informazioni sull'uso dei BLOB in Archiviazione di Azure, continuare con l'esercitazione per l'uso dell'archiviazione BLOB di Azure.
 
 > [!div class="nextstepaction"]
 > [Procedura: Operazioni di archiviazione BLOB con l'interfaccia della riga di comando di Azure](storage-how-to-use-blobs-cli.md)

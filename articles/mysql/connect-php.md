@@ -1,20 +1,20 @@
 ---
-title: Connettersi al database di Azure per MySQL da PHP | Microsoft Docs
+title: Connettersi a Database di Azure per MySQL da PHP
 description: "Questa guida introduttiva fornisce diversi esempi di codice PHP che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL."
 services: mysql
 author: mswutao
 ms.author: wuta
-manager: jhubbard
+manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 5c4f718809a95831ec6927d4f7b206d76c87b224
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 02/28/2018
+ms.openlocfilehash: d20aaf8a4cabd4e013e7ff43010c0f463eaccb79
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Database di Azure per MySQL: usare PHP per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [PHP](http://php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per MySQL.
@@ -43,11 +43,10 @@ Installare PHP nel server o creare un'[app Web](../app-service/app-service-web-o
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel riquadro a sinistra fare clic su **Tutte le risorse** e cercare il server creato, ad esempio **myserver4demo**.
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Fare clic sul nome del server.
-4. Selezionare la pagina **Proprietà** del server e prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**.
- ![Nome del server del database di Azure per MySQL](./media/connect-php/1_server-properties-name-login.png)
-5. Se si dimenticano le informazioni di accesso per il server, passare alla pagina **Panoramica** per visualizzare il nome di accesso dell'amministratore del server e, se necessario, reimpostare la password.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+ ![Nome del server del database di Azure per MySQL](./media/connect-php/1_server-overview-name-login.png)
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
 Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**. 
@@ -58,8 +57,8 @@ Sostituire i parametri host, username, password e db_name con i valori personali
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -97,8 +96,8 @@ Sostituire i parametri host, username, password e db_name con i valori personali
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -132,8 +131,8 @@ Sostituire i parametri host, username, password e db_name con i valori personali
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -165,8 +164,8 @@ Sostituire i parametri host, username, password e db_name con i valori personali
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 
@@ -203,8 +202,8 @@ Sostituire i parametri host, username, password e db_name con i valori personali
 
 ```php
 <?php
-$host = 'myserver4demo.mysql.database.azure.com';
-$username = 'myadmin@myserver4demo';
+$host = 'mydemoserver.mysql.database.azure.com';
+$username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
 

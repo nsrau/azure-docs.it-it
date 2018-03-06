@@ -1,27 +1,34 @@
 ---
-title: Previsione della spesa in Gestione dei costi di Azure | Microsoft Docs
-description: Previsione della spesa mediante l'utilizzo cronologico e dati di spesa.
+title: 'Esercitazione: Prevedere la spesa in Gestione costi di Azure | Microsoft Docs'
+description: "In questa esercitazione si apprenderà come prevedere la spesa tramite dati cronologici di utilizzo e spesa."
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 03624efc419efe46aef472007b438442ce22eb9c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="forecast-future-spending"></a>Previsione della spesa futura
+# <a name="tutorial-forecast-future-spending"></a>Esercitazione: Prevedere la spesa futura
 
 Gestione dei costi di Azure di Cloudyn consente di prevedere la spesa futura tramite l'utilizzo cronologico e dati di spesa. Usare i report di Cloudyn per visualizzare tutti i dati di previsione dei costi. Gli esempi inclusi in questa esercitazione descrivono come esaminare le previsioni dei costi usando i report. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Prevedere la spesa futura
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+## <a name="prerequisites"></a>prerequisiti
+
+- È necessario disporre di un account Azure.
+- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
 
 ## <a name="forecast-future-spending"></a>Prevedere la spesa futura
 

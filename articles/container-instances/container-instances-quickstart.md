@@ -1,22 +1,22 @@
 ---
-title: Avvio rapido - Creare il primo contenitore di 	Istanze di contenitore di Azure
+title: 'Guida introduttiva: Creare il primo contenitore di Istanze di contenitore di Azure'
 description: Distribuire e iniziare a usare Istanze di contenitore di Azure
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 02/22/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2d317d6c66aa0fb81779c3a8a192b6a50571d1f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8fe53f834e4fcf7f16174222cb51d89e40305ec
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
-Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore. In questo avvio rapido si crea un contenitore in Azure e lo si espone a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. In pochi secondi, nel browser verrà visualizzato quanto segue:
+Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore. In questa guida introduttiva viene creato un contenitore in Azure, che viene quindi esposto a Internet con un nome di dominio completo (FQDN). Per completare questa operazione, è sufficiente un solo comando. In pochi secondi, nel browser verrà visualizzato quanto segue:
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-app-browser]
 
@@ -24,7 +24,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-acc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Per completare questa guida introduttiva è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli-install].
+Per completare questa guida introduttiva è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.27 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -101,7 +101,7 @@ Il contenitore **mycontainer** non deve essere visualizzato nell'output del coma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Tutto il codice per il contenitore usato in questo avvio rapido è disponibile [in GitHub][app-github-repo], con il relativo documento Dockerfile. Per provare a compilarlo personalmente e a distribuirlo in Istanze di contenitore di Azure usando il Registro contenitori di Azure, passare all'esercitazione su Istanze di contenitore di Azure.
+Tutto il codice per il contenitore usato in questa guida introduttiva è disponibile [in GitHub][app-github-repo], con il relativo documento Dockerfile. Per provare a compilarlo personalmente e a distribuirlo in Istanze di contenitore di Azure usando il Registro contenitori di Azure, passare all'esercitazione su Istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)

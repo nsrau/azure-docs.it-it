@@ -5,15 +5,15 @@ services: automation
 keywords: modifica, rilevamento, automazione
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -47,37 +47,19 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento modifiche e inventario per la VM. Se è già stata abilitata un'altra soluzione di automazione per una VM, questo passaggio non è necessario.
 
 1. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare una macchina virtuale dall'elenco
-1. Nel menu a sinistra, nella sezione **Operazioni** fare clic su **Inventario**. Viene aperta la pagina **Abilita Rilevamento modifiche e inventario**.
+1. Nel menu a sinistra fare clic su **Inventario** nella sezione **OPERAZIONI**. Verrà visualizzata la pagina **Rilevamento modifiche**.
 
-Viene eseguita una convalida per determinare se Rilevamento modifiche e inventario è abilitato per la macchina virtuale.
-La convalida include controlli per un'area di lavoro di Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
+![Abilitare Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) Verrà visualizzata la schermata **Rilevamento modifiche**. Configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
 
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Inventario.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
+Durante l'onboarding, il provisioning della macchina virtuale viene eseguito con Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
 L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sul software installato.
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido per runbook di Automazione.
-
-Se non vengono soddisfatti questi prerequisiti, viene visualizzato un banner che offre l'opzione per abilitare la soluzione.
-
-![Banner di configurazione di caricamento di Rilevamento modifiche e inventario](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
-
-Per abilitare la soluzione, fare clic sul banner.
-Se risultano mancanti dopo la convalida, i prerequisiti seguenti vengono aggiunti automaticamente:
-
-* Area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automazione](./automation-offering-get-started.md)
-* [Ruolo di lavoro ibrido per runbook](./automation-hybrid-runbook-worker.md) abilitato nella macchina virtuale
-
-Viene aperta la schermata **Rilevamento modifiche e inventario**. Configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
-
-![Finestra di abilitazione della soluzione Rilevamento modifiche](./media/automation-tutorial-troubleshoot-changes/installed-software-enable.png)
 
 L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo intervallo di tempo, non chiudere la finestra del browser.
 Dopo l'abilitazione della soluzione, le informazioni sul software installato e sulle modifiche nella macchina virtuale passano a Log Analytics.
 Affinché i dati diventino disponibili per l'analisi, sarà necessario attendere da 30 minuti a 6 ore.
-
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Uso di Rilevamento modifiche in Log Analytics
 
@@ -107,40 +89,47 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 1. Nella scheda **Registro di sistema di Windows** selezionare **Aggiungi**.
     Verrà visualizzata la finestra **Aggiungi Registro di sistema di Windows per Rilevamento modifiche**.
 
-   ![Rilevamento modifiche - Aggiungi Registro di sistema](./media/automation-vm-change-tracking/change-add-registry.png)
+3. In **Aggiungi Registro di sistema di Windows per Rilevamento modifiche** immettere le informazioni per la chiave da rilevare e fare clic su **Salva**
 
-2. In **Abilitato** selezionare **Vero**.
-3. Immettere un nome descrittivo nella casella **Nome elemento**.
-4. Nella casella **Gruppo** immettere il nome di un gruppo (facoltativo).
-5. Nella casella **Chiave del Registro di sistema di Windows** immettere il nome della chiave del Registro di sistema da rilevare.
-6. Selezionare **Salva**.
+|Proprietà  |DESCRIZIONE  |
+|---------|---------|
+|Attivato     | Determina se l'impostazione viene applicata        |
+|Item Name     | Nome descrittivo del file da rilevare        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Aggiungere un file di Windows
 
 1. Nella scheda **File Windows** selezionare **Aggiungi**. Verrà visualizzata la finestra **Aggiungi file Windows per Rilevamento modifiche**.
 
-   ![Rilevamento modifiche - Aggiungi file Windows](./media/automation-vm-change-tracking/change-add-win-file.png)
+1. In **Aggiungi file Windows per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
 
-2. In **Abilitato** selezionare **Vero**.
-3. Immettere un nome descrittivo nella casella **Nome elemento**.
-4. Nella casella **Gruppo** immettere il nome di un gruppo (facoltativo).
-5. Nella casella **Immettere il percorso** immettere il percorso completo e il nome del file da rilevare.
-6. Selezionare **Salva**.
+|Proprietà  |DESCRIZIONE  |
+|---------|---------|
+|Attivato     | Determina se l'impostazione viene applicata        |
+|Item Name     | Nome descrittivo del file da rilevare        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"       |
 
 ### <a name="add-a-linux-file"></a>Aggiungere un file di Linux
 
 1. Nella scheda **File Linux** selezionare **Aggiungi**. Verrà visualizzata la finestra **Aggiungi file Linux per Rilevamento modifiche**.
 
-   ![Rilevamento modifiche - Aggiungi file Linux](./media/automation-vm-change-tracking/change-add-linux-file.png)
+1. In **Aggiungi file Linux per Rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e fare clic su **Salva**
 
-2. In **Abilitato** selezionare **Vero**.
-3. Immettere un nome descrittivo nella casella **Nome elemento**.
-4. Nella casella **Gruppo** immettere il nome di un gruppo (facoltativo).
-5. Nella casella **Immettere il percorso** immettere il percorso completo e il nome del file da rilevare.
-6. Nella casella **Tipo di percorso** selezionare **File** o **Directory**.
-7. In **Ricorsione** selezionare **Sì** per tenere traccia delle modifiche per il percorso specificato e tutti i file e i percorsi in esso contenuti. Per tenere traccia solo del percorso o del file selezionato, selezionare **No**.
-8. In **Usa Sudo** selezionare `sudo`Sì **per tenere traccia dei file che richiedono il comando**  per l'accesso. In caso contrario, selezionare **No**.
-9. Selezionare **Salva**.
+|Proprietà  |DESCRIZIONE  |
+|---------|---------|
+|Attivato     | Determina se l'impostazione viene applicata        |
+|Item Name     | Nome descrittivo del file da rilevare        |
+|Group     | Nome del gruppo per il raggruppamento logico dei file        |
+|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "/etc/*.conf"       |
+|Tipo di percorso     | Tipo di elemento da rilevare. I valori possibili sono File e Directory        |
+|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
+|Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
+|Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
+
+   > [!NOTE]   
+   > Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
 
 ## <a name="enable-activity-log-connection"></a>Abilitare la connessione al log attività
 
@@ -188,4 +177,4 @@ In questa esercitazione si è appreso come:
 Per altre informazioni, passare alla panoramica della soluzione Rilevamento modifiche e inventario.
 
 > [!div class="nextstepaction"]
-> [Soluzione di gestione del cambiamento e inventario](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Soluzione di gestione del cambiamento e inventario](automation-change-tracking.md)

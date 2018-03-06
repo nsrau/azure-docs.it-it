@@ -1,22 +1,25 @@
 ---
-title: Esaminare l'utilizzo e i costi in Gestione dei costi di Azure | Microsoft Docs
-description: Esaminare l'utilizzo e i costi per tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi.
+title: 'Esercitazione: Esaminare l''utilizzo e i costi in Gestione costi di Azure | Microsoft Docs'
+description: In questa esercitazione si esamineranno l'utilizzo e i costi per tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 02/27/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 72c5c9ff13577e7b4008c42133742d8de4904ae0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
-# <a name="review-usage-and-costs"></a>Esaminare l'utilizzo e i costi
+<!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
+-->
+
+# <a name="tutorial-review-usage-and-costs"></a>Esercitazione: Esaminare l'utilizzo e i costi
 
 Gestione dei costi di Azure di Cloudyn visualizza l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report. In questa esercitazione si apprenderà come:
 
@@ -25,7 +28,12 @@ Gestione dei costi di Azure di Cloudyn visualizza l'utilizzo e i costi consenten
 > * Rilevare le inefficienze dell'utilizzo
 > * Creare avvisi per spese inusuali o eccessive
 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
+## <a name="prerequisites"></a>prerequisiti
+
+- È necessario disporre di un account Azure.
+- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
 
 ## <a name="open-the-cloudyn-portal"></a>Aprire il portale Cloudyn
 
@@ -98,7 +106,7 @@ Questa esercitazione illustra come:
 > * Creare avvisi per spese inusuali o eccessive
 
 
-Passare all'esercitazione successiva per apprendere come controllare l'accesso ai dati.
+Passare alla prossima esercitazione per imparare come prevedere la spesa usando i dati cronologici.
 
 > [!div class="nextstepaction"]
-> [Controllo dell'accesso ai dati](tutorial-user-access.md)
+> [Prevedere la spesa futura](tutorial-forecast-spending.md)

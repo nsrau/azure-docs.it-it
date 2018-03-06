@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Esercitazione: Classificazione di Iris tramite l'interfaccia della riga di comando
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -28,14 +28,16 @@ Questa esercitazione illustra come usare gli strumenti di interfaccia della riga
 > * Alzare di livello e registrare un modello sottoposto a training
 > * Distribuire un servizio Web per assegnare un punteggio a nuovi dati
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
 ## <a name="prerequisites"></a>prerequisiti
-- È necessario accedere a una sottoscrizione di Azure e disporre delle autorizzazioni per creare le risorse in tale sottoscrizione. 
-- È necessario installare l'applicazione Azure Machine Learning Workbench seguendo le istruzioni indicate in [Install and create Quickstart](quickstart-installation.md) (Avvio rapido all'installazione e alla creazione). 
+Per completare questa esercitazione, sono necessari:
+- Accedere a una sottoscrizione di Azure e avere le autorizzazioni per creare le risorse in tale sottoscrizione. 
+  
+  Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-  >[!NOTE]
-  >È sufficiente installare Azure Machine Learning Workbench in locale. È sufficiente seguire la procedura nella sezione sull'installazione di Azure Machine Learning Workbench, poiché la procedura per la creazione dell'account e di un nuovo progetto verrà eseguita dalla riga di comando in questo articolo.
+- Applicazione Azure Machine Learning Workbench installata come illustrato in [Guida introduttiva: Installare e avviare i servizi di Azure Machine Learning](quickstart-installation.md). 
+
+  >[!IMPORTANT]
+  >Non creare gli account del servizio di Azure Machine Learning perché tale operazione verrà eseguita tramite l'interfaccia della riga di comando in questo articolo.
  
 ## <a name="getting-started"></a>Introduzione
 L'interfaccia della riga di comando di Azure Machine Learning consente di eseguire tutte le attività necessarie per un flusso di lavoro di data science end-to-end. È possibile accedere agli strumenti di interfaccia della riga di comando nei modi seguenti:
@@ -51,7 +53,7 @@ Fare clic sul collegamento **Command Line Window** (Finestra riga di comando) ne
 Se si dispone già di un account di Sperimentazione, è possibile accedere in modo corretto. Per aprire la finestra della riga di comando, fare clic sul menu **File** --> **Open Command Prompt** (Apri prompt dei comandi).
 
 ### <a name="option-3-enable-azure-ml-cli-in-an-arbitrary-command-line-window"></a>Opzione 3. Abilitare l'interfaccia della riga di comando di Azure ML in una finestra della riga di comando arbitraria
-È anche possibile abilitare l'interfaccia della riga di comando di Azure ML in qualsiasi finestra della riga di comando. È sufficiente aprire una finestra di comando e immettere i comandi seguenti:
+È anche possibile abilitare l'interfaccia della riga di comando di Azure ML in qualsiasi finestra della riga di comando. Eseguire questa operazione aprendo una finestra di comando e immettendo i comandi seguenti:
 
 ```sh
 # Windows Command Prompt
@@ -69,9 +71,9 @@ Per rendere permanente la modifica, è possibile usare `SETX` in Windows. Per ma
 >È possibile abilitare l'interfaccia della riga di comando di Azure nella finestra del terminale preferita impostando le variabili di ambiente precedenti.
 
 ## <a name="step-1-log-in-to-azure"></a>Passaggio 1. Accedere ad Azure
-Come primo passaggio, aprire l'interfaccia della riga di comando dall'app AMLWorkbench, facendo clic su File > Open Command Prompt (Apri prompt dei comandi). In tal modo viene usato l'ambiente di Python corretto e sono disponibili i comandi dell'interfaccia della riga di comando ML. 
+Come primo passaggio, aprire l'interfaccia della riga di comando dall'app AMLWorkbench, facendo clic su File > Open Command Prompt (Apri prompt dei comandi). In questo modo si assicura che l'ambiente di Python disponibile sia corretto e che i comandi dell'interfaccia della riga di comando di Machine Learning siano disponibili. 
 
-È quindi necessario impostare il contesto corretto nell'interfaccia della riga di comando per accedere alle risorse di Azure e gestirle.
+Ora è possibile impostare il contesto corretto nell'interfaccia della riga di comando per accedere alle risorse di Azure e gestirle.
  
 ```azure-cli
 # log in
@@ -85,7 +87,8 @@ $ az account set -s <subscription id or name>
 ```
 
 ## <a name="step-2-create-a-new-azure-machine-learning-experimentation-account-and-workspace"></a>Passaggio 2. Creare un nuovo account e una nuova area di lavoro di Sperimentazione di Azure Machine Learning
-Iniziare creando un nuovo account di Sperimentazione e una nuova area di lavoro. Per altre informazioni sugli account e le aree di lavoro di Sperimentazione, vedere [Azure Machine Learning concepts](overview-general-concepts.md) (Concetti relativi ad Azure Machine Learning).
+
+In questo passaggio vengono creati un nuovo account di Sperimentazione e una nuova area di lavoro. Per altre informazioni sugli account e le aree di lavoro di Sperimentazione, vedere [Azure Machine Learning concepts](overview-general-concepts.md) (Concetti relativi ad Azure Machine Learning).
 
 > [!NOTE]
 > Gli account di Sperimentazione richiedono un account di archiviazione, usato per archiviare i risultati dell'esecuzione dell'esperimento. Il nome dell'account di archiviazione deve essere globalmente univoco in Azure, perché vi associato un URL. Se non si specifica un account di archiviazione esistente, viene usato il nome dell'account di sperimentazione per creare un nuovo account di archiviazione. Assicurarsi di usare un nome univoco, altrimenti viene visualizzato un messaggio di errore, ad esempio _"L'account di archiviazione denominato \<storage_account_name> è già assegnato."_ In alternativa, è possibile usare l'argomento `--storage` per specificare un account di archiviazione esistente.
@@ -206,7 +209,7 @@ $ az ml history info --run <run id> --artifact <artifact location>
 ```
 
 ## <a name="step-6-promote-artifacts-of-a-run"></a>Passaggio 6. Alzare di livello gli elementi di un'esecuzione 
-A una delle esecuzioni implementate è associato un valore AUC migliore, da usare pertanto per creare un servizio Web di assegnazione dei punteggi da distribuire nell'ambiente di produzione. A questo scopo, è necessario alzare di livello gli elementi in una risorsa.
+A una delle esecuzioni è associato un valore AUC migliore, quindi questa è l'esecuzione da usare durante la creazione di un servizio Web di assegnazione dei punteggi da distribuire nell'ambiente di produzione. A questo scopo, è necessario alzare di livello gli elementi in una risorsa.
 
 ```azure-cli
 $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name model.pkl
@@ -215,14 +218,14 @@ $ az ml history promote --run <run id> --artifact-path outputs/model.pkl --name 
 Viene così creata una cartella `assets` nella directory del progetto con un file `model.pkl.link`. Questo file di collegamento viene usato per fare riferimento a una risorsa innalzata di livello.
 
 ## <a name="step-7-download-the-files-to-be-operationalized"></a>Passaggio 7. Scaricare i file su cui eseguire le operazioni
-È ora necessario scaricare il modello alzato di livello in modo da usarlo per creare il servizio Web di stima. 
+Scaricare il modello alzato di livello in modo da usarlo per creare il servizio Web di stima. 
 
 ```azure-cli
 $ az ml asset download --link-file assets\pickle.link -d asset_download
 ```
 
-## <a name="step-8-setup-your-model-management-environment"></a>Passaggio 8. Configurare l'ambiente di Gestione modelli 
-Viene creato un ambiente per la distribuzione dei servizi Web. È possibile eseguire il servizio Web nel computer locale tramite Docker oppure distribuirlo in un cluster ACS per operazioni su vasta scala. 
+## <a name="step-8-set-up-your-model-management-environment"></a>Passaggio 8. Configurare l'ambiente di Gestione modelli 
+Creare un ambiente per la distribuzione dei servizi Web. È possibile eseguire il servizio Web nel computer locale tramite Docker oppure distribuirlo in un cluster ACS per operazioni su vasta scala. 
 
 ```azure-cli
 # Create new local operationalization environment
@@ -239,13 +242,13 @@ $ az ml account modelmanagement create -n <model management account name> -g <re
 ```
 
 ## <a name="step-10-create-a-web-service"></a>Passaggio 10. Creare un servizio Web
-Viene creato un servizio Web che restituisce una stima tramite il modello distribuito. 
+Creare un servizio Web che restituisce una stima tramite il modello distribuito. 
 
 ```azure-cli
 $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r python –n <web service name>
 ```
 
-## <a name="step-10-run-the-web-service"></a>Passaggio 10. Eseguire il servizio Web
+## <a name="step-11-run-the-web-service"></a>Passaggio 11. Eseguire il servizio Web
 l'ID del servizio Web restituito nel passaggio precedente consente di chiamare il servizio e di testarlo. 
 
 ```azure-cli
@@ -256,22 +259,22 @@ $ az ml service usage realtime -i <web service id>
 $ az ml service run realtime -i <web service id> -d <input data>
 ```
 
-## <a name="deleting-all-the-resources"></a>Eliminazione di tutte le risorse 
+## <a name="step-12-deleting-all-the-resources"></a>Passaggio 12. Eliminazione di tutte le risorse 
 A questo punto è necessario completare l'esercitazione eliminando tutte le risorse create, a meno che non si intenda continuare a usarle. 
 
-A tale scopo, è sufficiente eliminare il gruppo di risorse che contiene tutte le risorse. 
+A tale scopo, eliminare il gruppo di risorse che contiene le risorse. 
 
 ```azure-cli
 az group delete --name <resource group name>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come usare le funzionalità di anteprima di Azure Machine Learning per eseguire queste operazioni: 
+Questa esercitazione illustra come usare Azure Machine Learning per eseguire queste operazioni: 
 > [!div class="checklist"]
 > * Configurare un account di Sperimentazione e creare un'area di lavoro
 > * Creare progetti
 > * Inviare gli esperimenti a più destinazioni di calcolo
 > * Alzare di livello e registrare un modello sottoposto a training
 > * Creare un account di Gestione modelli per gestire il modello
-> * Creare un ambiente per distribuire un servizio Web
+> * Creare un ambiente per la distribuzione dei servizi Web
 > * Distribuire un servizio Web e assegnare un punteggio con nuovi dati

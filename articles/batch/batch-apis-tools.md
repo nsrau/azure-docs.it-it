@@ -2,17 +2,17 @@
 title: API e strumenti di Azure Batch per gli sviluppatori | Microsoft Docs
 description: Informazioni sulle API e gli strumenti disponibili per lo sviluppo di soluzioni con il servizio Azure Batch.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 10/12/2017
-ms.author: tamram
-ms.openlocfilehash: a17856013c8db2e671b8f5201fbcc9223953ab6f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 02/26/2018
+ms.author: danlep
+ms.openlocfilehash: 177601110dd7ec799dc4a350d1a8b88b9f6af4f1
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -39,20 +39,22 @@ Le applicazioni e i servizi possono rilasciare chiamate API REST dirette o usare
 | API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice | Altre informazioni |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/D |- |- | [Versioni supportate](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Esercitazione](batch-dotnet-get-started.md) |[GitHub][api_sample_net] | [Note sulla versione](http://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Esercitazione](batch-python-tutorial.md)|[GitHub][api_sample_python] | [File Leggimi](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Esercitazione](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Note sulla versione](http://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Esercitazione](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [File Leggimi](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Esercitazione](batch-nodejs-get-started.md) |- | [File Leggimi](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Batch Java** |[github.io][api_java] |[Maven][api_java_jar] |- |[File Leggimi][api_sample_java] | [File Leggimi](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[File Leggimi][api_sample_java] | [File Leggimi](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>API per la gestione di Batch
 
-Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di codice agli account Batch. Usando queste API, è possibile gestire a livello di codice gli account Batch, le quote e i pacchetti dell'applicazione.  
+Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di codice agli account Batch. Usando queste API, è possibile gestire a livello di codice gli account Batch, le quote, i pacchetti dell'applicazione e altre risorse tramite il provider Microsoft.Batch.  
 
 | API | Informazioni di riferimento sulle API | Download | Esercitazione | Esempi di codice |
 | --- | --- | --- | --- | --- |
-| **REST di Resource Manager per Batch** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **.NET di Resource Manager per Batch** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Esercitazione](batch-management-dotnet.md) |[GitHub][api_sample_net] |
-
+| **REST per la gestione di Batch** |[docs.microsoft.com][api_rest_mgmt] |N/D |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **.NET per la gestione di Batch** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Esercitazione](batch-management-dotnet.md) |[GitHub][api_sample_net] |
+| **Python per la gestione di Batch** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
+| **Node.js per la gestione di Batch** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
+| **Java per la gestione di Batch** |- |[Maven][api_java_mgmt_jar] |- |- |
 ## <a name="batch-command-line-tools"></a>Strumenti da riga di comando di Batch
 
 Questi strumenti da riga di comando forniscono le stesse funzionalità delle API del servizio Batch e di gestione di Batch: 
@@ -76,22 +78,28 @@ Di seguito sono riportati alcuni strumenti aggiuntivi che possono risultare util
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere [Panoramica sulle funzionalità di Batch per sviluppatori](batch-api-basics.md)per informazioni essenziali per chiunque si prepari all'uso di Batch. L'articolo contiene informazioni più dettagliate sulle risorse del servizio Batch, ad esempio pool, nodi, processi e attività, e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch.
-* [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md) . È consigliabile leggere questo articolo nelle prime fasi dell'apprendimento dell'uso del servizio Batch. Sono disponibili anche una versione [Python](batch-python-tutorial.md) e una versione [Node.js](batch-nodejs-get-started.md) dell'esercitazione.
+* [Introduzione alla libreria di Azure Batch per .NET](tutorial-parallel-dotnet.md) . Sono disponibili anche una [versione Python](tutorial-parallel-python.md) e un'[esercitazione su Node.js](batch-nodejs-get-started.md).
 * Scaricare gli [esempi di codice in GitHub][github_samples] per vedere come C# e Python possono interfacciarsi con Batch per pianificare ed elaborare carichi di lavoro di esempio.
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[api_java]: http://azure.github.io/azure-sdk-for-java/
+[api_java]: /java/api/overview/azure/batch/clientlibrary:
+[api_java_mgmt]: /java/api/overview/azure/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
-[api_net]: /dotnet/api/overview/azure/batch/client
+[api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
+[api_net]: /dotnet/api/overview/azure/batch/
 [api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
 [api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
-[api_nodejs]: /nodejs/api/overview/azure/batch
+[api_nodejs]: /javascript/api/overview/azure/batch/client
+[api_nodejs_mgmt]: /javascript/api/overview/azure/batch/management
 [api_nodejs_npm]: https://www.npmjs.com/package/azure-batch
-[api_python]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html
+[api_nodejs_mgmt_npm]: https://www.npmjs.com/package/azure-arm-batch
+[api_python]: /python/api/overview/azure/batch/client
+[api_python_mgmt]: /python/api/overview/azure/batch/management
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
+[api_python_mgmt_pypi]: https://pypi.python.org/pypi/azure-mgmt-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/

@@ -1,25 +1,25 @@
 ---
-title: Guida rapida di Azure - Trasferire oggetti da e verso Archiviazione BLOB di Azure con Python | Microsoft Docs
-description: Apprendere rapidamente a trasferire oggetti da e verso Archiviazione BLOB di Azure con Python
+title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Python | Microsoft Docs'
+description: In questa guida introduttiva viene creato un account di archiviazione e un contenitore. Si usa quindi la libreria client di archiviazione per Python per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
+ms.custom: mvc
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/12/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 02/22/2018
+ms.author: tamram
+ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/24/2018
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con Python
-In questa guida rapida si apprende a usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
+# <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Python
 
-## <a name="prerequisites"></a>prerequisiti
+Questa guida introduttiva spiega come usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva: 
 * Installare [Python](https://www.python.org/downloads/)
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
-L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usata in questa guida rapida è un'applicazione Python di base.  
+L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usata in questa guida introduttiva è un'applicazione Python di base.  
 
 Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. 
 
@@ -99,7 +99,7 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 ```
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida rapida.  
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida introduttiva.  
 
 Per caricare un file in un BLOB, ottenere il percorso completo del file unendo il nome della directory e il nome del file nell'unità locale. È quindi possibile caricare il file nel percorso desiderato usando il metodo **create\_blob\_from\_path**. 
 
@@ -152,7 +152,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
-Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob**.
+Se i BLOB caricati in questa guida introduttiva non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob**.
 
 ```python
 # Clean up resources. This includes the container and the temp files
@@ -163,7 +163,7 @@ os.remove(full_path_to_file2)
 
 ## <a name="next-steps"></a>Passaggi successivi
  
-In questa guida rapida è stato descritto il trasferimento di file tra il disco locale e un'Archiviazione BLOB di Azure con Python. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
+In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Python. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](./storage-python-how-to-use-blob-storage.md)

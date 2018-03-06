@@ -1,6 +1,6 @@
 ---
 title: Creare un'applicazione contenitore di Azure Service Fabric in Linux | Microsoft Docs
-description: Creare la prima applicazione contenitore Linux in Azure Service Fabric.  Compilare un'immagine Docker con l'applicazione, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
+description: In questa guida introduttiva viene creata la prima applicazione contenitore Linux in Azure Service Fabric.  Compilare un'immagine Docker con l'applicazione, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6aec2146d83c18a1e1714843cd49890f178e4fb3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f568bdf6ce40ff2d437f3566b66f6dd1478a74fa
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Distribuire un'applicazione contenitore Linux di Azure Service Fabric in Azure
+# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Guida introduttiva: Distribuire un'applicazione contenitore Linux di Azure Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
 
-Questa guida introduttiva illustra come distribuire contenitori Linux in un cluster di Service Fabric. Al termine, si avrà un'applicazione di voto costituita da un front-end Web Python e un back-end Redis in esecuzione in un cluster di Service Fabric. 
+Questa guida introduttiva spiega come distribuire contenitori Linux in un cluster di Service Fabric. Al termine, si avrà un'applicazione di voto costituita da un front-end Web Python e un back-end Redis in esecuzione in un cluster di Service Fabric. 
 
 ![quickstartpic][quickstartpic]
 
-In questa guida introduttiva si apprende come:
+Questa guida introduttiva spiega come:
 > [!div class="checklist"]
 > * Distribuire i contenitori in un cluster di Service Fabric Linux in Azure
 > * Eseguire il ridimensionamento e il failover di contenitori in Service Fabric

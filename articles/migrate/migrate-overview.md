@@ -4,14 +4,14 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/08/2018
+ms.date: 02/26/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a9e04c7fa2a32ab7be8844b962f4bccdf260af23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 45eac1d1ecb173ba0a62ab13f47b7ee6e12f7af3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -48,7 +48,7 @@ Una valutazione consente di identificare l'idoneità di Azure per le macchine vi
 
 **Proprietà** | **Dettagli**
 --- | ---
-**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione. La località predefinita è Stati Uniti occidentali 2. 
+**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/>Azure Migrate supporta attualmente 30 aree, tra cui Asia orientale, Asia sud-orientale, Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Cina orientale, Cina settentrionale, Corea centrale, Corea meridionale, Europa occidentale, Europa settentrionale, Germania centrale, Germania nordorientale, Giappone occidentale, Giappone orientale, India centrale, India meridionale, India occidentale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali e Stati Uniti occidentali 2. La località predefinita è Stati Uniti occidentali 2. 
 **Ridondanza dell'archiviazione** | Tipo di [ridondanza dell'archiviazione](https://docs.microsoft.com/azure/storage/common/storage-redundancy) che le VM di Azure useranno dopo la migrazione. Per impostazione predefinita viene usata l'archiviazione con ridondanza locale. Si noti che Azure Migrate supporta solo valutazioni basate su Managed Disks e il servizio Managed Disks supporta solo l'archiviazione con ridondanza locale, per questo motivo la proprietà attualmente prevede solo l'opzione di archiviazione con ridondanza locale. 
 **Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per dimensionare correttamente le VM per Azure. È possibile definire il dimensionamento in base alla *cronologia delle prestazioni* delle VM locali o definire le dimensioni delle VM *come in locale* per Azure, senza considerare la cronologia delle prestazioni. Per impostazione predefinita viene usato il dimensionamento in base alle prestazioni.
 **Piani dei prezzi** | Per il calcolo dei costi, la valutazione considera l'eventuale iscrizione a Software Assurance e l'idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Vengono considerate anche le [offerte di Azure](https://azure.microsoft.com/support/legal/offer-details/) eventualmente sottoscritte ed è possibile specificare gli sconti specifici della sottoscrizione (%) di cui si può usufruire con l'offerta. 

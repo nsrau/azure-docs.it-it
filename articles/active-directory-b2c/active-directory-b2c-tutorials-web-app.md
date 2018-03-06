@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Usare Azure Active Directory B2C per l''autenticazione degli utenti in un''app Web ASP.NET'
-description: Esercitazione su come usare Azure Active Directory B2C per l'iscrizione e l'accesso degli utenti a un'app Web ASP.NET.
+description: Esercitazione su come usare Azure Active Directory B2C per consentire l'accesso degli utenti a un'app Web ASP.NET.
 services: active-directory-b2c
 author: PatAltimore
 ms.author: patricka
@@ -9,11 +9,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: ee006476f9e40e9d1a6e7213cb1881ca46ea75c2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1d1e0ce51d86ebcdbf0a2a423ff64b3814413d86
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Esercitazione: Eseguire l'autenticazione degli utenti con Azure Active Directory B2C in un'app Web ASP.NET
 
@@ -45,7 +45,7 @@ Accedere al [portale di Azure](https://portal.azure.com/) come amministratore gl
 
 2. Nelle impostazioni di B2C fare clic su **Applicazioni** e quindi su **Aggiungi**.
 
-    Per registrare l'app Web di esempio nel tenant, usare le impostazioni seguenti.
+    Per registrare l'app Web di esempio nel tenant, usare le impostazioni seguenti:
 
     ![Aggiungere una nuova app](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
 
@@ -147,7 +147,7 @@ L'app Web ASP.NET di esempio è una semplice app per la creazione e l'aggiorname
 
 La soluzione di esempio contiene due progetti:
 
-**App Web di esempio (TaskWebApp):** app Web per la creazione e modifica di un elenco di attività. L'app Web usa il **criterio di iscrizione o accesso** per l'iscrizione o l'accesso degli utenti tramite un indirizzo e-mail.
+**App Web di esempio (TaskWebApp):** app Web per la creazione e modifica di un elenco di attività. L'app Web usa il criterio di **iscrizione o accesso** per l'iscrizione o l'accesso degli utenti.
 
 **App di esempio dell'API Web (TaskService):** API Web che supporta la funzionalità di creazione, lettura, aggiornamento ed eliminazione dell'elenco di attività. L'API Web è protetta da Azure AD B2C e chiamata dall'app Web.
 
@@ -178,7 +178,7 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **T
 
 Premere **F5** per avviare l'app Web. Il browser predefinito si apre con l'indirizzo del sito Web locale `https://localhost:44316/`. 
 
-L'app di esempio supporta criteri di iscrizione, accesso, modifica del profilo e reimpostazione delle password. Di seguito è illustrata l'iscrizione dell'utente per l'uso dell'app con un indirizzo e-mail. È possibile provare gli altri scenari in autonomia.
+L'app di esempio supporta criteri di iscrizione, accesso, modifica del profilo e reimpostazione delle password. Questa esercitazione illustra l'iscrizione dell'utente per l'uso dell'app con un indirizzo e-mail. È possibile esplorare gli altri scenari in autonomia.
 
 ### <a name="sign-up-using-an-email-address"></a>Iscriversi usando un indirizzo di posta elettronica
 
@@ -205,4 +205,4 @@ Ora l'utente può usare il proprio indirizzo e-mail per accedere e usare l'app W
 In questa esercitazione si è appreso come creare un tenant di Azure AD B2C, creare criteri e aggiornare l'app Web di esempio per l'uso del tenant di Azure AD B2C. Proseguire con l'esercitazione successiva per informazioni su come registrare, configurare e chiamare un'API Web ASP.NET protetta dal tenant di Azure AD B2C.
 
 > [!div class="nextstepaction"]
-> [Usare Azure Active Directory B2C per proteggere un'API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)
+> [Esercitazione: Usare Azure Active Directory B2C per proteggere un'API Web ASP.NET](active-directory-b2c-tutorials-web-api.md)

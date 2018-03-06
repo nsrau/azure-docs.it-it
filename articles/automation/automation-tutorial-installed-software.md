@@ -5,16 +5,16 @@ services: automation
 keywords: inventario, automazione, modifica, gestione
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 12/14/2017
+ms.date: 02/28/2018
 ms.topic: tutorial
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bdd638d0612a8ddee1a0ddb4fd4579f8da14b887
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 97cd2c91ca2c70b044518c43d49356918202d5ff
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Individuare il software installato nei computer Azure e non Azure
 
@@ -41,35 +41,17 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare Rilevamento modifiche e inventario
 
-Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento modifiche e inventario per la VM. Se è già stata abilitata un'altra soluzione di automazione per una VM, questo passaggio non è necessario.
+Per questa esercitazione, prima di tutto è necessario abilitare Rilevamento modifiche e inventario per la VM. Se in precedenza è stata abilitata la soluzione **Rilevamento modifiche** per la VM, questo passaggio non è necessario.
 
 1. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare una macchina virtuale dall'elenco
 2. Nel menu a sinistra, nella sezione **Operazioni** fare clic su **Inventario**. Viene aperta la pagina **Abilita Rilevamento modifiche e inventario**.
 
-Viene eseguita una convalida per determinare se Inventario è abilitato per la macchina virtuale.
-La convalida include controlli per un'area di lavoro di Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
+![Banner di configurazione di caricamento di Inventario](./media/automation-tutorial-installed-software/enableinventory.png)
+
+Per abilitare la soluzione, configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
 
 L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) consente di raccogliere i dati generati da funzionalità e servizi, ad esempio Inventario.
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
-
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
-L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sul software installato.
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido per runbook di Automazione.
-
-Se non vengono soddisfatti questi prerequisiti, viene visualizzato un banner che offre l'opzione per abilitare la soluzione.
-
-![Banner di configurazione di caricamento di Inventario](./media/automation-tutorial-installed-software/enableinventory.png)
-
-Per abilitare la soluzione, fare clic sul banner.
-Se risultano mancanti dopo la convalida, i prerequisiti seguenti vengono aggiunti automaticamente:
-
-* Area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automazione](./automation-offering-get-started.md)
-* [Ruolo di lavoro ibrido per runbook](./automation-hybrid-runbook-worker.md) abilitato nella macchina virtuale
-
-Viene aperta la schermata **Rilevamento modifiche e inventario**. Configurare la posizione, l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
-
-![Finestra di abilitazione della soluzione Rilevamento modifiche](./media/automation-tutorial-installed-software/installed-software-enable.png)
 
 L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo intervallo di tempo, non chiudere la finestra del browser.
 Dopo l'abilitazione della soluzione, le informazioni sul software installato e sulle modifiche nella macchina virtuale passano a Log Analytics.
@@ -137,4 +119,4 @@ In questa esercitazione è stato illustrato come visualizzare l'inventario softw
 Per altre informazioni, passare alla panoramica della soluzione Rilevamento modifiche e inventario.
 
 > [!div class="nextstepaction"]
-> [Soluzione di gestione del cambiamento e inventario](../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Soluzione di gestione del cambiamento e inventario](automation-change-tracking.md)

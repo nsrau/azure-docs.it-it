@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 02/28/2018
 ms.author: eamono
 ms.custom: mvc
-ms.openlocfilehash: e277aa44dfe625780d72a78010f0638c73a6b182
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4c97cda2f16c769d0510b6a661bd03b20f488b62
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Caricare le soluzioni per il rilevamento modifiche e gli aggiornamenti in Automazione di Azure
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, è necessario quanto segue:
 
 ## <a name="onboard-an-azure-vm"></a>Caricare una macchina virtuale di Azure
 
-Per caricare automaticamente le macchine virtuali di Azure, è necessario caricare una macchina virtuale esistente con una soluzione di rilevamento delle modifiche o di gestione degli aggiornamenti. In questo passaggio si carica una macchina virtuale con le funzioni di gestione degli aggiornamenti e il rilevamento delle modifiche.
+Ci sono diversi modi per eseguire l'onboarding, ad esempio [da una macchina virtuale](automation-onboard-solutions-from-vm.md), [dall'account di Automazione](automation-onboard-solutions-from-automation-account.md) o tramite runbook. Questa esercitazione descrive come abilitare Gestione aggiornamenti tramite un runbook. Per caricare automaticamente le macchine virtuali di Azure su larga scala, è necessario caricare una macchina virtuale esistente con la soluzione Rilevamento modifiche o Gestione aggiornamenti. In questo passaggio si carica una macchina virtuale con le funzioni di gestione degli aggiornamenti e il rilevamento delle modifiche.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 

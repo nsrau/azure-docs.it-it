@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare un cluster di Azure Service Fabric | Microsoft Docs
-description: Informazioni su come ridimensionare rapidamente un cluster di Service Fabric.
+description: "In questa esercitazione si apprenderà come ridimensionare rapidamente un cluster di Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: bbbb31687ab0980d62b35d627c4b1708b7ae8288
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 21ef6d1981464d5943338c20fb06a218fc0e447d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="scale-a-service-fabric-cluster"></a>Ridimensionare un cluster di Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster"></a>Esercitazione: Ridimensionare un cluster di Service Fabric
 
 Questa esercitazione, la seconda di una serie, illustra come aumentare e ridurre il numero di istanze del cluster esistente. Al termine, si riuscirà a ridimensionare il cluster e a pulire le risorse rimaste.
 

@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 63fb091166dcb3773354221e6c6628f6205bb308
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8e64ab3214633ae2f34234514dca5e7bb7b1896e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
 
@@ -39,6 +39,7 @@ Dopo la registrazione è possibile Creare un cluster Kubernetes con AKS.
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [az group create][az-group-create]. Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite.
+Quando si crea un gruppo di risorse viene richiesto di specificare una posizione, ovvero la posizione in cui risiederanno le risorse in Azure. Durante la disponibilità in anteprima del servizio contenitore di Azure sono disponibili solo alcune opzioni relative alla posizione, ovvero `eastus, westeurope, centralus, canadacentral, canadaeast`.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
@@ -88,7 +89,7 @@ Per configurare kubectl per la connessione al cluster Kubernetes, eseguire quest
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster.
+Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl-get] per restituire un elenco dei nodi del cluster. La visualizzazione potrebbe richiedere alcuni minuti.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -103,9 +104,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, incluse le immagini del contenitore da eseguire. Per questo esempio, viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote.
+Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, incluse le immagini del contenitore da eseguire. Per questo esempio, viene usato un manifesto per creare tutti gli oggetti necessari per eseguire l'applicazione Azure Vote. L'immagine fornita è un'applicazione di esempio, ma è possibile leggere informazioni sulla [creazione di un'immagine](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) e sulla [distribuzione nel Registro contenitori di Azure](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) per l'uso di un'immagine personalizzata.
 
-Creare un file denominato `azure-vote.yaml` e copiarvi il codice YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando vi o Nano come se si usasse un sistema virtuale o fisico.
+Creare un file denominato `azure-vote.yaml` e copiarvi il codice YAML seguente. Se si usa Azure Cloud Shell, questo file può essere creato usando vi o Nano come se si usasse un sistema virtuale o fisico. Se si lavora in locale, è possibile usare Visual Studio Code per creare questo file tramite l'esecuzione di `code azure-vote.yaml`.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -231,7 +232,7 @@ In questa guida introduttiva è stato distribuito un cluster Kubernetes in cui �
 Per altre informazioni sul servizio contenitore di Azure e l'analisi del codice completo per un esempio di distribuzione, passare all'esercitazione sul cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Gestire un cluster del servizio contenitore di Azure][aks-tutorial]:
+> [Esercitazione sul servizio contenitore di Azure][aks-tutorial]:
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
