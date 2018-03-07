@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 6123039ba5eeb720e0ca590fa69af915da91367c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni - Anteprima
 
@@ -28,14 +28,7 @@ L'hub IoT di Azure si integra con Griglia di eventi di Azure per poter inviare l
 
 ## <a name="regional-availability"></a>Disponibilità internazionale
 
-L'integrazione di Griglia di eventi è in anteprima pubblica, quindi è disponibile in un numero limitato di aree. L'integrazione funziona per gli hub IoT disponibili nelle aree seguenti:
-
-* Stati Uniti centrali
-* Stati Uniti orientali
-* Stati Uniti orientali 2
-* Stati Uniti centro-occidentali
-* Stati Uniti occidentali
-* Stati Uniti occidentali 2
+L'integrazione di Griglia di eventi è disponibile per gli hub IoT situati nelle aree in cui Griglia di eventi è supportata. Per l'elenco aggiornato delle aree, vedere [Introduzione a Griglia di eventi di Azure][lnk-eg-overview]. 
 
 ## <a name="event-types"></a>Tipi di eventi
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2017
+ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: a972344e2b6205fbcf69d2969c42211ec5b24869
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Distribuire e gestire topologie Apache Storm in HDInsight
 
@@ -226,7 +226,7 @@ L'URI di base per l'API REST nei cluster HDInsight basati su Linux sono disponib
 
 * **Da una sessione SSH**: usare il comando `headnode -f` da una sessione SSH al cluster.
 * **Da Ambari Web**: selezionare **Services** (Servizi) nella parte superiore della pagina, quindi selezionare **Storm**. Dalla scheda **Riepilogo** selezionare **Storm UI Server** (Server dell'interfaccia utente di Storm). Il nome FQDN del nodo che ospita l'API REST e l'interfaccia utente di Storm è visualizzato nella parte superiore della pagina.
-* **Dall'API REST Ambari**: usare il comando `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` per recuperare informazioni sul nodo in cui sono in esecuzione l'interfaccia utente di Storm e l'API REST. Sostituire **PASSWORD** con la password di amministratore per il cluster. Sostituire **CLUSTERNAME** con il nome del cluster. Nella risposta, la voce "host_name" contiene il nome di dominio completo del nodo.
+* **Dall'API REST Ambari**: usare il comando `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` per recuperare informazioni sul nodo in cui sono in esecuzione l'interfaccia utente di Storm e l'API REST. Sostituire **CLUSTERNAME** con il nome del cluster. Quando richiesto, immettere la password per l'account (amministratore) di accesso. Nella risposta, la voce "host_name" contiene il nome di dominio completo del nodo.
 
 ### <a name="authentication"></a>Authentication
 

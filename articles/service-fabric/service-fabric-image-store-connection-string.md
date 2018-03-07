@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/10/2018
+ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4b64331a4f25ce0cc01b2ee9f32633ab035e3131
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 3c34a3851dbb5c5258b3dc0cf35a510f62cbe14e
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Informazioni sull'impostazione ImageStoreConnectionString
 
@@ -42,7 +42,9 @@ Il tipo di provider utilizzato nell'ambiente di produzione è il Servizio di arc
 
 Ospitare Archivio immagini in un servizio di sistema all'interno del cluster stesso elimina le dipendenze esterne per il repository del pacchetto e offre un maggiore controllo sulla posizione di archiviazione. È probabile che i miglioramenti futuri di Archivio immagini riguarderanno prima di tutto, o in esclusivamente, il provider di Archivio immagini. La stringa di connessione per il provider del Servizio di archiviazione immagini non dispone di informazioni univoche in quanto il client è già connesso al cluster di destinazione. Per il client è sufficiente sapere che è necessario usare i protocolli per il servizio di sistema.
 
-Il provider di File System viene usato al posto del servizio di archiviazione immagini per i cluster di una casella locali durante lo sviluppo per eseguire il bootstrap del cluster un po' più velocemente. La differenza generalmente è poca, ma è un'ottimizzazione utile a molti durante lo sviluppo. È possibile distribuire un cluster di una casella locale anche con altri tipi di provider per l'archiviazione, ma in genere non è necessario farlo poiché il flusso di lavoro di sviluppo e test rimane invariato indipendentemente dal provider. Oltre a questo uso, i provider di File System e di Archiviazione di Azure esistono solo per il supporto legacy.
+Il provider di File System viene usato al posto del servizio di archiviazione immagini per i cluster di una casella locali durante lo sviluppo per eseguire il bootstrap del cluster un po' più velocemente. La differenza generalmente è poca, ma è un'ottimizzazione utile a molti durante lo sviluppo. È possibile distribuire un cluster di una casella locale anche con altri tipi di provider per l'archiviazione, ma in genere non è necessario farlo poiché il flusso di lavoro di sviluppo e test rimane invariato indipendentemente dal provider. Il provider di Archiviazione di Azure esiste solo per il supporto legacy dei cluster meno recenti, distribuiti prima dell'introduzione del provider del Servizio di archiviazione immagini.
+
+Inoltre, né il provider di File System né il provider di Archiviazione di Azure devono essere usati come metodo di condivisione di un archivio immagini tra più cluster. Tale operazione determinerebbe il danneggiamento dei dati di configurazione del cluster, perché ogni cluster potrebbe scrivere dati in conflitto nell'archivio immagini. Per condividere i pacchetti dell'applicazione con provisioning tra più cluster, usare i file [sfpkg][12], che possono essere caricati in qualsiasi archivio esterno con un URI di download.
 
 Pertanto nonostante ImageStoreConnectionString sia configurabile, generalmente viene usata solo l'impostazione predefinita. Durante la pubblicazione in Azure tramite Visual Studio, il parametro viene impostato automaticamente in base alle esigenze dell'utente. Per la distribuzione a livello di codice ai cluster ospitati in Azure, la stringa di connessione è sempre "fabric:ImageStore". In caso di dubbi, il suo valore può essere verificato sempre recuperando il manifesto del cluster da [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Sia i test in locale che i cluster di produzione devono essere sempre configurati per poter usare anche il provider del Servizio di archivio immagini.
 
@@ -55,4 +57,4 @@ Pertanto nonostante ImageStoreConnectionString sia configurabile, generalmente v
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-
+[12]: service-fabric-package-apps.md#create-an-sfpkg

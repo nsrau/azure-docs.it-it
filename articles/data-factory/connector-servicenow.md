@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 28ecdc541bc7e95dfa6d7c1b2d984cba0654699f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 64b0982ab1d0b212120d962d4c47a1b8db8ca025
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-beta"></a>Copiare dati da ServiceNow usando Azure Data Factory (beta)
 
@@ -114,11 +114,11 @@ Per copiare dati da ServiceNow, impostare il tipo di origine nell'attività di c
 
 Notare quanto segue quando nella query si specifica lo schema e la colonna per ServiceNow:
 
-- **Schema:** per eseguire una query in ServiceNow è necessario specificare lo schema come `Actual` o `Display`, che è possibile individuare come parametro di `sysparm_display_value` come true o false quando si chiamano [API RESTful di ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Colonna:** il nome di colonna per il valore effettivo è `[columne name]_value`, mentre il valore visualizzato è `[columne name]_display_value`.
+- **Schema:** specificare lo schema come `Actual` o `Display` nella query ServiceNow, che è possibile individuare come parametro di `sysparm_display_value` come true o false quando si chiamano le [API RESTful di ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Colonna:** il nome di colonna per il valore effettivo nello schema `Actual` è `[columne name]_value`, mentre il valore visualizzato nello schema `Display` è `[columne name]_display_value`. Si noti il nome della colonna deve essere mappato allo schema usato nella query.
 
 **Query di esempio:**
-`SELECT distinct col_value, col_display_value FROM Actual.alm_asset` O `SELECT distinct col_value, col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` O `SELECT col_display_value FROM Display.alm_asset`
 
 **Esempio:**
 

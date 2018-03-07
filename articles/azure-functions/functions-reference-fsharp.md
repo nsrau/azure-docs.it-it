@@ -1,5 +1,5 @@
 ---
-title: Guida di riferimento per gli sviluppatori di Funzioni di Azure in F# | Documentazione Microsoft
+title: Guida di riferimento per gli sviluppatori di Funzioni di Azure in F# | Microsoft Docs
 description: Informazioni su come sviluppare Funzioni di Azure in F#.
 services: functions
 documentationcenter: fsharp
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 039306b093d92b66883edcca10e42f7b1dbc7245
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -172,7 +172,7 @@ Un editor che supporta i servizi di compilazione F# non è in grado di riconosce
 #r "Microsoft.Azure.WebJobs.Host.dll"
 #endif
 
-open Sytem
+open System
 open Microsoft.Azure.WebJobs.Host
 
 let Run(blob: string, output: byref<string>, log: TraceWriter) =
@@ -184,7 +184,7 @@ Quando esegue il codice, Funzioni di Azure elabora l'origine con `COMPILED` defi
 <a name="package"></a>
 
 ## <a name="package-management"></a>Gestione dei pacchetti
-Per usare i pacchetti NuGet in una funzione F#, aggiungere un file `project.json` nella cartella della funzione nel file system dell'app per le funzioni. Di seguito è riportato un esempio di file `project.json` che aggiunge un riferimento ai pacchetti NuGet a `Microsoft.ProjectOxford.Face` versione 1.1.0:
+Per usare i pacchetti NuGet in una funzione F#, aggiungere un file `project.json` nella cartella della funzione nel file system dell'app della funzione. Di seguito è riportato un esempio di file `project.json` che aggiunge un riferimento ai pacchetti NuGet a `Microsoft.ProjectOxford.Face` versione 1.1.0:
 
 ```json
 {

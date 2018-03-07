@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Microsoft Azure StorSimple Data Manager | Microsoft Docs
+title: Panoramica di Microsoft Azure StorSimple Data Manager | Documentazione Microsoft
 description: L'articolo presenta una panoramica del servizio StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/16/2018
+ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 8b0ff2c100878e568e0a4c67e79864006512bd78
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
 
@@ -56,14 +56,14 @@ StorSimple Data Manager è disponibile nelle sette aree seguenti:
 
 StorSimple Data Manager può tuttavia essere usato per trasformare dati archiviati nelle aree seguenti: 
 
-![Aree disponibili per i dati](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions.png)
+![Aree disponibili per i dati](./media/storsimple-data-manager-overview/data-manager-job-definition-different-regions-m.png)
 
-Questo set di aree è più ampio perché la distribuzione delle risorse in una delle aree del primo elenco è in grado di attivare il processo di trasformazione sui dati presenti nelle aree incluse nel secondo elenco. È pertanto possibile trasformare i dati tramite questo servizio purché si trovino in una qualsiasi delle 26 aree.
+Questo set di aree è più ampio perché la distribuzione delle risorse in una delle aree del primo elenco è in grado di attivare il processo di trasformazione sui dati presenti nelle aree incluse nel secondo elenco. È pertanto possibile trasformare i dati tramite questo servizio purché si trovino in una qualsiasi delle 19 aree.
 
 
 ## <a name="choosing-a-region"></a>Scelta di un'area
 
-Tenere presente quanto segue:
+È consigliabile:
  - L'account di archiviazione di origine, ovvero quello associato al dispositivo StorSimple, e l'account di archiviazione di destinazione, in cui i dati verranno archiviati in formato nativo, devono trovarsi nella stessa area di Azure.
  - Data Manager e la definizione del processo devono essere attivati nell'area che contiene l'account di archiviazione StorSimple. Se questo non è possibile, attivare Data Manager nell'area di Azure più vicina e quindi creare la definizione del processo nella stessa area dell'account di archiviazione StorSimple. 
 

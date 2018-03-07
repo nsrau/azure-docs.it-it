@@ -1,5 +1,5 @@
 ---
-title: Accesso con privilegi elevati per l'amministratore tenat - Azure AD | Microsoft Docs
+title: Accesso con privilegi elevati per l'amministratore tenant - Azure AD | Microsoft Docs
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
-ms.openlocfilehash: 8be842018cadfc36eb74b14a02a8f9bc9ddf098d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Accesso con privilegi elevati come amministratore tenant con il Controllo degli accessi in base al ruolo
 
-Il Controllo degli accessi in base al ruolo consente agli amministratori tenant di ottenere i privilegi elevati temporanei per l'accesso in modo da poter concedere autorizzazioni superiori rispetto al normale. Un amministratore tenant può elevare se stesso al ruolo di Amministratore Accesso utenti quando necessario. Tale ruolo offre all'amministratore tenant le autorizzazioni per concedere a se stesso o ad altri i ruoli nell'ambito del "/".
+Il Controllo degli accessi in base al ruolo consente agli amministratori tenant di ottenere i privilegi elevati temporanei per l'accesso in modo da poter concedere autorizzazioni superiori rispetto al normale. Gli amministratori tenant possono elevarsi al ruolo di Amministratore Accesso utenti, quando necessario. Questo ruolo offre agli amministratori tenant le autorizzazioni per concedere a se stessi o ad altri i ruoli nell'ambito "/".
 
 Questa funzionalità è importante perché consente all'amministratore tenant di visualizzare tutte le sottoscrizioni presenti in un'organizzazione. Consente inoltre alle app di automazione, ad esempio la fatturazione e il controllo, di accedere a tutte le sottoscrizioni e offrire una visualizzazione accurata dello stato dell'organizzazione per la gestione della fatturazione o degli asset.  
 
@@ -32,7 +32,7 @@ Questa funzionalità è importante perché consente all'amministratore tenant di
 
 2. Scegliere **Proprietà** dal menu di sinistra di Azure AD.
 
-3. Nel pannello **Proprietà** cercare **Gli amministratori globali possono gestire le sottoscrizioni di Azure**, scegliere **Sì**, quindi **Salva**.
+3. Cercare **Gli amministratori globali possono gestire le sottoscrizioni di Azure**, scegliere **Sì** e quindi **Salva**.
     > [!IMPORTANT] 
     > Se si sceglie **Sì**, si assegna il ruolo **Amministratore Accesso utenti** a livello di radice "/" (ambito radice) all'utente con cui è stata effettuata la connessione al portale. **Ciò consente all'utente di visualizzare tutte le altre sottoscrizioni di Azure.**
     
@@ -47,12 +47,12 @@ Questa funzionalità è importante perché consente all'amministratore tenant di
 ## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Visualizzare le assegnazioni di ruolo nell'ambito "/" tramite PowerShell
 Per visualizzare l'assegnazione **Amministratore Accesso utenti** nell'ambito  **/** , usare il cmdlet PowerShell `Get-AzureRmRoleAssignment`.
     
-```
+```powershell
 Get-AzureRmRoleAssignment* | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
 ```
 
 **Output di esempio**:
-
+```
 RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
 Scope              : /    
 DisplayName        : username    
@@ -61,10 +61,12 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
 ObjectType         : User    
+```
 
 ## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Eliminare l'assegnazione di ruolo nell'ambito "/" tramite PowerShell:
 È possibile eliminare l'assegnazione tramite il cmdlet PowerShell seguente:
-```
+
+```powershell
 Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
 ```
 
@@ -80,15 +82,16 @@ Il processo di base funziona con i passaggi seguenti:
 
 2. Creare un'[assegnazione di ruolo](/rest/api/authorization/roleassignments) per assegnare un ruolo in qualsiasi ambito. Nell'esempio seguente vengono illustrate le proprietà per l'assegnazione del ruolo di lettore nell'ambito "/":
 
-    ```
-    { "properties":{
-    "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
-    "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
-    "scope": "/"
-    },
-    "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+    ```json
+    { 
+      "properties": {
+        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/acdd72a7338548efbd42f606fba81ae7",
+        "principalId": "cbc5e050-d7cd-4310-813b-4870be8ef5bb",
+        "scope": "/"
+      },
+      "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+      "type": "Microsoft.Authorization/roleAssignments",
+      "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
     }
     ```
 
@@ -102,55 +105,90 @@ Il processo di base funziona con i passaggi seguenti:
 Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi in modo da revocare i privilegi necessari per eliminare l'assegnazione.
 
 1.  Chiamare GET roleDefinitions con roleName = User Access Administrator per determinare il nome GUID del ruolo Amministratore accessi utente.
-    1.  GET *https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator*
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User+Access+Administrator
+    ```
 
-        ```
-        {"value":[{"properties":{
-        "roleName":"User Access Administrator",
-        "type":"BuiltInRole",
-        "description":"Lets you manage user access to Azure resources.",
-        "assignableScopes":["/"],
-        "permissions":[{"actions":["*/read","Microsoft.Authorization/*","Microsoft.Support/*"],"notActions":[]}],
-        "createdOn":"0001-01-01T08:00:00.0000000Z",
-        "updatedOn":"2016-05-31T23:14:04.6964687Z",
-        "createdBy":null,
-        "updatedBy":null},
-        "id":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "type":"Microsoft.Authorization/roleDefinitions",
-        "name":"18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"}],
-        "nextLink":null}
-        ```
+    ```json
+    {
+      "value": [
+        {
+          "properties": {
+        "roleName": "User Access Administrator",
+        "type": "BuiltInRole",
+        "description": "Lets you manage user access to Azure resources.",
+        "assignableScopes": [
+          "/"
+        ],
+        "permissions": [
+          {
+            "actions": [
+              "*/read",
+              "Microsoft.Authorization/*",
+              "Microsoft.Support/*"
+            ],
+            "notActions": []
+          }
+        ],
+        "createdOn": "0001-01-01T08:00:00.0000000Z",
+        "updatedOn": "2016-05-31T23:14:04.6964687Z",
+        "createdBy": null,
+        "updatedBy": null
+          },
+          "id": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+          "type": "Microsoft.Authorization/roleDefinitions",
+          "name": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9"
+        }
+      ],
+      "nextLink": null
+    }
+    ```
 
-        Salvare il GUID dal parametro *nome*, in questo caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Salvare il GUID dal parametro *nome*, in questo caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. È inoltre necessario elencare l'assegnazione di ruolo per l'amministratore del tenant nell'ambito del tenant. Elencare tutte le assegnazioni nell'ambito del tenant per PrincipalId di TenantAdmin che ha effettuato la chiamata per l'accesso con privilegi elevati. Sono incluse tutte le assegnazioni nel tenant per il parametro ObjectID. 
-    1. GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'*
+2. È inoltre necessario elencare l'assegnazione di ruoli per l'amministratore tenant nell'ambito del tenant. Elencare tutte le assegnazioni nell'ambito del tenant per PrincipalId di TenantAdmin che ha effettuato la chiamata per l'accesso con privilegi elevati. Sono incluse tutte le assegnazioni nel tenant per il parametro ObjectID.
+
+    ```
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
+    ```
     
-        >[!NOTE] 
-        >Un amministratore di tenant non deve avere molte assegnazioni. Se la query precedente restituisce troppi assegnazioni, è anche possibile eseguire una query su tutte le assegnazioni solo a livello di ambito di tenant, quindi filtrare i risultati: GET *https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()*
+    >[!NOTE] 
+    >Un amministratore tenant non dovrebbe avere molte assegnazioni. Se la query precedente restituisce troppe assegnazioni, è anche possibile eseguire una query per ottenere tutte le assegnazioni solo a livello di ambito del tenant e quindi filtrare i risultati: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    
         
-    2. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è "/" e RoleDefinitionId termina con il GUID del nome del ruolo presente nel passaggio 1 e PrincipalId corrisponde a ObjectId dell'amministratore del tenant. L'assegnazione del ruolo dovrebbe risultare simile alla seguente:
+    2. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è "/" e RoleDefinitionId termina con il GUID del nome del ruolo presente nel passaggio 1 e PrincipalId corrisponde a ObjectId dell'amministratore del tenant. 
+    
+    Esempio di assegnazione di ruolo:
 
-        ```
-        {"value":[{"properties":{
-        "roleDefinitionId":"/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-        "principalId":"{objectID}",
-        "scope":"/",
-        "createdOn":"2016-08-17T19:21:16.3422480Z",
-        "updatedOn":"2016-08-17T19:21:16.3422480Z",
-        "createdBy":"93ce6722-3638-4222-b582-78b75c5c6d65",
-        "updatedBy":"93ce6722-3638-4222-b582-78b75c5c6d65"},
-        "id":"/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-        "type":"Microsoft.Authorization/roleAssignments",
-        "name":"e7dd75bc-06f6-4e71-9014-ee96a929d099"}],
-        "nextLink":null}
+        ```json
+        {
+          "value": [
+            {
+              "properties": {
+                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                "principalId": "{objectID}",
+                "scope": "/",
+                "createdOn": "2016-08-17T19:21:16.3422480Z",
+                "updatedOn": "2016-08-17T19:21:16.3422480Z",
+                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+              },
+              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+              "type": "Microsoft.Authorization/roleAssignments",
+              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+            }
+          ],
+          "nextLink": null
+        }
         ```
         
-        Di nuovo, salvare il GUID dal parametro *nome*, in questo caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Di nuovo, salvare il GUID dal parametro *nome*, in questo caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
 
     3. Usare quindi l'**ID RoleAssignment** evidenziato per eliminare l'assegnazione aggiunta da elevateAccess:
 
-        DELETE https://management.azure.com /providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
+    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

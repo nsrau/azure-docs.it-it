@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 02/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 866dd3abbcca12413d0e02651826365166db616f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: eca3f95b672a7334d77ac027b4774addf4efed2c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Usare Apache Kafka con Storm in HDInsight
 
@@ -36,7 +36,7 @@ Il codice per l'esempio usato in questo documento è disponibile all'indirizzo [
 
 Per compilare questo progetto, è necessaria la seguente configurazione per l'ambiente di sviluppo:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o versione successiva. Per HDInsight 3.5 o una versione successiva è necessario Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) o versione successiva. Per HDInsight 3.5 o una versione successiva è necessario Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -121,7 +121,7 @@ Questo progetto contiene due topologie:
     Questa topologia usa iStorm HdfsBolt per scrivere dati nell'archivio predefinito per il cluster Storm.
 ### <a name="flux"></a>Flux
 
-Le topologie vengono definite tramite [Flux](https://storm.apache.org/releases/1.1.0/flux.html). Flux è stato introdotto in Storm 0.10.x e consente di separare la configurazione della topologia dal codice. Per le topologie che fanno uso del framework Flux, la topologia viene definita in un file YAML. Il file YAML può essere incluso come parte della topologia. Può essere anche un file autonomo usato quando si invia la topologia. Flux supporta anche la sostituzione delle variabili in fase di esecuzione, caratteristica che viene usata in questo esempio.
+Le topologie vengono definite tramite [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux è stato introdotto in Storm 0.10.x e consente di separare la configurazione della topologia dal codice. Per le topologie che fanno uso del framework Flux, la topologia viene definita in un file YAML. Il file YAML può essere incluso come parte della topologia. Può essere anche un file autonomo usato quando si invia la topologia. Flux supporta anche la sostituzione delle variabili in fase di esecuzione, caratteristica che viene usata in questo esempio.
 
 I parametri seguenti vengono impostati in fase di esecuzione per queste topologie:
 
@@ -131,7 +131,7 @@ I parametri seguenti vengono impostati in fase di esecuzione per queste topologi
 
 * `${kafka.zookeeper.hosts}`: host in cui viene eseguito Zookeeper nel cluster di Kafka.
 
-Per altre informazioni sulle topologie di Flux, vedere [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Per altre informazioni sulle topologie di Flux, vedere [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Scaricare e compilare il progetto
 
@@ -172,7 +172,7 @@ Per altre informazioni sulle topologie di Flux, vedere [https://storm.apache.org
     ```
 
     > [!IMPORTANT]
-    > Bash di esempio presuppone che `$CLUSTERNAME` contenga il nome del cluster HDInsight. Presuppone anche che [jq](https://stedolan.github.io/jq/) sia installato. Quando richiesto, immettere la password dell'account di accesso al cluster.
+    > Bash di esempio presuppone che `$CLUSTERNAME` contenga il nome del cluster HDInsight. Presuppone anche che sia installato [jq](https://stedolan.github.io/jq/) versione 1.5 o una versione successiva. Quando richiesto, immettere la password dell'account di accesso al cluster.
 
     Il valore restituito è simile al testo seguente:
 
@@ -218,7 +218,7 @@ Per altre informazioni sulle topologie di Flux, vedere [https://storm.apache.org
 4. Salvare il file `dev.properties` e quindi usare il comando seguente per caricarlo nel cluster Storm:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Sostituire **USERNAME** con il nome utente SSH per il cluster. Sostituire **BASENAME** con il nome di base usato durante la creazione del cluster.
@@ -287,6 +287,9 @@ Per altre informazioni sulle topologie di Flux, vedere [https://storm.apache.org
     Usare CTRL+C per arrestare lo script.
 
 ## <a name="start-the-reader"></a>Avviare il reader
+
+> [!NOTE]
+> Quando viene visualizzato il lettore nell'interfaccia utente di Storm, può essere visibile anche una sezione __Topology spouts lag error__ (Errore di ritardo spout topologia). Ai fini di questo esempio, l'errore può essere ignorato.
 
 1. Dalla sessione SSH nel cluster Storm usare il comando seguente per avviare la topologia del reader:
 

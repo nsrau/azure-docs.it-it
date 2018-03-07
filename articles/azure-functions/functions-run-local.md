@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: c1a9310d0a09d714f1d58f29e5683097c9dc6b90
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Scrivere codici per Funzioni di Azure e testarle in locale
 
@@ -105,6 +105,14 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Per creare il progetto senza un archivio Git locale, utilizzare l’opzione `--no-source-control [-n]`.
+
+## <a name="register-extensions"></a>Registrare le estensioni
+
+Nella versione 2.x del runtime di Funzioni di Azure, è necessario registrare esplicitamente le [estensioni delle associazioni](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) usate nell'app per le funzioni. 
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+Per altre informazioni, vedere [Concetti relativi a trigger e associazioni in Funzioni di Azure](functions-triggers-bindings.md#register-binding-extensions).
 
 ## <a name="local-settings-file"></a>File di impostazioni locali
 
@@ -232,6 +240,9 @@ Per avviare l'host e configurare il debug di JavaScript, eseguire:
 func host start --debug vscode
 ```
 
+> [!IMPORTANT]
+> Per finalità di debug, è supportato solo Node.js 8.x. Node.js 9.x non è supportato. 
+
 Quindi, in Visual Studio Code, nella visualizzazione **Debug**, selezionare **Attach to Azure Functions** (Associa a Funzioni di Azure). È possibile associare punti di interruzione, controllare variabili ed eseguire il codice passo per passo.
 
 ![Debug di JavaScript con Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
@@ -308,6 +319,10 @@ Ad esempio, per chiamare una funzione attivata da HTTP e passare il corpo del co
 ```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
+
+### <a name="viewing-log-files-locally"></a>Visualizzazione dei file di log in locale
+
+[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
 
 ## <a name="publish"></a> Pubblicazione in Azure
 

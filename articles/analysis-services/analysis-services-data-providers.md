@@ -13,26 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 02/27/2018
 ms.author: owend
-ms.openlocfilehash: 870d430d1926859894f452e0af812d794272a9e6
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
 
 Le librerie client sono necessarie per la connessione di applicazioni e strumenti client ai server di Analysis Services. 
 
-## <a name="download-the-latest-client-libraries"></a>Scaricare le librerie client più recenti  
+## <a name="download-the-latest-client-libraries-windows-installer"></a>Scaricare le librerie client più recenti (Windows Installer)  
 
-|Download  |Version  | 
+|Download  |Versione prodotto  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    14.0.801.241      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    14.0.801.241      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   14.0.800.117      |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    14.0.801.241      |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.208      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.208      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.0.2     |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.0.2     |
+
+## <a name="amo-and-adomd-nuget-packages"></a>AMO e ADOMD (pacchetti NuGet)
+
+Le librerie client Analysis Services Management Objects (AMO) e ADOMD sono disponibili come pacchetti installabili in [NuGet.org](https://www.nuget.org/). È consigliabile eseguire la migrazione ai riferimenti NuGet anziché usare Windows Installer. 
+
+|Pacchetto  | Versione prodotto  | 
+|---------|---------|
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.0.2.0      |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.0.2.0      |
+
+Gli assembly AssemblyVersion del pacchetto NuGet sono conformi al controllo delle versioni semantici: PRINCIPALE.SECONDARIA.PATCH. I riferimenti NuGet caricano la versione prevista anche se nella Global Assembly Cache è presente una versione diversa (risultante dall'installazione con file MSI). Il valore di PATCH viene incrementato a ogni versione. Le versioni di AMO e ADOMD vengono mantenute sincronizzate.
 
 ## <a name="understanding-client-libraries"></a>Informazioni sulle librerie client
 
@@ -54,9 +65,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
 ### <a name="amo"></a>AMO  
 
- AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services.  
-  
- Una connessione che usa AMO è in genere minima, costituita da `“data source=\<servername>”`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia SSDT che SSMS usano AMO per connettersi a un'istanza di Analysis Services.  
+ AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `“data source=\<servername>”`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia SSDT che SSMS usano AMO per connettersi a un'istanza di Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -70,20 +79,21 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  Passare a `C:\Program Files\Microsoft Analysis Services\AS OLEDB\140`. Se si ha più di una cartella, scegliere il numero più elevato.
+1.  Passare a C:\Programmi\Microsoft Analysis Services\AS OLEDB\. Se si ha più di una cartella, scegliere il numero più elevato.
   
-2.  Fare clic con il pulsante destro del mouse su **msolap140.dll** > **Proprietà** > **Dettagli**.  
+2.  Fare clic con il pulsante destro del mouse su **msolap.dll** > **Proprietà** > **Dettagli**. Se il nome del file è msolap140.dll, si tratta di una versione precedente che deve essere aggiornata.
     
     ![Dettagli della libreria client](media/analysis-services-data-providers/aas-msolap-details.png)
+    
   
 ### <a name="amo"></a>AMO
 
-1. Passare a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\v4.0_14.0.0.0__89845dcd8080cc91`.
+1. Passare a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Se si ha più di una cartella, scegliere il numero più elevato.
 2. Fare clic con il pulsante destro del mouse **Microsoft.AnalysisServices** > **Proprietà** > **Dettagli**.  
 
 ### <a name="adomd"></a>ADOMD
 
-1. Passare a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\v4.0_14.0.0.0__89845dcd8080cc91`.
+1. Passare a `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. Se si ha più di una cartella, scegliere il numero più elevato.
 2. Fare clic con il pulsante destro del mouse **Microsoft.AnalysisServices.AdomdClient** > **Proprietà** > **Dettagli**.  
 
 

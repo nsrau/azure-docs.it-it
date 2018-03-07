@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: dd01246075a5c0db0ed49133ed51fb56d8fcf8e5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Risolvere e correggere i problemi dei dispositivi
 
@@ -58,6 +58,8 @@ Per confermare di aver visto l'allarme, selezionare le occorrenze in **Alarm occ
 
 ![Confermare gli allarmi](media/iot-suite-remote-monitoring-maintain/maintenanceacknowledge.png)
 
+Quando si conferma l'allarme, lo stato dell'occorrenza passa a **Confermato**.
+
 Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) responsabile della generazione dell'allarme relativo alla temperatura:
 
 ![Elencare i dispositivi che causano l'allarme](media/iot-suite-remote-monitoring-maintain/maintenanceresponsibledevice.png)
@@ -84,7 +86,7 @@ Per visualizzare i dettagli di un una chiamata a un metodo o di un processo spec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha mostrato come:
+In questa esercitazione si è visto come:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

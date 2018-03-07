@@ -1,5 +1,5 @@
 ---
-title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
+title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
 description: Scambiare messaggi X12 in formato EDI per l'integrazione aziendale B2B con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi X12 per l'integrazione aziendale con le app per la logica
 
@@ -31,37 +31,34 @@ Per poter scambiare messaggi X12 con App per la logica di Azure, è necessario c
 
 Sono necessari gli elementi seguenti:
 
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md) già definito e associato alla sottoscrizione di Azure.
+* Un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure.
 * Almeno due [partner](../logic-apps/logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione e configurati con l'identificatore X12 in **Identità di business**.    
-* È obbligatorio uno [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) per l'upload nell'[account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md).
+* Uno [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) obbligatorio da caricare nell'account di integrazione.
 
-Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterprise-integration-accounts.md), [aggiunto i partner](logic-apps-enterprise-integration-partners.md) e predisposto lo [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) da usare, è possibile creare un contratto X12 seguendo questa procedura.
+Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), [aggiunto i partner](logic-apps-enterprise-integration-partners.md) e predisposto lo [schema](../logic-apps/logic-apps-enterprise-integration-schemas.md) da usare, è possibile creare un contratto X12 seguendo questa procedura.
 
 ## <a name="create-an-x12-agreement"></a>Creare un contratto X12
 
-1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). Fare clic su **Altri servizi** nel menu a sinistra. 
+1. Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). 
 
-    > [!TIP]
-    > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
+2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.  
 
-    ![Fare clic su "Altri servizi" nel menu a sinistra](./media/logic-apps-enterprise-integration-x12/account-1.png)
+   ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
-2.  Nella casella di ricerca, digitare "integrazione" come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.  
+   > [!TIP]
+   > Se **Tutti i servizi** non viene visualizzato, può essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
 
-    ![Filtro su "integrazione", selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-x12/account-2.png)
+3. In **Account di integrazione** selezionare l'account di integrazione nel quale aggiungere il contratto.
 
-3. Nel pannello **Account di integrazione** visualizzato selezionare l'account di integrazione nel quale aggiungere il contratto.
-Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tutte le informazioni sugli account di integrazione").
-
-    ![Selezionare l'account di integrazione in cui si vuole creare il contratto](./media/logic-apps-enterprise-integration-x12/account-3.png)
+   ![Selezionare l'account di integrazione in cui si vuole creare il contratto](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. Se non è presente il riquadro dei contratti, aggiungerlo. 
 
-    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Nel pannello Contratti visualizzato, selezionare **Aggiungi**.
+5. In **Contratti** scegliere **Aggiungi**.
 
-    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. In **Aggiungi**, digitare un **nome** per il contratto. Come tipo di contratto selezionare **X12**. Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto. Per altre informazioni sulla proprietà, vedere la tabella seguente.
 
@@ -263,7 +260,7 @@ Oltre al set di caratteri, è possibile immettere un set di delimitatori diverso
 | Proprietà | DESCRIZIONE |
 | --- | --- |
 | Set di caratteri da usare |Per convalidare le proprietà selezionare il set di caratteri X12. Le opzioni sono: Basic, Extended e UTF8. |
-| SCHEMA |Selezionare uno schema nell'elenco a discesa. Dopo aver completato ogni riga, viene aggiunta automaticamente una nuova riga. Per lo schema selezionato, selezionare il set di separatori che si vuole usare, in base alle seguenti descrizioni di separatore. |
+| SCHEMA |Selezionare uno schema nell'elenco a discesa. Dopo aver completato ogni riga, viene aggiunta automaticamente una nuova riga. Per lo schema selezionato, selezionare il set di separatori da usare, in base alle descrizioni di separatore seguenti. |
 | Tipo di input |Selezionare un tipo di input nell'elenco a discesa. |
 | Component Separator |Per separare elementi di dati compositi immettere un singolo carattere. |
 | Data Element Separator |Per separare elementi di dati semplici in elementi di dati compositi Immettere un singolo carattere. |
@@ -291,13 +288,13 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ## <a name="find-your-created-agreement"></a>Individuare il contratto creato
 
-1.  Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
+1.  Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nella pagina **Aggiungi** per completare la creazione del contratto e tornare all'account di integrazione.
 
     Il contratto appena aggiunto viene visualizzato nell'elenco **Contratti**.
 
-2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**.
+2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel menu dell'account di integrazione scegliere **Panoramica** e quindi selezionare il riquadro **Contratti**.
 
-    ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
+    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
 ## <a name="view-the-swagger"></a>Visualizzare il file Swagger
 Vedere i [dettagli del file Swagger](/connectors/x12/). 

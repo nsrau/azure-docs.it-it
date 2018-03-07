@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a3b83f0a5ed9638f3e9277d4a467b478961d3fc3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a3143703a946cadccf14d1675399c0848835d97c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemi di configurazione e provisioning degli utenti in un'applicazione
 
@@ -31,5 +31,6 @@ ms.lasthandoff: 12/11/2017
   I documenti seguenti possono aiutare a risolvere alcuni dei problemi più comuni in questa categoria.
   * [I don't know how to configure user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Come configurare il provisioning degli utenti in un'applicazione della raccolta di Azure AD)
   * [I encountered a problem when configuring user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Problema durante la configurazione del provisioning degli utenti in un'applicazione della raccolta di Azure AD)
+  * [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Problemi di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti in un'applicazione della raccolta di Azure Active Directory)
   * [I've set up provisioning to my Azure AD Gallery application, but no users are being provisioned](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Dopo aver configurato il provisioning nell'applicazione della raccolta Azure AD non viene effettuato il provisioning di alcun utente)
   * [Provisioning to my Azure AD Gallery application is working, but the wrong set of users are being provisioned](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) (Viene effettuato il provisioning di un set di utenti non corretto nell'applicazione della raccolta Azure AD)

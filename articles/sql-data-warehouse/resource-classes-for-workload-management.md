@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: 122646f73b6e4e7c62eb0e6d4b6672b603d8acb2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="resource-classes-for-workload-management"></a>Classi di risorse per la gestione del carico di lavoro
 Materiale sussidiario per l'uso delle classi di risorse per gestire il numero di query eseguite contemporaneamente e le risorse di calcolo per le query in Azure SQL Data Warehouse.
@@ -84,6 +84,11 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 ```
 
 La classe di risorse dell'amministratore del servizio è fissa e non può essere modificata.  L'amministratore del servizio è l'utente creato durante il processo di provisioning.
+
+> [!NOTE]
+> Gli utenti o gruppi definiti come amministratori di Active Directory sono anche amministratori del servizio.
+>
+>
 
 ### <a name="default-resource-class"></a>Classe di risorse predefinita
 Per impostazione predefinita, ogni utente è membro della classe di risorse piccola **smallrc**. 

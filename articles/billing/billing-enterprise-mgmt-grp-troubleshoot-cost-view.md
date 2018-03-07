@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Risolvere i problemi delle visualizzazioni dei costi aziendali 
 
 Nelle registrazioni Enterprise sono disponibili varie impostazioni che potrebbero impedire agli utenti di visualizzare i costi all'interno della registrazione.  Queste impostazioni sono gestite dall'amministratore delle registrazioni o dal partner nel caso di registrazioni non acquistate direttamente da Microsoft.  Questo articolo illustra queste impostazioni e l'impatto che hanno sulla registrazione. Queste impostazioni sono indipendenti dai [ruoli di Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
-> [!Note]
-> Questa funzionalità è attualmente in anteprima privata. [Iscriversi qui](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) per avere l'anteprima.     
 
 ## <a name="enabling-access-to-costs"></a>Abilitazione dell'accesso ai costi
 
-Viene visualizzato un messaggio Non autorizzato o che indica che *le visualizzazioni dei costi sono disabilitate nella propria registrazione* quando si cercano le informazioni sui costi? ![non autorizzato](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Viene visualizzato un messaggio Non autorizzato o in cui è indicato che *le visualizzazioni dei costi sono disabilitate nella registrazione* quando si cercano le informazioni sui costi? ![non autorizzato](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
 Il problema può dipendere da una delle cause seguenti:
 
@@ -47,4 +45,3 @@ Se si riceve un messaggio di errore del tipo "Questa risorsa non è disponibile"
 
 Contattare l'amministratore della sottoscrizione o dei gruppi di gestione per ottenere l'accesso.  
 * Per le sottoscrizioni, fare riferimento al documento [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) per informazioni sul ruolo necessario.
-* Per i gruppi di gestione, il Controllo degli accessi in base al ruolo di Azure sarà presto disponibile. Contattare l'amministratore di Enterprise Portal per ottenere l'accesso.   

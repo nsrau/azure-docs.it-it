@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2018
+ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 345717e76097931f52354369e822af41133b34f0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni.
@@ -37,7 +37,7 @@ Consente di creare, eliminare e gestire le applicazioni e i tipi di applicazioni
 | list         | Mostra l'elenco di applicazioni create nel cluster di Service Fabric che corrisponde ai filtri specificati come parametro.|
 | load | Mostra informazioni di caricamento su un'applicazione di Service Fabric. |
 | manifest     | Mostra il manifesto che descrive un tipo di applicazione.|
-| provision    | Esegue il provisioning o la registrazione di un tipo di applicazione di Service Fabric con il cluster.|
+| provision    | Esegue il provisioning o registra un tipo di applicazione di Service Fabric con il cluster mediante il pacchetto sfpkg nell'archivio esterno o mediante il pacchetto dell'applicazione nell'archivio immagini.|
 | report-health| Invia un report di integrità sull'applicazione di Service Fabric.|
 | type         | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato.|
 | type-list    | Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric.|
@@ -83,7 +83,7 @@ Elimina un'applicazione di Service Fabric esistente. Prima di poter essere elimi
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti.|
+| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric:/myapp/app1", l'identità dell'applicazione sarà "myapp~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti.|
 | --force-remove          | Consente di rimuovere un servizio o un'applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio la cui eliminazione sta scadendo a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche.|
 | --timeout -t            | Timeout del server in secondi.  Predefinito: 60.|
 
@@ -99,12 +99,14 @@ Elimina un'applicazione di Service Fabric esistente. Prima di poter essere elimi
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
 Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric.
+
+Recupera le informazioni relative a un'applicazione distribuita in un nodo di Service Fabric.  Questa query restituisce informazioni sull'applicazione di sistema se l'ID applicazione fornito è relativo all'applicazione di sistema. I risultati includono le applicazioni distribuite con stato "attivo", "attivazione in corso" e "download in corso". Questa query richiede che il nome del nodo corrisponda a un nodo nel cluster. La query ha esito negativo se il nome del nodo specificato non fa riferimento ad alcun nodo di Service Fabric attivo nel cluster.
      
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti.|
+| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric:/myapp/app1", l'identità dell'applicazione sarà "myapp~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti.|
 | --node-name [obbligatorio]| Il nome del nodo.|
 | --timeout -t            | Timeout del server in secondi.  Predefinito: 60.|
 
@@ -127,7 +129,7 @@ Restituisce lo stato di integrità dell'applicazione di Service Fabric. La rispo
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti.|
+| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric:/myapp/app1", l'identità dell'applicazione sarà "myapp~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti.|
 | --deployed-applications-health-state-filter| Consente di filtrare gli oggetti dello stato di integrità delle applicazioni distribuite restituiti nel risultato della query di integrità dell'applicazione in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Verranno restituite solo le applicazioni distribuite che corrispondono al filtro. Tutte le applicazioni distribuite vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni distribuite il cui valore di HealthState è OK (2) e Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
 | --events-health-state-filter            | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. -None - Filtro che non corrisponde ad alcun valore di HealthState. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
 | --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche mostrano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore.|
@@ -141,7 +143,7 @@ Restituisce lo stato di integrità dell'applicazione di Service Fabric. La rispo
 | --debug                                 | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                                 | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose                               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
@@ -153,7 +155,7 @@ Restituisce le informazioni sull'applicazione creata o in corso di creazione nel
 
 |Argomento|Descrizione|
 | --- | --- |
-| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti.|
+| --application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric:/myapp/app1", l'identità dell'applicazione sarà "myapp~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti.|
 | --exclude-application-parameters| Il flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato.|
 | --timeout -t                 | Timeout del server in secondi.  Predefinito: 60.|
 
@@ -164,22 +166,23 @@ Restituisce le informazioni sull'applicazione creata o in corso di creazione nel
 | --debug                      | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                    | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                  | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.             Predefinito: json.|
-| --query                      | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                      | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose                    | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-list"></a>sfctl application list
 Mostra l'elenco di applicazioni create nel cluster di Service Fabric che corrisponde ai filtri specificati come parametro.
 
-Recupera le informazioni sulle applicazioni create o in corso di creazione nel cluster di Service Fabric e che corrispondono ai filtri specificati come parametro. La risposta include il nome, il tipo, lo stato, i parametri e altri dettagli relativi all'applicazione. Se le applicazioni non rientrano in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva.
+Recupera le informazioni sulle applicazioni create o in corso di creazione nel cluster di Service Fabric e che corrispondono ai filtri specificati come parametro. La risposta include il nome, il tipo, lo stato, i parametri e altri dettagli relativi all'applicazione. Se le applicazioni non rientrano in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Non è possibile specificare contemporaneamente i filtri ApplicationTypeName e ApplicationDefinitionKindFilter.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
-|--application-definition-kind-filter| Usato per filtrare in ApplicationDefinitionKind per le operazioni di query dell'applicazione. - Default - Valore predefinito. Filtro che corrisponde all'input con qualsiasi valore di ApplicationDefinitionKind. Il valore è 0. - All - Filtro che corrisponde all'input con qualsiasi valore di ApplicationDefinitionKind. Il valore è 65535. -ServiceFabricApplicationDescription - Filtro che corrisponde all'input con valore di ApplicationDefinitionKind uguale a ServiceFabricApplicationDescription. Il valore è uguale a 1. - Compose - Filtro che corrisponde all'input con valore di ApplicationDefinitionKind uguale a Compose. Il valore è 2. Valore predefinito: 65535.|
+|--application-definition-kind-filter| Usato per filtrare in base a ApplicationDefinitionKind, che è il meccanismo usato per definire un'applicazione di Service Fabric. - Default - Valore predefinito, che esegue la stessa funzione della selezione di "All". Il valore è 0. - All - Filtro che corrisponde all'input con qualsiasi valore di ApplicationDefinitionKind. Il valore è 65535. - ServiceFabricApplicationDescription - Filtro che corrisponde all'input con valore di ApplicationDefinitionKind uguale a ServiceFabricApplicationDescription. Il valore è uguale a 1. - Compose - Filtro che corrisponde all'input con valore di ApplicationDefinitionKind uguale a Compose. Il valore è 2.|
 | --application-type-name      | Nome del tipo di applicazione usato per filtrare le applicazioni per cui eseguire le query. Questo valore non deve contenere la versione del tipo di applicazione.|
 | --continuation-token         | Il parametro del token di continuazione viene usato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --exclude-application-parameters| Il flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato.|
+| --max-results|Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, il numero dei risultati restituiti può essere inferiore al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito.|
 | --timeout -t                 | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -200,7 +203,7 @@ Restituisce le informazioni di carico sull'applicazione creata o in corso di cre
 ### <a name="arguments"></a>Argomenti
 |Argomento|Descrizione|
 | --- | --- |
-|--application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti. |
+|--application-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati dal carattere "~". Ad esempio, se il nome dell'applicazione è "fabric:/myapp/app1", l'identità dell'applicazione sarà "myapp~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti. |
 | --timeout -t               | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -209,7 +212,7 @@ Restituisce le informazioni di carico sull'applicazione creata o in corso di cre
 |--debug                    | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
     --help -h                  | Mostra questo messaggio della Guida e l'uscita.|
     --output -o                | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-    --query                    | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+    --query                    | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
     --verbose                  | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -232,20 +235,29 @@ Mostra il manifesto che descrive un tipo di applicazione. La risposta contiene i
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                  Predefinito: json.|
-| --query                           | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                           | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-Esegue il provisioning o la registrazione di un tipo di applicazione di Service Fabric con il cluster.
+Esegue il provisioning o registra un tipo di applicazione di Service Fabric con il cluster mediante il pacchetto SFPKG nell'archivio esterno o mediante il pacchetto dell'applicazione nell'archivio immagini.
+
+Esegue il provisioning di un tipo di applicazione di Service Fabric con il cluster. È necessario eseguire questa operazione prima di creare un'istanza per una nuova applicazione. L'operazione di provisioning può essere eseguita sul pacchetto dell'applicazione specificato da relativePathInImageStore o usando l'URI del pacchetto SFPKG esterno. A meno che non sia impostato --external-provision, questo comando prevede il provisioning dell'archivio
+
+immagini.
         
-Esegue il provisioning o la registrazione di un tipo di applicazione di Service Fabric con il cluster. È necessario eseguire questa operazione prima di creare un'istanza per una nuova applicazione.
+
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
-| --application-type-build-path [obbligatorio]| Il percorso dell'archivio di immagini per il pacchetto dell'applicazione.|
-| --timeout -t                         | Timeout del server in secondi.  Predefinito: 60.|
+| --application-package-download-uri| Percorso del pacchetto dell'applicazione "sfpkg", da cui può essere scaricato il pacchetto dell'applicazione tramite i protocolli HTTP o HTTPS. Solo per il provisioning da un archivio esterno. Il pacchetto dell'applicazione può essere archiviato in un archivio esterno che fornisce l'operazione GET per il download del file. I protocolli supportati sono HTTP e HTTPS e il percorso deve consentire l'accesso in lettura.|
+| --application-type-build-path       | Solo per il provisioning dall'archivio immagini. Percorso relativo del pacchetto dell'applicazione nell'archivio immagini specificato durante l'operazione di caricamento precedente. |
+| --application-type-name| Solo per il provisioning da un archivio esterno. Il nome del tipo di applicazione rappresenta il nome del tipo di applicazione trovato nel manifesto dell'applicazione.|
+| --application-type-version| Solo per il provisioning da un archivio esterno. La versione del tipo di applicazione rappresenta la versione del tipo di applicazione trovata nel manifesto dell'applicazione.|
+| --external-provision| Percorso da in cui è possibile eseguire la registrazione o il provisioning del pacchetto dell'applicazione. Indica che il provisioning è relativo a un pacchetto dell'applicazione che è stato caricato in precedenza in un archivio esterno. Il pacchetto dell'applicazione termina con l'estensione "sfpkg".|
+| --no-wait| Indica se il provisioning deve essere eseguito o meno in modo asincrono.  Se impostato su true, l'operazione di provisioning restituisce una valore quando la richiesta viene accettata dal sistema e l'operazione di provisioning continua senza alcun limite di timeout. Il valore predefinito è False. Per i pacchetti dell'applicazione di grandi dimensioni, è consigliabile impostare il valore su true.|
+| --timeout -t                      | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
 
@@ -254,20 +266,21 @@ Esegue il provisioning o la registrazione di un tipo di applicazione di Service 
 | --debug                              | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                            | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                          | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                              | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                              | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose                            | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-type"></a>sfctl application type
 
 Mostra l'elenco dei tipi di applicazioni nel cluster di Service Fabric che corrispondono esattamente al nome specificato.
 
-Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Questi risultati sono tipi di applicazioni il cui nome corrisponde esattamente a quello specificato come parametro e che rispettano i parametri di query specificati. Vengono restituite tutte le versioni del tipo di applicazione corrispondenti al nome del tipo di applicazione, ogni versione viene restituita come un tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging, il che vuol dire che se i tipi di applicazione non rientrano tutti in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Ad esempio, se ci sono 10 tipi di applicazione, ma una pagina contiene solo i primi 3 tipi di applicazione, oppure se il risultato massimo è impostato su 3, viene restituito 3. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
+Restituisce le informazioni sui tipi di applicazione per cui si effettua o è in corso il provisioning del cluster di Service Fabric. Questi risultati sono tipi di applicazioni il cui nome corrisponde esattamente a quello specificato come parametro e che rispettano i parametri di query specificati. Vengono restituite tutte le versioni del tipo di applicazione corrispondenti al nome del tipo di applicazione, ogni versione viene restituita come un tipo di applicazione. La risposta include il nome, la versione, lo stato e altri dettagli relativi al tipo di applicazione. Si tratta di una query di paging, il che vuol dire che se i tipi di applicazione non rientrano tutti in una pagina, viene restituita una pagina di risultati e un token di continuazione, che possono essere usati per accedere alla pagina successiva. Ad esempio, se ci sono 10 tipi di applicazione, ma una pagina contiene solo i primi 3 tipi di applicazione, oppure se il numero massimo di risultati è impostato su 3, viene restituito 3. Per accedere al resto dei risultati, recuperare le pagine successive usando il token di continuazione restituito nella query successiva. Se non ci sono pagine successive, viene restituito un token di continuazione vuoto.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
 | --application-type-name [obbligatorio]| Nome del tipo di applicazione.|
+| --application-type-version        | Versione del tipo di applicazione.|
 | --continuation-token           | Il parametro del token di continuazione viene usato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati del sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --exclude-application-parameters  | Il flag che specifica se i parametri dell'applicazione verranno esclusi dal risultato.|
 | --max-results                  | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging. Questo parametro definisce il limite massimo di risultati restituiti. Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, i risultati restituiti possono essere pari a un numero minore rispetto al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito.|
@@ -293,7 +306,8 @@ Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric 
 |Argomento|Descrizione|
 | --- | --- |
 | --application-type-name    [obbligatorio]| Nome del tipo di applicazione.|
-| --application-type-version [obbligatorio]| Versione del tipo di applicazione.|
+| --application-type-version [obbligatorio]| La versione del tipo di applicazione, come definita nel manifesto dell'applicazione.|
+|--async-parameter                    | Flag che indica se l'annullamento del provisioning deve essere eseguito o meno in modo asincrono. Se impostato su true, l'operazione di annullamento del provisioning restituisce una valore quando la richiesta viene accettata dal sistema e l'operazione di annullamento del provisioning continua senza alcun limite di timeout. Il valore predefinito è False. È tuttavia consigliabile impostare il valore true per i pacchetti dell'applicazione di grandi dimensioni di cui è stato eseguito il provisioning.|
 | --timeout -t                      | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -303,19 +317,19 @@ Rimuove o annulla la registrazione di un tipo di applicazione di Service Fabric 
 | --debug                           | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                         | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o                       | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.                  Predefinito: json.|
-| --query                           | Stringa di query JMESPath. Per altre informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                           | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose                         | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl application upgrade
 Avvia l'aggiornamento di un'applicazione nel cluster di Service Fabric.
 
-Convalida i parametri di aggiornamento dell'applicazione offerta e avvia l'aggiornamento dell'applicazione se i parametri sono validi. Si noti che la descrizione dell'aggiornamento sostituisce la descrizione dell'applicazione esistente. Ciò significa che se i parametri vengono omessi, i parametri esistenti per le applicazioni verranno sovrascritti con l'elenco di parametri vuoto. Il risultato è un'applicazione che usa il valore predefinito dei parametri del manifesto dell'applicazione.
+Convalida i parametri di aggiornamento dell'applicazione offerta e avvia l'aggiornamento dell'applicazione se i parametri sono validi. La descrizione dell'aggiornamento sostituisce la descrizione dell'applicazione esistente. Ciò significa che se i parametri vengono omessi, i parametri esistenti per le applicazioni vengono sovrascritti con l'elenco di parametri vuoto. Il risultato è un'applicazione che usa il valore predefinito dei parametri del manifesto dell'applicazione.
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|Descrizione|
 | --- | --- |
-| --app-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti.|
+| --app-id [obbligatorio]| Identità dell'applicazione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome dell'applicazione è "fabric:/myapp/app1", l'identità dell'applicazione sarà "myapp~app1" nella versione 6.0 e successive e "myapp/app1" nelle versioni precedenti.|
 | --app-version [obbligatorio]| Versione dell'applicazione di destinazione.|
 | --parameters         [obbligatorio]| Un elenco con codifica JSON di sostituzioni del parametro dell'applicazione da applicare quando si esegue l'aggiornamento dell'applicazione.|
 | --default-service-health-policy| Specifica con codifica JSON dei criteri di integrità usati per impostazione predefinita per la valutazione dell'integrità di un tipo di servizio.|
@@ -363,7 +377,7 @@ Facoltativamente, è possibile visualizzare lo stato di caricamento per ogni fil
 | --debug       | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h     | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o   | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query       | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query       | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose     | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="next-steps"></a>Passaggi successivi

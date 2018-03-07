@@ -10,11 +10,11 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 467111978d43d35788276cf7a464496393e4599b
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ottimizzazione distribuita di iperparametri con Azure Machine Learning Workbench
 
@@ -39,19 +39,14 @@ La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se
 * Una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione e alla creazione](./quickstart-installation.md) per installare Workbench e creare gli account.
 * Questo scenario presuppone che Azure ML Workbench sia in esecuzione in un computer Windows 10 o MacOS con il motore Docker installato in locale. 
 * Per eseguire lo scenario con un contenitore Docker remoto, effettuare il provisioning di una macchina virtuale di data science (DSVM) Ubuntu seguendo le [istruzioni](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). È consigliabile usare una macchina virtuale con almeno 8 core e 28 GB di memoria. Le istanze D4 delle macchine virtuali offrono questa capacità. 
-* Per eseguire questo scenario con un cluster Spark, effettuare il provisioning del cluster Azure HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
-È consigliabile avere un cluster con almeno:
-    - sei nodi di lavoro
+* Per eseguire questo scenario con un cluster Spark, eseguire il provisioning del cluster Spark di HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). È consigliabile usare un cluster con la configurazione seguente sia nell'intestazione sia nei nodi del ruolo di lavoro:
+    - quattro nodi del ruolo di lavoro
     - otto core
-    - 28 GB di memoria sia nel nodo head che nei nodi di lavoro. Le istanze D4 delle macchine virtuali offrono questa capacità.       
-    - Per ottimizzare le prestazioni del cluster, è consigliabile modificare i parametri seguenti:
-        - spark.executor.instances
-        - spark.executor.cores
-        - spark.executor.memory 
+    - 28 GB di memoria  
+      
+  Le istanze D4 delle macchine virtuali offrono questa capacità. 
 
-È possibile seguire queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e modificare le definizioni nella sezione delle impostazioni predefinite di Spark personalizzate.
-
-     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+     **Risoluzione dei problemi**: la sottoscrizione di Azure potrebbe prevedere una quota per il numero di core che è possibile usare. Il portale di Azure non consente la creazione di cluster con un numero totale di core superiore alla quota. Per individuare la quota, andare alla sezione Sottoscrizioni nel portale di Azure, fare clic sulla sottoscrizione usata per distribuire un cluster e quindi fare clic su **Utilizzo e quote**. In genere, le quote sono definite per ogni area di Azure ed è possibile scegliere di distribuire il cluster Spark in un'area in cui c'è un numero sufficiente di core liberi. 
 
 * Creare un account di archiviazione di Azure per l'archiviazione del set di dati. Seguire queste [istruzioni](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione.
 
@@ -118,7 +113,7 @@ con indirizzo IP, nome utente e password della macchina virtuale di data science
 
 Per configurare l'ambiente Spark, eseguire nell'interfaccia della riga di comando:
 
-    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
+    az ml computetarget attach cluster --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 con il nome del cluster e la password e il nome utente SSH del cluster. Il valore predefinito del nome utente SSH è `sshuser`, a meno che non sia stato modificato durante il provisioning del cluster. Il nome del cluster è indicato nella sezione delle proprietà nella pagina del cluster nel portale di Azure:
 
@@ -126,14 +121,20 @@ con il nome del cluster e la password e il nome utente SSH del cluster. Il valor
 
 Si usa il pacchetto spark-sklearn per avere Spark come ambiente di esecuzione per l'ottimizzazione distribuita degli iperparametri. Il file spark_dependencies.yml è stato modificato per installare questo pacchetto quando viene usato l'ambiente di esecuzione Spark:
 
-    configuration: {}
+    configuration: 
+      #"spark.driver.cores": "8"
+      #"spark.driver.memory": "5200m"
+      #"spark.executor.instances": "128"
+      #"spark.executor.memory": "5200m"  
+      #"spark.executor.cores": "2"
+  
     repositories:
       - "https://mmlspark.azureedge.net/maven"
       - "https://spark-packages.org/packages"
     packages:
       - group: "com.microsoft.ml.spark"
         artifact: "mmlspark_2.11"
-        version: "0.7"
+        version: "0.7.91"
       - group: "databricks"
         artifact: "spark-sklearn"
         version: "0.2.0"
@@ -199,9 +200,9 @@ nella finestra di interfaccia della riga di comando.
 Poiché l'ambiente locale è troppo piccolo per calcolare tutti i set di funzionalità, si passa alla macchina virtuale di data science remota, che ha una maggiore quantità di memoria. L'esecuzione nella macchina virtuale di data science avviene all'interno del contenitore Docker gestito da Azure Machine Learning Workbench. Usando questa macchina virtuale di data science è possibile calcolare tutte le funzionalità, oltre che eseguire il training dei modelli e ottimizzare gli iperparametri (vedere la sezione successiva). Il file singleVM.py contiene codice di modellazione e calcolo delle funzionalità completo. Nella sezione successiva verrà illustrato come eseguire singleVM.py nella macchina virtuale di data science remota. 
 
 ### <a name="tuning-hyperparameters-using-remote-dsvm"></a>Ottimizzazione degli iperparametri tramite la macchina virtuale di data science remota
-Viene usata l'implementazione [xgboost](https://anaconda.org/conda-forge/xgboost) [1] del potenziamento del gradiente di alberi. Si usa il pacchetto [scikit-learn](http://scikit-learn.org/) per ottimizzare gli iperparametri di xgboost. Sebbene xgboost non faccia parte del pacchetto scikit-learn, implementa l'API scikit-learn e quindi può essere usato con le funzioni di ottimizzazione degli iperparametri di scikit-learn. 
+Viene usata l'implementazione [xgboost](https://anaconda.org/conda-forge/xgboost) [1] del potenziamento del gradiente di alberi. Si usa anche il pacchetto [scikit-learn](http://scikit-learn.org/) per ottimizzare gli iperparametri di xgboost. Sebbene xgboost non faccia parte del pacchetto scikit-learn, implementa l'API scikit-learn e quindi può essere usato con le funzioni di ottimizzazione degli iperparametri di scikit-learn. 
 
-Xgboost ha otto iperparametri:
+Xgboost ha otto iperparametri, che sono descritti [qui](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md):
 * n_estimators
 * max_depth
 * reg_alpha
@@ -210,9 +211,8 @@ Xgboost ha otto iperparametri:
 * learning_rate
 * colsample\_by_level
 * subsample
-* objective. Una descrizione di questi iperparametri è disponibile agli indirizzi
-- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- e https://github.com/dmlc/xgboost/blob/master/doc/parameter.md. 
-- 
+* obiettivo  
+ 
 Inizialmente si usa una macchina virtuale di data science remota e si ottimizzano gli iperparametri da una piccola griglia di valori candidati:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
@@ -285,7 +285,7 @@ Viene usato il cluster Spark per scalare orizzontalmente l'ottimizzazione degli 
 
 Questa griglia ha 16 combinazioni di valori degli iperparametri. Poiché si usa la convalida incrociata in 5 parti, si esegue xgboost 16x5=80 volte.
 
-Il pacchetto scikit-learn non ha il supporto nativo per l'ottimizzazione degli iperparametri tramite il cluster Spark. Fortunatamente, a questo scopo è disponibile il pacchetto [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) di Databricks. Questo pacchetto fornisce la funzione GridSearchCV, che ha circa la stessa API della funzione GridSearchCV in scikit-learn. Per usare spark-sklearn e ottimizzare gli iperparametri con Spark è necessario connettersi per creare il contesto di Spark
+Il pacchetto scikit-learn non ha il supporto nativo per l'ottimizzazione degli iperparametri tramite il cluster Spark. Fortunatamente, a questo scopo è disponibile il pacchetto [spark-sklearn](https://spark-packages.org/package/databricks/spark-sklearn) di Databricks. Questo pacchetto fornisce la funzione GridSearchCV, che ha circa la stessa API della funzione GridSearchCV in scikit-learn. Per usare spark-sklearn e ottimizzare gli iperparametri con Spark è necessario creare un contesto di Spark
 
     from pyspark import SparkContext
     sc = SparkContext.getOrCreate()

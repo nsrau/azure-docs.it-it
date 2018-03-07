@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -151,7 +151,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Uso consigliato**: quando si distribuisce un'app Web in un'immagine Docker in Linux.
 
-    >**Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Come iniziare**: [usare un'immagine Docker personalizzata per il servizio app in Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>Authentication
 
@@ -222,7 +222,7 @@ Azure offre due modi per gestire le applicazioni e i servizi dalla riga di coman
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Il Portale di Azure è un'applicazione basata sul Web che è possibile usare per creare, gestire e rimuovere risorse e servizi di Azure. Il Portale di Azure, disponibile all'indirizzo <https://portal.azure.com>, include un dashboard personalizzabile, strumenti per la gestione delle risorse di Azure e l'accesso alle impostazioni della sottoscrizione e alle informazioni di fatturazione. Per altre informazioni, vedere la [Panoramica del portale di Azure](../../azure-portal-overview.md).
+Il Portale di Azure è un'applicazione basata sul Web che è possibile usare per creare, gestire e rimuovere risorse e servizi di Azure. Il portale di Azure si trova in <https://portal.azure.com>. include un dashboard personalizzabile, strumenti per la gestione delle risorse di Azure e l'accesso alle impostazioni della sottoscrizione e alle informazioni di fatturazione. Per altre informazioni, vedere la [Panoramica del portale di Azure](../../azure-portal-overview.md).
 
 ### <a name="rest-apis"></a>API REST
 

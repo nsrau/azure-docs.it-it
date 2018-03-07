@@ -14,26 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: fb50ba3f292a390c45f1afe6259731d2b92cc335
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: a5bcd03e71a69928fa1e02a5286801c4933d17ef
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
-La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.  
-  
-> [!TIP]
->  Per ulteriori informazioni sulle espressioni di criteri, vedere il video [Espressioni di criteri](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/).  
->   
->  Per una dimostrazione relativa alla configurazione dei criteri usando le espressioni, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Il video include le dimostrazioni delle espressioni di criteri seguenti:  
->   
->  -   10:30: informazioni su come fornire informazioni di contesto al servizio back-end. Per fornire queste informazioni, usare i criteri per l'[impostazione del parametro di stringa di query](api-management-transformation-policies.md#SetQueryStringParameter) e l'[impostazione dell'intestazione HTTP](api-management-transformation-policies.md#SetHTTPheader). Al minuto 12:10 viene illustrato come chiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera i criteri stessi.  
-> -   13:50: informazioni su come usare il criterio [Convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare l'accesso alle operazioni in base alle attestazioni dei token. Avanzare rapidamente fino al minuto 15:00 per vedere come si configurano i criteri nell'editor dei criteri. Al minuto 18:50 viene illustrato come chiamare un'operazione nel portale per sviluppatori con e senza il token di autorizzazione necessario.  
-> -   21:00: informazioni su come usare una traccia del [controllo delle API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) per vedere come vengono valutati i criteri e i risultati di queste valutazioni.  
-> -   25:25: informazioni su come usare le espressioni con i criteri di [recupero dalla cache](api-management-caching-policies.md#GetFromCache) e [archiviazione nella cache](api-management-caching-policies.md#StoreToCache) per configurare la memorizzazione delle risposte nella cache di Gestione API. Impostare la durata corrispondente alla memorizzazione delle risposte nella cache del servizio back-end, come specificato dalla direttiva `Cache-Control` del servizio.  
-> -   34:30: informazioni su come eseguire operazioni di filtro dei contenuti. Rimuovere elementi dati dalla risposta ricevuta dal servizio back-end usando i criteri di [controllo del flusso](api-management-advanced-policies.md#choose) e [impostazione del corpo](api-management-transformation-policies.md#SetBody). Iniziare dal minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.  
-> -   Le istruzioni dei criteri usate in questo video sono disponibili nel repository di github [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
+Questo articolo illustra la sintassi delle espressioni di criteri, che è C# 6.0. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.  
+
+Per altre informazioni:
+
+- Vedere la procedura per fornire informazioni di contesto al servizio back-end. Per fornire queste informazioni, usare i criteri per l'[impostazione del parametro di stringa di query](api-management-transformation-policies.md#SetQueryStringParameter) e l'[impostazione dell'intestazione HTTP](api-management-transformation-policies.md#SetHTTPheader).
+- Vedere la procedura per usare i criteri di [convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare l'accesso alle operazioni in base alle attestazioni dei token.   
+- Vedere la procedura per usare una traccia di [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) (Controllo API) per visualizzare il modo in cui i criteri vengono valutati e i risultati delle valutazioni.  
+- Vedere la procedura per usare le espressioni con i criteri di [recupero dalla cache](api-management-caching-policies.md#GetFromCache) e di [archiviazione nella cache](api-management-caching-policies.md#StoreToCache) per configurare la memorizzazione delle risposte nella cache di Gestione API. Impostare la durata corrispondente alla memorizzazione delle risposte nella cache del servizio back-end, come specificato dalla direttiva `Cache-Control` del servizio.  
+- Vedere la procedura per eseguire operazioni di filtro dei contenuti. Rimuovere elementi dati dalla risposta ricevuta dal servizio back-end usando i criteri di [controllo del flusso](api-management-advanced-policies.md#choose) e [impostazione del corpo](api-management-transformation-policies.md#SetBody). 
+- Per scaricare le istruzioni dei criteri, vedere il repository di github [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
 ##  <a name="Syntax"></a> Sintassi  
@@ -206,10 +203,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />Restituisce testo normale non crittografato.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
 
-## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
->
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'uso di questi criteri, vedere:

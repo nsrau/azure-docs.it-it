@@ -1,5 +1,5 @@
 ---
-title: Account e autorizzazioni di Azure AD Connect | Documentazione Microsoft
+title: Account e autorizzazioni di Azure AD Connect | Microsoft Docs
 description: "Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
@@ -98,7 +98,7 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è necessario avere le autorizzazioni seguenti:
 
 >[!IMPORTANT]
->A partire dalla build 1.1.484, in Azure AD Connect è stato introdotto un bug di regressione che richiede autorizzazioni sysadmin per aggiornare il database SQL.  Questo bug è ancora presente nell'ultima build 1.1.614.  Se si esegue l'aggiornamento a questa build, saranno necessarie autorizzazioni sysadmin.  Le autorizzazioni dbo non sono sufficienti.  Se si tenta di eseguire l'aggiornamento di Azure AD Connect senza disporre delle autorizzazioni sysadmin, l'aggiornamento avrà esito negativo e Azure AD Connect non funzionerà più correttamente in seguito.  Microsoft è al corrente di questo problema e sta lavorando a una soluzione.
+>A partire dalla build 1.1.484, in Azure AD Connect è stato introdotto un bug di regressione che richiede autorizzazioni sysadmin per aggiornare il database SQL.  Questo bug è stato corretto nella build 1.1.647.  Se si esegue l'aggiornamento a questa build, saranno necessarie autorizzazioni sysadmin.  Le autorizzazioni dbo non sono sufficienti.  Se si tenta di eseguire l'aggiornamento di Azure AD Connect senza disporre delle autorizzazioni sysadmin, l'aggiornamento avrà esito negativo e Azure AD Connect non funzionerà più correttamente in seguito.  Microsoft è al corrente di questo problema e sta lavorando a una soluzione.
 
 
 | Entità | Autorizzazioni necessarie | Usato per |
@@ -118,7 +118,7 @@ Se si usano le impostazioni personalizzate, l'utente è responsabile della creaz
 ### <a name="azure-ad-connect-sync-service-account"></a>Account del servizio di sincronizzazione Azure AD Connect
 Il servizio di sincronizzazione può essere eseguito con account diversi, ad esempio con un **account del servizio virtuale** (VSA), un **account del servizio gestito del gruppo** (gMSA/sMSA) o un normale account utente. Le opzioni supportate sono state modificate con il rilascio di aprile 2017 di Connect se si esegue una nuova installazione. Se si esegue un aggiornamento da una versione precedente di Azure AD Connect, tali opzioni non sono disponibili.
 
-| Tipo di account | Opzione di installazione | DESCRIZIONE |
+| Tipo di account | Opzione di installazione | Descrizione |
 | --- | --- | --- |
 | [Account del servizio virtuale](#virtual-service-account) | Rapida e personalizzata, aprile 2017 e versioni successive | Questa è l'opzione usata per tutte le installazioni rapide, ad eccezione delle installazioni in un controller di dominio. Per l'installazione personalizzata è l'opzione predefinita, a meno che non si usi un'altra opzione. |
 | [Account del servizio gestito del gruppo](#group-managed-service-account) | Personalizzata, aprile 2017 e versioni successive | Se si usa un server SQL remoto, è consigliabile usare un account del servizio gestito del gruppo. |

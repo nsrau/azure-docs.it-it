@@ -1,6 +1,6 @@
 ---
-title: Monitorare i backup delle macchine virtuali distribuite con Resource Manager | Documentazione Microsoft
-description: Monitorare gli eventi e gli avvisi dei backup delle macchine virtuali distribuite con Resource Manager. Inviare messaggi di posta elettronica in base agli avvisi.
+title: Monitorare gli avvisi di backup per le macchine virtuali di Azure | Microsoft Docs
+description: Monitorare gli eventi e gli avvisi dai processi di backup delle macchine virtuali di Azure. Inviare messaggi di posta elettronica in base agli avvisi.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2016
+ms.date: 02/23/2018
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 0f92d63d6eabe48bfac444b79bc10e090df239ca
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
 Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
@@ -70,9 +70,9 @@ Per configurare le notifiche di posta elettronica per gli avvisi
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Quali tipi di avviso sono disponibili per il backup di VM IaaS di Azure?
    | Livello avviso | Avvisi inviati |
    | --- | --- |
-   | Critico |Errore di backup, errore di ripristino |
-   | Avviso |Nessuna |
-   | Informazioni |Nessuna |
+   | Critico | per errore di backup, errore di ripristino |
+   | Avviso | per i processi di backup completati con avvisi, ad esempio in caso di errore di alcuni writer durante la creazione di uno snapshot |
+   | Informazioni | attualmente non sono disponibili avvisi informativi per il backup di macchine virtuali di Azure |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Esistono situazioni in cui il messaggio e-mail non viene inviato anche se sono configurate le notifiche?
 Esistono situazioni in cui un avviso non viene inviato anche se le notifiche sono state configurate correttamente. Le notifiche di posta elettronica non vengono inviate nei casi seguenti per ridurre la frequenza degli avvisi:

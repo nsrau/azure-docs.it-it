@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 02/23/2018
 ms.author: mimig
-ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs).
@@ -44,7 +44,7 @@ Azure Cosmos DB è un database multimodello. Si noti che in questo articolo l'AP
 ## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
 Azure Cosmos DB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, Azure Cosmos DB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
 
-Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborate al secondo. Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche lo strumento Esplora query è molto utile per testare gli elementi di base di una query.
+Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborate al secondo. Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche Esplora dati nel portale di Azure è un ottimo strumento per testare gli elementi di base di una query.
 
 Per iniziare è consigliabile guardare il video riportato di seguito, in cui Aravind Ramachandran illustra le unità richiesta e le prestazioni prevedibili con Azure Cosmos DB.
 
@@ -190,9 +190,7 @@ L'uso dello strumento è molto semplice:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usare l'intestazione della risposta di addebito della richiesta di Azure Cosmos DB
-Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora query di Azure Cosmos DB nel portale di Azure fornisce informazioni sull'addebito per le richieste relative alle query eseguite.
-
-![Analisi degli addebiti delle unità richiesta in Esplora Query][1]
+Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta utilizzate per la richiesta. Questa intestazione è accessibile anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, RequestCharge è una proprietà dell'oggetto ResourceResponse.  Per quanto riguarda le query, Esplora dati di Azure Cosmos DB disponibile nel portale di Azure offre informazioni sugli addebiti per le richieste relative alle query eseguite.
 
 Con questa premessa, un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un elemento rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo.  Assicurarsi di misurare e includere anche le query tipiche e l'utilizzo di script di Azure Cosmos DB.
 
@@ -358,7 +356,6 @@ Per altre informazioni su Azure Cosmos DB, vedere la relativa [documentazione](h
 
 Per iniziare a testare la scalabilità e le prestazioni con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 
-[1]: ./media/request-units/queryexplorer.png 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png

@@ -8,13 +8,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 2fa5f9335a4d00f489f11c0db23322ab971a224f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a26d786ffcb74bb28fb9bd065e49398d52d2b662
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -87,7 +87,7 @@ Nel codice dell'applicazione, inserire un riferimento all'immagine della macchin
 
     Per ottenere questo ID di immagine dal portale di Azure, aprire **Tutte le risorse**, selezionare l'immagine personalizzata e nella sezione **Panoramica** del pannello dell'immagine, copiare il percorso in **ID della risorsa**.
 
-* Se si usa un'immagine di [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) specificare un gruppo di parametri che descrivono l'immagine: il tipo di offerta, il server di pubblicazione, la SKU e la versione dell'immagine, come indicato in [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images):
+* Se si usa un'immagine di [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based), specificare un gruppo di parametri che descrivono l'immagine: il server di pubblicazione, il tipo di offerta, la SKU e la versione dell'immagine, come indicato in [Elenco di immagini di macchine virtuali](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -239,7 +239,7 @@ CloudTask containerTask = new CloudTask (
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
+* Vedere anche il toolkit [Batch Shipyard](https://github.com/Azure/batch-shipyard) per la distribuzione semplificata dei carichi di lavoro dei contenitori in Azure Batch tramite [ricette Shipyard](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * Per altre informazioni sull'installazione e l'uso di Docker CE in Linux, consultare la documentazione di [Docker](https://docs.docker.com/engine/installation/).
 

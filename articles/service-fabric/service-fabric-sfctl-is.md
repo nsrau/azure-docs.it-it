@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: b611a447dd6669a09ca16c816de74acd7f3e8c7e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d3a4c7a308bdf7132cebffc13a5e7214ec73eaf2
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consente di eseguire query e inviare comandi al servizio di infrastruttura.
@@ -34,14 +34,14 @@ Consente di eseguire query e inviare comandi al servizio di infrastruttura.
 ## <a name="sfctl-is-command"></a>sfctl is command
 Richiama un comando amministrativo sull'istanza del servizio di infrastruttura specificato.
 
-Per i cluster che dispongono di una o più istanze del servizio di infrastruttura configurato, questo API fornisce un modo per inviare comandi specifici dell'infrastruttura a una particolare istanza del servizio di infrastruttura. I comandi disponibili e i relativi formati di risposta corrispondente variano a seconda dell'infrastruttura in esecuzione sul cluster. Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata direttamente dal codice. .
+Per i cluster che dispongono di una o più istanze del servizio di infrastruttura configurato, questo API fornisce un modo per inviare comandi specifici dell'infrastruttura a una particolare istanza del servizio di infrastruttura. I comandi disponibili e i relativi formati di risposta corrispondente variano a seconda dell'infrastruttura in esecuzione sul cluster. Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata direttamente dal codice. 
 
 ### <a name="arguments"></a>Argomenti
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --command [Obbligatorio]| Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura.  Valore predefinito:is command.|
-| --service-id     | L'identità del servizio di infrastruttura. Si tratta del nome completo del servizio di infrastruttura senza lo schema URI 'fabric:'. Questo parametro è obbligatorio solo per i cluster con più di un'istanza del servizio di infrastruttura in esecuzione.|
+| --command [Obbligatorio]| Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura. |
+| --service-id     | L'identità del servizio di infrastruttura. L'ID è il nome completo del servizio di infrastruttura senza lo schema URI "fabric:". Questo parametro è obbligatorio solo per i cluster con più di un'istanza del servizio di infrastruttura in esecuzione.|
 | --timeout -t     | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -63,8 +63,8 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --command [Obbligatorio]| Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura.  Valore predefinito: is query.|
-| --service-id     | L'identità del servizio di infrastruttura. Si tratta del nome completo del servizio di infrastruttura senza lo schema URI 'fabric:'. Questo parametro è obbligatorio solo per i cluster con più di un'istanza del servizio di infrastruttura in esecuzione.|
+| --command [Obbligatorio]| Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura.|
+| --service-id     | L'identità del servizio di infrastruttura. L'ID è il nome completo del servizio di infrastruttura senza lo schema URI "fabric:". Questo parametro è obbligatorio solo per i cluster con più di un'istanza del servizio di infrastruttura in esecuzione.|
 | --timeout -t     | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali

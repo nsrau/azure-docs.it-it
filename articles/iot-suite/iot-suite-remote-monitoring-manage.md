@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 12/12/2017
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 66005b78a368c15a463844b3f098eac9fd64f621
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="manage-and-configure-your-devices"></a>Gestire e configurare i dispositivi
 
@@ -42,11 +42,11 @@ Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è neces
 
 ## <a name="add-a-simulated-device"></a>Aggiungere un dispositivo simulato
 
-Passare alla pagina **Devices** (Dispositivi) nella soluzione e quindi scegliere **New device** (Nuovo dispositivo). Nel pannello **New device** (Nuovo dispositivo) scegliere **Simulated** (Simulato):
+Passare alla pagina **Devices** (Dispositivi) nella soluzione e quindi scegliere **+ New device** (+ Nuovo dispositivo). Nel pannello **New device** (Nuovo dispositivo) scegliere **Simulated** (Simulato):
 
 ![Effettuare il provisioning di un dispositivo simulato](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Lasciare il numero di dispositivi di cui effettuare il provisioning impostato su **1**. Scegliere **Faulty Engine** (Motore difettoso) per **Device model** (Modello del dispositivo) e quindi scegliere **Apply** (Applica) per creare il dispositivo simulato:
+Lasciare il numero di dispositivi di cui effettuare il provisioning impostato su **1**. Scegliere il modello di dispositivo **Faulty Engine** (Motore difettoso) e quindi scegliere **Apply** (Applica) per creare il dispositivo simulato:
 
 ![Effettuare il provisioning di un dispositivo motore simulato](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 

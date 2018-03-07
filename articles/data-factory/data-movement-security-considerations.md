@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 898e6914a427b2e8864d97a7188eb718811ce263
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: ebe0523849b4709424e2f4bdac00f6bf98bf7cf4
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -145,13 +145,13 @@ In un'azienda il **firewall aziendale** viene eseguito nel router centrale dell'
 
 La tabella seguente indica la **porta in uscita** e i requisiti di dominio per il **firewall aziendale**.
 
-| Nomi di dominio                  | Porte in uscita | DESCRIZIONE                              |
+| Nomi di dominio                  | Porte in uscita | Descrizione                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443, 80        | Richieste dal runtime di integrazione self-hosted per connettersi ai servizi di spostamento dei dati in Data Factory |
 | `*.core.windows.net`          | 443            | Usata dal runtime di integrazione self-hosted per connettersi all'account di Archiviazione di Azure quando si usa la funzionalità di [ copia temporanea](copy-activity-performance.md#staged-copy). |
-| `*.frontend.clouddatahub.net` | 443            | Richieste dal runtime di integrazione self-hosted per connettersi al servizio Azure Data Factory. |
-| `*.database.windows.net`      | 1433           | (OPZIONALE) necessaria quando la destinazione è il database SQL di Azure o Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. |
-| `*.azuredatalakestore.net`    | 443            | (OPTIONALE) necessaria quando la destinazione è Azure Data Lake Store |
+| `*.frontend.clouddatahub.net` | 443            | Richiesta dal runtime di integrazione self-hosted per connettersi al servizio Azure Data Factory. |
+| `*.database.windows.net`      | 1433           | (OPZIONALE) necessaria quando si esegue la copia da/a database SQL di Azure o Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (OPZIONALE) necessaria quando si esegue la copia da/a Azure Data Lake Store. |
 
 > [!NOTE] 
 > Potrebbe essere necessario gestire porte/domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Nella tabella sono riportati solo esempi di database SQL di Azure, Azure SQL Data Warehouse e Azure Data Lake Store.   

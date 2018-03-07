@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 983e167d248d711efde9c64a70f59d5a9e81769a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
@@ -29,8 +29,9 @@ ms.lasthandoff: 12/11/2017
 La procedura presentata in questo documento illustra come creare un cluster HDInsight 3.5 usando l'interfaccia della riga di comando di Azure 1.0.
 
 > [!IMPORTANT]
-> Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+> Questo argomento illustra come usare l'interfaccia della riga di comando di Azure 1.0 per creare un cluster HDInsight. Questa versione dell'interfaccia della riga di comando è deprecata e nella versione 2.0 non è stato aggiunto il supporto per la creazione di cluster HDInsight.
+>
+> Per creare e gestire cluster HDInsight, è possibile usare anche Azure PowerShell. Per altre informazioni, vedere il documento [Create HDInsight clusters using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Creare cluster HDInsight tramite Azure PowerShell).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -41,7 +42,7 @@ La procedura presentata in questo documento illustra come creare un cluster HDIn
 * **Interfaccia della riga di comando di Azure**. I passaggi descritti nel presente documento sono stati testati con la versione dell'interfaccia della riga di comando di Azure 0.10.14.
 
     > [!IMPORTANT]
-    > La procedura descritta in questo documento non funziona con l'interfaccia della riga di comando di Azure 2.0. L'interfaccia della riga di comando di Azure 2.0 non supporta la creazione di un cluster HDInsight.
+    > La versione 1.0 dell'interfaccia della riga di comando di Azure è deprecata e nella versione 2.0 non è stato aggiunto il supporto per la creazione di cluster HDInsight.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 

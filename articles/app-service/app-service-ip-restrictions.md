@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: byvinyal
-ms.openlocfilehash: 22e05af889b4e792dcc6f6fc438e8a58674b9f0e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 551f34436dfeac14bb6e8676dd7c9b10d30a3af3
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restrizioni IP statico del Servizio app di Azure #
 
@@ -26,7 +26,7 @@ Le restrizioni IP consentono di definire un elenco di indirizzi IP che possono a
 
 Quando un client genera una richiesta all'app, l'indirizzo IP viene controllato rispetto all'elenco di indirizzi IP consentiti. Se l'indirizzo IP non è presente nell'elenco, l'app risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403).
 
-Le restrizioni IP sono definite nel file web.config utilizzato dall'app in fase di esecuzione. In determinate circostanze, qualche modulo potrebbe essere eseguito prima della logica delle restrizioni IP nella pipeline HTTP. In questo caso, la richiesta ha esito negativo con un diverso codice di errore HTTP.
+Le restrizioni IP sono definite nel file web.config che l'app utilizza in fase di runtime. Più precisamente, le restrizioni vengono inserite in un set di indirizzi IP consentiti nel file applicationHost.config. Se quindi si aggiunge un set di indirizzi IP consentiti nel file web.config, questi hanno precedenza. In determinate circostanze, qualche modulo potrebbe essere eseguito prima della logica delle restrizioni IP nella pipeline HTTP. In questo caso, la richiesta ha esito negativo con un diverso codice di errore HTTP.
 
 Le restrizioni IP vengono valutate nelle stesse istanze del piano di servizio App assegnate all'app.
 

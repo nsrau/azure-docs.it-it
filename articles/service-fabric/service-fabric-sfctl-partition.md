@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9d709a0ec2b7de985ac08fe9ee2935848e7a371c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 01dd1900fe765618e5da20bd289b9c3a021ea9a3
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
@@ -48,7 +48,7 @@ Consente di eseguire una query e gestire partizioni per qualsiasi servizio.
 Mostra l'integrità della partizione di Service Fabric specificata.
 
 Mostra le informazioni di integrità della partizione specificata. Utilizzare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riportati nel servizio in base allo stato di integrità.
-Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti ReplicaHealthState nella partizione. Se si specifica una partizione che non esiste nell'archivio integrità, questo cmdlet restituisce un errore. .
+Utilizzare ReplicasHealthStateFilter per filtrare la raccolta di oggetti ReplicaHealthState nella partizione. Se si specifica una partizione che non esiste nell'archivio integrità, questo cmdlet restituisce un errore.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -101,7 +101,7 @@ Mostra l'elenco delle partizioni di un servizio di Service Fabric. Include l'ID 
 
 |Argomento|DESCRIZIONE|
 | --- | --- |
-| --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
+| --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric:/myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti.|
 | --continuation-token| Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo.         Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --timeout -t        | Timeout del server in secondi.  Predefinito: 60.|
 
@@ -162,7 +162,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare una partizi
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 Questa API riavvia alcune o tutte le repliche o le istanze della partizione specificata.
 
-Questa API è utile per il test del failover. Se utilizzato come destinazione di una partizione del servizio senza stato, RestartPartitionMode deve essere AllReplicasOrInstances. Richiamare l'API GetPartitionRestartProgress utilizzando la stessa OperationId per ottenere lo stato di avanzamento. .
+Questa API è utile per il test del failover. Se utilizzato come destinazione di una partizione del servizio senza stato, RestartPartitionMode deve essere AllReplicasOrInstances. Richiamare l'API GetPartitionRestartProgress utilizzando la stessa OperationId per ottenere lo stato di avanzamento.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -170,8 +170,8 @@ Questa API è utile per il test del failover. Se utilizzato come destinazione di
 | --- | --- |
 | --operation-id             [Obbligatorio]| Una GUID che identifica una chiamata dell'API.  Questo viene passato all'API GetProgress corrispondente.|
 | --partition-id [Obbligatorio]| L'identità della partizione.|
-| --restart-partition-mode [Obbligatorio]| - Invalid - Reserved.  Non vengono passate all'API. -AllReplicasOrInstances - Tutte le repliche o istanze nella partizione vengono riavviate contemporaneamente. - OnlyActiveSecondaries -                     Solo le repliche secondarie vengono riattivate. .|
-| --service-id             [Obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
+| --restart-partition-mode [Obbligatorio]| Specifica quali partizioni riavviare.|
+| --service-id             [Obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric:/myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" nella versione 6.0 e successive e "myapp/app1/svc1" nelle versioni precedenti.|
 | --timeout -t                    | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali

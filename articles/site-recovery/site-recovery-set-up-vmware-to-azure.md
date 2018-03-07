@@ -2,48 +2,34 @@
 title: Configurare l'ambiente di origine (VMware in Azure) | Documentazione Microsoft
 description: Questo articolo descrive come configurare l'ambiente locale per avviare la replica di macchine virtuali VMware in Azure.
 services: site-recovery
-documentationcenter: 
 author: AnoopVasudavan
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.date: 02/22/2018
 ms.author: anoopkv
-ms.openlocfilehash: 32a3f7498d3c8891178818436e33221f91ae2f8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b6b0e5cc95f28b5596e7e898f5f035e3647d9c5
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="set-up-the-source-environment-vmware-to-azure"></a>Configurare l'ambiente di origine (VMware in Azure)
 > [!div class="op_single_selector"]
 > * [Da VMware ad Azure](./site-recovery-set-up-vmware-to-azure.md)
 > * [Da fisico ad Azure](./site-recovery-set-up-physical-to-azure.md)
 
-Questo articolo descrive come configurare l'ambiente locale per avviare la replica di macchine virtuali in esecuzione su VMware in Azure.
+Questo articolo descrive come configurare l'ambiente locale di origine per la replica di macchine virtuali in esecuzione su VMware in Azure. Include i passaggi per la selezione dello scenario di replica, l'impostazione di un computer locale come server di configurazione di Site Recovery e l'individuazione automatica delle macchine virtuali locali. 
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Nell'articolo si presuppone che siano già stati creati gli elementi seguenti:
-- Insieme di credenziali di Servizi di ripristino nel [portale di Azure](http://portal.azure.com "Portale di Azure").
-- Account dedicato in VMware vCenter che può essere usato per l'[individuazione automatica](./site-recovery-vmware-to-azure.md).
-- Macchina virtuale nella quale installare il server di configurazione.
+Nell'articolo si presuppone che le seguenti procedure siano già state eseguite:
+- [Configurare le risorse ](tutorial-prepare-azure.md) nel [portale di Azure](http://portal.azure.com).
+- [Configurare istanze di VMware locali](tutorial-prepare-on-premises-vmware.md), tra cui un account dedicato per l'individuazione automatica.
 
-## <a name="configuration-server-minimum-requirements"></a>Requisiti minimi per il server di configurazione
-La tabella seguente elenca i requisiti minimi hardware, software e di rete per un server di configurazione.
 
-> [!IMPORTANT]
-> Quando si distribuisce un server di configurazione per la protezione di macchine virtuali VMware, è consigliabile distribuirlo come macchina virtuale a **disponibilità elevata**.
-
-[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-> [!NOTE]
-> I server proxy basati su HTTPS non sono supportati dal server di configurazione.
 
 ## <a name="choose-your-protection-goals"></a>Scegliere gli obiettivi della protezione
 
@@ -55,39 +41,21 @@ La tabella seguente elenca i requisiti minimi hardware, software e di rete per u
 
     ![Scegliere gli obiettivi](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
-## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
-L'impostazione dell'ambiente di origine prevede due attività principali:
+## <a name="set-up-the-configuration-server"></a>Configurare il server di configurazione
 
-- Installare e registrare un server di configurazione con Site Recovery.
-- Individuare le macchine virtuali locali connettendo Site Recovery agli host VMware vCenter o vSphere EXSi.
+Il server di configurazione è impostato come una macchina virtuale VMware locale, usando un modello OVF (Open Virtualization Format). [Altre informazioni](concepts-vmware-to-azure-architecture.md) sui componenti che verranno installati nella macchina virtuale VMware. 
 
-### <a name="step-1-install-and-register-a-configuration-server"></a>Passaggio 1: Installare e registrare un server di configurazione
+1. Informazioni sui [prerequisiti](how-to-deploy-configuration-server.md#prerequisites) per la distribuzione del server di configurazione. [Controllare i valori di capacità](how-to-deploy-configuration-server.md#capacity-planning) per la distribuzione.
+2. [Scaricare](how-to-deploy-configuration-server.md#download-the-template) e [importare](how-to-deploy-configuration-server.md#import-the-template-in-vmware) il modello OVF (how-to-deploy-configuration-server.md) per configurare una macchina virtuale VMware locale che esegue il server di configurazione.
+3. Attivare la macchina virtuale VMware e [registrarla](how-to-deploy-configuration-server.md#register-the-configuration-server) nell'insieme di credenziali di Servizi di ripristino.
 
-1. Fare clic su **Passaggio 1: Preparare l'infrastruttura** > **Origine**. Se non è disponibile un server di configurazione, in **Prepara origine** fare clic su **+Server di configurazione** per aggiungerne uno.
 
-    ![Impostare l'origine](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
-2. Nel pannello **Aggiungi server** verificare che **Server di configurazione** sia visualizzato in **Tipo di server**.
-4. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
-5. Scaricare la chiave di registrazione dell'insieme di credenziali, Per eseguire l'installazione unificata, è necessaria la chiave di registrazione. La chiave è valida per cinque giorni dal momento in cui viene generata.
-
-    ![Impostare l'origine](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
-6. Nel computer usato come server di configurazione, eseguire l'**installazione unificata di Azure Site Recovery** per installare il server di configurazione, il server di elaborazione e il server master di destinazione.
-
-#### <a name="run-azure-site-recovery-unified-setup"></a>Eseguire l'Installazione unificata di Azure Site Recovery
-
-> [!TIP]
-> La registrazione del server di configurazione non riesce se l'ora nel computer differisce di oltre cinque minuti dall'ora locale. Sincronizzare l'ora del sistema con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) prima di iniziare l'installazione.
-
-[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
-
-> [!NOTE]
-> Il server di configurazione può essere installato tramite la riga di comando. Per altre informazioni, vedere l'argomento relativo all'[installazione del server di configurazione con gli strumenti da riga di comando](http://aka.ms/installconfigsrv).
-
-#### <a name="add-the-vmware-account-for-automatic-discovery"></a>Aggiungere l'account VMware per l'individuazione automatica
+## <a name="add-the-vmware-account-for-automatic-discovery"></a>Aggiungere l'account VMware per l'individuazione automatica
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### <a name="step-2-add-a-vcenter"></a>Passaggio 2 - Aggiungere un vCenter
+## <a name="connect-to-the-vmware-server"></a>Connettersi al server VMware
+
 Per consentire ad Azure Site Recovery di individuare macchine virtuali in esecuzione nell'ambiente locale, è necessario connettere il server VMware vCenter o gli host vSphere ESXi a Site Recovery.
 
 Selezionare **+vCenter** per avviare la connessione di un server VMware vCenter o di un host VMware vSphere ESXi.

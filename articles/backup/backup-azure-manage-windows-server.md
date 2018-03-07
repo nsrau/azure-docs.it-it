@@ -1,6 +1,6 @@
 ---
 title: Gestire server e insiemi di credenziali di Servizi di ripristino di Azure | Microsoft Docs
-description: Usare questa esercitazione per imparare a gestire server e insiemi di credenziali dei servizi di ripristino di Azure.
+description: Usare questo articolo per gestire i server e gli insiemi di credenziali di Servizi di ripristino di Azure.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 02/23/2018
 ms.author: markgal
-ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2e5fd9e7e3cae1665519e4f08604fddf7834fd51
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitorare e gestire i server e gli insiemi di credenziali dei servizi di ripristino di Azure per i computer Windows
 
@@ -32,13 +32,11 @@ In questo articolo è presentata una panoramica delle attività di gestione e mo
 Il dashboard dell'insieme di credenziali di Servizi di ripristino visualizza i dettagli o attributi di un insieme di credenziali di Servizi di ripristino.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando la sottoscrizione di Azure.
-2. Nel menu Hub fare clic su **Altri servizi**.
-
-    ![Aprire l'elenco degli insiemi di credenziali di Servizi di ripristino](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+2. Fare clic su **Tutti i servizi**. 
 
 3. Si vuole aprire un insieme di credenziali di Servizi di ripristino. Nella finestra di dialogo, iniziare a digitare **Servizi di ripristino**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Fare clic su **Insiemi di credenziali dei servizi di ripristino** per visualizzare l'elenco degli insiemi di credenziali di Servizi di ripristino presenti nella sottoscrizione.
 
-    ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+     ![Aprire l'elenco degli insiemi di credenziali di Servizi di ripristino](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
     Verrà visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
 
@@ -74,9 +72,9 @@ Nella parte superiore del dashboard:
 ## <a name="alerts-for-backups-using-azure-backup-agent"></a>Avvisi per i backup con l'agente di Backup di Azure:
 | Livello avviso | Avvisi inviati |
 | --- | --- |
-| Critico |Errore di backup, errore di ripristino |
-| Avviso |Backup completato con avvisi (quando non viene eseguito il backup di meno di cento file a causa di problemi di danneggiamento e viene completato il backup di più di un milione di file) |
-| Informazioni |Nessuna |
+| Critico | Per un errore di backup, un errore di ripristino e un'eliminazione posticipata, ad esempio quando un utente interrompe la protezione con l'eliminazione di dati |
+| Avviso | Per un backup completato con avvisi (quando non viene eseguito il backup di meno di cento file a causa di problemi di danneggiamento e viene completato il backup di più di un milione di file) |
+| Informazioni | Attualmente non sono disponibili avvisi informativi per Azure Backup Agent |
 
 ## <a name="manage-backup-alerts"></a>Gestire gli avvisi di backup
 Fare clic sul riquadro **Avvisi di backup** per aprire il menu **Avvisi di backup** e gestire gli avvisi.

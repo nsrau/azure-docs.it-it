@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e94d920c7d55ad643ed81deda43e8ce96c304346
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
 
-## <a name="delegate-signin-up"></a>Delega dell'accesso e dell'iscrizione degli sviluppatori
+## <a name="delegate-signin-up"> </a>Delega dell'accesso e dell'iscrizione degli sviluppatori
 Per delegare l'accesso e l'iscrizione degli sviluppatori al sito Web esistente, è necessario creare un endpoint di delega speciale nel sito che funge da punto di ingresso per qualsiasi richiesta avviata dal portale per sviluppatori di Gestione API.
 
 Il flusso di lavoro finale sarà il seguente:
 
 1. Lo sviluppatore fa clic sul collegamento per l'accesso o l'iscrizione nel portale per sviluppatori di Gestione API.
 2. Il browser viene reindirizzato all'endpoint di delega.
-3. L'endpoint di delega visualizza o reindirizza a sua volta all'interfaccia utente in cui viene richiesto di effettuare l'accesso o l'iscrizione.
+3. L'endpoint di delega visualizza o reindirizza a sua volta all'interfaccia utente in cui viene richiesto di eseguire l'accesso o l'iscrizione
 4. In caso di esito positivo, l'utente viene reindirizzato alla pagina del portale per sviluppatori di Gestione API da dove è partito.
 
 Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste tramite l'endpoint di delega. Nel portale di pubblicazione Gestione API fare clic su **Sicurezza** e selezionare la scheda **Delega**. Fare clic sulla casella di controllo per abilitare "Delega accesso e iscrizione".
@@ -38,7 +38,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 ![Pagina Delega][api-management-delegation-signin-up]
 
 * Stabilire l'URL dell'endpoint di delega speciale e immetterlo nel campo **URL dell'endpoint delega** . 
-* Nel campo **Chiave di autenticazione delega** immettere una chiave privata da usare per calcolare una firma fornita per verifica in modo da garantire che la richiesta provenga effettivamente da Gestione API di Azure. È quindi possibile fare clic sul pulsante **genera** in modo che Gestione API generi una chiave in modo casuale.
+* Nel campo Delegation authentication key (Chiave di autenticazione delega) immettere una chiave privata da usare per calcolare una firma fornita per la verifica in modo da garantire che la richiesta provenga effettivamente da Gestione API di Azure. Facendo clic sul pulsante **Genera**, Gestione API genererà una chiave in modo casuale.
 
 È ora necessario creare l'**endpoint di delega**, che dovrà eseguire diverse operazioni:
 
@@ -63,7 +63,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
      > 
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
 3. Verificare la ricezione di una richiesta di accesso o iscrizione: il parametro di query **operation** verrà impostato su "**SignIn**".
-4. Visualizzare l'interfaccia utente per effettuare l'accesso o l'iscrizione.
+4. Visualizzare l'interfaccia utente per eseguire l'accesso o l'iscrizione
 5. Se l'utente sta effettuando un'iscrizione, è necessario creare un account corrispondente in Gestione API. [Creare un utente] con l'API REST di Gestione API. Quando si esegue questa operazione, assicurarsi di impostare l'ID utente sullo stesso valore presente nell'archivio utenti o su un ID di cui è possibile tenere traccia.
 6. Quando l'utente viene autenticato correttamente:
    
@@ -75,7 +75,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
      > 
    * Reindirizzare l'utente all'URL generato in precedenza
 
-Oltre all'operazione **SignIn** , è anche possibile eseguire la gestione degli account seguendo i passaggi precedenti e usando una delle operazioni seguenti.
+Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli account seguendo i passaggi precedenti e usando una delle operazioni seguenti:
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -117,17 +117,17 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
    * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
    
-   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **productId**, **userId** e **salt**:
+   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **productId**, **userId e **salt**:
      
      > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
-3. Eseguire una qualsiasi elaborazione della sottoscrizione al prodotto in base al tipo di operazione richiesta in **operation** , ad esempio fatturazione, altre domande e così via.
+3. Eseguire una qualsiasi elaborazione della sottoscrizione al prodotto in base al tipo di operazione richiesta in **operation**, ad esempio fatturazione, altre domande e così via.
 4. Dopo la corretta sottoscrizione al prodotto in locale, effettuare la sottoscrizione al prodotto in Gestione API [chiamando l'API REST per la sottoscrizione al prodotto].
 
 ## <a name="delegate-example-code"></a> Codice di esempio
-I codici di esempio seguenti illustrano come usare la *chiave di convalida della delega*, impostata nella schermata Delega del portale di pubblicazione, per creare un HMAC che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato. Lo stesso codice funziona per productId e userId con leggeri modifiche.
+I codici di esempio seguenti illustrano come usare la *Chiave di convalida delega*, impostata nella schermata Delega del portale di pubblicazione, per creare un hash HMAC che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato. Lo stesso codice funziona per productId e userId con leggeri modifiche.
 
 **Codice C# per generare l'hash di returnUrl**
 
@@ -164,7 +164,7 @@ var signature = digest.toString('base64');
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla delega, vedere il video seguente.
+Per altre informazioni sulla delega, vedere il video seguente:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
