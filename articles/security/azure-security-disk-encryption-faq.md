@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 1144533cd64e80ed2b15c70732c94e332ea06c3d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Domande frequenti su Crittografia dischi di Azure
 
@@ -49,10 +49,11 @@ Questo articolo fornisce le risposte alle domande frequenti (FAQ) su Crittografi
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco del sistema operativo e dati |
-| RHEL | 7.3 | Disco del sistema operativo e dati |
-| RHEL | 7,2 | Disco del sistema operativo e dati |
-| RHEL | 6.8 | Disco del sistema operativo e dati |
-| RHEL | 6.7 | Disco dati |
+| RHEL | 7.4 | Disco dati* |
+| RHEL | 7.3 | Disco dati* |
+| RHEL | 7,2 | Disco dati* |
+| RHEL | 6.8 | Disco dati* |
+| RHEL | 6.7 | Disco dati* |
 | CentOS | 7.3 | Disco del sistema operativo e dati |
 | CentOS | 7.2n | Disco del sistema operativo e dati |
 | CentOS | 6.8 | Disco del sistema operativo e dati |
@@ -67,6 +68,8 @@ Questo articolo fornisce le risposte alle domande frequenti (FAQ) su Crittografi
 | SLES | HPC 12 | Disco dati |
 | SLES | Priority:11-SP4 | Disco dati |
 | SLES | 11 SP4 | Disco dati |
+
+*__ADE è supportato per RHEL per il disco dati. L'implementazione ADE corrente funziona per il disco del sistema operativo, ma non è attualmente supportata congiuntamente. Microsoft e Red Hat stanno collaborato per sviluppare una soluzione congiunta supportata. Nel frattempo è possibile fare riferimento al white paper ADE per la crittografia del disco del sistema operativo Linux [qui](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
 **D:** Come si può iniziare a usare Crittografia dischi di Azure?
 

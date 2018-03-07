@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: cf7be370ab0d79be9068534f0c43b88f454bc024
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Panoramica di Azure Load Balancer Standard (anteprima)
 
@@ -302,9 +302,11 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 
 1. Creare una nuova risorsa Standard, Load Balancer o IP pubblico in base alle esigenze. Ricreare le regole e le definizioni dei probe.
 
-2. Rimuovere le risorse SKU Basic (Load Balancer e IP pubblici, secondo il caso) da tutte le istanze VM. Assicurarsi di rimuovere anche tutte le istanze VM di un set di disponibilità.
+2. Creare un nuovo gruppo di sicurezza di rete o aggiornare quello esistente per la NIC o la subnet per avere un elenco elementi consentiti relativo a probe e traffico con carico bilanciato, nonché per qualsiasi altro tipo di traffico che si vuole consentire.
 
-3. Collegare tutte le istanze di macchina virtuale alle nuove risorse SKU Standard.
+3. Rimuovere le risorse SKU Basic (Load Balancer e IP pubblici, secondo il caso) da tutte le istanze VM. Assicurarsi di rimuovere anche tutte le istanze VM di un set di disponibilità.
+
+4. Collegare tutte le istanze di macchina virtuale alle nuove risorse SKU Standard.
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migrare dallo SKU Standard a Basic
 

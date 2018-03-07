@@ -1,5 +1,5 @@
 ---
-title: Creare una rete virtuale - interfaccia della riga di comando di Azure | Microsoft Docs
+title: Creare una rete virtuale - interfaccia della riga di comando di Azure | Documentazione Microsoft
 description: Apprendere a creare rapidamente una rete virtuale usando l'interfaccia della riga di comando di Azure. Una rete virtuale consente a molti tipi di risorse di Azure di comunicare privatamente tra loro.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,21 +16,21 @@ ms.workload: infrastructure
 ms.date: 01/25/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 2cb32ddc67060d9860d172b90cc399622c52b04b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 792b92731f89f3d0bab4f23221223e469ddf9550
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come creare una rete virtuale. Dopo aver creato una rete virtuale, si distribuiranno nella rete due macchine virtuali affinché comunichino privatamente tra loro.
+Questo articolo illustra come creare una rete virtuale. Dopo aver creato una rete virtuale, si distribuiranno nella rete due macchine virtuali per testare la comunicazione su rete privata tra di esse.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -66,9 +66,11 @@ A tutte le reti virtuali vengono assegnati uno o più prefissi indirizzo. Poich�
 
 Un'altra parte delle informazioni restituite è il prefisso indirizzo **addressPrefix** di *10.0.0.0/24* per la subnet *default* specificata nel comando. Una rete virtuale contiene zero o più subnet. Il comando ha creato una sola subnet denominata *default*, ma non è stato specificato alcun prefisso indirizzo per la subnet. Quando non viene specificato un prefisso indirizzo per una rete virtuale o una subnet, Azure definisce 10.0.0.0/24 come prefisso indirizzo per la prima subnet per impostazione predefinita. Di conseguenza, la subnet include 10.0.0.0-10.0.0.254, ma sono disponibili solo gli indirizzi 10.0.0.4-10.0.0.254 poiché Azure riserva i primi quattro indirizzi (0-3) e l'ultimo indirizzo di ogni subnet.
 
-## <a name="create-virtual-machines"></a>Creare macchine virtuali
+## <a name="test-network-communication"></a>Testare la comunicazione di rete
 
-Una rete virtuale consente a vari tipi di risorse di Azure di comunicare privatamente tra loro. Uno dei tipi di risorsa che è possibile distribuire in una rete virtuale è una macchina virtuale. Creare due macchine virtuali nella rete virtuale per poter convalidare e comprendere il funzionamento delle comunicazioni tra macchine virtuali in una rete virtuale in un passaggio successivo.
+Una rete virtuale consente a vari tipi di risorse di Azure di comunicare privatamente tra loro. Uno dei tipi di risorsa che è possibile distribuire in una rete virtuale è una macchina virtuale. Creare due macchine virtuali nella rete virtuale allo scopo di convalidare la comunicazione privata tra di esse in un passaggio successivo.
+
+### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
 Crea una macchina virtuale usando il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una rete virtuale denominata *myVm1*. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'opzione `--no-wait` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo.
 
@@ -110,7 +112,7 @@ La creazione della macchina virtuale richiede alcuni minuti. Dopo la creazione d
 
 Nell'esempio si nota che **privateIpAddress** è *10.0.0.5*. Azure DHCP ha assegnato automaticamente *10.0.0.5* alla macchina virtuale poiché era il primo indirizzo disponibile nella subnet *default*. Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere alla macchina virtuale da Internet in un passaggio successivo. L'indirizzo IP pubblico non viene assegnato dalla rete virtuale o dai prefissi indirizzo della subnet. Gli indirizzi IP pubblici vengono assegnati da un [pool di indirizzi assegnato a ogni area di Azure](https://www.microsoft.com/download/details.aspx?id=41653). Azure sa quale indirizzo IP pubblico viene assegnato a una macchina virtuale, mentre il sistema operativo in esecuzione in una macchina virtuale non è a conoscenza di eventuali indirizzi IP pubblici assegnati.
 
-## <a name="connect-to-a-virtual-machine"></a>Connettersi a una macchina virtuale
+### <a name="connect-to-a-virtual-machine"></a>Connettersi a una macchina virtuale
 
 Usare il comando seguente per creare una sessione SSH con la macchina virtuale *myVm2*. Sostituire `<publicIpAddress>` con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP è *40.68.254.142*.
 
@@ -118,7 +120,7 @@ Usare il comando seguente per creare una sessione SSH con la macchina virtuale *
 ssh <publicIpAddress>
 ```
 
-## <a name="validate-communication"></a>Convalidare la comunicazione
+### <a name="validate-communication"></a>Convalidare la comunicazione
 
 Per verificare le comunicazioni con *myVm1* da *myVm2*, immettere il comando seguente:
 
@@ -136,9 +138,11 @@ ping bing.com -c 4
 
 Si riceveranno quattro risposte da bing.com. Per impostazione predefinita, tutte le macchine virtuali in una rete virtuale possono comunicare verso l'esterno su Internet.
 
+Chiudere la sessione SSH nella macchina virtuale.
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli. Chiudere la sessione SSH per la macchina virtuale e quindi eliminare le risorse.
+Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -146,8 +150,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stata distribuita una rete virtuale predefinita con una subnet e due macchine virtuali. Per informazioni su come creare una rete virtuale personalizzata con più subnet ed eseguire attività di gestione di base, procedere all'esercitazione per la creazione e la gestione di una rete virtuale personalizzata.
-
+In questo articolo è stata distribuita una rete virtuale predefinita con una subnet. Per informazioni su come creare una rete virtuale personalizzata con più subnet, procedere all'esercitazione per la creazione di una rete virtuale personalizzata.
 
 > [!div class="nextstepaction"]
-> [Create a custom virtual network and manage it](virtual-networks-create-vnet-arm-pportal.md#azure-cli) (Creare e gestire una rete virtuale personalizzata)
+> [Creare una rete virtuale personalizzata](virtual-networks-create-vnet-arm-pportal.md#azure-cli)

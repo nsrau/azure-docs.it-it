@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Query SQL per Azure Cosmos DB
 
@@ -937,7 +937,7 @@ La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate ne
 Le aggregazioni possono essere eseguite anche sui risultati di un'iterazione della matrice. Per altre informazioni, vedere [Array Iteration in Queries](#Iteration) (Iterazione della matrice nelle query).
 
 > [!NOTE]
-> Tenere presente che quando si usa Esplora Query del portale di Azure, le query di aggregazione possono restituire risultati parzialmente aggregati su una pagina di query. L'SDK genera un singolo valore cumulativo in tutte le pagine. 
+> Tenere presente che quando si usa Esplora dati del portale di Azure, le query di aggregazione possono restituire risultati parzialmente aggregati su una pagina di query. L'SDK genera un singolo valore cumulativo in tutte le pagine. 
 > 
 > Per eseguire query di aggregazione tramite codice, è necessario .NET SDK 1.12.0, .NET Core SDK 1.1.0 o SDK per Java 1.9.5 o versione successiva.    
 >

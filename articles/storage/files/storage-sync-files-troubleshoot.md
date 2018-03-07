@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 378330149aebc1936846472a522631308fe3eb80
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -145,15 +145,14 @@ Se la sincronizzazione ha esito negativo in un server:
 <a id="replica-not-ready"></a>**La sincronizzazione ha esito negativo e viene restituito il messaggio di errore: "0x80c8300f - La replica non è pronta per eseguire l'operazione richiesta"**  
 Questo errore è previsto se si crea un endpoint cloud e si usa una condivisione file di Azure contenente dati. Al termine del processo di rilevamento modifiche in esecuzione in una condivisione file di Azure (potrebbe richiedere fino a 24 ore), la sincronizzazione dovrebbe iniziare a funzionare correttamente.
 
-<a id="broken-sync-files"></a>**Risolvere i problemi di mancata sincronizzazione di file singoli**  
-Se la sincronizzazione di file singoli ha esito negativo:
-1. Nel Visualizzatore eventi esaminare i registri eventi operativi e diagnostici, che si trovano in Applications e Services\Microsoft\FileSync\Agent.
-2. Verificare che nel file non siano presenti handle aperti.
 
     > [!NOTE]
-    > Sincronizzazione file di Azure crea periodicamente snapshot VSS per sincronizzare i file con handle aperti.
+    > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 Attualmente lo spostamento di risorse a un'altra sottoscrizione o a un altro tenant di Azure Active Directory non è supportato.  Se la sottoscrizione viene spostata in un tenant diverso, la condivisione di file di Azure diventa inaccessibile al servizio a causa della modifica della proprietà. Se il tenant viene modificato, è necessario eliminare gli endpoint server e l'endpoint cloud e ricreare il gruppo di sincronizzazione. Per istruzioni sulla cancellazione della condivisione file di Azure per un riutilizzo successivo, vedere la sezione Gestione dei gruppi di sincronizzazione.
+
+<a id="doesnt-have-enough-free-space"></a>**Errore che indica che lo spazio disponibile sul PC non è sufficiente**  
+Se nel portale viene visualizzato uno stato che indica che lo spazio disponibile sul PC non è sufficiente, il problema potrebbe essere causato dal fatto che lo spazio libero sul volume è inferiore a 1 GB.  Se ad esempio è presente un volume di 1,5 GB, la sincronizzazione sarà in grado di usare solo 0,5 GB. Se si riscontra questo problema, espandere la dimensione del volume usato per l'endpoint server.
 
 ## <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
 Nell'archiviazione a livelli nel cloud possono prendere forma due percorsi di errore:

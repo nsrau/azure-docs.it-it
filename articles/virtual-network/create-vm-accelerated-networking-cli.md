@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: e4c875d07905b56c0d3eb346c839f7a4917531de
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 02/21/2018
 >   2. Creare nuovamente la macchina virtuale con la funzionalità Rete Accelerata abilitata.
 >
 
-Questa esercitazione spiega come creare una macchina virtuale (VM) Linux con Rete Accelerata. La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate ignora l'host del percorso dati riducendo la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
+Questa esercitazione spiega come creare una macchina virtuale (VM) Linux con Rete Accelerata. La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate esclude l'host dal percorso dati, riducendo così la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
 
 ![Confronto](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -47,7 +47,7 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 * **Ubuntu 16.04**: 4.11.0-1013 o versione successiva di kernel
-* **SLES SP3**: 4.4.92-6.18 o versione successiva di kernel
+* **SLES 12 SP3**: 4.4.92-6.18 o versione successiva di kernel
 * **7.4 RHEL**: 7.4.2017120423 o versione successiva di kernel
 * **CentOS 7.4**: 7.4.20171206 o versione successiva di kernel
 
@@ -63,7 +63,7 @@ Disponibile in tutte le aree di Azure pubbliche fatta eccezione per Asia orienta
 L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 
 * **Creazione di un'interfaccia di rete**: la funzionalità rete accelerata può essere abilitata solo per una nuova scheda di interfaccia di rete. Non può essere abilitata per una scheda di interfaccia di rete esistente.
-* **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se si aggiunge la VM a un set di disponibilità esistente, tutte le VM nel set di disponibilità devono avere anche la funzionalità rete accelerata abilitata.
+* **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se si aggiunge la VM a un set di disponibilità esistente, anche tutte le VM incluse nel set devono avere la funzionalità Rete accelerata abilitata.
 * **Solo distribuzione tramite Azure Resource Manager**: le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete Accelerata.
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale

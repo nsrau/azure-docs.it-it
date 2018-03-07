@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 456e5bd722d103f10779aa0cd99bf01fdcf8a7fe
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,9 +35,15 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 In particolare, il connettore Azure SQL Data Warehouse supporta:
 
-- La copia di dati usando l'autenticazione SQL.
+- La copia di dati tramite l'**autenticazione SQL** e l'**autenticazione token dell'applicazione di Azure Active Directory** con entità servizio o identità del servizio gestito.
 - Come origine, il recupero di dati tramite query SQL o stored procedure.
 - Come sink, il caricamento di dati tramite **PolyBase** o l'inserimento bulk. Per ottimizzare le prestazioni di copia, è **consigliabile** usare il primo metodo.
+
+> [!IMPORTANT]
+> Si noti che PolyBase supporta solo l'autenticazione SQL, non l'autenticazione Azure Active Directory.
+
+> [!IMPORTANT]
+> Se si copiano i dati tramite il runtime di integrazione di Azure, configurare il [firewall del server SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) per [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano i dati tramite il runtime di integrazione self-hosted, configurare il firewall del server SQL di Azure per consentire un intervallo di indirizzi IP appropriato, incluso l'indirizzo IP del computer usato per la connessione al database SQL di Azure.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -52,14 +58,21 @@ Per il servizio collegato di Azure SQL Data Warehouse sono supportate le proprie
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà del tipo deve essere impostata su: **AzureSqlDW** | Sì |
-| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. È supportata solo l'autenticazione di base. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| connectionString |Specificare le informazioni necessarie per connettersi all'istanza di Azure SQL Data Warehouse per la proprietà connectionString. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì, quando si usa l'autenticazione AAD con entità servizio. |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì, quando si usa l'autenticazione AAD con entità servizio. |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì, quando si usa l'autenticazione AAD con entità servizio. |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
+Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relative, rispettivamente, ai prerequisiti e agli esempi JSON:
 
-> [!IMPORTANT]
-> Configurare il [firewall di Azure SQL Data Warehouse](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) e il server di database in modo da [consentire ai servizi di Azure di accedere al server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Se si copiano dati in Azure SQL Data Warehouse dall'esterno di Azure e da origini dati locali con il runtime di integrazione self-hosted, configurare anche un intervallo di indirizzi IP appropriato per il computer che invia dati ad Azure SQL Data Warehouse.
+- [Uso dell'autenticazione SQL](#using-sql-authentication)
+- [Uso dell'autenticazione token dell'applicazione di AAD: entità servizio](#using-service-principal-authentication)
+- [Uso dell'autenticazione token dell'applicazione di AAD: identità del servizio gestito](#using-managed-service-identity-authentication)
 
-**Esempio:**
+### <a name="using-sql-authentication"></a>Uso dell'autenticazione SQL
+
+**Esempio di servizio collegato tramite l'autenticazione SQL:**
 
 ```json
 {
@@ -70,6 +83,113 @@ Per il servizio collegato di Azure SQL Data Warehouse sono supportate le proprie
             "connectionString": {
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-service-principal-authentication"></a>Uso dell'autenticazione basata sull'entità servizio
+
+Per usare l'autenticazione token dell'applicazione di AAD basata sull'entità servizio, seguire questa procedura:
+
+1. **[Creare un'applicazione di Azure Active Directory nel portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Prendere nota del nome dell'applicazione e dei valori seguenti da usare per definire il servizio collegato:
+
+    - ID applicazione
+    - Chiave applicazione
+    - ID tenant
+
+2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita. L'amministratore di AAD può essere un utente o un gruppo di AAD. Se si concede al gruppo con identità del servizio gestito un ruolo di amministratore, ignorare i passaggi 3 e 4 riportati di seguito, in quanto l'amministratore avrà l'accesso completo al database.
+
+3. **Creare un utente di database indipendente per l'entità servizio** tramite la connessione al data warehouse da/verso cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità di AAD che abbia almeno l'autorizzazione ALTER ANY USER, e l'esecuzione del comando in T-SQL seguente. Per altre informazioni sull'utente di database indipendente, consultare [questo articolo](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Concedere all'entità servizio le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL, ad esempio tramite l'esecuzione del codice seguente:
+
+    ```sql
+    EXEC sp_addrolemember '[your application name]', 'readonlyuser';
+    ```
+
+5. Nel file di definizione dell'applicazione (ADF) configurare un servizio collegato ad Azure SQL Data Warehouse.
+
+
+**Esempio di servizio collegato tramite l'autenticazione basata su entità servizio:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identity-authentication"></a>Uso dell'autenticazione basata sull'identità del servizio gestito
+
+Una data factory può essere associata a un'[identità del servizio gestito](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare questa identità del servizio per l'autenticazione di Azure SQL Data Warehouse, che consente a questa factory designata di accedere e copiare i dati dal o nel database.
+
+Per usare l'autenticazione token dell'applicazione di AAD basata sull'identità del servizio gestito, seguire questa procedura:
+
+1. **Creare un gruppo in Azure AD e aggiungere l'identità del servizio gestito della factory come membro del gruppo**.
+
+    a. Trovare l'identità del servizio della data factory nel portale di Azure. Passare alla data factory -> Proprietà -> copiare il valore di **ID IDENTITÀ DEL SERVIZIO**.
+
+    b. Installare il modulo [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2), eseguire l'accesso usando il comando `Connect-AzureAD` ed eseguire i comandi seguenti per creare un gruppo e aggiungere l'identità del servizio gestito della data factory come membro.
+    ```powershell
+    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
+    ```
+
+2. **[Effettuare il provisioning di un amministratore di Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#create-an-azure-ad-administrator-for-azure-sql-server)** per il server SQL di Azure nel portale di Azure, se l'operazione non è già stata eseguita.
+
+3. **Creare un utente di database indipendente per il gruppo di AAD** tramite la connessione al data warehouse da/verso cui si vogliono copiare i dati usando strumenti come SQL Server Management Studio, con un'identità di AAD che abbia almeno l'autorizzazione ALTER ANY USER, e l'esecuzione del comando in T-SQL seguente. Per altre informazioni sull'utente di database indipendente, consultare [questo articolo](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+    
+    ```sql
+    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    ```
+
+4. **Concedere al gruppo di AAD le autorizzazioni necessarie**, come si fa di norma per gli utenti SQL, ad esempio tramite l'esecuzione del codice seguente:
+
+    ```sql
+    EXEC sp_addrolemember '[your AAD group name]', 'readonlyuser';
+    ```
+
+5. Nel file di definizione dell'applicazione (ADF) configurare un servizio collegato ad Azure SQL Data Warehouse.
+
+**Esempio di servizio collegato tramite l'autenticazione basata sull'identità del servizio gestito:**
+
+```json
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             }
         },
         "connectVia": {
@@ -259,6 +379,9 @@ Per altre informazioni su come usare PolyBase per caricare in modo efficiente in
 
 * Se il formato dei dati di origine è **BLOB di Azure o Azure Data Lake Store** e compatibile con PolyBase, è possibile eseguire la copia direttamente in Azure SQL Data Warehouse usando PolyBase. Vedere **[Copia diretta tramite PolyBase](#direct-copy-using-polybase)** con i relativi dettagli.
 * Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, è possibile usare la funzione **[copia di staging tramite PolyBase](#staged-copy-using-polybase)**. Viene inoltre generata una migliore velocità effettiva tramite la conversione automatica dei dati nel formato compatibile con PolyBase e l'archiviazione dei dati in Archiviazione BLOB di Azure. Vengono quindi caricati i dati in SQL Data Warehouse.
+
+> [!IMPORTANT]
+> Si noti che PolyBase supporta solo l'autenticazione SQL di Azure SQL Data Warehouse, non l'autenticazione Azure Active Directory.
 
 ### <a name="direct-copy-using-polybase"></a>Copia diretta tramite PolyBase
 

@@ -12,13 +12,13 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/22/2017
+ms.date: 02/22/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c83dc3eeb6ca0d66b0c70236354fd7bab80f355f
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
@@ -144,7 +144,7 @@ In caso di connessione a un cluster sicuro, specificare un certificato (con este
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
 
-Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
+Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric. È supportato per annullare il provisioning di codici e configurazioni separatamente.
 
 ### <a name="arguments"></a>Argomenti
 |Argomento|DESCRIZIONE|

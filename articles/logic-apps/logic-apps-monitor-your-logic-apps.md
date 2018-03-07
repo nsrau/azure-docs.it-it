@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: f0376070a8bec7d97f54e9a198d5d67a9751334c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -129,9 +129,9 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    ![Dal menu di OMS scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. Nella casella di ricerca specificare un campo che si vuole trovare e premere **INVIO**. Quando si inizia a digitare, OMS visualizza le possibili corrispondenze e operazioni che è possibile usare. 
+5. Nella casella di ricerca specificare un campo che si vuole trovare e premere **INVIO**. Quando si inizia a digitare, OMS mostra le corrispondenze e operazioni che è possibile usare. 
 
-   Per trovare, ad esempio, i primi 10 eventi che si sono verificati, immettere e selezionare questa query di ricerca: **Category=WorkflowRuntime |top 10**
+   Per trovare, ad esempio, i primi 10 eventi che si sono verificati, immettere e selezionare questa query di ricerca: **search Category == "WorkflowRuntime" | limit 10**
 
    ![Immettere la stringa di ricerca](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 

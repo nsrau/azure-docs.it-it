@@ -13,4 +13,6 @@ Segreti, chiavi di account di archiviazione gestiti e transazioni dell'insieme d
 | Tutte le transazioni |2000 |
 |
 
+Per informazioni su come gestire la limitazione delle richieste in caso di superamento dei limiti, vedere [Guida alla limitazione delle richieste per Azure Key Vault](../key-vault/key-vault-ovw-throttling.md).
+
 <sup>1</sup> La sottoscrizione prevede un limite globale per tutti i tipi di transazione, ovvero un valore 5 volte superiore al limite dell'insieme di credenziali delle chiavi. Ad esempio, le transazioni diverse da HSM hanno un limite di 5000 transazioni ogni 10 secondi per sottoscrizione.

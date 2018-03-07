@@ -11,15 +11,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 01/30/2018
+ms.date: 02/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 82fa6d3f04dc528c0e2d95dae82e7a7f8787ea7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e49f555b2ae972cd3a0437fc44d2331aaeb5e955
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
@@ -51,6 +51,7 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 | [Collaboratore BizTalk](#biztalk-contributor) |È in grado di gestire i servizi BizTalk |
 | [Collaboratore database ClearDB MySQL](#cleardb-mysql-db-contributor) |È in grado di gestire i database ClearDB MySQL |
 | [Collaboratore](#contributor) |È in grado di gestire tutto ad eccezione degli accessi. |
+| [Ruolo Lettore dell'account Cosmos DB](#cosmos-db-account-reader-role) |Può leggere i dati degli account Azure Cosmos DB. |
 | [Collaboratore Data Factory](#data-factory-contributor) |Può creare e gestire data factory e le relative risorse figlio. |
 | [Utente DevTest Labs](#devtest-labs-user) |Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
 | [Collaboratore zona DNS](#dns-zone-contributor) |È in grado di gestire zone e record DNS |
@@ -311,6 +312,19 @@ Può gestire tutto ad eccezione degli accessi.
 | --- | --- |
 | Microsoft.Authorization/*/Delete |Non può eliminare ruoli e assegnazioni di ruoli |
 | Microsoft.Authorization/*/Write |Non può creare ruoli e assegnazioni di ruoli |
+
+### <a name="cosmos-db-account-reader-role"></a>Ruolo Lettore dell'account Cosmos DB
+Può leggere i dati degli account Azure Cosmos DB. Vedere [Collaboratore account DocumentDB](#documentdb-account-contributor) per la gestione degli account Azure Cosmos DB.
+
+| **Actions** |  |
+| --- | --- |
+|Microsoft.Authorization/*/read|Leggere ruoli e assegnazioni di ruolo (è possibile leggere le autorizzazioni concesse a ogni utente)|
+|Microsoft.DocumentDB/*/read|Leggere tutte le raccolte|
+|Microsoft.DocumentDB/databaseAccounts/readonlykeys/action|Leggere il riquadro delle chiavi readonly|
+|Microsoft.Insights/Metrics/read|Leggere le metriche dell'account|
+|Microsoft.Insights/MetricDefinitions/read|Leggere le definizioni delle metriche|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Leggere gruppi di risorse|
+|Microsoft.Support/*|Creare e gestire ticket di supporto|
 
 ### <a name="data-factory-contributor"></a>Collaboratore Data Factory
 Creare e gestire data factory e le relative risorse figlio.

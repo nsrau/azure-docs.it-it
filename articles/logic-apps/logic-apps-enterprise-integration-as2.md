@@ -1,5 +1,5 @@
 ---
-title: Messaggi AS2 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
+title: Messaggi AS2 per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
 description: Scambiare messaggi AS2 per l'integrazione aziendale B2B con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi AS2 per l'integrazione aziendale con le app per la logica di Azure
 
@@ -40,23 +40,22 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 1.  Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure").  
 
-2.  Fare clic su **Altri servizi** nel menu a sinistra. Nella casella di ricerca, digitare **integrazione** come filtro. Nell'elenco dei risultati selezionare **Account di integrazione**.
+2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.
 
-    > [!TIP]
-    > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
+   ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
-    ![Altri servizi, filtro su "integrazione", selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   > [!TIP]
+   > Se **Tutti i servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso selezionare **Mostra etichette testo**.
 
-3. Nel pannello **Account di integrazione** visualizzato selezionare l'account di integrazione nel quale creare il contratto.
-Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tutte le informazioni sugli account di integrazione").  
+3. In **Account di integrazione** selezionare l'account di integrazione nel quale si vuole creare il contratto.
 
-    ![Selezionare l'account di integrazione in cui si vuole creare il contratto.](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Selezionare l'account di integrazione in cui si vuole creare il contratto.](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
 4. Selezionare il riquadro **Accordi**. Se non è presente il riquadro dei contratti, aggiungerlo.
 
     ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Nel pannello Contratti visualizzato, selezionare **Aggiungi**.
+5. In **Contratti** scegliere **Aggiungi**.
 
     ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
@@ -166,13 +165,13 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ## <a name="find-your-created-agreement"></a>Individuare il contratto creato
 
-1.  Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nel pannello **Aggiungi** per completare la creazione del contratto e tornare al pannello dell'account di integrazione.
+1. Dopo aver impostato tutte le proprietà del contratto, scegliere **OK** nella pagina **Aggiungi** per completare la creazione del contratto e tornare all'account di integrazione.
 
     Il contratto appena aggiunto viene visualizzato nell'elenco **Contratti**.
 
-2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
+2. È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel menu dell'account di integrazione scegliere **Panoramica** e quindi selezionare il riquadro **Contratti**. 
 
-    ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Visualizzare il file Swagger
 Vedere i [dettagli del file Swagger](/connectors/as2/). 

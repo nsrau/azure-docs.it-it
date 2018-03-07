@@ -35,7 +35,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Limiti dei dischi di Archiviazione Premium**
 
-    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. L'archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls e Fs. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
+    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls, Fs ed Esv3. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
 
 * **BLOB di pagine Premium**
 

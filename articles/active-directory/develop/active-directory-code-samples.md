@@ -1,5 +1,5 @@
 ---
-title: Esempi di codice di Azure Active Directory | Documentazione Microsoft
+title: Esempi di codice di Azure Active Directory | Microsoft Docs
 description: Indice di esempi di codice di Azure Active Directory, organizzati in base allo scenario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.openlocfilehash: ba8356a018605331dc4b9cc9ff401929cd8793bf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f47f03594e64281b55161edb1c391ed0be83a73
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-active-directory-code-samples"></a>Esempi di codice di Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -65,7 +65,7 @@ Questi esempi di codice illustrano come creare applicazioni client native che ch
 | C#/.NET |[NativeClient-Headless-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-native-headless) |Applicazione nativa che esegue l'autenticazione non interattiva e chiama un'API Web protetta mediante Azure AD. |
 
 ## <a name="web-application-to-web-api"></a>Da applicazione Web ad API Web
-Questi esempi di codice illustrano come usare [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) per creare applicazioni Web che chiamano API Web protette mediante Azure AD.
+Questi esempi di codice illustrano come usare [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) per creare applicazioni Web che chiamano API Web protette tramite Azure AD.
 
 | Linguaggio/Piattaforma | Esempio | DESCRIZIONE |
 | --- | --- | --- |
@@ -83,6 +83,14 @@ Questi esempi di codice illustrano come creare un'applicazione server o daemon c
 | C#/.NET |[Daemon-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon) |Applicazione console che chiama un'API Web. Le credenziali client sono rappresentate da una password. |
 | C#/.NET |[Daemon-CertificateCredential-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) |Applicazione console che chiama un'API Web. Le credenziali client sono rappresentate da un certificato. |
 
+## <a name="calling-microsoft-graph-api"></a>Chiamata dell'API Microsoft Graph
+Questi esempi di codice illustrano come creare applicazioni che chiamano l'API Microsoft Graph per la lettura e la scrittura dei dati della directory.
+
+| Linguaggio/Piattaforma | Esempio | DESCRIZIONE |
+| --- | --- | --- |
+| C#/.NET |[WebApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/aspnet-snippets-sample) |Applicazione Web che usa l'API Microsoft Graph per accedere ai dati della directory di Azure AD. |
+| C#/.NET |[UWPApp-MSGraphAPI-DotNet](https://github.com/microsoftgraph/uwp-csharp-snippets-sample) |Quest'app della piattaforma UWP illustra come accedere a più risorse, tra cui Microsoft Azure Active Directory (AD) e le API di Office 365, effettuando le richieste all'API Microsoft Graph in un'app di Windows 10. |
+
 ## <a name="calling-azure-ad-graph-api"></a>Chiamata dell'API Graph di Azure AD
 Questi esempi di codice illustrano come creare applicazioni che chiamano l'API Graph di Azure AD per la lettura e la scrittura dei dati della directory.
 
@@ -90,8 +98,6 @@ Questi esempi di codice illustrano come creare applicazioni che chiamano l'API G
 | --- | --- | --- |
 | Java |[WebApp-GraphAPI-Java](https://github.com/Azure-Samples/active-directory-java-graphapi-web) |Applicazione Web che usa l'API Graph per accedere ai dati della directory di Azure AD. |
 | PHP |[WebApp-GraphAPI-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-web) |Applicazione Web che usa l'API Graph per accedere ai dati della directory di Azure AD. |
-| C#/.NET |[WebApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) |Applicazione Web che usa l'API Graph per accedere ai dati della directory di Azure AD. |
-| C#/.NET |[ConsoleApp-GraphAPI-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-console) |Questa app console mostra le normali chiamate in lettura e scrittura all'API Graph e illustra come eseguire l'assegnazione delle licenze utente e aggiornare la foto di anteprima e i collegamenti di un utente. |
 | C#/.NET |[ConsoleApp-GraphAPI-DiffQuery-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-diffquery) |Applicazione console che usa la query differenziale nell'API Graph per ottenere modifiche periodiche agli oggetti utente in un tenant di Azure AD. |
 | C#/.NET |[WebApp-GraphAPI-DirectoryExtensions-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-directoryextensions-web) |Applicazione MVC che usa query sull'API Graph per generare un semplice organigramma della società. |
 | PHP |[WebApp-GraphAPI-DirectoryExtensions-PHP](https://github.com/Azure-Samples/active-directory-php-graphapi-directoryextensions-web) |Applicazione PHP che chiama l'API Graph per registrare un'estensione e quindi leggere, aggiornare ed eliminare i valori definiti nell'attributo dell'estensione. |

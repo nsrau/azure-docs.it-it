@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 843582a980280a14f033c6d27965867c063039e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 63ae975426f1057b178171ef89ce98402ff18725
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -36,8 +36,7 @@ Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un ag
 Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117490"></a>1.1.749.0
-Stato: rilasciato per alcuni clienti
-
+Stato: rilasciato per clienti selezionati Questa versione è attualmente distribuita a una piccola e casuale porzione di tenant di AADConnect in cui è stato abilitato l'aggiornamento automatico. Questo gruppo di tenant verrà espanso nelle prossime settimane finché il 100% dei clienti con l'aggiornamento automatico non avrà ricevuto questa versione. Successivamente, la compilazione per il download generale verrà pubblicata nel collegamento per il download sopra indicato. La pubblicazione è attualmente pianificata per la metà di marzo 2018.
 >[!NOTE]
 >Al termine dell'aggiornamento a questa nuova versione, verrà attivata automaticamente la sincronizzazione completa e l'importazione completa per il connettore Azure AD e la sincronizzazione completa per il connettore AD. Poiché l'operazione potrebbe richiedere del tempo, a seconda delle dimensioni dell'ambiente Azure AD Connect, assicurarsi di aver eseguito i passaggi necessari per supportare questa operazione oppure rimandare l'aggiornamento a un momento più opportuno.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Box | Documentazione Microsoft'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Box | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Box.
 services: active-directory
 documentationCenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: b465993882563420652ef1ac8c623a1b9b7295ec
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: af43f4b2a11f217853a9160f473dea8c488ea852
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Esercitazione: Integrazione di Azure Active Directory con Box
 
@@ -114,16 +114,18 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
      
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
-
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
     ![Collegamento di download del certificato](./media/active-directory-saas-box-tutorial/tutorial_box_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
+5. Fare clic sul pulsante **Salva**.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-box-tutorial/tutorial_general_400.png)
     
-6. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione, contattare il [team di supporto di Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e fornire il file XML scaricato.
+6. Per ottenere l'accesso SSO configurato per l'applicazione, seguire la procedura in [Setting Up SSO On Your Own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) (Configurazione autonoma di Single Sign-On).
+
+> [!NOTE] 
+> Se non si è in grado di abilitare le impostazioni dell'accesso Single Sign-On per l'account Box, può essere necessario contattare il [team del supporto clienti di Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e fornire il file XML scaricato.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

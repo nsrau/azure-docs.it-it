@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
-ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd81e9d6c91387b3873593b84e952ca4f2546c57
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -99,13 +99,13 @@ Ottenere dettagli su un account.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Verificare l'esistenza di un account specifico di Data Lake Analytics. Il cmdlet restituisce `True` o `False`.
+Verificare l'esistenza di un account specifico di Data Lake Analytics. Il cmdlet restituisce `$true` o `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Verificare l'esistenza di un account specifico di Data Lake Store. Il cmdlet restituisce `True` o `False`.
+Verificare l'esistenza di un account specifico di Data Lake Store. Il cmdlet restituisce `$true` o `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -154,8 +154,6 @@ Rimuovere una regola del firewall.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Consentire gli indirizzi IP di Azure.
 
@@ -239,7 +237,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### <a name="submit-a-file-as-a-u-sql-script"></a>Inviare un file come script U-SQL
 
 ```powershell
@@ -258,15 +255,13 @@ L'output include i processi attualmente in esecuzione e quelli completati di rec
 Get-AdlJob -Account $adla
 ```
 
+### <a name="list-the-top-n-jobs"></a>Elencare i processi N principali
 
-### <a name="list-a-specific-number-of-jobs"></a>Elencare un numero specifico di processi
-
-Per impostazione predefinita, l'elenco dei processi viene ordinato in base all'ora di invio. Pertanto, i processi inviati di recente vengono visualizzati per primi. Per impostazione predefinita, l’account di ADLA memorizza i processi per 180 giorni, ma il cmdlet Ge AdlJob ne restituisce solo i primi 500. Utilizzare i parametri superiori per elencare un numero specifico di processi.
+Per impostazione predefinita, l'elenco dei processi viene ordinato in base all'ora di invio. Pertanto, i processi inviati di recente vengono visualizzati per primi. Per impostazione predefinita, l'account di ADLA memorizza i processi per 180 giorni, ma il cmdlet Get-AdlJob restituisce solo i primi 500. Utilizzare i parametri superiori per elencare un numero specifico di processi.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### <a name="list-jobs-based-on-the-value-of-job-property"></a>Elencare i processi in base al valore della proprietà processo
 
@@ -308,7 +303,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-
 Il parametro `-Submitter` consente di identificare chi ha inviato un processo.
 
 ```powershell
@@ -338,7 +332,6 @@ Utilizzare il cmdlet `Get-AdlJobPipeline` per visualizzare le informazioni di pi
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 

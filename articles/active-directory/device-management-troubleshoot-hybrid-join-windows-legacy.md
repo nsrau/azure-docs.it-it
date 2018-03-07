@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f1b92c604e20198714e9697bf4d08b3f71f23ae3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -55,7 +55,6 @@ Questo argomento fornisce indicazioni sulla risoluzione di potenziali problemi.
 
 - Una reinstallazione del sistema operativo o l'annullamento e la ripetizione manuale della registrazione potrebbe creare una nuova registrazione in Azure AD e causare la presenza di più voci nella scheda Info UTENTE nel portale di Azure. 
 
-
 ## <a name="step-1-retrieve-the-registration-status"></a>Passaggio 1: Recuperare lo stato della registrazione 
 
 **Per verificare lo stato della registrazione**  
@@ -82,6 +81,19 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
 - Non si è connessi come utente di dominio
 
     ![Aggiunta all'area di lavoro per Windows](./media/active-directory-device-registration-troubleshoot-windows-legacy/03.png)
+    
+    Questo problema può verificarsi per diversi motivi:
+    
+    1. Se l'utente che ha eseguito l'accesso non è un utente di dominio, ad esempio è un utente locale. L'aggiunta all'identità ibrida di Azure AD su dispositivi di livello inferiore è supportata solo per utenti di dominio.
+    
+    2. Se, per un qualsiasi motivo, Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure Active Directory o AD FS. Tra i possibili motivi sono inclusi eventuali problemi di connettività di rete in uscita verso gli URL di Azure AD (verificare i prerequisiti) oppure il caso in cui l'autenticazione a più fattori è stata abilitata/configurata per l'utente, ma WIAORMUTLIAUTHN non è configurato nel server federativo (verificare i passaggi di configurazione). È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad Autoworkplace.exe di ottenere automaticamente un token.
+    
+    3. Se l'organizzazione usa Accesso Single Sign-On facile di Azure AD, gli URL seguenti non sono presenti nelle impostazioni della Intranet in Internet Explorer nel dispositivo:
+    
+       - https://autologon.microsoftazuread-sso.com
+       - https://aadg.windows.net.nsatc.net
+    
+       ed è necessario abilitare l'impostazione "Consenti aggiornamenti alla barra di stato tramite script" per l'area Intranet.
 
 - È stata raggiunta una quota
 

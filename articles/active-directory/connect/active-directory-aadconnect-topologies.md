@@ -12,13 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 9a4f85b88959fb90f156779d09d168e0ddbe3da5
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -144,7 +144,9 @@ In questa topologia un server del servizio di sincronizzazione Azure AD Connect 
 
 Un dominio DNS può essere registrato unicamente in un tenant singolo di Azure AD. Anche gli UPN degli utenti nell'istanza locale di Active Directory devono usare spazi dei nomi separati. Ad esempio, nella figura precedente tre suffissi UPN separati vengono registrati nell'istanza locale di Active Directory: contoso.com, fabrikam.com e wingtiptoys.com. Gli utenti di ogni dominio di Active Directory locale usano uno spazio dei nomi diverso.
 
-Non è presente alcun GALSync tra le istanze del tenant di Azure AD. La rubrica di Exchange Online e Skype for Business mostra solo gli utenti nello stesso tenant.
+>[!NOTE]
+>La sincronizzazione elenco indirizzi globale non viene eseguita automaticamente in questa topologia ed è necessaria un'implementazione MIM personalizzata aggiuntiva, in modo che ogni tenant abbia un elenco indirizzi globale in Exchange Online e Skype for Business Online.
+
 
 Questa topologia presenta le restrizioni seguenti per scenari altrimenti supportati:
 

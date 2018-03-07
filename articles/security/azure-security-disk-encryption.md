@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: d6a19334b369c54ff6bad3404b4cf2ffe3b47c70
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cc609d7c7b28fc4aef6eb1e25ee46fd77edd4102
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux
 Microsoft Azure è caratterizzato dal massimo impegno volto ad assicurare la privacy e la sovranità dei dati e a consentire il controllo dei dati ospitati in Azure con una gamma di tecnologie avanzate per crittografare, controllare e gestire le chiavi di crittografia e controllare e verificare l'accesso ai dati. I clienti di Azure hanno quindi la possibilità di scegliere la soluzione che meglio soddisfa le proprie esigenze aziendali. In questo documento viene introdotta una nuova soluzione tecnologica, "Azure Disk Encryption per le macchine virtuali IaaS Windows e Linux", che facilita la protezione e la salvaguardia dei dati per rispettare gli impegni in termini di sicurezza e conformità dell'organizzazione. Il documento include informazioni dettagliate sull'uso delle funzionalità di crittografia del disco di Azure, compresi gli scenari supportati e le esperienze utente.
@@ -141,34 +141,7 @@ Prima di abilitare Crittografia dischi di Azure nelle macchine virtuali IaaS di 
 > [!NOTE]
 > Per Windows Server 2008 R2 è necessario che .NET Framework 4.5 sia installato prima dell'abilitazione della crittografia in Azure. È possibile installarlo da Windows Update tramite l'aggiornamento facoltativo Microsoft .NET Framework 4.5.2 per i sistemi Windows Server 2008 R2 basati su x64 ([KB2901983](https://support.microsoft.com/kb/2901983)).
 
-* Crittografia dischi di Azure è supportato nelle seguenti distribuzioni e versioni della raccolta di Azure basata sul server Linux:
-
-| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
-| --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | Disco del sistema operativo e dati |
-| Ubuntu | 14.04.5-DAILY-LTS | Disco del sistema operativo e dati |
-| Ubuntu | 12.10 | Disco dati |
-| Ubuntu | 12.04 | Disco dati |
-| RHEL | 7.4 | Disco del sistema operativo e dati |
-| RHEL | 7.3 | Disco del sistema operativo e dati |
-| RHEL | LVM 7.3 | Disco del sistema operativo e dati |
-| RHEL | 7,2 | Disco del sistema operativo e dati |
-| RHEL | 6.8 | Disco del sistema operativo e dati |
-| RHEL | 6.7 | Disco dati |
-| CentOS | 7.3 | Disco del sistema operativo e dati |
-| CentOS | 7.2n | Disco del sistema operativo e dati |
-| CentOS | 6.8 | Disco del sistema operativo e dati |
-| CentOS | 7.1 | Disco dati |
-| CentOS | 7.0 | Disco dati |
-| CentOS | 6.7 | Disco dati |
-| CentOS | 6.6 | Disco dati |
-| CentOS | 6,5 | Disco dati |
-| openSUSE | 13.2 | Disco dati |
-| SLES | 12 SP1 | Disco dati |
-| SLES | 12-SP1 (Premium) | Disco dati |
-| SLES | HPC 12 | Disco dati |
-| SLES | 11-SP4 (Premium) | Disco dati |
-| SLES | 11 SP4 | Disco dati |
+* Crittografia dischi di Azure è supportato solo in distribuzioni e versioni specifiche della raccolta di Azure basata sul server Linux.  Per l'elenco delle versioni attualmente supportate, vedere le [domande frequenti su Crittografia dischi di Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq).
 
 * Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area e sottoscrizione di Azure.
 
@@ -1284,9 +1257,6 @@ Quando si collega il disco del sistema operativo, vedere `$KeyEncryptionKey` e `
             -DiskEncryptionKeyUrl $SecretUrl `
             -KeyEncryptionKeyVaultId $KeyVault.ResourceId `
             -KeyEncryptionKeyURL $KeyEncryptionKey.Id
-
-## <a name="download-this-guide"></a>Scaricare questa guida
-È possibile scaricare in questa guida dalla [Raccolta TechNet](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
 ## <a name="for-more-information"></a>Per altre informazioni
 [Esplorare Crittografia dischi di Azure con Azure PowerShell - Parte 1](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/16/explore-azure-disk-encryption-with-azure-powershell.aspx?wa=wsignin1.0)  

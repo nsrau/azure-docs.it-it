@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9294d19ea78a2b9cf4282d627eddd16e6588d3ee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -63,6 +63,8 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+
 Per altre informazioni sull'attributo `BlobTrigger`, vedere [Trigger - attributi](#trigger---attributes).
 
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
@@ -79,14 +81,16 @@ Ecco i dati di associazione nel file *function.json*:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+
+Per altre informazioni sulle proprietà del file *function.json*, vedere la sezione [Configurazione](#trigger---configuration) che spiega queste proprietà.
 
 Ecco il codice script C# associato a un oggetto `Stream`:
 
@@ -112,7 +116,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e [codice JavaScript] (functions-reference-node.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e il [codice JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
 
 Ecco il file *function.json*:
 
@@ -124,14 +128,16 @@ Ecco il file *function.json*:
             "name": "myBlob",
             "type": "blobTrigger",
             "direction": "in",
-            "path": "samples-workitems",
+            "path": "samples-workitems/{name}",
             "connection":"MyStorageAccountAppSetting"
         }
     ]
 }
 ```
 
-Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+
+Per altre informazioni sulle proprietà del file *function.json*, vedere la sezione [Configurazione](#trigger---configuration) che spiega queste proprietà.
 
 Ecco il codice JavaScript:
 
@@ -214,12 +220,13 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="trigger---usage"></a>Trigger - uso
 
-In C# e negli script C# è possibile accedere ai dati del BLOB con un parametro del metodo, ad esempio `T paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+In C# e nello script C# è possibile usare i tipi di parametro seguenti per il BLOB di attivazione:
 
 * `Stream`
 * `TextReader`
-* `Byte[]`
 * `string`
+* `Byte[]`
+* Un oggetto POCO serializzabile come JSON
 * `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
 * `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
 * `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
@@ -227,9 +234,9 @@ In C# e negli script C# è possibile accedere ai dati del BLOB con un parametro 
 
 Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
 
-Se sono previsti BLOB di testo, è possibile eseguire l'associazione al tipo `string`. È consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`. Per altre informazioni, vedere [Concorrenza e utilizzo della memoria](#trigger---concurrency-and-memory-usage) più avanti in questo articolo.
+L'associazione a `string`, `Byte[]` o POCO è consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`. Per altre informazioni, vedere [Concorrenza e utilizzo della memoria](#trigger---concurrency-and-memory-usage) più avanti in questo articolo.
 
-In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name>`.
+In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name from function.json>`.
 
 ## <a name="trigger---blob-name-patterns"></a>Trigger - modelli di nome dei BLOB
 
@@ -276,13 +283,28 @@ Se il BLOB è denominato *{20140101}-soundfile.mp3*, il valore della variabile `
 
 Il trigger del BLOB contiene diverse proprietà di metadati. Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Questi valori hanno la stessa semantica del tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-
 |Proprietà  |type  |DESCRIZIONE  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Percorso del BLOB trigger.|
 |`Uri`|`System.Uri`|L'URI del BLOB per la posizione primaria.|
 |`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Le proprietà di sistema del BLOB. |
 |`Metadata` |`IDictionary<string,string>`|I metadati definiti dall'utente per il BLOB.|
+
+Ad esempio, gli esempi seguenti di script C# e JavaScript registrano il percorso nel BLOB di attivazione, incluso il contenitore:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+{
+    log.Info($"Full blob path: {blobTrigger}");
+} 
+```
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
 
 ## <a name="trigger---blob-receipts"></a>Trigger - conferme di BLOB
 
@@ -316,9 +338,9 @@ Il trigger del BLOB usa una un servizio di accodamento interno, quindi il numero
 
 [Il piano di consumo](functions-scale.md#how-the-consumption-plan-works) limita un'app per le funzioni in una macchina virtuale (VM) a 1,5 GB di memoria. La memoria viene usata da ogni istanza della funzione attualmente in esecuzione e dal runtime di funzioni stesso. Se una funzione di attivazione del BLOB carica l'intero BLOB nella memoria, la memoria massima usata da tale funzione solo per i BLOB è pari a 24 * le dimensioni massime del BLOB. Ad esempio, un'app per le funzioni con tre funzioni attivate dal BLOB e le impostazioni predefinite avrebbe una concorrenza per macchina virtuale massima pari a 3 * 24 = 72 chiamate di funzione.
 
-Le funzioni JavaScript caricano nella memoria l'intero BLOB e le funzioni C# eseguono questa operazione se si esegue il binding a `string`.
+Le funzioni JavaScript caricano nella memoria l'intero BLOB e le funzioni C# eseguono questa operazione se si esegue l'associazione a `string`, `Byte[]` o POCO.
 
-## <a name="trigger---polling-for-large-containers"></a>Trigger - polling per i contenitori di grandi dimensioni
+## <a name="trigger---polling"></a>Trigger - polling
 
 Se il contenitore BLOB monitorato contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo può causare ritardi. È possibile quindi che una funzione non venga attivata per diversi minuti o più dopo la creazione del BLOB. Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire. Se è necessaria un'elaborazione dei BLOB più veloce o affidabile, valutare la possibilità di creare un [messaggio della coda](../storage/queues/storage-dotnet-how-to-use-queues.md) quando si crea il BLOB. Usare quindi un [trigger di coda](functions-bindings-storage-queue.md) invece di un trigger di BLOB per elaborare il BLOB. Un'altra opzione consiste nell'usare Griglia di eventi. Vedere l'esercitazione [Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
@@ -498,12 +520,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="input---usage"></a>Input - uso
 
-Nelle librerie di classi C# e negli script C# è possibile accedere al BLOB con un parametro del metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'associazione di input BLOB:
 
+* `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* `Stream`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
 * `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
@@ -513,9 +535,9 @@ Nelle librerie di classi C# e negli script C# è possibile accedere al BLOB con 
 
 Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
 
-Se si esegue la lettura di BLOB di testo, è possibile eseguire l'associazione a un tipo `string`. È consigliabile usare questo tipo solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`.
+L'associazione a `string` o `Byte[]` è consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`. Per altre informazioni, vedere [Concorrenza e utilizzo della memoria](#trigger---concurrency-and-memory-usage) più indietro in questo articolo.
 
-In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name>`.
+In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name from function.json>`.
 
 ## <a name="output"></a>Output
 
@@ -709,7 +731,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="output---usage"></a>Output - uso
 
-Nelle librerie di classi C# e negli script C# è possibile accedere al BLOB con un parametro del metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+In C# e nello script C# è possibile usare i tipi di parametro seguenti per l'associazione di output BLOB:
 
 * `TextWriter`
 * `out string`
@@ -725,13 +747,16 @@ Nelle librerie di classi C# e negli script C# è possibile accedere al BLOB con 
 
 Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
 
-Se si esegue la lettura di BLOB di testo, è possibile eseguire l'associazione a un tipo `string`. È consigliabile usare questo tipo solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`.
+Nelle funzioni asincrone usare il valore restituito o `IAsyncCollector` anziché un parametro `out`.
 
-In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name>`.
+L'associazione a `string` o `Byte[]` è consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`. Per altre informazioni, vedere [Concorrenza e utilizzo della memoria](#trigger---concurrency-and-memory-usage) più indietro in questo articolo.
+
+
+In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name from function.json>`.
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  riferimento |
+| Associazione |  Riferimenti |
 |---|---|
 | BLOB | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Table, Queue |  [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

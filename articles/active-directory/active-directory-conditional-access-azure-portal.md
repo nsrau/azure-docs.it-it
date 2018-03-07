@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 02/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 30c8911105e95860899385caf40f8a250c1c340e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e4a65d81a7dade9ae63a24657d15a97a3a588b2
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -108,7 +108,7 @@ Per altre informazioni, vedere [Configurare SharePoint Online ed Exchange Online
 
 ### <a name="license-requirements-for-using-conditional-access"></a>Requisiti di licenza per l'uso dell'accesso condizionale
 
-L'uso dell'accesso condizionale richiede una licenza Azure AD Premium/Enterprise Mobility + Security. Per individuare la licenza adatta ai propri requisiti, vedere [Opzioni di prezzo di Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing).
+L'uso dell'accesso condizionale richiede una licenza Azure AD Premium. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

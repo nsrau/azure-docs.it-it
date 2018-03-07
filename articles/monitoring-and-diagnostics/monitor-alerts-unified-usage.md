@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e4068cc694b623f67d998f410f207356efd873f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure - Avvisi (anteprima)
 
@@ -28,11 +28,11 @@ Questo articolo illustra come configurare gli avvisi tramite la nuova interfacci
 - Criteri: condizione specifica o logica che, se rilevata nel segnale, deve attivare l'azione
 - Azione: chiamata specifica inviata a un ricevitore di una notifica di posta elettronica, SMS, webhook e così via.
 
-In Avvisi (anteprima) il termine **avvisi del log** viene usato per descrivere gli avvisi in cui il segnale è basato su una query personalizzata su [Log Analytics di Azure](../log-analytics/log-analytics-tutorial-viewdata.md). La funzionalità di avviso delle metriche denominata [Avvisi delle metriche near real-time](monitoring-near-real-time-metric-alerts.md) nell'esperienza degli avvisi esistente è denominata **Avvisi metrica** in Avvisi (anteprima). In *Avvisi metrica*, alcuni tipi di risorse forniscono [metriche multidimensionali](monitoring-metric-charts.md) per risorse di Azure specifiche e pertanto gli avvisi per tali risorse possono essere resi più specifici tramite filtri aggiuntivi sulle dimensioni. Questi avvisi sono detti **avvisi delle metriche multidimensionali**.
+In Avvisi (anteprima) il termine **avvisi del log** viene usato per descrivere gli avvisi in cui il segnale è basato su una query personalizzata in [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Azure Application Insights](../application-insights/app-insights-analytics.md). La funzionalità di avviso delle metriche denominata [Avvisi delle metriche near real-time](monitoring-near-real-time-metric-alerts.md) nell'esperienza degli avvisi esistente è denominata **Avvisi metrica** in Avvisi (anteprima). In *Avvisi metrica*, alcuni tipi di risorse forniscono [metriche multidimensionali](monitoring-metric-charts.md) per risorse di Azure specifiche e pertanto gli avvisi per tali risorse possono essere resi più specifici tramite filtri aggiuntivi sulle dimensioni. Questi avvisi sono detti **avvisi delle metriche multidimensionali**.
 Avvisi di Azure (anteprima) fornisce anche una visualizzazione unificata per tutte le regole di avviso e la possibilità di gestirle in un'unica posizione. È inclusa la visualizzazione di tutti gli avvisi non risolti. Altre informazioni sulle funzionalità sono disponibili in [Avvisi di Azure (anteprima) - Panoramica](monitoring-overview-unified-alerts.md).
 
 > [!NOTE]
-> Avvisi di Azure (anteprima) offre un'esperienza nuova e migliorata per la creazione di avvisi in Azure. L'esperienza esistente di [Avvisi di Azure](monitoring-overview-alerts.md) rimane utilizzabile
+> Avvisi di Azure (anteprima) offre un'esperienza nuova e migliorata per la creazione di avvisi in Azure. L'esperienza di [Avvisi di Azure](monitoring-overview-alerts.md) esistente rimane utilizzabile
 >
 
 Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure (anteprima).
@@ -81,16 +81,13 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure (ante
 
     ![Configurare la logica del segnale per la metrica multidimensionale](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Avvisi del log*: verificare che il **Tipo di risorsa** sia un'origine dati di analisi come *Log Analytics*/*Application Insights*, quindi, dopo avere selezionato la **risorsa** appropriata, fare clic su *Fatto*. Usare quindi il pulsante **Aggiungi criteri** per visualizzare l'elenco delle opzioni di segnale disponibili per la risorsa e nell'elenco dei segnali selezionare l'opzione di **ricerca log personalizzata** per il servizio di monitoraggio del log scelto, ad esempio *Log Analytics*/*Application Insights*.
+8. *Avvisi del log*: verificare che **Tipo di risorsa** sia un'origine dati di analisi come *Log Analytics* o *Application Insights* e quindi, dopo avere selezionato la **risorsa** appropriata, fare clic su *Operazione completata*. Usare quindi il pulsante **Aggiungi criteri** per visualizzare l'elenco delle opzioni di segnale disponibili per la risorsa e nell'elenco dei segnali selezionare l'opzione di **ricerca log personalizzata** per il servizio di monitoraggio del log scelto, ad esempio *Log Analytics* o *Application Insights*.
 
    ![Selezionare una risorsa - ricerca log personalizzata](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
-   > In **Avvisi (anteprima)** le ricerche log salvate vengono elencate come tipo di segnale Log (query salvata) quando la risorsa selezionata è Log Analytics.
-   Quindi è possibile completare la query in Analytics e salvarla per un uso futuro. Per altri dettagli, vedere [Uso della ricerca log in Log Analytics](../log-analytics/log-analytics-log-searches.md). È possibile creare regole di avviso basate su queste query direttamente, come illustrato nella schermata di esempio seguente con le ricerche salvate:
-
-   ![Selezionare una risorsa - ricerca log personalizzata](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+   > Avvisi (anteprima) può importare query di Analytics come tipo di segnale **Log (query salvata)**, come illustrato nella figura precedente. Gli utenti possono quindi perfezionare la query in Analytics e salvarla per uso futuri in Avvisi. Altri dettagli sull'uso del salvataggio di query sono disponibili in [Usare la ricerca log in Log Analytics](../log-analytics/log-analytics-log-searches.md) o in [Query condivisa in Analytics in Application Insights](../log-analytics/log-analytics-overview.md). 
 
 9.  *Avvisi del log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 
@@ -124,7 +121,7 @@ Gli **avvisi del log** possono basarsi su:
 
     Per gli **avvisi del log** sono disponibili alcune funzionalità aggiuntive per eseguire l'override di quelle predefinite:
 
-    - **Notifica tramite posta elettronica**: esegue l'override dell'oggetto nel messaggio di posta elettronica inviato tramite il gruppo di azioni. Non è possibile modificare il corpo del messaggio.
+    - **Notifica tramite posta elettronica**: esegue l'override dell'oggetto nel messaggio di posta elettronica inviato tramite il gruppo di azioni. È possibile modificare il corpo del messaggio.
     - **Includi payload JSON personalizzato**: esegue l'override del webhook JSON usato dai gruppi di azioni e sostituisce il payload predefinito con un payload personalizzato. Per altre informazioni sui formati dei webhook, vedere l'[azione del webhook per gli avvisi del log](monitor-alerts-unified-log-webhook.md)
 
         ![Override dell'azione per gli avvisi del log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
@@ -162,5 +159,5 @@ Gli **avvisi del log** possono basarsi su:
 
 - Altre informazioni sugli [avvisi delle metriche quasi in tempo reale (anteprima)](monitoring-near-real-time-metric-alerts.md).
 - Leggere una [panoramica della raccolta di metriche](insights-how-to-customize-monitoring.md) per verificare che il servizio sia disponibile e reattivo.
-- Informazioni sugli [Avvisi del log in Avvisi di Azure (anteprima)](monitor-alerts-unified-log.md)
+- Informazioni sugli [avvisi di log in Avvisi di Azure (anteprima)](monitor-alerts-unified-log.md)
 - [Informazioni sugli avvisi di log attività nell'esperienza di Avvisi (anteprima)](monitoring-activity-log-alerts-new-experience.md)

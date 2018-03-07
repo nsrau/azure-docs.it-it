@@ -9,18 +9,19 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: 
 ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ROBOTS: NOINDEX
+ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -42,9 +43,6 @@ Per usare una topologia C# con un cluster basato su Linux, è necessario aggiorn
 
 > [!IMPORTANT]
 > Le topologie C# nei cluster basati su Linux devono usare .NET 4.5 e devono usare Mono per l'esecuzione nel cluster HDInsight. Controllare la [compatibilità Mono](http://www.mono-project.com/docs/about-mono/compatibility/) per potenziali problemi di incompatibilità.
-
-> [!WARNING]
-> Se si verificano problemi durante la compilazione di progetti che usano SCP.NET versione 1.0.0.x, contattare il supporto tecnico Microsoft per assistenza.
 
 ## <a name="install-visual-studio"></a>Installazione di Visual Studio
 
@@ -169,7 +167,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
 
    * **Fail** (solo topologia transazionale): gestisce tuple la cui elaborazione da parte di altri componenti della topologia ha avuto esito negativo. L'implementazione di un metodo Fail consente di generare nuovamente la tupla in modo che sia possibile elaborarla di nuovo.
 
-2. Sostituire il contenuto della classe **Spout** con il testo riportato di seguito. Lo spout genera in modo casuale una frase nella topologia.
+2. Sostituire il contenuto della classe **Spout** con il testo seguente: Lo spout genera in modo casuale una frase nella topologia.
 
     ```csharp
     private Context ctx;
@@ -290,7 +288,7 @@ Per una topologia di esempio che usa questo componente e funziona con Storm in H
     }
     ```
 
-5. Aprire **Counter.cs** e sostituire il contenuto della classe con quanto riportato di seguito:
+5. Aprire **Counter.cs** e sostituire il contenuto della classe con il codice seguente:
 
     ```csharp
     private Context ctx;
@@ -472,16 +470,16 @@ Per un esempio di topologia ibrida, creare un progetto e selezionare **Storm Hyb
   > Questa versione illustra anche come usare codice Clojure da un file di testo come componente Java.
 
 
-Quando si invia il progetto, per passare da una topologia all'altra spostare semplicemente l'istruzione `[Active(true)]` nella topologia che si desidera usare prima di effettuare l'invio al cluster.
+Quando si invia il progetto, per passare da una topologia all'altra spostare l'istruzione `[Active(true)]` nella topologia che si desidera usare prima di effettuare l'invio al cluster.
 
 > [!NOTE]
 > Tutti i file Java necessari vengono forniti come parte di questo progetto nella cartella **JavaDependency** .
 
 Quando si crea e si invia una topologia ibrida, tenere presente quanto riportato di seguito:
 
-* È necessario usare **JavaComponentConstructor** per creare un'istanza della classe Java per uno spout o un bolt.
+* Usare **JavaComponentConstructor** per creare un'istanza della classe Java per uno spout o un bolt.
 
-* È consigliabile usare **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** per serializzare i dati dentro e fuori i componenti Java da oggetti Java a JSON.
+* Usare **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** per serializzare i dati dentro e fuori i componenti Java da oggetti Java a JSON.
 
 * Durante l'invio della topologia al server, è necessario usare l'opzione **Configurazioni aggiuntive** per specificare i **percorsi dei file Java**. Il percorso specificato deve corrispondere alla directory contenente i file con estensione jar in cui sono presenti le classi Java.
 
@@ -703,7 +701,7 @@ Anche se la distribuzione di una topologia a un cluster è un'operazione semplic
 
 ### <a name="log-information"></a>Informazioni di log
 
-È possibile registrare facilmente le informazioni provenienti dai componenti della topologia usando `Context.Logger`. Il codice seguente, ad esempio, crea una voce di log informativa:
+È possibile registrare facilmente le informazioni provenienti dai componenti della topologia usando `Context.Logger`. Il comando seguente, ad esempio, crea una voce di log informativa:
 
 ```csharp
 Context.Logger.Info("Component started");

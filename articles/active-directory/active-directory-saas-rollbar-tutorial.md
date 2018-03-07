@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
-ms.openlocfilehash: bb8a81327163513ab721d2ad72da19173b59bc1f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 43dc50d0a5381ace8bcfeb3cae39e249ba743876
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Esercitazione: Integrazione di Azure Active Directory con Rollbar
 
@@ -149,11 +149,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Fare clic su **Save**.
 
-11. Dopo che si è fatto clic su Save (Salva), la schermata avrà l'aspetto seguente. In questa sezione eseguire la procedura seguente:
+11. Dopo che si è fatto clic su Save (Salva), la schermata avrà l'aspetto seguente:
     
     ![Configurazione](./media/active-directory-saas-rollbar-tutorial/configure3.png)
+    > [!NOTE] 
+    > Per completare il passaggio seguente, è necessario prima aggiungere se stessi come utente all'app Rollbar in Azure.
+    a. Se si vuole che tutti gli utenti eseguano l'autenticazione tramite Azure, fare clic su **log in via your identity provider** (accedere tramite il provider di identità) per ripetere l'autenticazione tramite Azure.  
 
-    a. Selezionare la casella di controllo **Require login via SAML Identity Provider** (Richiedi l'accesso tramite provider di identità SAML).
+    b.  Quando si ritorna alla schermata, selezionare la casella di controllo **Require login via SAML Identity Provider** (Richiedi accesso tramite provider di identità SAML).
 
     b. Fare clic su **Save**.
 

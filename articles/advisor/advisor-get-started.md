@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: dc89cd29e1e8038f0ff317ff6acee332218ebce7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Introduzione ad Azure Advisor
 
@@ -28,7 +28,7 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Nel riquadro sinistro fare clic su **Advisor**.  Se Advisor non è disponibile nel riquadro sinistro, fare clic su **Altri servizi**.  Nel riquadro del menu dei servizi, in **Monitoraggio e gestione** fare clic su **Advisor**.
+2. Nel riquadro sinistro fare clic su **Advisor**.  Se Advisor non è disponibile nel riquadro sinistro, fare clic su **Tutti i servizi**.  Nel riquadro del menu dei servizi, in **Monitoraggio e gestione** fare clic su **Advisor**.
  Verrà visualizzato il dashboard di Advisor.
 
    ![Accedere ad Azure Advisor tramite il Portale di Azure](./media/advisor-get-started/advisor-portal-menu.png) 
@@ -66,17 +66,17 @@ Informazioni su come accedere ad Advisor tramite il portale di Azure, ricevere e
 
     ![Criteri dei filtri di ricerca di Advisor](./media/advisor-get-started/advisor-filters.png)
 
-## <a name="snooze-or-dismiss-advisor-recommendations"></a>Posporre o ignorare i consigli di Advisor
+## <a name="postpone-or-dismiss-advisor-recommendations"></a>Posporre o ignorare i consigli di Advisor
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
 
-2. Passare al consiglio che si intende posporre o eliminare.
+2. Passare al consiglio che si vuole posporre o ignorare.
 
 3. Fare clic sul consiglio.
 
 4. Fare clic su **Posponi**. 
 
-5. È possibile specificare il periodo di tempo in base al quale posporre il consiglio oppure selezionare **Mai** per ignorare il consiglio.
+5. Specificare fino a quando posporre il consiglio oppure selezionare **Mai** per ignorarlo.
 
 ## <a name="exclude-subscriptions-or-resource-groups-from-advisor"></a>Escludere sottoscrizioni o gruppi di risorse da Advisor
 

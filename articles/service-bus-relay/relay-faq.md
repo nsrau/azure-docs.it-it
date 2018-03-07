@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 02/27/2018
 ms.author: sethm
-ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 07cbdd24368d66104ecdeb263983e3aaf3f219fe
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -76,14 +76,13 @@ L'invio di un messaggio a un inoltro del bus di servizio viene considerato come 
 Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding **netTCPRelay**, tutti i dati vengono considerati come flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
 
 ## <a name="quotas"></a>Quote
-| Nome della quota | Scope | type | Comportamento in caso di superamento | Valore |
-| --- | --- | --- | --- | --- |
-| Listener simultanei per un inoltro |Entità |statico |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
-| Listener di inoltro simultanei |A livello di sistema |statico |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |2.000 |
-| Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |A livello di sistema |statico |- |5.000 |
-| Endpoint di inoltro per ogni spazio dei nomi del servizio |A livello di sistema |statico |- |10.000 |
-| Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |A livello di sistema |statico |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 KB |
-| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |A livello di sistema |statico |- |Illimitato |
+| Nome della quota | Scope |  Note | Valore |
+| --- | --- | --- | --- |
+| Listener simultanei per un inoltro |Entità |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
+| Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5.000 |
+| Endpoint di inoltro per ogni spazio dei nomi del servizio |Spazio dei nomi |- |10.000 |
+| Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) e [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 KB |
+| Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) e [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Illimitato |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Per il servizio di inoltro sono previste quote di utilizzo?
 Per impostazione predefinita per qualsiasi servizio cloud, Microsoft imposta una quota di utilizzo mensile aggregata che viene calcolata su tutte le sottoscrizioni di un cliente. In alcuni casi le esigenze del cliente possono superare questi limiti. È possibile contattare il servizio clienti in qualsiasi momento per comunicare esigenze specifiche e consentire un adeguamento appropriato di tali limiti. Per il bus di servizio, le quote di utilizzo aggregate sono le seguenti:

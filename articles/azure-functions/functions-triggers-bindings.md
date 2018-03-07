@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 02/07/2018
 ms.author: glenga
-ms.openlocfilehash: 90a192f58f0e4b285f7aece8a3555c08df051f38
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f43132beb0abae3d4bdf0f538de1b437e6099822
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -43,7 +43,51 @@ Se le funzioni vengono sviluppate in Visual Studio per creare una libreria di cl
 
 Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambiente di produzione, vedere [Linguaggi supportati ](supported-languages.md).
 
-## <a name="example-queue-trigger-and-table-output-binding"></a>Esempio: trigger di coda e tabella di associazione di output
+## <a name="register-binding-extensions"></a>Registrare le estensioni delle associazioni
+
+Nella versione 2.x del runtime di Funzioni di Azure è necessario registrare in modo esplicito le [estensioni delle associazioni](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) usate nell'app per le funzioni. 
+
+Le estensioni vengono distribuite come pacchetti NuGet il cui nome inizia in genere con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La modalità di installazione e registrazione delle estensioni delle associazioni dipende da come si sviluppano le funzioni: 
+
++ [A livello locale in C# con Visual Studio o VSCode](#precompiled-functions-c)
++ [A livello locale con gli strumenti di base di Funzioni di Azure](#local-development-azure-functions-core-tools)
++ [Nel portale di Azure](#azure-portal-development) 
+
+Nella versione 2.x è presente un set di associazioni di base che non vengono fornite come estensioni. Non è necessario registrare le estensioni dei trigger e delle associazioni seguenti: HTTP, timer e Archiviazione di Azure. 
+
+Per informazioni su come impostare un'app per le funzioni per l'uso della versione 2.x del runtime di Funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md). La versione 2.x del runtime di Funzioni è attualmente in anteprima. 
+
+Le versioni dei pacchetti illustrate in questa sezione sono fornite solo a scopo esemplificativo. Controllare il [sito NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) per stabilire quale versione di una determinata estensione è necessaria per le altre dipendenze dell'app per le funzioni.    
+
+###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Sviluppo in C# a livello locale con Visual Studio o VSCode 
+
+Quando si usa Visual Studio o Visual Studio Code per sviluppare funzioni in C# a livello locale, è sufficiente aggiungere il pacchetto NuGet dell'estensione. 
+
++ **Visual Studio**: usare gli strumenti di Gestione pacchetti NuGet. Il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) seguente consente di installare l'estensione di Azure Cosmos DB dalla Console di Gestione pacchetti:
+
+    ```
+    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
+    ```
++ **Visual Studio Code**: è possibile installare i pacchetti dal prompt dei comandi usando il comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nell'interfaccia della riga di comando di .NET, come indicato di seguito:
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
+    ```
+
+### <a name="local-development-azure-functions-core-tools"></a>Sviluppo a livello locale con gli strumenti di base di Funzioni di Azure
+
+[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+
+### <a name="azure-portal-development"></a>Sviluppo con il portale di Azure
+
+Quando si crea una funzione o si aggiunge un'associazione a una funzione esistente, viene richiesto quando è necessario registrare l'estensione dell'associazione o del trigger aggiunto.   
+
+Dopo che è stato visualizzato un avviso relativo alla specifica estensione installata, fare clic su **Installa** per registrare l'estensione. È necessario installare ogni estensione una sola volta per una determinata app per le funzioni. 
+
+>[!Note] 
+>In un piano a consumo il processo di installazione nel portale può richiedere fino a 10 minuti.
+
+## <a name="example-trigger-and-binding"></a>Trigger e associazione di esempio
 
 Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger di archiviazione code di Azure e un'associazione di output di archiviazione tabelle di Azure. 
 
@@ -70,9 +114,9 @@ Ecco un file *function.json* per questo scenario.
 }
 ```
 
-Il primo elemento nella matrice `bindings` è il trigger di archiviazione code. Le proprietà `type` e `direction` identificano il trigger. La proprietà `name` identifica il parametro di funzione che riceverà il contenuto del messaggio della coda. Il nome della coda da monitorare si trova in `queueName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
+Il primo elemento nella matrice `bindings` è il trigger di archiviazione code. Le proprietà `type` e `direction` identificano il trigger. La proprietà `name` identifica il parametro della funzione che riceve il contenuto del messaggio della coda. Il nome della coda da monitorare si trova in `queueName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
 
-Il secondo elemento nella matrice `bindings` è l'associazione di output dell'archiviazione tabelle di Azure. Le proprietà `type` e `direction` identificano l'associazione. La proprietà `name` specifica in che modo la funzionalità fornirà la nuova riga della tabella, in questo caso usando il valore restituito della funzione. Il nome della tabella si trova in `tableName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
+Il secondo elemento nella matrice `bindings` è l'associazione di output dell'archiviazione tabelle di Azure. Le proprietà `type` e `direction` identificano l'associazione. La proprietà `name` specifica in che modo la funzione fornisce la nuova riga di tabella, in questo caso usando il valore restituito della funzione. Il nome della tabella si trova in `tableName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
 
 Per visualizzare e modificare i contenuti della *funzione .json* nel portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **Integrazione** della funzione.
 
@@ -124,7 +168,7 @@ function generateRandomId() {
 }
 ```
 
-In una libreria di classi, le stesse informazioni per il trigger e l'associazione, ovvero nomi di coda e tabella, account di archiviazione, parametri di funzione per input e output, sono forniti dagli attributi:
+In una libreria di classi le stesse informazioni sui trigger e sulle associazioni, ovvero i nomi di coda e tabella, gli account di archiviazione, i parametri di funzione per l'input e l'output, vengono fornite dagli attributi anziché da un file function.json. Ad esempio:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -162,12 +206,53 @@ Tutti i trigger e le associazioni hanno una proprietà `direction` nel file *fun
 
 Quando si usano gli [attributi in una libreria di classi](functions-dotnet-class-library.md) per configurare i trigger e le associazioni, la direzione viene specificata in un costruttore di attributo o dedotta dal tipo di parametro.
 
-## <a name="using-the-function-return-type-to-return-a-single-output"></a>Uso del tipo restituito della funzione per restituire un singolo output
+## <a name="using-the-function-return-value"></a>Uso del valore restituito della funzione
 
-L'esempio precedente illustra come usare il valore restituito della funzione per fornire l'output a un'associazione, che viene specificato nel file *function.json* usando il valore speciale `$return` per la proprietà `name`. Questa opzione è supportata solo nei linguaggi che presentano un valore restituito, ad esempio script C#, JavaScript e F#. Se una funzione dispone di più associazioni di output, usare `$return` per una sola delle associazioni di output. 
+Nei linguaggi che hanno un valore restituito è possibile associare a tale valore un'associazione di output:
+
+* In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
+* In altri linguaggi impostare la proprietà `name` in *function.json* su `$return`.
+
+Se è necessario scrivere più elementi, usare un [oggetto agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values) anziché il valore restituito. Se sono presenti più associazioni di output, usare il valore restituito per una sola di tali associazioni.
+
+Vedere l'esempio specifico per ciascun linguaggio:
+
+* [C#](#c-example)
+* [Script C# (file con estensione csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+
+### <a name="c-example"></a>Esempio in C#
+
+Di seguito è riportato il codice C# che usa il valore restituito per un'associazione di output, seguito da un esempio asincrono:
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return json;
+}
+```
+
+```cs
+[FunctionName("QueueTrigger")]
+[return: Blob("output-container/{id}")]
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+{
+    string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
+    log.Info($"C# script processed queue message. Item={json}");
+    return Task.FromResult(json);
+}
+```
+
+### <a name="c-script-example"></a>Esempio di script C#
+
+Di seguito è riportata l'associazione di output nel file *function.json*:
 
 ```json
-// excerpt of function.json
 {
     "name": "$return",
     "type": "blob",
@@ -176,10 +261,9 @@ L'esempio precedente illustra come usare il valore restituito della funzione per
 }
 ```
 
-Gli esempi seguenti mostrano come vengono usati i tipi restituiti con le associazioni di output nello script C#, in JavaScript e F#.
+Di seguito è riportato il codice di script C#, seguito da un esempio asincrono:
 
 ```cs
-// C# example: use method return value for output binding
 public static string Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -189,7 +273,6 @@ public static string Run(WorkItem input, TraceWriter log)
 ```
 
 ```cs
-// C# example: async method, using return value for output binding
 public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
@@ -198,21 +281,49 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 }
 ```
 
+### <a name="f-example"></a>Esempio F#
+
+Di seguito è riportata l'associazione di output nel file *function.json*:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+Ecco il codice F#:
+
+```fsharp
+let Run(input: WorkItem, log: TraceWriter) =
+    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
+    log.Info(sprintf "F# script processed queue message '%s'" json)
+    json
+```
+
+### <a name="javascript-example"></a>Esempio JavaScript
+
+Di seguito è riportata l'associazione di output nel file *function.json*:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+
+In JavaScript il valore restituito viene inserito nel secondo parametro per `context.done`:
+
 ```javascript
-// JavaScript: return a value in the second parameter to context.done
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
-```
-
-```fsharp
-// F# example: use return value for output binding
-let Run(input: WorkItem, log: TraceWriter) =
-    let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
-    json
 ```
 
 ## <a name="binding-datatype-property"></a>Proprietà Binding dataType
@@ -232,13 +343,32 @@ Per i linguaggi tipizzati in modo dinamico, ad esempio JavaScript, usare la prop
 
 Altre opzioni per `dataType` sono `stream` e `string`.
 
-## <a name="resolving-app-settings"></a>Risoluzione di impostazioni app
+## <a name="binding-expressions-and-patterns"></a>Modelli ed espressioni di associazione
 
-Come procedura consigliata, i segreti e le stringhe di connessione devono essere gestiti tramite le impostazioni dell'app, invece dei file di configurazione. Ciò limita l'accesso a questi segreti e rende sicuro archiviare *function.json* in un repository di controllo sorgente pubblico.
+Una delle funzionalità più potenti di trigger e associazioni sono le *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
+
+Quasi tutte le espressioni sono identificate tramite la disposizione del testo tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
+
+Tipi di espressioni di associazione
+
+* [Impostazioni dell'app](#binding-expressions---app-settings)
+* [Nome file del trigger](#binding-expressions---trigger-file-name)
+* [Metadati dei trigger](#binding-expressions---trigger-metadata)
+* [Payload JSON](#binding-expressions---json-payloads)
+* [Nuovo GUID](#binding-expressions---create-guids)
+* [Data e ora correnti](#binding-expressions---current-time)
+
+### <a name="binding-expressions---app-settings"></a>Espressioni di associazione - impostazioni dell'app
+
+Come procedura consigliata, i segreti e le stringhe di connessione devono essere gestiti tramite le impostazioni dell'app, invece dei file di configurazione. Questo limita l'accesso ai segreti e rende sicuro archiviare i file, ad esempio *function.json*, nei repository pubblici di controllo del codice sorgente.
 
 Le impostazioni dell'app sono utili anche ogni volta che si desidera modificare la configurazione in base all'ambiente. Ad esempio, in un ambiente di test, si potrebbe voler monitorare un contenitore di archiviazione BLOB o di coda diverso.
 
-Le impostazioni dell'app vengono risolte ogni volta che un valore è racchiuso tra simboli di percentuale, ad esempio `%MyAppSetting%`. Si noti che la proprietà `connection` di trigger e associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app. 
+Le espressioni di associazione gestite tramite le impostazioni dell'app vengono identificate in modo diverso rispetto ad altre espressioni di associazione. Vengono infatti racchiuse tra segni di percentuale anziché tra parentesi graffe. Ad esempio, se è il percorso dell'associazione di output del BLOB è `%Environment%/newblob.txt` e il valore dell'impostazione dell'app `Environment` è `Development`, verrà creato un BLOB nel contenitore `Development`.
+
+Quando una funzione è in esecuzione a livello locale, i valori delle impostazioni dell'app vengono ricavati dal file *local.settings.json*.
+
+Si noti che la proprietà `connection` dei trigger e delle associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app senza segni di percentuale. 
 
 L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impostazione dell'app `%input-queue-name%` per definire la coda di trigger.
 
@@ -268,9 +398,75 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-metadata-properties"></a>Proprietà dei metadati di trigger
+### <a name="binding-expressions---trigger-file-name"></a>Espressioni di associazione - nome file del trigger
 
-Oltre al payload dei dati offerto da un trigger (ad esempio, il messaggio di coda che ha attivato una funzione), molti trigger forniscono i valori dei metadati aggiuntivi. Questi valori possono essere usati come parametri di input in C# e F# o come proprietà nell'oggetto `context.bindings` in JavaScript. 
+La proprietà `path` di un trigger BLOB può essere un modello che consente di fare riferimento al nome del BLOB di attivazione in altre associazioni e in altro codice della funzione. Il modello può anche includere criteri di filtro che specificano quali BLOB può attivare una chiamata di funzione.
+
+Ad esempio, nell'associazione del trigger BLOB seguente il modello `path` è `sample-images/{filename}` e crea un'espressione di associazione denominata `filename`:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "image",
+      "type": "blobTrigger",
+      "path": "sample-images/{filename}",
+      "direction": "in",
+      "connection": "MyStorageConnection"
+    },
+    ...
+```
+
+L'espressione `filename` può quindi essere usata in un'associazione di output per specificare il nome del BLOB da creare:
+
+```json
+    ...
+    {
+      "name": "imageSmall",
+      "type": "blob",
+      "path": "sample-images-sm/{filename}",
+      "direction": "out",
+      "connection": "MyStorageConnection"
+    }
+  ],
+}
+```
+
+Il codice della funzione ha accesso a questo stesso valore usando `filename` come nome di parametro:
+
+```csharp
+// C# example of binding to {filename}
+public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+} 
+```
+
+<!--TODO: add JavaScript example -->
+<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
+
+La stessa possibilità di usare criteri ed espressioni di associazione si applica agli attributi nelle librerie di classi. Nell'esempio seguente i parametri del costruttore di attributo corrispondono ai valori di `path` nei precedenti esempi di *function.json*: 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{filename}")] Stream image,
+    [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
+    string filename,
+    TraceWriter log)
+{
+    log.Info($"Blob trigger processing: {filename}");
+    // ...
+}
+
+```
+
+È anche possibile creare espressioni per parti del nome file, ad esempio per l'estensione. Per altre informazioni su come usare le espressioni e i modelli nella stringa del percorso del BLOB, vedere la [documentazione di riferimento sulle associazioni dell'archiviazione BLOB](functions-bindings-storage-blob.md).
+ 
+### <a name="binding-expressions---trigger-metadata"></a>Espressioni di associazione - metadati dei trigger
+
+Oltre al payload dei dati fornito da un trigger, ad esempio il contenuto del messaggio della coda che ha attivato una funzione, molti trigger forniscono altri valori di metadati. Questi valori possono essere usati come parametri di input in C# e F# o come proprietà nell'oggetto `context.bindings` in JavaScript. 
 
 Un trigger di archiviazione code di Azure, ad esempio, supporta le proprietà seguenti:
 
@@ -304,112 +500,11 @@ I valori di questi metadati sono accessibili nelle proprietà del file *function
 
 I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'articolo di riferimento corrispondente. Per un esempio, vedere [metadati dei trigger per le code](functions-bindings-storage-queue.md#trigger---message-metadata). La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
 
-## <a name="binding-expressions-and-patterns"></a>Modelli ed espressioni di associazione
+### <a name="binding-expressions---json-payloads"></a>Espressioni di associazione - payload JSON
 
-Una delle funzionalità più potenti di trigger e associazioni sono le *espressioni di associazione*. Nella configurazione per un'associazione è possibile definire espressioni di criteri che possono quindi essere usate in altre associazioni o nel codice. I metadati dei trigger possono essere usati anche nelle espressioni di associazione, come illustrato nell'esempio della sezione precedente.
+Quando il payload di un trigger è JSON, è possibile fare riferimento alle relative proprietà nella configurazione di altre associazioni nella stessa funzione e nel codice della funzione.
 
-Ad esempio, si supponga di voler ridimensionare le immagini in un contenitore di archiviazione BLOB specifico, simile al modello di **ridimensionamento immagine** nella pagina **Nuova funzione** del portale di Azure (vedere lo scenario **Esempi**). 
-
-Ecco la definizione di *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "image",
-      "type": "blobTrigger",
-      "path": "sample-images/{filename}",
-      "direction": "in",
-      "connection": "MyStorageConnection"
-    },
-    {
-      "name": "imageSmall",
-      "type": "blob",
-      "path": "sample-images-sm/{filename}",
-      "direction": "out",
-      "connection": "MyStorageConnection"
-    }
-  ],
-}
-```
-
-Si noti che il parametro `filename` viene usato nella definizione del trigger del BLOB e anche nell'associazione di output del BLOB. Questo parametro può essere usato anche nel codice della funzione.
-
-```csharp
-// C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
-{
-    log.Info($"Blob trigger processing: {filename}");
-    // ...
-} 
-```
-
-<!--TODO: add JavaScript example -->
-<!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
-
-La stessa possibilità di usare criteri ed espressioni di associazione si applica agli attributi nelle librerie di classi. Ad esempio, ecco una funzione di ridimensionamento immagini in una libreria di classi:
-
-```csharp
-[FunctionName("ResizeImage")]
-[StorageAccount("AzureWebJobsStorage")]
-public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
-    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
-{
-    var imageBuilder = ImageResizer.ImageBuilder.Current;
-    var size = imageDimensionsTable[ImageSize.Small];
-
-    imageBuilder.Build(image, imageSmall,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-
-    image.Position = 0;
-    size = imageDimensionsTable[ImageSize.Medium];
-
-    imageBuilder.Build(image, imageMedium,
-        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
-}
-
-public enum ImageSize { ExtraSmall, Small, Medium }
-
-private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
-    { ImageSize.ExtraSmall, (320, 200) },
-    { ImageSize.Small,      (640, 400) },
-    { ImageSize.Medium,     (800, 600) }
-};
-```
-
-### <a name="create-guids"></a>Crea GUID
-
-L'espressione di associazione `{rand-guid}` crea un GUID. Nell'esempio seguente viene usato un GUID per creare un nome BLOB univoco: 
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{rand-guid}"
-}
-```
-
-### <a name="current-time"></a>Ora corrente
-
-L'espressione di associazione `DateTime` viene risolta in `DateTime.UtcNow`.
-
-```json
-{
-  "type": "blob",
-  "name": "blobOutput",
-  "direction": "out",
-  "path": "my-output-container/{DateTime}"
-}
-```
-
-## <a name="bind-to-custom-input-properties"></a>Eseguire l'associazione a proprietà di input personalizzate
-
-Le espressioni di associazione possono anche fare riferimento alle proprietà definite nel payload del trigger stesso. Ad esempio, si potrebbe voler associare in modo dinamico ad un file di archiviazione BLOB un filename fornito da un webhook.
-
-Ad esempio, la seguente *function.json* usa una proprietà denominata `BlobName` dal payload del trigger:
+L'esempio seguente mostra il file *function.json* di una funzione webhook che riceve un nome di BLOB in JSON: `{"BlobName":"HelloWorld.txt"}`. Un'associazione di input del BLOB legge il BLOB e l'associazione di output HTTP restituisce i contenuti del BLOB nella risposta HTTP. Si noti che l'associazione di input del BLOB ottiene il nome del BLOB facendo riferimento direttamente alla proprietà `BlobName` (`"path": "strings/{BlobName}"`).
 
 ```json
 {
@@ -424,7 +519,7 @@ Ad esempio, la seguente *function.json* usa una proprietà denominata `BlobName`
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName}",
+      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -436,7 +531,7 @@ Ad esempio, la seguente *function.json* usa una proprietà denominata `BlobName`
 }
 ```
 
-A tale scopo in C# e F #, è necessario definire un POCO che definisce i campi che saranno deserializzati nel payload del trigger.
+Per il corretto funzionamento di questo meccanismo in C# e F#, è necessaria una classe che definisca i campi da deserializzare, come nell'esempio seguente:
 
 ```csharp
 using System.Net;
@@ -458,7 +553,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, str
 }
 ```
 
-In JavaScript, viene eseguita automaticamente la deserializzazione di JSON ed è possibile usare direttamente le proprietà.
+In JavaScript la deserializzazione JSON viene eseguita automaticamente.
 
 ```javascript
 module.exports = function (context, info) {
@@ -476,9 +571,67 @@ module.exports = function (context, info) {
 }
 ```
 
-## <a name="configuring-binding-data-at-runtime"></a>Configurazione dell'associazione di dati in fase di runtime
+#### <a name="dot-notation"></a>Notazione con il punto
 
-In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperativa, rispetto alle associazioni dichiarative nel file *function.json* e negli attributi. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Per altre informazioni, vedere [Associazione in fase di runtime tramite le associazioni imperative](functions-reference-csharp.md#imperative-bindings) nel riferimento per sviluppatori C#.
+Se alcune proprietà nel payload JSON sono oggetti con proprietà, è possibile fare riferimento direttamente a tali oggetti tramite la notazione con il punto. Ad esempio, si supponga che il file JSON sia simile al seguente:
+
+```json
+{"BlobName": {
+  "FileName":"HelloWorld",
+  "Extension":"txt"
+  }
+}
+```
+
+È possibile fare riferimento direttamente a `FileName` come `BlobName.FileName`. Con questo formato JSON, la proprietà `path` dell'esempio precedente avrà l'aspetto seguente:
+
+```json
+"path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+```
+
+In C# sono necessarie due classi:
+
+```csharp
+public class BlobInfo
+{
+    public BlobName BlobName { get; set; }
+}
+public class BlobName
+{
+    public string FileName { get; set; }
+    public string Extension { get; set; }
+}
+```
+
+### <a name="binding-expressions---create-guids"></a>Espressioni di associazione - creare GUID
+
+L'espressione di associazione `{rand-guid}` crea un GUID. Il percorso del BLOB seguente in un file `function.json` crea un BLOB con un nome, ad esempio *50710cb5 84b9 - 4d 87-9d 83-a03d6976a682.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{rand-guid}"
+}
+```
+
+### <a name="binding-expressions---current-time"></a>Espressioni di associazione - data e ora correnti
+
+L'espressione di associazione `DateTime` viene risolta in `DateTime.UtcNow`. Il percorso del BLOB seguente in un file `function.json` crea un BLOB con un nome, ad esempio *2018-02-16T17-59-55Z.txt*.
+
+```json
+{
+  "type": "blob",
+  "name": "blobOutput",
+  "direction": "out",
+  "path": "my-output-container/{DateTime}"
+}
+```
+
+## <a name="binding-at-runtime"></a>Associazione in fase di esecuzione
+
+In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperativa, rispetto alle associazioni dichiarative nel file *function.json* e negli attributi. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Per altre informazioni, vedere la [documentazione di riferimento per sviluppatori C#](functions-dotnet-class-library.md#binding-at-runtime) o la [documentazione di riferimento per sviluppatori di script C#](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="functionjson-file-schema"></a>Schema del file function.json
 

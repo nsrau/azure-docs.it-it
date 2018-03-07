@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/15/2018
+ms.date: 02/22/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 5bc01c7e70e6837989c6bebd843ba1f41c8c5aeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 96d701860abcc645b37d0420fe352da2adeb992f
+ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Esplorare le funzionalità della soluzione preconfigurata di monitoraggio remoto
 
@@ -114,7 +114,7 @@ Nella pagina **Maintenance** (Manutenzione) è possibile visualizzare i dettagli
 
     ![Pagina Maintenance (Manutenzione) che mostra l'elenco degli avvisi attivati](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. Il primo allarme nell'elenco è quello più recente. Fare clic sull'allarme **Chiller Pressure** (Pressione refrigeratore) per visualizzare i dati di telemetria e i dispositivi associati. I dati di telemetria indicano un picco di pressione per il refrigeratore:
+1. Il primo allarme nell'elenco è quello più recente. Fare clic sull'avviso **Chiller Pressure Too High** (Pressione refrigeratore eccessiva) per visualizzare i dati di telemetria e i dispositivi associati. I dati di telemetria indicano picchi di pressione per il refrigeratore:
 
     ![Pagina Maintenance (Manutenzione) che mostra i dati di telemetria per un allarme selezionato](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
@@ -159,12 +159,12 @@ Per eseguire le attività di gestione dei dispositivi necessarie, usare la pagin
 
     ![Selezionare un dispositivo nella pagina dei dispositivi](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Fare clic sul pulsante **Schedule** (Pianifica) e quindi scegliere **Firmware update** (Aggiornamento firmware). Immettere i valori per **Job name** (Nome processo) e **Firmware URI** (URI firmware). Scegliere **Apply** (Applica) per pianificare l'esecuzione del processo a questo punto:
+1. Fare clic sul pulsante **Schedule** (Pianifica) e quindi scegliere **Firmware update** (Aggiornamento firmware). Immettere i valori per **Job name** (Nome processo), **Firmware Version** (Versione firmware) e **Firmware URI** (URI firmware). Scegliere **Apply** (Applica) per pianificare l'esecuzione del processo a questo punto:
 
     ![Pianificare l'aggiornamento del firmware nel dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Con i dispositivi simulati è possibile usare qualsiasi URL desiderato come valore di **Firmware URI** (URI firmware). I dispositivi simulati non accedono all'URL.
+    > Con i dispositivi simulati è possibile usare qualsiasi URL come valore di **Firmware URI** (URI firmware) e qualsiasi valore per **Firmware Version** (Versione firmware). I dispositivi simulati non accedono all'URL.
 
 1. Notare quanti dispositivi sono interessati dal processo e scegliere **Apply** (Applica):
 

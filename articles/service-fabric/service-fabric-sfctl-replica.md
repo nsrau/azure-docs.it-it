@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.
@@ -64,7 +64,7 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 Recupera l'integrità di una replica di un servizio con stato o di un'istanza di un servizio senza stato di Service Fabric.
 
-Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateFilter per filtrare la raccolta di eventi di integrità riportati nella replica in base allo stato di integrità. .
+Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateFilter per filtrare la raccolta di eventi di integrità riportati nella replica in base allo stato di integrità.
 
 ### <a name="arguments"></a>Argomenti
 
@@ -72,7 +72,7 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --replica-id [Obbligatorio]| Identificatore della replica.|
-| --events-health-state-filter| Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono utilizzati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero. -None - Il filtro non corrisponde ad alcun valore di stato di integrità. Utilizzato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
+| --events-health-state-filter| Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono utilizzati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti utilizzando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero. -None - Il filtro non corrisponde ad alcun valore di stato di integrità. Utilizzato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
 | --timeout -t             | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -82,7 +82,7 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 | --debug                  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h                | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o              | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query                  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query                  | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose                | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 | --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
 | --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
-| --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
+| --query               | Stringa di query JMESPath. Per maggiori informazioni, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list

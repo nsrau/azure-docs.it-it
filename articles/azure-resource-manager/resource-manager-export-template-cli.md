@@ -11,24 +11,24 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 15e7e811c7cb1777e34f1bfb629fa24a60f9e5cb
+ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/27/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure
 
 Resource Manager consente di esportare un modello di Resource Manager dalle risorse esistenti nella sottoscrizione. Il modello generato può essere usato per ottenere informazioni sulla sintassi del modello o per automatizzare la ridistribuzione della soluzione in base alle esigenze.
 
-È importante notare che è possibile esportare un modello in due modi diversi:
+Si noti che è possibile eseguire l'esportazione di un modello in due modi diversi:
 
-* È possibile esportare il modello vero e proprio usato per una distribuzione. Il modello esportato include tutti i parametri e le variabili uguali a quelli visualizzati nel modello originale. Questo approccio è utile quando si vuole recuperare un modello.
-* È possibile esportare un modello che rappresenta lo stato attuale del gruppo di risorse. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno snapshot del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Questo approccio è utile quando si modifica il gruppo di risorse e in seguito è necessario acquisire il gruppo di risorse come modello.
+* È possibile esportare il **modello effettivo usato per una distribuzione**. Il modello esportato include tutti i parametri e le variabili uguali a quelli visualizzati nel modello originale. Questo approccio è utile quando si vuole recuperare un modello.
+* È possibile esportare un **modello generato che rappresenta lo stato corrente del gruppo di risorse**. Il modello esportato non si basa su un modello qualsiasi usato per la distribuzione, ma crea un modello che è uno "snapshot" o un "backup" del gruppo di risorse. Il modello esportato ha diversi valori hardcoded e probabilmente meno parametri di quelli che si definiscono in genere. Usare questa opzione per ridistribuire le risorse allo stesso gruppo di risorse. Per usare questo modello per un altro gruppo di risorse, è necessario apportare alcune importanti modifiche.
 
-Questo argomento illustra entrambi gli approcci.
+Questo articolo illustra entrambi gli approcci.
 
 ## <a name="deploy-a-solution"></a>Distribuire una soluzione
 
@@ -55,13 +55,13 @@ Restituisce il modello. Copiare il codice JSON e salvarlo come file. Si noti che
 
 ## <a name="export-resource-group-as-template"></a>Esportare un gruppo di risorse come modello
 
-Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az_group_export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche.
+Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az_group_export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione allo stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Restituisce il modello. Copiare il codice JSON e salvarlo come file. Si noti che è diverso rispetto al modello in GitHub. Dispone di parametri diversi e non contiene variabili. I valori dello SKU e della posizione della risorsa di archiviazione sono impostati come hardcoded. L'esempio seguente mostra il modello esportato, ma il modello in uso presenta un nome di parametro leggermente diverso:
+Restituisce il modello. Copiare il codice JSON e salvarlo come file. Si noti che è diverso rispetto al modello in GitHub. Il modello contiene parametri diversi e non include variabili. I valori dello SKU e della posizione della risorsa di archiviazione sono impostati come hardcoded. L'esempio seguente mostra il modello esportato, ma il modello in uso presenta un nome di parametro leggermente diverso:
 
 ```json
 {

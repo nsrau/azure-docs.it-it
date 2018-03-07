@@ -11,23 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 02/23/2018
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e4d143b4937a1f6c1c21783ae357dbe617816e73
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d5d704dac58d65dd7d62bc3eca400f9541714d5d
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
-Il proxy di applicazione di Azure AD rende disponibili le app locali per gli utenti remoti o che usano i propri dispositivi. Alcune app, tuttavia, sono state sviluppate con collegamenti locali incorporati nel codice HTML. Questi collegamenti non funzionano correttamente quando l'app viene usato in remoto. Quando si dispone di diverse applicazioni locali che si puntano a vicenda, gli utenti si aspettano che i collegamenti continuino a lavorare quando non si trovano in ufficio. 
+Il proxy di applicazione di Azure AD rende disponibili le app locali per gli utenti remoti o che usano i propri dispositivi. Alcune app, tuttavia, sono state sviluppate con collegamenti locali incorporati nel codice HTML. Questi collegamenti non funzionano correttamente quando l'app viene usata in remoto. Quando si dispone di diverse applicazioni locali che si puntano a vicenda, gli utenti si aspettano che i collegamenti continuino a lavorare quando non si trovano in ufficio. 
 
 Il modo migliore per assicurarsi che i collegamenti funzionino all'interno e all'esterno della rete aziendale consiste nel configurare gli URL esterni delle app in modo che corrispondano con gli URL interni. Usare [domini personalizzati](active-directory-application-proxy-custom-domains.md) per configurare l'URL esterno in modo che abbia il nome di dominio aziendale anziché il proxy di applicazione predefinito.
 
-Se non è possibile usare i domini personalizzati nel tenant, allora la funzionalità di traslazione del collegamento del Proxy dell'applicazione mantiene i collegamenti in funzione indipendentemente in dalla posizione degli utenti. Quando si hanno applicazioni che puntano direttamente a endpoint o porte interne, è possibile mappare questi URL interni agli URL del proxy di applicazione esterno pubblicato. Quando è abilitata la traslazione del collegamento e il Proxy dell'applicazione ricerca tramite HTML, CSS e seleziona i tag di JavaScript per i collegamenti interni pubblicati. Quindi il servizio di Proxy dell'applicazione ne esegue la traslazione in modo che gli utenti ottengano un'esperienza senza interruzioni.
+Se non è possibile usare domini personalizzati nel tenant, la funzionalità di conversione dei collegamenti del proxy di applicazione mantiene in funzione i collegamenti indipendentemente dalla posizione degli utenti. Quando si hanno applicazioni che puntano direttamente a endpoint o porte interne, è possibile mappare questi URL interni agli URL esterni pubblicati del proxy di applicazione. Quando la conversione dei collegamenti è abilitata e il proxy di applicazione cerca nel codice HTML e CSS i collegamenti interni pubblicati, il servizio proxy di applicazione li converte in modo da offrire agli utenti un'esperienza senza interruzioni.
 
 >[!NOTE]
 >La funzionalità di conversione dei collegamenti è per i tenant che, per qualsiasi motivo, non possono usare i domini personalizzati per avere gli stessi URL interni ed esterni per le app. Prima di abilitare questa funzionalità, verificare se i [domini personalizzati nel proxy di applicazione di Azure AD](active-directory-application-proxy-custom-domains.md) possono fare al caso.
@@ -64,7 +64,7 @@ Quando si abilita la conversione dei collegamenti per l'app Benefits, i collegam
 Per migliorare prestazioni e sicurezza, alcuni collegamenti non vengono convertiti:
 
 - Collegamenti non interni ai tag di codice. 
-- Collegamenti non in HTML, CSS o JavaScript. 
+- Collegamenti non inclusi nel codice HTML o CSS. 
 - Collegamenti interni aperti da altri programmi. I collegamenti inviati tramite posta elettronica o messaggistica istantanea o inclusi in altri documenti non vengono convertiti. Gli utenti devono sapere di passare all'URL esterno.
 
 Se è necessario supportare uno di questi due scenari, usare gli stessi URL interni ed esterni, al posto della conversione dei collegamenti.  
@@ -82,9 +82,9 @@ Per iniziare con la conversione dei collegamenti, è sufficiente fare clic su un
 
 Ora, quando gli utenti accedono a questa applicazione, il proxy esegue automaticamente un'analisi per individuare gli URL interni che sono stati pubblicati tramite il proxy di applicazione nel tenant.
 
-## <a name="send-feedback"></a>Invia commenti
+## <a name="send-feedback"></a>Inviare commenti e suggerimenti
 
-Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità operante per tutte le app. Cerchiamo oltre 30 tag in HTML e CSS e stiamo prendendo in considerazione quali casi JavaScript supportare. Se si hanno esempi di collegamenti generati che non vengono convertiti, inviare un frammento di codice all'area [commenti sul proxy di applicazione](mailto:aadapfeedback@microsoft.com). 
+I commenti e i suggerimenti degli utenti sono utili per rendere questa funzionalità applicabile a tutte le app. La ricerca viene eseguita in oltre 30 tag del codice HTML e CSS. Se si hanno esempi di collegamenti generati che non vengono convertiti, inviare un frammento di codice all'area [commenti sul proxy di applicazione](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Usare i domini personalizzati con il proxy di applicazione Azure AD](active-directory-application-proxy-custom-domains.md) per avere gli stessi URL interni ed esterni

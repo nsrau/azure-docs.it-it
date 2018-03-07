@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 40d7b8a52f67d116ab764b9716c917d5c7865467
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 02/01/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Hub docker](https://hub.docker.com/r/microsoft/azure-documentdb-emulator/)</td>
+  <td>[Hub docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Origine docker</strong></td>
-  <td>[Github](https://github.com/azure/azure-documentdb-emulator-docker)</td>
+  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
   
@@ -195,6 +195,11 @@ Per visualizzare l'elenco di opzioni, digitare `CosmosDB.Emulator.exe /?` al pro
   <td></td>
 </tr>
 <tr>
+  <td>GetStatus</td>
+  <td>Ottiene lo stato dell'emulatore di Azure Cosmos DB. Lo stato è indicato dal codice di uscita: 1 = Avvio, 2 = In esecuzione, 3 = Arrestato. Un codice di uscita negativo indica che si è verificato un errore. Non viene prodotto altro output.</td>
+  <td>CosmosDB.Emulator.exe /GetStatus</td>
+  <td></td>
+<tr>
   <td>Shutdown</td>
   <td>Arresta l'emulatore di Azure Cosmos DB.</td>
   <td>CosmosDB.Emulator.exe /Shutdown</td>
@@ -250,7 +255,7 @@ Per visualizzare l'elenco di opzioni, digitare `CosmosDB.Emulator.exe /?` al pro
 </tr>
 <tr>
   <td>NoExplorer</td>
-  <td>Non mostra Esplora documenti all'avvio.</td>
+  <td>Non mostra Esplora dati all'avvio.</td>
   <td>CosmosDB.Emulator.exe /NoExplorer</td>
   <td></td>
 </tr>
@@ -317,6 +322,40 @@ Per modificare il numero di raccolte disponibili nell'emulatore di Azure Cosmos 
 3. Chiudere tutte le istanze aperte facendo clic con il pulsante destro del mouse sull'icona dell'**emulatore di Azure Cosmos DB** sull'area di notifica, quindi fare clic su **Esci**. La chiusura di tutte le istanze può richiedere qualche minuto.
 4. Installare la versione più recente dell'[emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 5. Avviare l'emulatore con il flag PartitionCount impostando un valore <= 250. Ad esempio: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+
+## <a name="controlling-the-emulator"></a>Controllo dell'emulatore
+
+L'emulatore include un modulo di PowerShell per l'avvio, l'arresto, la disinstallazione e il recupero dello stato del servizio. Per usarla:
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+```
+
+In alternativa, inserire la directory `PSModules` su `PSModulesPath` ed eseguire l'importazione, come indicato di seguito:
+
+```powershell
+$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+Import-Module Microsoft.Azure.CosmosDB.Emulator
+```
+
+Ecco un riepilogo dei comandi per il controllo dell'emulatore da PowerShell:
+
+### `Get-CosmosDbEmulatorStatus`
+
+Restituisce uno dei valori seguenti per ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running o ServiceControllerStatus.Stopped.
+
+### `Start-CosmosDbEmulator [-NoWait]`
+
+Avvia l'emulatore. Per impostazione predefinita, il comando attende fino a quando l'emulatore è pronto per accettare richieste. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo avere avviato l'emulatore.
+
+### `Stop-CosmosDbEmulator [-NoWait]`
+
+Attesta l'emulatore. Per impostazione predefinita, questo comando attende fino all'arresto completo dell'emulatore. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo l'inizio dell'arresto dell'emulatore.
+
+### `Uninstall-CosmosDbEmulator [-RemoveData]`
+
+Disinstalla l'emulatore e facoltativamente rimuove i contenuti completi di $env:LOCALAPPDATA\CosmosDbEmulator.
+Il cmdlet verifica che l'emulatore sia arrestato prima di disinstallarlo.
 
 ## <a name="running-on-docker"></a>Esecuzione in Docker
 
@@ -416,7 +455,29 @@ Per raccogliere le tracce di debug, eseguire i comandi seguenti da un prompt dei
 
 È possibile controllare il numero di versione facendo clic con il pulsante destro del mouse sull'icona dell'emulatore locale sulla barra delle applicazioni e scegliendo la voce di menu Informazioni su.
 
-### <a name="120-released-on-january-26-2018"></a>Versione 1.20 rilasciata il 26 gennaio 2018
+### <a name="1201084-released-on-february-14-2018"></a>La versione 1.20.108.4 è stata rilasciata il 14 febbraio 2018
+
+Questa versione include una nuova funzionalità e due correzioni di bug. Si ringraziano i clienti che hanno contribuito all'individuazione e alla correzione di questi problemi.
+
+#### <a name="bug-fixes"></a>Correzioni di bug
+
+1. L'emulatore funziona ora in computer con 1 o 2 core o CPU virtuali
+
+   Cosmos DB alloca attività per l'esecuzione di diversi servizi. Il numero di attività allocate è un multiplo del numero di core su un host. Il multiplo predefinito risulta ottimale in ambienti di produzione in cui il numero di core è elevato. Nei computer con 1 o 2 processori non vengono allocate attività per l'esecuzione di questi servizi quando viene applicato il multiplo.
+
+   Questo problema è stato risolto tramite l'aggiunta di un override della configurazione nell'emulatore. Viene ora applicato un multiplo di 1. Il numero di attività allocate per l'esecuzione di diversi servizi equivale al numero di core su un host.
+
+   Questo è uno dei problemi più importanti risolti dalla versione. Molti ambienti di sviluppo o test che ospitano l'emulatore hanno 1 o 2 core.
+
+2. L'emulatore non richiede più l'installazione di Microsoft Visual C++ 2015 Redistributable.
+
+   Le installazioni più recenti di Windows (desktop e server) non includono questo pacchetto ridistribuibile. I file binari ridistribuibili vengono quindi inseriti nel pacchetto dell'emulatore.
+
+#### <a name="features"></a>Funzionalità
+
+Molti clienti hanno richiesto di rendere gestibile tramite script l'emulatore. In questa versione sono state quindi aggiunte alcune funzionalità di script. L'emulatore include ora un modulo di PowerShell per l'avvio, l'arresto, il recupero dello stato e la disinstallazione dell'emulatore: `Microsoft.Azure.CosmosDB.Emulator`. 
+
+### <a name="120911-released-on-january-26-2018"></a>La versione 1.20.91.1 è stata rilasciata il 26 gennaio 2018
 
 * È stata abilitata per impostazione predefinita la pipeline di aggregazione di MongoDB.
 

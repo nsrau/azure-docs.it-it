@@ -1,6 +1,6 @@
 ---
 title: Aggiornare l'agente Linux di Azure da Github | Microsoft Docs
-description: Informazioni su come aggiornare all'ultima versione l'agente Linux di Azure per macchine virtuali Linux in Azure da GitHub
+description: Informazioni su come aggiornare l'agente Linux di Azure per macchine virtuali Linux in Azure
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: 455de7bc0bca86ad542b6606181b0daf146a5e6a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 62e365c46d48285b2c03493debff86508b94348a
+ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Come aggiornare l'agente Linux di Azure in una macchina virtuale
 

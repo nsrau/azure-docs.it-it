@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 02/22/2018
 ms.author: nitinme
-ms.openlocfilehash: 2be4477528c9109151c4737eabc16741cc020ce8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 87e60bcc097157c733c1e08356b7cd9ea48bb868
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernel per il notebook di Jupyter nei cluster Spark in Azure HDInsight 
 
@@ -135,7 +135,11 @@ Per conoscere i diversi magic disponibili, è possibile aprire il notebook **00 
 
 ## <a name="where-are-the-notebooks-stored"></a>Dove sono archiviati i notebook
 
-I notebook Jupyter vengono salvati nell'account di archiviazione associato al cluster nella cartella **/HdiNotebooks** .  I notebook, i file di testo e le cartelle che si creano da Jupyter sono accessibili dall'account di archiviazione.  Se si usa Jupyter per creare una cartella **myfolder** e un notebook **myfolder/mynotebook.ipynb**, ad esempio, è possibile accedere al notebook in `/HdiNotebooks/myfolder/mynotebook.ipynb` all'interno dell'account di archiviazione.  Analogamente, se si carica un notebook direttamente nell'account di archiviazione in `/HdiNotebooks/mynotebook1.ipynb`, il notebook è visibile anche da Jupyter.  I notebook vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
+Se il cluster usa Archiviazione di Azure come account di archiviazione predefinito, i notebook Jupyter vengono salvati nell'account di archiviazione nella cartella **/HdiNotebooks**.  I notebook, i file di testo e le cartelle che si creano da Jupyter sono accessibili dall'account di archiviazione.  Se si usa Jupyter per creare una cartella **myfolder** e un notebook **myfolder/mynotebook.ipynb**, ad esempio, è possibile accedere al notebook in `/HdiNotebooks/myfolder/mynotebook.ipynb` all'interno dell'account di archiviazione.  Analogamente, se si carica un notebook direttamente nell'account di archiviazione in `/HdiNotebooks/mynotebook1.ipynb`, il notebook è visibile anche da Jupyter.  I notebook vengono conservati nell'account di archiviazione anche dopo l'eliminazione del cluster.
+
+> [!NOTE]
+> I cluster HDInsight con Azure Data Lake Store come spazio di archiviazione predefinito non archiviano i notebook nello spazio di archiviazione associato.
+>
 
 La modalità di salvataggio dei notebook nell'account di archiviazione è compatibile con HDFS. Se si usa SSH nel cluster, è quindi possibile usare comandi di gestione dei file come illustrato nel frammento seguente:
 
@@ -143,8 +147,7 @@ La modalità di salvataggio dei notebook nell'account di archiviazione è compat
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
-
-In caso di problemi di accesso all'account di archiviazione per il cluster, anche i notebook vengono salvati nel nodo head `/var/lib/jupyter`.
+Indipendentemente dal fatto che il cluster usi Archiviazione di Azure o Azure Data Lake Store come account di archiviazione predefinito, i notebook vengono salvati anche nel nodo head del cluster in `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Browser supportati
 

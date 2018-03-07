@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 8ae99c7ce6382626657777d003a1cb82348c4aba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
+ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 02/24/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Presentazione di Azure Advisor
 
@@ -52,7 +52,7 @@ Nel dashboard di Advisor vengono visualizzati consigli personalizzati per tutte 
 
 Fare clic sull'azione consigliata per implementare il consiglio.  Verrà aperta un'interfaccia semplice che consentirà di implementare i consigli o di fare riferimento alla documentazione di supporto all'implementazione.  Dopo avere implementato un consiglio, Advisor può richiedere fino a un giorno per riconoscere la modifica.
 
-Se non si prevede di eseguire un'azione immediata in base a un consiglio, è possibile posporlo per un periodo di tempo specifico oppure ignorarlo.  Se non si vuole ricevere consigli per una specifica sottoscrizione o uno specifico gruppo di risorse, è possibile configurare Advisor in modo che generi i consigli solo per le sottoscrizioni e i gruppi di risorse specificati.
+Se non si intende agire immediatamente, è possibile posporre il consiglio per un intervallo di tempo specificato oppure ignorarlo.  Se non si vuole ricevere consigli per una specifica sottoscrizione o uno specifico gruppo di risorse, è possibile configurare Advisor in modo che generi i consigli solo per le sottoscrizioni e i gruppi di risorse specificati.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -69,9 +69,9 @@ Per accedere ai consigli di Advisor, è prima di tutto necessario registrare la 
 
 Advisor fornisce consigli per macchine virtuali, set di disponibilità, gateway applicazione, Servizi app, SQL Server, database SQL e Cache Redis.
 
-### <a name="can-i-snooze-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
+### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>È possibile posporre o ignorare un consiglio?
 
-Per posporre o ignorare un consiglio, fare clic sul collegamento **Posponi**. È possibile specificare fino a quando posporre oppure selezionare **Mai** per ignorare il consiglio.
+Per posporre o ignorare un consiglio, fare clic sul collegamento **Posponi**. Specificare fino a quando posporre il consiglio oppure selezionare **Mai** per ignorarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

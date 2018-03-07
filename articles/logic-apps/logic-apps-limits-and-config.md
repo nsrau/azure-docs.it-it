@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 8de3cc6665fc3861aedcf4f36cdce4a4a776e80d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
+ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limiti e configurazione per App per la logica
 
@@ -58,15 +58,22 @@ Questi limiti si applicano a una singola richiesta HTTP o a una chiamata di un c
 
 Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 
-| NOME | Limite | 
-| ---- | ----- | 
-| Durata esecuzione | 90 giorni | 
-| Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 
-| Intervallo di ricorrenza minimo | 1 secondo </br>Per le app per la logica con un piano di servizio app: 15 secondi | 
-| Intervallo di ricorrenza massimo | 500 giorni | 
-||| 
+| NOME | Predefinito | Limite |
+| ---- | ------- | ----- |
+| Durata esecuzione   | 90 giorni | Da 7 a 90 giorni |
+| Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione |  Da 7 a 90 giorni dalla data di inizio dell'esecuzione |
+||||
 
 Per superare i limiti di durata dell'esecuzione o di conservazione della risorsa di archiviazione nel normale flusso di elaborazione, [contattare il team di prodotto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
+
+
+### <a name="recurrence-interval"></a>Intervallo di ricorrenza
+
+| NOME | Limite |
+| ---- | ------- |
+| Intervallo di ricorrenza minimo | 1 secondo </br>Per le app per la logica con un piano di servizio app: 15 secondi |
+| Intervallo di ricorrenza massimo | 500 giorni |
+|||
 
 ### <a name="looping-and-debatching-limits"></a>Limiti di esecuzione di cicli e debatching
 
