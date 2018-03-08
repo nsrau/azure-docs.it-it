@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7273e51342f4e9fc68a8b3d3b145d119b4eab122
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f497954f82e209c1547fca0943169d53f4ab517a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Creare un'attività di codifica che genera blocchi fMP4
 
@@ -25,10 +25,11 @@ ms.lasthandoff: 12/11/2017
 
 Questo articolo illustra come creare un'attività di codifica che genera blocchi MP4 frammentati (fMP4) anziché file ISO MP4. Per generare blocchi fMP4, usare il codificatore **Media Encoder Standard** o **Flusso di lavoro Premium del codificatore multimediale** per creare un'attività di codifica e specificare anche l'opzione **AssetFormatOption.AdaptiveStreaming**, come illustrato nel frammento di codice seguente:  
     
+```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
             options: AssetCreationOptions.None, 
             formatOption: AssetFormatOption.AdaptiveStreaming);
-
+```
 
 ## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
@@ -47,7 +48,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
 #### <a name="example"></a>Esempio
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 979c88b72aba6e054bc507e22f48cae1441957cb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>Pubblicare contenuti di Servizi multimediali di Azure mediante .NET
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Per creare un localizzatore di streaming OnDemand e ottenere gli URL, è necessa
 ### <a name="use-media-services-net-sdk"></a>Usare l'SDK di Servizi multimediali per .NET
 Creare URL di streaming 
 
+```csharp
     private static void BuildStreamingURLs(IAsset asset)
     {
 
@@ -93,6 +94,7 @@ Creare URL di streaming
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
+```
 
 Gli output:
 
@@ -111,6 +113,7 @@ Gli output:
 
 Creare URL di download progressivo 
 
+```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
         // Create a 30-day readonly access policy. 
@@ -138,7 +141,7 @@ Creare URL di download progressivo
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
-
+```
 Gli output:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
@@ -150,7 +153,7 @@ Gli output:
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Usare le estensioni dell'SDK di Servizi multimediali per .NET
 Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano un localizzatore e generano URL Smooth Streaming, HLS e MPEG-DASH per lo streaming adattivo.
-
+```csharp
     // Create a loctor.
     _context.Locators.Create(
         LocatorType.OnDemandOrigin,
@@ -166,7 +169,7 @@ Il codice seguente chiama i metodi delle estensioni dell'SDK per .NET che creano
     Console.WriteLine(smoothStreamingUri);
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
-
+```
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

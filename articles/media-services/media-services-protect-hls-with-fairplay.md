@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 2ab743cadf91be05e1d2b2edf3143d8c14ae2bdb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 91f117c3b1b166a069b93c238380140f19e49280
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
@@ -146,8 +146,10 @@ Si applicano le considerazioni seguenti:
 1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
+    ```xml
+            <add key="Issuer" value="http://testacs.com"/>
+            <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Esempio
 
@@ -160,7 +162,7 @@ Sovrascrivere il codice nel file Program.cs con il codice riportato in questa se
 
 Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui si trovano i file di input.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

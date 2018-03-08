@@ -1,55 +1,77 @@
 ---
-title: Come ripristinare un server nel Database di Azure per PostgreSQL | Microsoft Docs
+title: Come ripristinare un server in Database di Azure per PostgreSQL | Microsoft Docs
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per PostgreSQL usando il portale di Azure.
 services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
+author: rachel-msft
+ms.author: raagyema
+manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 903fd2ff446e1963ab5cfcec745766188b74efcf
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 02/28/2018
+ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per PostgreSQL usando il portale di Azure
 
 ## <a name="backup-happens-automatically"></a>Il backup viene eseguito automaticamente
-Quando si usa Database di Azure per PostgreSQL, il servizio di database esegue automaticamente il backup del server ogni 5 minuti. 
+Il backup dei server Database di Azure per PostgreSQL viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
-La disponibilità dei backup è di 7 giorni per il livello Basic e 35 giorni per il livello Standard. Per altre informazioni, vedere [Livelli di servizio del Database di Azure per PostgreSQL](concepts-service-tiers.md)
+## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 
-L'uso di questa funzionalità di backup automatico permette di ripristinare il server e tutti i suoi database in un nuovo server a un precedente punto temporizzato.
+La scelta tra backup con ridondanza locale o ridondanza geografica si effettua al momento della creazione del server, nella finestra **Piano tariffario**.
 
-## <a name="restore-in-the-azure-portal"></a>Ripristino nel portale di Azure
-Il Database di Azure per PostgreSQL consente di ripristinare il server a un punto temporizzato e in una nuova copia del server. È possibile usare questo nuovo server per ripristinare i dati. 
+> [!NOTE]
+> Dopo aver creato il server, il tipo di ridondanza (locale o geografica) non può essere modificato.
+>
 
-Ad esempio, se oggi una tabella è stata accidentalmente eliminata a mezzogiorno, è possibile eseguire il ripristino a un'ora prima di mezzogiorno per recuperare la tabella e i dati mancanti dalla nuova copia del server.
+Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** consente di selezionare backup **con ridondanza locale** o **ridondanza geografica** per il server. In questa finestra è anche possibile specificare il **periodo di conservazione dei backup**, ovvero per quanti giorni si vogliono archiviare i backup del server.
 
-La procedura seguente consente di ripristinare il server di esempio ad un punto temporizzato.
-1. Accedere al [portale di Azure](https://portal.azure.com/)
-2. Individuare il Database di Azure per il server PostgreSQL. Nel portale di Azure fare clic su **Tutte le risorse** nel menu a sinistra e digitare il nome del server, ad esempio **mypgserver-20170401**, per cercare il server esistente. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** relativa al server, con le opzioni per un'ulteriore configurazione.
+   ![Piano tariffario: scegliere la ridondanza del backup](./media/howto-restore-server-portal/pricing-tier.png)
 
-   ![Portale di Azure - Effettuare la ricerca del server](media/postgresql-howto-restore-server-portal/1-locate.png)
+Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva del server Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md).
 
-3. Nella barra degli strumenti della pagina di panoramica del server fare clic su **Ripristina**. Verrà visualizzata la pagina Ripristina.
+È possibile modificare il periodo di conservazione dei backup di un server seguendo questa procedura:
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Selezionare il server di Database di Azure per PostgreSQL. Questa azione apre la pagina **Panoramica**.
+3. Selezionare **Piano tariffario** nel menu in **IMPOSTAZIONI**. Con il dispositivo di scorrimento è possibile modificare il **periodo di conservazione dei backup** impostandolo su un numero di giorni compreso tra 7 e 35.
+Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
+![Periodo di conservazione dei backup aumentato](./media/howto-restore-server-portal/3-increase-backup-days.png)
 
-   ![Database di Azure per PostgreSQL - Panoramica - Pulsante Ripristino](./media/postgresql-howto-restore-server-portal/2_server.png)
+4. Fare clic su **OK** per confermare la modifica.
 
-4. Compilare il modulo Ripristina con le informazioni obbligatorie:
+Il periodo di conservazione dei backup determina quanto è possibile tornare indietro nel tempo con un ripristino temporizzato, essendo il ripristino basato sui backup disponibili. Il ripristino temporizzato è descritto con altri dettagli nella sezione seguente. 
 
-   ![Database di Azure per PostgreSQL - Informazioni di ripristino ](./media/postgresql-howto-restore-server-portal/3_restore.png)
-  - **Punto di ripristino**: selezionare un punto nel tempo precedente la modifica del server.
-  - **Server di destinazione**: fornire un nuovo nome di server in cui si vuole eseguire il ripristino.
+## <a name="point-in-time-restore-in-the-azure-portal"></a>Ripristino temporizzato nel portale di Azure
+Database di Azure per PostgreSQL consente di ripristinare il server a un momento specifico e in una nuova copia del server. È possibile usare questo nuovo server per ripristinare i dati oppure configurare le applicazioni perché puntino al nuovo server.
+
+Ad esempio, se oggi una tabella è stata accidentalmente eliminata a mezzogiorno, è possibile eseguire il ripristino a un'ora prima di mezzogiorno per recuperare la tabella e i dati mancanti dalla nuova copia del server. Il ripristino temporizzato viene eseguito a livello di server, non a livello di database.
+
+La procedura seguente consente di ripristinare il server di esempio a un momento specifico:
+1. Nel portale di Azure selezionare il server Database di Azure per PostgreSQL. 
+
+2. Nella barra degli strumenti della pagina **Panoramica** del server selezionare **Ripristina**.
+
+   ![Database di Azure per PostgreSQL - Panoramica - Pulsante Ripristino](./media/howto-restore-server-portal/2-server.png)
+
+3. Compilare il modulo Ripristina con le informazioni obbligatorie:
+
+   ![Database di Azure per PostgreSQL - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
+  - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
+  - **Server di destinazione**: specificare un nome per il nuovo server.
   - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
-  - **Piano tariffario**: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
+  - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
-5. Fare clic su **OK** per ripristinare il server al punto di ripristino temporizzato. 
+4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
 
-6. Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+5. Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto.
+
+>[!Note]
+>Il nuovo server creato con il ripristino temporizzato ha il nome e la password di accesso dell'amministratore validi per il server esistente nel momento scelto per il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Raccolte connessioni per il Database di Azure per PostgreSQL](concepts-connection-libraries.md)
+- Altre informazioni sui [backup](concepts-backup.md) del servizio.
+- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md).

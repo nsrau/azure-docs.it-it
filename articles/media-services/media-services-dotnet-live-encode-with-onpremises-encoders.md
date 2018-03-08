@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 49246df64372939288354acce768cdc366a85440
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c59300cd5dc8dcb67ba3b2e035bb7a3b9dce216
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Come eseguire lo streaming live con codificatori locali mediante .NET
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Il seguente esempio di codice illustra come ottenere le attività seguenti:
 
 Per informazioni su come configurare un codificatore live, vedere [Codificatori live e supporto RTMP di Servizi multimediali di Azure](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

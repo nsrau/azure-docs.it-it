@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: c5c9571b0a94fe353e37d27303cc1cd7c5373abc
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: efa0b02f51c0f072a0731b28409b30543e8ecce5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codifica avanzata con il flusso di lavoro Premium del codificatore multimediale
 > [!NOTE]
@@ -70,7 +70,7 @@ Vengono eseguiti questi passaggi:
    
 6. Inviare il processo di codifica.
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Configuration;

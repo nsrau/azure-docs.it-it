@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5741a484dcda05e3143b5f896ddee2e8591dabee
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a16745fc21d03f81ca6140ace54f84468749364
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Rilevare volti ed emozioni con Analisi servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -64,12 +64,14 @@ Il rilevatore di volti usa tecniche di frammentazione, che consentono di suddivi
 ### <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è necessario specificare un set di impostazioni di configurazione. Il set di impostazioni di configurazione seguente serve unicamente per il rilevamento volti.
 
+```json
     {
       "version":"1.0",
       "options":{
           "TrackingMode": "Fast"
       }
     }
+```
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
 | Nome attributo | DESCRIZIONE |
@@ -79,6 +81,7 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
 ### <a name="json-output"></a>Output JSON
 L'esempio seguente di output JSON è stato troncato.
 
+```json
     {
     "version": 1,
     "timescale": 30000,
@@ -123,8 +126,8 @@ L'esempio seguente di output JSON è stato troncato.
                 "height": 0.151389
             }
             ],
+```
 
-        . . . 
 
 ## <a name="emotion-detection-input-and-output-example"></a>Esempio di input e output di Rilevamento emozioni
 ### <a name="input-video"></a>Video di input
@@ -133,6 +136,7 @@ L'esempio seguente di output JSON è stato troncato.
 ### <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è necessario specificare un set di impostazioni di configurazione. Il set di impostazioni di configurazione seguente specifica la creazione del file JSON in base al Rilevamento emozioni.
 
+```json
     {
       "version": "1.0",
       "options": {
@@ -141,6 +145,7 @@ Quando si crea un'attività con **Rilevamento multimediale volti di Azure**, è 
         "aggregateEmotionIntervalMs": "342"
       }
     }
+```
 
 
 #### <a name="attribute-descriptions"></a>Descrizioni degli attributi
@@ -161,6 +166,7 @@ Di seguito sono specificati i valori consigliati per la finestra di aggregazione
 ### <a name="json-output"></a>Output JSON
 Output JSON per l'emozione aggregata (troncato):
 
+```json
     {
      "version": 1,
      "timescale": 30000,
@@ -311,6 +317,7 @@ Output JSON per l'emozione aggregata (troncato):
                  "anger": 0,
                  "disgust": 0,
                  "fear": 0,
+```
 
 ## <a name="limitations"></a>Limitazioni
 * I formati video di input supportati includono MP4, MOV e WMV.
@@ -324,10 +331,12 @@ Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
 2. Creare un processo con un'attività di rilevamento viso in base al file di configurazione che contiene il set di impostazioni JSON seguente: 
-   
-        {
-            "version": "1.0"
-        }
+
+    ```json
+            {
+                "version": "1.0"
+            }
+    ```
 3. Scaricare i file JSON di output. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
@@ -336,7 +345,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
 #### <a name="example"></a>Esempio
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

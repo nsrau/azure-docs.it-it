@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 739e80633f828e8c14f024dc22971e7d8858cf78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 03b9de7374880cdb2741821edae246bffaf3f921
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale
 ## <a name="overview"></a>Panoramica
@@ -51,6 +51,7 @@ Configurazione delle attivit√† (set di impostazioni). Quando si crea un'attivit√
 
 #### <a name="json-preset-example"></a>Esempio di set di impostazioni JSON
 
+```json
     {
         "Version":1.0, 
         "Options": 
@@ -69,8 +70,11 @@ Configurazione delle attivit√† (set di impostazioni). Quando si crea un'attivit√
              ]
         }
     }
+```
 
 #### <a name="xml-preset-example"></a>Esempio di set di impostazioni XML
+
+```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
     <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
@@ -88,6 +92,7 @@ Configurazione delle attivit√† (set di impostazioni). Quando si crea un'attivit√
        <TextOrientation>Up</TextOrientation>
       </Options>
     </VideoOcrPreset>
+```
 
 ## <a name="ocr-output-files"></a>File di output OCR
 L'output del processore multimediale OCR √® un file JSON.
@@ -118,6 +123,7 @@ L'output contiene gli attributi seguenti:
 ### <a name="json-output-example"></a>Esempio di output JSON
 Il seguente output contiene le informazioni generali del video e numerosi frammenti video. In ogni frammento video, l'output contiene ogni area rilevata dal processore di contenuti multimediali OCR con la lingua e il relativo orientamento del testo. L'area contiene anche ogni riga di parole in questa area con il testo della riga, la posizione della riga e tutte le informazioni sulle parole (il contenuto, la posizione e la sicurezza delle parole) della riga. Di seguito √® riportato un esempio, contenente anche alcuni commenti sulla riga.
 
+```json
     {
         "version": 1, 
         "timescale": 90000, 
@@ -170,6 +176,7 @@ Il seguente output contiene le informazioni generali del video e numerosi framme
             }
         ]
     }
+```
 
 ## <a name="net-sample-code"></a>Codice di esempio .NET
 
@@ -185,7 +192,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
 #### <a name="example"></a>Esempio
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

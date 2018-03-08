@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
 ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Piattaforme supportate nel Centro sicurezza di Azure
 Il monitoraggio dello stato della sicurezza e le indicazioni in merito sono disponibili per le macchine virtuali (VM), create usando i modelli di distribuzione classica e Resource Manager, e i computer.

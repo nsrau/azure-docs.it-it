@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fd8f89bc842b33576dc0f85ab606dfe3628480ed
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestione di asset ed entità correlate con Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -39,6 +39,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 ## <a name="get-an-asset-reference"></a>Ottenere un riferimento a un asset
 Un'attività comune consiste nell'ottenere un riferimento a un asset esistente in Servizi multimediali. L'esempio di codice seguente mostra come ottenere un riferimento a un asset dalla raccolta Assets sull'oggetto contesto del server, in base all'ID dell'asset. L'esempio di codice seguente usa una query Linq per ottenere un riferimento a un oggetto IAsset.
 
+```csharp
     static IAsset GetAsset(string assetId)
     {
         // Use a LINQ Select query to get an asset.
@@ -51,10 +52,12 @@ Un'attività comune consiste nell'ottenere un riferimento a un asset esistente i
 
         return asset;
     }
+```
 
 ## <a name="list-all-assets"></a>Elencare tutti gli asset
 Man mano che aumenta il numero degli asset archiviati, è utile elencarli tutti. L'esempio di codice seguente mostra come scorrere la raccolta Assets nell'oggetto contesto del server. Con ogni asset, l'esempio di codice scrive anche alcuni valori delle relative proprietà nella console. Ogni asset, ad esempio, può includere numerosi file multimediali. L'esempio di codice elenca tutti i file associati a ogni asset.
 
+```csharp
     static void ListAssets()
     {
         string waitMessage = "Building the list. This may take a few "
@@ -90,6 +93,7 @@ Man mano che aumenta il numero degli asset archiviati, è utile elencarli tutti.
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="get-a-job-reference"></a>Ottenere un riferimento a un processo
 
@@ -97,6 +101,7 @@ Quando si usano attività di elaborazione nel codice di Servizi multimediali, è
 
 Può essere necessario ottenere un riferimento a un processo quando si avvia un processo di codifica di lunga esecuzione e si vuole verificare lo stato del processo su un thread. In casi come questo, quando il metodo è restituito da un thread, è necessario recuperare un riferimento aggiornato a un processo.
 
+```csharp
     static IJob GetJob(string jobId)
     {
         // Use a Linq select query to get an updated 
@@ -110,12 +115,14 @@ Può essere necessario ottenere un riferimento a un processo quando si avvia un 
 
         return job;
     }
+```
 
 ## <a name="list-jobs-and-assets"></a>Elencare i processi e gli asset
 Un'importante attività correlata consiste nell'elencare gli asset con il relativo processo associato in Servizi multimediali. L'esempio di codice seguente mostra come elencare ogni oggetto IJob e quindi, per ogni processo, visualizzare le proprietà relative al processo, tutte le attività correlate, tutti gli asset di input e tutti gli asset di output. Il codice di questo esempio può essere utile per molte altre attività. Se ad esempio si vuole elencare gli asset di output di uno o più processi di codifica eseguiti in precedenza, questo codice mostra come accedere agli asset di output. Quando è disponibile un riferimento a un asset di output, è quindi possibile distribuire il contenuto ad altri utenti o applicazioni scaricandolo o specificando gli URL. 
 
 Per altre informazioni sulle opzioni per la distribuzione degli asset, vedere [Distribuire asset con Media Services SDK for .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     // List all jobs on the server, and for each job, also list 
     // all tasks, all input assets, all output assets.
 
@@ -190,12 +197,14 @@ Per altre informazioni sulle opzioni per la distribuzione degli asset, vedere [D
         // Display output in console.
         Console.Write(builder.ToString());
     }
+```
 
 ## <a name="list-all-access-policies"></a>Elencare tutti i criteri di accesso
 In Servizi multimediali è possibile definire un criterio di accesso per un asset o i relativi file. Un criterio di accesso definisce le autorizzazioni per un file o un asset, ovvero il tipo di accesso e la durata. Nel codice di Servizi multimediali, in genere si definisce un criterio di accesso creando un oggetto IAccessPolicy e associandolo a un asset esistente. È quindi necessario creare un oggetto ILocator, che permette di fornire l'accesso diretto agli asset in Servizi multimediali. Il progetto di Visual Studio fornito con questa serie di argomenti include diversi esempi di codice in cui è illustrato come creare e assegnare criteri di accesso e localizzatori agli asset.
 
 L'esempio di codice seguente illustra come elencare tutti i criteri di accesso nel server e mostra il tipo di autorizzazioni associato a ognuno. Un altro modo utile per visualizzare i criteri di accesso consiste nell'elencare tutti gli oggetti ILocator nel server e quindi, per ogni localizzatore, elencare il relativo criterio di accesso associato usando la relativa proprietà AccessPolicy.
 
+```csharp
     static void ListAllPolicies()
     {
         foreach (IAccessPolicy policy in _context.AccessPolicies)
@@ -208,6 +217,7 @@ L'esempio di codice seguente illustra come elencare tutti i criteri di accesso n
 
         }
     }
+```
     
 ## <a name="limit-access-policies"></a>Limitare i criteri di accesso 
 
@@ -216,6 +226,7 @@ L'esempio di codice seguente illustra come elencare tutti i criteri di accesso n
 
 Ad esempio è possibile creare un insieme generico di criteri con il codice seguente che vengono eseguiti una sola volta nell'applicazione. È possibile registrare gli ID in un file di log per usarli in seguito:
 
+```csharp
     double year = 365.25;
     double week = 7;
     IAccessPolicy policyYear = _context.AccessPolicies.Create("One Year", TimeSpan.FromDays(year), AccessPermissions.Read);
@@ -225,9 +236,11 @@ Ad esempio è possibile creare un insieme generico di criteri con il codice segu
     Console.WriteLine("One year policy ID is: " + policyYear.Id);
     Console.WriteLine("100 year policy ID is: " + policy100Year.Id);
     Console.WriteLine("One week policy ID is: " + policyWeek.Id);
+```
 
 Quindi sarà possibile usare gli ID esistenti nel codice come segue:
 
+```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
 
 
@@ -247,6 +260,7 @@ Quindi sarà possibile usare gli ID esistenti nel codice come segue:
         policy1Year,
         DateTime.UtcNow.AddMinutes(-5));
     Console.WriteLine("The locator base path is " + originLocator.BaseUri.ToString());
+```
 
 ## <a name="list-all-locators"></a>Elencare tutti i localizzatori
 Un localizzatore è un URL che fornisce un percorso diretto per accedere a un asset, insieme alle autorizzazioni per l'asset definite dal criterio di accesso associato del localizzatore. A ogni asset può essere associata una raccolta di oggetti ILocator per la relativa proprietà Locators. Anche nel contesto del server è disponibile una raccolta Locators contenente tutti i localizzatori.
@@ -255,6 +269,7 @@ Nell'esempio di codice seguente sono elencati tutti i localizzatori nel server. 
 
 Si noti che il percorso localizzatore per un asset è solo un URL di base per l'accesso all'asset. Per creare un percorso diretto per i singoli file a cui un utente o un'applicazione potrebbe accedere, il codice deve aggiungere il percorso del file specifico al percorso localizzatore. Per altre informazioni su come eseguire questa operazione, vedere l'argomento [Distribuire asset con Media Services SDK for .NET](media-services-deliver-streaming-content.md).
 
+```csharp
     static void ListAllLocators()
     {
         foreach (ILocator locator in _context.Locators)
@@ -272,12 +287,14 @@ Si noti che il percorso localizzatore per un asset è solo un URL di base per l'
             Console.WriteLine("");
         }
     }
+```
 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Enumerazione di grandi raccolte di entità
 Quando si esegue una query di entità, è previsto un limite di 1000 entità restituite in una sola volta perché la versione 2 pubblica di REST limita i risultati della query a 1000 risultati. Quando si esegue l'enumerazione di grandi raccolte di entità, è necessario usare la proprietà Skip and Take. 
 
 La funzione seguente consente di scorrere tutti i processi nell'account di Servizi multimediali specificato. Servizi multimediali restituisce 1000 processi nella raccolta di processi. La funzione usa la proprietà Skip and Take per assicurarsi che tutti i processi vengano enumerati (se si dispone di più di 1000 processi nell'account).
 
+```csharp
     static void ProcessJobs()
     {
         try
@@ -313,10 +330,12 @@ La funzione seguente consente di scorrere tutti i processi nell'account di Servi
             Console.WriteLine(ex.Message);
         }
     }
+```
 
 ## <a name="delete-an-asset"></a>Eliminare un asset
 Nell'esempio seguente sarà eliminato un asset.
 
+```csharp
     static void DeleteAsset( IAsset asset)
     {
         // delete the asset
@@ -327,12 +346,14 @@ Nell'esempio seguente sarà eliminato un asset.
             Console.WriteLine("Deleted the Asset");
 
     }
+```
 
 ## <a name="delete-a-job"></a>Eliminare un processo
 Per eliminare un processo, è necessario verificarne lo stato indicato nella proprietà State. I processi completati o annullati possono essere eliminati direttamente, mentre i processi che hanno altri stati, ad esempio che sono accodati, pianificati o in elaborazione, devono essere annullati prima di poter essere eliminati.
 
 L'esempio di codice seguente illustra un metodo per eliminare un processo verificandone lo stato e procedendo con l'eliminazione quando lo stato è completato o annullato. Questo codice dipende dalla sezione precedente di questo argomento per ottenere un riferimento a un processo: Ottenere un riferimento a un processo.
 
+```csharp
     static void DeleteJob(string jobId)
     {
         bool jobDeleted = false;
@@ -377,11 +398,13 @@ L'esempio di codice seguente illustra un metodo per eliminare un processo verifi
 
         }
     }
+```
 
 
 ## <a name="delete-an-access-policy"></a>Eliminare un criterio di accesso
 L'esempio di codice seguente illustra come ottenere un riferimento a un criterio di accesso in base all'ID del criterio e quindi come eliminare il criterio.
 
+```csharp
     static void DeleteAccessPolicy(string existingPolicyId)
     {
         // To delete a specific access policy, get a reference to the policy.  
@@ -395,7 +418,7 @@ L'esempio di codice seguente illustra come ottenere un riferimento a un criterio
         policy.Delete();
 
     }
-
+```
 
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 91461af20cdb189ab23671fee0f3dea182ec0bb1
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usare la crittografia comune dinamica Widevine e/o PlayReady
 
@@ -135,6 +135,7 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 ## <a name="get-a-test-token"></a>Ottenere un token di test
 Ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave.
 
+```csharp
     // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
@@ -145,7 +146,7 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-
+```
 
 Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
@@ -155,8 +156,10 @@ Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di
 
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
+```xml
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
+```
 
 ## <a name="example"></a>Esempio
 
@@ -171,7 +174,7 @@ Per altre informazioni, vedere [Gestione di asset ed entità correlate con Media
 
 Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui si trovano i file di input.
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 02bbeafd9cd8ca93f22cf9e1a2c107e01c082ba3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
 
@@ -34,6 +34,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-gener
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -58,9 +59,11 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-gener
         }
       ]
     }
+```
     
 ### <a name="xml-preset"></a>Set di impostazioni XML
 
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -79,6 +82,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-gener
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-series-of-jpeg-images-preset"></a>Esempio di set di impostazioni per una serie di immagini JPEG
 
@@ -86,6 +90,7 @@ Il set di impostazioni JSON e XML consente di produrre un set di 10 immagini in 
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -113,9 +118,11 @@ Il set di impostazioni JSON e XML consente di produrre un set di 10 immagini in 
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Set di impostazioni XML
     
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -135,6 +142,7 @@ Il set di impostazioni JSON e XML consente di produrre un set di 10 immagini in 
         </Output>
       </Outputs>
     </Preset>
+```
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Esempio di set di impostazioni per un'immagine in corrispondenza di un timestamp specifico
 
@@ -142,6 +150,7 @@ Il set di impostazioni JSON e XML seguente consente di produrre una singola imma
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -169,9 +178,10 @@ Il set di impostazioni JSON e XML seguente consente di produrre una singola imma
         }
       ]
     }
-    
+```
+
 ### <a name="xml-preset"></a>Set di impostazioni XML
-    
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -191,7 +201,8 @@ Il set di impostazioni JSON e XML seguente consente di produrre una singola imma
         </Output>
       </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Esempio di set di impostazioni per anteprime con risoluzioni diverse
 
 È possibile usare il set di impostazioni seguente per generare anteprime con risoluzioni diverse in un'unica attività. Nell'esempio, in corrispondenza delle posizioni 5%, 15%, …, 95% della sequenza temporale di input, il codificatore genera due immagini, una con risoluzione video di input al 100% e l'altra al 50%.
@@ -200,6 +211,7 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -234,9 +246,10 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
         }
       ]
     }
+```
 
 ### <a name="xml-preset"></a>Set di impostazioni XML
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
     <Encoding>
@@ -261,7 +274,8 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
       </Output>
     </Outputs>
     </Preset>
-    
+```
+
 ## <a name="example-of-generating-a-thumbnail-while-encoding"></a>Esempio di generazione di un'anteprima durante la codifica
 
 Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di codifica che produce solo immagini, è anche possibile combinare la codifica audio/video con la generazione di anteprime. Il set di impostazioni JSON e XML seguenti indica a **Media Encoder Standard** di generare un'anteprima durante la codifica.
@@ -269,6 +283,7 @@ Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di 
 ### <a id="json"></a>Set di impostazioni JSON
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
 
+```json
     {
       "Version": 1.0,
       "Codecs": [
@@ -328,10 +343,12 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
         }
       ]
     }
+```
 
 ### <a id="xml"></a>Set di impostazioni XML
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
-    
+
+```csharp
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -381,6 +398,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
         </Output>
       </Outputs>
     </Preset>   
+```
 
 ## <a id="code_sample"></a>Codificare il video e generare l'anteprima con .NET
 
@@ -400,7 +418,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 
 Vedere l'articolo [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md) per istruzioni su come configurare l'ambiente di sviluppo.
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

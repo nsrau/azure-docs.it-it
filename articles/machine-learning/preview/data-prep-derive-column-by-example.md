@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 3eaf42f8d0bdad274ec92f5790fe79878500a1b2
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Trasformazione Deriva colonna dall'esempio
 
@@ -48,7 +48,7 @@ Qualsiasi combinazione di trasformazioni di data, numero o stringa.
 
 ## <a name="how-to-use-this-transformation"></a>Come usare questa informazione
 
-Per eseguire questa trasformazione, eseguire la procedura seguente:
+Per eseguire questa trasformazione, adottare la procedura seguente:
 1. Selezionare uno o più colonne da cui si desidera derivare il valore. 
 2. Selezionare **Derive Column by Example** (Deriva colonna da esempio) dal menu **Trasformazioni**. In alternativa fare clic con il pulsante destro del mouse sull'intestazione di una delle colonne selezionate e selezionare **Derive Column by Example** (Deriva colonna da esempio) dal menu di scelta rapida. Viene aperto l'editor di trasformazione e viene aggiunta una nuova colonna accanto alla colonna selezionata all'estrema destra. Le colonne selezionate possono essere identificate tramite caselle di controllo nelle intestazioni di colonna. L'aggiunta e la rimozione di colonne dalla selezione possono essere eseguite usando le caselle di controllo nelle intestazioni di colonna.
 3. Digitare un esempio di *output* in una riga e premere Invio. A questo punto, Workbench analizza la colonna di input, nonché l'output presente per sintetizzare un programma in grado di trasformare gli input inseriti in output. Il programma sintetizzato viene eseguito su tutte le righe nella griglia dei dati. In casi ambigui e complessi potrebbero essere necessari più esempi. A seconda del fatto che si usi la modalità di base o quella avanzata, è possibile specificare più esempi in modi diversi.
@@ -74,7 +74,7 @@ Facendo clic sul collegamento **Send feedback** (Invia commenti e suggerimenti) 
 
 ### <a name="editing-existing-transformation"></a>Modifica della trasformazione esistente
 
-L'utente può modificare una trasformazione **Deriva colonna da esempio** esistente selezionando l'opzione **Modifica** del passaggio di trasformazione. Facendo clic su **Modifica** viene aperto l'editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi forniti durante la creazione della trasformazione.
+L'utente può modificare una trasformazione **Deriva colonna da esempio** esistente selezionando l'opzione **Modifica** del passaggio di trasformazione. Facendo clic su **Modifica** viene aperto l'editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi creati durante la creazione della trasformazione.
 
 ## <a name="examples-of-string-transformations-by-example"></a>Esempi di trasformazioni di stringhe da esempio
 
@@ -139,7 +139,7 @@ Numero di esempi necessari per questo caso: 1
 Numero di esempi necessari per questo caso: 1
 
 >[!NOTE] 
->In questo esempio il carattere speciale · rappresenta gli spazi nella colonna di Output.
+>In questo esempio, il carattere speciale · rappresenta gli spazi nella colonna di Output.
 
 |Nome|Iniziale del secondo nome|Cognome|Output|
 |:-----|:-----|:-----|:-----|

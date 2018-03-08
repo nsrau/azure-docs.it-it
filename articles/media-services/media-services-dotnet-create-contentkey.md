@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 3280a6fcde59bae360da7cb9fea4bb649f984e43
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8700370dfb577cca95327caa923e2ef893165735
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-contentkeys-with-net"></a>Creare entità ContentKey mediante .NET
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ Gli asset crittografati devono essere associati alle entità **ContentKey**. Que
 ## <a name="contentkeytype"></a>ContentKeyType
 Uno dei valori che è necessario impostare quando si crea una chiave simmetrica è quello relativo al tipo. È possibile scegliere uno dei seguenti valori. 
 
+```csharp
     public enum ContentKeyType
     {
         /// <summary>
@@ -66,10 +67,12 @@ Uno dei valori che è necessario impostare quando si crea una chiave simmetrica 
         /// </summary>
         EnvelopeEncryption = 4
     }
+```
 
 ## <a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
 
+```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
     {
         // Create envelope encryption content key
@@ -98,15 +101,16 @@ Il seguente frammento di codice crea una chiave simmetrica con tipo di crittogra
         return randomBytes;
     }
 
-chiamare
+call
 
     IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
-
+```
 
 
 ## <a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
 
+```csharp
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
     {
         // Create common encryption content key
@@ -137,10 +141,10 @@ Il seguente frammento di codice crea una chiave simmetrica con tipo di crittogra
 
         return returnValue;
     }
-chiamare
+call
 
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
-
+```
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
