@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dd7e332eb1c935ee70a617124bd4d86e160366c7
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Creazione di filtri con il .NET SDK di Servizi multimediali di Azure
 > [!div class="op_single_selector"]
@@ -46,6 +46,7 @@ Durante la creazione dei filtri vengono usati i tipi seguenti:
 ## <a name="createupdatereaddelete-global-filters"></a>Creare/aggiornare/leggere/eliminare filtri globali
 Il codice seguente illustra come usare .NET per creare, aggiornare, leggere ed eliminare filtri di asset.
 
+```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
 
     List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
@@ -70,11 +71,12 @@ Il codice seguente illustra come usare .NET per creare, aggiornare, leggere ed e
 
     // Delete
     filter.Delete();
-
+```
 
 ## <a name="createupdatereaddelete-asset-filters"></a>Creare/aggiornare/leggere/eliminare filtri di asset
 Il codice seguente illustra come usare .NET per creare, aggiornare, leggere ed eliminare filtri di asset.
 
+```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
     var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 
@@ -100,7 +102,7 @@ Il codice seguente illustra come usare .NET per creare, aggiornare, leggere ed e
     // Delete
     filterUpdated.Delete();
 
-
+```
 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Creare URL di streaming basati su filtri

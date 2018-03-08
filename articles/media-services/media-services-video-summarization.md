@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4f40c9364d02929fe5bb193b4e8eb0a0157d34d2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Uso delle anteprime video multimediali di Azure per creare un riepilogo video
 ## <a name="overview"></a>Panoramica
@@ -44,7 +44,11 @@ Di seguito sono riportati alcuni esempi delle attività che il processore multim
 ## <a name="task-configuration-preset"></a>Configurazione delle attività (set di impostazioni)
 Quando si crea un'attività di anteprima video con **anteprime video multimediali di Azure**, è necessario specificare un set di impostazioni di configurazione. L'esempio precedente dell'anteprima è stato creato con la configurazione JSON di base seguente:
 
-    {"version":"1.0"}
+```json
+    {
+        "version":"1.0"
+    }
+```
 
 Al momento, è possibile modificare i parametri seguenti:
 
@@ -63,6 +67,7 @@ La tabella seguente descrive la durata predefinita, quando **maxMotionThumbnailI
 
 Il codice JSON seguente imposta i parametri disponibili.
 
+```json
     {
         "version": "1.0",
         "options": {
@@ -71,6 +76,7 @@ Il codice JSON seguente imposta i parametri disponibili.
             "fadeInFadeOut": "true"
         }
     }
+```
 
 ## <a name="net-sample-code"></a>Codice di esempio .NET
 
@@ -78,15 +84,18 @@ Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
 2. Creare un processo con un'attività di anteprima video in base al file di configurazione che contiene il set di impostazioni JSON seguente: 
-   
-        {                
-            "version": "1.0",
-            "options": {
-                "outputAudio": "true",
-                "maxMotionThumbnailDurationInSecs": "30",
-                "fadeInFadeOut": "false"
+    
+    ```json
+            {                
+                "version": "1.0",
+                "options": {
+                    "outputAudio": "true",
+                    "maxMotionThumbnailDurationInSecs": "30",
+                    "fadeInFadeOut": "false"
+                }
             }
-        }
+    ```
+
 3. Scaricare i file di output. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
@@ -95,6 +104,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
 #### <a name="example"></a>Esempio
 
+```csharp
     using System;
     using System.Configuration;
     using System.IO;
@@ -262,6 +272,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
         }
     }
+```
 
 ### <a name="video-thumbnail-output"></a>Output di anteprima video
 [Output di anteprima video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)

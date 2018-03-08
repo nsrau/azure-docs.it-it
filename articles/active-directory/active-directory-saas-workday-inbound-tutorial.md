@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -229,7 +229,7 @@ Seguire queste istruzioni per configurare il provisioning degli account utente d
 
 **Per configurare il provisioning da Workday in Active Directory:**
 
-1.  Passare a <https://portal.azure.com>
+1.  Passare a <https://portal.azure.com>.
 
 2.  Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
 
@@ -589,7 +589,7 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
 **Per configurare il provisioning da Workday in Active Directory:**
 
-1.  Passare a <https://portal.azure.com>
+1.  Passare a <https://portal.azure.com>.
 
 2.  Sulla barra di spostamento a sinistra selezionare **Azure Active Directory**
 

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73d2f7135e85b829b1ecbd9eb0264024df36244a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
@@ -57,6 +57,7 @@ Nel flusso di lavoro in due passaggi, il passaggio dell' **analisi** usa un inpu
 
 #### <a name="output-example"></a>Esempio di output:
 
+```json
     {
       "version": 1,
       "timescale": 24000,
@@ -103,6 +104,7 @@ Nel flusso di lavoro in due passaggi, il passaggio dell' **analisi** usa un inpu
             ],
 
     … truncated
+```
 
 ### <a name="redact-mode"></a>Modalità offuscamento
 Il secondo passaggio del flusso di lavoro usa un numero superiore di input che devono essere combinati in un singolo asset.
@@ -138,7 +140,9 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
 
 ### <a name="example-json"></a>JSON di esempio:
 
+```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### <a name="low"></a>Basso
 
@@ -172,8 +176,16 @@ Il programma seguente illustra come:
 
 1. Creare un asset e caricare un file multimediale nell'asset.
 2. Creare un processo con un'attività di offuscamento dei volti in base a un file di configurazione contenente il set di impostazioni JSON seguente: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Scaricare i file JSON di output. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
@@ -182,7 +194,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
 #### <a name="example"></a>Esempio
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

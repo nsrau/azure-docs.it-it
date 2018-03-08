@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: ba17e7a89ebfeb3bd854bb906bdb887b0cd54064
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 73a2dc47a6502712ebd1879170be552c9459b741
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gestire gli endpoint di streaming con .NET SDK
 
@@ -55,7 +55,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
     
 Sostituire il codice nel file Program.cs con il codice seguente:
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

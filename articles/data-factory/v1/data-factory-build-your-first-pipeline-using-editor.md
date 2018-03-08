@@ -3,9 +3,9 @@ title: Creare la prima data factory di Azure con il Portale di Azure | Microsoft
 description: In questa esercitazione viene creata una pipeline di esempio di Azure Data Factory usando l'editor di Data Factory nel portale di Azure.
 services: data-factory
 documentationcenter: 
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 995abf497e7267434b5e87132d30183e3c293af3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c4fe0e01936ebc131b10f011b98e9d0c1782179b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Questo articolo non fornisce una panoramica concettuale del servizio Data factor
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 Una data factory può comprendere una o più pipeline. Una pipeline può comprendere una o più attività. Un esempio è un'attività di copia per copiare dati da un'origine a un archivio dati di destinazione. Un altro esempio è un'attività Hive HDInsight per eseguire uno script Hive e trasformare i dati di input per generare dati di output. 
 
-Per creare una data factory seguire questa procedura:
+Per creare una data factory, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -80,7 +80,7 @@ Per creare una data factory seguire questa procedura:
 8. Selezionare **Create**.
 
    > [!IMPORTANT]
-   > Per creare istanze di Data Factory è necessario essere membri del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
+   > Per creare istanze di data factory, l'utente deve essere membro del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
    >
    >
 9. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory):    
@@ -113,11 +113,11 @@ In questo passaggio, l'account di archiviazione viene collegato alla data factor
 
 4. Sostituire **account name** con il nome del proprio account di archiviazione. Sostituire **account key** con la chiave di accesso dell'account di archiviazione. Per informazioni su come ottenere la chiave di accesso alle risorse di archiviazione, vedere come visualizzare, copiare e rigenerare le chiavi di accesso alle risorse di archiviazione in [Gestire l'account di archiviazione](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Selezionare **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
+5. Fare clic su **Distribuisci** sulla barra dei comandi per distribuire il servizio collegato.
 
     ![Pulsante Distribuisci](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   Al termine della distribuzione del servizio collegato, la finestra Bozza-1 verrà nascosta e nella visualizzazione struttura ad albero a sinistra verrà visualizzato **AzureStorageLinkedService**.
+   Al termine della distribuzione del servizio collegato, la finestra Bozza-1 viene nascosta e nella visualizzazione struttura ad albero a sinistra viene visualizzato **AzureStorageLinkedService**.
 
     ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
@@ -260,7 +260,7 @@ Viene ora creato il set di dati di output per rappresentare i dati di output arc
     ![Visualizzazione albero con servizi collegati](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
-In questo passaggio viene creata la prima pipeline con un'attività Hive di HDInsight. La sezione di input è disponibile con cadenza mensile perché la frequenza è impostata su Month e l'intervallo è 1. La sezione di output viene prodotta con cadenza mensile. Anche la proprietà scheduler per un'attività viene impostata su Month. Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. La pianificazione è al momento basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel frammento di codice JSON seguente sono illustrate al termine di questa sezione.
+In questo passaggio viene creata la prima pipeline con un'attività Hive di HDInsight. La sezione di input è disponibile con cadenza mensile perché la frequenza è impostata su Month e l'intervallo è 1. La sezione di output viene prodotta con cadenza mensile. Anche la proprietà scheduler per un'attività viene impostata su Month. Le impostazioni per il set di dati di output e l'utilità di pianificazione dell'attività devono corrispondere. La pianificazione è al momento basata sul set di dati di output. È quindi necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. Le proprietà usate nel frammento di codice JSON seguente sono illustrate al termine di questa sezione.
 
 1. Nell'editor di Data Factory fare clic su **Altro** > **Nuova pipeline**.
 

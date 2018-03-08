@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: f19fa1ac4dd970ca3df2c0fdbf8e0778e171c43d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Scrivere codici per Funzioni di Azure e testarle in locale
 
@@ -35,14 +35,6 @@ Se si sviluppatori di Visual Studio C#, Funzioni di Azure [si integra anche con 
 
 >[!NOTE]  
 > Prima di installare la versione, è necessario [installare NodeJS](https://docs.npmjs.com/getting-started/installing-node), che include npm. Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive. 
-
-### <a name="version-1x-runtime"></a>Versione di runtime 1.x
-
-La versione originale degli strumenti usa il runtime 1.x di Funzioni. Questa versione usa il .NET Framework ed è supportata solo nei computer Windows. Usare il comando seguente per installare gli strumenti in versione 1.x:
-
-```bash
-npm install -g azure-functions-core-tools
-```
 
 ### <a name="version-2x-runtime"></a>Versione di runtime 2.x
 
@@ -69,6 +61,14 @@ Per l'installazione su macOS e Linux, è necessario includere il flag `unsafe-pe
 
 ```bash
 sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+### <a name="version-1x-runtime"></a>Versione di runtime 1.x
+
+La versione originale degli strumenti usa il runtime 1.x di Funzioni. Questa versione usa il .NET Framework ed è supportata solo nei computer Windows. Usare il comando seguente per installare gli strumenti in versione 1.x:
+
+```bash
+npm install -g azure-functions-core-tools
 ```
 
 ## <a name="run-azure-functions-core-tools"></a>Eseguire Strumenti di base di Funzioni di Azure

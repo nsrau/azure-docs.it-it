@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: bb8ad6d9defcbaef255065b20a9a9b542e74d73d
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
 
@@ -49,59 +49,6 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 
 ```
 
 Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio contenitore di Azure.
-
-```azurecli
-{
-  "additionalProperties": {},
-  "agentPoolProfiles": [
-    {
-      "additionalProperties": {},
-      "count": 1,
-      "dnsPrefix": null,
-      "fqdn": null,
-      "name": "nodepool1",
-      "osDiskSizeGb": null,
-      "osType": "Linux",
-      "ports": null,
-      "storageProfile": "ManagedDisks",
-      "vmSize": "Standard_DS1_v2",
-      "vnetSubnetId": null
-    }
-    ...
-```
-
-## <a name="getting-information-about-your-cluster"></a>Ottenimento di informazioni sul cluster
-
-Dopo aver distribuito il cluster è possibile usare `az aks show` per eseguire query sul cluster e recuperare informazioni importanti. Questi dati possono essere usati come parametro quando si eseguono operazioni più complesse nel cluster. Se ad esempio si vogliono ottenere informazioni sul profilo Linux in esecuzione nel cluster, è possibile eseguire questo comando,
-
-```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --query "linuxProfile"
-
-{
-  "additionalProperties": {},
-  "adminUsername": "azureuser",
-  "ssh": {
-    "additionalProperties": {},
-    "publicKeys": [
-      {
-        "additionalProperties": {},
-        "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADA...
-      }
-    ]
-  }
-}
-```
-
-che visualizzerà informazioni sull'utente amministratore e le chiavi pubbliche SSH. È anche possibile eseguire query più dettagliate aggiungendo proprietà JSON alla stringa di query, come illustrato di seguito.
-
-```azurecli
-az aks show -n myakscluster  -g my-group --query "{name:agentPoolProfiles[0].name, nodeCount:agentPoolProfiles[0].count}"
-{
-  "name": "nodepool1",
-  "nodeCount": 1
-}
-```
-Ciò può essere utile per accedere rapidamente ai dati sul cluster distribuito. Altre informazioni sulle query JMESPath sono disponibili [qui](http://jmespath.org/tutorial.html).
 
 ## <a name="install-the-kubectl-cli"></a>Installare l'interfaccia della riga di comando di kubectl
 
@@ -143,19 +90,19 @@ Al termine dell'esercitazione, sarà disponibile un cluster del servizio conteni
 Ottenere prima l'ID dell'entità servizio configurata per il servizio contenitore di Azure. Aggiornare il nome del gruppo di risorse e il nome del cluster del servizio contenitore di Azure affinché corrispondano al proprio ambiente.
 
 ```azurecli
-$CLIENT_ID = $(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
 ```
 
 Ottenere l'ID risorsa del registro dei record di controllo di accesso. Modificare il nome del registro con quello del registro dei record di controllo di accesso e il gruppo di risorse con il gruppo di risorse in cui si trova il registro.
 
 ```azurecli
-$ACR_ID = $(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Creare l'assegnazione di ruolo che concede l'accesso appropriato.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Contributor --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: 
 author: sharonlo101
 manager: jhubbard
-editor: shlo
+editor: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 02e4d7cd062364cae2edad0c76e3a009bb6c1bda
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.author: shlo
+ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 È possibile usare l'attività Lookup per la lettura o la ricerca di un record, un nome di tabella o un valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive. 

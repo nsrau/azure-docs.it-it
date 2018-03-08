@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Trasformazione Split Column by Example (Dividi colonna in base all'esempio)
 Questa trasformazione divide in modo predittivo il contenuto di una colonna in base a limiti significativi senza richiedere l'input dell'utente. L'algoritmo di divisione seleziona i limiti dopo avere analizzato il contenuto della colonna. Questi limiti possono essere definiti da:
@@ -60,7 +60,7 @@ Facendo clic sul collegamento **Send feedback** (Invia commenti e suggerimenti) 
 
 ### <a name="editing-an-existing-transformation"></a>Modifica di una trasformazione esistente
 
-L'utente può modificare una trasformazione **Split Column By Example** (Dividi colonna in base all'esempio) esistente selezionando l'opzione **Edit** (Modifica) del passaggio di trasformazione. Facendo clic su **Modifica** viene aperto l'editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi forniti durante la creazione della trasformazione.
+L'utente può modificare una trasformazione **Split Column By Example** (Dividi colonna in base all'esempio) esistente selezionando l'opzione **Edit** (Modifica) del passaggio di trasformazione. Facendo clic su **Edit** (Modifica) viene aperto l'Editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi forniti durante la creazione della trasformazione.
 
 ## <a name="examples-of-splitting-on-a-fixed-single-character-delimiter"></a>Esempi di divisione in base a un delimitatore a carattere singolo predefinito
 

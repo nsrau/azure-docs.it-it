@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3163454213db0afb94e668e4c56924d7833d769
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>File multimediali di Hyperlapse con Azure Media Hyperlapse
 Azure Media Hyperlapse è un processore di contenuti multimediali che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione.  Elemento di pari livello basato sul cloud rispetto a [Hyperlapse Pro desktop per Microsoft Research e Hyperlapse Mobile basato su telefono](http://aka.ms/hyperlapse), Microsoft Hyperlapse per Servizi multimediali di Azure usa l'elevata scalabilità della piattaforma di elaborazione multimediale di Servizi multimediali di Azure per scalare orizzontalmente e parallelizzare l'elaborazione in blocco di Hyperlapse.
@@ -47,7 +47,7 @@ Dopo aver caricato il contenuto nel proprio account di Servizi multimediali, è 
 Di seguito è riportato l'esempio di un file di configurazione conforme in XML e JSON:
 
 **Set di impostazioni XML:**
-
+```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
@@ -57,9 +57,10 @@ Di seguito è riportato l'esempio di un file di configurazione conforme in XML e
             <Speed>12</Speed>
         </Options>
     </Preset>
+```
 
 **Set di impostazioni JSON:**
-
+```json
     {
         "Version":1.0,
         "Sources": [
@@ -73,6 +74,7 @@ Di seguito è riportato l'esempio di un file di configurazione conforme in XML e
             "Stabilize":false
         }
     }
+```
 
 ### <a id="sample_code"></a> Hyperlapse Microsoft con il SDK di .NET AMS
 Il metodo seguente carica un file multimediale come asset e crea un processo mediante il processore di contenuti multimediali Azure Media Hyperlapse.
@@ -85,6 +87,7 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 > 
 > 
 
+```csharp
         static bool RunHyperlapseJob(string input, string output, string hyperConfig)
         {
             // create asset with input file
@@ -197,6 +200,7 @@ Il metodo seguente carica un file multimediale come asset e crea un processo med
 
         return processor;
     }
+```
 
 ### <a id="file_types"></a>Tipi di file supportati
 * MP4

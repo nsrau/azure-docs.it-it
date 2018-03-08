@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 362773bbefa754fc90aa4dbd471889245b4b6cf5
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configurazione della telemetria di Servizi multimediali di Azure con .NET
 
@@ -42,19 +42,23 @@ Per abilitare la telemetria sono necessari i passaggi seguenti:
 - Ottenere le credenziali dell'account di archiviazione collegato all'account di Servizi multimediali. 
 - Creare un endpoint di notifica con **EndPointType** impostato su **AzureTable** ed endPointAddress che punta alla tabella di archiviazione.
 
+```csharp
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
                       NotificationEndPointType.AzureTable,
                       "https://" + _mediaServicesStorageAccountName + ".table.core.windows.net/");
+```
 
 - Creare un set di configurazione del monitoraggio per i servizi da monitorare. È consentito un solo set di configurazione del monitoraggio. 
-  
+
+```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
             {
                 new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
+```
 
 ## <a name="consuming-telemetry-information"></a>Uso delle informazioni di telemetria
 
@@ -66,13 +70,15 @@ Per informazioni sull'uso dei dati di telemetria, vedere [questo](media-services
 
 2. Aggiungere il seguente elemento alla sezione **appSettings** definita nel file app.config:
 
-    <add key="StorageAccountName" value="storage_name" />
+    ```xml
+        <add key="StorageAccountName" value="storage_name" />
+    ```
  
 ## <a name="example"></a>Esempio  
     
 L'esempio seguente illustra come abilitare la telemetria per l'account di Servizi multimediali di Azure specificato e come eseguire query sulle metriche con l'SDK di Servizi multimediali per .NET.  
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Configuration;
