@@ -27,7 +27,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Questa guida di avvio rapido mostra come creare un account, un database di documenti e una raccolta di Azure Cosmos DB tramite il portale di Azure. Si creerà e distribuirà quindi un'app Web di tipo elenco attività basata sul [driver .NET MongoDB](https://docs.mongodb.com/ecosystem/drivers/csharp/). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
@@ -55,7 +55,7 @@ Clonare ora un'app per le API MongoDB da GitHub, impostare la stringa di conness
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file **Dal.cs** nella directory **DAL**. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Ecco una breve panoramica delle operazioni da eseguire nell'app. Aprire il file **Dal.cs** nella directory **DAL**. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
 * Inizializzare il client Mongo.
 

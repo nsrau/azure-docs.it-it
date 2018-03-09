@@ -3,28 +3,28 @@ title: Strumenti per l'archiviazione di Azure Stack
 description: Informazioni sui dati di archiviazione di Azure Stack gli strumenti di trasferimento
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: mattbriggs
+manager: femila
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/21/2018
+ms.author: mabrigg
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Strumenti per l'archiviazione di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Stack di Microsoft Azure fornisce un set di servizi di archiviazione per i dischi, BLOB, tabelle, code e funzionalità di gestione di account. Se si desidera gestire oppure spostare i dati da o verso dello Stack di archiviazione di Azure, è possibile utilizzare un set di strumenti di archiviazione di Azure. Questo articolo fornisce una rapida panoramica degli strumenti disponibili.
+Stack di Microsoft Azure fornisce un set di servizi di archiviazione per i dischi, BLOB, tabelle, code e le funzioni di gestione di account. Se si desidera gestire oppure spostare i dati da o verso dello Stack di archiviazione di Azure, è possibile utilizzare un set di strumenti di archiviazione di Azure. Questo articolo fornisce una rapida panoramica degli strumenti disponibili.
 
 Lo strumento adatto si dipende dai requisiti:
 * [AzCopy](#azcopy)
@@ -50,7 +50,11 @@ A causa delle differenze di servizi di archiviazione tra Azure e Azure Stack, po
 AzCopy è un'utilità della riga di comando progettata per copiare i dati da e verso i Blob di Microsoft Azure e l'archiviazione tabelle utilizzando comandi semplici con prestazioni ottimali. È possibile copiare dati da un oggetto a un altro all'interno dell'account di archiviazione o tra account di archiviazione. Esistono due versioni di AzCopy: AzCopy in Windows e AzCopy in Linux. Stack di Azure supporta solo la versione di Windows. 
  
 ### <a name="download-and-install-azcopy"></a>Scaricare e installare AzCopy 
-[Scaricare](https://aka.ms/azcopyforazurestack) la versione supportata di Windows di AzCopy per lo Stack di Azure. È possibile installare e usare AzCopy nello Stack di Azure nello stesso modo di Azure. Per ulteriori informazioni, vedere [trasferire i dati con l'utilità della riga di comando di AzCopy](../../storage/common/storage-use-azcopy.md). 
+
+[Scaricare](https://aka.ms/azcopyforazurestack) la versione supportata di Windows di AzCopy dello Stack di Azure. È possibile installare e usare AzCopy nello Stack di Azure nello stesso modo di Azure. Per ulteriori informazioni, vedere [trasferire i dati con l'utilità della riga di comando di AzCopy](../../storage/common/storage-use-azcopy.md). 
+
+ - Per 1802 l'aggiornamento o versioni più recenti, [scaricare AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+ - Per le versioni precedenti, [scaricare AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20150405).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Esempi di comandi AzCopy per il trasferimento di dati
 Gli esempi seguenti illustrano alcuni scenari tipici per la copia dei dati da e verso i BLOB di Azure Stack. Per ulteriori informazioni, vedere [trasferire i dati con l'utilità della riga di comando di AzCopy](../../storage/storage-use-azcopy.md). 
@@ -63,14 +67,14 @@ AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer 
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 #### <a name="move-data-between-azure-and-azure-stack-storage"></a>Spostare dati tra Azure e Stack di archiviazione di Azure 
-Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. è necessario specificare il trasferimento tramite il `/SyncCopy` opzione. 
+Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. è necessario specificare il trasferimento tramite il **/SyncCopy** opzione. 
 ```azcopy 
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
 ### <a name="azcopy-known-issues"></a>Problemi noti di Azcopy
 * Qualsiasi operazione AzCopy su archiviazione di File non è disponibile perché l'archiviazione di File non è ancora disponibile nello Stack di Azure.
-* Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. È possibile specificare il trasferimento tramite il `/SyncCopy` opzione per copiare i dati.
+* Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. È possibile specificare il trasferimento tramite il **/SyncCopy** opzione per copiare i dati.
 * Non è la versione Linux di Azcopy dello Stack di archiviazione di Azure. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -80,7 +84,7 @@ Azure PowerShell è un modulo che fornisce i cmdlet per la gestione dei servizi 
 Moduli di Azure PowerShell compatibili Stack Azure necessarie per lavorare con lo Stack di Azure. Per ulteriori informazioni, vedere [installare PowerShell per Azure Stack](azure-stack-powershell-install.md) e [configurare l'ambiente di PowerShell dell'utente Azure Stack](azure-stack-powershell-configure-user.md) per altre informazioni.
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>Script di esempio di PowerShell per Azure Stack 
-In questo esempio si supponga di avere correttamente [installare PowerShell per Azure Stack](azure-stack-powershell-install.md). Questo script è conplete la configurazione di Guida e chiedere il tenant di Azure Stack credenziali per aggiungere l'account per il Queue il relativo ambiente PowerShell locale. Quindi, lo script verrà impostato il valore predefinito di sottoscrizione di Azure, creare un nuovo account di archiviazione in Azure, creare un nuovo contenitore in questo nuovo account di archiviazione e caricare un file di immagine esistente (blob) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
+In questo esempio si supponga di avere correttamente [installare PowerShell per Azure Stack](azure-stack-powershell-install.md). Questo script consente di completare la configurazione e chiedere il tenant di Azure Stack credenziali per aggiungere l'account nell'ambiente di PowerShell locale. Quindi, lo script verrà impostato il valore predefinito di sottoscrizione di Azure, creare un nuovo account di archiviazione in Azure, creare un nuovo contenitore in questo nuovo account di archiviazione e caricare un file di immagine esistente (blob) in tale contenitore. Dopo aver elencato tutti i BLOB nel contenitore, lo script crea una nuova directory di destinazione nel computer locale e scarica il file di immagine.
 
 1. Installare [moduli di PowerShell Azure compatibile Stack Azure](azure-stack-powershell-install.md).  
 2. Scaricare il [gli strumenti necessari per lavorare con Azure Stack](azure-stack-powershell-download.md).  
@@ -224,9 +228,8 @@ echo "Done"
 
 Microsoft Azure Storage Explorer è un'app autonoma da Microsoft. È possibile utilizzare facilmente con archiviazione di Azure e Azure Stack archiviazione dati in Windows, macOS e Linux. Se si desidera un modo semplice per gestire i dati dello Stack di archiviazione di Azure, utilizzare Microsoft Azure Storage Explorer.
 
-Per ulteriori informazioni sulla configurazione di Azure Storage Explorer per lavorare con lo Stack di Azure, vedere [connettere Esplora archivi a una sottoscrizione di Azure Stack](azure-stack-storage-connect-se.md).
-
-Per ulteriori informazioni su Microsoft Azure Storage Explorer, vedere [Introduzione a soluzioni di archiviazione (anteprima)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+ - Per ulteriori informazioni sulla configurazione di Azure Storage Explorer per lavorare con lo Stack di Azure, vedere [connettere Esplora archivi a una sottoscrizione di Azure Stack](azure-stack-storage-connect-se.md).
+ - Per ulteriori informazioni su Microsoft Azure Storage Explorer, vedere [Introduzione a soluzioni di archiviazione (anteprima)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esplora archivi di connettersi a una sottoscrizione di Azure Stack](azure-stack-storage-connect-se.md)

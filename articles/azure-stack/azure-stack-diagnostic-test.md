@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Eseguire un test di convalida per lo Stack di Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/12/2018
  
 È possibile convalidare lo stato dello Stack di Azure. Quando si verifica un problema, contattare il supporto tecnico di servizi Microsoft. Supporto viene chiesto di eseguire Test AzureStack dal nodo di gestione. Il test di convalida consente di isolare il problema. Supporto può quindi analizzare i log dettagliati, lo stato attivo sull'area in cui si è verificato l'errore e di lavoro con la risoluzione del problema.
 
-## <a name="run-test-azurestack"></a>Eseguire Test AzureStack
+## <a name="run-test-azurestack"></a>Run Test-AzureStack
 
 Quando si verifica un problema, contattare il supporto tecnico di servizi Microsoft e quindi eseguire **eseguire Test-AzureStack**.
 
@@ -44,7 +44,7 @@ Quando si verifica un problema, contattare il supporto tecnico di servizi Micros
 
 In questa sezione contiene una panoramica per il cmdlet Test-AzureStack e un riepilogo del report di convalida.
 
-### <a name="test-azurestack"></a>Test AzureStack
+### <a name="test-azurestack"></a>Test-AzureStack
 
 Convalida lo stato dello Stack di Azure. Il cmdlet riportato lo stato di Azure Stack hardware e software. Il personale di supporto è possibile utilizzare questo report per ridurre il tempo necessario per risolvere i casi di supporto dello Stack di Azure.
 
@@ -59,15 +59,15 @@ Convalida lo stato dello Stack di Azure. Il cmdlet riportato lo stato di Azure S
 
 #### <a name="parameters"></a>Parametri
 
-| Parametro               | Valore           | Obbligatorio | Valore predefinito |
+| Parametro               | Valore           | Obbligatoria | Predefinito |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | No       | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | No       | FALSE   |
-| AdminCredential         | PSCredential    | No       | N/D      |
-| StorageConnectionString | Stringa          | No       | N/D      |
-| Elenco                    | SwitchParameter | No       | FALSE   |
-| Ignora                  | Stringa          | No       | N/D      |
-| Includi                 | Stringa          | No       | N/D      |
+| ServiceAdminCredentials | PSCredential    | No        | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | No        | FALSE   |
+| AdminCredential         | PSCredential    | No        | ND      |
+<!-- | StorageConnectionString | string          | No        | ND      | non è supportato in 1802-->
+| Elenco                    | SwitchParameter | No        | FALSE   |
+| Ignora                  | string          | No        | ND      |
+| Includi                 | string          | No        | ND      |
 
 Il cmdlet Test-AzureStack supporta i parametri comuni: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Per ulteriori informazioni, vedere [sui parametri comuni](http://go.microsoft.com/fwlink/?LinkID=113216). 
 
@@ -148,7 +148,7 @@ Per escludere i test specifici:
 
 Nella tabella seguente sono riepilogati i test di convalida eseguiti da Test-AzureStack.
 
-| Nome                                                                                                                              |
+| NOME                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | Riepilogo dell'infrastruttura di Hosting del Cloud Azure Stack                                                                                  |
 | Riepilogo servizi di archiviazione Azure Stack                                                                                              |

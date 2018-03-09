@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Applicare gli aggiornamenti nello Stack di Azure
 
@@ -67,7 +67,7 @@ La procedura seguente viene illustrato come importare e installare i pacchetti d
  
     ![Viene illustrato come caricare ogni file di pacchetto](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Ripetere i passaggi 6 e 7 per la *PackageName*con estensione bin e i file Metadata.xml. 
+8. Ripetere i passaggi 6 e 7 per la *PackageName*con estensione bin e i file Metadata.xml. Se incluso, non importare il file Notice.txt supplementare.
 9. Al termine, è possibile esaminare le notifiche (icona campanello in alto a destra del portale). Le notifiche dovrebbero indicare che il caricamento è stata completata. 
 10. Passare al riquadro nel dashboard di aggiornamento. Il riquadro deve indicare che è disponibile un aggiornamento. Fare clic sul riquadro per esaminare il pacchetto di aggiornamento appena aggiunto.
 11. Per installare l'aggiornamento, selezionare il pacchetto che è contrassegnato come **pronto** e fare doppio clic sul pacchetto e selezionare **Aggiorna**, oppure fare clic su di **Aggiorna** azione nella parte superiore .
