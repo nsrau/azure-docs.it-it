@@ -201,8 +201,6 @@
           href: maintenance-notifications.md
         - name: Attenuazione dell'esecuzione speculativa
           href: mitigate-se.md
-        - name: Domande frequenti sulla manutenzione accelerata
-          href: accelerated-maintenance.md
         - name: Eventi pianificati
           href: scheduled-events.md
         - name: Monitorare i metadati
@@ -428,7 +426,7 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: Installare l'agente di macchine virtuali in modalità offline
           href: install-vm-agent-offline.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm

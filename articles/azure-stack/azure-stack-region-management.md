@@ -3,8 +3,8 @@ title: Gestione area nello Stack di Azure | Documenti Microsoft
 description: Panoramica di gestione di area nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
-author: efemmano
-manager: dsavage
+author: brenduns
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Gestione area nello Stack di Azure
 
@@ -41,19 +42,13 @@ Stack di Azure dispone di un set di funzionalità di gestione di area disponibil
 
 2. **Avvisi**. Questo riquadro Elenca gli avvisi relativi a livello di sistema e fornisce dettagli su ognuna di tali avvisi.
 
-3. **Aggiornamenti**. In questo riquadro, è possibile visualizzare la versione corrente dell'infrastruttura di Azure Stack.
+3. **Aggiornamenti**. In questo riquadro, è possibile visualizzare la versione corrente dell'infrastruttura di Azure Stack, gli aggiornamenti disponibili e la cronologia di aggiornamento. È inoltre possibile aggiornare il sistema integrato.
 
-4. **I provider di risorse**. I provider di risorse è possibile gestire la funzionalità di tenant fornita con i componenti necessari per l'esecuzione dello Stack di Azure. Ogni provider di risorse viene fornito con un'esperienza di amministrazione. Questa esperienza può includere avvisi per il provider specifico, metriche e altre funzionalità di gestione specifiche del provider di risorse.
- 
-5. **Ruoli di infrastruttura**. Ruoli di infrastruttura sono i componenti necessari per l'esecuzione dello Stack di Azure. Vengono elencati solo i ruoli di infrastruttura che segnalano gli avvisi. Fare clic su un ruolo, è possibile visualizzare gli avvisi associati a un ruolo specifico e le istanze del ruolo in cui questo ruolo è in esecuzione. Anche se non esiste la possibilità di avviare, riavviare o arrestare un'istanza del ruolo di infrastruttura, effettuare **non** eseguire questa operazione in un ambiente del kit di sviluppo. Queste opzioni sono progettate solo per un ambiente a più nodi, in cui è presente più di un'istanza di ruolo per ogni ruolo di infrastruttura. Il riavvio di un'istanza del ruolo (in particolare AzS Xrp01) nel kit di sviluppo causa l'instabilità del sistema.
+4. **I provider di risorse**. I provider di risorse è possibile gestire la funzionalità di utente fornita con i componenti necessari per l'esecuzione dello Stack di Azure. Ogni provider di risorse viene fornito con un'esperienza di amministrazione. Questa esperienza può includere avvisi per il provider specifico, metriche e altre funzionalità di gestione specifiche del provider di risorse.
+
+5. **Ruoli di infrastruttura**. Ruoli di infrastruttura sono i componenti necessari per l'esecuzione dello Stack di Azure. Vengono elencati solo i ruoli di infrastruttura che segnalano gli avvisi. Fare clic su un ruolo, è possibile visualizzare gli avvisi associati a un ruolo specifico e le istanze del ruolo in cui questo ruolo è in esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Monitoraggio dell'integrità e avvisi nello Stack di Azure](azure-stack-monitor-health.md)
 
 [Gestire gli aggiornamenti in Azure Stack](azure-stack-updates.md)
-
-
-
-
-
-

@@ -10,6 +10,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Note sulla versione integrati sistemi
           items:
+            - name: aggiornamento 1802
+              href: azure-stack-update-1802.md
             - name: aggiornamento 1712
               href: azure-stack-update-1712.md
             - name: aggiornamento 1711
@@ -133,14 +135,18 @@
           href: azure-stack-monitor-health.md
         - name: Gestire le risorse di rete
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Gestire le risorse di archiviazione
-          href: azure-stack-manage-storage-accounts.md
-        - name: Gestire la capacità di archiviazione
-          href: azure-stack-manage-storage-shares.md
         - name: Gestire macchine virtuali di Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Avviare e arrestare Azure Stack
           href: azure-stack-start-and-stop.md
+        - name: Gestire la capacità
+          items:
+            - name: Gestire le risorse di archiviazione
+              href: azure-stack-manage-storage-accounts.md
+            - name: Gestire la capacità di archiviazione
+              href: azure-stack-manage-storage-shares.md
+            - name: Gestire la capacità di archiviazione fisica per lo Stack di Azure
+              href: azure-stack-manage-storage-physical-capacity.md
         - name: Sostituire l'hardware
           items:
             - name: Azioni del nodo
@@ -230,6 +236,10 @@
               href: azure-stack-app-service-deploy.md
             - name: Distribuire il servizio app offline
               href: azure-stack-app-service-deploy-offline.md
+            - name: Aggiornare il provider di risorse di servizio App
+              href: azure-stack-app-service-update.md
+            - name: Aggiornare il provider di risorse di servizio App non in linea
+              href: azure-stack-app-service-update-offline.md
             - name: Aggiungere altri ruoli di lavoro Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurare le origini di distribuzione

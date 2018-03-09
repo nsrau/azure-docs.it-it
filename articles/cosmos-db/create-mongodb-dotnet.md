@@ -138,4 +138,3 @@ In questa guida di avvio rapido si è appreso come creare un account Azure Cosmo
 
 > [!div class="nextstepaction"]
 > [Importare dati in Azure Cosmos DB per l'API MongoDB](mongodb-migrate.md)
-

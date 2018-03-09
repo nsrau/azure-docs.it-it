@@ -3,7 +3,7 @@ title: Gestire gli account di archiviazione di Azure Stack | Documenti Microsoft
 description: Informazioni su come trovare, gestire, ripristinare e recuperare gli account di archiviazione di Azure Stack
 services: azure-stack
 documentationcenter: 
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/6/2017
-ms.author: brenduns
+ms.date: 02/22/2018
+ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 3ef9a66095d0ed5fc865dc3c22961f9f7bdcedd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 Informazioni su come gestire gli account di archiviazione nello Stack di Azure per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
@@ -29,13 +29,13 @@ L'elenco di account di archiviazione nell'area può essere visualizzato nello St
 
 1. In un browser Internet, passare a https://adminportal.local.azurestack.external.
 2. Accedere al portale di amministrazione di Azure Stack come un operatore cloud (utilizzando le credenziali specificate durante la distribuzione)
-3. Nel dashboard predefinito: trovare il **Gestione area** elenco e fare clic sull'area in cui si desidera esplorare. Ad esempio **(locale**).
+3. Nel dashboard predefinito: trovare il **Gestione area** elenco e fare clic sull'area in cui si desidera esplorare, ad esempio **(locale**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Selezionare **archiviazione** dal **i provider di risorse** elenco.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. A questo punto, nel Pannello di amministrazione Provider di risorse di archiviazione: scorrere verso il basso il **gli account di archiviazione** scheda e farvi clic sopra.
+5. A questo punto, nel riquadro amministrazione Provider di risorse di archiviazione: scorrere verso il basso il **gli account di archiviazione** scheda e farvi clic sopra.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -52,34 +52,34 @@ Se si è interessati a un determinato account di archiviazione, è possibile **f
 
 **Per filtrare per gli account:**
 
-1. Fare clic su **filtro** nella parte superiore del pannello.
-2. Nel pannello filtro, consente di specificare **nome account**, **ID sottoscrizione** o **stato** per ottimizzare l'elenco di account di archiviazione da visualizzare. Li utilizzi come appropriato.
+1. Fare clic su **filtro** nella parte superiore del riquadro.
+2. Nel riquadro filtro consente di specificare **nome account**, * * ID sottoscrizione, o **stato** per ottimizzare l'elenco di account di archiviazione da visualizzare. Li utilizzi come appropriato.
 3. Fare clic su **Update**. L'elenco è necessario aggiornare di conseguenza.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Per reimpostare il filtro: fare clic su **filtro**, cancellare le selezioni e aggiornare.
 
-La casella di testo di ricerca (nella parte superiore nel Pannello di elenco degli account di archiviazione) consente di evidenziare il testo selezionato nell'elenco di account. Questo è molto utile nel caso quando il nome completo o l'id non è facilmente disponibile.
+La casella di testo di ricerca (nella parte superiore nel riquadro elenco gli account di archiviazione) consente di evidenziare il testo selezionato nell'elenco di account. È possibile utilizzare questo quando il nome completo o l'ID non è facilmente disponibile.
 
 È possibile utilizzare qui testo libero per individuare l'account a cui che si è interessati.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Esaminare i dettagli dell'account
-Dopo aver individuato gli account che si desidera visualizzare, è possibile scegliere l'account specifico per visualizzare determinate informazioni. Apre un nuovo pannello con i dettagli dell'account, ad esempio: il tipo dell'account, l'ora di creazione, posizione, e così via.
+Dopo aver individuato gli account che si desidera visualizzare, è possibile scegliere l'account specifico per visualizzare determinate informazioni. Apre un nuovo riquadro con i dettagli dell'account, ad esempio: il tipo dell'account, l'ora di creazione, posizione, e così via.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
 ## <a name="recover-a-deleted-account"></a>Ripristinare un account eliminato
 Potrebbe essere in una situazione in cui è necessario ripristinare un account eliminato.
 
-Nello Stack di Azure è un modo molto semplice per eseguire questa operazione:
+Nello Stack di Azure è un modo semplice per eseguire questa operazione:
 
 1. Selezionare l'elenco di account di archiviazione. Vedere [trovare un account di archiviazione](#find) in questo argomento per ulteriori informazioni.
 2. Individuare l'account specifico nell'elenco. Potrebbe essere necessario filtrare.
 3. Controllare il *stato* dell'account. Dovrebbe essere visualizzato **Deleted**.
-4. Fare clic sull'account che verrà aperto il pannello dei dettagli account.
-5. Nella parte superiore di questo pannello, individuare il **ripristinare** pulsante e farvi clic sopra.
+4. Selezionare l'account, che consente di aprire il riquadro dei dettagli account.
+5. Nella parte superiore di questo riquadro, individuare il **ripristinare** pulsante e farvi clic sopra.
 6. Fare clic su **Sì** per confermare.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
@@ -93,10 +93,10 @@ Nello Stack di Azure è un modo molto semplice per eseguire questa operazione:
 ### <a name="some-gotchas"></a>Alcuni problemi
 * L'account eliminato Mostra lo stato come **fuori memorizzazione**.
   
-  Ciò significa che l'account eliminato ha superato il periodo di memorizzazione e potrebbe non essere ripristinabile.
+  Fuori memorizzazione significa che l'account eliminato ha superato il periodo di memorizzazione e potrebbe non essere ripristinabile.
 * L'account eliminato non viene visualizzato nell'elenco degli account.
   
-  Ciò vuol dire che l'account eliminato è già stato sottoposto a garbage collection. In questo caso non può essere recuperato. Vedere [recuperare capacità](#reclaim) in questo argomento.
+  L'account in uso non vengano visualizzate nell'elenco di account quando l'account eliminato è già stato sottoposto a garbage collection. In questo caso, non può essere recuperato. Vedere [recuperare capacità](#reclaim) in questo argomento.
 
 ## <a name="set-the-retention-period"></a>Impostare il periodo di memorizzazione
 L'impostazione del periodo di conservazione consente un operatore di cloud specificare un periodo di tempo in giorni (compreso tra 0 e 9999 giorni) durante il quale può essere recuperato potenzialmente qualsiasi account eliminato. Periodo di memorizzazione predefinito è impostato su 15 giorni. Impostazione del valore su "0", tutti gli account eliminati immediatamente fuori memorizzazione che sia contrassegnata per periodicamente operazioni di garbage collection.
@@ -107,7 +107,7 @@ L'impostazione del periodo di conservazione consente un operatore di cloud speci
 2. Accedere al portale di amministrazione di Azure Stack come un operatore cloud (utilizzando le credenziali specificate durante la distribuzione)
 3. Nel dashboard predefinito: trovare il **Gestione area** elenco e fare clic sull'area in cui si desidera esplorare, ad esempio **(locale**).
 4. Selezionare **archiviazione** dal **i provider di risorse** elenco.
-5. Fare clic su **impostazioni** nella parte superiore per aprire il pannello di impostazione.
+5. Fare clic su **impostazioni** nella parte superiore per aprire il riquadro di impostazione.
 6. Fare clic su **configurazione** quindi modificare il valore del periodo di memorizzazione.
 
    Imposta il numero di giorni e quindi salvarlo.
@@ -122,8 +122,8 @@ Uno degli effetti collaterali del periodo di memorizzazione è che un account el
 È possibile recuperare capacità tramite il portale o PowerShell.
 
 **Per recuperare la capacità di utilizzo del portale:**
-1. Passare al pannello degli account di archiviazione. Vedere [trovare un account di archiviazione](#find).
-2. Fare clic su **recuperare spazio** nella parte superiore del pannello.
+1. Passare al riquadro di account di archiviazione. Vedere [trovare un account di archiviazione](#find).
+2. Fare clic su **recuperare spazio** nella parte superiore del riquadro.
 3. Leggere il messaggio e quindi fare clic su **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
@@ -142,7 +142,7 @@ Uno degli effetti collaterali del periodo di memorizzazione è che un account el
 2. Eseguire il cmdlet seguente:
 
 > [!NOTE]
-> Se si esegue questo cmdlet eliminare definitivamente l'account e il relativo contenuto. e non è più recuperabile. Utilizzarlo con cautela.
+> Se si esegue questo cmdlet, è eliminare definitivamente l'account e il relativo contenuto. e non è più recuperabile. Utilizzarlo con cautela.
 
 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
@@ -187,7 +187,7 @@ A causa di archiviazione non uniformi utilizzato dai tenant, un operatore di clo
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Avviare la migrazione di un contenitore, questa è un'implementazione asincrona, in modo sia possibile ciclo in una condivisione di tutti i contenitori e tenere traccia dello stato utilizzando l'id di processo restituito.
+6. Avviare la migrazione di un contenitore, questa è un'implementazione asincrona, in modo sia possibile ciclo in una condivisione di tutti i contenitori e tenere traccia dello stato utilizzando l'ID di processo restituito.
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
@@ -197,7 +197,7 @@ A causa di archiviazione non uniformi utilizzato dai tenant, un operatore di clo
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Controllare lo stato del processo di migrazione dall'id processo. Al termine della migrazione di contenitore, MigrationStatus è impostato su "Completato".
+7. Controllare lo stato del processo di migrazione dall'ID processo. Al termine della migrazione di contenitore, MigrationStatus è impostata su "Completato".
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
@@ -209,7 +209,7 @@ A causa di archiviazione non uniformi utilizzato dai tenant, un operatore di clo
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    È possibile controllare nuovamente lo stato dell'operazione di annullamento della migrazione:
+    È possibile controllare che lo stato della migrazione Annulla nuovamente:
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: sajagtap
-ms.openlocfilehash: 43e22e553b5243d6edc413c7a667089793f95396
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1b473a6aef87e5f4c75be2becbf814ecaaab6f3a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti
 
@@ -90,6 +90,7 @@ L'esempio di codice .NET seguente usa Media Services .NET SDK per eseguire un pr
 Vedere [Content Moderator Video Quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) (Guida introduttiva ai video di Content Moderator) per il codice sorgente completo e il progetto di Visual Studio.
 
 
+```csharp
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
     /// </summary>
@@ -155,14 +156,14 @@ Vedere [Content Moderator Video Quickstart](../cognitive-services/Content-Modera
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-Per il codice sorgente completo e il progetto di Visual Studio, vedere [Content Moderator Video Quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md) (Guida introduttiva ai video di Content Moderator).
+For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../cognitive-services/Content-Moderator/video-moderation-api.md).
 
-### <a name="json-output"></a>Output JSON
+### JSON output
 
-L'esempio seguente di output JSON di Content Moderator è stato troncato.
+The following example of a Content Moderator JSON output was truncated.
 
 > [!NOTE]
-> Percorso di un fotogramma chiave in secondi = timestamp/scala cronologica
+> Location of a keyframe in seconds = timestamp/timescale
 
     {
     "version": 2,
@@ -213,7 +214,7 @@ L'esempio seguente di output JSON di Content Moderator è stato troncato.
     }
     ]
     }
-
+```
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

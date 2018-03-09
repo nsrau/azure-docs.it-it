@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 21a050373a9901220e106534464a8c13565bb3d8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 245e2e1ca52e7d3c5bd22d5f2569e3e8d7ae6671
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
 
@@ -54,11 +54,11 @@ Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiv
 
 ### <a name="user-permissions"></a>Autorizzazioni utente
 
-Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` o `clouddrive` non è permanente.
+Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` non è permanente.
 
 ### <a name="editing-bashrc"></a>Modifica di .bashrc
 
-Fare attenzione quando si modifica il file con estensione bashrc, poiché questa operazione può provocare errori imprevisti con Bash in Cloud Shell.
+Fare attenzione quando si modifica il file con estensione bashrc, poiché questa operazione può provocare errori imprevisti in Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitazioni PowerShell
 
@@ -68,7 +68,7 @@ L'inizializzazione di PowerShell in Azure Cloud Shell (anteprima) può richieder
 
 ### <a name="no-home-directory-persistence"></a>Nessuna persistenza directory $Home
 
-I dati scritti in `$Home` da qualsiasi applicazione (ad esempio git, vim e così via) non vengono mantenuti nelle sessioni di PowerShell. Per una soluzione alternativa, [vedere qui](troubleshooting.md#powershell-resolutions).
+I dati scritti in `$Home` da qualsiasi applicazione (ad esempio git, vim e così via) non vengono mantenuti nelle sessioni di PowerShell. Per una soluzione alternativa, [vedere qui](troubleshooting.md#powershell-troubleshooting).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure:
 

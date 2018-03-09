@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 02/27/2018
 ms.author: jeffgilb
-ms.reviewer: unknown
-ms.openlocfilehash: 6c02ec42874e4e3221c53e6d6e85378bbe2e414a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.reviewer: 
+ms.openlocfilehash: b773ddc5da12f92960ef3378decac8569dac9ab9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Funzionalità e concetti principali in Azure Stack
 
@@ -91,6 +91,7 @@ Le sottoscrizioni consentono di provider di organizzare e accedere alle risorse 
 
 Per l'amministratore, viene creata una sottoscrizione di Provider predefinito durante la distribuzione. Questa sottoscrizione è utilizzabile per gestire Azure Stack, distribuire ulteriormente i provider di risorse e creare i piani e le offerte per i tenant. E non deve essere utilizzato per eseguire applicazioni e i carichi di lavoro di cliente. 
 
+
 ## <a name="azure-resource-manager"></a>Gestione risorse di Azure
 Tramite Gestione risorse di Azure, per lavorare con le risorse di infrastruttura in un modello dichiarativo, basato su modello.   Fornisce una singola interfaccia che è possibile utilizzare per distribuire e gestire i componenti della soluzione. Per ulteriori informazioni e istruzioni, vedere il [Panoramica di gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
@@ -127,6 +128,25 @@ L'archivio code di Azure fornisce la messaggistica cloud tra i componenti dell'a
 
 ### <a name="keyvault"></a>Insieme di credenziali delle chiavi
 Il RP KeyVault fornisce la gestione e controllo dei segreti, ad esempio le password e certificati. Ad esempio, un tenant può utilizzare il RP KeyVault per fornire la password amministratore o chiavi durante la distribuzione della macchina virtuale.
+
+## <a name="high-availability-for-azure-stack"></a>Disponibilità elevata per lo Stack di Azure
+*Si applica a: Azure 1802 Stack o versioni successive*
+
+Per ottenere un'elevata disponibilità dei sistemi di produzione multi-VM in Azure, le macchine virtuali vengono inserite in un set di disponibilità che queste ultime vengono distribuite tra più domini di errore e domini di aggiornamento. In questo modo, [le macchine virtuali distribuite in set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) sono fisicamente isolate una da altra nel rack di server separati per consentire la resilienza di errore come illustrato nel diagramma seguente:
+
+  ![Disponibilità elevata di Azure Stack](media/azure-stack-key-features/high-availability.png)
+
+### <a name="availablity-sets-in-azure-stack"></a>Disponibilità imposta nello Stack di Azure
+Mentre l'infrastruttura di Azure Stack è ancora resistente agli errori, la tecnologia sottostante (failover clustering) ancora comporta tempi di inattività per le macchine virtuali in un server fisico interessati in caso di errore hardware. Stack di Azure supporta la presenza di un set di disponibilità con un massimo di tre domini di errore siano coerenti con Azure.
+
+- **Domini di errore**. Macchine virtuali posizionate in un set di disponibilità è fisicamente isolate una da altra per la diffusione più uniforme possibile tra più domini di errore (nodi di Azure Stack). In caso di errore hardware, le macchine virtuali dal dominio di errore verranno riavviate in altri domini di errore, ma, se possibile, mantenute in domini di errore da altre macchine virtuali nello stesso set di disponibilità. Quando l'hardware viene riportato online, le macchine virtuali saranno ribilanciate per mantenere la disponibilità elevata. 
+ 
+- **Domini di aggiornamento**. Domini di aggiornamento sono un altro concetto di Azure che fornisce disponibilità elevata in set di disponibilità. Un dominio di aggiornamento è un gruppo logico di hardware sottostante che può essere sottoposto a manutenzione nello stesso momento. Macchine virtuali presenti nello stesso dominio di aggiornamento verranno riavviate insieme durante la manutenzione pianificata. Quando i tenant creano le macchine virtuali all'interno di un set di disponibilità, la piattaforma Azure le macchine virtuali vengono distribuite automaticamente in tali domini di aggiornamento. Nello Stack di Azure, le macchine virtuali sono in tempo reale la migrazione tra gli altri host nel cluster online prima dell'aggiornamento dell'host sottostante. Perché è presente alcun tempo di inattività tenant durante l'aggiornamento di un host, la funzionalità del dominio di aggiornamento nello Stack di Azure esiste solo per compatibilità dei modelli con Azure. 
+
+### <a name="upgrade-scenarios"></a>Scenari di aggiornamento 
+Macchine virtuali nel set di disponibilità creato prima versione di Azure Stack 1802 viene assegnato un numero predefinito di domini di errore e aggiornamento (1 e 1 rispettivamente). Per ottenere disponibilità elevata per le macchine virtuali in questi set di disponibilità esistente, è necessario innanzitutto eliminare le macchine virtuali esistenti e quindi distribuirli in un nuovo set di disponibilità con i conteggi di dominio di errore e di aggiornamento corretti come descritto in [modifica il set di disponibilità per una macchina virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+
+Per il set di scalabilità di macchine Virtuali, un set di disponibilità viene creato internamente con un numero di domini predefiniti dominio e l'aggiornamento dell'errore (3 e 5 rispettivamente). Tutte le VM ridimensionare i set creati prima dell'aggiornamento 1802 verrà inserita in un set di disponibilità con i conteggi di dominio predefinito errore e di aggiornamento (1 e 1 rispettivamente). Per aggiornare queste istanze di set di scalabilità macchina virtuale per ottenere la diffusione più recente, scalare orizzontalmente il set di scalabilità della macchina virtuale per il numero di istanze che erano presenti prima dell'aggiornamento 1802 e quindi eliminare le istanze precedenti del set di scalabilità della macchina virtuale. 
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo può essere usato per concedere l'accesso al sistema a utenti autorizzati, gruppi e servizi tramite l'assegnazione di ruoli a livello di sottoscrizione, gruppo di risorse o singola risorsa. Ogni ruolo definisce il livello di accesso di un utente, un gruppo o un servizio rispetto alle risorse di Microsoft Azure Stack.
