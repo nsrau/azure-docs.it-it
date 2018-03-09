@@ -26,6 +26,6 @@
 
     ![Notifica di distribuzione avviata](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-nosql-notification.png)
 
-6.  Al termine della distribuzione aprire il nuovo account dal riquadro Tutte le risorse. 
+6. Al termine della distribuzione aprire il nuovo account dal riquadro Tutte le risorse. 
 
     ![Account Azure Cosmos DB nel riquadro Tutte le risorse](./media/cosmos-db-create-dbaccount-mongodb/azure-documentdb-all-resources.png)
