@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 03/01/2018
 ms.author: jgao
-ms.openlocfilehash: 1dbad36b7420791e70066263a566f1820823ad27
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: baad137a6f982df987faf95d7c7c595698e8e399
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Creare un cluster Apache Spark in Azure HDInsight
 
@@ -47,8 +47,8 @@ Creare un cluster HDInsight Spark usando un [modello di Azure Resource Manager](
     * **Gruppo di risorse**: creare un gruppo di risorse o selezionarne uno esistente. Il gruppo di risorse viene usato per gestire le risorse di Azure per i progetti.
     * **Posizione**: selezionare una posizione per il gruppo di risorse. Il modello usa questa posizione per la creazione del cluster e per l'archiviazione del cluster predefinita.
     * **Nome cluster**: immettere un nome per il cluster HDInsight che si vuole creare.
-    * **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin.
-    * **Nome utente e password SSH**.
+    * **Nome utente e password di accesso del cluster**: il nome dell'account di accesso predefinito è admin. Scegliere una password per l'accesso al cluster.
+    * **Nome utente e password SSH**. Scegliere una password per l'utente SSH.
 
 3. Selezionare **Accetto le condizioni riportate sopra**, selezionare **Aggiungi al dashboard** e quindi fare clic su **Acquista**. Verrà visualizzato un nuovo riquadro denominato **Distribuzione dell'entità Distribuzione modello in corso**. La creazione del cluster richiede circa 20 minuti.
 
@@ -103,16 +103,17 @@ Per un esempio di lettura dei dati da un file CSV invece che da una tabella Hive
 
     ![Query Hive in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Query Hive in HDInsight Spark")
 
-2. Quando il kernel è pronto, incollare il codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO** per eseguire il codice. L'output dovrebbe elencare una tabella `hivesampletable` disponibile nel cluster per impostazione predefinita.
+2. Quando il kernel è pronto, incollare il codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO** per eseguire il codice. Il comando elenca le tabelle Hive sul cluster:
 
     ```PySpark
     %%sql
     SHOW TABLES
     ```
+    Quando si usa un oggetto Jupyter Notebook con il cluster HDInsight Spark, si ottiene un elemento `sqlContext` predefinito che può essere usato per eseguire query Hive con Spark SQL. `%%sql` indica a Jupyter Notebook di usare l'elemento `sqlContext` predefinito per eseguire la query Hive. La query recupera le prime 10 righe di una tabella Hive (**hivesampletable**) disponibile per impostazione predefinita in tutti i cluster HDInsight. Per ottenere i risultati sono necessari circa 30 secondi. L'output è simile al seguente: 
 
     ![Query Hive in HDInsight Spark](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "Query Hive in HDInsight Spark")
 
-    Quando si usa un oggetto Jupyter Notebook con il cluster HDInsight Spark, si ottiene un elemento `sqlContext` predefinito che può essere usato per eseguire query Hive con Spark SQL. `%%sql` indica a Jupyter Notebook di usare l'elemento `sqlContext` predefinito per eseguire la query Hive. La query recupera le prime 10 righe di una tabella Hive (**hivesampletable**) disponibile per impostazione predefinita in tutti i cluster HDInsight. Per altre informazioni sul magic `%%sql` e sui contesti predefiniti, vedere i [kernel Jupyter disponibili per un cluster HDInsight](apache-spark-jupyter-notebook-kernels.md).
+    Per altre informazioni sul magic `%%sql` e sui contesti predefiniti, vedere i [kernel Jupyter disponibili per un cluster HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
     Ogni volta che si esegue una query in Jupyter, il titolo della finestra del Web browser visualizza lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio pieno accanto al testo **PySpark** nell'angolo in alto a destra.
     

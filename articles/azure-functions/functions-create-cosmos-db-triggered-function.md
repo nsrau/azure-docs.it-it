@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Nome del database | ID univoco per il database di Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Questo argomento usa l'API del database di documenti.  |
-    | **Sottoscrizione** | Sottoscrizione di Azure | Sottoscrizione di Azure  |
+    | **Sottoscrizione** | Sottoscrizione di Azure | Sottoscrizione in cui viene creato questo nuovo account Cosmos DB.  |
     | **Gruppo di risorse** | myResourceGroup |  Usare il gruppo di risorse esistente che contiene l'app per le funzioni. |
     | **Posizione**  | Europa occidentale | Selezionare una località nei pressi dell'app per le funzioni o di altre app che usano i documenti archiviati.  |
 

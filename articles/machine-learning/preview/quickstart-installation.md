@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 2/22/2018
-ms.openlocfilehash: 186a7b5632c1680e80e087e8f855eaacf3448207
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 33ced510dc9579248b75fb21520d55bd747a6a5c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end. Consentono a data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
-Questa guida introduttiva spiega come:
+Questa guida introduttiva illustra come effettuare le operazioni seguenti:
 
 * Creare account del servizio per servizi Azure Machine Learning
 * Installare Azure Machine Learning Workbench ed eseguire l'accesso
@@ -29,7 +29,9 @@ Questa guida introduttiva spiega come:
 * Accedere all'interfaccia della riga di comando
 
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Poiché sono parte del portfolio di Microsoft Azure, i servizi di Azure Machine Learning richiedono una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Inoltre, è necessario avere le autorizzazioni adeguate per creare risorse quali gruppi di risorse, macchine virtuali e così via. 
 
 <a name="prerequisites"></a>È possibile installare l'applicazione Azure Machine Learning Workbench nei sistemi operativi seguenti:
 - Windows 10 o Windows Server 2016
@@ -55,20 +57,20 @@ Usare il portale di Azure per effettuare il provisioning degli account di Azure 
 
 1. Nel riquadro **Sperimentazione di ML** configurare l'account di Sperimentazione Machine Learning. 
 
-   Impostazione|Valore consigliato per l'esercitazione|Descrizione
+   Impostazione|Valore consigliato per l'esercitazione|DESCRIZIONE
    ---|---|---
-   Nome dell'account di Sperimentazione | _Nome univoco_ |Immettere un nome univoco che identifica l'account. È possibile usare il proprio nome o il nome di un reparto o un progetto che identifichi l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). 
+   Nome account di Experimentation | _Nome univoco_ |Immettere un nome univoco che identifica l'account. È possibile usare il proprio nome o il nome di un reparto o un progetto che identifichi l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). 
    Sottoscrizione | _Sottoscrizione in uso_ |Scegliere la sottoscrizione di Azure da usare per l'esperimento. Se si hanno più sottoscrizioni, scegliere quella appropriata per la fatturazione della risorsa.
-   Gruppo di risorse | _Gruppo di risorse in uso_ | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse per questo account di Sperimentazione. 
+   Gruppo di risorse | _Il gruppo di risorse_ | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse per questo account di Sperimentazione. 
    Località | _Area più vicina ai propri utenti_ | Scegliere la località più vicina agli utenti e alle risorse di dati.
-   Numero di postazioni | 2 | Immettere il numero di postazioni. Informazioni sull'[impatto delle postazioni sui prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Per questa guida introduttiva sono necessarie due sole postazioni. È possibile aggiungere o rimuovere le postazioni secondo necessità nel portale di Azure.
+   Number of seats (Numero di postazioni) | 2 | Immettere il numero di postazioni. Informazioni sull'[impatto delle postazioni sui prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).<br/><br/>Per questa guida introduttiva sono necessarie due sole postazioni. È possibile aggiungere o rimuovere le postazioni secondo necessità nel portale di Azure.
    Account di archiviazione | _Nome univoco_ | Selezionare **Crea nuovo** e specificare un nome per creare un [account di archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=portal). In alternativa, selezionare **Usa esistente** e selezionare un account di archiviazione esistente nell'elenco a discesa. L'account di archiviazione è obbligatorio e viene usato per contenere gli elementi del progetto e i dati della cronologia di esecuzione. 
-   Area di lavoro per l'account di Sperimentazione | IrisGarden | Specificare un nome per un'area di lavoro per questo account. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
-   Assegna proprietario per l'area di lavoro | _L'account_ | Selezionare il proprio account come proprietario dell'area di lavoro.
-   Crea account di Gestione modelli | **selezionare** |Creare ora un account di Gestione modelli in modo che questa risorsa sia disponibile quando si vogliono distribuire e gestire i modelli come servizi Web in tempo reale. <br/><br/>Anche se facoltativo, è consigliabile creare l'account di Gestione modelli al momento della creazione dell'account di Sperimentazione.
+   Workspace for Experimentation account (Area di lavoro per account di Sperimentazione) | IrisGarden<br/>(nome usato nelle esercitazioni) | Specificare un nome per un'area di lavoro per questo account. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). Quest'area di lavoro contiene tutti gli strumenti necessari per la creazione, la gestione e la pubblicazione di esperimenti.
+   Assign owner for the workspace (Proprietario area di lavoro) | _L'account_ | Selezionare il proprio account come proprietario dell'area di lavoro.
+   Creare un account di Gestione modelli | **check** |Creare ora un account di Gestione modelli in modo che questa risorsa sia disponibile quando si vogliono distribuire e gestire i modelli come servizi Web in tempo reale. <br/><br/>Anche se facoltativo, è consigliabile creare l'account di Gestione modelli al momento della creazione dell'account di Sperimentazione.
    Nome account | _Nome univoco_ | Scegliere un nome univoco per identificare l'account di Gestione modelli. È possibile usare il proprio nome o il nome di un reparto o un progetto che identifichi l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). 
    Piano tariffario di Gestione modelli | **DEVTEST** | Selezionare **Nessun piano tariffario selezionato** per specificare il piano tariffario per il nuovo account di Gestione modelli. Per risparmiare sui costi selezionare il piano tariffario **DEVTEST** se è disponibile per la sottoscrizione (disponibilità limitata). In caso contrario, per risparmiare sui costi selezionare il piano tariffario S1. Fare clic su **Seleziona** per salvare la selezione del piano tariffario. 
-   Aggiungi al dashboard | _selezionare_ | Selezionare l'opzione **Aggiungi al dashboard** per tenere facilmente traccia dell'account di Sperimentazione di Machine Learning nella pagina iniziale del dashboard del portale di Azure.
+   Aggiungi al dashboard | _check_ | Selezionare l'opzione **Aggiungi al dashboard** per tenere facilmente traccia dell'account di Sperimentazione di Machine Learning nella pagina iniziale del dashboard del portale di Azure.
 
    ![Configurazione dell'account di Sperimentazione di Machine Learning](media/quickstart-installation/portal-create-experimentation.png)
 
@@ -139,9 +141,9 @@ In questo caso viene creato un nuovo progetto Workbench usando un modello che in
 
 1. Compilare i campi del modulo e selezionare il pulsante **Create** (Crea) per creare un nuovo progetto in Workbench.
 
-   Campo|Valore consigliato per l'esercitazione|Descrizione
+   Campo|Valore consigliato per l'esercitazione|DESCRIZIONE
    ---|---|---
-   Nome progetto | myIris |Immettere un nome univoco che identifica l'account. È possibile usare il proprio nome o il nome di un reparto o un progetto che identifichi l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). 
+   Project name (Nome progetto) | myIris |Immettere un nome univoco che identifica l'account. È possibile usare il proprio nome o il nome di un reparto o un progetto che identifichi l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). 
    Directory del progetto | c:\Temp\ | Specificare la directory in cui viene creato il progetto.
    Descrizione del progetto | _lasciare vuoto_ | Campo facoltativo utile per descrivere i progetti.
    Visualstudio.com |_lasciare vuoto_ | Campo facoltativo. Un progetto può essere facoltativamente associato a un repository Git in Visual Studio Team Services per il controllo del codice sorgente e la collaborazione. [Informazioni su come eseguire la configurazione](https://docs.microsoft.com/en-us/azure/machine-learning/preview/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 

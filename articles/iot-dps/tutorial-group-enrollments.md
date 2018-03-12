@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 14e5e7613fd5df650625cf8997d569b754ceb689
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 2f1ae92c05e02dffa22fb2c64c6c076a0adfc176
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo X.509 simulato usando un dispositivo Java, un SDK del servizio e gruppi di registrazioni per il servizio Device Provisioning in hub IoT
 
@@ -39,9 +39,7 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
     > Questo passaggio richiede [OpenSSL](https://www.openssl.org/), che può essere compilato e installato dall'origine e installato da [terze parti](https://wiki.openssl.org/index.php/Binaries) come [questa](https://sourceforge.net/projects/openssl/). Se sono già stati creati i certificati di tipo _radice_, _intermedio_ e _dispositivo_, è possibile saltare questo passaggio.
     >
 
-1. Creare le informazioni sul gruppo di registrazioni:
-
-    1. Eseguire il **Passaggio 1** e il **Passaggio 2** per creare i certificati _radice_ e _intermedio_.
+    1. Eseguire i primi due passaggi per creare i certificati _radice_ e _intermedio_.
 
     1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio di provisioning.
 
@@ -56,16 +54,16 @@ Assicurarsi di completare la procedura descritta in [Configurare il servizio Dev
 
         1. Selezionare il certificato appena creato:
             - Fare clic su **Genera codice di verifica**. Copiare il codice generato.
-            - Eseguire completamente il **Passaggio 3**. Immettere il _codice di verifica_ o fare clic con il pulsante destro del mouse o incollare il codice nella finestra di PowerShell in esecuzione.  Premere **Invio**.
+            - Eseguire il passaggio di verifica. Immettere il _codice di verifica_ o fare clic con il pulsante destro del mouse o incollare il codice nella finestra di PowerShell in esecuzione.  Premere **Invio**.
             - Selezionare il file **_verifyCert4.pem_** appena creato nel portale di Azure. Fare clic su **Verifica**.
 
             ![Convalidare il certificato](./media/tutorial-group-enrollments/validate-certificate.png)
 
-1. Completare la procedura eseguendo il **Passaggio 4** e il **Passaggio 5** per creare i certificati del dispositivo e pulire le risorse.
+    1. Completare la procedura eseguendo i passaggi per creare i certificati del dispositivo e pulire le risorse.
 
-> [!NOTE]
-> Quando si creano certificati del dispositivo, assicurarsi di usare solo caratteri alfanumerici minuscoli e trattini nel nome del dispositivo.
->
+    > [!NOTE]
+    > Quando si creano certificati del dispositivo, assicurarsi di usare solo caratteri alfanumerici minuscoli e trattini nel nome del dispositivo.
+    >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>Creare una voce per la registrazione dei dispositivi

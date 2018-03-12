@@ -15,18 +15,20 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60e6737533e946512ae9b8e1e251e7bd6c9d0fe5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ac5067056a49eb18c80c6078960af9189984391a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurare il server Azure Multi-Factor Authentication per l'uso con AD FS in Windows Server
+
 Se l'organizzazione usa Active Directory Federation Services (ADFS), per proteggere le risorse del cloud o locali è possibile configurare il server Azure Multi-Factor Authentication per l'uso con ADFS. Questa configurazione attiva la verifica in due passaggi per gli endpoint di alto valore.
 
 Questo articolo illustra l'uso del server Azure Multi-Factor Authentication con AD FS in Windows Server 2012 R2 o Windows Server 2016. Per altre informazioni, vedere [Proteggere le risorse del cloud e locali mediante il server Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md).
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Proteggere AD FS per Windows Server con il server Azure Multi-Factor Authentication
+
 Quando si installa il server Multi-Factor Authentication sono disponibili le opzioni seguenti:
 
 * Installare il server Azure Multi-Factor Authentication in locale nello stesso server di AD FS
@@ -41,6 +43,7 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 * Per informazioni sull'installazione dell'SDK del servizio Web con il portale utenti, vedere l'articolo relativo alla [distribuzione del portale utenti per il server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-portal.md).
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Installare il server Azure Multi-Factor Authentication in locale nel server AD FS
+
 1. Scaricare e installare il server Azure Multi-Factor Authentication nel server ADFS. Per informazioni sull'installazione, vedere [Introduzione al server Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md).
 2. Nella console di gestione del server Azure Multi-Factor Authentication fare clic sull'icona **AD FS**. Selezionare le opzioni **Consenti registrazione utente** e **Consenti agli utenti di selezionare il metodo**.
 3. Selezionare eventuali opzioni aggiuntive per l'organizzazione.
@@ -65,6 +68,7 @@ Prima di iniziare, tenere presente le seguenti informazioni:
 A questo punto, il server Multi-Factor Authentication è configurato per essere un provider di autenticazione aggiuntivo per l'uso con AD FS.
 
 ## <a name="install-a-standalone-instance-of-the-ad-fs-adapter-by-using-the-web-service-sdk"></a>Installare un'istanza autonoma dell'adapter AD FS usando l'SDK del servizio Web
+
 1. Installare l'SDK del servizio Web nel server che esegue il server Multi-Factor Authentication.
 2. Copiare i file seguenti dalla directory \Programmi\Multi-Factor Authentication Server al server in cui si prevede di installare l'adapter AD FS:
    * MultiFactorAuthenticationAdfsAdapterSetup64.msi
@@ -79,16 +83,18 @@ A questo punto, il server Multi-Factor Authentication è configurato per essere 
 Per modificare il file MultiFactorAuthenticationAdfsAdapter.config, seguire questa procedura:
 
 1. Impostare il nodo **UseWebServiceSdk** su **true**.  
-2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, dove *certificatename* è il nome del certificato.  
+2. Impostare il valore di **WebServiceSdkUrl** sull'URL dell'SDK del servizio Web Multi-Factor Authentication. Ad esempio: *https://contoso.com/&lt;nomecertificato&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, dove *nomecertificato* è il nome del certificato.  
 3. Modificare lo script Register-MultiFactorAuthenticationAdfsAdapter.ps1 aggiungendo alla fine del comando `Register-AdfsAuthenticationProvider` `-ConfigurationFilePath &lt;path&gt;`, dove *&lt;path&gt;* è il percorso completo del file MultiFactorAuthenticationAdfsAdapter.config.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Configurare l'SDK del servizio Web con un nome utente e una password
+
 Per configurare l'SDK del servizio Web è possibile procedere in due modi: usando un nome utente e una password oppure un certificato client. Per la prima opzione, seguire questa procedura. Per la seconda opzione, vedere più avanti.  
 
 1. Impostare il valore di **WebServiceSdkUsername** su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;&#92;&lt;nome utente&gt;.  
 2. Impostare il valore di **WebServiceSdkPassword** sulla password dell'account appropriato.
 
 ### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>Configurare l'SDK del servizio Web con un certificato client
+
 Se si preferisce non usare un nome utente e una password, seguire questa procedura per configurare l'SDK del servizio Web con un certificato client.
 
 1. Ottenere un certificato client da un'autorità di certificazione per il server che esegue l'SDK del servizio Web. Informazioni su come [ottenere certificati client](https://technet.microsoft.com/library/cc770328.aspx).  
@@ -120,6 +126,7 @@ Se si preferisce non usare un nome utente e una password, seguire questa procedu
 Infine, per registrare la scheda, eseguire lo script \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 in PowerShell. L'adapter viene registrata come WindowsAzureMultiFactorAuthentication. È necessario riavviare il servizio ADFS per rendere effettiva la registrazione.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteggere le risorse Azure AD con ADFS
+
 Per proteggere le risorse cloud, configurare una regola attestazioni in modo che Active Directory Federation Services generi l'attestazione multipleauthn quando un utente esegue correttamente la verifica in due passaggi. Questa attestazione viene passata ad Azure AD. Seguire questa procedura per eseguire i passaggi:
 
 1. Aprire il componente di gestione di ADFS.
@@ -142,5 +149,17 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
     ![Aggiunta guidata regole attestazione di trasformazione](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
 9. Fare clic su **Fine**. Chiudere la console di gestione di ADFS.
 
+## <a name="troubleshooting-logs"></a>Log di risoluzione dei problemi
+
+Per contribuire alla risoluzione dei problemi della scheda AD FS del server di Multi-Factor Authentication, seguire questa procedura per abilitare la registrazione aggiuntiva.
+
+1. Nell'interfaccia del server di Multi-Factor Authentication aprire la sezione relativa ad AD FS e selezionare la casella di controllo **Abilita registrazione**.
+2. In ogni server di AD FS usare **regedit.exe** per creare la chiave `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Positive Networks\PhoneFactor\InstallPath` del Registro di sistema per il valore di stringa con il valore `C:\Program Files\Multi-Factor Authentication Server\` o una qualsiasi altra directory di propria scelta.  **Si noti che la barra rovesciata finale è importante.**
+3. Creare la directory `C:\Program Files\Multi-Factor Authentication Server\Logs` o qualsiasi altra directory, come indicato nel **Passaggio 2**.
+4. Concedere l'accesso di modifica alla directory Logs all'account del servizio AD FS.
+5. Riavviare il servizio AD FS.
+6. Assicurarsi che il file `MultiFactorAuthAdfsAdapter.log` sia stato creato nella directory Logs.
+
 ## <a name="related-topics"></a>Argomenti correlati
+
 Per la risoluzione dei problemi, vedere [Domande frequenti su Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)

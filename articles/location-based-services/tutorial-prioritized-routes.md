@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ac57996e7dced5ef0f0a993889bfc13b1d064167
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9501f3c8fa1abb6bcbfee086c542139596ab5504
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Trovare i percorsi per diverse modalità di trasporto tramite Servizi Location Based di Azure
 
@@ -209,9 +209,10 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
     ```
     Questo frammento di codice crea un oggetto [XMLHttpRequest](https://xhr.spec.whatwg.org/) e aggiunge un gestore eventi per analizzare la risposta in ingresso. Per ottenere una risposta, crea una matrice di coordinate per il percorso restituito e aggiunge tale elemento al livello `truckRouteLayerName` della mappa. 
     
-    Il frammento di codice invia anche la query al servizio di pianificazione percorso, per ottenere il percorso relativo ai punti iniziale e finale specificati, per la chiave dell'account. Per indicare il percorso per un autocarro pesante vengono usati i parametri facoltativi seguenti: - Il parametro `travelMode=truck` specifica la modalità di trasporto *truck*. Le altre modalità di trasporto supportate sono *taxi*, *bus*, *van*, *motorcycle* e la modalità predefinita *car*.
-        - I parametri `vehicleWidth`, `vehicleHeight` e `vehicleLength` specificano le dimensioni del veicolo in metri e vengono considerate solo se è impostata la modalità di trasporto *truck*.
-        - Il parametro `vehicleLoadType` classifica il carico come pericoloso e soggetto a limitazioni su alcune strade. Anche questo parametro viene considerato solo per la modalità *truck*.
+    Il frammento di codice invia anche la query al servizio di pianificazione percorso, per ottenere il percorso relativo ai punti iniziale e finale specificati, per la chiave dell'account. Per indicare il percorso per un autocarro pesante vengono usati i parametri facoltativi seguenti:
+   - Il parametro `travelMode=truck` specifica la modalità di trasporto *truck*. Le altre modalità di trasporto supportate sono *taxi*, *bus*, *van*, *motorcycle* e la modalità predefinita *car*.
+   - I parametri `vehicleWidth`, `vehicleHeight` e `vehicleLength` specificano le dimensioni del veicolo in metri e vengono considerate solo se è impostata la modalità di trasporto *truck*.
+   - Il parametro `vehicleLoadType` classifica il carico come pericoloso e soggetto a limitazioni su alcune strade. Anche questo parametro viene considerato solo per la modalità *truck*.
 
 2. Aggiungere il codice JavaScript seguente per ottenere il percorso di un'automobile usando il servizio di pianificazione percorso:
 
