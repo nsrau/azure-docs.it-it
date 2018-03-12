@@ -1,5 +1,5 @@
 # Panoramica
-## [Attività iniziali](get-started.md)
+## [Introduzione](get-started.md)
 ## [Certificazioni](sap-certifications.md)
 # SAP HANA in Azure (istanze Large)
 ## [Panoramica e architettura](hana-overview-architecture.md)
@@ -14,7 +14,11 @@
 ## [Installazione di SAP HANA a istanza singola](hana-get-started.md)
 ## [Guida alla distribuzione di S/4 HANA o BW/4 HANA SAP CAL](cal-s4h.md)
 ## [Guida operativa a SAP HANA in Azure](hana-vm-operations.md)
-## [Disponibilità elevata di SAP HANA nelle VM di Azure](sap-hana-high-availability.md)
+## Disponibilità di SAP HANA in Macchine virtuali di Azure
+### [Panoramica della disponibilità di SAP HANA in Azure](sap-hana-availability-overview.md)
+### [Disponibilità di SAP HANA in un'area di Azure](sap-hana-availability-one-region.md)
+### [Disponibilità di SAP HANA tra aree di Azure](sap-hana-availability-across-regions.md)
+## [Configurare la replica di sistema SAP HANA nelle macchine virtuali di Azure](sap-hana-high-availability.md)
 ## [Panoramica del backup di SAP HANA](sap-hana-backup-guide.md)
 ## [Backup a livello di file di SAP HANA](sap-hana-backup-file-level.md)
 ## [Backup degli snapshot di archiviazione di SAP HANA](sap-hana-backup-storage-snapshots.md)

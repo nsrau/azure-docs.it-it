@@ -236,10 +236,6 @@
               href: azure-stack-app-service-deploy.md
             - name: Distribuire il servizio app offline
               href: azure-stack-app-service-deploy-offline.md
-            - name: Aggiornare il provider di risorse di servizio App
-              href: azure-stack-app-service-update.md
-            - name: Aggiornare il provider di risorse di servizio App non in linea
-              href: azure-stack-app-service-update-offline.md
             - name: Aggiungere altri ruoli di lavoro Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurare le origini di distribuzione

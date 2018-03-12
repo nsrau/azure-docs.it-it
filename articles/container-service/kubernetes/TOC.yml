@@ -37,8 +37,6 @@
       href: container-service-kubernetes-ui.md
     - name: Usare grafici Helm
       href: container-service-kubernetes-helm.md
-    - name: Usare Jenkins con il servizio contenitore di Azure
-      href: container-service-kubernetes-jenkins.md
     - name: Rendere persistenti i dati con File di Azure
       href: ../../aks/azure-files.md?toc=%2fazure%2fcontainer-service%2fkubernetes%2ftoc.json
     - name: Usare la bozza con servizio contenitore di Azure
@@ -63,7 +61,7 @@
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
         - name: Distribuire un'app Spring Boot con il plug-in Maven fabric8
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acs

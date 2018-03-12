@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: brenduns
 ms.reviewer: chjoy
-ms.openlocfilehash: ccde5186d45700eb328ad7be27d330afc184918b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: deef5d5383fcfd8e13c8088cb7901b07621f53a7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit
 
@@ -342,68 +342,3 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 > [!IMPORTANT]
 > Anche il **azurestack\cloudadmin** account è il proprietario della sottoscrizione del Provider predefinito in ambienti di distribuzione di ADFS, non dispone di autorizzazioni a RDP nell'host. Continuare a utilizzare il **azurestack\azurestackadmin** account o l'account amministratore locale per eseguire l'accesso, accedere e gestire l'host in base alle esigenze.
 
-
-## <a name="build-201710201"></a>Compilazione 20171020.1
-
-### <a name="improvements-and-fixes"></a>Miglioramenti e correzioni
-
-Per visualizzare l'elenco dei miglioramenti e correzioni nella compilazione 20171020.1, vedere il [miglioramenti e correzioni](azure-stack-update-1710.md#improvements-and-fixes) sezione 1710 note per Azure Stack integrati sistemi. Alcuni degli elementi elencati nella sezione "ulteriori miglioramenti e correzioni" sono rilevanti solo per sistemi integrati.
-
-Inoltre, sono state apportate le seguenti correzioni:
-- Risolto un problema in cui il provider di risorse di calcolo visualizzato uno stato sconosciuto.
-- Risolto un problema in cui le quote potrebbero non essere visualizzato nel portale di amministrazione dopo crearli e riprovare in un secondo momento visualizzare i dettagli del piano.
-
-### <a name="known-issues"></a>Problemi noti
-
-#### <a name="powershell"></a>PowerShell
-- La versione del modulo PowerShell di Azure Resource Manager 1.2.11 viene fornito con un elenco di modifiche di rilievo. Per informazioni sull'aggiornamento dal 1.2.10 versione, vedere il [Guida alla migrazione](https://aka.ms/azspowershellmigration).
- 
-#### <a name="deployment"></a>Distribuzione
-- È necessario specificare un server utilizzando un indirizzo IP durante la distribuzione.
-
-#### <a name="infrastructure-management"></a>Gestione dell'infrastruttura
-- Non abilitare il backup di infrastruttura nel **backup infrastruttura** blade.
-- L'indirizzo IP di baseboard management controller (BMC) e il modello non vengono visualizzati le informazioni essenziali di un nodo di unità di scala. Questo comportamento è previsto nel Kit di sviluppo dello Stack di Azure.
-
-#### <a name="portal"></a>Portale
-- È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, selezionare l'icona dell'ingranaggio in alto a destra del portale e quindi selezionare **ripristinare le impostazioni predefinite**.
-- Quando si visualizzano le proprietà di un gruppo di risorse, il **spostare** pulsante è disabilitato. Questo comportamento è previsto. Spostare i gruppi di risorse tra le sottoscrizioni non è attualmente supportato.
--  Per qualsiasi flusso di lavoro in cui si seleziona una sottoscrizione, gruppo di risorse o alla posizione in un elenco a discesa, si verifichi uno o più dei seguenti problemi:
-
-   - È possibile visualizzare una riga vuota nella parte superiore dell'elenco. È comunque possibile selezionare un elemento come previsto.
-   - Se l'elenco di elementi nell'elenco a discesa è breve, non sarà possibile visualizzare i nomi degli elementi.
-   - Se si dispone di più sottoscrizioni utente, l'elenco di riepilogo a discesa gruppo di risorse può essere vuoto. 
-
-   Per risolvere i problemi ultimi due, è possibile digitare il nome della sottoscrizione o del gruppo di risorse (se si conosce) oppure è possibile usare PowerShell.
-
-- Verrà visualizzato un **attivazione richiesto** messaggio di avviso che consiglia di registrare il Kit di sviluppo dello Stack di Azure. Questo comportamento è previsto.
-- Nel **attivazione richiesto** avviso dettagli dell'avviso, non fare clic sul collegamento per il **AzureBridge** componente. In caso contrario, il **Panoramica** pannello correttamente tenterà di caricare, e non è previsto un timeout.
-- Nel portale di amministrazione, può vedere un **errore durante il recupero di tenant** errore durante il **notifiche** area. È possibile ignorare questo errore.
-- Se si elimina utente sottoscrizioni nelle risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
-- Non è in grado di visualizzare le autorizzazioni per la sottoscrizione tramite i portali di Stack di Azure. In alternativa, è possibile verificare le autorizzazioni tramite PowerShell.
- 
-#### <a name="marketplace"></a>Marketplace
-- Quando si tenta di aggiungere elementi a marketplace Stack Azure utilizzando il **Aggiungi da Azure** opzione, non tutti gli elementi potrebbero essere visibili per il download.
-- Gli utenti sfogliare il marketplace completo senza una sottoscrizione e di visualizzare gli elementi di amministrazione come piani e alle offerte. Questi elementi sono non funzionale agli utenti.
- 
-#### <a name="compute"></a>Calcolo
-- Gli utenti assegnati l'opzione per creare una macchina virtuale con l'archiviazione con ridondanza geografica. Questa configurazione causa l'errore durante la creazione macchina virtuale. 
-- È possibile configurare una macchina virtuale set di disponibilità solo con un dominio di errore di uno e un dominio di aggiornamento di uno.
-- Non sussiste alcuna esperienza di marketplace per creare il set di scalabilità di macchine virtuali. È possibile creare un set, utilizzando un modello di scalabilità.
-- Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile utilizzare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario utilizzare il `-Name` parametro anziché `-VMScaleSetName`.
-
-#### <a name="networking"></a>Rete
-- Tramite il portale, è possibile creare un servizio di bilanciamento del carico con un indirizzo IP pubblico. In alternativa, è possibile utilizzare PowerShell per creare il servizio di bilanciamento del carico.
-- Quando si crea un servizio di bilanciamento del carico di rete, è necessario creare una regola di translation (NAT) indirizzo di rete. In caso contrario, si riceverà un errore quando si tenta di aggiungere una regola NAT, dopo aver creato il bilanciamento del carico.
-- In **rete**, se si fa clic su **connessione** per impostare una connessione VPN, **per rete virtuale a** è elencato come un tipo di connessione. Non selezionare questa opzione. Attualmente, solo il **Site-to-site (IPsec)** opzione è supportata.
-- Dopo aver creata e associata a tale indirizzo IP della macchina virtuale è non è possibile eliminare l'associazione di un indirizzo IP pubblico da una macchina virtuale (VM). Disassociazione verrà visualizzata a funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato con la macchina virtuale originale. Questo comportamento si verifica anche se si riassegna l'indirizzo IP per una nuova macchina virtuale (conosciuta come un *scambio VIP*). Tutti i successivi tentativi di connessione attraverso il risultato di indirizzi IP in una connessione alla macchina virtuale di origine associati e non a quello nuovo. Attualmente, è necessario utilizzare solo i nuovi indirizzi IP pubblici per la creazione della nuova macchina virtuale.
- 
-#### <a name="sqlmysql"></a>SQL/MySQL 
-- È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
-- Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
-
-#### <a name="app-service"></a>Servizio app
-- Un utente deve registrare il provider di risorse di archiviazione prima di creare la prima funzione di Azure nella sottoscrizione.
- 
-#### <a name="usage-and-billing"></a>Utilizzo e fatturazione
-- Dati misuratore utilizzo degli indirizzi IP pubblici viene mostrata la stessa *EventDateTime* valore per ogni record anziché il *TimeDate* indicatore che mostra quando è stato creato il record. Attualmente è possibile utilizzare questi dati per eseguire contabilità precisa l'utilizzo degli indirizzi IP pubblico.

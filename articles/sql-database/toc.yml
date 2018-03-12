@@ -45,12 +45,14 @@
       href: sql-database-design-first-database.md
     - name: '1: Progettare database con .NET'
       href: sql-database-design-first-database-csharp.md
-    - name: 2 - Eseguire la migrazione del database SQL Server
+    - name: '2: Eseguire la migrazione al database SQL Server'
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - Proteggere il database SQL
       href: sql-database-security-tutorial.md
     - name: '4: Implementare un database con distribuzione geografica'
       href: sql-database-implement-geo-distributed-database.md
+    - name: '5: Creare un''istanza gestita'
+      href: sql-database-managed-instance-tutorial-portal.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -61,26 +63,26 @@
       href: sql-database-powershell-samples.md
 - name: Concetti
   items:
-    - name: Servizio di database
-      items:
-        - name: Server e database
-          href: sql-database-servers-databases.md
-        - name: Livelli di servizio
-          href: sql-database-service-tiers.md
-        - name: Limiti delle risorse
-          href: sql-database-resource-limits.md
-        - name: Database singoli
-          href: sql-database-single-database-resources.md
-        - name: Pool elastici
-          href: sql-database-elastic-pool.md
-        - name: Architettura della connettività
-          href: sql-database-connectivity-architecture.md
-        - name: DTU ed eDTU
-          href: sql-database-what-is-a-dtu.md
-        - name: Benchmark DTU
-          href: sql-database-benchmark-overview.md
-        - name: Funzionalità comuni di SQL Server
-          href: sql-database-features.md
+    - name: Server e database
+      href: sql-database-servers-databases.md
+    - name: Istanza gestita
+      href: sql-database-managed-instance.md
+    - name: Livelli di servizio
+      href: sql-database-service-tiers.md
+    - name: Limiti delle risorse
+      href: sql-database-resource-limits.md
+    - name: Database singoli
+      href: sql-database-single-database-resources.md
+    - name: Pool elastici
+      href: sql-database-elastic-pool.md
+    - name: Architettura della connettività
+      href: sql-database-connectivity-architecture.md
+    - name: DTU ed eDTU
+      href: sql-database-what-is-a-dtu.md
+    - name: Benchmark DTU
+      href: sql-database-benchmark-overview.md
+    - name: Funzionalità comuni di SQL Server
+      href: sql-database-features.md
     - name: Disponibilità elevata
       href: sql-database-high-availability.md
     - name: Sicurezza
@@ -101,8 +103,10 @@
           href: sql-database-ssms-mfa-authentication.md
         - name: Controllo
           href: sql-database-auditing.md
-        - name: Introduzione al rilevamento delle minacce
+        - name: Rilevamento delle minacce - Database SQL
           href: sql-database-threat-detection.md
+        - name: Rilevamento delle minacce - Istanza gestita
+          href: sql-database-managed-instance-threat-detection.md
         - name: Controllo Tabella e TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
         - name: Maschera dati dinamica
@@ -137,11 +141,15 @@
           href: sql-database-disaster-recovery-drills.md
     - name: Eseguire la migrazione al database SQL
       items:
-        - name: Panoramica
+        - name: Eseguire la migrazione al database SQL
           href: sql-database-cloud-migrate.md
-        - name: Modifiche di T-SQL
+        - name: Eseguire la migrazione a Istanza gestita
+          href: sql-database-managed-instance-migrate.md
+        - name: Dettagli T-SQL del database SQL
           href: sql-database-transact-sql-information.md
-        - name: Gestire il database dopo la migrazione
+        - name: Dettagli T-SQL dell'istanza gestita
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Gestire il database SQL dopo la migrazione
           href: sql-database-manage-after-migration.md
     - name: Caricare e spostare dati
       items:
@@ -265,6 +273,16 @@
           href: sql-database-elastic-query-horizontal-partitioning.md
         - name: Eseguire query in tabelle con schemi diversi
           href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Istanza gestita
+      items:
+        - name: Configurazione della rete virtuale
+          href: sql-database-managed-instance-vnet-configuration.md
+        - name: DNS personalizzato
+          href: sql-database-managed-instance-custom-dns.md
+        - name: Connettere le applicazioni
+          href: sql-database-managed-instance-connect-app.md
+        - name: Sincronizzare la configurazione di rete
+          href: sql-database-managed-instance-sync-network-configuration.md
     - name: Sicurezza
       items:
         - name: Configurare l'autorizzazione di Azure AD
@@ -472,4 +490,4 @@
     - name: Centro architetture
       href: /azure/architecture/
     - name: Casi di successo dei clienti
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

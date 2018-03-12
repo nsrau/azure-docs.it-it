@@ -20,6 +20,10 @@
 ## [Backup e ripristino](analysis-services-backup.md)
 ## [Eseguire l'aggiornamento con l'API REST](analysis-services-async-refresh.md)
 ## [Configurare l'aumento del numero di istanze](analysis-services-scale-out.md)
+## Automatizzare le attività amministrative
+### [Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Creare un'entità servizio - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Aggiungere un'entità di servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
 ## Gestione server
 ### [Configurare un alias del nome server](analysis-services-server-alias.md)
 ### [Gestire un server](analysis-services-manage.md)
@@ -52,7 +56,7 @@
 #### [Lezione supplementare: Sicurezza dinamica](tutorials/aas-supplemental-lesson-dynamic-security.md)
 #### [Lezione supplementare: Gerarchie incomplete](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)

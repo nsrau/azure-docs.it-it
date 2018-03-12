@@ -33,6 +33,9 @@
 #### [Creare un indirizzo IP pubblico in una zona di disponibilità con PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
 #### [Creare un indirizzo IP pubblico in una zona di disponibilità con l'interfaccia della riga di comando](../virtual-network/create-public-ip-availability-zone-cli.md)
 
+### Database SQL
+#### [Zone di disponibilità con il database SQL](../sql-database/sql-database-high-availability.md#availability-zones)
+
 ### Archiviazione
 #### [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage)
 

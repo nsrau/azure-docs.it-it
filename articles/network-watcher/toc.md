@@ -73,6 +73,7 @@
 ### [Visualizzare i modelli di traffico di rete usando strumenti open source](network-watcher-using-open-source-tools.md)
 ## Analizzare i log dei flussi dei gruppi di sicurezza di rete
 ### [Leggere i log del flusso del gruppo di sicurezza di rete](network-watcher-read-nsg-flow-logs.md)
+### [Usare Analisi del traffico](traffic-analytics.md)
 ### [Usare Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Usare Grafana](network-watcher-nsg-grafana.md)
