@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5e52e30b99e1d59c2f8bde17b31b0f1cb3d6d70
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 247f13717971d3660b3ec0ee94821bd593c5fed0
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-1802-update"></a>Aggiornamento dello Stack 1802 Azure
 
@@ -37,10 +37,6 @@ In questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto 
 ## <a name="before-you-begin"></a>Prima di iniziare    
 > [!IMPORTANT]    
 > Non tentare di creare macchine virtuali durante l'installazione dell'aggiornamento. Per ulteriori informazioni sulla gestione degli aggiornamenti, vedere [gestire gli aggiornamenti in panoramica di Azure Stack](/azure-stack-updates#plan-for-updates).
-
-> [!IMPORTANT]    
-> Quando si utilizza [SQL](/azure-stack-sql-resource-provider-deploy) o [MySQL](/azure-stack-mysql-resource-provider-deploy) i provider di risorse, è necessario eseguire versione 1712 prima di iniziare l'installazione della versione di Azure Stack 1802. Se è stata installata la versione Azure Stack 1802 i provider sono 1711 o versione precedente, è non possibile aggiornare non sono più i provider di risorse a una versione più recente.
-
 
 
 ### <a name="prerequisites"></a>Prerequisiti

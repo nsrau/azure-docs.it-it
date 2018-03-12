@@ -8,6 +8,8 @@
       href: overview.md
     - name: Definizione di macchine virtuale per l'apprendimento avanzato
       href: deep-learning-dsvm-overview.md
+    - name: Definizione di macchina virtuale data science con intelligenza artificiale geografica
+      href: geo-ai-dsvm-overview.md
 - name: Attività iniziali
   items:
     - name: Creare una macchina virtuale data science Windows
@@ -18,6 +20,8 @@
       href: linux-dsvm-intro.md
     - name: Creare una macchina virtuale per l'apprendimento avanzato
       href: provision-deep-learning-dsvm.md
+    - name: Creare una macchina virtuale data science con intelligenza artificiale geografica
+      href: provision-geo-ai-dsvm.md
 - name: Procedure
   items:
     - name: Usare una macchina virtuale data science Windows
@@ -26,6 +30,8 @@
       href: linux-dsvm-walkthrough.md
     - name: Usare una macchina virtuale per l'apprendimento avanzato
       href: use-deep-learning-dsvm.md
+    - name: Usare una macchina virtuale data science con intelligenza artificiale geografica
+      href: use-geo-ai-dsvm.md
 - name: riferimento
   expanded: true
   items:

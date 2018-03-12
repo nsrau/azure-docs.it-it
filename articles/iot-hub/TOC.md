@@ -11,7 +11,7 @@
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
-#### [Node.js](iot-hub-node-node-getstarted.md)
+#### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
 ### [Usare un simulatore online](iot-hub-raspberry-pi-web-simulator-get-started.md)
@@ -39,6 +39,9 @@
 ### [Gestione dei dispositivi con iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Gestione dei dispositivi con l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Monitoraggio remoto e notifiche con App per la logica](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+
+## Usare MXChip IoT DevKit
+### [Tradurre messaggi vocali con Servizi cognitivi di Azure](iot-hub-arduino-iot-devkit-az3166-translator.md)
 
 # Guide alle procedure
 ## Pianificazione
@@ -78,7 +81,7 @@
 ### Routing dei messaggi
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Node.JS](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)

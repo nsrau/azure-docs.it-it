@@ -62,11 +62,12 @@
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
 ## [Integrazione nel Centro sicurezza di Azure](application-gateway-integration-security-center.md)
 ## [Combinare i servizi di bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Configurare SSL end-to-end](application-gateway-end-to-end-ssl-powershell.md)
 ## Risolvere problemi
 ### [Risolvere gli errori nel gateway applicazione](application-gateway-troubleshooting-502.md)
 ### [Metriche e registrazione diagnostica](application-gateway-diagnostics.md)
 ### [Problemi di affinità delle sessioni del gateway applicazione](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
