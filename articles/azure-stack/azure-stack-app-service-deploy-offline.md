@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 042ebb0acc82a0cecabac7f2bc7c3b68e3ed362f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> Applicare l'aggiornamento 1802 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire il servizio App di Azure.
+>
+>
 
 Seguendo le istruzioni riportate in questo articolo, è possibile installare il [il provider di risorse di servizio App](azure-stack-app-service-overview.md) per un ambiente dello Stack di Azure:
 
@@ -141,8 +146,8 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
     | Gestione | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
-    | Editore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
+    | Autore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
+    | Front-end | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
     | Lavoro condiviso | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
 
     ![Programma di installazione del servizio App][14]
