@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 50bb3f8ca1032e704b9805beb54fbd4ea4f8e7c1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: feb99ae5bae16125d65a6c6e5776e6f3f286f0e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Guida introduttiva: Creare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure
 Il database di Azure per PostgreSQL è un servizio gestito che consente di eseguire, gestire e ridimensionare database PostgreSQL a disponibilità elevata nel cloud. L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida di avvio rapido mostra come creare un database di Azure per il server PostgreSQL in un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tramite l'interfaccia della riga di comando di Azure.
@@ -47,6 +47,26 @@ Aggiungere l'estensione di gestione di Database di Azure per PostgreSQL aggiorna
 ```azurecli-interactive
 az extension add --name rdbms
 ``` 
+
+Verificare che sia installata la versione dell'estensione corretta. 
+```azurecli-interactive
+az extension list
+```
+
+Il codice JSON restituito includerà gli elementi seguenti: 
+```json
+{
+    "extensionType": "whl",
+    "name": "rdbms",
+    "version": "0.0.3"
+}
+```
+
+Se non viene restituita la versione 0.0.3, eseguire questo comando per aggiornare l'estensione: 
+```azurecli-interactive
+az extension update --name rdbms
+```
+
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL
 
 Creare un [database di Azure per il server PostgreSQL](overview.md) tramite il comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Un server contiene un gruppo di database gestiti come gruppo. 

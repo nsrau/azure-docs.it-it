@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: d7e07104153aed36a3e426e053847551d2b2093c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 761e7193cc64699e8aa25a1fd625ba45f65eed88
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Esercitazione: Classificare i dati Iris - Parte 3: Distribuire un modello
 Azure Machine Learning (anteprima) è una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
-Questa esercitazione è la terza di una serie in tre parti. In questa parte dell'esercitazione si usa Machine Learning (anteprima) per:
+Questa esercitazione è la **terza di una serie in tre parti**. In questa parte dell'esercitazione si usa Machine Learning (anteprima) per:
 
 > [!div class="checklist"]
 > * Individuare il file di modello.

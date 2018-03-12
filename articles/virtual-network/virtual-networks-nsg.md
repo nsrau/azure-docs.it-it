@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
 
@@ -66,7 +66,7 @@ L'immagine precedente illustra come vengono elaborate le regole dei gruppi di si
 I tag predefiniti sono identificatori forniti dal sistema per risolvere una categoria di indirizzi IP. È possibile usare i tag predefiniti nelle proprietà **prefisso dell'indirizzo di origine** e **prefisso dell'indirizzo di destinazione** di qualsiasi regola. Esistono tre tag predefiniti utilizzabili.
 
 * **VirtualNetwork** (Resource Manager) o **VIRTUAL_NETWORK** (distribuzione classica): questo tag include lo spazio indirizzi della rete virtuale (intervalli CIDR definiti in Azure), tutti gli spazi indirizzi locali connessi e le reti virtuali di Azure connesse (reti locali).
-* **AzureLoadBalancer** (Resource Manager) o **AZURE_LOADBALANCER** (distribuzione classica): questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui hanno origine i probe di integrità di Azure.
+* **AzureLoadBalancer** (Resource Manager) o **AZURE_LOADBALANCER** (distribuzione classica): questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un IP del data center di Azure da cui hanno origine i probe di integrità di Azure Load Balancer.
 * **Internet** (Resource Manager) o **INTERNET** (distribuzione classica): questo tag identifica lo spazio indirizzi IP esterno alla rete virtuale e raggiungibile tramite Internet pubblico. L'intervallo include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="default-rules"></a>Regole predefinite
@@ -75,7 +75,7 @@ Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le 
 Le regole predefinite consentono o rifiutano il traffico come illustrato di seguito.
 - **Rete virtuale:** il traffico che ha origine e termina in una rete virtuale è consentito sia in ingresso che in uscita.
 - **Internet:** il traffico in uscita è consentito, mentre il traffico in ingresso viene bloccato.
-- **Servizio di bilanciamento del carico:** viene consentito al servizio di bilanciamento del carico di Azure di verificare tramite probe l'integrità delle VM e delle istanze del ruolo. Se non si usa un set con bilanciamento del carico, è possibile eseguire l'override di questa regola.
+- **Load Balancer**: viene consentito ad Azure Load Balancer di verificare tramite probe l'integrità delle VM e delle istanze del ruolo. Se si esegue override di questa regola, i probe di integrità di Azure Load Balancer avranno esito negativo e ciò potrebbe influire sul servizio.
 
 **Regole predefinite In ingresso**
 
@@ -163,7 +163,8 @@ Le regole del gruppo di sicurezza di rete correnti consentono solo i protocolli 
 ### <a name="load-balancers"></a>Servizi di bilanciamento del carico
 * Considerare le regole di bilanciamento del carico e NAT (Network Address Translation) per ogni servizio di bilanciamento del carico usato da ogni carico di lavoro. Le regole NAT sono associate a un pool back-end contenente interfacce di rete (Resource Manager) o VM/istanze del ruolo Servizi cloud (distribuzione classica). Valutare la possibilità di creare un gruppo di sicurezza di rete per ogni pool back-end, consentendo solo il traffico di cui è stato eseguito il mapping tramite le regole implementate nei servizi di bilanciamento del carico. La creazione di un gruppo di sicurezza di rete per ogni pool back-end garantisce che venga filtrato anche il traffico che arriva al pool back-end direttamente anziché attraverso il servizio di bilanciamento del carico.
 * Nelle distribuzioni classiche si creano endpoint che eseguono il mapping delle porte di un servizio di bilanciamento del carico alle porte delle VM o delle istanze del ruolo. È anche possibile creare un proprio servizio di bilanciamento del carico pubblico tramite Resource Manager. La porta di destinazione per il traffico in ingresso è la porta effettiva della VM o dell'istanza del ruolo e non la porta esposta da un servizio di bilanciamento del carico. La porta e l'indirizzo di origine per la connessione alla VM sono una porta e un indirizzo del computer remoto in Internet e non la porta e l'indirizzo esposti dal servizio di bilanciamento del carico.
-* Quando si creano gruppi di sicurezza di rete per filtrare il traffico che passa attraverso un servizio di bilanciamento del carico interno, l'intervallo di porte e indirizzi di origine applicato è quello del computer di origine e non quello del servizio di bilanciamento del carico. L'intervallo di porte e indirizzi di destinazione è quello del computer di destinazione e non quello del servizio di bilanciamento del carico.
+* Quando si creano gruppi di sicurezza di rete per filtrare il traffico che passa attraverso Azure Load Balancer, l'intervallo di porte e indirizzi di origine applicato è quello del computer di origine e non al front-end del servizio di bilanciamento del carico. L'intervallo di porte e indirizzi di destinazione è quello del computer di destinazione e non al front-end del servizio di bilanciamento del carico.
+* Se si blocca il tag AzureLoadBalancer, i probe di integrità da Azure Load Balancer avranno esito negativo e ciò potrebbe influire sul servizio.
 
 ### <a name="other"></a>Altri
 * Gli elenchi di controllo di accesso (ACL) basati su endpoint e i gruppi di sicurezza di rete non sono supportati nella stessa istanza di VM. Se si vuole usare un gruppo di sicurezza di rete ed è già presente un elenco di controllo di accesso basato su endpoint, rimuovere prima l'elenco di controllo di accesso. Per informazioni sulla rimozione di un ACL basato su endpoint, vedere l'articolo [Gestire elenchi di controllo di accesso di endpoint](virtual-networks-acl-powershell.md).
@@ -229,7 +230,7 @@ I gruppi di sicurezza di rete seguenti vengono creati e associati alle interfacc
 | Allow-Inbound-HTTP-Internet | CONSENTI | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> L'intervallo di indirizzi di origine per le regole precedenti è **Internet**, non l'indirizzo IP virtuale per il servizio di bilanciamento del carico. La porta di origine è *, non 500001. Le regole NAT per i servizi di bilanciamento del carico non sono uguali alle regole di sicurezza dei gruppi di sicurezza di rete. Le regole di sicurezza dei gruppi di sicurezza di rete sono sempre correlate all'origine e alla destinazione finale del traffico, **non** al servizio di bilanciamento del carico tra le due. 
+> L'intervallo di indirizzi di origine per le regole precedenti è **Internet**, non l'indirizzo IP virtuale per il servizio di bilanciamento del carico. La porta di origine è *, non 500001. Le regole NAT per i servizi di bilanciamento del carico non sono uguali alle regole di sicurezza dei gruppi di sicurezza di rete. Le regole di sicurezza dei gruppi di sicurezza di rete sono sempre correlate all'origine e alla destinazione finale del traffico, **non** al servizio di bilanciamento del carico tra le due. Azure Load Balancer conserva sempre l'indirizzo IP e la porta di origine.
 > 
 > 
 

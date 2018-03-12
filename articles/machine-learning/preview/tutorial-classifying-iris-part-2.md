@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: f52d4268c3983b419a6393bbd651301022688029
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9a1613e2137e178d00a24f9f5b3c802f8a894b15
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-classify-iris-part-2---build-a-model"></a>Esercitazione: Classificazione del set di dati - Parte 2: Creare un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
-Questa esercitazione è la seconda di una serie in tre parti. In questa parte dell'esercitazione si usano i servizi di Azure Machine Learning (anteprima) per:
+Questa esercitazione è la **seconda di una serie in tre parti**. In questa parte dell'esercitazione si usano i servizi di Azure Machine Learning (anteprima) per:
 
 > [!div class="checklist"]
 > * Usare Azure Machine Learning Workbench.

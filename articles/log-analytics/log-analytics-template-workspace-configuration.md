@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/05/2018
 ms.author: richrund
-ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
@@ -31,7 +31,6 @@ ms.lasthandoff: 01/10/2018
 * Raccogliere i contatori delle prestazioni dai computer Linux e Windows
 * Raccogliere gli eventi dal syslog sui computer Linux 
 * Raccogliere gli eventi dai log eventi di Windows
-* Raccogliere i log eventi personalizzati
 * Aggiungere l'agente Log Analytics a una macchina virtuale di Azure
 * Configurare Log Analytics per indicizzare i dati raccolti tramite Diagnostica di Azure
 
@@ -60,7 +59,6 @@ Il modello di esempio seguente illustra come:
 7. Raccogliere gli eventi syslog dai computer Linux
 8. Raccogliere gli eventi di errore e di avviso dal log eventi dell'applicazione dai computer Windows
 9. Raccogliere i dati del contatore delle prestazioni dei Mbyte di memoria disponibili dai computer Windows
-10. Raccogliere i dati di un log personalizzato 
 11. Raccogliere i log IIS e i log eventi di Windows scritti dalla diagnostica Azure in un account di archiviazione
 
 ```json
@@ -291,61 +289,6 @@ Il modello di esempio seguente illustra come:
           "kind": "LinuxPerformanceCollection",
           "properties": {
             "state": "Enabled"
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLog1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLog",
-          "properties": {
-            "customLogName": "sampleCustomLog1",
-            "description": "test custom log datasources",
-            "inputs": [
-              {
-                "location": {
-                  "fileSystemLocations": {
-                    "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
-                    "linuxFileTypeLogPaths": [ "/var/logs" ]
-                  }
-                },
-                "recordDelimiter": {
-                  "regexDelimiter": {
-                    "pattern": "\\n",
-                    "matchIndex": 0,
-                    "matchIndexSpecified": true,
-                    "numberedGroup": null
-                  }
-                }
-              }
-            ],
-            "extractions": [
-              {
-                "extractionName": "TimeGenerated",
-                "extractionType": "DateTime",
-                "extractionProperties": {
-                  "dateTimeExtraction": {
-                    "regex": null,
-                    "joinStringRegex": null
-                  }
-                }
-              }
-            ]
-          }
-        },
-        {
-          "apiVersion": "2015-11-01-preview",
-          "type": "datasources",
-          "name": "sampleCustomLogCollection1",
-          "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
-          ],
-          "kind": "CustomLogCollection",
-          "properties": {
-            "state": "LinuxLogsEnabled"
           }
         },
         {

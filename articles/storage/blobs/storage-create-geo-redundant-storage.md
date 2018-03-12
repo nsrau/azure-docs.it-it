@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 7b7625b3250d7e5b4cdb4090f34072eb58dda07c
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
@@ -69,7 +69,7 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome** | mystorageaccount | Un valore univoco per l'account di archiviazione |
    | **Modello di distribuzione** | Gestione risorse  | Gestione risorse include le funzionalità più recenti.|
-   | **Tipo di account** | Scopo generico | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Tipo di account** | StorageV2 | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
    | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
    |**Trasferimento sicuro necessario** | Disabled| Il trasferimento sicuro non è necessario per questo scenario. |
@@ -77,7 +77,7 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
    |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). |
    |**Posizione** | Stati Uniti orientali | Scegliere un paese. |
 
-![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/figure1.png)
+![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 834dbbd0be30181de1a71df05d2867be0e1c59b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md).
@@ -86,7 +86,7 @@ Uno dei motivi più comuni per cui una richiesta di autenticazione può non rius
 
 Esistono tuttavia altri motivi che possono provocare un numero inaspettatamente elevato di richieste gestite dai server AD FS, ad esempio un'applicazione che memorizza nella cache le credenziali utente in corrispondenza con la scadenza delle credenziali oppure un utente malintenzionato che prova ad accedere a un account con una serie di password note. Questi due esempi sono motivi validi di un'eventuale picco nelle richieste.
 
-Azure AD Connect Health per AD FS fornisce un report sui primi 50 utenti con tentativi di accesso non riusciti a causa di un nome utente o una password non valida. Questo report viene ottenuto elaborando gli eventi di controllo generati da tutti i server AD FS nelle farm.
+Azure AD Connect Health per AD FS fornisce un report sui primi 50 utenti con tentativi di accesso non riusciti a causa di un nome utente o una password non valida. Questo report si ottiene elaborando gli eventi di controllo generati da tutti i server AD FS nelle farm.
 
 ![portale di Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
@@ -95,7 +95,7 @@ All'interno del report è possibile accedere facilmente alle informazioni seguen
 * Numero totale di richieste non riuscite con nome utente o password non valida negli ultimi 30 giorni.
 * Numero medio di utenti che non sono riusciti ad accedere con un nome utente o una password non valida ogni giorno.
 
-Facendo clic su questa parte si passa al pannello principale del report che fornisce dettagli aggiuntivi. Questo pannello include un grafico con le informazioni relative alla tendenza, utile per stabilire una baseline sulle richieste con nome utente non valido o password errata. Fornisce anche l'elenco dei primi 50 utenti con il numero di tentativi non riusciti.
+Facendo clic su questa parte si passa al pannello principale del report che fornisce dettagli aggiuntivi. Questo pannello include un grafico con le informazioni relative alla tendenza, utile per stabilire una baseline sulle richieste con nome utente non valido o password errata. Fornisce anche l'elenco dei primi 50 utenti con il numero di tentativi non riusciti nella settimana precedente.
 
 Il grafico fornisce le informazioni seguenti:
 
@@ -115,7 +115,7 @@ Il report fornisce le informazioni seguenti:
 | Ultimo errore IP |Mostra l'indirizzo IP client dell'ultima richiesta non valida. |
 
 > [!NOTE]
-> Il report viene aggiornato automaticamente ogni due ore con le nuove informazioni raccolte. Di conseguenza, i tentativi di accesso nelle ultime due ore potrebbero non essere inclusi nel report.
+> Il report viene aggiornato automaticamente ogni 12 ore con le nuove informazioni raccolte. Di conseguenza, i tentativi di accesso nelle ultime due ore potrebbero non essere inclusi nel report.
 >
 >
 

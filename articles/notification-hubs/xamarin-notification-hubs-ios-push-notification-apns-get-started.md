@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: edb48cd8de9b1f7357c40cea73fa4b9a422cb8fa
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 38ad8a15fcc4077926e735e01f877a4ee66718ef
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-xamarinios-apps"></a>Introduzione ad Hub di notifica di Azure per le app Xamarin.iOS
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -82,7 +82,7 @@ L'hub di notifica è ora configurato per l'uso con il servizio APN e sono dispon
 
 2. Immettere il nome dell'app e l'identificatore dell'organizzazione, quindi fare clic su **Avanti** e su **Crea**
 
-3. Nella visualizzazione della soluzione fare doppio clic su *Into.plist* e in **Identità** assicurarsi che l'identificatore del bundle corrisponda a quello usato per la creazione del profilo di provisioning. In **Firma** accertarsi che sotto **Team** sia selezionato il proprio account per sviluppatore, che sia selezionato "Automatically manage signing" (Gestisci firma automaticamente) e che vengano automaticamente selezionati il certificato di firma e il profilo di provisioning.
+3. Nella visualizzazione della soluzione fare doppio clic su *Info.plist* e in **Identità** assicurarsi che l'identificatore del bundle corrisponda a quello usato per la creazione del profilo di provisioning. In **Firma** accertarsi che sotto **Team** sia selezionato il proprio account per sviluppatore, che sia selezionato "Automatically manage signing" (Gestisci firma automaticamente) e che vengano automaticamente selezionati il certificato di firma e il profilo di provisioning.
 
     ![Visual Studio - Configurazione di un'app iOS][32]
 

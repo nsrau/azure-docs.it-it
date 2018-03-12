@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 11/16/2017
+ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8bbb06fd511321a67e01772caeaa316ddb6e2a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c53007530fe80f03cefbf138193cfad4b0e8292a
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -171,13 +171,9 @@ Per informazioni sui prezzi per i nodi di calcolo dedicati e con priorità bassa
 
 ### <a name="size-of-the-compute-nodes"></a>Dimensioni dei nodi di calcolo
 
-**Cloud Services Configuration** (Configurazione servizi cloud) sono elencate in [Dimensioni dei servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Batch supporta tutte le dimensioni dei servizi cloud tranne `ExtraSmall`, `STANDARD_A1_V2` e `STANDARD_A2_V2`.
+Quando si crea un pool di Azure Batch, è possibile scegliere tra quasi tutte le famiglie e le dimensioni di VM disponibili in Azure. Azure offre una serie di dimensioni delle macchine virtuali per diversi carichi di lavoro, incluse le dimensioni specializzate [HPC](../virtual-machines/linux/sizes-hpc.md) o [con supporto per GPU](../virtual-machines/linux/sizes-gpu.md). 
 
-Le dimensioni disponibili per i nodi di calcolo **Configurazione macchina virtuale** sono elencate in [Dimensioni delle macchine virtuali in Azure](../virtual-machines/linux/sizes.md) (Linux) e [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md) (Windows). Batch supporta tutte le dimensioni delle VM di Azure tranne `STANDARD_A0` e quelle con l'archiviazione Premium (serie `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).
-
-Quando si seleziona una dimensione per il nodo di calcolo, tenere in considerazione le caratteristiche e i requisiti delle applicazioni che si eseguiranno nei nodi. Per determinare la dimensioni del nodo più appropriate e convenienti, considerare vari aspetti, ad esempio se si tratta di un'applicazione multithreading e la quantità di memoria che utilizza. Le dimensioni del nodo vengono in genere selezionate presupponendo che in un nodo venga eseguita un'attività alla volta. È possibile,tuttavia, che più attività (e quindi più istanze dell'applicazione) vengano [eseguite in parallelo](batch-parallel-node-tasks.md) nei nodi di calcolo durante l'esecuzione del processo. In questo caso, è normale scegliere una dimensione maggiore per il nodo per soddisfare la richiesta più elevata di esecuzione di attività parallele. Per altre informazioni, vedere [Criteri di pianificazione delle attività](#task-scheduling-policy).
-
-Tutti i nodi in un pool devono hanno le stesse dimensioni. Se si prevede di eseguire applicazioni con requisiti di sistema e/o livelli di carico diversi, è consigliabile usare pool separati.
+Per altre informazioni, vedere [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Scegliere le dimensioni delle macchine virtuali per i nodi di calcolo in un pool di Azure Batch).
 
 ### <a name="scaling-policy"></a>Criteri di ridimensionamento
 
