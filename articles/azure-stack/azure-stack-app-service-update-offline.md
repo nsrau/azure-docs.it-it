@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b71c9fd58636e9871bf592904d5dca4bc0ec966
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 61a3169229cc121c078a934f6b979bdaffafd565
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Aggiornamento non in linea di servizio App di Azure nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> Applicare l'aggiornamento 1802 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire il servizio App di Azure.
+>
+>
 
 Seguendo le istruzioni riportate in questo articolo, è possibile aggiornare il [il provider di risorse di servizio App](azure-stack-app-service-overview.md) distribuito in un ambiente dello Stack di Azure:
 

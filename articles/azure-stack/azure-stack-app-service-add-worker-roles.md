@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: d6471796863a80e69fdaf740b68fb27d59503453
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 680cb70777574d0ed88c5f83fb0a6fa20263b951
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Servizio App nello Stack di Azure: aggiungere più ruoli di infrastruttura o di lavoro
 
@@ -44,6 +44,7 @@ Servizio App di Azure nello Stack di Azure distribuisce tutti i ruoli utilizzand
 ## <a name="add-additional-workers-with-powershell"></a>Aggiungere ulteriori processi di lavoro con PowerShell
 
 1. [Configurare l'ambiente Azure Stack Admin in PowerShell](azure-stack-powershell-configure-admin.md)
+
 2. Usare questo esempio per scalare orizzontalmente il set di scalabilità:
    ```powershell
    
@@ -59,7 +60,7 @@ Servizio App di Azure nello Stack di Azure distribuisce tutti i ruoli utilizzand
     $ScaleSetName = "SharedWorkerTierScaleSet"
 
     ## TotalCapacity is sum of the instances needed at the end of operation. 
-    ## e.g. if you VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
 
     # Get current scale set
@@ -68,51 +69,50 @@ Servizio App di Azure nello Stack di Azure distribuisce tutti i ruoli utilizzand
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-  
-    '''
+   ```    
 
-> [!NOTE]
-> This step can take a number of hours to complete depending on the type of role and the number of instances.
->
->
+   > [!NOTE]
+   > Questo passaggio può richiedere un numero di ore in base al tipo di ruolo e il numero di istanze.
+   >
+   >
 
-3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
+3. Monitorare lo stato delle nuove istanze del ruolo nell'amministrazione del servizio App, per controllare lo stato di una singola istanza del ruolo, fare clic sul tipo di ruolo nell'elenco.
 
-## Add additional workers directly within the App Service Resource Provider Admin.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Aggiungere ulteriori processi di lavoro direttamente all'interno di amministratore. Provider di risorse del servizio App
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. Accedere al portale di amministrazione di Stack di Azure come amministratore del servizio.
 
-2. Browse to **App Services**.
+2. Passare a **servizi App**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Click **Roles**. Here you see the breakdown of all App Service roles deployed.
+3. Fare clic su **Ruoli**. Qui è visualizzare la suddivisione di tutti i ruoli del servizio App distribuita.
 
-4. Right click on the row of the type you want to scale and then click **ScaleSet**.
+4. Fare clic con il pulsante destro sulla riga del tipo di cui si desidera applicare la scalabilità e quindi fare clic su **ScaleSet**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Click **Scaling**, select the number of instances you want to scale to, and then click **Save**.
+5. Fare clic su **Scaling**, selezionare il numero di istanze che si desidera scalare di e quindi fare clic su **salvare**.
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. App Service on Azure Stack will now add the additional VMs, configure them, install all the required software, and mark them as ready when this process is complete. This process can take approximately 80 minutes.
+6. Servizio app di Azure stack verrà ora aggiungere le altre macchine virtuali, configurarli, installare tutti i software necessari e contrassegnarli come pronto quando questo processo è stato completato. Questo processo può richiedere circa 80 minuti.
 
-7. You can monitor the progress of the readiness of the new roles by viewing the workers in the **Roles** blade.
+7. È possibile monitorare lo stato di conformità dei nuovi ruoli visualizzando i lavoratori il **ruoli** blade.
 
-## Result
+## <a name="result"></a>Risultato
 
-After they are fully deployed and ready, the workers become available for users to deploy their workload onto them. The following shows an example of the multiple pricing tiers available by default. If there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.
+Dopo che sono completamente distribuito e pronto, i processi di lavoro diventi disponibile per gli utenti di distribuire il carico di lavoro su di essi. Di seguito viene riportato un esempio di più livelli di prezzo disponibili per impostazione predefinita. Se sono non presenti processi di lavoro disponibili per un livello di lavoro specifico, non è disponibile l'opzione per scegliere il piano tariffario corrispondente.
 
 ![](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> To scale out Management, Front End or Publisher roles add you must scale out the corresponding role type. 
+> Per ampliare gestione, i ruoli Front-End o Publisher aggiungere che è necessario scalare orizzontalmente il tipo di ruolo corrispondente. 
 >
 >
 
-To scale out Management, Front End, or Publisher roles, follow the same steps selecting the appropriate role type. Controllers are not deployed as Scale Sets and therefore two should be deployed at Installation time for all production deployments.
+Per ampliare gestione, Front-End o ruoli del server di pubblicazione, la stessa procedura selezionando il tipo di ruolo appropriate. Controller non vengono distribuiti come set di scalabilità e pertanto due devono essere distribuiti in fase di installazione per tutte le distribuzioni di produzione.
 
-### Next steps
+### <a name="next-steps"></a>Passaggi successivi
 
-[Configure deployment sources](azure-stack-app-service-configure-deployment-sources.md)
+[Configurare le origini di distribuzione](azure-stack-app-service-configure-deployment-sources.md)

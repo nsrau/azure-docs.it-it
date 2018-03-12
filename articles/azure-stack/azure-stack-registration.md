@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: cb9575cb7bb3d8d3f3a18a1f5577ff0330bda24c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 27bd44f936e19890526c0834e14084647dcec086
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro dello Stack di Azure con Azure
-È possibile registrare dello Stack di Azure con Azure per scaricare gli elementi di marketplace da Azure e per impostare i dati di commerce segnalazioni a Microsoft. Dopo la registrazione dello Stack di Azure, viene segnalato l'utilizzo per Azure commerce. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione.
+È possibile registrare dello Stack di Azure con Azure per scaricare gli elementi di marketplace da Azure e per impostare i dati di commerce segnalazioni a Microsoft. Dopo la registrazione dello Stack di Azure, Azure Commerce viene segnalato l'utilizzo. È possibile visualizzarlo nella sottoscrizione che è usata per la registrazione.
 
 > [!IMPORTANT]
 > La registrazione è obbligatoria se si sceglie il modello di fatturazione retribuzione come-di-uso. In caso contrario, sarà in violazione delle condizioni di licenza della distribuzione Azure Stack come l'utilizzo in caso contrario non verranno segnalato.
@@ -106,7 +106,7 @@ Set-AzsRegistration `
     -BillingModel PayAsYouUse
 ```
 
-|Parametro|DESCRIZIONE|
+|Parametro|Descrizione|
 |-----|-----|
 |CloudAdminCredential|Oggetto PowerShell che contiene informazioni sulle credenziali (nome utente e password) per il proprietario della sottoscrizione di Azure.|
 |PrivilegedEndpoint|Una preconfigurato PowerShell console remota che fornisce le funzionalità, ad esempio la raccolta di log e di post-attività di distribuzione. Per ulteriori informazioni, vedere il [utilizzando l'endpoint con privilegi](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) articolo.|

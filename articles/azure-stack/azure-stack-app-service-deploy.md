@@ -12,17 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: b053d515949e71fcb5f1e520f6d3d5375cc27dcb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
+> [!IMPORTANT]
+> Applicare l'aggiornamento 1802 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire il servizio App di Azure.
+>
+>
 
 Un operatore di cloud di Azure Stack, è possibile assegnare agli utenti la possibilità di creare applicazioni web e API. A tale scopo, è necessario aggiungere il [il provider di risorse di servizio App](azure-stack-app-service-overview.md) alla distribuzione di Azure Stack, come descritto in questo articolo. Dopo aver installato il provider di risorse del servizio App, è possibile includerla nelle offerte e piani. Gli utenti possono eseguire la sottoscrizione per ottenere il servizio e avviare la creazione di applicazioni.
 
@@ -125,8 +130,8 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
     | Gestione | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
-    | Editore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
+    | Autore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
+    | Front-end | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
     | Lavoro condiviso | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
 
     ![Programma di installazione del servizio App][13]

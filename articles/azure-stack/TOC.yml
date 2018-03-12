@@ -89,11 +89,11 @@
           href: azure-stack-deploy.md
         - name: Telemetria
           href: azure-stack-telemetry.md
-        - name: Distribuire
+        - name: Distribuisci
           href: azure-stack-run-powershell-script.md
         - name: Installare PowerShell
           href: azure-stack-powershell-install.md
-        - name: 'Register '
+        - name: Registra
           href: azure-stack-register.md
         - name: Connettersi ad Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -101,7 +101,7 @@
           href: azure-stack-add-default-image.md
         - name: Creare una macchina virtuale di test
           href: azure-stack-provision-vm.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Gestione delle aree
           href: azure-stack-region-management.md
@@ -182,7 +182,7 @@
               href: azure-stack-identity-overview.md
             - name: Architettura di identità
               href: azure-stack-identity-architecture.md
-            - name: Gestire il controllo degli accessi in base al ruolo
+            - name: Gestisci controllo degli accessi in base al ruolo
               href: azure-stack-manage-permissions.md
             - name: Aggiungere utenti per Azure AD
               href: azure-stack-add-new-user-aad.md
@@ -194,7 +194,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: Ruotare i segreti
           href: azure-stack-rotate-secrets.md
-    - name: Offrire servizi
+    - name: Servizi dell'offerta
       items:
         - name: Panoramica dei servizi dell'offerta
           href: azure-stack-offer-services-overview.md
@@ -264,14 +264,24 @@
           items:
             - name: Panoramica
               href: azure-stack-billing-and-chargeback.md
-            - name: Creazione di report sui dati di utilizzo
-              href: azure-stack-usage-reporting.md
-            - name: API di utilizzo del provider
-              href: azure-stack-provider-resource-api.md
-            - name: API di utilizzo del tenant
-              href: azure-stack-tenant-resource-usage-api.md
-            - name: Domande frequenti sull'utilizzo
-              href: azure-stack-usage-related-faq.md
+            - name: Gestire l'utilizzo e fatturazione come un CSP
+              href: azure-stack-add-manage-billing-as-a-csp.md
+            - name: Aggiungere i tenant per l'utilizzo e fatturazione
+              href: azure-stack-csp-howto-register-tenants.md
+            - name: Gestire la registrazione tenant
+              href: azure-stack-csp-ref-operations.md
+            - name: Informazioni sull'utilizzo e fatturazione di riferimento
+              items:
+                - name: Creazione di report sui dati di utilizzo
+                  href: azure-stack-usage-reporting.md
+                - name: Utilizzo di reporting dell'infrastruttura per il provider di servizi Cloud
+                  href: azure-stack-csp-ref-infrastructure.md
+                - name: API di utilizzo del provider
+                  href: azure-stack-provider-resource-api.md
+                - name: API di utilizzo del tenant
+                  href: azure-stack-tenant-resource-usage-api.md
+                - name: Domande frequenti sull'utilizzo
+                  href: azure-stack-usage-related-faq.md
         - name: Connect to Azure
           items:
             - name: Connessione tramite VPN
@@ -282,7 +292,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: Connessione tramite ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Risolvere problemi
+    - name: Risoluzione dei problemi
       items:
         - name: Problemi noti
           href: azure-stack-troubleshooting.md
@@ -292,11 +302,11 @@
           href: azure-stack-diagnostic-test.md
         - name: Ridistribuire Azure Stack Development Kit
           href: azure-stack-redeploy.md
-- name: Riferimenti
+- name: Riferimento
   items:
     - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
-- name: Risorse correlate
+- name: Correlata
   items:
     - name: Documentazione dell'utente di Azure Stack
       href: /azure/azure-stack/user/

@@ -3,22 +3,22 @@ title: Utilizzo del provider di risorse API | Documenti Microsoft
 description: Riferimento per l'utilizzo delle risorse API, che recupera informazioni sull'utilizzo di Azure Stack
 services: azure-stack
 documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
-ms.openlocfilehash: 0c45ce3bc93945ed8700464beebabcda07e8d77c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="provider-resource-usage-api"></a>API di utilizzo delle risorse dei provider
 Il termine *provider* si applica all'amministratore del servizio e a qualsiasi provider di delegati. Provider delegati e gli operatori di Azure Stack consente l'utilizzo del provider di API per visualizzare l'utilizzo dei propri tenant diretto. Utilizzo diretto del P2 e P1 possono chiamare per informazioni sull'utilizzo P3 e P4, ad esempio, come illustrato nel diagramma, P0 può chiamare l'API per ottenere informazioni sul P1 utilizzo del provider.
@@ -88,6 +88,18 @@ meterID1",
 | *instanceData* |Coppie chiave-valore di dettagli di istanze (in un nuovo formato):<br> *resourceUri*: completo di ID di risorsa, che include i gruppi di risorse e il nome dell'istanza. <br> *percorso*: area in cui è stato eseguito il servizio. <br> *tag*: i tag delle risorse specificate dall'utente. <br> *additionalInfo*: più dettagli sulla risorsa che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo. |
 | *quantity* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo. |
 | *meterId* |ID univoco per la risorsa che è stata utilizzata (detto anche *ResourceID*). |
+
+
+## <a name="retrieve-usage-information"></a>Recuperare informazioni sull'utilizzo
+
+Per generare i dati di utilizzo, è necessario disporre di risorse che sono in esecuzione e usano attivamente il sistema, ad esempio, una macchina virtuale attiva o un account di archiviazione contenente alcuni dati e così via. Se non si è certi se si hanno risorse in esecuzione in Azure Marketplace di Stack, distribuire una macchina virtuale (VM) e verifica la macchina virtuale pannello per assicurarsi che il monitoraggio è in esecuzione. Utilizzare i cmdlet di PowerShell seguenti per visualizzare i dati di utilizzo:
+
+1. [Installare PowerShell per Azure dello Stack.](azure-stack-powershell-install.md)
+2. [Configurare l'utente di Azure Stack](user/azure-stack-powershell-configure-user.md) o [dell'operatore Azure Stack](azure-stack-powershell-configure-admin.md) ambiente di PowerShell 
+3. Per recuperare i dati di utilizzo, utilizzare il [Get UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) cmdlet di PowerShell:
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Utilizzo delle risorse di riferimento all'API tenant](azure-stack-tenant-resource-usage-api.md)
