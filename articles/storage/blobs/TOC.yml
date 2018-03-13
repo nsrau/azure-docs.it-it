@@ -12,6 +12,8 @@
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Usare i BLOB - Portale di Azure
       href: storage-quickstart-blobs-portal.md
+    - name: Usare i BLOB - Storage Explorer
+      href: storage-quickstart-blobs-storage-explorer.md
     - name: Usare i BLOB - PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Usare i BLOB - Interfaccia della riga di comando
@@ -28,8 +30,8 @@
       href: storage-quickstart-blobs-ruby.md
     - name: Usare i BLOB - Node.js
       href: storage-quickstart-blobs-nodejs.md
-    - name: Usare i BLOB - Storage Explorer
-      href: storage-quickstart-blobs-storage-explorer.md
+    - name: Usare i BLOB - PHP
+      href: storage-quickstart-blobs-php.md
 - name: Esercitazioni
   items:
     - name: Caricare ed elaborare un'immagine

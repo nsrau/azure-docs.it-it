@@ -91,8 +91,10 @@
           maintainContext: true
     - name: Streaming di Spark
       items:
-        - name: Panoramica
+        - name: Panoramica dello streaming
           href: apache-spark-streaming-overview.md
+        - name: Panoramica dello streaming strutturato
+          href: apache-spark-structured-streaming-overview.md
         - name: Creare processi di streaming Spark a disponibilità elevata in YARN
           href: apache-spark-streaming-high-availability.md
         - name: Flusso strutturato con Hub eventi
@@ -397,7 +399,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
