@@ -114,6 +114,12 @@
       items:
         - name: Soluzioni connesse
           href: security-center-partner-solutions.md
+        - name: Discovered solutions (Soluzioni individuate)
+          href: 'security-center-partner-integration.md#discovered-solutions'
+        - name: Connettere soluzioni esterne
+          href: quick-security-solutions.md
+        - name: Connettere il gateway applicazione
+          href: security-center-connect-application-gateway.md
         - name: Connettere Microsoft Advanced Threat Analytics (ATA)
           href: security-center-ata-integration.md
         - name: Connettere Azure AD Identity Protection
@@ -157,7 +163,7 @@
           href: security-center-using-recommendations.md
     - name: Risolvere problemi
       href: security-center-troubleshooting-guide.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: API REST
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'

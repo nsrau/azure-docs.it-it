@@ -27,6 +27,7 @@
 ### [Panoramica sul modello di autenticazione e di protezione](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilità e coerenza](event-hubs-availability-and-consistency.md)
 ### [Ridimensionare automaticamente le unità elaborate](event-hubs-auto-inflate.md)
+### [Integrazione di Apache Spark con Hub eventi](event-hubs-spark-connector.md)
 ## Sviluppo
 ### [Inviare eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Ricevere eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
@@ -45,7 +46,7 @@
 ### [Trasmettere dati di Diagnostica di Azure usando Hub eventi](event-hubs-streaming-azure-diags-data.md)
 ### [Creare e distribuire un hub eventi con un modello di Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)

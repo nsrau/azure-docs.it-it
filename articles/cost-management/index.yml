@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione di Gestione dei costi di Azure
 metadata:
   title: Documentazione sulla gestione dei costi - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  description: "Gestione dei costi di Azure di Cloudyn è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide."
+  description: "Gestione costi di Azure è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
-  ms.openlocfilehash: d277487ff94578643fd455e460e49299938590d7
-  ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+  ms.openlocfilehash: c88a093c75122c2ff32060ff2780bd4bf4d83f34
+  ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/07/2017
+  ms.lasthandoff: 03/09/2018
 abstract:
-  description: "Gestione dei costi di Azure di Cloudyn è una soluzione di gestione dei costi multi-cloud che consente di usare al meglio e di gestire Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide."
+  description: "Gestione costi di Azure, concesso in licenza da Cloudyn, una affiliata Microsoft, è una soluzione di gestione dei costi multi-cloud che consente di usare al meglio e di gestire Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide."
 sections:
 - title: Guide introduttive di 5 minuti
   items:
