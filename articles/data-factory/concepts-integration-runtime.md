@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 7308c8754198ea3e7533b8a9c378cfaac1b5bbd2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 18792d8dc8b232ad048db2440c5b52428c50f92e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -123,7 +123,7 @@ Il diagramma seguente mostra due esempi di attività di copia:
 ![Runtime di integrazione da usare](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Località del runtime di integrazione
-La località di Data Factory è il punto in cui vengono archiviati i metadati di data factory e il punto da cui viene avviata l'attivazione della pipeline. Attualmente le località Data Factory supportate sono: Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo. Questo comportamento viene attuato tramite il runtime di integrazione disponibile a livello globale in più aree per garantire la conformità dei dati, l'efficienza e costi in uscita della rete inferiori.
+La località di Data Factory è il punto in cui vengono archiviati i metadati di data factory e il punto da cui viene avviata l'attivazione della pipeline. Attualmente le località Data Factory supportate sono: Stati Uniti orientali, Stati Uniti orientali 2, Asia sud-orientale ed Europa occidentale. Una data factory può accedere ad archivi dati e servizi di calcolo in altre aree di Azure per spostare i dati tra archivi dati o elaborare i dati usando i servizi di calcolo. Questo comportamento viene attuato tramite il runtime di integrazione disponibile a livello globale in più aree per garantire la conformità dei dati, l'efficienza e costi in uscita della rete inferiori.
 
 La località del runtime di integrazione definisce la località del calcolo back-end ed essenzialmente la località in cui vengono eseguiti lo spostamento dei dati, l'invio di attività e l'esecuzione di pacchetti SSIS. La località del runtime di integrazione può essere diversa dalla località della data factory a cui appartiene. Il diagramma seguente mostra le impostazioni relative alla località di Data Factory e dei relativi runtime di integrazione:
 
@@ -176,7 +176,7 @@ Il runtime di integrazione self-hosted è registrato in modo logico al servizio 
 Quando viene usato per eseguire lo spostamento di dati, il runtime di integrazione self-hosted estrae i dati dall'origine e li scrive nella destinazione.
 
 ### <a name="azure-ssis-ir"></a>Runtime di integrazione Azure-SSIS
-Selezionando la località corretta per il runtime di integrazione Azure-SSIS è fondamentale ottenere prestazioni elevate per ei flussi di lavoro di estrazione, trasformazione e caricamento (ETL).  Due località sono inizialmente disponibili per l'anteprima (Stati Uniti orientali ed Europa settentrionale).
+Selezionando la località corretta per il runtime di integrazione Azure-SSIS è fondamentale ottenere prestazioni elevate per ei flussi di lavoro di estrazione, trasformazione e caricamento (ETL).  Sei località sono inizialmente disponibili per l'anteprima (Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Australia orientale, Europa settentrionale ed Europa occidentale).
 
 - La località del runtime di integrazione Azure-SSIS non deve essere necessariamente uguale a quella della data factory, ma deve essere uguale a quella del server del database SQL/Istanza gestita di Azure (anteprima privata) in cui verrà eseguito l'hosting di SSISDB. In questo modo il runtime di integrazione Azure-SSIS può accedere facilmente a SSISDB senza incorrere in traffico eccessivo tra le diverse località.
 - Se non si dispone di un server del database SQL/Istanza gestita di Azure (anteprima privata) esistente per eseguire l'hosting di SSISDB, ma si dispone di origini/destinazioni di dati locali, è opportuno creare un nuovo server del database SQL/Istanza gestita di Azure (anteprima privata) nella stessa località di una rete virtuale connessa alla rete locale.  In questo modo è possibile creare il runtime di integrazione Azure-SSIS usando il nuovo server del database SQL/Istanza gestita di Azure (anteprima privata) e aggiungendo tale rete virtuale, tutto nella stessa località, riducendo al minimo gli spostamenti di dati in località diverse in modo efficace.

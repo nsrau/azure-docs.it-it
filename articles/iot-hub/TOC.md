@@ -42,6 +42,7 @@
 
 ## Usare MXChip IoT DevKit
 ### [Tradurre messaggi vocali con Servizi cognitivi di Azure](iot-hub-arduino-iot-devkit-az3166-translator.md)
+### [Recuperare un messaggio di Twitter con Funzioni di Azure](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 # Guide alle procedure
 ## Pianificazione
@@ -81,12 +82,12 @@
 ### Routing dei messaggi
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.JS](iot-hub-node-node-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.JS](iot-hub-node-node-c2d.md)
+#### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
