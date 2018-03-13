@@ -35,6 +35,7 @@
 ### Configurare Desktop remoto
 #### [di Microsoft Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Distribuire
 ### [Creare e distribuire un servizio cloud nel portale](cloud-services-how-to-create-deploy-portal.md)
