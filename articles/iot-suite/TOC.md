@@ -66,6 +66,7 @@
 ### [Creare un nuovo dispositivo simulato](iot-suite-remote-monitoring-test.md)
 ### [Personalizzare la soluzione](iot-suite-remote-monitoring-customize.md)
 ### [Distribuire usando l'interfaccia della riga di comando](iot-suite-remote-monitoring-deploy-cli.md)
+### [Distribuire in locale](iot-suite-remote-monitoring-deploy-local.md)
 ### Connettere un dispositivo fisico
 #### [C su Windows](iot-suite-connecting-devices.md)
 #### [C su Linux](iot-suite-connecting-devices-linux.md)
@@ -83,7 +84,7 @@
 ### [Configurare la soluzione di connected factory](iot-suite-connected-factory-configure.md)
 ## [Autorizzazioni in azureiotsuite.com](iot-suite-permissions.md)
 
-# Riferimenti
+# riferimento
 ## [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Architettura di sicurezza](iot-security-architecture.md)

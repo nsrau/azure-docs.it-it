@@ -77,7 +77,7 @@
 
 ## Integrazione con Machine Learning
 ### [Analisi del sentiment con modelli di Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
-### [Rilevamento delle anomalie](stream-analytics-machine-learning-anomaly-detection.md)
+### [Rilevamento anomalie](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Usare le API REST](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
 

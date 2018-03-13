@@ -121,6 +121,10 @@
               href: app-insights-configuration-with-applicationinsights-config.md
             - name: Debugger di snapshot
               href: app-insights-snapshot-debugger.md
+        - name: ASP.NET Core
+          items:
+            - name: Profiler per i servizi app Linux
+              href: app-insights-profiler-aspnetcore-linux.md
         - name: J2EE
           items:
             - name: Analisi di log

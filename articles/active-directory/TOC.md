@@ -76,7 +76,7 @@
 
 ## [Gestire i gruppi e i membri](active-directory-manage-groups.md)
 ### Gestire i gruppi
-#### [portale di Azure](active-directory-groups-create-azure-portal.md)
+#### [Portale di Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Gestire i membri dei gruppi](active-directory-groups-members-azure-portal.md)
 ### [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
@@ -95,10 +95,10 @@
 ### [Aggiungere l'accesso dei gruppi alle app SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Ripristinare un gruppo eliminato di Office 365](active-directory-groups-restore-azure-portal.md)
 ### Gestire le impostazioni dei gruppi
-#### [portale di Azure](active-directory-groups-settings-azure-portal.md)
+#### [Portale di Azure](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Creare regole avanzate
-#### [portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurare i gruppi self-service](active-directory-accessmanagement-self-service-group-management.md)
 ### [Risolvere i problemi](active-directory-accessmanagement-troubleshooting.md)
 
@@ -114,7 +114,7 @@
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
-### Riferimenti
+### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -146,7 +146,7 @@
 ### [Requisiti relativi ai dati di SSPR](active-directory-passwords-data.md)
 ### [Creazione di report di SSPR](active-directory-passwords-reporting.md)
 ### Amministratori IT: reimpostare le password
-#### [portale di Azure](active-directory-users-reset-password-azure-portal.md)
+#### [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Concedere in licenza SSPR](active-directory-passwords-licensing.md)
 ### [Writeback delle password](active-directory-passwords-writeback.md)
 ### [Risolvere i problemi](active-directory-passwords-troubleshoot.md)
@@ -290,9 +290,10 @@
 ### [Ruoli dell'amministratore](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assegnare un ruolo di amministratore a un utente](active-directory-users-assign-role-azure-portal.md)
 #### [Confrontare le autorizzazioni dei membri e degli utenti guest](users-default-permissions.md)
+### [Protezione dell'accesso con privilegi](admin-roles-best-practices.md) 
+### [Creare account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unità amministrative](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
-### [Gestire gli account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Verifiche di accesso
 ### [Panoramica delle verifiche di accesso](active-directory-azure-ad-controls-access-reviews-overview.md)
