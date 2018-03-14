@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 41b36a25eab9c1564dc59a40acd7daefde888b7f
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -40,21 +40,15 @@ Questo progetto è pensato come base modulare per i clienti, che possono apporta
 
 -   I clienti hanno la responsabilità di svolgere revisioni appropriate della sicurezza e della conformità di qualsiasi soluzione creata con questa architettura di base.
 
-Per una rapida panoramica del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/healthblueprintvideo), che ne spiega e descrive la distribuzione.
-
 ## <a name="deploying-the-automation"></a>Distribuzione dell'automazione
 
 - Per distribuire la soluzione, seguire le istruzioni fornite nelle linee guida per la distribuzione. 
 
 [![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
 
+Per una rapida panoramica del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/healthblueprintvideo), che ne spiega e descrive la distribuzione.
+
 - Le domande frequenti sono illustrate nell'articolo di [domande frequenti](https://aka.ms/healthblueprintfaq).
-
-
-## <a name="solution-components"></a>Componenti della soluzione
-
-
-L'architettura di base è costituita dai componenti seguenti:
 
 -   **Diagramma dell'architettura.** Il diagramma illustra l'architettura di riferimento usata per il progetto e lo scenario del caso d'uso di esempio.
 
@@ -66,12 +60,16 @@ L'architettura di base è costituita dai componenti seguenti:
 -   Uno script di installazione dei moduli e degli [amministratori globali](/azure/active-directory/active-directory-assign-admin-roles-azure-portal), usato per installare i moduli PowerShell e verificare che questi ultimi e i ruoli di amministratore globale siano configurati correttamente. 
 -   Uno script PowerShell di installazione, usato per distribuire la soluzione, fornito tramite un file ZIP contenente funzioni demo predefinite.
 
+## <a name="solution-components"></a>Componenti della soluzione
+
+
+L'architettura di base è costituita dai componenti seguenti:
 
 -   **[Modello di rischio](https://aka.ms/healththreatmodel)** Viene fornito un modello di rischio completo in formato tm7 da usare con [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), che illustra i componenti della soluzione, il flusso di dati tra di essi e i limiti di trust. Il modello può aiutare i clienti comprendere i punti di rischio potenziale nell'infrastruttura del sistema durante lo sviluppo di componenti di apprendimento automatico o quando vengono apportate altre modifiche.
 
--   **[Matrice delle responsabilità del cliente](https://aka.ms/healthcrmblueprint)** Una cartella di lavoro di Microsoft Excel che elenca i requisiti di HITRUST pertinenti e spiega in che modo Microsoft e il cliente sono responsabili di soddisfare ognuno di questi requisiti.
+-   **[Matrice di implementazione del cliente](https://aka.ms/healthcrmblueprint)** Una cartella di lavoro di Microsoft Excel che elenca i requisiti di HITRUST pertinenti e spiega in che modo Microsoft e il cliente sono responsabili di soddisfare ognuno di questi requisiti.
 
--   **[Revisione dei dati sanitari. La soluzione è stata sottoposta a revisione da parte di Coalfire systems, Inc. La revisione della conformità (HIPAA e HITRUST) per il settore sanitario e le indicazioni per l'implementazione presentano la revisione della soluzione da parte di un revisore\' e considerazioni per la trasformazione del progetto in una distribuzione pronta per la produzione.
+-   **[Revisione dei dati sanitari.](https://aka.ms/healthreviewpaper)** La soluzione è stata sottoposta a revisione da parte di Coalfire systems, Inc. La revisione della conformità (HIPAA e HITRUST) per il settore sanitario e le indicazioni per l'implementazione presentano la revisione della soluzione da parte di un revisore\' e considerazioni per la trasformazione del progetto in una distribuzione pronta per la produzione.
 
 # <a name="architectural-diagram"></a>Diagramma dell'architettura
 
@@ -368,7 +366,7 @@ La soluzione supporta Griglia di eventi di Azure, un singolo servizio per la ges
 - [Azure Advisor](/azure/advisor/advisor-overview) è un consulente cloud personalizzato che facilita l'applicazione delle procedure consigliate per ottimizzare le distribuzioni di Azure. Analizza i dati di telemetria dell'uso e della configurazione delle risorse e consiglia soluzioni che consentono di migliorare l'efficienza dei costi, le prestazioni, la disponibilità elevata e la sicurezza delle risorse di Azure.
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights](/azure/application-insights/app-insights-overview) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Questo servizio rileva le anomalie nelle prestazioni. Include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.
+- [Application Insights](/azure/application-insights/app-insights-overview) è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Questo servizio rileva le anomalie nelle prestazioni. e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.
 
 ### <a name="azure-alerts"></a>Avvisi di Azure
 - Gli avvisi consentono di monitorare i servizi Azure e di configurare le condizioni sui dati. Gli avvisi forniscono anche le notifiche quando c'è una corrispondenza tra una condizione di avviso e i dati di monitoraggio.
