@@ -2,7 +2,7 @@
 title: Limiti e configurazione - App per la logica di Azure | Microsoft Docs
 description: Limiti di servizio e valori di configurazione per App per la logica di Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5c4597ede16f01c36e147dc0d70acf4b4f5635e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limiti e configurazione per App per la logica
 
@@ -28,13 +28,13 @@ Questo articolo descrive gli attuali limiti e dettagli di configurazione per App
 
 ### <a name="http-request-limits"></a>Limiti delle richieste HTTP
 
-Questi limiti si applicano a una singola richiesta HTTP o a una chiamata di un connettore.
+Ecco i limiti per una singola richiesta HTTP o a una chiamata a un connettore:
 
 #### <a name="timeout"></a>Timeout
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
-| Timeout richiesta | 120 secondi | La compensazione necessaria può essere offerta da un [modello asincrono](../logic-apps/logic-apps-create-api-app.md) o un [ciclo Until](logic-apps-loops-and-scopes.md) |
+| Timeout richiesta | 120 secondi | La compensazione necessaria può essere offerta da un [modello asincrono](../logic-apps/logic-apps-create-api-app.md) o un [ciclo Until](logic-apps-control-flow-loops.md) | 
 |||| 
 
 #### <a name="message-size"></a>Dimensioni dei messaggi
@@ -56,28 +56,21 @@ Questi limiti si applicano a una singola richiesta HTTP o a una chiamata di un c
 
 ### <a name="run-duration-and-retention"></a>Durata dell'esecuzione e conservazione
 
-Questi limiti si applicano a una singola esecuzione di un'app per la logica.
+Ecco i limiti per una singola esecuzione di app per la logica:
 
-| NOME | Predefinito | Limite |
-| ---- | ------- | ----- |
-| Durata esecuzione   | 90 giorni | Da 7 a 90 giorni |
-| Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione |  Da 7 a 90 giorni dalla data di inizio dell'esecuzione |
-||||
+| NOME | Limite | 
+| ---- | ----- | 
+| Durata esecuzione | 90 giorni | 
+| Conservazione in risorsa di archiviazione | 90 giorni dalla data di inizio dell'esecuzione | 
+| Intervallo di ricorrenza minimo | 1 secondo </br>Per le app per la logica con un piano di servizio app: 15 secondi | 
+| Intervallo di ricorrenza massimo | 500 giorni | 
+||| 
 
-Per superare i limiti di durata dell'esecuzione o di conservazione della risorsa di archiviazione nel normale flusso di elaborazione, [contattare il team di prodotto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
-
-
-### <a name="recurrence-interval"></a>Intervallo di ricorrenza
-
-| NOME | Limite |
-| ---- | ------- |
-| Intervallo di ricorrenza minimo | 1 secondo </br>Per le app per la logica con un piano di servizio app: 15 secondi |
-| Intervallo di ricorrenza massimo | 500 giorni |
-|||
+Per superare i limiti di durata dell'esecuzione o di conservazione della risorsa di archiviazione nel normale flusso di elaborazione, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
 ### <a name="looping-and-debatching-limits"></a>Limiti di esecuzione di cicli e debatching
 
-Questi limiti si applicano a una singola esecuzione di un'app per la logica.
+Ecco i limiti per una singola esecuzione di app per la logica:
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
@@ -89,22 +82,22 @@ Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 
 ### <a name="throughput-limits"></a>Limiti di velocità effettiva
 
-Questi limiti si applicano a una singola risorsa di app per la logica.
+Ecco i limiti per una singola istanza di app per la logica:
 
 | NOME | Limite | Note | 
 | ----- | ----- | ----- | 
-| Esecuzioni di azioni per 5 minuti | 100.000 |<p>Il limite può essere aumentato a 300.000 eseguendo un'app per la logica in modalità `High Througput`. È possibile configurare la modalità di velocità effettiva elevata impostando la proprietà `operationOptions` in `runtimeConfiguration` della risorsa del flusso di lavoro su `OptimizedForHighThroughput`. <p>Si noti che la modalità di velocità effettiva elevata è in anteprima. Un carico di lavoro può anche essere distribuito tra più app in base alle esigenze. | 
+| Esecuzioni di azioni per 5 minuti | 100.000 | Per aumentare il limite a 300.000, è possibile eseguire un'app per la logica in modalità `High Througput`. Per configurare la modalità di velocità effettiva elevata, in `runtimeConfiguration` della risorsa flusso di lavoro impostare la proprietà `operationOptions` su `OptimizedForHighThroughput`. <p>**Nota**: la modalità di velocità effettiva elevata è in anteprima. È anche possibile distribuire un carico di lavoro tra più app nel modo necessario. | 
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: chiamate in ingresso simultanee |~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
 | Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 |È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
 |||| 
 
-Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di prodotto](mailto://logicappsemail@microsoft.com) per ottenere assistenza per i requisiti specifici.
+Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
 ### <a name="logic-app-definition-limits"></a>Limiti delle definizioni delle app per la logica
 
-Questi limiti si applicano a una singola definizione di un'app per la logica.
+Ecco i limiti per una singola definizione di app per la logica:
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
@@ -136,7 +129,7 @@ Questi limiti si applicano ai connettori personalizzati che è possibile creare 
 
 ### <a name="integration-account-limits"></a>Limiti dell'account di integrazione
 
-Questi limiti si applicano agli elementi che è possibile aggiungere a un account di integrazione.
+Di seguito sono riportati i limiti per gli elementi che è possibile aggiungere a un account di integrazione.
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
@@ -155,7 +148,7 @@ Questi limiti si applicano al numero di elementi che è possibile aggiungere a u
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Contratti | 10 | | 
-| Altri tipi di elementi | 25 |I tipi includono partner, schemi, certificati e mappe. Ogni tipo può avere fino al numero massimo di elementi. | 
+| Altri tipi di elementi | 25 | I tipi includono partner, schemi, certificati e mappe. Ogni tipo può avere fino al numero massimo di elementi. | 
 |||| 
 
 #### <a name="standard-pricing-tier"></a>Piano tariffario Standard
@@ -167,7 +160,7 @@ Questi limiti si applicano al numero di elementi che è possibile aggiungere a u
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>Dimensioni dei messaggi per i protocolli B2B (AS2, X12, EDIFACT)
 
-Questi limiti si applicano ai protocolli B2B.
+Ecco i limiti che si applicano ai protocolli B2B:
 
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 

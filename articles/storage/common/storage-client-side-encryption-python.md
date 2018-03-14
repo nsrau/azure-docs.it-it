@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: bf6696cfdfe9fc18dd2f000162a4e787a7ca6e21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Crittografia lato client con Python per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -106,6 +106,10 @@ Se un batch viene creato come un gestore di contesto tramite il metodo tableserv
 Si noti che le entità vengono crittografate quando vengono inserite nel batch mediante il criterio di crittografia del batch (le entità NON vengono crittografate al momento di fase di confermare il batch tramite il criterio di crittografia del tableservice).
 
 ### <a name="queries"></a>Query
+> [!NOTE]
+> Dato che le entità sono crittografate, non è possibile eseguire query che eseguono operazioni di filtro in base a una proprietà crittografata.  Se si tenta un'operazione di questo tipo i risultati non saranno corretti, perché il servizio tenterebbe di confrontare dati crittografati con dati non crittografati.
+> 
+>
 Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (\_ClientEncryptionMetadata1 e \_ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
 
 > [!IMPORTANT]

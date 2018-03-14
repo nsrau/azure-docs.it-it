@@ -3,8 +3,8 @@ title: Accelerazione sito dinamico tramite la rete CDN di Azure
 description: Approfondimento dell'accelerazione sito dinamico
 services: cdn
 documentationcenter: 
-author: smcevoy
-manager: erikre
+author: dksimpson
+manager: akucer
 editor: 
 ms.assetid: 
 ms.service: cdn
@@ -12,52 +12,73 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
-ms.author: v-semcev
-ms.openlocfilehash: be2719e0e02c8bc69800ef4a3e7da3c3164cb9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/01/2018
+ms.author: rli
+ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accelerazione sito dinamico tramite la rete CDN di Azure
 
-A causa dell'elevata diffusione di social media, e-commerce e Web iper-personalizzato, una percentuale sempre maggiore di contenuti resa disponibile agli utenti finali viene generata in tempo reale. Gli utenti si aspettano esperienze Web rapide, affidabili e personalizzate, indipendentemente da browser, posizione, dispositivo o rete. Tuttavia, le innovazioni che rendono queste esperienze così coinvolgenti rallentano anche i download delle pagine e pongono a rischio la qualità dell'esperienza utente. 
+A causa dell'elevata diffusione di social media, e-commerce e Web iper-personalizzato, una percentuale sempre maggiore di contenuti resa disponibile agli utenti finali viene generata in tempo reale. Gli utenti si aspettano un'esperienza Web rapida, affidabile e personalizzata, indipendentemente da browser, posizione, dispositivo o rete. Tuttavia, le innovazioni che rendono queste esperienze così coinvolgenti rallentano anche i download delle pagine e pongono a rischio la qualità dell'esperienza utente. 
 
-Le funzionalità standard della rete CDN includono la possibilità di memorizzare nella cache file in posizioni più vicine agli utenti finali per accelerare la distribuzione di file statici. Tuttavia, con le applicazioni Web dinamiche la memorizzazione nella cache di tali contenuti in posizioni periferiche non è possibile, in quanto il server genera il contenuto in risposta al comportamento degli utenti. È più difficile accelerare la distribuzione di tali contenuti rispetto alla memorizzazione nella cache perimetrale tradizionale e a questo scopo è necessaria una soluzione end-to-end in grado di ottimizzare ogni elemento insieme all'intero percorso dei dati, dalle fasi iniziali alla distribuzione. La funzionalità Accelerazione sito dinamico della rete CDN di Azure migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico.
+Le funzionalità standard della rete per la distribuzione di contenuti (CDN) includono la possibilità di memorizzare nella cache file in posizioni più vicine agli utenti finali per accelerare la distribuzione di file statici. Tuttavia, con le applicazioni Web dinamiche la memorizzazione nella cache di tali contenuti in posizioni periferiche non è possibile, in quanto il server genera il contenuto in risposta al comportamento degli utenti. È più difficile accelerare la distribuzione di tali contenuti rispetto alla memorizzazione nella cache perimetrale tradizionale e a questo scopo è necessaria una soluzione end-to-end in grado di ottimizzare ogni elemento insieme all'intero percorso dei dati, dalle fasi iniziali alla distribuzione. L'ottimizzazione Accelerazione sito dinamico della rete CDN di Azure migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico.
 
-La rete CDN di Azure con tecnologie Akamai e Verizon offre l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
+La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
+
+> [!Important]
+> Solo per i profili di **rete CDN di Azure di Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo la creazione.
+>   
+> Per i profili di **rete CDN di Azure di Verizon** non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo la creazione.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Configurazione di un endpoint di rete CDN per accelerare la distribuzione di file dinamici
 
-È possibile configurare l'endpoint di rete CDN in modo da ottimizzare la distribuzione di file dinamici tramite il portale di Azure selezionando l'opzione **Accelerazione sito dinamico** nella casella di selezione delle proprietà **Ottimizzato per** durante la creazione dell'endpoint. È anche possibile usare le API REST o qualsiasi SDK client per eseguire le stesse operazioni a livello di codice. 
+Per configurare un endpoint di rete CDN in modo da ottimizzare la distribuzione di file dinamici è possibile usare il portale di Azure, le API REST o qualsiasi SDK client per eseguire la stessa operazione a livello di codice. 
 
-### <a name="probe-path"></a>Percorso probe
-Il percorso probe è una caratteristica specifica della funzionalità Accelerazione sito dinamico e un percorso probe valido è necessario ai fini della creazione. La funzionalità Accelerazione sito dinamico usa un piccolo file di *percorso probe*, incluso nell'origine per ottimizzare le configurazioni di routing di rete per la rete CDN. È possibile scaricare e caricare il file di esempio nel proprio sito oppure usare un asset esistente nell'origine che sia all'incirca di 10 KB per il percorso probe, se l'asset esiste già.
+**Per configurare un endpoint di rete CDN per l'ottimizzazione Accelerazione sito dinamico tramite il portale di Azure:**
+
+1. Nella pagina **Profilo rete CDN** selezionare**Endpoint**.
+
+   ![Aggiungere un nuovo endpoint di rete CDN](./media/cdn-dynamic-site-acceleration/cdn-endpoint-profile.png) 
+
+   Verrà visualizzato il riquadro **Aggiungi un endpoint**.
+
+2. In **Ottimizzato per** selezionare **Accelerazione sito dinamico**.
+
+    ![Creare un nuovo endpoint di rete CDN con Accelerazione sito dinamico](./media/cdn-dynamic-site-acceleration/cdn-endpoint-dsa.png)
+
+3. Per **Percorso probe** immettere il percorso valido di un file.
+
+    Il percorso probe è una caratteristica specifica della funzionalità Accelerazione sito dinamico e ai fini della creazione è necessario un percorso valido. La funzionalità Accelerazione sito dinamico usa un piccolo file di *percorso probe*, incluso nel server di origine per ottimizzare le configurazioni di routing di rete per la rete CDN. Per il file del percorso probe è possibile scaricare e caricare il file di esempio nel proprio sito oppure usare un asset esistente nell'origine che sia all'incirca di 10 KB.
+
+4. Immettere le altre opzioni necessarie per l'endpoint (per altre informazioni, vedere [Creare un nuovo endpoint della rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint)), quindi selezionare **Aggiungi**.
+
+   Una volta creato l'endpoint di rete CDN, questo applica le ottimizzazioni basate su Accelerazione sito dinamico per tutti i file che soddisfano determinati criteri. 
+
+
+**Per configurare un endpoint esistente per Accelerazione sito dinamico (solo profili di rete CDN di Azure di Akamai):**
+
+1. Nella pagina **Profilo rete CDN** selezionare l'endpoint che si vuole modificare.
+
+2. Selezionare **Ottimizzazione** nel riquadro sinistro. 
+
+   Viene visualizzata la pagina **Ottimizzazione**.
+
+3. In **Ottimizzato per** selezionare **Accelerazione sito dinamico**, quindi selezionare **Salva**.
 
 > [!Note]
-> Alla funzionalità Accelerazione sito dinamico si applicano costi aggiuntivi. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cdn/).
-
-Gli screenshot seguenti mostrano il processo tramite il portale di Azure.
- 
-![Aggiunta di un nuovo endpoint di rete CDN](./media/cdn-dynamic-site-acceleration/01_Endpoint_Profile.png) 
-
-*Figura 1: Aggiunta di un nuovo endpoint di rete CDN dal profilo di rete CDN*
- 
-![Creazione di un nuovo endpoint di rete CDN con Accelerazione sito dinamico](./media/cdn-dynamic-site-acceleration/02_Optimized_DSA.png)  
-
-*Figura 2: Creazione di un endpoint di rete CDN tramite la selezione dell'ottimizzazione basata su Accelerazione sito dinamico*
-
-Una volta creato l'endpoint di rete CDN, questo applica le ottimizzazioni basate su Accelerazione sito dinamico per tutti i file che soddisfano determinati criteri. La sezione seguente descrive in dettaglio l'ottimizzazione basata su Accelerazione sito dinamico.
+> Alla funzionalità Accelerazione sito dinamico si applicano costi aggiuntivi. Per altre informazioni, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="dsa-optimization-using-azure-cdn"></a>Ottimizzazione basata su Accelerazione sito dinamico tramite la rete CDN di Azure
 
 La funzionalità Accelerazione sito dinamico nella rete CDN di Azure accelera la distribuzione di asset dinamici tramite le tecniche seguenti:
 
--   Ottimizzazione delle route
--   Ottimizzazioni del protocollo TCP
--   Prelettura degli oggetti (solo Akamai)
--   Compressione di immagini mobile (solo Akamai)
+-   [Ottimizzazione delle route](#route-optimization)
+-   [Ottimizzazioni del protocollo TCP](#tcp-optimizations)
+-   [Prelettura degli oggetti (solo rete CDN di Azure con tecnologia Akamai)](#object-prefetch-azure-cdn-from-akamai-only)
+-   [Compressione di immagini adattiva (solo rete CDN di Azure con tecnologia Akamai)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
 ### <a name="route-optimization"></a>Ottimizzazione delle route
 
@@ -73,47 +94,49 @@ Di conseguenza, i contenuti completamente dinamici e transazionali vengono distr
 
 ### <a name="tcp-optimizations"></a>Ottimizzazioni del protocollo TCP
 
-Transmission Control Protocol (TCP) è il protocollo standard della suite di protocolli Internet e viene usato per distribuire informazioni tra applicazioni in una rete IP.  Per impostazione predefinita, sono necessarie diverse richieste nelle due direzioni per configurare una connessione TCP e vengono applicati limiti per evitare congestioni di rete, che producono inefficienze su larga scala. La rete CDN di Azure con tecnologia Akamai gestisce tutti questi aspetti tramite ottimizzazioni in tre aree: 
+Transmission Control Protocol (TCP) è il protocollo standard della suite di protocolli Internet e viene usato per distribuire informazioni tra applicazioni in una rete IP.  Per impostazione predefinita, sono necessarie diverse richieste nelle due direzioni per configurare una connessione TCP e vengono applicati limiti per evitare congestioni di rete, che producono inefficienze su larga scala. **La rete CDN di Azure con tecnologia Akamai** gestisce questo problema tramite ottimizzazioni in tre aree: 
 
- - Eliminazione della lentezza di avvio
- - Uso di connessioni persistenti
- - Ottimizzazione dei parametri dei pacchetti TCP (solo Akamai)
+ - [Eliminazione della lentezza di avvio TCP](#eliminating-tcp-slow-start)
+ - [Uso di connessioni persistenti](#leveraging-persistent-connections)
+ - [Ottimizzazione dei parametri dei pacchetti TCP](#tuning-tcp-packet-parameters)
 
-#### <a name="eliminating-slow-start"></a>Eliminazione della lentezza di avvio
+#### <a name="eliminating-tcp-slow-start"></a>Eliminazione della lentezza di avvio TCP
 
-La *lentezza di avvio* è una caratteristica del protocollo TCP, che impedisce la congestione di rete limitando la quantità di dati inviati in rete. La lentezza di avvio inizia con finestre di congestione di dimensioni ridotte tra il mittente e il destinatario, fino a raggiungere le dimensioni massime o a rilevare una perdita di pacchetti.
+*Slow start* (lentezza di avvio) è un algoritmo del protocollo TCP che impedisce la congestione di rete limitando la quantità di dati inviati in rete. La lentezza di avvio inizia con finestre di congestione di dimensioni ridotte tra il mittente e il destinatario, fino a raggiungere le dimensioni massime o a rilevare una perdita di pacchetti.
 
-La rete CDN di Azure con tecnologie Akamai e Verizon elimina la lentezza di avvio in tre passaggi:
+ Sia la **rete CDN di Azure fornita da Akamai** che la **rete CDN di Azure fornita da Verizon** eliminano la lentezza di avvio TCP in tre passaggi:
 
-1.  La rete Akamai e la rete Verizon usano entrambe il monitoraggio dell'integrità e della larghezza di banda per misurare la larghezza di banda delle connessioni tra i server POP perimetrali.
+1. Viene usato il monitoraggio dell'integrità e della larghezza di banda per misurare la larghezza di banda delle connessioni tra i server POP perimetrali.
+    
 2. Le metriche vengono condivise tra i server POP perimetrali in modo che ogni server sia in grado di determinare le condizioni di rete e l'integrità degli altri server POP nelle vicinanze.  
-3. I server perimetrali della rete CDN sono ora in grado di prevedere alcuni parametri di trasmissione, ad esempio le dimensioni ottimali delle finestre di congestione durante la comunicazione con altri server perimetrali della rete CDN nelle vicinanze. Questo significa che è possibile aumentare le dimensioni iniziali della finestra di congestione se l'integrità della connessione tra i server perimetrali della rete CDN è in grado di supportare trasferimenti di dati di pacchetto di dimensioni maggiori.  
+    
+3. I server perimetrali della rete CDN fanno ipotesi su alcuni parametri di trasmissione, ad esempio le dimensioni ottimali delle finestre di congestione durante la comunicazione con altri server perimetrali della rete CDN nelle vicinanze. Questo significa che è possibile aumentare le dimensioni iniziali della finestra di congestione se l'integrità della connessione tra i server perimetrali della rete CDN è in grado di supportare trasferimenti di dati di pacchetto di dimensioni maggiori.  
 
 #### <a name="leveraging-persistent-connections"></a>Uso di connessioni persistenti
 
-Con una rete CDN, un numero minore di computer univoci si connette direttamente al server di origine rispetto agli utenti che si connettono direttamente all'origine. La rete CDN di Azure con tecnologie Akamai e Verizon crea inoltre pool di richieste degli utenti per stabilire un numero minore di connessioni all'origine.
+Con una rete CDN, un numero minore di computer univoci si connette direttamente al server di origine rispetto agli utenti che si connettono direttamente all'origine. La rete CDN di Azure crea inoltre pool di richieste degli utenti per stabilire un numero minore di connessioni all'origine.
 
-Come indicato in precedenza, le connessioni TCP comportano diverse richieste nelle due direzioni in un handshake per stabilire una nuova connessione. Le connessioni persistenti, chiamate anche "HTTP keep-alive", riutilizzano le connessioni TCP esistenti per più richieste HTTP, in modo da ottimizzare i tempi di round trip e accelerare la distribuzione. 
+Come accennato in precedenza, sono necessarie più richieste di handshake per stabilire una connessione TCP. Le connessioni persistenti, implementate dall'intestazione HTTP `Keep-Alive`, riutilizzano le connessioni TCP esistenti per più richieste HTTP, in modo da ottimizzare i tempi di round trip e accelerare la distribuzione. 
 
-La rete Verizon invia pacchetti "keep-alive" tramite la connessione TCP anche per impedire la chiusura di una connessione aperta.
+La **rete CDN di Azure con tecnologia Verizon** invia pacchetti "keep-alive" tramite la connessione TCP anche per impedire la chiusura di una connessione aperta.
 
 #### <a name="tuning-tcp-packet-parameters"></a>Ottimizzazione dei parametri dei pacchetti TCP
 
-La rete CDN di Azure con tecnologia Akamai ottimizza anche i parametri che determinano le connessioni da server a server e riduce la quantità di round trip a lungo termine necessari per recuperare il contenuto incorporato nel sito tramite le tecniche seguenti:
+La **rete CDN di Azure con tecnologia Akamai** ottimizza i parametri che determinano le connessioni da server a server e riduce la quantità di round trip a lungo termine necessari per recuperare il contenuto incorporato nel sito tramite le tecniche seguenti:
 
-1.  Aumentando la finestra di congestione iniziale in modo da inviare più pacchetti senza attendere un acknowledgement.
-2.  Riducendo il timeout di ritrasmissione iniziale in modo da rilevare le perdite e accelerare la ritrasmissione.
-3.  Riducendo i timeout di ritrasmissione minimo e massimo per ridurre i tempi di attesa prima di supporre una perdita dei pacchetti durante la trasmissione.
+- Aumentando la finestra di congestione iniziale in modo da inviare più pacchetti senza attendere un acknowledgement.
+- Riducendo il timeout di ritrasmissione iniziale in modo da rilevare le perdite e accelerare la ritrasmissione.
+- Riducendo i timeout di ritrasmissione minimo e massimo per ridurre i tempi di attesa prima di supporre una perdita dei pacchetti durante la trasmissione.
 
-### <a name="object-prefetch-akamai-only"></a>Prelettura degli oggetti (solo Akamai)
+### <a name="object-prefetch-azure-cdn-from-akamai-only"></a>Prelettura degli oggetti (solo rete CDN di Azure con tecnologia Akamai)
 
 La maggior parte dei siti Web è costituita da una pagina HTML che fa riferimento a diverse altre risorse, come immagini e script. In genere, quando un client richiede una pagina Web, il browser scarica e analizza prima di tutto l'oggetto HTML, quindi effettua richieste aggiuntive agli asset collegati necessari per caricare completamente la pagina. 
 
 La *prelettura* è una tecnica per recuperare le immagini e gli script incorporati nella pagina HTML quando il file HTML viene reso disponibile al browser e addirittura prima che il browser effettui le richieste di questi oggetti. 
 
-Attivando l'opzione di **prelettura** quando la rete CDN rende disponibile la pagina HTML di base al browser del client, analizza il file HTML ed effettua richieste aggiuntive di tutte le risorse collegate, archiviandole nella cache. Quando il client effettua le richieste degli asset collegati, il server perimetrale della rete CDN include già gli oggetti richiesti e può renderli disponibili immediatamente senza un round trip all'origine. Questa ottimizzazione è utile per contenuti memorizzabili e non memorizzabili nella cache.
+Attivando l'opzione di prelettura quando la rete CDN rende disponibile la pagina HTML di base al browser del client, la rete analizza il file HTML ed effettua richieste aggiuntive di tutte le risorse collegate, archiviandole nella cache. Quando il client effettua le richieste degli asset collegati, il server perimetrale della rete CDN include già gli oggetti richiesti e può renderli disponibili immediatamente senza un round trip all'origine. Questa ottimizzazione è utile per contenuti memorizzabili e non memorizzabili nella cache.
 
-### <a name="adaptive-image-compression-akamai-only"></a>Compressione di immagini adattiva (solo Akamai)
+### <a name="adaptive-image-compression-azure-cdn-from-akamai-only"></a>Compressione di immagini adattiva (solo rete CDN di Azure con tecnologia Akamai)
 
 Alcuni dispositivi, in particolare quelli mobili, riscontrano occasionalmente velocità di rete minori. In questi scenari è più utile per l'utente ricevere nella propria pagina Web immagini di dimensioni minori più rapidamente anziché attendere più a lungo le immagini a risoluzione completa.
 
@@ -125,17 +148,30 @@ Compressione JPEG | JPG, JPEG, JPE, JIG, JGIG, JGI
 
 ## <a name="caching"></a>Memorizzazione nella cache
 
-Con la funzionalità Accelerazione sito dinamico, la memorizzazione nella cache è disattivata per impostazione predefinita nella rete CDN, anche quando l'origine include intestazioni Cache-Control/Expires nella risposta. Questa impostazione è disattivata automaticamente perché la funzionalità Accelerazione sito dinamico viene in genere usata per asset dinamici che non devono essere memorizzati nella cache in quanto univoci per ogni client e la sua attivazione per impostazione predefinita può interrompere questo comportamento.
+Con la funzionalità Accelerazione sito dinamico, la memorizzazione nella cache è disattivata per impostazione predefinita nella rete CDN, anche quando l'origine include intestazioni `Cache-Control` o `Expires` nella risposta. La funzionalità Accelerazione sito dinamico viene in genere usata per asset dinamici che non devono essere memorizzati nella cache in quanto univoci per ogni client. La memorizzazione nella cache può interrompere questo comportamento.
 
 Se il sito Web include una combinazione di asset statici e dinamici, è preferibile adottare un approccio ibrido per ottenere prestazioni ottimali. 
 
-Se si usa ADN con Verizon Premium, è possibile riattivare la memorizzazione nella cache per casi specifici tramite il motore regole.  
+Per i profili di **rete CDN di Azure di Verizon Premium** è possibile attivare la memorizzazione nella cache per casi specifici tramite il [motore regole](cdn-rules-engine.md) per gli endpoint con Accelerazione sito dinamico. Le regole create interessano solo gli endpoint del profilo che sono ottimizzati per Accelerazione sito dinamico. 
 
-Un'alternativa consiste nell'usare due endpoint di rete CDN, uno con Accelerazione sito dinamico per distribuire asset dinamici e un altro con un'ottimizzazione di tipo statico, ad esempio la distribuzione Web generica, per distribuire asset memorizzabili nella cache. Per adottare questa alternativa, è necessario modificare gli URL delle pagine Web per il collegamento diretto all'asset nell'endpoint di rete CDN che si prevede di usare. 
+Per accedere al motore regole per gli endpoint con Accelerazione sito dinamico:
+    
+1. Nella pagina **Profilo rete CDN **selezionare** Gestisci**.  
+    
+    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+
+    Si aprirà il portale di gestione della rete CDN.
+
+2. Nel portale di gestione della rete CDN selezionare **ADN** e quindi **Motore regole**. 
+
+    ![Motore regole per Accelerazione sito dinamico](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+
+
+In alternativa, e possibile usare due endpoint di rete CDN, uno ottimizzato con Accelerazione sito dinamico per distribuire asset dinamici e un altro con un'ottimizzazione di tipo statico, ad esempio la distribuzione Web generica, per distribuire asset memorizzabili nella cache. Modificare gli URL delle pagine Web per il collegamento diretto all'asset nell'endpoint di rete CDN che si prevede di usare. 
 
 Ad esempio: `mydynamic.azureedge.net/index.html` è una pagina dinamica e viene caricata dall'endpoint con Accelerazione sito dinamico.  La pagina HTML fa riferimento a più asset statici, tra cui librerie JavaScript o immagini caricate dall'endpoint di rete CDN statico, come `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
 
-[Qui](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller) è disponibile un esempio di come usare controller in un'applicazione Web ASP.NET per rendere disponibili contenuti tramite un URL di rete CDN specifico.
+Per un esempio su come usare i controller in un'applicazione Web ASP.NET per rendere disponibili contenuti tramite un URL di rete CDN specifico, vedere [Gestire il contenuto dalle azioni del controller attraverso la rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
 
 
 

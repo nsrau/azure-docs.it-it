@@ -15,18 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: owend
-ms.openlocfilehash: 43eab587a1e5209069a248f1e2e1f57af158a2b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importare un file di Power BI Desktop
 
-È possibile creare un nuovo modello in Azure AS importando un DI file Power BI Desktop (file con estensione PBIX). Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni. Nel server è possibile apportare modifiche al modello aggiornando o reimportando il file con estensione PBIX, tramite la funzionalità della finestra di progettazione Web (anteprima) nel portale oppure usando SQL Server Management Studio (SSMS). I modelli importati non possono essere aperti o esportati in Visual Studio.
+È possibile creare un nuovo modello in Azure AS importando un DI file Power BI Desktop (file con estensione PBIX). Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni.
 
-> [!NOTE]
-> Se il modello con estensione PBIX si connette alle origini dati locali, per il server deve essere configurato un [gateway locale](analysis-services-gateway.md).
+**Restrizioni**   
+- Il modello con estensione PBIX deve connettersi solo alle [origini dati di Analysis Services supportate](analysis-services-datasource.md). 
+- Il modello con estensione PBIX non può avere connessioni dinamiche o DirectQuery. 
+- Se il modello con estensione PBIX si connette alle origini dati locali, per il server Analysis Services deve essere configurato un [gateway dati locale](analysis-services-gateway.md).
+- L'importazione potrebbe non riuscire se il modello di dati con estensione PBIX contiene metadati non supportati in Analysis Services.
 
 ## <a name="to-import-from-pbix"></a>Per importare da un file con estensione PBIX
 

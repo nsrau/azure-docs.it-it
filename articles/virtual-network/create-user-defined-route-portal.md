@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
 ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/06/2018
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Creare una route definita dall'utente - Portale di Azure
 

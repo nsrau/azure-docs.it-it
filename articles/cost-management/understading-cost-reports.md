@@ -1,24 +1,24 @@
 ---
-title: Informazioni sui report dei costi in Gestione costi di Azure | Microsoft Docs
-description: Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report Cloudyn.
+title: Informazioni sui report di gestione dei costi in Gestione costi di Azure | Microsoft Docs
+description: Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn.
 services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 38c1313f42a58403e158cad9c2930b6541da5adc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4effd63fbd9cb972a0d130826a7347dd34561792
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="understanding-cost-reports"></a>Informazioni sui report dei costi
+# <a name="understanding-cost-management-reports"></a>Informazioni sui report di gestione dei costi
 
-Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report Cloudyn. La maggior parte dei report Cloudyn presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. Dopo aver letto questo articolo, sarà possibile usare qualsiasi report. Nei vari report sono disponibili molte funzionalità standard che ne facilitano l'esplorazione. I report sono personalizzabili ed è possibile selezionare diverse opzioni per calcolare e visualizzare i risultati.
+Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn. La maggior parte dei report Cloudyn presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. Dopo avere letto questo articolo, sarà possibile usare qualsiasi report di gestione dei costi. Nei vari report sono disponibili molte funzionalità standard che ne facilitano l'esplorazione. I report sono personalizzabili ed è possibile selezionare diverse opzioni per calcolare e visualizzare i risultati.
 
 ## <a name="report-fields-and-options"></a>Campi e opzioni dei report
 
@@ -131,6 +131,27 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 14. **Actions**
 
     Usare questa opzione per salvare, esportare o pianificare il report.
+
+## <a name="save-and-schedule-reports"></a>Salvare e pianificare report
+
+Dopo avere creato un report, è possibile salvarlo per un uso futuro. I report salvati sono disponibili in **My Tools** (Strumenti personali) > **My Reports** (Report personali). Se si apportano modifiche a un report esistente e lo si salva, il report viene salvato come una nuova versione. In alternativa, è possibile salvarlo come un nuovo report.
+
+### <a name="save-a-report-to-the-cloudyn-portal"></a>Salvare un report nel portale Cloudyn
+
+Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Save to my reports** (Salva in report personali). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. È possibile scegliere di **condividere** il report pubblicamente con altri utenti dell'organizzazione o di condividerlo nella propria entità. Se il report non viene condiviso, resta un report personale visualizzabile solo dall'utente. Salvare il report.
+
+
+### <a name="save-a-report-to-cloud-provider-storage"></a>Salvare un report in una risorsa di archiviazione di un provider di servizi cloud
+
+Per salvare un report con un provider di servizi cloud, è necessario avere già configurato un account di archiviazione. Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report). Assegnare un nome al report e quindi aggiungere il proprio URL o usare quello creato automaticamente. Selezionare **Save to storage** (Salva in risorsa di archiviazione) e quindi selezionare l'account di archiviazione o aggiungerne uno nuovo. Immettere un prefisso che viene aggiunto al nome del file di report. Selezionare un formato di file CSV o JSON e quindi salvare il report.
+
+### <a name="schedule-a-report"></a>Pianificare un report
+
+È possibile eseguire i report a intervalli pianificati e inviarli a un elenco di destinatari o a un account di archiviazione di un provider di servizi cloud. Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report). È possibile inviare il report tramite posta elettronica e salvarlo in un account di archiviazione. In **Schedule** (Pianificazione) selezionare l'intervallo (giornaliera, settimanale o mensile). Per la pianificazione settimanale e mensile, specificare il giorno o le date e selezionare l'ora. Salvare il report pianificato. Se si seleziona il formato di report in Excel, il report viene inviato come allegato. Quando si seleziona il formato di contenuto del messaggio di posta elettronica, i risultati del report che vengono visualizzati in formato grafico sono presentati sotto forma di grafico.
+
+### <a name="export-a-report-as-a-csv-file"></a>Esportare un report come file CSV
+
+Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selezionare **Export all report data** (Esporta tutti i dati del report). Verrà visualizzata una finestra popup e sarà scaricato un file CSV.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: 8f98fd7773acb960ae79e743663aceb216f217c4
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Panoramica di Azure Load Balancer Standard (anteprima)
 
@@ -466,12 +466,13 @@ Durante la fase di anteprima si applicano le limitazioni seguenti, soggette a mo
 - Nel contesto delle zone di disponibilità, non è possibile spostare un indirizzo IP pubblico di zona da una zona a un'altra.
 - Gli [avvisi di Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) non sono attualmente supportati.
 - Il portale non supporta ancora le aree di anteprima espanse.  Usare strumenti client come modelli, interfaccia della riga di comando di Azure 2.0 o PowerShell come soluzione alternativa.
+- Lo spostamento delle operazioni di sottoscrizione non è supportato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Load Balancer Basic](load-balancer-overview.md).
 - Altre informazioni sulle [zone di disponibilità](../availability-zones/az-overview.md).
-- Altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
 - Informazioni sulle [metriche esposte](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).

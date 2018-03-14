@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: bf20a0f15b1bc285a598c64c7e9f2de0082b2904
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -40,7 +40,9 @@ Questo problema si verifica se il certificato client non è presente in **Certif
 
 Per risolvere il problema, seguire questa procedura:
 
-1. Verificare che i certificati seguenti siano nel percorso corretto:
+1. Aprire Gestione certificati: fare clic sul pulsante **Start**, digitare **gestisci i certificati computer** e quindi fare clic su **gestisci i certificati computer** nei risultati della ricerca.
+
+2. Verificare che i certificati seguenti siano nel percorso corretto:
 
     | Certificate | Località |
     | ------------- | ------------- |
@@ -48,7 +50,7 @@ Per risolvere il problema, seguire questa procedura:
     | Azuregateway-*GUID*.cloudapp.net  | Utente corrente\Autorità di certificazione radice attendibili|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Computer locale\Autorità di certificazione radice attendibili|
 
-2. Passare a Utenti\<NomeUtente>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, installare manualmente il certificato (file con estensione cer) nell'archivio dell'utente e del computer.
+3. Passare a Utenti\<NomeUtente>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, installare manualmente il certificato (file con estensione \*.cer) nell'archivio dell'utente e del computer.
 
 Per altre informazioni su come installare il certificato client, vedere [Generare ed esportare i certificati per le connessioni da punto a sito](vpn-gateway-certificates-point-to-site.md).
 

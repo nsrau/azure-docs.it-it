@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 803b0bbff12c8ce471c0bff5e22e24601b8ce07f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows - Anteprima
 
@@ -122,6 +122,12 @@ docker logs -f tempSensor
 
 È anche possibile visualizzare i dati di telemetria inviati dal dispositivo tramite lo [strumento di esplorazione dell'hub IoT][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se si vuole rimuovere il dispositivo simulato creato assieme ai contenitori Docker avviati per ogni modulo, usare il comando seguente: 
+
+```cmd
+iotedgectl uninstall
+```
 
 Quando l'hub IoT creato non è più necessario, è possibile usare il comando [az iot hub delete][lnk-delete] per rimuovere la risorsa ed eventuali dispositivi associati ad essa:
 

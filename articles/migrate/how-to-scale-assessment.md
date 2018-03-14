@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: d1063d1f2777095c880896b49249f6de4cda6f3a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9d9ebef66be269c63a62d393eda76254946b13e7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -30,22 +30,24 @@ Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 | **Entità** | **Limite di computer** |
 | ---------- | ----------------- |
 | Project    | 1.500              | 
-| Individuazione  | 1.000              |
-| Valutazione | 400               |
+| Individuazione  | 1.500              |
+| Valutazione | 1.500               |
 
-- Se i computer da individuare e valutare sono meno di 400, occorre creare un singolo progetto e una sola individuazione. A seconda delle esigenze, è possibile ottenere un'unica valutazione per tutti i computer o suddividerli in più valutazioni. 
-- Se i computer da individuare sono un numero compreso tra 400 e 1.000, occorre un singolo progetto e una singola individuazione. Per valutare questi computer, saranno tuttavia necessarie più valutazioni, poiché una singola valutazione può contenere un massimo di 400 computer.
-- Se i computer da individuare sono un numero compreso tra 1.001 e 1.500, occorre un singolo progetto che contenga due individuazioni.
-- Se i computer da individuare sono oltre 1.500, è necessario creare più progetti ed eseguire più individuazioni a seconda delle esigenze. Ad esempio: 
-    - Se si dispone di 3.000 computer, è possibile configurare due progetti con due individuazioni o tre progetti con una singola individuazione.
-    - Se si dispone di 5.000 computer, è possibile configurare quattro progetti: tre con un'individuazione di 1.500 computer e uno con un'individuazione di 500 computer. In alternativa, è possibile configurare cinque progetti con una singola individuazione in ciascuno. 
+<!-- 
+- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments. 
+- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
+- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
+- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
+    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
+    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one. 
+-->
 
 ## <a name="plan-multiple-discoveries"></a>Pianificare più individuazioni
 
 È possibile usare lo stesso agente di raccolta di Azure Migrate per eseguire più individuazioni in uno o più progetti. Tenere presente le considerazioni seguenti sulla pianificazione:
  
 - Quando si esegue un'individuazione tramite l'agente di raccolta di Azure Migrate, è possibile impostare l'ambito di individuazione su una cartella, un data center, un cluster o un host del server vCenter.
-- Per eseguire più individuazioni, verificare nel server vCenter che le macchine virtuali che si vuole individuare siano incluse in cartelle, data center, cluster o host che supportano il limite di 1.000 computer.
+- Per eseguire più individuazioni, verificare nel server vCenter che le macchine virtuali che si vuole individuare siano incluse in cartelle, data center, cluster o host che supportano il limite di 1.500 computer.
 - Ai fini della valutazione, è consigliabile tenere i computer con interdipendenze all'interno dello stesso progetto e della stessa valutazione. Nel server vCenter verificare quindi che i computer dipendenti si trovino nello stesso data center, la stessa cartella o lo stesso cluster per la valutazione.
 
 
@@ -83,6 +85,14 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
    Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Verificare che il valore hash generato corrisponda alle impostazioni seguenti.
+
+    Per OVA versione 1.0.9.5
+
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | fb11ca234ed1f779a61fbb8439d82969
+    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
+    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
 
     Per OVA versione 1.0.9.2
 

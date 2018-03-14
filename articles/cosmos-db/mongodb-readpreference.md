@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: viviswan
-ms.openlocfilehash: 488206e81e483fa2006d774cd4e7d60f7017d9cb
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: b28285695f52d6dbcc33d9fb0efe06b43cdf1cab
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Come distribuire le letture a livello globale usando le preferenze di lettura con l'API MongoDB di Azure Cosmos DB 
 
@@ -39,7 +39,9 @@ Eseguire i comandi seguenti per clonare il repository di esempio. In base alla p
 
 1. [Applicazione di esempio .NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [Applicazione di esempio NodeJS]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Applicazione di esempio Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Applicazione di esempio Mongoose](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference)
+4. [Applicazione di esempio Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [Applicazione di esempio SpringBoot](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
 
 ```bash

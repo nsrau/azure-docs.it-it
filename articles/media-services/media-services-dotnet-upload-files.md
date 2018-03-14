@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
-ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f688c8f28b1dfd9a54e4dc39120851c144bbeffe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Caricare file in un account di Servizi multimediali mediante .NET
 > [!div class="op_single_selector"]
@@ -37,32 +37,32 @@ I file nell'asset sono denominati **File di asset**. L'istanza di **AssetFile** 
 > 
 > * Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.).
 > * La lunghezza del nome non deve essere superare i 260 caratteri.
-> * È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. Vedere [questo](media-services-quotas-and-limitations.md) argomento per informazioni dettagliate sulla limitazione per le dimensioni dei file.
-> * È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+> * È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. Vedere [questo](media-services-quotas-and-limitations.md) articolo per informazioni dettagliate sulla limitazione per le dimensioni dei file.
+> * È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 > 
 
-Quando si creano asset, è possibile specificare le seguenti opzioni di crittografia. 
+Quando si creano asset, è possibile specificare le opzioni di crittografia seguenti:
 
-* **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
-  Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione. 
+* **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione il contenuto non è protetto durante il transito, né nell'archiviazione locale.
+  Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione: 
 * **CommonEncryption** : usare questa opzione per caricare contenuti già crittografati e protetti con Common Encryption o PlayReady DRM (ad esempio, Smooth Streaming protetto con PlayReady DRM).
 * **EnvelopeEncrypted** : usare questa opzione se si sta caricando contenuto HLS crittografato con AES. I file devono essere stati codificati e crittografati da Transform Manager.
 * **StorageEncrypted** : crittografa il contenuto non crittografato localmente usando la crittografia AES a 256 bit, quindi li carica in Archiviazione di Azure dove vengono archiviati con crittografia in modo inattivo. Gli asset protetti con la crittografia di archiviazione vengono decrittografati automaticamente e inseriti in un file system crittografato prima della codifica, quindi ricrittografati facoltativamente prima di essere ricaricati di nuovo come nuovo asset di output. La crittografia di archiviazione viene usata principalmente quando si vogliono proteggere i file multimediali con input di alta qualità con una crittografia avanzata sul disco locale.
   
     Servizi multimediali offre una crittografia di archiviazione su disco per gli asset, non in rete come Digital Rights Management (DRM).
   
-    Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
+    Se l'asset è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
 Se si specifica che l'asset deve essere crittografato con un'opzione **CommonEncrypted** o **EnvelopeEncypted**, sarà necessario associare l'asset a **ContentKey**. Per alte informazioni, vedere [Creare entità ContentKey mediante .NET](media-services-dotnet-create-contentkey.md). 
 
 Se si specifica che l'asset deve essere crittografato con un'opzione **StorageEncrypted**, Media Services SDK per .NET creerà un'entità **StorateEncrypted** **ContentKey** per l'asset.
 
-Questo argomento illustra come usare l'SDK di Servizi multimediali per .NET e le relative estensioni per caricare file in un asset di Servizi multimediali.
+Questo articolo illustra come usare l'SDK di Servizi multimediali per .NET e le relative estensioni per caricare file in un asset di Servizi multimediali.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Caricare un singolo file con SDK di Servizi multimediali per .NET
-L'esempio di codice seguente usa l'SDK .NET per caricare un singolo file. AccessPolicy e Localizzatore vengono creati e distrutti dalla funzione di caricamento. 
+Il codice seguente usa .NET per caricare un singolo file. AccessPolicy e Localizzatore vengono creati e distrutti dalla funzione di caricamento. 
 
-
+```csharp
         static public IAsset CreateAssetAndUploadSingleFile(AssetCreationOptions assetCreationOptions, string singleFilePath)
         {
             if (!File.Exists(singleFilePath))
@@ -83,6 +83,7 @@ L'esempio di codice seguente usa l'SDK .NET per caricare un singolo file. Access
 
             return inputAsset;
         }
+```
 
 
 ## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Caricare più file con SDK di Servizi multimediali per .NET
@@ -93,7 +94,7 @@ Il codice esegue le seguenti attività:
 * Crea un'entità Asset vuota usando il metodo CreateEmptyAsset definito nel passaggio precedente.
 * Crea un'istanza di **AccessPolicy** che definisce le autorizzazioni e la durata dell'accesso all'asset.
 * Crea un'istanza di **Locator** che consente l'accesso all'asset.
-* Crea un'istanza di **BlobTransferClient** . Questo tipo rappresenta un client che agisce sugli oggetti BLOB di Azure. In questo esempio viene usato il client per monitorare lo stato del caricamento. 
+* Crea un'istanza di **BlobTransferClient** . Questo tipo rappresenta un client che agisce sugli oggetti BLOB di Azure. In questo esempio il client esegue il monitoraggio dello stato del caricamento. 
 * Enumera i file della directory specificata e crea un'istanza di **AssetFile** per ogni file.
 * Carica i file in Servizi multimediali usando il metodo **UploadAsync** . 
 
@@ -102,6 +103,7 @@ Il codice esegue le seguenti attività:
 > 
 > 
 
+```csharp
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
         {
             var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
@@ -157,10 +159,10 @@ Il codice esegue le seguenti attività:
             Console.WriteLine("{0}% upload competed for {1}.", e.ProgressPercentage, e.LocalFile);
         }
     }
+```
 
 
-
-Quando si carica un numero elevato di asset, prendere in considerazione quanto segue.
+Quando si carica un numero elevato di asset, prendere in considerazione quanto segue:
 
 * Creare un nuovo oggetto **CloudMediaContext** per thread. La classe **CloudMediaContext** non è di tipo thread-safe.
 * Aumentare il valore di NumberOfConcurrentTransfers sostituendo il valore 2 predefinito con uno maggiore, ad esempio 5. L'impostazione di questa proprietà ha effetto su tutte le istanze di **CloudMediaContext**. 
@@ -171,27 +173,34 @@ Il caricamento di file di asset di grandi dimensioni costituisce un collo di bot
 
 Per creare una nuova entità IngestManifest, chiamare il metodo Create esposto dalla raccolta IngestManifests in CloudMediaContext. Questo metodo creerà una nuova entità IngestManifest con il nome di manifesto specificato.
 
+```csharp
     IIngestManifest manifest = context.IngestManifests.Create(name);
+```
 
 Creare gli asset che verranno associati all'entità IngestManifest in blocco. Configurare le opzioni di crittografia desiderate nell'asset per l'inserimento in blocco.
 
+```csharp
     // Create the assets that will be associated with this bulk ingest manifest
     IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
     IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
+```
 
-Un'entità IngestManifestAsset associa un Asset a un IngestManifest in blocco per l'inserimento in blocco. Associa anche le entità AssetFiles che costituiranno i singoli Asset. Per creare un'entità IngestManifestAsset, usare il metodo Create nel contesto server.
+Un'entità IngestManifestAsset associa un Asset a un IngestManifest in blocco per l'inserimento in blocco. Associa anche le entità AssetFiles che costituiranno i singoli asset. Per creare un'entità IngestManifestAsset, usare il metodo Create nel contesto server.
 
 Il seguente esempio illustra come aggiungere due nuove entità IngestManifestAssets che associano i due asset creati in precedenza al manifesto di inserimento in blocco. Ogni entità IngestManifestAsset associa anche un set di file che verrà caricato per ogni asset durante l'inserimento in blocco.  
 
+```csharp
     string filename1 = _singleInputMp4Path;
     string filename2 = _primaryFilePath;
     string filename3 = _singleInputFilePath;
 
     IIngestManifestAsset bulkAsset1 =  manifest.IngestManifestAssets.Create(destAsset1, new[] { filename1 });
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
+```
 
 È possibile usare qualsiasi applicazione client ad alta velocità in grado di caricare i file di asset nell'URI del contenitore di archiviazione BLOB fornito dalla proprietà **IIngestManifest.BlobStorageUriForUpload** di IngestManifest. Un servizio di caricamento ad alta velocità consigliato è l'applicazione [Aspera On Demand for Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). È anche possibile scrivere codice per il caricamento dei file di asset, come descritto nel seguente esempio di codice.
 
+```csharp
     static void UploadBlobFile(string destBlobURI, string filename)
     {
         Task copytask = new Task(() =>
@@ -214,18 +223,21 @@ Il seguente esempio illustra come aggiungere due nuove entità IngestManifestAss
 
         copytask.Start();
     }
+```
 
-Il codice per il caricamento dei file di asset per l'esempio utilizzato in questo argomento è riportato nel seguente esempio.
+Il codice per il caricamento dei file di asset per l'esempio usato in questo articolo è riportato nel seguente esempio:
 
+```csharp
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename1);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename2);
     UploadBlobFile(manifest.BlobStorageUriForUpload, filename3);
-
+```
 
 È possibile determinare lo stato dell'inserimento in blocco per tutti gli asset associati a un'entità **IngestManifest** eseguendo il polling della proprietà Statistics di **IngestManifest**. Per aggiornare le informazioni sullo stato, è necessario usare una nuova entità **CloudMediaContext** ogni volta che si esegue il polling della proprietà Statistics.
 
 Il seguente esempio illustra il polling di un'entità IngestManifest in base alla relativa proprietà **Id**.
 
+```csharp
     static void MonitorBulkManifest(string manifestID)
     {
        bool bContinue = true;
@@ -257,12 +269,13 @@ Il seguente esempio illustra il polling di un'entità IngestManifest in base all
              bContinue = false;
        }
     }
-
+```
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>Caricare file mediante le estensioni dell'SDK per .NET
-Il seguente esempio mostra come caricare un singolo file mediante le estensioni dell'SDK per .NET. In questo caso viene usato il metodo **CreateFromFile**, ma è disponibile anche la versione asincrona (**CreateFromFileAsync**). Il metodo **CreateFromFile** consente di specificare il nome del file, l'opzione di crittografia e un callback per segnalare lo stato di caricamento del file.
+L'esempio seguente mostra come caricare un singolo file mediante le estensioni dell'SDK per .NET. In questo caso viene usato il metodo **CreateFromFile**, ma è disponibile anche la versione asincrona (**CreateFromFileAsync**). Il metodo **CreateFromFile** consente di specificare il nome del file, l'opzione di crittografia e un callback per segnalare lo stato di caricamento del file.
 
+```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
         IAsset inputAsset = _context.Assets.CreateFromFile(
@@ -277,10 +290,13 @@ Il seguente esempio mostra come caricare un singolo file mediante le estensioni 
 
         return inputAsset;
     }
+```
 
 Il seguente esempio esegue una chiamata alla funzione UploadFile e specifica la crittografia di archiviazione come opzione di creazione dell'asset.  
 
+```csharp
     var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -295,7 +311,7 @@ Ora è possibile codificare gli asset caricati. Per altre informazioni, vedere [
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Passaggio successivo
-Dopo aver caricato un asset in Servizi multimediali, è possibile passare all'argomento [Procedura: Ottenere un'istanza del processore di contenuti multimediali][How to Get a Media Processor].
+Dopo aver caricato un asset in Servizi multimediali, è possibile passare all'articolo [Procedura: Ottenere un'istanza del processore di contenuti multimediali][How to Get a Media Processor].
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: e6eacdb437d28eb733da522280cb2c7d8c24d9ba
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creare, modificare o eliminare un indirizzo IP pubblico
 
@@ -29,21 +29,20 @@ Informazioni su un indirizzo IP pubblico e su come crearlo, modificarlo ed elimi
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di completare qualsiasi passaggio nelle altre sezioni di questo articolo, eseguire le operazioni seguenti:
+Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire le attività seguenti:
 
-- Leggere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) per informazioni sui limiti per gli indirizzi IP pubblici.
-- Accedere al [portale](https://portal.azure.com) di Azure, all'interfaccia della riga di comando di Azure oppure ad Azure PowerShell con un account Azure. Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
-- Se si usano comandi di PowerShell per completare le attività di questo articolo, [installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assicurarsi che sia installata la versione più recente dei cmdlet di Azure PowerShell. Per informazioni ed esempi relativi ai comandi di PowerShell, digitare `get-help <command> -full`.
-- Se si usano comandi dell'interfaccia della riga di comando di Azure per completare le attività di questo articolo, [installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Assicurarsi che sia installata la versione più recente dell'interfaccia della riga di comando di Azure. Per informazioni sui comandi dell'interfaccia della riga di comando, digitare `az <command> --help`. Invece di installare l'interfaccia della riga di comando e i rispettivi prerequisiti, è possibile usare Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Per usare Cloud Shell, fare clic sul pulsante Cloud Shell **>_** nella parte superiore del [portale](https://portal.azure.com).
+- Se non si ha un account Azure, registrarsi per ottenere un [account per la versione di prova gratuita](https://azure.microsoft.com/free).
+- Se si usa il portale, aprire https://portal.azure.com e accedere con l'account Azure.
+- Se si usano i comandi di PowerShell per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/powershell) o tramite PowerShell dal computer in uso. Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Questa esercitazione richiede il modulo di Azure PowerShell 5.2.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+- Se si usano i comandi dell'interfaccia della riga di comando di Azure per completare le attività in questo articolo, eseguire i comandi in [Azure Cloud Shell](https://shell.azure.com/bash) o tramite l'interfaccia della riga di comando dal computer in uso. Questa esercitazione richiede l'interfaccia della riga di comando di Azure versione 2.0.26 o successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è anche necessario eseguire `az login` per creare una connessione con Azure.
 
 Per gli indirizzi IP pubblici è previsto un addebito nominale. Per visualizzare i prezzi, consultare la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses). 
 
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
-2. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *indirizzo ip pubblico*. Selezionare la voce **Indirizzi IP pubblici** visualizzata nei risultati della ricerca.
-3. Fare clic su **+ Aggiungi** nel pannello **Indirizzi IP pubblici** visualizzato.
-4. Immettere o selezionare i valori delle impostazioni seguenti nel pannello **Crea indirizzo IP pubblico**, quindi fare clic su **Crea**:
+1. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *indirizzo ip pubblico*. Selezionare la voce **Indirizzi IP pubblici** visualizzata nei risultati della ricerca.
+2. Fare clic su **+ Aggiungi** nel pannello **Indirizzi IP pubblici** visualizzato.
+3. Immettere o selezionare i valori delle impostazioni seguenti nel pannello **Crea indirizzo IP pubblico**, quindi fare clic su **Crea**:
 
     |Impostazione|Obbligatorio?|Dettagli|
     |---|---|---|
@@ -73,10 +72,9 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Visualizzare un indirizzo IP pubblico, modificarne le impostazioni o eliminarlo
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
-2. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *indirizzo ip pubblico*. Selezionare la voce **Indirizzi IP pubblici** visualizzata nei risultati della ricerca.
-3. Nel pannello **Indirizzi IP pubblici** fare clic sul nome dell'indirizzo IP pubblico da visualizzare, eliminare o di cui modificare le impostazioni.
-4. Nel pannello dell'indirizzo IP pubblico visualizzato, completare l'opzione pertinente in base alla necessità di visualizzare, eliminare o modificare l'indirizzo IP pubblico.
+1. Nella finestra che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *indirizzo ip pubblico*. Selezionare la voce **Indirizzi IP pubblici** visualizzata nei risultati della ricerca.
+2. Nel pannello **Indirizzi IP pubblici** fare clic sul nome dell'indirizzo IP pubblico da visualizzare, eliminare o di cui modificare le impostazioni.
+3. Nel pannello dell'indirizzo IP pubblico visualizzato, completare l'opzione pertinente in base alla necessità di visualizzare, eliminare o modificare l'indirizzo IP pubblico.
     - **Visualizza**: la sezione **Panoramica** del pannello visualizza impostazioni chiave per l'indirizzo IP pubblico, quali l'interfaccia di rete alla quale è associato (se impostata). Il portale non visualizza la versione dell'indirizzo (IPv4 o IPv6). Per visualizzare le informazioni sulla versione, usare il comando di PowerShell o dell'interfaccia della riga di comando per visualizzare l'indirizzo IP pubblico. Se la versione dell'indirizzo IP è IPv6, l'indirizzo assegnato non viene visualizzato dal portale, da PowerShell o dall'interfaccia della riga di comando. 
     - **Elimina**: per eliminare l'indirizzo IP pubblico, fare clic su **Elimina** nella sezione **Panoramica** del pannello. Se l'indirizzo è associato a una configurazione IP, non può essere eliminato. Se l'indirizzo è associato a una configurazione, fare clic su **Annulla associazione** per annullare l'associazione dalla configurazione IP.
     - **Modifica**: fare clic su **Configurazione**. Modificare le impostazioni usando le informazioni fornite nel passaggio 4 della sezione [Creare un indirizzo IP pubblico](#create-a-public-ip-address) di questo articolo. Per modificare l'assegnazione per un indirizzo IPv4 da statico a dinamico, prima è necessario annullare l'associazione tra l'indirizzo IPv4 pubblico e la configurazione IP. È quindi possibile modificare il metodo di assegnazione in dinamico e fare clic su **Associa** per associare l'indirizzo IP alla stessa configurazione IP o a una configurazione diversa. È anche possibile lasciare l'indirizzo senza associazione. Per annullare l'associazione di un indirizzo IP pubblico, nella sezione **Panoramica** fare clic su **Annulla associazione**.
@@ -98,16 +96,12 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
 
 Prima di poter creare un indirizzo IP pubblico con SKU Standard, è necessario registrarsi per l'anteprima. Completare i passaggi seguenti per eseguire la registrazione per l'anteprima:
 
-1. Installare e configurare Azure [PowerShell](/powershell/azure/install-azurerm-ps).
-2. Eseguire il comando `Get-Module -ListAvailable AzureRM` per visualizzare la versione del modulo AzureRM installata. È necessaria la versione 4.4.0 o versioni successive. Nel caso in cui non sia disponibile, è possibile installare la versione più recente da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
-3. Accedere ad Azure con il comando `login-azurermaccount`.
-4. Immettere il comando seguente per eseguire la registrazione per l'anteprima:
+1. Da PowerShell, immettere il comando seguente per eseguire la registrazione per l'anteprima:
    
     ```powershell
     Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
     ```
-
-5. Verificare di essere registrati per l'anteprima immettendo il comando seguente:
+2. Verificare di essere registrati per l'anteprima immettendo il comando seguente:
 
     ```powershell
     Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
