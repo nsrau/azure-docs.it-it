@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fae68c9fb40951e3f7a6fce67d75872cecfc52bd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="reliable-actors-state-management"></a>Gestione dello stato di Reliable Actors
-I Reliable Actors sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato. Poiché gli attori vengono eseguiti nei servizi Reliable Services, possono mantenere lo stato in modo affidabile con gli stessi meccanismi di persistenza e replica utilizzati da Reliable Services. In questo modo, gli attori non perdono il proprio stato dopo gli errori, dopo la riattivazione in seguito a un'operazione di garbage collection o quando vengono spostati tra i nodi di un cluster a causa del bilanciamento delle risorse o degli aggiornamenti.
+I Reliable Actors sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato. Poiché gli attori vengono eseguiti nei servizi Reliable Services, possono mantenere lo stato in modo affidabile con gli stessi meccanismi di persistenza e replica. In questo modo, gli attori non perdono il proprio stato dopo gli errori, dopo la riattivazione in seguito a un'operazione di garbage collection o quando vengono spostati tra i nodi di un cluster a causa del bilanciamento delle risorse o degli aggiornamenti.
 
 ## <a name="state-persistence-and-replication"></a>Replica e persistenza dello stato
 Tutti i Reliable Actors vengono considerati *con stato* perché ogni istanza dell'attore è mappata a un ID univoco. Ciò significa che le chiamate ripetute allo stesso ID attore vengono instradate alla stessa istanza dell'attore. In un sistema senza stato invece le chiamate client non vengono instradate ogni volta necessariamente allo stesso server. Per questo motivo, i servizi Actor sono sempre servizi con stato.
 
 Anche se gli attori sono considerati con stato, non significa che devono archiviare lo stato in modo affidabile. Gli attori possono scegliere il livello di replica e persistenza dello stato in base ai requisiti di archiviazione dei dati:
 
-* **Stato persistente:** lo stato è persistente nel disco e viene replicato in almeno tre repliche. Questa è l'opzione di archiviazione dello stato più durevole, in cui lo stato può persistere anche in caso di interruzione di un cluster completo.
-* **Stato volatile:** lo stato viene replicato in almeno tre repliche e viene mantenuto solo in memoria. Fornisce la resilienza in caso di errore del nodo, di errore dell'attore e durante gli aggiornamenti e il bilanciamento delle risorse. Lo stato tuttavia non è persistente nel disco. Perciò, se vengono perse contemporaneamente tutte le repliche, si perderà anche lo stato.
-* **Stato non persistente:** lo stato non viene replicato né viene scritto su disco. Questo livello è appropriato per gli attori che non devono mantenere lo stato affidabile.
+* **Stato persistente**: lo stato viene salvato nel disco e replicato in almeno tre repliche. Questa è l'opzione di archiviazione dello stato più durevole, in cui lo stato può persistere anche in caso di interruzione di un cluster completo.
+* **Stato volatile**: lo stato viene replicato in almeno tre repliche e viene mantenuto solo in memoria. Fornisce la resilienza in caso di errore del nodo, di errore dell'attore e durante gli aggiornamenti e il bilanciamento delle risorse. Lo stato tuttavia non è persistente nel disco. Perciò, se vengono perse contemporaneamente tutte le repliche, si perderà anche lo stato.
+* **Stato non persistente**: lo stato non viene replicato o scritto su disco. Usare solo per gli attori che non devono mantenere lo stato in modo affidabile.
 
 Ogni livello di persistenza è semplicemente un altro *provider di stato* e un'altra configurazione di *replica* del servizio. La scrittura su disco dello stato dipende dal provider di stato, ovvero il componente di un servizio Reliable Services che archivia lo stato. La replica dipende dal numero di repliche con cui viene distribuito un servizio. In modo analogo ai servizi Reliable Services, il provider di stato e il numero di repliche possono essere impostati manualmente con facilità. Il framework per gli attori fornisce un attributo che, quando viene usato in un attore, seleziona automaticamente un provider di stato predefinito e genera automaticamente le impostazioni per il numero di repliche in modo da ottenere una di queste tre impostazioni di persistenza. L'attributo StatePersistence non viene ereditato dalla classe derivata e ogni tipo di attore deve specificare il proprio livello StatePersistence.
 
@@ -111,7 +111,7 @@ Le chiavi di gestione dello stato devono essere stringhe. I valori sono di tipo 
 
 Il gestore di stato espone i metodi di dizionario comuni per la gestione dello stato, simili a quelli disponibili in Reliable Dictionary.
 
-### <a name="accessing-state"></a>Accesso allo stato
+## <a name="accessing-state"></a>Accesso allo stato
 Lo stato è accessibile tramite il gestore di stato mediante la chiave. I metodi del gestore di stato sono tutti asincroni perché possono richiedere operazioni di I/O del disco quando gli attori hanno uno stato persistente. Al primo accesso, gli oggetti di stato vengono memorizzati nella cache. Le operazioni di accesso ripetute accedono agli oggetti direttamente dalla memoria e vengono restituite in modo sincrono senza incorrere nel sovraccarico di operazioni di I/O del disco o di cambio di contesto asincrono. Un oggetto di stato viene rimosso dalla cache nei casi seguenti:
 
 * Il metodo di un attore genera un'eccezione non gestita dopo il recupero di un oggetto dal gestore di stato.
@@ -193,7 +193,7 @@ class MyActorImpl extends FabricActor implements  MyActor
 }
 ```
 
-### <a name="saving-state"></a>Salvataggio dello stato
+## <a name="saving-state"></a>Salvataggio dello stato
 I metodi di recupero del gestore di stato restituiscono un riferimento a un oggetto nella memoria locale. Se questo oggetto viene modificato solo nella memoria locale non verrà salvato in modo permanente. Quando un oggetto viene recuperato dal gestore di stato e modificato, deve essere reinserito nel gestore di stato per essere salvato in modo permanente.
 
 Lo stato può essere inserito usando un metodo *Set* non condizionale, che è l'equivalente della sintassi `dictionary["key"] = value`:
@@ -328,7 +328,7 @@ interface MyActor {
 }
 ```
 
-### <a name="removing-state"></a>Rimozione dello stato
+## <a name="removing-state"></a>Rimozione dello stato
 Lo stato può essere rimosso in modo permanente dal gestore di stato di un attore chiamando il metodo *Remove*. Questo metodo genera l'eccezione `KeyNotFoundException` (C#) o `NoSuchElementException`(Java) se si tenta di rimuovere una chiave che non esiste.
 
 ```csharp
@@ -404,6 +404,17 @@ class MyActorImpl extends FabricActor implements  MyActor
     }
 }
 ```
+
+## <a name="best-practices"></a>Procedure consigliate
+Di seguito vengono proposti alcuni suggerimenti per la risoluzione dei problemi e procedure consigliate per la gestione dello stato dell'attore.
+
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Rendere lo stato dell'attore il più granulare possibile
+Questo è un aspetto cruciale per le prestazioni e l'utilizzo delle risorse dell'applicazione. Per ogni scrittura/aggiornamento dello "stato denominato" di un attore, l'intero valore corrispondente a tale "stato denominato" viene serializzato e inviato alle repliche secondarie tramite la rete.  Le repliche secondarie lo scrivono nel disco locale e rispondono alla replica primaria. Quando la replica primaria riceve i riconoscimenti da un quorum di repliche secondarie, scrive lo stato nel disco locale. Si supponga, ad esempio, che il valore sia una classe con 20 membri e dimensioni pari a 1 MB. Anche se si modifica solo uno dei membri della classe con dimensioni di 1 KB, occorre sostenere i costi della serializzazione e delle scritture in rete e su disco per l'intero MB. Analogamente, se il valore è una raccolta (ad esempio un elenco, una matrice o un dizionario), si paga il costo per l'intera raccolta anche se si modifica uno solo dei membri. L'interfaccia di StateManager della classe dell'attore è simile a un dizionario. È sempre necessario modellare la struttura dei dati che rappresenta lo stato dell'attore sulla base di questo dizionario.
+ 
+### <a name="correctly-manage-the-actors-life-cycle"></a>Gestire correttamente il ciclo di vita dell'attore
+È necessario definire criteri chiari per la gestione delle dimensioni dello stato in ogni partizione di un servizio Actor. Il servizio Actor deve avere un numero fisso di attori e riutilizzarli il più possibile. Se si creano continuamente nuovi attori, è necessario eliminarli quando hanno terminato le operazioni. Il framework del servizio Actor archivia alcuni metadati per ogni attore esistente. L'eliminazione di tutto lo stato di un attore non comporta la rimozione dei relativi metadati. È necessario eliminare l'attore (vedere [Eliminazione di attori e del relativo stato](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) per rimuovere tutte le informazioni su tale attore archiviate nel sistema. A titolo di controllo aggiuntivo, è necessario eseguire query sul servizio Actor (vedere [Enumerazione degli attori](service-fabric-reliable-actors-platform.md)) regolarmente per assicurarsi che il numero di attori sia compreso nell'intervallo previsto.
+ 
+Se si riscontra un aumento delle dimensioni del file di database di un servizio Actor oltre il limite previsto, assicurarsi di seguire le linee guida precedenti. Se si seguono queste linee guida ed esistono comunque problemi di dimensioni del file di database, è necessario [aprire un ticket di supporto](service-fabric-support.md) per richiedere assistenza al team del prodotto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

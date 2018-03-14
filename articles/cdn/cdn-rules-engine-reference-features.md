@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
@@ -49,24 +49,24 @@ NOME | Scopo
 [Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dai server perimetrali.
 [Bypass Cache](#bypass-cache) (Ignora cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
 [Cache-Control Header Treatment](#cache-control-header-treatment) (Gestione intestazione Cache-Control) | Controlla la generazione di intestazioni `Cache-Control` dal server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
-[Cache-Key Query String](#cache-key-query-string) (Stringa di query chiave cache) | Determina se la chiave della cache includerà o escluderà i parametri della stringa di query associati a una richiesta.
+[Cache-Key Query String](#cache-key-query-string) (Stringa di query chiave cache) | Determina se la chiave della cache include o esclude i parametri della stringa di query associati a una richiesta.
 [Cache-Key Rewrite](#cache-key-rewrite) (Riscrittura chiave cache) | Riscrive la chiave della cache associata a una richiesta.
 [Complete Cache Fill](#complete-cache-fill) (Riempimento completo della cache) | Determina ciò che accade quando una richiesta determina un mancato riscontro nella cache parziale in un server perimetrale.
-[Compress File Types](#compress-file-types) (Comprimi tipi di file) | Definisce i formati di file che verranno compressi nel server.
+[Compress File Types](#compress-file-types) (Comprimi tipi di file) | Definisce i formati per i file compressi nel server.
 [Default Internal Max-Age](#default-internal-max-age) (Validità massima interna predefinita) | Determina l'intervallo Max-Age predefinito per la riconvalida della cache dal server perimetrale al server di origine.
 [Expires Header Treatment](#expires-header-treatment) (Gestione intestazione Expires) | Controlla la generazione di intestazioni `Expires` da un server perimetrale quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
 [External Max-Age](#external-max-age) (Validità massima esterna) | Determina l'intervallo Max-Age per la riconvalida della cache dal browser al server perimetrale.
 [Force Internal Max-Age](#force-internal-max-age) (Forza validità massima interna) | Determina l'intervallo Max-Age per la riconvalida della cache dal server perimetrale al server di origine.
 [H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) (Supporto H.264 (download progressivo HTTP)) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
-[Honor No-Cache Request](#honor-no-cache-request) (Rispetta richiesta no-cache) | Determina se le richieste no-cache di un client HTTP verranno inoltrate al server di origine.
+[Honor No-Cache Request](#honor-no-cache-request) (Rispetta richiesta no-cache) | Determina se le richieste no-cache di un client HTTP vengono inoltrate al server di origine.
 [Ignore Origin No-Cache](#ignore-origin-no-cache) (Ignora no-cache origine) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
 [Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) (Ignora gli intervalli che non è possibile soddisfare) | Determina la risposta che viene restituita ai client quando una richiesta genera un codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
 [Internal Max-Stale](#internal-max-stale) (Tempo di non aggiornamento massimo interno) | Controlla per quanto tempo dopo la normale scadenza un asset memorizzato nella cache può essere servito da un server perimetrale quando il server perimetrale non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
 [Partial Cache Sharing](#partial-cache-sharing) (Condivisione cache parziale) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
-[Prevalidate Cached Content](#prevalidate-cached-content) (Preconvalida contenuto memorizzato nella cache) | Determina se il contenuto memorizzato nella cache sarà idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
+[Prevalidate Cached Content](#prevalidate-cached-content) (Preconvalida contenuto memorizzato nella cache) | Determina se il contenuto memorizzato nella cache è idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
 [Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) (Aggiorna file della cache con zero byte) | Determina come viene gestita dai server perimetrali una richiesta di un client HTTP di un asset della cache con 0 byte.
 [Set Cacheable Status Codes](#set-cacheable-status-codes) (Imposta codici di stato inseribili nella cache) | Definisce il set di codici di stato che possono generare contenuto memorizzato nella cache.
-[Stale Content Delivery on Error](#stale-content-delivery-on-error) (Distribuzione di contenuto non aggiornato in caso di errore) | Determina se il contenuto scaduto memorizzato nella cache verrà distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
+[Stale Content Delivery on Error](#stale-content-delivery-on-error) (Distribuzione di contenuto non aggiornato in caso di errore) | Determina se il contenuto scaduto memorizzato nella cache viene distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
 [Stale While Revalidate](#stale-while-revalidate) (Client non aggiornato durante la riconvalida) | Migliora le prestazioni consentendo ai server perimetrali di servire un client non aggiornato al richiedente mentre avviene la riconvalida.
 
 ## <a name="comment-feature"></a>Funzionalità di commento
@@ -83,7 +83,7 @@ Queste funzionalità sono progettate per aggiungere, modificare o eliminare le i
 
 NOME | Scopo
 -----|--------
-[Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age verrà inclusa nella risposta inviata al richiedente.
+[Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 [Debug Cache Response Headers](#debug-cache-response-headers) (Intestazioni di risposta di debug per la cache) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
 [Modify Client Request Header](#modify-client-request-header) (Modifica intestazione richiesta client) | Sovrascrive, aggiunge o elimina un'intestazione da una richiesta.
 [Modify Client Response Header](#modify-client-response-header) (Modifica intestazione risposta client) | Sovrascrive, aggiunge o elimina un'intestazione da una risposta.
@@ -96,8 +96,8 @@ Queste funzionalità sono progettate per personalizzare i dati archiviati nei fi
 
 NOME | Scopo
 -----|--------
-[Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che verranno assegnati al campo di log personalizzato in un file di log non elaborato.
-[Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query verrà archiviata insieme all'URL nei log di accesso.
+[Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
+[Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
 
 
 <!---
@@ -151,7 +151,7 @@ Queste funzionalità sono progettate per controllare in che modo la rete CDN com
 NOME | Scopo
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
-[Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che verranno inoltrate da un server perimetrale a un server di origine.
+[Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un server perimetrale a un server di origine.
 
 
 ## <a name="specialty-features"></a>Funzionalità specializzate
@@ -195,14 +195,14 @@ Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata a
 
 ---
 ### <a name="bandwidth-parameters"></a>Parametri larghezza di banda
-**Scopo**: determina se i parametri di limitazione della larghezza di banda, ad esempio, ec_rate ed ec_prebuf, saranno attivi.
+**Scopo**: determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
 
-I parametri di limitazione della larghezza di banda determinano se la velocità di trasferimento dati per una richiesta del client sarà limitata a un valore prestabilito.
+I parametri di limitazione della larghezza di banda determinano se la velocità di trasferimento dati per una richiesta del client è limitata a un valore prestabilito.
 
 Valore|Risultato
 --|--
 Attivato|Consente ai server perimetrali di soddisfare le richieste di limitazione della larghezza di banda.
-Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti verranno serviti normalmente, ossia senza limitazione della larghezza di banda.
+Disabled|Fa sì che i server perimetrali ignorino i parametri di limitazione della larghezza di banda. I contenuti richiesti vengono serviti normalmente, ossia senza limitazione della larghezza di banda.
 
 **Comportamento predefinito:** Enabled.
  
@@ -269,7 +269,7 @@ Informazioni chiave:
 ### <a name="cacheable-request-body-size"></a>Dimensioni corpo richiesta inseribile nella cache
 **Scopo:** definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
 
-Questa soglia viene determinata specificando la dimensione massima del corpo della richiesta. Non verranno memorizzate nella cache le richieste il cui corpo supera le dimensioni specificate.
+Questa soglia viene determinata specificando la dimensione massima del corpo della richiesta. Non vengono memorizzate nella cache le richieste il cui corpo supera le dimensioni specificate.
 
 Informazioni chiave:
 
@@ -308,23 +308,23 @@ Rimuovere| Questa opzione assicura che con la risposta di intestazione non sia i
 
 ---
 ### <a name="cache-key-query-string"></a>Stringa di query chiave cache
-**Scopo:** determina se la chiave di cache includerà o escluderà i parametri della stringa di query associati a una richiesta.
+**Scopo**: determina se la chiave della cache include o esclude i parametri della stringa di query associati a una richiesta.
 
 Informazioni chiave:
 
-- Specificare uno o più nomi di parametri della stringa di query. Ogni nome di parametro deve essere delimitato da uno spazio singolo.
-- Questa funzionalità determina se nella chiave di cache i parametri della stringa di query verranno inclusi o esclusi. Di seguito vengono fornite informazioni aggiuntive per ogni opzione seguente.
+- Specificare uno o più nomi di parametri della stringa di query. Delimitare ogni nome di parametro con uno spazio singolo.
+- Questa funzionalità determina se nella chiave di cache i parametri della stringa di query vengono inclusi o esclusi. La tabella seguente contiene informazioni aggiuntive per ogni opzione.
 
 type|DESCRIZIONE
 --|--
- Includi|  Indica che nella chiave di cache deve essere incluso ogni parametro specificato. Verrà generata una chiave di cache univoca per ogni richiesta in cui sia contenuto un valore univoco per un parametro della stringa di query definito in questa funzionalità. 
- Includi tutto  |Indica che verrà creata una chiave di cache univoca per ogni richiesta a un asset contenente una stringa di query univoca. Questo tipo di configurazione, in genere, non è consigliato poiché può comportare una piccola percentuale di riscontri nella cache e un conseguente aumento del carico sul server di origine, che dovrà gestire un maggior numero di richieste. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache noto come "unique-cache" nella pagina di memorizzazione nella cache della stringa di query. 
- Escludi | Indica che verranno esclusi dalla chiave di cache solo i parametri specificati. Verranno inclusi invece tutti gli altri parametri della stringa di query. 
- Escludi tutto  |Indica che verranno esclusi dalla chiave di cache tutti i parametri della stringa di query. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache predefinito, noto come "standard-cache", nella pagina di memorizzazione nella cache della stringa di query. 
+ Includi|  Indica che nella chiave di cache deve essere incluso ogni parametro specificato. Viene generata una chiave di cache univoca per ogni richiesta in cui sia contenuto un valore univoco per un parametro della stringa di query definito in questa funzionalità. 
+ Includi tutto  |Indica che viene creata una chiave di cache univoca per ogni richiesta a un asset contenente una stringa di query univoca. Questo tipo di configurazione in genere non è consigliato, perché può comportare una piccola percentuale di riscontri nella cache. Un numero ridotto di riscontri nella cache produce un aumento del carico sul server di origine, che deve gestire un maggior numero di richieste. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache noto come "unique-cache" nella pagina di memorizzazione nella cache della stringa di query. 
+ Escludi | Indica che vengono esclusi dalla chiave di cache solo i parametri specificati. Vengono inclusi invece tutti gli altri parametri della stringa di query. 
+ Escludi tutto  |Indica che vengono esclusi dalla chiave di cache tutti i parametri della stringa di query. Questa configurazione consente di duplicare il comportamento di memorizzazione nella cache predefinito "standard-cache" nella pagina di memorizzazione nella cache della stringa di query.  
 
-Le funzionalità del motore regole HTTP consente di personalizzare il modo in cui viene implementata la memorizzazione nella cache della stringa di query. È possibile specificare, ad esempio, che la memorizzazione nella cache della stringa di query può essere eseguita solo su determinate posizioni o tipi di file.
+Il motore regole consente di personalizzare il modo in cui viene implementata la memorizzazione nella cache della stringa di query. È possibile specificare, ad esempio, che la memorizzazione nella cache della stringa di query può essere eseguita solo su determinate posizioni o tipi di file.
 
-Se nella pagina di memorizzazione nella cache della stringa di query si vuole duplicare il comportamento di memorizzazione nella cache della stringa di query noto come "no-cache", sarà necessario creare una regola contenente una condizione di corrispondenza URL Query Wildcard (Carattere jolly query URL) e una funzionalità Bypass Cache (Ignora cache). La condizione di corrispondenza URL Query Wildcard (Carattere jolly query URL) deve essere impostata su un asterisco (*).
+Per duplicare il comportamento di memorizzazione nella cache della stringa di query noto come "no-cache" nella pagina di memorizzazione nella cache della stringa, creare una regola contenente una condizione di corrispondenza URL Query Wildcard (Carattere jolly query URL) e una funzionalità Bypass Cache (Ignora cache). Impostare la condizione di corrispondenza URL Query Wildcard (Carattere jolly query URL) su un asterisco (*).
 
 #### <a name="sample-scenarios"></a>Scenari di esempio
 
@@ -389,7 +389,7 @@ Per configurare questa funzionalità è necessario definire entrambe le opzioni 
 
 Opzione|DESCRIZIONE
 --|--
-Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui verrà riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
+Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui viene riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
 Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere creato dinamicamente tramite l'uso di variabili HTTP
 **Comportamento predefinito:** la chiave di cache di una richiesta è determinata dall'URI della richiesta.
 
@@ -431,7 +431,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 Valore|Risultato
 --|--
 Attivato|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di obbligare il server periferico a inizializzare il recupero in background dell'asset dal server di origine. Al termine di questa operazione, l'asset si trova nella cache locale del server perimetrale.
-Disabled|Impedisce a un server perimetrale di eseguire il recupero in background dell'asset. In questo modo, alla successiva richiesta dell'asset dalla stessa area, il server perimetrale ne eseguirà la richiesta dal server di origine del cliente.
+Disabled|Impedisce a un server perimetrale di eseguire il recupero in background dell'asset. Il risultato è che, alla successiva richiesta dell'asset dalla stessa area, il server perimetrale lo richiede dal server di origine del cliente.
 
 **Comportamento predefinito:** Enabled.
 
@@ -441,7 +441,7 @@ Disabled|Impedisce a un server perimetrale di eseguire il recupero in background
 
 ---
 ### <a name="compress-file-types"></a>Comprimi tipi di file
-**Scopo:** definisce i formati di file che verranno compressi nel server.
+**Scopo:** definisce i formati per i file compressi nel server.
 
 Un formato di file può essere specificato usando il rispettivo tipo di elemento multimediale Internet, ad esempio Content-Type. Il tipo di elemento multimediale Internet è costituito da metadati indipendenti dalla piattaforma che consentono ai server di identificare il formato di file di un asset specifico. Di seguito è riportato un elenco dei tipi di elementi multimediali Internet.
 
@@ -455,10 +455,10 @@ application/javascript|JavaScript
 Informazioni chiave:
 
 - È possibile specificare più tipi di elementi multimediali Internet delimitandoli ciascuno con uno spazio singolo. 
-- Questa funzionalità comprimerà solo asset con dimensioni inferiori a 1 MB. Gli asset con dimensioni superiori non verranno compressi dai server.
-- Alcuni tipi di contenuti, come le immagini e i contenuti multimediali audio e video, ad esempio JPG, MP3, MP4 e così via, sono già compressi. Un ulteriore compressione di questi tipi di asset, pertanto, non ne diminuirebbe in modo significativo le dimensioni. È consigliabile quindi non abilitare la compressione su questi tipi di asset.
+- Questa funzionalità comprime solo asset con dimensioni inferiori a 1 MB. Gli asset con dimensioni superiori non vengono compressi dai server.
+- Alcuni tipi di contenuti, come le immagini e i contenuti multimediali audio e video, ad esempio JPG, MP3, MP4 e così via, sono già compressi. Poiché un'ulteriore compressione di questi tipi di asset non ne diminuisce in modo significativo le dimensioni, è consigliabile non abilitare la compressione su di essi.
 - Non sono supportati i caratteri jolly come gli asterischi.
-- Prima di aggiungere questa funzionalità a una regola, assicurarsi di impostare l'opzione di compressione disabilitata nella pagina di compressione relativa alla piattaforma su cui verrà applicata la regola.
+- Prima di aggiungere questa funzionalità a una regola, assicurarsi di impostare l'opzione di compressione disabilitata nella pagina di compressione relativa alla piattaforma su cui viene applicata la regola.
 
 [Torna all'inizio](#azure-cdn-rules-engine-features)
 
@@ -470,9 +470,9 @@ Informazioni chiave:
 
 Questo campo personalizzato consente all'utente di determinare i valori delle intestazioni di richiesta e di risposta che vengono archiviati nei file di log.
 
-Per impostazione predefinita, il campo del log personalizzato è denominato "x-ec_custom-1". Questo nome, tuttavia, può essere personalizzato dalla pagina delle impostazioni del file di log non elaborato.
+Per impostazione predefinita, il campo del log personalizzato è denominato "x-ec_custom-1". Il nome di questo campo può essere personalizzato dalla pagina delle impostazioni del file di log non elaborato.
 
-Di seguito è definita la formattazione da usare per specificare le intestazioni di richiesta e di risposta.
+Il formato per specificare le intestazioni di richiesta e risposta è definito come segue:
 
 Tipo di intestazione|Format|Esempi
 -|-|-
@@ -482,9 +482,9 @@ Intestazione di risposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Typ
 Informazioni chiave:
 
 - Un campo di log personalizzato può contenere qualsiasi combinazione di campi di intestazione e testo normale.
-- I caratteri validi per questo campo comprendono: caratteri alfanumerici, ad esempio 0-9, a-z e A-Z, trattini, due punti, punti e virgola, apostrofi, virgole, punti, caratteri di sottolineatura, segni di uguale, parentesi, parentesi quadre e spazi. Il simbolo di percentuale e le parentesi graffe sono consentiti solo se vengono usati per specificare un campo di intestazione.
+- I caratteri validi per questo campo sono i seguenti: caratteri alfanumerici, ad esempio 0-9, a-z e A-Z, trattini, due punti, punti e virgola, apostrofi, virgole, punti, caratteri di sottolineatura, segni di uguale, parentesi, parentesi quadre e spazi. Il simbolo di percentuale e le parentesi graffe sono consentiti solo se vengono usati per specificare un campo di intestazione.
 - L'ortografia di ogni campo di intestazione specificato deve corrispondere esattamente al nome di intestazione di richiesta/risposta desiderato.
-- Se si vuole specificare più intestazioni, è consigliabile usare un separatore per indicare ogni intestazione. Per ogni intestazione, ad esempio, è possibile usare un'abbreviazione. Di seguito è riportata una sintassi di esempio.
+- Se si vogliono specificare più intestazioni, usare un separatore per indicare ogni intestazione. Per ogni intestazione, ad esempio, è possibile usare un'abbreviazione:
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o 
 
 **Valore predefinito:** -
@@ -981,7 +981,7 @@ Informazioni chiave:
 
 L'opzione Nome intestazione definisce il nome dell'intestazione di richiesta personalizzata in cui viene archiviato l'indirizzo IP del client.
 
-Questa funzionalità consente a un server di origine del cliente di trovare gli indirizzi IP dei client tramite un'intestazione di richiesta personalizzata. Se la richiesta viene gestita dalla cache, al server di origine non verrà comunicato l'indirizzo IP del client. È consigliabile quindi usare questa funzionalità con reti ADN e asset che non verranno memorizzati nella cache.
+Questa funzionalità consente a un server di origine del cliente di trovare gli indirizzi IP dei client tramite un'intestazione di richiesta personalizzata. Se la richiesta viene gestita dalla cache, al server di origine non verrà comunicato l'indirizzo IP del client. Di conseguenza, è consigliabile usare questa funzionalità con asset che non vengono memorizzati nella cache.
 
 Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei nomi seguenti:
 

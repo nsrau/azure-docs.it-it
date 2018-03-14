@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8146c2a41a2b8fc241131a42ec74227795867609
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: aa213a3b1a8949f0fca5e4bbb7ec5a6a775ae6ec
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Esempio di trasformazioni del flusso di dati personalizzate in Python 
 Il nome della trasformazione nel menu è **Transform Dataflow (Script)** (Trasforma flusso di dati - Script). Prima di leggere questa appendice, leggere la [panoramica dell'estendibilità di Python](data-prep-python-extensibility-overview.md).
@@ -42,8 +42,8 @@ Riformula i dati in modo da soddisfare una formula per ridurre gli outlier in un
 
 ## <a name="transform-data-flow"></a>Trasformare il flusso di dati
 ### <a name="fill-down"></a>Copiare 
-Per ricopiare i valori sono necessarie due trasformazioni. Presume dati simili ai seguenti:
 
+Per ricopiare i valori sono necessarie due trasformazioni. Si presuppone l'uso di dati simili alla tabella seguente:
 
 |Stato         |city       |
 |--------------|-----------|
@@ -58,16 +58,17 @@ Per ricopiare i valori sono necessarie due trasformazioni. Presume dati simili a
 |              |San Antonio|
 |              |Houston    |
 
-Prima creare una trasformazione Add Column (Script) (Aggiungi colonna - Script) che contenga il codice seguente:
+1. Creare una trasformazione Add Column (Script) (Aggiungi colonna - Script) usando il codice seguente:
 ```python
     row['State'] if len(row['State']) > 0 else None
 ```
-Creare ora una trasformazione Transform Data Flow (Script) (Trasforma flusso di dati - Script) che contenga il codice seguente:
+
+2. Creare una trasformazione Transform Data Flow (Script) (Trasforma flusso di dati - Script) contenente il codice seguente:
 ```python
     df = df.fillna( method='pad')
 ```
 
-I dati dovrebbero ora apparire così:
+I dati sono ora simili alla tabella seguente:
 
 |Stato         |newState         |city       |
 |--------------|--------------|-----------|

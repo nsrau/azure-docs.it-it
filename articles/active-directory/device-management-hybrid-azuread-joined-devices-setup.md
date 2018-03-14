@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -33,6 +33,8 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 Prima di iniziare a configurare dispositivi aggiunti all'identità ibrida di Azure AD nell'ambiente, è consigliabile acquisire familiarità con gli scenari supportati e i vincoli.  
 
 Se si intende usare l'[Utilità preparazione sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), creare immagini da un'installazione di Windows che non è stata ancora registrata con Azure AD.
+
+Tutti i dispositivi aggiunti a un dominio che eseguono la versione Aggiornamento dell'anniversario di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD al riavvio del dispositivo o all'accesso dell'utente dopo il completamento dei passaggi di configurazione illustrati di seguito. Se non si desidera applicare questo comportamento di registrazione automatica o se si vuole eseguire un'implementazione controllata, seguire le istruzioni nella sezione Controllare la distribuzione e l'implementazione più avanti per abilitare o disabilitare in modo selettivo l'implementazione automatica prima di eseguire gli altri passaggi di configurazione.  
 
 Per una migliore leggibilità delle descrizioni, in questo argomento viene usata la terminologia seguente. 
 
@@ -566,7 +568,8 @@ Per controllare l'implementazione degli attuali computer Windows, è consigliabi
    > [!NOTE]
    > Questo modello di Criteri di gruppo è stato rinominato dalle versioni precedenti della console Gestione Criteri di gruppo. Se si usa una versione precedente della console, passare a `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
 
-7. Selezionare **Abilitato** e quindi fare clic su **Applica**.
+7. Selezionare **Abilitato** e quindi fare clic su **Applica**. È necessario selezionare **Disabilitato** se si vuole che i criteri blocchino la registrazione automatica in Azure AD dei dispositivi controllati da questi criteri di gruppo.
+
 8. Fare clic su **OK**.
 9. Collegare l'oggetto Criteri di gruppo a una posizione scelta. Ad esempio, è possibile collegarlo a una determinata unità organizzativa, oppure a un determinato gruppo di sicurezza di computer che vengono automaticamente aggiunti ad Azure AD. Per impostare questi criteri per tutti i computer Windows 10 e Windows Server 2016 aggiunti a un dominio nell'organizzazione, collegare l'oggetto Criteri di gruppo al dominio.
 

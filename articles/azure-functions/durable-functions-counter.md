@@ -14,13 +14,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singleton con stato in Funzioni permanenti - Contatore di esempio
+
+> [!NOTE]
+> È in corso la riscrittura di questo esempio. I frammenti di codice sono stati rimossi e verrà creato in sostituzione un nuovo articolo con un nuovo esempio.
 
 I singleton con stato sono funzioni di orchestrazione a esecuzione prolungata (potenzialmente perenni) che possono archiviare lo stato ed essere richiamate e sottoposte a query da altre funzioni. I singleton con stato sono simili al [modello Actor](https://en.wikipedia.org/wiki/Actor_model) in elaborazione distribuita.
 
@@ -55,11 +58,11 @@ Le sezioni seguenti illustrano il codice usato per lo sviluppo in Visual Studio 
 
 Il file function.json:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+<!-- [!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)] -->
 
 Il file run.csx:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)] -->
 
 ### <a name="precompiled-c"></a>C# precompilato 
 
@@ -67,7 +70,7 @@ Le sezioni seguenti illustrano il codice usato per lo sviluppo di Visual Studio.
 
 Il codice che implementa la funzione dell'agente di orchestrazione è il seguente:
 
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+<!-- [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)] -->
 
 ### <a name="explanation-of-the-code"></a>Descrizione del codice
 

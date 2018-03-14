@@ -1,6 +1,6 @@
 ---
-title: Creare un modello tabulare di esempio per il server Azure Analysis Services | Microsoft Docs
-description: Informazioni su come creare un modello di esempio in Azure Analysis Services.
+title: Aggiungere un modello tabulare di esempio per il server Azure Analysis Services | Microsoft Docs
+description: Informazioni su come aggiungere un modello di esempio in Azure Analysis Services.
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 02/28/2018
 ms.author: owend
-ms.openlocfilehash: 1cc36ebf4c410d4764eb28ab89d7f2a5e7749ae5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: df83f5dd86d1edf857378ae69b16a86b57f9a2fe
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
-# <a name="tutorial-create-a-sample-model"></a>Esercitazione: Creare un modello di esempio
+# <a name="tutorial-add-a-sample-model"></a>Esercitazione: Aggiungere un modello di esempio
 
-In questa esercitazione si crea un modello Adventure Works di esempio. Il modello di esempio è una versione completa dell'esercitazione sulla modellazione dei dati Adventure Works Internet Sales (1200). Un modello di esempio è utile per il test della gestione del modello, la connessione a strumenti e applicazioni client e l'esecuzione di query sui dati del modello.
+In questa esercitazione si aggiunge un modello Adventure Works di esempio al server. Il modello di esempio è una versione completa dell'esercitazione sulla modellazione dei dati Adventure Works Internet Sales (1200). Un modello di esempio è utile per il test della gestione del modello, la connessione a strumenti e applicazioni client e l'esecuzione di query sui dati del modello.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

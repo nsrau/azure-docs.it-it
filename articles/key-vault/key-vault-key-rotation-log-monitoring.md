@@ -12,17 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 03/01/2018
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: 793f35bfd2e5e6b22e0804f01a69c0c20990d211
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
 ## <a name="introduction"></a>Introduzione
 Dopo aver creato l'insieme di credenziali delle chiavi sarà possibile iniziare a usarlo per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. In questo modo è possibile aggiornare le chiavi e i segreti senza influenzare il comportamento dell'applicazione. Si apre così un ampio ventaglio di possibilità per la gestione di chiavi e segreti.
+
+>[!IMPORTANT]
+> Gli esempi inclusi in questo articolo vengono forniti solo a scopo illustrativo. Non sono destinati all'uso in ambienti di produzione. 
 
 Questo articolo illustra un esempio di uso dell'insieme di credenziali delle chiavi di Azure per archiviare un segreto, in questo caso una chiave dell'account di archiviazione di Azure a cui accede un'applicazione. Dimostra anche l'implementazione di una rotazione pianificata della chiave dell'account di archiviazione. Illustra infine come monitorare i log di controllo dell'insieme di credenziali delle chiavi e generare avvisi in caso di richieste impreviste.
 

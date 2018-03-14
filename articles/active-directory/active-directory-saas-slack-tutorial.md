@@ -4,20 +4,20 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 02/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 67d95b48520cd990428447dc775d9af22528c0f0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Esercitazione: Integrazione di Azure Active Directory con Slack
 
@@ -121,6 +121,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
+    > [!NOTE] 
+    > Se all'utente è stato assegnato un **indirizzo di posta elettronica** tramite Office 365, verrà popolato solo tale indirizzo. In caso contrario, l'attestazione relativa all'**indirizzo di posta elettronica** non verrà visualizzata nel token SAML.
+
 5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** selezionare **user.mail** come **Identificatore utente**. Per ogni riga illustrata nella tabella seguente, seguire questa procedura:
     
     | Nome attributo | Valore attributo |
@@ -137,8 +140,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
     
     b. Nell'elenco **Valore** selezionare il valore dell'attributo indicato per quella riga.
+
+    c. Lasciare vuota la casella **Spazio dei nomi**.
     
-    c. Fare clic su **OK**.
+    d. Fare clic su **OK**.
 
 6. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 

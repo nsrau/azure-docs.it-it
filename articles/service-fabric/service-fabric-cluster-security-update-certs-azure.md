@@ -1,24 +1,8 @@
----
-title: Gestire certificati in un cluster di Azure Service Fabric | Documentazione Microsoft
-description: Questo articolo descrive come aggiungere nuovi certificati, eseguire il rollover di certificati e rimuovere certificati da o in un cluster di Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: timlt
-editor: 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/09/2017
-ms.author: chackdan
-ms.openlocfilehash: c433e8683755e454f9561f094269c3daccf78a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+-- title: Gestire certificati in un cluster di Azure Service Fabric | Microsoft Docs description: Descrive come aggiungere nuovi certificati, eseguire il rollover di certificati e rimuovere certificati da o in un cluster di Service Fabric.
+services: service-fabric documentationcenter: .net author: ChackDan manager: timlt editor: ''
+
+ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74 ms.service: service-fabric ms.devlang: dotnet ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 02/23/2018 ms.author: chackdan
+
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 È consigliabile acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric e con gli [scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
@@ -49,6 +33,8 @@ Per rimuovere un certificato secondario perché non venga usato per la sicurezza
 Se si intende rimuovere il certificato contrassegnato come primario, è prima necessario scambiarlo con il secondario e quindi eliminare il secondario al termine dell'aggiornamento.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Aggiungere un certificato secondario tramite PowerShell per Resource Manager
+> [!AGGIORNAMENTO] È ora disponibile un modo migliore e più semplice per aggiungere un certificato secondario tramite [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate?view=azurermps-5.3.0). Non è necessario eseguire gli altri passaggi in questa sezione se si usa Add-AzureRmServiceFabricClusterCertificate.
+
 
 Questi passaggi presuppongono che si abbia familiarità con il funzionamento di Resource Manager, che sia stato distribuito almeno un cluster di Service Fabric usando un modello di Resource Manager e che il modello usato per configurare il cluster sia a portata di mano. Si presuppone anche che si abbia dimestichezza con l'uso di JSON.
 

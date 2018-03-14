@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f3814ac2dbc8b74cef8f5fcb0540b7509efa0d
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure con Java per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -99,6 +99,10 @@ La crittografia dei dati della tabella funziona nel modo seguente:
 Nelle operazioni batch, la stessa KEK verrà utilizzata per tutte le righe nell’operazione batch, perché la libreria client consente un solo oggetto options (e pertanto un criterio/KEK) per ogni operazione batch. Tuttavia, la libreria client genera internamente un nuovo vettore di inizializzazione casuale e una CEK casuale per ogni riga nel batch. Gli utenti possono scegliere anche di crittografare proprietà diverse per ogni operazione nel batch mediante la definizione di questo comportamento nel resolver di crittografia.
 
 ### <a name="queries"></a>Query
+> [!NOTE]
+> Dato che le entità sono crittografate, non è possibile eseguire query che eseguono operazioni di filtro in base a una proprietà crittografata.  Se si tenta un'operazione di questo tipo i risultati non saranno corretti, perché il servizio tenterebbe di confrontare dati crittografati con dati non crittografati.
+> 
+>
 Per eseguire operazioni di query, è necessario specificare un resolver di chiave in grado di risolvere tutte le chiavi nel set di risultati. Se un'entità inclusa nel risultato della query non può essere risolta in un provider, la libreria client genererà un errore. Per ogni query che esegue le proiezioni del lato server, la libreria client aggiungerà le proprietà dei metadati di crittografia speciali (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) per impostazione predefinita alle colonne selezionate.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault

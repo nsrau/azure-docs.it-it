@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gestire i database in Azure SQL Data Warehouse
 SQL Data Warehouse automatizza molti aspetti della gestione dei database. Ad esempio, per aumentare le prestazioni è necessario solo regolare e pagare il corretto livello di risorse di calcolo e lasciare che SQL Data Warehouse esegua tutte le operazioni di scalabilità orizzontale e scalabilità inversa.
@@ -34,7 +34,7 @@ Questa panoramica illustra questi aspetti della gestione di SQL Data Warehouse.
 * Procedure consigliate per le prestazioni
 * Monitoraggio delle query
 * Sicurezza
-* Backup e ripristino
+* Eseguire il backup e il ripristino
 
 ## <a name="management-tools"></a>Strumenti di gestione
 È possibile usare un'ampia gamma di strumenti per gestire i database in SQL Data Warehouse. Durante la gestione dei database si svilupperanno preferenze per determinati strumenti per ciascun tipo di attività da eseguire.
@@ -47,7 +47,7 @@ Per un'introduzione al portale di Azure, vedere [Creare un SQL Data Warehouse (p
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server Data Tools in Visual Studio
 [SQL Server Data Tools][SQL Server Data Tools] (SSDT) in Visual Studio consente di connettersi, gestire e sviluppare i database. È opportuno che gli sviluppatori di applicazioni con una certa familiarità con Visual Studio o altri ambienti di sviluppo integrato (IDE), provino a usare SSDT in Visual Studio.
 
-SSDT include Esplora oggetti di SQL Server., che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è sufficiente fare clic sul pulsate **Apri in Visual Studio** sulla barra dei comandi quando i dettagli del database sono visualizzati nel portale di Azure.  
+SSDT include Esplora oggetti di SQL Server, che consente di visualizzare, connettersi ed eseguire gli script su database di SQL Data Warehouse. Per connettersi rapidamente a SQL Data Warehouse, è sufficiente fare clic sul pulsate **Apri in Visual Studio** sulla barra dei comandi quando i dettagli del database sono visualizzati nel portale di Azure.  
 
 Per iniziare a usare SSDT in Visual Studio, vedere [Eseguire query su Azure SQL Data Warehouse con Visual Studio][Query Azure SQL Data Warehouse with Visual Studio].
 
@@ -84,7 +84,7 @@ Per mantenere un sistema sicuro, è necessario vigilare e proteggersi da qualsia
 
 Per altre informazioni sulla gestione della sicurezza, vedere le [informazioni generali sulla sicurezza][Security overview].
 
-## <a name="backup-and-restore"></a>Backup e ripristino
+## <a name="back-up-and-restore"></a>Eseguire il backup e il ripristino
 Eseguire backup affidabili dei dati è una parte fondamentale di qualsiasi database di produzione. SQL Data Warehouse tiene al sicuro i dati eseguendo automaticamente il backup dei database attivi a intervalli regolari. Questi backup consentono di eseguire il ripristino dagli scenari in cui sono stati corrotti i dati oppure sono stati eliminati accidentalmente i dati o il database.  Per informazioni relative a pianificazione del backup dei dati, criteri di conservazione e come ripristinare un database, vedere l'articolo relativo al [ripristino da snapshot][Restore from snapshot].
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -100,10 +100,10 @@ L'uso di buoni principi di progettazione dei database semplificherà la gestione
 [Connect and query with sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: sql-data-warehouse-overview-develop.md
 [Monitor your workload using DMVs]: sql-data-warehouse-manage-monitor.md
-[Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Pause compute]: pause-and-resume-compute-portal.md#pause-compute
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
-[Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scalare le prestazioni]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Resume compute]: pause-and-resume-compute-portal.md#resume-compute
+[Scalare le prestazioni]: quickstart-scale-compute-portal.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

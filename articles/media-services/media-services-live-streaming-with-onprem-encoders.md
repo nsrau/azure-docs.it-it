@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
 ## <a name="overview"></a>Panoramica
@@ -209,6 +209,10 @@ Quando si usa un codificatore live locale per l'invio di un flusso a bitrate mul
 Ecco altre considerazioni relative all'uso dei canali e dei componenti correlati:
 
 * Assicurarsi di chiamare il metodo **Reset** sul canale ogni volta che si riconfigura il codificatore live. Prima di reimpostare il canale, è necessario arrestare il programma. Dopo aver reimpostato il canale, riavviare il programma.
+
+  > [!NOTE]
+  > Quando si riavvia il programma, è necessario associarlo a un nuovo asset e creare un nuovo localizzatore. 
+  
 * È possibile interrompere un canale solo quando si trova nello stato **In esecuzione** e tutti i programmi nel canale sono stati arrestati.
 * Per impostazione predefinita, è possibile aggiungere solo cinque canali all'account di Servizi multimediali. Per altre informazioni, vedere [Quote e limitazioni](media-services-quotas-and-limitations.md).
 * Il costo viene addebitato solo quando il canale è nello stato **In esecuzione** . Per altre informazioni, vedere la sezione [Stati del canale e fatturazione](media-services-live-streaming-with-onprem-encoders.md#states).

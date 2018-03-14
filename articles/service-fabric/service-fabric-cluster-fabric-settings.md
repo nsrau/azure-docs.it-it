@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 23f063d89c5030d440d50765eee9d121b4d8f5ba
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
 Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager.
@@ -31,7 +31,7 @@ Questo documento illustra come personalizzare le varie impostazioni dell'infrast
 I passaggi riportati di seguito illustrano come aggiungere una nuova impostazione *MaxDiskQuotaInMB* alla sezione *Diagnostica*.
 
 1. Passare ad https://resources.azure.com
-2. Passare alla sottoscrizione espandendo **sottoscrizioni** -> **gruppi di risorse** -> **Microsoft.ServiceFabric** -> **\<nome del cluster>**
+2. Passare alla sottoscrizione espandendo **Sottoscrizioni** -> **\<sottoscrizione>** -> **resourceGroups** -> **\<gruppo risorse>** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<nome cluster>**
 3. Nell'angolo in alto a destra selezionare **Lettura/Scrittura**.
 4. Selezionare **Modifica**, aggiornare l'elemento JSON `fabricSettings` e aggiungere un nuovo elemento:
 
@@ -385,6 +385,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |CommonName2Ntlmx509StoreLocation|string, valore predefinito: L"LocalMachine"| statico|Percorso dell'archivio del certificato X509 usato per generare HMAC in CommonName2NtlmPasswordSecret quando si usa l'autenticazione NTLM. |
 |CommonName2Ntlmx509StoreName|string, valore predefinito: L"MY"|statico| Nome dell'archivio del certificato X509 usato per generare HMAC in CommonName2NtlmPasswordSecret quando si usa l'autenticazione NTLM. |
 |CommonName2Ntlmx509CommonName|string, valore predefinito: L""|statico|Nome comune del certificato X509 usato per generare HMAC in CommonName2NtlmPasswordSecret quando si usa l'autenticazione NTLM. |
+|GenerateV1CommonNameAccount| bool, valore predefinito: TRUE|statico|Specifica se generare un account con l'algoritmo di generazione V1 del nome utente. A partire dalla versione 6.1 di Service Fabric viene sempre creato un account con generazione V2. L'account V1 è necessario per gli aggiornamenti da/a versioni che non supportano la generazione V2 (prima della versione 6.1).|
 
 ### <a name="section-name-imagestoreservice"></a>Nome della sezione: ImageStoreService
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: da589905babd20b46ea7bc0baba753415b3b5d5b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2e829ae90aa0366964f96b3c43f88503c7f3e894
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
 Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,7 +30,7 @@ Per analizzare rapidamente le sezioni di questo articolo, usare i collegamenti r
 ## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Esistono limiti al numero degli insiemi di credenziali che è possibile creare in ogni sottoscrizione di Azure? <br/>
-Sì. A partire da settembre 2016 è possibile creare 25 insiemi di credenziali di Servizi di ripristino per ogni sottoscrizione. Si possono creare fino a 25 insiemi di credenziali dei servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
+Sì. A partire dal gennaio 2018 possono creare fino a 25 insiemi di credenziali dei servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali? <br/>
 È possibile registrare fino a 200 macchine virtuali di Azure per insieme di credenziali. Se si usano agenti MAB, è possibile registrare fino a 50 agenti MAB per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.

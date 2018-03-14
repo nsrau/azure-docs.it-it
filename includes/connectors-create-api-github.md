@@ -1,18 +1,43 @@
-### <a name="prerequisites"></a>prerequisiti
-* Account [GitHub](http://GitHub.com) 
+---
+title: File di inclusione
+description: File di inclusione
+services: logic-apps
+author: MandiOhlinger
+ms.service: logic-apps
+ms.topic: include
+ms.date: 03/02/2018
+ms.author: mandia
+ms.custom: include file
+ms.openlocfilehash: ec5b3ca9ccd139cbdf17768056eb1d835336e7a7
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/05/2018
+---
+1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota. 
 
-Prima di poter usare l'account GitHub in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi a tale account. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure. 
+2. In Progettazione app per la logica immettere "github" come filtro. 
 
-Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account GitHub:
+3. Selezionare il connettore GitHub e il trigger da usare.
 
-1. Per creare una connessione a GitHub, nella finestra di progettazione dell'app per la logica, selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *GitHub* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
-   ![](./media/connectors-create-api-github/github-1.png)
-2. Se non sono mai state create connessioni a GitHub prima d'ora, verrà chiesto di fornire le relative credenziali. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account GitHub:  
-   ![](./media/connectors-create-api-github/github-2.png)
-3. Fornire il nome utente e la password di GitHub per autorizzare l'app per la logica:  
-   ![](./media/connectors-create-api-github/github-3.png)   
-4. Confermare le proprie intenzioni:  
-   ![](./media/connectors-create-api-github/github-4.png)   
-5. Si noti che la connessione è stata creata nel portale. È ora possibile procedere alla creazione dell'app per la logica e all'uso di GitHub al suo interno:   
-   ![](./media/connectors-create-api-github/github-5.png)   
+   ![Selezionare il connettore di GitHub e un trigger](./media/connectors-create-api-github/github-connector.png)
+
+   > [!NOTE]
+   > Tutti i flussi di lavoro delle app per la logica devono iniziare con un trigger. È possibile selezionare azioni solo quando il flusso di lavoro della logica inizia già con un trigger. 
+
+4. Se non si è creata una connessione in precedenza, scegliere **Accedi** per poter fornire le credenziali di GitHub quando richiesto.  
+
+   ![Accedere con le credenziali di GitHub](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
+
+   L'app per la logica usa queste credenziali per autorizzare la connessione e l'accesso ai dati per l'account GitHub. 
+
+5. Fornire il nome utente e la password di GitHub, quindi confermare l'autorizzazione.
+
+   ![Fornire le credenziali e confermare l'autorizzazione](./media/connectors-create-api-github/github-connector-authorize.png)   
+
+   La connessione è stata creata nel portale di Azure ed è pronta per l'uso.
+
+6. Continuare a definire il flusso di lavoro dell'app per la logica.
+
+   ![Aggiungere altre azioni al flusso di lavoro dell'app per la logica](./media/connectors-create-api-github/github-connector-logic-app.png)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 506781ac83e75d558badbd3a8842533e314a8dfa
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -29,6 +29,9 @@ L'obiettivo di questo articolo è aiutare l'utente a individuare e risolvere i p
 2. [Forum di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
+
+## <a name="storage-sync-service-object-management"></a>Gestione degli oggetti del Servizio di sincronizzazione archiviazione
+Se si esegue un'operazione di spostamento delle risorse da una sottoscrizione a un'altra sottoscrizione, verrà impedito lo spostamento delle risorse di sincronizzazione dei file (servizio di sincronizzazione archiviazione). 
 
 ## <a name="agent-installation-and-server-registration"></a>Installazione dell'agente e registrazione del server
 <a id="agent-installation-failures"></a>**Risolvere gli errori di installazione dell'agente**  

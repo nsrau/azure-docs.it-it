@@ -5,16 +5,16 @@ services: machine-learning
 author: serinakaye
 ms.author: serinak
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -23,14 +23,6 @@ ms.lasthandoff: 12/18/2017
 **Cos'è Azure Machine Learning?**
 
 Azure Machine Learning è un servizio completamente gestito che consente di creare, testare, gestire e distribuire modelli di Machine Learning e Al. I nuovi servizi e l'applicazione scaricabile si basano su un approccio di tipo code-first che sfrutta il cloud, il locale e il nodo perimetrale per offrire modelli di training, distribuzione, gestione e monitoraggio con velocità, potenza e flessibilità. Azure Machine Learning Studio è invece un ambiente di creazione visivo con trascinamento della selezione e accessibile da browser, dove la scrittura di codice non è necessaria. 
-
-**Come si può iniziare a usare l'anteprima?**
-
-Il modo più semplice per iniziare è iscriversi al Servizio Sperimentazione in Azure. Dal portale, è anche possibile scaricare l'applicazione Workbench gratuita o registrarsi per un account di Gestione modelli. Sul sito della documentazione sono disponibili articoli, video, codice di esempio e altro ancora. 
-
-**È possibile provare i nuovi servizi anche se non si dispone di un abbonamento ad Azure?**
-
-Poiché sono parte del portfolio di Microsoft Azure, i nuovi servizi richiedono una sottoscrizione di Azure. Inoltre, è necessario disporre delle autorizzazioni adeguate per creare risorse quali gruppi di risorse, macchine virtuali e così via. 
 
 **In quali aree sono disponibili i nuovi servizi?**
 
@@ -135,7 +127,7 @@ di serie Azure Machine Learning Workbench è un'applicazione gratuita. È possib
 
 **Sono supportate le funzionalità dell'interfaccia della riga di comando?**
 
-R: Sì. Azure Machine Learning offre un'interfaccia della riga di comando completa, installata per impostazione predefinita con Azure Machine Learning Workbench. Viene anche fornita come parte della macchina virtuale Linux Data Science in Azure e verrà integrata nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest).
+Sì. Azure Machine Learning offre un'interfaccia della riga di comando completa, installata per impostazione predefinita con Azure Machine Learning Workbench. Viene anche fornita come parte della macchina virtuale Linux Data Science in Azure e verrà integrata nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest).
 
 
 **È possibile usare Notebook di Jupyter con Azure Machine Learning Workbench?**
@@ -144,7 +136,7 @@ Sì. È possibile eseguire Notebook di Jupyter in Workbench come applicazione di
 
 **Quali sono i kernel di Notebook di Jupyter supportati?**
 
-R: La versione corrente di Jupyter inclusa con Azure Machine Learning Workbench avvia un kernel di Python 3 e un kernel aggiuntivo per ogni file "runconfig" nella cartella aml_config. Le configurazioni supportate includono:
+La versione corrente di Jupyter inclusa in Workbench avvia un kernel di Python 3 e un kernel aggiuntivo per ogni file "runconfig" nella cartella aml_config. Le configurazioni supportate includono:
 - Python in locale
 - Python in locale o in un Docker remoto
 
@@ -176,7 +168,7 @@ Per l'anteprima pubblica, Workbench supporta la derivazione e la divisione delle
 
 **Ci sono limiti alle dimensioni dei dati in Azure Machine Learning, Sperimentazione o Gestione modelli?**
 
-R: No. I nuovi servizi non prevedono alcuna limitazione dei dati. Tuttavia, esistono limitazioni introdotte dall'ambiente in cui si sta eseguendo la preparazione dei dati, il training del modello, la sperimentazione o la distribuzione. Se, ad esempio, la destinazione del training è un ambiente locale, il limite è dato dallo spazio disponibile nel disco rigido. Se invece la destinazione è HDInsight, il limite è dato da qualsiasi dimensione o limite di calcolo associato. 
+No. I nuovi servizi non prevedono alcuna limitazione dei dati. Tuttavia, esistono limitazioni introdotte dall'ambiente in cui si sta eseguendo la preparazione dei dati, il training del modello, la sperimentazione o la distribuzione. Se, ad esempio, la destinazione del training è un ambiente locale, il limite è dato dallo spazio disponibile nel disco rigido. Se invece la destinazione è HDInsight, il limite è dato da qualsiasi dimensione o limite di calcolo associato. 
 
 ## <a name="algorithms-and-libraries"></a>Algoritmi e librerie
 
@@ -187,45 +179,3 @@ I prodotti e i servizi in anteprima includono il meglio della community open sou
 **Qual è la relazione tra Azure Machine Learning e Microsoft Cognitive Toolkit?**
 
 Il [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) è uno dei tanti framework supportati dai nuovi strumenti e servizi. È costituito da un toolkit di apprendimento avanzato unificato che consente di usare e combinare i modelli di machine learning più diffusi, tra cui reti neurali feed-forward, reti convoluzionali, sequenziali e ricorsive. Per altre informazioni su Microsoft Cognitive Toolkit, visitare la [documentazione del prodotto](https://docs.microsoft.com/cognitive-toolkit/). 
-
-## <a name="pricing-and-billing"></a>Prezzi e fatturazione
-
-**Qual è il costo di Azure Machine Learning durante l'anteprima?** 
-
-R: L'applicazione Azure Machine Learning Workbench è disponibile gratuitamente ai sottoscrittori di Azure. Il Servizio Sperimentazione e Gestione modelli offrono livelli gratuiti e livelli a pagamento, disponibili con uno sconto durante l'anteprima pubblica.
-
-**Gli addebiti saranno basati sul numero di esperimenti eseguiti?**
-
-No. Il Servizio Sperimentazione permette di eseguire tutti gli esperimenti necessari e gli addebiti sono basati solo sul numero di utenti. Le risorse di calcolo di Sperimentazione vengono addebitate separatamente.  È consigliabile eseguire più esperimenti in modo da trovare il modello più adatto alla propria soluzione. 
-
-**Gli addebiti sono basati sul numero di chiamate eseguite ai servizi Web?**
-
-di serie I servizi Web possono essere chiamati con la frequenza necessaria, senza implicazioni a livello di fatturazione per Gestione modelli. L'utente ha il controllo completo sul ridimensionamento delle distribuzioni per soddisfare le esigenze delle proprie applicazioni.
-
-**Come ridimensionare il numero di unità acquistate in Gestione modelli di Azure Machine Learning?**
-
-È possibile cambiare il numero di unità, aumentandolo o riducendolo, usando il portale di gestione di Azure o l'interfaccia della riga di comando. 
-
-**Come avviene la fatturazione?**
-
-Le fatture vengono calcolate giornalmente. Per le finalità di fatturazione, un giorno inizia a mezzanotte UTC. Le fatture vengono generate ogni mese. Per tutti i servizi Azure usati insieme ad Azure Machine Learning sono previsti addebiti separati. Tali addebiti possono includere, ad esempio: 
-- Costi di calcolo
-- HDInsight
-- Servizio contenitore di Azure
-- Registro di sistema del contenitore di Azure 
-- Archiviazione BLOB di Azure
-- Application Insights
-- Azure Key Vault
-- Visual Studio Team Services
-- Hub eventi di Azure
-- Analisi di flusso di Azure Per altri dettagli o per visualizzare un esempio di fattura, visitare la pagina relativa ai prezzi. 
-
-## <a name="support-and-training"></a>Supporto e training
-
-**Dove si trovano i training per Azure Machine Learning?**
-
-Nel [centro di documentazione di Azure Machine Learning](./overview-what-is-azure-ml.md) sono disponibili esercitazioni video e guide alle procedure. Queste guide dettagliate introducono i servizi e illustrano il ciclo di vita di data science. Microsoft aggiunge regolarmente nuovo materiale in Machine Learning Center. Per ottenere altro materiale di apprendimento, inviare una richiesta nel forum dei commenti e suggerimenti degli utenti.
-
-**Come si ottiene il supporto per Azure Machine Learning?**
-
-Per ottenere supporto tecnico per Azure Machine Learning, accedere a Supporto tecnico di Azure e selezionare Machine Learning. Ad Azure Machine Learning è associata una community attiva in [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) contrassegnata con "Azure-Machine Learning" e monitorata dal team.  Le richieste di nuove funzionalità e i suggerimenti possono essere inviati al sito dei [commenti e suggerimenti di Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 

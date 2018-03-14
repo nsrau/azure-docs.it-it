@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: e44261e8ee62ce6a91110da0ec0bc489c426f688
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 6ef2719a100ff65d69caa8d05ccfee23851adbcb
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra come operare con le associazioni dell'archiviazione BLO
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Gli account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts) non sono supportati. I trigger e le associazioni di archiviazione BLOB richiedono un account di archiviazione generico. 
+> [Gli account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts) non sono supportati per i trigger di BLOB. I trigger di BLOB richiedono un account di archiviazione generico. Per le associazioni di input e output è possibile usare gli account di archiviazione solo BLOB.
 
 ## <a name="trigger"></a>Trigger
 

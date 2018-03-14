@@ -3,22 +3,16 @@ title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e vers
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: muralikk
 manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 0c34b7ce028ef0fae77322513f62557fa9f9929c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati in Archiviazione di Azure
 Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazione/Esportazione di Azure per trasferire in modo sicuro grandi quantità di dati in Archiviazione di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati da Archiviazione di Azure a unità disco rigido per la spedizione al sito locale. È possibile importare i dati da un'unica unità disco SATA interna ad Archiviazione BLOB di Azure o a File di Azure. 
@@ -31,25 +25,34 @@ Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazio
 Seguire la procedura seguente se è necessario importare i dati sul disco in Archiviazione di Azure.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Passaggio 1: preparare l'unità usando lo strumento WAImportExport e generare file journal.
 
-1.  Identificare i dati da importare in Archiviazione di Azure. Potrebbe trattarsi di directory e file autonomi in un server locale o in una condivisione di rete.
+1.  Identificare i dati da importare in Archiviazione di Azure. È possibile importare directory e file autonomi in un server locale o in una condivisione di rete.
 2.  In base alle dimensioni totali dei dati, procurare il numero necessario di unità SSD da 2,5 pollici o dischi rigidi SATA II/III da 2,5 o 3,5 pollici.
 3.  Collegare i dischi rigidi a un computer Windows usando direttamente SATA o gli adattatori USB esterni.
-4.  Creare un singolo volume NTFS in ogni disco rigido e assegnare una lettera di unità al volume. Nessun punto di montaggio.
-5.  Per abilitare la crittografia nel computer Windows, è necessario abilitare la crittografia BitLocker sul volume NTFS. Per eseguire questa operazione, seguire le istruzioni riportate nell'articolo all'indirizzo https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
-6.  Copiare tutti i dati nei volumi NTFS crittografati sui dischi usando le funzionalità di copia e incolla o di trascinamento, oppure usare uno strumento come Robocopy.
+1.  Creare un singolo volume NTFS in ogni disco rigido e assegnare una lettera di unità al volume. Nessun punto di montaggio.
+2.  Per abilitare la crittografia nel computer Windows, è necessario abilitare la crittografia BitLocker sul volume NTFS. Per eseguire questa operazione, seguire le istruzioni riportate nell'articolo all'indirizzo https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+3.  Copiare tutti i dati nei volumi NTFS crittografati sui dischi usando le funzionalità di copia e incolla o di trascinamento, oppure usare uno strumento come Robocopy.
 7.  Scaricare WAImportExport V1 da https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Decomprimere il file nella cartella waimportexportv1 predefinita. Ad esempio, C:\WaImportExportV1  
 9.  Eseguire come amministratore, aprire PowerShell o la riga di comando e modificare la directory con la cartella decompressa. Ad esempio, cd C:\WaImportExportV1
-10. Copiare la riga di comando seguente in un blocco note e modificarla per creare una riga di comando.
-  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+10. Copiare la riga di comando seguente in un editor di testo e modificarla per creare una riga di comando:
+
+    ```
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ```
     
-    /j: Il nome di un file chiamato file journal con estensione jrn. Viene generato un file journal per unità, quindi si consiglia di usare il numero di serie del disco come nome del file journal.
-    /sk: Chiave dell'account di archiviazione di Azure. /t: Lettera di unità del disco da spedire. Ad esempio, D /bk: è la chiave BitLocker dell'unità /srcdir: Lettera di unità del disco da spedire seguita da :\. Ad esempio, D:\
-    /dstdir: Il nome del contenitore di archiviazione BLOB in cui verranno importati i dati.
-    /skipwrite 
-    
-11. Ripetere il passaggio 10 per tutti i dischi da spedire.
-12. Ogni volta che viene eseguita la riga di comando, viene creato un file journal con il nome fornito con il parametro /j:.
+    Queste opzioni della riga di comando sono descritte nella tabella seguente:
+
+    |Opzione  |DESCRIZIONE  |
+    |---------|---------|
+    |/j:     |Nome del file journal, con estensione jrn. Viene generato un file journal per ogni unità. È consigliabile usare il numero di serie del disco come nome del file journal.         |
+    |/sk:     |Chiave dell'account di Archiviazione di Azure.         |
+    |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
+    |/bk:     |Chiave di BitLocker per l'unità.         |
+    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio, `D:\`.         |
+    |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure         |
+
+1. Ripetere il passaggio 10 per tutti i dischi da spedire.
+2. Ogni volta che viene eseguita la riga di comando, viene creato un file journal con il nome fornito con il parametro /j:.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Passaggio 2: creare un processo di importazione nel portale di Azure.
 
@@ -88,6 +91,11 @@ In questa sezione sono elencati i prerequisiti per l'uso di questo servizio. Leg
 
 ### <a name="storage-account"></a>Account di archiviazione
 Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sottoscrizione di Azure esistente e uno o più account di archiviazione . Importazione/esportazione di Azure supporta solo gli account classico, di archiviazione BLOB e gli account di archiviazione di utilizzo generico v1. Ogni processo può essere usato per trasferire dati da o verso un solo account di archiviazione. In altre parole, un singolo processo di importazione/esportazione non può estendersi su più account di archiviazione. Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
+
+> [!IMPORTANT] 
+> Il servizio Importazione/Esportazione di Azure non supporta gli account di archiviazione in cui la funzionalità degli [endpoint del servizio Rete virtuale](../../virtual-network/virtual-network-service-endpoints-overview.md) è stata abilitata. 
+> 
+> 
 
 ### <a name="data-types"></a>Tipi di dati
 È possibile usare il servizio Importazione/Esportazione di Azure per copiare dati in BLOB in **blocchi**, in BLOB di **pagine** o in **file**. Al contrario, usando questo servizio è possibile esportare solo BLOB in **blocchi**, BLOB di **pagine** o BLOB di **aggiunta** da Archiviazione di Azure. Il servizio supporta solo l'importazione di dati di File di Azure in Archiviazione di Azure. L'esportazione di dati di File di Azure non è attualmente supportato.

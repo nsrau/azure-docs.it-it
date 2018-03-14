@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76c818cb48b4691b03ad5cc601d4eab5504945eb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 979fcebd60d62c714a1c521013cf391ebf18a73c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -27,6 +27,7 @@ ms.lasthandoff: 12/18/2017
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
@@ -36,6 +37,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asincrone, usare [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
 <table>
 
@@ -167,7 +170,7 @@ ms.lasthandoff: 12/18/2017
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * SDK con disponibilità generale
 
-## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
+## <a name="release-and-retirement-dates"></a>Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente, è quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima.
@@ -219,6 +222,6 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

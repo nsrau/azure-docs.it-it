@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: klam; LADocs
+ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chiamare, attivare o annidare i flussi di lavoro con endpoint HTTP in app per la logica
 
@@ -30,12 +30,12 @@ Per creare gli endpoint HTTP, è possibile aggiungere questi trigger in modo che
 
 * [Richiesta](../connectors/connectors-native-reqres.md)
 
-* [Webhook di connessione API](logic-apps-workflow-actions-triggers.md#api-connection-trigger)
+* [Webhook di connessione API](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnection-trigger)
 
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Sebbene gli esempi usino il trigger **Richiesta** è possibile usare uno dei trigger HTTP elencati e tutti i principi si applicano in modo identico agli altri tipi di trigger.
+   > Nonostante questi esempi usino il trigger **Richiesta** è possibile usare uno dei trigger HTTP elencati e tutti i principi si applicano in modo identico agli altri tipi di trigger.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurare un endpoint HTTP per un'app per la logica
 
@@ -166,6 +166,7 @@ Quando si desidera che l'URL dell'endpoint HTTP accetti i parametri, personalizz
     `Hello 123456`
 
 <a name="generated-tokens"></a>
+
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Token generati da schemi JSON per l'app per la logica
 
 Quando si specifica uno schema JSON nel trigger **Richiesta**, la finestra di progettazione app per la logica genera i token per le proprietà nello schema. È quindi possibile usare tali token per passare dati tramite il flusso di lavoro di app per la logica.
@@ -206,6 +207,9 @@ Di seguito è riportato lo schema JSON completo:
 
 Dopo aver creato l'endpoint HTTP, è possibile attivare l'app per la logica tramite un metodo `POST` per l'URL completo. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
 
+> [!NOTE] 
+> Per eseguire manualmente un'app per la logica in qualsiasi momento, sulla barra degli strumenti Progettazione app per la logica o Visualizzazione codice app per la logica scegliere **Esegui**.
+
 ## <a name="reference-content-from-an-incoming-request"></a>Riferimento al contenuto dalla richiesta in ingresso
 
 Se il tipo di contenuto è `application/json`, è possibile fare riferimento a proprietà dalla richiesta in ingresso. In caso contrario, il contenuto viene considerato come una singola unità binaria che è possibile passare ad altre API. Per fare riferimento a questo contenuto all'interno del flusso di lavoro è necessario convertire il contenuto. Se ad esempio si passa il contenuto `application/xml`, è possibile usare `@xpath()` per eseguire un'estrazione XPath o `@json()` per la conversione da XML a JSON. Informazioni sull'[uso dei tipi di contenuto](../logic-apps/logic-apps-content-type.md).
@@ -234,7 +238,7 @@ Per alcune richieste che avviano un'app per la logica, può risultare utile risp
 
 ### <a name="construct-the-response"></a>Costruire la risposta
 
-È possibile includere più di un'intestazione e qualsiasi tipo di contenuto nel corpo della risposta. Nel nostro esempio di risposta, l'intestazione specifica che la risposta contiene il tipo di contenuto `application/json`, mentre il corpo contiene `title` e `name`, in base allo schema JSON aggiornato in precedenza per il trigger **Richiesta**.
+È possibile includere più di un'intestazione e qualsiasi tipo di contenuto nel corpo della risposta. Nell'esempio di risposta l'intestazione specifica che la risposta contiene il tipo di contenuto `application/json`, mentre il corpo contiene `title` e `name`, in base allo schema JSON aggiornato in precedenza per il trigger **Richiesta**.
 
 ![Azione di risposta HTTP][3]
 

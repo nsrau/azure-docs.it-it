@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2018
+ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: c2728545aeb202bdd216e00fd4a7e464e483b1da
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Attivare sottoscrizioni e account di Azure con Gestione costi di Azure
 
@@ -56,7 +56,7 @@ Quando si aggiunge una sottoscrizione a un aggiornamento dell'account, si conced
 
 ### <a name="update-a-subscription"></a>Aggiornare una sottoscrizione
 
-1. Per aggiornare una sottoscrizione _non attivata_ già esistente in Gestione costi di Azure, fare clic sul simbolo a forma di matita a destra del _GUID del tenant_.
+1. Per aggiornare una sottoscrizione _non attivata_ già esistente in Gestione costi di Azure, fare clic sul simbolo a forma di matita a destra del _GUID del tenant_ padre. Le sottoscrizioni vengono raggruppate in un tenant padre. Evitare pertanto di attivare le sottoscrizioni singolarmente.
     ![Individuare di nuovo le sottoscrizioni](./media/activate-subs-accounts/existing-sub.png)
 2. Se necessario, immettere l'ID del tenant. Se non si conosce l'ID del tenant, seguire questa procedura per trovarlo:
     1. Accedere al [portale di Azure](https://portal.azure.com).

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Aggiungere notifiche push all'app Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,7 @@ In questa esercitazione vengono aggiunte notifiche push a tutti i progetti creat
 
 Se non si usa il progetto server di avvio rapido scaricato, sarà necessario aggiungere il pacchetto di estensione di notifica push. Per altre informazioni, vedere [Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per iOS sono necessari un dispositivo iOS fisico e un'[appartenenza all'Apple Developer Program](https://developer.apple.com/programs/ios/). [Il simulatore iOS non supporta le notifiche push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>Configurare un hub di notifica
@@ -152,6 +152,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
         using Android.App;
         using Android.Content;
         using Android.Media;
+        using Android.Support.V7.App;
         using Android.Util;
         using Firebase.Messaging;
 
@@ -182,7 +183,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
                 intent.AddFlags(ActivityFlags.ClearTop);
                 var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-                var notificationBuilder = new Notification.Builder(this)
+                var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                     .SetContentTitle("New Todo Item")
                     .SetContentText(messageBody)
@@ -202,7 +203,7 @@ Dopo aver configurato il back-end con FCM, è possibile aggiungere componenti e 
 ### <a name="test-push-notifications-in-your-android-app"></a>Testare le notifiche push nell'app Android
 I primi due passaggi sono necessari solo per i test eseguiti in un emulatore.
 
-1. Assicurarsi di distribuire o eseguire il debug su un dispositivo virtuale che ha le API Google impostate come destinazione, come illustrato di seguito nel gestore del dispositivo virtuale Android.
+1. Assicurarsi che l'operazione di distribuzione o debug venga eseguita su un dispositivo o un emulatore configurato con Google Play Services. Per eseguire questa verifica, controllare che le app **Play** siano installate nel dispositivo o emulatore.
 2. Aggiungere un account Google al dispositivo Android facendo clic su **App** > **Impostazioni** > **Aggiunti account**. Seguire quindi le istruzioni per aggiungere un account Google esistente al dispositivo o per crearne uno nuovo.
 3. In Visual Studio o Xamarin Studio fare clic con il pulsante destro del mouse sul progetto **Droid** e scegliere **Imposta come progetto di avvio**.
 4. Fare clic su **Esegui** per creare il progetto e avviare l'app sul dispositivo Android o sull'emulatore.

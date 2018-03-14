@@ -5,16 +5,16 @@ services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
 manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: aaa9705aed59b5cf78100eda9997bb1ca74845b9
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>File di configurazione del servizio Sperimentazione di Azure Machine Learning
 
@@ -29,12 +29,12 @@ Di seguito sono riportati i file rilevanti in questa cartella:
     - \<nome configurazione esecuzione>.runconfig
 
 >[!NOTE]
->In genere sono disponibili un file di destinazione del calcolo e un file di configurazione di esecuzione per ogni destinazione di calcolo creata. Tuttavia è possibile creare questi file in modo indipendente e disporre di più file di configurazione di esecuzione che puntano alla stessa destinazione di calcolo.
+>In genere sono disponibili un file di destinazione del calcolo e un file di configurazione di esecuzione per ogni destinazione di calcolo creata. È tuttavia possibile creare questi file in modo indipendente e usare più file di configurazione di esecuzione che puntano alla stessa destinazione di calcolo.
 
 ## <a name="condadependenciesyml"></a>conda_dependencies.yml
-Questo file è un [file dell'ambiente conda](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) che specifica la versione del runtime e i pacchetti Python da cui dipende il codice in uso. Quando Azure ML Workbench esegue uno script in un contenitore Docker o in cluster HDInsight, viene creato un [ambiente conda](https://conda.io/docs/using/envs.html) per l'esecuzione dello script. 
+Questo file è un [file dell'ambiente conda](https://conda.io/docs/using/envs.html#create-environment-file-by-hand) che specifica la versione del runtime e i pacchetti Python da cui dipende il codice in uso. Quando Azure ML Workbench esegue uno script in un contenitore Docker o in un cluster HDInsight, viene creato un [ambiente conda](https://conda.io/docs/using/envs.html) per l'esecuzione dello script. 
 
-In questo file si specificano i pacchetti Python di cui lo script necessita per l'esecuzione. Il servizio Sperimentazione di Azure Machine Learning crea l'ambiente conda nell'immagine Docker in base all'elenco di dipendenze specificato. L'elenco di pacchetti indicato qui deve essere raggiungibile dal motore di esecuzione. Per questo motivo, i pacchetti devono essere elencati nei canali, ad esempio:
+In questo file si specificano i pacchetti Python di cui lo script necessita per l'esecuzione. Il servizio Sperimentazione di Azure Machine Learning crea l'ambiente conda in base all'elenco di dipendenze. I pacchetti elencati devono essere raggiungibili dal motore di esecuzione tramite i canali, ad esempio:
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
@@ -43,7 +43,7 @@ In questo file si specificano i pacchetti Python di cui lo script necessita per 
 * altri canali raggiungibili dal motore di esecuzione
 
 >[!NOTE]
->Quando l'esecuzione avviene nel cluster HDInsight, Azure ML Workbench crea un ambiente conda solo per l'esecuzione specifica. In questo modo utenti diversi possono procedere all'esecuzione in ambienti Python diversi nello stesso cluster.  
+>Quando l'esecuzione avviene nel cluster HDInsight, Azure ML Workbench crea un ambiente conda per l'esecuzione specifica. In questo modo utenti diversi possono procedere all'esecuzione in ambienti Python diversi nello stesso cluster.  
 
 Di seguito è riportato un esempio di un tipico file **conda_dependencies.yml**.
 ```yaml
@@ -68,13 +68,13 @@ dependencies:
      - C:\temp\my_private_python_pkg.whl
 ```
 
-Azure ML Workbench usa lo stesso ambiente conda senza eseguire la ricompilazione finché il file **conda_dependencies.yml** rimane invariato. Tuttavia, se un valore viene modificato in questo file, l'immagine Docker viene rigenerata.
+Azure ML Workbench usa lo stesso ambiente conda senza eseguire la ricompilazione a condizione che il file **conda_dependencies.yml** rimanga invariato. Se le dipendenze cambiano, l'ambiente viene ricompilato.
 
 >[!NOTE]
 >Se si usa come destinazione dell'esecuzione il contesto di calcolo _locale_, il file **conda_dependencies.yml** **non** viene usato. È necessario installare manualmente le dipendenze dei pacchetti per l'ambiente Python locale in Azure ML Workbench.
 
 ## <a name="sparkdependenciesyml"></a>spark_dependencies.yml
-Questo file specifica il nome dell'applicazione Spark quando si invia uno script PySpark e i pacchetti Spark che devono essere installati. È possibile anche specificare qualsiasi archivo Maven pubblico e pacchetto Spark che può essere presente in questi archivi Maven.
+Questo file specifica il nome dell'applicazione Spark quando si invia uno script PySpark e i pacchetti Spark che devono essere installati. È possibile anche specificare un repository Maven pubblico, oltre che pacchetti Spark che possono essere presenti nei repository Maven.
 
 Di seguito è fornito un esempio: 
 
@@ -103,13 +103,13 @@ packages:
 ```
 
 >[!NOTE]
->I parametri di ottimizzazione del cluster come le dimensioni dei processi di lavoro, i core devono essere presenti nella sezione "configuration" nel file spark_dependecies.yml 
+>I parametri di ottimizzazione del cluster, come le dimensioni dei ruoli di lavoro e i core, devono trovarsi nella sezione "configuration" del file spark_dependecies.yml 
 
 >[!NOTE]
->Se si esegue lo script nell'ambiente Python, il file *spark_dependencies.yml* viene ignorato. Ha effetto solo se viene eseguito con Spark nel cluster HDInsight e in quello Docker.
+>Se si esegue lo script nell'ambiente Python, il file *spark_dependencies.yml* viene ignorato. Viene usato solo in caso di esecuzione in Spark (in Docker o in un cluster HDInsight).
 
 ## <a name="run-configuration"></a>Configurazione di esecuzione
-Per specificare una configurazione di esecuzione particolare, è necessaria una coppia di file. In genere questi file vengono generati usando un comando dell'interfaccia della riga di comando. È possibile tuttavia anche clonare file esistenti, rinominarli e modificarli.
+Per specificare una particolare configurazione di esecuzione, sono necessari un file con estensione compute e uno con estensione runconfig. In genere, questi file vengono generati usando un comando dell'interfaccia della riga di comando. È anche possibile clonare file esistenti, rinominarli e modificarli.
 
 ```azurecli
 # create a compute target pointing to a VM via SSH
@@ -125,10 +125,11 @@ Questo comando crea una coppia di file in base alla destinazione di calcolo spec
 > I nomi _local_ o _docker_ per i file di configurazione di esecuzione sono arbitrari. Azure ML Workbench aggiunge queste due configurazioni di esecuzione quando si crea un progetto vuoto per comodità. È possibile rinominare i file "<run configuration name>.runconfig" forniti con il modello di progetto o creare nuovi file con il nome desiderato.
 
 ### <a name="compute-target-namecompute"></a>\<nome destinazione di calcolo>.compute
-Il file _\<nome destinazione di calcolo>.compute_ specifica le informazioni di connessione e configurazione per la destinazione di calcolo. È un elenco di coppie nome-valore. Di seguito sono riportate le impostazioni supportate.
+Il file _\<nome destinazione di calcolo>.compute_ specifica le informazioni di connessione e configurazione per la destinazione di calcolo. È un elenco di coppie nome-valore. Di seguito sono riportate le impostazioni supportate:
 
 **type**: tipo di ambiente di calcolo. I valori supportati sono:
   - local
+  - remote
   - docker
   - remotedocker
   - cluster
@@ -147,8 +148,10 @@ Il file _\<nome destinazione di calcolo>.compute_ specifica le informazioni di c
 
 **nativeSharedDirectory**: questa proprietà specifica la directory di base, ad esempio: _~/.azureml/share/_, in cui i file possono essere salvati per essere condivisi tra le esecuzioni nella stessa destinazione calcolo. Se questa impostazione viene usata durante l'esecuzione in un contenitore Docker, _sharedVolumes_ deve essere impostato su true. In caso contrario, l'esecuzione ha esito negativo.
 
+**userManagedEnvironment**: questa proprietà specifica se la destinazione di calcolo è gestita direttamente dall'utente o se è gestita tramite il servizio Sperimentazione.  
+
 ### <a name="run-configuration-namerunconfig"></a>\<nome configurazione esecuzione>.runconfig
-_\<nome della configurazione di esecuzione>.runconfig_ specifica il comportamento di esecuzione di Sperimentazione di Azure Machine Learning. È possibile configurare comportamenti di esecuzione come il rilevamento della cronologia di esecuzione o la destinazione di calcolo da usare e molto altro. I nomi dei file di configurazione di esecuzione vengono usati per popolare l'elenco a discesa dei contesti di esecuzione nell'applicazione desktop di Azure ML Workbench.
+_\<nome della configurazione di esecuzione>.runconfig_ specifica il comportamento di esecuzione di Sperimentazione di Azure Machine Learning. È possibile configurare il comportamento di esecuzione, ad esempio il rilevamento della cronologia di esecuzione o la destinazione di calcolo da usare e molto altro. I nomi dei file di configurazione di esecuzione vengono usati per popolare l'elenco a discesa dei contesti di esecuzione nell'applicazione desktop di Azure ML Workbench.
 
 **ArgumentVector**: in questa sezione viene specificato lo script da eseguire come parte di questa esecuzione e i parametri per lo script. È il caso, ad esempio, in cui nel file "<run configuration name>.runconfig" esiste il frammento seguente 
 
@@ -170,7 +173,7 @@ EnvironmentVariables:
   "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Queste variabili di ambiente sono accessibili nel codice dell'utente. Ad esempio, il codice Phyton stampa la variabile di ambiente denominata "EXAMPLE_ENV_VAR"
+Queste variabili di ambiente sono accessibili nel codice dell'utente. Ad esempio, il codice Python seguente stampa la variabile di ambiente denominata "EXAMPLE_ENV_VAR"
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -189,7 +192,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **DataSourceSettings**: questa sezione di configurazione specifica le impostazioni relative alle origini dati. In questa sezione l'utente specifica quale esempio di dati esistente per una determinata origine dati viene usato come parte dell'esecuzione. 
 
-L'impostazione di configurazione seguente specifica che l'esempio, denominato "MySample", viene usato per l'origine dati, denominata "MyDataSource"
+L'impostazione di configurazione seguente specifica che l'esempio denominato "MySample" viene usato per l'origine dati denominata "MyDataSource"
 ```
 DataSourceSettings:
     MyDataSource.dsource:

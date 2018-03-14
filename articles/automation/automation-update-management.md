@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: gwallace
-ms.openlocfilehash: bb20137cc3ac8daf82ee21300be6981e09ce3fe0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -56,8 +56,8 @@ La tabella seguente elenca i sistemi operativi supportati:
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Windows Server 2008 e versioni successive     | Supporta solo le valutazioni degli aggiornamenti         |
-|Windows Server 2008 R2 SP1 e versioni successive     |Sono richiesti .NET Framework 4.5 e WMF 5.0 o versioni successive per Windows Server 2008 R2 SP1<br>Nano Server non supportato         |
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti         |
+|Windows Server 2008 R2 SP1 e versioni successive     |Sono richiesti .NET Framework 4.5 e WMF 5.0 o versioni successive per Windows Server 2008 R2 SP1        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
@@ -70,7 +70,7 @@ La tabella seguente elenca i sistemi operativi non supportati:
 |Sistema operativo  |Note  |
 |---------|---------|
 |Client Windows     | I sistemi operativi client (Windows 7, Windows 10 e così via) non sono supportati.        |
-|Nano Server     | Nano Server fa parte di Windows 2016.        |
+|Windows Server 2016 Nano Server     | Non supportate       |
 
 ### <a name="client-requirements"></a>Requisiti per i client
 

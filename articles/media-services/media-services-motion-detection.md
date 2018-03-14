@@ -13,17 +13,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c391101c82868eb3c9cc92dc55c920fdbd5f4e8
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Rilevare i movimenti con Analisi servizi multimediali di Azure
 ## <a name="overview"></a>Panoramica
 Il processore di contenuti multimediali **Rilevatore multimediale di movimento Azure** consente di identificare in modo efficace le sezioni interessanti all'interno di un video altrimenti lungo e privo di eventi. Il rilevamento di movimento può essere usato nei filmati statici della videocamera per individuare le sezioni del video in cui si verificano movimenti. Viene generato un file JSON contenente i metadati con i timestamp e l'area di delimitazione in cui si è verificato l'evento.
 
-Questa tecnologia, destinata alle trasmissioni video di sicurezza, è in grado di classificare i movimenti in eventi rilevanti e falsi positivi, ad esempio variazioni di luminosità e delle ombre. In questo modo è possibile generare avvisi di sicurezza dalle trasmissioni della videocamera senza che venga segnalata una serie infinita di eventi irrilevanti e al contempo estrarre i momenti di interesse da video di sorveglianza estremamente lunghi.
+Questa tecnologia, destinata alle trasmissioni video di sicurezza, è in grado di classificare i movimenti in eventi rilevanti e falsi positivi, ad esempio variazioni di luminosità e delle ombre. In questo modo è possibile generare avvisi di sicurezza dalle trasmissioni della videocamera senza che venga segnalata una serie infinita di eventi irrilevanti e al contempo estrarre i momenti di interesse da video di sorveglianza lunghi.
 
 Attualmente il processore multimediale **Rilevatore multimediale di movimento Azure** è disponibile in Anteprima.
 
@@ -47,6 +47,8 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
 | detectionZones |Matrice di zone di rilevamento:<br/>- La zona di rilevamento è una matrice di 3 o più punti<br/>- Il punto è una coordinata x e y da 0 a 1. |Descrive l'elenco delle zone di rilevamento poligonali da usare.<br/>I risultati sono visualizzati con le zone come ID, dove la prima è 'id':0 |Singola zona che copre l'intero fotogramma. |
 
 ### <a name="json-example"></a>Esempio di JSON
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -74,7 +76,7 @@ Quando si crea un'attività con **Azure Media Motion Detector**è necessario spe
         ]
       }
     }
-
+```
 
 ## <a name="motion-detector-output-files"></a>File di output di Rilevatore di movimento
 Un processo di rilevamento del movimento restituirà un file JSON nell'asset di output che descrive gli avvisi di movimento e le relative categorie all'interno del video. Il file conterrà informazioni sull'ora e sulla durata dei movimenti rilevati nel video.
@@ -107,8 +109,9 @@ La tabella seguente illustra gli elementi del file di output JSON.
 | Parentesi quadre [] |Ogni parentesi rappresenta un intervallo nell'evento. Le parentesi vuote in un intervallo indicano che è non stato rilevato alcun movimento. |
 | locations |Questa nuova voce nell'elenco degli eventi indica le posizioni in cui si è verificato il movimento. È un dato più specifico delle zone di rilevamento. |
 
-Di seguito è riportato un esempio di output JSON
+Nell'esempio JSON seguente viene descritto l'output:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -150,8 +153,8 @@ Di seguito è riportato un esempio di output JSON
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## <a name="limitations"></a>Limitazioni
 * I formati video di input supportati includono MP4, MOV e WMV.
 * Il rilevamento di movimento è ottimizzato per i video a sfondo fisso. L'algoritmo mira alla riduzione dei falsi allarmi, ad esempio le variazioni di luce e ombra.
@@ -164,33 +167,36 @@ Il programma seguente illustra come:
 1. Creare un asset e caricare un file multimediale nell'asset.
 2. Creare un processo con un'attività di rilevamento movimento video in base al file di configurazione che contiene il set di impostazioni JSON seguente: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Scaricare i file JSON di output. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
@@ -199,7 +205,7 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
 
 #### <a name="example"></a>Esempio
 
-```
+```csharp
 
 using System;
 using System.Configuration;

@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2018
+ms.date: 2/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d1974ff9716d6b84a5f4b4f1795a84483d277a05
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1264bf77b6d922f5beb22177d1ac63efa9386ef2
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure 
 
-Se si dispone di più sottoscrizioni, è possibile organizzarle in contenitori chiamati "gruppi di gestione" che consentono di gestire l'accesso, i criteri e la conformità tra le sottoscrizioni. Questi contenitori offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.  
+Se si dispone di più sottoscrizioni, è possibile organizzarle in contenitori chiamati "gruppi di gestione" che consentono di gestire l'accesso, i criteri e la conformità tra le sottoscrizioni. I gruppi di gestione offrono gestione di livello aziendale su larga scala, indipendentemente dal tipo di sottoscrizioni che si posseggono.  
 
 La funzionalità dei gruppi di gestione è disponibile come anteprima pubblica. Per iniziare a usare i gruppi di gestione, accedere al [portale di Azure](https://portal.azure.com) e cercare **Gruppi di gestione** nella sezione **Tutti i servizi**. 
 

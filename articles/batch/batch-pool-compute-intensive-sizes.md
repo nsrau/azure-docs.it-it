@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 181e9bd7c17e4618edd63dd92d70947a61c68758
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch
 
@@ -33,11 +33,11 @@ Questo articolo fornisce istruzioni ed esempi per usare alcune delle dimensioni 
 
 ## <a name="subscription-and-account-limits"></a>Limiti della sottoscrizione e dell'account
 
-* **Quote e limiti**: la [quota di core dedicati per ogni account Batch](batch-quota-limit.md#resource-quotas) può limitare il numero o il tipo di nodi che possono essere aggiunti a un pool di Batch. È più probabile raggiungere una quota quando si scelgono dimensioni di VM con supporto per RDMA, abilitate per GPU o multicore. Si applica una quota separata alle [macchine virtuali a bassa priorità](batch-low-pri-vms.md), se usate. 
+* **Quote e limiti**: la [quota di core per ogni account Batch](batch-quota-limit.md#resource-quotas) può limitare il numero di nodi con le dimensioni specificate che possono essere aggiunti a un pool di Batch. È più probabile raggiungere una quota quando si scelgono dimensioni di VM con supporto per RDMA, abilitate per GPU o multicore. 
 
-  Inoltre, l'uso di determinati gruppi di VM nell'account di Batch, ad esempio NCv2 ed ND, è ridotto a causa della capacità limitata. Per usare questi gruppi, richiedere un aumento della quota di 0 core predefinita.  
+  Inoltre, l'uso di determinati gruppi di VM nell'account di Batch, ad esempio NCv2, NCv3 e ND, è ridotto a causa della capacità limitata. Per usare questi gruppi, richiedere un aumento della quota di 0 core predefinita.  
 
-  Se è necessario un aumento della quota, è possibile aprire una [richiesta di assistenza clienti online](../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito.
+  Se necessario, [richiedere un aumento della quota](batch-quota-limit.md#increase-a-quota) senza alcun costo aggiuntivo.
 
 * **Disponibilità a livello di area**: le VM a elevato utilizzo di calcolo potrebbero non essere disponibili nelle aree in cui si crea l'account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
@@ -52,10 +52,10 @@ Le funzionalità RDMA e GPU delle dimensioni a elevato utilizzo di calcolo sono 
 | Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>HPC SUSE Linux Enterprise Server 12 oppure<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
-| [Serie NC, NCv2 ed ND*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | GPU NVIDIA Tesla (varia in base alla serie) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o 7.4 oppure<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Driver NVIDIA CUDA Toolkit | N/D | 
-| [Serie NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 oppure<br/>CentOS 7.3<br/>(Azure Marketplace) | Driver NVIDIA GRID | N/D |
+| [Serie NC, NCv2, NCv3 e ND*](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o 7.4 oppure<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Driver NVIDIA CUDA Toolkit | N/D | 
+| [Serie NV](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 oppure<br/>CentOS 7.3<br/>(Azure Marketplace) | Driver NVIDIA GRID | N/D |
 
-*La connettività RDMA nelle macchine virtuali NC24r, NC24rs_v2 ed ND24r è supportata in Ubuntu 16.04 LTS (da Azure Marketplace) con Intel MPI.
+*Per la connettività RDMA su macchine virtuali serie N con supporto per RDMA possono essere necessarie [operazioni di configurazione aggiuntive](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) che variano in base alla distribuzione.
 
 
 
@@ -64,10 +64,10 @@ Le funzionalità RDMA e GPU delle dimensioni a elevato utilizzo di calcolo sono 
 | Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o versioni successive oppure<br/> Intel MPI 5<br/><br/>Estensione di VM Azure HpcVMDrivers | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
-| [Serie NC, NCv2 ed ND*](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Windows Server 2016 oppure <br/>2012 R2 (Azure Marketplace) | Driver NVIDIA Tesla o CUDA Toolkit| N/D | 
+| [Serie NC, NCv2, NCv3 e ND*](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Windows Server 2016 oppure <br/>2012 R2 (Azure Marketplace) | Driver NVIDIA Tesla o CUDA Toolkit| N/D | 
 | [Serie NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 oppure<br/>2012 R2 (Azure Marketplace) | Driver NVIDIA GRID | N/D |
 
-*La connettività RDMA nelle macchine virtuali NC24r, NC24rs_v2 ed ND24rs è supportata in Windows Server 2016 o Windows Server 2012 R2 (da Azure Marketplace) con estensione HpcVMDrivers e Microsoft MPI o Intel MPI.
+*La connettività RDMA nelle macchine virtuali serie N con supporto per RDMA è supportata in Windows Server 2016 o Windows Server 2012 R2 (da Azure Marketplace) con estensione HpcVMDrivers e Microsoft MPI o Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pool Windows - Configurazione servizi cloud
 
@@ -123,8 +123,8 @@ Per eseguire applicazioni Windows MPI in un pool di nodi A8 di Azure è necessar
 
 Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, è necessario installare CUDA Toolkit 9.0 nei nodi. Il Toolkit installa i driver GPU NVIDIA Tesla necessari. Ecco i passaggi di esempio per distribuire un'immagine personalizzata Ubuntu 16.04 LTS con i driver GPU:
 
-1. Distribuire una macchina virtuale NC6 di Azure che esegue Ubuntu 16.04 LTS. È ad esempio possibile creare la macchina virtuale nell'area Stati Uniti centro-meridionali. Assicurarsi di creare la macchina virtuale con un disco gestito.
-2. Seguire questa procedura per connettersi alla macchina virtuale e [installare i driver CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
+1. Distribuire una macchina virtuale serie NC di Azure che esegue Ubuntu 16.04 LTS. È ad esempio possibile creare la macchina virtuale nell'area Stati Uniti centro-meridionali. Assicurarsi di creare la macchina virtuale con un disco gestito.
+2. Seguire questa procedura per connettersi alla macchina virtuale e [installare i driver CUDA](../virtual-machines/linux/n-series-driver-setup.md).
 3. Effettuare il deprovisioning dell'agente Linux e quindi [acquisire l'immagine della VM Linux](../virtual-machines/linux/capture-image.md).
 4. Creare un account in un'area che supporta le VM NC.
 5. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-custom-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:

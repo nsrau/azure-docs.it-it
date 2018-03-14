@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: b63c778f02b88bea4d68206f441aef7b32172c24
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs).
@@ -92,6 +92,10 @@ await client.ReplaceOfferAsync(offer);
 ```
 
 La modifica della velocità effettiva non influisce sulla disponibilità del contenitore. La nuova velocità effettiva riservata viene in genere applicata entro pochi secondi, in corrispondenza dell'applicazione della nuova velocità effettiva.
+
+## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento della velocità effettiva nei database distribuiti a livello globale
+
+In caso di replica del database in più di un'area, Azure Cosmos DB implementa l'isolamento della velocità effettiva per assicurare che l'uso delle unità richiesta in un'area non abbia ripercussioni negative sull'uso delle unità richiesta in un'altra area. Ad esempio, se si eseguono un'operazione di scrittura di dati in un'area e un'operazione di lettura di dati in un'altra area, le unità richiesta usate per eseguire l'operazione di scrittura nell'area A non vengono detratte dalle unità richiesta usate per l'operazione di lettura eseguita nell'area B. Le unità richiesta non vengono suddivise tra le aree in cui è stata eseguita la distribuzione. Ogni area in cui il database viene replicato dispone di tutte le unità richiesta per le quali è stato eseguito il provisioning. Per altre informazioni sulla replica globale, vedere [Come distribuire i dati a livello globale con Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considerazioni sulle unità richiesta
 Quando si stima il numero di unità richiesta da riservare per il contenitore di Azure Cosmos DB, è importante considerare le variabili seguenti:
@@ -209,7 +213,7 @@ Ad esempio:
 6. Calcolare le unità richiesta necessarie in base al numero stimato di operazioni che si prevede di eseguire al secondo.
 
 ## <a id="GetLastRequestStatistics"></a>Usare il comando dell'API per MongoDB
-L'API per MongoDB supporta un comando personalizzato, *getLastRequestStatistics*, per il recupero degli addebiti per le richieste per operazioni specificate.
+L'API MongoDB supporta un comando personalizzato, *getLastRequestStatistics*, per il recupero degli addebiti per le richieste per operazioni specificate.
 
 Ad esempio, in Mongo Shell eseguire l'operazione di cui si vuole verificare l'addebito per le richieste.
 ```
@@ -235,10 +239,10 @@ Con questa premessa, un metodo per stimare la quantità di velocità effettiva r
 > 
 > 
 
-## <a name="use-api-for-mongodbs-portal-metrics"></a>Usare le metriche del portale dell'API per MongoDB
-Il modo più semplice per ottenere una stima valida degli addebiti per le unità richiesta per il database dell'API per MongoDB consiste nell'usare le metriche del [portale di Azure](https://portal.azure.com). I grafici *Numero di richieste* e *Richiedi addebito* consentono di ottenere una stima del numero di unità richiesta utilizzate da ogni operazione e dal numero di unità richiesta utilizzate una rispetto all'altra.
+## <a name="use-mongodb-api-portal-metrics"></a>Usare le metriche del portale dell'API MongoDB
+Il modo più semplice per ottenere una stima valida degli addebiti per le unità richiesta per il database dell'API MongoDB consiste nell'usare le metriche del [portale di Azure](https://portal.azure.com). I grafici *Numero di richieste* e *Richiedi addebito* consentono di ottenere una stima del numero di unità richiesta utilizzate da ogni operazione e dal numero di unità richiesta utilizzate una rispetto all'altra.
 
-![Metriche del portale dell'API per MongoDB][6]
+![Metriche del portale dell'API MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Esempio di stima delle unità richiesta
 Considerare questo documento da circa 1 KB:
@@ -343,8 +347,8 @@ Se si usano le query LINQ e .NET SDK per client, non è quasi mai necessario ges
 
 Se più client operano collettivamente al di sopra della frequenza delle richieste, il comportamento di ripetizione dei tentativi predefinito potrebbe non essere sufficiente e il client genererà una DocumentClientException con codice di stato 429 per l'applicazione. In casi come questo, si può valutare la possibilità di gestire la logica e il comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione o di aumentare la velocità effettiva riservata per il contenitore.
 
-## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API per MongoDB
-Le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. In caso di limitazione, il back-end terminerà preventivamente la richiesta con un codice errore *16500*, ovvero *Troppe richieste*. Per impostazione predefinita, l'API per MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore di tipo *Troppe richieste*. Se si riceve un numero eccessivo di codici errore di tipo *Troppe richieste*, è possibile prendere in considerazione l'aggiunta del comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva riservata per la raccolta](set-throughput.md).
+## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API MongoDB
+Le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. In caso di limitazione, il back-end terminerà preventivamente la richiesta con un codice errore *16500*, ovvero *Troppe richieste*. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore di tipo *Troppe richieste*. Se si riceve un numero eccessivo di codici errore di tipo *Troppe richieste*, è possibile prendere in considerazione l'aggiunta del comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva riservata per la raccolta](set-throughput.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla velocità effettiva riservata con i database Azure Cosmos DB, vedere queste risorse:

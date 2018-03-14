@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 02/28/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: dce848d75e2ce89e8e6003108f1cd5371cbb0f31
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Applicare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory (anteprima)
 
@@ -100,7 +100,9 @@ Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-Nella schermata **Accedi all'account** che viene aperta, immettere account e password amministratore per connettersi al servizio e selezionare **Accedi**.
+  Nella schermata **Accedi all'account** che viene aperta, immettere account e password amministratore per connettersi al servizio e selezionare **Accedi**.
+
+3. Seguire i passaggi in [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](active-directory-accessmanagement-groups-settings-cmdlets.md) per creare impostazioni di gruppo per questo tenant.
 
 ### <a name="view-the-current-settings"></a>Visualizzare le impostazioni correnti
 

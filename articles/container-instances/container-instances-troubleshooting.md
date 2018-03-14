@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 561729e5e495500222ccec5b4b536a3152cb25e3
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Risolvere i problemi di distribuzione in Istanze di contenitore di Azure
 
@@ -91,6 +91,10 @@ L'output include le proprietà principali del contenitore e gli eventi di distri
 ## <a name="common-deployment-issues"></a>Problemi di distribuzione comuni
 
 La maggior parte degli errori riscontrati durante la distribuzione è dovuta ad alcuni problemi comuni.
+
+## <a name="image-version-not-supported"></a>La versione dell'immagine non è supportata
+
+Se si specifica un'immagine non supportata dalle istanze di contenitore di Azure, verrà restituito un errore di tipo `ImageVersionNotSupported`. Verrà visualizzato il valore dell'errore `The version of image '{0}' is not supported.`. Questo errore attualmente si applica alle immagini Windows 1709 per attenuare il problema dell'uso come immagine LTS di Windows. Il supporto per le immagini Windows 1709 sarà disponibile più avanti.
 
 ## <a name="unable-to-pull-image"></a>Non è possibile eseguire il pull dell'immagine
 

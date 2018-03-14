@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f061197cbe9fd52594d9fb000d8f3bcbd2d5285
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Trasferimento della proprietà di una sottoscrizione di Azure a un altro account
 
@@ -29,7 +29,7 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
 
 > [!IMPORTANT]
 > 
-> Attualmente non è supportato il trasferimento delle sottoscrizioni per la versione di valutazione gratuita o le sottoscrizioni [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md).
+> Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Trasferimento della proprietà di una sottoscrizione di Azure
 
@@ -49,7 +49,12 @@ Trasferire la sottoscrizione a un altro utente nel Centro account per modificare
    ![Scheda delle sottoscrizioni dell'account Azure](./media/billing-subscription-transfer/image1.png)
 1. Specificare il destinatario.
 
+   > [!IMPORTANT]
+   > 
+   > Se si trasferisce una sottoscrizione a un nuovo tenant di Azure AD, tutte le assegnazioni di ruolo nel [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-what-is.md) vengono eliminati definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione.
+
    ![Finestra di dialogo Trasferisci sottoscrizione](./media/billing-subscription-transfer/image2.PNG)
+
 1. Il destinatario riceve automaticamente un messaggio e-mail con un link per l'accettazione.
 
    ![Messaggio di posta elettronica di trasferimento della sottoscrizione al destinatario](./media/billing-subscription-transfer/image3.png)
@@ -80,7 +85,7 @@ L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni n
 
 ## <a name="whats-supported"></a>Attività supportate:
 
-Il trasferimento della sottoscrizione in modalità self-service è disponibile per le offerte o i tipi di sottoscrizione elencati nella tabella seguente. Per il trasferimento di altre sottoscrizioni, ad esempio [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) o piani di supporto, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Il trasferimento della sottoscrizione in modalità self-service è disponibile per le offerte o i tipi di sottoscrizione elencati nella tabella seguente. Attualmente non è possibile trasferire sottoscrizioni della versione di valutazione gratuita o [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Per aggirare questa limitazione, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/resource-group-move-resources.md). Per il trasferimento di altre sottoscrizioni, ad esempio [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) o piani di supporto, [contattare il supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | Nome offerta                                                                             | Numero offerta |
 |----------------------------------------------------------------------------------------|--------------|
@@ -165,7 +170,7 @@ Per accettare il trasferimento di una sottoscrizione, è necessario fornire una 
 
 ### <a name="how-do-i-migrate-data-and-services-for-my-azure-subscription-to-new-subscription"></a>Come si esegue la migrazione di dati e servizi per la sottoscrizione di Azure a una nuova sottoscrizione?
 
-Se non è possibile trasferire la proprietà di una sottoscrizione, eseguire la migrazione manuale delle risorse. Vedere [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Spostare le risorse in un nuovo gruppo o sottoscrizione).
+Se non è possibile trasferire la proprietà di una sottoscrizione, eseguire la migrazione manuale delle risorse. Vedere [Spostare le risorse in un nuovo gruppo o sottoscrizione](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

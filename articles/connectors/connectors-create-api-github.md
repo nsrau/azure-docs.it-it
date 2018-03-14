@@ -1,8 +1,8 @@
 ---
-title: Connettore GitHub per App per la logica di Azure | Microsoft Docs
-description: "Creare app per la logica in Servizio app di Azure. GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di Git per il controllo delle revisioni distribuite e la gestione del codice sorgente , oltre a diverse funzionalità aggiuntive."
+title: Connettersi a GitHub con App per la logica di Azure | Microsoft Docs
+description: Automatizzare i flussi di lavoro per GitHub con App per la logica di Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: MandiOhlinger
 manager: anneta
 editor: 
@@ -13,34 +13,37 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 08/18/2016
+ms.date: 03/02/2018
 ms.author: mandia; ladocs
-ms.openlocfilehash: c9120babaa5f6da4f33bd60ba27434e24cb2f45e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: cd7cd3babbfb7efc5917d3a7ec5b9d10112ba791
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="get-started-with-the-github-connector"></a>Introduzione al connettore GitHub
-GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di Git per il controllo delle revisioni distribuite e la gestione del codice sorgente , oltre a diverse funzionalità aggiuntive.
+# <a name="connect-to-github"></a>Connettersi a GitHub
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di controllo delle revisioni distribuito e di gestione del codice sorgente (SCM) di Git, con l'aggiunta di altre funzionalità.
+
+Per iniziare a usare il connettore GitHub, [creare per prima cosa un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-github"></a>Creare una connessione a GitHub
-Per creare app per la logica con GitHub, è prima necessario creare una **connessione** e quindi indicare i dettagli per le proprietà seguenti: 
 
-| Proprietà | Obbligatoria | DESCRIZIONE |
-| --- | --- | --- |
-| token |Sì |Fornisce le credenziali per GitHub |
+Per usare il connettore GitHub in un'app per la logica è necessario creare innanzitutto una *connessione* e quindi specificare i dettagli per queste proprietà: 
 
-Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo. 
+| Proprietà | Obbligatoria | DESCRIZIONE | 
+| -------- | -------- | ----------- | 
+| token | Sì | Fornisce le credenziali di GitHub. |
+
+Dopo aver creato la connessione, è possibile eseguire le azioni e restare in ascolto dei trigger descritti in questo articolo.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/github/).
+Per le azioni e i trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/github/).
 
-## <a name="more-connectors"></a>Altri connettori
-Tornare all' [elenco di API](apis-list.md).
+## <a name="find-more-connectors"></a>Trovare altri connettori
+
+* Vedere [Elenco dei connettori](apis-list.md).

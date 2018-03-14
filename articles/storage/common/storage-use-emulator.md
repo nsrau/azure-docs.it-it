@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
-ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13aee7bbbe58c0a4183eddc0881aaed8cbebd956
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -43,6 +43,14 @@ L'emulatore di archiviazione si connette a SQL Server o a LocalDB usando l'auten
 Esistono alcune differenze a livello di funzionalità tra l'emulatore di archiviazione e i servizi di archiviazione di Azure. Per altre informazioni su queste differenze, vedere la sezione [Differenze tra l'emulatore di archiviazione e Archiviazione di Azure](#differences-between-the-storage-emulator-and-azure-storage) più avanti in questo articolo.
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Avviare e inizializzare l'emulatore di archiviazione
+
+### <a name="run-the-azure-storage-emulator-in-dockerhttpshubdockercomrmicrosoftazure-storage-emulator"></a>[Eseguire l'emulatore di archiviazione di Azure in Docker](https://hub.docker.com/r/microsoft/azure-storage-emulator/)
+```
+docker run -p 10000:10000 -p 10001:10001 -p 10002:10002 microsoft/azure-storage-emulator
+```
+
+### <a name="using-sdk"></a>Uso dell'SDK
+
 Per avviare l'emulatore di archiviazione di Azure:
 1. Fare clic sul pulsante **Start** oppure premere il tasto **WINDOWS**.
 1. Iniziare a digitare `Azure Storage Emulator`.

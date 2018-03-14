@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 2/21/2018
 ms.author: raynew
-ms.openlocfilehash: 886977764517f1fec89eee77fc3263d30ff9ab31
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: bcbb2ace6686e4052149a5dde1ed837a16c36bad
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
 
@@ -34,6 +34,19 @@ Per visualizzare le dipendenze, Azure Migrate usa la soluzione [Elenco dei servi
 Per usare la visualizzazione delle dipendenze, è necessario scaricare e installare gli agenti in ogni computer locale che si vuole analizzare.  
 
 ## <a name="do-i-need-to-pay-for-it"></a>Il servizio è a pagamento?
+
+Azure Migrate è disponibile senza costi aggiuntivi. L'uso delle funzionalità di visualizzazione delle dipendenze di Azure Migrate richiede Mapping dei servizi. Alla creazione di un progetto di Azure Migrate, il servizio genererà automaticamente una nuova area di lavoro di Log Analytics.
+
+> [!NOTE]
+> La funzionalità di visualizzazione delle dipendenze usa Mapping dei servizi tramite un'area di lavoro di Log Analytics. Dal 28 febbraio 2018, con l'annuncio della disponibilità generale di Azure Migrate, la funzionalità è disponibile senza costi aggiuntivi. È necessario creare un nuovo progetto per poter usufruire dell'area di lavoro utilizzabile gratuitamente. Le aree di lavoro esistenti prima della disponibilità generale sono ancora addebitabili, pertanto è consigliabile passare a un nuovo progetto.
+
+1. Per l'uso di qualsiasi soluzione diversa da Mapping dei servizi entro questa area di lavoro di Log Analytics verranno applicati gli addebiti standard di Log Analytics. 
+2. Per supportare scenari di migrazione senza costi aggiuntivi, la soluzione Mapping dei servizi non genererà addebiti per i primi 180 giorni a partire dalla creazione di un progetto di Azure Migrate. Successivamente verranno applicati gli addebiti standard.
+3. Solo l'area di lavoro creata nell'ambito della creazione del progetto sarà disponibile per l'uso gratuito.
+
+Quando si registrano agenti nell'area di lavoro, usare l'ID e la chiave specificati dal progetto nella pagina della procedura di installazione dell'agente. Non è possibile usare un'area di lavoro esistente e associarla al progetto di Azure Migrate.
+
+All'eliminazione del progetto di Azure Migrate, l'area di lavoro non viene eliminata con il progetto. A seguito dell'eliminazione del progetto, l'utilizzo di Mapping dei servizi non sarà gratuito e ogni nodo verrà addebitato in base al livello a pagamento dell'area di lavoro di Log Analytics.
 
 Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/). 
 

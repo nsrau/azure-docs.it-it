@@ -7,7 +7,7 @@
 | Pool per account Batch | 20 - 100 | 2500 |
 
 > [!NOTE]
-> I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch.
+> I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> Il numero di core dedicati per ogni account Batch può essere aumentato, ma il numero massimo non è specificato. Contattare il supporto di Azure per ottenere informazioni sulle opzioni di aumento.
 

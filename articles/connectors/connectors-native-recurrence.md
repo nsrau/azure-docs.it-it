@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/05/2018
 ---
-# <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Pianificare attività e flussi di lavoro regolarmente in esecuzione con le app per la logica
+# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Creare e pianificare attività eseguite regolarmente con App per la logica di Azure
 
 Per pianificare attività, azioni, carichi di lavoro o processi regolarmente in esecuzione, è possibile creare un flusso di lavoro delle app per la logica che ha inizio con il [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Pianificazione - Ricorrenza**. Con questo trigger è possibile impostare una data e un'ora per l'inizio della ricorrenza e una pianificazione di ricorrenza per l'esecuzione di attività, come quelle riportate in questi esempi e altre ancora:
 
@@ -34,8 +34,8 @@ Per pianificare attività, azioni, carichi di lavoro o processi regolarmente in 
 
 Questo trigger supporta numerosi criteri, tra cui:
 
-* Esecuzione immediata e ripetizione ogni  *n*  secondi, minuti, ore, giorni, settimane o mesi.
-* Inizio a un orario specifico ed esecuzione e ripetizione ogni  *n*  secondi, minuti, ore, giorni, settimane o mesi.
+* Esecuzione immediata e ripetizione ogni *n* secondi, minuti, ore, giorni, settimane o mesi.
+* Inizio a un orario specifico ed esecuzione e ripetizione ogni *n* secondi, minuti, ore, giorni, settimane o mesi.
 * Esecuzione e ripetizione a uno o più orari ogni giorno, ad esempio alle 8:00 e alle 17:00.
 * Esecuzione e ripetizione ogni settimana, ma solo in giorni specifici, ad esempio sabato e domenica.
 * Esecuzione e ripetizione ogni settimana, ma solo in ore e giorni specifici, ad esempio dal lunedì al venerdì alle 8:00 e alle 17:00.
@@ -109,7 +109,7 @@ Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea e
 
 ## <a name="json-example"></a>Esempio di JSON
 
-Di seguito è riportato un esempio di definizione di trigger di ricorrenza:
+Di seguito è riportato un esempio di [definizione di trigger di ricorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
 {

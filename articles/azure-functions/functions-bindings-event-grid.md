@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: e1d623c831a912598db72ccd0242cf827c88ee6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2a6fe85c2c3d6d4f44dc197db6c28ebbc2b1d431
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -146,11 +146,11 @@ Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Non sono presenti parametri o proprietà di costruttori da impostare nell'attributo `EventGridTrigger`.
 
-|Proprietà di function.json |Descrizione|
+|Proprietà di function.json |DESCRIZIONE|
 |---------|---------|----------------------|
 | **type** | Obbligatoria. Deve essere impostata su `eventGridTrigger`. |
 | **direction** | Obbligatoria. Deve essere impostata su `in`. |
-| **name** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
+| **nome** | Obbligatoria: nome della variabile usato nel codice della funzione per il parametro che riceve i dati dell'evento. |
 
 ## <a name="usage"></a>Uso
 
@@ -318,7 +318,7 @@ Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Il parametro `functionName` deve corrispondere al nome del metodo, non al nome specificato nell'attributo `FunctionName`. Per questo motivo, se in un progetto sono presenti più funzioni, devono avere nomi di metodo univoci (non tutte il nome `Run`) per il test locale dei trigger Griglia di eventi.
+Il parametro `functionName` deve corrispondere al nome specificato nell'attributo `FunctionName`.
 
 Le schermate seguenti illustrano le intestazioni e il corpo della richiesta in Postman:
 
@@ -379,7 +379,7 @@ Creare una sottoscrizione di Griglia di eventi del tipo che si vuole testare e a
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={methodname}
 ``` 
 
-Il parametro `functionName` deve corrispondere al nome del metodo, non al nome specificato nell'attributo `FunctionName`. Per questo motivo, se in un progetto sono presenti più funzioni, devono avere nomi di metodo univoci (non tutte il nome `Run`) per il test locale dei trigger Griglia di eventi.
+Il parametro `functionName` deve corrispondere al nome specificato nell'attributo `FunctionName`.
 
 Di seguito è riportato un esempio basato sull'uso dell'interfaccia della riga di comando di Azure:
 

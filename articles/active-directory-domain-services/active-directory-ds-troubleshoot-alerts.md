@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8a0b30e6c975bd8f3bfbe70a64c085b729115f24
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2f2ebb1dcc8bed86348389d6a5a7c274194efde0
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - Risolvere i problemi correlati agli avvisi
 Questo articolo fornisce istruzioni per la risoluzione dei problemi correlati agli avvisi che si possono ricevere nel dominio gestito.
@@ -34,6 +34,13 @@ Seguire la procedura di risoluzione dei problemi corrispondente all'ID di avviso
 | AADDS102 | *Un'entità servizio necessaria per il funzionamento corretto di Azure AD Domain Services è stata eliminata dal tenant di Azure AD. Questa configurazione impedisce a Microsoft di monitorare, applicare patch e sincronizzare il dominio gestito.* | [Missing Service Principal](active-directory-ds-troubleshoot-service-principals.md) (Entità servizio mancante) |
 | AADDS103 | *L'intervallo di indirizzi IP per la rete virtuale in cui è stato abilitato Azure AD Domain Services si trova in un intervallo di indirizzi IP pubblici. È necessario abilitare Azure AD Domain Services in una rete virtuale con un intervallo di indirizzi IP privati. Questa configurazione impedisce a Microsoft di monitorare, applicare patch e sincronizzare il dominio gestito.* | [Indirizzo incluso in un intervallo di IP pubblici](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft non riesce a raggiungere i controller di dominio per questo dominio gestito. È possibile che questo problema si verifichi se un gruppo di sicurezza di rete configurato sulla rete virtuale impedisce l'accesso al dominio gestito oppure se è presente una route definita dall'utente che blocca il traffico in ingresso da Internet.* | [Network Error](active-directory-ds-troubleshoot-nsg.md) (Errore di rete) |
+| AADDS500 | *The managed domain was last synchronized with Azure AD on {0}. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD. (Il dominio gestito è stato sincronizzato l'ultima volta con Azure AD il {0}. È possibile che gli utenti non siano in grado di accedere al dominio gestito o che le appartenenze a gruppi non siano sincronizzate con Azure AD.)* | [Sincronizzazione non eseguita da qualche tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
+| AADDS501 | *The managed domain was last backed up on XX.* (L'ultimo backup del dominio gestito è stato eseguito in data XX.) | [Backup non eseguito da qualche tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
+| AADDS502 | *The secure LDAP certificate for the managed domain will expire on XX.* (Il certificato LDAP sicuro per il dominio gestito scadrà in data XX.) | [Certificato LDAP sicuro in scadenza](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS503 | *The managed domain is suspended because the Azure subscription associated with the domain is not active.* (Il dominio gestito è sospeso perché la sottoscrizione di Azure associata al dominio non è attiva.) | [Sospensione per sottoscrizione disabilitata](#aadds503-suspension-due-to-disabled-subscription) |
+| AADDS504 | *The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.* (Il dominio gestito è sospeso a causa di una configurazione non valida. Il servizio non è riuscito a gestire, applicare patch o aggiornare i controller di dominio per un periodo prolungato.) | [Sospensione per configurazione non valida](#aadds504-suspension-due-to-an-invalid-configuration) |
+
+
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Directory mancante
 **Messaggio di avviso:**
@@ -75,7 +82,7 @@ Per ripristinare il servizio, seguire questa procedura:
 
 Prima di iniziare, leggere la sezione relativa allo **spazio di indirizzi IP v4 privati** in [questo articolo](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces).
 
-All'interno della rete virtuale, i computer possono inviare richieste a risorse di Azure che sono nello stesso intervallo di indirizzi IP di quelle configurate per la subnet. Tuttavia, poiché la rete virtuale è configurata per questo intervallo, tali richieste vengono indirizzate all'interno della rete virtuale e non raggiungono le risorse Web desiderate. Ciò può causare errori imprevisti in Azure AD Domain Services.
+All'interno della rete virtuale, i computer possono inviare richieste a risorse di Azure che sono nello stesso intervallo di indirizzi IP di quelle configurate per la subnet. Tuttavia, poiché la rete virtuale è configurata per questo intervallo, tali richieste vengono indirizzate all'interno della rete virtuale e non raggiungono le risorse Web desiderate. Questa configurazione può causare errori imprevisti in Azure AD Domain Services.
 
 **Se il proprio intervallo di indirizzi IP Internet è configurato anche nella rete virtuale, questo avviso può essere ignorato. Con questa configurazione, tuttavia, Azure AD Domain Services non può rispettare le condizioni del [contratto di servizio](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] poiché possono verificarsi errori imprevisti.**
 
@@ -93,6 +100,47 @@ All'interno della rete virtuale, i computer possono inviare richieste a risorse 
 4. Per aggiungere le macchine virtuali al nuovo dominio, seguire [queste istruzioni](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Per verificare che il problema segnalato dall'avviso sia stato risolto, controllare l'integrità del dominio dopo due ore.
 
+## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Sincronizzazione non eseguita da qualche tempo
+
+**Messaggio di avviso:**
+
+*The managed domain was last synchronized with Azure AD on {0}. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD. (Il dominio gestito è stato sincronizzato l'ultima volta con Azure AD il {0}. È possibile che gli utenti non siano in grado di accedere al dominio gestito o che le appartenenze a gruppi non siano sincronizzate con Azure AD.)*
+
+**Correzione:**
+
+[Verificare l'integrità del dominio](active-directory-ds-check-health.md) per controllare la presenza di avvisi che potrebbero indicare problemi nella configurazione del dominio gestito. In alcuni casi, problemi di configurazione possono impedire a Microsoft di sincronizzare il dominio gestito. Se si è in grado di risolvere i problemi correlati agli avvisi, attendere due ore e quindi controllare se la sincronizzazione è stata completata.
+
+
+## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Backup non eseguito da qualche tempo
+
+**Messaggio di avviso:**
+
+*The managed domain was last backed up on XX.* (L'ultimo backup del dominio gestito è stato eseguito in data XX.)
+
+**Correzione:**
+
+[Verificare l'integrità del dominio](active-directory-ds-check-health.md) per controllare la presenza di avvisi che potrebbero indicare problemi nella configurazione del dominio gestito. In alcuni casi, problemi di configurazione possono impedire a Microsoft di sincronizzare il dominio gestito. Se si è in grado di risolvere i problemi correlati agli avvisi, attendere due ore e quindi controllare se la sincronizzazione è stata completata.
+
+
+## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Sospensione per sottoscrizione disabilitata
+
+**Messaggio di avviso:**
+
+*The managed domain is suspended because the Azure subscription associated with the domain is not active.* (Il dominio gestito è sospeso perché la sottoscrizione di Azure associata al dominio non è attiva.)
+
+**Correzione:**
+
+Per ripristinare il servizio, [rinnovare la sottoscrizione di Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) associata al dominio gestito.
+
+## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Sospensione per configurazione non valida
+
+**Messaggio di avviso:**
+
+*The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.* (Il dominio gestito è sospeso a causa di una configurazione non valida. Il servizio non è riuscito a gestire, applicare patch o aggiornare i controller di dominio per un periodo prolungato.)
+
+**Correzione:**
+
+[Verificare l'integrità del dominio](active-directory-ds-check-health.md) per controllare la presenza di avvisi che potrebbero indicare problemi nella configurazione del dominio gestito. Se si è in grado di risolvere i problemi correlati agli avvisi, procedere. In seguito, contattare il supporto per riabilitare la sottoscrizione.
 
 ## <a name="contact-us"></a>Contatti
 Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](active-directory-ds-contact-us.md).

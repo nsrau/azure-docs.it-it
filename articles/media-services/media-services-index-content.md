@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: f75be3280ffd869339972859c028a178ec728480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9893372fe00cf1a6b15f9b358b64d77ee5d34872
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.  
 
 > [!IMPORTANT]
-> Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
+> Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
 > 
 > 
 
@@ -38,7 +38,7 @@ Un processo di indicizzazione può generare i seguenti output:
   
     Per altre informazioni, vedere [Uso dei file AIB con Azure Media Indexer e SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
-Questo argomento illustra come creare processi di indicizzazione per **indicizzare un asset** e **indicizzare più file**.
+Questo articolo illustra come creare processi di indicizzazione per **indicizzare un asset** e **indicizzare più file**.
 
 Per gli aggiornamenti più recenti relativi ad Azure Media Indexer, vedere i [blog di Servizi multimediali](#preset).
 
@@ -52,8 +52,9 @@ Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media
 ## <a name="index-an-asset"></a>Indicizzare un asset
 Il seguente metodo carica un file multimediale come asset e crea un processo per indicizzare l'asset.
 
-Si noti che, qualora non venga specificato un file di configurazione, il file multimediale verrà indicizzato con tutte le impostazioni predefinite.
+Qualora non venga specificato un file di configurazione, il file multimediale verrà indicizzato con tutte le impostazioni predefinite.
 
+```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
     {
         // Create an asset and upload the input media file to storage.
@@ -140,6 +141,8 @@ Si noti che, qualora non venga specificato un file di configurazione, il file mu
 
         return processor;
     }  
+```
+
 <!-- __ -->
 ### <a id="output_files"></a>File di output
 Per impostazione definita, il processo di indicizzazione genera i seguenti file di output. I file verranno archiviati nel primo asset di output.
@@ -158,8 +161,9 @@ Se non tutti i file multimediali di input vengono indicizzati correttamente, il 
 ## <a name="index-multiple-files"></a>indicizzare più file
 Il seguente metodo carica più file multimediali come asset e crea un processo per indicizzare tutti i file in un batch.
 
-Viene creato un file manifesto con estensione lst, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+Viene creato un file manifesto con estensione LST, che viene caricato nell'asset. Il file manifesto contiene l'elenco di tutti i file di asset. Per altre informazioni, vedere [Set di impostazioni di attività per Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
+```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
     {
         // Create an asset and upload to storage.
@@ -232,6 +236,7 @@ Viene creato un file manifesto con estensione lst, che viene caricato nell'asset
 
         return asset;
     }
+```
 
 ### <a name="partially-succeeded-job"></a>Processo parzialmente completato
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).

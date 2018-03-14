@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 421e594f7bd4df1bc1c5faedc2c8bfab0540ca61
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 201734661873c7ac7f7a5dd710009eb324cedc86
+ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
 Per usufruire delle funzionalità GPU delle VM serie N di Azure che eseguono Linux, installare i driver della scheda grafica NVIDIA supportati. Questo articolo descrive la procedura di installazione dei driver dopo la distribuzione di una macchina virtuale serie N. Le informazioni di configurazione dei driver sono disponibili anche per le [VM Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-
 Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei dischi delle macchine virtuali serie N, vedere [Dimensioni delle macchine virtuali Linux GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-
-
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Installare i driver CUDA per macchine virtuali C, NCv2 e ND
+## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>Installare i driver CUDA per macchine virtuali Serie NC, NCv2, NCv3 e ND
 
-Di seguito sono indicati i passaggi per installare i driver NVIDIA nelle VM NC Linux dal Toolkit di NVIDIA CUDA. 
+Di seguito sono indicati i passaggi per installare i driver NVIDIA nelle macchine virtuali Serie N dal Toolkit di NVIDIA CUDA. 
 
 Gli sviluppatori C++ e C possono facoltativamente installare il toolkit completo per creare applicazioni con accelerazione GPU. Per altre informazioni, vedere la [guida di installazione di CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
 
 > [!NOTE]
 > I collegamenti ai download dei driver CUDA forniti qui sono quelli attivi al momento della pubblicazione. Per i driver CUDA più aggiornati, visitare il sito Web [NVIDIA](https://developer.nvidia.com/cuda-zone).
@@ -113,9 +109,9 @@ sudo reboot
 2. Install the latest Linux Integration Services for Hyper-V.
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
  
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
  
   cd LISISO
  
@@ -152,16 +148,13 @@ sudo reboot
 
 5. Riavviare la VM e procedere a verificare l'installazione.
 
-
 ### <a name="verify-driver-installation"></a>Verificare l'installazione del driver
-
 
 Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla VM ed eseguire l'utilità della riga di comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver. 
 
 Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
 ![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
-
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
@@ -180,9 +173,9 @@ Distribuire le macchine virtuali serie N abilitate per RDMA da un'immagine in Az
 > 
 
 
-## <a name="install-grid-drivers-for-nv-vms"></a>Installare i driver GRID per VM NV
+## <a name="install-grid-drivers-for-nv-series-vms"></a>Installare i driver GRID per le macchine virtuali serie NV
 
-Per installare i driver NVIDIA GRID nelle macchine virtuali NV, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
+Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV, stabilire una connessione SSH a ogni macchina virtuale e seguire la procedura per la distribuzione di Linux. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -265,9 +258,9 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali NV, stabilire una co
 3. Riavviare la macchina virtuale e installare i servizi di integrazione di Linux più recenti per Hyper-V:
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-5.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.4.tar.gz
 
-  tar xvzf lis-rpms-4.2.3-5.tar.gz
+  tar xvzf lis-rpms-4.2.4.tar.gz
 
   cd LISISO
 
@@ -348,7 +341,6 @@ Questo file può essere richiamato come radice all'avvio mediante la creazione d
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 * È possibile impostare la modalità di persistenza tramite `nvidia-smi`. In questo modo l'output del comando sarà più veloce per l'esecuzione di query sulle schede. Per impostare la modalità di persistenza, eseguire `nvidia-smi -pm 1`. Si noti che se la macchina virtuale viene riavviata, l'impostazione della modalità scompare. È sempre possibile generare script che impostino la modalità affinché venga eseguita all'avvio.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

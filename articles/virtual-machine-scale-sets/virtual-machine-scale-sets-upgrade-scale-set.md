@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 836d56012afa9e5d5bdec35d85c37dd4b0b788ce
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: cdd1015f63e80b7ec51565c18f3440ce1828fb03
+ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 Questo articolo descrive come modificare un set di scalabilità esistente. Illustra come cambiare la configurazione del set di scalabilità, come cambiare la configurazione delle applicazioni in esecuzione nel set di scalabilità, come gestire la disponibilità e altro ancora.
@@ -255,7 +255,7 @@ Interfaccia della riga di comando: `az vmss update-instances -g {resourceGroupNa
 > I cluster di Service Fabric possono usare solo la modalità automatica, ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni sugli aggiornamenti di Service Fabric, vedere la [documentazione di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade).
 
 >[!NOTE]
-> Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento. Si tratta delle modifiche al profilo del sistema operativo del set di scalabilità, ad esempio il nome utente e la password dell'amministratore. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. È possibile farlo tramite:
+> Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento. Si tratta delle modifiche al profilo del sistema operativo del set di scalabilità, ad esempio il nome utente e la password dell'amministratore. Queste proprietà possono essere modificate solo nella versione dell'API 2017-12-01 o successiva. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. È possibile farlo tramite:
 
 API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (per altre informazioni, vedere la [documentazione dell'API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 
