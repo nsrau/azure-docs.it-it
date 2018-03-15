@@ -75,7 +75,7 @@ L'amministratore Enterprise può trasferire la proprietà delle sottoscrizioni n
 
 1. A questo punto si è l'amministratore dell'account. Rivedere e aggiornare il ruolo dell'amministratore del servizio, il ruolo dei coamministratori e gli altri ruoli RBAC. Per altre informazioni, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
 1. Aggiornare le credenziali associate ai servizi della sottoscrizione, tra cui:
-   1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
+   1. Certificati di gestione che concedono all'utente privilegi di amministratore per le risorse della sottoscrizione. Per altre informazioni, vedere [Creare e caricare un certificato di gestione per Azure](../cloud-services/cloud-services-certs-create.md)
    1. Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
    1. Credenziali di accesso remoto per servizi quali macchine virtuali di Azure. 
 1. [Aggiornare gli avvisi di fatturazione per questa sottoscrizione](billing-set-up-alerts.md) tramite il [Centro account di Azure](https://account.windowsazure.com/Subscriptions). 
