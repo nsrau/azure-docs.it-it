@@ -89,11 +89,11 @@
           href: azure-stack-deploy.md
         - name: Telemetria
           href: azure-stack-telemetry.md
-        - name: Distribuisci
+        - name: Distribuire
           href: azure-stack-run-powershell-script.md
         - name: Installare PowerShell
           href: azure-stack-powershell-install.md
-        - name: Registra
+        - name: 'Register '
           href: azure-stack-register.md
         - name: Connettersi ad Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -101,7 +101,7 @@
           href: azure-stack-add-default-image.md
         - name: Creare una macchina virtuale di test
           href: azure-stack-provision-vm.md
-    - name: Gestione
+    - name: Gestisci
       items:
         - name: Gestione delle aree
           href: azure-stack-region-management.md
@@ -182,7 +182,7 @@
               href: azure-stack-identity-overview.md
             - name: Architettura di identità
               href: azure-stack-identity-architecture.md
-            - name: Gestisci controllo degli accessi in base al ruolo
+            - name: Gestire il controllo degli accessi in base al ruolo
               href: azure-stack-manage-permissions.md
             - name: Aggiungere utenti per Azure AD
               href: azure-stack-add-new-user-aad.md
@@ -194,7 +194,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: Ruotare i segreti
           href: azure-stack-rotate-secrets.md
-    - name: Servizi dell'offerta
+    - name: Offrire servizi
       items:
         - name: Panoramica dei servizi dell'offerta
           href: azure-stack-offer-services-overview.md
@@ -232,14 +232,22 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Prima di iniziare
               href: azure-stack-app-service-before-you-get-started.md
+            - name: Come ridistribuire il servizio App di Azure nello Stack di Azure nei domini di errore
+              href: azure-stack-app-service-fault-domain-update.md
             - name: Distribuire un provider di risorse del servizio app
               href: azure-stack-app-service-deploy.md
             - name: Distribuire il servizio app offline
               href: azure-stack-app-service-deploy-offline.md
+            - name: Aggiornare il servizio App
+              href: azure-stack-app-service-update.md
+            - name: Servizio App di aggiornamento Offline
+              href: azure-stack-app-service-update-offline.md
             - name: Aggiungere altri ruoli di lavoro Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurare le origini di distribuzione
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: Servizio app di aggiornare uno note sulla versione
+              href: azure-stack-app-service-release-notes-update-one.md
         - name: Popolare Marketplace
           items:
             - name: Panoramica del Marketplace
@@ -292,7 +300,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: Connessione tramite ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Problemi noti
           href: azure-stack-troubleshooting.md
@@ -302,11 +310,11 @@
           href: azure-stack-diagnostic-test.md
         - name: Ridistribuire Azure Stack Development Kit
           href: azure-stack-redeploy.md
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
-- name: Correlata
+- name: Risorse correlate
   items:
     - name: Documentazione dell'utente di Azure Stack
       href: /azure/azure-stack/user/

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornire alle applicazioni di accedere allo Stack di Azure
 
@@ -51,14 +51,14 @@ In questa sezione si crea un'applicazione (entità servizio) in Azure AD che rap
 È stato creato un'entità servizio per l'applicazione.
 
 ### <a name="get-credentials"></a>Ottenere le credenziali
-Durante l'accesso a livello di codice, utilizzare l'ID per l'applicazione e una chiave di autenticazione. Per ottenere questi valori eseguire la procedura seguente:
+Durante l'accesso a livello di codice, utilizzare l'ID per l'applicazione e per un'app Web / API, una chiave di autenticazione. Per ottenere questi valori eseguire la procedura seguente:
 
 1. Da **Registrazioni dell'app** in Active Directory selezionare l'applicazione.
 
 2. Copiare l'**ID applicazione** e archiviarlo nel codice dell'applicazione. Le applicazioni nella sezione delle [applicazioni di esempio](#sample-applications) indicano questo valore come ID client.
 
      ![ID CLIENT](./media/azure-stack-create-service-principal/image12.png)
-3. Per generare una chiave di autenticazione selezionare **Chiavi**.
+3. Per generare una chiave di autenticazione per un'app Web / API, selezionare **impostazioni** > **chiavi**. 
 
 4. Specificare una descrizione e una durata per la chiave. Al termine scegliere **Salva**.
 
