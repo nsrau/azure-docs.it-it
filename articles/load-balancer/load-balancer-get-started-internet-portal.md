@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ff61008710766830640c0de31bf9fd23198946fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creazione del servizio di bilanciamento del carico Internet attraverso il portale di Azure
 
@@ -54,7 +54,7 @@ In questa sede viene illustrata la sequenza delle singole attività da eseguire 
 ## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configurare un servizio di bilanciamento del carico nel portale di Azure
 
 > [!IMPORTANT]
-> L'esempio presuppone che ci sia una rete virtuale denominata **myVNet**. A tal proposito, fare riferimento a [Creare una rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) . Presuppone anche la presenza di una subnet all'interno di **myVNet** chiamata **LB-Subnet-BE** e di due macchine virtuali denominate **web1** e **web2** rispettivamente all'interno dello stesso set di disponibilità denominato **myAvailSet** in **myVNet**. Fare riferimento a [questo collegamento](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per creare le macchine virtuali.
+> L'esempio presuppone che ci sia una rete virtuale denominata **myVNet**. A tal proposito, fare riferimento a [Creare una rete virtuale](../virtual-network/manage-virtual-network.md#create-a-virtual-network) . Presuppone anche la presenza di una subnet all'interno di **myVNet** chiamata **LB-Subnet-BE** e di due macchine virtuali denominate **web1** e **web2** rispettivamente all'interno dello stesso set di disponibilità denominato **myAvailSet** in **myVNet**. Fare riferimento a [questo collegamento](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per creare le macchine virtuali.
 
 1. Utilizzare un browser per accedere al portale di Azure ( [http://portal.azure.com](http://portal.azure.com) ) con il proprio account di Azure.
 2. Nella parte superiore sinistra dello schermo selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.

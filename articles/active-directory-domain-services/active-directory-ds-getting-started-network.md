@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: maheshu
-ms.openlocfilehash: 7c84ac3318bbd63129b04711c62dc441b9d35285
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
@@ -49,7 +49,7 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
   > [!WARNING]
   > Assicurarsi di selezionare uno spazio di indirizzi che si trova all'interno di spazio di indirizzi IP privato. Gli indirizzi IP di cui non si è proprietari e che si trovano nello spazio di indirizzi pubblici generano errori all'interno di Azure AD Domain Services.
 
-5. **Rete virtuale esistente:** se si seleziona una rete virtuale esistente, [creare una subnet dedicata usando l'estensione di reti virtuali](../virtual-network/virtual-networks-create-vnet-arm-pportal.md), quindi selezionare la subnet. Fare clic su **Rete virtuale** per selezionare la rete virtuale esistente. Fare clic su **Subnet** per selezionare una subnet dedicata nella rete virtuale esistente, nella quale è possibile attivare il nuovo dominio gestito. Al termine, fare clic su **OK**.
+5. **Rete virtuale esistente:** se si seleziona una rete virtuale esistente, [creare una subnet dedicata usando l'estensione di reti virtuali](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), quindi selezionare la subnet. Fare clic su **Rete virtuale** per selezionare la rete virtuale esistente. Fare clic su **Subnet** per selezionare una subnet dedicata nella rete virtuale esistente, nella quale è possibile attivare il nuovo dominio gestito. Al termine, fare clic su **OK**.
 
     ![Selezionare una subnet all’interno della rete virtuale](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

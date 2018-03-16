@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: ee418537fb52dbfb3eacca6e99d8572152a60910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 6a5ab1ba44197c0103e1e7d353a116dc01dfc163
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gestire Protezione DDoS di Azure Standard nel portale di Azure
 
@@ -33,7 +33,7 @@ Informazioni su come abilitare e disabilitare la protezione dall'attacco Distrib
 1. Accedere al portale di Azure all'indirizzo http://portal.azure.com. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 2. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 3. Selezionare **Rete** e quindi **Rete virtuale**.
-4. Creare una rete virtuale con le impostazioni scelte. Per altre informazioni sulle reti virtuali, vedere [Creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md). In **Protezione DDoS** fare clic su **Abilitato** e quindi su **Crea**. Se **Protezione DDoS** non è presente, una causa probabile è che la sottoscrizione non sia registrata per la funzionalità. È necessario completare la [registrazione](http://aka.ms/ddosprotection) e ricevere la notifica dell'abilitazione della funzionalità per la sottoscrizione perché compaia **Protezione DDoS**.
+4. Creare una rete virtuale con le impostazioni scelte. Per altre informazioni sulle reti virtuali, vedere [Creare una rete virtuale](manage-virtual-network.md#create-a-virtual-network). In **Protezione DDoS** fare clic su **Abilitato** e quindi su **Crea**. Se **Protezione DDoS** non è presente, una causa probabile è che la sottoscrizione non sia registrata per la funzionalità. È necessario completare la [registrazione](http://aka.ms/ddosprotection) e ricevere la notifica dell'abilitazione della funzionalità per la sottoscrizione perché compaia **Protezione DDoS**.
 
     ![Creare una rete virtuale](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 

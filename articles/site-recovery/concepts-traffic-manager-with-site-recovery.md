@@ -5,20 +5,15 @@ services: site-recovery
 documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: 3192c67938fe118e79aa68ee6194e76f21d65d98
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8305a354588875926cab52a55d99d3a29bcfb509
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestione traffico di Azure con Azure Site Recovery
 
@@ -49,11 +44,11 @@ Nel caso di un'emergenza, la società A può attivare un [failover](site-recover
 
 A seconda dei requisiti aziendali, la **società A** può scegliere una [frequenza di probe](../traffic-manager/traffic-manager-monitoring.md) maggiore o minore per passare dall'ambiente locale ad Azure nel caso di un'emergenza e assicurare tempo di inattività minimo per gli utenti.
 
-Quando l'emergenza viene risolta, la **società A** può eseguire il failback da Azure all'ambiente locale ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) o [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) tramite Azure Site Recovery. A questo punto, quando Gestione traffico rileva che l'endpoint **Primario** è di nuovo integro, utilizza automaticamente questo endpoint **Primario** nelle risposte DNS.
+Quando l'emergenza viene risolta, la **società A** può eseguire il failback da Azure all'ambiente locale ([VMware](vmware-azure-failback.md) o [Hyper-V](hyper-v-azure-failback.md)) tramite Azure Site Recovery. A questo punto, quando Gestione traffico rileva che l'endpoint **Primario** è di nuovo integro, utilizza automaticamente questo endpoint **Primario** nelle risposte DNS.
 
 ## <a name="on-premises-to-azure-migration"></a>Migrazione dall'ambiente locale ad Azure
 
-Oltre al ripristino di emergenza, Azure Site Recovery permette anche di eseguire [migrazioni in Azure](site-recovery-migrate-to-azure.md). Usando le potenti funzionalità di failover di test di Azure Site Recovery, i clienti possono valutare le prestazioni dell'applicazione in Azure senza influire sull'ambiente locale. Quando i clienti sono pronti per la migrazione, possono scegliere di eseguire la migrazione degli interi carichi di lavoro tutti insieme oppure optare per una migrazione e un ridimensionamento graduali.
+Oltre al ripristino di emergenza, Azure Site Recovery permette anche di eseguire [migrazioni in Azure](migrate-overview.md). Usando le potenti funzionalità di failover di test di Azure Site Recovery, i clienti possono valutare le prestazioni dell'applicazione in Azure senza influire sull'ambiente locale. Quando i clienti sono pronti per la migrazione, possono scegliere di eseguire la migrazione degli interi carichi di lavoro tutti insieme oppure optare per una migrazione e un ridimensionamento graduali.
 
 Il metodo di routing [Ponderato](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) di Gestione traffico di Azure può essere usato per indirizzare una parte del traffico in ingresso ad Azure, indirizzandone la maggior parte all'ambiente locale. Questo approccio può aiutare a valutare le prestazioni di ridimensionamento mentre si continua a incrementare il peso assegnato ad Azure con l'aumentare dei carichi di lavoro migrati in Azure.
 
@@ -123,5 +118,5 @@ Il TTL riscontrato dal client non aumenta se aumenta il numero di resolver DNS t
 ## <a name="next-steps"></a>Passaggi successivi
 - Leggere altre informazioni sui [metodi di routing](../traffic-manager/traffic-manager-routing-methods.md) di Gestione traffico.
 - Leggere altre informazioni sui [profili di Gestione traffico annidati](../traffic-manager/traffic-manager-nested-profiles.md).
-- Leggere altre informazioni sul [monitoraggio degli endpoint](../traffic-manager/traffic-manager-monitoring.md).
+- Altre informazioni sul [monitoraggio degli endpoint](../traffic-manager/traffic-manager-monitoring.md).
 - Leggere altre informazioni sui [piani di ripristino](site-recovery-create-recovery-plans.md) per automatizzare il failover delle applicazioni.

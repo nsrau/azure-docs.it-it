@@ -5,16 +5,16 @@ services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Rendere persistenti le modifiche e usare file di grandi dimensioni
 Con il servizio Sperimentazione di Azure Machine Learning, è possibile configurare svariate destinazioni di esecuzione. Alcune destinazioni sono locali, ad esempio un computer locale o un contenitore Docker in un computer locale. Altre sono remote, ad esempio un contenitore Docker in un computer remoto o un cluster HDInsight. Per altre informazioni, vedere [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Panoramica del servizio di esecuzione degli esperimenti di Azure Machine Learning). 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d3ce4d5c6766c41fe32164ebfe623ea8c06b58f9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 Microsoft Azure include una solida infrastruttura di rete per supportare i requisiti di connettività di applicazioni e servizi. La connettività di rete è possibile tra le risorse disponibili in Azure, le risorse locali e quelle ospitate in Azure, nonché da e verso Internet e Azure.
@@ -218,7 +218,7 @@ Per la risoluzione dei nomi interna sono disponibili due opzioni:
 Altre informazioni:
 
 * [Panoramica di Rete virtuale.](../virtual-network/virtual-networks-overview.md)
-* [Gestire server DNS usati da una rete virtuale](../virtual-network/virtual-network-manage-network.md#dns-servers)
+* [Gestire server DNS usati da una rete virtuale](../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 Per la risoluzione DNS esterna sono disponibili due opzioni:
 

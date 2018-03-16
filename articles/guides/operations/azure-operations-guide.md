@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
@@ -491,19 +491,19 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 **di Microsoft Azure**
 
-Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Per altre informazioni, vedere [Creare una rete virtuale tramite il portale di Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) .
+Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Per altre informazioni, vedere [Creare una rete virtuale tramite il portale di Azure](../../virtual-network/quick-create-portal.md) .
 
 Oltre alle reti virtuali di Azure, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello, comprese eventuali risorse di rete virtuale. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 **PowerShell**
 
-La distribuzione di una rete virtuale di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Creare una rete virtuale usando PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+La distribuzione di una rete virtuale di Azure tramite PowerShell consente di automatizzare completamente la distribuzione dell'account stesso. Per altre informazioni, vedere [Creare una rete virtuale usando PowerShell](../../virtual-network/quick-create-powershell.md).
 
 Oltre a distribuire singole risorse di Azure, è possibile usare il modulo Azure PowerShell per distribuire un modello di Azure Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
 
 **Interfaccia della riga di comando (CLI)**
 
-Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. Per creare una rete virtuale, è possibile usare il comando **network vnet create** dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Creare una rete virtuale usando l'interfaccia della riga di comando di Azure](../../virtual-network/virtual-networks-create-vnet-arm-cli.md) .
+Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. Per creare una rete virtuale, è possibile usare il comando **network vnet create** dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Creare una rete virtuale usando l'interfaccia della riga di comando di Azure](../../virtual-network/quick-create-cli.md) .
 
 Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md).
 

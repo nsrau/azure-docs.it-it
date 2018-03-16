@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
 
@@ -78,7 +78,7 @@ Le sezioni seguenti illustrano i prerequisiti di configurazione per l'appliance 
 Prima di effettuare il provisioning dell'appliance cloud, è necessario eseguire queste operazioni preliminari nell'ambiente Azure:
 
 * Assicurarsi che un dispositivo fisico StorSimple serie 8000 (modello 8100 o 8600) sia stato distribuito e sia in esecuzione nel data center. Registrare questo dispositivo con lo stesso servizio Gestione dispositivi StorSimple per cui si intende creare un'appliance cloud StorSimple.
-* Per l'appliance cloud, [configurare una rete virtuale in Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Le aree con Archiviazione Premium corrispondono alla riga relativa all'archiviazione su disco nell'[elenco dei servizi di Azure in base all'area](https://azure.microsoft.com/regions/services/).
+* Per l'appliance cloud, [configurare una rete virtuale in Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Le aree con Archiviazione Premium corrispondono alla riga relativa all'archiviazione su disco nell'[elenco dei servizi di Azure in base all'area](https://azure.microsoft.com/regions/services/).
 * È consigliabile usare il server DNS predefinito fornito da Azure anziché specificare il nome di un proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare l'appliance cloud.
 * Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
 * È possibile creare nella rete virtuale [macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (server host) che possono usare i volumi esposti dall'appliance cloud. Tali server devono soddisfare i seguenti requisiti:

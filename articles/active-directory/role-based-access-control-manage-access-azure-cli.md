@@ -1,5 +1,5 @@
 ---
-title: Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure | Microsoft Docs
+title: Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
 description: "Informazioni su come gestire il controllo degli accessi in base al ruolo (RBAC) con l'interfaccia della riga di comando di Azure, ad esempio ottenere un elenco dei ruoli e delle relative azioni, nonché assegnare i ruoli nell'ambito della sottoscrizione e dell'applicazione."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
-ms.openlocfilehash: 5c099a7fd8848c2934603ec9b2db8947885226f9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c9df11e528601d94cb72a8e3ef0868dc7781e12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure
 
@@ -30,13 +30,13 @@ ms.lasthandoff: 02/22/2018
 
 Con la funzionalità Controllo degli accessi in base al ruolo è possibile definire l'accesso per utenti, gruppi ed entità servizio assegnando loro dei ruoli in un determinato ambito. Questo articolo descrive come gestire l'accesso usando l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Se si intende usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, sono necessari i prerequisiti seguenti:
 
-* [Interfaccia della riga di comando di Azure 2.0](/cli/azure/overview). È possibile usarla nel browser con [Azure Cloud Shell](../cloud-shell/overview.md) oppure [installarla](/cli/azure/install-azure-cli) in macOS, Linux e Windows ed eseguirla dalla riga di comando.
+* [Interfaccia della riga di comando di Azure 2.0](/cli/azure). È possibile usarla nel browser con [Azure Cloud Shell](../cloud-shell/overview.md) oppure [installarla](/cli/azure/install-azure-cli) in macOS, Linux e Windows ed eseguirla dalla riga di comando.
 
-## <a name="list-roles"></a>Elencare i ruoli
+## <a name="list-roles"></a>Elenco dei ruoli
 
 ### <a name="list-role-definitions"></a>Elencare le definizioni di ruolo
 
@@ -296,7 +296,7 @@ Nell'esempio seguente viene assegnato il ruolo *Collaboratore Macchina virtuale*
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-access"></a>Rimuovere l'accesso
+## <a name="remove-access"></a>Rimuovere un accesso
 
 ### <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
 

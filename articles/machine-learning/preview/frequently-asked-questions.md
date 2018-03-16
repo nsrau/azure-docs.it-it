@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 46d026802668fd77ae184b374439ca78cf51393d
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 86ef8acf46cef2b057596d8224c6c29f3a0f534d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -127,7 +127,7 @@ di serie Azure Machine Learning Workbench è un'applicazione gratuita. È possib
 
 **Sono supportate le funzionalità dell'interfaccia della riga di comando?**
 
-Sì. Azure Machine Learning offre un'interfaccia della riga di comando completa, installata per impostazione predefinita con Azure Machine Learning Workbench. Viene anche fornita come parte della macchina virtuale Linux Data Science in Azure e verrà integrata nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest).
+Sì. Azure Machine Learning offre un'interfaccia della riga di comando completa, installata per impostazione predefinita con Azure Machine Learning Workbench. Viene anche fornita come parte della macchina virtuale Linux Data Science in Azure e verrà integrata nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 
 **È possibile usare Notebook di Jupyter con Azure Machine Learning Workbench?**

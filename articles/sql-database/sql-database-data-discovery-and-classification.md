@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: 1ff7f3509ccdaa6911cee0487d5a6d90b11eb79f
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la  & protezione** dei dati sensibili presenti nel database.
@@ -95,12 +95,12 @@ La classificazione include due attributi di metadati:
 
 Un aspetto importante del paradigma di Information Protection è la possibilità di monitorare l'accesso ai dati sensibili.
 
-Il [servizio di controllo del database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) è stato aggiornato e nel log di controllo è stato aggiunto un nuovo campo denominato *data_sensitivity_information*, in cui vengono registrate le classificazioni (etichette) di sensibilità dei dati effettivi restituiti dalla query.
+Il [servizio di controllo del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) è stato aggiornato e nel log di controllo è stato aggiunto un nuovo campo denominato *data_sensitivity_information*, in cui vengono registrate le classificazioni (etichette) di sensibilità dei dati effettivi restituiti dalla query.
 
 ![Riquadro di spostamento][11]
 
 ## <a id="subheading-4"></a>Passaggi successivi
-Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
+Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

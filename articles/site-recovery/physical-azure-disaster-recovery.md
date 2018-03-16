@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d4c8dc8083fbffc46e94673230241075b763b444
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -32,8 +32,8 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 Per completare questa esercitazione:
 
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](physical-azure-architecture.md).
-- Esaminare i [requisiti di supporto](site-recovery-support-matrix-to-azure.md) per tutti i componenti.
-- Assicurarsi che i server da replicare siano conformi ai [requisiti di Azure per le macchine virtuali](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+- Esaminare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
+- Assicurarsi che i server da replicare siano conformi ai [requisiti di Azure per le macchine virtuali](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Preparare Azure. Sono necessari una sottoscrizione di Azure, una rete virtuale di Azure e un account di archiviazione di Azure.
 - Preparare un account per l'installazione automatica del servizio Mobility su ogni server da replicare.
 

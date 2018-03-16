@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7e3e0cebbb1ae0c7c63de586f458814f5dc6f202
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -36,7 +36,7 @@ Lo strumento indica i dettagli seguenti:
 **Valutazione della compatibilità**
 
 * Valutazione dell'idoneità delle VM in base a numero di dischi, dimensioni dei dischi, operazioni di I/O al secondo, varianza, tipo di avvio (EFI/BIOS) e versione del sistema operativo
- 
+
 **Valutazione della larghezza di banda di rete necessaria rispetto al valore RPO**
 
 * Larghezza di banda stimata necessaria per la replica differenziale
@@ -93,13 +93,16 @@ Lo strumento prevede due fasi principali: profilatura e generazione di report. �
 >
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>Scaricare ed estrarre lo strumento Deployment Planner
-1. Scaricare la versione più recente di [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner). Lo strumento è compresso in una cartella ZIP. La versione corrente dello strumento supporta solo lo scenario da VMware ad Azure.
+1. Scaricare la versione più recente di [Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
+Lo strumento è compresso in una cartella ZIP. La versione corrente dello strumento supporta solo lo scenario da VMware ad Azure.
 
-2. Copiare la cartella ZIP nel server Windows dal quale si intende eseguire lo strumento. È possibile eseguire lo strumento da Windows Server 2012 R2 se il server ha accesso alla rete per connettersi al server vCenter o all'host vSphere ESXi in cui si trovano le VM da profilare. È tuttavia consigliabile eseguire lo strumento in un server la cui configurazione hardware soddisfi le [linee guida per il ridimensionamento del server di configurazione](https://aka.ms/asr-v2a-on-prem-components). Se i componenti di Site Recovery sono già stati distribuiti in locale, eseguire lo strumento dal server di configurazione.
+2. Copiare la cartella ZIP nel server Windows dal quale si intende eseguire lo strumento.
+È possibile eseguire lo strumento da Windows Server 2012 R2 se il server ha accesso alla rete per connettersi al server vCenter o all'host vSphere ESXi in cui si trovano le VM da profilare. È tuttavia consigliabile eseguire lo strumento in un server la cui configurazione hardware soddisfi le [linee guida per il ridimensionamento del server di configurazione](https://aka.ms/asr-v2a-on-prem-components). Se i componenti di Site Recovery sono già stati distribuiti in locale, eseguire lo strumento dal server di configurazione.
 
     È consigliabile avere la stessa configurazione hardware del server di configurazione (che ha un server di elaborazione predefinito) per il server in cui si esegue lo strumento. Tale configurazione assicura che la velocità effettiva ottenuta segnalata dallo strumento corrisponda alla velocità effettiva che Site Recovery può raggiungere durante la replica. Il calcolo della velocità effettiva dipende dalla larghezza di banda di rete disponibile nel server e dalla configurazione hardware (ad esempio CPU e archiviazione) del server. Se si esegue lo strumento da un altro server, la velocità effettiva viene calcolata da tale server ad Azure. Poiché inoltre la configurazione hardware del server può essere diversa da quella del server di configurazione, la velocità effettiva ottenuta che viene segnalata dallo strumento può non essere corretta.
 
-3. Estrarre la cartella ZIP. La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploymentPlanner.exe e si trova nella cartella padre.
+3. Estrarre la cartella ZIP.
+La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploymentPlanner.exe e si trova nella cartella padre.
 
     Esempio: copiare il file ZIP nell'unità E:\ ed estrarlo.
     E:\ASR Deployment Planner_v2.1zip

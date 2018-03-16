@@ -3,22 +3,22 @@ title: Come usare il controllo mappa di Servizi Location Based di Azure | Micros
 description: Informazioni su come usare la libreria JavaScript lato client del controllo mappa di Servizi Location Based di Azure.
 services: location-based-services
 keywords: Non aggiungere o modificare parole chiave senza consultare l'esperto SEO.
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/22/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 494a8308a5ed4ae37ed9561d051155e7433e6193
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9843387a9e4f3b5751bafceb48d6fc949dff7e23
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Come usare il controllo mappa di Servizi Location Based di Azure
 La libreria JavaScript lato client del controllo mappa consente di eseguire il rendering delle mappe e delle funzionalità incorporate di Servizi Location Based di Azure nelle applicazioni Web e per dispositivi mobili. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Un account Servizi Location Based di Azure e una chiave. Per informazioni sulla creazione di un account e sul recupero di una chiave, vedere [Come gestire l'account e le chiavi di Servizi Location Based di Azure](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Creare una nuova mappa in una pagina Web usando l'API del controllo mappa

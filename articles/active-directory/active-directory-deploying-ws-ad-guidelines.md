@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 61f84233b90cb3c82ed928d59ad2a090f7eb50b7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
 Questo articolo descrive le differenze più importanti tra la distribuzione di Servizi di dominio Active Directory di Windows Server e Active Directory Federation Services (AD FS) in locale rispetto alla distribuzione nelle macchine virtuali di Microsoft Azure.
@@ -51,7 +51,7 @@ Per altre informazioni su queste differenze, vedere [Nozioni fondamentali sulla 
 
 È consigliabile esaminare prima di tutto le esercitazioni, le guide e i video relativi agli argomenti seguenti:
 
-* [Creare una rete virtuale usando il portale di Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* [Creare una rete virtuale usando il portale di Azure](../virtual-network/quick-create-portal.md)
 * [Creare una rete virtuale con una connessione VPN da sito a sito con il portale di Azure classico](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Installazione di una nuova foresta Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md)
 * [Installare un controller di dominio Active Directory di replica in una rete virtuale di Azure](active-directory-install-replica-active-directory-domain-controller.md)

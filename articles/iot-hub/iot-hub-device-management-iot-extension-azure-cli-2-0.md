@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e83aa590cc41abcd661e6f0fef450833c816dac4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Usare l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0 per la gestione dei dispositivi dell'hub IoT di Azure
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/23/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è una nuova estensione IoT open source che amplia le funzionalità dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Questa interfaccia include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usarla per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT offre agli sviluppatori IoT la possibilità di accedere dalla riga di comando a tutte le funzionalità dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT.
+[L'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è una nuova estensione IoT open source che amplia le funzionalità dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest). Questa interfaccia include comandi per l'interazione con Azure Resource Manager e gli endpoint di gestione. Ad esempio, è possibile usarla per creare una macchina virtuale o un hub IoT di Azure. Un'estensione dell'interfaccia della riga di comando di Azure consente a un servizio di Azure di aumentare le potenzialità dell'interfaccia e all'utente di accedere a funzionalità aggiuntive specifiche del servizio. L'estensione IoT offre agli sviluppatori IoT la possibilità di accedere dalla riga di comando a tutte le funzionalità dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT.
 
 | Opzione di gestione          | Attività                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|

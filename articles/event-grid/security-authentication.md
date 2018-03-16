@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 1025fd10b00bc07872e23cb10da2682fa8cca394
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -63,7 +63,7 @@ Per dimostrare la proprietà dell'endpoint, rimandare il codice di convalida nel
 
 È possibile proteggere l'endpoint webhook aggiungendo i parametri di query all'URL del webhook durante la creazione di una sottoscrizione di eventi. Impostare uno di questi parametri di query in modo che sia un segreto, ad esempio un [token di accesso](https://en.wikipedia.org/wiki/Access_token) che il webhook può usare per riconoscere l'evento proviene da Griglia di eventi con autorizzazioni valide. Griglia di eventi includerà questi parametri di query in ogni recapito di eventi al webhook.
 
-Quando si modifica la sottoscrizione dell'evento, i parametri di query non verranno visualizzati o restituiti a meno che non venga usato il parametro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) nell'[interfaccia della riga di comando](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) di Azure.
+Quando si modifica la sottoscrizione dell'evento, i parametri di query non verranno visualizzati o restituiti a meno che non venga usato il parametro [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) nell'[interfaccia della riga di comando](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) di Azure.
 
 È infine importante notare che Griglia di eventi di Azure supporta solo endpoint di webhook HTTPS.
 

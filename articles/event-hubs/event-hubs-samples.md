@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 03/05/2018
 ms.author: sethm
-ms.openlocfilehash: e037d0e291384849739825ae7ad59064a135db95
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a581b7039a3631b7f1dc35816175242f892bd7dd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="event-hubs-samples"></a>Esempi di Hub eventi 
 
@@ -61,10 +61,6 @@ L'esempio per l'[introduzione a Hub eventi](https://code.msdn.microsoft.com/Serv
 
 L'esempio sull'[elaborazione di eventi con aumento delle istanze](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) illustra come usare l'[Host processore di eventi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) per distribuire il carico di lavoro del consumo di flusso di Hub eventi. Viene illustrato come implementare gli oggetti **EventProcessor** e **EventProcessorFactory** per gestire il flusso di eventi. 
 
-### <a name="pull-web-data-into-an-event-hub"></a>Estrarre i dati web in un hub eventi 
-
-L'esempio sull'[importazione dei dati dal web](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) illustra come estrarre i dati dai feed pubblici (ad esempio, i feed di informazioni sul traffico dal dipartimento dei trasporti) e inserirli in un hub eventi.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle versioni .NET Framework visitare i collegamenti seguenti:
@@ -75,5 +71,5 @@ Per altre informazioni sulle versioni .NET Framework visitare i collegamenti seg
 Per altre informazioni su Hub eventi consultare i seguenti articoli:
 
 - [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-- [Creare un hub eventi](event-hubs-create.md)
+- [Funzionalità di Hub eventi](event-hubs-features.md)
 - [Domande frequenti su Hub eventi](event-hubs-faq.md)

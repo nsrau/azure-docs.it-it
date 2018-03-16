@@ -16,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: a1b10c1a12d9a9215022cc77615901a0e4d144f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
 I suggerimenti di ottimizzazione per i database SQL vengono generati dall'opzione [Ottimizzazione automatica](sql-database-automatic-tuning.md) per database SQL di Azure. Questa soluzione monitorizza e analizza costantemente i carichi di lavoro di database SQL e offre suggerimenti di ottimizzazione personalizzati per ogni database inerenti, ad esempio, alla creazione dell'indice, all'eliminazione dell'indice e all'ottimizzazione dei piani di esecuzione delle query.
 
-I suggerimenti di ottimizzazione automatica per database SQL possono essere visualizzati nel [portale di Azure](sql-database-advisor-portal.md), recuperati con chiamate all'[API REST](https://docs.microsoft.com/en-us/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) oppure usando comandi di [T-SQL](https://azure.microsoft.com/en-us/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Questo articolo si basa sull'utilizzo di uno script di PowerShell per recuperare suggerimenti di ottimizzazione automatica.
+I suggerimenti di ottimizzazione automatica per database SQL possono essere visualizzati nel [portale di Azure](sql-database-advisor-portal.md), recuperati con chiamate all'[API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) oppure usando comandi di [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Questo articolo si basa sull'utilizzo di uno script di PowerShell per recuperare suggerimenti di ottimizzazione automatica.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizzare le notifiche tramite posta elettronica per i suggerimenti di ottimizzazione automatica
 
@@ -34,7 +34,7 @@ La soluzione seguente consente di automatizzare l'invio di notifiche tramite pos
 
 ## <a name="create-azure-automation-account"></a>Creare un account di Automazione di Azure
 
-Per usare Automazione di Azure, il primo passaggio consiste nel creare un account di automazione e configurarlo con le risorse di Azure da usare per l'esecuzione dello script di PowerShell. Per altre informazioni su Automazione di Azure e le relative funzionalità, vedere [Introduzione ad Automazione di Azure](https://docs.microsoft.com/en-us/azure/automation/automation-offering-get-started).
+Per usare Automazione di Azure, il primo passaggio consiste nel creare un account di automazione e configurarlo con le risorse di Azure da usare per l'esecuzione dello script di PowerShell. Per altre informazioni su Automazione di Azure e le relative funzionalità, vedere [Introduzione ad Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-offering-get-started).
 
 Seguire questa procedura per creare un account di Automazione di Azure tramite il metodo di selezione e configurazione dell'app Automazione dal Marketplace:
 
@@ -47,7 +47,7 @@ Seguire questa procedura per creare un account di Automazione di Azure tramite i
 
 - Nel riquadro "Crea un account di Automazione" fare clic su "**Crea**"
 - Inserire le informazioni necessarie: immettere un nome per questo account di automazione e selezionare le risorse di Azure e l'ID della sottoscrizione di Azure da usare per l'esecuzione dello script di PowerShell
-- Per l'opzione "**Crea un account RunAs di Azure**" selezionare **Sì** per configurare il tipo di account in cui viene eseguito lo script di PowerShell con l'aiuto di Automazione di Azure. Per altre informazioni sui tipi di account, vedere [Account RunAs](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account)
+- Per l'opzione "**Crea un account RunAs di Azure**" selezionare **Sì** per configurare il tipo di account in cui viene eseguito lo script di PowerShell con l'aiuto di Automazione di Azure. Per altre informazioni sui tipi di account, vedere [Account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account)
 - Terminare la creazione dell'account di automazione facendo clic su **Crea**
 
 > [!TIP]
@@ -58,7 +58,7 @@ Se si hanno più sottoscrizioni di Azure per le quali si vuole creare la stessa 
 
 ## <a name="update-azure-automation-modules"></a>Aggiornare i moduli di Automazione di Azure
 
-Lo script di PowerShell per recuperare i suggerimenti di ottimizzazione automatica usa i comandi [Get-AzureRmResource](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Resources/Get-AzureRmResource) e [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) per determinare la necessità di aggiornamento dei moduli di Azure alla versione 4 o successiva.
+Lo script di PowerShell per recuperare i suggerimenti di ottimizzazione automatica usa i comandi [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Get-AzureRmResource) e [Get-AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) per determinare la necessità di aggiornamento dei moduli di Azure alla versione 4 o successiva.
 
 Seguire questa procedura per aggiornare i moduli di Azure PowerShell:
 
@@ -195,7 +195,7 @@ Per completare la soluzione, come ultimo passaggio, creare un flusso di automazi
 2. "**Azure Automation - Get job output**" (Automazione di Azure - Ottenere l'output del processo): consente di recuperare l'output dello script di PowerShell eseguito
 3. "**Office 365 Outlook – Send an email**" (Office 365 Outlook - Inviare un messaggio di posta elettronica): consente di inviare un messaggio di posta elettronica. I messaggi di posta elettronica vengono inviati usando l'account Office 365 dell'utente che ha creato il flusso.
 
-Per altre informazioni sulle funzionalità di Microsoft Flow, vedere [Attività iniziali con Microsoft Flow](https://docs.microsoft.com/en-us/flow/getting-started).
+Per altre informazioni sulle funzionalità di Microsoft Flow, vedere [Attività iniziali con Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
 I prerequisiti per questo passaggio comprendono la sottoscrizione di un account di [Microsoft Flow](https://flow.microsoft.com) e l'accesso. Dopo aver eseguito l'accesso alla soluzione, seguire questa procedura per configurare un **nuovo flusso**:
 

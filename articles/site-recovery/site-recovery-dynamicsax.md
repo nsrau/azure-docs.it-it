@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Dynamics AX multilivello usando Azure Site Recovery
 
@@ -57,7 +57,7 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con Dynamic
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Abilitare il ripristino di emergenza dell'applicazione Dynamics AX tramite Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteggere l'applicazione Dynamics AX
-Per abilitare la replica e il ripristino completi dell'applicazione, ogni componente di Dynamics AX deve essere protetto. 
+Per abilitare la replica e il ripristino completi dell'applicazione, ogni componente di Dynamics AX deve essere protetto.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Configurare la replica di Active Directory e DNS
 
@@ -137,7 +137,7 @@ Aggiungere uno script tramite Automazione di Azure dopo la visualizzazione del g
 
 ### <a name="perform-a-test-failover"></a>Eseguire un failover di test
 
-Per altre informazioni relative ad Active Directory durante il failover di test, vedere la guida complementare relativa alla soluzione di ripristino di emergenza di Active Directory. 
+Per altre informazioni relative ad Active Directory durante il failover di test, vedere la guida complementare relativa alla soluzione di ripristino di emergenza di Active Directory.
 
 Per altre informazioni relative a SQL Server durante il failover di test, vedere come [eseguire la replica di applicazioni con SQL Server e Azure Site Recovery](site-recovery-sql.md).
 

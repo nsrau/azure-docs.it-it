@@ -15,16 +15,15 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 01/22/2018
 ms.author: barbkess
-ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 51e2bf8e9e0bbd6b2e61d37b438bf51325192058
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="system-views"></a>Viste di sistema
 ## <a name="sql-data-warehouse-catalog-views"></a>Viste del catalogo di SQL Data Warehouse
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
-* [sys.pdw_database_mappings](http://msdn.microsoft.com/library/mt203891.aspx)
 * [sys.pdw_distributions](http://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](http://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
@@ -209,6 +208,8 @@ SQL Data Warehouse e Parallel Data Warehouse (PDW) della piattaforma di strument
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>Viste a gestione dinamica PolyBase di SQL Server 2016 disponibili in SQL Data Warehouse
+Le DMV seguenti sono applicabili a SQL Data Warehouse, ma devono essere eseguite tramite la connessione al database **master** .
+
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
 * [sys.dm_exec_compute_nodes](https://msdn.microsoft.com/library/mt130700.aspx)

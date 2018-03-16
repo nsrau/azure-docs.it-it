@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 9f51c35be09af6f3a8dde7061dcf57a9c4cc9fdb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Creare un nuovo dispositivo simulato
 
@@ -104,7 +104,7 @@ Completare le attività seguenti per preparare l'ambiente di sviluppo per l'aggi
 
 Al momento della creazione della soluzione di monitoraggio remoto in [www.azureiotsuite.com](https://www.azureiotsuite.com), è stato scelto un nome per la soluzione. Questo nome diventa il nome del gruppo di risorse di Azure che contiene le varie risorse distribuite che la soluzione usa. I comandi seguenti usano un gruppo di risorse denominato **Contoso-01**. Sostituire **Contoso-01** con il nome del gruppo di risorse da usare.
 
-I comandi seguenti usano il comando `az` dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). È possibile installare l'interfaccia della riga di comando di Azure 2.0 nel computer di sviluppo oppure usare [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) nel [portale di Azure](http://portal.azure.com). L'interfaccia della riga di comando di Azure 2.0 è preinstallata in Cloud Shell.
+I comandi seguenti usano il comando `az` dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). È possibile installare l'interfaccia della riga di comando di Azure 2.0 nel computer di sviluppo oppure usare [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) nel [portale di Azure](http://portal.azure.com). L'interfaccia della riga di comando di Azure 2.0 è preinstallata in Cloud Shell.
 
 1. Per verificare il nome del gruppo di risorse che contiene le risorse di monitoraggio remoto, eseguire il comando seguente:
 

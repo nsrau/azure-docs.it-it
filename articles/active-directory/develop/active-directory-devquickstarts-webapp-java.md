@@ -1,5 +1,5 @@
 ---
-title: Introduzione alle app Web Java per Azure AD | Microsoft Docs
+title: Introduzione alle app Web Java per Azure AD | Documentazione Microsoft
 description: Compilare un'app Web Java che gestisce l'accesso degli utenti con un account aziendale o dell'istituto di istruzione.
 services: active-directory
 documentationcenter: java
@@ -16,10 +16,10 @@ ms.date: 11/30/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 281ce23d7fdb1a94bcc7389f3326d45a9b4e99b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-ad-java-web-app-getting-started"></a>Introduzione alle app Web Java per Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -1718,7 +1718,7 @@ A questo punto nella directory /targets dovrebbe essere presente un file denomin
 
 Per riferimenti aggiuntivi, è possibile ottenere l'esempio completato, senza i valori di configurazione immessi in questo articolo, in uno dei due modi seguenti:
 
-* Scaricare l'esempio come [file ZIP](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
+* Scaricare l'esempio come [file .zip](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip).
 * Clonare il file da GitHub immettendo il comando seguente:
 
  ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 9987fe1273dc05a2ad10c65325ad1d487d38247e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abe970eb72be5ea6944acc253c2c3d9008b20c56
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-powershell"></a>Creare un servizio di bilanciamento del carico pubblico standard con un front-end di indirizzo IP pubblico con ridondanza della zona usando PowerShell
 
@@ -105,7 +105,7 @@ $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBa
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [creare un IP pubblico in una zona di disponibilità](../virtual-network/create-public-ip-availability-zone-portal.md)
+- Informazioni su come [creare un IP pubblico in una zona di disponibilità](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

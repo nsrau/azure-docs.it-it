@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e8a6722c74f044b5310ce0fcb937002f5a1e8fa2
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -39,7 +39,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 ## <a name="create-a-network-interface"></a>Creare un'interfaccia di rete
 
-Quando si crea una macchina virtuale tramite il portale di Azure, il portale crea automaticamente un'interfaccia di rete con le impostazioni predefinite. Se si preferisce specificare tutte le impostazioni dell'interfaccia di rete, è possibile creare un'interfaccia di rete con impostazioni personalizzate e collegare l'interfaccia di rete a una macchina virtuale quando si crea la macchina virtuale (tramite PowerShell o l'interfaccia della riga di comando di Azure). È anche possibile creare un'interfaccia di rete e aggiungerla a una macchina virtuale esistente (tramite PowerShell o l'interfaccia della riga di comando di Azure). Per informazioni su come creare una macchina virtuale con un'interfaccia di rete esistente o aggiungere o rimuovere le interfacce di rete da macchine virtuali esistenti, leggere l'articolo [Aggiungere o rimuovere interfacce di rete](virtual-network-network-interface-vm.md). Prima di creare un'interfaccia di rete è necessario avere una [rete virtuale](virtual-networks-create-vnet-arm-pportal.md) esistente nella stessa località e sottoscrizione in cui si crea l'interfaccia di rete.
+Quando si crea una macchina virtuale tramite il portale di Azure, il portale crea automaticamente un'interfaccia di rete con le impostazioni predefinite. Se si preferisce specificare tutte le impostazioni dell'interfaccia di rete, è possibile creare un'interfaccia di rete con impostazioni personalizzate e collegare l'interfaccia di rete a una macchina virtuale quando si crea la macchina virtuale (tramite PowerShell o l'interfaccia della riga di comando di Azure). È anche possibile creare un'interfaccia di rete e aggiungerla a una macchina virtuale esistente (tramite PowerShell o l'interfaccia della riga di comando di Azure). Per informazioni su come creare una macchina virtuale con un'interfaccia di rete esistente o aggiungere o rimuovere le interfacce di rete da macchine virtuali esistenti, leggere l'articolo [Aggiungere o rimuovere interfacce di rete](virtual-network-network-interface-vm.md). Prima di creare un'interfaccia di rete è necessario avere una [rete virtuale](manage-virtual-network.md#create-a-virtual-network) esistente nella stessa località e sottoscrizione in cui si crea l'interfaccia di rete.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account avente almeno le autorizzazioni del ruolo Collaboratore Rete per la sottoscrizione. Leggere l'articolo sui [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) per altre informazioni sull'assegnazione dei ruoli e le autorizzazioni degli account.
 2. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Fare clic su **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.

@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f4e64fbc6c2fda026297b69bd54471d49b6785a1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure
 Questo articolo descrive come installare altri controller di dominio da usare come controller di dominio di replica per un dominio Active Directory locale in macchine virtuali di Azure in una rete virtuale di Azure. È anche possibile [installare una foresta Windows Server Active Directory in una rete virtuale di Azure](active-directory-new-forest-virtual-machine.md). Per informazioni sulle procedure di installazione di Active Directory Domain Services in una rete virtuale di Azure, vedere [Linee guida per la distribuzione di Active Directory di Windows Server in macchine virtuali di Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
@@ -62,7 +62,7 @@ Accedere a una macchina virtuale e verificare che sia disponibile la connettivit
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>Riconfigurare il server DNS per la rete virtuale
 1. Per ottenere un elenco di nomi di rete virtuale, nel [portale di Azure](https://portal.azure.com) cercare le *reti virtuali* e quindi selezionare **Reti virtuali** per visualizzare l'elenco. 
-2. Aprire la rete virtuale che si desidera gestire e quindi [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](../virtual-network/virtual-network-manage-network.md#dns-servers) in modo da usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
+2. Aprire la rete virtuale che si desidera gestire e quindi [riconfigurare gli indirizzi IP del server DNS per la rete virtuale](../virtual-network/manage-virtual-network.md#change-dns-servers) in modo da usare gli indirizzi IP statici assegnati ai controller di dominio di replica invece degli indirizzi IP di server DNS locali.
 3. Per assicurarsi che tutte le macchine virtuali del controller di dominio di replica nella rete virtuale siano configurate in modo da usare i server DNS nella rete virtuale:
   1. Selezionare **Macchine virtuali**.
   2. Selezionare le macchine virtuali e quindi scegliere **Riavvia**. 

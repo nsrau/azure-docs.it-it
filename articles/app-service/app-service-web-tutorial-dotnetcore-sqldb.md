@@ -1,5 +1,5 @@
 ---
-title: Creare un'app Web .NET Core e database SQL nel servizio app di Azure | Microsoft Docs
+title: Creare un'app Web di database SQL e .NET Core nel Servizio app di Azure | Microsoft Docs
 description: Informazioni su come ottenere un'app .NET Core da usare nel Servizio app di Azure, con connessione a un database SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a60c76b2687e4c6561eabf8a19dbfffffbe8681
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Creare un'app Web .NET Core e database SQL nel servizio app di Azure
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Creare un'app Web .NET Core e database SQL nel Servizio app di Azure
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web di database SQL e .NET Core nel servizio app di Azure in Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -327,7 +327,7 @@ Trovare l'elemento `<td>` che contiene i gli helper per i tag `asp-action`. Imme
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 

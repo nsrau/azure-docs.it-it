@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -45,7 +45,7 @@ Ogni route contiene un prefisso degli indirizzi e il tipo di hop successivo. Qua
 
 I tipi di hop successivi elencati nella tabella precedente rappresentano il modo in cui Azure instrada il traffico destinato al prefisso degli indirizzi elencato. Seguono le spiegazioni per i tipi di hop successivi:
 
-- **Rete virtuale**: instrada il traffico tra gli intervalli di indirizzi all'interno dello [spazio di indirizzi](virtual-network-manage-network.md#add-address-spaces) di una rete virtuale. Azure crea una route con un prefisso degli indirizzi che corrisponde a ogni intervallo di indirizzi definito nello spazio di indirizzi di una rete virtuale. Se per lo spazio di indirizzi della rete virtuale sono stati definiti più intervalli di indirizzi, Azure crea una route per ogni intervallo di indirizzi. Azure effettua il routing automatico del traffico tra le subnet usando le route create per ogni intervallo di indirizzi. Non è necessario definire gateway per consentire ad Azure di instradare il traffico tra subnet. Anche se una rete virtuale contiene subnet e ogni subnet ha un intervallo di indirizzi definito, Azure *non* crea route predefinite per gli intervalli di indirizzi della subnet, perché ogni intervallo di indirizzi della subnet si trova all'interno di un intervallo di indirizzi dello spazio di indirizzi di una rete virtuale.
+- **Rete virtuale**: instrada il traffico tra gli intervalli di indirizzi all'interno dello [spazio di indirizzi](manage-virtual-network.md#add-or-remove-an-address-range) di una rete virtuale. Azure crea una route con un prefisso degli indirizzi che corrisponde a ogni intervallo di indirizzi definito nello spazio di indirizzi di una rete virtuale. Se per lo spazio di indirizzi della rete virtuale sono stati definiti più intervalli di indirizzi, Azure crea una route per ogni intervallo di indirizzi. Azure effettua il routing automatico del traffico tra le subnet usando le route create per ogni intervallo di indirizzi. Non è necessario definire gateway per consentire ad Azure di instradare il traffico tra subnet. Anche se una rete virtuale contiene subnet e ogni subnet ha un intervallo di indirizzi definito, Azure *non* crea route predefinite per gli intervalli di indirizzi della subnet, perché ogni intervallo di indirizzi della subnet si trova all'interno di un intervallo di indirizzi dello spazio di indirizzi di una rete virtuale.
 
 - **Internet**: instrada verso Internet il traffico specificato dal prefisso degli indirizzi. La route di sistema predefinita specifica il prefisso degli indirizzi 0.0.0.0/0. Se non si sostituiscono le route predefinite, Azure instrada verso Internet il traffico di tutti gli indirizzi non specificati da un intervallo di indirizzi all'interno di una rete virtuale, con un'eccezione. Se l'indirizzo di destinazione è di uno dei servizi di Azure, Azure instrada il traffico direttamente al servizio tramite la rete backbone di Azure, piuttosto che verso Internet. Il traffico tra i servizi di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui si trova la rete virtuale o in cui viene distribuita un'istanza del servizio di Azure. È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso degli indirizzi 0.0.0.0/0 con una [route personalizzata](#custom-routes).
 
@@ -250,7 +250,7 @@ La tabella di route per *Subnet2* contiene tutte le route predefinite create da 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una tabella di route definite dall'utente con route e un'appliance virtuale di rete](create-user-defined-route-portal.md)
+- [Creare una tabella di route definite dall'utente con route e un'appliance virtuale di rete](tutorial-create-route-table-portal.md)
 - [Configurare BGP per un gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Usare BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Visualizzare tutte le route di una subnet](virtual-network-routes-troubleshoot-portal.md). Una tabella di route definite dall'utente visualizza solo le route definite dall'utente, non le route BGP e predefinite di una subnet. La visualizzazione di tutte le route elenca le route predefinite, BGP e definite dall'utente per la subnet in cui si trova un'interfaccia di rete.

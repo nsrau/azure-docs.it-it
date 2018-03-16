@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: b9b4275497798db5310f2a28aeb6c582b1a7429c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d09115d7b01b72476ebc9eb883a43aa4c59d2e3b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Creare un servizio di bilanciamento del carico pubblico standard con un front-end di indirizzo IP pubblico con ridondanza della zona usando il portale di Azure
 
@@ -55,7 +55,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni su come [creare un IP pubblico in una zona di disponibilità](../virtual-network/create-public-ip-availability-zone-portal.md)
+- Informazioni su come [creare un IP pubblico in una zona di disponibilità](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 
 

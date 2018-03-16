@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
+ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Trovare le esecuzioni con la precisione migliore e la durata minima
 Date più esecuzioni, un caso d'uso consiste ad esempio nel trovare le esecuzioni con la precisione migliore. Uno degli approcci perseguibili prevede l'uso dell'interfaccia della riga di comando con una query [JMESPath](http://jmespath.org/). Per altre informazioni su come usare JMESPath nell'interfaccia della riga di comando di Azure, vedere [Uso di query JMESPath con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Nell'esempio seguente vengono create quattro esecuzioni con i valori di precisione 0, 0,98, 1 e 1. Le esecuzioni vengono filtrate se si trovano nell'intervallo `[MaxAccuracy-Threshold, MaxAccuracy]` in cui `Threshold = .03`.

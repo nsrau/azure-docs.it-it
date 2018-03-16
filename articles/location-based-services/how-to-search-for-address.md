@@ -3,21 +3,21 @@ title: Come cercare un indirizzo usando il servizio di ricerca di Servizi Locati
 description: Informazioni su come cercare un indirizzo usando il servizio di ricerca di Servizi Location Based di Azure (anteprima) | Microsoft Docs
 services: location-based-services
 keywords: Non aggiungere o modificare parole chiave senza consultare il proprio champ SEO.
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Come trovare un indirizzo usando il servizio di ricerca di Servizi Location Based di Azure (anteprima)
 Il servizio di ricerca è un set RESTful di API progettato per gli sviluppatori che consente di cercare indirizzi, località, punti di interesse, elenchi di aziende e altre informazioni geografiche. Il servizio di ricerca assegna una coppia latitudine/longitudine a un indirizzo, una strada secondaria, una caratteristica geografica o un punto di interesse specifico. I valori di latitudine e longitudine restituiti dalle API del servizio di ricerca possono essere usati come parametri in altre istanze di Servizi Location Based di Azure come le API di itinerario e flusso di traffico.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Installare l'[app Postman](https://www.getpostman.com/apps).
 
 * Disporre di un account Servizi Location Based di Azure e di una chiave. Per informazioni sulla creazione di un account e sul recupero di una chiave, vedere [Come gestire l'account e le chiavi di Servizi Location Based di Azure](how-to-manage-account-keys.md). 

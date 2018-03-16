@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 0cd0390a381e85c8f047960ce06c581a433d4a2c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Esecuzione di Ansible con Bash in Azure Cloud Shell
 
@@ -98,8 +98,8 @@ Il comando [ansible-playbook](https://docs.ansible.com/ansible/2.4/ansible-playb
     tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          location: eastus
+        name: demoresourcegroup
+        location: eastus
   ```
 
 1. Salvare il file e chiudere l'editor VI immettendo `:wq` e premendo &lt;INVIO>.
@@ -146,8 +146,8 @@ Il comando [ansible-playbook](https://docs.ansible.com/ansible/2.4/ansible-playb
     tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          state: absent
+        name: demoresourcegroup
+        state: absent
   ```
 
 1. Salvare il file e chiudere l'editor VI immettendo `:wq` e premendo &lt;INVIO>.
