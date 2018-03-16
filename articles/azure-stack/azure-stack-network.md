@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack utili per decidere come integrare più Stack di Azure nell'ambiente di rete esistente. 
@@ -53,7 +53,9 @@ L'infrastruttura di rete per lo Stack di Azure è costituita da più reti logich
 ![Connessioni di diagramma e il commutatore di rete logica](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>Rete BMC
-Questa rete è dedicata per tutti i baseboard management controller (noto anche come servizio processori, ad esempio, iDRAC, iLO, iBMC, ecc.) la connessione alla rete di gestione. Se presente, l'host del ciclo di vita di hardware (HLH) si trova nella rete e può costituire software specifico OEM per la manutenzione dell'hardware e/o di monitoraggio. 
+Questa rete è dedicata per tutti i baseboard management controller (noto anche come servizio processori, ad esempio, iDRAC, iLO, iBMC, ecc.) la connessione alla rete di gestione. Se presente, l'Hardware del ciclo di vita Host (HLH) si trova nella rete e può costituire software specifico OEM per la manutenzione hardware o di monitoraggio. 
+
+Il HLH ospita anche la distribuzione VM DVM (). Il DVM viene utilizzato durante la distribuzione di Azure Stack e viene rimosso al termine della distribuzione. Il DVM richiede l'accesso a internet in scenari di distribuzione connesso a test, convalidare e accedere a più componenti. Questi componenti possono trovarsi all'interno e all'esterno della rete aziendale. ad esempio NTP, DNS e Azure. Per ulteriori informazioni sui requisiti di connettività, vedere la [sezione NAT nell'integrazione con firewall di Azure Stack](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Rete privata
 Questo /24 254 host della rete IP) (è privato per l'area dello Stack di Azure (non superare i dispositivi a sensore bordo dell'area dello Stack di Azure) ed è suddivisa in due subnet:
