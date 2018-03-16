@@ -1,5 +1,5 @@
 ---
-title: "Calcolare la capacità di replica in Azure | Microsoft Docs"
+title: "Calcolare la capacità di replica in Azure | Documentazione Microsoft"
 description: "Usare questo articolo per calcolare la capacità durante la replica con Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: bfeefde53aa2b3645934f068d580c0714714dd69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d9c2645be73c4b6e34d194d6b2444a700e3900d2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Pianificare la capacità per la protezione di macchine virtuali Hyper-V tramite Site Recovery
 
-È ora disponibile una nuova versione migliorata di [Azure Site Recovery Deployment Planner per la distribuzione da Hyper-V ad Azure](site-recovery-hyper-v-deployment-planner.md), che sostituisce lo strumento precedente. Usare il nuovo strumento per la pianificazione della distribuzione. Lo strumento offre le linee guida seguenti:
+È ora disponibile una nuova versione migliorata di [Azure Site Recovery Deployment Planner per la distribuzione da Hyper-V ad Azure](site-recovery-hyper-v-deployment-planner.md), che sostituisce lo strumento precedente. Usare il nuovo strumento per la pianificazione della distribuzione.
+Lo strumento offre le linee guida seguenti:
 
 * Valutazione dell'idoneità delle macchine virtuali in base a numero di dischi, dimensioni dei dischi, operazioni di I/O al secondo, varianza e alcune caratteristiche delle macchine virtuali
 * Valutazione della larghezza di banda di rete necessaria rispetto al valore RPO
@@ -45,7 +46,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
 * Raccogliere informazioni sull'ambiente, incluse le macchine virtuali, i dischi per ogni macchina virtuale e l'archiviazione per ogni disco.
 * Identificare la frequenza di modifica giornaliera (varianza) per i dati replicati. Scaricare lo [strumento di pianificazione della capacità di Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) per ottenere la frequenza di modifica. [Altre informazioni](site-recovery-capacity-planning-for-hyper-v-replication.md) su questo strumento. È consigliabile eseguire lo strumento per una settimana per acquisire i valori medi.
-   
+
 
 ## <a name="run-the-quick-planner"></a>Eseguire lo strumento di pianificazione rapida
 1. Scaricare e aprire [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel). È necessario eseguire le macro. Quando richiesto, selezionare le opzioni necessarie per abilitare la modifica e il contenuto.
@@ -58,7 +59,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
 
    a. In **Select your scenario** (Selezionare uno scenario) scegliere **Hyper-V to Azure** (Da Hyper-V ad Azure) o **VMware/Physical to Azure** (Da fisico/VMware ad Azure).
 
-   b. In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media in %) immettere le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md). 
+   b. In **Average daily data change rate (%)** (Frequenza di modifica dei dati giornaliera media in %) immettere le informazioni raccolte con lo [strumento di pianificazione della capacità per Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. L'impostazione **Compression** (Compressione) non viene usata in caso di replica di macchine virtuali Hyper-V in Azure. Per la compressione usare un'appliance di terze parti, ad esempio Riverbed.
 
@@ -117,7 +118,7 @@ Site Recovery Capacity Planner viene usato per analizzare l'ambiente di origine 
    * Convalida gli input obbligatori.
    * Calcola le operazioni di I/O al secondo e suggerisce la migliore corrispondenza per quanto riguarda le dimensioni per ogni macchina virtuale idonea alla replica in Azure. Se non viene rilevata una macchina virtuale di Azure della dimensione appropriata, viene visualizzato un errore. Se ad esempio il numero di dischi collegati è 65, viene visualizzato un errore perché la dimensione massima per una macchina virtuale di Azure è 64.
    * Suggerisce un account di archiviazione da usare per una macchina virtuale di Azure.
-   * Calcola il numero totale di account di archiviazione Standard e account di archiviazione Premium necessari per il carico di lavoro. Scorrere verso il basso per visualizzare il tipo e l'account di archiviazione di Azure che può essere usato per un server di origine.
+   * Calcola il numero totale di account di archiviazione standard e account di archiviazione premium necessari per il carico di lavoro. Scorrere verso il basso per visualizzare il tipo e l'account di archiviazione di Azure che può essere usato per un server di origine.
    * Completa e ordina il resto della tabella in base al tipo di archiviazione necessaria (standard o Premium) assegnata per una macchina virtuale e il numero di dischi collegati. Per tutte le VM che soddisfano i requisiti per Azure, la colonna **Is VM qualified?** (VM qualificata?) contiene **Yes** (Sì). Se non è possibile eseguire il backup di una macchina virtuale in Azure, viene visualizzato un errore.
 
 Vengono visualizzate le colonne da AA ad AE che forniscono informazioni per ogni macchina virtuale.
@@ -132,14 +133,14 @@ In questo esempio, per sei macchine virtuali con i valori riportati nella tabell
 * Nell'output dell'esempio si noti quanto segue:
 
   * La prima è una colonna di convalida per le macchine virtuali, i dischi e la varianza.
-  * Per cinque macchine virtuali sono necessari due account di archiviazione Standard e un account di archiviazione Premium.
+  * Per cinque macchine virtuali sono necessari due account di archiviazione standard e un account di archiviazione premium.
   * La VM3 non è idonea alla protezione perché uno o più dischi sono superiori a 1 TB.
   * La VM1 e la VM2 possono usare il primo account di archiviazione standard.
   * La VM4 può usare il secondo account di archiviazione standard.
   * Per VM5 e VM6 è necessario un account di archiviazione Premium ed entrambe possono usare un singolo account.
 
     > [!NOTE]
-    > Le operazioni totali di input/output in archiviazione Standard e Premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è capace di gestire fino a 500 operazioni di I/O al secondo per ogni disco. Se le operazioni di I/O al secondo per disco sono superiori a 500, è necessaria l'archiviazione Premium. Se le operazioni di I/O al secondo per un disco sono superiori a 500 ma quelle per i dischi totali delle macchine virtuali rientrano nei limiti supportati delle macchine virtuali standard di Azure, lo strumento di pianificazione sceglie una macchina virtuale standard e non una della serie DS o GS. I limiti delle macchine virtuali di Azure sono dimensione, numero di dischi, numero di schede, CPU e memoria. È necessario aggiornare manualmente la cella relativa alla dimensione di Azure per il mapping con la macchina virtuale serie DS o GS appropriata.
+    > Le operazioni totali di input/output in archiviazione standard e premium vengono calcolate a livello di macchina virtuale e non a livello di disco. Una macchina virtuale standard è capace di gestire fino a 500 operazioni di I/O al secondo per ogni disco. Se le operazioni di I/O al secondo per disco sono superiori a 500, è necessaria l'archiviazione premium. Se le operazioni di I/O al secondo per un disco sono superiori a 500 ma quelle per i dischi totali delle macchine virtuali rientrano nei limiti supportati delle macchine virtuali standard di Azure, lo strumento di pianificazione sceglie una macchina virtuale standard e non una della serie DS o GS. I limiti delle macchine virtuali di Azure sono dimensione, numero di dischi, numero di schede, CPU e memoria. È necessario aggiornare manualmente la cella relativa alla dimensione di Azure per il mapping con la macchina virtuale serie DS o GS appropriata.
 
 
 Dopo aver immesso tutte le informazioni, fare clic su **Submit data to the planner tool** (Invia dati a strumento di pianificazione) per aprire Capacity Planner. I carichi di lavoro vengono evidenziati per mostrare se sono idonei per la protezione.
@@ -147,7 +148,7 @@ Dopo aver immesso tutte le informazioni, fare clic su **Submit data to the plann
 ### <a name="submit-data-in-capacity-planner"></a>Inviare dati in Capacity Planner
 1. Quando si apre il foglio di lavoro di **Capacity Planner**, viene compilato in base alle impostazioni specificate. Il termine "Workload" (Carico di lavoro) visualizzato nella cella **Infra inputs source** (Origine input infrastruttura) indica che l'input è costituito dal foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro).
 
-2. Per apportare modifiche, è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e quindi selezionare nuovamente **Submit data to the planner tool** (Invia dati a strumento di pianificazione). 
+2. Per apportare modifiche, è necessario modificare il foglio di lavoro **Workload Qualification** (Qualifica carico di lavoro) e quindi selezionare nuovamente **Submit data to the planner tool** (Invia dati a strumento di pianificazione).
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 

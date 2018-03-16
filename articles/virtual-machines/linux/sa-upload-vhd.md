@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: b279ec2358a860a71da25f0ffaea7462a80f8339
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure 2.0
 Questo articolo illustra come caricare un disco rigido virtuale su un account di archiviazione di Azure con l'interfaccia della riga di comando di Azure 2.0 e come creare VM Linux da questo disco personalizzato. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questa funzionalità consente di installare e configurare una distribuzione Linux in base ai propri requisiti e quindi di usare il disco rigido virtuale per creare rapidamente macchine virtuali di Azure.
@@ -29,7 +29,7 @@ Questo argomento usa gli account di archiviazione per i dischi rigidi virtuali f
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica in dettaglio i comandi base per caricare un disco rigido virtuale in Azure. Altre informazioni dettagliate e il contesto per ogni passaggio sono disponibili nelle sezioni successive del documento, [a partire da qui](#requirements).
 
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login).
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 
@@ -95,7 +95,7 @@ Per completare la procedura seguente, è necessario:
   * Creare un account di archiviazione e un contenitore in cui inserire il disco personalizzato e le VM create
   * Una volta create tutte le VM, è possibile eliminare il disco
 
-Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/#az_login).
+Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono `myResourceGroup`, `mystorageaccount` e `mydisks`.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 976ddf25a57dd1eff66e121c5a66bc31f664a9dc
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Introduzione ad Azure Data Lake Store con l'interfaccia della riga di comando di Azure 2.0
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake Store](data-lake-store-overview.md).
 
-L'interfaccia della riga di comando di Azure 2.0 è la nuova esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview) (Panoramica dell'interfaccia della riga di comando di Azure 2.0). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Store 2.0](https://docs.microsoft.com/cli/azure/dls).
+L'interfaccia della riga di comando di Azure 2.0 è la nuova esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure) (Panoramica dell'interfaccia della riga di comando di Azure 2.0). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Store 2.0](https://docs.microsoft.com/cli/azure/dls).
 
 
 ## <a name="prerequisites"></a>prerequisiti

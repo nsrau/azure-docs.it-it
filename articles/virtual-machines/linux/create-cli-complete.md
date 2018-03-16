@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2fceb97e836db1c1f7a15d375a534a9187d3f2d2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f41bfec3c9f950893b69c90a86c2e4a254b72a8b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux completa con l'interfaccia della riga di comando di Azure
 Per creare rapidamente una macchina virtuale in Azure, è possibile usare un singolo comando dell'interfaccia della riga di comando di Azure che si serve dei valori predefiniti per creare tutte le risorse di supporto richieste. Le risorse, ad esempio una rete virtuale, l'indirizzo IP pubblico e regole del gruppo di sicurezza di rete, vengono create automaticamente. Per un maggiore controllo dell'ambiente di produzione è possibile creare queste risorse in anticipo e quindi aggiungervi le macchine virtuali. In questo articolo descrive come creare una macchina virtuale e tutte le risorse di supporto, una alla volta.
 
-Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/#az_login).
+Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito la registrazione a un account di Azure con [az login](/cli/azure/reference-index#az_login).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
 
@@ -35,7 +35,7 @@ Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azur
 az group create --name myResourceGroup --location eastus
 ```
 
-Per impostazione predefinita, l'output del comando dell'interfaccia della riga di comando di Azure è in formato JSON, ovvero JavaScript Object Notation. Per trasformare l'output predefinito in un elenco o in una tabella, ad esempio, usare [az configure --output](/cli/azure/#az_configure). È possibile anche aggiungere `--output` a qualsiasi comando per apportare una modifica una sola volta nel formato di output. L'esempio seguente illustra l'output JSON ottenuto dal comando `az group create`:
+Per impostazione predefinita, l'output del comando dell'interfaccia della riga di comando di Azure è in formato JSON, ovvero JavaScript Object Notation. Per trasformare l'output predefinito in un elenco o in una tabella, ad esempio, usare [az configure --output](/cli/azure/reference-index#az_configure). È possibile anche aggiungere `--output` a qualsiasi comando per apportare una modifica una sola volta nel formato di output. L'esempio seguente illustra l'output JSON ottenuto dal comando `az group create`:
 
 ```json                       
 {

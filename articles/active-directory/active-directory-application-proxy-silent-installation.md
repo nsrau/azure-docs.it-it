@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6447ef13061a2369fc952d0d30634419a31c5a17
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dbda2448c5bf2b6998d120a082e036d7e0125a1f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
 
@@ -59,7 +59,7 @@ Esistono due metodi da usare per registrare il connettore:
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 2. Passare a **C:\Programmi\Microsoft AAD App Proxy Connector** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
    
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
+        .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
 
 ### <a name="register-the-connector-using-a-token-created-offline"></a>Registrare il connettore con un token creato offline
 1. Creare un token offline usando la classe AuthenticationContext con i valori in questo frammento di codice:
@@ -124,7 +124,7 @@ Esistono due metodi da usare per registrare il connettore:
 
 3. Eseguire il comando Windows PowerShell seguente, sostituendo \<tenant GUID\> con l'ID della directory:
 
-   `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
+   `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## <a name="next-steps"></a>Passaggi successivi 
 * [Pubblicare applicazioni mediante il proprio nome di dominio](active-directory-application-proxy-custom-domains.md)

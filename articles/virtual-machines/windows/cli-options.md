@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e54ea62b7b7a7adb4874866a540ed9a6a097fc42
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Uso dell'interfaccia della riga di comando di Azure su Windows
 
 L'interfaccia della riga di comando di Azure (CLI) fornisce una riga di comando e l'ambiente di scripting per la creazione e la gestione delle risorse di Azure. L'interfaccia della riga di comando di Azure è disponibile per i sistemi operativi macOS, Linux e Windows. In questi sistemi operativi i comandi dell'interfaccia della riga di comando sono identici. Tuttavia, la sintassi di scripting specifica del sistema operativo può differire.
 
-Questo documento descrive le modalità di installazione ed esecuzione dell'interfaccia della riga di comando di Azure in Windows, nonché le considerazioni sulla sintassi specifica del sistema operativo. Per la documentazione dettagliata sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure]( https://docs.microsoft.com/cli/azure/overview).
+Questo documento descrive le modalità di installazione ed esecuzione dell'interfaccia della riga di comando di Azure in Windows, nonché le considerazioni sulla sintassi specifica del sistema operativo. Per la documentazione dettagliata sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure]( https://docs.microsoft.com/cli/azure).
 
 ## <a name="windows-subsystem-for-linux"></a>Sottosistema di Windows per Linux
 

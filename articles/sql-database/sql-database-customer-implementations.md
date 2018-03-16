@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.openlocfilehash: b22307ee0cade40370b096ee49bb15dcfd2f0071
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3da41adfa0865c0741c61b5d15c3ef1741eb6118
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Studi tecnici sulle implementazioni dei clienti del database SQL di Azure
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/31/2017
 
 - [Quorum](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database): Quorum raddoppia il carico di lavoro del database principale riducendo il DTU del 70% con il database SQL.
 
-- [Quest](https://customers.microsoft.com/en-US/story/quest): Quest offre il servizio Spotlight su SQL Server Enterprise per garantire ai professionisti della gestione database i migliori strumenti disponibili per la protezione e lo spostamento dei dati e il controllo delle operazioni del database. Con Spotlight, Microsoft Azure e il database SQL di Azure, gli amministratori di database SQL Server possono monitorare, rilevare, diagnosticare e risolvere i problemi di prestazioni in SQL Server, dalla loro scrivania o dall'ufficio domestico.
+- [Quest](https://customers.microsoft.com/story/quest): Quest offre il servizio Spotlight su SQL Server Enterprise per garantire ai professionisti della gestione database i migliori strumenti disponibili per la protezione e lo spostamento dei dati e il controllo delle operazioni del database. Con Spotlight, Microsoft Azure e il database SQL di Azure, gli amministratori di database SQL Server possono monitorare, rilevare, diagnosticare e risolvere i problemi di prestazioni in SQL Server, dalla loro scrivania o dall'ufficio domestico.
 
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): questo breve case study evidenzia le procedure consigliate e le esperienze acquisite dal team di prodotto di Dynamics 365 for Operations nella migrazione al database SQL di Microsoft Azure, per offrire ai clienti una soluzione software come un servizio (SaaS) completamente gestita. Mediante Azure SQL Database il team Dynamics 365 for Operations ha gestito il servizio con meno personale grazie a una scalabilità intuitiva e a funzionalità di gestione predefinite come il backup automatico dei database, la conservazione dei backup di database, la disponibilità elevata e il ripristino di emergenza. Queste caratteristiche e la possibilità di aggiungere ai database elementi essenziali di automazione ha fatto di Azure SQL Database una piattaforma ideale per la configurazione di servizi su larga scala.
 

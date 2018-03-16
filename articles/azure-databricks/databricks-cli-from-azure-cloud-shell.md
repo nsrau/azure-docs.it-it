@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: nitinme
-ms.openlocfilehash: 212789e8189abf362bb8eaf12e4c551b113b7adb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 8e4213813ff23586ac683556d4a3c0c587edea58
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
 
@@ -84,7 +84,7 @@ Per informazioni di riferimento complete sui comandi, vedere [Databricks CLI](ht
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Panoramica dell'interfaccia della riga di comando di Azure](../cloud-shell/overview.md)
-* Per un elenco di comandi per l'interfaccia della riga di comando di Azure, vedere [CLI reference](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) (Informazioni di riferimento sull'interfaccia della riga di comando)
+* Per un elenco di comandi per l'interfaccia della riga di comando di Azure, vedere [CLI reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest) (Informazioni di riferimento sull'interfaccia della riga di comando)
 * Per un elenco di comandi per l'interfaccia della riga di comando di Databricks, vedere [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html) (Interfaccia della riga di comando di Databricks)
 
 

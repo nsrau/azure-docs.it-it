@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: 3c583d99a63c13a0a2ab351f82a4f5ff6840788a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="reliable-services-overview"></a>Panoramica di Reliable Services
 Azure Service Fabric semplifica la scrittura e la gestione di Reliable Services con e senza stato. In questo argomento viene trattato quanto segue:
@@ -87,10 +87,6 @@ Un esempio comune di come i servizi senza stato vengono usati in Service Fabric 
 Un servizio con stato è un servizio che, per funzionare in modo corretto, deve avere una qualche porzione dello stato coerente e presente. Si consideri, ad esempio, un servizio che deve calcolare costantemente la media mobile di alcuni valori in base agli aggiornamenti ricevuti. Per eseguire questa operazione, deve avere il set corrente di richieste in ingresso, oltre alla media corrente. Qualsiasi servizio che recupera, elabora e archivia informazioni in un archivio esterno, ad esempio un archivio tabelle o un BLOB di Azure, è un servizio con stato. Conserva il proprio stato nell'archivio stati esterno.
 
 Attualmente la maggior parte dei servizi archivia il proprio stato esternamente, perché gli archivi esterni assicurano affidabilità, disponibilità, scalabilità e coerenza dello stato. In Service Fabric, i servizi non devono necessariamente archiviare esternamente il proprio stato. Service Fabric si occupa di questi requisiti sia per il codice che per lo stato del servizio.
-
-> [!NOTE]
-> Il supporto per Reliable Services con stato non è ancora disponibile in Linux (per C# o Java).
->
 
 Si supponga di voler scrivere un servizio di elaborazione immagini. Per l'elaborazione, il servizio accetta un'immagine e la serie di conversioni da eseguire su di essa. Il servizio restituisce un listener di comunicazione (si supponga che sia un'API Web) che espone un'API come `ConvertImage(Image i, IList<Conversion> conversions)`. Quando riceve una richiesta, il servizio la memorizza in un `IReliableQueue` e restituisce alcun ID al client in modo da tracciare la richiesta.
 

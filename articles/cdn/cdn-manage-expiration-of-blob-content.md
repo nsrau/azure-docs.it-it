@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: f5609f98de7ce6967dd1ff502e88d798741384df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bafb04a1a19c4436d8f6c1c21700e9463334b3de
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete per la distribuzione di contenuti di Azure
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Per aggiornare la proprietà *CacheControl* di un BLOB con Azure Storage Explore
 ![Proprietà di Azure Storage Explorer](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interfaccia della riga di comando di Azure
-Con l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), è possibile gestire le risorse BLOB di Azure dalla riga di comando. Per impostare l'intestazione di controllo della cache quando si carica un blob con l'interfaccia della riga di comando di Azure, impostare la proprietà *cacheControl* usando l'opzione `-p`. Il seguente esempio mostra come impostare la durata TTL su un'ora (3600 secondi):
+Con l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), è possibile gestire le risorse BLOB di Azure dalla riga di comando. Per impostare l'intestazione di controllo della cache quando si carica un blob con l'interfaccia della riga di comando di Azure, impostare la proprietà *cacheControl* usando l'opzione `-p`. Il seguente esempio mostra come impostare la durata TTL su un'ora (3600 secondi):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>

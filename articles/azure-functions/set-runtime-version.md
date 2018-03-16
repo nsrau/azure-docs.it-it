@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: c87455f43c6e580c52b3f772a1cbe0c1ac9c9f5b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Come specificare le versioni del runtime per Funzioni di Azure
 
@@ -74,7 +74,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 In questo codice sostituire `<function_app>` con il nome dell'app per le funzioni. Sostituire anche `<my_resource_group>` con il nome del gruppo di risorse per l'app per le funzioni. Sostituire `<version>` con una versione valida del runtime 1.x oppure con `beta` per la versione 2.0. 
 
-È possibile eseguire questo comando da [Azure Cloud Shell](../cloud-shell/overview.md) scegliendo **Prova** nell'esempio di codice precedente. È anche possibile usare l'[interfaccia della riga di comando di Azure in locale](/cli/azure/install-azure-cli) per eseguire questo comando dopo l'esecuzione del comando [az login](/cli/azure#az_login) per eseguire l'accesso.
+È possibile eseguire questo comando da [Azure Cloud Shell](../cloud-shell/overview.md) scegliendo **Prova** nell'esempio di codice precedente. È anche possibile usare l'[interfaccia della riga di comando di Azure in locale](/cli/azure/install-azure-cli) per eseguire questo comando dopo l'esecuzione del comando [az login](/cli/azure/reference-index#az_login) per eseguire l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

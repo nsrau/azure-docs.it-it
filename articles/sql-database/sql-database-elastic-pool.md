@@ -15,11 +15,11 @@ ms.date: 03/02/2018
 ms.author: carlrab
 ms.workload: Active
 ms.topic: article
-ms.openlocfilehash: 917b5cdd82b44c1993eebd16634257d5a6518c96
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: e89d348c4b21a249401254c64e3887ec36283022
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL
 
@@ -314,7 +314,7 @@ Per creare e gestire pool elastici del database SQL con Azure PowerShell, usare 
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Gestire i pool elastici e i database SQL tramite l'interfaccia della riga di comando di Azure
 
-Per creare e gestire pool elastici del database SQL con l'[interfaccia della riga di comando di Azure](/cli/azure/overview), usare i comandi seguenti del [database SQL per l'interfaccia della riga di comando di Azure](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. 
+Per creare e gestire pool elastici del database SQL con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti del [database SQL per l'interfaccia della riga di comando di Azure](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. 
 
 > [!TIP]
 > Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per spostare un database SQL di Azure in un pool elastico SQL](scripts/sql-database-move-database-between-pools-cli.md) e [Usare l'interfaccia della riga di comando di Azure per ridimensionare un pool elastico SQL nel database SQL di Azure](scripts/sql-database-scale-pool-cli.md).

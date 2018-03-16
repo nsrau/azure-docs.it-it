@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: 177601110dd7ec799dc4a350d1a8b88b9f6af4f1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Panoramica delle API e degli strumenti di Batch
 
@@ -60,7 +60,7 @@ Le API di Azure Resource Manager per Batch forniscono l'accesso a livello di cod
 Questi strumenti da riga di comando forniscono le stesse funzionalità delle API del servizio Batch e di gestione di Batch: 
 
 * [Cmdlet di PowerShell per Batch][batch_ps]: i cmdlet di Azure Batch nel modulo di [Azure PowerShell](/powershell/azure/overview) consentono di gestire le risorse Batch con PowerShell.
-* [Interfaccia della riga di comando di Azure 2.0](/cli/azure/overview): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, tra cui il servizio Batch e il servizio di gestione di Batch. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Batch, vedere [Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure](batch-cli-get-started.md).
+* [Interfaccia della riga di comando di Azure 2.0](/cli/azure): l'interfaccia della riga di comando di Azure è un set di strumenti multipiattaforma che offre comandi della shell per l'interazione con molti servizi di Azure, tra cui il servizio Batch e il servizio di gestione di Batch. Per altre informazioni sull'uso dell'interfaccia della riga di comando di Azure con Batch, vedere [Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Altri strumenti per lo sviluppo di applicazioni
 

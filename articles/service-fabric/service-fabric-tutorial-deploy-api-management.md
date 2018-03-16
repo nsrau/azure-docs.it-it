@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/26/2018
+ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9277f2c8a4ff595e639f6332d61b936ce44aeb13
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Esercitazione: Distribuire Gestione API con Service Fabric
 Questa è la quarta di una serie di esercitazioni.  La distribuzione di Gestione API di Azure con Service Fabric costituisce uno scenario avanzato.  Gestione API è utile quando occorre pubblicare API con un ampio set di regole di routing per i servizi back-end di Service Fabric. Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. In Service Fabric un gateway può essere qualsiasi servizio senza stato progettato per l'ingresso del traffico, come un'applicazione ASP.NET Core, Hub eventi, Hub IoT o Gestione API di Azure. 
@@ -116,7 +116,7 @@ Per questa esercitazione distribuire un server Web di base che restituisce i mes
 
    ```bash
    git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started
+   cd service-fabric-java-getting-started/reliable-services-actor-sample
    ```
 
 2. Modificare *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Aggiornare l'endpoint in modo che il servizio sia in ascolto sulla porta 8081.
@@ -136,7 +136,7 @@ Per questa esercitazione distribuire un server Web di base che restituisce i mes
 
    ```bash
    cd Scripts
-   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   sfctl cluster select --endpoint https://mycluster.southcentralus.cloudapp.azure.com:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
    ./install.sh
    ```
 

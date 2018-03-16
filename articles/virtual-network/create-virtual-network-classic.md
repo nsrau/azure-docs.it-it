@@ -16,20 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f4a1562983ffa68dbd6586a2ae3a569f766387b5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ec6d8d5327ec6d5ebb92e125cb4c52a7a929c0e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creare una rete virtuale (classica) con più subnet
 
 > [!IMPORTANT]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di creare la maggior parte di nuove reti virtuali tramite il modello di distribuzione [Resource Manager](virtual-networks-create-vnet-arm-pportal.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di creare la maggior parte di nuove reti virtuali tramite il modello di distribuzione [Resource Manager](quick-create-portal.md).
 
 Questa esercitazione spiega come creare una rete virtuale (classica) di Azure di base con subnet pubblica e privata separate. È possibile creare risorse di Azure, ad esempio macchine virtuali e servizi cloud in una subnet. Le risorse create nelle reti virtuali (classica) possono comunicare tra loro e con le risorse di altre reti connesse a una rete virtuale.
 
-Altre informazioni su tutte le impostazioni relative alla [rete virtuale](virtual-network-manage-network.md) e alla [subnet](virtual-network-manage-subnet.md).
+Altre informazioni su tutte le impostazioni relative alla [rete virtuale](manage-virtual-network.md) e alla [subnet](virtual-network-manage-subnet.md).
 
 > [!WARNING]
 > Le reti virtuali (classica) vengono eliminate immediatamente da Azure quando una [sottoscrizione viene disabilitata](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Le reti virtuali (classica) vengono eliminate indipendentemente dall'esistenza di risorse nella rete virtuale. Se si abilita di nuovo la sottoscrizione in un secondo momento, è necessario ricreare le risorse che erano presenti nella rete virtuale.
@@ -161,7 +161,7 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulle impostazioni delle reti virtuali e delle subnet, vedere [Gestire le reti virtuali](virtual-network-manage-network.md) e [Gestire le subnet di rete virtuali](virtual-network-manage-subnet.md). In un ambiente di produzione sono disponibili varie opzioni per l'uso di reti virtuali e subnet per soddisfare requisiti diversi.
+- Per informazioni sulle impostazioni delle reti virtuali e delle subnet, vedere [Gestire le reti virtuali](manage-virtual-network.md) e [Gestire le subnet di rete virtuali](virtual-network-manage-subnet.md). In un ambiente di produzione sono disponibili varie opzioni per l'uso di reti virtuali e subnet per soddisfare requisiti diversi.
 - Per filtrare il traffico delle subnet in ingresso e in uscita, creare e applicare [gruppi di sicurezza di rete](virtual-networks-nsg.md) alle subnet.
 - Creare una macchina virtuale [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e quindi connetterla a una rete virtuale esistente.
 - Per connettere due reti virtuali nella stessa località di Azure, creare un [peering reti virtuali](create-peering-different-deployment-models.md) tra due reti virtuali. È possibile connettere una rete virtuale (Gestione risorse) a una rete virtuale (classica), ma non è possibile creare un peering tra due reti virtuali (classica).

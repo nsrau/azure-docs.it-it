@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: mabrigg
 ms.openlocfilehash: 66689d80cbee0be36b3e8c9951a43d0d43fa01be
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Abilitare multi-tenancy nello Stack di Azure
 
@@ -89,7 +89,7 @@ Register-AzSWithMyDirectoryTenant `
  -Verbose 
 ````
 ## <a name="direct-users-to-sign-in"></a>Indicare agli utenti di accedere
-Ora che si e Maria sono stati completati i passaggi relativi alla directory di Mary onboard, Mary possano indirizzare gli utenti di Fabrikam per effettuare l'accesso.  Gli utenti di Fabrikam (vale a dire, gli utenti con il suffisso fabrikam.onmicrosoft.com) accedono visitando https://portal.local.azurestack.external.  
+Ora che si e Maria sono stati completati i passaggi relativi alla directory di Mary onboard, Mary possano indirizzare gli utenti di Fabrikam per effettuare l'accesso.  Gli utenti di Fabrikam (vale a dire, gli utenti con il suffisso fabrikam.onmicrosoft.com) accedere visitando https://portal.local.azurestack.external.  
 
 Mary indirizzerà qualsiasi [entità esterna](../active-directory/active-directory-understanding-resource-access.md) nella directory di Fabrikam (vale a dire, gli utenti nella directory senza il suffisso del fabrikam.onmicrosoft.com Fabrikam) per accedere tramite https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se non utilizzano questo URL, vengono inviati alla directory predefinita (Fabrikam) e a ricevere un messaggio di errore che all'amministratore non ha accettato le condizioni.
 

@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/09/2018
 ms.author: raynew
-ms.openlocfilehash: bbad2a0ea1a58834eaf32e0d3286f6e8a794d364
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -30,7 +30,7 @@ L'operazione di failover e failback comprende quattro fasi:
 
 ## <a name="verify-server-properties"></a>Verificare le proprietà del server
 
-Verificare le proprietà del server e assicurarsi che sia conforme ai [requisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) per le VM di Azure.
+Verificare le proprietà del server e assicurarsi che sia conforme ai [requisiti di Azure](vmware-physical-azure-support-matrix.md#replicated-machines) per le VM di Azure.
 
 1. In **Elementi protetti** fare clic su **Elementi replicati** e selezionare il computer.
 
@@ -62,7 +62,7 @@ Il server di elaborazione riceve i dati dalla macchina virtuale di Azure e li in
 
 - A scopo di test, se si ha una connessione Azure ExpressRoute è possibile usare il server di elaborazione locale che viene installato automaticamente nel server di configurazione.
 - Se si ha una connessione VPN o si esegue il failback in un ambiente di produzione è necessario configurare una macchina virtuale di Azure come server di elaborazione basato su Azure per il failback.
-- Per configurare un server di elaborazione in Azure, seguire le istruzioni fornite in [questo articolo](site-recovery-vmware-setup-azure-ps-resource-manager.md).
+- Per configurare un server di elaborazione in Azure, seguire le istruzioni fornite in [questo articolo](vmware-azure-set-up-process-server-azure.md).
 
 ## <a name="configure-the-master-target-server"></a>Configurare il server di destinazione master
 

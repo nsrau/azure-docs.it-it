@@ -4,23 +4,21 @@ description: Usare l'esempio di script dell'interfaccia della riga di comando di
 services: sql-database
 documentationcenter: sql-database
 author: janeng
-manager: jstrauss
+manager: janeng
 editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
 ms.custom: DBs & servers, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: 10/11/2017
+ms.date: 03/01/2018
 ms.author: janeng
-ms.openlocfilehash: 5824821a2e1f06425cae46cf8b3cf28582e63056
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bb80421b360f43df82ea4a9b2dff5ccc1efdb4a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall
 
@@ -58,7 +56,7 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
 Per altri esempi di script dell'interfaccia della riga di comando per database SQL, vedere la [documentazione del database SQL di Azure](../sql-database-cli-samples.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c80bddfe1896b0b99319ef007c25718b5a754005
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="scaling-media-processing-overview"></a>Panoramica del ridimensionamento dell'elaborazione multimediale
 Questa pagina presenta una panoramica di come e perché ridimensionare l'elaborazione multimediale. 
@@ -44,8 +44,6 @@ La tabella seguente consente di scegliere tra diverse velocità di codifica. Ind
 
 * Unità riservate di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer.  Tuttavia, a differenza della codifica, l'indicizzazione di processi non viene elaborata più velocemente con unità riservate più veloci.
 * Se si usa il pool condiviso, vale a dire senza unità riservate, le attività di codifica hanno le stesse prestazioni di quando si usano le unità riservate S1. Non c'è tuttavia alcun limite superiore al tempo che le attività possono trascorrere nello stato in coda e in qualsiasi momento può essere eseguita al massimo una sola attività.
-* I data center Brasile meridionale e India occidentale non offrono il tipo di unità riservata **S2**.
-* Il data center India occidentale non offre il tipo di unità riservata **S3**.
 
 ## <a name="billing"></a>Fatturazione
 

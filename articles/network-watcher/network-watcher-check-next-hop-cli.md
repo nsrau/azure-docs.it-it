@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: aa77b1db03dc03f2b4fa1006a0fae823bb113615
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 873bd0f8c98cfa67c77841df8aa53eb2b895cd54
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-20"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-check-next-hop-portal.md)
+> - [Portale di Azure](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
@@ -50,7 +50,7 @@ Lo scenario illustrato in questo articolo usa la funzionalità Hop successivo di
 
 Per ottenere l'hop successivo viene usato il cmdlet `az network watcher show-next-hop`. Al cmdlet vengono passati il gruppo di risorse di Network Watcher, l'ID della macchina virtuale, l'indirizzo IP di origine e l'indirizzo IP di destinazione. Nell'esempio seguente, l'indirizzo IP di destinazione corrisponde a una macchina virtuale in un'altra rete virtuale. Tra le due reti virtuali esiste un gateway di rete virtuale.
 
-Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#az_login). Quindi, eseguire il comando seguente:
+Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/reference-index#az_login). Quindi, eseguire il comando seguente:
 
 ```azurecli
 az network watcher show-next-hop --resource-group <resourcegroupName> --vm <vmNameorID> --source-ip <source-ip> --dest-ip <destination-ip>

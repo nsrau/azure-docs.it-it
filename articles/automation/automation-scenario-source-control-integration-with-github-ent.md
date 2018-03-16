@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
 ms.openlocfilehash: 2944b62cb3dc6146573041533d56d45b6cc87f18
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente di Automazione con GitHub Enterprise
 
@@ -38,7 +38,7 @@ Questo scenario è costituito da due runbook di PowerShell che è possibile impo
 Runbook | DESCRIZIONE| 
 --------|------------|
 Export-RunAsCertificateToHybridWorker | Runbook esporta un certificato RunAs da un account di Automazione in un ruolo di lavoro ibrido, in modo che i runbook nel ruolo di lavoro possano eseguire l'autenticazione con Azure per importare i runbook nell'account di Automazione.| 
-Sync-LocalGitFolderToAutomationAccount | Runbook sincronizza la cartella Git locale nel computer ibrido e quindi importa i file runbook (\*.ps1) nell'account di Automazione.|
+Sync-LocalGitFolderToAutomationAccount | Runbook sincronizza la cartella Git locale nel computer ibrido e quindi importa i file runbook (con estensione ps1) nell'account di Automazione.|
 
 ### <a name="credentials"></a>Credenziali
 

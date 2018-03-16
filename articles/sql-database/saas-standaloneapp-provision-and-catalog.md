@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: a13eeb79320360da078ee19a61cc32a2e1f35354
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dd43ede94d6f219f3b551091fc6e4b59f56386d1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 
@@ -31,7 +31,7 @@ L'articolo presenta due parti principali:
     * L'esercitazione usa l'applicazione SaaS di esempio Wingtip Tickets, adattata al modello di un'app autonoma per ogni tenant.
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Modello di applicazione autonoma per ogni tenant
-Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione è costituita da componenti a livello di applicazione e un database SQL.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](https://docs.microsoft.com/en-us/azure/managed-applications/overview), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant. 
+Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione è costituita da componenti a livello di applicazione e un database SQL.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/overview), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant. 
 
    ![modello di applicazione per ogni tenant](media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -45,7 +45,7 @@ Sebbene l'app e il database di ogni tenant siano completamente isolati, alcuni s
 Il catalogo di tenant contiene un mapping tra un identificatore del tenant e un database tenant, consentendo la risoluzione di un identificatore in un nome di server e di database.  Nell'app SaaS Wingtip Tickets l'identificatore del tenant viene calcolato come hash del nome del tenant, anche se possono essere usati altri schemi.  Sebbene le applicazioni autonome non necessitino del catalogo per la gestione delle connessioni, è possibile usare il catalogo per definire l'ambito di altre azioni a un set di database tenant. Ad esempio, la query elastica può usare il catalogo per determinare il set di database attraverso cui le query vengono distribuite per il reporting tra tenant.
 
 ## <a name="elastic-database-client-library"></a>Libreria client del database elastico
-Nell'applicazione di esempio Wingtip Tickets il catalogo viene implementato dalle funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-database-client-library).  La libreria consente a un'applicazione di creare, gestire e usare una mappa partizioni archiviata in un database. Nell'esempio in Wingtip Tickets il catalogo viene archiviato nel database del *catalogo di tenant*.  La partizione mappa una chiave del tenant alla partizione (database) in cui sono archiviati i dati del tenant.  Le funzioni della libreria client dei database elastici gestiscono una *mappa di partizioni globale* archiviata nelle tabelle nel database del *catalogo di tenant* e una *mappa di partizioni locale* archiviata in ogni partizione.
+Nell'applicazione di esempio Wingtip Tickets il catalogo viene implementato dalle funzionalità di gestione delle partizioni della [libreria EDCL (Elastic Database Client Library, libreria client dei database elastici)](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library).  La libreria consente a un'applicazione di creare, gestire e usare una mappa partizioni archiviata in un database. Nell'esempio in Wingtip Tickets il catalogo viene archiviato nel database del *catalogo di tenant*.  La partizione mappa una chiave del tenant alla partizione (database) in cui sono archiviati i dati del tenant.  Le funzioni della libreria client dei database elastici gestiscono una *mappa di partizioni globale* archiviata nelle tabelle nel database del *catalogo di tenant* e una *mappa di partizioni locale* archiviata in ogni partizione.
 
 È possibile chiamare le funzioni della libreria client dei database elastici dalle applicazioni o dagli script di PowerShell per creare e gestire le voci della mappa partizioni. Altre funzioni della libreria client dei database elastici consentono il recupero del set di partizioni o la connessione al database corretto per una specifica chiave del tenant. 
     
@@ -69,7 +69,7 @@ Al termine di questa esercitazione si disporrà di un set di applicazioni autono
 ## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati: 
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-standaloneapp-get-started-deploy).
+* Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-standaloneapp-get-started-deploy).
 
 ## <a name="provision-the-catalog"></a>Effettuare il provisioning del catalogo
 In questa attività si apprenderà come effettuare il provisioning del catalogo usato per registrare tutti i database tenant. Si apprenderà come: 
@@ -149,4 +149,4 @@ In questa esercitazione si è appreso:
 > * Informazioni su server e database che costituiscono l'app
 > * Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-È possibile esplorare la modalità di utilizzo del catalogo per supportare i diversi scenari tra i tenant usando la versione con un database per ogni tenant dell'[applicazione SaaS Wingtip Tickets](https://docs.microsoft.com/en-us/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  
+È possibile esplorare la modalità di utilizzo del catalogo per supportare i diversi scenari tra i tenant usando la versione con un database per ogni tenant dell'[applicazione SaaS Wingtip Tickets](https://docs.microsoft.com/azure/sql-database/saas-dbpertenant-wingtip-app-overview).  

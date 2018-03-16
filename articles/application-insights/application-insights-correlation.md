@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -98,7 +98,7 @@ La [guida alle attività](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 supporta l'estrazione di intestazioni HTTP e l'avvio della nuova attività. 
 
-`System.Net.HttpClient` a partire dalla versione `<fill in>` supporta l'inserimento automatico delle intestazioni Http di correlazione e il monitoraggio della chiamata http come attività.
+`System.Net.HttpClient` a partire dalla versione `4.1.0` supporta l'inserimento automatico delle intestazioni Http di correlazione e il monitoraggio della chiamata http come attività.
 
 È disponibile un nuovo modulo HTTP [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) per la versione classica di ASP.NET. Questo modulo implementa correlazione di dati di telemetria usando DiagnosticsSource. Avvia l'attività in base alle intestazioni di richiesta in ingresso. Correla inoltre i dati di telemetria delle diverse fasi di elaborazione della richiesta, anche per i casi in cui ogni fase dell'elaborazione di IIS viene eseguita in un thread di gestione diverso.
 

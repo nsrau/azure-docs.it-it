@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8cdfd80f436a9ef39426da9d3f2f76ae59677847
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Assegnare a un'identità del servizio gestito assegnata dall'utente l'accesso a una risorsa tramite l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ Dopo aver creato un'identità del servizio gestito assegnata dall'utente è poss
 Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
 - Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
-- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. Accedere quindi ad Azure tramite [az login](/cli/azure/#az_login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale e l'identità del servizio gestito assegnata dall'utente:
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. Accedere quindi ad Azure tramite [az login](/cli/azure/reference-index#az_login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale e l'identità del servizio gestito assegnata dall'utente:
 
    ```azurecli
    az login

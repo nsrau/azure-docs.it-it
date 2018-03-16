@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
 ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Ridefinire un gruppo usando il mapping delle dipendenze del gruppo
 
@@ -65,8 +65,8 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
 3. La mappa delle dipendenze del gruppo mostra i dettagli seguenti:
     - Connessioni TCP in entrata (client) e in uscita (server) a/da tutti i computer che fanno parte del gruppo
         - Le macchine dipendenti su cui non sono installati l'agente MMA e l'agente Dependency Agent verranno raggruppate in base ai numeri di porta
-        - Le macchine dipendenti su cui sono installati l'agente MMA e l'agente Dependency Agent verranno visualizzate in caselle separate 
-    - Processi in esecuzione all'interno della macchina: è possibile espandere ogni casella macchina per visualizzare i processi
+        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate 
+    - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
     - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
 
      ![Visualizzazione delle dipendenze del gruppo](./media/how-to-create-group-dependencies/view-group-dependencies.png)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
 ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con REST
 
@@ -59,7 +59,7 @@ Per accedere alle API di Servizi multimediali, è necessario raccogliere i punti
 
 |Impostazione|Esempio|DESCRIZIONE|
 |---|-------|-----|
-|Dominio del tenant di Azure Active Directory|microsoft.onmicrosoft.com|Azure AD come endpoint STS (servizio token di sicurezza) viene creato tramite il formato seguente: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emette un token JWT per accedere alle risorse (token di accesso).|
+|Dominio del tenant di Azure Active Directory|microsoft.onmicrosoft.com|Azure AD come servizio token di sicurezza viene creato usando il formato seguente: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emette un token JWT per accedere alle risorse (token di accesso).|
 |Endpoint API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Si tratta dell'endpoint verso il quale vengono eseguite tutte le chiamate all'API REST di Servizi multimediali nell'applicazione,|
 |ID client (ID applicazione)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID applicazione (cliente) Azure AD. L'ID client è obbligatorio per ottenere il token di accesso. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chiavi (segreto client) dell'applicazione Azure AD. Il segreto client è obbligatorio per ottenere il token di accesso.|
@@ -159,7 +159,7 @@ Questa sezione mostra come accedere alle API **Assets** tramite **Postman**.
 
 1. Aprire **Postman**.
 2. Selezionare **GET**.
-3. Incollare l'endpoint API REST (ad esempio https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
+3. Incollare l'endpoint dell'API REST, ad esempio https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selezionare la scheda **Autorizzazione**. 
 5. Selezionare **Token di connessione**.
 6. Incollare il token creato nella sezione precedente.

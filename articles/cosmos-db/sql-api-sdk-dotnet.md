@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/08/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc82b41554eff4e9cdefa1a3848a4a11c954d33c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -290,7 +290,6 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [1.20.2](#1.20.2) |21 febbraio 2018 |--- |
 | [1.20.1](#1.20.1) |05 febbraio 2018 |--- |
 | [1.19.1](#1.19.1) |16 novembre 2017 |--- |
 | [1.19.0](#1.19.0) |10 novembre 2017 |--- |

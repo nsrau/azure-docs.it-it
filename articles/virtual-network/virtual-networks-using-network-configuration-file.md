@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: f1e3ae26b6525f2235a6b0d53546b334dc027b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1bb75b8bd1d525f3104fb517cb4a09b2e33caaca
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
 > [!IMPORTANT]
@@ -56,7 +56,7 @@ La creazione e la configurazione di una rete virtuale (classica) con un file di 
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Creare o modificare un file di configurazione di rete
 
-Un file di configurazione di rete è un file XML (quando si usa PowerShell) o un file json (quando si usa l'interfaccia della riga di comando di Azure). Il file può essere modificato in qualsiasi editor di testo o editor XML/json. L'articolo relativo alle [impostazioni dello schema del file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx) include i dettagli di tutte le impostazioni. Per una spiegazione aggiuntiva delle impostazioni, vedere [View virtual networks and settings](virtual-network-manage-network.md#view-vnet) (Visualizzare le reti virtuali e le impostazioni). Le modifiche che vengono apportate al file:
+Un file di configurazione di rete è un file XML (quando si usa PowerShell) o un file json (quando si usa l'interfaccia della riga di comando di Azure). Il file può essere modificato in qualsiasi editor di testo o editor XML/json. L'articolo relativo alle [impostazioni dello schema del file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx) include i dettagli di tutte le impostazioni. Per una spiegazione aggiuntiva delle impostazioni, vedere [View virtual networks and settings](manage-virtual-network.md#view-virtual-networks-and-settings) (Visualizzare le reti virtuali e le impostazioni). Le modifiche che vengono apportate al file:
 
 - Devono essere conformi allo schema altrimenti l'importazione del file di configurazione di rete non riuscirà.
 - Sovrascrivono le impostazioni di rete esistenti per la sottoscrizione, pertanto è necessario prestare attenzione alle modifiche che si apportano. Fare riferimento, ad esempio, ai file di configurazione di rete di esempio che seguono. Si supponga che il file di origine contenga due istanze di **VirtualNetworkSite** e che lo si modifichi come illustrato negli esempi. Quando si importa il file, Azure elimina la rete virtuale per l'istanza **VirtualNetworkSite** che è stata rimossa nel file. Questo scenario semplificato presuppone che non vi siano risorse nella rete virtuale, perché se fossero presenti, non sarebbe possibile eliminare la rete virtuale e l'importazione avrebbe esito negativo.

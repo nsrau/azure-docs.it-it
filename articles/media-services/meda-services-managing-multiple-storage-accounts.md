@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
 ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestione di asset di Servizi multimediali su più account di archiviazione
 A partire da Servizi multimediali di Microsoft Azure 2.2 è possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:

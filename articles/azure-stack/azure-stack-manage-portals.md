@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Tramite il portale dell'amministratore in Azure Stack
 

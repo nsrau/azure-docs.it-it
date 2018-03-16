@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'archiviazione tabelle di Azure con .NET | Microsoft Docs
+title: Introduzione all'archiviazione tabelle di Azure con .NET | Documentazione Microsoft
 description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
 services: cosmos-db
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: mimig
-ms.openlocfilehash: 317adaac1551cf00e25640f1d99429ad76d598a2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 953ee3932ac1acad5cc41fba9bd5e168a94d7db7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introduzione all'archiviazione tabelle di Azure con .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -34,7 +34,7 @@ Questa esercitazione illustra come usare la [libreria di tabelle Microsoft Azure
 * Inserire, aggiornare ed eliminare righe
 * Eseguire query su tabelle
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione sono necessari gli elementi seguenti:
 
@@ -163,7 +163,7 @@ Aggiungere le direttive **using** seguenti all'inizio del file `Program.cs`:
 
 ```csharp
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
-using Microsoft.Azure.Storage.Common; // Namespace for StorageAccounts
+using Microsoft.Azure.Storage; // Namespace for StorageAccounts
 using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 ```
 
@@ -577,7 +577,7 @@ A questo punto, dopo aver appreso le nozioni di base dell'archiviazione tabelle,
 * [Informazioni di riferimento sulle API REST](http://msdn.microsoft.com/library/azure/dd179355)
 * Per altre informazioni su come semplificare il codice scritto da usare con Archiviazione di Azure, vedere [Informazioni su Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
-* [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+* [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) .
 * Per archiviare i dati relazionali, vedere [Connettersi al database SQL tramite .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md).
 
 [Download and install the Azure SDK for .NET]: /develop/net/

@@ -17,10 +17,10 @@ ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
 ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 

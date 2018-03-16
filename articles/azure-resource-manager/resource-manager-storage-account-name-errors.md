@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc045827fbd38054a334ff22eb30e0db6a31bac8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Risolvere gli errori relativi ai nomi degli account di archiviazione
 
@@ -48,16 +48,12 @@ I nomi degli account di archiviazione devono essere di lunghezza compresa tra 3 
 
 ## <a name="solution"></a>Soluzione
 
-### <a name="solution-1"></a>Soluzione 1
-
 Assicurarsi che il nome dell'account di archiviazione sia univoco. È possibile creare un nome univoco concatenando la convenzione di denominazione con il risultato della funzione [uniqueString](resource-group-template-functions-string.md#uniquestring) .
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 "type": "Microsoft.Storage/storageAccounts",
 ```
-
-### <a name="solution-2"></a>Soluzione 2
 
 Assicurarsi che il nome dell'account di archiviazione non superi i 24 caratteri. La funzione [uniqueString](resource-group-template-functions-string.md#uniquestring) restituisce 13 caratteri. Se si concatena un prefisso o un suffisso al risultato di **uniqueString**, specificare un valore composto al massimo da 11 caratteri.
 
@@ -73,7 +69,5 @@ Assicurarsi che il nome dell'account di archiviazione non superi i 24 caratteri.
     }
 }
 ```
-
-### <a name="solution-3"></a>Soluzione 3
 
 Assicurarsi che il nome dell'account di archiviazione non includa lettere maiuscole o caratteri speciali.

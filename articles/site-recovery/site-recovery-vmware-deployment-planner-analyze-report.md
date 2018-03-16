@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: dce374d85ef32fe1fbfc88502780fa2ad7a5eae4
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Report di Azure Site Recovery Deployment Planner
 Il report di Microsoft Excel generato contiene i fogli riportati di seguito.
@@ -132,16 +132,16 @@ Il grafico offre la visualizzazione di riepilogo del costo stimato totale del ri
 ![Riepilogo della stima dei costi](media/site-recovery-vmware-deployment-planner-analyze-report/cost-estimation-summary-v2a.png)
 
 Il riepilogo consente di conoscere il costo che è necessario sostenere per archiviazione, calcolo, rete e licenza in caso di protezione di tutte le VM compatibili in Azure con Azure Site Recovery. Il costo viene calcolato sulle VM compatibili e non su tutte le VM profilate.  
- 
+
 È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
 **Cost by components** (Costo per componente): il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
 
-**Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza). 
+**Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza).
 
-**Costo della replica**: costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
+**Costo della replica**: costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery.
 
-**Costo dell'esercitazione sul ripristino di emergenza**: costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
+**Costo dell'esercitazione sul ripristino di emergenza**: costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione.
 
 **Azure storage cost per Month/Year** (Costo di archiviazione di Azure al mese/all'anno). Mostra il costo di archiviazione totale che verrà addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
 È possibile visualizzare un'analisi dettagliata dei costi per VM nel foglio [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Stima costi).
@@ -266,7 +266,7 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI.  Attualmente Azure Site Recovery supporta VM Windows Server basate su EFI (Windows Server 2012, 2012 R2 e 2016), a condizione che il numero di partizioni nel disco di avvio sia inferiore a 4 e che i settori di avvio abbiano dimensioni di 512 byte. Per proteggere le VM basate su EFI, la versione del servizio Mobility di Azure Site Recovery deve essere la 9.13 o successive. Per le VM basate su EFI è supportato solo il failover. Il failback non è supportato.
 
-**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della VM. Può essere Windows o Linux o un altro ancora, in base al modello scelto da VMware vSphere durante la creazione della VM. 
+**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della VM. Può essere Windows o Linux o un altro ancora, in base al modello scelto da VMware vSphere durante la creazione della VM.
 
 ## <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione è sempre consigliabile eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
@@ -282,15 +282,15 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MB/s | 842 GB per disc
 
 **Varianza dati di origine** | **Limite massimo**
 ---|---
-Varianza media dei dati per VM| 25 MB/s 
+Varianza media dei dati per VM| 25 MB/s
 Picco di varianza dei dati su tutti i dischi in una VM | 54 MB/s
-Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 TB 
+Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 TB
 
 Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
 
 
 ## <a name="cost-estimation"></a>Stima dei costi
-Vedere altre informazioni sulla [stima dei costi](site-recovery-vmware-deployment-planner-cost-estimation.md). 
+Vedere altre informazioni sulla [stima dei costi](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

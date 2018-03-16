@@ -13,11 +13,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: xerners
-ms.openlocfilehash: b4a5db7e6769d7ebb0bcf0287b3a1bfb7932984a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 25a2bef2f3cc6f210c574f920164b8d69b0d90db
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C: aggiungere l'accesso a un'app Web Node.js
 
@@ -32,7 +32,7 @@ Per Azure Active Directory (Azure AD) è possibile installare questo modulo e ag
 3. Usare Passport per inviare le richieste di accesso e disconnessione ad Azure AD.
 4. Stampare i dati utente.
 
-Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Per seguire la procedura, è possibile [scaricare la struttura dell'app come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip). È anche possibile clonare la struttura:
+Il codice per questa esercitazione è [disponibile in GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Per seguire la procedura, è possibile [scaricare la struttura dell'app come file ZIP](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/master.zip). È anche possibile clonare la struttura:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 

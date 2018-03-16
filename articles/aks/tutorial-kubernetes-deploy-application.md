@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 0639a2b7e71878103542d3e037040f8a7444976f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Eseguire applicazioni nel servizio contenitore di Azure
 
@@ -46,16 +46,10 @@ Ottenere il nome del server di accesso del Registro contenitori di Azure con il 
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Il file manifesto è stato creato in precedenza con un nome di server di accesso `microsoft`. Aprire il file con qualsiasi editor di testo. In questo esempio il file viene aperto con `vi`.
+Il file manifesto è stato creato in precedenza con un nome di server di accesso `microsoft`. Aprire il file con qualsiasi editor di testo. In questo esempio il file viene aperto con `nano`.
 
 ```console
-vi azure-vote-all-in-one-redis.yaml
-```
-
-In alternativa, in Windows è possibile usare Visual Studio Code.
-
-```console
-code azure-vote-all-in-one-redis.yaml
+nano azure-vote-all-in-one-redis.yaml
 ```
 
 Sostituire `microsoft` con il nome del server di accesso del Registro contenitori di Azure. Questo valore è presente nella riga **47** del file manifesto.

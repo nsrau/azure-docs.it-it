@@ -1,5 +1,5 @@
 ---
-title: Condizioni di corrispondenza del motore regole della rete CDN di Azure | Microsoft Docs
+title: Condizioni di corrispondenza del motore regole della rete CDN di Azure | Documentazione Microsoft
 description: Documentazione di riferimento per le condizioni di corrispondenza per il motore regole della rete per la distribuzione di contenuti di Azure.
 services: cdn
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 08845355be0bfb7e7dde52d19949fee4a68ed54b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e4b7113f27e5e15d69dfdd1efd13e255ef4a8ab7
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="match-conditions-for-the-azure-cdn-rules-engine"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure
+# <a name="azure-cdn-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole della rete CDN di Azure 
 Questo articolo fornisce descrizioni dettagliate delle condizioni di corrispondenza disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (rete CDN) di Azure.
 
 La seconda parte di una regola è la condizione di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verrà eseguito un set di funzionalità.
@@ -305,7 +305,7 @@ Informazioni chiave:
 #### <a name="string-type"></a>Tipo di stringa
 Una funzionalità WURFL accetta in genere qualsiasi combinazione di numeri, lettere e simboli. A causa della natura flessibile di questa funzionalità, è necessario scegliere il modo in cui interpretare il valore associato alla condizione di corrispondenza. La tabella seguente descrive il set di opzioni disponibile:
 
-Tipo     | Descrizione
+type     | DESCRIZIONE
 ---------|------------
 Literal (Valore letterale)  | Selezionare questa opzione per impedire alla maggior parte dei caratteri di assumere un significato speciale usando il rispettivo [valore letterale](cdn-rules-engine-reference.md#literal-values).
 Wildcard (Carattere jolly) | Selezionare questa opzione per trarre vantaggio da tutti i [caratteri jolly]([caratteri jolly](cdn-rules-engine-reference.md#wildcard-values).

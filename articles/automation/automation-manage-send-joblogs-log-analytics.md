@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0319a7b9248dec9d7cdabba9c18a25463d94284b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 47cca0c3b6b7010323dd816cdb863c652516bfe5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics (OMS)
 Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro Log Analytics di Microsoft Operations Management Suite (OMS). I log e i flussi di processo sono visibili nel portale di Azure o con PowerShell per i singoli processi e ciò consente di eseguire analisi semplici. Con Log Analytics è ora possibile:
@@ -69,7 +69,7 @@ Per trovare il *nome* dell'account di Automazione, nel portale di Azure selezion
 
 Dopo aver eseguito questo script, i record in Log Analytics vengono visualizzati entro 10 minuti dalla scrittura di nuovi log o flussi di processo.
 
-Per visualizzare i log, eseguire la seguente query nella ricerca log Log Analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION""`
+Per visualizzare i log, eseguire la seguente query nella ricerca log Log Analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificare la configurazione
 Per verificare che l'account di Automazione invii i log all'area di lavoro di Log Analytics, accertarsi che la diagnostica sia configurata correttamente nell'account di Automazione usando il comando di PowerShell seguente:

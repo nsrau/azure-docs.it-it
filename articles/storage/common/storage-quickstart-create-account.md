@@ -9,17 +9,17 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: tamram
-ms.openlocfilehash: 2043f635e30de208a29a3da2fcde6bf2a1223fc8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 600689dfe2d572a83382522f6bea1ec5bf0f3883
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
 Un account di archiviazione di Azure offre uno spazio dei nomi univoco nel cloud per archiviare gli oggetti dati in Archiviazione di Azure e accedere a tali oggetti. Un account di archiviazione contiene tutti i BLOB, file, code, tabelle e dischi creati in tale account. 
 
-Per iniziare a usare Archiviazione di Azure, è prima necessario creare un nuovo account di archiviazione. È possibile creare un account di archiviazione di Azure usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Questa guida introduttiva illustra come usare ognuna di queste opzioni per creare il nuovo account di archiviazione. 
+Per iniziare a usare Archiviazione di Azure, è prima necessario creare un nuovo account di archiviazione. È possibile creare un account di archiviazione di Azure usando il [portale di Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Questa guida introduttiva illustra come usare ognuna di queste opzioni per creare il nuovo account di archiviazione. 
 
 
 ## <a name="prerequisites"></a>prerequisiti

@@ -3,17 +3,17 @@ title: Come gestire l'account e le chiavi di Servizi Location Based di Azure | M
 description: "È possibile usare il portale di Azure per gestire l'account Servizi Location Based di Azure e le chiavi di accesso."
 services: location-based-services
 keywords: Non aggiungere o modificare parole chiave senza consultare l'esperto SEO.
-author: philmea
-ms.author: philmea
+author: kgremban
+ms.author: kgremban
 ms.date: 11/14/2017
 ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: b82ff3edc3515d9dce465c7a7ed6084a2bfe25c2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ea7beae054157800ee404cf237772d0677574ca
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Come gestire l'account e le chiavi di Servizi Location Based di Azure
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: bwren
 ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record dell'accesso ai singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.

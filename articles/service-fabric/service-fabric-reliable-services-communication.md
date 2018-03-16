@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 204280c8b81e5f751f3f0b609e04aba0a1cec381
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Come usare le API di comunicazione di Reliable Services
 Azure Service Fabric è una piattaforma completamente indipendente dalle comunicazioni tra servizi. Sono accettabili tutti i protocolli e gli stack, da UDP a HTTP. Dipende dallo sviluppatore del servizio scegliere la modalità di comunicazione tra servizi. Il framework applicazione di Reliable Services offre gli stack di comunicazione predefiniti nonché le API che è possibile usare per creare componenti di comunicazione personalizzati.
@@ -76,10 +76,13 @@ public class MyStatelessService extends StatelessService {
 
 Per i servizi con stato:
 
-> [!NOTE]
-> Reliable Services con stato non è ancora supportato in Java.
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
 class MyStatefulService : StatefulService

@@ -4,7 +4,7 @@ description: "Informazioni su come pianificare e progettare reti virtuali in Azu
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Pianificare e progettare reti virtuali di Azure
-Creare una rete virtuale a scopi sperimentali è abbastanza semplice, ma è probabile che si distribuiscano più reti virtuali nel corso del tempo per supportare le esigenze di produzione dell'organizzazione. Con una pianificazione e una progettazione adeguate è possibile distribuire reti virtuali e connettere le risorse necessarie in modo più efficace. Se non si ha familiarità con le reti virtuali, è consigliabile [acquisire informazioni sulle reti virtuali](virtual-networks-overview.md) e su [come distribuirne](virtual-networks-create-vnet-arm-pportal.md) una prima di procedere.
+Creare una rete virtuale a scopi sperimentali è abbastanza semplice, ma è probabile che si distribuiscano più reti virtuali nel corso del tempo per supportare le esigenze di produzione dell'organizzazione. Con una pianificazione e una progettazione adeguate è possibile distribuire reti virtuali e connettere le risorse necessarie in modo più efficace. Se non si ha familiarità con le reti virtuali, è consigliabile [acquisire informazioni sulle reti virtuali](virtual-networks-overview.md) e su [come distribuirne](quick-create-portal.md) una prima di procedere.
 
 ## <a name="plan"></a>Pianificazione
 Per ottenere buoni risultati, è fondamentale una conoscenza approfondita delle sottoscrizioni, delle aree e delle risorse di rete di Azure. È possibile usare l'elenco di considerazioni di seguito come punto di partenza. Dopo aver compreso queste considerazioni, è possibile definire i requisiti per la progettazione della rete.

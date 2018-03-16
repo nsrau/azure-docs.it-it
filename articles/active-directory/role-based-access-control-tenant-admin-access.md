@@ -1,5 +1,5 @@
 ---
-title: Accesso con privilegi elevati per l'amministratore tenant - Azure AD | Microsoft Docs
+title: Accesso con privilegi elevati per l'amministratore tenat - Azure AD | Microsoft Docs
 description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
 services: active-directory
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 10/30/2017
 ms.author: rolyon
 ms.openlocfilehash: dff3a26201507f974d52de3fe6dcb23945cd900f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Accesso con privilegi elevati come amministratore tenant con il Controllo degli accessi in base al ruolo
 
@@ -146,7 +146,7 @@ Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi 
 
     Salvare il GUID dal parametro *nome*, in questo caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
 
-2. È inoltre necessario elencare l'assegnazione di ruoli per l'amministratore tenant nell'ambito del tenant. Elencare tutte le assegnazioni nell'ambito del tenant per PrincipalId di TenantAdmin che ha effettuato la chiamata per l'accesso con privilegi elevati. Sono incluse tutte le assegnazioni nel tenant per il parametro ObjectID.
+2. È inoltre necessario elencare l'assegnazione di ruolo per l'amministratore del tenant nell'ambito del tenant. Elencare tutte le assegnazioni nell'ambito del tenant per PrincipalId di TenantAdmin che ha effettuato la chiamata per l'accesso con privilegi elevati. Sono incluse tutte le assegnazioni nel tenant per il parametro ObjectID.
 
     ```
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'

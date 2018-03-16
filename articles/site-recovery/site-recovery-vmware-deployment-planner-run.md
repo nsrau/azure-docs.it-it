@@ -12,20 +12,20 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/04/2017
+ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9aedd5561397c78622a43f39f423c618000a2a33
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 87e124b1dc14ad34d1d790d463ce1f5ded18f74b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modalità di esecuzione di Deployment Planner
-È possibile eseguire lo strumento da riga di comando (ASRDeploymentPlanner.exe) in una delle quattro modalità seguenti: 
+È possibile eseguire lo strumento da riga di comando (ASRDeploymentPlanner.exe) in una delle quattro modalità seguenti:
 
 1.  [Profilatura](#profile-vmware-vms)
 2.  [Generazione di report](#generate-report)
@@ -49,8 +49,8 @@ Prima di tutto è necessario un elenco delle VM da profilare. È possibile otten
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
 4. Se Connect-VIServer non viene riconosciuto come nome di cmdlet, potrebbe essere necessario eseguire questo comando.
- 
-            Add-PSSnapin VMware.VimAutomation.Core 
+
+            Add-PSSnapin VMware.VimAutomation.Core
 
 5. Per ottenere tutti i nomi delle VM in un server vCenter/host vSphere ESXi e archiviare l'elenco in un file TXT, eseguire i due comandi elencati qui.
 Sostituire &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;password&rsaquo; e &lsaquo;outputfile.txt&rsaquo; con i propri input.
@@ -101,7 +101,7 @@ Per impostazione predefinita, lo strumento è configurato per profilare, generan
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1.txt e l'altra con VMList2.txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList. 
+Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1.txt e l'altra con VMList2.txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList.
 
 È stato osservato che in base alla configurazione hardware, in particolare alle dimensioni della RAM del server da cui viene eseguito lo strumento per generare il report, l'operazione può non riuscire a causa di memoria insufficiente. Se l'hardware è appropriato, è possibile modificare MaxVMsSupported in base a un valore maggiore.  
 
@@ -293,4 +293,3 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Analizzare il report generato](site-recovery-vmware-deployment-planner-analyze-report.md).
-
