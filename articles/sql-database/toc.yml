@@ -380,7 +380,6 @@
             - name: Effettuare il provisioning di tenant
               href: saas-standaloneapp-provision-and-catalog.md
         - name: Database per tenant
-          href: saas-dbpertenant-wingtip-app-overview.md
           items:
             - name: Introduzione dell'esercitazione
               href: saas-dbpertenant-wingtip-app-overview.md
@@ -420,7 +419,7 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
