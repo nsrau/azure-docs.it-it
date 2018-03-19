@@ -181,7 +181,7 @@
           href: use-sample-datasets.md
         - name: Esempio di varianza dei clienti
           href: azure-ml-customer-churn-scenario.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Modulo di Azure PowerShell (nuovo)
       href: /powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning
@@ -235,5 +235,3 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
-    - name: Ottenere assistenza dalla live chat
-      href: live-chat.md
