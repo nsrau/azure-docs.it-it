@@ -23,15 +23,13 @@
 #### [Creare un set di scalabilità in una zona di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Bilanciamento del carico
-#### [Informazioni sul servizio di bilanciamento del carico](../load-balancer/load-balancer-standard-overview.md)
+#### [Che cos'è il servizio di bilanciamento del carico?](../load-balancer/load-balancer-standard-overview.md)
+#### [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md)
 #### [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona con il portale di Azure](../load-balancer/load-balancer-get-started-internet-az-portal.md)
 #### [Creare uno standard del bilanciamento del carico con ridondanza della zona con PowerShell](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
 #### [Creare uno standard del bilanciamento del carico pubblico con ridondanza della zona con l'interfaccia della riga di comando](../load-balancer/load-balancer-get-started-internet-az-cli.md)
 
-### Indirizzo IP pubblico
-#### [Creare un indirizzo IP in una zona di disponibilità con il portale di Azure](../virtual-network/create-public-ip-availability-zone-portal.md)
-#### [Creare un indirizzo IP pubblico in una zona di disponibilità con PowerShell](../virtual-network/create-public-ip-availability-zone-powershell.md)
-#### [Creare un indirizzo IP pubblico in una zona di disponibilità con l'interfaccia della riga di comando](../virtual-network/create-public-ip-availability-zone-cli.md)
+### [Indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### Database SQL
 #### [Zone di disponibilità con il database SQL](../sql-database/sql-database-high-availability.md#availability-zones)

@@ -27,6 +27,8 @@
       href: overview-general-concepts.md
 - name: Guide alle procedure
   items:
+    - name: Principali attività dall'interfaccia della riga di comando
+      href: cli-for-azure-machine-learning.md
     - name: Usare Workbench
       items:
         - name: Usare gli ambienti di sviluppo integrato Python

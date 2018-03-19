@@ -179,7 +179,9 @@
           href: durable-functions-counter.md
         - name: Interazione umana
           href: durable-functions-phone-verification.md
-- name: Riferimenti
+        - name: Testing unità
+          href: durable-functions-unit-testing.md
+- name: riferimento
   items:
     - name: Associazioni
       items:

@@ -26,9 +26,9 @@
 #### [Intel Edison con Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison con C](iot-hub-intel-edison-kit-c-get-started.md)
 
-#### [Adafruit Feather HUZZAH ESP8266 con IDE Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Sparkfun ESP8266 Thing Dev con IDE Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 con IDE Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 con Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev con Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 con Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ## Scenari IoT estesi
 ### [Gestire la messaggistica dei dispositivi cloud con iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -82,12 +82,12 @@
 ### Routing dei messaggi
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
+#### [Node.JS](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.js](iot-hub-node-node-c2d.md)
+#### [Node.JS](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)

@@ -79,6 +79,8 @@
           href: jenkins-continuous-deployment.md
         - name: Uso di OpenFaaS con il servizio contenitore di Azure
           href: openfaas.md
+        - name: Eseguire processi Spark nel servizio contenitore di Azure
+          href: spark-job.md
     - name: Nozioni di base di Kubernetes
       items:
         - name: Usare il dashboard Kubernetes
@@ -89,7 +91,7 @@
           href: aks-ssh.md
         - name: Ottenere i log di kubelet
           href: kubelet-logs.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/aks

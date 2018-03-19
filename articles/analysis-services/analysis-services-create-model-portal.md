@@ -39,7 +39,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="to-create-a-new-tabular-model"></a>Per creare un nuovo modello tabulare
 
-1. Nel server aprire **Panoramica** > **Web designer** (Finestra di progettazione Web) e fare clic su **Apri**.
+1. Nel server aprire **Panoramica** > **Progettazione Web** e fare clic su **Apri**.
 
     ![Creare un modello nel portale di Azure](./media/analysis-services-create-model-portal/aas-create-portal-overview-wd.png)
 

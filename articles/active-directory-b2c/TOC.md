@@ -24,7 +24,7 @@
 ### [Autenticare gli utenti in ASP.NET](active-directory-b2c-tutorials-web-app.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp)
-### [Node.js](active-directory-b2c-devquickstarts-web-node.md)
+### [Node.JS](active-directory-b2c-devquickstarts-web-node.md)
 ## App a singola pagina
 ### [Overview](active-directory-b2c-reference-spa.md)
 ### [JavaScript con MSAL](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
@@ -33,7 +33,7 @@
 ### [Proteggere un'API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chiamare un'API Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guide
@@ -61,6 +61,7 @@
 ## [Personalizzazione della lingua](active-directory-b2c-reference-language-customization.md)
 ## [Usare l'API di creazione report](active-directory-b2c-reference-usage-reporting-api.md)
 ## [Eseguire la migrazione di utenti](active-directory-b2c-user-migration.md)
+## [Eseguire la migrazione di identità dei social network](active-directory-b2c-social-migration.md)
 
 # Framework dell'esperienza di gestione delle identità
 ## [Criteri personalizzati](active-directory-b2c-overview-custom.md)
@@ -92,7 +93,7 @@
 #### [Abilita Mantieni l'accesso](active-directory-b2c-reference-kmsi-custom.md)
 ### risoluzione dei problemi
 #### [Raccogliere i log tramite Application Insights](active-directory-b2c-troubleshoot-custom.md)
-## Riferimenti
+## riferimento
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
 ### [Provider di sessioni SSO](active-directory-b2c-reference-sso-custom.md)
 ### [Personalizzazione della lingua](active-directory-b2c-language-customization-custom.md)

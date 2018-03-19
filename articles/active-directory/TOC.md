@@ -114,7 +114,7 @@
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
-### riferimento
+### Riferimenti
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -190,12 +190,11 @@
 #### [Creare report sul provisioning utenti automatico](active-directory-saas-provisioning-reporting.md)
 #### [Risolvere i problemi del provisioning utenti](active-directory-application-provisioning-content-map.md)
 
-
-
 ### [Accedere alle app in remoto con il proxy delle app](active-directory-application-proxy-get-started.md)
 #### Attività iniziali
 ##### [Abilitare il proxy delle app](active-directory-application-proxy-enable.md)
-##### [Pubblicare le app](application-proxy-publish-azure-portal.md)
+##### [Supporto per RGPD](active-directory-application-proxy-gdpr.md)
+##### [Publish apps](application-proxy-publish-azure-portal.md) (Pubblicare le app)
 ##### [Domini personalizzati](active-directory-application-proxy-custom-domains.md)
 #### [Single Sign-On](application-proxy-sso-overview.md)
 ##### [SSO con la delega vincolata Kerberos](active-directory-application-proxy-sso-using-kcd.md)
@@ -372,7 +371,7 @@
 ### [Studio del modello di verifica: blocchi predefiniti](active-directory-playbook-building-blocks.md)
 
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)

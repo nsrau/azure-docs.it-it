@@ -18,7 +18,7 @@
 
 
 # Esercitazioni
-## [1 - Caricare dati dal BLOB](load-data-from-azure-blob-storage-using-polybase.md)
+## [1 - Caricare WideWorldImporters](load-data-wideworldimportersdw.md)
 
 # Concetti
 ## Funzionalità del servizio
@@ -101,6 +101,7 @@
 
 
 ## Caricare e spostare dati
+### [Dati relativi ai taxi di New York](load-data-from-azure-blob-storage-using-polybase.md)
 ### [Dati pubblici Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Archivio Data Lake di Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -124,7 +125,7 @@
 ### [Automatizzare i livelli di calcolo](manage-compute-with-azure-functions.md)
 
 
-# riferimento
+# Riferimenti
 
 ## T-SQL
 ### [Informazioni di riferimento complete](https://docs.microsoft.com/sql/t-sql/language-reference/)
