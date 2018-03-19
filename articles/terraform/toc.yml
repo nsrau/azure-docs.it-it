@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Esercitazioni
   items:
+    - name: Creare una VM Terraform con identità del servizio gestito abilitata
+      href: terraform-vm-msi.md
     - name: Creare un cluster di VM con moduli Terraform
       href: terraform-create-vm-cluster-module.md
     - name: Creare un cluster di macchine virtuali con Terraform e HCL

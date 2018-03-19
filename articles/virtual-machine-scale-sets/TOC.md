@@ -38,6 +38,7 @@
 #### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md)
 ### [Usare set di scalabilità di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md)
 ### [Convertire un modello di set di scalabilità per l'uso di dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
+### [Usare VM con priorità bassa](virtual-machine-scale-sets-use-low-priority.md)
 
 ## Gestisci
 ### Attività di gestione comuni

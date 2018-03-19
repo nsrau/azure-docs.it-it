@@ -43,7 +43,7 @@ ms.lasthandoff: 02/27/2018
 
 3. Nella finestra di progettazione di app per la logica aggiungere un trigger come **richiesta** o **HTTP** all'app per la logica.
 
-4. Nel trigger scegliere **Nuovo passaggio** > **Add an action** (Aggiungi un'azione). Cercare "account di integrazione" in modo da trovare e quindi selezionare l'azione **Account di integrazione - Ricerca elemento dell'account di integrazione**.
+4. Nel trigger scegliere **Nuovo passaggio** > **Aggiungi un'azione**. Cercare "account di integrazione" in modo da trovare e quindi selezionare l'azione **Account di integrazione - Ricerca elemento dell'account di integrazione**.
 
    ![Selezionare Ricerca elemento dell'account di integrazione](media/logic-apps-enterprise-integration-metadata/image2.png)
 

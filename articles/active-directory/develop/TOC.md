@@ -57,14 +57,16 @@
 ## [Raccolta di app di Azure AD](active-directory-app-gallery-listing.md)
 ## [Dashboard venditori di Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 ## Uso di Visual Studio
-### [Introduzione a Servizi connessi di Visual Studio](vs-active-directory-dotnet-getting-started.md)
+### [Usare il servizio connesso Active Directory](vs-active-directory-add-connected-service.md)
+### [Introduzione ai progetti MVC .NET](vs-active-directory-dotnet-getting-started.md)
+### [Modifiche apportate al progetto MVC .NET](vs-active-directory-dotnet-what-happened.md)
+### [Introduzione ai progetti WebAPI](vs-active-directory-webapi-getting-started.md)
+### [Modifiche apportate al progetto WebAPI](vs-active-directory-webapi-what-happened.md)
 ### [Errore durante il rilevamento dell'autenticazione](vs-active-directory-error.md)
-### [Introduzione all'API Web](vs-active-directory-webapi-getting-started.md)
-### [Che cosa è successo al progetto API Web?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrazione del servizio di controllo di accesso](active-directory-acs-migration.md)
 ## [Procedure consigliate per la gestione degli errori di ADAL](active-directory-devhowto-adal-error-handling.md)
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)
 ## [Articolo sugli esempi di codice](active-directory-code-samples.md)
@@ -99,7 +101,7 @@
 #### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guide
 ### [Registrare un'app](active-directory-v2-app-registration.md)
-## riferimento
+## Riferimenti
 ### [Librerie di autenticazione](active-directory-v2-libraries.md)
 ### [Protocolli di autenticazione v2.0](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)

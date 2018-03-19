@@ -92,6 +92,8 @@
           href: tutorial-control-flow-portal.md
         - name: .NET
           href: tutorial-control-flow.md
+    - name: 9 - Trasformare i dati con Azure Databricks
+      href: transform-data-using-databricks-notebook.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -290,8 +292,6 @@
           href: transform-data-using-stored-procedure.md
         - name: Attività U-SQL di Data Lake
           href: transform-data-using-data-lake-analytics.md
-        - name: Attività dei notebook di Databricks
-          href: transform-data-using-databricks-notebook.md
         - name: Attività personalizzata
           href: transform-data-using-dotnet-custom-activity.md
         - name: Servizi collegati di calcolo
@@ -366,7 +366,7 @@
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory

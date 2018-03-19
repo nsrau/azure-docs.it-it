@@ -11,6 +11,7 @@
 ## [Supporto per IPv6](load-balancer-ipv6-overview.md)
 ## [Indirizzi VIP multipli](load-balancer-multivip-overview.md)
 ## [Informazioni sulle connessioni in uscita](load-balancer-outbound-connections.md)
+## [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md)
 
 # Attività iniziali
 
@@ -49,6 +50,7 @@
 ### [Risoluzione dei problemi di Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Articoli sul modello di distribuzione classica
+### [Connessioni in uscita (versione classica)](load-balancer-outbound-connections-classic.md)
 ### [Configurare il servizio di bilanciamento del carico interno per i servizi cloud](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Configurare il servizio di bilanciamento del carico interno per i servizi cloud (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Configurare il servizio di bilanciamento del carico interno per i servizi cloud (interfaccia della riga di comando)](load-balancer-get-started-ilb-classic-cli.md)
@@ -62,7 +64,7 @@
 ## [Interfaccia della riga di comando di Azure per Azure](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)

@@ -14,6 +14,8 @@
 ## [Installazione di SAP HANA a istanza singola](hana-get-started.md)
 ## [Guida alla distribuzione di S/4 HANA o BW/4 HANA SAP CAL](cal-s4h.md)
 ## [Guida operativa a SAP HANA in Azure](hana-vm-operations.md)
+### Procedure
+#### [Acceleratore di scrittura di Azure per distribuzioni SAP](how-to-enable-write-accelerator.md)
 ## Disponibilità di SAP HANA in Macchine virtuali di Azure
 ### [Panoramica della disponibilità di SAP HANA in Azure](sap-hana-availability-overview.md)
 ### [Disponibilità di SAP HANA in un'area di Azure](sap-hana-availability-one-region.md)

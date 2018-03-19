@@ -107,6 +107,8 @@
               href: backup-azure-vms-encryption.md
             - name: Abilitare il backup di una VM durante la creazione
               href: backup-during-vm-creation.md
+            - name: Eseguire l'aggiornamento allo stack di backup di macchine virtuali V2
+              href: backup-upgrade-to-vm-backup-stack-v2.md
         - name: Gestire e monitorare le VM
           items:
             - name: Gestire i backup delle macchine virtuali di Azure nel portale di Azure
@@ -195,7 +197,7 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Risolvere i problemi dell'agente di Backup di Azure
           href: backup-azure-mars-troubleshoot.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.backup

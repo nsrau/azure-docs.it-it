@@ -67,6 +67,8 @@
       items:
         - name: Replica in Azure
           items:
+            - name: Domande comuni per la replica da VMware ad Azure
+              href: vmware-azure-common-questions.md
             - name: Matrice di supporto da VMware/computer fisici ad Azure
               href: vmware-physical-azure-support-matrix.md
             - name: Architettura da VMware ad Azure
@@ -77,6 +79,8 @@
               href: vmware-azure-multi-tenant-overview.md
             - name: Informazioni sul servizio Mobility
               href: vmware-azure-install-mobility-service.md
+            - name: Opzioni relative alla posizione di failback
+              href: concepts-types-of-failback.md
         - name: Replica in un sito secondario
           items:
             - name: Matrice di supporto da VMware/computer fisici a sito secondario
@@ -117,7 +121,7 @@
               href: azure-to-azure-about-networking.md
             - name: Preparare il mapping di rete nel ripristino di emergenza di VM di Azure
               href: azure-to-azure-network-mapping.md
-            - name: Configurare gli indirizzi IP dopo il failover di VM di Azure
+            - name: Configurare gli indirizzi IP per il failover
               href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Ripristino di emergenza
           items:
@@ -139,7 +143,7 @@
           items:
             - name: Gestire le interfacce di rete per la replica da locale ad Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configurare gli indirizzi IP dopo il failover in Azure
+            - name: Configurare gli indirizzi IP per il failover
               href: concepts-on-premises-to-azure-networking.md
         - name: Pianificazione della capacità
           items:
@@ -241,7 +245,7 @@
           items:
             - name: Gestire le interfacce di rete per la replica da locale ad Azure
               href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configurare gli indirizzi IP dopo il failover in Azure
+            - name: Configurare gli indirizzi IP per il failover
               href: concepts-on-premises-to-azure-networking.md
         - name: Pianificazione della capacità
           items:
@@ -255,8 +259,6 @@
                   href: hyper-v-deployment-planner-analyze-report.md
                 - name: Analizzare il report di stima dei costi
                   href: hyper-v-deployment-planner-cost-estimation.md
-            - name: Test della scalabilità delle prestazioni per la replica Hyper-V in un sito secondario
-              href: hyper-v-vmm-performance-results.md
         - name: Ripristino di emergenza
           items:
             - name: Configurare la replica Hyper-V in Azure senza VMM con PowerShell
@@ -295,12 +297,14 @@
           href: hyper-v-vmm-powershell-resource-manager.md
         - name: Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
           href: hyper-v-vmm-test-failover.md
-        - name: Configurare gli indirizzi IP dopo il failover in un sito secondario
+        - name: Configurare gli indirizzi IP per il failover
           href: hyper-v-vmm-networking.md
         - name: Aggiungere script VMM ai piani di ripristino
           href: hyper-v-vmm-recovery-script.md
         - name: Eseguire failover e failback tra siti locali
           href: hyper-v-vmm-failover-failback.md
+        - name: Test della scalabilità delle prestazioni per la replica Hyper-V in un sito secondario
+          href: hyper-v-vmm-performance-results.md
     - name: Replicare le app
       items:
         - name: Active Directory e DNS
@@ -325,7 +329,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Altri carichi di lavoro
           href: 'site-recovery-workload.md#workload-summary'
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery
