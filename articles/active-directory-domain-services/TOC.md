@@ -22,7 +22,6 @@
 ## [Verificare l'integrità di un dominio gestito](active-directory-ds-check-health.md)
 ## [Usare Azure AD Domain Services nelle sottoscrizioni CSP di Azure](active-directory-ds-csp.md)
 ## [Abilitare Azure AD Domain Services con PowerShell](active-directory-ds-enable-using-powershell.md)
-## [Verificare l'integrità del dominio](active-directory-ds-check-health.md)
 ## Aggiungere un dominio gestito
 ### [VM Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [VM Windows Server da un modello](active-directory-ds-join-windows-vm-template.md)
@@ -56,7 +55,7 @@
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
 
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 
 # Risorse correlate

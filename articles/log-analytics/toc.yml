@@ -50,7 +50,7 @@
     - name: Ricerca log
       items:
         - name: Panoramica delle ricerche nei log
-          href: log-analytics-log-search-new.md
+          href: log-analytics-log-search.md
         - name: Portali per la ricerca log
           href: log-analytics-log-search-portals.md
 - name: Guide alle procedure
@@ -117,20 +117,6 @@
           href: log-analytics-flow-tutorial.md
         - name: API di ricerca nei log
           href: 'https://dev.loganalytics.io/'
-    - name: Ricerca log legacy
-      items:
-        - name: Panoramica delle ricerche nei log
-          href: log-analytics-log-searches.md
-        - name: Informazioni di riferimento sulle ricerche
-          href: log-analytics-search-reference.md
-          items:
-            - name: Espressioni regolari
-              href: log-analytics-log-searches-regex.md
-        - name: API di ricerca nei log
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
     - name: Analizzare i dati
       items:
         - name: Dashboard
@@ -277,7 +263,7 @@
           href: log-analytics-template-workspace-configuration.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

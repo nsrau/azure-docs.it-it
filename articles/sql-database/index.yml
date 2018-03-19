@@ -10,15 +10,15 @@ metadata:
   manager: carolz
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.devlang: 
   ms.topic: landing-page
   ms.date: 05/03/2017
   ms.author: carolz
-  ms.openlocfilehash: 662d4f32cb6abb8694253a50d17daa242b55e409
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: 4acc092e4c6006263dda31ab2a54038e60e57651
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Il database SQL di Azure è un database come servizio relazionale che usa il motore Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi."
   aside:
@@ -82,7 +82,7 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
     - html: <a href="/azure/sql-database/sql-database-cli-samples">Interfaccia della riga di comando di Azure</a>
-- title: Riferimento
+- title: riferimento
   items:
   - type: list
     style: cards

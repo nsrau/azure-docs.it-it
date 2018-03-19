@@ -37,6 +37,8 @@
       href: container-instances-using-azure-container-registry.md
     - name: Eseguire attività in contenitori
       href: container-instances-restart-policy.md
+    - name: Impostare le variabili di ambiente
+      href: container-instances-environment-variables.md
     - name: Risolvere i problemi delle distribuzioni
       href: container-instances-troubleshooting.md
     - name: Configurare i volumi di dati

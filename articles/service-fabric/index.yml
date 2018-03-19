@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: f2f85dfb82e62dd60c469abfdd87faa9cad43454
+  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 03/16/2018
 abstract:
   description: "Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità. Informazioni su come usare Azure Service Fabric con le guide rapide, le esercitazioni e gli esempi."
 sections:
@@ -58,6 +58,7 @@ sections:
     style: unordered
     items:
     - html: <a href="service-fabric-tutorial-create-dotnet-app">Distribuire un'applicazione .NET</a>
+    - html: <a href="service-fabric-tutorial-create-java-app">Distribuire un'applicazione Java</a>
     - html: <a href="service-fabric-host-app-in-a-container">Distribuire un'applicazione .NET esistente in un contenitore</a>
     - html: <a href="service-fabric-tutorial-create-container-images">Creare un'applicazione contenitore Linux</a>
     - html: Creare e gestire un cluster <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> o <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
@@ -102,7 +103,7 @@ sections:
       html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Introduzione</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Valutazione</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Riferimenti Web</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Watchdog</a></p>
     - title: Java
       html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Introduzione</a></p>
-- title: Riferimento
+- title: Riferimenti
   items:
   - type: list
     style: cards

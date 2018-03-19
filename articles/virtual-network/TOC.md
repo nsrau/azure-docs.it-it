@@ -27,11 +27,6 @@
 ### [Gruppi di sicurezza di rete](virtual-networks-nsg.md)
 
 ## Distribuire
-### Reti virtuali
-#### [Portale di Azure](virtual-networks-create-vnet-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Interfaccia della riga di comando di Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [Modello](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Gruppi di sicurezza di rete
 #### [Portale di Azure](virtual-networks-create-nsg-arm-pportal.md)
