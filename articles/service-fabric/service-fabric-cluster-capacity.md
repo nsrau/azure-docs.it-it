@@ -1,11 +1,11 @@
 ---
-title: "Pianificazione della capacità del cluster di Service Fabric | Documentazione Microsoft"
-description: "Considerazioni sulla pianificazione della capacità del cluster Service Fabric. Tipi di nodo, operazioni, livelli di affidabilità e durabilità"
+title: Pianificazione della capacità del cluster di Service Fabric | Microsoft Docs
+description: Considerazioni sulla pianificazione della capacità del cluster Service Fabric. Tipi di nodo, operazioni, livelli di affidabilità e durabilità
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -88,10 +88,11 @@ Questo privilegio viene espresso con i valori seguenti:
  
 1. Le distribuzioni nel set di scalabilità di macchine virtuali e in altre risorse di Azure correlate possono subire ritardi o timeout oppure essere interamente bloccate da problemi nel cluster o a livello di infrastruttura. 
 2. Le disattivazioni automatizzate dei nodi durante le operazioni sull'infrastruttura di Azure aumentano il numero di [eventi del ciclo di vita della replica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ), ad esempio di scambi di nodi primari.
+3. Accetta nodi fuori servizio per determinati periodi di tempo durante le attività di manutenzione dell'hardware o gli aggiornamenti del software della piattaforma Azure. Quando queste attività sono in corso, possono essere visibili nodi con stato Disabilitazione in corso o Disabilitato. Ciò riduce temporaneamente la capacità del cluster, ma non dovrebbe influire sulla disponibilità del cluster o delle applicazioni.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Raccomandazioni su quando usare livelli di durabilità Silver o Gold
 
-Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi con stato di cui si prevede di ridurre frequentemente il numero di istanze di VM, quando si preferisce ritardare le operazioni di distribuzione in favore di una semplificazione di tali operazioni di riduzione del numero di istanze. Gli scenari di aumento del numero di istanze di VM non influiscono sulla scelta del livello di durabilità. Solo la riduzione del numero di istanze ha un impatto su tale scelta.
+Usare la durabilità Silver o Gold per tutti i tipi di nodo che ospitano servizi con stato di cui si prevede di ridurre frequentemente il numero di istanze di VM, quando è preferibile ritardare le operazioni di distribuzione o ridurre la capacità a favore della semplificazione di queste operazioni di riduzione del numero di istanze. Gli scenari di aumento del numero di istanze di VM non influiscono sulla scelta del livello di durabilità. Solo la riduzione del numero di istanze ha un impatto su tale scelta.
 
 ### <a name="changing-durability-levels"></a>Modifica dei livelli di durabilità
 - Non è possibile effettuare il downgrade al livello Bronze dei tipi di nodo con i livelli di durabilità Silver o Gold.

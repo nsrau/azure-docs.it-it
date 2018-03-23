@@ -1,8 +1,8 @@
 ---
 title: 'Esercitazione: Prevedere la spesa in Gestione costi di Azure | Microsoft Docs'
-description: "In questa esercitazione si apprenderà come prevedere la spesa tramite dati cronologici di utilizzo e spesa."
+description: In questa esercitazione si apprenderà come prevedere la spesa tramite dati cronologici di utilizzo e spesa.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 35142cb40560db848c71da266bbaa1881f12e15d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 20046d8bb475ddce8962915e5bd8215117261ac6
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-forecast-future-spending"></a>Esercitazione: Prevedere la spesa futura
 
-Gestione dei costi di Azure di Cloudyn consente di prevedere la spesa futura tramite l'utilizzo cronologico e dati di spesa. Usare i report di Cloudyn per visualizzare tutti i dati di previsione dei costi. Gli esempi inclusi in questa esercitazione descrivono come esaminare le previsioni dei costi usando i report. In questa esercitazione si apprenderà come:
+Gestione costi di Azure consente di prevedere la spesa futura tramite l'utilizzo cronologico e dati di spesa. Usare i report di Cloudyn per visualizzare tutti i dati di previsione dei costi. Gli esempi inclusi in questa esercitazione descrivono come esaminare le previsioni dei costi usando i report. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Prevedere la spesa futura

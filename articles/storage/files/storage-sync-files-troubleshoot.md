@@ -2,7 +2,7 @@
 title: Risolvere i problemi di Sincronizzazione File di Azure (anteprima) | Microsoft Docs
 description: Informazioni sulla risoluzione di problemi comuni di Sincronizzazione file di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -51,7 +51,7 @@ Esaminare il file installer.log per determinare la causa dell'errore di installa
 Per risolverlo, trasferire il ruolo PDC in un altro controller di dominio su cui è in esecuzione Windows Server 2012R2 o una versioni più recente, quindi installare la sincronizzazione.
 
 <a id="agent-installation-websitename-failure"></a>**L'installazione dell'agente ha esito negativo e restituisce un messaggio di errore che indica che la procedura guidata dell'agente di sincronizzazione archiviazione è stata interrotta prima del completamento**  
-Questo problema può verificarsi se viene modificato il nome predefinito del sito Web IIS. Per risolvere questo problema, rinominare il sito Web predefinito IIS come "Sito Web predefinito" e ripetere l'installazione. Questo problema verrà risolto in un aggiornamento futuro. 
+Questo problema può verificarsi con la versione 1.x dell'agente se viene modificato il nome predefinito del sito Web IIS. Per risolvere questo problema, usare la versione dell'agente 2.0.11 o successiva.
 
 <a id="server-registration-missing"></a>**Il server non è elencato in Server registrati nel portale di Azure**  
 Se un server non è presente nell'elenco **Server registrati** per un servizio di sincronizzazione archiviazione, seguire questa procedura:

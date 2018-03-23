@@ -1,11 +1,11 @@
 ---
 title: Automatizzare il provisioning delle app usando SCIM in Azure Active Directory | Microsoft Docs
-description: "Azure Active Directory può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o archivio identità gestito da un servizio Web con interfaccia definita nella specifica del protocollo SCIM"
+description: Azure Active Directory può effettuare automaticamente il provisioning di utenti e gruppi in qualsiasi applicazione o archivio identità gestito da un servizio Web con interfaccia definita nella specifica del protocollo SCIM
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 17732ae616339020f11bc8973dc57b6d0fff4884
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -685,7 +685,7 @@ La figura seguente illustra i messaggi che Azure Active Directory invia al servi
 ## <a name="group-provisioning-and-de-provisioning"></a>Provisioning e deprovisioning gruppi
 La figura seguente illustra i messaggi che Azure AD invia al servizio SCIM per gestire il ciclo di vita di un gruppo in un altro archivio identità.  Questi messaggi si differenziano dai messaggi relativi agli utenti in tre modi: 
 
-* Lo schema di una risorsa gruppo viene identificato come http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Lo schema di una risorsa gruppo viene identificato come `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
 * Le richieste per il recupero di gruppi stipulano che l'attributo members deve essere escluso da qualsiasi risorsa fornita in risposta alla richiesta.  
 * Le richieste per determinare se un attributo reference ha un determinato valore sono richieste relative all'attributo members.  
 

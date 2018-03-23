@@ -3,7 +3,7 @@ title: Hue con Hadoop nei cluster HDInsight basati su Linux - Azure | Documentaz
 description: Informazioni su come installare Hue nei cluster HDInsight e usare il tunneling per instradare le richieste a Hue. Usare Hue per sfogliare le risorse di archiviazione ed eseguire Hive o Pig.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installare e usare Hue nei cluster Hadoop di HDInsight
 
@@ -48,7 +48,7 @@ Hue è un insieme di applicazioni Web che consente di interagire con un cluster 
 
 ## <a name="install-hue-using-script-actions"></a>Installare Hue mediante azioni script
 
-Lo script https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh consente di installare Hue in un cluster HDInsight basato su Linux. Usare questo script per installare Hue nei cluster con Archiviazione BLOB di Azure (WASB) o Azure Data Lake Store come risorsa di archiviazione predefinita.
+Lo script per installare Hue in un cluster HDInsight basato su Linux è disponibile all'indirizzo https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. Usare questo script per installare Hue nei cluster con Archiviazione BLOB di Azure (WASB) o Azure Data Lake Store come risorsa di archiviazione predefinita.
 
 Questa sezione fornisce istruzioni su come usare lo script quando si effettua il provisioning del cluster usando il portale di Azure.
 

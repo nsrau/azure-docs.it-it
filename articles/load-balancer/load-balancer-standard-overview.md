@@ -1,12 +1,12 @@
 ---
 title: Panoramica di Azure Load Balancer Standard | Microsoft Docs
-description: "Panoramica delle funzionalità di Azure Load Balancer Standard"
+description: Panoramica delle funzionalità di Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Panoramica di Azure Load Balancer Standard (anteprima)
 
@@ -327,7 +327,7 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 
 ## <a name="region-availability"></a>Aree di disponibilità
 
-Load Balancer Standard è attualmente disponibile in tutte le aree di cloud pubblico.
+Load Balancer Standard è attualmente disponibile in tutte le aree del cloud pubblico tranne gli Stati Uniti occidentali.
 
 >[!IMPORTANT]
 > Per un breve periodo di tempo, l'accesso nelle aree escluse dal lancio iniziale (Stati Uniti orientali 2, Stati Uniti centrali, Europa settentrionale, Stati Uniti centro-occidentali, Europa occidentale, Asia sud-orientale) richiede la registrazione di funzionalità di sottoscrizione aggiuntive (AllowLBPreviewWave2 e AllowLBPreviewWave3).  [Seguire questa procedura](#additionalpreviewregions). Eseguire tutti i passaggi anche se in precedenza è già stata effettuata la registrazione a AllowLBPreview.
@@ -467,6 +467,7 @@ Durante la fase di anteprima si applicano le limitazioni seguenti, soggette a mo
 - Gli [avvisi di Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) non sono attualmente supportati.
 - Il portale non supporta ancora le aree di anteprima espanse.  Usare strumenti client come modelli, interfaccia della riga di comando di Azure 2.0 o PowerShell come soluzione alternativa.
 - Lo spostamento delle operazioni di sottoscrizione non è supportato.
+- Non è disponibile negli Stati Uniti occidentali.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

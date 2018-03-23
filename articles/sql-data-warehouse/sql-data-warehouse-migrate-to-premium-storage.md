@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 751f553c277cec579327771beb2f3256664452b1
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1e216da55a4c425fe112215464cdedb59c8db585
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Eseguire la migrazione di un data warehouse proprio all'archiviazione Premium
 Azure SQL Data Warehouse ha recentemente introdotto l'[archiviazione Premium per una maggiore prevedibilità delle prestazioni][premium storage for greater performance predictability]. I data warehouse esistenti attualmente inclusi nell'archiviazione Standard possono essere migrati all'archiviazione Premium. È possibile sfruttare la migrazione automatica oppure, se si preferisce controllare quando eseguire la migrazione (che prevede tempi di inattività), è possibile eseguire la migrazione manualmente.
@@ -31,13 +31,13 @@ Se il data warehouse è stato creato prima delle date riportate di seguito, si s
 
 | **Area** | **Data warehouse creato prima di questa data** |
 |:--- |:--- |
-| Australia orientale |Archiviazione Premium non ancora disponibile |
+| Australia orientale |1 gennaio 2018 |
 | Cina orientale |1 novembre 2016 |
 | Cina settentrionale |1 novembre 2016 |
 | Germania centrale |1 novembre 2016 |
 | Germania nord-orientale |1 novembre 2016 |
-| India occidentale |Archiviazione Premium non ancora disponibile |
-| Giappone occidentale |Archiviazione Premium non ancora disponibile |
+| India occidentale |1 febbraio 2018 |
+| Giappone occidentale |1 febbraio 2018 |
 | Stati Uniti centro-settentrionali |10 novembre 2016 |
 
 ## <a name="automatic-migration-details"></a>Dettagli sulla migrazione automatica
@@ -69,14 +69,14 @@ I processi di migrazione automatica vengono eseguiti tra le 18.00 e le 06.00 (or
 
 | **Area** | **Data di inizio prevista** | **Data di fine prevista** |
 |:--- |:--- |:--- |
-| Australia orientale |Non ancora determinata |Non ancora determinata |
-| Cina orientale |9 gennaio 2017 |13 gennaio 2017 |
-| Cina settentrionale |9 gennaio 2017 |13 gennaio 2017 |
-| Germania centrale |9 gennaio 2017 |13 gennaio 2017 |
-| Germania nord-orientale |9 gennaio 2017 |13 gennaio 2017 |
-| India occidentale |Non ancora determinata |Non ancora determinata |
-| Giappone occidentale |Non ancora determinata |Non ancora determinata |
-| Stati Uniti centro-settentrionali |9 gennaio 2017 |13 gennaio 2017 |
+| Australia orientale |19 marzo 2018 |20 marzo 2018 |
+| Cina orientale |Migrazione già eseguita |Migrazione già eseguita |
+| Cina settentrionale |Migrazione già eseguita |Migrazione già eseguita |
+| Germania centrale |Migrazione già eseguita |Migrazione già eseguita |
+| Germania nord-orientale |Migrazione già eseguita |Migrazione già eseguita |
+| India occidentale |19 marzo 2018 |20 marzo 2018 |
+| Giappone occidentale |19 marzo 2018 |20 marzo 2018 |
+| Stati Uniti centro-settentrionali |Migrazione già eseguita |Migrazione già eseguita |
 
 ## <a name="self-migration-to-premium-storage"></a>Migrazione self-service ad archiviazione Premium
 Se si preferisce mantenere il controllo sui tempi di inattività, è possibile attenersi alla procedura seguente per eseguire la migrazione di un data warehouse esistente da archiviazione Standard ad archiviazione Premium. Se si sceglie questa opzione, è necessario completare la migrazione self-service prima che inizi la migrazione automatica in tale area. Ciò consente di evitare che la migrazione automatica causi conflitti (vedere la [pianificazione della migrazione automatica][automatic migration schedule]).
@@ -84,11 +84,14 @@ Se si preferisce mantenere il controllo sui tempi di inattività, è possibile a
 ### <a name="self-migration-instructions"></a>Istruzioni per la migrazione self-service
 Per migrare da sé il data warehouse, utilizzare le funzionalità di backup e ripristino. La parte della migrazione relativa al ripristino dovrebbe richiedere circa un'ora per TB di archiviazione per ogni data warehouse. Per mantenere lo stesso nome dopo il completamento della migrazione, seguire la [procedura di ridenominazione durante la migrazione][steps to rename during migration].
 
-1. [Sospendere][Pause] il data warehouse. Questa operazione richiede un backup automatico.
+1. [Sospendere][Pause] il data warehouse. 
 2. [Eseguire il ripristino][Restore] dallo snapshot più recente.
 3. Eliminare il data warehouse esistente in archiviazione Standard. **Se non viene eseguito questo passaggio, si riceverà l'addebito per entrambi i data warehouse.**
 
 > [!NOTE]
+>
+> Quando si ripristina il data warehouse, verificare che il punto di ripristino più recente sia successivo alla sospensione del data warehouse.
+>
 > Le impostazioni seguenti non vengono mantenute come parte della migrazione:
 >
 > * Il controllo a livello di database deve essere abilitato nuovamente.
@@ -105,60 +108,13 @@ In questo esempio, immaginare che il data warehouse esistente in archiviazione S
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Sospendere][Pause] "MyDW_BeforeMigration." Questa operazione richiede un backup automatico.
+2. [Sospendere][Pause] "MyDW_BeforeMigration." 
 3. [Reimpostare][Restore] dallo snapshot più recente un nuovo database con il nome solito (es. "MyDW").
 4. Eliminare "MyDW_BeforeMigration". **Se non viene eseguito questo passaggio, si riceverà l'addebito per entrambi i data warehouse.**
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Con il passaggio ad archiviazione Premium, il numero di file BLOB del database nell'architettura sottostante del data warehouse è aumentato. Per ottenere il massimo dei vantaggi delle prestazioni per questa modifica, ricreare gli indici columnstore cluster usando il seguente script. Lo script funziona forzando alcuni dei dati esistenti per i BLOB aggiuntivi. Se non viene eseguita alcuna azione, i dati vengono ovviamente ridistribuiti nel tempo mentre si caricano più dati nelle tabelle.
-
-**Prerequisiti:**
-
-- È necessario eseguire il data warehouse con almeno 1.000 unità data warehouse (vedere [Ridimensionare la potenza di calcolo][scale compute power]).
-- L'utente che esegue lo script deve essere nel [ruolo mediumrc][mediumrc role] o superiore. Per aggiungere un utente a questo ruolo, eseguire questo codice: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
-
-````sql
--------------------------------------------------------------------------------
--- Step 1: Create table to control index rebuild
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
-
---------------------------------------------------------------------------------
--- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
--- Run as user in mediumrc or higher
---------------------------------------------------------------------------------
-
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
-go
--------------------------------------------------------------------------------
--- Step 3: Clean up table created in Step 1
---------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
 
 In caso di problemi con il data warehouse, [creare un ticket di supporto][create a support ticket] e specificare la migrazione ad archiviazione Premium come possibile causa.
 

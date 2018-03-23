@@ -1,8 +1,8 @@
 ---
-title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Documentazione Microsoft
+title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Microsoft Docs
 description: Informazioni su come utilizzare la pubblicazione per fasi per le app Web in Azure App Service."
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
 
-Quando si distribuisce l'app Web, il back-end per dispositivi mobili, l'app Web su Linux e l'App per le API al [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire la distribuzione in uno slot di distribuzione distinto, invece che in quello predefinito, se la modalità del piano di servizio app usata è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
+Quando si distribuiscono l'app Web, il back-end per dispositivi mobili, l'app Web su Linux e l'app per le API nel [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714), è possibile eseguire questa operazione in uno slot di distribuzione distinto anziché in uno slot di produzione predefinito se il piano usato del servizio app è **Standard** o **Premium**. Gli slot di distribuzione sono in realtà app dal vivo con nomi host specifici. È possibile scambiare il contenuto dell'app e gli elementi delle configurazioni tra i due slot di distribuzione, incluso lo slot di produzione. La distribuzione dell'applicazione in uno slot di distribuzione presenta i seguenti vantaggi:
 
 * È possibile convalidare le modifiche alle app in uno slot di distribuzione temporaneo prima di scambiarlo con quello di produzione.
 * La distribuzione preliminare di un'app in uno slot e la successiva implementazione in un ambiente di produzione garantiscono che tutte le istanze dello slot vengano effettivamente eseguite prima di passare alla fase di produzione. Ciò consente di evitare i tempi di inattività al momento della distribuzione dell'app. Il reindirizzamento del traffico è lineare e nessuna richiesta viene eliminata in seguito alle operazioni di scambio. L'intero flusso di lavoro può essere automatizzata tramite la configurazione di [scambio automatico](#Auto-Swap) quando non è necessario spazio di pre-swapping convalida.
 * Dopo uno scambio, lo slot con l'app gestita temporaneamente include l'app di produzione precedente. Se le modifiche applicate nello slot di produzione non risultano corrette, è possibile ripetere immediatamente lo scambio dei due slot per recuperare l'ultimo sito con i dati corretti.
 
-Ciascuna modalità di piano App Service supporta un numero diverso di slot di distribuzione. Per conoscere il numero di slot supportati dalla modalità della propria app, vedere [Tariffe del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
+Ogni piano del servizio app supporta un numero diverso di slot di distribuzione. Per conoscere il numero di slot supportati dal piano dell'app, vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Se l'app dispone di più slot, non è possibile cambiare la modalità.
+* Se l'app ha più slot, non è possibile cambiare il piano.
 * Gli slot non di produzione non sono scalabili.
-* La gestione delle risorse collegate non è supportata per gli slot non di produzione. Solo nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) , è possibile evitare questo impatto potenziale su uno slot di produzione spostando temporaneamente lo slot non di produzione in una modalità di piano servizio app differente. Si noti che lo slot non di produzione deve ancora una volta condividere la stessa modalità dello slot di produzione per potere eseguire lo scambio tra i due slot.
+* La gestione delle risorse collegate non è supportata per gli slot non di produzione. Solo nel [portale di Azure](http://go.microsoft.com/fwlink/?LinkId=529715) è possibile evitare questo impatto potenziale su uno slot di produzione spostando temporaneamente lo slot non di produzione in un piano diverso del servizio app. Si noti che, per poter scambiare i due slot, è necessario che lo slot non di produzione condivida ancora una volta lo stesso piano con lo slot di produzione.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Aggiungere uno slot di distribuzione
-Per abilitare più slot di distribuzione, l'app deve essere in esecuzione in modalità **Standard** o **Premium**.
+Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione con il piano **Standard** o **Premium**.
 
 1. Nel [Portale di Azure](https://portal.azure.com/) aprire il pannello della [risorsa](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
 2. Scegliere l'opzione **Slot di distribuzione**, quindi fare clic su **Aggiungi slot**.
@@ -47,7 +47,7 @@ Per abilitare più slot di distribuzione, l'app deve essere in esecuzione in mod
     ![Aggiungi nuovo slot di distribuzione][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Se l'app non è già in modalità **Standard** o **Premium**, si riceverà un messaggio di errore che indica le modalità supportate per l'abilitazione della pubblicazione per fasi. A questo punto è possibile selezionare **Aggiorna** e spostarsi alla scheda **Scalabilità** dell'app prima di continuare.
+   > Se l'app non è già in esecuzione nel piano **Standard** o **Premium**, si riceverà un messaggio di errore che indica i piani supportati per l'abilitazione della pubblicazione di gestione temporanea. A questo punto è possibile selezionare **Aggiorna** e spostarsi alla scheda **Scalabilità** dell'app prima di continuare.
    > 
    > 
 3. Nel pannello **Aggiungi uno slot** assegnare un nome allo slot e selezionare se clonare la configurazione dell'app da uno slot di distribuzione esistente. Fare clic sul segno di spunta per continuare.

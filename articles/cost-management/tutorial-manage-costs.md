@@ -1,8 +1,8 @@
 ---
 title: 'Esercitazione: Gestire i costi tramite Gestione costi di Azure | Microsoft Docs'
-description: "In questa esercitazione si apprenderà come gestire i costi usando l'allocazione dei costi e i report di showback e chargeback."
+description: In questa esercitazione si apprenderà come gestire i costi usando l'allocazione dei costi e i report di showback e chargeback.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7e9f11e702dbbe8864f8a0c307777c922e5f028d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 238964540bffaf8d05148c587462256ce20d87f4
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Esercitazione: Gestire i costi tramite Gestione costi di Azure
 
-Per gestire i costi e generare i report di showback in Gestione costi di Azure di Cloudyn, si esegue l'allocazione dei costi in base a tag. Il processo di allocazione dei costi assegna i costi alle risorse cloud utilizzate. I costi sono interamente allocati quando tutte le risorse sono suddivise in categorie con tag. Dopo aver allocato i costi, è possibile mostrare agli utenti le informazioni di showback o chargeback usando dashboard e report. Tuttavia, quando si inizia a usare Gestione costi, è possibile che molte risorse non siano contrassegnate né contrassegnabili con tag.
+Per gestire i costi e generare i report di showback in Gestione costi di Azure, si esegue l'allocazione dei costi in base a tag. Il processo di allocazione dei costi assegna i costi alle risorse cloud utilizzate. I costi sono interamente allocati quando tutte le risorse sono suddivise in categorie con tag. Dopo aver allocato i costi, è possibile mostrare agli utenti le informazioni di showback o chargeback usando dashboard e report. Tuttavia, quando si inizia a usare Gestione costi, è possibile che molte risorse non siano contrassegnate né contrassegnabili con tag.
 
 Si supponga ad esempio di voler richiedere un rimborso per costi di progettazione. Sarà necessario essere in grado di dimostrare al team di progettazione che si deve ricevere un importo specifico, in base ai costi delle risorse. A tal fine, è possibile mostrare al team un report per tutte le risorse utilizzate che sono contrassegnate con il tag *progettazione*.
 

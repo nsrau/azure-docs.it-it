@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory B2C: informazioni di riferimento: personalizzare l''interfaccia utente di un percorso utente con i criteri personalizzati | Microsoft Docs'
+title: "Azure Active Directory B2C: informazioni di riferimento: personalizzare l'interfaccia utente di un percorso utente con i criteri personalizzati | Microsoft Docs"
 description: Un argomento sui criteri personalizzati di Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: rojasja
 manager: mtillman
 editor: rojasja
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -72,10 +72,10 @@ Per assicurarsi che tutto funzioni come previsto, è necessario:
 - Usare URL assoluti, ad esempio https://yourdomain/content per tutti i collegamenti e il contenuto CSS.
 
 > [!TIP]
-> Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, è possibile usare il sito http://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
+> Per verificare che CORS sia abilitato per il sito su cui si ospita il contenuto e per testare le richieste CORS, usare il sito http://test-cors.org/. Da questo sito è possibile inviare la richiesta CORS a un server remoto (per verificare se CORS è supportato) oppure a un server di test (per esplorare determinate funzionalità di CORS).
 
 > [!TIP]
-> Il sito http://enable-cors.org/ costituisce anche una risorsa più che utile per CORS.
+> Il sito http://enable-cors.org/ costituisce anche una risorsa molto utile per CORS.
 
 Grazie a questo approccio basato su CORS, le esperienze degli utenti finali saranno coerenti nell'applicazione e nelle pagine rese disponibili da Azure AD B2C.
 
@@ -123,7 +123,7 @@ La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endp
 Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si ospita il contenuto, procedere con i passaggi seguenti:
 
 1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Passare a http://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
+2. Accedere a http://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
@@ -141,7 +141,7 @@ L'account di archiviazione ora includerà un contenitore BLOB denominato *b2c* n
 
 La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
-| Modello HTML5 | Descrizione |
+| Modello HTML5 | DESCRIZIONE |
 |----------------|-------------|
 | *phonefactor.html* | Questa pagina può essere usata come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Questa pagina può essere usata come modello per una pagina Password dimenticata. |
@@ -157,7 +157,7 @@ I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 
-| ID definizione del contenuto | Descrizione |
+| ID definizione del contenuto | DESCRIZIONE |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Sono presenti provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali (basati su indirizzo di posta elettronica o nome utente). |

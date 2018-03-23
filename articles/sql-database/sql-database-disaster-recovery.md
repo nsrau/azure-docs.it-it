@@ -1,32 +1,27 @@
 ---
 title: Ripristino di emergenza del database SQL | Documentazione Microsoft
-description: "Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL."
+description: Informazioni su come ripristinare un database da un guasto o un'interruzione del servizio del data center a livello di area con le funzionalità di replica geografica attiva e ripristino geografico del database SQL.
 services: sql-database
-documentationcenter: 
 author: anosov1960
 manager: jhubbard
-editor: monicar
-ms.assetid: 4800960e-3f9d-40ce-9e55-fb7f2784c067
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 Il database SQL di Azure offre le funzionalità riportate di seguito per il ripristino da un'interruzione del servizio:
 
 * [Replica geografica attiva e gruppi di failover](sql-database-geo-replication-overview.md)
 * [Ripristino geografico](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Database con ridondanza della zona](sql-database-high-availability.md)
 
 Per informazioni sugli scenari di continuità aziendale e sulle funzionalità che supportano questi scenari, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
 
@@ -36,11 +31,11 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 ### <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 Per completare correttamente il ripristino su un'altra area dati tramite i gruppi di failover o i backup con ridondanza geografica, è necessario preparare un server in un'altra interruzione del data center perché diventi il nuovo server primario in caso di necessità, nonché procedure ben definite, documentate e testate per garantire un ripristino senza problemi. La procedura di preparazione comprende:
 
-* Identificare il server logico in un'altra area perché diventi il nuovo server primario. Per il ripristino geografico, questo sarà in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) all'area in cui si trova il database. In questo modo si eliminerà il costo del traffico aggiuntivo durante le operazioni di ripristino geografico.
+* Identificare il server logico in un'altra area perché diventi il nuovo server primario. Per il ripristino geografico, questo è in genere un server di un'[area abbinata](../best-practices-availability-paired-regions.md) a quella in cui si trova il database. Ciò consente di eliminare il costo del traffico aggiuntivo durante le operazioni di ripristino geografico.
 * Identificare e definire, facoltativamente, le regole del firewall a livello di server necessarie agli utenti per accedere al nuovo database primario.
 * Determinare come si desidera reindirizzare gli utenti al nuovo server primario, ad esempio tramite modifica delle stringhe di connessione o delle voci del DNS.
 * Identificare e, facoltativamente, creare gli account di accesso presenti nel database master nel nuovo server primario e verificare che questi account di accesso dispongano delle autorizzazioni appropriate nel database master, se necessarie. Per altre informazioni, vedere [Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md)
-* Stabilire le regole di avviso che dovranno essere aggiornata per eseguire il mapping verso il nuovo database primario.
+* Identificare le regole di avviso che devono essere aggiornate per il mapping al nuovo database primario.
 * Documentare la configurazione di controllo nel database primario corrente
 * [Esercitazione per il ripristino di emergenza](sql-database-disaster-recovery-drills.md). Per simulare un'interruzione del servizio di ripristino geografico, è possibile eliminare o rinominare il database di origine per provocare un errore di connettività dell'applicazione. Per simulare un'interruzione usando i gruppi di failover, è possibile disabilitare l'applicazione Web o la macchina virtuale connessa al database oppure eseguire un failover del database per causare errori di connettività dell'applicazione.
 
@@ -58,10 +53,10 @@ A seconda della tolleranza dell'applicazione ai tempi di inattività e delle eve
 Usare [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*), che consente di ottenere l'ultimo punto di ripristino con replica geografica.
 
 ## <a name="wait-for-service-recovery"></a>Attendere il ripristino del servizio
-I team di Azure puntano a ripristinare la disponibilità del servizio quanto più rapidamente possibile, ma questo può richiedere ore o giorni a seconda della causa radice.  Se l'applicazione può tollerare tempi di inattività significativi è possibile attendere semplicemente il completamento del ripristino. In tal caso, non è necessaria alcuna azione da parte dell'utente. È possibile vedere lo stato corrente del servizio nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/). Dopo il ripristino dell'area verrà ripristinata la disponibilità dell'applicazione.
+I team di Azure puntano a ripristinare la disponibilità del servizio quanto più rapidamente possibile, ma questo può richiedere ore o giorni a seconda della causa radice.  Se l'applicazione può tollerare tempi di inattività significativi è possibile attendere semplicemente il completamento del ripristino. In tal caso, non è necessaria alcuna azione da parte dell'utente. È possibile vedere lo stato corrente del servizio nel [dashboard per l'integrità dei servizi di Azure](https://azure.microsoft.com/status/). Dopo il ripristino dell'area, la disponibilità dell'applicazione viene ripristinata.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Eseguire il failover nel server secondario con replica geografica nel gruppo di failover
-Se i tempi di inattività dell'applicazione possono comportare una responsabilità dell'azienda, è consigliabile usare i gruppi di failover. Questo permette all'applicazione di ripristinare rapidamente la disponibilità in un'area diversa in caso di interruzione del servizio. Informazioni su come [configurare i gruppi di failover](sql-database-geo-replication-portal.md).
+Se i tempi di inattività dell'applicazione possono arrecare danno all'azienda, è consigliabile usare gruppi di failover. In questo modo, se si verifica un'interruzione del servizio, la disponibilità dell'applicazione può essere ripristinata in un'altra area. Informazioni su come [configurare i gruppi di failover](sql-database-geo-replication-portal.md).
 
 Per ripristinare la disponibilità dei database è necessario avviare il failover nel server secondario usando uno dei metodi supportati.
 
@@ -77,7 +72,7 @@ Se i tempi di inattività dell'applicazione non comportano una responsabilità a
 Se si esegue il ripristino da un'interruzione del servizio usando il ripristino geografico, è necessario assicurarsi che la connettività ai nuovi database sia configurata correttamente in modo da poter riprendere il normale funzionamento dell'applicazione. Di seguito è riportato un elenco di controllo di attività per fare in modo che il database ripristinato sia pronto per la produzione.
 
 ### <a name="update-connection-strings"></a>Aggiornare le stringhe di connessione
-Poiché il database ripristinato si troverà in un server diverso, è necessario aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server.
+Poiché il database ripristinato si trova in un server diverso, è necessario aggiornare la stringa di connessione dell'applicazione in modo che punti a tale server.
 
 Per altre informazioni sulla modifica delle stringhe di connessione, vedere il linguaggio di sviluppo appropriato per le [raccolte di connessioni](sql-database-libraries.md).
 

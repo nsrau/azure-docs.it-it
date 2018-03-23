@@ -1,4 +1,4 @@
-| Risorsa | Gratuito | Shared (Anteprima) | Basic | Standard | Premium (anteprima)</th> |
+| Risorsa | Gratuito | Shared (Anteprima) | Basic | Standard | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [App Web, per dispositivi mobili o per le API](https://azure.microsoft.com/services/app-service/) per [piano di servizio app](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |Illimitato<sup>2</sup> |
 | [App per la logica](https://azure.microsoft.com/services/app-service/logic/) per [piano di servizio app](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |20 per ogni core |20 per ogni core |
@@ -18,14 +18,14 @@
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |
 | Bilanciamento del carico integrato | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Backup pianificati](../articles/app-service/web-sites-backup.md) | | | | Backup pianificati ogni 2 ore, un massimo di 12 backup al giorno (manuale + pianificata) | Backup pianificati ogni ora, un massimo di 50 backup al giorno (manuale + pianificata) |
+| [Backup pianificati](../articles/app-service/web-sites-backup.md) | | | | Backup pianificati ogni 2 ore, massimo 12 backup al giorno (manuali e pianificati) | Backup pianificati ogni ora, massimo 50 backup al giorno (manuali e pianificati) |
 | [Scalabilità automatica](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [Processi Web](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |
 | [Monitoraggio endpoint](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Slot di staging](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
 | Domini personalizzati per applicazione</a> | |500 |500 |500 |500 |
-| Contratto di servizio | |<p> |99,9% |99.95%<sup>10</sup> |99.95%<sup>9</sup> |
+| Contratto di servizio | |<p> |99,9% |99.95%<sup>10</sup> |99,95%<sup>9</sup> |
 
 <sup>1</sup>Le quote per applicazioni e di archiviazione sono per ogni piano di servizio app se non diversamente specificato.  
 <sup>2</sup>Il numero di app effettivo che è possibile ospitare in questi computer dipende dall'attività delle app, dalle dimensioni delle istanze del computer e dall'uso delle risorse corrispondente.  
@@ -34,6 +34,6 @@
 <sup>5</sup>Il limite di archiviazione è la dimensione totale del contenuto tra tutte le applicazioni nello stesso piano di servizio dell'applicazione. Altre opzioni di archiviazione sono disponibili nell'[ambiente del servizio app](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>Queste risorse sono vincolate dalle risorse fisiche nelle istanze dedicate (la dimensione dell'istanza e il numero di istanze).  
 <sup>7</sup>Se si scala un'applicazione di livello base per due istanze, sono presenti 350 connessioni simultanee per ognuna delle due istanze.  
-<sup>8</sup>eseguire file eseguibili personalizzati e/o script su richiesta, in base a una pianificazione o di istanza in modo continuo come attività in background all'interno del servizio App. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.   
-<sup>9</sup>contratto di servizio del 99,95% fornito per le distribuzioni che usano più istanze di gestione traffico di Azure configurato per il failover.  
+<sup>8</sup>Eseguire gli eseguibili e/o gli script personalizzati su richiesta, in base a una pianificazione, oppure continuamente come attività in background nell'istanza del servizio app. Always On è richiesto per l'esecuzione continua di Processi Web. L'utilità di pianificazione di Azure di livello Free o Standard è richiesta per la funzionalità Processi Web pianificata. Non esiste alcun limite predefinito al numero di processi Web che è possibile eseguire in un'istanza del servizio app, ma vi sono limiti pratici che dipendono dall'operazione che sta tentando di eseguire il codice dell'applicazione.   
+<sup>9</sup>Contratto di servizio con disponibilità garantita del 99,95% per distribuzioni che usano più istanze con Gestione traffico di Azure configurato per il failover.  
 

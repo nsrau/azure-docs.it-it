@@ -2,22 +2,22 @@
 title: Errori di registrazione del provider di risorse di Azure | Microsoft Docs
 description: Viene descritto come risolvere gli errori di registrazione del provider di risorse di Azure.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Risoluzione degli errori di registrazione del provider di risorse
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+Il messaggio di errore dovrebbe fornire suggerimenti per le versioni di API e i percorsi supportati. È possibile modificare il modello impostando uno dei valori suggeriti. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando. Se non è mai stato usato un provider di risorse specifico, potrebbe essere necessario registrarlo.
+
 ## <a name="cause"></a>Causa
 
 Questi errori vengono visualizzati per uno di questi tre motivi:
@@ -48,11 +50,7 @@ Questi errori vengono visualizzati per uno di questi tre motivi:
 1. La versione dell'API non è supportata per il tipo di risorsa
 1. Il percorso non è supportato per il tipo di risorsa
 
-## <a name="solution"></a>Soluzione
-
-Il messaggio di errore dovrebbe fornire suggerimenti per le versioni di API e i percorsi supportati. È possibile modificare il modello impostando uno dei valori suggeriti. La maggior parte dei provider, ma non tutti, vengono registrati automaticamente dal portale di Azure o dall'interfaccia della riga di comando che si sta usando. Se non è mai stato usato un provider di risorse specifico, potrebbe essere necessario registrarlo. È possibile ottenere altre informazioni sui provider di risorse tramite PowerShell o l'interfaccia della riga di comando di Azure.
-
-### <a name="solution-1"></a>Soluzione 1
+## <a name="solution-1---powershell"></a>Soluzione 1: PowerShell
 
 Per visualizzare lo stato della registrazione in PowerShell usare **Get-AzureRmResourceProvider**.
 
@@ -78,9 +76,7 @@ Per ottenere le versioni di API supportate per un tipo di risorsa particolare è
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Soluzione 2
-
-**Interfaccia della riga di comando di Azure**
+## <a name="solution-2---azure-cli"></a>Soluzione 2: interfaccia della riga di comando di Azure
 
 Per vedere se il provider è registrato, usare il comando `az provider list` .
 
@@ -100,7 +96,7 @@ Per visualizzare le versioni di API e i percorsi supportati per un tipo di risor
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Soluzione 3
+## <a name="solution-3---azure-portal"></a>Soluzione 3: portale di Azure
 
 È possibile visualizzare lo stato di registrazione e registrare uno spazio dei nomi del provider di risorse tramite il portale.
 

@@ -2,10 +2,10 @@
 title: Librerie di autenticazione di Azure Active Directory 2.0 | Microsoft Docs
 description: Librerie client e middleware server compatibili e link a librerie, codice sorgente ed esempi correlati per l'endpoint di Azure Active Directory 2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Librerie di autenticazione di Azure Active Directory 2.0
 L'[endpoint di Azure Active Directory (Azure AD) 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) supporta i protocolli standard del settore OAuth 2.0 e OpenID Connect 1.0. Con l'endpoint 2.0 è possibile usare varie librerie di Microsoft e altre organizzazioni.
@@ -27,9 +27,9 @@ L'[endpoint di Azure Active Directory (Azure AD) 2.0](https://docs.microsoft.com
 Quando si compila un'applicazione che usa l'endpoint 2.0, è consigliabile usare raccolte scritte da esperti del dominio del protocollo che seguono una metodologia Security Development Lifecycle (SDL), come [quella seguita da Microsoft][Microsoft-SDL]. Se si decide di creare manualmente il codice per il supporto dei protocolli, è consigliabile seguire la metodologia SDL e prestare attenzione alle considerazioni sulla sicurezza contenute nelle specifiche degli standard di ogni protocollo.
 
 > [!NOTE]
-> Si cercano le librerie v1.0 di Azure AD (ASAL)? Controllare la [Guida alle librerie ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
-> 
-> 
+> Si cercano le librerie v1.0 di Azure AD (ASAL)? Controllare la [Guida alle librerie ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+>
+>
 
 ## <a name="types-of-libraries"></a>Tipi di librerie
 L'endpoint di Azure AD v2.0 usa due tipi di librerie:
@@ -62,7 +62,7 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Librerie middleware server supportate da Microsoft
 
-| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Riferimenti
+| Piattaforma | Libreria | Download | Codice sorgente | Esempio | riferimento
 | --- | --- | --- | --- | --- | --- |
 | .NET 4.x | Middleware OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Applicazione MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4.x | Middleware OWIN OAuth Bearer per Azure AD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
@@ -78,13 +78,8 @@ Per un elenco delle librerie che funzionano con l'endpoint 2.0, vedere le sezion
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Esempio di app nativa](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Esempio di app nativa](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>Librerie middleware server compatibili
-| Piattaforma | Nome libreria | Versione testata | Codice sorgente | Esempio |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Versione 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Versione 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[App Web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Contenuti correlati

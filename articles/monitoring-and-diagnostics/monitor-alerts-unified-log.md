@@ -3,7 +3,7 @@ title: Avvisi del log in Monitoraggio di Azure - Avvisi (anteprima) | Microsoft 
 description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate di query complesse per Avvisi di Azure (anteprima).
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Avvisi del log in Monitoraggio di Azure - Avvisi (anteprima)
-Questo articolo contiene informazioni dettagliate sul funzionamento delle regole di avviso nelle query di Analytics in Avvisi di Azure (anteprima) e la descrizione delle differenze tra diversi tipi di regole di avviso del log.
+Questo articolo contiene informazioni dettagliate sul funzionamento delle regole di avviso nelle query di Analytics in Avvisi di Azure (anteprima) e la descrizione delle differenze tra diversi tipi di regole di avviso del log. Per informazioni sugli avvisi delle metriche basati su log, vedere [Avvisi delle metriche near real time](monitoring-near-real-time-metric-alerts.md).
 
 Al momento, Avvisi di Azure (anteprima), supporta gli avvisi del log per le query di [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,7 +40,7 @@ Quindi durante la [creazione di un avviso del log in Avvisi (anteprima)](monitor
 
 ## <a name="log-alert-rules"></a>Regole di avviso del log
 
-Gli avvisi vengono creati tramite Avvisi di Azure (anteprima) che esegue automaticamente query del log a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo come l'invio di dati a un'applicazione esterna tramite [webhook basato su JSON](monitor-alerts-unified-log-webhook.md), usando [Gruppi di azioni](monitoring-action-groups.md). I diversi tipi di regole di avviso usano una logica diversa per eseguire l'analisi.
+Gli avvisi vengono creati tramite Avvisi di Azure (anteprima) per eseguire automaticamente query del log a intervalli regolari.  Se i risultati della query del log corrispondono a criteri specifici viene creato un record di avviso. La regola può quindi eseguire automaticamente una o più azioni per notificare l'avviso all'utente in modo proattivo o richiamare un altro processo come l'invio di dati a un'applicazione esterna tramite [webhook basato su JSON](monitor-alerts-unified-log-webhook.md), usando [Gruppi di azioni](monitoring-action-groups.md). I diversi tipi di regole di avviso usano una logica diversa per eseguire l'analisi.
 
 Le regole di avviso vengono definite dai dettagli seguenti:
 
@@ -96,7 +96,7 @@ Le regole di avviso **Unità di misura della metrica** creano un avviso per ogni
 
 **Intervallo**: definisce l'intervallo di tempo in cui i dati vengono aggregati.  Ad esempio, se è stato specificato **cinque minuti**, viene creato un record per ogni istanza del campo Gruppo aggregato a intervalli di 5 minuti nella finestra temporale specificata per l'avviso.
 > [!NOTE]
-> La funzione Bin deve essere usata nella query. Se l'uso della funzione Bin genera intervalli di tempo diversi per la finestra temporale, Avvisi usa la funzione bin_at per assicurare la presenza di un punto fisso
+> La funzione Bin deve essere usata nella query. Poiché bin() può generare risultati con intervalli di tempo diversi, Avvisi usa la funzione bin_at con un orario appropriato in fase di runtime per garantire risultati con un punto fisso.
 
 **Soglia**: la soglia per le regole di avviso Unità di misurazione della metrica è definita da un valore di aggregazione e da un numero di violazioni della sicurezza.  Se qualsiasi punto dati in una ricerca di log supera questo valore, ciò viene considerato una violazione.  Se il numero di violazioni per un oggetto nei risultati supera il valore specificato, viene creato un avviso per l'oggetto.
 

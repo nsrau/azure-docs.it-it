@@ -8,7 +8,7 @@
 | Server di database SQL per sottoscrizione |6 |150 |
 | Server DNS per sottoscrizione |9 |100 |
 | IP riservati per sottoscrizione |20 |100 |
-| Certificati di servizi ospitati per sottoscrizione |400 |400 |
+| Certificati di servizi ospitati per sottoscrizione |199 |199 |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |256 |256 |
 
 

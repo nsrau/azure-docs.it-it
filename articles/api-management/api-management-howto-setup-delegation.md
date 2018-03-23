@@ -2,10 +2,10 @@
 title: Come delegare la registrazione utente e la sottoscrizione ai prodotti
 description: Informazioni su come delegare la registrazione dell'utente e la sottoscrizione del prodotto a terze parti in Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 La delega consente di usare il sito Web esistente per gestire l'accesso e l'iscrizione degli sviluppatori e la sottoscrizione ai prodotti invece di usare la funzionalità incorporata nel portale per sviluppatori. Ciò consente al sito Web di avere la proprietà dei dati utente e di eseguire la convalida di questi passaggi in modo personalizzato.
@@ -44,7 +44,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 
 1. Ricevere una richiesta nel formato seguente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL della pagina di origine}&salt={string}&sig={string}*
    > 
    > 
    
@@ -70,7 +70,7 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
    * [Richiedere un token SSO (Single Sign-On)] tramite l'API REST di Gestione API
    * Aggiungere un parametro di query returnUrl all'URL SSO ricevuto dalla chiamata API precedente:
      
-     > ad esempio, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > ad esempio https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * Reindirizzare l'utente all'URL generato in precedenza
@@ -101,7 +101,7 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
 
 1. Ricevere una richiesta nel formato seguente:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operazione}&productId={prodotto per il quale effettuare la sottoscrizione}&userId={utente che esegue la richiesta}&salt={stringa}&sid={stringa}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product per eseguire la sottoscrizione a}&userId={user making request}&salt={string}&sig={string}*
    > 
    > 
    

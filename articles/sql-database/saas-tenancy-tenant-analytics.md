@@ -1,25 +1,21 @@
 ---
-title: "Eseguire l'analisi su più tenant con dati estratti| Microsoft Docs"
-description: "Query di analisi su più tenant con dati estratti da diversi database SQL di Azure."
+title: Eseguire l'analisi su più tenant con dati estratti| Microsoft Docs
+description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure.
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: MightyPen
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/08/2017
-ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 62f09a7ff353783b0f54202554d126bf59ee941a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: anjangsh; billgib; genemi
+ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analisi su più tenant con dati estratti
 

@@ -1,6 +1,6 @@
 ---
 title: Introduzione alla soluzione Simulazione dispositivi - Azure | Microsoft Docs
-description: "La soluzione di simulazione IoT Suite è uno strumento che può essere usato per facilitare sviluppo e test di una soluzione IoT. Il servizio di simulazione è un'offerta autonoma utilizzabile in combinazione con altre soluzioni preconfigurate o con soluzioni personalizzate."
+description: La soluzione di simulazione IoT Suite è uno strumento che può essere usato per facilitare sviluppo e test di una soluzione IoT. Il servizio di simulazione è un'offerta autonoma utilizzabile in combinazione con altre soluzioni preconfigurate o con soluzioni personalizzate.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 25b9d1c7debe0d98a87b7d0b47dea6ab6f36c8af
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Procedura dettagliata per Simulazione dispositivi
 
@@ -31,11 +31,11 @@ In questa esercitazione si apprenderà come:
 > * Avvio e arresto di una simulazione
 > * Visualizzare le metriche di telemetria
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, è necessaria un'istanza distribuita di Simulazione dispositivi di Azure IoT nella sottoscrizione di Azure.
 
-Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione Simulazione dispositivi di Azure IoT](iot-suite-device-simulation-explore.md).
+Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione Simulazione dispositivi di Azure IoT](iot-suite-device-simulation-deploy.md).
 
 ## <a name="configuring-device-simulation"></a>Configurazione di Simulazione dispositivi
 
@@ -73,7 +73,7 @@ I modelli di dispositivo preconfigurati includono più sensori con una frequenza
 
 La tabella seguente mostra un elenco delle configurazioni per ogni modello di dispositivo preconfigurato:
 
-| Modello del dispositivo | Sensore | Unità | Frequenza telemetria
+| Modello del dispositivo | Sensore | Unità | Telemetry frequency (Frequenza telemetria)
 | -------------| ------ | -----| --------------------|
 | Chiller (Refrigeratore) | umidità | % | 5 secondi |
 | | pressure | psig | 5 secondi |
@@ -96,13 +96,13 @@ Quando si seleziona il tipo di modello di dispositivo personalizzato, è possibi
 
 Per i sensori personalizzati sono disponibili le proprietà seguenti:
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ----- | ----------- |
 | Sensor Name (Nome del sensore) | Nome descrittivo per il sensore, ad esempio **temperatura** o **velocità**. |
-| Behavior (Comportamento) | I comportamenti consentono di ottenere dati di telemetria variabili da un messaggio all'altro, per simulare dati reali. Il comportamento **Increment** (Incremento) consente di aumentare il valore di un'unità per ogni messaggio inviato a partire dal valore minimo. Quando viene raggiunto il valore massimo, il processo riparte dal valore minimo. Il comportamento **Decrement** (Decremento) è uguale a **increment** (Incremento), ma alla rovescia. Il comportamento **Random** (Casuale) genera un valore casuale compreso tra i valori minimo e massimo. |
+| Comportamento | I comportamenti consentono di ottenere dati di telemetria variabili da un messaggio all'altro, per simulare dati reali. Il comportamento **Increment** (Incremento) consente di aumentare il valore di un'unità per ogni messaggio inviato a partire dal valore minimo. Quando viene raggiunto il valore massimo, il processo riparte dal valore minimo. Il comportamento **Decrement** (Decremento) è uguale a **increment** (Incremento), ma alla rovescia. Il comportamento **Random** (Casuale) genera un valore casuale compreso tra i valori minimo e massimo. |
 | Min Value (Valore minimo) | Il numero più basso che rappresenta l'intervallo di valori accettabili. |
 | Max Value (Valore massimo) | Il numero massimo che rappresenta l'intervallo di valori accettabili. |
-| Unit (Unità) | Unità di misura per il sensore, ad esempio °C o km/h. |
+| Unità | Unità di misura per il sensore, ad esempio °C o km/h. |
 
 ### <a name="number-of-devices"></a>Number of devices (Numero di dispositivi)
 

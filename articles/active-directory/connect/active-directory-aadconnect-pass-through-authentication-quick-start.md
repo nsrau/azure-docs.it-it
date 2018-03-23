@@ -1,9 +1,9 @@
 ---
 title: Autenticazione pass-through di Azure AD - Avvio rapido | Microsoft Docs
-description: "Questo articolo descrive le attività iniziali per l'autenticazione pass-through di Azure Active Directory (Azure AD)."
+description: Questo articolo descrive le attività iniziali per l'autenticazione pass-through di Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
-documentationcenter: 
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticazione pass-through di Azure Active Directory - Avvio rapido
 
@@ -116,20 +116,38 @@ Dopo questo passaggio, gli utenti di tutti i domini gestiti nel tenant possono a
 
 ## <a name="step-5-ensure-high-availability"></a>Passaggio 5: Garantire la disponibilità elevata
 
-Se si prevede di distribuire l'autenticazione pass-through in un ambiente di produzione, è necessario installare un agente di autenticazione autonomo. Installare questo secondo agente di autenticazione in un server _diverso_ da quello dove è in esecuzione Azure AD Connect e il primo agente di autenticazione. Questa configurazione fornisce la disponibilità elevata delle richieste di accesso. Per distribuire un agente di autenticazione, seguire queste istruzioni:
+Se si prevede di distribuire l'autenticazione pass-through in un ambiente di produzione, è necessario installare almeno un altro agente di autenticazione autonomo. Installare questi agenti di autenticazione in uno o più server _diversi_ da quello dove è in esecuzione Azure AD Connect. Questa configurazione offre la disponibilità elevata per le richieste di accesso utente.
 
-1. Scaricare la versione più recente dell'agente di autenticazione (versione 1.5.193.0 o successiva). Accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant.
+Per scaricare il software dell'agente di autenticazione, seguire queste istruzioni:
+
+1. Per scaricare la versione più recente dell'agente di autenticazione (versione 1.5.193.0 o successive), accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) con le credenziali di amministratore globale del tenant.
 2. Nel riquadro sinistro selezionare **Azure Active Directory**.
 3. Selezionare **Azure AD Connect**, **Autenticazione pass-through** e quindi **Scarica agente**.
 4. Fare clic sul pulsante **Accetta le condizioni e scarica**.
-5. Installare la versione più recente dell'agente di autenticazione eseguendo il file eseguibile scaricato nel passaggio precedente. Quando vengono richieste, fornire le credenziali di amministratore globale del tenant.
 
 ![Interfaccia di amministrazione di Azure Active Directory: pulsante Scarica per l'agente di autenticazione](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Scarica agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->È possibile scaricare anche l'[agente di autenticazione di Azure Active Directory](https://aka.ms/getauthagent). Assicurarsi di leggere e accettare le [Condizioni d'uso](https://aka.ms/authagenteula) dell'agente di autenticazione _prima_ di installarlo.
+>È anche possibile scaricare il software dell'agente di autenticazione direttamente da [qui](https://aka.ms/getauthagent). Leggere e accettare le [Condizioni d'uso](https://aka.ms/authagenteula) dell'agente di autenticazione _prima_ di installarlo.
+
+Esistono due modi per distribuire un agente di autenticazione autonomo:
+
+In primo luogo è possibile distribuirlo in modo interattivo eseguendo il file eseguibile dell'agente di autenticazione scaricato e, quando richiesto, specificando le credenziali di amministratore globale del tenant.
+
+In secondo luogo è possibile creare ed eseguire uno script di distribuzione automatica. Questa opzione è utile per distribuire contemporaneamente più agenti di autenticazione o per installare gli agenti di autenticazione in istanze di Windows Server che non hanno un'interfaccia utente abilitata o che non sono accessibili con Desktop remoto. Di seguito sono riportate le istruzioni per usare questo approccio:
+
+1. Eseguire il comando seguente per installare l'agente di autenticazione: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. È possibile registrare l'agente di autenticazione nel servizio tramite Windows PowerShell. Creare un oggetto credenziali di PowerShell `$cred` contenente un nome utente e una password di amministratore globale per il tenant. Eseguire il comando seguente sostituendo *\<username\>* e *\<password\>*:
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Passare a **C:\Programmi\Microsoft Azure AD Connect Authentication Agent** ed eseguire lo script seguente usando l'oggetto `$cred` creato:
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Blocco smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.

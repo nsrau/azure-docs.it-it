@@ -2,26 +2,26 @@
 title: Introduzione alle soluzioni SAP in macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sulle soluzioni SAP in esecuzione sulle macchine virtuali (VM) in Microsoft Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 03/05/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a0dcb941db5038b7c904c9eaa8599c5a1dc6e83
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 729fbd93566115499a6044f79a714232cdbc2f64
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizzo di Azure per l'hosting e l'esecuzione di scenari con carichi di lavoro SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -227,7 +227,7 @@ ms.lasthandoff: 01/03/2018
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
-[sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
+[sap-pam]:https://support.sap.com/pam (Product Availability Matrix (PAM) SAP)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
@@ -279,7 +279,7 @@ ms.lasthandoff: 01/03/2018
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
@@ -298,7 +298,7 @@ Scegliendo Microsoft Azure come partner cloud per SAP, sarà possibile eseguire 
 
 Oltre all'hosting di scenari SAP NetWeaver con diversi DBMS in Azure, è possibile eseguire l'hosting di diversi altri scenari di carico di lavoro SAP, come SAP BI in Azure. La documentazione relativa alle distribuzioni di SAP NetWeaver nelle macchine virtuali di Azure native è disponibile nella sezione "SAP NetWeaver in Macchine virtuali di Azure".
 
-Le offerte di macchine virtuali di Azure native prevedono dimensioni crescenti a livello di risorse di CPU e memoria per soddisfare il carico di lavoro SAP basato su SAP HANA. Per altre informazioni su questo argomento, vedere i documenti nella sezione SAP HANA sulle macchine virtuali di Azure.
+Le offerte di macchine virtuali di Azure native prevedono dimensioni crescenti a livello di risorse di CPU e memoria per soddisfare il carico di lavoro SAP basato su SAP HANA. Per altre informazioni su questo argomento, consultare i documenti nella sezione SAP HANA nelle macchine virtuali di Azure.
 
 L'univocità di Azure per SAP HANA è rappresentata da un'offerta esclusiva che differenzia Azure dalla concorrenza. Per abilitare l'hosting di scenari SAP complessi con SAP HANA che richiedono più risorse della CPU e della memoria, Azure offre l'utilizzo di hardware bare metal dedicato al cliente per eseguire distribuzioni SAP HANA che richiedono fino a 20 TB (scalabilità orizzontale di 60 TB) di memoria per S/4HANA o un altro carico di lavoro SAP HANA. Questa esclusiva soluzione Azure di SAP HANA in Azure (istanze di grandi dimensioni) consente di eseguire SAP HANA su hardware bare metal dedicato con il livello dell'applicazione SAP o il livello del middleware dei carichi di lavoro ospitato nelle macchine virtuali di Azure native. Questa soluzione è descritta in diversi documenti nella sezione "SAP HANA in Azure (istanze di grandi dimensioni)".   
 
@@ -337,7 +337,7 @@ Ultimo aggiornamento: luglio 2017
 ### <a name="high-availability-and-disaster-recovery-of-sap-hana-on-azure-large-instances"></a>Disponibilità elevata e ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni)
 Titolo: Disponibilità elevata e ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni)
 
-Riepilogo: La disponibilità elevata e il ripristino di emergenza sono aspetti importanti dell'esecuzione di sistemi SAP HANA cruciali nei server di Azure (istanze di grandi dimensioni). La collaborazione con SAP, l'integratore di sistemi e/o Microsoft è fondamentale per progettare e implementare correttamente la strategia di disponibilità elevata e ripristino di emergenza adatta alle proprie esigenze. È inoltre necessario prendere in considerazione alcuni fattori significativi, come l'RPO (Recovery Point Objective, obiettivo del punto di ripristino) e l'RTO (Recovery Time Objective, obiettivo del tempo di ripristino), specifici del proprio ambiente.  Questo documento illustra le opzioni disponibili per abilitare i livelli desiderati di disponibilità elevata e ripristino di emergenza.
+Riepilogo: La disponibilità elevata e il ripristino di emergenza sono aspetti importanti per l'esecuzione di uno o più server di importanza cruciale di SAP HANA in Azure (istanze di grandi dimensioni). La collaborazione con SAP, l'integratore di sistemi e/o Microsoft è fondamentale per progettare e implementare correttamente la strategia di disponibilità elevata e ripristino di emergenza adatta alle proprie esigenze. È inoltre necessario prendere in considerazione alcuni fattori significativi, come l'RPO (Recovery Point Objective, obiettivo del punto di ripristino) e l'RTO (Recovery Time Objective, obiettivo del tempo di ripristino), specifici del proprio ambiente.  Questo documento illustra le opzioni disponibili per abilitare i livelli desiderati di disponibilità elevata e ripristino di emergenza.
 
 Ultimo aggiornamento: ottobre 2017
 
@@ -434,7 +434,7 @@ Ultimo aggiornamento: settembre 2016
 ### <a name="3da0389e-708b-4e82-b2a2-e92f132df89c"></a>Pianificazione e implementazione
 Titolo: Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver
 
-Riepilogo: Questo documento è una guida introduttiva utile se si sta valutando la possibilità di eseguire SAP NetWeaver in Macchine virtuali di Azure. Questa Guida alla pianificazione e implementazione permette di valutare se è possibile distribuire un sistema basato su SAP NetWeaver esistente o pianificato in un ambiente di Macchine virtuali di Azure. Illustra vari scenari di distribuzione di SAP NetWeaver e include configurazioni SAP specifiche per Azure. Il documento elenca e descrive tutte le informazioni di configurazione necessarie relative a SAP/Azure per eseguire un landscape SAP ibrido. Vengono anche descritte le misure che è possibile adottare per garantire la disponibilità elevata dei sistemi basati su SAP NetWeaver nella soluzione IaaS.
+Riepilogo: Questo documento è una guida introduttiva utile se si sta valutando la possibilità di eseguire SAP NetWeaver in Macchine virtuali di Azure. Questa Guida alla pianificazione e implementazione permette di valutare se è possibile distribuire un sistema basato su SAP NetWeaver esistente o pianificato in un ambiente di Macchine virtuali di Azure. Illustra vari scenari di distribuzione di SAP NetWeaver e include configurazioni SAP specifiche per Azure. Il documento elenca e descrive tutte le informazioni di configurazione necessarie relative a SAP/Azure per eseguire un sistema SAP ibrido. Vengono anche descritte le misure che è possibile adottare per garantire la disponibilità elevata dei sistemi basati su SAP NetWeaver nella soluzione IaaS.
 
 Ultimo aggiornamento: giugno 2017
 

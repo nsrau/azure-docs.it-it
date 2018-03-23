@@ -1,11 +1,11 @@
 ---
 title: 'Accesso tramite telefono e Microsoft Authenticator: account di Azure e Microsoft | Microsoft Docs'
-description: "Uso del telefono per accedere all'account Microsoft anziché digitare la password. Questo articolo risponde alle domande frequenti su questa funzionalità."
+description: Uso del telefono per accedere all'account Microsoft anziché digitare la password. Questo articolo risponde alle domande frequenti su questa funzionalità.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Accedere con il telefono, non con la password
 

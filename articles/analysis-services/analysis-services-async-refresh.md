@@ -2,24 +2,24 @@
 title: Aggiornamento asincrono per i modelli di Analysis Services di Azure | Microsoft Docs
 description: Informazioni su come codificare l'aggiornamento asincrono tramite l'API REST.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Aggiornamento asincrono con l'API REST
 È possibile eseguire operazioni di aggiornamento asincrono dei dati sui modelli tabulari di Azure Analysis Services usando qualsiasi linguaggio di programmazione che supporta le chiamate REST. È inclusa la sincronizzazione delle repliche di sola lettura per la scalabilità orizzontale delle query. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Tutte le chiamate devono essere autenticate con un token di Azure Active Directory (OAuth 2) valido nell'intestazione di autorizzazione e devono soddisfare i requisiti seguenti:
 
 - Il token deve essere un token utente o un'entità servizio dell'applicazione.
-- L'utente o l'applicazione deve avere autorizzazioni sufficienti per il server o il modello per poter effettuare la chiamata di richiesta. Il livello di autorizzazione è determinato dai ruoli all'interno del modello o del gruppo di amministrazione sul server.
 - Il token deve avere i destinatari corretti impostati su `https://*.asazure.windows.net`.
+- L'utente o l'applicazione deve avere autorizzazioni sufficienti per il server o il modello per poter effettuare la chiamata di richiesta. Il livello di autorizzazione è determinato dai ruoli all'interno del modello o del gruppo di amministrazione sul server.
+
+    > [!IMPORTANT]
+    > Attualmente sono obbligatorie le autorizzazioni dell'**amministratore del server**.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

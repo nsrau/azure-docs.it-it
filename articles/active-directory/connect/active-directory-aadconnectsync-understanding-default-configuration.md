@@ -2,10 +2,10 @@
 title: 'Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita | Documentazione Microsoft'
 description: Questo articolo descrive la configurazione predefinita nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Questo articolo illustra anche la configurazione predefinita del servizio di sincronizzazione Azure AD Connect. Scopo dell'articolo è spiegare con un esempio reale il funzionamento del modello di configurazione, detto provisioning dichiarativo. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -50,7 +50,7 @@ Gli oggetti utente seguenti **non** vengono sincronizzati con Azure AD:
 * Non sincronizzare gli oggetti che non funzionerebbero in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Questa maschera di bit (&amp;H21C07000) filtra gli oggetti seguenti:
-  * Cartelle pubbliche abilitate alla posta elettronica
+  * Cartella pubblica abilitata alla posta elettronica (in anteprima a partire dalla versione 1.1.524.0)
   * Cassetta postale Supervisore sistema
   * Cassetta postale Database cassette postali (cassetta postale di sistema)
   * Gruppo di protezione universale (non si applica a un utente, ma è presente per motivi di compatibilità)

@@ -1,6 +1,6 @@
 ---
 title: Configurare la governance delle macchine virtuali di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: 'Esercitazione: gestire macchine virtuali di Azure applicando Controllo degli accessi in base al ruolo, criteri, blocchi e tag con l''interfaccia della riga di comando di Azure'
+description: "Esercitazione: gestire macchine virtuali di Azure applicando Controllo degli accessi in base al ruolo, criteri, blocchi e tag con l'interfaccia della riga di comando di Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 86ac3ec390c7aa9bc24a90ef2ee582f97f8b5407
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: ac6f7b0d32479e9e7e9945f83dc63a5847cba6a4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-cli"></a>Governance delle macchine virtuali con l'interfaccia della riga di comando di Azure
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -29,7 +29,7 @@ Per installare e usare l'interfaccia della riga di comando in locale, vedere [In
 
 ## <a name="understand-scope"></a>Informazioni sull'ambito
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 In questa esercitazione tutte le impostazioni di gestione vengono applicate a un gruppo di risorse per semplificare la rimozione delle impostazioni stesse al termine delle operazioni.
 
@@ -71,7 +71,7 @@ In genere si ripete il processo per *Collaboratore Rete* e *Collaboratore Accoun
 
 ## <a name="azure-policies"></a>Criteri di Azure
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Applicare i criteri
 
@@ -179,7 +179,7 @@ Viene visualizzato un messaggio di errore che informa che l'operazione di elimin
 
 I [tag](../../azure-resource-manager/resource-group-using-tags.md) vengono applicati alle risorse di Azure per organizzarle in modo logico in categorie. Ogni tag è costituito da un nome e un valore. Ad esempio, è possibile applicare il nome "Environment" e il valore "Production" a tutte le risorse nell'ambiente di produzione.
 
-[!include[Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
+[!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
 Per applicare tag a una macchina virtuale, usare il comando [az resource tag](/cli/azure/resource#az_resource_tag). Gli eventuali tag già applicati alla risorsa non vengono conservati.
 
@@ -206,7 +206,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ### <a name="view-costs-by-tag-values"></a>Visualizzare i costi in base ai valori dei tag
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

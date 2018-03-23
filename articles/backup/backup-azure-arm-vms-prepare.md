@@ -2,10 +2,10 @@
 title: 'Backup di Azure: preparare il backup di macchine virtuali | Microsoft Docs'
 description: Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: backup; eseguire il backup;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 62e047d706bdc42abbe44340c87267e59eb84369
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
@@ -49,12 +49,6 @@ Se nell'ambiente esistono già queste condizioni, passare all'articolo su come [
 Prima di preparare l'ambiente, assicurarsi di conoscere queste limitazioni:
 
 * Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
-* Il backup di macchine virtuali con dischi dati di dimensioni superiori a 1023 GB non è supportato.
-
-  > [!NOTE]
-  > È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di VM con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
-  >
-
 * Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 * Il backup di VM Linux crittografate con la crittografia Linux Unified Key Setup (LUKS) non è supportato.
 * Non è consigliabile eseguire il backup di VM contenenti la configurazione di volumi condivisi del cluster o file server di scalabilità orizzontale, per cui durante un'attività di snapshot è necessario il coinvolgimento di tutte le VM incluse nella configurazione cluster. Backup di Azure non supporta la coerenza tra più macchine virtuali. 

@@ -2,7 +2,7 @@
 title: Spostare le risorse di Azure in una nuova sottoscrizione o in un gruppo di risorse | Microsoft Docs
 description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -99,7 +99,7 @@ Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure
 * Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory) e serve assistenza con le istruzioni nella sezione precedente.
 * Spostare le risorse classiche ma si verificano problemi relativi alle limitazioni.
 
-## <a name="services-that-enable-move"></a>Servizi che abilitano lo spostamento
+## <a name="services-that-can-be-moved"></a>Servizi che possono essere spostati
 
 Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo gruppo di risorse e in una nuova sottoscrizione:
 
@@ -149,7 +149,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Reti virtuali, vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations)
 * Gateway VPN
 
-## <a name="services-that-do-not-enable-move"></a>Servizi che non abilitano lo spostamento
+## <a name="services-that-cannot-be-moved"></a>Servizi che non possono essere spostati
 
 I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 

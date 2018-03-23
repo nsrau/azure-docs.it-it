@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: 30f6feb920d78c9c325c5556f5530ac4c8d9459b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/16/2018
+---
 <!-- Not used for Ls-series -->
 
 ## <a name="size-table-definitions"></a>Definizioni delle tabelle delle dimensioni

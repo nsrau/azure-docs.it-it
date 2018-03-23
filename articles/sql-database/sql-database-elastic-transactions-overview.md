@@ -2,7 +2,7 @@
 title: Transazioni distribuite in database cloud
 description: Panoramica delle transazioni di database elastico con il database SQL di Azure
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: torsteng
 manager: jhubbard
 editor: torsteng
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 4441cdef3bc97aab35451720753e437e24702fd9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
 Le transazioni di database elastico per il database SQL di Azure consentono di eseguire transazioni estese a più database nel database SQL. Le transazioni di database elastico per il database SQL sono disponibili per le applicazioni .NET tramite ADO .NET e si integrano con la familiare esperienza di programmazione usando le classi [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Per ottenere la libreria, vedere [Microsoft .NET Framework 4.6.1 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -133,9 +133,9 @@ Per monitorare lo stato e l'avanzamento delle transazioni di database elastico i
 
 Queste viste a gestione dinamica sono particolarmente utili:
 
-* **sys.dm\_tran\_active\_transactions**: elenca le transazioni attualmente attive e il relativo stato. La colonna UOW (unità di lavoro) può identificare le diverse transazioni figlio che appartengono alla stessa transazione distribuita. Tutte le transazioni all'interno della stessa transazione distribuita hanno lo stesso valore di unità di lavoro. Per altri dettagli, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms174302.aspx) .
-* **sys.dm\_tran\_database\_transactions**: fornisce altre informazioni sulle transazioni, ad esempio la posizione della transazione nel log. Per altri dettagli, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms186957.aspx) .
-* **sys.dm\_tran\_locks**: fornisce informazioni sui blocchi attualmente mantenuti dalle transazioni in corso. Per altri dettagli, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms190345.aspx) .
+* **sys.dm\_tran\_active\_transactions**: elenca le transazioni attualmente attive e il relativo stato. La colonna UOW (unità di lavoro) può identificare le diverse transazioni figlio che appartengono alla stessa transazione distribuita. Tutte le transazioni all'interno della stessa transazione distribuita hanno lo stesso valore di unità di lavoro. Per altre informazioni, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions**: fornisce altre informazioni sulle transazioni, ad esempio la posizione della transazione nel log. Per altre informazioni, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks**: fornisce informazioni sui blocchi attualmente mantenuti dalle transazioni in corso. Per altre informazioni, vedere la [documentazione sulle viste a gestione dinamica](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## <a name="limitations"></a>Limitazioni
 Per le transazioni di database elastico nel database SQL si applicano attualmente le limitazioni seguenti:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7c384f07ec6b71596dcdbc5b7214fa7ce65d0b7d
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 23281067021dd6e4b8959fe73f3c8a11a651d9d2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -35,7 +35,7 @@ Il peering reti virtuali include i vantaggi seguenti:
 
 ## <a name="requirements-constraints"></a>Requisiti e vincoli
 
-* Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale, negli Stati Uniti occidentali 2, Corea meridionale, Regno Unito meridionale, Regno Unito occidentale, Canada orientale, India meridionale, India centrale e India occidentale. Prima di eseguire il peering di reti virtuali in aree diverse, è necessario [registrare la sottoscrizione](virtual-network-create-peering.md#register) per l'anteprima. Il tentativo di creare un peering tra reti virtuali di aree diverse non andrà a buon fine se non è stata completata la registrazione per l'anteprima.
+* Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering reti virtuali in aree diverse è attualmente in anteprima negli Stati Uniti centro-occidentali, nel Canada centrale, negli Stati Uniti occidentali 2, Corea meridionale, Regno Unito meridionale, Regno Unito occidentale, Canada orientale, India meridionale, India centrale e India occidentale. Prima di eseguire il peering di reti virtuali in aree diverse, è necessario [registrare la sottoscrizione](tutorial-connect-virtual-networks-powershell.md#register) per l'anteprima. Il tentativo di creare un peering tra reti virtuali di aree diverse non andrà a buon fine se non è stata completata la registrazione per l'anteprima.
     > [!WARNING]
     > I peering di rete virtuale creati tra aree diverse non hanno lo stesso livello di disponibilità e affidabilità di quelli creati in una versione con disponibilità generale. I peering reti virtuali possono presentare funzionalità limitate e potrebbero non essere disponibili in tutte le aree di Azure. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -85,7 +85,7 @@ Quando viene eseguito il peering di reti virtuali che condividono una singola co
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Il peering di rete virtuale è un'operazione con privilegi. È una funzione separata nello spazio dei nomi VirtualNetworks. È possibile assegnare a un utente diritti specifici per autorizzare il peering. Un utente con accesso in lettura e scrittura alla rete virtuale eredita questi diritti automaticamente.
+Il peering di rete virtuale è un'operazione con privilegi. Si tratta di una funzione separata nello spazio dei nomi VirtualNetworks. È possibile assegnare a un utente diritti specifici per autorizzare il peering. Un utente con accesso in lettura e scrittura alla rete virtuale eredita questi diritti automaticamente.
 
 Un utente amministratore o con privilegi per la funzionalità di peering può avviare un'operazione di peering in un'altra rete virtuale. Il livello minimo di autorizzazione necessaria è Collaboratore di rete. Se è presente una richiesta di peering corrispondente sull'altro lato e vengono soddisfatti altri requisiti, il peering verrà stabilito.
 
@@ -126,7 +126,7 @@ Esistono limiti al numero di peering consentiti per una singola rete virtuale. P
 
     |Modello di distribuzione di Azure  | Sottoscrizione  |
     |---------|---------|
-    |Entrambi Resource Manager |[Uguale](virtual-network-create-peering.md)|
+    |Entrambi Resource Manager |[Uguale](tutorial-connect-virtual-networks-portal.md)|
     | |[Diversa](create-peering-different-subscriptions.md)|
     |Uno di Resource Manager, uno della versione classica     |[Uguale](create-peering-different-deployment-models.md)|
     | |[Diversa](create-peering-different-deployment-models-subscriptions.md)|

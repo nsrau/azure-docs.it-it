@@ -2,19 +2,19 @@
 title: Connettere un account di Amazon Web Services a Gestione costi di Azure | Microsoft Docs
 description: Connettere un account di Amazon Web Services per visualizzare i dati relativi ai costi e all'utilizzo nei report di Gestione costi.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/08/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connettere un account di Amazon Web Services
 
@@ -70,7 +70,7 @@ Le sezioni seguenti illustrano le procedure per creare un utente di sola lettura
 ### <a name="add-aws-read-only-user-based-access"></a>Aggiungere l'accesso di sola lettura in base all'utente di AWS
 
 1. Accedere alla console di AWS all'indirizzo https://console.aws.amazon.com/iam/home e selezionare **Users** (Utenti).
-2. Fare clic su **Add User** (Aggiungi utente).
+2. Fare clic su **Add User**.
 3. Nel campo **User name** (Nome utente) digitare un nome per l'utente.
 4. Per **Access type** (Tipo di accesso) selezionare **Programmatic access** (Accesso a livello di codice) e fare clic su **Next: Permissions** (Avanti: Autorizzazioni).  
     ![Aggiungere l'utente](./media/connect-aws-account/add-user01.png)
@@ -100,4 +100,4 @@ Gestione costi inizia a raccogliere i dati e a compilare i report. Alcuni report
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni su Gestione costi di Azure di Cloudyn, passare all'esercitazione [Esaminare l'utilizzo e i costi](tutorial-review-usage.md) per Gestione costi.
+- Per altre informazioni su Gestione costi di Azure, passare all'esercitazione [Esaminare l'uso e i costi](tutorial-review-usage.md) per Gestione costi.

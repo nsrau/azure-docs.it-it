@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7edc73f337a72c24fd24d94468ee590b75dfa7df
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
-Azure effettua il routing automatico del traffico tra subnet di Azure, reti virtuali e reti locali. Per modificare il routing predefinito di Azure è necessario creare una tabella di route. Se non si ha familiarità con il routing di Azure, è consigliabile leggere l'articolo [Panoramica del routing](virtual-networks-udr-overview.md) e completare l'esercitazione [Instradare il traffico di rete con una tabella di route](create-user-defined-route-portal.md) prima di completare le attività presenti in questo articolo.
+Azure effettua il routing automatico del traffico tra subnet di Azure, reti virtuali e reti locali. Per modificare il routing predefinito di Azure è necessario creare una tabella di route. Se non si ha familiarità con il routing di Azure, è consigliabile leggere l'articolo [Panoramica del routing](virtual-networks-udr-overview.md) e completare l'esercitazione [Instradare il traffico di rete con una tabella di route](tutorial-create-route-table-portal.md) prima di completare le attività presenti in questo articolo.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -38,7 +38,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 È previsto un limite al numero di tabelle di route che è possibile creare per ogni sottoscrizione e località di Azure. Per informazioni dettagliate, vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. Nell'angolo superiore sinistro del portale selezionare **+ Nuovo**.
+1. Nell'angolo superiore sinistro del portale selezionare **+ Crea una risorsa**.
 2. Selezionare **Rete** e quindi **Tabella di route**.
 3. Immettere un **Nome** per la tabella di route, selezionare **Sottoscrizione**, creare un nuovo **Gruppo di risorse** o selezionare un gruppo di risorse esistente, selezionare una **Località** e quindi scegliere **Crea**. L'opzione **Disabilita propagazione route BGP** impedisce la propagazione di route locali in una rete virtuale di Azure tramite BGP. Se la rete virtuale non è connessa a un gateway di rete di Azure (VPN o ExpressRoute), lasciare l'opzione impostata su *Disabilitato*. 
 

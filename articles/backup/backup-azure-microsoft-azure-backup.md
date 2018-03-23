@@ -1,11 +1,11 @@
 ---
-title: Usare il server di Backup di Azure per eseguire il backup dei carichi di lavoro in Azure | Documentazione Microsoft
+title: Usare il server di Backup di Azure per eseguire il backup dei carichi di lavoro in Azure | Microsoft Docs
 description: Usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro nel portale di Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
+editor: ''
 keywords: server di Backup di Azure; protezione dei carichi di lavoro; backup dei carichi di lavoro
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/20/2017
+ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparazione del backup dei carichi di lavoro con il server di Backup di Azure
 > [!div class="op_single_selector"]
@@ -44,11 +44,11 @@ Questo articolo illustra la preparazione dell'ambiente per eseguire il backup de
 
 Il server di Backup di Azure eredita molte funzionalità per il backup dei carichi di lavoro da Data Protection Manager (DPM). Questo articolo contiene collegamenti alla documentazione di DPM in cui vengono illustrate alcune delle funzionalità condivise. Nonostante il server di Backup di Azure condivida molte funzionalità di DPM, non offre il backup su nastro né l'integrazione con System Center.
 
-## <a name="1-choose-an-installation-platform"></a>1. Scegliere una piattaforma di installazione
+## <a name="choose-an-installation-platform"></a>Scegliere una piattaforma di installazione
 Per rendere operativo il server di Backup di Azure, è prima di tutto necessario installare un server Windows, in Azure o in locale.
 
 ### <a name="using-a-server-in-azure"></a>Uso di un server in Azure
-Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard con due core e 3,5 GB di RAM.
+Quando si sceglie un server per eseguire il server di Backup di Azure, è consigliabile usare come punto di partenza un'immagine della raccolta di Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. L'articolo [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)offre un'esercitazione per implementare la macchina virtuale consigliata in Azure anche se si usa Azure per la prima volta. I requisiti minimi consigliati per la macchina virtuale (VM) server sono A2 Standard con due core e 3,5 GB di RAM.
 
 La protezione dei carichi di lavoro con il server di Backup di Azure è piuttosto complessa. L'articolo [Installare DPM come una macchina virtuale di Azure](https://technet.microsoft.com/library/jj852163.aspx)ne illustra i diversi aspetti. Prima di distribuire la macchina leggere interamente questo articolo.
 
@@ -75,7 +75,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 
 Aggiungere sempre il server di backup di Azure a un dominio. Se si prevede di spostare il server in un dominio diverso, è consigliabile aggiungere il server al nuovo dominio prima di installare il server di backup di Azure. Lo spostamento di un server di Backup di Azure esistente in un nuovo dominio dopo la distribuzione *non è supportato*.
 
-## <a name="2-recovery-services-vault"></a>2. Insieme di credenziali dei servizi di ripristino
+## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
 Indipendentemente dal fatto che i dati di backup vengano inviati ad Azure o vengano archiviati in locale, il software deve essere connesso ad Azure. In particolare, il computer del server di Backup di Azure deve essere registrato in un insieme di credenziali dei servizi di ripristino.
 
 Per creare un insieme di credenziali dei servizi di ripristino:
@@ -112,7 +112,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
     Dopo aver scelto l'opzione di archiviazione per l'insieme di credenziali, è possibile associare la macchina virtuale all'insieme di credenziali. Per iniziare l'associazione, è necessario trovare e registrare le macchine virtuali di Azure.
 
-## <a name="3-software-package"></a>3. Pacchetto software
+## <a name="software-package"></a>Pacchetto software
 ### <a name="downloading-the-software-package"></a>Download del pacchetto software
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Se è già aperto un insieme di credenziali dei servizi di ripristino, procedere al passaggio 3. Se non è aperto alcun insieme di credenziali dei servizi di ripristino ma si è nel portale di Azure, nel menu dell'hub fare clic su **Esplora**.
@@ -231,7 +231,7 @@ La prima copia di backup viene salvata in una risorsa di archiviazione collegata
 >
 >
 
-## <a name="4-network-connectivity"></a>4. Connettività di rete
+## <a name="network-connectivity"></a>Connettività di rete
 Per il corretto funzionamento del prodotto, il server di Backup di Azure richiede la connettività al servizio Backup di Azure. Per convalidare la connettività del computer ad Azure, usare il cmdlet ```Get-DPMCloudConnection``` nella console di PowerShell del server di Backup di Azure. C'è connettività solo se l'output di cmdlet è TRUE.
 
 Allo stesso tempo, è necessario che la sottoscrizione di Azure sia in uno stato integro. Per verificare lo stato della sottoscrizione e gestirla, accedere al [portale delle sottoscrizioni](https://account.windowsazure.com/Subscriptions).
@@ -264,7 +264,7 @@ Dopo il ripristino della connettività ad Azure nel computer del server di Backu
 * Una sottoscrizione con stato *Deprovisioning eseguito* perde funzionalità per il periodo in cui è sottoposta a deprovisioning. Dopo l'impostazione su *Attiva*, la funzionalità di backup/ripristino del prodotto viene riattivata. I dati di backup nel disco locale possono essere recuperati anche se sono stati memorizzati con un periodo di conservazione sufficientemente elevato. I dati di backup in Azure, invece, vengono persi definitivamente al passaggio della sottoscrizione allo stato *Deprovisioning eseguito* .
 * Una sottoscrizione *Scaduta* perde funzionalità solo fino a quando non viene resa di nuovo *Attiva*. Eventuali backup pianificati per il periodo in cui la sottoscrizione è *Scaduta* non verranno eseguiti.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 In caso di errori del server di Backup di Microsoft Azure durante la fase di installazione, di backup o ripristino, vedere questo [documento sui codici di errore](https://support.microsoft.com/kb/3041338) per altre informazioni.
 È anche possibile vedere [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)
 

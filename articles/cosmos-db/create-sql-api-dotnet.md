@@ -1,25 +1,25 @@
 ---
-title: 'Azure Cosmos DB: Creare un''app Web con .NET e l''API SQL | Microsoft Docs'
+title: "Azure Cosmos DB: Creare un'app Web con .NET e l'API SQL | Microsoft Docs"
 description: Presenta un esempio di codice .NET che permette di connettersi all'API SQL di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/15/2017
 ms.author: mimig
-ms.openlocfilehash: 9541fa7331a5a6a5a5405244dd79eb8a92d96386
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b5ab66371b47bdd0f3bd7a4c9e86e419efebe902
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API SQL con .NET e il portale di Azure
 
@@ -95,21 +95,21 @@ Si può ora passare a usare il codice. Clonare un'app per le API SQL da GitHub, 
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file DocumentDBRepository.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Ecco una breve panoramica delle operazioni da eseguire nell'app. Aprire il file DocumentDBRepository.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
-* Viene inizializzato DocumentClient alla riga 78.
+* Viene inizializzato DocumentClient alla riga 76.
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* Viene creato un nuovo database alla riga 93.
+* Viene creato un nuovo database alla riga 91.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Viene creata una nuova raccolta alla riga 112.
+* Viene creata una nuova raccolta alla riga 110.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
@@ -117,10 +117,9 @@ Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file Doc
         new DocumentCollection { Id = CollectionId },
         new DocumentCollection
             {
-               Id = CollectionId,
-               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+               Id = CollectionId
             },
-        new RequestOptions { OfferThroughput = 1000 });
+        new RequestOptions { OfferThroughput = 400 });
     ```
 
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione

@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: 17eb1e7c2184fe9cae19685a47ea80716292b754
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 1e5b8523422aae00655b003bf15103d5467b4177
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Applicazione dell'infrastruttura di servizi e fasi successive
 L'applicazione Service Fabric di Azure è stata creata. In questo articolo vengono descritte alcune esercitazioni per provare la struttura del progetto, altre informazioni utili e possibili passaggi successivi.
@@ -55,7 +55,7 @@ Il progetto dell'applicazione è composto da:
 
 
 ## <a name="learn-more-about-the-programming-models"></a>Altre informazioni sui modelli di programmazione
-Service Fabric offre diversi modi per scrivere e gestire i servizi.  Ecco una panoramica e alcune informazioni di carattere generale su [servizio Reliable con stato e senza stato](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [contenitori](service-fabric-containers-overview.md), [eseguibili guest](service-fabric-deploy-existing-app.md) e [servizi ASP.NET Core con stato e senza stato](service-fabric-reliable-services-communication-aspnetcore.md).
+Service Fabric offre diversi modi per scrivere e gestire i servizi.  Ecco una panoramica e alcune informazioni di carattere generale su [servizio Reliable con stato e senza stato](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [contenitori](service-fabric-containers-overview.md), [eseguibili guest](service-fabric-guest-executables-introduction.md) e [servizi ASP.NET Core con stato e senza stato](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="learn-about-service-communication"></a>Informazioni sulle comunicazioni di servizio
 Un'applicazione di Service Fabric è costituita da servizi diversi, ognuno dei quali esegue un'attività specializzata. Questi servizi possono comunicare tra loro; possono essere presenti anche applicazioni client all'esterno del cluster che si connettono e comunicano con i servizi. Informazioni su come [configurare la comunicazione con e tra i servizi](service-fabric-connect-and-communicate-with-services.md) in Service Fabric. 

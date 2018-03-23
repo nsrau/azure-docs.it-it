@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -56,7 +56,7 @@ Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 > [!NOTE]
 > Patch Orchestration App usa il sistema di servizio di gestione della riparazione di Service Fabric per disabilitare o abilitare il nodo ed eseguire i controlli di integrità. L'attività di riparazione creata da Patch Orchestration App tiene traccia dell'avanzamento di Windows Update per ogni nodo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Abilitare il servizio di gestione della riparazione (se non è già in esecuzione)
 
@@ -73,7 +73,7 @@ I cluster di Azure al livello di durabilità silver hanno il servizio di gestion
 ##### <a name="azure-resource-manager-deployment-model"></a>Modello di distribuzione di Azure Resource Manager
 In alternativa, è possibile usare il [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) per abilitare il servizio di gestione della riparazione nei cluster nuovi ed esistenti di Service Fabric. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i modelli di esempio o creare un modello di distribuzione Azure Resource Manager personalizzato. 
 
-Per abilitare il servizio di gestione della riparazione tramite i [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
+Per abilitare il servizio di gestione della riparazione tramite il [modello di distribuzione Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm):
 
 1. Verificare prima di tutto che `apiversion` sia impostato su `2017-07-01-preview` per la risorsa `Microsoft.ServiceFabric/clusters`. Se il valore è diverso, è necessario aggiornare `apiVersion` al valore `2017-07-01-preview` o superiore:
 
@@ -136,7 +136,9 @@ Gli aggiornamenti automatici di Windows potrebbero causare la perdita di disponi
 
 ## <a name="download-the-app-package"></a>Scaricare il pacchetto dell'app
 
-Scaricare l'applicazione dal [collegamento di download](https://go.microsoft.com/fwlink/P/?linkid=849590).
+L'applicazione e gli script di installazione possono essere scaricati dal [collegamento all'archivio](https://go.microsoft.com/fwlink/?linkid=869566).
+
+L'applicazione in formato sfpkg può essere scaricata dal [collegamento a sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Questo formato è utile per la [distribuzione di applicazioni basata su Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurare l'app
 
@@ -152,7 +154,7 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 | WUOperationTimeOutInMinutes | int <br>Predefinito: 90                   | Specifica il timeout per qualsiasi operazione di Windows Update (ricerca, download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
 | WURescheduleCount     | int <br> Predefinito: 5                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento di Windows quando un'operazione continua ad avere esito negativo.          |
 | WURescheduleTimeInMinutes | int <br>Predefinito: 30 | L'intervallo con cui il servizio ripianifica l'aggiornamento di Windows se il problema persiste. |
-| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>- Monthly, DD, HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> - Weekly, DAY, HH:MM:SS, ad esempio, Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> Si noti che gli orari sono in formato UTC.|
+| WUFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza di installazione di Windows Update. Il formato e i valori possibili sono: <br>- Monthly, DD, HH:MM:SS, ad esempio, Monthly, 5,12:22:32. <br> -   Weekly, DAY, HH:MM:SS, ad esempio Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None: indica che non deve essere eseguito Windows Update.  <br><br> Si noti che gli orari sono in formato UTC.|
 | AcceptWindowsUpdateEula | boolean <br>Predefinito: True | Impostando questo flag, l'applicazione accetta il contratto di licenza dell'utente finale per Windows Update per conto del proprietario della macchina.              |
 
 > [!TIP]
@@ -321,7 +323,7 @@ R. Alcuni aggiornamenti del prodotto vengono visualizzati solo nella rispettiva 
 
 - Patch Orchestration App raccoglie i dati di telemetria per tenere traccia dell'uso e delle prestazioni. I dati di telemetria dell'applicazione seguono l'impostazione dei dati di telemetria del runtime di Service Fabric (attiva per impostazione predefinita).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Un nodo non torna allo stato attivo
 
@@ -361,8 +363,12 @@ Un amministratore deve intervenire e stabilire perché l'applicazione o il clust
 ### <a name="version-111"></a>Versione 1.1.1
 - Correzione di un bug in SetupEntryPoint di NodeAgentService che ha impedito l'installazione di NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Versione 1.2.0 (versione più recente)
+### <a name="version-120"></a>Versione 1.2.0
 
 - Correzioni di bug nel flusso di lavoro di riavvio del sistema.
 - Correzione di bug nella creazione di attività RM a causa delle quali il controllo dell'integrità durante la preparazione delle attività di ripristino non ha avuto luogo come previsto.
 - Modificata la modalità di avvio per il servizio di windows POANodeSvc da automatico ad automatico ritardato.
+
+### <a name="version-121-latest"></a>Versione 1.2.1 (la più recente)
+
+- Correzione di bug nel flusso di lavoro di riduzione delle prestazioni del cluster. È stata introdotta la logica di Garbage Collection per le attività di riparazione di Patch Orchestration Application relative a nodi inesistenti.

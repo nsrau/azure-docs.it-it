@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
@@ -45,8 +45,8 @@ Questo argomento contiene informazioni dettagliate sui requisiti relativi al pro
 
 È consigliabile verificare che i messaggi di output del provider di identità SAML 2.0 siano il più simili possibile alle tracce di esempio fornite. Usare inoltre valori di attributo specifici dei metadati di Azure AD forniti, dove possibile. Una volta ottenuti i messaggi di output desiderati, è possibile testarli con Microsoft Connectivity Analyzer, come descritto di seguito.
 
-I metadati di Azure AD possono essere scaricati da questo URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Per i clienti in Cina che usano l'istanza di Office 365 specifica della Cina, è necessario usare l'endpoint di federazione seguente: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+È possibile scaricare i metadati di Azure AD da questo URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Per i clienti in Cina che usano l'istanza di Office 365 specifica per la Cina, è necessario usare l'endpoint di federazione seguente: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Requisiti del protocollo SAML
 Questa sezione illustra in modo dettagliato come vengono combinate le coppie di messaggi di richiesta e di risposta per consentire la corretta formattazione dei messaggi.
@@ -149,7 +149,7 @@ Di seguito è illustrato un messaggio di risposta di esempio inviato dal provide
 Questo argomento illustra le linee guida su come configurare il provider di identità SAML 2.0 per la federazione con Azure AD, per consentire l'accesso Single Sign-On a uno o più servizi cloud Microsoft (ad esempio Office 365) con il protocollo SAML 2.0. La relying party SAML 2.0 per un servizio cloud Microsoft in uso in questo scenario è Azure AD.
 
 ## <a name="add-azure-ad-metadata"></a>Aggiungere i metadati di Azure AD
-Il provider di identità SAML 2.0 deve essere conforme alle informazioni sulla relying party di Azure AD. Azure AD pubblica i metadati in https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
+Il provider di identità SAML 2.0 deve essere conforme alle informazioni sulla relying party di Azure AD. Azure AD pubblica i metadati all'indirizzo https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
 
 È consigliabile importare sempre i metadati di Azure AD più recenti quando si configura il provider di identità SAML 2.0. Si noti che Azure AD non legge i metadati dal provider di identità.
 
@@ -185,9 +185,9 @@ La procedura seguente illustra i passaggi per la conversione di un dominio stand
 Per altre informazioni su "Set-MsolDomainAuthentication", vedere: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->È necessario eseguire "$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS" solo se si configura un'estensione ECP per il provider di identità. I client di Exchange Online, ad eccezione di Outlook Web Application (OWA), usano un endpoint attivo basato su POST. Se il servizio token di sicurezza SAML 2.0 implementa un endpoint attivo simile all'implementazione ECP di Shibboleth di un endpoint attivo, potrebbe essere possibile per questi rich client interagire con il servizio Exchange Online.
+>È necessario eseguire "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" solo se si configura un'estensione ECP per il provider di identità. I client di Exchange Online, ad eccezione di Outlook Web Application (OWA), usano un endpoint attivo basato su POST. Se il servizio token di sicurezza SAML 2.0 implementa un endpoint attivo simile all'implementazione ECP di Shibboleth di un endpoint attivo, potrebbe essere possibile per questi rich client interagire con il servizio Exchange Online.
 
-Dopo aver configurato la federazione, è possibile tornare alla modalità non federata (o gestita), ma questa modifica richiede fino a due ore, oltre che l'assegnazione di nuove password casuali per l'accesso basato su cloud per ogni utente. La reimpostazione della modalità gestita potrebbe essere necessaria in alcuni scenari per correggere un errore nelle impostazioni. Per altre informazioni sulla conversione del dominio, vedere: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Dopo aver configurato la federazione, è possibile tornare alla modalità non federata (o gestita), ma questa modifica richiede fino a due ore, oltre che l'assegnazione di nuove password casuali per l'accesso basato su cloud per ogni utente. La reimpostazione della modalità gestita potrebbe essere necessaria in alcuni scenari per correggere un errore nelle impostazioni. Per altre informazioni sulla conversione dei domini, vedere: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Effettuare il provisioning di entità utente in Azure AD/Office 365
 Per poter autenticare gli utenti in Office 365, è necessario effettuare il provisioning in Azure AD di entità utente corrispondenti all'asserzione nell'attestazione SAML 2.0. Se queste entità utente non sono note in anticipo ad Azure AD, non possono essere usate per l'accesso federato. Per il provisioning delle entità utente è possibile usare Azure AD Connect o Windows PowerShell.

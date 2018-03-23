@@ -2,10 +2,10 @@
 title: Come ottenere la certificazione AppSource per Azure Active Directory | Documentazione Microsoft
 description: Leggere i dettagli su come ottenere la certificazione AppSource per Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) è la posizione in cui gli utenti aziendali possono trovare, provare e gestire applicazioni SaaS line-of-business (soluzioni SaaS autonome e componenti aggiuntivi per prodotti Microsoft SaaS esistenti).
@@ -35,7 +35,7 @@ Un'applicazione che accetta l'accesso degli utenti da qualsiasi società o organ
 
 Per abilitare la multi-tenancy nell'applicazione:
 - Impostare la proprietà `Multi-Tenanted` su `Yes` nelle informazioni di registrazione dell'applicazione nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (per impostazione predefinita, le applicazioni create nel portale di Azure sono configurate come a *tenant singolo*)
-- Aggiornare il codice per inviare le richieste all'endpoint "`common`" (aggiornare l'endpoint da *https://login.microsoftonline.com/{tenantinuso}* a *https://login.microsoftonline.com/common*)
+- Aggiornare il codice per l'invio delle richieste all'endpoint "`common`" (aggiornare l'endpoint da *https://login.microsoftonline.com/{yourtenant}* a *https://login.microsoftonline.com/common*)
 - Per alcune piattaforme, ad esempio ASP.NET, è anche necessario aggiornare il codice per accettare più emittenti
 
 Per altre informazioni sulla multi-tenancy, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](./active-directory-devhowto-multi-tenant-overview.md).

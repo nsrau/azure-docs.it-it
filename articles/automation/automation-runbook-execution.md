@@ -1,24 +1,18 @@
 ---
-title: Esecuzione del Runbook in Automazione di Azure | Microsoft Docs
+title: Esecuzione di runbook in Automazione di Azure
 description: Descrive i dettagli dell'elaborazione di un runbook in Automazione di Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/15/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+manager: carmonm
+ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 Quando si avvia un runbook in Automazione di Azure, viene creato un processo. Un processo è una singola istanza di esecuzione di un runbook. Per eseguire ogni processo, viene assegnato un computer di lavoro di Automazione di Azure. I computer di lavoro sono condivisi da più account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si dispone di alcun controllo sul computer di lavoro che gestisce la richiesta per il processo. In un singolo runbook possono venire eseguiti più processi contemporaneamente.  È possibile riusare l'ambiente di esecuzione per i processi dallo stesso account di automazione. Quando si visualizza l'elenco dei runbook nel portale di Azure, è visibile lo stato di tutti i processi avviati per ogni runbook. È possibile visualizzare l'elenco dei processi per il singolo runbook per tenere traccia dello stato di ognuno. Per una descrizione dei diversi stati dei processi, vedere [Stati dei processi](#job-statuses).

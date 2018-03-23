@@ -2,7 +2,7 @@
 title: Applicazioni con carattere jolly in Azure Active Directory Application Proxy | Microsoft Docs
 description: Informazioni su come usare le applicazioni con carattere jolly in Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 28e43d48b4fa27202d58ee081a60e2fb5bfe9d99
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy 
 
@@ -51,7 +51,7 @@ Se sono presenti altre applicazioni con impostazioni di configurazione diverse, 
 La creazione di un'applicazione con carattere jolly è basata sullo stesso [flusso di pubblicazione](application-proxy-publish-azure-portal.md) disponibile per tutte le altre applicazioni. L'unica differenza è che viene incluso un carattere jolly negli URL e potenzialmente nella configurazione SSO.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="custom-domains"></a>Domini personalizzati
 
@@ -70,7 +70,7 @@ Quando si usano i domini personalizzati, è necessario creare una voce DNS con u
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Per verificare la corretta configurazione del record CNAME, è possibile usare [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) su uno degli endpoint di destinazione, ad esempio `expenses.adventure-works.com`.  La risposta deve includere l'alias già menzionato (`<Id.tenant>.runtime.msappproxy.net`).
+Per verificare la corretta configurazione del record CNAME, è possibile usare [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) su uno degli endpoint di destinazione, ad esempio `expenses.adventure-works.com`.  La risposta deve includere l'alias già menzionato (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Considerazioni
@@ -167,7 +167,7 @@ La configurazione implementa la struttura seguente:
 
 ![AppId](./media/active-directory-application-proxy-wildcard\05.png)
 
-| Colore | Descrizione |
+| Colore | DESCRIZIONE |
 | ---   | ---         |
 | Blu  | Applicazioni pubblicate in modo esplicito e visibili nel portale di Azure. |
 | Grigio  | Applicazioni accessibili tramite l'applicazione padre. |
@@ -210,7 +210,7 @@ Se sono state pubblicate più applicazioni per il dominio finance e `finance.adv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su:
+Per altre informazioni:
 
 - **Domini personalizzati**, vedere [Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure](active-directory-application-proxy-custom-domains.md).
 

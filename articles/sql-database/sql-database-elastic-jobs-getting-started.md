@@ -1,24 +1,19 @@
 ---
 title: Introduzione a processi di database elastici | Documentazione Microsoft
-description: "Usare i processi di database elastici per eseguire gli script T-SQL che si estendono su più database."
+description: Usare i processi di database elastici per eseguire gli script T-SQL che si estendono su più database.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 2540de0e-2235-4cdd-9b6a-b841adba00e5
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
-ms.author: ddove
-ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: sstein
+ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
 I processi di database elastico (anteprima) per il database SQL di Azure consentono di eseguire in modo affidabile script T-SQL che si estendono su più database, effettuando tentativi automatici per garantire il completamento delle operazioni. Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).

@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creare route definite dall'utente (UDR) mediante un modello
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Interfaccia della riga di comando di Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [Interfaccia della riga di comando di Azure](tutorial-create-route-table-cli.md)
 > * [Modello](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (versione classica)](virtual-network-create-udr-classic-ps.md)
 > * [Interfaccia della riga di comando (versione classica)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Per associare la route definita dall'utente alla subnet front-end, è necessario
 
 Si noti che va effettuata la stessa operazione per l'NSG back-end della subnet back-end nel modello.
 
-È anche necessario assicurarsi che nella macchina virtuale **FW1** la proprietà di inoltro dell'indirizzo IP sia attivata nella scheda di interfaccia di rete che verrà usata per ricevere e inoltrare i pacchetti. La sezione seguente illustra la definizione della scheda di interfaccia di rete per FW1 nel file azuredeploy-nsg-udr.json, in base allo scenario precedente.
+È anche necessario assicurarsi che nella macchina virtuale **FW1** la proprietà di inoltro dell'indirizzo IP sia attivata nella scheda di interfaccia di rete che verrà usata per ricevere e inoltrare i pacchetti. La sezione seguente illustra la definizione della scheda di interfaccia di rete per FW1 nel file azuredeploy-nsg-udr.json, in base allo scenario.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,7 +112,7 @@ Si noti che va effettuata la stessa operazione per l'NSG back-end della subnet b
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Distribuire il modello tramite clic per la distribuzione
-Il modello di esempio disponibile nel repository pubblico usa un file di parametro che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Distribuire [questo modello](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)tramite clic per la distribuzione, fare clic su **Distribuisci in Azure**, sostituire i valori del parametro predefinito se necessario e seguire le istruzioni nel portale.
+Il modello di esempio disponibile nel repository pubblico usa un file di parametri che contiene i valori predefiniti usati per generare lo scenario descritto in precedenza. Per distribuire [questo modello](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR) tramite clic per la distribuzione, fare clic su **Distribuisci in Azure**, sostituire i valori dei parametri predefiniti, se necessario, e seguire le istruzioni nel portale.
 
 1. Se è la prima volta che si utilizza Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview) e seguire le istruzioni fino al termine della procedura per accedere ad Azure e selezionare la sottoscrizione desiderata.
 2. Usare il comando seguente per creare un gruppo di risorse:
@@ -173,7 +173,7 @@ Il modello di esempio disponibile nel repository pubblico usa un file di paramet
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Distribuire il modello tramite l'interfaccia della riga di comando di Azure
 
-Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Azure, completare la procedura seguente:
+Per distribuire il modello Azure Resource Manager tramite l'interfaccia della riga di comando di Azure, completare la procedura seguente:
 
 1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando seguente per passare alla modalità Resource Manager:
@@ -206,7 +206,7 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
         }
     ```
 
-4. Eseguire il comando seguente per distribuire la nuova rete virtuale usando il modello e i file dei parametri scaricati e modificati in precedenza:
+4. Eseguire il comando seguente per distribuire la nuova rete virtuale usando i file del modello e dei parametri scaricati e modificati in precedenza:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
             info:    group show command OK
 
 > [!TIP]
-> Se non è possibile visualizzare tutte le risorse, eseguire il comando `azure group deployment show` per assicurarsi che lo stato di provisioning della distribuzione sia *Riuscito*.
+> Se non vengono visualizzate tutte le risorse, eseguire il comando `azure group deployment show` per assicurarsi che lo stato di provisioning della distribuzione sia *Succeeded*.
 > 

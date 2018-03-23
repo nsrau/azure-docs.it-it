@@ -3,7 +3,7 @@ title: Distribuire un'applicazione SaaS di database multi-tenant partizionato ch
 description: Distribuire ed esplorare l'applicazione SaaS di database multi-tenant partizionato Wingtip Tickets che illustra i modelli SaaS usando il database SQL di Azure.
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: MightyPen
 manager: craigg
 editor: billgib;anjangsh
@@ -194,7 +194,7 @@ Può essere utile inserire i sottoscrittori di una versione di prova gratuita, o
 
 Successivamente si effettua il provisioning di un altro tenant, questa volta in un database autonomo:
 
-1. In \\...Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1** modificare *$TenantName* su **Salix Salsa**, *$VenueType* su **dance** e *$Scenario* su **2**.
+1. In \\...Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* modificare *$TenantName* su **Salix Salsa**, *$VenueType* su **dance** e *$Scenario* su **2**.
 
 2. Premere **F5** per eseguire nuovamente lo script.
     - Premendo **F5** si effettua il provisioning del nuovo tenant in un database separato. Il database e il tenant vengono registrati nel catalogo e quindi viene visualizzata la pagina degli eventi del tenant nel browser.

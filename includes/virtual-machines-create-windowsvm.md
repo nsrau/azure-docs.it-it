@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/16/2018
+---
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. In altro a sinistra fare clic su **Crea una risorsa** > **Calcolo** > **Windows Server 2016 Datacenter**.
@@ -47,7 +63,7 @@ Al termine delle modifiche, fare clic su **OK**.
 
 ## <a name="4-summary-blade"></a>4. Pannello Riepilogo
 
-Il pannello Riepilogo elenca le impostazioni specificate nei pannelli precedenti. Quando si è pronti per creare l'immagine, fare clic su **OK**.
+Il pannello Riepilogo elenca le impostazioni specificate nei pannelli precedenti. Quando si è pronti per creare l'immagine, fare clic su **OK** .
 
  ![Il report del pannello di riepilogo offre impostazioni specifiche della macchina virtuale](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 

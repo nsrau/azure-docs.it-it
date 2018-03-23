@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: fcf6d2bf13af785eae26ff60035a4754f6ec702e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -23,9 +23,23 @@ ms.lasthandoff: 03/02/2018
 
 Agente di raccolta di Azure Migrate è un'appliance leggera che può essere usata per l'individuazione dell'ambiente vCenter locale. L'appliance individua i computer VMware locali e ne invia i metadati al servizio Azure Migrate.
 
-L'appliance Agente di raccolta è un pacchetto OVF che è possibile scaricare dal progetto di Azure Migrate. Crea un'istanza di una macchina virtuale VMware con 4 core, 8 GB di RAM e un disco da 80 GB. Il sistema operativo dell'appliance è Windows Server 2012 R2 (64 bit)
+L'appliance Agente di raccolta è un pacchetto OVF che è possibile scaricare dal progetto di Azure Migrate. Crea un'istanza di una macchina virtuale VMware con 4 core, 8 GB di RAM e un disco da 80 GB. Il sistema operativo dell'appliance è Windows Server 2012 R2 (64 bit).
 
 È possibile creare l'agente di raccolta seguendo i passaggi descritti in [Creare la macchina virtuale dell'agente di raccolta](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="collector-communication-diagram"></a>Diagramma di comunicazione dell'agente di raccolta
+
+![Diagramma di comunicazione dell'agente di raccolta](./media/tutorial-assessment-vmware/portdiagram.PNG)
+
+
+| Componente      | Comunicazione con   | Porta necessaria                            | Motivo                                   |
+| -------------- | --------------------- | ---------------------------------------- | ---------------------------------------- |
+| Agente di raccolta      | Servizio Azure Migrate | TCP 443                                  | L'agente di raccolta deve essere in grado di comunicare con il servizio tramite la porta SSL 443 |
+| Agente di raccolta      | Server vCenter        | Porta predefinita 443                             | L'agente di raccolta deve essere in grado di comunicare con il server vCenter. Si connette a vCenter tramite la porta 443 per impostazione predefinita. Se il server vCenter è in ascolto su una porta diversa, la porta deve essere disponibile come porta in uscita nell'agente di raccolta |
+| Agente di raccolta      | RDP|   | TCP 3389 | Per consentire le comunicazioni tramite protocollo RDP al computer dell'agente di raccolta |
+
+
+
 
 
 ## <a name="collector-pre-requisites"></a>Prerequisiti di Agente di raccolta
@@ -158,6 +172,32 @@ La tabella seguente contiene un elenco dei contatori delle prestazioni raccolti 
 Agente di raccolta si limita a individuare i dati sui computer e inviarli al progetto. Il progetto potrebbe richiedere ulteriore tempo prima che i dati individuati vengano visualizzati nel portale e sia possibile avviare la creazione di una valutazione.
 
 In base al numero di macchine virtuali nell'ambito selezionato, sono necessari fino a 15 minuti per l'invio dei metadati statici al progetto. Quando i metadati statici sono disponibili nel portale, è possibile visualizzare l'elenco dei computer nel portale e avviare la creazione di gruppi. Non è possibile creare una valutazione finché il processo di raccolta non viene completato e il progetto non ha elaborato i dati. Una volta completato il processo di raccolta in Agente di raccolta, perché i dati sulle prestazioni siano disponibili nel portale può essere necessaria fino a un'ora, in base al numero di macchine virtuali nell'ambito selezionato.
+
+## <a name="how-to-upgrade-collector"></a>Come eseguire l'aggiornamento dell'agente di raccolta
+
+È possibile aggiornare l'agente di raccolta per la versione più recente senza scaricare nuovamente il file con estensione OVA.
+
+1. Scaricare il [pacchetto di aggiornamento](https://aka.ms/migrate/col/latestupgrade) più recente.
+2. Per garantire la sicurezza dell'hotfix scaricato, aprire il prompt dei comandi come amministratore ed eseguire il comando seguente per generare l'hash del file ZIP. L'hash generato deve corrispondere con all'hash indicato nella versione specifica:
+
+    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
+    
+    (esempio d'uso C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+3. Copiare il file ZIP nella macchina virtuale dell'agente di raccolta di Azure Migrate (Agente di raccolta di Azure Migrate).
+4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare Estrai tutto.
+5. Fare clic con il pulsante destro del mouse sul file Setup.ps1, selezionare Run with PowerShell (Esegui con PowerShell) e quindi seguire le istruzioni visualizzate sullo schermo per installare l'aggiornamento.
+
+### <a name="list-of-updates"></a>Elenco degli aggiornamenti
+
+#### <a name="upgrade-to-version-1095"></a>Eseguire l'aggiornamento alla versione 1.0.9.5
+
+Per eseguire l'aggiornamento alla 1.0.9.5, scaricare questo [pacchetto](https://aka.ms/migrate/col/upgrade_9_5)
+
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | d969ebf3bdacc3952df0310d8891ffdf
+SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
+SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Passaggi successivi
 

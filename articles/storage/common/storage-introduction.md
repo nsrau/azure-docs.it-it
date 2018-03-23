@@ -2,23 +2,17 @@
 title: Introduzione ad Archiviazione di Azure | Documentazione Microsoft
 description: Introduzione ad Archiviazione di Azure, la risorsa di archiviazione dei dati Microsoft sul cloud.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/21/2018
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
@@ -137,7 +131,7 @@ Sono disponibili due tipi di crittografia di base per i servizi di archiviazione
 
 Crittografia del servizio di archiviazione di Azure per dati inattivi (SSE) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
 
-È possibile abilitare Crittografia del servizio di archiviazione (SSE) per l'archivio BLOB o File di Azure (anteprima). Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione.
+Crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di archiviazione di Azure (BLOB, code, tabelle e file). Crittografia del servizio di archiviazione non influisce sulle prestazioni di Archiviazione di Azure.
 
 Per altre informazioni sulla crittografia SSE dei dati inattivi, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 

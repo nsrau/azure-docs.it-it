@@ -2,24 +2,19 @@
 title: Usare Visual Studio e .NET per eseguire query nel database SQL di Azure | Microsoft Docs
 description: Questo argomento illustra come usare Visual Studio per creare un programma che si connette a un database SQL di Azure ed esegue query usando istruzioni Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: devcenter
-ms.workload: Active
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a76b9058f0bf7afdc332cee4ff7a49fa0e6987a6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usare .NET (C#) con Visual Studio Code per connettersi a un database SQL ed eseguire query
 

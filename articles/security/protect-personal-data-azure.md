@@ -1,29 +1,29 @@
 ---
 title: Proteggere i dati personali in Microsoft Azure | Microsoft Docs
-description: Primo di una serie di articoli che illustrano come usare Azure per proteggere i dati personali
+description: Questo articolo illustra come usare Azure per proteggere i dati personali e assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Proteggere i dati personali in Microsoft Azure
 
-Questo articolo è il primo di una serie di articoli che illustrano come usare le tecnologie e i servizi di sicurezza di Azure per proteggere i dati personali. Si tratta di un requisito fondamentale per molte aziende e iniziative di governance e conformità. L'articolo descrive anche lo scenario, la presentazione del problema e gli obiettivi aziendali.
+Questo articolo è il primo di una serie di articoli che illustrano come usare le tecnologie e i servizi di sicurezza di Azure per proteggere i dati personali. Si tratta di un requisito fondamentale per molte aziende e iniziative di governance e conformità. È ad esempio possibile usare le informazioni disponibili in questa serie di articoli per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD). L'articolo descrive anche lo scenario, la presentazione del problema e gli obiettivi aziendali.
 
 ## <a name="scenario-and-problem-statement"></a>Scenario e presentazione del problema
 

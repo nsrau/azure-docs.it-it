@@ -1,11 +1,11 @@
 ---
 title: Ricerche log in Azure Log Analytics| Microsoft Docs
-description: "Una ricerca log è necessaria per recuperare qualsiasi tipo di dati da Log Analytics.  Questo articolo descrive come vengono usate le nuove ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di crearne una."
+description: Una ricerca log è necessaria per recuperare qualsiasi tipo di dati da Log Analytics.  Questo articolo descrive come vengono usate le nuove ricerche log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di crearne una.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.author: bwren
 ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Informazioni sulle ricerche log in Log Analytics
 

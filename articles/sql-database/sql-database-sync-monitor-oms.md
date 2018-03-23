@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be1423026af633ab024980dc6b12b0977639ba3a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Monitorare sincronizzazione dati SQL (anteprima) con OMS Log Analytics 
 
@@ -92,7 +92,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
     2.  Informazioni sul gruppo di sincronizzazione.
 
-    3.  Informazioni su OMS. Individuare queste informazioni nel portale di OMS | Impostazioni | Origini connesse. Per altre informazioni sull'invio di dati a Log Analytics, vedere [Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP (anteprima pubblica)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informazioni su OMS. Individuare queste informazioni nel portale di OMS | Impostazioni | Origini connesse. Per altre informazioni sull'invio di dati a Log Analytics, vedere [Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP (anteprima)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Eseguire il runbook nel riquadro di test. Assicurarsi che sia stato eseguito correttamente.
 

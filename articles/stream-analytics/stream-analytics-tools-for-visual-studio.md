@@ -2,7 +2,7 @@
 title: Usare gli strumenti di Analisi di flusso di Azure per Visual Studio | Microsoft Docs
 description: Esercitazione introduttiva per gli strumenti di Analisi di flusso di Azure per Visual Studio
 keywords: Visual Studio
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: jhubbard
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usare gli strumenti di Analisi di flusso di Azure per Visual Studio
 Sono ora disponibili pubblicamente gli strumenti di Analisi di flusso di Azure per Visual Studio. Questi strumenti consentono agli utenti di sfruttare meglio Analisi di flusso per risolvere i problemi e scrivere query complesse, anche in locale. Consentono anche di esportare un processo di Analisi di flusso in un progetto di Visual Studio.
 
 ## <a name="introduction"></a>Introduzione
-Questa esercitazione illustra come usare gli strumenti di Analisi di flusso per Visual Studio per creare, scrivere, testare in locale, gestire ed eseguire il debug dei processi di Analisi di flusso. 
+Questa esercitazione illustra come usare gli strumenti di Analisi di flusso per Visual Studio per creare, scrivere, testare in locale, gestire ed eseguire il debug dei processi di Analisi di flusso. Dopo aver creato il processo, è possibile configurare una pipeline di integrazione continua e recapito continuo in Azure usando il pacchetto NuGet CICD. Per altre informazioni, vedere l'articolo [Usare gli strumenti di Analisi di flusso per Visual Studio per configurare una pipeline di integrazione continua/recapito continuo](stream-analytics-tools-for-visual-studio-cicd.md).
 
 Dopo aver completato questa esercitazione, si sarà in grado di:
 
@@ -35,7 +35,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 * Usare il monitoraggio per risolvere i problemi.
 * Esportare i processi esistenti nei progetti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Completare i passaggi che precedono "Creare un processo di Analisi di flusso" nell'esercitazione [Compilare una soluzione IoT con Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 

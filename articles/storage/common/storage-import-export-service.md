@@ -1,5 +1,5 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: muralikk
 manager: syadav
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati in Archiviazione di Azure
 Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazione/Esportazione di Azure per trasferire in modo sicuro grandi quantità di dati in Archiviazione di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati da Archiviazione di Azure a unità disco rigido per la spedizione al sito locale. È possibile importare i dati da un'unica unità disco SATA interna ad Archiviazione BLOB di Azure o a File di Azure. 
@@ -294,7 +294,7 @@ La tabella seguente descrive gli stati di errore delle unità e le azioni intrap
 | N/D | Un'unità che non fa parte di alcun processo arriva al data center come parte di un altro processo. | L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente una volta completato il processo associato al pacchetto originale. |
 
 ### <a name="time-to-process-job"></a>Tempo di elaborazione del processo
-Il tempo impiegato per elaborare un processo di importazione/esportazione varia in base a diversi fattori, ad esempio i tempi di spedizione, il tipo di processo, il tipo e la dimensione dei dati da copiare e la dimensione dei dischi forniti. Il servizio di importazione/esportazione non dispone di un contratto di servizio, ma dopo la ricezione dei dischi il servizio tenta di completare la copia in un intervallo compreso tra i 7 e i 10 giorni. È possibile usare l'API REST per tenere traccia più da vicino dell'avanzamento del processo. È disponibile un parametro indicante la percentuale di completamento nell'operazione Elencare i processi che fornisce un'indicazione dell'avanzamento della copia. In caso di processi di importazione/esportazione che richiedono una precisa tempistica, invitiamo gli utenti a contattarci per avere una stima dei tempi di completamento.
+Il tempo impiegato per elaborare un processo di importazione/esportazione varia in base a diversi fattori, ad esempio i tempi di spedizione, il carico a livello di data center, il tipo di processo, il tipo e la dimensione dei dati da copiare e il numero dei dischi in un processo. Il servizio di importazione/esportazione non dispone di un contratto di servizio, ma tenta di completare la copia in un intervallo compreso tra i 7 e i 10 giorni dopo la ricezione dei dischi. Oltre allo stato pubblicato nel portale di Azure, è possibile usare le API REST per tenere traccia dell'avanzamento del processo. Il parametro relativo alla percentuale di completamento nella chiamata API all'operazione Elencare i processi illustra l'avanzamento della percentuale di copia.
 
 ### <a name="pricing"></a>Prezzi
 **Tariffa di gestione delle unità**

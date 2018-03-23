@@ -1,8 +1,8 @@
 ---
 title: Copiare o spostare dati in Archiviazione di Microsoft Azure con AzCopy in Windows | Microsoft Docs
-description: "Usare l'utilità AzCopy in Windows per spostare o copiare dati da o verso BLOB, tabelle e contenuto di file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure."
+description: Usare l'utilità AzCopy in Windows per spostare o copiare dati da o verso BLOB, tabelle e contenuto di file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Trasferire dati con AzCopy in Windows
 AzCopy è un'utilità della riga di comando progettata la copia dei dati in/dall'archiviazione di oggetti BLOB, file e tabelle di Microsoft Azure usando semplici comandi progettati per garantire prestazioni ottimali. È possibile copiare dati tra un file system e un account di archiviazione o tra più account di archiviazione.  
@@ -56,7 +56,7 @@ Se la cartella `C:\myfolder` non esiste ancora, AzCopy la crea e scarica `abc.tx
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Scaricare un singolo BLOB dall'area secondaria
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 È necessario che sia abilitata l'archiviazione con ridondanza geografica e accesso in lettura per accedere all'area secondaria.
@@ -106,7 +106,7 @@ Dopo l'operazione di download, la cartella `C:\myfolder` include i file seguenti
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Il prefisso si applica alla directory virtuale che forma la prima parte del nome del BLOB. Nell'esempio precedente, la directory virtuale non corrisponde al prefisso specificato, quindi non viene scaricata. Se inoltre l'opzione `\S` non è specificata, AzCopy non scarica alcun BLOB.
+Il prefisso si applica alla directory virtuale che forma la prima parte del nome del BLOB. Nell'esempio precedente, la directory virtuale non corrisponde al prefisso specificato, quindi non viene scaricata. Se inoltre l'opzione `/S` non è specificata, AzCopy non scarica alcun BLOB.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Impostare l'ora dell'ultima modifica dei file esportati sulla stessa ora dei BLOB di origine
 
@@ -616,7 +616,7 @@ I parametri per AzCopy sono descritti nella tabella seguente. È anche possibile
 
 * Per assistenza dettagliata della riga di comando per AzCopy: `AzCopy /?`
 * Per assistenza dettagliata con un parametro di AzCopy: `AzCopy /?:SourceKey`
-* Per esempi della riga di comando: `AzCopy /?:Samples`
+* Per esempi della riga di comando: `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source: "source"
 

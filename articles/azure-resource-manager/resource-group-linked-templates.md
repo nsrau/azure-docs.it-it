@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 38d4281dfadaefdf331e493745363e8b4152209d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c9a7fc0025e6f4f2b793f0616b4bc41c22c2a498
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -27,8 +27,6 @@ Per distribuire la soluzione, è possibile usare un modello singolo o un modello
 Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un singolo file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione, oltre che di riutilizzare i modelli.
 
 Quando si usa un modello collegato, si crea un modello principale che riceve i valori dei parametri durante la distribuzione. Il modello principale contiene tutti i modelli collegati e passa i valori a tali modelli in base alle esigenze.
-
-![Modelli collegati](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
 ## <a name="link-or-nest-a-template"></a>Collegare o annidare un modello
 

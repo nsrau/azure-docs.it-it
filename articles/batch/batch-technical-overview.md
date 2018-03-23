@@ -2,11 +2,11 @@
 title: Azure Batch esegue processi paralleli su larga scala nel cloud | Microsoft Docs
 description: Informazioni sull'uso del servizio Azure Batch per carichi di lavoro HPC e paralleli su larga scala
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
 manager: jkabat
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 93eabc0bdf4889d89f8dc3fc30f99dafa1b3a47a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d6a0355874e9fc98e551a2a05c776109c916d90a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="what-is-azure-batch"></a>Informazioni su Azure Batch
 
@@ -85,7 +85,7 @@ Il diagramma seguente mostra i passaggi di un normale flusso di lavoro di Batch 
 
 Tenere presente che questo è soltanto uno dei modi in cui è possibile usare Batch e che questo scenario descrive solo alcune delle sue funzionalità. È ad esempio possibile eseguire [più attività in parallelo](batch-parallel-node-tasks.md) in ogni nodo di calcolo, nonché usare [attività di preparazione e completamento di processi](batch-job-prep-release.md) per preparare i nodi per i processi e quindi eseguire la pulizia in un secondo momento. 
 
-Vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) per informazioni più dettagliate su pool, nodi, processi e attività e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch. 
+Vedere [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) per informazioni più dettagliate su pool, nodi, processi e attività e sulle numerose funzionalità delle API che è possibile usare durante la compilazione dell'applicazione Batch. Vedere anche gli [aggiornamenti più recenti per il servizio Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

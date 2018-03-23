@@ -4,7 +4,7 @@
 | Risorsa | Limite predefinito | 
 | --- | --- | 
 | Account di Servizi multimediali di Azure in una singola sottoscrizione | 25 (fisso) |
-| Unità riservate multimediali per account AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Unità riservate multimediali per account AMS |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Processi per ogni account di Servizi multimediali di Azure | 50.000<sup>(2)</sup> |
 | Attività concatenate per processo | 30 (fisso) |
 | Asset per ogni account di Servizi multimediali di Azure | 1.000.000|
@@ -20,7 +20,7 @@
 | Criteri | 1.000.000<sup>(6)</sup> |
 | Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>7</sup> |
   
-<sup>1</sup> Le unità riservate S3 non sono disponibili in India occidentale. Se si modifica il tipo, ad esempio da S2 a S1, i limiti per le UR vengono reimpostati.
+<sup>1</sup> Se si cambia il tipo, ad esempio si passa da S2 a S1, i limiti per le UR vengono reimpostati.
 
 <sup>2</sup> Questo numero include i processi in coda, terminati, attivi e annullati. Non include invece i processi eliminati. È possibile eliminare i processi obsoleti usando **IJob.Delete** o la richiesta HTTP **DELETE**.
 

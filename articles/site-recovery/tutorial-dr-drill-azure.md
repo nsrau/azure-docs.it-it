@@ -5,13 +5,13 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2017
+ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: f7dc5e2df95a64685a8b70d25e839c371d4fc2de
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2ac15e4da411efa6f018a3e3fb620023bc8964cc
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
@@ -30,7 +30,7 @@ Questa è la quarta esercitazione di una serie. In questa esercitazione si presu
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 
-Prima di eseguire un failover di test, verificare le proprietà della macchina virtuale e assicurarsi che sia conforme ai [requisiti di Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Prima di eseguire un failover di test, verificare le proprietà della macchina virtuale e assicurarsi che la macchina virtuale Hyper-V [hyper-v-azure-support-matrix.md#replicated-vms], la [macchina virtuale VMware o il server fisico](vmware-physical-azure-support-matrix.md#replicated-machines) sia conforme ai requisiti di Azure.
 
 1. In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale.
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
@@ -66,4 +66,4 @@ In alcuni scenari il failover richiede un'altra elaborazione il cui completament
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Eseguire failover e failback per macchine virtuali VMware locali](tutorial-vmware-to-azure-failover-failback.md).
+> [Eseguire failover e failback per macchine virtuali VMware locali](vmware-azure-tutorial-failover-failback.md).

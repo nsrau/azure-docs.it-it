@@ -5,21 +5,20 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/23/2017
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 6640ed8958f6b05c015fb6c61d07aeea95b18022
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Ottimizzazione della qualità di un gruppo di righe per columnstore
 
@@ -140,9 +139,9 @@ OPTION (MAXDOP 1);
 La dimensione delle DWU e la classe della risorsa utente insieme determinano la quantità di memoria disponibile per una query dell'utente. Per aumentare la concessione di memoria per una query di caricamento, è possibile aumentare il numero di DWU o aumentare la classe risorsa.
 
 - Per aumentare le DWU, vedere [Ridimensionare le prestazioni](quickstart-scale-compute-portal.md)
-- Per cambiare la classe risorsa per una query, vedere [Esempio di modifica della classe di risorse di un utente](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+- Per cambiare la classe risorsa per una query, vedere [Esempio di modifica della classe di risorse di un utente](resource-classes-for-workload-management.md#assigning-resource-classes).
 
-Ad esempio, sulla DWU 100 un utente nella classe risorsa smallrc può usare 100 MB di memoria per ogni distribuzione. Per informazioni dettagliate, vedere [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
+Ad esempio, sulla DWU 100 un utente nella classe risorsa smallrc può usare 100 MB di memoria per ogni distribuzione. Per informazioni dettagliate, vedere [Gestione della concorrenza e del carico di lavoro in SQL Data Warehouse](resource-classes-for-workload-management.md).
 
 Si supponga di determinare la necessità di 700 MB di memoria per ottenere le dimensioni di un gruppo di righe di alta qualità. Questi esempi illustrano come eseguire la query di caricamento con memoria sufficiente.
 

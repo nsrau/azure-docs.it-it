@@ -2,7 +2,7 @@
 title: Copiare dati da/in Azure Cosmos DB usando Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da archivi dati di origine supportati in Azure Cosmos DB o da Cosmos DB in archivi sink supportati usando Data Factory.
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c791f335bfa9ec6073eb83149068571ceb253f82
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiare dati da o in Azure Cosmos DB usando Azure Data Factory
 
@@ -162,7 +162,7 @@ Per copiare dati da Azure Cosmos DB, impostare il tipo di origine nell'attività
 
 ### <a name="azure-cosmos-db-as-sink"></a>Azure Cosmos DB come sink
 
-Per copiare dati da Azure Cosmos DB, impostare il tipo di sink nell'attività di copia su **DocumentDbCollectionSink**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati in Azure Cosmos DB, impostare il tipo di sink nell'attività di copia su **DocumentDbCollectionSink**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |

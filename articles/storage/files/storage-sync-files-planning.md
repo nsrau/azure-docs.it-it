@@ -2,7 +2,7 @@
 title: Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima) | Microsoft Docs
 description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -49,7 +49,7 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
 Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Non è attualmente possibile creare un endpoint server per la radice di un volume, ad esempio `F:\` o `C:\myvolume`, se il volume è montato come punto di montaggio.
 
 > [!Note]  
-> Un endpoint server potrebbe trovarsi nel volume di sistema Windows. La suddivisione in livelli cloud non è supportata nel volume di sistema.
+> Sono supportati solo i volumi non rimovibili.  Le unità di cui è stato eseguito il mapping da una condivisione remota non sono supportate per un percorso dell'endpoint server.  Inoltre, un endpoint server può essere posizionato nel volume di sistema Windows anche se la suddivisione in livelli cloud non è supportata nel volume di sistema.
 
 Se a un gruppo di sincronizzazione si aggiunge una posizione nel server con un set di file esistente come endpoint server, i file vengono uniti a tutti gli altri file già presenti in altri endpoint del gruppo di sincronizzazione.
 
@@ -92,7 +92,7 @@ Le versioni future di Windows Server verranno aggiunte non appena verranno rilas
 | Punti di analisi | Skipped | |
 | Compressione NTFS | Supporto completo | |
 | File sparse | Supporto completo | I file sparse vengono sincronizzati (non bloccati), ma vengono sincronizzati nel cloud come file completi. Se il contenuto del file viene modificato nel cloud (o in un altro server), il file non è più di tipo sparse quando viene scaricata la modifica. |
-| Flussi di dati alternativi (ADS) | Mantenuti, ma non sincronizzati | |
+| Flussi di dati alternativi (ADS) | Mantenuti, ma non sincronizzati | Ad esempio, i tag di classificazione creati tramite Infrastruttura di classificazione file non vengono sincronizzati. I tag di classificazione esistenti sui file in ognuno degli endpoint server non subiscono variazioni. |
 
 > [!Note]  
 > Sono supportati solo i volumi NTFS. Non sono supportati ReFS, FAT, FAT32 e altri file system.
@@ -142,7 +142,7 @@ Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo 
 Il supporto per le soluzioni di crittografia dipende dal modo in cui sono implementate. Sincronizzazione file di Azure funziona con:
 
 - Crittografia BitLocker
-- Azure Rights Management Services (Azure RMS) e Active Directory RMS legacy
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) e Active Directory RMS
 
 Sincronizzazione file di Azure non funziona con:
 

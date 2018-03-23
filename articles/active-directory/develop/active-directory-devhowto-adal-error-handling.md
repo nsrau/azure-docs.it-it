@@ -2,7 +2,7 @@
 title: Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 description: Fornisce linee guida e procedure consigliate per la gestione degli errori per le applicazioni client ADAL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
 ms.author: bryanla
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
-ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 02/27/2017
+ms.custom: ''
+ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Procedure consigliate di gestione degli errori per i client di Azure Active Directory Authentication Library (ADAL)
 
@@ -49,7 +49,7 @@ Esiste un set di errori generati dal sistema operativo, che potrebbe richiedere 
 
 Fondamentalmente, esistono due casi di errori AcquireTokenSilent:
 
-| Caso | Descrizione |
+| Caso | DESCRIZIONE |
 |------|-------------|
 | **Caso 1**: l'errore è risolvibile con un accesso interattivo | Per gli errori causati dalla mancanza di token validi, è necessaria una richiesta interattiva. In particolare, per la risoluzione di ricerche nella cache e token di aggiornamento non validi/scaduti è necessaria una chiamata di AcquireToken.<br><br>In questi casi, occorre chiedere all'utente finale di eseguire l'accesso. L'applicazione può scegliere di effettuare una richiesta interattiva immediatamente dopo l'interazione con l'utente finale (ad esempio, l'uso di un pulsante di accesso) o in seguito. La scelta dipende dal comportamento desiderato dell'applicazione.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo.|
 | **Caso 2**: l'errore non è risolvibile con un accesso interattivo | Per la rete e gli errori temporanei o altri malfunzionamenti, l'esecuzione di una richiesta AcquireToken interattiva non risolve il problema. Le richieste di accesso interattivo non necessarie possono anche risultare frustranti per gli utenti finali. ADAL esegue automaticamente solo un ulteriore tentativo per la maggior parte degli errori AcquireTokenSilent.<br><br>L'applicazione client può anche eseguire un altro tentativo in seguito, ma quando e come eseguirlo dipende dal comportamento dell'applicazione e dall'esperienza desiderata per gli utenti finali. Ad esempio, l'applicazione può eseguire un nuovo tentativo di chiamata di AcquireTokenSilent dopo alcuni minuti oppure in risposta a un'azione dell'utente finale. Un tentativo immediato causerebbe la limitazione dell'applicazione ed è sconsigliato.<br><br>Un tentativo successivo che genera lo stesso errore non significa che il client deve eseguire una richiesta interattiva tramite AcquireToken, perché non risolverebbe l'errore.<br><br>Vedere il codice nella sezione seguente per questo caso specifico e gli errori per diagnosticarlo. |
@@ -479,6 +479,9 @@ catch (AdalException e) {
 
 ## <a name="error-and-logging-reference"></a>Informazioni di riferimento su errori e registrazione
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Registrazione di informazioni personali e informazioni aziendali
+Per impostazione predefinita, la registrazione ADAL non acquisisce o registra informazioni personali o aziendali. La libreria consente agli sviluppatori di app di attivare questa funzionalità tramite un setter della classe Logger. Attivando la registrazione delle informazioni personali o aziendali, l'app si assume la responsabilità per la gestione di dati riservati in modo sicuro e per la conformità ai requisiti normativi.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Errori della libreria ADAL
@@ -487,7 +490,7 @@ Per esplorare errori ADAL specifici, la fonte di informazioni di riferimento ide
 
 #### <a name="guidance-for-error-logging-code"></a>Linee guida per il codice di registrazione degli errori
 
-Il processo di registrazione per ADAL .NET cambia a seconda della piattaforma in uso. Vedere la [documentazione sulla registrazione](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) per esempi di codice per l'abilitazione della registrazione.
+Il processo di registrazione per ADAL .NET cambia a seconda della piattaforma in uso. Per accedere al codice relativo all'abilitazione della registrazione, vedere il [wiki sulla registrazione](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net).
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Per esplorare errori ADAL specifici, la fonte di informazioni di riferimento ide
 
 #### <a name="operating-system-errors"></a>Errori del sistema operativo
 
-Gli errori del sistema operativo Android vengono esposti tramite AuthenticationException in ADAL, sono identificabili come "SERVER_INVALID_REQUEST" e possono essere ulteriormente dettagliati tramite le descrizioni degli errori. I due messaggi principali che un'app può scegliere di visualizzare nell'interfaccia utente sono:
+Gli errori del sistema operativo Android vengono esposti tramite AuthenticationException in ADAL, sono identificabili come "SERVER_INVALID_REQUEST" e possono essere ulteriormente dettagliati tramite le descrizioni degli errori. 
 
-- Errori SSL 
-  - [End user is using Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue) (L'utente finale usa Chrome 53)
-  - [Cert Chain has a cert marked as extra download (user needs to contact IT Admin)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929) (Nella catena di certificati un certificato è contrassegnato come download aggiuntivo e l'utente deve contattare l'amministratore IT)
-  - L'autorità di certificazione radice non è considerata attendibile dal dispositivo. Contattare l'amministratore IT. 
-- Errori correlati alla rete 
-  - [Problema di rete potenzialmente correlato alla convalida del certificato SSL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), può eseguire un singolo tentativo
+Per un elenco completo degli errori comuni e per le operazioni da eseguire quando l'app o gli utenti finali rilevano tali errori, vedere il [wiki su ADAL per Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Linee guida per il codice di registrazione degli errori
 
@@ -521,6 +519,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";

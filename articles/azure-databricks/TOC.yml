@@ -11,8 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Esercitazioni
   items:
-    - name: Trasmettere eventi con Hub eventi
+    - name: Trasmettere dati con Hub eventi
       href: databricks-stream-from-eventhubs.md
+    - name: Analisi del sentiment con Servizi cognitivi
+      href: databricks-sentiment-analysis-cognitive-services.md
 - name: Guide alle procedure
   items:
     - name: 'Stabilire la connessione con Excel, R e Python'

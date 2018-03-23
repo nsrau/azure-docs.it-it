@@ -1,5 +1,5 @@
 ---
-title: Data center virtuale di Microsoft Azure | Microsoft Docs
+title: 'Data center virtuale di Microsoft Azure: una prospettiva di rete | Microsoft Docs'
 description: Informazioni su come creare il data center virtuale in Azure
 services: networking
 author: tracsman
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="microsoft-azure-virtual-data-center"></a>Data center virtuale di Microsoft Azure
+# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Data center virtuale di Microsoft Azure: una prospettiva di rete
 **Microsoft Azure**: maggiore velocità, risparmi sui costi e possibilità di integrare app e dati in locale
 
 ## <a name="overview"></a>Panoramica

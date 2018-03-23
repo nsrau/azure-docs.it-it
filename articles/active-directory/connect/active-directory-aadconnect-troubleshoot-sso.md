@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Connect: risolvere i problemi relativi all''accesso Single Sign-On facile | Microsoft Docs'
+title: "Azure Active Directory Connect: risolvere i problemi relativi all'accesso Single Sign-On facile | Microsoft Docs"
 description: Questo argomento descrive come risolvere i problemi dell'accesso Single Sign-On (SSO) facile di Azure Active Directory
 services: active-directory
-keywords: "che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
-documentationcenter: 
+keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,36 +12,41 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: aa28431c5926656ae97ded3f23b83f2a91c60487
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
 Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'accesso Single Sign-On (SSO) facile di Azure Active Directory (Azure AD).
 
-## <a name="known-problems"></a>Problemi noti
+## <a name="known-issues"></a>Problemi noti
 
 - In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
 - Se si disabilita e si abilita di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache, validi in genere per 10 ore.
 - Non è disponibile il supporto per il browser Edge.
-- L'avvio dei client Office, soprattutto in scenari di computer condivisi, prevede procedure di accesso aggiuntive per gli utenti. Gli utenti devono immettere i nomi utente di frequente, ma non le relative password.
 - Se l'accesso SSO facile ha esito positivo, l'utente non ha la possibilità di scegliere **Mantieni l'accesso**. A causa di questo comportamento, gli scenari di mapping di SharePoint e OneDrive non funzionano.
+- I client Office con versione precedente alla 16.0.8730.xxxx non supportano l'accesso non interattivo con l'accesso Single Sign-On facile. Per eseguire l'accesso in quei client, gli utenti devono immettere il nome utente ma non la password.
 - L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
 - L'accesso Single Sign-On facile non funziona in Internet Explorer quando è attiva la modalità di protezione avanzata.
 - L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità nel tenant in uso.
-- L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) alla zona Siti attendibili invece che alla zona Intranet locale *impedisce agli utenti di eseguire l'accesso*.
+- L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com) alla zona Siti attendibili anziché alla zona Intranet locale *impedisce agli utenti di eseguire l'accesso*.
+- La disattivazione dell'uso del tipo di crittografia **RC4_HMAC_MD5** per Kerberos nelle impostazioni di Active Directory interromperà l'accesso SSO facile. Nello strumento Editor Gestione Criteri di gruppo assicurarsi che il valore dei criteri per **RC4_HMAC_MD5** in **Configurazione computer > Impostazioni di Windows > Impostazioni di sicurezza > Criteri locali > Opzioni di sicurezza -> "Sicurezza di rete: configura tipi di crittografia consentiti per Kerberos"** sia "Abilitato".
 
-## <a name="check-the-status-of-the-feature"></a>Controllare lo stato della funzionalità
+## <a name="check-status-of-feature"></a>Controllare lo stato della funzionalità
 
 Assicurarsi che la funzionalità di accesso SSO facile sia ancora **abilitata** nel tenant. Per verificare lo stato, passare al riquadro **Azure AD Connect** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Interfaccia di amministrazione di Azure Active Directory: riquadro Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+Fare clic per visualizzare tutte le foreste di AD abilitate per l'accesso SSO facile.
+
+![Interfaccia di amministrazione di Azure Active Directory: riquadro per l'accesso SSO facile](./media/active-directory-aadconnect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivi degli errori di accesso nell'interfaccia di amministrazione di Azure Active Directory (necessaria licenza Premium)
 
@@ -70,7 +75,7 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 
 - Verificare se l'accesso SSO facile è abilitato in Azure AD Connect. Se non è possibile abilitare la funzionalità, ad esempio a causa di una porta bloccata, verificare che tutti i [prerequisiti](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) siano soddisfatti.
 - Se nel tenant sono stati abilitati sia [Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) che l'accesso Single Sign-On facile, assicurarsi che il problema non dipenda da Aggiunta ad Azure AD. SSO da Aggiunta ad Azure AD ha la precedenza su SSO facile se il dispositivo è sia registrato con Azure AD che aggiunto a un dominio. Con SSO da Aggiunta ad Azure AD l'utente visualizza un riquadro di accesso con il messaggio "Connesso a Windows".
-- Verificare che entrambi gli URL di Azure AD https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net facciano parte delle impostazioni della zona Intranet dell'utente.
+- Verificare che l'URL di Azure AD (https://autologon.microsoftazuread-sso.com) faccia parte delle impostazioni della zona Intranet dell'utente.
 - Verificare che il dispositivo aziendale sia aggiunto al dominio Active Directory.
 - Verificare che l'utente sia connesso al dispositivo tramite un account di dominio di Active Directory.
 - Verificare che l'account dell'utente sia presente in una foresta di Active Directory in cui è stato configurato l'accesso SSO facile.

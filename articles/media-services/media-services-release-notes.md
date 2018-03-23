@@ -2,10 +2,10 @@
 title: Note sulla versione di Servizi multimediali | Microsoft Docs
 description: Note sulla versione di Servizi multimediali
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -111,16 +111,16 @@ Per altre informazioni su queste proprietà, vedere [StreamingEndpoint](https://
  È ora possibile usare Servizi multimediali per accedere ai dati di telemetria e delle metriche relativi ai servizi. È possibile usare la versione corrente di Servizi multimediali per raccogliere i dati di telemetria relativi alle entità canale live, endpoint di streaming e archivio. Per altre informazioni, vedere [Telemetria di Servizi multimediali](media-services-telemetry-overview.md).
 
 ## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versione di luglio 2016
-### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (con estensione ism) generato dalle attività di codifica
-Quando viene inviata a Media Encoder Standard o a Media Encoder Premium, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
+### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (\*.ISM) generato dalle attività di codifica
+Quando viene inviata a Media Encoder Standard o a Media Encoder Premium, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (\*.ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
 
 > [!NOTE]
 > La sintassi del file manifesto di streaming (con estensione .ism) è riservata per l'uso interno. Sono previste modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.
 > 
 > 
 
-### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Un nuovo file manifesto client (con estensione .ismc) viene generato nell'asset di output quando un'attività di codifica restituisce uno o più file MP4.
-A partire dalla versione del servizio più recente, dopo il completamento di un'attività di codifica che genera uno più file MP4, l'asset di output contiene anche un file manifesto client di streaming (con estensione .ismc). Il file con estensione ismc consente di migliorare le prestazioni del flusso dinamico. 
+### <a name="a-new-client-manifest-ismc-file-is-generated-in-the-output-asset-when-an-encoding-task-outputs-one-or-more-mp4-files"></a>Un nuovo file manifesto client (\*.ISMC) viene generato nell'asset di output quando un'attività di codifica restituisce uno o più file MP4.
+A partire dalla versione del servizio più recente, dopo il completamento di un'attività di codifica che genera uno più file MP4, l'asset di output contiene anche un file manifesto client di streaming (\*.ismc). Il file con estensione ismc consente di migliorare le prestazioni del flusso dinamico. 
 
 > [!NOTE]
 > La sintassi del file manifesto client (con estensione .ismc) è riservata per l'uso interno. Sono previste modifiche nelle versioni future. Non modificare o manipolare il contenuto di questo file.

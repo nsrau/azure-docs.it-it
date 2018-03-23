@@ -2,7 +2,7 @@
 title: Progettare soluzioni per il ripristino di emergenza - Database SQL di Azure | Microsoft Docs
 description: Informazioni su come progettare la soluzione cloud per il ripristino di emergenza scegliendo il modello di failover appropriato.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -12,15 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.workload: Inactive
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b2a8f897130c2bf21321366a727ce2e2ae9d1d99
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategie di ripristino di emergenza per applicazioni che usano i pool elastici del database SQL
 Nel corso degli anni è stato riscontrato che i servizi cloud non sono infallibili e che si verificano incidenti catastrofici. Il database SQL offre diverse funzionalità utili per la continuità aziendale dell'applicazione in caso di eventi imprevisti. [Pool elastici](sql-database-elastic-pool.md) e i database singoli supportano lo stesso tipo di funzionalità per il ripristino di emergenza. Questo articolo illustra alcune strategie di ripristino di emergenza per i pool elastici che sfruttano i vantaggi di queste funzionalità per la continuità aziendale del database SQL.
@@ -30,6 +30,9 @@ In questo articolo viene usato il modello classico di applicazione ISV SaaS:
 <i>Un'applicazione Web moderna basata sul cloud effettua il provisioning di un database SQL per ogni utente finale. L'ISV ha un numero elevato di clienti e usa quindi molti database, definiti database tenant. Poiché i database tenant presentano in genere modelli di attività imprevedibili, l'ISV usa un pool elastico per rendere molto prevedibili i costi del database in periodi estesi di tempo. Il pool elastico semplifica anche la gestione delle prestazioni in caso di picchi dell'attività degli utenti. Oltre ai database tenant, l'applicazione usa anche alcuni database per gestire i profili utente e la sicurezza e per raccogliere i modelli di utilizzo e altro ancora. La disponibilità dei singoli tenant non influisce sulla disponibilità complessiva dell'applicazione. La disponibilità e le prestazioni dei database di gestione, tuttavia, sono essenziali per il funzionamento dell'applicazione e se i database di gestione sono offline, l'intera applicazione è offline.</i>  
 
 Questo articolo illustra le strategie di ripristino di emergenza in diversi scenari, dalle applicazioni per start-up attente ai costi a quelle con requisiti di disponibilità rigorosi.
+
+> [!NOTE]
+> Se si usano pool e database Premium, è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona (attualmente in anteprima). Vedere [Database con ridondanza della zona](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Start-up attente ai costi
 <i>Una start-up estremamente attenta ai costi  vuole semplificare la distribuzione e la gestione dell'applicazione e può avere un contratto di servizio limitato per singoli clienti. Vuole tuttavia assicurarsi che l'applicazione nel suo complesso non sia mai offline.</i>
@@ -163,7 +166,7 @@ Ecco gli **svantaggi** principali:
 * Richiede una progettazione più complessa per il database di gestione. Ogni record dei tenant, ad esempio, ha un tag di posizione che deve essere modificato durante il failover e il failback.  
 * I clienti della versione a pagamento potrebbero notare prestazioni inferiori al consueto fino al completamento dell'aggiornamento del pool nell'area B. 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Questo articolo illustra le strategie di ripristino di emergenza per il livello database usato da un'applicazione multi-tenant ISV SaaS. La scelta della strategia si basa sulle esigenze dell'applicazione, ad esempio il modello aziendale, il contratto di servizio da offrire ai clienti, i vincoli di budget e così via. Ogni strategia descritta illustra i vantaggi e gli svantaggi, per consentire una decisione consapevole. È anche probabile che l'applicazione specifica includa altri componenti di Azure. Esaminare quindi le rispettive indicazioni relative alla continuità aziendale e orchestrare il ripristino del livello database con tali componenti. Per altre informazioni sulla gestione del ripristino di applicazioni di database in Azure, vedere l'articolo relativo alla [progettazione di soluzioni cloud per il ripristino di emergenza](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi

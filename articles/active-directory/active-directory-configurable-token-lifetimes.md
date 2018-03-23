@@ -2,10 +2,10 @@
 title: Durata dei token configurabili in Azure Active Directory | Microsoft Docs
 description: Informazioni su come impostare la durata per i token rilasciati da Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
@@ -34,6 +34,11 @@ In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole
 
 È possibile designare un oggetto criteri come predefinito per l'organizzazione. I criteri predefiniti vengono applicati a tutte le applicazioni all'interno dell'organizzazione, fino a quando non vengono sostituiti da criteri con priorità più alta. È anche possibile assegnare criteri ad applicazioni specifiche. L'ordine di priorità varia in base al tipo di criteri.
 
+> [!NOTE]
+> I criteri per la durata dei token configurabili non sono supportati per SharePoint Online.  Anche se si ha la possibilità di creare questo criterio tramite PowerShell, SharePoint Online non lo riconoscerà. Fare riferimento ai [blog di SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) per altre informazioni sulla configurazione dei timeout di sessione inattiva.
+>* La durata predefinita per il token di accesso di SharePoint Online è 1 ora. 
+>* Il tempo di inattività massimo predefinito del token di aggiornamento di SharePoint Online è 90 giorni.
+>
 
 ## <a name="token-types"></a>Tipi di token
 
@@ -194,7 +199,7 @@ Gli esempi illustrano come:
 * Creare criteri per un'app nativa che chiama un'API Web
 * Gestire criteri avanzati
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](active-directory-howto-tenant.md) prima di procedere con questi esempi.  
 
 Per iniziare, seguire questa procedura:

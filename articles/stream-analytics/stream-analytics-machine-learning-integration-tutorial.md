@@ -1,10 +1,10 @@
 ---
-title: Integrazione di Analisi di flusso di Azure e Machine Learning | Documentazione Microsoft
+title: Integrazione di Analisi di flusso di Azure e Machine Learning | Microsoft Docs
 description: Come usare una funzione definita dall'utente e Machine Learning in un processo di analisi di flusso
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
-ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/01/2018
+ms.author: sngun
+ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analisi del sentiment con Analisi di flusso di Azure e Azure Machine Learning
 Questo articolo descrive come configurare rapidamente un semplice processo di Analisi di flusso di Azure che integra Azure Machine Learning. Verrà usato un modello di Machine Learning per l'analisi del sentiment proveniente dalla raccolta Cortana Intelligence per analizzare il flusso di dati di testo e determinare il punteggio del sentiment in tempo reale. Cortana Intelligence Suite consente di eseguire questa operazione senza doversi preoccupare delle complessità della creazione di un modello di analisi del sentiment.
@@ -41,7 +41,7 @@ La figura seguente illustra questa configurazione. Come indicato, per uno scenar
 
 ![Panoramica dell'integrazione di Machine Learning in Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Una sottoscrizione di Azure attiva.
@@ -57,9 +57,7 @@ In generale, per completare le attività illustrate in questo articolo, è neces
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Creare un contenitore di archiviazione e caricare il file di input CSV
 Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello disponibile da GitHub.
 
-1. Nel portale di Azure fare clic su **Crea una risorsa** &gt; **Archiviazione** &gt; **Account di archiviazione**.
-
-   ![creare un nuovo account di archiviazione](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. Nel portale di Azure fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione**.
 
 2. Specificare un nome (`samldemo` nell'esempio). Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 
 
@@ -81,9 +79,7 @@ Per questo passaggio, è possibile usare qualsiasi file CSV, ad esempio quello d
 
     ![Pulsante 'Carica' per un contenitore](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. Nel pannello **Carica BLOB** specificare il file CSV che si vuole usare per questa esercitazione. In **Tipo BLOB** selezionare **BLOB in blocchi** e impostare le dimensioni del blocco su 4 MB, sufficienti per questa esercitazione.
-
-    ![caricare il file BLOB](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. Nel pannello **Carica BLOB** caricare il file **sampleinput.csv** scaricato in precedenza. In **Tipo BLOB** selezionare **BLOB in blocchi** e impostare le dimensioni del blocco su 4 MB, sufficienti per questa esercitazione.
 
 9. Fare clic sul pulsante **Carica** nella parte inferiore del pannello.
 
@@ -130,8 +126,6 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 
 2. Fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**. 
 
-   ![Percorso del portale di Azure per ottenere un nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. Assegnare il nome `azure-sa-ml-demo` al processo, specificare una sottoscrizione, specificare un gruppo di risorse esistente o crearne uno nuovo e selezionare il percorso per il processo.
 
    ![specificare le impostazioni per il nuovo processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -140,46 +134,43 @@ Ora che i dati di esempio sono in un BLOB, è possibile abilitare il modello di 
 ### <a name="configure-the-job-input"></a>Configurare l'input del processo
 Il processo ottiene l'input dal file CSV caricato in precedenza nell'archivio BLOB.
 
-1. Dopo aver creato il processo, in **Topologia processo** nel pannello del processo, fare clic sulla casella **Input**.  
+1. Dopo aver creato il processo, in **Topologia processo**, nel pannello del processo, fare clic sull'opzione **Input**.    
+
+2. Nel pannello **Input** fare clic su **Aggiungi input del flusso** >**Archivio BLOB**.
+
+3. Completare il pannello **Archivio BLOB** con questi valori:
+
    
-   ![Casella 'Input' nel pannello del processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |Campo  |Valore  |
+   |---------|---------|
+   |**Alias di input** | Usare il nome `datainput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
+   |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
+   |**Contenitore**  | Selezionare il contenitore creato in precedenza (`azuresamldemoblob`).        |
+   |**Formato di serializzazione eventi**  |  Selezionare **CSV**.       |
 
-2. Nel pannello **Input** fare clic su **+ Aggiungi**.
+   ![Impostazioni per il nuovo input del processo](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   ![Pulsante 'Aggiungi' per aggiungere un input al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. Compilare il pannello **Nuovo input** con questi valori:
-
-    * **Alias di input**: usare il nome `datainput`.
-    * **Tipo di origine**: selezionare **Flusso dati**.
-    * **Origine**: selezionare **Archiviazione BLOB**.
-    * **Opzioni di importazione**: selezionare **Usa l'archiviazione BLOB della sottoscrizione corrente**. 
-    * **Account di archiviazione**. Selezionare l'account di archiviazione creato in precedenza.
-    * **Contenitore**. Selezionare il contenitore creato in precedenza (`azuresamldemoblob`).
-    * **Formato di serializzazione eventi**. Selezionare **CSV**.
-
-    ![Impostazioni per il nuovo input del processo](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. Fare clic su **Crea**.
+4. Fare clic su **Salva**.
 
 ### <a name="configure-the-job-output"></a>Configurare l'output del processo
 Il processo invia i risultati allo stesso archivio BLOB da cui ottiene l'input. 
 
-1. In **Topologia processo**, nel pannello del processo, fare clic sulla casella **Output**.  
-  
-   ![Creare un nuovo output per il processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. In **Topologia processo**, nel pannello del processo, fare clic sull'opzione **Output**.  
 
-2. Nel pannello **Output** fare clic su **+ Aggiungi** e quindi aggiungere un output con l'alias `datamloutput`. 
+2. Nel pannello **Output** fare clic su **Aggiungi** >**Archivio BLOB** e quindi aggiungere un output con l'alias `datamloutput`. 
 
-3. In **Sink** selezionare **Archivio BLOB**. Compilare quindi il resto delle impostazioni di output usando gli stessi valori usati per l'archivio BLOB per l'input:
+3. Completare il pannello **Archivio BLOB** con questi valori:
 
-    * **Account di archiviazione**. Selezionare l'account di archiviazione creato in precedenza.
-    * **Contenitore**. Selezionare il contenitore creato in precedenza (`azuresamldemoblob`).
-    * **Formato di serializzazione eventi**. Selezionare **CSV**.
+   |Campo  |Valore  |
+   |---------|---------|
+   |**Alias di output** | Usare il nome `datainput` e specificare l'opzione **Selezionare l'archiviazione BLOB dalle sottoscrizioni correnti**.       |
+   |**Account di archiviazione**  |  Selezionare l'account di archiviazione creato in precedenza.  |
+   |**Contenitore**  | Selezionare il contenitore creato in precedenza (`azuresamldemoblob`).        |
+   |**Formato di serializzazione eventi**  |  Selezionare **CSV**.       |
 
    ![Impostazioni per il nuovo output del processo](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Fare clic su **Crea**.   
+4. Fare clic su **Salva**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Aggiungere la funzione di Machine Learning 
@@ -189,22 +180,19 @@ In questa sezione dell'esercitazione si definisce una funzione nel processo di A
 
 1. Assicurarsi di avere a disposizione l'URL del servizio Web e la chiave API scaricati in precedenza nella cartella di lavoro di Excel.
 
-2. Tornare al pannello della panoramica del processo.
+2. Passare al pannello del processo > **Funzioni** > **+ Aggiungi** > **AzureML**.
 
-3. In **Impostazioni** selezionare **Funzioni** e quindi fare clic su **+ Aggiungi**.
+3. Completare il pannello **Funzione di Azure Machine Learning** con questi valori:
 
-   ![Aggiungere una funzione al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. Immettere `sentiment` come alias di funzione e compilare il resto del pannello con questi valori:
-
-    * **Tipo funzione**: selezionare **Azure ML**.
-    * **Opzione di importazione**: selezionare **Importa da un'altra sottoscrizione**. Questa impostazione offre la possibilità di immettere l'URL e la chiave.
-    * **URL**: incollare l'URL del servizio Web.
-    * **Chiave**: incollare la chiave API.
+   |Campo  |Valore  |
+   |---------|---------|
+   | **Alias di funzione** | Usare il nome `sentiment` e selezionare l'opzione **Specificare le impostazioni della funzione di Azure Machine Learning manualmente** che consente di immettere l'URL e la chiave.      |
+   | **URL**| Incollare l'URL del servizio Web.|
+   |**Chiave** | Incollare la chiave API. |
   
-    ![Impostazioni per l'aggiunta di una funzione di Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Impostazioni per l'aggiunta di una funzione di Machine Learning al processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Fare clic su **Crea**.
+4. Fare clic su **Salva**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Creare una query per trasformare i dati
 
@@ -213,8 +201,6 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 1. Tornare al pannello della panoramica del processo.
 
 2.  In **Topologia processo** fare clic sulla casella **Query**.
-
-    ![Creare una query per il processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
 
 3. Immettere la query seguente:
 
@@ -241,8 +227,6 @@ Analisi di flusso usa una query dichiarativa basata su SQL per esaminare l'input
 1. Tornare al pannello della panoramica del processo.
 
 2. Fare clic su **Avvia** nella parte superiore del pannello.
-
-    ![Creare una query per il processo di Analisi di flusso](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. In **Avvia processo** selezionare **Personalizzato** e quindi selezionare il giorno precedente al caricamento del file CSV nell'archivio BLOB. Al termine, fare clic su **Avvia**.  
 

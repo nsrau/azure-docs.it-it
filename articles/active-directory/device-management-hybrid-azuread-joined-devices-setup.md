@@ -1,11 +1,11 @@
 ---
-title: "Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs"
-description: "Informazioni su come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory."
+title: Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory | Microsoft Docs
+description: Informazioni su come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -34,7 +34,7 @@ Prima di iniziare a configurare dispositivi aggiunti all'identità ibrida di Azu
 
 Se si intende usare l'[Utilità preparazione sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), creare immagini da un'installazione di Windows che non è stata ancora registrata con Azure AD.
 
-Tutti i dispositivi aggiunti a un dominio che eseguono la versione Aggiornamento dell'anniversario di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD al riavvio del dispositivo o all'accesso dell'utente dopo il completamento dei passaggi di configurazione illustrati di seguito. Se non si desidera applicare questo comportamento di registrazione automatica o se si vuole eseguire un'implementazione controllata, seguire le istruzioni nella sezione Controllare la distribuzione e l'implementazione più avanti per abilitare o disabilitare in modo selettivo l'implementazione automatica prima di eseguire gli altri passaggi di configurazione.  
+Tutti i dispositivi aggiunti a un dominio che eseguono la versione Aggiornamento dell'anniversario di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD al riavvio del dispositivo o all'accesso dell'utente dopo il completamento dei passaggi di configurazione illustrati di seguito. **Se non si vuole applicare questo comportamento di registrazione automatica o se si vuole eseguire un'implementazione controllata**, seguire le istruzioni nella sezione Passaggio 4: Controllare la distribuzione e l'implementazione più avanti per abilitare o disabilitare in modo selettivo l'implementazione automatica prima di eseguire gli altri passaggi di configurazione.  
 
 Per una migliore leggibilità delle descrizioni, in questo argomento viene usata la terminologia seguente. 
 
@@ -60,7 +60,7 @@ Per una migliore leggibilità delle descrizioni, in questo argomento viene usata
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare ad abilitare i dispositivi aggiunti all'identità ibrida di Azure AD nell'organizzazione, è necessario assicurarsi di eseguire una versione aggiornata di Azure AD Connect.
 
@@ -542,7 +542,7 @@ Al termine dei passaggi necessari, i dispositivi aggiunti a un dominio sono pron
 
 ### <a name="remarks"></a>Osservazioni
 
-- Per controllare l'implementazione della registrazione automatica dei computer Windows 10 e Windows Server 2016 aggiunti al dominio, è possibile usare un oggetto Criteri di gruppo.
+- Per controllare l'implementazione della registrazione automatica dei computer Windows 10 e Windows Server 2016 aggiunti al dominio, è possibile usare un oggetto Criteri di gruppo. **Se non si vuole che tali dispositivi vengano registrati automaticamente in Azure AD o se si vuole controllare la registrazione**, è necessario implementare i criteri di gruppo disabilitando la registrazione automatica per tutti questi dispositivi prima di eseguire gli altri passaggi di configurazione. Dopo avere completato la configurazione, quando si è pronti a eseguire il test, è necessario implementare i criteri di gruppo abilitando la registrazione automatica solo per i dispositivi di test e quindi per gli altri dispositivi di propria scelta.
 
 - Con l'aggiornamento di novembre 2015 di Windows 10, l'aggiunta automatica ad Azure AD viene eseguita **solo** se è impostato l'oggetto Criteri di gruppo di implementazione.
 

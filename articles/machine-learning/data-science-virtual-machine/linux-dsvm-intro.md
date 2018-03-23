@@ -2,7 +2,7 @@
 title: Effettuare il provisioning di una macchina virtuale di data science CentOS di Linux in Azure | Microsoft Docs
 description: Configurare e creare una macchina virtuale Linux per l'analisi scientifica dei dati in Azure per eseguire analisi dei dati e per l'apprendimento automatico.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: e36c28ef1c05dcdcebc7372316c7f144c92fd02f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale di data science CentOS di Linux in Azure
 
@@ -153,8 +153,8 @@ Per richiamare la sessione interattiva di Python, è sufficiente digitare **pyth
 
 Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ````pip```` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. Ad esempio: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Notebook di Jupyter

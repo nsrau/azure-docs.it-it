@@ -1,8 +1,8 @@
 ---
-title: 'Esercitazione: Esaminare l''utilizzo e i costi in Gestione costi di Azure | Microsoft Docs'
+title: "Esercitazione: Esaminare l'utilizzo e i costi in Gestione costi di Azure | Microsoft Docs"
 description: In questa esercitazione si esamineranno l'utilizzo e i costi per tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e8f09a90ae9a4dd54d81335de2494f0dcbe09485
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Esercitazione: Esaminare l'utilizzo e i costi
 
-Gestione dei costi di Azure di Cloudyn visualizza l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report. In questa esercitazione si apprenderà come:
+Gestione costi di Azure visualizza l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Tenere traccia delle tendenze di utilizzo e dei costi
@@ -57,7 +57,7 @@ Nell'esempio precedente è stato speso meno denaro a partire dal 31-08-2017 risp
 
 Nell'esempio è chiaramente visibile che il costo di Archiviazione di Azure è calato a partire dal 31-08-2017 mentre la spesa per gli altri servizi di Azure si è mantenuta costante. Che cosa ha causato il calo della spesa? In questo esempio alcuni dipendenti erano in vacanza e non hanno usato il servizio Archiviazione.
 
-Per guardare un video di esercitazione su come tenere traccia delle tendenze di utilizzo e dei costi, vedere [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Analisi del rapporto fatturazione/tempo per il cloud con Gestione costi di Azure di Cloudyn).
+Per guardare un video di esercitazione su come tenere traccia delle tendenze di utilizzo e dei costi, vedere [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g) (Analisi del rapporto fatturazione/tempo per il cloud con Gestione costi di Azure).
 
 ## <a name="detect-usage-inefficiencies"></a>Rilevare le inefficienze dell'utilizzo
 
@@ -81,7 +81,7 @@ Fare clic sul segno più accanto a **List of Candidates** (Elenco dei candidati)
 
 ![Elenco dei candidati](./media/tutorial-review-usage/sizing03.png)
 
-Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Gestione costi di Azure di Cloudyn).
+Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Gestione costi di Azure).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Creare avvisi per spese inusuali
 

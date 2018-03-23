@@ -1,12 +1,12 @@
 ---
 title: Guida introduttiva a Bash in Azure Cloud Shell | Microsoft Docs
 description: Guida introduttiva a Bash in Cloud Shell
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 69431979769a03b62a7f9fd7760e6eb614e37cd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3f605645e7a53f285cb7e508034ebab0daa0d335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -37,7 +37,7 @@ Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell 
 > Si viene automaticamente autenticati per l'interfaccia della riga di comando di Azure 2.0 in ogni sessione.
 
 ### <a name="select-the-bash-environment"></a>Selezionare l'ambiente Bash
-1. Selezionare l’elenco a discesa degli ambienti dal lato sinistro della finestra della shell <br>
+1. Selezionare l'elenco a discesa degli ambienti dal lato sinistro della finestra della shell <br>
 ![](media/quickstart/env-selector.png)
 2. Selezionare Bash
 

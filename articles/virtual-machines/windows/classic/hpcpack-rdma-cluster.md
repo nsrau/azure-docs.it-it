@@ -2,10 +2,10 @@
 title: Configurare un cluster RDMA Windows per l'esecuzione di applicazioni MPI | Microsoft Docs
 description: Informazioni su come creare un cluster Windows HPC Pack con macchine virtuali di dimensioni H16r, H16mr, A8 o A9 per usare la rete RDMA in Azure per eseguire app MPI.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configurare un cluster RDMA di Windows con HPC Pack per eseguire applicazioni MPI
-Configurare un cluster Windows RDMA in Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Quando si configurano nodi con supporto per RDMA e basati su Windows Server in un cluster HPC Pack, le applicazioni MPI comunicano in modo efficiente tramite una rete a bassa latenza e a velocità effettiva elevata in Azure, sulla base della tecnologia di accesso diretto a memoria remota (RDMA).
+Configurare un cluster Windows RDMA in Azure con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [dimensioni delle macchine virtuali HPC con supporto RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) per l'esecuzione di applicazioni MPI (Message Passing Interface) in parallelo. Quando si configurano nodi con supporto per RDMA e basati su Windows Server in un cluster HPC Pack, le applicazioni MPI comunicano in modo efficiente tramite una rete a bassa latenza e a velocità effettiva elevata in Azure, sulla base della tecnologia di accesso diretto a memoria remota (RDMA).
 
 Per eseguire carichi di lavoro MPI in macchine virtuali Linux che accedono alla rete RDMS in Azure, vedere [Configurare un cluster Linux RDMA per eseguire applicazioni MPI](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>Opzioni di distribuzione del cluster HPC Pack
 Microsoft HPC Pack è uno strumento disponibile senza costi aggiuntivi che consente di creare cluster HPC localmente o in Azure per eseguire applicazioni Windows o Linux HPC. HPC Pack include un ambiente di runtime per l'implementazione Microsoft di Message Passing Interface per Windows (MS-MPI). Se usato con istanze con supporto per RDMA e in esecuzione su un sistema operativo Windows Server supportato, HPC Pack offre un modo efficiente per eseguire applicazioni Windows MPI con accesso alla rete RDMA di Azure. 
 
-Questo articolo descrive due scenari e fornisce i collegamenti a indicazioni dettagliate per la configurazione di un cluster Windows RDMA con Microsoft HPC Pack. 
+Questo articolo presenta due scenari e fornisce i collegamenti a indicazioni dettagliate per la configurazione di un cluster Windows RDMA con Microsoft HPC Pack 2012 R2. 
 
 * Scenario 1. Distribuzione di istanze del ruolo di lavoro a elevato utilizzo di calcolo (PaaS)
 * Scenario 2. Distribuzione di nodi di calcolo in macchine virtuali a elevato utilizzo di calcolo (IaaS)
-
-Per i prerequisiti di carattere generale riguardanti l'uso di istanze a elevato utilizzo di calcolo con Windows, vedere [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Scenario 1: Distribuzione di istanze del ruolo di lavoro a elevato utilizzo di calcolo (PaaS)
 Da un cluster HPC Pack esistente, aggiungere risorse di calcolo aggiuntive sotto forma di istanze del ruolo di lavoro di Azure (nodi di Azure) in esecuzione in un servizio cloud (PaaS). Questa funzionalità, denominata anche "burst in Azure" da HPC Pack, supporta una gamma di dimensioni per le istanze del ruolo di lavoro. Per l'aggiunta di nodi di Azure, specificare una delle dimensioni con supporto per RDMA.
@@ -51,13 +49,14 @@ Di seguito sono riportati le considerazioni e i passaggi per il burst in istanze
 ### <a name="steps"></a>Passaggi
 1. **Distribuire e configurare un nodo head HPC Pack 2012 R2**
    
-    Scaricare il pacchetto di installazione di HPC Pack più recente dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Per i requisiti e le istruzioni per la preparazione di una distribuzione burst in Azure, vedere la [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx) (Burst in Azure con Microsoft HPC Pack).
+    Scaricare il pacchetto di installazione di HPC Pack dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Per i requisiti e le istruzioni per la preparazione di una distribuzione burst in Azure, vedere la [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx) (Burst in Azure con Microsoft HPC Pack).
 2. **Configurare un certificato di gestione nella sottoscrizione di Azure**
    
     Configurare un certificato per proteggere la connessione fra il nodo head e Azure. Per altre opzioni e procedure, vedere la pagina relativa agli [scenari per configurare il certificato di gestione di Azure per HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Per le distribuzioni di test, HPC Pack installa un certificato di gestione di Azure per HPC Microsoft predefinito che è possibile caricare rapidamente nella sottoscrizione di Azure.
 3. **Creare un nuovo servizio cloud e un account di archiviazione**
    
-    Usare il portale di Azure per creare un servizio cloud e un account di archiviazione per la distribuzione in un'area in cui sono disponibili le istanze con supporto per RDMA.
+    Usare il portale di Azure per creare un servizio cloud (classico) e un account di archiviazione (classico) per la distribuzione. Creare queste risorse in un'area in cui siano disponibili le dimensioni della serie H, A8 o A9 che si vogliono usare. Vedere [Prodotti di Azure in base all'area](https://azure.microsoft.com/regions/services/).
+
 4. **Creare un modello di nodo di Azure**
    
     Usare la Creazione guidata modello di nodo in Gestione cluster HPC. Per la procedura, vedere la sezione relativa alla [creazione di un modello di nodo di Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) nell'articolo che illustra la "procedura per distribuire i nodi di Azure con Microsoft HPC Pack".
@@ -91,19 +90,20 @@ In questo scenario si distribuisce il nodo head HPC Pack e i nodi di calcolo del
 ### <a name="steps"></a>Passaggi
 1. **Creare macchine virtuali del nodo head del cluster e del nodo di calcolo eseguendo lo script di distribuzione IaaS di HPC Pack in un computer client**
    
-    Scaricare il pacchetto dello script di distribuzione IaaS di HPC Pack dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
+    Scaricare il pacchetto dello script di distribuzione IaaS di HPC Pack dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949).
    
     Per preparare il computer client, creare il file di configurazione dello script ed eseguire lo script, vedere [Creare un cluster Windows HPC (High Performance Computing) con lo script di distribuzione IaaS di HPC Pack](hpcpack-cluster-powershell-script.md). 
    
-    Per distribuire nodi di calcolo con supporto per RDMA, si tengano presenti le considerazioni aggiuntive seguenti:
+    Per alcune considerazioni sulla distribuzione di nodi di calcolo con supporto RDMA, vedere [Dimensioni delle macchine virtuali HPC](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) e tenere presente quanto segue:
    
-   * **Rete virtuale**: specificare una nuova rete virtuale in un'area in cui siano disponibili le istanze con supporto per RDMA che si vuole usare.
-   * **Sistema operativo Windows Server**: per supportare la connettività RDMA, specificare un sistema operativo Windows Server 2012 R2 o Windows Server 2012 per le macchine virtuali del nodo di calcolo.
-   * **Servizi cloud**: è consigliabile eseguire la distribuzione del nodo head in un servizio cloud e dei nodi di calcolo in un altro servizio cloud.
+   * **Rete virtuale**: specificare una nuova rete virtuale in un'area in cui siano disponibili le dimensioni della serie H, A8 o A9 che si vogliono usare. Vedere [Prodotti di Azure in base all'area](https://azure.microsoft.com/regions/services/).
+
+   * **Sistema operativo Windows Server** : per supportare la connettività RDMA, specificare un sistema operativo Windows Server compatibile, ad esempio Windows Server 2012 R2, per le macchine virtuali dei nodi di calcolo.
+   * **Servizi cloud**: poiché lo script usa il modello di distribuzione classico, le macchine virtuali del cluster vengono distribuite usando i servizi cloud di Azure (impostazioni di `ServiceName` nel file di configurazione). È consigliabile distribuire il nodo head in un servizio cloud e i nodi di calcolo in un altro servizio cloud. 
    * **Dimensioni nodo head**: per questo scenario prendere in considerazione dimensioni pari almeno ad A4 (Molto grande) per il nodo head.
    * **Estensione HpcVmDrivers**: lo script di distribuzione installa l'agente di macchine virtuali Azure e l'estensione HpcVmDrivers automaticamente quando si distribuiscono nodi di calcolo di dimensioni A8 o A9 con un sistema operativo Windows Server. L'estensione HpcVmDrivers installa i driver nelle macchine virtuali del nodo di calcolo in modo che possano connettersi alla rete RDMA. Nelle macchine virtuali serie H con supporto per RDMA è necessario installare manualmente l'estensione HpcVmDrivers. Vedere [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Configurazione della rete del cluster**: lo script di distribuzione configura automaticamente il cluster HPC Pack nella topologia 5 (tutti i nodi nella rete aziendale). Questa topologia è obbligatoria per tutte le distribuzioni di cluster HPC Pack nelle VM. Non modificare la topologia della rete del cluster in seguito.
-2. **Portare online i nodi di calcolo per eseguire i processi**
+1. **Portare online i nodi di calcolo per eseguire i processi**
    
     Selezionare i nodi e usare l'azione **Bring Online** in HPC Cluster Manager. I nodi sono pronti a eseguire i processi.
 3. **Inviare processi al cluster**

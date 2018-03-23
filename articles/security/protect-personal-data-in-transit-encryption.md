@@ -1,31 +1,29 @@
 ---
 title: Proteggere i dati personali in transito con la crittografia in Azure | Microsoft Docs
-description: Uso della crittografia in Azure per proteggere i dati personali
+description: Le informazioni sulla crittografia di Azure per la protezione dei dati personali possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Tecnologie di crittografia di Azure: proteggere i dati personali in transito con la crittografia
 
-Questo articolo aiuta a comprendere e usare le tecnologie di crittografia di Azure per proteggere i dati in transito. 
-
-La protezione della privacy dei dati personali mentre attraversano la rete è una parte essenziale di una strategia di sicurezza con difesa avanzata a più livelli. La crittografia dei dati in transito è progettata per impedire a un utente malintenzionato che intercetta le trasmissioni di visualizzare o usare i dati.
+Questo articolo aiuta a comprendere e usare le tecnologie di crittografia di Azure per proteggere i dati in transito. La protezione della privacy dei dati personali mentre attraversano la rete è una parte essenziale di una strategia di sicurezza con difesa avanzata a più livelli. La crittografia dei dati in transito è progettata per impedire a un utente malintenzionato che intercetta le trasmissioni di visualizzare o usare i dati. Le informazioni contenute in questo articolo possono essere utili, nell'ambito di un'organizzazione, per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
 ## <a name="scenario"></a>Scenario
 
@@ -181,7 +179,7 @@ Viene anche usata la funzionalità [Perfect Forward Secrecy](https://en.wikipedi
 
 I dati in transito sono sempre crittografati in [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). I dati, oltre a essere crittografati prima dell'archiviazione in supporti persistenti, vengono sempre protetti anche mentre sono in transito usando HTTPS. HTTPS è l'unico protocollo supportato per le interfacce REST di Data Lake Store.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 L'azienda può raggiungere il proprio obiettivo di proteggere i dati personali e la privacy di tali dati imponendo connessioni HTTPS con Archiviazione di Azure, usando firme di accesso condiviso e abilitando l'opzione Trasferimento sicuro obbligatorio negli account di archiviazione. Può anche proteggere i dati personali usando connessioni SMB 3.0 e implementando la crittografia lato client. Le connessioni VPN da sito a sito dalla rete aziendale alla rete virtuale di Azure e le connessioni VPN da punto a sito dai singoli utenti creeranno un tunnel sicuro che garantirà il trasferimento sicuro dei dati personali. La privacy dei dati personali sarà ulteriormente protetta dalle procedure di crittografia predefinite di Microsoft.
 

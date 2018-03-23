@@ -1,6 +1,6 @@
 ---
-title: Come usare il blocco appunti Jupyter in Azure Machine Learning Workbench | Microsoft Docs
-description: "Guida per l'uso della funzionalità del blocco appunti Jupyter in Azure Machine Learning Workbench"
+title: Come usare i notebook di Jupyter in Azure Machine Learning Workbench | Microsoft Docs
+description: Guida per l'uso della funzionalità Jupyter Notebook integrata in Azure Machine Learning Workbench
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,80 +10,80 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 4a8681bfdfe6b387d5790446d8b6dce04aaec580
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c21b7096f689efedacd6e7d55d83912d35dff803
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Come usare il blocco appunti Jupyter in Azure Machine Learning Workbench
+# <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Usare i notebook di Jupyter in Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench supporta la sperimentazione interattiva del data science grazie all'integrazione del blocco appunti Jupyter. Questo articolo descrive come usare al meglio queste funzionalità per aumentare la velocità e la qualità degli esperimenti di data science interattivi.
+Azure Machine Learning Workbench supporta l'esecuzione di esperimenti di data science interattivi grazie all'integrazione con Jupyter Notebook. Questo articolo descrive come sfruttare al meglio questa funzionalità per aumentare la velocità e la qualità degli esperimenti di data science interattivi.
 
-## <a name="prerequisites"></a>prerequisiti
-- [Installare e creare Azure Machine Learning](quickstart-installation.md).
-- Acquisire familiarità con il [blocco appunti Jupyter](http://jupyter.org/), dal momento che questo articolo non descrive come usarlo.
+## <a name="prerequisites"></a>Prerequisiti
+- [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](quickstart-installation.md).
+- Acquisire familiarità con [Jupyter Notebook](http://jupyter.org/). Questo articolo non contiene informazioni per imparare a usare Jupyter.
 
-## <a name="jupyter-notebook-architecture"></a>Architettura del blocco appunti Jupyter
-In generale, l'architettura del blocco appunti Jupyter include tre componenti, ognuna delle quali può essere eseguita in ambienti di calcolo diversi:
+## <a name="jupyter-notebook-architecture"></a>Architettura di Jupyter Notebook
+A livello generale, l'architettura di Jupyter Notebook include tre componenti, ognuno dei quali può essere eseguito in ambienti di calcolo diversi:
 
-- **Client**: riceve l'input dell'utente e mostra l'output sottoposto a rendering
-- **Server**: server Web che ospita i file del blocco appunti, ovvero i file .ipynb
-- **Kernel**: l'ambiente di runtime in cui avviene l'effettiva esecuzione delle celle del blocco appunti
+- **Client**: riceve l'input dell'utente e mostra l'output restituito.
+- **Server**: server Web che ospita i file di notebook, con estensione ipynb.
+- **Kernel**: ambiente di runtime in cui vengono eseguite le celle dei notebook.
 
-Per altre informazioni fare riferimento alla [documentazione ufficiale su Jupyter](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Di seguito è riportato un diagramma che illustra il mapping dell'architettura client, server e kernel nei componenti in Azure ML.
+Per altre informazioni, vedere la [documentazione ufficiale di Jupyter](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Il diagramma seguente illustra la corrispondenza tra l'architettura dei componenti client, server e kernel e i componenti di Azure Machine Learning:
 
-![architettura del blocco appunti](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
+![Architettura di Jupyter Notebook](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
-## <a name="kernels-in-azure-ml-workbench-notebook"></a>Kernel nel blocco appunti di Azure Machine Learning Workbench
-In Azure Machine Learning Workbench è possibile accedere a diversi kernel configurando le configurazioni di esecuzione e le destinazioni di calcolo nella cartella `aml_config` del progetto. Aggiungere una nuova destinazione di calcolo eseguendo il comando `az ml computetarget attach` corrisponde ad aggiungere un nuovo kernel.
+## <a name="kernels-in-azure-machine-learning-workbench-notebooks"></a>Kernel nei notebook di Azure Machine Learning Workbench
+In Azure Machine Learning Workbench è possibile accedere a diversi kernel definendo le configurazioni di esecuzione e le destinazioni di calcolo nella cartella `aml_config` del progetto. L'aggiunta di una nuova destinazione di calcolo tramite il comando `az ml computetarget attach` equivale all'aggiunta di un nuovo kernel.
 
 >[!NOTE]
->Per altre informazioni sulle configurazioni di esecuzione e le destinazioni di calcolo rivedere l'articolo sulla [configurazione dell'esecuzione](experimentation-service-configuration.md).
+>Per altre informazioni sulle configurazioni di esecuzione e le destinazioni di calcolo, vedere [Configurazione del servizio Sperimentazione di Azure Machine Learning](experimentation-service-configuration.md).
 
-### <a name="kernel-naming-convention"></a>Convenzione di denominazione del kernel
-Azure Machine Learning Workbench genera kernel Jupyter personalizzati  denominati nel formato "\<nome del progetto > \<nome della configurazione di esecuzione>". Ad esempio, se si dispone di una configurazione di esecuzione denominata _docker-python_ in un progetto denominato _myIris_, Azure Machine Learning rende disponibile un kernel denominato "myIris docker-python".  Impostare il kernel in esecuzione nel sottomenu "Change kernel " (Modifica kernel) del menu "Kernel" di Jupyter Notebook. Il nome del kernel in esecuzione viene visualizzato all'estrema destra della barra dei menu.
+### <a name="kernel-naming-convention"></a>Convenzione di denominazione dei kernel
+Azure Machine Learning Workbench genera kernel Jupyter personalizzati, denominati in base al formato seguente: *\<nome del progetto> \<nome della configurazione di esecuzione>*. Se ad esempio si ha una configurazione di esecuzione _docker-python_ in un progetto _myIris_, Azure Machine Learning rende disponibile un kernel denominato *myIris docker-python*. Il kernel in esecuzione viene impostato nel sottomenu **Change kernel** (Modifica kernel) del menu **Kernel** di Jupyter Notebook. Il nome del kernel in esecuzione viene visualizzato all'estremità destra della barra dei menu.
  
-Attualmente, il Workbench supporta i tipi seguenti di kernel.
+Azure Machine Learning Workbench supporta attualmente i tipi di kernel seguenti.
 
 ### <a name="local-python-kernel"></a>Kernel Python in locale
-Il kernel Python supporta l'esecuzione nel computer locale. È integrato con il supporto della cronologia di esecuzione di Azure Machine Learning. Il nome del kernel è in genere "my_project_name local".
+Il kernel Python supporta l'esecuzione nei computer locali. È integrato con il supporto della cronologia di esecuzione di Azure Machine Learning. Il nome del kernel è in genere *nome_progetto local*.
 
 >[!NOTE]
->Non usare il kernel "Python 3". Per impostazione predefinita, è un kernel autonomo fornito da Jupyter. Non è integrato con le funzionalità di Azure Machine Learning. Ad esempio, le funzioni magic _%azureml_ di Jupyter restituiranno errori di tipo "non trovato". 
+>Non usare il kernel Python 3. È un kernel autonomo fornito da Jupyter per impostazione predefinita e non integrato con le funzionalità di Azure Machine Learning. Ad esempio, le funzioni magic `%azureml` di Jupyter restituiscono errori di tipo "non trovato". 
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Kernel Python in Docker, locale o remoto
-Questo kernel Python viene eseguito in un contenitore Docker del computer locale o in una macchina virtuale Linux remota. Il nome del kernel è in genere "my_project docker". Il file associato `docker.runconfig` presenta l'impostazione `Python` per il campo `Framework`.
+Questo kernel Python viene eseguito in un contenitore Docker nel computer locale o in una macchina virtuale Linux remota. Il nome del kernel è in genere *nome_progetto docker*. Nel file associato `docker.runconfig` il campo `Framework` è impostato su `Python`.
 
 ### <a name="pyspark-kernel-in-docker-local-or-remote"></a>Kernel PySpark in Docker, locale o remoto
-Il kernel PySpark esegue gli script in un contesto Spark in esecuzione all'interno del contenitore Docker, sul computer locale o in una macchina virtuale Linux remota. Il nome del kernel è in genere "my_project docker". Nel file associato `docker.runconfig` il campo `Framework` è impostato su `PySpark`.
+Questo kernel PySpark esegue gli script in un contesto Spark in esecuzione all'interno del contenitore Docker, sul computer locale o in una macchina virtuale Linux remota. Il nome del kernel è in genere *nome_progetto docker*. Nel file associato `docker.runconfig` il campo `Framework` è impostato su `PySpark`.
 
-### <a name="pyspark-kernel-on-hdinsight-cluster"></a>Kernel PySpark nel cluster di HDInsight
-Questo kernel viene eseguito nel cluster HDInsight remoto collegato come destinazione di calcolo del progetto. Il nome del kernel è in genere "my_project my_hdi". 
+### <a name="pyspark-kernel-in-an-azure-hdinsight-cluster"></a>Kernel PySpark in un cluster Azure HDInsight
+Questo kernel viene eseguito nel cluster Azure HDInsight remoto collegato come destinazione di calcolo del progetto. Il nome del kernel è in genere *nome_progetto nome_hdi*. 
 
 >[!IMPORTANT]
->Nel file `.compute` per la destinazione di calcolo HDI, per usare questo kernel è necessario modificare il valore del campo `yarnDeployMode`, il cui valore predefinito è `cluster`, impostandolo su `client`. 
+>Nel file `.compute` relativo alla destinazione di calcolo HDI, per usare questo kernel è necessario modificare il valore del campo `yarnDeployMode`, il cui valore predefinito è `cluster`, impostandolo su `client`. 
 
-## <a name="start-jupyter-server-from-the-workbench"></a>Avviare il server Jupyter dal Workbench
-In Azure Machine Learning Workbench è possibile accedere ai blocchi appunti tramite la scheda **Blocchi appunti** del Workbench. Il progetto di esempio di _classificazione di Iris_ include un blocco appunti di esempio `iris.ipynb`.
+## <a name="start-a-jupyter-server-from-azure-machine-learning-workbench"></a>Avviare un server Jupyter da Azure Machine Learning Workbench
+In Azure Machine Learning Workbench è possibile accedere ai notebook tramite la scheda **Notebooks** (Notebook). Il progetto di esempio di _classificazione di Iris_ include un notebook di esempio `iris.ipynb`.
 
-![scheda Blocchi appunti](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
+![Scheda dei notebook](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-01.png)
 
-Quando si apre un blocco appunti in Azure Machine Learning Workbench, questo viene visualizzato nella rispettiva scheda del documento in **Modalità anteprima**. Si tratta di una visualizzazione di sola lettura che non richiede un server Jupyter e un kernel in esecuzione.
+Quando si apre un notebook in Azure Machine Learning Workbench, questo viene visualizzato nella rispettiva scheda del documento in **modalità di anteprima**. Si tratta di una visualizzazione di sola lettura che non richiede un server Jupyter e un kernel in esecuzione.
 
-![anteprima del blocco appunti](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
+![Anteprima del notebook](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-02.png)
 
-Fare clic sul pulsante **Start Notebook Server** (Avvia il server del blocco appunti) per avviare il server Jupyter e passare alla **Modalità di modifica** del blocco appunti. La nota interfaccia utente del blocco appunti Jupyter appare nel Workbench. È ora possibile impostare un kernel dal menu **Kernel** e avviare la sessione interattiva del blocco appunti. 
+Selezionare il pulsante **Start Notebook Server** (Avvia server Notebook) per avviare il server Jupyter e passare alla **modalità di modifica** del notebook. Nell'applicazione Workbench appare la nota interfaccia utente di Jupyter Notebook. È ora possibile impostare un kernel dal menu **Kernel** e avviare la sessione interattiva del notebook. 
 
 >[!NOTE]
->Si noti che per i kernel non locali, l'avvio potrebbe richiedere un paio di minuti se lo si usa per la prima volta. È possibile eseguire il comando `az ml experiment prepare` dalla finestra dell'interfaccia della riga di comando per preparare la destinazione di calcolo in modo che il kernel possa avviarsi più velocemente dopo aver preparato la destinazione di calcolo.
+>Con i kernel non locali, il primo avvio può richiedere un paio di minuti. È possibile eseguire il comando `az ml experiment prepare` dalla finestra dell'interfaccia della riga di comando per preparare la destinazione di calcolo in modo da rendere più veloce il successivo avvio del kernel.
 
-![modalità di modifica](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
+![Modalità di modifica](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-04.png)
 
-Si tratta di un'esperienza del blocco appunti Jupyter completamente interattiva. In questa finestra sono supportate tutte le normali operazioni del blocco appunti e i tasti di scelta rapida, fatta eccezione per alcune operazioni del file che possono essere effettuate tramite la scheda **Blocchi appunti** e la scheda **File** del Workbench.
+Questa è un'esperienza di Jupyter Notebook completamente interattiva. In questa finestra sono supportate tutte le scelte rapide da tastiera e le normali operazioni relative ai notebook, fatta eccezione per alcune operazioni sui file che possono essere eseguite tramite le schede **Notebooks** (Notebook) e **File** dell'applicazione Workbench.
 
-## <a name="start-jupyter-server-from-command-line"></a>Avviare il server Jupyter dalla riga di comando
-È anche possibile avviare una sessione del blocco appunti inviando il comando `az ml notebook start` nella finestra della riga di comando:
+## <a name="start-a-jupyter-server-from-the-command-line"></a>Avviare un server Jupyter dalla riga di comando
+È anche possibile avviare una sessione di notebook eseguendo il comando `az ml notebook start` nella finestra della riga di comando:
 ```
 $ az ml notebook start
 [I 10:14:25.455 NotebookApp] The port 8888 is already in use, trying another port.
@@ -93,26 +93,24 @@ $ az ml notebook start
 [I 10:14:25.465 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 [C 10:14:25.466 NotebookApp] 
     
-    Copy/paste this URL into your browser when you connect for the first time,
-    to login with a token:
-        http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
+Copy and paste this URL into your browser when you connect for the first time, to login with a token: http://localhost:8889/?token=1f0161ab88b22fc83f2083a93879ec5e8d0ec18490f0b953
 [I 10:14:25.759 NotebookApp] Accepting one-time-token-authenticated connection from ::1
 [I 10:16:52.970 NotebookApp] Kernel started: 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 [I 10:16:53.854 NotebookApp] Adapting to protocol v5.1 for kernel 7f8932e0-89b9-48b4-b5d0-e8f48d1da159
 ```
-Il browser predefinito viene avviato automaticamente con il server Jupyter che punta alla directory principale del progetto. È anche possibile usare l'URL e il token visualizzati nella finestra dell'interfaccia della riga di comando per avviare altre finestre del browser in locale. 
+Viene aperto automaticamente il browser predefinito con il server Jupyter che punta alla directory radice del progetto. È anche possibile usare l'URL e il token visualizzati nella finestra dell'interfaccia della riga di comando per aprire altre finestre del browser in locale. 
 
-![dashboard del progetto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
+![Dashboard del progetto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-07.png)
 
-È ora possibile fare clic su un file del blocco appunti `.ipynb`, aprirlo, impostare il kernel, se non è stato impostato, e avviare la sessione interattiva.
+È ora possibile selezionare un file di notebook `.ipynb`, aprirlo, impostare il kernel, se non è stato impostato, e avviare la sessione interattiva.
 
-![dashboard del progetto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+![Dashboard del progetto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
 
 ## <a name="use-magic-commands-to-manage-experiments"></a>Usare i comandi magic per la gestione degli esperimenti
 
-È possibile usare i [comandi magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html) nelle celle del blocco appunti per tenere traccia della cronologia di esecuzione e salvare gli output, ad esempio modelli o set di dati.
+È possibile usare i [comandi magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html) nelle celle del notebook per tenere traccia della cronologia di esecuzione e salvare gli output, ad esempio modelli o set di dati.
 
-Per tenere traccia delle esecuzioni nelle singole celle del blocco appunti, usare il comando magic "%azureml history on". Quando la cronologia è attiva, ogni esecuzione nella cella viene visualizzata come voce nella cronologia delle esecuzioni.
+Per tenere traccia delle singole esecuzioni di cella del notebook, usare il comando magic `%azureml history on`. Quando la cronologia è attiva, ogni esecuzione di cella viene visualizzata come singola voce nella cronologia di esecuzione:
 
 ```
 %azureml history on
@@ -121,9 +119,9 @@ logger = get_azureml_logger()
 logger.log("Cell","Load Data")
 ```
 
-Per disattivare il rilevamento delle esecuzioni nella cella, usare il comando magic "%azureml history off".
+Per disattivare il rilevamento delle esecuzioni di cella, usare il comando magic `%azureml history off`.
 
-È possibile usare il comando magic "%azureml upload" per salvare il modello e i file di dati dall'esecuzione. Gli oggetti salvati vengono visualizzati come output nella vista della cronologia di esecuzione per l'esecuzione specifica.
+È possibile usare il comando magic `%azureml upload` per salvare i file del modello e dei dati dell'esecuzione. Gli oggetti salvati sono riportati come output nella visualizzazione della cronologia di esecuzione:
 
 ```
 modelpath = os.path.join("outputs","model.pkl")
@@ -133,9 +131,9 @@ with open(modelpath,"wb") as f:
 ```
 
 >[!NOTE]
->Gli output devono essere salvati in una cartella denominata "outputs"
+>Gli output devono essere salvati in una cartella denominata *outputs*.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per informazioni su come usare il blocco appunti Jupyter, visitare la pagina sulla [documentazione ufficiale di Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Per acquisire una conoscenza più approfondita dell'ambiente di esecuzione della sperimentazione di Azure ML, esaminare [Overview of Azure Machine Learning experiment service](experimentation-service-configuration.md) (Panoramica del servizio Sperimentazione di Azure Machine Learning).
+- Per informazioni su come usare Jupyter Notebook, vedere la [documentazione ufficiale di Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
+- Per acquisire una conoscenza più approfondita dell'ambiente di esecuzione di Sperimentazione di Azure Machine Learning, vedere [Configurazione del servizio Sperimentazione di Azure Machine Learning](experimentation-service-configuration.md).
 

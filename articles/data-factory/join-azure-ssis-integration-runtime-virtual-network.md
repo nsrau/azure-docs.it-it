@@ -2,7 +2,7 @@
 title: Aggiungere un runtime di integrazione Azure-SSIS a una rete virtuale | Microsoft Docs
 description: Informazioni su come aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale di Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 3a5b68729d587e1365c42125108e610705965c86
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4f1100b7e4fa2250baf282b53ef83c5f1aaa1c0e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -176,7 +176,9 @@ Prima di aggiungere un runtime di integrazione Azure-SSIS alla rete virtuale, è
 # Register to the Azure Batch resource provider
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id
+    $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
+    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
     while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
@@ -211,6 +213,11 @@ $AzureSSISName = "<Specify Azure-SSIS IR name>"
 $VnetId = "<Name of your Azure virtual network>"
 $SubnetName = "<Name of the subnet in the virtual network>"
 ```
+
+#### <a name="guidelines-for-selecting-a-subnet"></a>Linee guida per la selezione di una subnet
+-   Non selezionare GatewaySubnet per distribuire un runtime di integrazione Azure-SSIS perché è una subnet dedicata per i gateway di rete virtuale.
+-   Verificare che la subnet selezionata abbia sufficiente spazio degli indirizzi per il runtime di integrazione Azure-SSIS. Lasciare almeno un numero di indirizzi IP disponibili pari a 2 * numero di nodi del runtime di integrazione. Azure riserva alcuni indirizzi IP all'interno di ogni subnet e questi indirizzi non possono essere usati. Il primo e l'ultimo indirizzo IP delle subnet sono riservati per motivi di conformità al protocollo, insieme ad altri tre indirizzi usati per i servizi di Azure. Per altre informazioni, vedere [Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
+
 
 ### <a name="stop-the-azure-ssis-ir"></a>Arrestare il runtime di integrazione Azure-SSIS
 Arrestare il runtime di integrazione Azure-SSIS prima di aggiungerlo a una rete virtuale. Questo comando rilascia tutti i nodi e arresta la fatturazione:
@@ -264,6 +271,22 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 
 ```
 L'esecuzione di questo comando richiede dai 20 ai 30 minuti.
+
+## <a name="use-azure-expressroute-with-the-azure-ssis-ir"></a>Usare Azure ExpressRoute con il runtime di integrazione Azure-SSIS
+
+È possibile connettere un circuito [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) all'infrastruttura di rete virtuale per estendere la rete locale ad Azure. 
+
+Una configurazione comune consiste nell'usare il tunneling forzato (annunciando una route BGP, 0.0.0.0/0 alla rete virtuale) che impone l'instradamento del traffico Internet in uscita dal flusso della rete virtuale all'appliance di rete locale per l'ispezione e la registrazione. Questo flusso di traffico interrompe la connettività tra il runtime di integrazione Azure-SSIS nella rete virtuale con i servizi di Azure Data Factory dipendenti. La soluzione consiste nel configurare una o più [route definite dall'utente (UDR)](../virtual-network/virtual-networks-udr-overview.md) nella subnet contenente il runtime di integrazione Azure-SSIS. Un'UDR definisce le route specifiche della subnet che vengono accettate in alternativa alla route BGP.
+
+Se possibile, usare la configurazione seguente:
+-   La configurazione di ExpressRoute annuncia 0.0.0.0/0 e per impostazione predefinita esegue il tunneling forzato di tutto il traffico in uscita in un ambiente locale.
+-   L'UDR applicata alla subnet contenente il runtime di integrazione Azure-SSIS definisce la route 0.0.0.0/0 con il tipo di hop successivo a Internet.
+- 
+Per effetto di questi passaggi, l'UDR a livello di subnet ha la precedenza sul tunneling forzato di ExpressRoute, garantendo così l'accesso a Internet in uscita dal runtime di integrazione Azure-SSIS.
+
+Se si teme di non poter più ispezionare il traffico Internet in uscita dalla subnet, è anche possibile aggiungere una regola del gruppo di sicurezza di rete (NSG) nella subnet per limitare le destinazioni in uscita agli [indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Per un esempio, vedere [questo script di PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c). È necessario eseguire lo script ogni settimana per mantenere aggiornato l'elenco di indirizzi IP del data center di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui runtime di Azure-SSIS, vedere gli argomenti seguenti: 

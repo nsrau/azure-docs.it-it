@@ -1,8 +1,8 @@
 ---
 title: Effettuare il provisioning di una macchina virtuale di Data Science per Linux (Ubuntu) in Azure | Microsoft Docs
-description: "Configurare e creare una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning."
+description: Configurare e creare una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu) in Azure per attività di analisi e Machine Learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Effettuare il provisioning di una macchina virtuale per l'analisi scientifica dei dati per Linux (Ubuntu)
 
@@ -214,8 +214,8 @@ Per richiamare la sessione interattiva di Python, è sufficiente digitare **pyth
 
 Per installare le librerie di Python aggiuntive, è necessario eseguire il comando ```conda``` o ````pip```` in sudo e specificare il percorso completo della gestione del pacchetto Python (conda o pip) per eseguire l'installazione nell'ambiente Python corretto. Ad esempio: 
 
-    sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
+    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Notebook di Jupyter

@@ -2,10 +2,10 @@
 title: 'Azure Active Directory Domain Services: Risoluzione dei problemi relativi alla configurazione di LDAP sicuro | Microsoft Docs'
 description: Risoluzione dei problemi relativi a LDAP sicuro di Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: f80de47f8e9ba326fc224a8bc09f8029b5afd1ca
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 38885caacfb98f76627854a782aa56d8a609aad9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - Risoluzione dei problemi relativi alla configurazione di LDAP sicuro
 
@@ -58,7 +58,7 @@ Quando è abilitato LDAP sicuro, è consigliabile creare regole aggiuntive per c
 
 *The secure LDAP certificate for the managed domain will expire on XX.* (Il certificato LDAP sicuro per il dominio gestito scadrà in data XX.)
 
-**Correzione:**
+**Risoluzione:**
 
 Creare un nuovo certificato LDAP sicuro eseguendo la procedura descritta nell'articolo [Configurare l'accesso LDAP sicuro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 

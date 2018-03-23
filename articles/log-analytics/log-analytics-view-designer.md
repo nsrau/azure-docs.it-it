@@ -2,10 +2,10 @@
 title: Creare visualizzazioni per analizzare i dati in Azure Log Analytics | Microsoft Docs
 description: Progettazione visualizzazioni in Log Analytics consente di creare visualizzazioni personalizzate, disponibili nel portale di Azure, che includono una serie di visualizzazioni dati nell'area di lavoro di Log Analytics. Questo articolo include una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: bwren
-ms.openlocfilehash: 08d0e557f03f771901c9ac92fb080e74e5966452
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creare visualizzazioni personalizzate usando Progettazione visualizzazioni in Log Analytics
 Tramite Progettazione visualizzazioni in [Azure Log Analytics](log-analytics-overview.md) è possibile creare nel portale di Azure una serie di visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
@@ -28,8 +28,6 @@ Per altre informazioni su Progettazione visualizzazioni, vedere:
 * [Informazioni di riferimento sul riquadro](log-analytics-view-designer-tiles.md): offre una guida di riferimento sulle impostazioni relative a ogni riquadro disponibile nelle visualizzazioni personalizzate.
 * [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): offre una guida di riferimento sulle impostazioni relative alle parti della visualizzazione disponibili nelle visualizzazioni personalizzate.
 
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le visualizzazioni devono essere scritte nel [nuovo linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856078). Le visualizzazioni create prima dell'aggiornamento dell'area di lavoro vengono convertite automaticamente.
 
 ## <a name="concepts"></a>Concetti
 Le visualizzazioni vengono mostrate nella pagina **Panoramica** dell'area di lavoro Log Analytics nel portale di Azure. I riquadri in ogni visualizzazione personalizzata vengono mostrati in ordine alfabetico e i riquadri per le soluzioni vengono installati nella stessa area di lavoro.

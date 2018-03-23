@@ -1,26 +1,19 @@
 ---
 title: Ottenere valori per l'autenticazione delle app - Database SQL di Azure | Microsoft Docs
-description: "Creare un'entità servizio per l'accesso al database SQL dal codice."
+description: Creare un'entità servizio per l'accesso al database SQL dal codice.
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: b43e43bb-6660-49e6-b069-abde97eb5770
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/30/2016
 ms.author: sstein
-ms.openlocfilehash: e76144bcb65da992c6d723d7333b4db8aa1ca488
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e907edc98228ecab645e63f5e38094e3a04812de
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Ottenere i valori richiesti per l'autenticazione di un'applicazione per l'accesso al database SQL dal codice
 Per creare e gestire database SQL dal codice è necessario registrare l'app nel dominio di Azure Active Directory (AAD) nella sottoscrizione in cui sono state create le risorse di Azure.

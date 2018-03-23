@@ -1,128 +1,164 @@
 ---
-title: Crittografia del servizio di archiviazione di Azure con chiavi gestite dall'utente in Azure Key Vault | Microsoft Docs
-description: "La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare Archiviazione BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati mediante chiavi gestite dall'utente."
+title: Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault | Microsoft Docs
+description: La funzionalità Crittografia del servizio di archiviazione di Azure consente di crittografare Archiviazione BLOB di Azure sul lato del servizio durante l'archiviazione dei dati e di decrittografarlo durante il recupero dei dati usando chiavi gestite dal cliente.
 services: storage
-documentationcenter: .net
 author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione con chiavi gestite dall'utente in Azure Key Vault
+# <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 
-In Microsoft Azure la protezione e la salvaguardia dei dati sono essenziali per soddisfare i criteri di sicurezza e conformità dell'organizzazione.  Un metodo per proteggere i dati inattivi è l'uso della crittografia del servizio di archiviazione (SSE, Storage Service Encryption), che codifica automaticamente i dati durante la scrittura nell'archiviazione e li decodifica quando vengono recuperati. La crittografia e la decrittografia sono automatiche e completamente trasparenti e usano la [crittografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno degli algoritmi di crittografia a blocchi più efficaci.
+In Microsoft Azure la protezione e la salvaguardia dei dati sono essenziali per soddisfare i criteri di sicurezza e conformità dell'organizzazione. Per proteggere i dati, Archiviazione di Azure usa la funzionalità Crittografia del servizio di archiviazione (SSE, Storage Service Encryption), che codifica i dati quando vengono scritti nella risorsa di archiviazione e li decodifica quando vengono recuperati. Le operazioni di crittografia e decrittografia sono automatiche e trasparenti e usano la [crittografia AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei più efficaci algoritmi di crittografia a blocchi.
 
-È possibile usare con SSE le chiavi di crittografia gestite da Microsoft oppure con le proprie chiavi di crittografia. Questo articolo illustra il secondo metodo. Per altre informazioni sull'utilizzo di chiavi gestite da Microsoft o sulla crittografia SSE in generale, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage-service-encryption.md).
+È possibile usare con SSE le chiavi di crittografia gestite da Microsoft oppure con le proprie chiavi di crittografia. Questo articolo descrive come usare le chiavi di crittografia personali. Per altre informazioni sull'utilizzo di chiavi gestite da Microsoft o sulla crittografia SSE in generale, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 
-Per consentire l'uso di chiavi di crittografia personalizzate, la crittografia SSE per l'archiviazione BLOB è integrata con Azure Key Vault (AKV). È possibile creare chiavi di crittografia personalizzate e archiviarle in AKV oppure usare le API AKV per generare le chiavi di crittografia. AKV consente non solo di gestire e controllare le chiavi, ma anche di controllarne l'uso. 
+La crittografia SSE per l'archiviazione BLOB e file è integrata con Azure Key Vault per consentire la gestione delle chiavi di crittografia con un insieme di credenziali delle chiavi. È possibile creare chiavi di crittografia personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API di Azure Key Vault per generare chiavi di crittografia. Con Azure Key Vault è possibile gestire e controllare le chiavi e anche controllarne l'utilizzo.
 
-Perché può essere utile creare chiavi personalizzate? Questa opzione offre maggiore flessibilità e consente di creare, ruotare, disattivare e definire controlli di accesso. Consente anche di controllare le chiavi di crittografia usate per proteggere i dati.
+Le chiavi personalizzate sono utili perché offrono maggiore flessibilità, consentendo di creare, ruotare, disabilitare e definire i controlli di accesso. Con queste chiavi è anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
 
-## <a name="sse-with-customer-managed-keys-preview"></a>Crittografia SSE con anteprima delle chiavi gestite dal cliente
+## <a name="get-started-with-customer-managed-keys"></a>Introduzione alle chiavi gestite dal cliente
 
-Questa funzionalità è attualmente in anteprima. Per usare la funzionalità è necessario creare un nuovo account di archiviazione. È possibile creare un nuovo insieme di credenziali chiave e una nuova chiave oppure usare un insieme di credenziali e una chiave esistenti. L'account di archiviazione e l'insieme di credenziali chiave devono essere nella stessa area, ma possono appartenere a sottoscrizioni diverse.
+Per usare chiavi gestite dal cliente con la crittografia SSE è possibile creare un nuovo insieme di credenziali delle chiavi e una nuova chiave oppure usare un insieme di credenziali delle chiavi e una chiave già esistenti. L'account di archiviazione e l'insieme di credenziali chiave devono essere nella stessa area, ma possono appartenere a sottoscrizioni diverse. 
 
-Per partecipare all'anteprima, contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com). Si riceverà un collegamento dedicato per la partecipazione all'anteprima.
+### <a name="step-1-create-a-storage-account"></a>Passaggio 1: Creare un account di archiviazione
 
-Per altre informazioni, vedere le [domande frequenti](#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+Creare prima di tutto un account di archiviazione, se non ne è già disponibile uno. Per altre informazioni, vedere [Creare un account di archiviazione](storage-quickstart-create-account.md).
 
-> [!IMPORTANT]
-> Prima di eseguire la procedura descritta in questo articolo è necessario registrarsi per l'anteprima. Senza l'accesso all'anteprima non è possibile abilitare questa funzionalità nel portale.
+### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Passaggio 2: Abilitare la crittografia SSE per l'archiviazione BLOB e file
 
-## <a name="getting-started"></a>Introduzione
-## <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Passaggio 1: [Creare un nuovo account di archiviazione](../storage-create-storage-account.md)
+Per abilitare la crittografia SSE usando chiavi gestite dal cliente, è necessario abilitare anche due funzionalità di sicurezza delle chiavi, per l'eliminazione temporanea e la protezione dall'eliminazione. Ciò consente di evitare che le chiavi vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware.
 
-## <a name="step-2-enable-encryption"></a>Passaggio 2: Abilitare la crittografia
-È possibile abilitare la crittografia SSE per l'account di archiviazione mediante il [portale di Azure](https://portal.azure.com). Nel pannello delle impostazioni dell'account di archiviazione cercare la sezione Servizio BLOB illustrata nella figura seguente e fare clic su Crittografia.
+Se si vogliono abilitare a livello di codice le chiavi gestite dal cliente per la crittografia SSE, è possibile usare l'[API REST del provider di risorse di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp), la [libreria client dei provider delle risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
-![Screenshot del portale che illustra l'opzione Crittografia](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
-<br/>*Abilitare la crittografia SSE per il servizio BLOB*
+Per usare chiavi gestite dal cliente con la crittografia SSE, è necessario assegnare un'identità all'account di archiviazione. È possibile impostare l'identità eseguendo il comando di PowerShell seguente:
 
-Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), la [libreria client dei provider delle risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
+```powershell
+Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+```
 
-Se in questa schermata non appare la casella di controllo "Usare una chiave personalizzata" non è presente l'approvazione per eseguire l'anteprima. Inviare un messaggio di posta elettronica a [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) e richiedere l'approvazione.
+È possibile abilitare le impostazioni per l'eliminazione temporanea e la protezione dall'eliminazione eseguendo i comandi di PowerShell seguenti:
 
-![Screenshot del portale che visualizza l'anteprima della crittografia](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
+```powershell
+($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
+enableSoftDelete -Value 'True'
 
-Per impostazione predefinita, SSE usa le chiavi gestite da Microsoft. Per usare chiavi personalizzate selezionare la casella. Quindi è possibile specificare l'URI della chiave oppure selezionare una chiave e un insieme di credenziali chiave nel selettore.
+Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+$resource.Properties
 
-## <a name="step-3-select-your-key"></a>Passaggio 3: Selezionare la chiave
+($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+$vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
+enablePurgeProtection -Value 'True'
 
-![Screenshot del portale che visualizza l'opzione di crittografia Usare una chiave personalizzata](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+$resource.Properties
+```
 
-![Screenshot del portale che visualizza l'opzione di crittografia Immettere l'URI della chiave](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Passaggio 3: Abilitare la crittografia con chiavi gestite dal cliente
 
-Se l'account di archiviazione non ha accesso all'insieme di credenziali delle chiavi, è possibile eseguire il comando seguente con Azure Powershell per concedere all'insieme di credenziali delle chiavi richiesto l'accesso agli account di archiviazione.
+Per impostazione predefinita, la crittografia SSE usa chiavi gestite da Microsoft. È possibile abilitare la crittografia SSE con chiavi gestite dal cliente per l'account di archiviazione usando il [portale di Azure](https://portal.azure.com/). Nel pannello **Impostazioni** relativo all'account di archiviazione fare clic su **Crittografia**. Selezionare l'opzione **Usare una chiave personalizzata**, come illustrato nella figura seguente.
+
+![Schermata del portale che mostra l'opzione Crittografia](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
+
+### <a name="step-4-select-your-key"></a>Passaggio 4: Selezionare la chiave
+
+È possibile impostare la chiave specificando un URI oppure selezionandola da un insieme di credenziali delle chiavi.
+
+#### <a name="specify-a-key-as-a-uri"></a>Specificare una chiave da un URI
+
+Per specificare la chiave da un URI, seguire questi passaggi:
+
+1. Scegliere l'opzione **Immettere l'URI della chiave**.  
+2. Nel campo **URI della chiave** specificare l'URI.
+
+    ![Screenshot del portale che visualizza l'opzione di crittografia Immettere l'URI della chiave](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+
+#### <a name="specify-a-key-from-a-key-vault"></a>Specificare una chiave da un insieme di credenziali delle chiavi 
+
+Per specificare la chiave da un insieme di credenziali delle chiavi, seguire questi passaggi:
+
+1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi**.  
+2. Scegliere l'insieme di credenziali delle chiavi contenente la chiave da usare.
+3. Scegliere la chiave dall'insieme di credenziali delle chiavi.
+
+    ![Screenshot del portale che visualizza l'opzione di crittografia Usare una chiave personalizzata](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+
+Se l'account di archiviazione non ha accesso all'insieme di credenziali delle chiavi, è possibile eseguire il comando di Azure PowerShell illustrato nell'immagine seguente per concedere l'accesso.
 
 ![Screenshot del portale che visualizza l'accesso negato all'insieme di credenziali delle chiavi](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
-È anche possibile concedere l'accesso tramite il portale di Azure accedendo ad Azure Key Vault nel portale e attivando l'accesso all'account di archiviazione.
+È anche possibile concedere l'accesso tramite il portale di Azure passando ad Azure Key Vault nel portale e attivando l'accesso all'account di archiviazione.
 
-## <a name="step-4-copy-data-to-storage-account"></a>Passaggio 4: Copiare i dati in un account di archiviazione
-Per trasferire i dati nel nuovo account di archiviazione in modo che vengano crittografati, vedere il [passaggio 3 della sezione Introduzione di Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+### <a name="step-5-copy-data-to-storage-account"></a>Passaggio 5: Copiare i dati nell'account di archiviazione
 
-## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Passaggio 5: Eseguire query relative allo stato dei dati crittografati
-Per l'esecuzione di query relative allo stato dei dati crittografati, vedere il [passaggio 4 della sezione Introduzione di Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Per trasferire i dati nel nuovo account di archiviazione in modo che vengano crittografati, vedere il passaggio 3 della sezione [Introduzione in Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md#step-3-copy-data-to-storage-account).
 
-## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi
-**D: È possibile usare SSE con chiavi gestite dal cliente se si usa l'archiviazione Premium?**
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Passaggio 6: Eseguire query relative allo stato dei dati crittografati
 
-R: Sì, la crittografia SSE con chiavi gestite da Microsoft e chiavi gestite dal cliente è supportata sia nell'archiviazione Standard sia nell'archiviazione Premium. 
+Per eseguire query relative allo stato dei dati crittografati, vedere il passaggio 4 della sezione [Introduzione in Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
 
-**D: È possibile creare nuovi account di archiviazione con crittografia SSE con chiavi gestite dal cliente abilitata usando Azure PowerShell e l'interfaccia della riga di comando di Azure?**
+## <a name="faq-for-sse-with-customer-managed-keys"></a>Domande frequenti sulla crittografia SSE con chiavi gestite dal cliente
 
-A: Sì.
+**D: È possibile usare chiavi gestite dal cliente con la crittografia SSE se si usa l'archiviazione Premium?**
 
-**D: Qual è il costo aggiuntivo dell'Archiviazione di Azure se si abilita la crittografia SSE con chiavi gestite dal cliente?**
+R: Sì, la crittografia SSE con chiavi gestite da Microsoft e chiavi gestite dal cliente è supportata sia nell'archiviazione Standard sia nell'archiviazione Premium.
 
-R: Per l'uso di Azure Key Vault è previsto un costo. Per altre informazioni, visitare la [pagina relativa ai prezzi di Key Vault](https://azure.microsoft.com/en-us/pricing/details/key-vault/). Per l'uso della crittografia SSE non sono previsti costi aggiuntivi.
+**D: È possibile creare nuovi account di archiviazione con la crittografia SSE con chiavi gestite dal cliente abilitata usando Azure PowerShell e l'interfaccia della riga di comando di Azure?**
+
+R: Sì.
+
+**D: Qual è il costo aggiuntivo del servizio Archiviazione di Azure se si usano chiavi gestite dal cliente con la crittografia SSE?**
+
+R: Per l'uso di Azure Key Vault è previsto un costo. Per altre informazioni, visitare la [pagina relativa ai prezzi di Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). Non sono previsti costi aggiuntivi per la crittografia SSE, che è abilitata per tutti gli account di archiviazione.
 
 **D: È possibile revocare l'accesso alle chiavi di crittografia?**
 
-R: Sì, è possibile revocare l'accesso in qualsiasi momento. Esistono diversi modi per revocare l'accesso alle chiavi. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) (Modulo PowerShell di Azure Key Vault) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) (Interfaccia della riga di comando di Azure Key Vault). La revoca dell'accesso blocca di fatto l'accesso a tutti i BLOB dell'account di archiviazione, in quanto l'Archiviazione di Azure non dispone di accesso alla chiave di crittografia account.
+R: Sì, è possibile revocare l'accesso in qualsiasi momento. Esistono diversi modi per revocare l'accesso alle chiavi. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) (Modulo PowerShell di Azure Key Vault) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) (Interfaccia della riga di comando di Azure Key Vault). La revoca dell'accesso blocca di fatto l'accesso a tutti i BLOB dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia dell'account.
 
 **D: È possibile creare un account di archiviazione e una chiave in aree diverse?**
 
-R: No, l'account di archiviazione e l'insieme di credenziali delle chiavi/la chiave devono trovarsi nella stessa area. 
+R: No, l'account di archiviazione, Azure Key Vault e la chiave devono trovarsi nella stessa area.
 
-**D: È possibile abilitare SSE con chiavi gestite dal cliente mentre si crea l'account di archiviazione?**
+**D: È possibile abilitare chiavi gestite dal cliente per la crittografia SSE mentre si crea l'account di archiviazione?**
 
-R: No. Quando si abilita SSE durante la creazione di account di archiviazione, è possibile usare solo chiavi gestite da Microsoft. Se si vuole usare chiavi gestite dal cliente, è necessario aggiornare le proprietà dell'account di archiviazione. È possibile usare REST o una delle librerie client di archiviazione per aggiornare l'account di archiviazione a livello di codice oppure aggiornare le proprietà dell'account di archiviazione tramite il portale di Azure dopo la creazione dell'account.
+R: No. Quando si crea l'account di archiviazione, per la crittografia SSE sono disponibili solo chiavi gestite da Microsoft. Per usare chiavi gestite dal cliente, è necessario aggiornare le proprietà dell'account di archiviazione. È possibile usare REST o una delle librerie client di archiviazione per aggiornare l'account di archiviazione a livello di codice oppure aggiornare le proprietà dell'account di archiviazione tramite il portale di Azure dopo la creazione dell'account.
 
-**D: è possibile disabilitare la crittografia mentre si usa la crittografia SSE con chiavi gestite dal cliente?**
+**D: È possibile disabilitare la crittografia mentre si usano chiavi gestite dal cliente con la crittografia SSE?**
 
-R: No, non è possibile disabilitare la crittografia mentre si usa la crittografia SSE con chiavi gestite dal cliente. Per disabilitare la crittografia, è necessario passare all'utilizzo di chiavi gestite da Microsoft. Questa operazione può essere eseguita nel portale di Azure o usando PowerShell.
+R: No, non è possibile disabilitarla. La crittografia è abilitata per impostazione predefinita per tutti i servizi di archiviazione BLOB, file, tabelle e code. È tuttavia possibile passare dall'uso di chiavi gestite da Microsoft all'uso di chiavi gestite dal cliente e viceversa.
 
-**D: La funzionalità Crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un nuovo account di archiviazione?**
+**D: La crittografia SSE è abilitata per impostazione predefinita quando si crea un nuovo account di archiviazione?**
 
-R: La funzionalità Crittografia del servizio di archiviazione e non è abilitata per impostazione predefinita. È possibile usare il portale di Azure per abilitarla. È anche possibile abilitare questa funzionalità a livello di codice usando l'API REST del provider di risorse di archiviazione. 
+R: La crittografia SSE è abilitata per impostazione predefinita per tutti gli account di archiviazione e per tutti i servizi di archiviazione BLOB, file, tabelle e code.
 
-**D: Non è possibile abilitare la crittografia sull'account di archiviazione.**
+**D: La crittografia SSE con chiavi gestite dal cliente non viene abilitata sull'account di archiviazione. Per quale motivo?**
 
-R: Se si tratta di un account di archiviazione di Resource Manager, gli account di archiviazione di tipo classico non sono supportati. La crittografia SSE con chiavi gestite dal cliente può anche essere attivata solo sugli account di archiviazione di Gestione risorse appena creati.
+R: Accertarsi di usare un account di archiviazione di Azure Resource Manager. Gli account di archiviazione di tipo classico non sono supportati con le chiavi gestite dal cliente. La crittografia SSE con chiavi gestite dal cliente può essere abilitata solo sugli account di archiviazione di Resource Manager.
+
+**D: A cosa servono le impostazioni per l'eliminazione temporanea e la protezione dall'eliminazione? È necessario abilitarle per usare la crittografia SSE con chiavi gestite dal cliente?**
+
+R: Per usare la crittografia SSE con chiavi gestite dal cliente, è necessario abilitare le impostazioni per l'eliminazione temporanea e la protezione dall'eliminazione. Ciò consente di assicurarsi che le chiavi non vengano eliminate intenzionalmente o accidentalmente. Il periodo massimo di conservazione delle chiavi è impostato su 90 giorni, in modo da proteggere gli utenti da azioni di malintenzionati o attacchi ransomware. Questa impostazione non può essere disabilitata.
 
 **D: La crittografia SSE con chiavi gestite dal cliente è disponibile solo in aree specifiche?**
 
-R: In questa versione di anteprima la crittografia SSE è disponibile solo in determinate aree per l'archiviazione BLOB. Per verificare la disponibilità e ottenere informazioni dettagliate sull'anteprima, inviare un messaggio di posta elettronica all'indirizzo [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com). 
+R: La crittografia SSE con chiavi gestite dal cliente è disponibile in tutte le aree per l'archiviazione BLOB e file.
 
 **D: Chi si può contattare per ottenere assistenza in caso di problemi o per inviare commenti e suggerimenti?**
 
-D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) per qualsiasi problema relativo a Crittografia del servizio di archiviazione. 
+D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) per qualsiasi problema relativo a Crittografia del servizio di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-*   Per altre informazioni sul set completo di funzionalità di sicurezza che consentono agli sviluppatori di creare applicazioni protette, vedere [Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-security-guide).
-*   Per informazioni generali su Azure Key Vault , vedere [Cos'è l'insieme di credenziali chiave di Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-*   Per la guida introduttiva di Azure Key Vault, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md).
+-   Per altre informazioni sul set completo di funzionalità di sicurezza che consentono agli sviluppatori di creare applicazioni protette, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
+
+-   Per informazioni generali su Azure Key Vault , vedere [Cos'è l'insieme di credenziali chiave di Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+
+-   Per la guida introduttiva di Azure Key Vault, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).

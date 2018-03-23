@@ -6,20 +6,20 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/07/2017
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: db1fb3deec4b70a9341753a59910aeb0e002bca0
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure
 
-Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure con l'interfaccia della riga di comando di Azure.
+Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure tramite l'interfaccia della riga di comando di Azure, l'inserimento di un'immagine del contenitore nel registro e infine la distribuzione del contenitore dal registro in Istanze di contenitore di Azure.
 
-Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.25 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli].
+Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.27 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli].
 
 È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
@@ -29,7 +29,7 @@ Creare un gruppo di risorse con il comando [az group create][az-group-create]. U
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
-```azurecli-interactive
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -70,7 +70,7 @@ Quando viene creato il registro, l'output è simile al seguente:
 }
 ```
 
-Nella parte restante di questa Guida introduttiva viene usato `<acrName>` come segnaposto per il nome del registro contenitori.
+Nella parte restante di questa guida introduttiva, `<acrName>` è un segnaposto per il nome del registro contenitori.
 
 ## <a name="log-in-to-acr"></a>Accedere al record di controllo di accesso
 
@@ -138,20 +138,64 @@ Result
 v1
 ```
 
+## <a name="deploy-image-to-aci"></a>Distribuire l'immagine in Istanze di contenitore di Azure
+
+Per distribuire un'istanza del contenitore dal registro creato, è necessario fornire le credenziali del registro al momento della distribuzione. Negli scenari di produzione è necessario usare un'[entità servizio][container-registry-auth-aci] per l'accesso al registro contenitori, ma per rendere sintetica questa guida introduttiva, abilitare l'utente amministratore nel registro con il comando seguente:
+
+```azurecli
+az acr update --name <acrName> --admin-enabled true
+```
+
+Dopo aver abilitato l'amministratore, il nome utente corrisponderà al nome del registro e sarà possibile recuperare la password con questo comando:
+
+```azurecli
+az acr credential show --name <acrName> --query "passwords[0].value"
+```
+
+Per distribuire l'immagine con 1 core CPU e 1 GB di memoria, eseguire questo comando. Sostituire `<acrName>`, `<acrLoginServer>` e `<acrPassword>` con i valori ottenuti dai comandi precedenti.
+
+```azurecli
+az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+```
+
+Si riceverà una risposta iniziale da Azure Resource Manager con i dettagli del contenitore. Per monitorare lo stato del contenitore e verificare quando è in esecuzione, ripetere il comando [az container show][az-container-show]. Per il completamento dovrebbe essere necessario meno di un minuto.
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
+```
+
+## <a name="view-the-application"></a>Visualizzare l'applicazione
+
+Dopo aver completato la distribuzione in Istanze di contenitore di Azure, recuperare il nome di dominio completo (FQDN) con il comando [az container show][az-container-show]:
+
+```azurecli
+az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
+```
+
+Output di esempio: `"aci-demo.eastus.azurecontainer.io"`
+
+Per visualizzare l'applicazione in esecuzione, esplorare l'indirizzo IP pubblico nel browser preferito.
+
+![App Hello World nel browser][aci-app-browser]
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse, l'istanza del record di controllo di accesso e tutte le immagini del contenitore non sono più necessari è possibile usare il comando [az group delete][az-group-delete] per rimuoverli.
 
-```azurecli-interactive
+```azurecli
 az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida rapida è stato creato un Registro contenitori di Azure con l'interfaccia della riga di comando di Azure. Se si desidera usare il Registro contenitori di Azure con le istanze di contenitore di Azure, continuare con l'esercitazione relativa alle istanze di contenitore di Azure.
+In questa guida introduttiva è stato creato un registro contenitori di Azure con l'interfaccia della riga di comando di Azure, è stato eseguito il push di un'immagine del contenitore nel registro e ne è stata avviata un'istanza tramite Istanze di contenitore di Azure. Passare all'esercitazione su Istanze di contenitore di Azure per maggiori informazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure][container-instances-tutorial-prepare-app]
+
+<!-- IMAGES> -->
+[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
+
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -167,5 +211,7 @@ In questa Guida rapida è stato creato un Registro contenitori di Azure con l'in
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli]: /cli/azure/install-azure-cli
+[az-container-show]: /cli/azure/container#az_container_show
 [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-auth-aci]: container-registry-auth-aci.md

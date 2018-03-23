@@ -3,7 +3,7 @@ title: Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure -
 description: La nuova esperienza unificata gli avvisi di Azure consente di creare, visualizzare e gestire la metrica e le regole di avviso del log da un'unica posizione.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure - Avvisi (anteprima)
 
@@ -65,13 +65,13 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure (ante
 
     > Avvisi unificati (anteprima) supporta anche gli avvisi del log attività. [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Avvisi metrica*: verificare che in **Tipo di risorsa** sia selezionato piattaforma o servizio di monitoraggio (diverso da *Log Analytics*), quindi, una volta selezionata la **risorsa** appropriata, fare clic sul pulsante *Fatto* per tornare alla finestra Crea avviso. Usare quindi il pulsante **Aggiungi criteri** per selezionare il segnale specifico nell'elenco delle opzioni di segnale, il servizio di monitoraggio e il tipo elencato disponibili per la risorsa selezionata in precedenza.
+5. *Avvisi delle metriche*: verificare che **Tipo di risorsa** sia selezionato con tipo di segnale **Metrica**, quindi, una volta selezionata la **risorsa** appropriata, fare clic sul pulsante *Operazione completata* per tornare alla finestra Crea avviso. Usare quindi il pulsante **Aggiungi criteri** per selezionare il segnale specifico nell'elenco delle opzioni di segnale, il servizio di monitoraggio e il tipo elencato disponibili per la risorsa selezionata in precedenza.
 
     ![Selezionare una risorsa](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    > Le nuove funzionalità di metrica introdotte solo per gli avvisi rapidi sono incluse nei tipi di segnale come metriche del servizio di piattaforma
+    >  Tutte le risorse che supportano [avvisi near real time](monitoring-near-real-time-metric-alerts.md) sono elencate con il servizio di monitoraggio **Piattaforma** e tipo di segnale **Metrica**
 
 6. *Avvisi metrica*: dopo avere selezionato il segnale, è possibile dichiarare la logica per gli avvisi. I dati cronologici del segnale vengono visualizzati per riferimento con un'opzione per modificare l'intervallo di tempo tramite **Visualizza cronologia**, dalle ultime sei ore fino alla settimana precedente. Con la visualizzazione impostata, è possibile selezionare **Logica avvisi** dalle opzioni visualizzate: Condizione, Aggregazione e infine Soglia. Come anteprima della logica impostata, nella visualizzazione vengono mostrate la condizione e la cronologia del segnale, per indicare quando verrebbe attivato l'avviso. Specificare infine per quanto tempo l'avviso deve cercare la condizione specificata scegliendo l'opzione desiderata in **Periodo** e la frequenza con cui l'avviso deve essere eseguito selezionando **Frequenza**.
 
@@ -81,7 +81,7 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure (ante
 
     ![Configurare la logica del segnale per la metrica multidimensionale](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Avvisi del log*: verificare che **Tipo di risorsa** sia un'origine dati di analisi come *Log Analytics* o *Application Insights* e quindi, dopo avere selezionato la **risorsa** appropriata, fare clic su *Operazione completata*. Usare quindi il pulsante **Aggiungi criteri** per visualizzare l'elenco delle opzioni di segnale disponibili per la risorsa e nell'elenco dei segnali selezionare l'opzione di **ricerca log personalizzata** per il servizio di monitoraggio del log scelto, ad esempio *Log Analytics* o *Application Insights*.
+8. *Avvisi del log*: verificare che **Tipo di risorsa** sia un'origine dati di analisi come *Log Analytics* o *Application Insights* e tipo di segnale **Log** quindi, dopo aver selezionato la **risorsa** appropriata, fare clic su *Operazione completata*. Usare quindi il pulsante **Aggiungi criteri** per visualizzare l'elenco delle opzioni di segnale disponibili per la risorsa e nell'elenco dei segnali selezionare l'opzione di **ricerca log personalizzata** per il servizio di monitoraggio del log scelto, ad esempio *Log Analytics* o *Application Insights*.
 
    ![Selezionare una risorsa - ricerca log personalizzata](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Gli **avvisi del log** possono basarsi su:
 
     Per gli **avvisi del log** sono disponibili alcune funzionalità aggiuntive per eseguire l'override di quelle predefinite:
 
-    - **Notifica tramite posta elettronica**: esegue l'override dell'oggetto nel messaggio di posta elettronica inviato tramite il gruppo di azioni. È possibile modificare il corpo del messaggio.
-    - **Includi payload JSON personalizzato**: esegue l'override del webhook JSON usato dai gruppi di azioni e sostituisce il payload predefinito con un payload personalizzato. Per altre informazioni sui formati dei webhook, vedere l'[azione del webhook per gli avvisi del log](monitor-alerts-unified-log-webhook.md)
+    - **Notifica di posta elettronica**: esegue l'override dell'*oggetto di posta elettronica* nel messaggio di posta elettronica inviato tramite il gruppo di azione, se esistono una o più azioni di posta elettronica nel gruppo di azione. Non è possibile modificare il corpo del messaggio e questo campo **non** è destinato agli indirizzi di posta elettronica.
+    - **Includi payload JSON personalizzato**: esegue l'override del webhook JSON usato dai gruppi di azioni, se nel gruppo di azione è presente una o più azioni webhook. Un utente può specificare il formato JSON da usare per tutti i webhook configurati nel gruppo di azione associato. Per altre informazioni sui formati webhook, vedere [Azioni webhook per gli avvisi relativi ai log](monitor-alerts-unified-log-webhook.md). L'opzione Test del webhook viene fornita per controllare il formato e l'elaborazione in base alla destinazione usando il file JSON di esempio e ha unicamente scopo di **test**.
 
         ![Override dell'azione per gli avvisi del log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

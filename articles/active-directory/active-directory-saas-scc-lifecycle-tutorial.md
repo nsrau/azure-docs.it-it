@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Esercitazione: Integrazione di Azure Active Directory con SCC LifeCycle
 In questa esercitazione viene illustrata l'integrazione di Azure e SCC LifeCycle.  
@@ -75,7 +75,7 @@ In questa sezione viene descritto come consentire agli utenti di eseguire l'aute
 2. Nella pagina **Stabilire come si desidera che gli utenti accedano a SCC LifeCycle** selezionare **Single Sign-On di Microsoft Azure AD**, quindi fare clic su **Avanti**.
    
     ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configurare l'accesso Single Sign-On")
-3. Nella pagina **Configura URL app** digitare nella casella di testo **URL di accesso** l'URL utilizzato dagli utenti per accedere all'applicazione SCC LifeCycle usando il modello "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*" e fare clic su **Avanti**.
+3. Nella pagina **Configurare l'URL dell'app** digitare nella casella di testo **URL di accesso** l'URL usato dagli utenti per accedere all'applicazione SCC LifeCycle usando il modello "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*" e quindi fare clic su **Avanti**.
    
     ![Configurare l'URL dell'app](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configurare l'URL dell'app")
 4. Nella pagina **Configura accesso Single Sign-On in SCC LifeCycle** fare clic su **Scarica metadati**, quindi salvare il file di metadati in locale nel computer.

@@ -2,23 +2,18 @@
 title: Uso di Gestione ripristino per risolvere i problemi della mappe partizioni | Microsoft Docs
 description: Usare la classe RecoveryManager per risolvere i problemi relativi alle mappe partizioni.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
-ms.author: ddove
-ms.openlocfilehash: 967a64fa41a9f9ff16ce173b76231052b22cda99
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 45dc16c7bf54f34c89f2e9208a7cee06de03c0da
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) consente alle applicazioni ADO.NET di rilevare e correggere facilmente le eventuali incoerenze tra la mappa globale partizioni e la mappa locale partizioni in un ambiente di database partizionato. 

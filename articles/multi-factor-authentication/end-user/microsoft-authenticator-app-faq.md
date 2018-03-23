@@ -2,7 +2,7 @@
 title: Guida e supporto tecnico per l'app Microsoft Authenticator | Microsoft Docs
 description: Elenca le domande frequenti e le risposte correlate all'app Microsoft Authentication e ad Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -28,6 +28,14 @@ Questo articolo risponde a domande comuni che Microsoft riceve sull'app Microsof
 L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è consigliata quando si usa Azure Multi-Factor Authentication. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Quali dati vengono archiviati da Authenticator per conto dell'utente e com'è possibile eliminarli?
+
+Microsoft Authenticator archivia le informazioni sull'account create al momento dell'aggiunta dell'account. Quando si usa Authenticator, viene creato un log di diagnostica a scopo di debug che archivia dati utili che consentono a Microsoft di diagnosticare eventuali problemi imprevisti. È possibile accedere ai dati di log aprendo **?** > **Invia log** > **Visualizza log**.
+
+È possibile eliminare i dati eliminando il riquadro dell'account. Questa operazione eliminerà tutte le informazioni sull'account usate dall'applicazione, inclusi i log. 
+
+Per altre informazioni sull'uso dei dati da parte di Microsoft, visitare il sito Web https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>A cosa servono i codici nell'app? Perché il numero continua a diminuire?
 

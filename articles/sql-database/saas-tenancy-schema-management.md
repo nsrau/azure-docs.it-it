@@ -1,26 +1,21 @@
 ---
 title: Gestire lo schema del database SQL di Azure in un'app multi-tenant | Microsoft Docs
-description: "Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure"
+description: Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: billgib; sstein
-ms.openlocfilehash: ac60888d1464d3245bb35e2e3505b16ef4128d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: billgib
+ms.openlocfilehash: a473e87934ba573cc22b2c248ea0398bc5a4c29b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
 

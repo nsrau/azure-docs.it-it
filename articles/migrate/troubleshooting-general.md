@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 02/21/2018
 ms.author: raynew
-ms.openlocfilehash: 249de45dbd9bedf1b3c2d2a5957acf31d6c0d243
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: e1e7a1a57f780ef477379dfb1ceaead0c8654970
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -126,5 +126,23 @@ Per raccogliere Event Trace for Windows, seguire questa procedura:
 7. Chiudere Strumenti di sviluppo.
  
 
+## <a name="vcenter-errors"></a>Errori di vCenter
 
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Si è verificato l'errore interno UnhandledException: System.IO.FileNotFoundException
+
+Si tratta di un problema che si è verificato nelle versioni dell'agente di raccolta precedenti alla 1.0.9.5. Se si usa la versione dell'agente di raccolta 1.0.9.2 o le versioni precedenti a GA quali 1.0.8.59, si riscontrerà questo problema. Seguire il [collegamento ai forum specificato qui per avere una risposta dettagliata](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+
+[Aggiornare l'agente di raccolta per risolvere il problema](https://aka.ms/migrate/col/checkforupdates).
+
+### <a name="error-unabletoconnecttoserver"></a>Errore UnableToConnectToServer
+
+Impossibile connettersi al server vCenter "Servername.com:9443" a causa dell'errore: There was no endpoint listening at https://Servername.com:9443/sdk that could accept the message (Nessun endpoint in ascolto su https://Servername.com:9443/sdk in grado di accettare il messaggio).
+
+Questo errore si verifica quando il computer dell'agente di raccolta non è in grado di risolvere il nome del server vCenter specificato o la porta specificata non è corretta. Per impostazione predefinita, se la porta non è specificata, l'agente di raccolta tenterà di connettersi alla porta numero 443.
+
+1. Provare a effettuare il ping di Servername.com dal computer dell'agente di raccolta.
+2. Se il passaggio 1 ha esito negativo, provare a connettersi al server vCenter sull'indirizzo IP.
+3. Identificare il numero di porta corretto per connettersi al server vCenter.
+4. Infine controllare che il server vCenter sia attivo e in esecuzione.
+ 
 

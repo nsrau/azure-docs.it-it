@@ -2,22 +2,22 @@
 title: Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure | Microsoft Docs
 description: Descrive la causa dell'errore RequestDisallowedByPolicy.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 11/03/2017
+ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5a9efa6b807e933726104e7af315589ede5d9b74
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure
 
@@ -25,7 +25,7 @@ Questo articolo descrive la causa dell'errore RequestDisallowedByPolicy e indica
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si tenta di eseguire un'azione durante la distribuzione, è possibile che venga visualizzato un errore **RequestDisallowedByPolicy** che impedisce il completamento dell'azione. Nell'esempio seguente viene descritto l'errore:
+Durante la distribuzione, è possibile che venga visualizzato un errore **RequestDisallowedByPolicy** che impedisce la creazione della risorsa. Nell'esempio seguente viene descritto l'errore:
 
 ```json
 {
@@ -40,7 +40,7 @@ Quando si tenta di eseguire un'azione durante la distribuzione, è possibile che
 
 Per recuperare i dettagli sui criteri bloccati nella distribuzione, usare uno dei metodi seguenti:
 
-### <a name="method-1"></a>Metodo 1
+### <a name="powershell"></a>PowerShell
 
 In PowerShell specificare questo identificatore di criterio come parametro `Id` per recuperare i dettagli relativi ai criteri che hanno bloccato la distribuzione.
 
@@ -48,9 +48,9 @@ In PowerShell specificare questo identificatore di criterio come parametro `Id` 
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
-### <a name="method-2"></a>Metodo 2 
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Nell'interfaccia della riga di comando di Azure 2.0 specificare il nome della definizione del criterio: 
+Nell'interfaccia della riga di comando di Azure 2.0 specificare il nome della definizione del criterio:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Soluzione
 
-Per assicurare la sicurezza o la conformità, il reparto IT può applicare un criterio di risorsa che impedisce la creazione di indirizzi IP pubblici, gruppi di sicurezza di rete, route definite dall'utente o tabelle di routing. Il messaggio di errore nella sezione **Sintomo** illustra un criterio denominato **regionPolicyDefinition**. Il nome del criterio potrebbe essere diverso.
-Per risolvere questo problema, collaborare con il reparto IT per controllare i criteri delle risorse e determinare come eseguire l'azione richiesta in conformità con questi criteri.
+Per ragioni di sicurezza o conformità, è possibile che gli amministratori di sottoscrizione assegnino criteri che limitano la distribuzione di risorse. Ad esempio, è possibile che la sottoscrizione disponga di un criterio che impedisce la creazione di indirizzi IP pubblici, gruppi di sicurezza di rete, route definite dall'utente o tabelle di route. Il messaggio di errore nella sezione **Sintomo** mostra il nome del criterio.
+Per risolvere questo problema, esaminare i criteri delle risorse e determinare come distribuire risorse conformi a tali criteri.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-- [Cenni preliminari sui criteri delle risorse](resource-manager-policy.md)
-- [Visualizzare le assegnazioni di criteri tramite il portale](resource-manager-policy-portal.md)
+- [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md)
+- [Creare e gestire i criteri per applicare la conformità](../azure-policy/create-manage-policy.md)

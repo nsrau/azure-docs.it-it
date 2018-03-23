@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Risolvere i problemi della sincronizzazione dati SQL (anteprima)
 
@@ -135,7 +135,7 @@ Per trovare la causa specifica dell'errore, generare ed esaminare i log di Windo
 
 Vengono visualizzati messaggi analoghi ai seguenti quando si prova a usare l'agente client:
 
-"Sincronizzazione non riuscita con eccezione. Si è verificato un errore durante il tentativo di deserializzare il parametro www.microsoft.com/.../05:GetBatchInfoResult. Per maggiori dettagli, vedere InnerException".
+"Sincronizzazione non riuscita con eccezione. Si è verificato un errore durante il tentativo di deserializzare il parametro www.microsoft.com/.../05:GetBatchInfoResult. Per altre informazioni, vedere InnerException."
 
 "Messaggio di eccezione interna: Il tipo 'Microsoft.Synchronization.ChangeBatch' è un tipo di raccolta non valido perché non contiene un costruttore predefinito."
 

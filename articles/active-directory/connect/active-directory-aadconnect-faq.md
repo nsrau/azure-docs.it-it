@@ -2,7 +2,7 @@
 title: Domande frequenti su Azure Active Directory Connect | Documentazione Microsoft
 description: Questa pagina contiene le domande frequenti su Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -78,7 +78,7 @@ Vedere i seguenti articoli:
 È anche possibile configurare Azure AD per consentire al motore di sincronizzazione di aggiornare userPrincipalName come descritto in [Funzionalità del servizio di sincronizzazione di Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
 **D: È supportata la corrispondenza flessibile degli oggetti contatto/gruppo AD locali con gli oggetti contatto/gruppo Azure AD esistenti?**  
-No, attualmente non è supportata.
+Sì, si baserà su proxyAddress.  La corrispondenza flessibile non è supportata per i gruppi non abilitati alla posta elettronica.
 
 **D: È supportata l'impostazione manualmente dell'attributo ImmutableId su oggetti contatto/gruppo Azure AD esistenti per farlo corrispondere a livello rigido a oggetti contatto/gruppo AD locali?**  
 No, attualmente non è supportata.

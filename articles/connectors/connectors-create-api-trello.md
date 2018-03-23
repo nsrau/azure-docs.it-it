@@ -1,11 +1,11 @@
 ---
 title: Connettore Trello per App per la logica di Azure | Microsoft Docs
-description: "Creare app per la logica in Servizio app di Azure. Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede"
+description: Creare app per la logica in Servizio app di Azure. Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: fedf0ffe11763dcfccadf78c0b258c8bce773376
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 6773ddd1da5c013b7a0ca7d2855806d606720469
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-trello-connector"></a>Introduzione al connettore Trello
 Trello offre una panoramica di tutti i progetti, al lavoro e a casa.  È un modo semplice, gratuito, flessibile per gestire visivamente i progetti e organizzare qualsiasi cosa.  Connettersi a Trello per gestire bacheche, elenchi e schede.

@@ -1,11 +1,11 @@
 ---
-title: "Come usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store"
-description: "Esercitazione che illustra come usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store."
+title: Come usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store
+description: Esercitazione che illustra come usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 
@@ -31,7 +31,7 @@ Questa esercitazione illustra come usare un'identità del servizio gestito per u
 > * Concedere alla VM l'accesso a un'istanza di Azure Data Lake Store
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per accedere a un'istanza di Azure Data Lake Store
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
@@ -103,7 +103,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 
 1. Nel portale, passare a una macchina virtuale Linux e in **Panoramica** fare clic su **Connetti**.  
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 
-3. Nella finestra del terminale usare CURL per creare una richiesta all'endpoint locale dell'identità del servizio gestito per ottenere un token di accesso per il file system di Data Lake Store.  L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/".  È importante includere la barra finale nell'identificatore della risorsa.
+3. Nella finestra del terminale usare CURL per creare una richiesta all'endpoint locale dell'identità del servizio gestito per ottenere un token di accesso per il file system di Data Lake Store.  L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/."  È importante includere la barra finale nell'identificatore della risorsa.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   

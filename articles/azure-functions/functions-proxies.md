@@ -2,11 +2,11 @@
 title: Usare i proxy in Funzioni di Azure | Documentazione Microsoft
 description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -106,7 +106,7 @@ Ad esempio, per l'URL di back-end di *https://%ORDER_PROCESSING_HOST%/api/orders
 
 ## <a name="debugProxies"></a>Risolvere i problemi relativi al proxy
 
-Aggiungendo il flag `"debug":true` a un proxy in `proxy.json` si abiliterà la registrazione del debug. I log vengono archiviati in `D:\home\LogFiles\Application\Proxies\DetailedTrace` e sono accessibili tramite gli strumenti avanzati (Kudu). Le risposte HTTP conterranno anche un'intestazione `Proxy-Trace-Location` con un URL per accedere al file di log.
+Aggiungendo il flag `"debug":true` a un proxy in `proxies.json` si abiliterà la registrazione del debug. I log vengono archiviati in `D:\home\LogFiles\Application\Proxies\DetailedTrace` e sono accessibili tramite gli strumenti avanzati (Kudu). Le risposte HTTP conterranno anche un'intestazione `Proxy-Trace-Location` con un URL per accedere al file di log.
 
 È possibile eseguire il debug di un proxy dal lato client aggiungendo un'intestazione `Proxy-Trace-Enabled` impostata su `true`. In questo modo verrà anche registrata una traccia nel file system e l'URL della traccia verrà restituito come intestazione nella risposta.
 
@@ -114,7 +114,7 @@ Aggiungendo il flag `"debug":true` a un proxy in `proxy.json` si abiliterà la r
 
 Per motivi di sicurezza, potrebbe essere necessario impedire a chiunque chiami il servizio di generare una traccia. Questi utenti non potranno accedere ai contenuti della traccia senza le credenziali di accesso, ma la generazione della traccia utilizza le risorse e rivela che si sta usando i proxy di funzioni.
 
-Disabilitare completamente le tracce aggiungendo `"debug":false` a proxy specifici in `proxy.json`.
+Disabilitare completamente le tracce aggiungendo `"debug":false` a proxy specifici in `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 

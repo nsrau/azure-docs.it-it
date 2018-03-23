@@ -14,17 +14,17 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Come configurare Cache Redis di Azure
-In questo argomento viene descritto come esaminare e aggiornare la configurazione per le istanze di Cache Redis di Azure e viene illustrata la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
+Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Questo argomento illustrata anche la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
 
 > [!NOTE]
-> Per altre informazioni sulla configurazione e l'uso delle funzionalità di cache Premium, vedere [How to configure persistence](cache-how-to-premium-persistence.md) (Come configurare la persistenza), [How to configure clustering](cache-how-to-premium-clustering.md) (Come configurare il clustering) e [How to configure Virtual Network support](cache-how-to-premium-vnet.md) (Come configurare il supporto di Rete virtuale).
+> Per altre informazioni sulla configurazione e l'uso delle funzionalità di cache Premium, vedere [Come configurare la persistenza](cache-how-to-premium-persistence.md), [Come configurare il clustering](cache-how-to-premium-clustering.md) e [Come configurare il supporto di una rete virtuale](cache-how-to-premium-vnet.md).
 > 
 > 
 
@@ -79,7 +79,7 @@ Fare clic su **Log attività** per visualizzare le operazioni eseguite nella cac
 
 ### <a name="access-control-iam"></a>Controllo di accesso (IAM)
 
-La sezione **Controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo (RBAC) nel portale di Azure per aiutare le organizzazioni a soddisfare i requisiti di gestione degli accessi in maniera semplice e precisa. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
+La sezione **Controllo di accesso (IAM)** fornisce il supporto per il controllo degli accessi in base al ruolo nel portale di Azure. Questa configurazione consente alle organizzazioni di soddisfare i propri requisiti di gestione degli accessi in modo semplice e accurato. Per altre informazioni, vedere [Controllo di accesso in base al ruolo nel portale di Azure](../active-directory/role-based-access-control-configure.md).
 
 ### <a name="tags"></a>Tag
 
@@ -136,7 +136,7 @@ Le impostazioni **Criterio maxmemory**, **maxmemory-reserved** e **maxfragmentat
 
 **Criterio maxmemory** consente di configurare i criteri di rimozione per la cache e consente di scegliere tra i criteri di rimozione seguenti:
 
-* `volatile-lru`: è il criterio predefinito.
+* `volatile-lru`: si tratta del criterio di rimozione predefinito.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -147,7 +147,7 @@ Per altre informazioni sui criteri `maxmemory`, vedere [Eviction policies](http:
 
 L'impostazione **maxmemory-reserved** consente di configurare la quantità di memoria in MB riservata per le operazioni non appartenenti alla cache, ad esempio la replica durante il failover. L’impostazione di questo valore consente di avere un'esperienza più coerente del server Redis quando il carico varia. Questo valore deve essere più alto per i carichi di lavoro ad intensa attività di scrittura. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
-L'impostazione **maxfragmentationmemory-reserved** consente di configurare la quantità di memoria in MB riservata per la frammentazione della memoria. L'impostazione di questo valore consente un'esperienza un server Redis più coerente quando la cache è piena o prossima al riempimento e anche il rapporto di frammentazione è elevato. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
+L'impostazione **maxfragmentationmemory-reserved** consente di configurare la quantità di memoria in MB riservata per la frammentazione della memoria. L'impostazione di questo valore consente un'esperienza server Redis più coerente quando la cache è piena o prossima al riempimento e il rapporto di frammentazione è elevato. Quando la memoria è riservata per tali operazioni non è disponibile per l'archiviazione dei dati della cache.
 
 Un aspetto da considerare nella scelta di un nuovo valore di prenotazione di memoria (**maxmemory-reserved** o **maxfragmentationmemory-reserved**) è come questa modifica può influire su una cache che è già in esecuzione con grandi quantità di dati. Se ad esempio si dispone di una cache di 53 GB con 49 GB di dati, modificare il valore di prenotazione a 8 GB, abbasserà la quantità massima di memoria disponibile per il sistema a 45 GB. Se il valore corrente `used_memory` oppure il valore `used_memory_rss` sono maggiori del nuovo limite di 45 GB sarà necessario rimuovere i dati fino a quando `used_memory` e `used_memory_rss` non saranno inferiori a 45 GB. La rimozione può aumentare il carico del server e la frammentazione della memoria. Per altre informazioni sulle metriche della cache come `used_memory` e `used_memory_rss` vedere [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) (Metriche disponibili e intervalli di report).
 
@@ -269,7 +269,9 @@ La sezione **Rete virtuale** consente di configurare le impostazioni della rete 
 
 ### <a name="firewall"></a>Firewall
 
-Fare clic su **Firewall** per visualizzare e configurare le regole del firewall per Cache Redis di Azure Premium.
+La configurazione delle regole del firewall è disponibile per tutti i livelli di Cache Redis di Azure.
+
+Fare clic su **Firewall** per visualizzare e configurare le regole del firewall per la cache.
 
 ![Firewall](./media/cache-configure/redis-firewall-rules.png)
 
@@ -383,10 +385,10 @@ Fare clic su **Nuova richiesta di supporto** per aprire una richiesta di support
 
 
 ## <a name="default-redis-server-configuration"></a>Configurazione predefinita del server Redis
-Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori predefiniti di configurazione di Redis.
+Le nuove istanze di Cache Redis di Azure sono configurate con i valori predefiniti di configurazione di Redis seguenti:
 
 > [!NOTE]
-> Le impostazioni in questa sezione non possono essere modificate con il metodo `StackExchange.Redis.IServer.ConfigSet`. Se questo metodo viene chiamato con uno dei comandi indicati in questa sezione, viene generata un'eccezione simile alla seguente:  
+> Le impostazioni in questa sezione non possono essere modificate con il metodo `StackExchange.Redis.IServer.ConfigSet`. Se questo metodo viene chiamato con uno dei comandi indicati in questa sezione, viene generata un'eccezione simile all'esempio seguente:  
 > 
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 > 
@@ -397,7 +399,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 | Impostazione | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- |
 | `databases` |16 |Il numero predefinito di database è 16, ma è possibile configurare un numero diverso in base al piano tariffario.<sup>1</sup> Il database predefinito è DB 0, ma è possibile selezionarne uno diverso in base alla connessione usando `connection.GetDatabase(dbid)` dove `dbid` è un numero compreso tra `0` e `databases - 1`. |
-| `maxclients` |Dipende dal piano tariffario<sup>2</sup> |Questo è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiude tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto". |
+| `maxclients` |Dipende dal piano tariffario<sup>2</sup> |Questo valore è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiude tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto". |
 | `maxmemory-policy` |`volatile-lru` |Il criterio maxmemory è l'impostazione che serve a stabilire il modo in cui Redis seleziona gli elementi da rimuovere quando viene raggiunto il valore di `maxmemory` (la dimensione dell'offerta della cache selezionata in fase di creazione della cache). Con Cache Redis di Azure l'impostazione predefinita è `volatile-lru`, che rimuove le chiavi con una scadenza impostata usando l'algoritmo LRU. Questa impostazione può essere configurata nel portale di Azure. Per altre informazioni, vedere [Criteri di memoria](#memory-policies). |
 | `maxmemory-samples` |3 |Per risparmiare memoria, gli algoritmi LRU e TTL minimo sono algoritmi approssimativi anziché precisi. Per impostazione predefinita Redis controlla tre chiavi e sceglie quella usata meno di recente. |
 | `lua-time-limit` |5.000 |Tempo massimo di esecuzione di uno script Lua in millisecondi. Se viene raggiunto il tempo massimo di esecuzione, Redis registra che uno script è ancora in esecuzione dopo il tempo massimo consentito e inizia a rispondere alle query con un errore. |
@@ -495,7 +497,7 @@ Quando si usa la console Redis con una cache cluster Premium, è possibile invia
 
 ![Console Redis](./media/cache-configure/redis-console-premium-cluster.png)
 
-Se si prova ad accedere a una chiave archiviata in una partizione diversa da quella connessa, viene visualizzato un messaggio di errore simile al seguente.
+Se si prova ad accedere a una chiave archiviata in una partizione diversa da quella connessa, viene visualizzato un messaggio di errore simile al seguente:
 
 ```
 shard1>get myKey

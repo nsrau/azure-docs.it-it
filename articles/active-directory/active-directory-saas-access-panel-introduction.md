@@ -1,8 +1,8 @@
 ---
-title: "Che cos'è il pannello di accesso in Azure Active Directory? | Microsoft Docs"
+title: Che cos'è il pannello di accesso in Azure Active Directory? | Microsoft Docs
 description: Informazioni su come usare le varianti del pannello di accesso (Web browser, app per Android e app per iPhone e iPad) per accedere alle app SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
 
@@ -67,6 +67,9 @@ Dopo l'autenticazione, è possibile interagire con le applicazioni che l'amminis
 ## <a name="web-browser-requirements"></a>Requisiti del Web browser
 
 Il pannello di accesso richiede almeno un browser che supporti JavaScript e abbia CSS abilitato. Per poter accedere alle applicazioni tramite l'accesso Single Sign-On (SSO) basato su password, è necessario installare l'estensione del pannello di accesso nel browser. Questa estensione viene scaricata automaticamente quando si seleziona un'applicazione configurata per l'accesso SSO basato su password.
+
+Il programma di installazione è specifico dell'architettura. Facendo clic sul collegamento di download, si otterrà solo il programma di installazione per l'architettura del sistema operativo attualmente in esecuzione. Se si è un amministratore della distribuzione dell'applicazione, assicurarsi di visitare il collegamento di download da un dispositivo a 32 bit e a 64 bit per ottenere entrambi i programmi di installazione.
+
 
 L'estensione del pannello di accesso è attualmente disponibile per:
 - **Edge**: in Windows 10 Anniversary Edition o versioni successive. 

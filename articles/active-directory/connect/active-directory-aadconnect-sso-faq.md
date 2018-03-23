@@ -1,9 +1,9 @@
 ---
-title: 'Azure AD Connect: domande frequenti sull''accesso Single Sign-On facile | Microsoft Docs'
+title: "Azure AD Connect: domande frequenti sull'accesso Single Sign-On facile | Microsoft Docs"
 description: Risposte alle domande frequenti sull'accesso Single Sign-On facile di Azure Active Directory.
 services: active-directory
-keywords: "che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
-documentationcenter: 
+keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 15155ecaf17ae309a218bb1f51a4757e5338f64c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: domande frequenti
 
@@ -38,7 +38,16 @@ di serie L'accesso Single Sign-On facile è disponibile solo nell'istanza di Azu
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quali applicazioni possono sfruttare le capacità dei parametri `domain_hint` o `login_hint` dell'accesso SSO facile?
 
-Attualmente è in corso la compilazione dell'elenco delle applicazioni che inviano tali parametri e di quelle che non lo fanno. Se si è interessati a determinate applicazioni, segnalarlo nella sezione dei commenti.
+Di seguito è riportato un elenco non completo delle applicazioni che inviano questi parametri ad Azure AD, consentendo agli utenti un'esperienza di accesso automatico tramite l'accesso Single Sign-On facile:
+
+| Nome dell'applicazione | URL applicazione da usare |
+| -- | -- |
+| Pannello di accesso | myapps.microsoft.com/contoso.com |
+| Outlook nel Web | outlook.office365.com/contoso.com |
+
+Nella tabella precedente sostituire "contoso.com" con il nome di dominio per ottenere gli URL dell'applicazione corretti per il tenant.
+
+Se si è interessati ad altre applicazioni, segnalarlo nella sezione dei commenti.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'accesso SSO facile supporta `Alternate ID` come nome utente, anziché `userPrincipalName`?
 

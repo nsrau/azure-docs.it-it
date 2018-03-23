@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: acomet
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: acomet
-ms.openlocfilehash: 6c8278be32ae6c6452283ba946a36f363dd4d76d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c67d56ff63f70baa052be17c119d943c558d398f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Scheda di riferimento rapido per Azure SQL Data Warehouse
 Questa scheda di riferimento fornisce suggerimenti utili e procedure consigliate per creare rapidamente soluzioni Azure SQL Data Warehouse. Prima di iniziare, ottenere altre informazioni dettagliate su ogni passaggio leggendo [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns (Modelli e anti-modelli del carico di lavoro di Azure SQL Data Warehouse)](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), che spiega cos'è e cosa non è SQL Data Warehouse.
@@ -146,12 +146,12 @@ Distribuire con un clic del mouse gli spoke nei database SQL da SQL Data Warehou
 [Schema]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
 
 <!--Article references-->
-[caricamento dei dati]:./design-elt-data-loading.md
-[deeper guidance]: ./guidance-for-loading-data.md
-[indici]:./sql-data-warehouse-tables-index.md
-[partizioni]:./sql-data-warehouse-tables-partition.md
-[statistiche]:./sql-data-warehouse-tables-statistics.md
-[classi di risorse e concorrenza]:./sql-data-warehouse-develop-concurrency.md
+[caricamento dei dati]:design-elt-data-loading.md
+[deeper guidance]:guidance-for-loading-data.md
+[indici]:sql-data-warehouse-tables-index.md
+[partizioni]:sql-data-warehouse-tables-partition.md
+[statistiche]:sql-data-warehouse-tables-statistics.md
+[classi di risorse e concorrenza]:resource-classes-for-workload-management.md
 
 <!--MSDN references-->
 

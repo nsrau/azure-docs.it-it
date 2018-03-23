@@ -1,4 +1,19 @@
-
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Backup di Azure
 
 Per il backup di VM di Azure che eseguono carichi di lavoro di produzione, usare Backup di Azure. Backup di Azure supporta i backup coerenti con l'applicazione per le macchine virtuali di Windows e di Linux. Backup di Azure crea punti di recupero che vengono archiviati negli insiemi di credenziali di ripristino con ridondanza geografica. Quando si ripristina da un punto di recupero, è possibile ripristinare la macchina virtuale intera o parziale. 
