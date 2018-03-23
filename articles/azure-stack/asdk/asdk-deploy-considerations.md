@@ -2,24 +2,24 @@
 title: Azure prerequisiti di distribuzione (ASDK) del Kit di sviluppo dello Stack | Documenti Microsoft
 description: Esaminare i requisiti hardware e di ambiente per Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24a766ada1cdd1cb854b6869d571acd73e376327
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Distribuzione di Azure Stack considerazioni sulla pianificazione
 Prima di distribuire il Kit di sviluppo dello Stack di Azure (ASDK), verificare che il computer host di kit sviluppo soddisfi i requisiti descritti in questo articolo.
@@ -34,7 +34,7 @@ Prima di distribuire il Kit di sviluppo dello Stack di Azure (ASDK), verificare 
 | Calcolo: memoria |96 GB di RAM |128 GB di RAM (questo è il requisito minimo per supportare i provider di risorse PaaS).|
 | Calcolo: BIOS |Hyper-V abilitato (con supporto SLAT) |Hyper-V abilitato (con supporto SLAT) |
 | Rete: NIC |Windows Server 2012 R2 certificazione necessaria per la scheda di rete; Nessuna funzionalità specializzata richiesta |Windows Server 2012 R2 certificazione necessaria per la scheda di rete; Nessuna funzionalità specializzata richiesta |
-| Certificazione del logo HW |[Certificato per Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificato per Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Certificazione del logo HW |[Certificato per Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificate per Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> È necessario più di questa capacità è consigliata se si prevede di aggiunta di molte del [elementi del marketplace](asdk-marketplace-item.md) da Azure.
 

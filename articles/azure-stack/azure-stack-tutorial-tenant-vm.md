@@ -2,30 +2,27 @@
 title: Rendere disponibili agli utenti di Azure Stack macchine virtuali | Documenti Microsoft
 description: Esercitazione per rendere disponibili le macchine virtuali nello Stack di Azure
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack macchine virtuali
-
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
-
 Un amministratore di cloud di Azure Stack, è possibile creare offerte che possono sottoscrivere gli utenti (talvolta detto tenant). Con la sottoscrizione, gli utenti potranno quindi utilizzare i servizi di Azure Stack.
 
 In questo articolo viene illustrato come creare un'offerta e quindi eseguirne il test. Per il test, si verrà Accedi al portale come utente, sottoscrivere l'offerta e quindi creare una macchina virtuale tramite la sottoscrizione.

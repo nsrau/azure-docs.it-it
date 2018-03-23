@@ -4,17 +4,17 @@ description: Informazioni sulla migrazione del database SQL Server al database S
 keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
 author: CarlRabeler
-manager: Craig.Guyer
+manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 32377b4a80fcafd1d997daa11a90699b581093a6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrazione di un database SQL Server al database SQL di Azure
 
@@ -33,7 +33,7 @@ In entrambi i casi, è necessario assicurarsi che il database di origine sia com
 
  Usare questo metodo per la migrazione a un database singolo o in pool se si è disposti a tollerare tempi di inattività o se si esegue una migrazione di prova di un database di produzione per una migrazione successiva. Per un'esercitazione, vedere [Eseguire la migrazione di un database SQL Server](sql-database-migrate-your-sql-server-database.md).
 
-L'elenco seguente illustra un flusso di lavoro generico per eseguire la migrazione di un database SQL Server singolo o in pool usando questo metodo. Per la migrazione a Istanza gestita, vedere [Migrazione a Istanza gestita](sql-database-cloud-migrate.md#migration-to-azure-sql-database-managed-instance).
+L'elenco seguente illustra un flusso di lavoro generico per eseguire la migrazione di un database SQL Server singolo o in pool usando questo metodo. Per la migrazione a Istanza gestita, vedere [Migrazione a Istanza gestita](sql-database-managed-instance-migrate.md).
 
   ![Diagramma di migrazione di VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 

@@ -2,10 +2,10 @@
 title: Azure Stack di manutenzione dei criteri | Documenti Microsoft
 description: Informazioni sullo Stack di Azure per la manutenzione dei criteri e come mantenere un sistema integrato in uno stato supportato.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
 ms.service: azure-stack
 ms.workload: na
@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 13155349775e71e777e868b6cd311d2e8683706d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f495ca12e7cdb1bf61f09bd2d4a8a21654745d8a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack di manutenzione dei criteri
-
-*Si applica a: Azure Stack integrate di sistemi*
-
 Questo articolo descrive i criteri di manutenzione per i sistemi Azure Stack integrato e le operazioni da eseguire per mantenere il sistema in uno stato supportato. 
 
 ## <a name="update-package-types"></a>Tipi di pacchetto di aggiornamento
@@ -31,7 +28,7 @@ Questo articolo descrive i criteri di manutenzione per i sistemi Azure Stack int
 Esistono due tipi di pacchetti di aggiornamento per i sistemi integrati; Gli aggiornamenti software Microsoft e gli aggiornamenti specifici per il fornitore dell'hardware (OEM) original equipment manufacturer, ad esempio driver e firmware. Questi aggiornamenti vengono distribuiti come pacchetti di aggiornamento separati dello Stack di Azure e sono gestiti in modo indipendente.
 
 - **Gli aggiornamenti software Microsoft**. Microsoft è responsabile per il ciclo di vita di manutenzione end-to-end per i pacchetti di aggiornamento del software Microsoft. Questi pacchetti possono includere gli ultimi aggiornamenti di sicurezza di Windows Server, non correlato alla sicurezza aggiornamenti e gli aggiornamenti di funzionalità dello Stack di Azure. È possibile scaricare i pacchetti di aggiornamento theses direttamente da Microsoft.
-- **Aggiornamenti fornita dal produttore dell'hardware OEM**. I partner hardware di Azure Stack sono responsabili per l'end-to-end per la manutenzione del ciclo di vita (incluse indicazioni) per il firmware correlati all'hardware e i pacchetti di aggiornamento del driver. Inoltre, i partner hardware di Azure Stack proprietari e gestire linee guida per tutti i software e hardware nell'host del ciclo di vita dell'hardware. Il fornitore dell'hardware OEM ospita tali pacchetti nel proprio sito di download di aggiornamento.
+- **Aggiornamenti fornito dal fornitore dell'hardware OEM**. I partner hardware di Azure Stack sono responsabili per l'end-to-end per la manutenzione del ciclo di vita (incluse indicazioni) per il firmware correlati all'hardware e i pacchetti di aggiornamento del driver. Inoltre, i partner hardware di Azure Stack proprietari e gestire linee guida per tutti i software e hardware nell'host del ciclo di vita dell'hardware. Il fornitore dell'hardware OEM ospita tali pacchetti nel proprio sito di download di aggiornamento.
 
 ## <a name="update-package-release-cadence"></a>Rilasci del pacchetto di aggiornamento
 

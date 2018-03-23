@@ -2,24 +2,24 @@
 title: Risoluzione dei problemi di Microsoft Azure Stack | Documenti Microsoft
 description: Azure Stack Development Kit (ASDK) informazioni sulla risoluzione.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 6ed3fb7c7c4de9edbf31fb2c47290e2e39ceadcd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6c715f07f75c9196b7cf2cc8659c6e541e1260da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Risoluzione dei problemi di Microsoft Azure Stack Development Kit (ASDK)
 Questo documento fornisce informazioni sulla risoluzione dei problemi comuni per la ASDK. Se si sta verificando un problema non documentato, assicurarsi di controllare la [Forum MSDN di Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) per informazioni e ulteriore assistenza.  
@@ -31,7 +31,12 @@ Le indicazioni per la risoluzione dei problemi descritti in questa sezione sono 
 
 ## <a name="deployment"></a>Distribuzione
 ### <a name="deployment-failure"></a>Errore di distribuzione
-Se si verifica un errore durante l'installazione, è possibile riavviare la distribuzione del passaggio non riuscito con il parametro - opzione rieseguire dello script di distribuzione.  
+Se si verifica un errore durante l'installazione, è possibile riavviare la distribuzione del passaggio non riuscito con il parametro - opzione rieseguire dello script di distribuzione come nell'esempio seguente:
+
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>Al termine della distribuzione, la sessione di PowerShell è ancora aperta e non visualizza alcun output
 Questo comportamento è probabilmente solo il risultato del comportamento predefinito di una finestra di comando di PowerShell, quando è stato selezionato. La distribuzione di kit sviluppo ha avuto esito positivo, ma lo script è stata sospesa quando si seleziona la finestra. È possibile verificare l'installazione è stata completata cercando la parola "select" sulla barra del titolo della finestra di comando. Premere il tasto ESC per deselezionarlo e deve essere visualizzato il messaggio di completamento dopo di esso.

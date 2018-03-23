@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9626b3caaa7188a4e9a37f83d1fbf091951714f4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi
 
@@ -38,6 +38,8 @@ Il messaggio di errore dipende dal tipo di errore.
 
 Questo errore può essere causato da diversi tipi di errori. In genere si riferisce a errori di sintassi o strutturali nel modello.
 
+<a id="syntax-error" />
+
 ## <a name="solution-1---syntax-error"></a>Soluzione 1: errore di sintassi
 
 Se viene visualizzato un messaggio di errore che indica che la convalida del modello non è riuscita, potrebbe trattarsi di un problema di sintassi nel modello.
@@ -56,6 +58,8 @@ Non è insolito commettere questo errore, perché le espressioni del modello pos
 Se non si specifica la sintassi corrispondente, il modello genera un valore diverso dal previsto.
 
 Quando viene visualizzato questo tipo di errore, esaminare attentamente la sintassi dell'espressione. È consigliabile usare un editor JSON come [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) o [Visual Studio Code](resource-manager-vs-code.md) che può segnalare gli errori di sintassi.
+
+<a id="incorrect-segment-lengths" />
 
 ## <a name="solution-2---incorrect-segment-lengths"></a>Soluzione 2: lunghezza non valida di uno o più segmenti
 
@@ -116,6 +120,8 @@ Ottenere il numero di segmenti corretto può essere difficile con i tipi di Reso
 }
 ```
 
+<a id="parameter-not-valid" />
+
 ## <a name="solution-3---parameter-is-not-valid"></a>Soluzione 3: parametro non valido
 
 Se si specifica un valore di parametro che non corrisponde a uno dei valori consentiti, verrà visualizzato un messaggio simile all'errore seguente:
@@ -129,9 +135,13 @@ part of the allowed values
 
 Ricontrollare i valori consentiti nel modello e specificarne uno durante la distribuzione. Per altre informazioni sui valori di parametro consentiti, vedere [Sezione parameters dei modelli di Azure Resource Manager](resource-manager-templates-parameters.md).
 
+<a id="too-many-resource-groups" />
+
 ## <a name="solution-4---too-many-target-resource-groups"></a>Soluzione 4: troppi gruppi di risorse di destinazione
 
 Se si specificano più di cinque gruppi di risorse di destinazione in un'unica distribuzione, viene visualizzato questo errore. Prendere in considerazione il consolidamento del numero di gruppi di risorse nella distribuzione o la distribuzione di alcuni dei modelli come distribuzioni separate. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](resource-manager-cross-resource-group-deployment.md).
+
+<a id="circular-dependency" />
 
 ## <a name="solution-5---circular-dependency-detected"></a>Soluzione 5: rilevamento di una dipendenza circolare
 

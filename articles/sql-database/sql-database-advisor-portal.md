@@ -2,24 +2,18 @@
 title: Applicare le raccomandazioni per le prestazioni - Database SQL di Azure | Microsoft Docs
 description: Usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure.
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: jhubbard
-editor: monicar
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a5772e67d5b91ff989ac6d049b14b1ccad5c952e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -41,7 +35,7 @@ Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile
 
 Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestazioni nelle categorie seguenti:
 
-| Impatto | Descrizione |
+| Impatto | DESCRIZIONE |
 |:--- |:--- |
 | Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
 | Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
@@ -120,7 +114,7 @@ Le raccomandazioni con stato **In sospeso**, **Verifica** o **Operazione complet
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
 L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portale fornisce dettagli sullo stato della raccomandazione. Di seguito sono indicati gli stati possibili di un indice:
 
-| Stato | Descrizione |
+| Status | DESCRIZIONE |
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
@@ -147,7 +141,7 @@ Dopo aver implementato correttamente le raccomandazioni, attualmente, solo racco
 
 ![Monitorare l'impatto sulle prestazioni](./media/sql-database-advisor-portal/query-insights.png)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi

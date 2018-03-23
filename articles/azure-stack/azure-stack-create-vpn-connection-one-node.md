@@ -2,10 +2,10 @@
 title: Creare una connessione VPN da sito a sito tra due reti virtuali in diversi ambienti Azure Stack Development Kit | Documenti Microsoft
 description: Procedure dettagliate che un amministratore del cloud utilizza per creare una connessione VPN da sito a sito tra due ambienti di Azure Stack Development Kit a nodo singolo.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: brenduns
 ms.reviewer: scottnap
-ms.openlocfilehash: 886d56169c5500c9175b7ddc43edfc29c5142fbb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8bb10be63ef31ebe6241c15a79dafe71923a4cf7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creare una connessione VPN da sito a sito tra due reti virtuali in diversi ambienti Azure Stack Development Kit
 ## <a name="overview"></a>Panoramica
@@ -33,7 +33,7 @@ Nel diagramma seguente viene illustrato quale la configurazione della connession
 ### <a name="before-you-begin"></a>Prima di iniziare
 Per completare la configurazione della connessione, assicurarsi di disporre gli elementi seguenti prima di iniziare:
 
-* Due server che soddisfino i requisiti hardware di Azure Stack Development Kit, definiti per il [prerequisiti per la distribuzione di Azure Stack](azure-stack-deploy.md). Assicurarsi che i prerequisiti vengono visualizzati di [articolo](azure-stack-deploy.md) sono soddisfatti troppo.
+* Due server e gli altri prerequisiti che soddisfano i requisiti hardware di Azure Stack Development Kit, come descritto in [Guida introduttiva: valutare il Kit di sviluppo di Azure Stack](azure-stack-deploy-overview.md). 
 * Il [Kit di sviluppo di Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/try/) pacchetto di distribuzione.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Distribuire gli ambienti Azure Stack Development Kit

@@ -29,7 +29,7 @@
       href: azure-stack-use-portal.md
     - name: Sicurezza e conformità
       items:
-        - name: Gestisci controllo degli accessi in base al ruolo
+        - name: Gestire il controllo degli accessi in base al ruolo
           href: azure-stack-manage-permissions.md
         - name: Creare entità servizio
           href: Azure-stack-create-service-principals.md
@@ -71,7 +71,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS in Azure Stack
               href: azure-stack-dns.md
-        - name: Key Vault
+        - name: Insieme di credenziali di chiave
           items:
             - name: Panoramica
               href: azure-stack-kv-intro.md
@@ -99,7 +99,7 @@
               href: azure-stack-powershell-configure-user.md
             - name: Installare e configurare l'interfaccia della riga di comando di Azure Stack
               href: azure-stack-connect-cli.md
-            - name: Installa Visual Studio
+            - name: Installazione di Visual Studio
               href: azure-stack-install-visual-studio.md
             - name: Gestire i profili delle versioni dell'API
               href: azure-stack-version-profiles.md
@@ -121,16 +121,18 @@
               href: azure-stack-deploy-template-visual-studio.md
     - name: Abilitare un Provider di servizi Cloud
       href: azure-stack-csp-enable-billing-usage-tracking.md
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Interfaccia della riga di comando di Azure Stack
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
-- name: Correlata
+- name: Risorse correlate
   items:
     - name: Documentazione dell'operatore di Azure Stack
       href: /azure/azure-stack/
+    - name: Documentazione ASDK
+      href: /azure/azure-stack/asdk/
 - name: Risorse
   items:
     - name: Guida di orientamento per Azure Stack

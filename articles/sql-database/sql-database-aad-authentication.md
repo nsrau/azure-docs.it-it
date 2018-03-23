@@ -1,19 +1,19 @@
 ---
-title: Autenticazione di Azure Active Directory - Azure SQL (Panoramica) | Microsoft Docs
+title: Autenticazione di Azure Active Directory - Azure SQL (Panoramica) | Documentazione Microsoft
 description: Informazioni su come usare Azure Active Directory per l'autenticazione al database SQL, a Istanza gestita e a SQL Data Warehouse
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 9745fef33bf00e7249c1cb550c5164474bf5c3ee
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Usare Azure Active Directory per l'autenticazione al database SQL, a Istanza gestita e a SQL Data Warehouse
 L'autenticazione di Azure Active Directory è un meccanismo di connessione al database SQL di Microsoft Azure e a [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tramite le identità di Azure Active Directory (Azure AD). Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni. Ecco alcuni vantaggi:

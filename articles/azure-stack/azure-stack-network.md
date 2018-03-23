@@ -1,25 +1,25 @@
 ---
 title: Considerazioni relative all'integrazione per Azure Stack integrati sistemi di rete | Documenti Microsoft
-description: "Informazioni sulle operazioni per pianificare l'integrazione di rete di Data Center con lo Stack di Azure a più nodi."
+description: Informazioni sulle operazioni per pianificare l'integrazione di rete di Data Center con lo Stack di Azure a più nodi.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/21/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack utili per decidere come integrare più Stack di Azure nell'ambiente di rete esistente. 
@@ -67,7 +67,7 @@ Questo /24 254 host della rete IP) (è privato per l'area dello Stack di Azure (
 Questo/24 rete dedicato per i componenti interni dello Stack di Azure in modo che possano comunicare e scambiare dati tra loro. Questa subnet richiede gli indirizzi IP instradabili, ma è privata per la soluzione tramite elenchi di controllo di accesso (ACL). Non è previsto l'indirizzamento oltre le opzioni di bordo, ad eccezione di un intervallo di piccole dimensioni uguali a quelle di un /27 rete usata da alcuni di questi servizi quando richiedono l'accesso alle risorse esterne e/o internet. 
 
 ### <a name="public-infrastructure-network"></a>Rete pubblica infrastruttura
-Questo/27 rete è compreso nell'intervallo piccola tra la subnet dell'infrastruttura Azure Stack indicata in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per l'emergenza ripristino Console di sistema (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
+Questo/27 rete è compreso nell'intervallo piccola tra la subnet dell'infrastruttura Azure Stack indicata in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per emergenze ripristino Console di sistema (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e durante i backup di infrastruttura. La VM ERCS deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
 
 ### <a name="public-vip-network"></a>Rete pubblica di indirizzi VIP
 Rete pubblica VIP viene assegnata al controller di rete nello Stack di Azure. Non è una rete logica del commutatore. Il SLB utilizza il pool di indirizzi e assegna/32 di reti per carichi di lavoro tenant. Nella tabella di routing di commutatore, questi indirizzi IP di 32 vengono annunciate come non disponibili tramite il protocollo BGP. Questa rete contiene gli indirizzi IP pubblici o esterni accessibili. L'infrastruttura di Azure Stack utilizza almeno 8 indirizzi da questa rete VIP pubblico, mentre il resto viene utilizzato da macchine virtuali tenant. Le dimensioni della subnet di rete possono variare da un minimo di /26 (64 host) a un massimo di /22 (1022 host), è consigliabile pianificare un /24 rete.

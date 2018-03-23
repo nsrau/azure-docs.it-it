@@ -3,18 +3,18 @@ title: Configurazione di una rete virtuale con Istanza gestita di database SQL d
 description: Questo argomento descrive le opzioni di configurazione di una rete virtuale con Istanza gestita di database SQL di Azure.
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1a839a9bb2355da9451816828f6f9f0e99f43f5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -33,7 +33,7 @@ Pianificare la modalità di distribuzione di un'istanza gestita in una rete virt
 
    Se si prevede di usare una rete virtuale esistente, è necessario modificare la configurazione di rete in base all'istanza gestita. Per altre informazioni, vedere la sezione [Modificare la rete virtuale esistente per l'istanza gestita](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Se si prevede di creare una nuova rete virtuale, vedere [Creare una nuova rete virtuale per l'istanza gestita](#create-new-virtual-network-for-managed-instances).
+   Se si prevede di creare una nuova rete virtuale, vedere [Creare una nuova rete virtuale per l'istanza gestita](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Requisiti
 
