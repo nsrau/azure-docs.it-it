@@ -1,24 +1,20 @@
 ---
-title: Introduzione ad Automazione di Azure | Microsoft Docs
+title: Introduzione ad Automazione di Azure
 description: Questo articolo offre una panoramica del servizio Automazione di Azure. Esamina i dettagli di progettazione e implementazione in preparazione dell'onboarding dell'offerta da Azure Marketplace.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte
-ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: dab404178b45828732e137835213046cedaf0d03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -45,7 +41,7 @@ I runbook eseguiti in un ruolo di lavoro ibrido per runbook vengono eseguiti nel
 
 È possibile applicare configurazioni DSC che vengono archiviate in Automazione di Azure nelle macchine virtuali. Altri computer fisici e altre macchine virtuali possono richiedere configurazioni al server di pull di Automation DSC. Non è necessario distribuire un'infrastruttura per supportare il server di pull di Automation DSC per gestire le configurazioni dei sistemi Windows e Linux locali, fisici o virtuali. È solo necessario l'accesso a Internet in uscita da ogni sistema che verrà gestito con Automation DSC. La comunicazione avviene sulla porta TCP 443 al servizio OMS.   
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="automation-dsc"></a>Automation DSC
 È possibile usare Automation DSC per gestire questi computer:
@@ -171,7 +167,7 @@ Per un elenco degli indirizzi IP di area invece dei nomi di area, scaricare il f
 
 La tabella seguente introduce i metodi per la creazione di un account di Automazione nel portale di Azure. La tabella illustra ogni tipo di esperienza di distribuzione e ne spiega le differenze.  
 
-|Metodo | Descrizione |
+|Metodo | DESCRIZIONE |
 |-------|-------------|
 | Selezionare **Automazione e controllo** in Azure Marketplace | Offerta di Azure Marketplace che crea sia un account di Automazione che un'area di lavoro OMS collegati e nello stesso gruppo di risorse e nella stessa area. L'integrazione con OMS offre anche il vantaggio di poter usare Log Analytics per monitorare e analizzare lo stato del processo del runbook e i flussi di processo nell'arco di un periodo di tempo, nonché di usare le funzionalità avanzate in Log Analytics per inoltrare o esaminare i problemi. Questa offerta distribuisce le soluzioni **Rilevamento modifiche** e **Gestione aggiornamenti**, abilitate per impostazione predefinita. |
 | Selezionare **Automazione** nel Marketplace | Questo metodo crea un account di Automazione in un gruppo di risorse nuovo o esistente che non è collegato a un'area di lavoro OMS. Non include alcuna soluzione disponibile dall'offerta **Automazione e controllo**. Questo metodo è una configurazione di base introduttiva per il servizio Automazione. Può essere utile per imparare a scrivere i runbook e le configurazioni DSC, oltre a imparare a usare le funzionalità del servizio. |

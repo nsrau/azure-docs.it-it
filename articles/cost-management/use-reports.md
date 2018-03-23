@@ -2,19 +2,19 @@
 title: Usare i report di Gestione costi in Gestione costi di Azure | Microsoft Docs
 description: Questo articolo descrive come usare i diversi report di Gestione costi nel portale di Cloudyn.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.custom: ''
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Usare i report di Gestione costi
 
@@ -152,7 +152,7 @@ Usare il report dei costi nel tempo per:
 3. Aggiungere gruppi.
 4. Scegliere un modello di costi creato in precedenza.
 5. Selezionare costi effettivi o ammortizzati.
-6. Scegliere se applicare regole di allocazione per offrire una visualizzazione dei dati di fatturazione non elaborati o ricalcolare il costo in base a una visualizzazione Cloudyn.
+6. Scegliere se applicare regole di allocazione per offrire una visualizzazione dati di fatturazione non elaborati o ricalcolare il costo in base a una visualizzazione.
 
 Ecco un esempio del report.
 

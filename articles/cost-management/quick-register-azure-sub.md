@@ -1,8 +1,8 @@
 ---
 title: Registrare la sottoscrizione di Azure in Gestione costi di Azure | Microsoft Docs
-description: Usare la sottoscrizione di Azure per registrarsi in Gestione costi di Azure di Cloudyn.
+description: Usare la sottoscrizione di Azure per effettuare la registrazione in Gestione costi di Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 666919e37ffa3bb039fc9387737b8e6c3789311a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrare una singola sottoscrizione di Azure e visualizzare i dati sui costi
 
-Usare la sottoscrizione di Azure per registrarsi in Gestione costi di Azure di Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
+Usare la sottoscrizione di Azure per effettuare la registrazione in Gestione costi di Azure. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -40,13 +40,13 @@ Usare la sottoscrizione di Azure per registrarsi in Gestione costi di Azure di C
 9. Fare clic su **Go to Cloudyn** (Passa a Cloudyn) per aprire il portale di Cloudyn. Nella pagina **Accounts Management** (Gestione account) saranno visualizzate le informazioni sugli account della sottoscrizione di Azure.  
     ![Gestione degli account](./media/quick-register-azure-sub/accounts-mgt.png)
 
-Per guardare un video di esercitazione su come eseguire la registrazione della sottoscrizione di Azure, vedere [Finding your Directory GUID and Rate ID for use in Azure Cost Management by Cloudyn](https://youtu.be/PaRjnyaNGMI) (Individuare il GUID della directory e l'ID della tariffa da usare in Gestione costi di Azure di Cloudyn).
+Per un video di esercitazione su come eseguire la registrazione della sottoscrizione di Azure, vedere [Finding your Directory GUID and Rate ID for use in Azure Cost Management](https://youtu.be/PaRjnyaNGMI) (Individuare il GUID della directory e l'ID della tariffa da usare in Gestione costi di Azure).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono state usate le informazioni della sottoscrizione di Azure per registrarsi in Gestione dei costi. È stato anche eseguito l'accesso al portale di Cloudyn ed è stata avviata la visualizzazione dei dati sui costi. Per altre informazioni su Gestione costi di Azure di Cloudyn, continuare l'esercitazione su Gestione dei costi.
+In questa guida introduttiva sono state usate le informazioni della sottoscrizione di Azure per registrarsi in Gestione dei costi. È stato anche eseguito l'accesso al portale di Cloudyn ed è stata avviata la visualizzazione dei dati sui costi. Per altre informazioni su Gestione costi di Azure, continuare l'esercitazione su Gestione costi.
 
 > [!div class="nextstepaction"]
 > [Esaminare l'utilizzo e i costi](./tutorial-review-usage.md)

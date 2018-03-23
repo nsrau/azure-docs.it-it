@@ -1,8 +1,8 @@
 ---
 title: Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux | Microsoft Docs
-description: "Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure."
+description: Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 ms.service: app-service-web
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c3107d7385413d15445a8b3a3cd2476973ab632
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 5d1e1e448ce4cf6f1b6f617a68eb4d89333c180d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux
 
@@ -155,7 +155,7 @@ In questo passaggio viene creato un database MySQL nel [database di Azure per My
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
@@ -334,7 +334,7 @@ L'applicazione Laravel viene avviata nella directory _/public_. L'immagine Docke
 
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
 ### <a name="configure-database-settings"></a>Configurare le impostazioni del database
 

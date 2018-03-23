@@ -3,25 +3,19 @@ title: Effettuare il provisioning in Azure multi-tenant SaaS| Documentazione Mic
 description: Informazioni su come effettuare il provisioning di nuovi tenant e catalogarli in un'app SaaS multi-tenant del database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: MightyPen
 ms.reviewer: billgib;andrela;genemi
-ms.assetid: 
 ms.service: sql-database
 ms.custom: saas apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billgib
-ms.openlocfilehash: 42bbb6131aa71520410b22af4d74e99a63fe81cf
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: fb2f2bcbbc8b7f0b0012c4e7baf4a274671d4af0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL partizionato multi-tenant di Azure
 
@@ -79,7 +73,7 @@ In Wingtip il catalogo viene implementato nel database *tenantcatalog*. Il datab
 Durante il provisioning del tenant, è possibile usare le funzioni della libreria client dei database elastici da applicazioni o script di PowerShell per creare le voci della mappa partizioni. In un secondo momento, tali funzioni possono essere utilizzate per connettersi al database corretto. La libreria client dei database elastici memorizza nella cache le informazioni di connessione per ridurre al minimo il traffico verso il database del catalogo e velocizzare il processo di connessione.
 
 > [!IMPORTANT]
-> *Non* modificare i dati nel database del catalogo mediante l'accesso diretto. Gli aggiornamenti diretti non sono supportati dato l'elevato rischio di danneggiamento dei dati. Modificare, invece, i dati di mapping utilizzando solo le API della libreria client dei database elastici.
+> *Non* modificare i dati nel database del catalogo mediante l'accesso diretto. Gli aggiornamenti diretti non sono supportati dato l'elevato rischio di danneggiamento dei dati. Modificare, invece, i dati di mapping usando solo le API della libreria client dei database elastici.
 
 ## <a name="tenant-provisioning-pattern"></a>Modello di provisioning del tenant
 

@@ -2,24 +2,18 @@
 title: Uso della libreria client dei database elastici con Entity Framework | Documentazione Microsoft
 description: Usare la libreria client del database elastico e Entity Framework per la codifica di database
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Libreria client dei database elastici con Entity Framework
 Questo documento illustra le modifiche necessarie in un'applicazione Entity Framework per l'integrazione con le funzionalità degli [strumenti del database elastico](sql-database-elastic-scale-introduction.md). Vengono descritti in particolare la [gestione delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e il [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md) con l'approccio **Code First** di Entity Framework. L'esercitazione [Code First per un nuovo database](http://msdn.microsoft.com/data/jj193542.aspx) per Entity Framework servirà da esempio nell'intero documento. Il codice di esempio che accompagna questo documento fa parte del set di esempi sugli strumenti dei database elastici negli esempi di codice di Visual Studio.

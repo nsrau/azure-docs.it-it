@@ -4,9 +4,9 @@ description: Informazioni su come implementare un singleton con stato nell'esten
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singleton con stato in Funzioni permanenti - Contatore di esempio
 

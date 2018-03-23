@@ -1,25 +1,19 @@
 ---
-title: "Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale | Microsoft Docs"
+title: Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale | Microsoft Docs
 description: Convertire database partizionati per l'uso di strumenti dei database elastici mediante la creazione di un gestore mappe partizioni
 services: sql-database
-documentationcenter: 
-author: ddove
-manager: jhubbard
-editor: 
-ms.assetid: 8c851d8e-8fd5-4327-89c1-9178b20ddd69
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: d82994f3ab925fa3ace0d0dbe1631a01dd1df586
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale
 È possibile gestire facilmente i database partizionati con scalabilità orizzontale esistenti usando gli strumenti di database del database SQL di Azure, come ad esempio la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Come prima cosa convertire un set di database esistente per l'uso del [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). 

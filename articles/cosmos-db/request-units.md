@@ -1,11 +1,11 @@
 ---
-title: "Unità richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs"
-description: "Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB."
+title: 'Unità richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs'
+description: Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs).
@@ -35,9 +35,9 @@ Per prestazioni prevedibili, è necessario riservare una velocità effettiva in 
 Alla fine della lettura, si avranno le risposte alle domande seguenti:  
 
 * Cosa sono le unità richiesta e gli addebiti richiesta?
-* Come è possibile specificare la capacità delle unità richiesta per una raccolta?
+* Come è possibile specificare la capacità delle unità richiesta per un contenitore?
 * Come si possono stimare le esigenze relative alle unità richiesta per l'applicazione?
-* Cosa accade se si supera la capacità delle unità richiesta per una raccolta?
+* Cosa accade se si supera la capacità delle unità richiesta per un contenitore?
 
 Azure Cosmos DB è un database multimodello. Si noti che in questo articolo l'API di documento è detta raccolta/documento, l'API Graph è detta grafo/nodo e l'API Table è detta tabella/entità. In questo articolo ci si riferisce al concetto di una raccolta, un grafico o una tabella come un contenitore e di un documento, un nodo o un'entità come un elemento.
 
@@ -53,14 +53,14 @@ Per iniziare è consigliabile guardare il video riportato di seguito, in cui Ara
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Specifica della capacità in unità richiesta in Azure Cosmos DB
-Quando si crea una nuova raccolta, tabella o grafo, si specifica il numero di unità richiesta al secondo (UR/sec) da riservare. In base alla velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB alloca partizioni fisiche per ospitare la raccolta e suddivide/ribilancia la crescita dei dati nelle partizioni.
+Quando si crea un nuovo contenitore, si specifica il numero di unità richiesta al secondo (UR/sec) da riservare. In base alla velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB alloca partizioni fisiche per ospitare il contenitore e suddivide/ribilancia la crescita dei dati nelle partizioni.
 
-I contenitori di Azure Cosmos DB possono essere creati come fissi o illimitati. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore illimitato, è necessario specificare una velocità effettiva minima di 1.000 UR/s e una [chiave di partizione](partition-data.md). Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di raccolte/tabelle/grafi e richieste in Azure Cosmos DB. 
+I contenitori di Azure Cosmos DB possono essere creati come fissi o illimitati. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore illimitato, è necessario specificare una velocità effettiva minima di 1.000 UR/s e una [chiave di partizione](partition-data.md). Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di contenitori/tabelle/grafi e richieste in Azure Cosmos DB. 
 
 > [!NOTE]
 > Una chiave di partizione è un limite logico, non un limite fisico. Non è quindi necessario limitare il numero di valori distinti per le chiavi di partizioni. È in effetti consigliabile avere un numero maggiore di valori distinti per le chiavi di partizione, perché Azure Cosmos DB offre un numero maggiore di opzioni per il bilanciamento del carico.
 
-Ecco un frammento di codice per la creazione di una raccolta con 3.000 unità richiesta al secondo usando .NET SDK:
+Ecco un frammento di codice per la creazione di un contenitore con 3000 unità richiesta al secondo usando .NET SDK:
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB usa un modello di prenotazione per la velocità effettiva, ovvero viene fatturata la quantità di velocità effettiva *riservata*, indipendentemente dalla quantità di tale velocità effettiva *usata* attivamente. A mano a mano che i modelli di carico, dati e utilizzo dell'applicazione cambiano, è possibile aumentare e ridurre facilmente la quantità di unità richiesta riservate usando gli SDK o il [portale di Azure](https://portal.azure.com).
 
-Viene eseguito il mapping di ogni raccolta, tabella o grafo a una risorsa `Offer` in Azure Cosmos DB, che include metadati sulla velocità effettiva di cui è stato effettuato il provisioning. È possibile modificare la velocità effettiva allocata esaminando l'offerta corrispondente relativa alla risorsa per un contenitore, quindi aggiornarla con il nuovo valore per la velocità effettiva. Ecco un frammento di codice per la modifica della velocità effettiva di una raccolta fino a 5.000 unità richiesta al secondo usando .NET SDK:
+Viene eseguito il mapping di ogni contenitore a una risorsa `Offer` in Azure Cosmos DB, che include metadati sulla velocità effettiva di cui è stato effettuato il provisioning. È possibile modificare la velocità effettiva allocata esaminando l'offerta corrispondente relativa alla risorsa per un contenitore, quindi aggiornarla con il nuovo valore per la velocità effettiva. Ecco un frammento di codice per la modifica della velocità effettiva di un contenitore fino a 5000 unità richiesta al secondo usando .NET SDK:
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,7 +334,7 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 | Selezionare per gruppo di alimenti |10 |700 |
 | Selezionare i primi 10 |15 |Totale 150 |
 
-Si prevede in questo caso un requisito di velocità effettiva medio di 1.275 unità richiesta al secondo.  Arrotondando a 100 unità più vicine, si dovrà effettuare il provisioning di 1.300 unità richiesta al secondo per la raccolta dell'applicazione.
+Si prevede in questo caso un requisito di velocità effettiva medio di 1.275 unità richiesta al secondo.  Arrotondando a 100 unità più vicine, si dovrà effettuare il provisioning di 1300 unità richiesta al secondo per il contenitore dell'applicazione.
 
 ## <a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata in Azure Cosmos DB
 Tenere presente che, in assenza di budget, il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano il livello di unità richiesta di cui è stato effettuato il provisioning per un contenitore, le richieste saranno limitate fino a quando il livello non torna al di sotto del valore riservato. Nel caso di una limitazione, il server termina preventivamente la richiesta con RequestRateTooLargeException (codice di stato HTTP 429) e restituisce l'intestazione x-ms-retry-after-ms, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
@@ -348,7 +348,7 @@ Se si usano le query LINQ e .NET SDK per client, non è quasi mai necessario ges
 Se più client operano collettivamente al di sopra della frequenza delle richieste, il comportamento di ripetizione dei tentativi predefinito potrebbe non essere sufficiente e il client genererà una DocumentClientException con codice di stato 429 per l'applicazione. In casi come questo, si può valutare la possibilità di gestire la logica e il comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione o di aumentare la velocità effettiva riservata per il contenitore.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API MongoDB
-Le applicazioni che superano il livello di unità di richiesta con provisioning per una raccolta saranno limitate fino al ritorno del livello sotto il valore riservato. In caso di limitazione, il back-end terminerà preventivamente la richiesta con un codice errore *16500*, ovvero *Troppe richieste*. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore di tipo *Troppe richieste*. Se si riceve un numero eccessivo di codici errore di tipo *Troppe richieste*, è possibile prendere in considerazione l'aggiunta del comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva riservata per la raccolta](set-throughput.md).
+Le applicazioni che superano il livello di unità di richiesta con provisioning per un contenitore saranno limitate fino al ritorno del livello sotto il valore riservato. In caso di limitazione, il back-end terminerà preventivamente la richiesta con un codice errore *16500*, ovvero *Troppe richieste*. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore di tipo *Troppe richieste*. Se si riceve un numero eccessivo di codici errore di tipo *Troppe richieste*, è possibile prendere in considerazione l'aggiunta del comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva riservata per il contenitore](set-throughput.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla velocità effettiva riservata con i database Azure Cosmos DB, vedere queste risorse:

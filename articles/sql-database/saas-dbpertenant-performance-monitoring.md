@@ -1,26 +1,20 @@
 ---
-title: "Monitorare le prestazioni di più database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs"
+title: Monitorare le prestazioni di più database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs
 description: Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 

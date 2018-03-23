@@ -1,7 +1,7 @@
 ---
 title: Connettere HDInsight alla rete locale - Azure HDInsight | Microsoft Docs
 description: Informazioni su come creare un cluster HDInsight in una rete virtuale di Azure e quindi connetterlo alla rete locale. Informazioni su come configurare la risoluzione dei nomi tra HDInsight e la rete locale usando un server DNS personalizzato.
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Connettere HDInsight alla rete locale
 
@@ -273,13 +273,13 @@ Questo esempio usa il server DNS locale in 196.168.0.4 per risolvere il nome del
 
 > [!WARNING]
 > HDInsight richiede l'accesso in ingresso da indirizzi IP specifici nel cloud Azure e l'accesso in uscita senza restrizioni. Quando si usano NSG o route definite dall'utente per controllare il traffico, è necessario eseguire questa procedura:
->
-> 1. Trovare gli indirizzi IP per la località contenente la rete virtuale. Per un elenco di indirizzi IP necessari in base alla località, vedere [Indirizzi IP richiesti](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Consentire il traffico in ingresso dagli indirizzi IP.
->
->    * __NSG__: consentire il traffico __in ingresso__ sulla porta __443__ da __Internet__.
->    * __Route definita dall'utente__: impostare il tipo di __Hop successivo__ della route su __Internet__.
+
+1. Trovare gli indirizzi IP per la località contenente la rete virtuale. Per un elenco di indirizzi IP necessari in base alla località, vedere [Indirizzi IP richiesti](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Per gli indirizzi IP identificati nel passaggio 1, consentire il traffico in ingresso da tali indirizzi.
+
+   * Se si usano i __gruppi di sicurezza di rete (NSG)__: consentire il traffico __in ingresso__ sulla porta __443__ per gli indirizzi IP.
+   * Se si usano le __route definite dall'utente (UDR)__: impostare il tipo __Hop successivo__ tipo della route su __Internet__ per gli indirizzi IP.
 
 Per un esempio di utilizzo di Azure PowerShell o dell'interfaccia della riga di comando di Azure per creare gruppi NSG, vedere il documento [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg).
 

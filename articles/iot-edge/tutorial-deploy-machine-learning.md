@@ -2,18 +2,18 @@
 title: Distribuire Azure Machine Learning con Azure IoT Edge | Microsoft Docs
 description: Distribuire Azure Machine Learning come modulo in un dispositivo periferico
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/13/2017
+ms.date: 03/06/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuire Azure Machine Learning come modulo di IoT Edge - anteprima
 
@@ -27,14 +27,13 @@ In questa esercitazione si apprenderà come:
 > * Distribuire un modulo di Azure Machine Learning in un dispositivo IoT Edge
 > * Visualizzare i dati generati
 
-Il modulo di Azure Machine Learning creato in questa esercitazione legge i dati relativi alla temperatura generati dal dispositivo e invia messaggi upstream all'hub IoT di Azure solo quando prevede un errore (anomalia). 
-
+Il modulo di Azure Machine Learning che si creerà in questa esercitazione legge i dati ambientali generati dal dispositivo e etichetta i messaggi come anomali o non anomali. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Il dispositivo Azure IoT Edge creato nella guida introduttiva o nella prima esercitazione.
 * La stringa di connessione per l'hub IoT a cui si connette il dispositivo di IoT Edge.
-* Un account di Azure Machine Learning. Per creare un account, attenersi alle istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
+* Un account di Azure Machine Learning. Per creare un account, attenersi alle istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
 * Gestione modelli per Azure ML nel computer in uso. Per configurare l'ambiente e creare un account, attenersi alle istruzioni riportate in [Configurazione di Gestione modelli](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Creare il contenitore di Azure ML
@@ -61,9 +60,9 @@ Verificare che l'immagine del contenitore sia stata creata e archiviata corretta
 6. Selezionare **machinelearningmodule**
 7. A questo punto si disporrà del percorso completo dell'immagine del contenitore. Prendere nota del percorso dell'immagine per la sezione successiva. Dovrebbe essere simile al seguente: **<nome_registro>.azureacr.io/machinelearningmodule:1**
 
-## <a name="add-registry-credentials-to-your-edge-device"></a>Aggiungere le credenziali del registro al dispositivo di Edge
+## <a name="add-registry-credentials-to-your-edge-device"></a>Aggiungere le credenziali del registro al dispositivo perimetrale
 
-Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale di Edge, Questo comando consente al runtime l'accesso per il pull del contenitore.
+Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale, Questo comando consente al runtime l'accesso per il pull del contenitore.
 
 Linux:
    ```cmd
@@ -108,7 +107,7 @@ Windows:
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-È possibile visualizzare i messaggi da dispositivo a cloud inviati dal dispositivo IoT Edge tramite l'estensione Azure IoT Toolkit per Visual Studio Code. 
+È possibile visualizzare i messaggi da dispositivo a cloud inviati dal dispositivo IoT Edge tramite [IoT Hub Explorer](https://github.com/azure/iothub-explorer) o l'estensione Azure IoT Toolkit per Visual Studio Code. 
 
 1. In Visual Studio Code selezionare **IoT Hub Devices** (Dispositivi hub IoT). 
 2. Selezionare **...** e quindi **Set IoT Hub Connection String** (Imposta stringa di connessione hub IoT) dal menu. 
@@ -117,7 +116,7 @@ Windows:
 
 3. Nella casella di testo visualizzata nella parte superiore della pagina immettere la stringa di connessione iothubowner per l'hub IoT. Il dispositivo IoT Edge dovrebbe essere visualizzato nell'elenco di dispositivi dell'hub IoT.
 4. Selezionare nuovamente **...** e quindi selezionare **Start monitoring D2C message** (Avvia monitoraggio messaggio da dispositivo a cloud).
-5. Osservare i messaggi provenienti da tempSensor ogni cinque secondi, aggiunti da machinelearningmodule assieme alla valutazione dell'integrità del dispositivo. 
+5. Osservare i messaggi provenienti da tempSensor ogni cinque secondi. Il corpo del messaggio contiene una proprietà denominata **anomaly** a cui è assegnato un valore true o false. Se il modello è stato eseguito correttamente, la proprietà **AzureMLResponse** contiene il valore "OK". 
 
    ![Risposta di Azure ML nel corpo del messaggio](./media/tutorial-deploy-machine-learning/ml-output.png)
 

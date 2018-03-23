@@ -3,23 +3,18 @@ title: Applicazioni multi-tenant con strumenti di database elastici e sicurezza 
 description: Usare gli strumenti di database elastici insieme alla sicurezza a livello di riga per compilare un'applicazione con un livello dati altamente scalabile.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: tmullaney
-ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: thmullan;torsteng
-ms.openlocfilehash: f874800e8647eac6ed94945d79e904df86207b0f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: thmullan
+ms.openlocfilehash: 62213eeeee0b1d93cabc32101ad6fe51bf394080
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 

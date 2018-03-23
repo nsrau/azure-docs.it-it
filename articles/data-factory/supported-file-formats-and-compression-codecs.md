@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -37,7 +37,7 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 
 Se si vuole leggere da un file di testo o scrivere in un file di testo, impostare la proprietà `type` nella sezione `format` del set di dati **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile usare un carattere non stampabile raro che potrebbe non esistere nei dati. Ad esempio, specificare "\u0001", che rappresenta l'inizio intestazione (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No  |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No  |
@@ -90,7 +90,7 @@ Per **importare/esportare un file JSON senza modifiche in/da Azure Cosmos DB**, 
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `type` nella sezione `format` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No  |
@@ -436,7 +436,7 @@ Per analizzare i file ORC o scrivere i dati in formato ORC, impostare la proprie
 ```
 
 > [!IMPORTANT]
-> Se non si esegue una copia **identica** dei file ORC tra l'archivio dati locale e quello nel cloud, nel computer gateway è necessario installare JRE 8 (Java Runtime Environment). Per un gateway a 64 bit è necessario JRE a 64 bit, mentre per un gateway a 32 bit è necessario JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605). Scegliere la versione appropriata.
+> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file ORC, è necessario installare JRE 8 (Java Runtime Environment) nel computer del runtime di integrazione. Un runtime di integrazione a 64 bit richiede un JRE a 64 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenere presente quanto segue:
@@ -456,7 +456,7 @@ Per analizzare i file Parquet o scrivere i dati in formato Parquet, impostare la
 ```
 
 > [!IMPORTANT]
-> Se non si esegue una copia **identica** dei file Parquet tra l'archivio dati locale e quello nel cloud, nel computer gateway è necessario installare JRE 8 (Java Runtime Environment). Per un gateway a 64 bit è necessario JRE a 64 bit, mentre per un gateway a 32 bit è necessario JRE a 32 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605). Scegliere la versione appropriata.
+> Per le copie attivate dal runtime di integrazione self-hosted, ad esempio tra l'archivio dati locale e quello nel cloud, se non si esegue una copia **identica** dei file Parquet, è necessario installare JRE 8 (Java Runtime Environment) nel computer del runtime di integrazione. Un runtime di integrazione a 64 bit richiede un JRE a 64 bit. Entrambe le versioni sono disponibili [qui](http://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenere presente quanto segue:

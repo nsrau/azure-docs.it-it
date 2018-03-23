@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -116,7 +116,7 @@ context.log(message)
 Consente di scrivere nei log della console in streaming a livello di traccia predefinito. In `context.log` sono disponibili altri metodi di registrazione che consentono di scrivere nel log della console ad altri livelli di traccia:
 
 
-| Metodo                 | DESCRIZIONE                                |
+| Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_messaggio_)**   | Scrive nella registrazione a livello di errore o inferiore.   |
 | **warn(_messaggio_)**    | Scrive nella registrazione a livello di avviso o inferiore. |
@@ -206,7 +206,7 @@ I trigger e i webhook HTTP e le associazioni di output HTTP usano oggetti di ric
 
 Di seguito sono elencate le proprietà dell'oggetto `request`:
 
-| Proprietà      | DESCRIZIONE                                                    |
+| Proprietà      | Descrizione                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Oggetto che contiene il corpo della richiesta.               |
 | _headers_     | Oggetto che contiene le intestazioni della richiesta.                   |
@@ -221,7 +221,7 @@ Di seguito sono elencate le proprietà dell'oggetto `request`:
 
 Di seguito sono elencate le proprietà dell'oggetto `response`:
 
-| Proprietà  | DESCRIZIONE                                               |
+| Proprietà  | Descrizione                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | Oggetto che contiene il corpo della risposta.         |
 | _headers_ | Oggetto che contiene le intestazioni della risposta.             |
@@ -265,7 +265,15 @@ Quando si lavora con i trigger HTTP, è possibile accedere agli oggetti richiest
     ```  
 
 ## <a name="node-version-and-package-management"></a>Versione di Node e gestione dei pacchetti
-La versione di Node è attualmente bloccata alla `6.5.0`. Si sta analizzando la possibilità di aggiungere il supporto per altre versioni e renderle configurabili.
+
+La tabella seguente mostra la versione di Node.js usata da ogni versione principale del runtime di Funzioni:
+
+| Versione di Funzioni | Versione di Node.js | 
+|---|---|
+| 1.x | 6.11.2 (bloccata dal runtime) |
+| 2.x  |>=8.4.0 con LTS 8.9.4 corrente consigliata. Impostare la versione usando l'[impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+
+È possibile verificare la versione corrente usata dal runtime stampando `process.version` da qualsiasi funzione.
 
 I passaggi seguenti consentono di includere i pacchetti nell'app per le funzioni: 
 

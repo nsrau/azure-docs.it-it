@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: functions
 ms.devlang: multiple
@@ -16,20 +16,11 @@ ms.workload: na
 ms.date: 02/05/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-experiment: 
-<<<<<<< HEAD
-ms.openlocfilehash: 9c038b1330bdd9ee0c922b98158c45f3c7b797ae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 31437360396e220de24789fdff9d2602af385053
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-=======
-ms.openlocfilehash: e6ca80d90460f89c014ef1e425bc888cafaf93df
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Creare la prima funzione nel portale di Azure
 
@@ -41,7 +32,7 @@ Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](h
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo<http://portal.azure.com> con il proprio account Azure.
+Accedere al portale di Azure all'indirizzo <http://portal.azure.com> con il proprio account Azure.
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 

@@ -1,30 +1,26 @@
 ---
 title: Servizio del database SQL di Azure | Microsoft Docs
 description: Informazioni sui livelli di servizio per database singoli e di pool per offrire livelli di prestazioni e dimensioni di archiviazione.
-keywords: 
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quali sono i livelli di servizio del database SQL di Azure?
 
-Il [database SQL di Azure](sql-database-technical-overview.md) offre i livelli di servizio **Basic**, **Standard** e **Premium** per i [database singoli](sql-database-single-database-resources.md) e i [pool elastici](sql-database-elastic-pool.md). Le principali differenze tra i livelli di servizio sono dovute alla gamma di opzioni relative a livello di prestazioni, dimensioni di archiviazione e prezzo.  Tutti i livelli di servizio assicurano la flessibilità necessaria per modificare le dimensioni di archiviazione e il livello di prestazioni.  I database singoli e i pool elastici vengono fatturati su base oraria in base al livello di servizio, al livello di prestazioni e alle dimensioni di archiviazione.   
+Il [database SQL di Azure](sql-database-technical-overview.md) offre i livelli di servizio **Basic**, **Standard** e **Premium** per i [database singoli](sql-database-single-database-resources.md) e i [pool elastici](sql-database-elastic-pool.md). Il database SQL offre un livello di servizio di utilizzo generico per [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md#managed-instance-service-tier). Le principali differenze tra i livelli di servizio sono dovute alla gamma di opzioni relative a livello di prestazioni, dimensioni di archiviazione e prezzo.  Tutti i livelli di servizio assicurano la flessibilità necessaria per modificare le dimensioni di archiviazione e il livello di prestazioni.  I database singoli e i pool elastici vengono fatturati su base oraria in base al livello di servizio, al livello di prestazioni e alle dimensioni di archiviazione.   
+
+> [!IMPORTANT]
+> Istanza gestita di database SQL, attualmente in anteprima pubblica, offre un singolo livello di servizio di utilizzo generico. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md). La parte restante di questo articolo non si applica a Istanza gestita.
 
 ## <a name="choosing-a-service-tier"></a>Scelta di un piano di servizio
 

@@ -2,24 +2,19 @@
 title: Individuazione dati e classificazione nel database SQL di Azure | Microsoft Docs
 description: Individuazione dati e classificazione nel database SQL di Azure
 services: sql-database
-documentationcenter: 
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
 ms.custom: security
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: giladm
-ms.openlocfilehash: da4f72e61607dcad7314a2fe65324da4635752c5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 18afebefaee9117244767e0a00e293a297bbf9af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la  & protezione** dei dati sensibili presenti nel database.

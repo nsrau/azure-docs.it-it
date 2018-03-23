@@ -2,7 +2,7 @@
 title: Applicare tag alle risorse Azure per l'organizzazione logica | Documentazione Microsoft
 description: Mostra come applicare i tag per organizzare le risorse Azure per la fatturazione e la gestione.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ad53c7cfc49958abbe6200a892ba4e0c24c434c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c677b80ba6c274cfa9936378110b63e583a102b6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 

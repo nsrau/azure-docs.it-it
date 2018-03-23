@@ -1,26 +1,20 @@
 ---
-title: Gestire le interfacce di rete in Azure Site Recovery per gli scenari dall'ambiente locale ad Azure | Microsoft Docs
-description: Descrive come gestire le interfacce di rete per gli scenari dall'ambiente locale ad Azure con Azure Site Recovery
+title: Gestire le interfacce di rete in Azure Site Recovery per la replica dall'ambiente locale ad Azure | Microsoft Docs
+description: Descrive come gestire le interfacce di rete per la replica dall'ambiente locale ad Azure con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/05/2018
 ms.author: manayar
-ms.openlocfilehash: ab8582d9c32cf13bd7b21a59031af8fde58effbf
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a0d42608dc689e5f084f4ec91858531feeac8033
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-scenarios"></a>Gestire le interfacce di rete della macchina virtuale per gli scenari dall'ambiente locale ad Azure
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gestire le interfacce di rete delle macchine virtuali per la replica dall'ambiente locale ad Azure
 
 Una macchina virtuale (VM) in Azure deve avere almeno un'interfaccia di rete collegata, fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa.
 

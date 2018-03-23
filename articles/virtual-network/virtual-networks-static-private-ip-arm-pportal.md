@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurare indirizzi IP privati per una VM mediante il portale di Azure
 
 > [!div class="op_single_selector"]
-> * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Portale di Azure](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Portale di Azure (classico)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-La procedura di esempio seguente prevede che un ambiente semplice sia già creato. Se si desidera eseguire la procedura illustrata in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-arm-pportal.md).
+La procedura di esempio seguente prevede che un ambiente semplice sia già creato. Se si vuole eseguire la procedura illustrata in questo documento, creare prima l'ambiente di testing descritto in [Creare una rete virtuale](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Come creare una VM per il test degli indirizzi IP statici privati
 Non è possibile impostare un indirizzo IP statico privato durante la creazione di una VM in modalità di distribuzione di Gestione risorse tramite il portale di Azure. È necessario creare innanzitutto la VM, quindi impostare il relativo IP privato come statico.

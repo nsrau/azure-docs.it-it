@@ -3,24 +3,19 @@ title: 'Azure PowerShell: creare un database SQL | Microsoft Docs'
 description: Informazioni su come creare un server logico di database SQL, una regola del firewall a livello di server e database nel portale di Azure.
 keywords: esercitazione sul database sql, creare un database sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: quickstart
 ms.date: 04/17/2017
 ms.author: carlrab
-ms.openlocfilehash: 68f7ea0f5255602629a0b0960726c30dd508a655
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6946ab259b6b3f7f911e047731d51f026742fa52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>Creare un singolo database SQL di Azure usando PowerShell
 

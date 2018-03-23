@@ -1,9 +1,9 @@
 ---
-title: "Progettare un servizio a disponibilità elevata con database SQL di Azure | Documentazione Microsoft"
-description: "Informazioni sulla progettazione di applicazioni per servizi a disponibilità elevata con database SQL di Azure."
-keywords: "ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale"
+title: Progettare un servizio a disponibilità elevata con database SQL di Azure | Microsoft Docs
+description: Informazioni sulla progettazione di applicazioni per servizi a disponibilità elevata con database SQL di Azure.
+keywords: ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Progettazione di servizi a disponibilità elevata con database SQL di Azure
 
 Quando si compilano e si distribuiscono servizi a disponibilità elevata nel database SQL di Azure, [i gruppi di failover e la replica geografica attiva](sql-database-geo-replication-overview.md) consentono di garantire resilienza in caso di interruzioni a livello di area ed errori irreversibili, nonché un rapido ripristino nei database secondari. Questo articolo esamina modelli di applicazione comuni e illustra vantaggi e svantaggi di ogni opzione. Per informazioni sulla replica geografica attiva con i pool elastici, vedere [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Se si usano pool e database Premium, è possibile renderli resistenti alle interruzioni a livello di area convertendoli in una configurazione di distribuzione con ridondanza della zona (attualmente in anteprima). Vedere [Database con ridondanza della zona](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scenario 1: Uso di due aree di Azure per la continuità aziendale con tempo di inattività minimo
 In questo scenario le applicazioni presentano le caratteristiche seguenti: 
@@ -47,8 +50,7 @@ Il diagramma seguente illustra questa configurazione prima di un'interruzione:
 Dopo un'interruzione nell'area primaria, il servizio di database SQL rileva che il database primario non è accessibile e attiva il failover nell'area secondaria in base ai parametri dei criteri di failover automatico (1). A seconda del contratto di servizio dell'applicazione, è possibile configurare un periodo di tolleranza che controlla l'intervallo di tempo tra il rilevamento dell'interruzione e il failover stesso. Gestione traffico potrebbe avviare il failover degli endpoint prima che il gruppo di failover attivi il failover del database. In tal caso, l'applicazione Web non può riconnettersi immediatamente al database. Le riconnessioni, tuttavia, avranno automaticamente esito positivo non appena verrà completato il failover del database. Quando l'area in cui si è verificato l'errore è ripristinata e di nuovo online, il database primario precedente si riconnette automaticamente come nuovo database secondario. Il diagramma seguente illustra la configurazione dopo il failover.
  
 > [!NOTE]
-> Tutte le transazioni di cui è stato eseguito il commit dopo il failover andranno perse durante la riconnessione. Dopo il completamento del failover, l'applicazione nell'area B può riconnettersi e riavviare l'elaborazione delle richieste utente. Sia l'applicazione Web che il database primario si trovano nell'area B e continuano a condividere lo stesso percorso. 
-n>
+> Tutte le transazioni di cui è stato eseguito il commit dopo il failover andranno perse durante la riconnessione. Dopo il completamento del failover, l'applicazione nell'area B può riconnettersi e riavviare l'elaborazione delle richieste utente. Sia l'applicazione Web che il database primario si trovano nell'area B e continuano a condividere lo stesso percorso. n>
 
 ![Scenario 1. Configurazione dopo il failover](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

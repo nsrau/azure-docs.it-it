@@ -2,25 +2,25 @@
 title: Domande frequenti su Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Ottenere risposte alle domande frequenti su Collaborazione B2B di Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: twooley
 manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 01/08/2018
+ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 21511b37eba2cd2e87d8720f3e9cfe453b50d88c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -84,8 +84,8 @@ Sì. Di seguito sono riportati dettagli importanti per la reimpostazione passwor
 ### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>La reimpostazione della password è disponibile per gli utenti guest in un tenant JIT o "virale" che hanno accettato gli inviti con un indirizzo di posta elettronica aziendale o dell'istituto di istruzione senza avere un account Azure AD preesistente?
 Sì. Può essere inviato un messaggio di posta elettronica di reimpostazione della password che consente all'utente di reimpostare la password nella tenancy JIT.
 
-### <a name="does-microsoft-dynamics-crm-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics CRM offre supporto online per Collaborazione B2B di Azure AD?
-Microsoft Dynamics CRM, attualmente, non offre supporto online per Collaborazione B2B di Azure AD. Tuttavia si prevede di supportare questa funzione in futuro.
+### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 offre supporto online per Collaborazione B2B di Azure AD?
+Sì, Dynamics 365 (online) offre supporto per Collaborazione B2B di Azure AD. Per altre informazioni, vedere l'articolo di Dynamics 365 [Invitare gli utenti con Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Qual è la durata di una password iniziale per un nuovo utente di Collaborazione B2B?
 Azure AD ha requisiti fissi per il set di caratteri, la complessità della password e il blocco account che si applicano equamente a tutti gli account utente cloud di Azure AD. Gli account utente cloud sono account non federati con un altro provider di identità, ad esempio: 

@@ -2,24 +2,18 @@
 title: Tecnologie in memoria del database SQL di Azure | Documentazione Microsoft
 description: Le tecnologie in memoria del database SQL di Azure migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici.
 services: sql-database
-documentationCenter: 
 author: jodebrui
-manager: jhubbard
-editor: 
-ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
+manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -30,7 +24,7 @@ Di seguito sono riportati due esempi che mostrano come la tecnologia OLTP in mem
 - Sfruttando la tecnologia OLTP in memoria [Quorum Business Solutions è riuscita a raddoppiare il carico di lavoro migliorando i valori DTU del 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
     - DTU significa *unità di velocità effettiva database* e include una misurazione del consumo di risorse.
 - Il video seguente illustra un miglioramento significativo nell'uso delle risorse con un carico di lavoro di esempio: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Video su OLTP in memoria nel database SQL di Azure).
-    - Per altre informazioni, vedere il post di blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure)
+    - Per altre informazioni, vedere [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (Post di blog su OLTP nel database SQL di Azure).
 
 Le tecnologie in memoria sono disponibili in tutti i database nel livello Premium, inclusi i database nei pool elastici Premium.
 
@@ -526,7 +520,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 #### <a name="tools"></a>Strumenti
 
-- [Azure portal](https://portal.azure.com/)
+- [Portale di Azure](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

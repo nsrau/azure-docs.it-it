@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: e2f9c75ba6e43f93aeb742b9eceebf846ec85cbf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b139fbadb03ae2893331e763bc49b249c0dd05d7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associazioni di Archiviazione code di Azure per Funzioni di Azure
 
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C# (.csx)](functions-reference-csharp.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
+L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e il codice [script C# (file con estensione csx)](functions-reference-csharp.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
 Ecco il file *function.json*:
 
@@ -112,7 +112,7 @@ Nella sezione [usage](#trigger---usage) è illustrato `myQueueItem`, denominato 
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
+L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
 Ecco il file *function.json*:
 
@@ -223,9 +223,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="trigger---usage"></a>Trigger - uso
  
-In C# e negli script C# è possibile accedere ai dati del BLOB con un parametro del metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+In C# e nello script C# è possibile accedere ai dati del messaggio usando un parametro del metodo, ad esempio `string paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
 
-* Oggetto POCO - Il runtime di Funzioni deserializza un payload JSON in un oggetto POCO. 
+* Object: il runtime di Funzioni deserializza un payload JSON in un'istanza di una classe arbitraria definita nel codice. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -302,7 +302,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Output - esempio di script C#
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C# (.csx)](functions-reference-csharp.md) che usa l'associazione. La funzione crea un elemento della coda con un payload POCO per ogni richiesta HTTP ricevuta.
+L'esempio seguente illustra un'associazione di trigger HTTP in un file *function.json* e il codice [script C# (file con estensione csx)](functions-reference-csharp.md) che usa l'associazione. La funzione crea un elemento della coda con un payload dell'oggetto **CustomQueueMessage** per ogni richiesta HTTP ricevuta.
 
 Ecco il file *function.json*:
 
@@ -353,17 +353,17 @@ public static CustomQueueMessage Run(CustomQueueMessage input, TraceWriter log)
 ```cs
 public static void Run(
     CustomQueueMessage input, 
-    ICollector<CustomQueueMessage> myQueueItem, 
+    ICollector<CustomQueueMessage> myQueueItems, 
     TraceWriter log)
 {
-    myQueueItem.Add(input);
-    myQueueItem.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
+    myQueueItems.Add(input);
+    myQueueItems.Add(new CustomQueueMessage { PersonName = "You", Title = "None" });
 }
 ```
 
 ### <a name="output---javascript-example"></a>Output - esempio JavaScript
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione crea un elemento della coda per ogni richiesta HTTP ricevuta.
+L'esempio seguente illustra un'associazione di trigger HTTP in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione crea un elemento della coda per ogni richiesta HTTP ricevuta.
 
 Ecco il file *function.json*:
 
@@ -459,7 +459,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
  
 In C# e negli script C# scrivere un singolo messaggio nella coda tramite un parametro di metodo, ad esempio `out T paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
-* Un oggetto POCO serializzabile come JSON
+* Un oggetto serializzabile come JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
@@ -474,7 +474,7 @@ Nelle funzioni JavaScript usare `context.bindings.<name>` per accedere al messag
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  riferimento |
+| Associazione |  Riferimenti |
 |---|---|
 | Coda | [Codici di errore della coda](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, Table, Queue | [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

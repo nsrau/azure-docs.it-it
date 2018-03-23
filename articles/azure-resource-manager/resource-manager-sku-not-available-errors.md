@@ -1,23 +1,23 @@
 ---
-title: "Errori di Azure dovuti all'indisponibilità di SKU | Microsoft Docs"
-description: "Descrive come risolvere i problemi dovuti all'errore relativo all'indisponibilità di una SKU durante la distribuzione."
+title: Errori di Azure dovuti all'indisponibilità di SKU | Microsoft Docs
+description: Descrive come risolvere i problemi dovuti all'errore relativo all'indisponibilità di una SKU durante la distribuzione.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Risolvere gli errori dovuti all'indisponibilità di SKU
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Questo errore viene visualizzato quando lo SKU della risorsa selezionato, ad esempio le dimensioni della macchina virtuale, non è disponibile per il percorso selezionato.
 
-## <a name="solution"></a>Soluzione
+## <a name="solution-1---powershell"></a>Soluzione 1: PowerShell
 
-Per risolvere questo problema, è necessario determinare gli SKU disponibili in un'area. Per trovare gli SKU disponibili è possibile usare PowerShell o un'operazione REST.
-
-### <a name="solution-1"></a>Soluzione 1
-
-Usare il comando [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) in PowerShell. Filtrare i risultati in base all'area. Per questo comando, è necessaria la versione più recente di PowerShell.
+Per determinare quali SKU sono disponibili in un'area, usare il comando [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Filtrare i risultati in base all'area. Per questo comando, è necessaria la versione più recente di PowerShell.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Soluzione 2
+## <a name="solution-2---azure-cli"></a>Soluzione 2: interfaccia della riga di comando di Azure
 
-Nell'interfaccia della riga di comando di Azure usare il comando `az vm list-skus`. È quindi possibile usare `grep` o un'utilità analoga per filtrare l'output.
+Per determinare quali SKU sono disponibili in un'area, usare il comando `az vm list-skus`. È quindi possibile usare `grep` o un'utilità analoga per filtrare l'output.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Soluzione 3
+## <a name="solution-3---azure-portal"></a>Soluzione 3: portale di Azure
 
-Usare il [portale](https://portal.azure.com). Accedere al portale e aggiungere una risorsa tramite l'interfaccia. Quando si impostano i valori, vengono visualizzati gli SKU disponibili per tale risorsa. Non è necessario completare la distribuzione.
+Per determinare quali SKU sono disponibili in un'area, usare il [portale](https://portal.azure.com). Accedere al portale e aggiungere una risorsa tramite l'interfaccia. Quando si impostano i valori, vengono visualizzati gli SKU disponibili per tale risorsa. Non è necessario completare la distribuzione.
 
 ![SKU disponibili](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Soluzione 4
+## <a name="solution-4---rest"></a>Soluzione 4: REST
 
-Usare l'API REST per le macchine virtuali. Inviare la richiesta seguente:
+Per determinare quali SKU sono disponibili in un'area, usare l'API REST per le macchine virtuali. Inviare la richiesta seguente:
 
 ```HTTP 
 GET

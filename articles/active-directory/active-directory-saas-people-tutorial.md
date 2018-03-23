@@ -4,20 +4,20 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cf3c633aec5fd55d3525c0e010e1aca68407ef33
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Esercitazione: Integrazione di Azure Active Directory con People
 
@@ -31,7 +31,7 @@ L'integrazione di People con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con People, sono necessari gli elementi seguenti:
 
@@ -110,14 +110,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.peoplehr.com/`
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il criterio seguente: `https://<company name>.peoplehr.net`
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://www.peoplehr.com`
+    b. Nella casella di testo **Identificatore** digitare l'URL: `https://www.peoplehr.com`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di People](mailto:customerservices@peoplehr.com).
+    c. Nella casella di testo **URL di risposta** digitare un URL usando il modello seguente: `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di People](mailto:customerservices@peoplehr.com). 
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 

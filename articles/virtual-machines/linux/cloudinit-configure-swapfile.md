@@ -2,10 +2,10 @@
 title: Usare cloud-init per configurare un file di scambio in una macchina virtuale Linux | Microsoft Docs
 description: Come usare cloud-init per configurare un file di scambio in una macchina virtuale Linux durante la creazione con l'interfaccia della riga di comando di Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 7f9defc1f414819cf856fc92f5eb51eafdc67be9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Usare cloud-init per configurare un file di scambio in una macchina virtuale Linux
 Questo articolo descrive come usare [cloud-init](https://cloudinit.readthedocs.io) per configurare il file di scambio in diverse distribuzioni Linux. Il file di scambio viene tradizionalmente configurato dall'agente Linux (WALA) in base alle distribuzioni in cui è necessario.  Questo documento descrive il processo di creazione del file di scambio su richiesta durante la fase di provisioning usando cloud-init.  Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md)
@@ -33,18 +33,18 @@ Nella shell corrente creare un file denominato *cloud_init_swapfile.txt* e incol
 ```yaml
 #cloud-config
 disk_setup:
-ephemeral0:
-table_type: gpt
-layout: [66, [33,82]]
-overwrite: True
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
 fs_setup:
-- device: ephemeral0.1
-filesystem: ext4
-- device: ephemeral0.2
-filesystem: swap
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
 mounts:
-- ["ephemeral0.1", "/mnt"]
-- ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
 Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.

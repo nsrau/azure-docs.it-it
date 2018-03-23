@@ -1,11 +1,11 @@
 ---
-title: Connettere un servizio cloud a un controller di dominio personalizzato | Documentazione Microsoft
+title: Connettere un servizio cloud a un controller di dominio personalizzato | Microsoft Docs
 description: Informazioni su come connettere i ruoli Web/di lavoro a un dominio personalizzato di AD usando PowerShell e l'estensione di dominio di AD
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Connessione dei ruoli dei Servizi cloud di Azure a un controller di dominio personalizzato di AD ospitato in Azure
 È prima di tutto necessario configurare una rete virtuale (VNet) in Azure e quindi aggiungere a tale VNet un controller di dominio di Active Directory ospitato in una macchina virtuale di Azure. I ruoli del servizio cloud esistente verranno quindi aggiunti alla rete virtuale creata in precedenza e connessi al controller di dominio.
@@ -33,7 +33,7 @@ Seguire questa guida dettagliata e in caso di problemi inserire commenti alla fi
 La rete a cui viene fatto riferimento dal servizio cloud deve essere una **rete virtuale classica**.
 
 ## <a name="create-a-virtual-network"></a>Creare una rete virtuale
-È possibile creare una rete virtuale in Azure usando il portale di Azure o PowerShell. Per questa esercitazione verrà usato PowerShell. Per creare una rete virtuale usando il portale di Azure, vedere [Creare una rete virtuale](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+È possibile creare una rete virtuale in Azure usando il portale di Azure o PowerShell. Per questa esercitazione viene usato PowerShell. Per creare una rete virtuale tramite il portale di Azure, vedere [Creare una rete virtuale](../virtual-network/quick-create-portal.md). L'articolo illustra la creazione di una rete virtuale di Resource Manager, ma è necessario creare una rete virtuale classica per i servizi cloud. A tale scopo, nel portale selezionare **Crea una risorsa**, digitare *rete virtuale* nella casella **Cerca** e quindi premere **INVIO**. Nei risultati della ricerca, in **Tutto** selezionare **Rete virtuale**. In **Selezionare un modello di distribuzione** scegliere **Versione classica** e quindi **Crea**. È quindi possibile seguire la procedura in questo articolo.
 
 ```powershell
 #Create Virtual Network

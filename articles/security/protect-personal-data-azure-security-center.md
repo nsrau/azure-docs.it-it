@@ -1,29 +1,29 @@
 ---
 title: Proteggere i dati personali con il Centro sicurezza di Azure| Microsoft Docs
-description: Proteggere i dati personali con il Centro sicurezza di Azure
+description: Usare il Centro sicurezza per proteggere i dati personali. Questa funzionalità può essere utile per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Proteggere i dati personali da violazioni e attacchi: Centro sicurezza di Azure
 
-Questo articolo illustra come usare il Centro sicurezza di Azure per proteggere i dati personali da violazioni e attacchi.
+Questo articolo illustra come usare il Centro sicurezza di Azure per proteggere i dati personali da violazioni e attacchi. Le informazioni qui incluse saranno utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
 ## <a name="scenario"></a>Scenario 
 

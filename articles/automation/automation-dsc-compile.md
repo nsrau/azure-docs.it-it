@@ -1,5 +1,5 @@
 ---
-title: Compilazione di configurazioni in Azure Automation DSC | Documentazione Microsoft
+title: Compilazione di configurazioni in Azure Automation DSC | Microsoft Docs
 description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l'automazione di Azure.
 services: automation
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 03/02/2018
 ms.author: magoedte; gwallace
-ms.openlocfilehash: b267f64a836851e1142475568556eebf74adf2dd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3ba9200023b71e6f1e69ee4c54d5c90efe1bc954
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilazione di configurazioni in Azure Automation DSC
 
@@ -249,6 +249,7 @@ L'esempio seguente mostra una configurazione DSC che usa un asset credenziali di
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -283,6 +284,9 @@ $ConfigData = @{
 
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
+
+> [!NOTE]
+> Al termine della compilazione è possibile che venga visualizzato un messaggio per segnalare che **il modulo Microsoft.PowerShell.Management non è stato importato perché è già stato importato lo snap-in Microsoft.PowerShell.Management.** Questo avviso può essere ignorato.
 
 ## <a name="importing-node-configurations"></a>Importazione delle configurazioni di nodo
 

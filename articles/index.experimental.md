@@ -1,13 +1,13 @@
 ---
 layout: HubPage
-hide_bc: 
+hide_bc: ''
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -134,6 +134,11 @@ ms.lasthandoff: 12/11/2017
                                                         <span>Python</span>
                                                     </a>
                                                 </div>
+                                                <div class="ico48Link">
+                                                    <a href="/go/azure/">
+                                                        <span>Go</span>
+                                                    </a>
+                                                </div>
                                                 <div>
                                                     <h4>Modelli di app</h4>
                                                     <ul class="noBullet">
@@ -179,7 +184,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Strumenti da riga di comando</h3>
                                                 <div class="ico48Link">
-                                                    <a href="/cli/azure/overview">
+                                                    <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
                                                         <span>Interfaccia della riga<br />di comando di Azure</span>
                                                     </a>
@@ -3249,6 +3254,29 @@ ms.lasthandoff: 12/11/2017
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/go/azure/">Ottenere Go SDK</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Introduzione</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Informazioni di riferimento</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/azure_dev-6.svg" alt="" />
                                                 </div>
                                             </div>
@@ -3284,7 +3312,7 @@ ms.lasthandoff: 12/11/2017
                                             <div class="cardText">
                                                 <h3>Interfaccia della riga di comando di Azure 2.0 </h3>
                                                 <p>
-                                                    <a href="/cli/azure/overview">Introduzione</a>
+                                                    <a href="/cli/azure">Introduzione</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/install-azure-cli">Scaricare Azure CLI 2.0</a>

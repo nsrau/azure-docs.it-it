@@ -5,7 +5,7 @@ documentationcenter: na
 services: expressroute
 author: charwen
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: charwen,cherylmc
-ms.openlocfilehash: d1dd5a71d922d688ee7b64cef8887e903f78c802
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bec984aa04efbe123b71fa9088fbd37ae53cc2f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
   $VNetASN = 65010
   ```
-3. Creare una rete virtuale con una subnet del gateway. Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale di Azure](../virtual-network/virtual-networks-create-vnet-arm-ps.md).
+3. Creare una rete virtuale con una subnet del gateway. Per altre informazioni sulle creazione di una rete virtuale, vedere [Creare una rete virtuale](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Per altre informazioni sulle creazione di subnet, vedere [Creare una subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
    > La subnet del gateway deve avere un prefisso /27 o più breve, ad esempio /26 o /25.

@@ -1,25 +1,19 @@
 ---
 title: Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL di Azure
-description: "Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure."
+description: Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure.
 services: sql-database
-documentationcenter: na
 author: stevestein
-manager: jhubbard
-editor: 
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
+manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/12/2016
 ms.author: sstein
-ms.openlocfilehash: 8622bddc809c9d95f7acf359ff708d5ab31cf620
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
 Le operazioni di invio in batch al database SQL di Azure migliorano in modo significativo le prestazioni e la scalabilità delle applicazioni. Per comprendere i vantaggi, la prima parte di questo articolo descrive alcuni risultati dei test di esempio che confrontano le richieste sequenziali e in batch inviate a un database SQL. Il resto dell'articolo illustra le tecniche, gli scenari e le considerazioni che facilitano l'uso corretto dell'invio in batch nelle applicazioni Azure.

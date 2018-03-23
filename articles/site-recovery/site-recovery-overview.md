@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 01/07/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4cc5d849630114577709f8373d08f0ce659e7e65
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 57b191a5dbdea487a0105c6af2866cdc037864e2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="about-site-recovery"></a>Informazioni su Site Recovery
 
@@ -57,8 +57,8 @@ Site Recovery può gestire la replica per:
 --- | ---
 **Scenari di replica** | Replica di VM di Azure da un'area di Azure a un'altra.<br/><br/>  Replica di VM VMware locali, VM Hyper-V e server fisici (Windows e Linux) in Azure.<br/><br/> Replica di VM VMware, VM Hyper-V gestite da System Center VMM e server fisici in un sito secondario.
 **Aree** | Vedere le [aree supportate](https://azure.microsoft.com/regions/services/) per Site Recovery. |
-**Computer replicati** | Esaminare i requisiti di replica per [VM di Azure](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions), [VM locali](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions) e [server fisici](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
-**Server/host VMware** | Le VM VMware da replicare possono trovarsi in [host vSphere/server vCenter supportati](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+**Computer replicati** | Esaminare i requisiti per la replica di [VM di Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions), [server fisici e VM VMware locali](vmware-physical-azure-support-matrix.md#replicated-machines) e [VM Hyper-V locali](hyper-v-azure-support-matrix.md#replicated-vms).
+**Server/host VMware** | Le VM VMware da replicare possono trovarsi nei [server di virtualizzazione e host supportati](vmware-physical-azure-support-matrix.md).
 **Carichi di lavoro** | È possibile replicare qualsiasi carico di lavoro in esecuzione in un computer supportato per la replica. Inoltre, il team di Site Recovery ha eseguito test specifici dell'applicazione per un certo [numero di app](site-recovery-workload.md#workload-summary).
 
 

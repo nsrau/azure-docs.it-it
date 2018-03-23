@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -255,7 +255,7 @@ immagini.
 | --application-type-build-path       | Solo per il provisioning dall'archivio immagini. Percorso relativo del pacchetto dell'applicazione nell'archivio immagini specificato durante l'operazione di caricamento precedente. |
 | --application-type-name| Solo per il provisioning da un archivio esterno. Il nome del tipo di applicazione rappresenta il nome del tipo di applicazione trovato nel manifesto dell'applicazione.|
 | --application-type-version| Solo per il provisioning da un archivio esterno. La versione del tipo di applicazione rappresenta la versione del tipo di applicazione trovata nel manifesto dell'applicazione.|
-| --external-provision| Percorso da in cui è possibile eseguire la registrazione o il provisioning del pacchetto dell'applicazione. Indica che il provisioning è relativo a un pacchetto dell'applicazione che è stato caricato in precedenza in un archivio esterno. Il pacchetto dell'applicazione termina con l'estensione "sfpkg".|
+| --external-provision| Percorso da in cui è possibile eseguire la registrazione o il provisioning del pacchetto dell'applicazione. Indica che il provisioning è relativo a un pacchetto dell'applicazione che è stato caricato in precedenza in un archivio esterno. Il pacchetto dell'applicazione termina con l'estensione *.sfpkg.|
 | --no-wait| Indica se il provisioning deve essere eseguito o meno in modo asincrono.  Se impostato su true, l'operazione di provisioning restituisce una valore quando la richiesta viene accettata dal sistema e l'operazione di provisioning continua senza alcun limite di timeout. Il valore predefinito è False. Per i pacchetti dell'applicazione di grandi dimensioni, è consigliabile impostare il valore su true.|
 | --timeout -t                      | Timeout del server in secondi.  Predefinito: 60.|
 

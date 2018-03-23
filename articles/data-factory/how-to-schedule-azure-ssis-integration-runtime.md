@@ -2,22 +2,22 @@
 title: Come pianificare un runtime di integrazione SSIS di Azure | Microsoft Docs
 description: Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure 
 Eseguire un runtime di integrazione SSIS (SQL Server Integration Services) di Azure ha un costo. Di conseguenza, è opportuno eseguire il runtime di integrazione solo quando si devono eseguire pacchetti SSIS in Azure ed è consigliabile arrestarlo quando non è necessario. Per [avviare o arrestare manualmente un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente di Data Factory o Azure PowerShell. Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Azure Data Factory. Di seguito sono riportate le procedure generali descritte in questo articolo:
@@ -25,7 +25,7 @@ Eseguire un runtime di integrazione SSIS (SQL Server Integration Services) di Az
 1. **Creare e testare un runbook di Automazione di Azure**. Questa procedura consente di creare un runbook PowerShell con lo script necessario per avviare o arrestare un runtime di integrazione SSIS di Azure. Successivamente, il runbook viene testato in scenari sia START che STOP per verificare che il runtime di integrazione venga avviato e arrestato. 
 2. **Creare due pianificazioni per il runbook**. Per la prima pianificazione il runbook viene configurato con START come operazione, mentre per la seconda pianificazione viene configurato con STOP come operazione. Per entrambe le pianificazioni è necessario specificare la frequenza di esecuzione del runbook. Ad esempio, può essere opportuno eseguire la prima pianificazione ogni giorno alle 8 e la seconda ogni giorno alle 23. Quando si esegue il primo runbook il runtime di integrazione SSIS di Azure viene avviato, mentre quando si esegue il secondo runbook il runtime viene interrotto. 
 3. **Creare due webhook per il runbook**, uno per l'operazione START e l'altro per l'operazione STOP. Gli URL di questi webhook vengono usati quando si configurano attività Web in una pipeline di Data Factory. 
-4. **Creare una pipeline di Data Factory**. La pipeline che si crea è costituita da quattro attività. La prima attività **Web** richiama il primo webhook per l'avvio del runtime di integrazione SSIS di Azure. L'attività **Attesa** attende l'avvio del runtime di integrazione SSIS di Azure per 30 minuti (1800 secondi). L'attività **Stored procedure** esegue uno script SQL per eseguire il pacchetto SSIS. La seconda attività **Web** arresta il runtime di integrazione SSIS di Azure. Per altre informazioni sulla chiamata di un pacchetto SSIS da una pipeline di Data Factory usando l'attività Stored procedure, vedere [Chiamare un pacchetto SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Successivamente, è necessario creare un trigger per pianificare l'esecuzione della pipeline con una frequenza specificata.
+4. **Creare una pipeline di Data Factory**. La pipeline che si crea è costituita da tre attività. La prima attività **Web** richiama il primo webhook per l'avvio del runtime di integrazione SSIS di Azure. L'attività **Stored procedure** esegue uno script SQL per eseguire il pacchetto SSIS. La seconda attività **Web** arresta il runtime di integrazione SSIS di Azure. Per altre informazioni sulla chiamata di un pacchetto SSIS da una pipeline di Data Factory usando l'attività Stored procedure, vedere [Chiamare un pacchetto SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Successivamente, è necessario creare un trigger per pianificare l'esecuzione della pipeline con una frequenza specificata.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Chiamare pacchetti SSIS usando l'attività stored procedure nella versione 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -223,12 +223,11 @@ Per creare due webhook per il runbook, seguire le istruzioni riportate in [Creaz
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Creare e pianificare una pipeline di Data Factory che avvia o interrompe il runtime di integrazione
 Questa sezione illustra come usare un'attività Web per richiamare i webhook creati nella sezione precedente.
 
-La pipeline che si crea è costituita da quattro attività. 
+La pipeline che si crea è costituita da tre attività. 
 
 1. La prima attività **Web** richiama il primo webhook per l'avvio del runtime di integrazione SSIS di Azure. 
-2. L'attività **Attesa** attende l'avvio del runtime di integrazione SSIS di Azure per 30 minuti (1800 secondi). 
-3. L'attività **Stored procedure** esegue uno script SQL per eseguire il pacchetto SSIS. La seconda attività **Web** arresta il runtime di integrazione SSIS di Azure. Per altre informazioni sulla chiamata di un pacchetto SSIS da una pipeline di Data Factory usando l'attività Stored procedure, vedere [Chiamare un pacchetto SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. La seconda attività **Web** richiama il webhook per l'arresto del runtime di integrazione SSIS di Azure. 
+2. L'attività **Stored procedure** esegue uno script SQL per eseguire il pacchetto SSIS. La seconda attività **Web** arresta il runtime di integrazione SSIS di Azure. Per altre informazioni sulla chiamata di un pacchetto SSIS da una pipeline di Data Factory usando l'attività Stored procedure, vedere [Chiamare un pacchetto SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. La seconda attività **Web** richiama il webhook per l'arresto del runtime di integrazione SSIS di Azure. 
 
 Dopo aver creato e testato la pipeline, è necessario creare un trigger di pianificazione e associarlo alla pipeline. Questo trigger definisce una pianificazione per la pipeline. Si supponga di creare un trigger la cui esecuzione è pianificata ogni giorno alle 23. Il trigger esegue la pipeline ogni giorno alle 23. La pipeline avvia il runtime di integrazione SSIS di Azure, esegue il pacchetto SSIS e quindi arresta il runtime. 
 
@@ -279,11 +278,6 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
     3. In **Corpo** immettere `{"message":"hello world"}`. 
    
         ![Prima attività Web: scheda Impostazioni](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. Nella casella degli strumenti **Attività** espandere **Iteration & Conditionals** (Iterazione e istruzioni condizionali) e trascinare l'attività **Attesa** nell'area di progettazione della pipeline. Nella scheda **Generale** modificare il nome dell'attività in **WaitFor30Minutes**. 
-5. Passare alla scheda **Impostazioni** nella finestra **Proprietà**. In **Wait time in seconds** (Tempo di attesa in secondi) immettere **1800**. 
-6. Collegare le attività **Web** e **Attesa**. A tale scopo, iniziare il trascinamento partendo dal quadrato verde collegato all'attività Web fino ad arrivare all'attività Attesa. 
-
-    ![Collegare Web e Attesa](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Trascinare l'attività Stored procedure dalla sezione **Generale** della casella degli strumenti **Attività**. Assegnare all'attività il nome **RunSSISPackage**. 
 6. Passare alla scheda **Account SQL** nella finestra **Proprietà**. 
 7. In **Servizio collegato** fare clic su **+ Nuovo**.
@@ -296,7 +290,7 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
     5. Per **Password** immettere la password dell'utente. 
     6. Testare la connessione al database facendo clic sul pulsante **Test connessione**.
     7. Salvare il servizio collegato facendo clic sul pulsante **Salva**.
-1. Nella finestra **Proprietà** passare alla scheda **Stored procedure** dalla scheda **SQL Account** (Account SQL) e seguire questa procedura: 
+9. Nella finestra **Proprietà** passare alla scheda **Stored procedure** dalla scheda **SQL Account** (Account SQL) e seguire questa procedura: 
 
     1. In **Nome stored procedure** selezionare l'opzione **Modifica** e immettere **sp_executesql**. 
     2. Fare clic su **+ Nuovo** nella sezione **Parametri stored procedure**. 
@@ -307,12 +301,37 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
         Nella query SQL specificare i valori corretti per i parametri **folder_name**, **project_name** e **package_name**. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Collegare l'attività **Attesa** all'attività **Stored procedure**. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Collegare le attività Attesa e Stored procedure](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Trascinare l'attività **Web** a destra dell'attività **Stored procedure**. Assegnare all'attività il nome **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Collegare l'attività **Web** all'attività **Stored procedure**. 
+
+    ![Collegare le attività Web e Stored procedure](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Trascinare un'altra attività **Web** a destra dell'attività **Stored procedure**. Assegnare all'attività il nome **StopIR**. 
 12. Passare alla scheda **Impostazioni** nella finestra **Proprietà** ed eseguire le operazioni seguenti: 
 
     1. In **URL** incollare l'URL del webhook che arresta il runtime di integrazione SSIS di Azure. 
@@ -372,7 +391,7 @@ Ora che la pipeline funziona come previsto, è possibile creare un trigger per l
 6. Per monitorare le esecuzioni di trigger e pipeline, usare la scheda **Monitoraggio** a sinistra. Per informazioni dettagliate sulla procedura, vedere [Monitorare la pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Esecuzioni di pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, fare clic sul primo collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verranno visualizzate le quattro esecuzioni di attività associate a ogni attività della pipeline (prima attività Web, attività Attesa, attività Stored procedure e seconda attività Web). Per visualizzare nuovamente le esecuzioni di pipeline, fare clic sul collegamento **Pipeline** in alto.
+7. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, fare clic sul primo collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verranno visualizzate le tre esecuzioni di attività associate a ogni attività della pipeline (prima attività Web, attività Stored procedure e seconda attività Web). Per visualizzare nuovamente le esecuzioni di pipeline, fare clic sul collegamento **Pipeline** in alto.
 
     ![Esecuzioni attività](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. È anche possibile visualizzare le esecuzioni di trigger selezionando **Trigger runs** (Esecuzioni di trigger) nell'elenco a discesa accanto all'opzione **Pipeline Runs** (Esecuzioni di pipeline) in alto. 

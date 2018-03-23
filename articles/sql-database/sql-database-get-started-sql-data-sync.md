@@ -2,25 +2,19 @@
 title: Impostare l'anteprima di sincronizzazione dati SQL | Microsoft Docs
 description: Questa esercitazione illustra come impostare l'anteprima di sincronizzazione dati SQL di Azure
 services: sql-database
-documentationcenter: 
 author: douglaslms
 manager: craigg
-editor: 
-ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 237a34c955f8ef36e25c30a6b13787f6a9296612
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Impostare l'anteprima di sincronizzazione dati SQL
 In questa esercitazione si imparerà a configurare sincronizzazione dati SQL di Azure creando un gruppo di sincronizzazione ibrido che contiene sia istanze del database SQL di Azure che istanze di SQL Server. Il nuovo gruppo di sincronizzazione ha una configurazione completa ed esegue la sincronizzazione in base alla pianificazione impostata.

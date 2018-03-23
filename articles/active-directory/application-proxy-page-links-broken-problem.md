@@ -2,10 +2,10 @@
 title: I collegamenti nella pagina non funzionano per un'applicazione proxy di applicazione | Microsoft Docs
 description: Come risolvere i problemi relativi a collegamenti interrotti in applicazioni proxy di applicazione integrate con Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 17f2afb0aaf3b899784a504b77f33a1284f0a232
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>I collegamenti nella pagina non funzionano per un'applicazione proxy di applicazione
 
@@ -42,7 +42,7 @@ Dopo aver pubblicato un'app proxy di applicazione, gli unici collegamenti che pe
 
 3.  Se nessuna di queste opzioni è applicabile, è possibile iscriversi all'anteprima di una nuova funzionalità che esegue la conversione e la riscrittura degli URL. Con questa opzione, gli URL o i collegamenti interni presenti nel corpo HTML delle applicazioni possono essere convertiti, o "mappati", negli URL del proxy di applicazione esterni pubblicati. Questa opzione funziona solo per collegamenti nel codice HTML o CSS e non è utile se il collegamento viene generato tramite JS. 
 
-Di conseguenza, è consigliabile usare la soluzione con [domini personalizzati](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains), se possibile. Per iscriversi all'anteprima della funzionalità, inviare un messaggio di posta elettronica all'indirizzo <aadapfeedback@microsoft.com>, indicando gli ID applicazione.
+Di conseguenza, è consigliabile usare la soluzione con [domini personalizzati](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains), se possibile. Per accedere all'anteprima, inviare un messaggio di posta elettronica all'indirizzo <aadapfeedback@microsoft.com>, indicando gli ID applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md)

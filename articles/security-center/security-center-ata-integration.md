@@ -5,20 +5,20 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Connessione di Microsoft Advanced Threat Analytics al Centro sicurezza di Azure
 Questo documento consente di configurare l'integrazione tra Microsoft Advanced Threat Analytics e il Centro sicurezza di Azure.
@@ -61,7 +61,7 @@ Presupponendo che ATA sia già installato e che funzioni correttamente in locale
 12. Installare l'agente nel Centro ATA. Durante l'installazione, assicurarsi di selezionare l'opzione **Connect the agent to Azure Log Analytics (OMS)** (Connetti l'agente ad Azure Log Analytics - OMS) e, quando richiesto, fornire *ID area di lavoro* e *chiave primaria*.
 
 
-Una volta terminata l'installazione, l'integrazione è completata e sarà possibile visualizzare i nuovi avvisi inviati da ATA al Centro sicurezza in **Avvisi di sicurezza** e **Ricerca**. La soluzione è visualizzata nella pagina **Soluzioni di sicurezza** in **Soluzioni connesse**. 
+Una volta terminata l'installazione, l'integrazione è completata e sarà possibile visualizzare i nuovi avvisi inviati da ATA al Centro sicurezza nei risultati della **ricerca**. La soluzione è visualizzata nella pagina **Soluzioni di sicurezza** in **Soluzioni connesse**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Microsoft ATA al Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:

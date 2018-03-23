@@ -2,24 +2,19 @@
 title: Glossario sugli strumenti di database elastici | Documentazione Microsoft
 description: Spiegazione dei termini utilizzati per gli strumenti dei database elastici
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: a23a4e81-6706-452d-afc1-a550e5e47af9
+documentationcenter: ''
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: db8ce257479888db63758e681393c0244af01ce7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 75abd818b29c78a4ae7499741904637e8ed6798c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossario sugli strumenti di database elastici
 Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di database elastici](sql-database-elastic-scale-introduction.md), una funzionalità del database SQL di Azure. Gli strumenti vengono usati per gestire le [mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e includono la [libreria client](sql-database-elastic-database-client-library.md), lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), i [pool elastici](sql-database-elastic-pool.md) e le [query](sql-database-elastic-query-overview.md). 

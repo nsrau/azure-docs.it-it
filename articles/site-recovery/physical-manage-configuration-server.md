@@ -5,13 +5,13 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -36,7 +36,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del server di configura
 | IIS | - Nessun sito Web predefinito preesistente <br> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
 | Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware) |
 | Tipo di indirizzo IP | statico |
-| Accesso a Internet | Il server deve poter accedere a questi URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non necessario per i server di elaborazione con scalabilità orizzontale) <br> - time.nist.gov <br> - time.windows.com |
+| Accesso a Internet | Il server deve poter accedere a questi URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non necessario per i server di elaborazione con scalabilità orizzontale) <br> - time.nist.gov <br> - time.windows.com |
 | Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati)|
 
 ## <a name="download-the-latest-installation-file"></a>Scaricare il file di installazione più recente
@@ -164,7 +164,7 @@ ProxyPassword="Password"
   ```
 
   >[!WARNING]
-  Se sono presenti altri server di elaborazione associati al server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) nella distribuzione.
+  Se sono presenti altri server di elaborazione associati al server di configurazione, è necessario [correggere le impostazioni del proxy in tutti i server di elaborazione con scalabilità orizzontale](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) nella distribuzione.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrare di nuovo un server di configurazione con lo stesso insieme di credenziali
   1. Accedere al server di configurazione.
@@ -184,7 +184,7 @@ ProxyPassword="Password"
       ```
 
   >[!WARNING]
-  Se si hanno più server di elaborazione, è necessario [registrarli nuovamente](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Se si hanno più server di elaborazione, è necessario [registrarli nuovamente](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrare un server di configurazione con un insieme di credenziali diverso
 
@@ -233,8 +233,8 @@ Per aggiornare il server, seguire questa procedura:
 > [!WARNING]
 > Prima di iniziare a rimuovere le autorizzazioni per il server di configurazione, assicurarsi di eseguire queste operazioni.
 > 1. [Disabilitare la protezione](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) di tutte le macchine virtuali in questo server di configurazione.
-> 2. [Annullare l'associazione](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) ed [eliminare](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
-> 3. [Eliminare](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) tutti i server vCenter/host vSphere associati al server di configurazione.
+> 2. [Annullare l'associazione](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ed [eliminare](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) tutti i criteri di replica dal server di configurazione.
+> 3. [Eliminare](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tutti i server vCenter/host vSphere associati al server di configurazione.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Eliminare il server di configurazione dal portale di Azure

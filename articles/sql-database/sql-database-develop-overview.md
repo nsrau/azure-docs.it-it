@@ -1,25 +1,20 @@
 ---
 title: Panoramica dello sviluppo di applicazioni del database SQL | Documentazione Microsoft
-description: "Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL."
+description: Informazioni sulle librerie di connettività disponibili e procedure consigliate per applicazioni che si connettono al Database SQL.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: genemi
-ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
+manager: craigg
+ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: Active
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: 5948db9a52dc24d75f3fecc4ed166dd327061b37
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ec3569d37d399590b0c306a85f199221e7812253
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.

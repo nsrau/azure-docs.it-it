@@ -1,29 +1,29 @@
 ---
-title: "Proteggere i dati personali usando l'identità e i controlli di accesso di Azure | Microsoft Docs"
-description: "Uso dell'identità e dei controlli di accesso di Azure per proteggere i dati personali"
+title: Proteggere i dati personali usando i controlli di identità e di accesso di Azure | Microsoft Docs
+description: I controlli di identità e di accesso di Azure consentono di proteggere i dati personali e possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Multi-Factor Authentication: proteggere i dati personali usando l'identità e i controlli di accesso
+# <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Multi-Factor Authentication: proteggere i dati personali usando i controlli di identità e di accesso
 
-Questo articolo fornisce informazioni e procedure utili per proteggere i dati personali usando i servizi e le funzionalità di sicurezza di Azure Active Directory e Multi-Factor Authentication.
+Questo articolo fornisce informazioni e procedure utili per proteggere i dati personali usando i servizi e le funzionalità di sicurezza di Azure Active Directory e Multi-Factor Authentication. Le informazioni contenute in questo articolo possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
 ## <a name="scenario"></a>Scenario
 
@@ -135,7 +135,7 @@ Se attualmente non si dispone di licenze è necessario eseguire il processo per 
 
     ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-4. Fare clic su **Save**
+4. Fare clic su **Salva**.
 
 In questa finestra è anche possibile scaricare il Server MFA. È possibile ottenere altri dettagli su come ridimensionare e pianificare la distribuzione consultando l'articolo [Introduzione al server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
@@ -151,7 +151,7 @@ L'abilitazione di Azure MFA con criteri di accesso condizionale è un approccio 
 
 Per abilitare MFA modificando lo stato utente, seguire questa procedura:
 
-1. Accedre al portale di Azure come amministratore.
+1. Accedere al portale di Azure come amministratore.
 2. Passare ad **Azure Active Directory \> Utenti e gruppi \> Tutti gli utenti**.
 3. Selezionare **Multi-Factor Authentication**.
 4. Trovare l'utente che si vuole abilitare per Azure MFA. Potrebbe essere necessario modificare la visualizzazione nella parte superiore.
@@ -164,7 +164,7 @@ Per abilitare MFA modificando lo stato utente, seguire questa procedura:
 
 Per abilitare Azure MFA con criteri di accesso condizionale, seguire questa procedura:
 
-1. Accedre al portale di Azure come amministratore.
+1. Accedere al portale di Azure come amministratore.
 
 2. Passare ad **Azure Active Directory \> Accesso condizionale**.
 

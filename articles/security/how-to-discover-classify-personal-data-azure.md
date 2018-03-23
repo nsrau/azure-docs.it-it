@@ -1,35 +1,35 @@
 ---
 title: Individuare, identificare e classificare i dati personali in Microsoft Azure | Microsoft Docs
-description: Informazioni sulla ricerca, la classificazione, l'individuazione e l'identificazione di dati
+description: La ricerca, la classificazione, l'individuazione e l'identificazione dei dati possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD)
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Individuare, identificare e classificare i dati personali in Microsoft Azure
 
-Questo articolo contiene indicazioni su come individuare, identificare e classificare i dati personali in diversi strumenti e servizi di Azure, tra cui Azure Data Catalog, Azure Active Directory, il database SQL, Power Query per i cluster Hadoop in HDInsight di Azure, Azure Information Protection, Ricerca di Azure e le query SQL per Azure Cosmos DB.
+Questo articolo contiene indicazioni su come individuare, identificare e classificare i dati personali in diversi strumenti e servizi di Azure, tra cui Azure Data Catalog, Azure Active Directory, il database SQL, Power Query per i cluster Hadoop in HDInsight di Azure, Azure Information Protection, Ricerca di Azure e le query SQL per Azure Cosmos DB. Questi strumenti e processi possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
 ## <a name="scenario-problem-statement-and-goal"></a>Scenario, presentazione del problema e obiettivo
 
 Una società sportiva statunitense raccoglie una varietà di dati personali e di altro tipo, tra cui quelli relativi a clienti e dipendenti. La società li conserva in più database e li archivia in diverse posizioni nel proprio ambiente Azure. Oltre alla vendita di attrezzature sportive, organizza e gestisce la registrazione di esclusivi eventi sportivi in tutto il mondo, anche nell'UE e, in alcuni casi, i dati raccolti relativi ai clienti includono informazioni mediche.
 
-Poiché la società organizza molti tour ciclistici internazionali ogni anno con personale temporaneo in località di tutto il mondo, le dimensioni di un paio di set di dati sono molto grandi. La società dispone anche di applicazioni compilate da sviluppatori che vengono usate da clienti e dipendenti.
+Poiché la società organizza molti tour ciclistici internazionali ogni anno con personale temporaneo in località di tutto il mondo, le dimensioni di un paio di set di dati sono molto grandi. La società dispone anche di applicazioni create da sviluppatori che vengono usate da clienti e dipendenti.
 
 I problemi che la società intende risolvere sono i seguenti:
 
@@ -114,7 +114,7 @@ Per informazioni su come creare il database in questo modo, visitare l'esercitaz
 >[!Note]
 Gli amministratori Windows tendono a usare PowerShell, ma alcuni preferiscono l'interfaccia della riga di comando di Azure.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Come è possibile cercare dati personali nel database SQL nel portale di Azure?**
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Come è possibile cercare dati personali nel database SQL nel portale di Azure?
 
 È possibile usare lo strumento editor di query predefinito all'interno del portale di Azure per cercare i dati personali. Si accederà allo strumento usando l'account di accesso e la password di amministratore del server SQL e quindi si immetterà una query.
 

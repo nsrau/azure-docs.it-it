@@ -1,25 +1,25 @@
 ---
-title: Dimensioni delle macchine virtuali Windows di Azure - HPC | Microsoft Docs
-description: "Elenca le diverse dimensioni disponibili per le macchine virtuali High Performance Computing Windows in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie."
+title: Dimensioni delle macchine virtuali Windows di Azure - HPC | Documentazione Microsoft
+description: Elenca le diverse dimensioni disponibili per le macchine virtuali High Performance Computing Windows in Azure. Elenca informazioni sul numero di vCPU, dei dischi dati e delle schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per le dimensioni di queste serie.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: dfeb6b0cbd74ff5a5b11b730c6413df189096ab8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Dimensioni delle VM High Performance Computing (HPC)
 
@@ -29,16 +29,8 @@ ms.lasthandoff: 02/22/2018
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## <a name="rdma-capable-instances"></a>Istanze con supporto per RDMA
-Un subset delle istanze a elevato uso di calcolo (H16r, H16mr, A8 e A9) è dotato di un'interfaccia di rete per la connettività ad accesso diretto a memoria remota (RDMA). Questa interfaccia è un'aggiunta all'interfaccia di rete di Azure standard disponibile per gli altri formati di VM. 
-  
-Questa interfaccia consente alle istanze con supporto per RDMA di comunicare attraverso una rete InfiniBand che funziona a velocità FDR per macchine virtuali H16r e H16mr e a velocità QDR per macchine virtuali A8 e A9. Queste funzionalità RDMA possono migliorare la scalabilità e le prestazioni delle applicazioni di interfaccia MPI (Message Passing).
-
-Per accedere alla rete RDMA di Azure, i requisiti per le macchine virtuali Windows con supporto per RDMA sono i seguenti: 
 
 * **Sistema operativo**: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-* **Set di disponibilità o servizio cloud**: distribuire le VM con supporto per RDMA nello stesso set di disponibilità, se si usa il modello di distribuzione Azure Resource Manager, o nello stesso servizio cloud, se si usa il modello di distribuzione classica. Se si usa Azure Batch, le VM con supporto di RDMA devono trovarsi nello stesso pool.
 
 * **MPI** : Microsoft MPI (MS-MPI) 2012 R2 o versione successiva, Intel MPI Library 5.x
 
@@ -61,7 +53,6 @@ Per accedere alla rete RDMA di Azure, i requisiti per le macchine virtuali Windo
 ## <a name="using-hpc-pack"></a>Utilizzo di HPC Pack
 
 [Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), la soluzione di gestione di processi e cloud HPC gratuita di Microsoft, è un'opzione per creare un cluster di elaborazione in Azure per l'esecuzione di applicazioni MPI basate su Windows e altri carichi di lavoro HPC. HPC Pack 2012 R2 e versioni successive include un ambiente di runtime per MS-MPI che può usare la rete RDMA di Azure quando viene distribuito in macchine virtuali con supporto per RDMA.
-
 
 
 

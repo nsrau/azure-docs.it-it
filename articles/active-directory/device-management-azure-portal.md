@@ -2,10 +2,10 @@
 title: Gestione dei dispositivi tramite il portale di Azure | Microsoft Docs
 description: Informazioni su come usare il portale di Azure per gestire i dispositivi.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1e0d40b996e181a606d16d26633f890b9169ecbb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 85447809cbc803c13ad731b5328e94a1b03abba8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestione dei dispositivi tramite il portale di Azure
 
@@ -112,6 +112,7 @@ Con entrambe le opzioni, è possibile ottenere una vista che:
 
 ![Tutti i dispositivi](./media/device-management-azure-portal/51.png)
 
+Per alcuni dispositivi iOS, i nomi dei dispositivi contenenti apostrofi possono usare caratteri potenzialmente diversi, simili ad apostrofi. Di conseguenza, la ricerca di tali dispositivi è un po' complessa, pertanto se i risultati di ricerca non vengono visualizzati correttamente, assicurarsi che la stringa di ricerca contenga il carattere apostrofo corrispondente.
 
 ## <a name="device-management-tasks"></a>Attività di gestione dei dispositivi
 

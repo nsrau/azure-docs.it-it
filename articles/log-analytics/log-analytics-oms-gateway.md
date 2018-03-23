@@ -1,11 +1,11 @@
 ---
 title: Connettere computer usando il gateway OMS | Microsoft Docs
-description: "Per inviare dati al servizio Automazione di Azure e Log Analytics quando non è disponibile l'accesso a Internet, connettere i dispositivi e i computer monitorati da Operations Manager al gateway OMS."
+description: Per inviare dati al servizio Automazione di Azure e Log Analytics quando non è disponibile l'accesso a Internet, connettere i dispositivi e i computer monitorati da Operations Manager al gateway OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
-ms.openlocfilehash: daf3cc236ef04ae27731e023d35cfe2aa82fc70a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 10422af5a57fc4da77958f15af5b2db61c023e40
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connettere computer senza accesso a Internet usando il gateway OMS
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway OMS quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway OMS, che è un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e Log Analytics per conto dei computer.  
@@ -48,7 +48,7 @@ Il diagramma seguente illustra il flusso di dati da un gruppo di gestione di Ope
 
 ![Diagramma della comunicazione di Operations Manager con Log Analytics](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Quando si designa un computer per l'esecuzione del gateway OMS, il computer presenta i requisiti seguenti:
 
@@ -82,7 +82,7 @@ Il gateway OMS è disponibile nelle lingue seguenti:
 Il gateway OMS supporta solo TLS (Transport Layer Security) 1.0, 1.1 e 1.2.  Non supporta SSL (Secure Sockets Layer).
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
-La tabella seguente indica il numero di agenti che comunicano con un server gateway supportati.  Questo supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Il volume di dati per agente del test è circa 2,7 GB al giorno.
+La tabella seguente indica il numero supportato di agenti che comunicano con un server gateway.  Questo supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Il volume di dati per agente del test è circa 2,7 GB al giorno.
 
 |Gateway |Numero approssimativo di agenti supportati|  
 |--------|----------------------------------|  
@@ -270,7 +270,7 @@ Se si verifica un errore nel passaggio 3, il modulo non è stato importato. L'er
 | `Remove-OMSGatewayAllowedClientCertificate` |Oggetto (obbligatorio) |Rimuove l'oggetto del certificato client dall'elenco dei valori consentiti |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Ottiene gli oggetti del certificato client attualmente consentiti (solo gli oggetti consentiti configurati localmente, non include gli oggetti consentiti scaricati automaticamente) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Per raccogliere gli eventi registrati dal gateway, è necessario che sia installato anche l'agente OMS.<br><br> ![Visualizzatore eventi – Log del gateway OMS](./media/log-analytics-oms-gateway/event-viewer.png)
 
 **ID e descrizioni dell'evento del gateway OMS**

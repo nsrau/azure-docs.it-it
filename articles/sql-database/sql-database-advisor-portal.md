@@ -2,7 +2,7 @@
 title: Applicare le raccomandazioni per le prestazioni - Database SQL di Azure | Microsoft Docs
 description: Usare il portale di Azure per trovare raccomandazioni per le prestazioni che consentono di ottimizzare le prestazioni del database SQL di Azure.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: monicar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -41,7 +41,7 @@ Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile
 
 Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestazioni nelle categorie seguenti:
 
-| Impatto | DESCRIZIONE |
+| Impatto | Descrizione |
 |:--- |:--- |
 | Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
 | Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
@@ -52,7 +52,7 @@ Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestaz
 > Il database SQL di Azure deve monitorare le attività almeno per un giorno per poter individuare alcune raccomandazioni. Il database SQL di Azure può ottimizzare più facilmente modelli di query coerenti anziché picchi irregolari casuali di attività. Se non sono disponibili raccomandazioni, nella pagina **Performance recommendation** (Raccomandazione prestazioni) viene visualizzato un messaggio che ne spiega il motivo.
 > 
 
-È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un'indicazione o lo stato per visualizzare altri dettagli.
+È anche possibile visualizzare lo stato delle ultime operazioni storiche. Selezionare un'indicazione o lo stato per visualizzare altre informazioni.
 
 Di seguito è riportato un esempio della raccomandazione "Crea indice" nel portale di Azure.
 
@@ -120,7 +120,7 @@ Le raccomandazioni con stato **In sospeso**, **Verifica** o **Operazione complet
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
 L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portale fornisce dettagli sullo stato della raccomandazione. Di seguito sono indicati gli stati possibili di un indice:
 
-| Status | DESCRIZIONE |
+| Stato | Descrizione |
 |:--- |:--- |
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
@@ -130,7 +130,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |
 
-Fare clic su una raccomandazione in-process nell'elenco per visualizzare altri dettagli:
+Fare clic su una raccomandazione in-process nell'elenco per visualizzare altre informazioni:
 
 ![Indici consigliati](./media/sql-database-advisor-portal/operations.png)
 
@@ -147,7 +147,7 @@ Dopo aver implementato correttamente le raccomandazioni, attualmente, solo racco
 
 ![Monitorare l'impatto sulle prestazioni](./media/sql-database-advisor-portal/query-insights.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il database SQL di Azure fornisce raccomandazioni per migliorare le prestazioni del database SQL. Questa funzionalità offre script T-SQL e consente di ottimizzare il database e quindi di migliorare le prestazioni delle query.
 
 ## <a name="next-steps"></a>Passaggi successivi

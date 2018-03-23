@@ -2,7 +2,7 @@
 title: Creare il runtime di integrazione self-hosted in Azure Data Factory | Microsoft Docs
 description: Informazioni su come creare il runtime di integrazione self-hosted in Azure Data Factory, che consente alle data factory di accedere agli archivi dati in una rete privata.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
 manager: jhubbard
 editor: monicar
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 92f773d3bbabe763d342366f0d56a77621829487
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3f1b55f2752821de447e6c03bcbf79f01d9f8264
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
@@ -65,6 +65,7 @@ Di seguito è riportato un flusso di dati generale per il riepilogo dei passaggi
 - Il runtime di integrazione self-hosted deve essere usato per supportare l'integrazione dei dati nella rete virtuale di Azure.
 - Considerare l'origine dati come origine dati locale, ovvero protetta da firewall, anche quando si usa **ExpressRoute**. Usare il runtime di integrazione self-hosted per stabilire la connettività tra il servizio e l'origine dati.
 - È necessario usare il runtime di integrazione self-hosted anche se l'archivio dati è nel cloud su una **macchina virtuale IaaS di Azure**.
+- In un runtime di integrazione self-hosted installato in un'istanza di Windows Server in cui è abilitata la crittografia FIPS compatibile possono verificarsi errori di esecuzione delle attività. Per risolvere questo problema, disabilitare la crittografia FIPS compatibile nel server. Per disabilitare la crittografia FIPS compatibile, modificare il valore del Registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>prerequisiti
 

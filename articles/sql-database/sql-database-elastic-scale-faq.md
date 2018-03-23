@@ -1,25 +1,20 @@
 ---
-title: "Domande frequenti sulla scalabilità elastica in Azure SQL | Documentazione Microsoft"
-description: "Domande frequenti sulla scalabilità elastica del database SQL di Azure."
+title: Domande frequenti sulla scalabilità elastica in Azure SQL | Documentazione Microsoft
+description: Domande frequenti sulla scalabilità elastica del database SQL di Azure.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: e60dde9c-bb7b-4f2f-b52c-bdb506d49fcb
+documentationcenter: ''
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 4a2f73df00dd706699b20062d443af3bb88b6ef4
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 575167293d9b4685ecc38303414b69074c366ab2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-tools-faq"></a>Domande frequenti sugli strumenti di database elastici
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>In presenza di un tenant singolo per partizione senza chiave di partizionamento orizzontale, in che modo è possibile popolare la chiave di partizionamento orizzontale per le informazioni sullo schema?

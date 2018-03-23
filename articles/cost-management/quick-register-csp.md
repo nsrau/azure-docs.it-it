@@ -1,8 +1,8 @@
 ---
 title: Eseguire la registrazione in Gestione costi di Azure usando le informazioni dei partner CSP | Microsoft Docs
-description: Usare le informazioni dei partner CSP per eseguire la registrazione in Gestione costi di Azure di Cloudyn.
+description: Usare le informazioni dei partner CSP per eseguire la registrazione in Gestione costi di Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 0e5e247182335b88f109aa6624a40bc782975b97
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Eseguire la registrazione al programma per i partner CSP e visualizzare i dati sui costi
 
-I partner CSP possono eseguire la registrazione in Gestione costi di Azure di Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
+I partner CSP possono eseguire la registrazione in Gestione costi di Azure. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
 
 
 >[!NOTE]
@@ -71,7 +71,7 @@ I partner CSP indiretti accedono al portale di Cloudyn usando gli account creati
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva sono state usate le informazioni CSP per eseguire la registrazione in Gestione dei costi. È stato anche eseguito l'accesso al portale di Cloudyn e avviata la visualizzazione dei dati di costo. Per altre informazioni su Gestione costi di Azure di Cloudyn, continuare l'esercitazione su Gestione dei costi.
+In questa guida introduttiva sono state usate le informazioni CSP per eseguire la registrazione in Gestione dei costi. È stato anche eseguito l'accesso al portale di Cloudyn ed è stata avviata la visualizzazione dei dati sui costi. Per altre informazioni su Gestione costi di Azure, continuare l'esercitazione su Gestione costi.
 
 > [!div class="nextstepaction"]
 > [Esaminare l'utilizzo e i costi](./tutorial-review-usage.md)

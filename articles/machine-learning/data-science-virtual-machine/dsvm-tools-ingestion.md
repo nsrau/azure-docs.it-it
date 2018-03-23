@@ -3,11 +3,11 @@ title: Strumenti di inserimento dati della macchina virtuale per data science in
 description: Strumenti di inserimento dati della macchina virtuale per data science
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: a2422d8a79d102accb72476f6934bae38603973a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8526e949aee2935824a03a0972d9e45c71d6601b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
@@ -35,7 +35,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 | Versioni supportate della macchina virtuale per data science      | Windows      |
 | Usi tipici      | Importazione di più BLOB di Archiviazione di Azure in Azure Data Lake Store.      |
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `adlcopy` per ottenere assistenza.    |
-| Collegamenti agli esempi      | [Uso di AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Collegamenti agli esempi      | [Con AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Strumenti correlati nella macchina virtuale per data science      | AzCopy, riga di comando di Azure     |
 
 ## <a name="azure-command-line"></a>Riga di comando di Azure
@@ -46,7 +46,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 | Versioni supportate della macchina virtuale per data science      | Windows, Linux     |
 | Usi tipici      | Importazione, esportazione di dati da e verso l'archivio di Azure, Azure Data Lake Store      |
 |  Come usarla o eseguirla?    |   Aprire un prompt dei comandi, quindi digitare `az` per ottenere assistenza.    |
-| Collegamenti agli esempi      | [Uso dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?viee-cli-latest)     |
+| Collegamenti agli esempi      | [Uso dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)     |
 | Strumenti correlati nella macchina virtuale per data science      | AzCopy, AdlCopy      |
 
 
@@ -93,7 +93,7 @@ Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchin
 | Versioni supportate della macchina virtuale per data science      | Linux      |
 | Usi tipici      | Lettura e scrittura in BLOB in un contenitore      |
 |  Come usarla o eseguirla?    |   Eseguire _blobfuse_ in un terminale.    |
-| Collegamenti agli esempi      | [blobfuse on GitHub) [https://github.com/Azure/azure-storage-fuse]      |
+| Collegamenti agli esempi      | [blobfuse in GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Strumenti correlati nella macchina virtuale per data science      | Riga di comando di Azure      |
 
 

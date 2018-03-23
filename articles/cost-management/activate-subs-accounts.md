@@ -2,19 +2,19 @@
 title: Attivare sottoscrizioni e account di Azure | Microsoft Docs
 description: Abilitare l'accesso con le API di Azure Resource Manager per gli account nuovi ed esistenti e risolvere i problemi comuni relativi agli account.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Attivare sottoscrizioni e account di Azure con Gestione costi di Azure
 
@@ -76,7 +76,7 @@ Quando si aggiunge una sottoscrizione a un aggiornamento dell'account, si conced
 
     Se non viene visualizzato un simbolo di segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare l'applicazione lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere questo processo.
 
-Guardare il video [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) (Connessione ad Azure Resource Manager con Gestione costi di Azure di Cloudyn) che illustra il processo.
+Guardare il video [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk) (Connessione ad Azure Resource Manager con Gestione costi di Azure), che descrive dettagliatamente il processo.
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 

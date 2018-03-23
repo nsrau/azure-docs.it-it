@@ -1,11 +1,11 @@
 ---
-title: Risolvere i problemi dei ruoli che non vengono avviati | Documentazione Microsoft
+title: Risolvere i problemi dei ruoli che non vengono avviati | Microsoft Docs
 description: Informazioni su alcuni motivi comuni del mancato avvio di un ruolo del servizio cloud. Include anche soluzioni per questi problemi.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -62,7 +62,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 È possibile usare Desktop remoto per accedere al ruolo e visualizzare informazioni sugli errori più complete in remoto. Seguire questa procedura per visualizzare gli errori usando Desktop remoto:
 
 1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
-2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Utilizzo di Desktop remoto con i ruoli Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Durante la distribuzione della soluzione con Visual Studio, abilitare Desktop remoto. Per altre informazioni, vedere [Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md) (Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio).
 3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure accedere in remoto all'istanza. Per altre informazioni sull'utilizzo di Desktop remoto con Servizi cloud di Microsoft Azure, vedere [Accedere in remoto alle istanze del ruolo](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Accedere alla macchina virtuale usando le credenziali specificate durante la configurazione di Desktop remoto.
 6. Aprire una finestra di comando.

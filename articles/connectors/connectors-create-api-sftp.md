@@ -1,11 +1,11 @@
 ---
 title: Informazioni su come usare il connettore SFTP nelle app per la logica | Documentazione Microsoft
-description: "Creare app per la logica con Servizio app di Azure. Connettersi all'API SFTP per inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file."
+description: Creare app per la logica con Servizio app di Azure. Connettersi all'API SFTP per inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/20/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 1abc15daaa96e834aedd121a88b543067e53641b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ee4dd59bd7b4c09cccadfff29868029559955c28
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sftp-connector"></a>Introduzione al connettore SFTP
 Usare il connettore SFTP per accedere a un account SFTP al fine di inviare e ricevere file. È possibile eseguire varie operazioni come creare, aggiornare, recuperare o eliminare file.  

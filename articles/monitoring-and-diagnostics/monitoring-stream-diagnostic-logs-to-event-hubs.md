@@ -3,7 +3,7 @@ title: Trasmettere log di diagnostica di Azure a un hub eventi | Microsoft Docs
 description: Informazioni su come trasmettere log di diagnostica di Azure a un hub eventi.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Trasmettere log di diagnostica di Azure a un hub eventi
 I **[log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)** possono essere trasmessi quasi in tempo reale a qualsiasi applicazione con l'opzione "Esporta in hub eventi" incorporata nel portale oppure abilitando l'ID della regola di autorizzazione dell'hub eventi in un'impostazione di diagnostica tramite i cmdlet di Azure PowerShell o l'interfaccia della riga di comando di Azure.
@@ -83,10 +83,10 @@ Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle
 Per abilitare la trasmissione tramite i [cmdlet di Azure PowerShell](insights-powershell-samples.md), è possibile usare il cmdlet `Set-AzureRmDiagnosticSetting` con i parametri seguenti:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-L'ID regola del bus di servizio è una stringa nel formato seguente: `{Service Bus resource ID}/authorizationrules/{key name}`. Ad esempio, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Non è attualmente possibile selezionare un nome di hub eventi specifico con PowerShell.
+L'ID della regola di autorizzazione dell'hub eventi è una stringa nel formato seguente: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, ad esempio `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Non è attualmente possibile selezionare un nome di hub eventi specifico con PowerShell.
 
 ### <a name="via-azure-cli"></a>Tramite l'interfaccia della riga di comando di Azure
 Per abilitare la trasmissione tramite l'[interfaccia della riga di comando di Azure](insights-cli-samples.md), è possibile usare il comando `insights diagnostic set` come segue:
@@ -95,7 +95,7 @@ Per abilitare la trasmissione tramite l'[interfaccia della riga di comando di Az
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Usare lo stesso formato per l'ID regola del bus di servizio, come illustrato per il cmdlet di PowerShell. Non è attualmente possibile selezionare un nome di hub eventi specifico con l'interfaccia della riga di comando di Azure.
+Usare lo stesso formato per l'ID della regola di autorizzazione dell'hub eventi, come illustrato per il cmdlet di PowerShell. Non è attualmente possibile selezionare un nome di hub eventi specifico con l'interfaccia della riga di comando di Azure.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Come utilizzare i dati di log da Hub eventi
 Di seguito è riportato un esempio di dati di output da Hub eventi:
@@ -161,7 +161,7 @@ Di seguito è riportato un esempio di dati di output da Hub eventi:
 }
 ```
 
-| Nome dell'elemento | DESCRIZIONE |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | records |Matrice di tutti gli eventi di log nel payload. |
 | time |Ora in cui si è verificato l'evento. |

@@ -2,7 +2,7 @@
 title: Risolvere errori comuni durante la distribuzione di risorse in Azure | Microsoft Docs
 description: Descrive come risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2cf31b32e02923aa573d5586b8ca24bf30b7d97b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -37,6 +37,7 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 | RichiestaNonValida | I valori della distribuzione inviati non corrispondono ai valori previsti da Gestione risorse. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-manager-templates-resources.md#location) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActive | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
+| DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
 | DnsRecordInUse | Il nome del record DNS deve essere univoco. Specificare un nome diverso o modificare il record esistente. | |
 | ImageNotFound | Controllare le impostazioni dell'immagine della macchina virtuale. |  |
 | InUseSubnetCannotBeDeleted | Questo errore può verificarsi quando si tenta di aggiornare una risorsa, ma la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -44,7 +45,7 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 | InvalidContentLink | È probabile che si sia tentato il collegamento a un modello annidato non disponibile. Ricontrollare l'URI specificato per il modello annidato. Se il modello si trova in un account di archiviazione, verificare che l'URI sia accessibile. Potrebbe essere necessario passare un token di firma di accesso condiviso. | [Modelli collegati](resource-group-linked-templates.md) |
 | InvalidParameter | Uno dei valori forniti per una risorsa non corrisponde al valore previsto. Questo errore può dipendere da molte condizioni diverse. Ad esempio, è possibile che una password non sia sufficiente o che un nome di BLOB non sia corretto. Controllare il messaggio di errore per determinare se è necessario correggere il valore. | |
 | InvalidRequestContent | I valori della distribuzione contengono valori non previsti o mancano valori obbligatori. Confermare i valori per il tipo di risorsa. | [Informazioni di riferimento sul modello](/azure/templates/) |
-| InvalidRequestFormat | Abilitare la registrazione del debug quando si esegue la distribuzione e verificare il contenuto della richiesta. | [Registrazione del debug](resource-manager-troubleshoot-tips.md#enable-debug-logging) |
+| InvalidRequestFormat | Abilitare la registrazione del debug quando si esegue la distribuzione e verificare il contenuto della richiesta. | [Registrazione del debug](#enable-debug-logging) |
 | InvalidResourceNamespace | Controllare lo spazio dei nomi della risorsa specificato nella proprietà **type**. | [Informazioni di riferimento sul modello](/azure/templates/) |
 | InvalidResourceReference | La risorsa non esiste ancora o viene referenziata in modo non corretto. Controllare se è necessario aggiungere una dipendenza. Verificare che l'utilizzo della funzione **reference** includa i parametri necessari per lo scenario in uso. | [Risolvere gli errori relativi alle risorse di Azure non trovate](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Controllare il tipo di risorsa specificato nella proprietà **type**. | [Informazioni di riferimento sul modello](/azure/templates/) |
@@ -75,7 +76,124 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 
 ## <a name="find-error-code"></a>Trovare il codice di errore
 
-Quando si verifica un errore in fase di distribuzione, Gestione risorse restituisce un codice di errore. È possibile esaminare questo messaggio di errore tramite il portale, PowerShell o l'interfaccia della riga di comando di Azure. Il messaggio di errore esterno potrebbe essere troppo generale per la risoluzione dei problemi. Cercare il messaggio interno che contiene informazioni dettagliate sull'errore. Per altre informazioni, vedere [Determinare il codice di errore](resource-manager-troubleshoot-tips.md#determine-error-code).
+I possibili errori sono di due tipi:
+
+* errori di convalida
+* errori di distribuzione
+
+Gli errori di convalida sono causati da scenari già determinati prima della distribuzione. Tra di essi figurano gli errori di sintassi presenti in un modello oppure il tentativo di distribuire risorse superiori alle quote di sottoscrizione. Gli errori di distribuzione sorgono da condizioni che si verificano durante il processo di distribuzione. Tra essi configurano i tentativi di accedere a una risorsa che viene distribuita in parallelo.
+
+Entrambi i tipi di errore restituiscono un codice necessario per risolvere i problemi della distribuzione. Entrambi i tipi di errori vengono visualizzati nel [log attività](resource-group-audit.md). Gli errori di convalida non sono invece visualizzati nella cronologia della distribuzione, poiché quest'ultima non è mai stata avviata.
+
+### <a name="validation-errors"></a>Errori di convalida
+
+Durante la distribuzione nel portale, viene visualizzato un errore di convalida dopo l'invio dei valori.
+
+![vista dell'errore di convalida nel portale](./media/resource-manager-common-deployment-errors/validation-error.png)
+
+Selezionare il messaggio per avere altre informazioni. Nella figura seguente viene visualizzato un errore **InvalidTemplateDeployment** e un messaggio che indica che la distribuzione è stata bloccata da un criterio.
+
+![visualizzare le informazioni di convalida](./media/resource-manager-common-deployment-errors/validation-details.png)
+
+### <a name="deployment-errors"></a>Errori di distribuzione
+
+Quando l'operazione supera la convalida, ma non esegue correttamente la distribuzione, viene visualizzato l'errore nelle notifiche. Selezionare la notifica.
+
+![Notifica di errore](./media/resource-manager-common-deployment-errors/notification.png)
+
+Vengono visualizzati maggiori dettagli sulla distribuzione. Selezionare l'opzione per trovare altre informazioni sull'errore.
+
+![distribuzione non riuscita](./media/resource-manager-common-deployment-errors/deployment-failed.png)
+
+Viene visualizzato il messaggio di errore e i codici di errore. Si noti che sono presenti due codici di errore. Il primo codice di errore, **DeploymentFailed**, è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Il secondo codice di errore, **StorageAccountNotFound**, contiene i dettagli necessari. 
+
+![dettagli dell'errore](./media/resource-manager-common-deployment-errors/error-details.png)
+
+## <a name="enable-debug-logging"></a>Abilitazione della registrazione di debug
+
+In alcuni casi sono necessarie maggiori informazioni sulla richiesta e sulla risposta per conoscere la causa dell'errore. Con PowerShell o l'interfaccia della riga di comando di Azure è possibile richiedere la registrazione di informazioni aggiuntive durante la distribuzione.
+
+- PowerShell
+
+   In PowerShell impostare il parametro **DeploymentDebugLogLevel** su All, ResponseContent o RequestContent.
+
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
+
+   Esaminare il contenuto della richiesta con il cmdlet seguente:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
+
+   In alternativa, esaminare il contenuto della risposta con:
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
+
+   Queste informazioni consentono di stabilire se nel modello sia impostato un valore errato.
+
+- Interfaccia della riga di comando di Azure
+
+   Esaminare le operazioni di distribuzione con il comando seguente:
+
+  ```azurecli
+  az group deployment operation list --resource-group ExampleGroup --name vmlinux
+  ```
+
+- Modello annidato
+
+   Per registrare le informazioni di debug relative a un modello nidificato, usare l'elemento **debugSetting**.
+
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
+
+## <a name="create-a-troubleshooting-template"></a>Creare un modello per la risoluzione dei problemi
+
+Talvolta il modo più semplice per risolvere i problemi del modello è testarne alcune parti. A tale scopo, è possibile creare un modello semplificato che consente di concentrarsi sulla parte da cui si ritiene abbia origine l'errore. Si supponga, ad esempio, di ricevere un errore quando si fa riferimento a una risorsa. Anziché gestire un intero modello, crearne uno che restituisca la parte potenzialmente problematica. Ciò può aiutare a capire se i parametri trasmessi siano corretti, a usare correttamente le funzioni del modello e a recuperare le risorse desiderate.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
+
+In alternativa, si supponga di incontrare errori di distribuzione presumibilmente correlati a dipendenze impostate in modo errato. Testare il modello suddividendolo in modelli semplificati. Creare innanzitutto un modello che distribuisce una sola risorsa (ad esempio SQL Server). Quando si è certi che la risorsa sia definita correttamente, aggiungere una risorsa che dipende da essa (ad esempio un database SQL). Una volta definite correttamente queste due risorse, aggiungere altre risorse che dipendono da esse (ad esempio criteri di controllo). Tra una distribuzione di test e l'altra, eliminare il gruppo di risorse per assicurarsi di testare le dipendenze in modo adeguato.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulle azioni di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).

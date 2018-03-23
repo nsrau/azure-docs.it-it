@@ -2,10 +2,10 @@
 title: Problemi di installazione del connettore dell'agente proxy dell'applicazione | Microsoft Docs
 description: Come risolvere i problemi che potrebbero verificarsi durante l'installazione del connettore dell'agente proxy dell'applicazione
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
@@ -37,11 +37,11 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 **Obiettivo:** verificare che il computer di connessione possa connettersi all'endpoint di registrazione proxy dell'applicazione AAD, nonché alla pagina di accesso Microsoft.
 
-1.  Aprire un browser e passare alla pagina Web seguente: <https://aadap-portcheck.connectorporttest.msappproxy.net>, quindi verificare che la connettività al data center degli Stati Uniti orientali e Stati Uniti centrali con le porte 80 e 443 sia funzionante.
+1.  Aprire un browser e passare alla pagina Web <https://aadap-portcheck.connectorporttest.msappproxy.net>, quindi verificare che la connettività ai data center degli Stati Uniti orientali e Stati Uniti centrali con le porte 80 e 443 sia funzionante.
 
 2.  Se la connessione a una di queste porte non funziona (non è presente un segno di spunta verde), verificare che \*.msappproxy.net con le porte 80 e 443 sia definito correttamente per il firewall o proxy di back-end.
 
-3.  Aprire un browser (scheda separata) e passare alla pagina Web seguente: <https://login.microsoftonline.com>, quindi assicurarsi che sia possibile accedere a tale pagina.
+3.  Aprire un browser (scheda separata) e passare alla pagina Web <https://login.microsoftonline.com>, quindi assicurarsi di poter accedere a tale pagina.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Verificare che il computer e i componenti di back-end supportino il certificato di attendibilità proxy dell'applicazione
 
@@ -54,7 +54,7 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 **Per risolvere il problema:**
 
-1.  Verificare che il computer supporti TLS1.2: tutte le versioni di Windows successive alla 2012 R2 dovrebbero supportare TLS 1.2. Se la versione del computer di connessione di cui si dispone è 2012 R2 o precedente, assicurarsi che le seguenti Knowledge Base siano installate: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Verificare che il computer supporti TLS1.2: tutte le versioni di Windows successive alla 2012 R2 dovrebbero supportare TLS 1.2. Se la versione del computer di connessione è 2012 R2 o precedente, assicurarsi che vi siano installate le Knowledge Base seguenti: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Contattare l'amministratore di rete e chiedere di verificare che il proxy e il firewall di back-end non blocchino SHA512 per il traffico in uscita.
 

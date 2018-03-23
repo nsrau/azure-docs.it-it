@@ -1,24 +1,20 @@
 ---
-title: Ruoli di lavoro ibridi per runbook di Automazione di Azure | Microsoft Docs
-description: "Questo articolo fornisce informazioni sull'installazione e l'uso di Hybrid Runbook Workers, una funzionalità di Automazione di Azure che consente di eseguire i runbook nei computer del centro dati locale o del provider cloud."
+title: Funzionalità Hybrid Runbook Workers di Automazione di Azure
+description: Questo articolo fornisce informazioni sull'installazione e l'uso di Hybrid Runbook Workers, una funzionalità di Automazione di Azure che consente di eseguire i runbook nei computer del centro dati locale o del provider cloud.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
+manager: carmonm
+ms.devlang: na
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/21/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 6a6a69619c016dd82e8e09f4ef0269512fbccc11
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c1aa22563e2a9db34b8c66045656fda2973cf6b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud con i ruoli di lavoro ibrido per runbook
 I runbook in Automazione di Azure non possono accedere alle risorse in altri cloud o negli ambienti locali perché vengono eseguiti nel cloud di Azure. La funzionalità Ruolo di lavoro ibrido per runbook di Automazione di Azure consente di eseguire runbook direttamente sul computer che ospita il ruolo e su risorse nell'ambiente per gestire tali risorse locali. I runbook vengono infatti archiviati e gestiti in Automazione di Azure e quindi distribuiti a uno o più computer designati. 

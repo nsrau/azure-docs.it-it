@@ -2,7 +2,7 @@
 title: 'Esercitazione: Configurare GitHub per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in GitHub.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.openlocfilehash: 53eb2d0e76cb4765612dfd30226979d839a96235
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Esercitazione: Configurare GitHub per il provisioning utenti automatico
 
 
 Questa esercitazione descrive le procedure da eseguire in GitHub e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a GitHub. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -78,7 +78,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     ![Finestra di dialogo di autorizzazione](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
-7. Nel portale di Azure immettere l'**URL tenant** e fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app GitHub. Se la connessione non riesce, verificare che l'account GitHub abbia le autorizzazioni di amministratore e che l'**URL tenant** sia stato immesso correttamente, quindi provare a eseguire di nuovo il passaggio per l'autorizzazione (è possibile calcolare l'**URL tenant** seguendo la regola: "https://api.github.com/scim/v2/organizations/ + <nome_organizzazioni>". È possibile individuare le organizzazioni nell'account GitHub in **Settings** (Impostazioni)  > **Organizations** (Organizzazioni)).
+7. Nel portale di Azure immettere l'**URL tenant** e fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app GitHub. Se la connessione non riesce, verificare che l'account GitHub abbia le autorizzazioni di amministratore e che l'**URL tenant** sia stato immesso correttamente, quindi provare a eseguire di nuovo il passaggio per l'autorizzazione. È possibile calcolare l'**URL tenant** seguendo la regola: "https://api.github.com/scim/v2/organizations/ + <nome_organizzazioni>". È possibile individuare le organizzazioni nell'account GitHub in **Settings** (Impostazioni) > **Organizations** (Organizzazioni).
 
     ![Finestra di dialogo di autorizzazione](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 

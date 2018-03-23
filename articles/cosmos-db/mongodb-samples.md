@@ -5,8 +5,8 @@ keywords: esempi di mongodb
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: fb38bc53-3561-487d-9e03-20f232319a87
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-ms.openlocfilehash: aa545a9fbaac0686a0a29482c8dcd3379ee4db8f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 3d4b3bf36bdc93fdd1a65f5c8fdcfe2237d23aa9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Creare un'app basata su Azure Cosmos DB: API per MongoDB usando Node.js
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Per usare questo esempio è necessario:
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
-    var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
+    var url = 'mongodb://<username>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
 
     var insertDocument = function(db, callback) {
     db.collection('families').insertOne( {

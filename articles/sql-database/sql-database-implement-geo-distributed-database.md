@@ -2,25 +2,18 @@
 title: Implementare una soluzione di database SQL di Azure con distribuzione geografica | Microsoft Docs
 description: Informazioni su come configurare il database SQL di Azure e l'applicazione per il failover in un database replicato e su come testare il failover.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ea94a311d409d8c5d6142746dc1009ff67ef3a82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementare un database con distribuzione geografica
 

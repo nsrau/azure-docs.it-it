@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.custom: ''
+ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
 > [!IMPORTANT] 
-> Le macchine virtuali devono essere create con la funzionalità Rete accelerata abilitata. Questa funzionalità non può essere abilitata nelle macchine virtuali esistenti. Per abilitare la rete accelerata è possibile eseguire i passaggi seguenti:
+> Le macchine virtuali devono essere create con la funzionalità Rete accelerata abilitata. Questa funzionalità non può essere abilitata nelle macchine virtuali esistenti. Completare la procedura seguente per abilitare la funzionalità Rete accelerata:
 >   1. Eliminare la macchina virtuale.
 >   2. Creare nuovamente la macchina virtuale con la funzionalità Rete Accelerata abilitata.
 >
@@ -66,9 +66,11 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 * **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se si aggiunge la VM a un set di disponibilità esistente, anche tutte le VM incluse nel set devono avere la funzionalità Rete accelerata abilitata.
 * **Solo distribuzione tramite Azure Resource Manager**: le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete Accelerata.
 
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale con dimensioni e sistema operativo supportati nel portale, in **Impostazioni** selezionare **Abilitata** in **Rete accelerata**. Dopo aver creato la macchina virtuale, è necessario eseguire le istruzioni riportate nella sezione [Verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
+
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/#az_login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
 Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*.
 

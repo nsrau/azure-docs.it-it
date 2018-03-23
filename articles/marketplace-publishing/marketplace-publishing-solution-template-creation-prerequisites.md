@@ -2,10 +2,10 @@
 title: Prerequisiti tecnici per la creazione di un modello di soluzione per il Marketplace | Documentazione Microsoft
 description: Informazioni sui requisiti per la creazione di un modello di soluzione da distribuire e vendere in Azure Marketplace
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0aa9ab99aea08f5e368efbb97d8a1be7fbb79552
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.author: mbaldwin
+ms.openlocfilehash: 4de9f66b4632f2573299757b2e40fae65f86f7d6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Prerequisiti tecnici per la creazione di un modello di soluzione per Azure Marketplace
 Leggere attentamente le informazioni sul processo prima di iniziare e comprendere dove e perché viene eseguito ogni passaggio. Per quanto possibile, è necessario preparare le informazioni sulla società e altri dati, scaricare gli strumenti necessari e/o creare i componenti tecnici prima di iniziare il processo di creazione dell'offerta.  

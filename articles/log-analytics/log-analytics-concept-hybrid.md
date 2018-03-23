@@ -2,23 +2,23 @@
 title: Raccogliere dati dall'ambiente con Azure Log Analytics | Microsoft Docs
 description: Questo argomento contiene informazioni su come raccogliere i dati e monitorare i computer ospitati in locale o in un altro ambiente cloud con Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Raccogliere dati dai computer dell'ambiente con Log Analytics
 
@@ -77,14 +77,14 @@ Le distribuzioni Linux seguenti sono supportate ufficialmente.  È tuttavia poss
 * SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Network configuration
-La tabella seguente contiene un elenco delle informazioni di configurazione del proxy e del firewall necessarie all'agente Linux per comunicare con Log Analytics. Il traffico in uscita dalla rete viene indirizzato al servizio Log Analytics. 
+La tabella seguente contiene un elenco delle informazioni di configurazione del proxy e del firewall necessarie all'agente Linux per comunicare con Log Analytics.  
 
-|Risorsa agente| Porte |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Porta 443|   
-|*.oms.opinsights.azure.com | Porta 443|   
-|*.blob.core.windows.net | Porta 443|   
-|*.azure-automation.net | Porta 443|  
+|Risorsa agente| Porte | Direzione |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Porta 443 | In ingresso e in uscita|  
+|*.oms.opinsights.azure.com | Porta 443 | In ingresso e in uscita|  
+|*.blob.core.windows.net | Porta 443 | In ingresso e in uscita|  
+|*.azure-automation.net | Porta 443 | In ingresso e in uscita|  
 
 L'agente Linux supporta la comunicazione tramite un server proxy o un gateway OMS con il servizio Log Analytics usando il protocollo HTTPS.  Sono supportate sia l'autenticazione anonima che quella di base (nome utente/password).  È possibile specificare il server proxy durante l'installazione o modificando il file di configurazione proxy.conf dopo l'installazione.  
 

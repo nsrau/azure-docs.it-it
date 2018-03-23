@@ -1,8 +1,8 @@
 ---
 title: 'Esercitazione: Assegnare un accesso in Gestione costi di Azure | Microsoft Docs'
-description: "In questa esercitazione si apprenderà come assegnare un accesso ai dati di gestione costi con account utente che definiscono i livelli di accesso alle entità."
+description: In questa esercitazione si apprenderà come assegnare un accesso ai dati di gestione costi con account utente che definiscono i livelli di accesso alle entità.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/27/2018
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 0e2edc946c5d6ada1049fbd6a960ec138f7088f2
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Esercitazione: Assegnare l'accesso ai dati di gestione costi
 
@@ -54,7 +54,7 @@ Gli utenti tipici che richiedono l'accesso a dati di gestione dei costi come das
 
 ![aggiungere un nuovo utente con accesso utente](.\media\tutorial-user-access\new-user-access.png)
 
-Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Gestione dei costi di Azure](https://youtu.be/Nzn7GLahx30).
+Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Gestione costi di Azure](https://youtu.be/Nzn7GLahx30).
 
 ## <a name="create-entities"></a>Creare entità
 
@@ -75,9 +75,9 @@ Accanto a **Entità**, fare clic su **Aggiungi entità**. Immettere le informazi
 Al termine, **salvare** l'entità.
 
 
-Per guardare un video di esercitazione sulla creazione di una gerarchia di entità costo, vedere [Creare una gerarchia di entità costo in Gestione dei costi di Azure](https://youtu.be/dAd9G7u0FmU).
+Per guardare un video di esercitazione sulla creazione di una gerarchia di entità costo, vedere [Creare una gerarchia di entità costo in Gestione costi di Azure](https://youtu.be/dAd9G7u0FmU).
 
-Per gli utenti di un Azure Enterprise Agreement, è disponibile un video di esercitazione sull'associazione di account e sottoscrizioni a entità nella pagina [Connessione ad Azure Resource Manager con Gestione dei costi di Azure](https://youtu.be/oCIwvfBB6kk).
+Per gli utenti di un contratto Enterprise di Azure, è disponibile un video di esercitazione sull'associazione di account e sottoscrizioni a entità nella pagina [Connessione ad Azure Resource Manager con Gestione costi di Azure](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

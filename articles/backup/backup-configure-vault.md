@@ -2,10 +2,10 @@
 title: Usare l'agente di Azure Backup per eseguire il backup di file e cartelle | Documentazione Microsoft
 description: Usare l'agente di Backup di Microsoft Azure per eseguire il backup di file e cartelle Windows in Azure. Creare un insieme di credenziali di Servizi di ripristino, installare l'agente di Backup, definire i criteri di backup ed eseguire il backup iniziale di file e cartelle.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: insieme di credenziali di backup; backup di un server Windows; backup di Windows;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 0adb2565299a2cd613068539736d4272d59a2397
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup di file e cartelle di Windows Server o di un client Windows in Azure con Backup di Azure tramite il modello di distribuzione di Resource Manager.
@@ -143,6 +143,9 @@ Dopo avere creato un insieme di credenziali, preparare l'infrastruttura per il b
   Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Save**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.   
 
   ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 

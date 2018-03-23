@@ -2,7 +2,7 @@
 title: Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory | Microsoft Docs
 description: Panoramica delle impostazioni supportate nei criteri di accesso condizionale di Azure Active Directory.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -136,9 +136,19 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | macOS                  | Chrome, Safari                      | ![Controllo][1] |
 
 
-> [!NOTE]
-> Per il supporto di Chrome è necessario usare Windows 10 Creators Update (versione 1703) o versioni successive.<br>
-> È possibile installare [questa estensione](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### <a name="chrome-support"></a>Supporto di Chrome
+
+Per il supporto di Chrome in **Windows 10 Creators Update (versione 1703)** o versioni successive, installare [questa estensione](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Per il supporto di Chrome in **Windows 8.1 e 7**, creare la chiave del Registro di sistema seguente:
+
+|    |    |
+|--- | ---|
+|path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|NOME | 1 |
+|type | REG_SZ (String) |
+|Dati | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Questi browser supportano l'autenticazione del dispositivo, consentendo al dispositivo di essere identificato e convalidato rispetto a un criterio. Il controllo del dispositivo ha esito negativo se il browser è in esecuzione in modalità privata. 
 
@@ -183,6 +193,10 @@ Nel criterio di accesso condizionale è possibile impostare l'esecuzione dei ten
 Questa impostazione è valida solo per le app client seguenti:
 
 
+- Microsoft Intune Managed Browser
+- Microsoft Power BI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

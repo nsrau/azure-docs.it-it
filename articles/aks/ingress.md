@@ -6,14 +6,14 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 2/21/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c25a0171bd412050a7c94e9b077436cd1ebe893b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 908910b44a9de28f184906dd4e904e651fe034ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Ingresso HTTPS nel servizio contenitore di Azure (AKS)
 
@@ -24,6 +24,14 @@ Questo documento descrive in dettaglio una distribuzione di esempio del [control
 ## <a name="install-an-ingress-controller"></a>Installare un controller di ingresso
 
 Usare Helm per installare il controller di ingresso NGINX. Per informazioni dettagliate sulla distribuzione, vedere la [documentazione][nginx-ingress] relativa al controller di ingresso NGINX. 
+
+Aggiornare il repository dei grafici.
+
+```console
+helm repo update
+```
+
+Installare il controller di ingresso NGINX.
 
 ```
 helm install stable/nginx-ingress
@@ -128,7 +136,7 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/tls-acme: "true"
-    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
   - hosts:

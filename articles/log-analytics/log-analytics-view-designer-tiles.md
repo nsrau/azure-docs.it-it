@@ -1,11 +1,11 @@
 ---
 title: Guida di riferimento per i riquadri di Progettazione viste in Azure Log Analytics | Microsoft Docs
-description: "Progettazione viste in Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate."
+description: Progettazione viste in Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guida di riferimento per i riquadri di Progettazione viste in Log Analytics
 Progettazione viste in Azure Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
@@ -26,10 +26,8 @@ Progettazione viste in Azure Log Analytics consente di creare nel portale di Azu
 Per altre informazioni su Progettazione viste, vedere:
 
 * [Progettazione viste](log-analytics-view-designer.md): offre una panoramica di Progettazione viste e delle procedure per la creazione e la modifica di viste personalizzate.
-* [Informazioni di riferimento sulle parti di visualizzazione](log-analytics-view-designer-parts.md): offre una guida di riferimento per le impostazioni relative alle parti di visualizzazione disponibili nelle viste personalizzate.
+* [Informazioni di riferimento sulle parti della visualizzazione](log-analytics-view-designer-parts.md): offre una guida di riferimento sulle impostazioni relative alle parti della visualizzazione disponibili nelle visualizzazioni personalizzate.
 
-> [!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856078). Le viste create prima dell'aggiornamento dell'area di lavoro verranno convertite automaticamente.
 
 I riquadri di Progettazione viste disponibili sono descritti nella tabella seguente:  
 
@@ -42,7 +40,7 @@ I riquadri di Progettazione viste disponibili sono descritti nella tabella segue
 | [Grafico a linee](#line-chart-tile) |Grafico a linee basato su una query. |
 | [Due sequenze temporali](#two-timelines-tile) | Istogramma con due serie, ognuna basata su una query separata. |
 
-Le sezioni seguenti descrivono nei dettagli ogni tipo di riquadro e le relative proprietà.
+Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 ## <a name="number-tile"></a>Riquadro Numero
 Il riquadro **Numero** visualizza il numero di record restituiti da una query di log e un'etichetta.
@@ -51,7 +49,7 @@ Il riquadro **Numero** visualizza il numero di record restituiti da una query di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo visualizzato nella parte superiore del riquadro. |
+| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Riquadro** | |
 | Legenda |Testo visualizzato sotto il valore. |
@@ -69,7 +67,7 @@ Il riquadro visualizza il numero di record di due diverse query di log e un'etic
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo visualizzato nella parte superiore del riquadro. |
+| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Primo riquadro** | |
 | Legenda |Testo visualizzato sotto il valore. |
@@ -90,14 +88,14 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo visualizzato nella parte superiore del riquadro. |
+| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Anello** | |
 | Query |Query eseguita per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. |
 | **Anello** |**> Centro** |
 | Text |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
 | Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: per aggiungere i valori di tutti i record con il valore di proprietà.</li><li>Percentuale: la percentuale dei valori sommati dai record con il valore di proprietà rispetto ai valori sommati di tutti i record.</li></ul> |
-| I valori dei risultati usati nell'operazione centrale |Fare eventualmente clic sul segno più (+) per aggiungere uno o più valori. I risultati della query saranno limitati ai record con i valori di proprietà specificati. Se non vengono aggiunti valori, nella query vengono inclusi tutti i record. |
+| I valori dei risultati usati nell'operazione centrale |Facoltativamente, fare clic sul segno più (+) per aggiungere uno o più valori. I risultati della query saranno limitati ai record con i valori di proprietà specificati. Se non vengono aggiunti valori, nella query vengono inclusi tutti i record. |
 | **Anello** |**> Opzioni aggiuntive** |
 | Colori |Colore che viene visualizzato per ognuna delle tre proprietà principali. Per specificare colori alternativi per valori di proprietà specifici, usare *Mappa colori avanzata*. |
 | Mappa colori avanzata |Visualizza un colore che rappresenta valori di proprietà specifici. Se il valore specificato è tra i primi tre, viene visualizzato il colore alternativo anziché il colore standard. Se il valore di proprietà non è tra i primi tre, il colore non viene visualizzato. |
@@ -114,7 +112,7 @@ Questo riquadro contiene un grafico a linee con più serie provenienti da una qu
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo visualizzato nella parte superiore del riquadro. |
+| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
@@ -135,7 +133,7 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo visualizzato nella parte superiore del riquadro. |
+| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
@@ -160,7 +158,7 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
-| NOME |Testo visualizzato nella parte superiore del riquadro. |
+| NOME |Testo che viene visualizzato nella parte superiore del riquadro. |
 | DESCRIZIONE |Testo visualizzato sotto il nome del riquadro. |
 | Primo grafico | |
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |

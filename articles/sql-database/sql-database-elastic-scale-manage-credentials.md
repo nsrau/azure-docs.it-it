@@ -2,24 +2,18 @@
 title: Gestione delle credenziali nella libreria client dei database elastici | Documentazione Microsoft
 description: Come impostare il livello corretto di credenziali, da amministratore a sola lettura, per le app dei database elastici.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenziali usate per accedere alla libreria client dei database elastici
 La [libreria client dei database elastici](sql-database-elastic-database-client-library.md) usa tre diversi tipi di credenziali per accedere al [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). A seconda delle esigenze, usare le credenziali con il minimo livello possibile di accesso.

@@ -1,11 +1,11 @@
 ---
-title: Creare un'app Web Node.js e MongoDB nel servizio app di Azure in Linux | Microsoft Docs
+title: Creare un'app Web Node.js e MongoDB nel Servizio app di Azure in Linux | Microsoft Docs
 description: Informazioni su come usare un'app Node.js nel Servizio app di Azure in Linux, con connessione a un database Cosmos DB tramite una stringa di connessione MongoDB.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f497e9427885ab1d2e827e9fa1dd3c468aa39239
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ee7f37f83d6b3503df1af61509f6f85ca19bc13e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js e MongoDB nel servizio app di Azure in Linux
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js e MongoDB nel Servizio app di Azure in Linux
 
 > [!NOTE]
 > Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web Node.js e MongoDB in Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
@@ -126,7 +126,7 @@ Per MongoDB, questa esercitazione usa [Azure Cosmos DB](/azure/documentdb/). COS
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
 
 ### <a name="create-a-cosmos-db-account"></a>Creare un account Cosmos DB
 
@@ -252,7 +252,7 @@ In questo passaggio si distribuisce l'applicazione Node.js connessa a MongoDB ne
 
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
 ### <a name="configure-an-environment-variable"></a>Configurare una variabile di ambiente
 

@@ -2,21 +2,21 @@
 title: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando Node.js | Microsoft Docs
 description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato TPM usando Node.js Device SDK per il servizio Device Provisioning in hub IoT di Azure
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 03/01/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3cc667286e9c643f31d9c704a8a2dfac18312bb3
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ade9eca4b16e4864ec4e9d7bc6977c1e8322daa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando Node.js Device SDK per il servizio Device Provisioning in hub IoT
 
@@ -81,7 +81,7 @@ Assicurarsi di completare la procedura descritta in [Set up IoT Hub Device Provi
     > Gli esempi seguenti usano i trasporti `azure-iot-provisioning-device-http` e `azure-iot-device-mqtt`.
     > 
 
-    È possibile installare tutti questi componenti contemporaneamente eseguendo questo comando al prompt dei comandi nella cartella **registereddevice**:
+    È possibile installare tutti questi pacchetti contemporaneamente eseguendo questo comando al prompt dei comandi nella cartella **registerdevice**:
 
         ```cmd/sh
         npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device

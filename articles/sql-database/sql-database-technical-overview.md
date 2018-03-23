@@ -1,31 +1,31 @@
 ---
 title: Informazioni sul servizio database SQL di Azure | Microsoft Docs
-description: "Introduzione al database SQL, con dettagli tecnici e funzionalità relative al sistema di gestione di database relazionali (RDBMS) Microsoft sul cloud."
+description: Introduzione al database SQL, con dettagli tecnici e funzionalità relative al sistema di gestione di database relazionali (RDBMS) Microsoft sul cloud.
 keywords: introduzione a sql,intro a sql,informazioni sul database sql
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 02/12/2018
+ms.date: 03/07/2018
 ms.workload: Active
 ms.author: carlrab
 ms.reviewer: carlrab
-ms.openlocfilehash: 1671cbe47b2aee53e4ec6d2bc731cbe4496ce586
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure 
 
-Il database SQL è un servizio di database relazionale generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Questo servizio offre [prestazioni con scalabilità dinamica](sql-database-service-tiers.md) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](sql-database-in-memory.md) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante. 
+Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre [database SQL singoli](sql-database-servers-databases.md) gestiti, database SQL gestiti in un [pool elastico](sql-database-elastic-pool.md) e istanze gestite di SQL, denominate [Istanza gestita di database SQL](sql-database-managed-instance.md) (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica](sql-database-service-tiers.md) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](sql-database-in-memory.md) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante. 
 
 Il database SQL condivide la base di codice con il [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In linea con la strategia Microsoft incentrata sul cloud, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e poi a SQL Server. Questo approccio significa avere la possibilità di usare le funzionalità di SQL Server più nuove senza sovraccarico per l'applicazione di patch o gli aggiornamenti, oltre al vantaggio che le nuove funzionalità sono testate in milioni di database. Per informazioni sulle nuove funzionalità annunciate, vedere:
 
@@ -37,19 +37,22 @@ Il database SQL condivide la base di codice con il [motore di database di Micros
 
 Il database SQL offre prestazioni prevedibili a più livelli di servizio garantendo scalabilità dinamica senza tempi di inattività, ottimizzazione intelligente incorporata, scalabilità e disponibilità globali e opzioni di sicurezza avanzate, il tutto con esigenze di amministrazione quasi nulle. Queste funzionalità consentono di concentrarsi sullo sviluppo rapido di app e accelerare i tempi di mercato, piuttosto che allocare tempo e risorse preziose alla gestione delle macchine virtuali e dell'infrastruttura. Il servizio database SQL è attualmente gestito in 38 data center in tutto il mondo e ne vengono attivati altri regolarmente. È quindi possibile eseguire il database in un data center vicino alla propria località.
 
-> [!NOTE]
-> Vedere [Centro protezione di Azure](https://azure.microsoft.com/support/trust-center/security/) per informazioni sulla sicurezza della piattaforma Azure.
+> [!IMPORTANTE] Istanza gestita di database SQL è attualmente in anteprima ed è disponibile in un unico livello di servizio. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md).
 >
 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
 Con database SQL, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato un [livello di servizio](sql-database-service-tiers.md) proprio con un livello di prestazioni garantito. Il database SQL offre diversi livelli di prestazioni per esigenze diverse e consente di creare pool di database per ottimizzare l'uso delle risorse e risparmiare.
 
+Con Istanza gestita di database SQL, ogni istanza è isolata dalle altre con risorse garantite. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md). 
+
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Regolare le prestazioni e scalabilità senza tempi di inattività
 
 Per il database SQL sono disponibili tre livelli di servizio che supportano carichi di lavoro da leggeri a pesanti: Basic, Standard e Premium. È possibile creare la prima app in un singolo database di piccole dimensioni per un costo mensile conveniente e quindi modificare il livello di servizio manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
    ![scalabilità](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+
+Istanza gestita di database SQL è in anteprima e offre un unico livello di servizio. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -58,6 +61,9 @@ Per molte aziende e applicazioni, la possibilità di creare singoli database e a
    ![pool elastici](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
 Con i pool elastici non è necessario concentrarsi sul ridimensionamento delle prestazioni del database in base alla fluttuazione della richiesta delle risorse. I database nel pool utilizzano le risorse relative alle prestazioni del pool elastico in base alla necessità. I database nel pool utilizzano ma non superano i limiti del pool, quindi il costo rimane prevedibile, indipendentemente dall'utilizzo dei singoli database. Inoltre, è possibile [aggiungere e rimuovere i database al pool](sql-database-elastic-pool-manage-portal.md), con la scalabilità dell’app da un numero limitato di database a migliaia, tutto all'interno di un budget che è possibile controllare. È anche possibile controllare le risorse minime e massime disponibili per i database del pool per assicurarsi che nessun database del pool usi tutte le risorse del pool e che a ogni database nel pool sia garantita una quantità minima di risorse. Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere [Modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+
+> [!IMPORTANT]
+> Istanza gestita di database SQL non supporta pool elastici.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>Unire database singoli e database nel pool
 
@@ -83,6 +89,7 @@ Il settore di Azure che ha una accordo sul livello di disponibilità del servizi
 - **[Ripristini temporizzati](sql-database-recovery-using-backups.md)**: il database SQL supporta il recupero in qualsiasi momento entro il periodo di conservazione automatico del backup.
 - **[Replica geografica attiva](sql-database-geo-replication-overview.md)**: il database SQL consente di configurare fino a quattro database secondari leggibili nello stesso data center o in data center di Azure distribuiti a livello globale.  Nel caso di un'applicazione SaaS che usa un database catalogo con volumi elevati di transazioni di sola lettura concorrenti, ad esempio, è possibile usare la replica geografica attiva per il potenziamento della lettura su scala globale ed evitare i colli di bottiglia nel database primario causati dai carichi di lavoro di lettura. 
 - **[Gruppi di failover](sql-database-geo-replication-overview.md)**: il database SQL consente di abilitare soluzioni di disponibilità elevata e bilanciamento del carico su scala globale, inclusi la replica geografica trasparente e il failover di set di database e pool elastici di grandi dimensioni. I gruppi di failover e la replica geografica attiva consentono la creazione di applicazioni SaaS distribuite a livello globale con un sovraccarico amministrativo minimo, grazie alla possibilità di delegare l'orchestrazione complessa di monitoraggio, routing e failover al database SQL.
+- **[Database con ridondanza della zona](sql-database-high-availability.md)**: il database SQL consente di effettuare il provisioning di database o pool elastici Premium in più zone di disponibilità. Dato che i database e i pool elastici Premium hanno più repliche ridondanti per garantire disponibilità elevata, l'inserimento di tali repliche in più zone di disponibilità assicura resilienza superiore, nonché la possibilità di eseguire automaticamente il ripristino in caso di errori a livello di data center senza perdita di dati. Questa funzionalità è attualmente in anteprima. 
 
 ## <a name="built-in-intelligence"></a>Intelligenza incorporata
 
@@ -137,7 +144,7 @@ La [sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-datab
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integrazione in Azure Active Directory e autenticazione a più fattori
 
-Il database SQL consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione in Azure Active Directory](sql-database-aad-authentication.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta l'[autenticazione a più fattori](sql-database-ssms-mfa-authentication.md) (MFA) per una maggiore sicurezza di dati e applicazioni, supportando allo stesso tempo un processo di accesso singolo.
+Il database SQL consente di gestire a livello centralizzato le identità degli utenti di database e altri servizi Microsoft grazie all'[integrazione in Azure Active Directory](sql-database-aad-authentication.md). Questa funzionalità semplifica la gestione delle autorizzazioni e ottimizza la sicurezza. Azure Active Directory supporta l'[autenticazione a più fattori](sql-database-ssms-mfa-authentication.md) (MFA) per una maggiore sicurezza dei dati e delle applicazioni, supportando al tempo stesso un processo Single Sign-On.
 
 ### <a name="compliance-certification"></a>Certificazione di conformità
 
@@ -158,7 +165,7 @@ Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, 
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): per domande relative all'amministrazione dei database
 - [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): per domande relative allo sviluppo
-- [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver): per domande tecniche
+- [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): per domande tecniche
 - [Commenti e suggerimenti](http://aka.ms/sqlfeedback): per segnalare bug e richiedere funzionalità
 - [Reddit](https://www.reddit.com/r/SQLServer/): per comunicazioni su SQL Server
 

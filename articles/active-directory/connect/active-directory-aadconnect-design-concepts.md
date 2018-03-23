@@ -1,11 +1,11 @@
 ---
-title: Concetti relativi alla progettazione per Azure AD Connect | Documentazione Microsoft
+title: Concetti relativi alla progettazione per Azure AD Connect | Microsoft Docs
 description: Questo argomento illustra alcune aree di progettazione dell'implementazione.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo argomento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri argomenti.
@@ -45,7 +45,7 @@ Il valore dell'attributo deve rispettare le regole seguenti:
 * Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Deve essere globalmente univoco
 * Deve essere una stringa, un valore intero o un numero binario
-* Non deve essere basato sul nome dell'utente, queste modifiche
+* Non deve essere basato sul nome dell'utente
 * Non devono fare distinzione tra maiuscole e minuscole e devono evitare valori che possono variare in base alle maiuscole/minuscole
 * Deve essere assegnato quando viene creato l'oggetto
 

@@ -1,25 +1,25 @@
 ---
 title: Ruoli in Azure AD Privileged Identity Management | Documentazione Microsoft
-description: "Informazioni sui ruoli utilizzati per le identità con privilegi con l'estensione Azure Privileged Identity Management."
+description: Informazioni sui ruoli utilizzati per le identità con privilegi con l'estensione Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/31/2017
+ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Ruolo amministrativo differente in Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -50,7 +50,7 @@ Privileged Identity Management consente di assegnare utenti a ruoli di amministr
   > 
 * **amministratore Gestione utenti** reimposta le password, effettua il monitoraggio dell'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. L'amministratore Gestione utenti non può eliminare un amministratore globale, creare altri ruoli amministrativi o reimpostare le password per gli amministratori fatturazione, globali e dei servizi.
 * **amministratore di Exchange** ha accesso amministrativo a Exchange Online tramite l'interfaccia di amministrazione di Exchange e può eseguire quasi tutte le attività in Exchange Online.
-* **amministratore di SharePoint** ha accesso amministrativo a SharePoint Online tramite l'interfaccia di amministrazione di SharePoint Online e può eseguire quasi tutte le attività in SharePoint Online.
+* **amministratore di SharePoint (anteprima)** ha accesso amministrativo a SharePoint Online tramite l'interfaccia di amministrazione di SharePoint Online e può eseguire quasi tutte le attività in SharePoint Online. Questo ruolo è attualmente in fase di anteprima. Potrebbero verificarsi ritardi se gli utenti idonei usano il ruolo all'interno di SharePoint dopo l'attivazione di PIM.
 * **amministratore di Skype for Business** ha accesso amministrativo a Skype for Business tramite l'interfaccia di amministrazione di Skype for Business e può eseguire quasi tutte le attività in Skype for Business Online.
 
 Leggere gli articoli seguenti per altre informazioni sull'[assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) e sull'[assegnazione dei ruoli di amministratore in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).

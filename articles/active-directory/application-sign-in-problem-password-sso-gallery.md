@@ -1,10 +1,10 @@
 ---
-title: Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On federato | Microsoft Docs
+title: Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password | Microsoft Docs
 description: Come risolvere i problemi relativi a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: de6c876c7583da0b00ae2365646b1d381fda2b1e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6de9d066f861d300bbe3601701e846410e93773
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On federato
+# <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemi di accesso a un'applicazione della raccolta di Azure AD configurata per il Single Sign-On basato su password
 
-Il pannello di accesso è un portale basato sul Web che permette a un utente che ha un account aziendale o dell'istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Un utente dotato di edizioni di Azure AD può anche usare le funzionalità di gestione self-service di gruppi e app tramite il pannello di accesso. Il pannello di accesso è separato dal portale di Azure e non richiede una sottoscrizione Azure.
+Il pannello di accesso è un portale basato sul Web che permette a un utente che ha un account aziendale o di istituto di istruzione in Azure Active Directory (Azure AD) di visualizzare e avviare applicazioni basate sul cloud a cui l'amministratore di Azure AD ha concesso l'accesso. Un utente dotato di edizioni di Azure AD può anche usare le funzionalità di gestione self-service di gruppi e app tramite il pannello di accesso. Il pannello di accesso è separato dal portale di Azure e non richiede una sottoscrizione Azure.
 
 Per usare il servizio Single Sign-On (SSO) basato su password nel pannello di accesso, è necessario installare l'estensione del pannello di accesso nel browser dell'utente. Questa estensione viene scaricata automaticamente quando un utente seleziona un'applicazione configurata per il servizio Single Sign-On basato su password.
 
@@ -81,7 +81,7 @@ Per istruzioni passo passo su come configurare i Criteri di gruppo e distribuirl
 
 Per accedere a uno strumento diagnostico e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la procedura nella sezione sulla [risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot).
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare l'accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD
 
 Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si vuole configurare l'accesso Single Sign-On
+6.  Selezionare l'applicazione per cui si vuole configurare un accesso Single Sign-On
 
 7.  Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
@@ -141,7 +141,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 10. È anche possibile specificare le credenziali per conto dell'utente selezionando le righe degli utenti e facendo clic su **Aggiorna credenziali**, quindi immettendo il nome utente e la password per conto degli utenti. In caso contrario, verrà richiesto agli utenti di immettere le credenziali all'avvio.
 
-### <a name="assign-users-to-the-application"></a>Assegnare gli utenti all'applicazione
+### <a name="assign-users-to-the-application"></a>Assegnare utenti all'applicazione
 
 Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 

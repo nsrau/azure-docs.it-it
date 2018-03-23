@@ -1,29 +1,29 @@
 ---
-title: "Proteggere i dati personali con le funzionalità di sicurezza di rete di Azure | Microsoft Docs"
-description: "Proteggere i dati personali usando le funzionalità di sicurezza di rete di Azure"
+title: Proteggere i dati personali con le funzionalità di sicurezza di rete di Azure | Microsoft Docs
+description: Proteggere i dati personali usando le funzionalità di sicurezza di rete di Azure. Questo può essere utile per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Proteggere i dati personali con le funzionalità di sicurezza di rete: gruppi di sicurezza di rete e gateway applicazione di Azure
 
-Questo articolo contiene informazioni e procedure utili per usare i gruppi di sicurezza di rete e il gateway applicazione di Azure per proteggere i dati personali.
+Questo articolo contiene informazioni e procedure utili per usare i gruppi di sicurezza di rete e il gateway applicazione di Azure per proteggere i dati personali. Queste informazioni possono essere utili per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
 Un elemento importante in una strategia di sicurezza a più livelli per la protezione della privacy dei dati personali è la difesa contro gli exploit associati a vulnerabilità comuni, come gli attacchi SQL injection o cross-site scripting. Mantenere il traffico di rete indesiderato all'esterno della rete virtuale di Azure aiuta a proteggersi dalla potenziale compromissione dei dati sensibili e Microsoft Azure offre strumenti utili per proteggere i dati dagli utenti malintenzionati.
 

@@ -2,23 +2,23 @@
 title: Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory)| Microsoft Docs
 description: L'utente e l'azienda possono estendere le condizioni per l'utilizzo di Azure AD agli utenti dei servizi di Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 03/06/2018
 ms.author: billmath
-ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e29e842a54d286e19d23c1c91c08d55933a0eada
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funzione Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) (anteprima)
 Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali.  In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità.
@@ -125,10 +125,10 @@ Questo avviene perché i criteri di accesso condizionale diventano effettivi imm
 R: un utente che accetta le condizioni per l'utilizzo viene scritto nel log di controllo. È quindi possibile ottenere le informazioni desiderate cercando nel log di controllo di Azure AD.  
 
 **D: se i termini delle condizioni per l'utilizzo vengono modificati è necessario che gli utenti le accettino di nuovo?**</br>
-R: sì, un amministratore può modificare i termini delle condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione.
+R: sì, un amministratore può modificare le condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione.
 
 **D: le condizioni per l'utilizzo possono supportare più lingue?**</br>
-R: no, attualmente non è possibile avere le stesse condizioni per l'utilizzo in più lingue.  Tuttavia è possibile definire l'ambito di un gruppo (ad esempio le condizioni per l'utilizzo relative alla Francia sono diverse da quelle per il Regno Unito). 
+A: Sì.  L'amministratore può attualmente configurare 18 lingue diverse per singole condizioni per l'utilizzo. 
 
 **D: quando vengono attivate le condizioni per l'utilizzo?**</br>
 R: le condizioni per l'utilizzo vengono attivate durante l'accesso.

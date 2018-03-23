@@ -2,9 +2,10 @@
 title: Utilizzare il portale dei servizi Web di Azure Machine Learning | Documentazione Microsoft
 description: Gestione dell'accesso alle aree di lavoro di Azure Machine Learning e distribuzione e gestione dei servizi Web API ML
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
 editor: cgronlun
 ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: raymondl
-ms.openlocfilehash: 88eba56424d9289a35b7de4dcf5f50191411a09a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 37aedfb06d62b948a5231e881d19a06b621522e9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning
 Il portale dei servizi Web di Microsoft Azure Machine Learning consente di gestire i servizi Web classici e nuovi di Machine Learning. Poiché i servizi Web classici e nuovi sono basati su tecnologie diverse, sono disponibili funzionalità di gestione leggermente diverse.

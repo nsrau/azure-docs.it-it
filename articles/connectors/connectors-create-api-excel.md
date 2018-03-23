@@ -1,11 +1,11 @@
 ---
 title: Aggiungere il connettore Excel | Documentazione Microsoft
 description: Panoramica del connettore Excel con i parametri dell'API REST
-services: 
-documentationcenter: 
-author: MandiOhlinger
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 03af8652-9223-4348-9490-602872a680f0
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4d62bee573aba4c8b0445b1f4c44190496fb3a18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: estfan; ladocs
+ms.openlocfilehash: 774cf3134e36c50e181a562019cbab3e6de1249d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-excel-connector"></a>Introduzione al connettore Excel
 Non sono disponibili connettori Excel nelle app per la logica. 

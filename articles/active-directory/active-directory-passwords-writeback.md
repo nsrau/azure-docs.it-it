@@ -3,24 +3,24 @@ title: Reimpostazione delle password self-service di Azure Ad con writeback dell
 description: Usare Azure AD e Azure AD Connect per eseguire il writeback delle password in una directory locale
 services: active-directory
 keywords: gestione delle password in Active Directory, gestione delle password, reimpostazione password self-service di Azure AD
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>Panoramica del writeback delle password
 
@@ -31,6 +31,7 @@ Il writeback delle password offre le funzionalità seguenti:
 * **Offre un feedback senza nessun ritardo**: il writeback delle password è un'operazione sincrona. Gli utenti vengono informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
 * **Supporta la reimpostazione password per gli utenti che usano Active Directory Federation Services (AD FS) o altre tecnologia federate**: con il writeback delle password gli account utente federati potranno gestire le proprie password AD locali dal cloud, purché siano sincronizzati nel tenant di Active Directory.
 * **Supporta la reimpostazione password per gli utenti che usano** [la sincronizzazione degli hash delle password](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): quando il servizio di reimpostazione password rileva che un account utente sincronizzato è abilitato per la sincronizzazione degli hash delle password, la password locale e la password cloud dell'account vengono reimpostate simultaneamente.
+* **Supporta la reimpostazione delle password per gli utenti che usano l'autenticazione pass-through**: con il writeback delle password gli account con autenticazione pass-through potranno gestire le password di Active Directory locali dal cloud purché siano sincronizzati nel tenant di Azure AD.
 * **Supporta la modifica delle password dal pannello di accesso e da Office 365**: quando gli utenti federati o sincronizzati con password modificano le password scadute o non scadute, queste verranno scritte anche nell'ambiente Active Directory locale.
 * **Supporta il writeback delle password quando un amministratore le reimposta dal portale di Azure**: quando un amministratore reimposta la password di un utente nel [portale di Azure](https://portal.azure.com), se tale utente è federato o sincronizzato con password, la password selezionata dall'amministratore verrà impostata anche nell'ambiente Active Directory locale. Questa funzionalità non è attualmente supportata nel portale di amministrazione di Office.
 * **Applica i criteri delle password Active Directory locali**: quando un utente reimposta la propria password, si verifica che soddisfi i criteri Active Directory locali prima di eseguirne il commit nella directory. Questo esame include il controllo di cronologia, complessità, validità, filtri delle password e altre restrizioni per le password definite in Active Directory locale.

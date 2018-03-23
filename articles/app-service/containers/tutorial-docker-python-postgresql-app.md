@@ -1,6 +1,6 @@
 ---
 title: Compilare un'app Web Python Docker e PostgreSQL in Azure | Microsoft Docs
-description: "Informazioni su come ottenere un'app Docker Python che è possibile usare in Azure con connessione a un database PostgreSQL."
+description: Informazioni su come ottenere un'app Docker Python che è possibile usare in Azure con connessione a un database PostgreSQL.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: c77b7c965f43dc9c4f76683aabeb6ff9c9d3a1c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilare un'app Web Python Docker e PostgreSQL in Azure
 
@@ -130,7 +130,7 @@ In questo passaggio si crea un database PostgreSQL in Azure. Quando viene distri
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL
 

@@ -1,8 +1,8 @@
 ---
-title: "Usare un'identità del servizio gestito assegnata dall'utente di macchina virtuale di Linux per accedere ad Azure Resource Manager"
-description: "Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Azure Resource Manager."
+title: Usare un'identità del servizio gestito assegnata dall'utente di macchina virtuale di Linux per accedere ad Azure Resource Manager
+description: Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7013cb48738d4dccb328728fe1e47b3f43bff4f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c2b6d70e441dc3d300f49adff1c02d7cc65788d2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -146,7 +146,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
    La richiesta CURL per acquisire un token di accesso viene visualizzata nell'esempio seguente. Sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi): 
     
    ```bash
-   curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>"   
    ```
     
     > [!NOTE]

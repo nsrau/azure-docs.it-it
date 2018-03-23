@@ -2,11 +2,11 @@
 title: Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows | Microsoft Docs
 description: Presenta l'estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -29,7 +29,7 @@ L'estensione per macchine virtuali Azure Performance Diagnostics raccoglie i dat
 Questa estensione può essere installata in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016, nonché in Windows 8.1 e Windows 10.
 
 ## <a name="extension-schema"></a>Schema dell'estensione
-Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali Azure Performance Diagnostics. Per archiviare l'output e il report di diagnostica, l'estensione richiede il nome e la chiave di un account di archiviazione. Questi valori sono riservati e devono essere archiviati all'interno di una configurazione con impostazioni protette. I dati della configurazione protetta dell'estensione per macchine virtuali di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Per **storageAccountName** and **storageAccountKey** viene fatta distinzione tra maiuscole e minuscole. Gli altri parametri obbligatori sono elencati nella sezione seguente.
+Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali Azure Performance Diagnostics. Per archiviare l'output e il report di diagnostica, l'estensione richiede il nome e la chiave di un account di archiviazione. Questi valori sono riservati. La chiave dell'account di archiviazione deve essere archiviata all'interno di una configurazione con impostazioni protette. I dati della configurazione protetta dell'estensione per macchine virtuali di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Per **storageAccountName** and **storageAccountKey** viene fatta distinzione tra maiuscole e minuscole. Gli altri parametri obbligatori sono elencati nella sezione seguente.
 
 ```JSON
     {
@@ -43,19 +43,19 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -75,12 +75,13 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |xperfTrace|x|Opzione che abilita la traccia XPerf. I valori validi sono **x** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |storPortTrace|s|Opzione che abilita la traccia StorPort. I valori validi sono **s** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |srNumber|123452016365929|Numero del ticket di supporto, se disponibile. Se non è disponibile, lasciare vuoto il valore.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Data e ora correnti in formato UTC. Se l'estensione viene installata tramite il portale, non è necessario specificare questo valore.
 |storageAccountName|mystorageaccount|Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Chiave per l'account di archiviazione.
 
 ## <a name="install-the-extension"></a>Installare l'estensione
 
-Per installare l'estensione in macchine virtuali Windows, seguire questa procedura:
+Per installare l'estensione in macchine virtuali Windows, seguire queste istruzioni:
 
 1. Accedere al [portale di Azure](http://portal.azure.com).
 2. Selezionare la macchina virtuale in cui installare l'estensione.
@@ -182,19 +183,19 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +203,13 @@ Le estensioni per macchine virtuali di Azure possono essere distribuite con i mo
 ````
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
-Il comando `Set-AzureRmVMExtension` consente di distribuire l'estensione per macchine virtuali Azure Performance Diagnostics in una macchina virtuale esistente. Prima di eseguire il comando, archiviare le configurazioni pubbliche e private in una tabella hash di PowerShell.
+Il comando `Set-AzureRmVMExtension` consente di distribuire l'estensione per macchine virtuali Azure Performance Diagnostics in una macchina virtuale esistente.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +219,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informazioni sui dati acquisiti

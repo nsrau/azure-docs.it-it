@@ -1,11 +1,11 @@
 ---
-title: "Infrastruttura e connettività a SAP HANA in Azure (istanze grandi) | Microsoft Docs"
-description: "Configurare l'infrastruttura di connettività necessaria per l'uso di SAP HANA in Azure (istanze grandi)."
+title: Infrastruttura e connettività a SAP HANA in Azure (istanze grandi) | Microsoft Docs
+description: Configurare l'infrastruttura di connettività necessaria per l'uso di SAP HANA in Azure (istanze grandi).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastruttura e connettività a SAP HANA (istanze di grandi dimensioni) in Azure 
 
@@ -75,7 +75,7 @@ Di seguito viene illustrata la creazione di una rete virtuale di Azure per le is
 >[!Note]
 >La rete virtuale di Azure per istanze Large di HANA deve essere creata usando il modello di distribuzione Azure Resource Manager. Il vecchio modello di distribuzione di Azure, comunemente noto come modello di distribuzione classico, non è supportato per le istanze Large di HANA.
 
-La rete virtuale può essere creata mediante il portale di Azure, PowerShell, il modello di Azure o l'interfaccia della riga di comando di Azure (vedere [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Nell'esempio seguente viene illustrata una rete virtuale creata tramite il portale di Azure.
+La rete virtuale può essere creata mediante il portale di Azure, PowerShell, il modello di Azure o l'interfaccia della riga di comando di Azure (vedere [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). Nell'esempio seguente viene illustrata una rete virtuale creata tramite il portale di Azure.
 
 Vengono ora esaminate alcune delle definizioni di una rete virtuale di Azure tramite il portale di Azure e il modo in cui sono correlare agli intervalli di indirizzi IP elencati di seguito. Per **spazio indirizzi** si intende lo spazio di indirizzi che la rete virtuale di Azure può usare, nonché l'intervallo di indirizzi che verrà usato dalla rete virtuale per la propagazione della route BGP. Lo **Spazio indirizzi** viene visualizzato qui:
 
@@ -250,7 +250,7 @@ Usare il portale di Azure, PowerShell o l'interfaccia della riga di comando per 
 
 In questo caso, è consigliabile aggiungere il nuovo intervallo di indirizzi IP allo spazio di indirizzi della rete virtuale come nuovo intervallo anziché generare un nuovo intervallo aggregato. In entrambi i casi è necessario inviare la modifica a Microsoft per consentire la connettività in uscita dal nuovo intervallo di indirizzi IP alle unità di istanze Large di HANA nel client. È possibile aprire una richiesta di supporto tecnico di Azure per ottenere il nuovo spazio di indirizzi della rete virtuale aggiunto. Dopo aver ricevuto la conferma, eseguire i passaggi successivi.
 
-Per creare una subnet aggiuntiva dal portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json); per creare da PowerShell, vedere [Creare una rete virtuale usando PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per creare una subnet aggiuntiva dal portale di Azure, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network); per creare da PowerShell, vedere [Creare una rete virtuale usando PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Aggiunta di reti virtuali
 
@@ -277,15 +277,13 @@ Una volta creato il nuovo circuito e completata la configurazione da parte del t
 
 Per rimuovere una subnet di rete virtuale, è possibile usare il portale di Azure, PowerShell o l'interfaccia della riga di comando. Se l'intervallo di indirizzi IP della rete virtuale di Azure o lo spazio di indirizzi della rete virtuale di Azure è un intervallo aggregato, non è necessario contattare Microsoft. È tuttavia necessario tenere presente che la rete virtuale sta ancora propagando lo spazio di indirizzi della route BGP che include la subnet eliminata. Se l'intervallo di indirizzi IP della rete virtuale di Azure o lo spazio di indirizzi della rete virtuale di Azure è stato definito come più intervalli di indirizzi IP, uno dei quali era assegnato alla subnet eliminata, è necessario eliminare quest'ultimo dallo spazio di indirizzi della rete virtuale e quindi indicare a SAP HANA in gestione dei servizi di Azure che va rimosso dagli intervalli con cui SAP HANA in Azure (istanze Large) può comunicare.
 
-Azure.com non contiene ancora linee guida specifiche su come rimuovere le subnet. Tuttavia, per la rimozione occorre procedere al contrario rispetto all'aggiunta. Per altre informazioni sulla creazione di subnet, vedere l'articolo [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per eliminare una subnet, vedere [Eliminare una subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) per altre informazioni.
 
 ## <a name="deleting-a-vnet"></a>Eliminazione di una rete virtuale
 
-Usare il portale di Azure, PowerShell o l'interfaccia della riga di comando per eliminare una rete virtuale. SAP HANA in gestione dei servizi di Azure consente di rimuovere le autorizzazioni esistenti nel circuito ExpressRoute per SAP HANA in Azure (istanze Large) e di rimuovere l'intervallo di indirizzi IP della rete virtuale di Azure o lo spazio di indirizzi della rete virtuale di Azure per la comunicazione con istanze Large di HANA.
+Per eliminare una rete virtuale, vedere [Delete a virtual network](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network) (Eliminare una rete virtuale). SAP HANA in gestione dei servizi di Azure consente di rimuovere le autorizzazioni esistenti nel circuito ExpressRoute per SAP HANA in Azure (istanze Large) e di rimuovere l'intervallo di indirizzi IP della rete virtuale di Azure o lo spazio di indirizzi della rete virtuale di Azure per la comunicazione con istanze Large di HANA.
 
 Dopo aver rimosso la rete virtuale, aprire una richiesta di supporto di Azure per specificare gli intervalli di spazi di indirizzi IP da rimuovere.
-
-Azure.com non contiene ancora linee guida specifiche su come rimuovere le reti virtuali. Tuttavia, per la rimozione occorre procedere al contrario rispetto all'aggiunta descritta in precedenza. Vedere gli articoli [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Creare una rete virtuale usando PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per ulteriori informazioni sulla creazione di reti virtuali.
 
 Per garantire una rimozione completa, rimuovere gli elementi seguenti:
 

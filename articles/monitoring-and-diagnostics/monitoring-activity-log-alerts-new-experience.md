@@ -1,9 +1,9 @@
 ---
-title: "Creare gli avvisi del log attività e gestirli con la nuova esperienza di Avvisi (anteprima) in Monitoraggio di Azure | Microsoft Docs"
-description: "Questo articolo fornisce informazioni su come creare gli avvisi del log attività dalla scheda Avvisi (anteprima) in Monitoraggio di Azure. Questo articolo illustra in dettaglio la nuova esperienza utente per questa funzionalità."
+title: Creare gli avvisi del log attività e gestirli con la nuova esperienza di Avvisi (anteprima) in Monitoraggio di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni su come creare gli avvisi del log attività dalla scheda Avvisi (anteprima) in Monitoraggio di Azure. Questo articolo illustra in dettaglio la nuova esperienza utente per questa funzionalità.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Creare gli avvisi del log attività con la nuova esperienza Avvisi (anteprima)
 
@@ -89,7 +89,7 @@ Utilizzare la procedura seguente:
 
      ![Selezionare la destinazione](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - In **Criteri di destinazione, fare clic su **Aggiungi criteri** selezionare il tipo di segnale come **Log attività**.
+    - In **Criteri di destinazione** fare clic su **Aggiungi criteri** e selezionare il tipo di segnale come **Log attività**.
 
     - Selezionare il segnale nell'elenco visualizzato.
 
@@ -111,7 +111,7 @@ Utilizzare la procedura seguente:
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Nella **definizione delle regole di avviso** fornire i dettagli seguenti:
+4. In **Definire i dettagli dell'avviso** fornire i dettagli seguenti:
 
     - **Nome regola di avviso**: nome della nuova regola di avviso
     - **Descrizione**: descrizione della nuova regola di avviso

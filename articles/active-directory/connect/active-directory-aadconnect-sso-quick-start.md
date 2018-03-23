@@ -2,8 +2,8 @@
 title: 'Azure AD Connect: Accesso Single Sign-On facile - avvio rapido| Microsoft Docs'
 description: Questo articolo descrive come iniziare a usare l'accesso Single Sign-On facile di Azure Active Directory.
 services: active-directory
-keywords: "che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
-documentationcenter: 
+keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -138,7 +138,7 @@ Verificare che il computer che esegue Mac OS sia stato aggiunto a Azure AD. Per 
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 
-Se nel proprio ambiente si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), assicurarsi di aggiungervi anche l'URL di Azure AD (https://autologon.microsoftazuread-sso.com).
+Se nel proprio ambiente si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), assicurarsi di aggiungervi anche l'URL di Azure AD (https://autologon.microsoftazuread-sso.com)).
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (solo Mac OS)
 

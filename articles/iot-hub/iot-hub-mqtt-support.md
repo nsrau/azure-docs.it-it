@@ -5,21 +5,21 @@ services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2018
+ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a22c20a26ee4750c79c23fbba69de72a0084dfe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -100,6 +100,8 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni** . Questo evento contiene informazioni aggiuntive che consentono di risolvere i problemi di connettività.
 
+L'app per dispositivo può specificare un messaggio **Will** nel pacchetto **CONNECT**. L'app per dispositivo deve usare `devices/{device_id}/messages/events/{property_bag}` o `devices/{device_id}/messages/events/{property_bag}` come nome di argomento **Will** per definire i messaggi **Will** da inoltrare come messaggi di telemetria. In questo caso, se la connessione di rete viene chiusa, ma il dispositivo non ha prima ricevuto un pacchetto **DISCONNECT**, l'hub IoT invia il messaggio **Will** specificato nel pacchetto **CONNECT** al canale di telemetria. Quest'ultimo può essere l'endpoint **Events** predefinito o un endpoint personalizzato definito dal routing dell'hub IoT. Alla proprietà **iothub-MessageType** del messaggio è assegnato un valore **Will**.
+
 ### <a name="tlsssl-configuration"></a>Configurazione TLS/SSL
 
 Per usare direttamente il protocollo MQTT, il client *deve* connettersi tramite TLS/SSL, altrimenti si verificheranno errori di connessione.
@@ -165,7 +167,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 > [!NOTE]
 > Questo elemento `{property_bag}` usa la stessa codifica delle stringhe di query nel protocollo HTTPS.
 
-L'app per dispositivo può usare anche `devices/{device_id}/messages/events/{property_bag}` come **nome argomento Will** per definire *messaggi Will* da inoltrare come messaggio di telemetria.
+Di seguito è riportato un elenco di comportamenti specifici dell'implementazione dell'hub IoT:
 
 * L'hub IoT non supporta i messaggi di QoS 2. Quando un'app per dispositivo pubblica un messaggio con **QoS 2**, l'hub IoT chiude la connessione di rete.
 * L'hub IoT non rende persistenti i messaggi di mantenimento. Se un dispositivo invia un messaggio con il flag **RETAIN** impostato su 1, l'hub IoT aggiunge al messaggio la proprietà dell'applicazione **x-opt-retain**. In tal caso, anziché rendere persistente il messaggio di mantenimento, l'hub IoT passa invece all'app back-end.
@@ -209,7 +211,7 @@ Il corpo della risposta contiene la sezione delle proprietà del dispositivo gem
 
 I possibili codici di stato sono i seguenti:
 
-|Status | DESCRIZIONE |
+|Stato | Descrizione |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | Numero eccessivo di richieste (limitazione), come descritto in [Limitazione dell'hub IoT][lnk-quotas] |
@@ -238,7 +240,7 @@ Il corpo del messaggio di richiesta include un documento JSON che contiene nuovi
 
 I possibili codici di stato sono i seguenti:
 
-|Status | DESCRIZIONE |
+|Stato | Descrizione |
 | ----- | ----------- |
 | 200 | Success |
 | 400 | Richiesta non valida. JSON non valido |

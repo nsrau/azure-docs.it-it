@@ -1,11 +1,11 @@
 ---
-title: "Ridimensionare l'elaborazione multimediale aggiungendo unità di codifica - Azure | Documentazione Microsoft"
-description: "Informazioni su come aggiungere unità di codifica mediante .NET"
+title: Ridimensionare l'elaborazione multimediale aggiungendo unità di codifica - Azure | Microsoft Docs
+description: Informazioni su come aggiungere unità di codifica mediante .NET
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 89203a9499b3624faf41b63f4ea6e7bd29f3f0c9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Come scalare la codifica con .NET SDK
 > [!div class="op_single_selector"]
@@ -53,7 +53,8 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Apertura di un ticket di supporto
-Per impostazione predefinita, ogni account di Media Services può includere fino a 25 unità di codifica riservate e cinque unità riservate di streaming on demand. È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
+
+Per impostazione predefinita, ogni account di Servizi multimediali può includere fino a 10 MRU (Media Reserved Unit) S2 o S3 o 25 MRU S1 e cinque unità riservate di streaming on demand. È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

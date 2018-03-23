@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/16/2018
+---
 Le dimensioni delle macchine virtuali ottimizzate per l'archiviazione offrono una velocità effettiva e di I/O elevata per i dischi e sono ideali per i database NoSQL, SQL e Big Data. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
 La serie Ls offre fino a 32 vCPU e usa il [processore Intel® Xeon® della famiglia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie Ls offre le stesse prestazioni CPU della serie G/GS ed è dotato di 8 GiB di memoria per ogni vCPU.  

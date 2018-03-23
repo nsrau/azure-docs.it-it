@@ -2,10 +2,10 @@
 title: Come usare PowerShell per creare certificati X.509 | Microsoft Docs
 description: Come usare PowerShell per creare certificati X.509 localmente e abilitare la sicurezza basata sullo standard X.509 nell'hub IoT di Azure in un ambiente simulato.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,16 @@ ms.workload: na
 ms.date: 12/10/2017
 ms.author: dkshir
 ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Script PowerShell per la gestione di certificati X.509 firmati da CA
 
 La sicurezza basata su certificati X.509 nell'hub IoT richiede prima di tutto una [catena di certificati X.509](https://en.wikipedia.org/wiki/X.509#Certificate_chains_and_cross-certification), che include il certificato radice e i certificati intermedi fino al certificato foglia. La presente guida fornisce *procedure* e istruzioni dettagliate che usano script PowerShell di esempio basati su [OpenSSL](https://www.openssl.org/) per creare e firmare certificati X.509. È consigliabile usare questa guida solo come riferimento, dal momento che molte delle procedure descritte vengono in realtà eseguite durante il processo di produzione. È possibile usare questi certificati per simulare la sicurezza nell'hub IoT di Azure mediante l'*autenticazione dei certificati X.509*. I passaggi descritti in questa guida consentono di creare certificati in locale nel computer Windows in uso. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questa esercitazione si presuppone l'acquisto di file binari OpenSSL. È possibile
     - scaricare il codice sorgente OpenSSL e generare i file binari nel computer in uso oppure 
     - scaricare e installare qualsiasi [file binario OpenSSL di terze parti](https://wiki.openssl.org/index.php/Binaries), ad esempio da [questo progetto in SourceForge](https://sourceforge.net/projects/openssl/).

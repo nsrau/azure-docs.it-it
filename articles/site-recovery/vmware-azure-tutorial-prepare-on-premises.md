@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6b5c16e5b4136acc06c4ace4b16e8eb0e3522d24
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
@@ -86,7 +86,7 @@ Assicurarsi che la macchina virtuale soddisfi i requisiti di Azure elencati nell
 **Nome VM** | Tra 1 e 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero.
 **Tipo di VM** | Generazione 1 - Linux o Windows<br/><br/>Generazione 2 - Solo Windows
 
-È anche necessario che la macchina virtuale esegua un sistema operativo supportato. Per un elenco completo delle versioni supportate, vedere [Matrice di supporto di Azure Site Recovery](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions).
+È anche necessario che la macchina virtuale esegua un sistema operativo supportato. Per un elenco completo delle versioni supportate, vedere [Matrice di supporto di VMware e server fisici](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
 

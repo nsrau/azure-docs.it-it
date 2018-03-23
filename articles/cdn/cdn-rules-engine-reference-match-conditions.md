@@ -2,10 +2,10 @@
 title: Condizioni di corrispondenza del motore regole della rete CDN di Azure | Documentazione Microsoft
 description: Documentazione di riferimento per le condizioni di corrispondenza per il motore regole della rete per la distribuzione di contenuti di Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -737,7 +737,7 @@ Informazioni chiave:
     
 - Specificare più percorsi URL delimitandoli con uno spazio singolo.
 
-   Ad esempio: /marketing/asset.* /sales/*.htm
+   Ad esempio: /marketing/asset.\* /sales/\*.htm
 
 - Le stringhe di query nell'URL vengono ignorate.
     
@@ -753,11 +753,11 @@ Le configurazioni di esempio nella tabella seguente presuppongono che questa con
 
 Valore                   | Relative to (Relativo a)    | Risultato 
 ------------------------|----------------|-------
-*/test.html */test.php  | Radice o Origine | Le richieste di asset denominati "test.html" o "test.php" in qualsiasi cartella soddisfano la corrispondenza a questo modello.
+\*/test.html \*/test.php  | Radice o Origine | Le richieste di asset denominati "test.html" o "test.php" in qualsiasi cartella soddisfano la corrispondenza a questo modello.
 /80ABCD/origin/text/*   | Radice           | L'asset richiesto corrisponde a questo modello quando soddisfa i criteri seguenti: <br />- Si trova in un'origine cliente denominata "origin". <br />- Il percorso relativo inizia con una cartella denominata "text". Questo significa che l'asset richiesto può trovarsi nella cartella "text" o in una delle sottocartelle ricorsive.
 */css/* */js/*          | Radice o Origine | Tutti gli URL CNAME perimetrali che contengono una cartella css o js soddisfano la corrispondenza a questo modello.
 *.jpg *.gif *.png       | Radice o Origine | Tutti gli URL CNAME perimetrali o di rete CDN che terminano con .jpg, .gif o .png. soddisfano la corrispondenza a questo modello. Un metodo alternativo per specificare questo modello è la condizione di corrispondenza [URL Path Extension](#url-path-extension) (Estensione percorso URL).
-/images/* /media/*      | Origine         | Gli URL CNAME perimetrali o di rete CDN il cui percorso relativo inizia con una cartella "images" o "media" soddisfano la corrispondenza a questo modello. <br />- URL della rete CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME perimetrale di esempio: http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origine         | Gli URL CNAME perimetrali o di rete CDN il cui percorso relativo inizia con una cartella "images" o "media" soddisfano la corrispondenza a questo modello. <br />- URL della rete CDN: http:\//wpc.0001.&lt;Dominio&gt;/800001/myorigin/images/sales/event1.png<br />- URL CNAME perimetrale di esempio: http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Torna all'inizio](#match-conditions-for-the-azure-cdn-rules-engine)
 

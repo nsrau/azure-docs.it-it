@@ -1,11 +1,11 @@
 ---
-title: "Usare probe personalizzati del servizio di bilanciamento del carico per monitorare lo stato di integrità | Microsoft Docs"
+title: Usare probe personalizzati del servizio di bilanciamento del carico per monitorare lo stato di integrità | Microsoft Docs
 description: Informazioni su come usare probe personalizzati per il servizio di bilanciamento del carico di Azure per monitorare le relative istanze
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/8/2018
 ms.author: kumud
-ms.openlocfilehash: 266132d8cbb6f9922ce7b49759981132c2c17f47
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: be0359889f48f2fe16104f2bee5d1c85ab883b34
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="understand-load-balancer-probes"></a>Informazioni sui probe del servizio di bilanciamento del carico
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Il servizio di bilanciamento del carico di Azure consente di monitorare l'integrità delle istanze del server tramite probe. Se un probe non risponde, il servizio di bilanciamento del carico interrompe l'invio di nuove connessioni all'istanza non integra. Le connessioni esistenti non sono interessate, mentre quelle nuove vengono inviate alle istanze integre.
+Azure Load Balancer usa i probe di integrità per determinare quale istanza del pool back-end deve ricevere nuovi flussi. Se un probe di integrità ha esito negativo, Load Balancer interrompe l'invio di nuovi flussi alla rispettiva istanza danneggiata, mentre i flussi esistenti su tale istanza non subiscono alcuna variazione.  Se i probe hanno esito negativo su tutte le istanze del pool back-end, si verificherà il timeout di tutti i flussi esistenti su tutte le istanze del pool.
 
-I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe. I probe TCP o HTTP personalizzati devono essere configurati quando si usano macchine virtuali monitorate tramite Load Balancer.
+I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe. I probe di integrità personalizzati TCP o HTTP devono essere configurati quando si usano macchine virtuali dietro Load Balancer.
 
 ## <a name="understand-probe-count-and-timeout"></a>Informazioni su conteggio e timeout dei probe
 

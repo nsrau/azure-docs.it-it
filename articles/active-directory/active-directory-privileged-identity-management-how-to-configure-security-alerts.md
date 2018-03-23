@@ -2,10 +2,10 @@
 title: Come configurare gli avvisi di sicurezza | Documentazione Microsoft
 description: Informazioni su come configurare gli avvisi di sicurezza per l'estensione Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Avvisi di sicurezza
@@ -27,13 +27,18 @@ Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività s
 
 ![Schermata Avvisi di sicurezza del dashboard di PIM][1]
 
-| Avviso | Trigger | Raccomandazione |
-| --- | --- | --- |
-| **I ruoli vengono assegnati all'esterno di PIM** |Un amministratore è stato assegnato a un ruolo in modo permanente, all'esterno dell'interfaccia PIM. |Verificare la nuova assegnazione del ruolo. Poiché gli altri servizi possono solo assegnare amministratori permanenti, modificare il valore in un'assegnazione idonea, se necessario. |
-| **I ruoli vengono attivati con una frequenza eccessiva** |È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. |Contattare l'utente per verificare il motivo per cui ha attivato il ruolo con una frequenza elevata. Il limite temporale potrebbe essere troppo breve per completare le attività oppure è possibile che l'utente usi script per attivare automaticamente un ruolo. |
-| **I ruoli non richiedono l'autenticazione MFA per l'attivazione** |Sono presenti ruoli con impostazioni in cui l'autenticazione MFA non è abilitata. |È richiesta l'autenticazione MFA per i ruoli con i privilegi più elevati, ma è consigliabile abilitare l'autenticazione MFA per l'attivazione di tutti i ruoli. |
-| **Gli amministratori non usano i ruoli con privilegi** |Sono presenti amministratori idonei che non hanno attivato i ruoli di recente. |Avviare una verifica di accesso per determinare gli utenti che non necessitano più dell'accesso. |
-| **Il numero di amministratori globali presenti è eccessivo** |Sono presenti più amministratori globali di quanti consigliati. |Se il numero di amministratori globali è elevato, è probabile che ottengano più autorizzazioni di quelle necessarie. Trasferire gli utenti a ruoli con privilegi meno elevati o rendere alcuni utenti idonei per il ruolo anziché assegnare i privilegi in modo permanente. |
+| Avviso | Gravità | Trigger | Raccomandazione |
+| --- | --- | --- | --- |
+| **I ruoli vengono assegnati all'esterno di PIM** |Alto |Un utente è stato assegnato a un ruolo privilegiato in modo permanente, all'esterno dell'interfaccia PIM. |Rivedere gli utenti nell'elenco e annullare l'assegnazione a ruoli privilegiati all'esterno dell'interfaccia PIM. |
+| **I ruoli vengono attivati con una frequenza eccessiva** |Media |È stato eseguito un numero eccessivo di riattivazioni dello stesso ruolo nel tempo consentito nelle impostazioni. |Contattare l'utente per verificare il motivo per cui ha attivato il ruolo con una frequenza elevata. Il limite temporale potrebbe essere troppo breve per completare le attività oppure è possibile che l'utente usi script per attivare automaticamente un ruolo. Verificare che la durata di attivazione del ruolo sia sufficiente per eseguire le attività. |
+| **I ruoli non richiedono l'autenticazione MFA per l'attivazione** |Media |Sono presenti ruoli con impostazioni in cui l'autenticazione MFA non è abilitata. |È richiesta l'autenticazione MFA per i ruoli con i privilegi più elevati, ma è consigliabile abilitare l'autenticazione MFA per l'attivazione di tutti i ruoli. |
+| **Gli utenti non usano i ruoli con privilegi** |Basso |Sono presenti amministratori idonei che non hanno attivato i ruoli di recente. |Avviare una verifica di accesso per determinare gli utenti che non necessitano più dell'accesso. |
+| **Il numero di amministratori globali presenti è eccessivo** |Basso |Sono presenti più amministratori globali di quanti consigliati. |Se il numero di amministratori globali è elevato, è probabile che ottengano più autorizzazioni di quelle necessarie. Trasferire gli utenti a ruoli con privilegi meno elevati o rendere alcuni utenti idonei per il ruolo anziché assegnare i privilegi in modo permanente. |
+
+### <a name="severity"></a>Gravità
+* **Elevata**: richiede un'azione immediata a causa di una violazione dei criteri. 
+* **Media**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
+* **Bassa**: non richiede un'azione immediata ma suggerisce una modifica dei criteri.
 
 ## <a name="configure-security-alert-settings"></a>Configurare le impostazioni degli avvisi di sicurezza
 È possibile personalizzare alcuni avvisi di sicurezza in PIM in linea con gli obiettivi di protezione e l'ambiente. Seguire questa procedura per accedere al pannello impostazioni:

@@ -2,11 +2,11 @@
 title: Creare una macchina virtuale di Azure con rete accelerata | Microsoft Docs
 description: Informazioni su come creare una macchina virtuale Windows con rete accelerata.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Windows con rete accelerata
 
 > [!IMPORTANT] 
-> Le macchine virtuali devono essere create con la funzionalità Rete accelerata abilitata. Questa funzionalità non può essere abilitata nelle macchine virtuali esistenti. Per abilitare la rete accelerata è possibile eseguire i passaggi seguenti:
+> Le macchine virtuali devono essere create con la funzionalità Rete accelerata abilitata. Questa funzionalità non può essere abilitata nelle macchine virtuali esistenti. Completare la procedura seguente per abilitare la funzionalità Rete accelerata:
 >   1. Eliminare la macchina virtuale
 >   2. Creare nuovamente la macchina virtuale con la funzionalità Rete accelerata abilitata
 >
 
-Questa esercitazione illustra come creare una macchina virtuale (VM) Windows con rete accelerata. La funzionalità Rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate esclude l'host dal percorso dati, riducendo così la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
+Questa esercitazione illustra come creare una macchina virtuale (VM) Windows con rete accelerata. La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso a prestazioni elevate esclude l'host dal percorso dati, riducendo così la latenza, l'instabilità e l'utilizzo della CPU e può essere usato con i carichi di lavoro di rete più impegnativi nei tipi di VM supportati. L'immagine seguente illustra le comunicazioni tra due VM, con e senza rete accelerata:
 
 ![Confronto](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
@@ -47,11 +47,11 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 Microsoft Windows Server 2012 R2 Datacenter e Windows Server 2016.
 
 ## <a name="supported-vm-instances"></a>Istanze di VM supportate
-La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 4 o più vCPU. Nelle istanze come D/DSv3 o E/ESv3 che supportano l'hyperthreading, la funzionalità Rete accelerata è supportata nelle istanze di VM con 8 o più vCPU. Sono supportate le serie D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 e Ms/Mms.
+La funzionalità Rete Accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 4 o più vCPU. Nelle istanze come D/DSv3 o E/ESv3 che supportano l'hyperthreading, la funzionalità Rete Accelerata è supportata nelle istanze di VM con 8 o più vCPU. Sono supportate le serie D/DSv2, D/DSv3, E/ESv3, F/Fs/Fsv2 e Ms/Mms.
 
 Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="regions"></a>Aree
+## <a name="regions"></a>Regioni
 Questa funzionalità è disponibile in tutte le aree di Azure pubbliche e nel cloud di Azure per enti pubblici. 
 
 ## <a name="limitations"></a>Limitazioni
@@ -59,15 +59,17 @@ L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 
 * **Creazione di un'interfaccia di rete**: la funzionalità rete accelerata può essere abilitata solo per una nuova scheda di interfaccia di rete. Non può essere abilitata per una scheda di interfaccia di rete esistente.
 * **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se si aggiunge la VM a un set di disponibilità esistente, anche tutte le VM incluse nel set devono avere la funzionalità Rete accelerata abilitata.
-* **Solo distribuzione tramite Azure Resource Manager**: le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete accelerata.
+* **Solo distribuzione tramite Azure Resource Manager**: le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete Accelerata.
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite Azure PowerShell, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale con dimensioni e sistema operativo supportati nel portale, in **Impostazioni** selezionare **Abilitata** in **Rete accelerata**. Dopo aver creato la macchina virtuale, è necessario eseguire le istruzioni riportate nella sezione [Verificare che il driver sia installato nel sistema operativo](#confirm-the-driver-is-installed-in-the-operating-system).
+
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Installare [Azure PowerShell](/powershell/azure/install-azurerm-ps) versione 5.1.1 o successiva. Per trovare la versione attualmente installata, eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'installazione o l'aggiornamento, installare la versione più recente del modulo AzureRM da [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In una sessione di PowerShell accedere a un account di Azure usando [Add-AzureRmAccount](/powershell/module/AzureRM.Profile/Add-AzureRmAccount).
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
-Creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*:
+Creare un gruppo di risorse con [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*.
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "centralus"

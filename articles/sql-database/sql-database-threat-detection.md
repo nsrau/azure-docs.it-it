@@ -1,8 +1,8 @@
 ---
-title: Rilevamento minacce - Database SQL di Azure | Documentazione Microsoft
-description: "La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database."
+title: Rilevamento minacce - Database SQL di Azure | Microsoft Docs
+description: La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: rmatchoro
 manager: shaik
 editor: v-romcal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Rilevamento delle minacce nel database SQL
 
@@ -30,7 +30,7 @@ Rilevamento minacce di SQL offre un nuovo livello di protezione, che consente ai
 
 Ad esempio, l'attacco SQL injection è uno dei problemi di sicurezza comuni delle applicazioni Web su Internet, che viene usato per attaccare le applicazioni guidate dai dati. Gli autori degli attacchi sfruttano le vulnerabilità delle applicazioni per introdurre istruzioni SQL dannose nei campi di immissione dell'applicazione, con lo scopo di violare o modificare i dati del database.
 
-Rilevamento minacce di SQL integra gli avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/). Ogni database SQL protetto verrà fatturato allo stesso prezzo del livello Standard del Centro sicurezza di Azure, al prezzo di $ 15 per nodo al mese, dove ogni server di database SQL protetto viene conteggiato come un nodo.  
+Rilevamento minacce di SQL integra gli avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Ogni database SQL protetto verrà fatturato allo stesso prezzo del livello Standard del Centro sicurezza di Azure, al prezzo di $ 15 per nodo al mese, dove ogni server di database SQL protetto viene conteggiato come un nodo.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurare il rilevamento delle minacce per il database tramite il portale di Azure
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -54,13 +54,13 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
    Il messaggio di posta elettronica fornirà informazioni sull'evento di sicurezza sospetto, inclusi la natura delle attività anomale, il nome del database, il nome del server, il nome dell'applicazione e l'ora dell'evento. Il messaggio di posta elettronica fornirà anche informazioni sulle possibili cause e le azioni consigliate per analizzare e ridurre il rischio di una potenziale minaccia al database.<br/>
      
     ![Riquadro di spostamento][4]
-2. L'avviso di posta elettronica include un collegamento diretto al log di controllo SQL. Facendo clic su questo collegamento viene avviato il portale di Azure e si aprono i record di controllo SQL riferiti alla stessa ora dell'evento sospetto. Fare clic su un record di controllo per visualizzare altri dettagli sulle attività sospette del database, per trovare più facilmente le istruzioni SQL eseguite (chi ha eseguito l'accesso, cosa ha fatto e quando) e determinare se l'evento era legittimo o dannoso (ad esempio se sono state sfruttate vulnerabilità dell'applicazione all'SQL injection, un utente ha compromesso dati sensibili e così via).<br/>
+2. L'avviso di posta elettronica include un collegamento diretto al log di controllo SQL. Facendo clic su questo collegamento viene avviato il portale di Azure e si aprono i record di controllo SQL riferiti alla stessa ora dell'evento sospetto. Fare clic su un record di controllo per visualizzare altre informazioni sulle attività sospette del database, per trovare più facilmente le istruzioni SQL eseguite (chi ha eseguito l'accesso, cosa ha fatto e quando) e determinare se l'evento era legittimo o dannoso (ad esempio se sono state sfruttate vulnerabilità dell'applicazione all'SQL injection, sono stati violati dati sensibili e così via).<br/>
    ![Riquadro di spostamento][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Esplorare gli avvisi di rilevamento delle minacce per il database tramite il portale di Azure
 
-Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/en-us/services/security-center/). Un riquadro sulla sicurezza live di SQL all'interno della pagina del database nel portale di Azure tiene traccia dello stato delle minacce attive. 
+Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sulla sicurezza live di SQL all'interno della pagina del database nel portale di Azure tiene traccia dello stato delle minacce attive. 
 
    ![Riquadro di spostamento][6]
    
@@ -75,10 +75,10 @@ Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicure
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su Rilevamento minacce, visitare il [blog di Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Per altre informazioni su Rilevamento minacce, visitare il [blog di Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Altre informazioni sul [controllo del database SQL di Azure](sql-database-auditing.md)
 * Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Per altre informazioni sui prezzi, vedere la [pagina Prezzi di Database SQL](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* Per altre informazioni sui prezzi, visitare la [pagina relativa ai prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).  
 * Per un esempio di script di PowerShell, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

@@ -3,7 +3,7 @@ title: Trasmettere i dati di monitoraggio di Azure a Hub eventi | Microsoft Docs
 description: Informazioni su come trasmettere tutti i dati di monitoraggio di Azure a un hub eventi per inserire i dati in uno strumento di analisi o nelle informazioni di sicurezza e gestione degli eventi di partner.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -36,7 +36,18 @@ All'interno dell'ambiente Azure esistono vari livelli di dati di monitoraggio a 
 
 I dati di qualsiasi livello possono essere inviati a un hub eventi in cui è possibile effettuarne il pull in uno strumento di partner. Le sezioni seguenti spiegano come configurare i dati di ogni livello per poterli trasmettere a un hub eventi. I passaggi descritti presuppongono che siano già presenti asset da monitorare nel livello considerato.
 
-Prima di iniziare, è necessario [creare uno spazio dei nomi di Hub eventi e un hub eventi](../event-hubs/event-hubs-create.md). Lo spazio dei nomi e l'hub eventi sono la destinazione di tutti i dati di monitoraggio.
+## <a name="set-up-an-event-hubs-namespace"></a>Configurare uno spazio dei nomi di Hub eventi
+
+Prima di iniziare, è necessario [creare uno spazio dei nomi di Hub eventi e un hub eventi](../event-hubs/event-hubs-create.md). Lo spazio dei nomi e l'hub eventi sono la destinazione di tutti i dati di monitoraggio. Uno spazio dei nomi di Hub eventi è un raggruppamento logico di hub eventi che condividono gli stessi criteri di accesso, così come un account di archiviazione contiene al suo interno singoli BLOB. Tenere presenti alcuni dettagli relativi allo spazio dei nomi di Hub eventi e agli hub eventi creati:
+* È consigliabile usare uno spazio dei nomi di Hub eventi Standard.
+* In genere, è necessaria una sola unità elaborata. Per aumentare le prestazioni di pari passo con un maggiore utilizzo dei log, è sempre possibile aumentare manualmente il numero di unità elaborate per lo spazio dei nomi in un secondo momento oppure abilitare la funzionalità Aumento automatico.
+* Il numero di unità elaborate consente di aumentare la scala della velocità effettiva per gli hub eventi. Il numero di partizioni consente di parallelizzare il consumo tra molti consumer. Una singola partizione può eseguire fino a 20 Mbps o circa 20.000 messaggi al secondo. A seconda dello strumento che utilizza i dati, può essere supportato o meno il consumo di dati di più partizioni. Se si hanno dubbi sul numero di partizioni da impostare, è consigliabile iniziare con quattro partizioni.
+* È consigliabile impostare il periodo di memorizzazione dei messaggi nell'hub eventi su 7 giorni. Se lo strumento che utilizza i dati diventa inattivo per più di un giorno, questa impostazione assicura che tale strumento riprenderà l'esecuzione dal punto in cui è stata interrotta (per gli eventi degli ultimi 7 giorni).
+* È consigliabile usare il gruppo di consumer predefinito per l'hub eventi. Non è necessario creare altri gruppi di consumer o usare un gruppo di consumer distinto, a meno che non siano previsti due diversi strumenti che utilizzano gli stessi dati dello stesso hub eventi.
+* Per il log attività di Azure si sceglie uno spazio dei nomi di Hub eventi e Monitoraggio di Azure crea un hub eventi all'interno di questo spazio dei nomi, denominato "insights-log-operationallogs". Per altri tipi di log è possibile scegliere un hub eventi esistente (che consente di riutilizzare lo stesso hub eventi insights-log-operationallogs) oppure lasciare che Monitoraggio di Azure crei un hub eventi per ogni categoria di log.
+* In genere, le porte 5671 e 5672 devono essere aperte sulla macchina che utilizza i dati dell'hub eventi.
+
+Vedere anche le [domande frequenti su Hub eventi di Azure](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Come si configurano i dati di monitoraggio della piattaforma Azure per poterli trasmettere a un hub eventi?
 

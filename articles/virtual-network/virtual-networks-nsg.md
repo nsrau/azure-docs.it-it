@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 5eca18ca2f34097d98ce947c61c635abc6ab27b8
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrare il traffico di rete con gruppi di sicurezza di rete
 
 Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole di sicurezza che consentono o rifiutano il traffico di rete verso le risorse connesse a reti virtuali di Azure. I gruppi di sicurezza di rete possono essere associati a subnet, singole VM (distribuzione classica) o singole interfacce di rete collegate a VM (Resource Manager). Quando un gruppo di sicurezza di rete è associato a una subnet, le regole si applicano a tutte le risorse connesse alla subnet. Il traffico può essere ulteriormente limitato associando un gruppo di sicurezza di rete anche a una VM o un'interfaccia di rete.
-
+ 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md). In questo articolo viene illustrato l'utilizzo di entrambi i modelli, ma Microsoft indica che le distribuzioni più nuove utilizzano il modello di gestione delle.
 
@@ -98,7 +98,7 @@ A seconda del modello di distribuzione usato, è possibile associare un gruppo d
 
 * **VM (solo distribuzione classica):** le regole di sicurezza vengono applicate a tutto il traffico da e verso la VM. 
 * **Interfaccia di rete (solo Resource Manager):** le regole di sicurezza vengono applicate a tutto il traffico da e verso l'interfaccia di rete a cui è associato il gruppo di sicurezza di rete. In una VM con più interfacce di rete, è possibile applicare singolarmente a ogni interfaccia diversi gruppi di sicurezza di rete (oppure lo stesso). 
-* **Subnet (distribuzione classica e Resource Manager):** le regole di sicurezza vengono applicate a tutto il traffico da o verso qualsiasi risorsa connessa alla rete virtuale.
+* **Subnet (distribuzione classica e Resource Manager):** le regole di sicurezza vengono applicate a tutto il traffico da o verso qualsiasi risorsa connessa alla subnet.
 
 È possibile associare gruppi di sicurezza di rete diversi a una VM (o a un'interfaccia di rete, a seconda del modello di distribuzione) e alla subnet a cui è associata l'interfaccia di rete o la VM. Le regole di sicurezza vengono applicate al traffico in base alla priorità in ogni gruppo di sicurezza di rete, nell'ordine seguente.
 

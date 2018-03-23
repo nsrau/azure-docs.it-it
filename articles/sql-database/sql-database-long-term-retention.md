@@ -1,26 +1,19 @@
 ---
 title: Archiviare i backup del database SQL di Azure per un massimo di 10 anni | Microsoft Docs
 description: Informazioni sul supporto del database SQL di Azure dell'archiviazione dei backup per un massimo di 10 anni.
-keywords: 
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. La funzionalità di conservazione dei backup a lungo termine consente di archiviare i backup del database SQL in un insieme di credenziali dei servizi di ripristino di Azure fino a 10 anni. È possibile archiviare fino a 1.000 database per ogni insieme di credenziali. È possibile quindi selezionare qualsiasi backup nell'insieme di credenziali per ripristinarlo come nuovo database.

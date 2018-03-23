@@ -1,12 +1,12 @@
 ---
 title: Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure | Microsoft Docs
-description: "Pertinenti per la raccolta di contatori delle prestazioni in Macchine virtuali, set di scalabilità di macchine virtuali di Microsoft Azur, Service Fabric e Servizi cloud di Azure."
+description: Pertinenti per la raccolta di contatori delle prestazioni in Macchine virtuali, set di scalabilità di macchine virtuali di Microsoft Azur, Service Fabric e Servizi cloud di Azure.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
+# <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure
 Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di Diagnostica di Azure forniti con Microsoft Azure SDK.  
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Questa pagina rappresenta l'indice delle versioni degli schemi di estensione di 
 > 
 > Questa pagina è utile solo se si usa uno di questi servizi.
 
-L'estensione di Diagnostica di Azure viene usata con altri prodotti di diagnostica Microsoft, come Monitoraggio di Azure, Application Insights e Log Analytics. Per altre informazioni vedere [Panoramica degli strumenti di monitoraggio Microsoft](monitoring-overview.md).
+L'estensione di Diagnostica di Azure viene usata con altri prodotti di diagnostica Microsoft, come Monitoraggio di Azure, Application Insights e Log Analytics. Per altre informazioni, vedere [Panoramica degli strumenti di monitoraggio Microsoft](monitoring-overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Grafico delle versioni fornite per Azure SDK e Diagnostica  
 
@@ -140,13 +140,13 @@ Sono state apportate le modifiche seguenti ai progetti dei servizi cloud in Visu
 
 Il funzionamento della stringa di connessione presenta alcune differenze sostanziali tra Azure SDK 2.4 e versioni precedenti e Azure SDK 2.6 e versioni successive.
 
-* In Azure SDK 2.4 e versioni precedenti la stringa di connessione viene usata come runtime dal plug-in di diagnostica per ottenere le informazioni sull'account di archiviazione per il trasferimento dei log di diagnostica.
-* In Azure SDK 2.6 e versioni successive la stringa di connessione di diagnostica viene usata da Visual Studio per configurare l'estensione di diagnostica con le informazioni appropriate sull'account di archiviazione durante la pubblicazione. La stringa di connessione consente di definire diversi account di archiviazione per diverse configurazioni del servizio, che verranno usate da Visual Studio durante la pubblicazione. Poiché, tuttavia, il plug-in di diagnostica non è più disponibile (dopo Azure SDK 2.5), il solo file .cscfg non è in grado di abilitare l'estensione di diagnostica. È necessario abilitare l'estensione separatamente tramite strumenti quali Visual Studio o PowerShell.
+* In Azure SDK 2.4 e versioni precedenti, la stringa di connessione viene usata in fase di runtime dal plug-in di diagnostica per ottenere le informazioni sull'account di archiviazione per il trasferimento dei log di diagnostica.
+* In Azure SDK 2.6 e versioni successive, Visual Studio usa la stringa di connessione di diagnostica per configurare l'estensione di diagnostica con le informazioni appropriate sull'account di archiviazione durante la pubblicazione. La stringa di connessione consente di definire diversi account di archiviazione per diverse configurazioni del servizio, che verranno usate da Visual Studio durante la pubblicazione. Poiché, tuttavia, il plug-in di diagnostica non è più disponibile (dopo Azure SDK 2.5), il solo file .cscfg non è in grado di abilitare l'estensione di diagnostica. È necessario abilitare l'estensione separatamente tramite strumenti quali Visual Studio o PowerShell.
 * Per semplificare il processo di configurazione dell'estensione di diagnostica con PowerShell, l'output del pacchetto da Visual Studio contiene anche il codice XML di configurazione pubblica per l'estensione di diagnostica per ogni ruolo. Visual Studio usa la stringa di connessione di diagnostica per popolare le informazioni sull'account di archiviazione presenti nella configurazione pubblica. I file di configurazione pubblica vengono creati nella cartella Extensions e seguono il modello PaaSDiagnostics<RoleName>.PubConfig.xml. Eventuali distribuzioni basate su PowerShell possono usare questo modello per il mapping di ogni configurazione a un ruolo.
 * La stringa di connessione nel file .cscfg viene usata anche dal portale di Azure per accedere ai dati di diagnostica, per consentirne la visualizzazione nella scheda **Monitoraggio** . La stringa di connessione è necessaria per configurare il servizio, in modo da visualizzare i dati dettagliati del monitoraggio nel portale.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrazione di progetti in Azure SDK 2.6 e versioni successive
-Quando si esegue la migrazione da Azure SDK 2.5 ad Azure SDK 2.6 o versioni successivi, eventuali account di archiviazione di diagnostica specificati nel file con estensione wadcfgx rimarranno in tale posizione. Per sfruttare la flessibilità di utilizzo di account di archiviazione diversi per configurazioni di archiviazione diverse, è necessario aggiungere manualmente la stringa di connessione al progetto. Se si sta eseguendo la migrazione di un progetto da Azure SDK 2.4 o versioni precedenti ad Azure SDK 2.6, le stringhe di connessione di diagnostica vengono mantenute. Occorre tuttavia notare le modifiche relative al modo in cui le stringhe di connessione vengono gestite in Azure SDK 2.6, come illustrato nella sezione precedente.
+Quando si esegue la migrazione da Azure SDK 2.5 ad Azure SDK 2.6 o versioni successivi, eventuali account di archiviazione di diagnostica specificati nel file con estensione wadcfgx rimarranno in tale posizione. Per sfruttare la flessibilità di utilizzo di account di archiviazione diversi per configurazioni di archiviazione diverse, è necessario aggiungere manualmente la stringa di connessione al progetto. Se si sta eseguendo la migrazione di un progetto da Azure SDK 2.4 o versioni precedenti ad Azure SDK 2.6, le stringhe di connessione di diagnostica vengono mantenute. È tuttavia opportuno notare la diversa modalità di gestione delle stringhe di connessione in Azure SDK 2.6, come illustrato nella sezione precedente.
 
 #### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Modalità di determinazione dell'account di archiviazione di diagnostica da parte di Visual Studio
 * Se nel file .cscfg viene specificata una stringa di connessione di diagnostica, Visual Studio la userà per configurare l'estensione di diagnostica durante la pubblicazione e durante la generazione dei file XML di configurazione pubblica nel corso della creazione dei pacchetti.

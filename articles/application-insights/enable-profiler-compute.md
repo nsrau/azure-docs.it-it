@@ -2,7 +2,7 @@
 title: Abilitare Application Insights Profiler per le applicazioni ospitate nelle risorse di Servizi cloud di Azure | Microsoft Docs
 description: Informazioni su come configurare Application Insights Profiler in un'applicazione in esecuzione in Servizi cloud di Azure.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Abilitare Application Insights Profiler per macchine virtuali di Azure, Service Fabric e Servizi cloud di Azure
 
@@ -33,8 +33,8 @@ L'immagine seguente mostra il funzionamento di Application Insights Profiler con
 
 Per abilitare completamente Profiler, è necessario modificare la configurazione in tre posizioni:
 
-* Nel riquadro dell'istanza di Application Insights nel portale di Azure.
-* Nel codice sorgente dell'applicazione, ad esempio in un'applicazione Web ASP.NET.
+* nel riquadro dell'istanza di Application Insights nel portale di Azure.
+* nel codice sorgente dell'applicazione, ad esempio in un'applicazione Web ASP.NET.
 * Nel codice sorgente di definizione della distribuzione nell'ambiente, ad esempio un modello di Azure Resource Manager nel file JSON.
 
 
@@ -46,8 +46,7 @@ Per abilitare completamente Profiler, è necessario modificare la configurazione
 
    ![Posizione della chiave di strumentazione](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Per completare la configurazione dell'istanza di Application Insights per Profiler, completare la procedura descritta in [Abilitare Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Non è necessario collegare le app Web perché si tratta di passaggi specifici per la risorsa di Servizi app. Assicurarsi che Profiler sia abilitato nel riquadro **Configure Profiler** (Configura Profiler).
+3. Per completare la configurazione dell'istanza di Application Insights per Profiler, completare la procedura descritta in [Abilitare Profiler. Non è necessario collegare le app Web perché si tratta di passaggi specifici per la risorsa di Servizi app. Assicurarsi che Profiler sia abilitato nel riquadro **Configure Profiler** (Configura Profiler).
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurare il codice sorgente dell'applicazione
@@ -157,6 +156,8 @@ Per configurare l'ambiente, procedere come segue:
 
       Per informazioni sull'aggiunta dell'estensione Diagnostica al modello di distribuzione, vedere [Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Per le macchine virtuali, come alternativa alla procedura precedente basata su json, passare al portale di Azure e in **Macchine virtuali** > **Impostazioni di diagnostica** > **Sinks** > impostare l'invio di dati di diagnostica ad Application Insights su **Abilitato**, quindi selezionare un account di Application Insights o un ikey specifico.
 
 ### <a name="azure-cloud-services"></a>Servizi cloud di Azure
 
@@ -196,7 +197,7 @@ Per configurare l'ambiente, procedere come segue:
 
 1. Distribuire la definizione di distribuzione dell'ambiente modificata.  
 
-   Per applicare le modifiche, in genere è necessaria una distribuzione completa del modello o una pubblicazione di Servizi cloud tramite i cmdlet di PowerShell o Visual Studio.  
+   Per applicare le modifiche, in genere è necessaria una distribuzione completa del modello o una pubblicazione basata su servizi cloud tramite i cmdlet di PowerShell o Visual Studio.  
 
    Di seguito è illustrato un approccio alternativo per le macchine virtuali esistenti che interessa solo l'estensione Diagnostica di Azure:  
 

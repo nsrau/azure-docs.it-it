@@ -1,5 +1,5 @@
 ---
-title: Configurare indirizzi IP privati per le VM - Azure PowerShell | Documentazione Microsoft
+title: Configurare indirizzi IP privati per le VM - Azure PowerShell | Microsoft Docs
 description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali mediante PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8727318c9dff79b795b473caf7b778272134726c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>Configurare indirizzi IP privati per una macchina virtuale mediante PowerShell
 
@@ -32,7 +32,7 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-I comandi di esempio PowerShell riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si desidera eseguire i comandi illustrati in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-arm-ps.md).
+I comandi di esempio PowerShell riportati di seguito prevedono un ambiente semplice già creato in base allo scenario precedente. Se si vogliono eseguire i comandi illustrati in questo documento, creare prima l'ambiente di testing descritto in [Creare una rete virtuale](quick-create-powershell.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Creare una VM con un indirizzo IP privato statico
 Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire la procedura seguente:

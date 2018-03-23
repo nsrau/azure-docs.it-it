@@ -1,25 +1,19 @@
 ---
 title: Installazione dei processi di database elastici | Documentazione Microsoft
-description: "Installazione dettagliata della funzionalità dei processi elastici."
+description: Installazione dettagliata della funzionalità dei processi elastici.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: ddove
-editor: 
-ms.assetid: cbe0aa2b-17e3-4b6f-a16f-6ebc1f5a66af
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: 7e5258e0ccb88c8e2f3fe3277f69444ae5424cd0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
 I [**processi di database elastico**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure. È possibile ottenere l'accesso per creare e gestire i processi tramite l'API di PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.

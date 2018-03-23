@@ -1,8 +1,8 @@
 ---
 title: Uso di Azure AD Connect Health con AD FS | Microsoft Docs
-description: "Questa è la pagina di Azure AD Connect Health che illustra come monitorare l'infrastruttura AD FS locale."
+description: Questa è la pagina di Azure AD Connect Health che illustra come monitorare l'infrastruttura AD FS locale.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4928364ffd732f587e41a788c4d834e91339a7fc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md).
@@ -115,9 +115,12 @@ Il report fornisce le informazioni seguenti:
 | Ultimo errore IP |Mostra l'indirizzo IP client dell'ultima richiesta non valida. |
 
 > [!NOTE]
-> Il report viene aggiornato automaticamente ogni 12 ore con le nuove informazioni raccolte. Di conseguenza, i tentativi di accesso nelle ultime due ore potrebbero non essere inclusi nel report.
+> Il report viene aggiornato automaticamente ogni 12 ore con le nuove informazioni raccolte. Di conseguenza, i tentativi di accesso nelle ultime 12 ore potrebbero non essere inclusi nel report.
 >
 >
+
+### <a name="risky-ip-report"></a>Report sugli indirizzi IP rischiosi 
+L'anteprima sarà presto disponibile.
 
 ## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

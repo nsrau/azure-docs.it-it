@@ -1,13 +1,13 @@
 ---
 title: Proteggere il database SQL di Azure | Microsoft Docs
-description: "Informazioni sulle tecniche e le funzionalità per proteggere il database SQL di Azure."
+description: Informazioni sulle tecniche e le funzionalità per proteggere il database SQL di Azure.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: DRediske
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: mvc,security
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 678f3ae09a57cbbbb486d256f81f0f58563b482c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
 
@@ -187,7 +187,7 @@ Il controllo del database SQL di Azure tiene traccia degli eventi che si verific
 5. Fare clic su **Save**.
 
 > [!IMPORTANT]
-> Se si vogliono personalizzare gli eventi controllati, è possibile farlo tramite PowerShell o l'API REST. Vedere [Introduzione al controllo del database SQL](sql-database-auditing.md) per altri dettagli.
+> Se si vuole, è possibile personalizzare gli eventi controllati tramite PowerShell o l'API REST. Per altre informazioni, vedere l'articolo relativo al [servizio di controllo del database SQL](sql-database-auditing.md).
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Abilitare il rilevamento delle minacce per il database SQL
@@ -216,7 +216,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 
     ![Record di controllo](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Fare clic sui record di controllo per visualizzare altri dettagli sulle attività di database sospette, come l'istruzione SQL, il motivo dell'errore e l'indirizzo IP del client.
+7. Fare clic sui record di controllo per visualizzare altre informazioni sulle attività di database sospette come l'istruzione SQL, il motivo dell'errore e l'indirizzo IP del client.
 
     ![Dettagli sui record](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 

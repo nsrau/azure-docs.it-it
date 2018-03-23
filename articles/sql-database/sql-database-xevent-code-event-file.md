@@ -1,26 +1,19 @@
 ---
 title: Codice del file evento XEvent per il database SQL | Documentazione Microsoft
-description: "Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Azure SQL Database. Archiviazione di Azure è una parte necessaria di questo scenario."
+description: Fornisce PowerShell e Transact-SQL per un esempio di codice in due fasi che illustra la destinazione del file evento in un evento esteso in Azure SQL Database. Archiviazione di Azure è una parte necessaria di questo scenario.
 services: sql-database
-documentationcenter: 
 author: MightyPen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: genemi
-ms.openlocfilehash: abf660e3fafd1a5020cdf9a6beb5b73252b72cfc
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 630e0ca84479757d3bb4397aa63ee8a440e69427
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Codice di destinazione del file evento per eventi estesi nel database SQL
 

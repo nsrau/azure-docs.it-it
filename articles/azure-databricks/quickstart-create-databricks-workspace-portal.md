@@ -2,7 +2,7 @@
 title: 'Guida introduttiva: Eseguire un processo Spark in Azure Databricks tramite il portale di Azure | Microsoft Docs'
 description: Questa guida introduttiva illustra come usare il portale di Azure per creare un'area di lavoro di Azure Databricks e un cluster Apache Spark e per eseguire un processo Spark.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 0112e5bf53f24150708b9c03440cd6183601f069
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -48,12 +48,17 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     * Per **Sottoscrizione** selezionare la sottoscrizione di Azure nell'elenco a discesa.
     * Per **Gruppo di risorse**, specificare se si desidera creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md).
     * Per **Località** selezionare **Stati Uniti orientali 2**. Per le altre aree disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+    * Per **Piano tariffario** scegliere tra **Standard** o **Premium**. Per altre informazioni su questi piani tariffari, vedere la [pagina dei prezzi di Databricks](https://azure.microsoft.com/pricing/details/databricks/).
 
-4. Fare clic su **Crea**.
+    Fare clic su **Crea**.
+
+4. La creazione dell'account richiede alcuni minuti, durante i quali il portale visualizza il riquadro **Invio della distribuzione per Azure Databricks** a destra. Potrebbe essere necessario scorrere verso destra nel dashboard per visualizzare il riquadro. È presente anche un indicatore di stato nella parte superiore della schermata. È possibile esaminare lo stato di avanzamento nelle due aree.
+
+    ![Riquadro di distribuzione Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Riquadro di distribuzione Databricks")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Creare un cluster Spark in Databricks
 
-1. Nel portale di Azure passare all'area di lavoro di Databricks creata e quindi fare clic su **Initialize Workspace** (Inizializza l'area di lavoro).
+1. Nel portale di Azure passare all'area di lavoro di Databricks creata e quindi fare clic su **Avvia area di lavoro**.
 
 2. Si verrà reindirizzati al portale di Azure Databricks. Nel portale fare clic su **Cluster**.
 
@@ -64,7 +69,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
     ![Creare il cluster Databricks Spark in Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Creare il cluster Databricks Spark in Azure")
 
     * Immettere un nome per il cluster.
-    * Per questo articolo è necessario creare un cluster con il runtime **4.0 (beta)**. 
+    * Per questo articolo creare un cluster con il runtime **4.0**. 
     * Assicurarsi di selezionare la casella di controllo **Terminate after ____ minutes of inactivity** (Termina dopo ___ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
     * Accettare tutti gli altri valori predefiniti. 
     * Fare clic su **Create cluster** (Crea cluster). Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
@@ -96,7 +101,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
     > [!IMPORTANT]
     >Questo articolo usa l'**approccio che prevede il montaggio della risorsa di archiviazione con DBFS**. Questo approccio assicura che la risorsa di archiviazione montata venga associata a FileSystem del cluster. Qualsiasi applicazione che accede al cluster può quindi usare anche la risorsa di archiviazione associata. L'approccio con accesso diretto è limitato all'applicazione in cui viene configurato l'accesso.
     >
-    > Per usare l'approccio con montaggio, è necessario creare un cluster Spark con il runtime di Databricks versione **4.0 (beta)**, selezionata in questo articolo.
+    > Per usare l'approccio con montaggio, è necessario creare un cluster Spark con il runtime di Databricks versione **4.0**, selezionato in questo articolo.
 
     Nel frammento di codice seguente sostituire `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` e `{YOUR STORAGE ACCOUNT ACCESS KEY}` con i valori appropriati per l'account di archiviazione di Azure. Incollare il frammento in una cella vuota del blocco appunti e quindi premere MAIUSC+INVIO per eseguire la cella di codice.
 

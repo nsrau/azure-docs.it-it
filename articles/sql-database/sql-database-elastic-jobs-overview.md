@@ -1,25 +1,20 @@
 ---
-title: "Gestione dei database cloud con scalabilità orizzontale | Documentazione Microsoft"
+title: Gestione dei database cloud con scalabilità orizzontale | Documentazione Microsoft
 description: Usare il servizio processo di database elastico per eseguire uno script in un gruppo di database.
 metakeywords: azure sql database elastic databases
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 6fa47cf2-1162-4534-a206-6e2d95b78580
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: f709cd38a690ba666ca290cc029caa2ce4f9dff0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 1f0e022eb98619b22f7e62e0602d36ba821def22
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestione dei database cloud con scalabilità orizzontale
 Per la gestione dei database cloud con scalabilità orizzontale, la funzionalità **Processi di database elastico** (in anteprima) consente di eseguire uno script Transact-SQL (T-SQL) in modo affidabile, ad esempio:

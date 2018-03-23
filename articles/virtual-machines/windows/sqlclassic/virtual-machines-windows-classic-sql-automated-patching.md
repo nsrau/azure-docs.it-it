@@ -1,11 +1,11 @@
 ---
 title: Applicazione automatica delle patch per macchine virtuali SQL Server (distribuzione classica) | Microsoft Docs
-description: "Informazioni sulla funzionalità di applicazione automatica delle patch per macchine virtuali SQL Server in esecuzione in Azure con il modello di distribuzione classica."
+description: Informazioni sulla funzionalità di applicazione automatica delle patch per macchine virtuali SQL Server in esecuzione in Azure con il modello di distribuzione classica.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 42be8c814a7b4c0bb1bd2f88d2e610d20442048e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -28,12 +28,17 @@ ms.lasthandoff: 02/21/2018
 > 
 > 
 
-L'applicazione automatica delle patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure su cui è in esecuzione SQL Server. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, gli aggiornamenti di sistema e i riavvii associati vengono eseguiti nel momento migliore per il database. L'applicazione automatica delle patch dipende dall' [estensione dell'agente IaaS di SQL Server](../classic/sql-server-agent-extension.md).
+L'applicazione automatica delle patch stabilisce un periodo di manutenzione per una macchina virtuale di Azure su cui è in esecuzione SQL Server. Gli aggiornamenti automatici possono essere installati solo durante questo periodo di manutenzione. Per SQL Server, gli aggiornamenti di sistema e i riavvii associati vengono eseguiti nel momento migliore per il database. 
+
+> [!IMPORTANT]
+> Vengono installati solo gli aggiornamenti di Windows contrassegnati con la dicitura **Importante**. Altri aggiornamenti di SQL Server, ad esempio gli aggiornamenti cumulativi, devono essere installati manualmente. 
+
+L'applicazione automatica delle patch dipende dall' [estensione dell'agente IaaS di SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per visualizzare la versione Resource Manager di questo articolo, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per usare l'applicazione automatica delle patch, tenere in considerazione i seguenti prerequisiti:
 
 **Sistema operativo**:

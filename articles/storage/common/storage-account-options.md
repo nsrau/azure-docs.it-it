@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: aa8704b9991dde639b50a5b6c9a27ad5cd08ad02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-account-options"></a>Opzioni di account di archiviazione di Azure
 
@@ -298,8 +298,8 @@ Per altre informazioni, vedere [Azure Storage Data Movement Library for .Net](ht
 
 Per altre informazioni, vedere [Introduzione all'archivio BLOB di Azure con .NET](../blobs/storage-dotnet-how-to-use-blobs.md).
 
-> [!NOTE]
-> I BLOB crittografati mediante la crittografia lato client archiviano i metadati correlati alla crittografia archiviati con il BLOB. È essenziale che qualsiasi meccanismo di copia garantisca la conservazione dei metadati dei BLOB e, in particolare modo, dei metadati correlati alla crittografia. Se si copiano i BLOB senza i metadati, il contenuto dei BLOB non è più recuperabile. Per altre informazioni sui metadati correlati alla crittografia, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> [!IMPORTANT]
+> I BLOB crittografati con la crittografia lato client archiviano i metadati correlati alla crittografia con il BLOB. Se si copia un BLOB crittografato con la crittografia lato client, verificare che l'operazione di copia mantenga i metadati del BLOB e soprattutto quelli correlati alla crittografia. Se si copia un BLOB senza i metadati di crittografia, il contenuto del BLOB non sarà più recuperabile. Per altre informazioni sui metadati correlati alla crittografia, vedere [Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="faq"></a>Domande frequenti
 

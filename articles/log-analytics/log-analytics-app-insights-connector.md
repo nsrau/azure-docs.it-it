@@ -1,11 +1,11 @@
 ---
-title: Visualizza i dati delle app Azure Application Insights | Microsoft Docs
-description: "È possibile usare la soluzione Connettore di Application Insights per diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di Application Insights."
+title: Visualizzare i dati delle app di Azure Application Insights | Microsoft Docs
+description: È possibile usare la soluzione Connettore di Application Insights per diagnosticare problemi di prestazioni e comprendere in che modo gli utenti usano le app con il monitoraggio di Application Insights.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Soluzione di gestione Connettore di Application Insights (anteprima)
 
@@ -37,14 +37,14 @@ Quando si usa la soluzione, è possibile:
 
 A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per Connettore di Application Insights non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | DESCRIZIONE |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
 | [Agenti di Windows](log-analytics-windows-agent.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Per accedere alle informazioni relative a Connettore di Application Insights, è necessaria una sottoscrizione Azure
 - È necessario disporre di almeno una risorsa Application Insights configurata.
@@ -55,7 +55,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
 2. Nel portale OMS fare clic su **Impostazioni** &gt; **Dati** &gt; **Application Insights**.
 3. In **Selezionare una sottoscrizione**, selezionare una sottoscrizione con risorse Application Insights e quindi, in **Nome applicazione**, selezionare una o più applicazioni.
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -64,7 +64,7 @@ Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application In
 Altri punti da considerare:
 
 - È possibile collegare app di Application Insights solo a un'area di lavoro di Log Analytics.
-- È possibile collegare solo [risorse di Application Insights Standard o Premium](https://azure.microsoft.com/pricing/details/application-insights) a Log Analytics. È tuttavia possibile usare il livello gratuito di Log Analytics.
+- È possibile collegare solo [risorse di Application Insights Basic o Enterprise](https://azure.microsoft.com/pricing/details/application-insights) a Log Analytics. È tuttavia possibile usare il livello gratuito di Log Analytics.
 
 ## <a name="management-packs"></a>Management Pack
 
@@ -170,9 +170,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="generic-fields"></a>Campi generici
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| type | ApplicationInsights |
+| Type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | Ora del record |
 | ApplicationId | Chiave di strumentazione dell'app Application Insights |
@@ -181,9 +181,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Paese | Paese in cui ha origine la richiesta |
+| Country | Paese in cui ha origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
-| city | Città o paese in cui ha origine la richiesta |
+| City | Città o paese in cui ha origine la richiesta |
 | isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = generata dall'utente o false = metodo automatizzato |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
@@ -196,7 +196,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="availability-specific-fields"></a>Campi specifici di disponibilità
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
 | TelemetryType | Disponibilità |
 | AvailabilityTestName | Nome del test Web |
@@ -221,7 +221,7 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="exception-specific-fields"></a>Campi specifici di eccezione
 
-| type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Eccezione |
 | ExceptionType | Tipo di eccezione |
@@ -238,9 +238,9 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 
 ### <a name="request-specific-fields"></a>Campi specifici di richiesta
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 | --- | --- |
-| type | ApplicationInsights |
+| Type | ApplicationInsights |
 | TelemetryType | Richiesta |
 | ResponseCode | Risposta HTTP inviata al client |
 | RequestSuccess | Indica l'esito positivo o negativo. True o false. |

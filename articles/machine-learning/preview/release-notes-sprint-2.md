@@ -2,19 +2,19 @@
 title: Note sulla versione sprint 2 di dicembre 2017 di Azure ML Workbench
 description: Questo documento illustra in modo dettagliato gli aggiornamenti per la versione sprint 2 di Azure ML
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 630e6e22bb41c777a043a7e6580239e254db9f1f
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: cb620040f8c82fd2015f93963d99739d38ec6db3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="sprint-2---december-2017"></a>Sprint 2 - Dicembre 2017 
 

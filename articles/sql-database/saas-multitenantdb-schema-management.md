@@ -1,26 +1,21 @@
 ---
 title: Gestire lo schema del database SQL di Azure in un'app multi-tenant | Microsoft Docs
-description: "Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure"
+description: Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure
 keywords: esercitazione database SQL
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 0303da917ecb03ca27e0444afb56f49766b70029
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database SQL multi-tenant
 
@@ -68,13 +63,13 @@ Il modello di database multi-tenant partizionato usato in questo esempio consent
 
 È disponibile una nuova versione del servizio Processi elastici che è ora una funzionalità integrata di database SQL di Azure. Questa nuova versione del servizio Processi elastici è attualmente in anteprima limitata. L'anteprima limitata supporta attualmente l'utilizzo di PowerShell per creare un agente processo e T-SQL per creare e gestire i processi.
 > [!NOTE] 
-> Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio "Elastic Jobs Preview". Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, scaricare e installare i cmdlet più recenti della versione preliminare. Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
+> Questa esercitazione usa funzionalità del servizio database SQL incluse in un'anteprima limitata (processi di database elastico). Per eseguire questa esercitazione, fornire l'ID della sottoscrizione a SaaSFeedback@microsoft.com indicando nell'oggetto del messaggio Elastic Jobs Preview. Dopo aver ricevuto conferma che la sottoscrizione è stata abilitata, scaricare e installare i cmdlet più recenti della versione preliminare. Questa versione di anteprima è limitata. Per eventuali domande o richieste di supporto, contattare SaaSFeedback@microsoft.com.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
 Gli script del database multi-tenant SaaS Wingtip Tickets e un codice sorgente dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) su GitHub. Vedere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets. 
 
-## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database di agenti processo e un nuovo agente processo
+## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creare un database dell'agente processo e un nuovo agente processo
 
 Per questa esercitazione è necessario usare PowerShell per creare il database di agenti processo e l'agente processo. Come il database MSDB usato da SQL Agent, l'agente processo usa un database SQL di Azure per archiviare le definizioni dei processi, lo stato dei processi e la cronologia. Dopo aver creato l'agente processo, è possibile creare e monitorare i processi immediatamente.
 
@@ -89,9 +84,9 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 Ogni database del tenant include un set di tipi di sedi nella tabella **VenueTypes**. Ogni tipo di sede definisce il tipo di eventi ospitati in una sede. Questi tipi di sedi corrispondono alle immagini di sfondo visualizzate nell'app degli eventi del tenant.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto). 
 
-Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire una query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
+Esaminare prima i tipi di sede inclusi in ogni database tenant. Connettersi a uno dei database tenant in SQL Server Management Studio (SSMS) ed esaminare la tabella VenueTypes.  È anche possibile eseguire query su questa tabella nell'editor di query nel portale di Azure, accessibile dalla pagina di database. 
 
-1. Aprire SSMS e connettersi al server del tenant *tenants1-dpt-&lt;utente&gt;.database.windows.net*.
+1. Aprire SSMS e connettersi al server del tenant *tenants1-dpt-&lt;user&gt;.database.windows.net*
 1. Per verificare che *Motorcycle Racing* e *Swimming Club*  **non siano** attualmente inclusi, passare al database *contosoconcerthall* nel server *tenants1-dpt-&lt;utente&gt;* ed eseguire una query sulla tabella *VenueTypes*.
 
 
@@ -174,7 +169,7 @@ In questa esercitazione si è appreso come:
 > [!div class="checklist"]
 .
 > * Creare un agente processo per eseguire i processi T-SQL in più database
-> * Aggiornare i dati di riferimento in tutti i database tenant.
+> * Aggiornare i dati di riferimento in tutti i database tenant
 > * Creare un indice su una tabella in tutti i database tenant
 
 Successivamente, eseguire l'esercitazione sul [reporting ad-hoc] (saas-multitenantdb-ad hoc-reporting.md) per esplorare l'esecuzione di query distribuite tra i database tenant.

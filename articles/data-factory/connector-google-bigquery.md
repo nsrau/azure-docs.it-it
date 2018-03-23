@@ -1,8 +1,8 @@
 ---
-title: Copiare dati da Google BigQuery usando Azure Data Factory (beta) | Microsoft Docs
-description: "Informazioni su come copiare dati da Google BigQuery in archivi dati di sink supportati usando un'attività di copia in una pipeline di data factory."
+title: Copiare dati da Google BigQuery usando Azure Data Factory | Microsoft Docs
+description: Informazioni su come copiare dati da Google BigQuery in archivi dati di sink supportati usando un'attività di copia in una pipeline di data factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,21 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 35f61f6bd38b59a2df0613ba2506d047c1daeaaa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 955de6cf4b17f1df1e545ccc196856c7c898edfe
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/12/2018
 ---
-# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory-beta"></a>Copiare dati da Google BigQuery usando Azure Data Factory (beta)
+# <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copiare dati da Google BigQuery usando Azure Data Factory
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Google BigQuery. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta informazioni generali sull'attività di copia.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Questo connettore è attualmente disponibile in versione beta. È possibile provarlo e inviare commenti e suggerimenti. Non usarlo in ambienti di produzione.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 

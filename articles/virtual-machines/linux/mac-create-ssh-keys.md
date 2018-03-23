@@ -2,10 +2,10 @@
 title: Creare e usare una coppia di chiavi SSH per le macchine virtuali Linux in Azure | Microsoft Docs
 description: Come creare e usare una coppia di chiavi SSH pubblica e privata per le VM Linux in Azure per migliorare la sicurezza del processo di autenticazione.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: a37bfa01343527a60193d893c7913e4e9c50d210
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ecd3a01ee5591cb09140edb1b1290ff2d4510200
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 Con una coppia di chiavi SSH (Secure Shell) è possibile creare macchine virtuali in Azure che per impostazione predefinita usano le chiavi SSH per l'autenticazione, eliminando la necessità di password per l'accesso. Questo articolo illustra come generare rapidamente e usare una coppia di file di chiavi pubblica e privata RSA protocollo SSH versione 2 per le VM Linux. È possibile completare questa procedura con Azure Cloud Shell, un host Linux o macOS o il sottosistema Windows per Linux. Per una procedura più dettagliata ed esempi aggiuntivi, vedere la [procedura dettagliata per creare coppie di chiavi SSH e certificati](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
-Usare il comando `ssh-keygen` per creare i file di chiave pubblica e privata SSH che, per impostazione predefinita, vengono creati nella directory `~/.ssh`, ma è possibile specificare un percorso diverso e una passphrase (una password per accedere al file della chiave privata) aggiuntiva, quando viene richiesto. Usare il comando seguente da una shell Bash, rispondendo ai prompt con le proprie informazioni.
+Usare il comando `ssh-keygen` per creare file di chiave pubblica e privata SSH, che per impostazione predefinita si trovano nella directory `~/.ssh`. È possibile specificare un percorso diverso e aggiungere una passphrase, ovvero una password per accedere al file di chiave privata, quando richiesto. Se nel percorso corrente è presente una coppia di chiavi SSH, queste vengono sovrascritte.
 
 ```bash
 ssh-keygen -t rsa -b 2048

@@ -1,32 +1,31 @@
 ---
 title: Proteggere i dati personali inattivi in Azure con la crittografia | Microsoft Docs
-description: Questo articolo fa parte di una serie che consente di usare Azure per proteggere i dati personali
+description: Questo articolo può essere utile per soddisfare i requisiti standard di specifici settori di attività o di enti pubblici, ad esempio il Regolamento generale sulla protezione dei dati (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Tecnologie di crittografia di Azure: proteggere i dati personali inattivi con la crittografia
 
 Questo articolo aiuta a comprendere e usare le tecnologie di crittografia di Azure per proteggere i dati inattivi.
 
-La crittografia dei dati inattivi è una procedura consigliata essenziale per proteggere dati sensibili o personali e per soddisfare la conformità e i requisiti di privacy dei dati.
-La crittografia dei dati inattivi è progettata per impedire a un utente malintenzionato di accedere ai dati non crittografati, garantendo che i dati siano crittografati quando sono su disco.
+La crittografia dei dati inattivi è una procedura consigliata essenziale per proteggere dati sensibili o personali e per soddisfare la conformità e i requisiti di privacy dei dati. La crittografia dei dati inattivi è progettata per impedire a un utente malintenzionato di accedere ai dati non crittografati, garantendo che i dati siano crittografati quando sono su disco. Le informazioni contenute in questo articolo possono essere usate per assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 
 ## <a name="scenario"></a>Scenario 
 
@@ -145,7 +144,7 @@ Transparent Data Encryption (TDE) è una funzionalità inclusa in SQL Azure che 
 
 È possibile configurare TDE tramite il portale di Azure, con l'API REST o con PowerShell. Per abilitare TDE in un database esistente usando il portale di Azure, eseguire le operazioni seguenti:
 
-1. Accedere al portale di Azure all'indirizzo <https://portal.azure.com> con l'account di amministratore o collaboratore di Azure.
+1. Visitare il portale di Azure all'indirizzo <https://portal.azure.com> e accedere con l'account di amministratore o collaboratore di Azure.
 
 2. Nel banner a sinistra fare clic su SFOGLIA e quindi su Database SQL.
 
@@ -161,7 +160,7 @@ Transparent Data Encryption (TDE) è una funzionalità inclusa in SQL Azure che 
 
 Le istruzioni su come abilitare TDE e le informazioni sulla decrittografia di database protetti con TDE sono disponibili nell'articolo [Transparent Data Encryption con il database SQL di Azure ](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 La società può realizzare il proprio obiettivo di crittografare i dati personali archiviati nel cloud di Azure. A questo scopo, può usare Crittografia dischi di Azure per proteggere interi volumi. Possono essere inclusi i file del sistema operativo e i file di dati che contengono informazioni personali e altri dati sensibili. È possibile usare Crittografia del servizio di archiviazione di Azure per proteggere dati personali archiviati in BLOB e file. Per i dati archiviati in database SQL di Azure, Transparent Data Encryption offre protezione dall'esposizione non autorizzata delle informazioni personali.
 

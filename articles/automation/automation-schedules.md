@@ -1,24 +1,18 @@
 ---
-title: Pianificazioni in Automazione di Azure | Documentazione Microsoft
+title: Pianificazioni in Automazione di Azure
 description: Le pianificazioni di Automazione di Azure vengono usate per pianificare l'esecuzione automatica dei runbook in Automazione di Azure. Illustra come creare e gestire una pianificazione in modo da poter avviare automaticamente un runbook a una determinata ora o in base a una pianificazione ricorrente.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+manager: carmonm
+ms.openlocfilehash: ae7378c6d0f85e71c9522a6678adcb1f2e4b01f1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
 Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specifica, è necessario collegarlo a una o più pianificazioni. È possibile configurare una pianificazione in modo che i runbook vengano eseguiti una sola volta oppure con cadenza oraria o giornaliera nel portale di Azure. È inoltre possibile pianificare un'esecuzione settimanale, mensile o in giorni specifici della settimana o del mese oppure in un determinato giorno del mese.  Un runbook può essere collegato a più pianificazioni e a una pianificazione possono essere collegati più runbook.

@@ -5,51 +5,40 @@ services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
 
-Un database SQL di Azure è un database gestito in Microsoft Azure che viene creato in un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di [risorse di calcolo e archiviazione per carichi di lavoro diversi](sql-database-service-tiers.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure. 
+Il database SQL offre tre tipi di database:
 
-## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>Un database SQL di Azure può essere un database singolo, in pool o partizionato
+- Un database singolo creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di [risorse di calcolo e archiviazione per carichi di lavoro diversi](sql-database-service-tiers.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
+- Un database creato nell'ambito di un [pool di database](sql-database-elastic-pool.md) all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di [risorse di calcolo e archiviazione per carichi di lavoro diversi](sql-database-service-tiers.md) che vengono condivise tra tutti i database del pool. Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
+- Un'[istanza di un server SQL](sql-database-managed-instance.md) creata all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di risorse di calcolo e archiviazione per tutti i database presenti nell'istanza. Un'istanza gestita contiene database utente e di sistema. Istanza gestita è stato progettato per consentire il trasferimento di database in modalità lift-and-shift a una soluzione PaaS completamente gestita senza la necessità di riprogettare l'applicazione. Istanza gestita offre compatibilità elevata con il modello di programmazione di SQL Server locale e supporta la maggior parte delle funzionalità di SQL Server e degli strumenti e dei servizi associati.  
 
-Un database SQL di Azure può essere:
+Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream) e consente solo connessioni TCP/IP crittografate.
 
-- Un [database singolo](sql-database-single-database-resources.md) con relativo set di risorse
-- Parte di un [pool elastico](sql-database-elastic-pool.md) che condivide un set di risorse
-- Parte di un [set di scalabilità orizzontale di database partizionati](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), che può essere singolo o in pool
-- Parte di un set di database che fanno parte di uno [schema progettuale SaaS multi-tenant](sql-database-design-patterns-multi-tenancy-saas-applications.md), i cui database possono essere singoli o in pool (o entrambi) 
-
-> [!TIP]
-> Per i nomi di database validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database). 
->
- 
-- La regola di confronto del database predefinito usato dal database SQL di Microsoft Azure è **SQL_LATIN1_GENERAL_CP1_CI_AS**, in cui **LATIN1_GENERAL** indica la lingua inglese (Stati Uniti), **CP1** la pagina del codice 1252, **CI** l'assenza di distinzione tra maiuscole e minuscole e **AS** l'assenza di distinzione tra caratteri accentati e non accentati. Per altre informazioni su come impostare le regole di confronto, vedere [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
-- Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream).
-- Sono consentite solo connessioni TCP/IP.
+> [!IMPORTANT]
+> Istanza gestita di database SQL, attualmente in anteprima pubblica, offre un singolo livello di servizio per utilizzo generico. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md). La parte restante di questo articolo non si applica a Istanza gestita.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Che cos'è un server logico SQL di Azure?
 
-Un server logico funge da punto amministrativo centrale per più database, inclusi [pool elastici](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-geo-replication-overview.md). Un server logico può trovarsi in un'area diversa rispetto al relativo gruppo di risorse. Il server logico deve esistere prima di poter creare il database SQL di Azure. Tutti i database in un server vengono creati nella stessa area del server logico. 
+Un server logico funge da punto amministrativo centrale per più database singoli o [in pool](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-geo-replication-overview.md). Un server logico può trovarsi in un'area diversa rispetto al relativo gruppo di risorse. Il server logico deve esistere prima di poter creare il database SQL di Azure. Tutti i database in un server vengono creati nella stessa area del server logico.
 
-
-> [!IMPORTANT]
-> Nel database SQL un server è un costrutto logico diverso da un'istanza di SQL Server, familiare al mondo locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza.
-> 
+Un server logico è un costrutto logico diverso da un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza. Al contrario, un server in un'istanza di Istanza gestita di database SQL è simile a un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale.
 
 Quando si crea un server logico, è necessario specificare un account di accesso server e relativa password con diritti amministrativi per il database master in tale server e per tutti i database creati in tale server. Questo account iniziale è un account di accesso SQL. Il database SQL di Azure supporta l'autenticazione SQL e l'autenticazione di Azure Active Directory. Per informazioni su account di accesso e autenticazione, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). L'autenticazione Windows non è supportata. 
 
@@ -74,6 +63,7 @@ Un server logico del database di Azure:
 - Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute 
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
 - Può contenere account di accesso simili a quelli delle istanze di SQL Server in locale che dispongono dell'accesso a uno o più database nel server ed è possibile concedere diritti amministrativi limitati. Per altre informazioni, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md).
+- Le regole di confronto predefinite per tutti i database utente creati in un server logico sono `SQL_LATIN1_GENERAL_CP1_CI_AS`, dove `LATIN1_GENERAL` indica Inglese (Stati Uniti), `CP1` è la tabella codici 1252, `CI` indica che non viene fatta distinzione tra maiuscole e minuscole e `AS` indica che viene fatta distinzione tra caratteri accentati e non accentati.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>I database SQL di Azure sono protetti dal firewall del database SQL
 
@@ -97,6 +87,8 @@ Per creare un database SQL di Azure tramite il [portale di Azure](https://portal
 > Per informazioni sulla selezione del piano tariffario per il database, vedere [Livelli di servizio](sql-database-service-tiers.md).
 >
 
+Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
+
 ### <a name="manage-an-existing-sql-server"></a>Gestire un server SQL Server esistente
 
 Per gestire un server esistente, passare al server usando uno dei vari metodi disponibili, ad esempio dalla pagina specifica del database SQL, dalla pagina **SQL Server** o dalla pagina **Tutte le risorse**. 
@@ -110,7 +102,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
 >
 
 > [!TIP]
-> Per un'esercitazione introduttiva sul portale di Azure, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-get-started-portal.md).
+> Per un'esercitazione introduttiva nel portale di Azure, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-get-started-portal.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gestire server, database e firewall SQL di Azure con PowerShell
@@ -135,12 +127,12 @@ Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShe
 | New-AzureRmSqlServerVirtualNetworkRule | Crea una [*regola della rete virtuale*](sql-database-vnet-service-endpoint-rule-overview.md), in base a una subnet che è un endpoint servizio di Rete virtuale. |
 
 > [!TIP]
-> Per un'esercitazione introduttiva su PowerShell, vedere [Creare un singolo database SQL di Azure usando PowerShell](sql-database-get-started-portal.md). Per gli script di esempio di PowerShell, vedere [Usare PowerShell per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorare e ridimensionare un database SQL singolo usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Per un'esercitazione introduttiva in PowerShell, vedere [Creare un singolo database SQL di Azure usando PowerShell](sql-database-get-started-portal.md). Per gli script di esempio di PowerShell, vedere [Usare PowerShell per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [Monitorare e ridimensionare un database SQL singolo usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gestire server, database e firewall SQL di Azure con l'interfaccia della riga di comando di Azure
 
-Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia della riga di comando di Azure](/cli/azure/overview), usare i comandi seguenti dell'[interfaccia della riga di comando di Azure per il database SQL](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
+Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia della riga di comando di Azure](/cli/azure), usare i comandi seguenti dell'[interfaccia della riga di comando di Azure per il database SQL](/cli/azure/sql/db). Usare [Cloud Shell](/azure/cloud-shell/overview) per eseguire l'interfaccia della riga di comando nel browser o [installarla](/cli/azure/install-azure-cli) in macOS, Linux o Windows. Per creare e gestire i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
 
 | Cmdlet | DESCRIZIONE |
 | --- | --- |
@@ -165,7 +157,7 @@ Per creare e gestire server, database e firewall SQL di Azure con l'[interfaccia
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regola del firewall|
 
 > [!TIP]
-> Per un'esercitazione introduttiva sull'interfaccia della riga di comando di Azure, vedere [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md). Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md) e [Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Per un'esercitazione introduttiva nell'interfaccia della riga di comando di Azure, vedere [Creare un singolo database SQL di Azure usando l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md). Per gli script di esempio dell'interfaccia della riga di comando di Azure, vedere [Usare l'interfaccia della riga di comando per creare un singolo database SQL di Azure e configurare una regola del firewall](scripts/sql-database-create-and-configure-database-cli.md) e [Usare l'interfaccia della riga di comando per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Gestire server, database e firewall SQL di Azure con Transact-SQL
@@ -196,11 +188,11 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 
 
 > [!TIP]
-> Per un'esercitazione introduttiva sull'uso di SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per un'esercitazione introduttiva sull'uso di Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: Usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
+> Per un'esercitazione introduttiva con l'uso di SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per un'esercitazione introduttiva con l'uso di Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: Usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gestire server, database e firewall SQL di Azure con l'API REST
 
-Per creare e gestire server SQL, database e firewall usare queste richieste API REST.
+Per creare e gestire server, database e firewall SQL di Azure, usare queste richieste dell'API REST.
 
 | Comando | DESCRIZIONE |
 | --- | --- |
@@ -226,7 +218,5 @@ Per creare e gestire server SQL, database e firewall usare queste richieste API 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla creazione di pool di database con i pool elastici, vedere [Pool elastici](sql-database-elastic-pool.md).
-- Per informazioni sul servizio database SQL di Azure, vedere [Informazioni sul database SQL](sql-database-technical-overview.md).
 - Per altre informazioni sulla migrazione di un database SQL Server in Azure, vedere [Migrazione al database SQL di Azure](sql-database-cloud-migrate.md).
 - Per informazioni sulle funzionalità supportate, vedere [Azure SQL Database features](sql-database-features.md) (Funzioni del database SQL di Azure).

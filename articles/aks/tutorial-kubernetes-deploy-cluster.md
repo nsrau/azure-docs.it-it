@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 975069dbe9283c98482d7d0d5741a595ef323b35
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Distribuire un cluster del servizio contenitore di Azure
 
@@ -85,7 +85,7 @@ Al termine dell'esercitazione, sarà disponibile un cluster del servizio conteni
 
 ## <a name="configure-acr-authentication"></a>Configurare l'autenticazione del record di controllo di accesso
 
-È necessario configurare l'autenticazione tra il servizio contenitore di Azure e il registro dei record di controllo di accesso. Per questa operazione è necessario concedere all'identità del servizio di controllo di accesso i diritti appropriati per eseguire il pull di immagini dal registro dei record di controllo di accesso.
+È necessario configurare l'autenticazione tra il servizio contenitore di Azure e il registro dei record di controllo di accesso. Per questa operazione è necessario concedere al servizio contenitore di Azure i diritti appropriati per eseguire il pull di immagini dal registro dei record di controllo di accesso.
 
 Ottenere prima l'ID dell'entità servizio configurata per il servizio contenitore di Azure. Aggiornare il nome del gruppo di risorse e il nome del cluster del servizio contenitore di Azure affinché corrispondano al proprio ambiente.
 

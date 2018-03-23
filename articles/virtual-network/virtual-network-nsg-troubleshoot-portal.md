@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 > [!div class="op_single_selector"]

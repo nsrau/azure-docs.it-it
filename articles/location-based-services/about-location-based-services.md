@@ -2,24 +2,28 @@
 title: Informazioni generali su Servizi Location Based di Azure | Microsoft Docs
 description: Introduzione a Servizi Location Based di Azure (anteprima)
 services: location-based-services
-keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 02/05/2017
+keywords: ''
+author: kgremban
+ms.author: kgremban
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9e6236f7d69556d7636962c98886d9f9508445ac
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 91df49aa3f522ea765698a1d64ed2686606f71f3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Introduzione a Servizi Location Based di Azure (anteprima)
 Servizi Location Based di Azure è un portfolio di servizi geospaziali che include API di servizi per mappe, ricerca, pianificazione del percorso, informazioni sul traffico e fusi orari. Il portfolio di servizi conformi con Azure OneAPI consente di usare strumenti di sviluppo già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Servizi Location Based di Azure offre agli sviluppatori di qualsiasi settore potenti funzionalità geospaziali che includono dati delle mappe aggiornati, indispensabili per fornire il contesto geografico alle applicazioni Web e per dispositivi mobili. Questi servizi sono costituiti da un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo estremamente semplice, flessibile e compatibile con più supporti. 
+
+Il video seguente presenta Servizi Location Based di Azure.
+
+<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Servizi Location Based di Azure include cinque servizi principali per fornire supporto alle applicazioni Azure che richiedono un contesto geografico. Di seguito sono descritti in dettaglio i singoli servizi.
 
@@ -64,6 +68,16 @@ Servizi Location Based di Azure include cinque servizi principali per fornire su
 Servizi Location Based di Azure è stato progettato per la mobilità e può essere usato per applicazioni multipiattaforma poiché il modello di programmazione è indipendente dalla piattaforma e supporta l'output JSON tramite le API REST. Servizi Location Based di Azure offre inoltre un pratico controllo mappa JavaScript con un semplice modello di programmazione per sviluppare applicazioni Web e per dispositivi mobili in modo rapido e intuitivo. 
 
 Per Servizi Location Based di Azure viene usato uno schema di autenticazione basato su chiavi. Pertanto, per accedere ai servizi, è sufficiente passare al [portale di Azure](http://portal.azure.com) e creare uno specifico account, che viene fornito con due chiavi pre-generate automaticamente. È possibile iniziare a integrare queste funzionalità sulla posizione direttamente nelle applicazioni usando una delle proprie chiavi nelle richieste inviate a Servizi Location Based di Azure.
+
+## <a name="unsupported-regions"></a>Aree non supportate
+L'API non è attualmente disponibile nei paesi seguenti. Verificare l'indirizzo IP corrente e verificare che la località dell'indirizzo IP non sia uno dei paesi seguenti non supportati.
+
+* Argentina
+* Cina
+* India
+* Marocco
+* Pakistan
+* Corea del Sud
 
 ## <a name="relationship-with-bing-maps"></a>Relazione con Bing Mappe
 La soluzione Servizi Location Based di Azure descritta in questo documento è diversa da Bing Mappe.  Anche se queste soluzioni condividono molte funzionalità, si tratta di due servizi diversi e non correlati.  La disponibilità di questo nuovo servizio di Azure, che verrà gestito separatamente, non ha alcun impatto sull'offerta o sugli sviluppi futuri di Bing Mappe.

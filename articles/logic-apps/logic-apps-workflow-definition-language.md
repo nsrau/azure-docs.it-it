@@ -4,8 +4,8 @@ description: Definire i flussi di lavoro in base allo schema di definizione del 
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -126,14 +126,14 @@ I valori JSON nella definizione possono essere letterali o possono essere espres
 > [!NOTE]
 > Alcune espressioni ottengono i rispettivi valori dalle azioni di runtime che potrebbero non esistere all'inizio dell'esecuzione. È possibile usare le **funzioni** per semplificare il recupero di alcuni di questi valori.  
   
-Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Quando un valore JSON è stato identificato come espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (@). Se è necessaria una stringa letterale che inizia con @, occorre che la stringa sia preceduta da un carattere di escape con @@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
+Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Quando un valore JSON è stato identificato come espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola \(\@). Se è necessaria una stringa letterale che inizia con @, occorre che la stringa sia preceduta da un carattere di escape con \@@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
 |"parameters"|Vengono restituiti i caratteri di tipo 'parameters'.|  
 |"parameters[1]"|Vengono restituiti i caratteri di tipo 'parameters[1]'.|  
-|"@@"|Viene restituita una stringa da 1 carattere che contiene '@'.|  
-|" @"|Viene restituita una stringa da 2 caratteri che contiene ' @'.|  
+|\"\@\@\"|Viene restituita una stringa da 1 carattere che contiene \'\@\'.|  
+|\" \@\"|Viene restituita una stringa da 2 caratteri che contiene \' \@\'.|  
   
 Con l'*interpolazione della stringa* è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ Il risultato è sempre una stringa. Questa funzionalità è quindi simile alla f
 |Valore JSON|Risultato|  
 |----------------|------------|  
 |"@parameters('myString')"|Restituisce `sampleString` come stringa.|  
-|"@{parameters('myString')}"|Restituisce `sampleString` come stringa.|  
+|\"\@{parameters('myString')}"|Restituisce `sampleString` come stringa.|  
 |"@parameters('myNumber')"|Restituisce `42` come *numero*.|  
-|"@{parameters('myNumber')}"|Restituisce `42` come *stringa*.|  
-|"Answer is: @{parameters('myNumber')}"|Restituisce la stringa `Answer is: 42`.|  
+|\"\@{parameters('myNumber')}"|Restituisce `42` come *stringa*.|  
+|"Answer is: \@{parameters('myNumber')}"|Restituisce la stringa `Answer is: 42`.|  
 |"@concat('Answer is: ', string(parameters('myNumber')))"|Restituisce la stringa `Answer is: 42`.|  
-|"Answer is: @@{parameters('myNumber')}"|Restituisce la stringa `Answer is: @{parameters('myNumber')}`.|  
+|"Answer is: \@\@{parameters('myNumber')}"|Restituisce la stringa `Answer is: @{parameters('myNumber')}`.|  
   
 ## <a name="operators"></a>Operatori  
 

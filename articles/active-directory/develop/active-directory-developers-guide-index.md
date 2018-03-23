@@ -5,21 +5,21 @@ services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Articoli nella Guida per gli sviluppatori di Azure AD
 Di seguito viene indicato un elenco di tutti gli argomenti trattati nella Guida per gli sviluppatori di Azure Active Directory.
@@ -43,6 +43,7 @@ Questi articoli descrivono i concetti e le funzionalità specifici di Azure Acti
 | [Dashboard venditori di Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Come pubblicare un'applicazione nel dashboard venditori di Office 365 |
 | [Servizi connessi di Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Come usare l'integrazione di Azure AD con progetti MVC in Visual Studio |
 | [AD FS in Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Come eseguire l'integrazione con Active Directory in locale con AD FS |
+| [Procedure consigliate per la gestione degli errori di ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Come creare una gestione degli errori resiliente e abilitare la registrazione |
 
 ## <a name="reference"></a>Riferimenti
 Questi articoli contengono riferimenti di base per API REST e di librerie di autenticazione, protocolli, errori, esempi di codice ed endpoint.

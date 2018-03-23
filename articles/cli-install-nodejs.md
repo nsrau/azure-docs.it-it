@@ -1,9 +1,9 @@
 ---
 title: Installare l'interfaccia della riga di comando 1.0 di Azure | Microsoft Docs
 description: Installare l'interfaccia della riga di comando 1.0 di Azure per Mac, Linux e Windows per iniziare a usare i servizi di Azure
-editor: 
+editor: ''
 manager: timlt
-documentationcenter: 
+documentationcenter: ''
 author: squillace
 services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
 tags: azure-resource-manager,azure-service-management
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a1ca71a81f4fa6dd36b9ed3a2b16fcca0e29601c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="install-the-azure-cli-10"></a>Installare l'interfaccia della riga di comando 1.0 di Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 > [!IMPORTANT]
 > In questo argomento viene spiegato come installare l'interfaccia della riga di comando di Azure 1.0. Questa interfaccia della riga di comando è deprecata e dev'essere usata solo per il supporto con il modello Azure Service Management con le risorse "classiche".
-> Per le distribuzioni di Azure Resource Manager (ARM), usare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/overview).
+> Per le distribuzioni di Azure Resource Manager, usare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure).
 
 Installare rapidamente l'interfaccia della riga di comando 1.0 di Azure per usare un set di comandi open source basati su shell per creare e gestire le risorse in Microsoft Azure. Sono disponibili diverse opzioni per installare questi strumenti multipiattaforma nel computer in uso:
 

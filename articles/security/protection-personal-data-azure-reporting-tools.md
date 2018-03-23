@@ -1,29 +1,28 @@
 ---
 title: Documentare la protezione dei dati personali con gli strumenti di creazione di report di Azure | Microsoft Docs
-description: Come usare i servizi e le tecnologie di creazione di report di Azure per proteggere la privacy dei dati personali.
+description: Usare i servizi di creazione di report di Azure per proteggere la privacy dei dati personali nelle iniziative volte ad assicurare la conformità al Regolamento generale sulla protezione dei dati (RGPD).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentare la protezione dei dati personali con gli strumenti di creazione di report di Azure
 
-Questo articolo illustra come usare i servizi e le tecnologie di creazione di report di Azure per proteggere la privacy dei dati personali.
-
+Questo articolo illustra come usare i servizi e le tecnologie di creazione di report di Azure per proteggere la privacy dei dati personali. Le informazioni qui incluse possono essere utili per soddisfare i requisiti standard di specifici settori di attività o di enti pubblici, ad esempio il Regolamento generale sulla protezione dei dati (RGPD).
 ## <a name="scenario"></a>Scenario
 
 Un'importante compagnia di viaggi in crociera, con sede negli Stati Uniti, sta espandendo le proprie operazioni per offrire itinerari nel Mar Mediterraneo e nel Mar Baltico, nonché nelle isole britanniche. Per supportare tale iniziativa, ha acquistato diverse linee minori con sede in Italia, Germania, Danimarca e Regno Unito.

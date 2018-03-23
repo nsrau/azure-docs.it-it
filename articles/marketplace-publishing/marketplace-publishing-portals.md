@@ -2,10 +2,10 @@
 title: Panoramica dei vari portali necessari per creare un'offerta per Marketplace | Documentazione Microsoft
 description: Panoramica dei vari portali necessari per creare un'offerta per Marketplace
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
-ms.author: hascipio
-ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 663d9a01b80b0c41e37037b0cbec10c93511d24c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="portals-you-will-need"></a>Portali necessari
 Prima di iniziare il processo di pubblicazione di un’offerta, è necessario fornire alcune informazioni sui diversi portali che saranno necessari. Di seguito sono riepilogati i portali (centro per sviluppatori, portale di pubblicazione di Azure e portale di Azure) nell'ordine in cui si interagirà con loro.                                                                            

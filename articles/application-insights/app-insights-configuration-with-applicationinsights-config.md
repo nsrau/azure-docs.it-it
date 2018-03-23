@@ -1,8 +1,8 @@
 ---
-title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Documentazione Microsoft'
+title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Microsoft Docs'
 description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i contatori delle prestazioni e altri parametri.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 editor: mrbullwinkle
 manager: carmonm
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 980b297db87c2829f3c393ae867780f263f8d87c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -28,6 +28,9 @@ Il file di configurazione è denominato `ApplicationInsights.config` o `Applicat
 Non esiste un file equivalente per controllare l'[SDK in una pagina Web][client].
 
 Questo documento illustra le sezioni visibili nel file di configurazione, il modo in cui esse controllano i componenti SDK, e quali pacchetti NuGet caricano questi componenti.
+
+> [!NOTE]
+> I file di istruzioni applicationInsights.config e .xml non si applicano a .NET Core SDK. Per le modifiche a un'applicazione .NET Core, viene in genere usato il file appsettings.json. Un esempio è disponibile nella [documentazione relativa a Snapshot Debugger.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
 
 ## <a name="telemetry-modules-aspnet"></a>Moduli di telemetria (ASP.NET)
 Ogni modulo di telemetria raccoglie un tipo specifico di dati e utilizza l’API principale per inviare i dati. I moduli sono installati da diversi pacchetti NuGet che aggiungono anche le linee necessarie al file .config.

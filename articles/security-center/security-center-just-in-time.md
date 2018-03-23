@@ -5,27 +5,27 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: a15857f0df5c967031aed00d89e71b3199eed0c4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="manage-virtual-machine-access-using-just-in-time-preview"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time) (anteprima)
+# <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
 L'accesso Just-in-Time alle macchine virtuali può essere usato per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e al tempo stesso offrendo un facile accesso per connettersi alle macchine virtuali quando necessario.
 
 > [!NOTE]
-> La funzionalità Just-In-Time è in anteprima e disponibile nel livello Standard di Centro sicurezza.  Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
+> La funzionalità Just-In-Time è disponibile nel livello Standard del Centro sicurezza.  Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
 >
 >
 

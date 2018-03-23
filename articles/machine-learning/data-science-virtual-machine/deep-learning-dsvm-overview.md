@@ -3,7 +3,7 @@ title: Introduzione alla macchina virtuale per l'apprendimento avanzato - Azure 
 description: Gli scenari analitici e i componenti chiave per le macchine virtuali per l'apprendimento avanzato.
 keywords: apprendimento avanzato, AI, strumenti di data science, macchina virtuale per data science, strumenti per data science, data science per Linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a3e4c989c1dbb31b237115acfcc032aa2dee4f2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74b5c68c2c04eebc1d6f1e59fac8cbb11fef46a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Introduzione alla macchina virtuale per l'apprendimento avanzato - Azure
 

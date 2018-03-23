@@ -2,23 +2,23 @@
 title: Registrazione diagnostica di Azure Cosmos DB | Microsoft Docs
 description: Questa esercitazione offre un'introduzione alla registrazione di Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
+ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: 0d76e3bea8b3d24c4232c699354320f6b873722e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f647387b4e80c36339a456b8e9a2cfade7ac8102
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -31,6 +31,13 @@ Prima di passare al monitoraggio dell'account Azure Cosmos DB, occorre chiarire 
 L'immagine seguente mostra i diversi tipi di log di Azure disponibili.
 
 ![Diversi tipi di log di Azure](./media/logging/azurelogging.png)
+
+Nella figura precedente le **risorse di calcolo** rappresentano le risorse di Azure per le quali è possibile accedere al sistema operativo Guest. Ad esempio, le macchine virtuali di Azure, i set di scalabilità di Azure, il servizio contenitore di Azure e così via vengono considerati come risorse di calcolo. Le risorse di calcolo generano log attività, log di diagnostica e log applicazioni. Per altre informazioni, vedere l'articolo [Monitoraggio di Azure: risorse di calcolo](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
+
+Le **risorse non di calcolo** sono risorse in cui non è possibile accedere al sistema operativo sottostante e utilizzare direttamente la risorsa. Esempi di risorse non di calcolo sono i gruppi di sicurezza di rete, le app per la logica e così via. **Cosmos DB** è una risorsa non di calcolo. È possibile visualizzare i log delle risorse non di calcolo nel log attività oppure abilitando l'opzione Log di diagnostica nel portale. Per altre informazioni, vedere l'articolo [Monitoraggio di Azure: risorse non di calcolo](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+
+Il log attività registra le operazioni a livello di sottoscrizione di Cosmos DB, ad esempio ListKeys, Write DatabaseAccounts e così via. I log di diagnostica offrono un livello di registrazione più granulare e consentono di registrare DataPlaneRequests (Create, Read, Query e così via) e MongoRequests.
+
 
 Questo argomento è incentrato sui log per attività di Azure, diagnostica di Azure e metriche e sulle differenze tra questi tre tipi di log. 
 

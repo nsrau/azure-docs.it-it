@@ -15,6 +15,11 @@ I costi di licenza addebitati per SQL Server o Oracle sono vincolati al nuovo nu
 | Standard_M64-16ms   | 16   | Come M64ms   |
 | Standard_M128-64ms  | 64   | Come M128ms  |
 | Standard_M128-32ms  | 32   | Come M128ms  |
+| Standard_E4-2s_v3   | 2    | Come E4s_v3  |
+| Standard_E8-4s_v3   | 4    | Come E8s_v3  |
+| Standard_E8-2s_v3   | 2    | Come E8s_v3  |
+| Standard_E16-8s_v3  | 8    | Come E16s_v3 |
+| Standard_E16-4s_v3  | 4    | Come E16s_v3 |
 | Standard_E32-16_v3  | 16   | Come E32s_v3 |
 | Standard_E32-8s_v3  | 8    | Come E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Come E64s_v3 |
@@ -23,6 +28,9 @@ I costi di licenza addebitati per SQL Server o Oracle sono vincolati al nuovo nu
 | Standard_GS4-4      | 4    | Come GS4     |
 | Standard_GS5-16     | 16   | Come GS5     |
 | Standard_GS5-8      | 8    | Come GS5     |
+| Standard_DS11-1_v2  | 1    | Come DS11_v2 |
+| Standard_DS12-2_v2  | 2    | Come DS12_v2 |
+| Standard_DS12-1_v2  | 1    | Come DS12_v2 |
 | Standard_DS13-4_v2  | 4    | Come DS13_v2 |
 | Standard_DS13-2_v2  | 2    | Come DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Come DS14_v2 |

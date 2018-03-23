@@ -5,7 +5,7 @@ services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 03/08/2018
 ms.author: ganesr
-ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2f0fed77a676bc46e8daa9c41efd533dffe72d8b
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Collegare una rete virtuale a un circuito ExpressRoute usando PowerShell (versione classica)
 > [!div class="op_single_selector"]
@@ -48,6 +48,8 @@ Questo articolo spiega come collegare le reti virtuali ai circuiti di Azure Expr
    * È necessario disporre di una rete virtuale e di un gateway di rete virtuale creati e con provisioning completo. Seguire le istruzioni per [configurare una rete virtuale per ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
 È possibile collegare fino a 10 reti virtuali a un circuito ExpressRoute. Tutte le reti virtuali devono trovarsi nella stessa area geopolitica. È possibile collegare un numero maggiore di reti virtuali al circuito ExpressRoute o collegare reti virtuali che non sono presenti in altre aree geopolitiche se è stato abilitato il componente aggiuntivo ExpressRoute Premium. Per altre informazioni sul componente aggiuntivo Premium, vedere le [domande frequenti](expressroute-faqs.md) .
+
+Una singola rete virtuale può essere collegata a un massimo di quattro circuiti ExpressRoute. Usare la procedura seguente per creare un nuovo collegamento a ogni circuito ExpressRoute a cui si esegue la connessione. I circuiti ExpressRoute possono essere nella stessa sottoscrizione, diverse sottoscrizioni o una combinazione di entrambe le situazioni.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Collegare una rete virtuale della stessa sottoscrizione a un circuito
 È possibile collegare una rete virtuale a un circuito ExpressRoute usando il cmdlet seguente. Prima di eseguire il cmdlet, assicurarsi che il gateway di rete virtuale sia stato creato e sia pronto per il collegamento.

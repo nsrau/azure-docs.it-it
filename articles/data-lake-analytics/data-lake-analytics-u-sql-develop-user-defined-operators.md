@@ -1,10 +1,10 @@
 ---
 title: Sviluppare operatori U-SQL definiti dall'utente (UDO) | Microsoft Docs
-description: 'Informazioni su come sviluppare operatori definiti dall''utente da usare e riutilizzare nei processi di Data Lake Analytics. '
+description: "Informazioni su come sviluppare operatori definiti dall'utente da usare e riutilizzare nei processi di Data Lake Analytics. "
 services: data-lake-analytics
-documentationcenter: 
-author: edmacauley
-manager: jhubbard
+documentationcenter: ''
+author: saveenr
+manager: kfile
 editor: cgronlun
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: 5e534f96b908d2aa1f4d7c48655509ece8dcf43e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saveenr
+ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Sviluppare operatori U-SQL definiti dall'utente (UDO)
 Informazioni su come sviluppare operatori definiti dall'utente per elaborare i dati in un processo U-SQL.

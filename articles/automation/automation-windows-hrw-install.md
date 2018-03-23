@@ -1,24 +1,18 @@
 ---
-title: Ruolo di lavoro ibrido per runbook Windows di Automazione di Azure | Microsoft Docs
+title: Ruolo di lavoro ibrido per runbook Windows di Automazione di Azure
 description: Questo articolo fornisce informazioni sull'installazione di un ruolo di lavoro ibrido per runbook di Automazione di Azure che consente di eseguire i runbook sui computer Windows nel data center locale o nell'ambiente cloud.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 4232634f57f9650a35c40ee769cbeb0a3e009dfb
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+manager: carmonm
+ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Come distribuire un ruolo di lavoro ibrido per runbook di Windows
 

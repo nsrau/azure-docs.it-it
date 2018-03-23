@@ -2,7 +2,7 @@
 title: Introduzione ad Azure Data Lake Analytics con Azure PowerShell | Documentazione Microsoft
 description: 'Usare Azure PowerShell per creare un account di Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
-ms.author: edmaca
-ms.openlocfilehash: 832a859e70e382eb2eeb41560d1b880f7b87de53
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: saveenr
+ms.openlocfilehash: f37a4563a758d442760f4a6be3c11bb9a9ddfc28
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introduzione ad Azure Data Lake Analytics con Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]

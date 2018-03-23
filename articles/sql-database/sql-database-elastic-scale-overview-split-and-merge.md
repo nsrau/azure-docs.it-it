@@ -1,24 +1,19 @@
 ---
-title: "Spostamento di dati tra database cloud con scalabilità orizzontale |Documentazione Microsoft"
+title: Spostamento di dati tra database cloud con scalabilità orizzontale |Documentazione Microsoft
 description: Illustra come gestire partizioni e spostare dati tramite un servizio self-hosted usando API di database elastici.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
-ms.author: ddove
-ms.openlocfilehash: 328989c4fc1f9a404d4c048eb148a95e9105bdf5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
 Se lo sviluppatore di un'app SaaS (Software as a Service) registra un incremento importante della richiesta dell'app, dovrà far fronte alla domanda. A tale scopo aggiungerà altri database (partizioni). Come ridistribuire i dati nei nuovi database senza comprometterne l'integrità? Per spostare dati dai database vincolati ai nuovi database, usare lo **strumento di suddivisione-unione** .  

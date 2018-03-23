@@ -6,18 +6,18 @@ author: neilpeterson
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 80b5055dee35cd6efe62ee949c05aef386a3ba14
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Creare un Registro contenitori di Azure usando PowerShell
 
-Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure con PowerShell.
+Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure tramite PowerShell, l'inserimento di un'immagine del contenitore nel registro e infine la distribuzione del contenitore dal registro in Istanze di contenitore di Azure.
 
 Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 3.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -59,7 +59,7 @@ $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 
 Usare il comando [docker login][docker-login] per accedere all'istanza record di controllo di accesso.
 
-```bash
+```powershell
 docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
@@ -69,31 +69,61 @@ Il comando restituisce `Login Succeeded` al termine dell'esecuzione. È possibil
 
 Per eseguire il push di un'immagine nel registro contenitori di Azure è necessario innanzitutto disporre di un'immagine. Se necessario, eseguire il comando seguente per eseguire il pull di un'immagine creata in precedenza dall'Hub Docker.
 
-```bash
+```powershell
 docker pull microsoft/aci-helloworld
 ```
 
-L'immagine deve essere contrassegnata con il nome del server di accesso del record di controllo di accesso. Eseguire il comando [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) per restituire il nome del server di accesso dell'istanza del record di controllo di accesso.
+L'immagine deve essere contrassegnata con il nome del server di accesso del record di controllo di accesso. A tale scopo, usare il comando [docker tag][docker-tag]. 
 
 ```powershell
-Get-AzureRmContainerRegistry | Select Loginserver
+$image = $registry.LoginServer + "/aci-helloworld:v1"
+docker tag microsoft/aci-helloworld $image
 ```
 
-Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire *acrLoginServer* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+Usare infine [docker push][docker-push] per eseguire il push dell'immagine in Istanze di contenitore di Azure.
 
-```bash
-docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
+```powershell
+docker push $image
 ```
 
-Infine, usare [docker push][docker-push] per eseguire il push delle immagini nell'istanza del record di controllo di accesso. Sostituire *acrLoginServer* con il nome del server di accesso dell'istanza del record di controllo di accesso.
+## <a name="deploy-image-to-aci"></a>Distribuire l'immagine in Istanze di contenitore di Azure
+Per distribuire l'immagine come istanza di contenitore in Istanze di contenitore di Azure, convertire prima la credenziale del registro in PSCredential.
 
-```bash
-docker push <acrLoginServer>/aci-helloworld:v1
+```powershell
+$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
+$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
+
+Per distribuire l'immagine del contenitore dal registro contenitori con 1 core CPU e 1 GB di memoria, eseguire questo comando:
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name mycontainer -Image $image -Cpu 1 -MemoryInGB 1 -IpAddressType public -Port 80 -RegistryCredential $pscred
+```
+
+Si riceverà una risposta iniziale da Azure Resource Manager con i dettagli del contenitore. Per monitorare lo stato del contenitore e verificare quando è in esecuzione, ripetere il comando [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]. Per il completamento dovrebbe essere necessario meno di un minuto.
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
+```
+
+Output di esempio: `Succeeded`
+
+## <a name="view-the-application"></a>Visualizzare l'applicazione
+Dopo aver completato la distribuzione in Istanze di contenitore di Azure, recuperare l'indirizzo IP pubblico del contenitore con il comando [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+
+```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).IpAddress
+```
+
+Output di esempio: `"13.72.74.222"`
+
+Per visualizzare l'applicazione in esecuzione, esplorare l'indirizzo IP pubblico nel browser preferito. Dovrebbe essere visualizzata una schermata analoga alla seguente:
+
+![App Hello World nel browser][qs-portal-15]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando il gruppo di risorse, l'istanza del record di controllo di accesso e tutte le immagini del contenitore non sono più necessari è possibile usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuoverli.
+Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, l'istanza di Registro contenitori di Azure e tutte le istanze di contenitore di Azure usando il comando [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup].
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -101,7 +131,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida rapida è stato creato un Registro contenitori di Azure con l'interfaccia della riga di comando di Azure. Se si desidera usare il Registro contenitori di Azure con le istanze di contenitore di Azure, continuare con l'esercitazione relativa alle istanze di contenitore di Azure.
+In questa guida introduttiva è stato creato un registro contenitori di Azure con l'interfaccia della riga di comando di Azure e ne è stata avviata un'istanza in Istanze di contenitore di Azure. Passare all'esercitazione su Istanze di contenitore di Azure per maggiori informazioni.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](../container-instances/container-instances-tutorial-prepare-app.md)
@@ -113,3 +143,10 @@ In questa Guida rapida è stato creato un Registro contenitori di Azure con l'in
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- Links - internal -->
+[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
+[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
+
+<!-- IMAGES> -->
+[qs-portal-15]: ./media/container-registry-get-started-portal/qs-portal-15.png
