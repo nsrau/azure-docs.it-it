@@ -2,23 +2,23 @@
 title: Utilizzo di un endpoint con privilegi nello Stack di Azure | Documenti Microsoft
 description: Viene illustrato come utilizzare l'endpoint con privilegi (PEP) nello Stack di Azure (per un operatore di Stack di Azure).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizzo di un endpoint con privilegi nello Stack di Azure
 
@@ -74,7 +74,7 @@ Prima di iniziare questa procedura per un sistema integrato, verificare che sia 
       ```` 
    Quando richiesto, utilizzare le seguenti credenziali:
 
-      - **Nome utente**: specificare l'account CloudAdmin, nel formato  **&lt; *dominio Azure Stack*&gt;\cloudadmin**. (Per ASDK, il nome utente è **azurestack\cloudadmin**.)
+      - **Nome utente**: specificare l'account CloudAdmin, nel formato  **&lt; *dominio Azure Stack*&gt;\accountname**. (Per ASDK, è il nome utente **azurestack\accountname**.) 
       - **Password**: immettere la stessa password fornita durante l'installazione per l'account di amministratore di dominio AzureStackAdmin.
     
 3.  Dopo la connessione, la richiesta verrà visualizzata l'indicazione **[*nome indirizzo IP o VM ERCS*]: PS >** o **[azs ercs01]: PS >**, a seconda dell'ambiente. A questo punto, eseguire `Get-Command` per visualizzare l'elenco dei cmdlet disponibili.
@@ -143,7 +143,7 @@ Per importare la sessione PEP sul computer locale, effettuare i passaggi seguent
       ```` 
    Quando richiesto, utilizzare le seguenti credenziali:
 
-      - **Nome utente**: specificare l'account CloudAdmin, nel formato  **&lt; *dominio Azure Stack*&gt;\cloudadmin**. (Per ASDK, il nome utente è **azurestack\cloudadmin**.)
+      - **Nome utente**: specificare l'account CloudAdmin, nel formato  **&lt; *dominio Azure Stack*&gt;\accountname**. (Per ASDK, è il nome utente **azurestack\accountname**.) 
       - **Password**: immettere la stessa password fornita durante l'installazione per l'account di amministratore di dominio AzureStackAdmin.
 
 3. Importare la sessione PEP nel computer locale
@@ -161,7 +161,7 @@ Per chiudere la sessione di endpoint:
 
 1. Creare una condivisione di file esterno che è accessibile dal PEP. In un ambiente di kit di sviluppo, è possibile creare solo una condivisione di file nell'host di kit di sviluppo.
 2. Eseguire il `Close-PrivilegedEndpoint` cmdlet. 
-3. Richiesto per un percorso in cui archiviare il file di registro di sistema. Specificare la condivisione di file creato in precedenza, in formato &#92; &#92; *servername*&#92; *ShareName*. Se non si specifica un percorso, il cmdlet non riesce e la sessione rimane aperta. 
+3. Richiesto per un percorso in cui archiviare il file di registro di sistema. Specificare la condivisione di file creato in precedenza, nel formato &#92; &#92; *servername*&#92;*sharename*. Se non si specifica un percorso, il cmdlet non riesce e la sessione rimane aperta. 
 
     ![Output del cmdlet Chiudi PrivilegedEndpoint che mostra in cui specificare il percorso di destinazione di trascrizione](media/azure-stack-privileged-endpoint/closeendpoint.png)
 

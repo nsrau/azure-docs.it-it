@@ -2,23 +2,23 @@
 title: Note sulla versione di Microsoft Azure Stack Development Kit | Documenti Microsoft
 description: Miglioramenti, correzioni e problemi noti per Azure Stack Development Kit.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit
 Queste note sulla versione offrono informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si è certi quale versione è in esecuzione, è possibile [utilizzare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Vedere il [nuove funzionalità e correzioni](.\.\azure-stack-update-1802.md#new-
     - *Errore: modello per FaultType ResourceProviderTimeout è manca.*
 
     Questo avviso può essere tranquillamente ignorato. 
+
+- Portale di amministrazione sia dal portale per gli utenti, il pannello Panoramica non riesce a caricare quando si seleziona il pannello della panoramica per gli account di archiviazione che sono stati creati con una versione precedente di API (esempio: 2015-06-15). 
+
+  In alternativa, utilizzare PowerShell per eseguire la **inizio ResourceSynchronization.ps1** script per ripristinare l'accesso per l'account di archiviazione. [Lo script è disponibile da GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)e con le credenziali di amministratore nell'host kit sviluppo se si utilizza il ASDK.  
+
 
 #### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
 Nel portale di amministrazione di Stack di Azure, è possibile notare un avviso critico con il nome **in sospeso scadenza certificato esterno**.  Questo avviso può essere tranquillamente ignorato e sulle operazioni del Kit di sviluppo dello Stack di Azure. 
@@ -273,9 +278,11 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
     > Alcuni degli elementi elencati nel **nuove funzionalità e correzioni** sezione sono rilevanti solo per i sistemi Azure Stack integrato.
 
 ### <a name="known-issues"></a>Problemi noti
+
  
 #### <a name="deployment"></a>Distribuzione
 - È necessario specificare un server utilizzando un indirizzo IP durante la distribuzione.
+- Partire dalla versione, 1711 **CloudAdmin** è un nome di account riservato e non deve essere manualmente specificato quando si distribuisce il kit di sviluppo. 
 
 #### <a name="infrastructure-management"></a>Gestione dell'infrastruttura
 - Non abilitare il backup di infrastruttura nel **backup infrastruttura** blade.

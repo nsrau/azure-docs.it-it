@@ -2,24 +2,24 @@
 title: Preparare i certificati di infrastruttura a chiave pubblica Azure dello Stack per la distribuzione di sistemi Azure Stack integrato | Documenti Microsoft
 description: Viene descritto come preparare i certificati di infrastruttura a chiave pubblica di Azure dello Stack per i sistemi Azure Stack integrato.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 03/22/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b2f1e9bf62773dd7124678552f23dd9262530031
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: dadb443f8b7739e3a18c0d3beb558d8c42e9d19c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure dello Stack per la distribuzione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) deve importare ed esportare con proprietà corrispondenti requisiti dei certificati di Azure dello Stack.

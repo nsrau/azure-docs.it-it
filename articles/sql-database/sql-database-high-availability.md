@@ -1,23 +1,19 @@
 ---
-title: Disponibilità elevata - Servizio del database SQL di Azure | Microsoft Docs
+title: Disponibilità elevata - Servizio del database SQL di Azure | Documentazione Microsoft
 description: Informazioni sulle funzionalità di disponibilità elevata del servizio di database SQL di Azure
-keywords: ''
 services: sql-database
 author: anosov1960
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
-ms.custom: ''
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 86a839102e98a1b8e7cd9927c697cacf1f41a1a6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 Dall'inizio dell'offerta PaaS del database SQL di Azure, Microsoft ha promesso ai clienti l'integrazione della disponibilità elevata nel servizio evitando ai clienti di dover gestire, aggiungere una logica specifica o prendere decisioni in merito alla disponibilità elevata. Microsoft mantiene il controllo completo sulla configurazione e il funzionamento del sistema di disponibilità elevata offrendo ai clienti un contratto di servizio. Il contratto di servizio di disponibilità elevata si applica a un database SQL in un'area e non assicura protezione in caso di errore nell'intera area dovuto a fattori al di fuori del ragionevole controllo di Microsoft (ad esempio calamità naturali, guerra, atti di terrorismo, sommosse, azioni governative o un errore della rete o del dispositivo esterno al data center Microsoft, inclusi problemi presso la sede del cliente o tra questa e il data center Microsoft).
@@ -56,7 +52,7 @@ La soluzione a disponibilità elevata del database di SQL si basa sulla tecnolog
 
 In questo tipo di configurazione, ogni database viene portato online dal servizio di gestione all'interno dell'anello di controllo. Una replica primaria e almeno due repliche secondarie (set di quorum) si trovano all'interno di un anello di tenant che si estende su tre sottosistemi fisici indipendenti all'interno dello stesso data center. Tutte le letture e le scritture sono inviate dal gateway alla replica primaria e le scritture vengono replicate in modo asincrono nelle repliche secondarie. Il database SQL usa uno schema di commit basato su quorum in cui i dati vengono scritti nella replica primaria e in almeno una replica secondaria prima del commit della transazione.
 
-Il sistema di failover di [Service Fabric](/service-fabric/service-fabric-overview.md) ricompila automaticamente le repliche in caso di errori dei nodi e mantiene l'appartenenza al set di quorum quando i nodi escono ed entrano nel sistema. La manutenzione pianificata è attentamente coordinata per evitare che il set di quorum scenda al di sotto di un numero di repliche minime (in genere due). Questo è un modello ottimale per i database Premium, ma richiede ridondanza dei componenti di elaborazione e di archiviazione e comporta costi superiori.
+Il sistema di failover di [Service Fabric](../service-fabric/service-fabric-overview.md) ricompila automaticamente le repliche in caso di errori dei nodi e mantiene l'appartenenza al set di quorum quando i nodi escono ed entrano nel sistema. La manutenzione pianificata è attentamente coordinata per evitare che il set di quorum scenda al di sotto di un numero di repliche minime (in genere due). Questo è un modello ottimale per i database Premium, ma richiede ridondanza dei componenti di elaborazione e di archiviazione e comporta costi superiori.
 
 ## <a name="remote-storage-configuration"></a>Configurazione dell'archiviazione remota
 

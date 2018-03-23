@@ -2,24 +2,24 @@
 title: Installare il Kit di sviluppo di Azure Stack (ASDK) | Documenti Microsoft
 description: Viene descritto come installare il Kit di sviluppo dello Stack di Azure (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installare il Kit di sviluppo di Azure Stack (ASDK)
 Dopo aver [la preparazione del computer host ASDK](asdk-prepare-host.md), il ASDK può essere distribuito nell'immagine CloudBuilder.vhdx usando la procedura seguente in questo articolo.
@@ -55,8 +55,10 @@ I passaggi descritti in questo articolo mostrano come distribuire ASDK utilizzan
     - **DHCP** (impostazione predefinita): la macchina virtuale Ottiene la configurazione della rete IP dal server DHCP.
     - **Statico**: usare questa opzione solo se DHCP non è possibile assegnare un indirizzo IP valido per lo Stack di Azure accedere a Internet. **Un indirizzo IP statico deve essere specificato con la lunghezza subnetmask nel formato CIDR (ad esempio, 10.0.0.5/24)**.
     - Tipo in un valore valido **ora IP del server** indirizzo. Questa operazione necessaria campo imposta il tempo server da utilizzare con il kit di sviluppo. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.
+
       > [!TIP]
       > Per trovare l'indirizzo IP di un server, visitare [pool.ntp.org](http:\\pool.ntp.org) o time.windows.com ping. 
+
     - **Facoltativamente**, impostare i valori seguenti:
         - **ID VLAN**: imposta l'ID VLAN. Utilizzare questa opzione solo se l'host e AzS BGPNAT01 necessario configurare l'ID VLAN per accedere alla rete fisica (e internet). 
         - **Server d'inoltro DNS**: un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per la risoluzione dei nomi di fuori l'indicatore, fornire i server di infrastruttura DNS esistente. Il server DNS in timbro inoltra le richieste di risoluzione nome sconosciuto al server.
@@ -88,10 +90,10 @@ Complimenti, è stato installato correttamente il ASDK.
 
 Se la distribuzione non riesce per qualche motivo, è possibile [ridistribuire](asdk-redeploy.md) da zero o utilizzare i seguenti comandi di PowerShell, dalla stessa finestra di PowerShell con privilegi elevata, riavviare la distribuzione dall'ultimo passaggio ha esito positivo:
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurazione della distribuzione post](asdk-post-deploy.md)

@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1bcaf350fc6c1ba4a5f998c35f0c3a9d351c9c4d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a5126bc4c5e7c9cd9832f33fc908e6c8b9e02b91
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumi permanenti con i file di Azure
 
-Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso in un cluster Kubernetes. Un volume permanente può essere usato da uno o più pod ed è possibile effettuarne il provisioning dinamico o statico. Questo documento illustra in dettaglio il provisioning dinamico di una condivisione di file di Azure come volume Kubernetes permanente in un cluster servizio contenitore di Azure. 
+Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso in un cluster Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Questo documento illustra in dettaglio il provisioning dinamico di una condivisione di file di Azure come volume Kubernetes permanente in un cluster servizio contenitore di Azure. 
 
 Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes persistent volumes][kubernetes-volumes] (Volumi Kubernetes permanenti).
 
@@ -97,7 +97,7 @@ spec:
 Creare l'attestazione di volume permanente con il comando [kubectl create][kubectl-create].
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl create -f azure-file-pvc.yaml
 ```
 
 Al termine, verrà creata la condivisione file. Viene creato anche un segreto Kubernetes che contiene le credenziali e le informazioni di connessione.

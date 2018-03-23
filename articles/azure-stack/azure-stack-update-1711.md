@@ -1,24 +1,25 @@
 ---
 title: Aggiornamento di Azure Stack 1711 | Documenti Microsoft
-description: "Informazioni sulle novità nell'aggiornamento 1711 per Azure Stack integrate di sistemi, i problemi noti e come scaricare l'aggiornamento."
+description: Informazioni sulle novità nell'aggiornamento 1711 per Azure Stack integrate di sistemi, i problemi noti e come scaricare l'aggiornamento.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Aggiornamento dello Stack 1711 Azure
 
@@ -37,7 +38,13 @@ In questo articolo vengono descritti i miglioramenti e correzioni in questo pacc
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-È necessario installare prima Azure Stack [1710 aggiornare](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) prima di applicare questo aggiornamento.
+- È necessario installare prima Azure Stack [1710 aggiornare](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) prima di applicare questo aggiornamento.
+
+- Esaminare l'utilizzo di **CloudAdmin** come un nome di account prima di installare aggiornamenti 1711. Partire dalla versione, 1711 *CloudAdmin* è un nome di account riservato e non deve essere specificato manualmente. Quando si aggiorna alla versione 1711, l'aggiornamento rimuove le istanze esistenti dell'account di distribuzione (denominato in genere AzureStackAdmin). Se l'account di distribuzione sono stati denominati *CloudAdmin*, l'aggiornamento a 1711 equivale a eliminarlo. 
+
+  *CloudAdmin* corrisponde all'account predefinito per la connessione per il [ *endpoint con privilegi* ](azure-stack-privileged-endpoint.md) (PEP). L'eliminazione di questo account può comportare un blocco del PEP a meno che non è già presente un altro account utente che è un membro del gruppo CloudAdmin. 
+
+  Se utilizzato CloudAdmin come nome dell'account di distribuzione, aggiungere un nuovo utente CloudAdmin il PEP prima di iniziare l'aggiornamento a 1711 per evitare il blocco dello Stack di Azure. Per aggiungere un nuovo utente CloudAdmin, eseguire il cmdlet **New-CloudAdminUser** sul PEP.
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
 
@@ -61,27 +68,27 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Correzioni e nuove funzionalità di Windows Server 2016
 
-- [14 novembre 2017: KB4048953 (Build del sistema operativo 14393.1884)](https://support.microsoft.com/help/4048953)
+- [14 novembre 2017: KB4048953 (Build del sistema operativo 14393.1884) ](https://support.microsoft.com/help/4048953)
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
 In questa sezione contiene i problemi noti che possono verificarsi durante l'installazione dell'aggiornamento 1711.
 
 
-1. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato il seguente errore durante il processo di aggiornamento: *"nome: installazione di aggiornamento.", "descrizione": "Installare l'aggiornamento su host e macchine virtuali Infra.", "errorMessage": "digitare 'LiveUpdate' del ruolo ' Macchine virtuali ha generato un'eccezione: \n\nThere spazio insufficiente sul disk.\n\nat <ScriptBlock>, <No file>: line22 ","status":"Errore","startTimeUtc":" 2017-11-10T16:46:59.123Z ","endTimeUtc":" 2017-11-10T19:20:29.669Z ","procedura": []"*
+1. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato l'errore seguente durante il processo di aggiornamento: *"nome: installazione di aggiornamento.", "descrizione": "Installare l'aggiornamento su host e macchine virtuali Infra.", "messaggio di errore": "digitare 'LiveUpdate' del ruolo ' VirtualMachines ha generato un'eccezione: \n\nThere spazio insufficiente sul disk.\n\nat <ScriptBlock>, <No file>: line22 ","status":"Errore","startTimeUtc":" 2017-11-10T16:46:59.123Z ","endTimeUtc":" 2017-11-10T19:20:29.669Z ","procedura": []"*
     2. **Causa:** questo problema è causato dalla mancanza di spazio libero su disco in uno o più macchine virtuali che fanno parte dell'infrastruttura di Azure Stack
     3. **Risoluzione:** contattare il servizio clienti e supporto tecnico per assistenza.
 <br><br>
-2. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato il seguente errore durante il processo di aggiornamento:*eccezione "ExtractToFile" durante la chiamata con argomenti "3": "il processo non è possibile accedere al file ' <\\<machineName>-ERCS01\C$ \ Programma Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll >'*
-    1. **Causa:** questo problema si verifica quando la ripresa di un aggiornamento dal portale che in precedenza era ripreso usando un punto finale con privilegi (PEP).
+2. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato l'errore seguente durante il processo di aggiornamento:*eccezione durante la chiamata "ExtractToFile" con argomento/i "3": "il processo non è possibile accedere al file ' <\\<machineName>-ERCS01\C$ \ Programmare Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Diagnostics\Microsoft.AzureStack.Common.Tools.Diagnostics.AzureStackDiagnostics.dll >'*
+    1. **Causa:** questo problema si verifica alla ripresa di un aggiornamento dal portale che in precedenza era ripresa utilizzando un punto finale con privilegi (PEP).
     2. **Risoluzione:** contattare il servizio clienti e supporto tecnico per assistenza.
 <br><br>
-3. **Sintomo:**operatori Stack Azure è possibile che venga visualizzato il seguente errore durante il processo di aggiornamento:*"tipo 'CheckHealth' del ruolo 'VirtualMachines' ha generato un controllo di integrità macchina di eccezione: \n\nVirtual per <machineName>-ACS01 prodotto di dopo gli errori. \nThere: errore di recupero di informazioni di macchina virtuale dall'host. Dettagli eccezione: \nGet-VM: l'operazione sul computer 'Node03' non è riuscita: servizio di WS-Management non è in grado di elaborare la richiesta. Il \nservice WMI o il provider WMI ha restituito un errore sconosciuto: HRESULT 0x8004106c ".*
-    1. **Causa:** questo problema è causato da un problema di Windows Server che deve essere esaminati e risolti successivi aggiornamenti di server di finestra.
+3. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato l'errore seguente durante il processo di aggiornamento:*"tipo 'CheckHealth' del ruolo 'VirtualMachines' ha generato un controllo di integrità macchina di eccezione: \n\nVirtual per <machineName>-ACS01 prodotta la dopo gli errori. \nThere è stato un errore durante il recupero informazioni macchina virtuale dagli host. Dettagli eccezione: \nGet-VM: l'operazione sul computer 'Node03' non è riuscita: servizio di WS-Management non è in grado di elaborare la richiesta. Il \nservice WMI o il provider WMI ha restituito un errore sconosciuto: HRESULT 0x8004106c ".*
+    1. **Causa:** questo problema è causato da un problema di Windows Server che dovrà essere esaminati e risolti successivi aggiornamenti di server di finestra.
     2. **Risoluzione:** contattare il servizio clienti e supporto tecnico per assistenza.
 <br><br>
-4. **Sintomo:**operatori Stack Azure è possibile che venga visualizzato il seguente errore durante il processo di aggiornamento:*"tipo 'DefenderUpdate' del ruolo 'URP' ha generato un'eccezione: errore di recupero della versione da \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nome file} .exe dopo 60 tentativi di copia AzSDefenderFiles, c:\Programmi\Microsoft Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: riga 262"*
-    1. **Causa:** questo problema è causato da un download in background non riuscita o incompleta di Windows Defender gli aggiornamenti delle definizioni.
+4. **Sintomo:** operatori Stack Azure è possibile che venga visualizzato l'errore seguente durante il processo di aggiornamento:*"tipo 'DefenderUpdate' del ruolo 'URP' ha generato un'eccezione: errore durante il recupero della versione da \\SU1FileServer\SU1_Public\ DefenderUpdates\x64\{nome file} .exe dopo 60 tentativi di copia-AzSDefenderFiles, c:\Programmi\Microsoft Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: riga 262"*
+    1. **Causa:** questo problema è causato da un download incompleto o non riuscite in background di Windows Defender gli aggiornamenti delle definizioni.
     2. **Risoluzione:** tentare di riprendere l'aggiornamento dopo un massimo di 8 ore sono trascorsi provare il primo aggiornamento.
 
 ### <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
@@ -146,7 +153,7 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 - **I backup di pre-1711 non sono supportati per il ripristino cloud.**  
   Pre-1711 backup non sono compatibili con il ripristino cloud. È necessario aggiornare innanzitutto 1711 e abilitare i backup. Se già abilitato i backup, assicurarsi di eseguire un backup dopo l'aggiornamento a 1711. I backup di pre-1711 devono essere eliminati.
 
-- **Abilitazione backup infrastruttura ASDK è solo a scopo di test.**  
+- **Abilitazione backup infrastruttura su ASDK è finalizzato unicamente ai test.**  
   I backup di infrastruttura consente di ripristinare le soluzioni più nodi. È possibile abilitare il backup di infrastruttura in ASDK ma non è possibile testare il ripristino.
 
 Per ulteriori informazioni, vedere [Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup di infrastruttura](azure-stack-backup-infrastructure-backup.md).

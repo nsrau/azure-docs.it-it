@@ -6,18 +6,14 @@
       href: azure-stack-poc.md
     - name: Note sulla versione
       items:
-        - name: Note sulla versione kit di sviluppo
-          href: azure-stack-asdk-release-notes.md
-        - name: Note sulla versione integrati sistemi
-          items:
-            - name: aggiornamento 1802
-              href: azure-stack-update-1802.md
-            - name: aggiornamento 1712
-              href: azure-stack-update-1712.md
-            - name: aggiornamento 1711
-              href: azure-stack-update-1711.md
-            - name: aggiornamento 1710
-              href: azure-stack-update-1710.md
+        - name: aggiornamento 1802
+          href: azure-stack-update-1802.md
+        - name: aggiornamento 1712
+          href: azure-stack-update-1712.md
+        - name: aggiornamento 1711
+          href: azure-stack-update-1711.md
+        - name: aggiornamento 1710
+          href: azure-stack-update-1710.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -67,8 +63,6 @@
               href: validate-pki-certs.md
         - name: Integrazione di identità
           href: azure-stack-integrate-identity.md
-        - name: Registro dello Stack di Azure
-          href: azure-stack-registration.md
         - name: Monitoraggio esterno
           href: azure-stack-integrate-monitor.md
         - name: Integrazione della sicurezza
@@ -77,30 +71,14 @@
       href: azure-stack-servicing-policy.md
     - name: Funzionalità e concetti principali
       href: azure-stack-key-features.md
-    - name: Architettura di kit di sviluppo
-      href: azure-stack-architecture.md
     - name: Nozioni fondamentali sull'amministrazione
       href: azure-stack-manage-basics.md
 - name: Guide alle procedure
   items:
-    - name: Distribuire il ASDK
-      items:
-        - name: Prerequisiti
-          href: azure-stack-deploy.md
-        - name: Telemetria
-          href: azure-stack-telemetry.md
-        - name: Distribuire
-          href: azure-stack-run-powershell-script.md
-        - name: Installare PowerShell
-          href: azure-stack-powershell-install.md
-        - name: 'Register '
-          href: azure-stack-register.md
-        - name: Connettersi ad Azure Stack
-          href: azure-stack-connect-azure-stack.md
-        - name: Aggiungere l'immagine predefinita
-          href: azure-stack-add-default-image.md
-        - name: Creare una macchina virtuale di test
-          href: azure-stack-provision-vm.md
+    - name: Configurare la raccolta di dati di telemetria
+      href: azure-stack-telemetry.md
+    - name: Registro dello Stack di Azure
+      href: azure-stack-registration.md
     - name: Gestisci
       items:
         - name: Gestione delle aree
@@ -246,7 +224,7 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurare le origini di distribuzione
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Servizio app di aggiornare uno note sulla versione
+            - name: Servizio app di note sulla versione 1 di aggiornamento dello Stack di Azure
               href: azure-stack-app-service-release-notes-update-one.md
         - name: Popolare Marketplace
           items:
@@ -318,6 +296,8 @@
   items:
     - name: Documentazione dell'utente di Azure Stack
       href: /azure/azure-stack/user/
+    - name: Documentazione ASDK
+      href: /azure/azure-stack/asdk/
 - name: Risorse
   items:
     - name: Guida di orientamento per Azure Stack
