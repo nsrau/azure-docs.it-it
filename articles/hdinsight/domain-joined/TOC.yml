@@ -6,8 +6,6 @@
       href: apache-domain-joined-introduction.md
     - name: Pianificare cluster aggiunti al dominio
       href: apache-domain-joined-architecture.md
-    - name: Configurare l'ambiente sandbox aggiunto al dominio
-      href: apache-domain-joined-configure.md
     - name: Configurare cluster aggiunti al dominio con Azure Active Directory Domain Services
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronizzare gli utenti di Azure AD con un cluster HDInsight

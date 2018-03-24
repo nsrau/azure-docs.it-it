@@ -5,20 +5,20 @@ services: devtest-lab
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: devtest-lab
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b7ae5ecf87f4ca544e03c3e62b6c850cf799d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="devtest-labs-documentation"></a>Documentazione di DevTest Labs
+# <a name="devtest-labs-documentation"></a>Documentazione di DevTest Labs
 
 Informazioni su come creare DevTest Labs per creare rapidamente ambienti di test delle applicazioni usando elementi riutilizzabili. Esercitazioni, video e altri documenti mostrano come creare, gestire e proteggere i laboratori e aggiungere e gestire gli elementi.
 

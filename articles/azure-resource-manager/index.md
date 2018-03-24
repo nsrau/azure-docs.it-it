@@ -5,20 +5,20 @@ services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Documentazione di Azure Resource Manager
+# <a name="azure-resource-manager-documentation"></a>Documentazione di Azure Resource Manager
 
 Informazioni su come usare Resource Manager per distribuire, monitorare e gestire a gruppi le risorse di una soluzione. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare gruppi di risorse e creare modelli per una distribuzione coerente e ripetibile.
 
@@ -117,7 +117,7 @@ Informazioni su come usare Resource Manager per distribuire, monitorare e gestir
 
 ---
  
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

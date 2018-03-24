@@ -5,20 +5,20 @@ services: hdinsight
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6d00f3194f7cf02d9c0218ed768f3c3350efdd16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-hdinsight-documentation"></a>Documentazione di Azure HDInsight
+# <a name="azure-hdinsight-documentation"></a>Documentazione di Azure HDInsight
 
 Informazioni su come usare Azure HDInsight per analizzare dati di streaming o cronologici. Le esercitazioni e gli altri documenti illustrano come creare cluster, elaborare e analizzare i Big Data e sviluppare soluzioni con i framework open source più diffusi come Hadoop, Spark, Hive, LLAP, Kafka, Storm, R e altri. 
 
@@ -233,7 +233,7 @@ Azure HDInsight è un servizio di analisi open source completamente gestito e ad
 
 ---
  
-<h2>riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

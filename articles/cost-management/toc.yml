@@ -28,7 +28,7 @@
 - name: Concetti
   items:
     - name: Informazioni sui report dei costi
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Guide alle procedure
   items:
     - name: Attivare sottoscrizioni e account di Azure

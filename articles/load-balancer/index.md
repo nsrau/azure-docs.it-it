@@ -5,20 +5,20 @@ services: load-balancer
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4642b0108343b417dc09bbc5978b6a18a58d39a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="load-balancer-documentation"></a>Documentazione sul servizio di bilanciamento del carico
+# <a name="load-balancer-documentation"></a>Documentazione sul servizio di bilanciamento del carico
 
 Informazioni su come configurare il servizio di bilanciamento del carico per offrire elevati livelli di disponibilità e prestazioni di rete per le applicazioni. La documentazione illustra come bilanciare il carico del traffico da e verso le macchine virtuali e le risorse cloud, anche in reti virtuali cross-premise.
 
@@ -122,7 +122,7 @@ Informazioni su come configurare il servizio di bilanciamento del carico per off
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.network.models">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.JS</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
                    </div>

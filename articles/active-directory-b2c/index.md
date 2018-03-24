@@ -1,24 +1,24 @@
 ---
 title: Documentazione di Azure Active Directory B2C - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: "Informazioni su come distribuire una gestione completa delle identità dei consumatori nel cloud. La documentazione illustra come proteggere le app Web e per dispositibi mobili rivolte ai clienti."
+description: Informazioni su come distribuire una gestione completa delle identità dei consumatori nel cloud. La documentazione illustra come proteggere le app Web e per dispositibi mobili rivolte ai clienti.
 services: active-directory-b2c
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a1b3517ddae732ffdfb6653507c43348ec1455ad
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7724bc1392a65d7628b97142cd8801acf7f5448f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="active-directory-b2c-documentation"></a>Documentazione di Active Directory B2C
+# <a name="active-directory-b2c-documentation"></a>Documentazione di Active Directory B2C
 
 Informazioni su come impostare e gestire una gestione completa delle identità dei consumatori nel cloud con Active Directory B2C. Esercitazioni, riferimenti e altri documenti in cui viene illustrato come proteggere le applicazioni Web e per dispositivi mobili rivolte agli utenti finali grazie all'accesso sicuro.
 

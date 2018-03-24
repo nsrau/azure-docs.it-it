@@ -5,20 +5,20 @@ services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Documentazione di Gestione traffico
+# <a name="traffic-manager-documentation"></a>Documentazione di Gestione traffico
 
 Informazioni sull'utilizzo di Gestione Traffico per reindirizzare il traffico in arrivo per ottenere prestazioni e affidabilità ottimali delle applicazioni. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come gestire il traffico verso Azure o endpoint di servizio esterni.
 
@@ -111,7 +111,7 @@ Informazioni sull'utilizzo di Gestione Traffico per reindirizzare il traffico in
                         <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
                         <p><a href="/cli/azure/network/traffic-manager">Interfaccia della riga di comando di Azure</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.JS</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html">Python</a></p>
                     </div>
