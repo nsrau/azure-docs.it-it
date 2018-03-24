@@ -1,24 +1,24 @@
 ---
-title: "Documentazione dei set di scalabilità di macchine virtuali di Azure: esercitazioni e riferimento per le API | Documentazione Microsoft"
-description: "Informazioni su come usare i set di scalabilità di macchina virtuale per creare VM Windows o Linux a scalabilità automatica per soluzioni Big Compute, Big Data e in contenitori."
+title: 'Documentazione dei set di scalabilità di macchine virtuali di Azure: esercitazioni e riferimento per le API | Documentazione Microsoft'
+description: Informazioni su come usare i set di scalabilità di macchina virtuale per creare VM Windows o Linux a scalabilità automatica per soluzioni Big Compute, Big Data e in contenitori.
 services: virtual-machine-scale-sets
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53a6db483ff760c143d98a209e622e1214762ce3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>Documentazione dei set di scalabilità di macchine virtuali
+# <a name="virtual-machine-scale-sets-documentation"></a>Documentazione dei set di scalabilità di macchine virtuali
 
 Informazioni su come usare i set di scalabilità di macchina virtuale per distribuire e gestire un set di MV Windows o Linux identiche a scalabilità automatica. La documentazione illustra come usare i set di scalabilità per supportare servizi destinati a soluzioni Big Compute, Big Data e in contenitori.
 
@@ -82,7 +82,7 @@ Informazioni su come usare i set di scalabilità di macchina virtuale per distri
 
 ---
 
-<h2>riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

@@ -5,20 +5,20 @@ services: notification-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: notification-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f4921e4c7571b05bb8612dcd6fe9750f83a7142
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="notification-hubs-documentation"></a>Documentazione su Hub di notifica
+# <a name="notification-hubs-documentation"></a>Documentazione su Hub di notifica
 
 Informazioni su come usare Hub di notifica, un motore di notifica push multipiattaforma e scalabile per inviare rapidamente milioni di messaggi. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e inviare notifiche push da qualsiasi back-end a qualsiasi dispositivo mobile. 
 

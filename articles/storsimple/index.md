@@ -1,24 +1,24 @@
 ---
 title: Documentazione di Azure StorSimple - Esercitazioni | Documentazione Microsoft
-description: "Informazioni su come usare Azure StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Azure."
+description: Informazioni su come usare Azure StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Azure.
 services: storsimple
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: storsimple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 579fe32f75e051e679e6cbbaea5f99c7fcd6037b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0115c1794878296df826e7d04724a561464125d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="storsimple-documentation"></a>Documentazione di StorSimple
+# <a name="storsimple-documentation"></a>Documentazione di StorSimple
 
 Informazioni su come usare Azure StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Azure. Esercitazioni e altri documenti in cui viene illustrato come impostare la gestione dell'archiviazione, il backup a prescindere dalla posizione e il ripristino di emergenza.
 
@@ -117,7 +117,7 @@ Informazioni su come usare Azure StorSimple, una soluzione di archiviazione inte
 
 ---
 
-##<a name="other-storsimple-solutions"></a>Altre soluzioni StorSimple
+## <a name="other-storsimple-solutions"></a>Altre soluzioni StorSimple
 
 <ul class="panelContent cardsW">
     <li>
