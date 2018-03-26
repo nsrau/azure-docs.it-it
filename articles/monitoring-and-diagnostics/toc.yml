@@ -7,7 +7,7 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Avviso su una condizione metrica
+    - name: Avviso (versione classica) su una condizione metrica
       href: monitor-quick-resource-metric-alert-portal.md
     - name: Avviso su un'attività di sottoscrizione
       href: monitor-quick-audit-notify-action-in-subscription.md
@@ -21,66 +21,45 @@
   items:
     - name: Origini dei dati di monitoraggio
       href: monitoring-data-sources.md
+    - name: Monitoraggio di Azure
+      href: monitoring-overview-azure-monitor.md
+    - name: Metriche
+      href: monitoring-overview-metrics.md
+    - name: Autoscale
+      href: monitoring-overview-autoscale.md
+    - name: Log di diagnostica
+      href: monitoring-overview-of-diagnostic-logs.md
+    - name: Log attività
+      href: monitoring-overview-activity-logs.md
+    - name: Avvisi
+      href: monitoring-overview-unified-alerts.md
+    - name: Avvisi (versione classica)
+      href: monitoring-overview-alerts.md
+    - name: Avvisi relativi ai log
+      href: monitor-alerts-unified-log.md
+    - name: Avvisi del log attività (anteprima)
+      href: monitoring-activity-log-alerts-new-experience.md
+    - name: Estendere gli avvisi da OMS ad Azure
+      href: monitoring-alerts-extend.md
+    - name: Gruppi di azioni
+      href: monitoring-action-groups.md
+    - name: Estensione di Diagnostica di Azure
+      href: azure-diagnostics.md
     - name: Autorizzazioni e sicurezza dei ruoli
       href: monitoring-roles-permissions-security.md
     - name: Integrazioni di partner
       href: monitoring-partners.md
-    - name: Panoramiche aggiuntive
-      items:
-        - name: Monitoraggio di Azure
-          href: monitoring-overview-azure-monitor.md
-        - name: Metriche
-          href: monitoring-overview-metrics.md
-        - name: Avvisi
-          href: monitoring-overview-alerts.md
-        - name: Avvisi (anteprima)
-          href: monitoring-overview-unified-alerts.md
-        - name: Avvisi relativi ai log
-          href: monitor-alerts-unified-log.md
-        - name: Autoscale
-          href: monitoring-overview-autoscale.md
-        - name: Log attività
-          href: monitoring-overview-activity-logs.md
-        - name: Avvisi del log attività (anteprima)
-          href: monitoring-activity-log-alerts-new-experience.md
-        - name: Gruppi di azioni
-          href: monitoring-action-groups.md
-        - name: Log di diagnostica
-          href: monitoring-overview-of-diagnostic-logs.md
-        - name: Estensione di Diagnostica di Azure
-          href: azure-diagnostics.md
-    - name: Schemi
-      items:
-        - name: Schema dell'estensione Diagnostica di Azure
-          href: azure-diagnostics-schema.md
-          items:
-            - name: 1
-              href: azure-diagnostics-schema-1dot0.md
-            - name: 1.2
-              href: azure-diagnostics-schema-1dot2.md
-            - name: 1.3 e versioni successive
-              href: azure-diagnostics-schema-1dot3-and-later.md
 - name: Guide alle procedure
   items:
-    - name: Procedure dettagliate
-      items:
-        - name: Procedura dettagliata su Monitoraggio di Azure
-          href: monitoring-get-started.md
-        - name: Procedura dettagliata sulla scalabilità automatica
-          href: monitoring-autoscale-get-started.md
-        - name: Esplora metriche multidimensionali
-          href: monitoring-metric-charts.md
-        - name: Esempi dell'interfaccia della riga di comando di Azure 1.0
-          href: insights-cli-samples.md
-        - name: Esempi di Azure PowerShell
-          href: insights-powershell-samples.md
+    - name: Procedura dettagliata su Monitoraggio di Azure
+      href: monitoring-get-started.md
     - name: Usare gli avvisi
       items:
-        - name: Configurare avvisi quasi in tempo reale nel portale di Azure
+        - name: Configurare nuovi avvisi nel portale di Azure
           href: monitoring-near-real-time-metric-alerts.md
-        - name: Configurare avvisi nel portale di Azure
+        - name: Configurare avvisi classici nel portale di Azure
           href: insights-alerts-portal.md
-        - name: Configurare gli avvisi relativi a metriche o log in Avvisi (anteprima) nel portale di Azure
+        - name: Configurare metriche o avvisi del log nel portale di Azure
           href: monitor-alerts-unified-usage.md
         - name: Configurare avvisi con l'interfaccia della riga di comando
           href: insights-alerts-command-line-interface.md
@@ -90,8 +69,12 @@
           href: monitor-alerts-unified-log-webhook.md
         - name: Creare un avviso metrica con un modello di Resource Manager
           href: monitoring-enable-alerts-using-template.md
+        - name: Avviare l'estensione degli avvisi da OMS ad Azure
+          href: monitoring-alerts-extend-tool.md
     - name: Usare la scalabilità automatica
       items:
+        - name: Procedura dettagliata sulla scalabilità automatica
+          href: monitoring-autoscale-get-started.md
         - name: Informazioni sulle impostazioni di scalabilità automatica
           href: monitoring-understanding-autoscale-settings.md
         - name: Procedure consigliate
@@ -152,10 +135,6 @@
           href: monitoring-enable-diagnostic-logs-using-template.md
     - name: Usare l'API REST
       items:
-        - name: Procedura dettagliata sull'uso dell'API REST
-          href: monitoring-rest-api-walkthrough.md
-    - name: Usare l'estensione di Diagnostica di Azure
-      items:
         - name: Inviare dati ad Application Insights
           href: azure-diagnostics-configure-application-insights.md
         - name: Inviare dati a Hub eventi
@@ -168,7 +147,7 @@
       href: monitor-send-to-grafana.md
     - name: Inviare dati di monitoraggio a un hub eventi
       href: monitor-stream-monitoring-data-event-hubs.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/monitor?view=azure-cli-latest

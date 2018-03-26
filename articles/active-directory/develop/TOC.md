@@ -40,6 +40,7 @@
 ### [Concessione del codice di autenticazione OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Concessione implicita OAuth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
+### [Configurazione dell'attestazione basata su ruolo](active-directory-enterprise-app-role-management.md)
 ### [Personalizzazione delle attestazioni](active-directory-saml-claims-customization.md)
 ### [Eseguire il debug di Single Sign-On basato su SAML](active-directory-saml-debugging.md)
 ### [Protocollo SAML per Single Sign-On](active-directory-single-sign-on-protocol-reference.md)
@@ -77,6 +78,7 @@
 ### [Chiamate da servizio a servizio](active-directory-protocols-oauth-service-to-service.md)
 ### [Flusso on-behalf-of](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md)
+### [Configurare attestazioni facoltative e personalizzate per l'applicazione](active-directory-optional-claims.md)
 ### [Rollover della chiave di firma](active-directory-signing-key-rollover.md)
 ### [Metadati della federazione](active-directory-federation-metadata.md)
 ### [Credenziali di un certificato](active-directory-certificate-credentials.md)
@@ -101,7 +103,7 @@
 #### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guide
 ### [Registrare un'app](active-directory-v2-app-registration.md)
-## Riferimenti
+## riferimento
 ### [Librerie di autenticazione](active-directory-v2-libraries.md)
 ### [Protocolli di autenticazione v2.0](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)

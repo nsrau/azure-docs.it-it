@@ -1,0 +1,25 @@
+- name: Documentazione di Chef
+  href: index.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'Automatizzare: modello di avvio rapido'
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview'
+- name: Esercitazioni
+  items:
+    - name: Automatizzare le macchine virtuali
+      href: /azure/virtual-machines/windows/chef-automation
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog su VSTS e Chef
+      href: 'https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/'
+    - name: Chef e Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0'
+    - name: Chef e VSTS
+      href: 'https://github.com/chef-partners/vsts-chef/wiki/Getting-Started'
+    - name: Sito di Chef
+      href: 'https://www.chef.io'
+    - name: Video su Chef e VSTS
+      href: 'https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment'

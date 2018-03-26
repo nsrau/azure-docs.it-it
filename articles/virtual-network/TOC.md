@@ -56,7 +56,10 @@
 #### [Modelli di distribuzione diversi e stessa sottoscrizione](create-peering-different-deployment-models.md)
 #### [Modelli di distribuzione diversi e diverse sottoscrizioni](create-peering-different-deployment-models-subscriptions.md)
 
-### [Endpoint del servizio di rete virtuale](virtual-network-service-endpoints-configure.md)
+### Endpoint del servizio Rete virtuale
+#### [Portale di Azure](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Interfaccia della riga di comando di Azure](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Macchine virtuali
 #### [Velocità effettiva di rete per le macchine virtuali](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [Problemi di connettività da VM a VM](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [Configurare PTR per il controllo del banner SMTP](create-ptr-for-smtp-service.md)
 
+## Script di esempio
+### [Interfaccia della riga di comando di Azure](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # riferimento
-## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (versione classica)](/powershell/module/azure/)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network)

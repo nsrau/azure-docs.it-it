@@ -7,20 +7,40 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Creare un'area di lavoro di Databricks
+    - name: Creare un'area di lavoro di Databricks - Portale
       href: quickstart-create-databricks-workspace-portal.md
+    - name: Creare un'area di lavoro di Databricks - Modello di Resource Manager
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: Esercitazioni
   items:
+    - name: Eseguire operazioni ETL
+      href: databricks-extract-load-sql-data-warehouse.md
     - name: Trasmettere dati con Hub eventi
       href: databricks-stream-from-eventhubs.md
     - name: Analisi del sentiment con Servizi cognitivi
       href: databricks-sentiment-analysis-cognitive-services.md
+    - name: Trasmettere dati da HDInsight Kafka
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Guide alle procedure
   items:
+    - name: Creare un cluster Spark
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Usare i notebook
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Eseguire processi Spark
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Connettersi alle origini dati
+      href: databricks-connect-to-data-sources.md
     - name: 'Stabilire la connessione con Excel, R e Python'
       href: connect-databricks-excel-python-r.md
     - name: Usare l'interfaccia della riga di comando di Databricks da Azure Cloud Shell
       href: databricks-cli-from-azure-cloud-shell.md
+    - name: Usare gli strumenti di business intelligence
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+- name: riferimento
+  items:
+    - name: API REST
+      href: /rest/api/databricks
 - name: Risorse
   items:
     - name: Domande frequenti

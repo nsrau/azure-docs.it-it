@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Ripristino di emergenza per le app
       href: site-recovery-workload.md
+    - name: Informazioni sui piani di ripristino
+      href: recovery-plan-overview.md
     - name: Informazioni sulla migrazione
       href: migrate-overview.md
     - name: Informazioni sul controllo degli accessi in base al ruolo con Site Recovery
@@ -273,6 +275,12 @@
           items:
             - name: Eseguire un'esercitazione sul ripristino di emergenza in Azure
               href: site-recovery-test-failover-to-azure.md
+            - name: Configurare piani di ripristino
+              href: site-recovery-create-recovery-plans.md
+            - name: Aggiungere script VMM ai piani di ripristino
+              href: hyper-v-vmm-recovery-script.md
+            - name: Aggiungere runbook di Azure a piani di ripristino
+              href: site-recovery-runbook-automation.md
             - name: Eseguire un failover in Azure
               href: site-recovery-failover.md
             - name: Effettuare il failback da Azure a Hyper-V
@@ -329,7 +337,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Altri carichi di lavoro
           href: 'site-recovery-workload.md#workload-summary'
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

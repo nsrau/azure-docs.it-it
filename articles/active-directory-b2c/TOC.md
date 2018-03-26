@@ -33,7 +33,7 @@
 ### [Proteggere un'API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
 ### [Chiamare un'API Web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guide
@@ -91,15 +91,16 @@
 #### [Complessità password](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Modifica della password](active-directory-b2c-reference-password-change-custom.md)
 #### [Abilita Mantieni l'accesso](active-directory-b2c-reference-kmsi-custom.md)
-### risoluzione dei problemi
+### Risoluzione dei problemi e log eventi
+#### [Creare eventi personalizzati con Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Raccogliere i log tramite Application Insights](active-directory-b2c-troubleshoot-custom.md)
-## riferimento
+## Riferimenti
 ### [Note sulla versione](active-directory-b2c-developer-notes-custom.md)
 ### [Provider di sessioni SSO](active-directory-b2c-reference-sso-custom.md)
 ### [Personalizzazione della lingua](active-directory-b2c-language-customization-custom.md)
 ### [Definizione di framework attendibilità](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glossario
 ### [Tipi di applicazioni](active-directory-b2c-apps.md)

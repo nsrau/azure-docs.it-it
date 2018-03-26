@@ -33,6 +33,8 @@
   items:
     - name: SKU Registro contenitori
       href: container-registry-skus.md
+    - name: Archiviazione immagini
+      href: container-registry-storage.md
     - name: Replica geografica (anteprima)
       href: container-registry-geo-replication.md
     - name: Procedure consigliate per il registro contenitori
@@ -57,7 +59,7 @@
           href: container-registry-auth-aci.md
         - name: Servizio contenitore di Azure
           href: container-registry-auth-aks.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acr

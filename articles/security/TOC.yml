@@ -2,7 +2,7 @@
   href: index.md
 - name: Architettura e progettazione
   href: azure-security.md
-  expanded: true
+  expanded: false
   items:
     - name: Rilevamento avanzato delle minacce
       href: azure-threat-detection.md
@@ -67,6 +67,8 @@
       items:
         - name: Procedure consigliate
           href: azure-security-identity-management-best-practices.md
+        - name: Applicare Multi-Factor Authentication agli amministratori della sottoscrizione
+          href: azure-security-global-admin.md
     - name: Sicurezza di rete
       href: security-network-overview.md
       items:
