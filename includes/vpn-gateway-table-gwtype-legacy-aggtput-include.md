@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/23/2018
+---
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata per SKU di gateway. La tabella è valida per i modelli di distribuzione classica e di Gestione risorse. 
 
 I prezzi variano a seconda dello SKU del gateway. Per altre informazioni, vedere [Gateway VPN Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway).

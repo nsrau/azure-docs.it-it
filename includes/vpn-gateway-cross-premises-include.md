@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: fa9c27457b1da4d233aaea2a6621af9f5d01149d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/23/2018
+---
 |  | **Da punto a sito** | **Da sito a sito** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Servizi supportati di Azure** |Servizi cloud e Macchine virtuali |Servizi cloud e Macchine virtuali |[Elenco dei servizi](../articles/expressroute/expressroute-faqs.md#supported-services) |
@@ -10,4 +26,3 @@
 | **Prezzi** |[Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway/) |[Prezzi](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **Documentazione tecnica** |[Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentazione del gateway VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) |[Documentazione di ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) |
 | **DOMANDE FREQUENTI** |[Domande frequenti sul gateway VPN](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Domande frequenti sul gateway VPN](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[Domande frequenti su ExpressRoute](../articles/expressroute/expressroute-faqs.md) |
-
