@@ -69,7 +69,7 @@ Azure|ND|Sì
 
 Per avviare la replica di tutte le macchine virtuali Web farm basate su IIS in Azure, seguire le istruzioni descritte in [Esecuzione di un failover di test in Azure con Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **Compute and Network settings** > **TARGET IP** (Impostazioni Calcolo e rete, IP DESTINAZIONE).
+Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **impostazioni Calcolo e rete** > **IP DI DESTINAZIONE**.
 
 ![Screenshot che illustra come impostare l'indirizzo IP di destinazione nel riquadro Calcolo e rete di Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 
