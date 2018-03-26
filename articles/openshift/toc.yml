@@ -1,0 +1,21 @@
+- name: Documentazione di OpenShift
+  href: index.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'OpenShift: modello della community'
+      href: 'https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/'
+- name: Esercitazioni
+  items:
+    - name: Distribuire in macchine virtuali di Azure
+      href: /azure/virtual-machines/linux/openshift-get-started
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modello contenitore OpenShift
+      href: 'https://github.com/Microsoft/openshift-container-platform'
+    - name: OpenShift Origin
+      href: 'https://docs.openshift.org/latest/getting_started/index.html'
+    - name: Sito di OpenShift
+      href: 'https://docs.openshift.org/latest/welcome/index.html'
