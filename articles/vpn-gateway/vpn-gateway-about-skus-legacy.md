@@ -1,25 +1,25 @@
 ---
-title: SKU del gateway di rete virtuale di Azure legacy| Microsoft Docs
-description: SKU del gateway di rete virtuale precedenti.
+title: SKU legacy del gateway di rete virtuale di Azure | Microsoft Docs
+description: Come usare gli SKU legacy del gateway di rete virtuale, Basic, Standard e HighPerformance.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilizzo degli SKU del gateway di rete virtuale (SKU di versione precedente)
 
@@ -37,33 +37,27 @@ Questo articolo contiene informazioni sugli SKU del gateway di rete virtuale (ve
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Ridimensionare un gateway (modificare uno SKU del gateway)
+## <a name="resize"></a>Ridimensionare un gateway
 
-È possibile ridimensionare uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è possibile invece ridimensionare gateway VPN tra gli SKU di versione precedente e le nuove famiglie di SKU. Non è possibile, ad esempio, passare da uno SKU Standard a uno SKU VpnGw2.
+È possibile ridimensionare il gateway in uno SKU del gateway solo all'interno della stessa famiglia di SKU. Se si ha uno SKU Standard, ad esempio, è possibile ridimensionarlo in uno SKU HighPerformance. Non è tuttavia possibile ridimensionare il gateway VPN tra gli SKU precedenti e le nuove famiglie di SKU. Non è ad esempio possibile passare da uno SKU Standard a uno SKU VpnGw2 o da uno SKU Basic a VpnGw1.
 
->[!IMPORTANT]
->Quando si ridimensiona un gateway, è necessario prevedere 20-30 minuti di inattività per tale gateway durante l'operazione di ridimensionamento.
->
->
-
-Per ridimensionare uno SKU del gateway per il modello di distribuzione classica, usare il comando seguente:
+Per ridimensionare un gateway per il modello di distribuzione classica, usare il comando seguente:
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Per ridimensionare uno SKU del gateway per il modello di distribuzione di Resource Manager, usare il comando seguente:
+Per ridimensionare un gateway per il modello di distribuzione Resource Manager con PowerShell, usare il comando seguente:
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+È anche possibile ridimensionare un gateway nel portale di Azure.
 
-## <a name="migrate"></a>Eseguire la migrazione ai nuovi SKU del gateway
+## <a name="change"></a>Passare ai nuovi SKU del gateway
 
-Se si sta usando il modello di distribuzione di Resource Manager, è possibile eseguire la migrazione ai nuovi SKU del gateway. Se si sta usando il modello di distribuzione classica, non è possibile eseguire la migrazione ai nuovi SKU ed è necessario invece continuare a usare gli SKU di versione precedente.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
