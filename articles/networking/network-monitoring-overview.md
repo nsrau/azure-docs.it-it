@@ -4,10 +4,10 @@ description: Panoramica sulle soluzioni di monitoraggio della rete, incluso Moni
 services: monitoring-and-diagnostics
 documentationcenter: na
 author: agummadi
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 6d93821b59e1f69a48c3d5eeda96dad2edddb188
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7b9f42607f313f5570f414e810eafc6775ea18b9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
 
@@ -33,6 +33,8 @@ Monitoraggio prestazioni rete è una suite di funzionalità che congiuntamente c
 * Più data center e succursali
 * Applicazioni/microservizi multilivello cruciali
 * Percorsi utente e applicazioni basate sul Web (HTTP/HTTPs) 
+
+Performance Monitor, ExpressRoute Monitor e Service Endpoint Monitor sono funzionalità di monitoraggio integrate in Monitoraggio prestazioni rete, descritte nelle sezioni seguenti.
 
 ## <a name="performance-monitor"></a>Monitoraggio delle prestazioni
 
@@ -82,6 +84,37 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 * [Configurare Monitoraggio prestazioni rete per il monitoraggio degli endpoint di servizio](https://aka.ms/applicationconnectivitymonitorguide)
 * [Post di blog](https://aka.ms/svcendptmonitor)
+
+## <a name="traffic-analytics"></a>Analisi del traffico
+Analisi del traffico è una soluzione basata sul cloud che fornisce visibilità delle attività di utenti e applicazioni nella rete cloud. Vengono analizzati i log del flusso dei gruppi di sicurezza di rete per fornire informazioni sugli argomenti seguenti:
+
+* Il flusso di traffico nelle reti tra Azure e Internet, nelle aree di cloud pubblico, nelle reti virtuali e nelle subnet
+* Applicazioni e protocolli di rete, senza la necessità di sniffer o appliance di agenti di raccolta di flussi dedicati
+* Talker principali, applicazioni con un livello di comunicazioni elevato, conversazioni tra macchine virtuali nel cloud e aree sensibili del traffico
+* Origini e destinazioni del traffico su reti virtuali, interrelazioni tra applicazioni e servizi aziendali critici
+* Sicurezza: traffico dannoso, porte aperte a Internet, applicazioni o macchine virtuali che tentano di accedere a Internet.
+* Utilizzo della capacità: consente di eliminare eventuali problemi di overprovisioning o sottoutilizzo monitorando le tendenze di utilizzo dei gateway VPN e di altri servizi
+
+Analisi del traffico fornisce quindi informazioni fruibili che consentono di controllare l'attività di rete dell'organizzazione, proteggere applicazioni e dati, ottimizzare le prestazioni dei carichi di lavoro e garantire la conformità.
+
+![Mappa geografica che mostra il traffico tra le varie aree geografiche](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+
+Collegamenti correlati:
+* [Post di blog](https://aka.ms/trafficanalytics), [documentazione](https://aka.ms/trafficanalyticsdocs), [domande frequenti](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+
+## <a name="dns-analytics"></a>Analisi DNS
+Sviluppata per amministratori DNS, questa soluzione raccoglie, analizza e mette in correlazione i log di DNS per fornire informazioni correlate alla sicurezza, alle operazioni e alle prestazioni.  Alcune delle funzionalità offerte comprendono:
+
+* Identificazione dei client che tentano di risolvere domini dannosi
+* Identificazione di record di risorse non aggiornati
+* Visibilità dei nomi di dominio sottoposti frequentemente a query e dei client DNS loquaci
+* Visibilità del carico di richieste sui server DNS
+* Monitoraggio degli errori di registrazione di DNS dinamici
+
+![Dashboard di Analisi DNS](./media/network-monitoring-overview/dns-analytics-overview.png) 
+
+Collegamenti correlati:
+* [Post di blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

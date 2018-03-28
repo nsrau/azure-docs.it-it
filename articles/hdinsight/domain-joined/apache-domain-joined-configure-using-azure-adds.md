@@ -2,11 +2,11 @@
 title: Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services - Azure | Documentazione Microsoft
 description: Informazioni su come configurare i cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: bhanupr
-ms.openlocfilehash: 08795e6aafc6ccb43bad59189676a8680c03c966
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services
 
@@ -56,6 +56,9 @@ Quando si crea un cluster HDInsight aggiunto al dominio, è necessario fornire i
 - **Unità organizzativa**: immettere il nome distinto dell'unità organizzativa che si desidera usare con il cluster HDInsight. Per esempio: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. Se questa unità organizzativa non esiste, il cluster HDInsight tenterà di creare tale unità. 
 - **URL LDAPS**: per esempio ldaps://contoso.onmicrosoft.com:636
 - **Gruppo di utenti con accesso**: i gruppi di protezione di cui si desidera sincronizzare gli utenti con il cluster. Ad esempio, HiveUsers. Se si desidera specificare più gruppi di utenti, separarli con una virgola ",".
+ 
+> [!NOTE]
+> Dato che Apache Zeppelin usa il nome di dominio per autenticare l'account del servizio di amministrazione, l'account del servizio DEVE avere lo stesso nome di dominio del suffisso UPN per Zeppelin Apache per funzionare correttamente.
  
 La schermata seguente mostra le configurazioni nel portale di Azure:
 

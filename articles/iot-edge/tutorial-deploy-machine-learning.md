@@ -6,14 +6,14 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/06/2018
+ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e2314f589456f604c8c008e10fb8084e0524575d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4201395085dd72eb92b774eaed5980737b2e5de0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuire Azure Machine Learning come modulo di IoT Edge - anteprima
 
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come:
 
 Il modulo di Azure Machine Learning che si creerà in questa esercitazione legge i dati ambientali generati dal dispositivo e etichetta i messaggi come anomali o non anomali. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Il dispositivo Azure IoT Edge creato nella guida introduttiva o nella prima esercitazione.
 * La stringa di connessione per l'hub IoT a cui si connette il dispositivo di IoT Edge.
@@ -41,12 +41,16 @@ In questa sezione scaricare i file del modello sottoposto a training e convertir
 
 Nel computer che esegue Gestione modelli per Azure ML scaricare e salvare [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) dal toolkit di Azure ML IoT su GitHub. Questi file definiscono il modello di Machine Learning sottoposto a training che verrà distribuito al dispositivo Iot Edge. 
 
-Usare il modello sottoposto a training per creare un contenitore che può essere distribuito ai dispositivi IoT Edge.
+Usare il modello sottoposto a training per creare un contenitore che può essere distribuito ai dispositivi IoT Edge. Usare il comando seguente per:
+
+   * Registrare il modello.
+   * Creare un manifesto.
+   * Creare un'immagine del contenitore Docker denominata *machinelearningmodule*.
+   * Distribuire l'immagine al cluster del servizio contenitore di Azure (AKS).
 
 ```cmd
 az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
 ```
-Il nome del servizio, *machinelearningmodule* in questo esempio, diventa il nome dell'immagine del contenitore Docker.
 
 ### <a name="view-the-container-repository"></a>Visualizzare il repository di contenitori
 

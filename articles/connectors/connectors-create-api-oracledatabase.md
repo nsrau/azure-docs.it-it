@@ -1,25 +1,25 @@
 ---
 title: Aggiungere il connettore Oracle Database in App per la logica di Azure | Microsoft Docs
 description: Usare il connettore Oracle Database in un'app per la logica
-services: 
-documentationcenter: 
-author: MandiOhlinger
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 
@@ -28,7 +28,7 @@ Usando il connettore Oracle Database, è possibile creare flussi di lavoro dell'
 * Creare il flusso di lavoro aggiungendo un nuovo cliente in un database di clienti o aggiornando un ordine in un database di ordini.
 * Usare le azioni per ottenere una riga di dati, inserire una nuova riga e persino eliminare una riga. Quando ad esempio viene creato un record in Dynamics CRM Online (trigger), è possibile inserire una riga in Oracle Database (azione). 
 
-Questo argomento illustra come usare il connettore Oracle Database in un'app per la logica.
+Questo articolo illustra come usare il connettore Oracle Database in un'app per la logica.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -46,7 +46,7 @@ Questo argomento illustra come usare il connettore Oracle Database in un'app per
   [ODAC 64 bit 12c versione 4 (12.1.0.2.4) per Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Se il client Oracle non è installato, si verifica un errore quando si cerca di creare o usare la connessione. Vedere gli errori comuni in questo argomento.
+    > Se il client Oracle non è installato, si verifica un errore quando si cerca di creare o usare la connessione. Vedere gli errori comuni in questo articolo.
 
 
 ## <a name="add-the-connector"></a>Aggiungere il connettore
@@ -104,7 +104,7 @@ Questo argomento illustra come usare il connettore Oracle Database in un'app per
 
 **Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.  È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione. È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva.' Visitare il sito [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) per installare il provider ufficiale.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva.' Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
 
 **Causa**: Oracle client SDK non è installato nel computer in cui è in esecuzione il gateway dati locale.  
 

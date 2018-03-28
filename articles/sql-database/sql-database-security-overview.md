@@ -2,25 +2,19 @@
 title: Panoramica della sicurezza del database SQL di Azure | Microsoft Docs
 description: In questo argomento vengono fornite informazioni sulla sicurezza del database SQL Azure e di SQL Server, incluse le differenze tra il cloud e SQL Server locale.
 services: sql-database
-documentationcenter: ''
 author: giladm
-manager: shaik
+manager: craigg
 ms.reviewer: carlrab
-editor: ''
-ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
-ms.date: 01/29/2018
+ms.date: 03/12/2018
 ms.author: giladm
-ms.openlocfilehash: 41051944af863c4c50595ea843e2adf3513b3a12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1dc34f021fa6482c65cce0e922951ae329987c43
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-your-sql-database"></a>Protezione del Database SQL
 
@@ -62,7 +56,6 @@ Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di data
 
 ### <a name="authentication"></a>Authentication
 Per autenticazione del database SQL si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il database SQL supporta due tipi di autenticazione:
-
 * **Autenticazione SQL**, che usa nome utente e password. Durante la creazione del server logico per il database, è stato specificato un account di accesso "amministratore del server" con un nome utente e una password. Utilizzando queste credenziali, è possibile essere autenticati in qualsiasi database di tale server in qualità di proprietario del database o "dbo". 
 * **Autenticazione di Azure Active Directory**, che usa identità gestite da Azure Active Directory ed è supportata per domini gestiti e integrati. [Quando possibile](https://msdn.microsoft.com/library/ms144284.aspx), usare l'autenticazione di Active Directory (sicurezza integrata). Se si desidera utilizzare l'autenticazione di Azure Active Directory, è necessario creare un altro amministratore del server denominato "admin Azure AD," che è autorizzato ad amministrare utenti e gruppi di Azure AD. Questo amministratore può inoltre eseguire tutte le operazioni che un amministratore del server regolare può fare. Vedere [Connessione al Database SQL utilizzando l'autenticazione di Azure Active Directory](sql-database-aad-authentication.md) per una procedura dettagliata di come creare un amministratore di Azure AD per abilitare l'autenticazione di Azure Active Directory.
 
@@ -86,6 +79,21 @@ Il rilevamento delle minacce è complementare al controllo perché offre un live
  
 ## <a name="compliance"></a>Conformità
 Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono all'applicazione di soddisfare vari requisiti di sicurezza, il database SQL di Azure è inoltre sottoposto a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [certificazioni di conformità del database SQL](https://azure.microsoft.com/support/trust-center/services/).
+
+
+## <a name="security-management"></a>Gestione della sicurezza
+
+Il database SQL di Azure consente di gestire la sicurezza dei dati fornendo analisi di database e una dashboard di sicurezza centralizzata mediante [Valutazione delle vulnerabilità di SQL](sql-vulnerability-assessment.md).
+
+**Valutazione della vulnerabilità**: [Valutazione della vulnerabilità di SQL](sql-vulnerability-assessment.md), attualmente in anteprima, è uno strumento semplice da configurare integrato nel database SQL di Azure che facilita l'individuazione, il monitoraggio e la risoluzione di potenziali vulnerabilità del database. Lo strumento esegue un'analisi delle vulnerabilità sul database e genera un report che offre visibilità sullo stato di sicurezza, incluse azioni implementabili per risolvere i problemi e migliorare la sicurezza del database. È possibile personalizzare il report di valutazione per l'ambiente, impostando una baseline accettabile per le configurazioni delle autorizzazioni e delle funzioni e le impostazioni del database. Questo può essere utile per:
+
+- Soddisfare i requisiti di conformità che richiedono i report di scansione del database. 
+
+- Soddisfare gli standard di privacy. 
+
+- Monitorare un ambiente dinamico del database in cui è difficile rilevare le modifiche.
+
+Per altre informazioni, vedere [Valutazione della vulnerabilità di SQL](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

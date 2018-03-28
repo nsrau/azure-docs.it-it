@@ -2,7 +2,7 @@
 title: Creare e caricare un disco rigido virtuale Red Hat Enterprise Linux da usare in Azure | Microsoft Docs
 description: Informazioni su come creare e caricare un disco rigido virtuale (VHD) di Azure contenente un sistema operativo Linux RedHat.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
 manager: timlt
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 9769b3968f841334aebdc4a371ecd59e64d5ebc2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 2c48f95306ddce5d51100e869cc4ac80a4b55c20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su RedHat per Azure
 In questo articolo verrà descritto come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo in Azure. Le versioni di RHEL trattate in questo articolo sono la 6.7+ e la 7.1+. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware. Per altre informazioni sui requisiti di idoneità per partecipare al programma di accesso al cloud di Red Hat, vedere gli articoli relativi al [sito web di accesso al cloud di Red Hat](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) e all'[esecuzione di RHEL in Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -38,7 +38,7 @@ In questa sezione si presuppone che si sia già ottenuto un file ISO dal sito We
 * Per montare file system UDF (Universal Disk Format) è necessario il supporto del kernel. Al primo avvio in Azure, i supporti con formattazione UDF collegati al guest passano la configurazione di provisioning alla macchina virtuale Linux. L'agente Linux di Azure deve poter montare il file system UDF per leggerne la configurazione ed effettuare il provisioning della macchina virtuale.
 * Le versioni del kernel Linux precedenti alla 2.6.37 non supportano l'accesso non uniforme alla memoria (NUMA) in Hyper-V con macchine virtuali di dimensioni superiori. Questo problema influisce principalmente sulle distribuzioni precedenti che usano il kernel upstream Red Hat 2.6.32 ed è stato risolto in RHEL 6.6 (kernel-2.6.32-504). Nei sistemi che eseguono kernel personalizzati precedenti alla versione 2.6.37 o kernel basati su RHEL precedenti alla versione 2.6.32-504 deve essere impostato il parametro di avvio `numa=off` nella riga di comando del kernel in grub.conf. Per altre informazioni, vedere l'articolo [KB 436883](https://access.redhat.com/solutions/436883) di Red Hat.
 * Non configurare una partizione di swapping sul disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file di scambio sul disco risorse temporaneo.  Altre informazioni su questo argomento sono disponibili nei passaggi riportati di seguito.
-* Le dimensioni di tutti i dischi rigidi virtuali devono essere multipli di 1 MB.
+* Le dimensioni virtuali di tutti i dischi rigidi virtuali su Azure devono essere allineate a 1 MB. Quando si converte un disco non formattato in un disco rigido virtuale, prima della conversione è necessario assicurarsi che le dimensioni del disco non formattato siano un multiplo di 1 MB. Altri dettagli sono disponibili nelle procedure seguenti. Per altre informazioni, vedere anche [Note sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes).
 
 ### <a name="prepare-a-rhel-6-virtual-machine-from-hyper-v-manager"></a>Preparare una macchina virtuale RHEL 6 dalla console di gestione di Hyper-V
 

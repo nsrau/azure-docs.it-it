@@ -57,10 +57,12 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
     Un account di Archiviazione Premium supporta solo l'archiviazione con ridondanza locale come opzione di replica. L'archiviazione con ridondanza locale mantiene tre copie dei dati in una singola area. Per eseguire il ripristino di emergenza dell'area, è necessario eseguire il backup dei dischi delle VM in un'altra area usando il [Backup di Azure](../articles/backup/backup-introduction-to-azure-backup.md). È necessario anche usare un account di archiviazione con ridondanza geografica come insieme di credenziali di backup. 
 
-    Azure usa l'account di archiviazione come contenitore per i dischi non gestiti. Quando si crea una VM di Azure serie DS, DSv2, GS o Fs con dischi non gestiti e si seleziona un account di archiviazione Premium, il sistema operativo e i dischi dati vengono archiviati in tale account.
+    Azure usa l'account di archiviazione come contenitore per i dischi non gestiti. Quando si crea una macchina virtuale di Azure che supporta Archiviazione Premium con dischi non gestiti e si seleziona un account di archiviazione Premium, il sistema operativo e i dischi dati vengono archiviati in tale account.
 
 ## <a name="supported-vms"></a>VM supportate
-Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls, Fs e B. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
+
+Archiviazione Premium supporta le macchine virtuali serie B, DS, DSv2, DSv3, GS, Ls, M e Fs. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
+
 
 Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md). Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md).
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 825b2657cc6aa7b4e116f44020767beff911b1fc
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd2fb353246120f58840914e8a4e5527d7a4486
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -54,6 +54,11 @@ ms.lasthandoff: 03/12/2018
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
+
+* È stato risolto il problema della visualizzazione di un'eccezione KeyNotFoundException per le query ORDER BY su più partizioni in casi limite.
+* Correzione del bug per cui l'attributo JsonPropery nella clausola SELECT per le query LINQ non viene rispettato.
+
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
 * Correzione del bug che si verifica in determinate race condition, che comporta errori intermittenti "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" (La sessione di lettura non è disponibile per il token della sessione di input) quando si usa il livello di coerenza di sessione.
@@ -290,6 +295,8 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.21.1](#1.20.1) |09 marzo 2018 |--- |
+| [1.20.2](#1.20.1) |21 febbraio 2018 |--- |
 | [1.20.1](#1.20.1) |05 febbraio 2018 |--- |
 | [1.19.1](#1.19.1) |16 novembre 2017 |--- |
 | [1.19.0](#1.19.0) |10 novembre 2017 |--- |

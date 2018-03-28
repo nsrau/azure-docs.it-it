@@ -2,10 +2,10 @@
 title: Informazioni di riferimento sui token di Azure Active Directory 2.0 | Documentazione Microsoft
 description: Tipi di token e attestazioni generati dall'endpoint di Azure AD 2.0.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informazioni di riferimento sui token di Azure Active Directory 2.0
 L'endpoint di Azure Active Directory (Azure AD) 2.0 genera tipi diversi di token di sicurezza in ogni [flusso di autenticazione](active-directory-v2-flows.md). Questo articolo di riferimento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -86,7 +86,7 @@ Si tratta di token a più risorse, ossia un token di aggiornamento ricevuto dura
 
 Per ricevere un aggiornamento in una risposta del token, l'app deve richiedere e ottenere l'ambito `offline_acesss`. Per altre informazioni sull'ambito `offline_access`, vedere l'articolo relativo a [consenso e ambiti](active-directory-v2-scopes.md).
 
-I token di aggiornamento sono e saranno sempre completamente opachi per l'app. Vengono generati dall'endpoint 2.0 di Azure AD e possono essere controllati e interpretati solo dall'endpoint 2.0. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito. I token di aggiornamento possono essere annullati in qualsiasi momento per vari motivi. L'unico modo per l'app di sapere se un token di aggiornamento è valido è tentare di riscattarlo mediante una richiesta di token all'endpoint 2.0.
+I token di aggiornamento sono e saranno sempre completamente opachi per l'app. Vengono generati dall'endpoint 2.0 di Azure AD e possono essere controllati e interpretati solo dall'endpoint 2.0. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito. I token di aggiornamento possono essere invalidati in qualsiasi momento per vari motivi. Per altri dettagli, vedere [Revoca dei token](active-directory-token-and-claims.md#token-revocation). L'unico modo per l'app di sapere se un token di aggiornamento è valido è tentare di riscattarlo mediante una richiesta di token all'endpoint 2.0.
 
 Quando si riscatta un token di aggiornamento per un nuovo token di accesso e l'app ha ottenuto l'ambito `offline_access`, si riceve un nuovo token di aggiornamento nella risposta del token. Salvare il token di aggiornamento appena generato per sostituire quello usato nella richiesta. In questo modo è possibile prolungare la validità dei token di aggiornamento.
 

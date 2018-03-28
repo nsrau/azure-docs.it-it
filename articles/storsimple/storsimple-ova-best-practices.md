@@ -5,20 +5,20 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -38,7 +38,7 @@ Implementare le procedure consigliate seguenti durante il provisioning di un arr
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Tipo di macchina virtuale** |**Generazione 2** per l'uso con Windows Server 2012 o versione successiva e un'immagine *VHDX* . <br></br> **Generazione 1** per l'uso con Windows Server 2008 o versione successiva e un'immagine *VHD* . |Quando si usa un'immagine *VMDK* , usare macchine virtuali versione da 8 a 11. |
+| **Tipo di macchina virtuale** |**Generazione 2** per l'uso con Windows Server 2012 o versione successiva e un'immagine *VHDX* . <br></br> **Generazione 1** per l'uso con Windows Server 2008 o versione successiva e un'immagine *VHD* . |Quando si usa un'immagine *VMDK*, usare macchine virtuali versione 8. |
 | **Tipo di memoria** |Configurare come **memoria statica**. <br></br> Non usare l'opzione per la **memoria dinamica** . | |
 | **Tipo di disco dati** |Effettuare il provisioning come **espansione dinamica**.<br></br> **dimensioni fisse** richiedono molto tempo. <br></br> Non usare l'opzione di **differenziazione** . |Usare l'opzione per il **thin provisioning** . |
 | **Modifica dei dischi dati** |L'espansione o la riduzione non è consentita. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati locali nel dispositivo. |L'espansione o la riduzione non è consentita. Il tentativo di eseguire questa operazione comporta la perdita di tutti i dati locali nel dispositivo. |

@@ -1,11 +1,11 @@
 ---
 title: Aggiungere il connettore Office 365 Outlook nelle app per la logica | Microsoft Docs
 description: Creare app per la logica con il connettore Office 365 per consentire l'interazione con Office 365. Ad esempio, per creare, modificare e aggiornare contatti ed elementi del calendario.
-services: 
-documentationcenter: 
-author: MandiOhlinger
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 51b8e3de639b5cce954547adb77ff13b79ad6747
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Guida introduttiva al connettore Outlook di Office 365
 Il connettore Office 365 Outlook consente l'interazione con Outlook in Office 365. Usare questo connettore per creare, modificare e aggiornare i contatti e gli elementi del calendario e anche per ottenere, inviare e rispondere ai messaggio di posta elettronica.
@@ -30,7 +30,7 @@ Con Office 365 Outlook è possibile:
 * Usare i trigger per avviare il flusso di lavoro quando è presente un nuovo messaggio di posta elettronica, quando viene aggiornato un elemento del calendario e altro ancora.
 * Usare azioni per inviare un messaggio di posta elettronica, creare un nuovo evento del calendario e altro ancora. Ad esempio, quando è presente un nuovo oggetto in Salesforce (trigger), inviare un messaggio di posta elettronica a Office 365 Outlook (azione). 
 
-Questo argomento illustra come usare il connettore Office 365 Outlook in un'app per la logica ed elenca i trigger e le azioni.
+Questo articolo illustra come usare il connettore Office 365 Outlook in un'app per la logica ed elenca i trigger e le azioni.
 
 > [!NOTE]
 > Questa versione dell'articolo si applica alla la disponibilità generale delle app per la logica.

@@ -4,9 +4,9 @@ description: Informazioni su come implementare uno scenario di fan-out/fan-it ne
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenario di fan-out/fan-it in Funzioni permanenti - Esempio di backup cloud
 
@@ -158,7 +158,7 @@ Di seguito è riportata l'orchestrazione come un unico file C# in un progetto di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio è stato illustrato come implementare il criterio di fan-out/fan-in. Nell'esempio successivo viene illustrato come implementare il criterio [singleton con stato](durable-functions-singletons.md) in una [orchestrazione perenne](durable-functions-eternal-orchestrations.md).
+In questo esempio è stato illustrato come implementare il criterio di fan-out/fan-in. L'esempio successivo illustra come implementare il modello di monitoraggio usando i [timer permanenti](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Eseguire l'esempio di singleton con stato](durable-functions-counter.md)
+> [Eseguire l'esempio di monitoraggio](durable-functions-monitor.md)

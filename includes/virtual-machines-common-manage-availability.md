@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
 
@@ -15,7 +31,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 
 * [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]
 * [Usare Managed Disks per le macchine virtuali nel set di disponibilità]
-* [Usare gli eventi pianificati per rispondere in modo proattivo agli eventi che influiscono sulle VM] (https://docs.microsoft.com/it-it/azure/virtual-machines/windows/scheduled-events)
+* [Usare eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configurare ogni livello dell'applicazione in set di disponibilità separati]
 * [Combinare il bilanciamento del carico con set di disponibilità]
 * [Usare le zone di disponibilità per la protezione dagli errori a livello di data center]

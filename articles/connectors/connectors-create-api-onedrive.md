@@ -2,10 +2,10 @@
 title: Aggiungere il connettore OneDrive nelle app per la logica | Documentazione Microsoft
 description: Panoramica del connettore OneDrive con i parametri dell'API REST.
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: e988ae22a3d6e47591c37ad0b4c9f781d523bcc8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 15b88baf21ead5a6b9506c47ca9930d5088b8787
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introduzione al connettore OneDrive
 Connettersi a OneDrive per gestire i file, ad esempio, caricare, recuperare ed eliminare i file e altro ancora. 
@@ -30,7 +30,7 @@ Con OneDrive è possibile:
 * Usare trigger per avviare il flusso di lavoro quando un file viene creato o aggiornato in OneDrive.
 * Usare le azioni per creare un file, eliminarlo e così via. Ad esempio, creare un nuovo file in OneDrive (azione) quando viene ricevuto un nuovo messaggio di posta elettronica di Office 365 con un allegato (trigger).
 
-Questo argomento illustra come usare il connettore OneDrive in un'app per la logica ed elenca i trigger e le azioni.
+Questo articolo illustra come usare il connettore OneDrive in un'app per la logica ed elenca i trigger e le azioni.
 
 Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-overview.md) e [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -52,7 +52,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
    
     ![](./media/connectors-create-api-onedrive/sample-folder.png)
    
-    Se viene chiesto di effettuare l'accesso, immettere i dettagli di accesso per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo argomento elenca i passaggi necessari. 
+    Se viene chiesto di effettuare l'accesso, immettere i dettagli di accesso per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo articolo elenca i passaggi necessari. 
    
    > [!NOTE]
    > In questo esempio l'app per la logica viene eseguita quando viene aggiornato un file nella cartella scelta. Per vedere i risultati del trigger, aggiungere un'altra azione che invia un messaggio di posta elettronica al proprio indirizzo. Ad esempio, aggiungere l'azione di Office 365 Outlook *Invia un messaggio di posta elettronica* per ricevere un messaggio di posta elettronica quando un file viene aggiornato. 
@@ -76,7 +76,7 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
    
     ![](./media/connectors-create-api-onedrive/sample-action.png)
    
-    Se viene richiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo argomento descrive queste proprietà. 
+    Se viene richiesto di inserire le informazioni di connessione, immettere i dettagli per creare la connessione. La sezione [Creare la connessione](connectors-create-api-onedrive.md#create-the-connection) di questo articolo descrive queste proprietà. 
    
    > [!NOTE]
    > In questo esempio creiamo un nuovo file in una cartella di OneDrive. Per creare il file di OneDrive è possibile usare l'output di un altro trigger. Ad esempio aggiungere il trigger di Office 365 Outlook *All'arrivo di un nuovo messaggio di posta elettronica*. Quindi aggiungere l'azione di OneDrive *Crea file* che usa i campi Allegati e Content-Type in un ciclo ForEach per creare il nuovo file in OneDrive. 

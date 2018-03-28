@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -24,7 +24,7 @@ Griglia di eventi di Azure ha tre tipi di autenticazione:
 
 ## <a name="webhook-event-delivery"></a>Recapito eventi webhook
 
-I webhook sono uno dei modi per ricevere gli eventi in tempo reale da Griglia di eventi di Azure. Ogni volta che un nuovo evento è pronto per essere recapitato, il webhook della Griglia di eventi invia una richiesta HTTP all'endpoint HTTP configurato nel cui corpo è contenuto l'evento.
+I webhook sono uno dei modi per ricevere gli eventi da Griglia di eventi di Azure. Quando un nuovo evento è pronto, il webhook della Griglia di eventi invia una richiesta HTTP all'endpoint HTTP configurato nel cui corpo è contenuto l'evento.
 
 Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata una richiesta POST con un semplice codice di convalida per dimostrare la proprietà dell'endpoint. È necessario che l'app risponda rimandando il codice di convalida. La Griglia di eventi non recapita gli eventi agli endpoint del webhook che non hanno superato la convalida.
 
@@ -34,6 +34,7 @@ Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata u
 * L'evento contiene un valore di intestazione "Aeg-Event-Type: SubscriptionValidation".
 * Il corpo dell'evento ha lo stesso schema degli altri eventi di Griglia di eventi.
 * I dati dell'evento includono una proprietà "validationCode" con una stringa generata in modo casuale. ad esempio "validationCode: acb13…".
+* La matrice contiene solo l'evento di convalida. Gli altri eventi vengono inviati in una richiesta separata dopo che è stato rimandato il codice di convalida.
 
 Un esempio di SubscriptionValidationEvent è mostrato di seguito:
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 I token di firma di accesso condiviso per Griglia di eventi includono la risorsa, un'ora di scadenza e una firma. Il formato del token di firma di accesso condiviso è: `r={resource}&e={expiration}&s={signature}`.
 
-La risorsa è il percorso dell'argomento a cui si inviano gli eventi. Un percorso di risorsa valido, ad esempio, è: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+La risorsa è il percorso dell'argomento di Griglia di eventi a cui si inviano gli eventi. Un percorso di risorsa valido, ad esempio, è: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 La firma viene generata da una chiave.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Controllo di accesso per la gestione
 
-Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. La Griglia di eventi utilizza a questo scopo il controllo degli accessi in base al ruolo di Azure.
+Griglia di eventi di Azure consente di controllare il livello di accesso assegnato ai diversi utenti per eseguire svariate operazioni di gestione, ad esempio elencare sottoscrizioni di eventi, crearne di nuove e generare chiavi. La Griglia di eventi usa a questo scopo il controllo degli accessi in base al ruolo di Azure.
 
 ### <a name="operation-types"></a>Tipi di operazioni
 

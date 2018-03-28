@@ -2,10 +2,10 @@
 title: Aggiungere monitoraggio e diagnostica a una macchina virtuale di Azure | Documentazione Microsoft
 description: Usare un modello di Azure Resource Manager per creare una nuova macchina virtuale Windows con l'estensione Diagnostica di Azure.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: sbtron
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3ea1687e7fb6cc7af00e03b85fb48b0d7911275
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: e205352ebf4eaf89627c268d78b69bb2d49c3f3e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Usare monitoraggio e diagnostica con una macchina virtuale Windows e modelli di Azure Resource Manager
 L'estensione di Diagnostica di Azure offre le funzionalità di monitoraggio e diagnostica in una macchina virtuale di Azure basata su Windows. È possibile abilitare queste funzionalità nella macchina virtuale includendo l'estensione come parte del modello di Azure Resource Manager. Per altre informazioni sull'inclusione di un'estensione come parte di un modello di macchina virtuale, vedere [Creazione di modelli di Gestione risorse di Azure con le estensioni di macchina virtuale](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) . Questo articolo illustra come aggiungere l'estensione Diagnostica di Azure a un modello di macchina virtuale Windows.  
@@ -152,7 +152,7 @@ Se si creano più macchine virtuali in un ciclo, è necessario popolare il valor
 "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 ```
 
-Il valore MetricAggregation impostato su *PT1H* e *PT1M* indica un'aggregazione pari a un'ora e un'aggregazione pari a un minuto.
+Il valore MetricAggregation impostato su *PT1M* e *PT1H* indica rispettivamente un'aggregazione pari a un minuto e un'aggregazione pari a un'ora.
 
 ## <a name="wadmetrics-tables-in-storage"></a>Tabelle WADMetrics nell'archiviazione
 La configurazione precedente relativa a Metrics consente di generare tabelle nell'account di archiviazione di diagnostica con le convenzioni di denominazione seguenti:

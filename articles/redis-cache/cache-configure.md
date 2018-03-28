@@ -14,17 +14,17 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Questo argomento illustrata anche la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
 
 > [!NOTE]
-> Per altre informazioni sulla configurazione e l'uso delle funzionalità di cache Premium, vedere [Come configurare la persistenza](cache-how-to-premium-persistence.md), [Come configurare il clustering](cache-how-to-premium-clustering.md) e [Come configurare il supporto di una rete virtuale](cache-how-to-premium-vnet.md).
+> Per altre informazioni sulla configurazione e l'uso delle funzionalità di cache Premium, vedere [How to configure persistence](cache-how-to-premium-persistence.md) (Come configurare la persistenza), [How to configure clustering](cache-how-to-premium-clustering.md) (Come configurare il clustering) e [How to configure Virtual Network support](cache-how-to-premium-vnet.md) (Come configurare il supporto di Rete virtuale).
 > 
 > 
 
@@ -280,8 +280,6 @@ Fare clic su **Firewall** per visualizzare e configurare le regole del firewall 
 > [!IMPORTANT]
 > Le connessioni dai sistemi di monitoraggio di Cache Redis di Azure sono sempre consentite, anche se le regole del firewall sono configurate.
 > 
-> Le regole del firewall sono disponibili solo per le cache del piano Premium.
-> 
 > 
 
 ### <a name="properties"></a>Properties
@@ -471,14 +469,14 @@ Per altre informazioni sui database SQL di Azure, vedere [What are Redis databas
 > 
 > 
 
-Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
+Per altre informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
 
 ## <a name="redis-console"></a>Console Redis
 È possibile eseguire comandi in modo sicuro per le istanze di Cache Redis di Azure usando la **console Redis** disponibile nel portale di Azure per tutti i piani della cache.
 
 > [!IMPORTANT]
 > - La Console Redis non funziona con [VNET](cache-how-to-premium-vnet.md). Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Poiché la Console Redis viene eseguita nel browser locale, che si trova esternamente alla rete virtuale, non può connettersi alla cache.
-> - Non tutti i comandi di Redis sono supportati in Cache Redis di Azure. Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la sezione precedente [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-redis-cache). Per ulteriori informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
+> - Non tutti i comandi di Redis sono supportati in Cache Redis di Azure. Per un elenco dei comandi di Redis disabilitati per Cache Redis di Azure, vedere la sezione precedente [Comandi di Redis non supportati in Cache Redis di Azure](#redis-commands-not-supported-in-azure-redis-cache). Per altre informazioni sui comandi di Redis, vedere [http://redis.io/commands](http://redis.io/commands).
 > 
 > 
 

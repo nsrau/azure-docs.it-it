@@ -1,24 +1,18 @@
 ---
-title: Automazione della distribuzione di una macchina virtuale in Amazon Web Services | Documentazione Microsoft
+title: Automazione della distribuzione di una macchina virtuale in Amazon Web Services
 description: Questo articolo illustra come usare Automazione di Azure per automatizzare la creazione di una VM di Amazon Web Service
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/29/2017
-ms.author: tiandert; bwren
-ms.openlocfilehash: ba86789a9571c4b09a0224e6c41497f091968ef8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scenario di Automazione di Azure - Provisioning di una macchina virtuale di AWS
 In questo articolo si apprenderà come sfruttare Automazione di Azure per effettuare il provisioning di una macchina virtuale nella sottoscrizione di Amazon Web Service (AWS) e come assegnare alla VM un nome specifico. Questa operazione è definita in AWS "assegnazione di tag" alla VM.

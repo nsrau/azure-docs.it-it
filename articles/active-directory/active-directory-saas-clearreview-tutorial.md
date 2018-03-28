@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 03/12/2018
 ms.author: jeedes
-ms.openlocfilehash: e999e375d11f5d2a4657b360cf774ae10c28b0e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1e7bd01c9c0f79a2cf96d7fd38dba57c4a407960
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Esercitazione: Integrazione di Azure Active Directory con Clear Review
 
@@ -108,9 +108,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<customer name>.clearreview.com/sso/metadata`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<customer>.clearreview.com/sso/acs/`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<customer name>.clearreview.com/sso/acs/`
 
 4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -119,31 +119,36 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<customer name>.clearreview.com`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di Clear Review](https://clearreview.com/contact/).
+    > Poiché questi non sono i valori reali, aggiornarli con l'URL di accesso, l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di Clear Review](https://clearreview.com/contact/).
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+5. L'applicazione Clear Review si aspetta il valore di ID utente univoco nell'attestazione dell'identificatore del nome. È necessario eseguire il mapping del valore dell'identificatore dell'utente a **user.mail**.
+
+    ![Sezione relativa all'attributo](./media/active-directory-saas-clearreview-tutorial/attribute.png)
+
+
+6. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Collegamento di download del certificato](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_certificate.png)
 
-6. Fare clic sul pulsante **Salva** .
+7. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-clearreview-tutorial/tutorial_general_400.png)
 
-7. Nella sezione **Configurazione di Clear Review** fare clic su **Configura Clear Review** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+8. Nella sezione **Configurazione di Clear Review** fare clic su **Configura Clear Review** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione delle informazioni di riferimento rapido**.
 
     ![Configurazione di Clear Review](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_configure.png) 
 
-8. Per configurare l'accesso Single Sign-On in **Clear Review**, aprire il portale di **Clear Review** usando le credenziali di amministratore.
+9. Per configurare l'accesso Single Sign-On in **Clear Review**, aprire il portale di **Clear Review** usando le credenziali di amministratore.
 
-9. Selezionare **Admin** (Amministrazione) nel riquadro di spostamento a sinistra.
+10. Selezionare **Admin** (Amministrazione) nel riquadro di spostamento a sinistra.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-10. Selezionare**Change** (Modifica) nella parte inferiore della pagina.
+11. Selezionare**Change** (Modifica) nella parte inferiore della pagina.
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
-11. Nella pagina **Single Sign-On Settings** (Impostazioni Single Sign-On) seguire questa procedura:
+12. Nella pagina **Single Sign-On Settings** (Impostazioni Single Sign-On) seguire questa procedura:
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
@@ -155,7 +160,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Aprire il certificato scaricato nel Blocco note e incollare il contenuto nella casella di testo **X.509 Certificate** (Certificato X.509).   
 
-12. Fare clic su **Save**.
+13. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -253,4 +258,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clearreview-tutorial/tutorial_general_203.png
-

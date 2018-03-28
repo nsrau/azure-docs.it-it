@@ -2,24 +2,24 @@
 title: Azure requisiti dei certificati di infrastruttura a chiave pubblica dello Stack per Azure Stack integrati sistemi | Documenti Microsoft
 description: Descrive i requisiti di distribuzione del certificato PKI dello Stack di Azure per i sistemi Azure Stack integrato.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mabriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Stack Azure
 Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile dall'esterno indirizzi IP pubblici assegnati a un piccolo set di servizi di Azure Stack ed eventualmente macchine virtuali tenant. I certificati PKI con i nomi DNS appropriati per questi endpoint infrastruttura pubblica Azure Stack sono necessari durante la distribuzione di Azure Stack. In questo articolo contiene informazioni su:
@@ -39,6 +39,7 @@ L'elenco seguente descrive i requisiti del certificato che sono necessari per di
 - Il formato del certificato deve essere PFX, come le chiavi pubbliche e private sono necessari per l'installazione dello Stack di Azure. 
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo "Key Usage".
 - Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Utilizzo chiavi avanzato".
+- Il certificato "rilasciato a:" campo non deve essere lo stesso come relativo "rilasciato da:" campo.
 - Le password per tutti i file di certificato pfx devono essere uguale al momento della distribuzione
 - Assicurarsi che i nomi di soggetto e i nomi di soggetto alternativo di tutti i certificati corrispondano a quanto descritto in questo articolo per evitare distribuzioni non riuscite.
 
@@ -50,7 +51,7 @@ Nella tabella in questa sezione vengono descritti i certificati PKI endpoint pub
 
 I certificati con i nomi DNS appropriati per ogni endpoint infrastruttura pubblica Azure Stack sono necessari. Nome DNS dell'endpoint di ogni tipo viene espresso nel formato:  *&lt;prefisso >.&lt; area >. &lt;fqdn >*. 
 
-Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i nomi di dominio esterno scelto per il sistema Azure Stack e l'area. Ad esempio, se il nome dell'area stato *Redmond* e il nome di dominio esterno è *contoso.com*, i nomi DNS potrebbero avere il formato  *&lt;prefisso >. redmond.contoso.com* . Il  *&lt;prefisso >* valori sono prestabiliti da Microsoft per descrivere l'endpoint protetto mediante il certificato. Inoltre, il  *&lt;prefisso >* i valori degli endpoint infrastruttura esterno dipendono dal servizio Azure Stack che utilizza l'endpoint specifico. 
+Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere i nomi di dominio esterno scelto per il sistema Azure Stack e l'area. Ad esempio, se il nome dell'area stato *Redmond* e il nome di dominio esterno è *contoso.com*, i nomi DNS potrebbero avere il formato *&lt;prefisso >. redmond.contoso.com*. Il  *&lt;prefisso >* valori sono prestabiliti da Microsoft per descrivere l'endpoint protetto mediante il certificato. Inoltre, il  *&lt;prefisso >* i valori degli endpoint infrastruttura esterno dipendono dal servizio Azure Stack che utilizza l'endpoint specifico. 
 
 |Cartella di distribuzione|Soggetto certificato richiesto e nomi alternativi del soggetto (SAN)|Ambito (per regione)|Spazio dei nomi di sottodominio|
 |-----|-----|-----|-----|
@@ -93,7 +94,7 @@ La tabella seguente descrive gli endpoint e i certificati necessari per gli adap
 
 <sup>1</sup> richiede un certificato con più nomi alternativi del soggetto con caratteri jolly. Carattere jolly più reti SAN in un singolo certificato potrebbe non essere supportato da tutte le autorità di certificazione pubblica 
 
-<sup>2</sup> A &#42;. servizio app.  *&lt;area >.&lt; nome di dominio completo >* certificato con caratteri jolly non può essere utilizzato al posto di queste tre certificati (api.appservice. *&lt;area >. &lt;fqdn >*, ftp.appservice. *&lt;area >. &lt;fqdn >*e sso.appservice. *&lt;area >. &lt;fqdn >*. Servizio App richiede in modo esplicito l'utilizzo di certificati separati per questi endpoint. 
+<sup>2</sup> A &#42;.appservice. *&lt;area >. &lt;fqdn >* certificato con caratteri jolly non può essere utilizzato al posto di queste tre certificati (api.appservice. *&lt;area >. &lt;fqdn >*, ftp.appservice. *&lt;area >. &lt;fqdn >*e sso.appservice. *&lt;area >. &lt;fqdn >*. Servizio App richiede in modo esplicito l'utilizzo di certificati separati per questi endpoint. 
 
 ## <a name="learn-more"></a>Altre informazioni
 Informazioni su come [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md). 

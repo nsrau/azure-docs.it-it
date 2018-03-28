@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e9d0691876a417fe8665bed2d712d643a4364120
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
@@ -98,7 +98,7 @@ Service Fabric è integrato con [ASP.NET Core](service-fabric-reliable-services-
 - Eseguito in un servizio Reliable Services. Questa modalità offre una migliore integrazione con il runtime di Service Fabric e consente servizi ASP.NET Core con stato.
 
 ### <a name="guest-executables"></a>Eseguibili guest
-Un [eseguibile guest](service-fabric-deploy-existing-app.md) è un eseguibile arbitrario esistente, scritto in un qualsiasi linguaggio, ospitato in un cluster di Service Fabric insieme ad altri servizi. Gli eseguibili guest non si integrano direttamente con le API di Service Fabric. Tuttavia sfruttano le funzionalità offerte dalla piattaforma, quali report di integrità e caricamento personalizzati e individuabilità dei servizi mediante chiamate ad API REST. Gli eseguibili guest dispongono anche di supporto completo del ciclo di vita dell'applicazione. 
+Un [eseguibile guest](service-fabric-guest-executables-introduction.md) è un eseguibile arbitrario esistente, scritto in un qualsiasi linguaggio, ospitato in un cluster di Service Fabric insieme ad altri servizi. Gli eseguibili guest non si integrano direttamente con le API di Service Fabric. Tuttavia sfruttano le funzionalità offerte dalla piattaforma, quali report di integrità e caricamento personalizzati e individuabilità dei servizi mediante chiamate ad API REST. Gli eseguibili guest dispongono anche di supporto completo del ciclo di vita dell'applicazione. 
 
 ## <a name="application-lifecycle"></a>Ciclo di vita dell'applicazione
 Analogamente ad altre piattaforme, un'applicazione su Service Fabric in genere passa attraverso le fasi seguenti: progettazione, sviluppo, test, distribuzione, aggiornamento, manutenzione e rimozione. Service Fabric di Azure offre un supporto di prima categoria per l'intero ciclo di vita delle applicazioni cloud, dallo sviluppo alla distribuzione, alla gestione giornaliera, alla manutenzione e infine alla rimozione delle autorizzazioni. Il modello di servizio abilita diversi ruoli per la partecipazione indipendente al ciclo di vita delle applicazioni. [Ciclo di vita dell'applicazione di Service Fabric](service-fabric-application-lifecycle.md) offre una panoramica delle interfacce API e del modo in cui vengono usate dai diversi ruoli nelle fasi del ciclo di vita di un'applicazione di Service Fabric. 
@@ -138,7 +138,7 @@ L'esecuzione dei cluster di Service Fabric in Azure offre l'integrazione con alt
 
 È possibile creare un cluster in Azure tramite il [portale di Azure](service-fabric-cluster-creation-via-portal.md), da un [modello](service-fabric-cluster-creation-via-arm.md) o da [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
-Service Fabric su Linux consente di compilare, distribuire e gestire applicazioni a disponibilità e scalabilità elevata in tale ambiente proprio come in Windows. I framework di Service Fabric (Reliable Services e Reliable Actors) sono disponibili in Java su Linux in aggiunta a C# (.NET Core). È anche possibile compilare [servizi eseguibili guest](service-fabric-deploy-existing-app.md) con qualsiasi linguaggio o framework. È supportata anche l'orchestrazione di contenitori Docker. che possono eseguire eseguibili guest o servizi nativi di Service Fabric, che usano i framework di Service Fabric. Per altre informazioni, vedere [Service Fabric in Linux](service-fabric-deploy-anywhere.md).
+Service Fabric su Linux consente di compilare, distribuire e gestire applicazioni a disponibilità e scalabilità elevata in tale ambiente proprio come in Windows. I framework di Service Fabric (Reliable Services e Reliable Actors) sono disponibili in Java su Linux in aggiunta a C# (.NET Core). È anche possibile compilare [servizi eseguibili guest](service-fabric-guest-executables-introduction.md) con qualsiasi linguaggio o framework. È supportata anche l'orchestrazione di contenitori Docker. che possono eseguire eseguibili guest o servizi nativi di Service Fabric, che usano i framework di Service Fabric. Per altre informazioni, vedere [Service Fabric in Linux](service-fabric-deploy-anywhere.md).
 
 Alcune funzionalità sono supportate in Windows, ma non in Linux. Per altre informazioni, vedere [Differenze tra Service Fabric in Linux e in Windows](service-fabric-linux-windows-differences.md).
 
@@ -167,7 +167,7 @@ Periodicamente vengono rilasciate nuove versioni del runtime di Service Fabric. 
 
 Un cluster di Service Fabric è una risorsa di proprietà dell'utente parzialmente gestita da Microsoft. Microsoft è responsabile dell'applicazione delle patch al sistema operativo sottostante e dell'implementazione degli aggiornamenti dell'infrastruttura sul cluster. È possibile configurare il cluster per ricevere gli aggiornamenti automatici dell'infrastruttura quando Microsoft rilascia una nuova versione oppure scegliere di selezionare la versione supportata dell'infrastruttura che si vuole. Gli aggiornamenti di infrastruttura e configurazione possono essere configurati tramite il portale di Azure o Resource Manager. Per altre informazioni, vedere [Aggiornare un cluster di Service Fabric](service-fabric-cluster-upgrade.md). 
 
-Un cluster autonomo è una risorsa che si possiede interamente. Perciò si è responsabili dell'applicazione delle patch al sistema operativo sottostante e dell'avvio degli aggiornamenti dell'infrastruttura. Se il cluster può connettersi ad [https://www.microsoft.com/download](https://www.microsoft.com/download), è possibile configurare il cluster in modo che scarichi ed esegua automaticamente il provisioning del nuovo pacchetto di runtime di Service Fabric. Quindi si avvierà l'aggiornamento. Se il cluster non può accedere ad [https://www.microsoft.com/download](https://www.microsoft.com/download), è possibile scaricare manualmente il nuovo pacchetto di runtime da un computer connesso a Internet e quindi avviare l'aggiornamento. Per altre informazioni, vedere [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md).
+Un cluster autonomo è una risorsa che si possiede interamente. Perciò si è responsabili dell'applicazione delle patch al sistema operativo sottostante e dell'avvio degli aggiornamenti dell'infrastruttura. Se il cluster può connettersi a [https://www.microsoft.com/download](https://www.microsoft.com/download), è possibile configurare il cluster in modo che scarichi ed esegua automaticamente il provisioning del nuovo pacchetto di runtime di Service Fabric. Quindi si avvierà l'aggiornamento. Se il cluster non può accedere a [https://www.microsoft.com/download](https://www.microsoft.com/download), è possibile scaricare manualmente il nuovo pacchetto di runtime da un computer connesso a Internet e quindi avviare l'aggiornamento. Per altre informazioni, vedere [Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server](service-fabric-cluster-upgrade-windows-server.md).
 
 ## <a name="health-monitoring"></a>Monitoraggio dell’integrità
 In Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche, come i nodi cluster e le repliche dei servizi. Il modello di integrità usa i reporter di integrità, costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli autori del servizio devono pensare in anticipo all'integrità e a come [progettare i report sull'integrità](service-fabric-report-health.md#design-health-reporting). È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi quando il servizio sarà in esecuzione su vasta scala in produzione.

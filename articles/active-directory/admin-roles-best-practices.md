@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -178,7 +178,7 @@ Azure AD Identity Protection è uno strumento di monitoraggio e creazione di rep
 
 Secure Score esamina i servizi di Office 365 in uso (ad esempio, OneDrive, SharePoint ed Exchange), quindi analizza le impostazioni e le attività e le confronta con informazioni di base stabilite da Microsoft. Si ottiene un punteggio che indica a che livello l'organizzazione è allineata alle procedure consigliate di sicurezza. Chiunque disponga delle autorizzazioni di amministratore (amministratore globale o un ruolo di amministratore personalizzato) per un abbonamento a Office 365 Business Premium o Enterprise può accedere a Secure Score all'indirizzo [https://securescore.office.com](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Esaminare le indicazioni di sicurezza e conformità di Office 365 (se si usa Office 365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Esaminare le indicazioni di sicurezza e conformità di Office 365 (se si usa Office 365)
 
 Il [piano per la sicurezza e la conformità](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) spiega in che modo un cliente deve configurare Office 365 e usare altre funzionalità di EMS. Esaminare quindi i passaggi da 3 a 6 della procedura in [Proteggere l'accesso a dati e servizi in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) e vedere le indicazioni in [Monitorare la sicurezza e la conformità in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6).
 
@@ -201,7 +201,7 @@ Se il tenant di Azure Active Directory è sincronizzato con Active Directory loc
 
 Usare Enterprise Portal e il portale di Azure per identificare le sottoscrizioni nell'organizzazione che ospitano le applicazioni di produzione. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Rimuovere gli account Microsoft dai ruoli di amministratore
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Rimuovere gli account Microsoft dai ruoli di amministratore
 
 Gli account Microsoft di altri programmi, ad esempio Xbox Live e Outlook, non devono essere usati come account amministratore per le sottoscrizioni dell'organizzazione. Rimuovere lo stato di amministratore da tutti gli account Microsoft e sostituirli con account aziendali o dell'istituto di istruzione di Active Directory (ad esempio, chris@contoso.com).
 
@@ -244,7 +244,7 @@ Gli utenti malintenzionati possono tentare di prendere di mira account con privi
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Esaminare le indicazioni del National Institute of Standards and Technology per la gestione degli eventi imprevisti 
 
-Il National Institute of Standards e Technology (NIST) fornisce linee guida per la gestione degli eventi imprevisti, in particolare per analizzare i dati relativi agli eventi imprevisti e determinare la risposta appropriata per ogni evento. Per altre informazioni, vedere il documento del NIST [Computer Security Incident Handling Guide (SP 800-61, revisione 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+Il National Institute of Standards e Technology (NIST) fornisce linee guida per la gestione degli eventi imprevisti, in particolare per analizzare i dati relativi agli eventi imprevisti e determinare la risposta appropriata per ogni evento. Per altre informazioni, vedere il documento [NIST Computer Security Incident Handling Guide (SP 800-61, revisione 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implementare Privileged Identity Management (PIM) per JIT per altri ruoli amministrativi
 
@@ -318,7 +318,6 @@ Per proteggere l'accesso degli utenti anche nelle applicazioni connesse, è cons
 * Riduzione al minimo dei rischi e applicazione dei criteri e prevenzione delle minacce in modo automatico
 
 L'agente SIEM di Cloud App Security integra Cloud App Security con il server SIEM per consentire il monitoraggio centralizzato di attività e avvisi di Office 365. Viene eseguito nel server ed esegue il pull di avvisi e attività da Cloud App Security e li trasmette al server SIEM. Per altre informazioni, vedere [Integrazione SIEM](https://docs.microsoft.com/cloud-app-security/siem).
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Fase 4: implementazione continuativa di difese per interventi di sicurezza più proattivi
 
@@ -438,16 +437,16 @@ Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Microsoft Trust Center per la sicurezza dei prodotti](https://www.microsoft.com/trustcenter/security) - Funzionalità di sicurezza dei prodotti e dei servizi Microsoft
+* [Microsoft Trust Center per la sicurezza dei prodotti](https://www.microsoft.com/en-us/trustcenter/security) - Funzionalità di sicurezza dei prodotti e dei servizi Microsoft
 
-* [Microsoft Trust Center - Conformità](https://www.microsoft.com/trustcenter/compliance/complianceofferings) - Set completo di offerte Microsoft per i servizi cloud
+* [Microsoft Trust Center - Conformità](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) - Set completo di offerte Microsoft per i servizi cloud
 
-* [Indicazioni su come svolgere una valutazione dei rischi](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Gestire i requisiti di sicurezza e conformità per i servizi cloud Microsoft
+* [Indicazioni su come svolgere una valutazione dei rischi](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Gestire i requisiti di sicurezza e conformità per i servizi cloud Microsoft
 
 ### <a name="other-ms-online-services"></a>Altri servizi Microsoft online 
 
-* [Sicurezza di Microsoft Intune](https://www.microsoft.com/trustcenter/security/intune-security) - Intune offre funzionalità di gestione di dispositivi mobili, gestione di applicazioni mobili e gestione di PC dal cloud.
+* [Sicurezza di Microsoft Intune](https://www.microsoft.com/en-us/trustcenter/security/intune-security) - Intune offre funzionalità di gestione di dispositivi mobili, gestione di applicazioni mobili e gestione di PC dal cloud.
 
-* [Sicurezza di Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security) - Dynamics 365 è la soluzione Microsoft basata su cloud che combina funzionalità CRM (Customer Relationship Management) ed ERP (Enterprise Resource Planning).
+* [Sicurezza di Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) - Dynamics 365 è la soluzione Microsoft basata su cloud che combina funzionalità CRM (Customer Relationship Management) ed ERP (Enterprise Resource Planning).
 
  

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights per ASP.NET Core | Microsoft Docs
-description: "Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web."
+description: Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9fb3e68db66449d9ca3b43e6974910cb9477e62
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights per ASP.NET Core
 
@@ -25,7 +25,7 @@ Azure Application Insights offre funzionalità di monitoraggio avanzate dell'app
 
 Questo articolo illustra in modo dettagliato i passaggi necessari per creare un'applicazione [Razor Pages](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/?tabs=visual-studio) di ASP.NET Core di esempio in Visual Studio e per avviare il monitoraggio con Azure Application Insights.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - NET Core 2.0.0 SDK o versione successiva.
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) versione 15.3 o versioni successive con carico di lavoro Sviluppo ASP.NET e Web.
@@ -214,5 +214,6 @@ In questo contesto il termine _contatori delle prestazioni_ si riferisce ai [con
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esplorare i flussi degli utenti](app-insights-usage-flows.md) per comprendere la modalità di navigazione dell'app.
+* [Configurare la raccolta di snapshot](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) per visualizzare lo stato del codice sorgente e delle variabili nel momento in cui viene generata un'eccezione.
 * [Utilizzare l'API](app-insights-api-custom-events-metrics.md) per inviare gli eventi e le metriche per una visualizzazione più dettagliata dell'utilizzo e delle prestazioni dell'app.
 * [Test di disponibilità](app-insights-monitor-web-app-availability.md) controlla costantemente l’app da tutto il mondo.

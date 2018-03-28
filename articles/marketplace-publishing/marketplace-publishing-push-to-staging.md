@@ -2,10 +2,10 @@
 title: Preparare e testare l'offerta per la distribuzione in Azure Marketplace | Documentazione Microsoft
 description: Istruzioni dettagliate fornitura di contenuti di marketing, configurazione dei prezzi e test dell'offerta prima della distribuzione in Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Completare la creazione dell’offerta con contenuti di marketing
 In questo passaggio del processo di pubblicazione, sarà necessario fornire alcuni contenuti di marketing e informazioni dettagliate sull'offerta e/o sugli SKU in Azure Marketplace. Ad esempio, si fornirà una descrizione del prodotto, i logo aziendali, piani di prezzo, dettagli dei piani e altre informazioni necessarie per portare l'offerta e/o SKU in gestione temporanea. Queste informazioni vengono utilizzate come contenuto di marketing nel portale di Azure. Si inizierà il processo nel [portale di pubblicazione][link-pubportal].
@@ -26,7 +26,7 @@ In questo passaggio del processo di pubblicazione, sarà necessario fornire alcu
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Passaggio 1: Fornire contenuti di marketing di Marketplace
 **Inglese è il valore predefinito e la sola lingua supportata.** Assicurarsi che tutte le informazioni contenute nei campi siano in inglese. Tutte le informazioni possono essere modificate in qualsiasi momento fino al passaggio alla gestione temporanea.
 
-1. Passare al portale di pubblicazione, [https://publish.windowsazure.com](https://publish.windowsazure.com).
+1. Andare al portale di pubblicazione all'indirizzo [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. Nel menu a sinistra fare clic sulla scheda **Marketing** .
 3. Nel pannello principale, fare clic sul pulsante **English (US)** .
    

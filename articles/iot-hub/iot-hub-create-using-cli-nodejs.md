@@ -5,7 +5,7 @@ services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: boltean
-ms.openlocfilehash: 5e37c6c5e8625ce446ab203f19f9a8b2f1cd5a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure
 
@@ -88,7 +88,7 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 ```
 
 * **resource-group**. Il nome del gruppo di risorse. Il formato non distingue tra maiuscole e minuscole, usa caratteri alfanumerici, caratteri di sottolineatura e trattini e ammette una lunghezza da 1 a 64.
-* **name**. Il nome dell'hub IoT da creare. Il formato non distingue tra maiuscole e minuscole, usa caratteri alfanumerici, caratteri di sottolineatura e trattini e ammette una lunghezza da 3 a 50.
+* **name**. Il nome dell'hub IoT da creare. Il formato non distingue tra maiuscole e minuscole, usa caratteri alfanumerici e trattini e ammette una lunghezza da 3 a 50.
 * **location**. Il percorso (area/data center di Azure) per eseguire il provisioning dell'hub IoT.
 * **sku-name**. Il nome dello SKU, uno fra: [F1, S1, S2, S3]. Per l'elenco completo più recente, vedere la pagina relativa ai prezzi di IoT Hub.
 * **units**. Il numero di unità fornite. Intervallo: F1 [1-1] : S1, S2 [1-200] : S3 [1-10]. Le unità IoT Hub sono basate sul numero totale di messaggi e il numero di dispositivi a cui si vuole connettersi.

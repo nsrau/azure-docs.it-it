@@ -1,12 +1,12 @@
 ---
-title: "Funzionalità di Bash in Azure Cloud Shell | Microsoft Docs"
-description: "Panoramica delle funzionalità di Bash in Azure Cloud Shell"
+title: Funzionalità di Bash in Azure Cloud Shell | Microsoft Docs
+description: Panoramica delle funzionalità di Bash in Azure Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 31c7c17b4604532eb513597db5db68a64ae10c93
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 24f656555b9390bb57b9ca511b86c926e27ebdb6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funzionalità e strumenti per Bash in Azure Cloud Shell
 
@@ -73,7 +73,7 @@ Bash in Cloud Shell include l'autenticazione preconfigurata per strumenti open s
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestione modelli di Azure Machine Learning
 
@@ -99,27 +99,27 @@ Il flusso di lavoro completo che descrive questi concetti è presentato nella fi
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti 
-- Quali tipi di dati sono supportati? È possibile passare matrici NumPy direttamente come input al servizio Web?
+- **Quali tipi di dati sono supportati? È possibile passare matrici NumPy direttamente come input al servizio Web?**
 
    Se si fornisce un file di schema che è stato creato usando l'SDK generate_schema, è possibile passare NumPy e/o Pandas DF. Si può anche passare qualsiasi input JSON serializzabile. Inoltre è possibile passare un'immagine come stringa con codifica binaria.
 
-- Il servizio Web supporta più input o analizza input diversi? 
+- **Il servizio Web supporta più input o analizza input diversi?**
 
    Sì, è possibile usare più input inseriti come pacchetto nell'unica richiesta JSON come un dizionario. Ogni input corrisponderebbe a una singola chiave univoca del dizionario.
 
-- La chiamata è attivata da una richiesta al servizio Web, una chiamata bloccante o una chiamata asincrona?
+- **La chiamata è attivata da una richiesta al servizio Web, una chiamata bloccante o una chiamata asincrona?**
 
    Se il servizio è stato creato mediante l'opzione in tempo reale come parte dell'interfaccia della riga di comando o dell'API, allora si tratta di una chiamata bloccante/sincrona. Si prevede che sia veloce come in tempo reale. Tuttavia sul lato client è possibile eseguire la chiamata tramite la libreria HTTP asincrona per evitare di bloccare il thread del client.
 
-- Quante richieste possono essere gestite contemporaneamente dal servizio Web?
+- **Quante richieste possono essere gestite contemporaneamente dal servizio Web?**
 
    Dipende dalla scala del cluster e del servizio Web. È possibile scalare orizzontalmente il servizio a 100 volte le repliche dopodiché potrà gestire molte richieste contemporaneamente. È possibile anche configurare il massimo numero di richieste simultanee per replica in modo da aumentare la velocità effettiva del servizio.
 
-- Quante richieste possono essere tenute in coda dal servizio Web?
+- **Quante richieste possono essere tenute in coda dal servizio Web?**
 
    Questo valore è configurabile. Per impostazione predefinita, è impostato su ~10 per singola replica, ma è possibile aumentare/ridurre il valore in base ai requisiti dell'applicazione. In genere, aumentandolo il numero di richieste in coda aumenta la velocità effettiva del servizio, ma peggiora le latenze nei percentili più alti. Per mantenere le latenze coerenti, è possibile impostare la coda su un valore basso (1-5) e aumentare il numero di repliche per gestire la velocità effettiva. È anche possibile attivare la scalabilità automatica per fare in modo che il numero di repliche si regoli automaticamente in base al carico. 
 
-- Lo stesso computer o cluster può essere usato per più endpoint del servizio Web?
+- **Lo stesso computer o cluster può essere usato per più endpoint del servizio Web?**
 
    Certo. È possibile eseguire 100 volte i servizi/endpoint nello stesso cluster. 
 

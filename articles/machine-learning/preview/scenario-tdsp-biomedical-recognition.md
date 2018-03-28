@@ -1,12 +1,12 @@
 ---
-title: "Riconoscimento di entità biomediche - Team Data Science Process - Azure Machine Learning | Microsoft Docs"
-description: "Guida introduttiva per un progetto di Team Data Science Process che usa l'apprendimento avanzato per il riconoscimento di entità biomediche in Azure Machine Learning Workbench."
+title: Riconoscimento di entità biomediche - Team Data Science Process - Azure Machine Learning | Microsoft Docs
+description: Guida introduttiva per un progetto di Team Data Science Process che usa l'apprendimento avanzato per il riconoscimento di entità biomediche in Azure Machine Learning Workbench.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)
 
@@ -32,13 +32,13 @@ L'estrazione di entità è una sottoattività dell'estrazione di informazioni (n
 
 4. Vengono presentate le funzionalità seguenti di Azure Machine Learning Workbench:
 
-    * Creazione di istanze di [struttura e modelli di Team Data Science Process (TDSP)](how-to-use-tdsp-in-azure-ml.md).
+    * Creazione di istanze di [struttura e modelli di Team Data Science Process (TDSP)](how-to-use-tdsp-in-azure-ml.md)
     * Gestione automatica delle dipendenze di progetto inclusi download e installazione
-    * Esecuzione di script Python in ambienti di calcolo diversi.
-    * Monitoraggio della cronologia di esecuzione per script Python.
-    * Esecuzione di processi in un contesto di calcolo Spark remoto con cluster HDInsight Spark 2.1.
-    * Esecuzione di processi in macchine virtuali remote abilitate per la GPU in Azure.
-    * Facile operazionalizzazione dei modelli di apprendimento avanzato come servizi Web nei servizi contenitore di Azure (ACS).
+    * Esecuzione di script Python in ambienti di calcolo diversi
+    * Monitoraggio della cronologia di esecuzione per script Python
+    * Esecuzione di processi in un contesto di calcolo Spark remoto con cluster HDInsight Spark 2.1
+    * Esecuzione di processi in macchine virtuali remote abilitate per la GPU in Azure
+    * Facile operazionalizzazione dei modelli di apprendimento avanzato come servizi Web nei servizi contenitore di Azure (ACS)
 
 ## <a name="use-case-overview"></a>Panoramica del caso d'uso
 Il riconoscimento di entità biomediche denominate è un passaggio cruciale per complesse attività di elaborazione del linguaggio naturale dei dati biomedici, tra cui: 
@@ -106,7 +106,7 @@ Di seguito viene fornito il collegamento al repository GitHub pubblico dello sce
 
 ### <a name="python-packages"></a>Pacchetti Python
 
-Tutte le dipendenze necessarie sono definite nel file aml_config/conda_dependencies.yml nella cartella di progetto dello scenario. Viene effettuato il provisioning delle dipendenze definite in questo file per l'esecuzione su destinazioni Docker, macchina virtuale e cluster HDI. Per informazioni dettagliate sul formato di file dell'ambiente Conda, vedere [qui](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+Tutte le dipendenze necessarie sono definite nel file aml_config/conda_dependencies.yml nella cartella di progetto dello scenario. Viene effettuato il provisioning automatico delle dipendenze definite in questo file per l'esecuzione su destinazioni Docker, macchina virtuale e cluster HDI. Per informazioni dettagliate sul formato di file dell'ambiente Conda, vedere [qui](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -167,7 +167,7 @@ Word2Vec è l'algoritmo di apprendimento automatico della rappresentazione distr
 
 ![Modello skip-gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Il modello usa Hierarchical Softmax e il campionamento negativo per ottimizzare le prestazioni. Hierarchical SoftMax (H-SoftMax) è un'approssimazione ispirata agli alberi binari. H-SoftMax sostituisce essenzialmente il livello SoftMax flat con un livello gerarchico, in cui le parole sono in forma di foglie. In questo modo, è possibile scomporre il calcolo della probabilità di una parola in una sequenza di calcoli di probabilità, in modo da evitare di calcolare la dispendiosa normalizzazione su tutte le parole. Poiché un albero binario bilanciato ha una profondità uguale a log2(|V|) (V è il vocabolario), al massimo è necessario valutare solo i nodi log2(|V|) per ottenere la probabilità finale di una parola. Di conseguenza, la probabilità di una parola w dato il suo contesto c è semplicemente il prodotto delle probabilità di seguire rispettivamente i percorsi verso destra e verso sinistra al relativo nodo foglia. È possibile creare un albero di Huffman basato sulla frequenza delle parole nel set di dati per fare in modo che le parole più frequenti ottengano rappresentazioni più brevi. Per altre informazioni, fare riferimento a [questo collegamento](http://sebastianruder.com/word-embeddings-softmax/).
+Il modello usa Hierarchical Softmax e il campionamento negativo per ottimizzare le prestazioni. Hierarchical SoftMax (H-SoftMax) è un'approssimazione ispirata agli alberi binari. H-SoftMax sostituisce essenzialmente il livello SoftMax flat con un livello gerarchico, in cui le parole sono in forma di foglie. In questo modo, è possibile scomporre il calcolo della probabilità di una parola in una sequenza di calcoli di probabilità, in modo da evitare di calcolare la dispendiosa normalizzazione su tutte le parole. Poiché un albero binario bilanciato ha una profondità uguale a log2(|V|) (V è il vocabolario), al massimo è necessario valutare solo i nodi log2(|V|) per ottenere la probabilità finale di una parola. Di conseguenza, la probabilità di una parola w dato il suo contesto c è semplicemente il prodotto delle probabilità di seguire rispettivamente i percorsi verso destra e verso sinistra al relativo nodo foglia. È possibile creare un albero di Huffman basato sulla frequenza delle parole nel set di dati per fare in modo che le parole più frequenti ottengano rappresentazioni più brevi. Per altre informazioni, vedere [questo collegamento](http://sebastianruder.com/word-embeddings-softmax/).
 Immagine ottenuta da [questo sito](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualizzazione
@@ -244,7 +244,7 @@ Viene eseguita la valutazione delle rappresentazioni distribuite delle parole su
 ![Confronto 5 tra modelli](./media/scenario-tdsp-biomedical-recognition/mc5.png)
 
 #### <a name="tensorflow-versus-cntk"></a>TensorFlow e CNTK
-tutti i modelli presentati vengono sottoposti a training usando Keras con TensorFlow come back-end. Al momento della creazione di questo scenario, Keras con CNTK come back-end non supporta l'inversione. Di conseguenza, ai fini del confronto, è stato eseguito il training di un modello LSTM unidirezionale con CNTK come back-end, che è stato quindi confrontato con un modello LSTM unidirezionale con TensorFlow come back-end. Installare CNTK 2.0 per Keras da [qui](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
+Tutti i modelli presentati vengono sottoposti a training usando Keras con TensorFlow come back-end. Al momento della creazione di questo scenario, Keras con CNTK come back-end non supporta l'inversione. Di conseguenza, ai fini del confronto, è stato eseguito il training di un modello LSTM unidirezionale con CNTK come back-end, che è stato quindi confrontato con un modello LSTM unidirezionale con TensorFlow come back-end. Installare CNTK 2.0 per Keras da [qui](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras). 
 
 ![Confronto 6 tra modelli](./media/scenario-tdsp-biomedical-recognition/mc6.png)
 
@@ -266,7 +266,7 @@ Sono state presentate informazioni dettagliate su come eseguire il training di u
 
 * Tomas Mikolov, Kai Chen, Greg Corrado e Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. In Proceedings of ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado e Jeff Dean. 2013b. Distributed representations of words and phrases and their compositionality. In Proceedings of NIPS, pagine 3111-3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen e Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the 15th Workshop on Biomedical Natural Language Processing, pagine 166-174.
+* Billy Chiu, Gamal Crichton, Anna Korhonen e Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the fifteenth Workshop on Biomedical Natural Language Processing, pagine 166-174.
 * [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec) (Rappresentazioni vettoriali di parole)
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent) (Reti neurali ricorrenti)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/) (Problemi riscontrati con Spark ml Word2Vec)

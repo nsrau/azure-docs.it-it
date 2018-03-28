@@ -1,24 +1,24 @@
 ---
-title: "Funzionalità di PowerShell in Azure Cloud Shell (anteprima) | Documentazione Microsoft"
-description: "Panoramica delle funzionalità di PowerShell in Azure Cloud Shell"
+title: Funzionalità di PowerShell in Azure Cloud Shell (anteprima) | Documentazione Microsoft
+description: Panoramica delle funzionalità di PowerShell in Azure Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/09/2018
 ms.author: damaerte
-ms.openlocfilehash: 03706914db2b6b09ff31d5ed4b25871e7a53298a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bff006bc208199457d97b6c0d00780869e77078e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell (anteprima)
 
@@ -90,7 +90,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Strumenti di Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Interfaccia della riga di comando di Azure (2.0.26)](https://docs.microsoft.com/cli/azure)|
+|Strumenti di Azure     |[Azure PowerShell (5.2.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Interfaccia della riga di comando di Azure (2.0.29)](https://docs.microsoft.com/cli/azure)|
 |Editor di testo    |vim<br> nano                             |
 |Gestione pacchetti |PowerShellGet<br> Modulo PackageManagement<br> npm<br> pip |
 |Controllo del codice sorgente  |git                                      |
@@ -103,7 +103,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |6.10       |
-|PowerShell  |5.1 e [6.0.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 e [6.0.1](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## <a name="next-steps"></a>Passaggi successivi
