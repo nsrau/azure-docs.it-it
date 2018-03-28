@@ -2,10 +2,10 @@
 title: Creazione e registrazione dell'account di pubblicazione | Documentazione Microsoft
 description: Istruzioni per la creazione di un account Microsoft Developer per consentire all'utente, dopo l'approvazione, di vendere diversi tipi di offerte in Azure Marketplace.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 In questo articolo viene illustrata la creazione e la registrazione dell'account necessario per diventare un Microsoft Developer approvato per Azure Marketplace.
@@ -81,7 +81,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 
 ### <a name="register-your-company-account"></a>Registrare l'account della società
 1. Aprire una nuova sessione di navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
-2. Passare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) per registrarsi come venditore in Dev Center. Prima di procedere, leggere la seguente nota importante.
+2. Andare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) per registrarsi come venditore in Dev Center. Prima di procedere, leggere la seguente nota importante.
 
    > [!IMPORTANT]
    > Assicurarsi che l'ID di posta elettronica o la lista di distribuzione (si consiglia l'uso di una lista di distribuzione per eliminare la dipendenza da una singola persona) che sarà usata per la registrazione in Dev Center sia prima registrata come un account Microsoft. In caso contrario, registrarsi mediante questo [collegamento](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Inoltre, per la registrazione in Dev Center, **non è consentito usare nessun ID di e-mail appartenente al dominio dell'azienda Microsoft, ad esempio @microsoft.com non può essere usato**.
@@ -175,7 +175,7 @@ Se si preferisce aggiornare le informazioni fiscali e bancarie in un secondo mom
 
 In caso di problemi con la registrazione in Developer Center, inoltrare un ticket di supporto come indicato di seguito
 
-1. Passare al collegamento del supporto [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+1. Andare al collegamento per il supporto tecnico [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
 2. Nella sezione **Contattaci** fare clic sul pulsante **Submit an incident** (Invia una richiesta), come illustrato nella schermata riportata di seguito
 
     ![disegno](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
@@ -191,7 +191,7 @@ In caso di problemi con la registrazione in Developer Center, inoltrare un ticke
 Il [portale di pubblicazione](http://publish.windowsazure.com) consente di pubblicare e gestire le offerte.
 
 1. Aprire una nuova sessione in incognito in Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
-2. Visitare la pagina [http://publish.windowsazure.com](http://publish.windowsazure.com).
+2. Passare a [http://publish.windowsazure.com](http://publish.windowsazure.com).
 3. Un nuovo utente che esegue l'accesso al portale di pubblicazione per la prima volta, deve accedere con lo stesso ID di posta elettronica con cui è registrato il suo account Dev Center. In questo modo l'account Dev Center e l'account del portale di pubblicazione saranno collegati. È possibile aggiungere in un secondo momento altri membri dell'azienda che lavorano all'applicazione, ad esempio un coamministratore, nel portale di pubblicazione seguendo la procedura seguente.
 
 Se si viene aggiunti come coamministratore nel portale di pubblicazione, è possibile accedere con l'account di coamministratore.

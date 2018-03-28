@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -123,7 +123,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Hub IoT
 * Insieme di credenziali di chiave
-* Servizi di bilanciamento del carico
+* Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * App per la logica
 * Machine Learning
 * Servizi multimediali
@@ -132,6 +132,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Operational Insights
 * Operations Management
 * Power BI
+* Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
 * Cache Redis
 * Utilità di pianificazione
 * Ricerca
@@ -161,8 +162,10 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Express Route
 * DevTest Labs: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni diverse non lo è.
 * Dynamics LCS
+* Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * Applicazioni gestite
 * Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
+* Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
 * Insieme di credenziali delle chiavi di Servizi di ripristino: non spostare anche le risorse di calcolo, rete e archiviazione associate con l'insieme di credenziali di Servizi di ripristino, vedere [Limitazioni dei servizi di ripristino](#recovery-services-limitations).
 * Sicurezza
 * Gestione dispositivi StorSimple
@@ -320,6 +323,16 @@ Quando si sposta un cluster HDInsight in una nuova sottoscrizione, spostare prim
 
 Non è possibile spostare contemporaneamente più risorse del servizio di ricerca che si trovano nella stessa area.
 In tal caso, è necessario spostarle separatamente.
+
+## <a name="lb-limitations"></a> Limitazioni del servizio di bilanciamento del carico
+
+Il servizio di bilanciamento del carico dello SKU Basic può essere spostato.
+Il servizio di bilanciamento del carico dello SKU Standard non può essere spostato.
+
+## <a name="pip-limitations"></a> Limitazioni dell'indirizzo IP pubblico
+
+L'indirizzo IP pubblico dello SKU Basic può essere spostato.
+L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 
 ## <a name="use-portal"></a>Usare il portale
 

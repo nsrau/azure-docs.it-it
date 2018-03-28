@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/12/2018
 ms.author: billmath
-ms.openlocfilehash: 6e81ea9f98733b1b7e0c9bf7466ac844a37b6046
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b383a081141d2fde90cfc574ec4b9ffb16940158
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -34,6 +34,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 - L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
 - L'accesso Single Sign-On facile non funziona in Internet Explorer quando è attiva la modalità di protezione avanzata.
 - L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
+- Se un utente fa parte di troppi gruppi in Active Directory, il ticket Kerberos dell'utente sarà probabilmente troppo grande per l'elaborazione e ciò causerà l'esito negativo dell'accesso Single Sign-On facile. Le richieste HTTPS di Azure AD possono avere intestazioni con una dimensione massima di 16 KB. I ticket Kerberos devono essere molto più piccoli rispetto a tale dimensione per contenere altri artefatti di Azure AD, come i cookie. Si consiglia di ridurre le appartenenze a gruppi dell'utente e riprovare.
 - Se si esegue la sincronizzazione di 30 o più foreste di Active Directory, non è possibile abilitare l'accesso SSO facile usando Azure AD Connect. Per risolvere il problema, è possibile [abilitare manualmente](#manual-reset-of-azure-ad-seamless-sso) la funzionalità nel tenant in uso.
 - L'aggiunta degli URL del servizio Azure AD (https://autologon.microsoftazuread-sso.com) alla zona Siti attendibili anziché alla zona Intranet locale *impedisce agli utenti di eseguire l'accesso*.
 - La disattivazione dell'uso del tipo di crittografia **RC4_HMAC_MD5** per Kerberos nelle impostazioni di Active Directory interromperà l'accesso SSO facile. Nello strumento Editor Gestione Criteri di gruppo assicurarsi che il valore dei criteri per **RC4_HMAC_MD5** in **Configurazione computer > Impostazioni di Windows > Impostazioni di sicurezza > Criteri locali > Opzioni di sicurezza -> "Sicurezza di rete: configura tipi di crittografia consentiti per Kerberos"** sia "Abilitato".

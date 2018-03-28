@@ -1,8 +1,8 @@
 ---
 title: Creare una data factory di Azure tramite l'interfaccia utente di Azure Data Factory | Microsoft Docs
-description: Questa esercitazione illustra come creare una data factory con una pipeline che copia dati da una cartella a un'altra cartella nell'Archiviazione BLOB di Azure.
+description: Creare una data factory con una pipeline che copia i dati da una posizione nell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 7065b0b6e0576238e3b32fdbf7ac43b7fc2ae9e6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 79b19121b25b03181eeda1bedd800f45a2adf57e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creare una data factory usando l'interfaccia utente di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]

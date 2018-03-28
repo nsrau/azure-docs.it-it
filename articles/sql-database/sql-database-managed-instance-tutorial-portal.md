@@ -7,18 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creare un'istanza gestita di database SQL di Azure nel portale di Azure
 
@@ -26,6 +23,9 @@ Questa esercitazione illustra come creare un'istanza gestita di database SQL di 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
+> [!IMPORTANT]
+> Per un elenco delle aree geografiche in cui è attualmente disponibile Istanza gestita, vedere [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Eseguire la migrazione dei database a un servizio completamente gestito con Istanza gestita di database SQL di Azure).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).

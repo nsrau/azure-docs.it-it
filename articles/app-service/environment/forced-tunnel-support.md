@@ -1,6 +1,6 @@
 ---
 title: Configurare l'ambiente del servizio app di Azure per il tunneling forzato
-description: "Abilitare Ambiente del servizio app per i casi in cui il traffico in uscita è sottoposto a tunneling forzato"
+description: Abilitare l'ambiente del servizio app per i casi in cui il traffico in uscita è sottoposto a tunneling forzato
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/10/2017
+ms.date: 3/6/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 4caaf0df3f1dd4b2cb9b76283a6beed897531c1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare l'ambiente del servizio app con il tunneling forzato tramite un tunnel
 
-Ambiente del servizio app di Azure è una distribuzione di Servizio app di Azure in un'istanza del cliente di Rete virtuale di Azure. Molti clienti configurano le proprie reti virtuali come estensioni delle reti locali con VPN o connessioni ExpressRoute. A causa dei criteri aziendali o di altri vincoli di sicurezza, configurano le route in modo che inviino tutto il traffico in uscita alla rete locale prima che possa passare su Internet. La modifica del routing della rete virtuale in modo che il traffico in uscita dalla rete virtuali passi alla rete locale attraverso la VPN o la connessione ExpressRoute viene chiamata tunneling forzato. 
+L'ambiente del servizio app (ASE) è una distribuzione del servizio app di Azure in una rete virtuale di Azure di un cliente. Molti clienti configurano le proprie reti virtuali di Azure come estensioni delle proprie reti locali con VPN o connessioni Azure ExpressRoute. Per tunneling forzato si intende il reindirizzamento del traffico associato a Internet alla propria VPN o a un'appliance virtuale. Lo scopo è il controllo di tutto il traffico in uscita, spesso richiesto per motivi di sicurezza. 
 
-Il tunneling forzato può causare problemi per Ambiente del servizio app. Ambiente del servizio app ha un certo numero di dipendenze esterne, che sono elencate nel documento [Architettura di rete di Ambiente del servizio app][network]. Per impostazione predefinita, Ambiente del servizio app richiede che tutte le comunicazioni in uscita passino attraverso l'indirizzo VIP fornito con Ambiente del servizio app.
+L'ambiente del servizio app ha diverse dipendenze esterne, descritte nel documento sull'[architettura di rete dell'ambiente del servizio app][network]. In genere tutto il traffico in uscita dell'ambiente del servizio app relativo alle dipendenze deve transitare attraverso l'indirizzo VIP di cui è stato eseguito il provisioning con l'ambiente del servizio app. Se si modifica il routing per il traffico da o verso l'ambiente del servizio app senza attenersi alle indicazioni seguenti, l'ambiente del servizio app smetterà di funzionare.
 
-Le route sono un elemento critico del tunneling forzato e del modo in cui viene gestito. In una rete virtuale di Azure il routing viene eseguito in base all'algoritmo LPM (Longest Prefix Match). Se è presente più di una route con la stessa corrispondenza LPM, viene selezionata la route in base all'origine nell'ordine seguente:
+In una rete virtuale di Azure il routing viene eseguito in base all'algoritmo LPM (Longest Prefix Match). Se è presente più di una route con la stessa corrispondenza LPM, viene selezionata la route in base all'origine nell'ordine seguente:
 
 * Route definita dall'utente
 * Route BGP (quando viene utilizzato ExpressRoute)
@@ -34,80 +34,105 @@ Le route sono un elemento critico del tunneling forzato e del modo in cui viene 
 
 Per altre informazioni sul routing in una rete virtuale, vedere [Route definite dall'utente e inoltro degli indirizzi IP][routes]. 
 
-Se si vuole che Ambiente del servizio app operi in una rete virtuale con tunneling forzato, è possibile scegliere tra due opzioni:
+Se non si desidera instradare il traffico in uscita dell'ambiente del servizio app direttamente a Internet ma a una destinazione diversa, le scelte sono:
 
-* Concedere ad Ambiente del servizio app l'accesso a Internet diretto.
-* Modificare l'endpoint in uscita per Ambiente del servizio app.
+* Abilitare un accesso a Internet diretto per l'ambiente del servizio di app
+* Configurare la subnet dell'ambiente del servizio app per l'uso degli endpoint servizio di SQL di Azure e Archiviazione di Azure
+* Aggiungere i propri indirizzi IP al firewall SQL di Azure dell'ambiente del servizio app
 
 ## <a name="enable-your-app-service-environment-to-have-direct-internet-access"></a>Concedere ad Ambiente del servizio app l'accesso a Internet diretto
 
-Perché Ambiente del servizio app possa funzionare quando la rete virtuale è configurata con una connessione ExpressRoute, è possibile eseguire le operazioni seguenti:
+Per consentire all'ambiente del servizio app l'accesso diretto a Internet anche se la rete virtuale di Azure è configurata con ExpressRoute, è possibile:
 
-* Configurare ExpressRoute perché annunci 0.0.0.0/0. Per impostazione predefinita, tutto il traffico locale in uscita viene forzato.
-* Creare una route definita dall'utente. Applicarla alla subnet che contiene Ambiente del servizio app, con un prefisso di indirizzo 0.0.0.0/0 e un tipo di hop successivo Internet.
+* Configurare ExpressRoute perché annunci 0.0.0.0/0. Per impostazione predefinita, tutto il traffico in uscita viene instradato in locale.
+* Creare un routing definito dall'utente con prefisso indirizzo uguale a 0.0.0.0/0 e tipo di hop successivo uguale a Internet e applicarlo alla subnet dell'ambiente del servizio app.
 
-Se si apportano queste due modifiche, il traffico destinato a Internet proveniente dalla subnet di Ambiente del servizio app non verrà forzato verso ExpressRoute e Ambiente del servizio app potrà funzionare.
+Se si apportano queste due modifiche, il traffico destinato a Internet proveniente dalla subnet dell'ambiente del servizio app non verrà forzato attraverso la connessione ExpressRoute.
 
 > [!IMPORTANT]
 > Le route definite in una route definita dall'utente devono essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio precedente viene usato l'intervallo di indirizzi ampio 0.0.0.0/0. Può essere accidentalmente sostituito dagli annunci di route che usano intervalli di indirizzi più specifici.
 >
-> Le istanze di Ambiente del servizio app non sono supportate con configurazioni ExpressRoute con annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Le configurazioni di ExpressRoute con peering pubblico configurato riceveranno gli annunci di route da Microsoft. Gli annunci contengono un ampio set di intervalli di indirizzi IP di Microsoft Azure. In caso di annuncio incrociato degli intervalli di indirizzi nel percorso di peering privato, tutti i pacchetti di rete in uscita dalla subnet di Ambiente del servizio app verranno sottoposti a tunneling forzato verso un'infrastruttura di rete locale del cliente. Questo flusso di rete non è attualmente supportato per impostazione predefinita con Ambiente del servizio app. Una soluzione a questo problema consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Un'altra soluzione consiste nel consentire ad Ambiente del servizio app di operare in una configurazione con tunneling forzato.
+> Le istanze di Ambiente del servizio app non sono supportate con configurazioni ExpressRoute con annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Le configurazioni di ExpressRoute con peering pubblico configurato riceveranno gli annunci di route da Microsoft. Gli annunci contengono un ampio set di intervalli di indirizzi di Microsoft Azure. In caso di annuncio incrociato degli intervalli di indirizzi nel percorso di peering privato, tutti i pacchetti di rete in uscita dalla subnet dell'ambiente del servizio app verranno instradati verso un'infrastruttura di rete locale del cliente. Questo flusso di rete non è supportato per impostazione predefinita con gli ambienti del servizio app. Una soluzione a questo problema consiste nell'interrompere l'annuncio incrociato di route dal percorso di peering pubblico al percorso di peering privato. Un'altra soluzione consiste nel consentire ad Ambiente del servizio app di operare in una configurazione con tunneling forzato.
 
-## <a name="change-the-egress-endpoint-for-your-app-service-environment"></a>Modificare l'endpoint in uscita per Ambiente del servizio app ##
+![Accesso diretto a Internet][1]
 
-Questa sezione descrive come abilitare Ambiente del servizio app per una configurazione con tunneling forzato modificando l'endpoint in uscita usato da Ambiente del servizio app. Se il traffico in uscita da Ambiente del servizio app è sottoposto a tunneling forzato verso una rete locale, è necessario consentire a questo traffico di avere origine da indirizzi IP diversi dall'indirizzo VIP di Ambiente del servizio app.
+## <a name="configure-your-ase-with-service-endpoints"></a>Configurare l'ambiente del servizio app con endpoint servizio
 
-Ambiente del servizio app non solo ha dipendenze esterne, ma deve anche essere in ascolto del traffico in ingresso per rispondere a tale traffico. Le risposte non possono essere inviate di nuovo da un altro indirizzo perché questo determinerebbe l'interruzione del traffico TCP. Per modificare l'endpoint in uscita per Ambiente del servizio app, sono necessari tre passaggi:
+Per instradare tutto il traffico in uscita dall'ambiente del servizio app, ad eccezione del traffico diretto a SQL di Azure e Archiviazione di Azure, procedere come segue:
 
-1. Impostare una tabella di route per avere la certezza che il traffico di gestione in ingresso possa essere trasmesso di nuovo dallo stesso indirizzo IP.
+1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Questo passaggio è necessario perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato.   
 
-2. Aggiungere gli indirizzi IP da usare per l'uscita verso il firewall di Ambiente del servizio app.
+2. Abilitare gli endpoint servizio con SQL di Azure e Archiviazione di Azure con la subnet dell'ambiente del servizio app
 
-3. Impostare le route per il traffico in uscita da Ambiente del servizio app da sottoporre a tunneling.
+Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint del servizio Rete virtuale][serviceendpoints] della documentazione. 
 
-   ![Flusso di rete con tunneling forzato][1]
+Quando si abilitano gli endpoint del servizio su una risorsa, alcune route sono create con una priorità maggiore rispetto a tutte le altre route. Se si usano gli endpoint servizio con un ambiente del servizio app con tunneling forzato, il tunneling del traffico di gestione di SQL di Azure e Archiviazione di Azure non viene forzato. L'altro traffico dell'ambiente del servizio app relativo alle dipendenze viene sottoposto a tunneling forzato e non può andare perso. In caso contrario, l'ambiente del servizio app non funzionerà correttamente.
 
-È possibile configurare Ambiente del servizio app con indirizzi in uscita diversi dopo che Ambiente del servizio app è attivo e operativo oppure è possibile impostare questi indirizzi durante la distribuzione di Ambiente del servizio app.
+Quando gli endpoint servizio sono abilitati in una subnet con un'istanza di SQL di Azure, tutte le istanze di SQL di Azure verso cui si esegue la connessione da tale subnet devono avere gli endpoint servizio abilitati. Se si desidera accedere a più istanze di SQL di Azure dalla stessa subnet, non è possibile abilitare gli endpoint servizio in un'istanza di SQL di Azure e non in un'altra.  Il comportamento di Archiviazione di Azure è diverso da quello di SQL di Azure.  Quando si abilitano gli endpoint servizio con Archiviazione di Azure, si blocca l'accesso a tale risorsa dalla propria subnet ma è comunque possibile accedere ad altri account di archiviazione di Azure, anche se non hanno gli endpoint servizio abilitati.  
 
-### <a name="change-the-egress-address-after-the-app-service-environment-is-operational"></a>Modificare l'indirizzo in uscita dopo che Ambiente del servizio app è operativo ###
-1. Ottenere gli indirizzi IP che si vuole usare come IP in uscita per Ambiente del servizio app. Se si esegue il tunneling forzato, questi indirizzi provengono da NAT o indirizzi IP gateway. Se si vuole instradare il traffico in uscita di Ambiente del servizio app attraverso un'appliance virtuale di rete, l'indirizzo in uscita è l'indirizzo IP pubblico dell'appliance virtuale di rete.
+Se si configura il tunneling forzato con un'appliance di filtro rete, tenere presente che l'ambiente del servizio app ha diverse altre dipendenze oltre a SQL di Azure e Archiviazione di Azure e che è necessario consentire il relativo traffico. In caso contrario, l'ambiente del servizio app non funzionerà correttamente.
 
-2. Impostare gli indirizzi in uscita nelle informazioni di configurazione di Ambiente del servizio di app. Passare a resource.azure.com e quindi a Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Sarà possibile visualizzare il codice JSON che descrive Ambiente del servizio app. Assicurarsi che sia specificato **Lettura/Scrittura** nella parte superiore. Selezionare **Modifica**. Scorrere verso il basso e modificare il valore di **userWhitelistedIpRanges** da **null** a un altro valore simile al seguente. Usare gli indirizzi che si desidera impostare come intervallo degli indirizzi in uscita. 
+![Tunneling forzato con gli endpoint servizio][2]
+
+## <a name="add-your-own-ips-to-the-ase-azure-sql-firewall"></a>Aggiungere i propri indirizzi IP al firewall SQL di Azure dell'ambiente del servizio app ##
+
+Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, ad eccezione del traffico diretto ad Archiviazione di Azure, procedere come segue:
+
+1. Creare una tabella di route e assegnarla alla subnet dell'ambiente del servizio app. Trovare gli indirizzi corrispondenti alla propria area qui: [Indirizzi di gestione dell'Ambiente del servizio app][management]. Creare route per tali indirizzi con hop successivo uguale a Internet. Questo passaggio è necessario perché il traffico di gestione in ingresso dell'ambiente del servizio app deve rispondere dallo stesso indirizzo al quale è stato inviato. 
+
+2. Abilitare gli endpoint servizio con Archiviazione di Azure con la subnet dell'ambiente del servizio app
+
+3. Ottenere gli indirizzi che saranno usati per tutto il traffico in uscita dall'ambiente del servizio app a Internet. Se si esegue il routing del traffico in locale, questi indirizzi corrisponderanno ai NAT o agli IP del gateway. Se si vuole instradare il traffico in uscita di Ambiente del servizio app attraverso un'appliance virtuale di rete, l'indirizzo in uscita è l'indirizzo IP pubblico dell'appliance virtuale di rete.
+
+4. _Per impostare gli indirizzi in uscita in un ambiente del servizio app esistente:_ passare a resource.azure.com e quindi a Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Sarà possibile visualizzare il codice JSON che descrive Ambiente del servizio app. Assicurarsi che sia specificato **Lettura/Scrittura** nella parte superiore. Selezionare **Modifica**. Scorrere fino alla fine. Modificare il valore di **userWhitelistedIpRanges** da **null** a un altro valore simile al seguente. Usare gli indirizzi che si desidera impostare come intervallo degli indirizzi in uscita. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 
    Selezionare **PUT** nella parte superiore. Questa opzione attiva un'operazione di ridimensionamento in Ambiente del servizio app e modifica il firewall.
- 
-3. Creare o modificare una tabella di route e inserire le regole per consentire l'accesso agli/dagli indirizzi di gestione mappati alla posizione di Ambiente del servizio app. Per trovare gli indirizzi di gestione, vedere [Indirizzi di gestione di Ambiente del servizio app][management].
 
-4. Modificare le route applicate alla subnet di Ambiente del servizio app con una tabella di route o con route BGP. 
+_Per creare l'ambiente del servizio app con gli indirizzi di uscita_: seguire le indicazioni sulla [creazione di un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
 
-Se Ambiente del servizio app non risponde dal portale, le modifiche hanno causato un problema. Il problema potrebbe essere dovuto a un elenco di indirizzi in uscita non completo, alla perdita del traffico o al blocco del traffico. 
+    "resources": [
+      {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/hostingEnvironments",
+        "name": "[parameters('aseName')]",
+        "kind": "ASEV2",
+        "location": "[parameters('aseLocation')]",
+        "properties": {
+          "name": "[parameters('aseName')]",
+          "location": "[parameters('aseLocation')]",
+          "ipSslAddressCount": 0,
+          "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+          "dnsSuffix" : "[parameters('dnsSuffix')]",
+          "virtualNetwork": {
+            "Id": "[parameters('existingVnetResourceId')]",
+            "Subnet": "[parameters('subnetName')]"
+          },
+        "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+        }
+      }
+    ]
 
-### <a name="create-a-new-app-service-environment-with-a-different-egress-address"></a>Creare una nuova istanza di Ambiente del servizio app con un indirizzo in uscita diverso ###
+Con queste modifiche, il traffico verrà inviato ad Archiviazione di Azure direttamente dall'ambiente del servizio app e sarà consentito l'accesso a SQL di Azure da altri indirizzi, oltre che dall'indirizzo VIP dell'ambiente del servizio app.
 
-Se la rete virtuale è già configurata per eseguire il tunneling forzato di tutto il traffico, sono necessari alcuni passaggi aggiuntivi per creare l'istanza di Ambiente del servizio app in modo corretto. È necessario abilitare l'uso di un altro endpoint in uscita durante la creazione di Ambiente del servizio app. A questo scopo, è necessario creare l'istanza di Ambiente del servizio app con un modello che specifichi gli indirizzi in uscita consentiti.
+   ![Tunneling forzato con elenco elementi consentiti SQL][3]
 
-1. Ottenere gli indirizzi IP da usare come indirizzi in uscita per Ambiente del servizio app.
+## <a name="preventing-issues"></a>Prevenzione dei problemi ##
 
-2. Pre-creare la subnet che verrà usata da Ambiente del servizio app. Questa operazione è necessaria per poter impostare le route e anche perché è richiesta dal modello.
+Se la comunicazione tra l'ambiente del servizio app e le relative dipendenze si interrompe, l'integrità dell'ambiente del servizio app sarà compromessa.  Se lo stato di mancata integrità permane troppo a lungo, l'ambiente del servizio app verrà sospeso. Per annullare la sospensione dell'ambiente del servizio app, seguire le istruzioni fornite nel portale dell'ambiente del servizio app.
 
-3. Creare una tabella di route con gli indirizzi IP di gestione mappati alla posizione di Ambiente del servizio app. Assegnarla ad Ambiente del servizio app.
-
-4. Seguire le indicazioni fornite in [Creare un ambiente del servizio app con un modello][template]. Selezionare il modello appropriato.
-
-5. Modificare la sezione "resources" del file azuredeploy.json. Includere una riga per **userWhitelistedIpRanges** con i valori personalizzati, in questo modo:
-
-       "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
-
-Se questa sezione è configurata correttamente, Ambiente del servizio app verrà avviato senza problemi. 
+Oltre alla semplice interruzione della comunicazione, anche l'introduzione di un'eccessiva latenza può avere effetti negativi sull'ambiente del servizio app. Una latenza eccessiva può verificarsi se l'ambiente del servizio app è troppo lontano dalla rete locale.  Esempi di distanza eccessiva sono l'attraversamento di un oceano o un continente per raggiungere la rete locale. La latenza può essere causata anche da una congestione in Internet o da vincoli di larghezza di banda in uscita.
 
 
 <!--IMAGES-->
-[1]: ./media/forced-tunnel-support/forced-tunnel-flow.png
+[1]: ./media/forced-tunnel-support/asedependencies.png
+[2]: ./media/forced-tunnel-support/forcedtunnelserviceendpoint.png
+[3]: ./media/forced-tunnel-support/forcedtunnelexceptstorage.png
 
 <!--Links-->
 [management]: ./management-addresses.md
 [network]: ./network-info.md
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

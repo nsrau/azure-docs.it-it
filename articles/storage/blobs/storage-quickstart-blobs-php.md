@@ -8,22 +8,22 @@ ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 474c03921369035cd7334fdddd9806f8f90b7d58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4adad6fe3da16653bbd654a3e93e14f9e68b7c90
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva: 
 * [Installare PHP](http://php.net/downloads.php)
-* Installare [Azure SDK per PHP](https://github.com/Azure/azure-storage-php)
+* Installare [Azure Storage SDK per PHP](https://github.com/Azure/azure-storage-php)
 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -196,6 +196,13 @@ Se i BLOB caricati in questa guida introduttiva non sono più necessari, è poss
     echo "<br />";
     unlink($fileToUpload);   
 ```
+
+## <a name="resources-for-developing-php-applications-with-blobs"></a>Risorse per lo sviluppo di applicazioni PHP con BLOB
+
+Per lo sviluppo PHP con Archiviazione BLOB, vedere le risorse aggiuntive seguenti:
+
+- Visualizzare, scaricare e installare il [codice sorgente della libreria client PHP](https://github.com/Azure/azure-storage-php) per Archiviazione di Azure su GitHub.
+- Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) scritti con la libreria client PHP.
 
 ## <a name="next-steps"></a>Passaggi successivi
  

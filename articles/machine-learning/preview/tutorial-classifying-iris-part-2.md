@@ -3,108 +3,139 @@ title: Esercitazione sulla creazione di un modello per i servizi di Azure Machin
 description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. In questa seconda parte viene illustrata la sperimentazione.
 services: machine-learning
 author: hning86
-ms.author: haining, j-martens
+ms.author: haining
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 3e7f1b25757dc627f0f42a34c1a42b2d421c06c9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/15/2018
+ms.openlocfilehash: e4fc13e88d56677687e0f97d156f9b7761eae1d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-2---build-a-model"></a>Esercitazione: Classificazione del set di dati - Parte 2: Creare un modello
-I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
+# <a name="tutorial-2-classify-iris---build-a-model"></a>Esercitazione 2: Classificare i dati Iris - Creare un modello
+I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
-Questa esercitazione è la **seconda di una serie in tre parti**. In questa parte dell'esercitazione si usano i servizi di Azure Machine Learning (anteprima) per:
+Questa esercitazione è la **seconda di una serie in tre parti**. In questa parte dell'esercitazione si usano i servizi di Azure Machine Learning per:
 
 > [!div class="checklist"]
-> * Usare Azure Machine Learning Workbench.
-> * Aprire script ed esaminare il codice.
-> * Eseguire script in un ambiente locale.
-> * Esaminare la cronologia di esecuzione.
-> * Eseguire script in un ambiente Docker locale.
-> * Eseguire script in una finestra dell'interfaccia della riga di comando di Azure locale.
-> * Eseguire script in un ambiente Docker remoto.
-> * Eseguire script in un ambiente HDInsight cloud di Azure.
+> * Aprire script ed esaminare il codice
+> * Eseguire script in un ambiente locale
+> * Esaminare le cronologie di esecuzione
+> * Eseguire script in una finestra di interfaccia della riga di comando di Azure locale
+> * Eseguire script in un ambiente Docker locale
+> * Eseguire script in un ambiente Docker remoto
+> * Eseguire script in un ambiente cloud di Azure HDInsight
 
-Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set). Gli screenshot sono specifici di Windows, ma l'esperienza in Mac OS è quasi identica.
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## <a name="prerequisites"></a>prerequisiti
-Completare la prima parte di questa serie di esercitazioni. Prima di eseguire i passaggi in questa esercitazione, seguire l'[esercitazione sulla preparazione dei dati](tutorial-classifying-iris-part-1.md) per creare le risorse di Azure Machine Learning e installare l'applicazione Azure Machine Learning Workbench.
 
-È possibile, se si vuole, eseguire esperimenti con gli script in esecuzione in un contenitore Docker locale. A questo scopo, è necessario un motore Docker (è sufficiente la Community Edition) installato e avviato localmente nel computer Windows o Mac OS. Per altre informazioni sull'installazione di Docker, vedere [Docker installation instructions](https://docs.docker.com/engine/installation/) (Istruzioni per l'installazione di Docker).
-
-Per sperimentare l'invio di script per l'esecuzione in un contenitore Docker in una VM remota di Azure oppure in un cluster HDInsight Spark di Azure, è possibile seguire le [istruzioni per la creazione di una macchina virtuale di data science di Azure basata su Ubuntu o un cluster HDInsight](how-to-create-dsvm-hdi.md).
+Per completare questa esercitazione, sono necessari:
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+- Un account di Sperimentazione e Azure Machine Learning Workbench installato come illustrato in questa [guida introduttiva](quickstart-installation.md)
+- Il progetto e i dati di Iris preparati nella [Parte 1 dell'esercitazione](tutorial-classifying-iris-part-1.md)
+- Un motore Docker installato e in esecuzione localmente. Docker Community Edition è sufficiente. Per informazioni su come installare Docker, vedere qui: https://docs.docker.com/engine/installation/.
 
 ## <a name="review-irissklearnpy-and-the-configuration-files"></a>Esaminare iris_sklearn.py e i file di configurazione
-1. Aprire l'applicazione Azure Machine Learning Workbench e aprire il progetto **myIris** creato nella parte precedente di questa serie di esercitazioni.
 
-2. Dopo che il progetto è stato aperto, selezionare il pulsante **File** (icona della cartella) nel riquadro a sinistra per aprire l'elenco file nella cartella del progetto.
+1. Avviare l'applicazione Azure Machine Learning Workbench.
 
-3. Selezionare il file **iris_sklearn.py**. Il codice Python verrà aperto in una nuova scheda dell'editor di testo nel workbench.
+1. Aprire il progetto **myIris** creato nella [Parte 1 della serie di esercitazioni](tutorial-classifying-iris-part-1.md).
 
-   ![Aprire un file](media/tutorial-classifying-iris/open_iris_sklearn.png)
+2. Nel progetto aperto selezionare il pulsante **File** (icona della cartella) nel riquadro a sinistra per aprire l'elenco file nella cartella del progetto.
+
+   ![Aprire il progetto di Azure Machine Learning Workbench](media/tutorial-classifying-iris/2-project-open.png)
+
+3. Selezionare il file di script **iris_sklearn.py** di Python. 
+
+   ![Scegliere uno script](media/tutorial-classifying-iris/2-choose-iris_sklearn.png)
+
+   Il codice apre una nuova scheda dell'editor di testo in Workbench. Si tratta dello script che viene usato fino alla fine di questa parte dell'esercitazione. 
 
    >[!NOTE]
    >Il codice visualizzato potrebbe non essere esattamente uguale al codice precedente, perché questo progetto di esempio viene aggiornato di frequente.
+   
+   ![Aprire un file](media/tutorial-classifying-iris/open_iris_sklearn.png)
 
-4. Esaminare il codice dello script Python per acquisire familiarità con lo stile di codifica. Questo script esegue le operazioni seguenti:
+4. Esaminare il codice dello script Python per acquisire familiarità con lo stile di codifica. 
 
-   - Carica il pacchetto di preparazione dati **iris.dprep** per creare un [frame di dati pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
+   Lo script **iris_sklearn.py** esegue le attività seguenti:
 
-        >[!NOTE]
-        >Usare il pacchetto di preparazione dati `iris.dprep` fornito con il progetto di esempio, che dovrebbe corrispondere al file `iris-1.dprep` creato nella parte 1 di questa esercitazione.
+   * Carica il pacchetto di preparazione dati predefinito denominato **iris.dprep** per creare un [frame di dati pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). 
 
-   - Aggiunge funzionalità casuali per rendere il problema più difficile da risolvere. La casualità è necessaria perché Iris è un set di dati di piccole dimensioni che viene classificato con un'accuratezza quasi del 100%.
+   * Aggiunge funzionalità casuali per rendere il problema più difficile da risolvere. La casualità è necessaria perché Iris è un set di dati di piccole dimensioni che viene classificato con un'accuratezza quasi del 100%.
 
-   - Usa la libreria di apprendimento automatico [scikit-learn](http://scikit-learn.org/stable/index.html) per creare un modello di regressione logistica. 
+   * Usa la libreria di apprendimento automatico [scikit-learn](http://scikit-learn.org/stable/index.html) per creare un modello di regressione logistica.  Questa libreria è inclusa con Azure Machine Learning Workbench per impostazione predefinita.
 
-   - Serializza il modello usando la libreria [pickle](https://docs.python.org/3/library/pickle.html) in un file della cartella `outputs`. Lo script quindi lo carica e lo deserializza nella memoria.
+   * Serializza il modello usando la libreria [pickle](https://docs.python.org/3/library/pickle.html) in un file della cartella `outputs`. 
+   
+   * Carica il modello serializzato e quindi lo deserializza in memoria.
 
-   - Usa il modello deserializzato per eseguire una stima su un nuovo record. 
+   * Usa il modello deserializzato per eseguire una stima su un nuovo record. 
 
-   - Traccia due grafici, una matrice di confusione e una curva ROC (Receiver Operating Characteristic) multiclasse, usando la libreria [matplotlib](https://matplotlib.org/) e quindi li salva nella cartella `outputs`.
+   * Traccia due grafici, una matrice di confusione e una curva ROC (Receiver Operating Characteristic) multiclasse, usando la libreria [matplotlib](https://matplotlib.org/) e quindi li salva nella cartella `outputs`. È possibile installare questa libreria nell'ambiente, se non è già disponibile.
 
-   - L'oggetto `run_logger` viene usato per registrare il tasso di regolarizzazione e l'accuratezza del modello nei log. Questi valori vengono tracciati automaticamente nella cronologia di esecuzione.
+   * Determina automaticamente la frequenza di regolarizzazione e la precisione del modello nella cronologia di esecuzione. L'oggetto `run_logger` viene usato per registrare il tasso di regolarizzazione e l'accuratezza del modello nei log. 
 
 
-## <a name="execute-irissklearnpy-script-in-a-local-environment"></a>Eseguire lo script iris_sklearn.py in un ambiente locale
+## <a name="run-irissklearnpy-in-your-local-environment"></a>Eseguire iris_sklearn.py nell'ambiente locale
 
-A questo punto, è necessario preparare l'esecuzione dello script **iris_sklearn.py** per la prima volta. Lo script richiede i pacchetti **scikit-learn** e **matplotlib**. Il pacchetto **scikit-learn** è già installato da Azure Machine Learning Workbench. È tuttavia necessario installare **matplotlib**. 
+1. Avviare l'interfaccia della riga di comando di Azure Machine Learning:
+   1. Avviare Azure Machine Learning Workbench.
 
-1. In Azure Machine Learning Workbench selezionare il menu **File** e quindi **Open Command Prompt** (Apri prompt dei comandi) per aprire il prompt dei comandi. La finestra viene definita *finestra di interfaccia della riga di comando di Azure Machine Learning Workbench* o semplicemente *finestra di interfaccia della riga di comando*.
+   1. Dal menu di Workbench selezionare **File** > **Open Command Prompt** (Apri prompt dei comandi). 
+   
+   La finestra dell'interfaccia della riga di comando di Azure Machine Learning viene aperta nella cartella del progetto `C:\Temp\myIris\>` in Windows. Questo progetto corrisponde a quello creato nella Parte 1 dell'esercitazione.
 
-2. Nella finestra di interfaccia della riga di comando immettere il comando seguente per installare il pacchetto Python **matplotlib**. Per il completamento dovrebbe essere necessario meno di un minuto.
+   >[!IMPORTANT]
+   >È necessario usare questa finestra dell'interfaccia della riga di comando per completare i passaggi successivi.
+
+1. Nella finestra dell'interfaccia della riga di comando installare la libreria di tracciato Python, **matplotlib**, se non è già disponibile.
+
+   Lo script **iris_sklearn.py** include dipendenze da due pacchetti Python: **scikit-learn** e **matplotlib**.  Il pacchetto **scikit-learn** viene installato automaticamente da Azure Machine Learning Workbench. È tuttavia necessario installare **matplotlib**, se non è già disponibile.
+
+   Se si procede senza installare **matplotlib**, è comunque possibile eseguire il codice in questa esercitazione. Il codice non sarà tuttavia in grado di produrre l'output della matrice di confusione e i tracciati della curva ROC multiclasse mostrati nelle visualizzazioni della cronologia.
 
    ```azurecli
    pip install matplotlib
    ```
 
-   >[!NOTE]
-   >Se si ignora il comando `pip install` precedente, il codice in `iris_sklearn.py` viene eseguito correttamente. Se si esegue solo `iris_sklearn.py`, il codice non produce i tracciati di output della matrice di confusione e della curva ROC multiclasse come illustrato nelle visualizzazioni della cronologia.
+   L'installazione richiede circa un minuto.
 
-3. Tornare alla finestra dell'app Workbench. 
+1. Tornare all'applicazione Workbench. 
 
-4. Sulla barra dei comandi nella superiore della scheda **iris_sklearn.py** selezionare **locale** come ambiente di esecuzione e `iris_sklearn.py` come script da eseguire.
+1. Trovare la scheda denominata **iris_sklearn.py**. 
 
-5. Passare quindi al lato destro della barra degli strumenti e immettere `0.01` nel campo **Arguments** (Argomenti). Questo valore corrisponde al tasso di regolarizzazione del modello di regressione logistica.
+   ![Trovare la scheda con lo script](media/tutorial-classifying-iris/2-iris_sklearn-tab.png)
 
-   ![Controllo di esecuzione](media/tutorial-classifying-iris/run_control.png)
+1. Sulla barra degli strumenti della scheda selezionare **local** come ambiente di esecuzione e `iris_sklearn.py` come script da eseguire. È possibile che queste opzioni siano già selezionate.
 
-6. Selezionare il pulsante **Run** (Esegui). Viene immediatamente pianificato un processo. Il processo viene elencato nel riquadro **Jobs** (Processi) sul lato destro della finestra di Workbench. 
+   ![Selezione di ambiente locale e script](media/tutorial-classifying-iris/2-local-script.png)
 
-7. Dopo alcuni istanti, lo stato del processo passa da **Submitting** (Invio in corso) a **Running** (In esecuzione) e infine a **Completed** (Completato).
+1. Passare al lato destro della barra degli strumenti e immettere `0.01` nel campo **Arguments** (Argomenti). 
 
-   ![Eseguire sklearn](media/tutorial-classifying-iris/run_sklearn.png)
+   Questo valore corrisponde al tasso di regolarizzazione del modello di regressione logistica.
 
-8. Selezionare **Completed** (Completato) nel testo relativo allo stato del processo nel riquadro **Jobs** (Processi). Verrà visualizzata una finestra popup con il testo di output standard (stdout) per l'esecuzione. Per chiudere questo testo, selezionare il pulsante **Close** (Chiudi, **x**) nell'angolo in alto a destra della finestra popup.
+   ![Selezione di ambiente locale e script](media/tutorial-classifying-iris/2-local-script-arguments.png)
+
+1. Selezionare il pulsante **Run** (Esegui). Viene immediatamente pianificato un processo. Il processo viene elencato nel riquadro **Jobs** (Processi) sul lato destro della finestra di Workbench. 
+
+   ![Selezione di ambiente locale e script](media/tutorial-classifying-iris/2-local-script-arguments-run.png)
+
+   Dopo alcuni istanti, lo stato del processo passa da **Submitting** (Invio in corso) a **Running** (In esecuzione) e infine a **Completed** (Completato).
+
+1. Selezionare **Completed** (Completato) nel testo relativo allo stato del processo nel riquadro **Jobs** (Processi). 
+
+   ![Eseguire sklearn](media/tutorial-classifying-iris/2-completed.png)
+
+   Verrà visualizzata una finestra popup con il testo di output standard (stdout) per l'esecuzione. Per chiudere questo testo, selezionare il pulsante **Close** (Chiudi, **x**) nell'angolo in alto a destra della finestra popup.
+
+   ![Output standard](media/tutorial-classifying-iris/2-standard-output.png)
 
 9. Nello stato dello stesso processo nel riquadro **Jobs** (Processi) selezionare il testo in blu **iris_sklearn.py [n]** (_n_ indica il numero di esecuzione) subito sopra **Completed** (Completato) e la data/ora di avvio. Si apre la finestra **Run Properties** (Proprietà esecuzione) contenente le informazioni seguenti su questa specifica esecuzione:
    - Informazioni sulle **proprietà di esecuzione**
@@ -116,7 +147,7 @@ A questo punto, è necessario preparare l'esecuzione dello script **iris_sklearn
    Al termine dell'esecuzione, la finestra popup mostra i risultati seguenti:
 
    >[!NOTE]
-   >Poiché in precedenza è stato introdotto un certo livello di casualità nel set di training, i risultati potrebbero variare rispetto a quelli visualizzati qui.
+   >Poiché l'esercitazione ha introdotto nel set di training un certo livello di casualità, i risultati esatti potrebbero variare rispetto a quelli visualizzati qui.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -146,7 +177,7 @@ A questo punto, è necessario preparare l'esecuzione dello script **iris_sklearn
    ROC curve plotted.
    Confusion matrix and ROC curve plotted. See them in Run History details pane.
    ```
-
+    
 10. Chiudere la scheda **Run Properties** (Proprietà esecuzione) e quindi tornare alla scheda **iris_sklearn.py**. 
 
 11. Ripetere per le altre esecuzioni. 
@@ -160,26 +191,35 @@ In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita 
 
    ![Visualizzazione delle esecuzioni](media/tutorial-classifying-iris/run_view.png)
 
-2. La scheda **Run Dashboard** (Dashboard esecuzioni) verrà aperta. Esaminare le statistiche acquisite in più esecuzioni. I grafici eseguono il rendering nella parte superiore della scheda. Ogni esecuzione ha un numero consecutivo e i dettagli delle esecuzioni vengono elencati nella tabella nella parte inferiore della schermata.
+1. La scheda **Run Dashboard** (Dashboard esecuzioni) verrà aperta. 
+
+   Esaminare le statistiche acquisite in più esecuzioni. I grafici eseguono il rendering nella parte superiore della scheda. Ogni esecuzione ha un numero consecutivo e i dettagli delle esecuzioni vengono elencati nella tabella nella parte inferiore della schermata.
 
    ![Dashboard delle esecuzioni](media/tutorial-classifying-iris/run_dashboard.png)
 
-3. Filtrare la tabella e quindi selezionare uno dei grafici per visualizzare lo stato, la durata, l'accuratezza e il tasso di regolarizzazione di ogni esecuzione. 
+1. Filtrare la tabella e quindi selezionare uno dei grafici per visualizzare lo stato, la durata, l'accuratezza e il tasso di regolarizzazione di ogni esecuzione. 
 
-4. Selezionare due o tre esecuzioni nella tabella **Runs** (Esecuzioni) e selezionare il pulsante **Compare** (Confronta) per aprire un riquadro di confronto dettagliato. Esaminare il confronto con le informazioni affiancate. Selezionare il pulsante **Run list** (Elenco di esecuzione) nella parte superiore sinistra del riquadro **Comparison** (Confronto) per tornare alla scheda **Run Dashboard** (Dashboard esecuzioni).
+1. Selezionare le caselle di controllo accanto a due o più esecuzioni nella tabella **Runs** (Esecuzioni). Selezionare il pulsante **Compare** (Confronta) per aprire un riquadro dettagliato di confronto. Esaminare il confronto con le informazioni affiancate. 
 
-5. Selezionare una singola esecuzione per visualizzarne i dettagli. Si noti che le statistiche per l'esecuzione selezionata sono elencate nella sezione **Run Properties** (Proprietà esecuzione). I file scritti nella cartella di output sono elencati nella sezione **Outputs** (Output) da cui è possibile scaricarli.
+1. Per tornare a **Run Dashboard** (Dashboard esecuzioni) selezionare il pulsante **Run List** (Elenco di esecuzione) nella parte superiore sinistra del riquadro **Comparison** (Confronto).
+
+   ![Tornare all'elenco di esecuzione](media/tutorial-classifying-iris/2-compare-back.png)
+
+1. Selezionare una singola esecuzione per visualizzarne i dettagli. Si noti che le statistiche per l'esecuzione selezionata sono elencate nella sezione **Run Properties** (Proprietà esecuzione). I file scritti nella cartella di output sono elencati nella sezione **Outputs** (Output) da cui è possibile scaricarli.
 
    ![Dettagli dell'esecuzione](media/tutorial-classifying-iris/run_details.png)
 
    Nella sezione **Visualizations** (Visualizzazioni) viene eseguito il rendering dei due tracciati, ovvero la matrice di confusione e la curva ROC multiclasse. Tutti i file di log sono disponibili nella sezione **Logs** (Log).
 
-## <a name="execute-scripts-in-the-local-docker-environment"></a>Eseguire script nell'ambiente Docker locale
 
-È possibile configurare facilmente ambienti di esecuzione aggiuntivi, ad esempio Docker, ed eseguire gli script in tali ambienti. 
+## <a name="run-scripts-in-local-docker-environments"></a>Eseguire script negli ambienti Docker locali
 
->[!IMPORTANT]
->Per eseguire questo passaggio, è necessario che un motore Docker sia installato in locale e avviato. Per altre informazioni, vedere le [istruzioni di installazione di Docker](https://docs.docker.com/install/).
+È possibile, se si vuole, eseguire esperimenti con gli script in esecuzione in un contenitore Docker locale. È possibile configurare ambienti di esecuzione aggiuntivi, ad esempio Docker, ed eseguire gli script in tali ambienti. 
+
+>[!NOTE]
+>Per sperimentare l'invio di script per l'esecuzione in un contenitore Docker in una VM remota di Azure oppure in un cluster HDInsight Spark di Azure, è possibile seguire le [istruzioni per la creazione di una macchina virtuale di data science di Azure basata su Ubuntu o un cluster HDInsight](how-to-create-dsvm-hdi.md).
+
+1. Se non è ancora stato fatto, installare e avviare Docker localmente nel computer Windows o MacOS. Per altre informazioni, vedere le istruzioni di installazione di Docker in https://docs.docker.com/install/. La versione Community Edition è sufficiente.
 
 1. Nel riquadro a sinistra selezionare l'icona **Folder** (Cartella) per aprire l'elenco **Files** (File) per il progetto. Espandere la cartella `aml_config`. 
 
@@ -192,14 +232,18 @@ In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita 
 3. Eseguire lo script **iris_sklearn.py** usando l'ambiente **docker-python**: 
 
    - Sulla barra degli strumenti a sinistra selezionare l'icona **Clock** (Orologio) per aprire il riquadro **Runs** (Esecuzioni). Selezionare **All Runs** (Tutte le esecuzioni). 
+
    - Nella parte superiore della scheda **All Runs** (Tutte le esecuzioni) selezionare **docker-python** come ambiente di destinazione al posto dell'opzione predefinita **local** (locale). 
+
    - Spostarsi quindi verso destra selezionare **iris_sklearn.py** come script da eseguire. 
+
    - Lasciare vuoto il campo **Arguments** (Argomenti) perché lo script specifica un valore predefinito. 
+
    - Selezionare il pulsante **Run** (Esegui).
 
 4. Osservare che viene avviato un nuovo processo. Viene visualizzato nel riquadro **Jobs** (Processi) sul lato destro della finestra di Workbench.
 
-   Quando l'esecuzione avviene per la prima volta nell'ambiente Docker, per il completamento del processo saranno necessari alcuni minuti in più. 
+   Quando l'esecuzione avviene per la prima volta nell'ambiente Docker, per il completamento del processo sono necessari alcuni minuti in più. 
 
    Azure Machine Learning Workbench compila un nuovo file docker in background. 
    Il nuovo file fa riferimento all'immagine Docker di base specificata nel file `docker.compute` e ai pacchetti Python di dipendenze specificati nel file `conda_dependencies.yml`. 
@@ -214,7 +258,7 @@ In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita 
 
    Al termine, il risultato dovrebbe essere esattamente uguale a quello che si ottiene scegliendo come ambiente di destinazione **local** (locale).
 
-5. Si proverà ora con Spark. L'immagine di base Docker contiene un'istanza di Spark preinstallata e configurata che può essere usata per eseguire uno script PySpark. Si tratta di un modo semplice per sviluppare e testare il programma Spark senza dover dedicare tempo a installare e configurare Spark. 
+5. Si proverà ora con Spark. L'immagine di base Docker contiene un'istanza di Spark preinstallata e configurata che può essere usata per eseguire uno script PySpark. L'uso di questa immagine di base costituisce un modo semplice per sviluppare e testare il programma Spark senza dover dedicare tempo a installare e configurare Spark. 
 
    Aprire il file `iris_spark.py` . Lo script carica il file di dati `iris.csv` e usa l'algoritmo di regressione logistica dalla libreria di Machine Learning per Spark per classificare il set di dati Iris. Modificare ora l'ambiente di esecuzione in **docker-spark** e lo script in **iris_spark.py** e avviare di nuovo l'esecuzione. Questo processo richiede un po' più tempo perché è necessario creare una sessione di Spark e avviarla nel contenitore Docker. È anche possibile vedere che l'output standard (stdout) è diverso da quello di `iris_spark.py`.
 
@@ -224,87 +268,172 @@ In Azure Machine Learning Workbench l'esecuzione di ogni script viene acquisita 
 
 8. Interagire con il riquadro **Jobs** (Processi), eseguire una visualizzazione elenco della cronologia ed eseguire una visualizzazione dei dettagli delle esecuzioni in ambienti di esecuzione diversi.
 
-## <a name="execute-scripts-in-the-azure-machine-learning-cli-window"></a>Eseguire script nella finestra di interfaccia della riga di comando di Azure Machine Learning
+## <a name="run-scripts-in-the-cli-window"></a>Eseguire script nella finestra dell'interfaccia della riga di comando
 
-1. In Azure Machine Learning Workbench aprire la finestra del prompt dei comandi, selezionare il menu **File** e quindi **Open Command Prompt** (Apri prompt dei comandi). Verrà avviato il prompt dei comandi nella cartella di progetto, con il prompt `C:\Temp\myIris\>`.
+1. Avviare l'interfaccia della riga di comando di Azure Machine Learning:
+   1. Avviare Azure Machine Learning Workbench.
+
+   1. Dal menu di Workbench selezionare **File** > **Open Command Prompt** (Apri prompt dei comandi). 
+   
+   Il prompt dell'interfaccia della riga di comando viene avviato nella cartella del progetto `C:\Temp\myIris\>` in Windows. Si tratta del progetto creato nella Parte 1 dell'esercitazione.
 
    >[!IMPORTANT]
-   >È necessario usare la finestra della riga di comando (aperta da Workbench) per eseguire i passaggi seguenti.
+   >È necessario usare questa finestra dell'interfaccia della riga di comando per completare i passaggi successivi.
 
-2. Usare il prompt dei comandi per l'accesso ad Azure. 
+1. Accedere ad Azure nella finestra dell'interfaccia della riga di comando. [Altre informazioni su az login](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-   L'app Workbench e l'interfaccia della riga di comando usano cache delle credenziali indipendenti per l'autenticazione nelle risorse di Azure. È sufficiente eseguire questa operazione una volta, fino alla scadenza del token memorizzato nella cache. Il comando **az account list** restituisce l'elenco delle sottoscrizioni disponibili per l'account di accesso in uso. Se è presente più di una sottoscrizione, usare il valore di ID di quella desiderata. Impostare tale sottoscrizione come account predefinito da usare con il comando **az account set -s** e quindi specificare il valore di ID della sottoscrizione. Verificare quindi l'impostazione usando il comando account **show**.
+   È possibile che l'accesso sia già stato eseguito. In questo caso è possibile ignorare questo passaggio.
+
+   1. Al prompt dei comandi immettere:
+      ```azurecli
+      az login
+      ```
+
+      Questo comando restituisce un codice da usare nel browser in https://aka.ms/devicelogin.
+
+   1. Passare a https://aka.ms/devicelogin nel browser.
+
+   1. Quando richiesto, immettere nel browser il codice ricevuto nell'interfaccia della riga di comando.
+
+   L'app Workbench e l'interfaccia della riga di comando usano cache delle credenziali indipendenti per l'autenticazione nelle risorse di Azure. Dopo l'accesso non sarà necessario eseguire di nuovo l'autenticazione fino alla scadenza del token memorizzato nella cache. 
+
+1. Se l'organizzazione ha più sottoscrizioni di Azure (ambiente aziendale), è necessario impostare la sottoscrizione da usare. Trovare la sottoscrizione, impostarla usando l'ID sottoscrizione e quindi testarla.
+
+   1. Elencare tutte le sottoscrizioni di Azure a cui si può accedere usando questo comando:
+   
+      ```azurecli
+      az account list -o table
+      ```
+
+      Il comando **az account list** restituisce l'elenco delle sottoscrizioni disponibili per l'account di accesso in uso. 
+      Se sono disponibili più sottoscrizioni, identificare il valore dell'ID sottoscrizione per la sottoscrizione da usare.
+
+   1. Impostare la sottoscrizione di Azure da usare come account predefinito:
+   
+      ```azurecli
+      az account set -s <your-subscription-id>
+      ```
+      Dove \<your-subscription-id\> è il valore dell'ID della sottoscrizione da usare. Non includere le parentesi acute.
+
+   1. Confermare l'impostazione della nuova sottoscrizione richiedendo i dettagli per la sottoscrizione corrente. 
+
+      ```azurecli
+      az account show
+      ```    
+
+1. Nella finestra dell'interfaccia della riga di comando installare la libreria di tracciato Python, **matplotlib**, se non è già disponibile.
 
    ```azurecli
-   REM login by using the aka.ms/devicelogin site
-   az login
-   
-   REM lists all Azure subscriptions you have access to 
-   az account list -o table
-   
-   REM sets the current Azure subscription to the one you want to use
-   az account set -s <SubscriptionId>
-   
-   REM verifies that your current subscription is set correctly
-   az account show
-   ```
-
-3. Quando l'autenticazione è terminata e il contesto della sottoscrizione di Azure corrente è stato impostato, immettere i comandi seguenti nella finestra di interfaccia della riga di comando per installare **matplotlib** e quindi inviare lo script Python come esperimento per l'esecuzione.
-
-   ```azurecli
-   REM you don't need to run this command if you have installed matplotlib locally from the previous steps
    pip install matplotlib
-   
-   REM kicks off an execution of the iris_sklearn.py file against the local compute context
-   az ml experiment submit -c local .\iris_sklearn.py
    ```
 
-4. Esaminare l'output. L'output e i risultati sono gli stessi ottenuti quando si è usato il workbench per eseguire lo script. 
+1. Nella finestra dell'interfaccia della riga di comando inviare lo script **iris_sklearn.py** come esperimento.
 
-5. Eseguire di nuovo lo stesso script usando l'ambiente di esecuzione Docker, se Docker è installato nel computer.
+   L'esecuzione di iris_sklearn.py viene completata nel contesto di calcolo locale.
 
-   ```azurecli
-   REM executes iris_sklearn.py in the local Docker container Python environment
-   az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
+   + In Windows:
+     ```azurecli
+     az ml experiment submit -c local .\iris_sklearn.py
+     ```
+
+   + In MacOS:
+     ```azurecli
+     az ml experiment submit -c local iris_sklearn.py
+     ```
    
-   REM executes iris_spark.py in the local Docker container Spark environment
-   az ml experiment submit -c docker-spark .\iris_spark.py 0.1
-   ```
+   L'output dovrebbe essere simile al seguente:
+    ```text
+    RunId: myIris_1521077190506
+    
+    Executing user inputs .....
+    ===========================
+    
+    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:52:12) 
+    [GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)]
+    
+    Iris dataset shape: (150, 5)
+    Regularization rate is 0.01
+    LogisticRegression(C=100.0, class_weight=None, dual=False, fit_intercept=True,
+              intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+              penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+              verbose=0, warm_start=False)
+    Accuracy is 0.6792452830188679
+        
+    ==========================================
+    Serialize and deserialize using the outputs folder.
+    
+    Export the model to model.pkl
+    Import the model from model.pkl
+    New sample: [[3.0, 3.6, 1.3, 0.25]]
+    Predicted class is ['Iris-setosa']
+    Plotting confusion matrix...
+    Confusion matrix in text:
+    [[50  0  0]
+     [ 1 37 12]
+     [ 0  4 46]]
+    Confusion matrix plotted.
+    Plotting ROC curve....
+    ROC curve plotted.
+    Confusion matrix and ROC curve plotted. See them in Run History details page.
+    
+    Execution Details
+    =================
+    RunId: myIris_1521077190506
+    ```
 
-6. Nel workbench selezionare l'icona **Folder** (Cartella) nel riquadro a sinistra per visualizzare un elenco dei file di progetto e aprire lo script Python denominato **run.py**. 
+1. Esaminare l'output. L'output e i risultati sono gli stessi ottenuti quando si è usato Workbench per eseguire lo script. 
 
-   Questo script è utile per eseguire il ciclo su vari tassi di regolarizzazione. Eseguire l'esperimento più volte con tali tassi. Questo script avvia un processo `iris_sklearn.py` con un tasso di regolarizzazione pari a `10.0` (un numero davvero molto elevato). Lo script quindi dimezza il tasso nell'esecuzione seguente e così via, finché il tasso non è pari a `0.005`. 
+1. Nella finestra dell'interfaccia della riga di comando eseguire lo script **iris_sklearn.py** di Python usando di nuovo un ambiente di esecuzione Docker, se Docker è installato nel computer.
 
-   ```python
-   # run.py
-   import os
+   + Se il contenitore si trova su Windows: 
+     |Esecuzione<br/>Environment|Comando in Windows|
+     |---------------------|------------------|
+     |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
+     |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
+
+   + Se il contenitore si trova su MacOS: 
+     |Esecuzione<br/>Environment|Comando in Windows|
+     |---------------------|------------------|
+     |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
+     |Spark|`az ml experiment submit -c docker-spark iris_spark.py 0.1`|
+
+1. Tornare a Workbench ed eseguire queste operazioni:
+   1. Selezionare l'icona della cartella nel riquadro a sinistra per elencare i file del progetto.
    
-   reg = 10
-   while reg > 0.005:
-       os.system('az ml experiment submit -c local ./iris_sklearn.py {}'.format(reg))
-       reg = reg / 2
-   ```
+   1. Aprire lo script di Python denominato **run.py**. Questo script è utile per eseguire il ciclo su vari tassi di regolarizzazione. 
 
-   Per eseguire lo script **run.py** dalla riga di comando, eseguire questi comandi:
+   ![Tornare all'elenco di esecuzione](media/tutorial-classifying-iris/2-runpy.png)
+
+1. Eseguire l'esperimento più volte con tali tassi. 
+
+   Questo script avvia un processo `iris_sklearn.py` con un tasso di regolarizzazione pari a `10.0` (un numero davvero molto elevato). Lo script quindi dimezza il tasso nell'esecuzione seguente e così via, finché il tasso non è pari a `0.005`. 
+
+   Lo script contiene il codice seguente:
+
+   ![Tornare all'elenco di esecuzione](media/tutorial-classifying-iris/2-runpy-code.png)
+
+1. Eseguire lo script **run.py** dalla riga di comando, come illustrato di seguito:
 
    ```cmd
-   REM submits iris_sklearn.py multiple times with different regularization rates
    python run.py
    ```
 
+   Questo comando invia più volte iris_sklearn.py con diverse frequenze di regolarizzazione.
+
    Al termine di `run.py`, verranno mostrati grafici di diverse metriche nella visualizzazione elenco della cronologia di esecuzione nel workbench.
 
-## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Eseguire script in un contenitore Docker in un computer remoto
+## <a name="run-scripts-in-a-remote-docker-container"></a>Eseguire gli script in un contenitore Docker remoto
 Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è necessario avere l'accesso SSH (nome utente e password) al computer remoto. Nel computer deve anche essere installato e in esecuzione un motore Docker. Il modo più semplice per ottenere un computer Linux di questo tipo consiste nel creare una macchina virtuale di data science (DSVM) basata su Ubuntu in Azure. Vedere [come creare una DSVM Ubuntu da usare in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >La DSVM basata su CentOS *non* è supportata.
 
-1. Dopo la creazione della macchina virtuale, è possibile collegarla come ambiente di esecuzione generando una coppia di file `.runconfig` e `.compute`. Usare il comando seguente per generare i file. Assegnare al nuovo ambiente il nome `myvm`.
+1. Dopo la creazione della macchina virtuale, è possibile collegarla come ambiente di esecuzione generando una coppia di file `.runconfig` e `.compute`. Usare il comando seguente per generare i file. 
+
+ Assegnare il nome `myvm` alla nuova risorsa di calcolo di destinazione.
  
    ```azurecli
-   REM creates an myvm compute target
-   az ml computetarget attach remotedocker --name myvm --address <IP address> --username <username> --password <password>
+   az ml computetarget attach remotedocker --name myvm --address <your-IP> --username <your-username> --password <your-password>
    ```
    
    >[!NOTE]
@@ -313,12 +442,14 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
    >[!NOTE]
    >Oltre all'autenticazione con nome utente e password, è possibile specificare una chiave privata e la passphrase corrispondente (se presente) usando `--private-key-file` ed eventualmente le opzioni `--private-key-passphrase`.
 
-   Eseguire quindi il comando seguente che costruisce l'immagine Docker nella macchina virtuale in modo che sia pronta per eseguire gli script:
+   Preparare quindi la risorsa di calcolo di destinazione **myvm** eseguendo questo comando.
    
    ```azurecli
-   REM prepares the myvm compute target
    az ml experiment prepare -c myvm
    ```
+   
+   Il comando precedente costruisce l'immagine Docker nella macchina virtuale in modo che sia pronta per eseguire gli script.
+   
    >[!NOTE]
    >È anche possibile cambiare il valore di `PrepareEnvironment` in `myvm.runconfig` sostituendo il valore predefinito `false` con `true`. Questa modifica consente di preparare automaticamente il contenitore Docker nell'ambito della prima esecuzione.
 
@@ -330,14 +461,13 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
    >[!NOTE]
    >Anche se PySpark dovrebbe funzionare, l'uso di Python è più efficiente se non è necessaria una sessione di Spark per eseguire lo script Python.
 
-3. Eseguire lo stesso comando usato in precedenza nella finestra dell'interfaccia della riga di comando, ma questa volta specificare come destinazione _myvm_:
+3. Eseguire lo stesso comando usato in precedenza nella finestra dell'interfaccia della riga di comando, ma questa volta specificare come destinazione _myvm_ per eseguire iris_sklearn.py in un contenitore Docker remoto:
    ```azurecli
-   REM executes iris_sklearn.py in a remote Docker container
    az ml experiment submit -c myvm iris_sklearn.py
    ```
    Il comando viene eseguito come se si fosse in un ambiente `docker-python`, a eccezione del fatto che l'esecuzione avviene nella macchina virtuale Linux remota. La finestra di interfaccia della riga di comando visualizza le stesse informazioni di output.
 
-4. Provare a usare Spark nel contenitore. Aprire Esplora file. È possibile eseguire questa operazione dalla finestra dell'interfaccia della riga di comando se si conoscono i comandi di manipolazione di file di base. Creare una copia del file `myvm.runconfig` e assegnarvi il nome `myvm-spark.runconfig`. Modificare il nuovo file cambiando l'impostazione `Framework` da `Python` a `PySpark`:
+4. Provare a usare Spark nel contenitore. Aprire Esplora file. Creare una copia del file `myvm.runconfig` e assegnarvi il nome `myvm-spark.runconfig`. Modificare il nuovo file cambiando l'impostazione `Framework` da `Python` a `PySpark`:
    ```yaml
    Framework: PySpark
    ```
@@ -345,58 +475,56 @@ Per eseguire lo script in un contenitore Docker in un computer Linux remoto, è 
 
 5. Digitare il comando seguente per eseguire lo script **iris_spark.py** nell'istanza Spark in esecuzione nel contenitore Docker remoto:
    ```azureli
-   REM executes iris_spark.py in a Spark instance on a remote Docker container
    az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
-## <a name="execute-script-in-an-hdinsight-cluster"></a>Eseguire lo script in un cluster HDInsight
+## <a name="run-scripts-in-hdinsight-clusters"></a>Eseguire script in cluster HDInsight
 È anche possibile eseguire questo script in un cluster HDInsight Spark. Vedere [come creare un cluster HDInsight Spark da usare in Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
 
 >[!NOTE] 
 >Il cluster HDInsight deve usare BLOB di Azure come risorsa di archiviazione primaria. L'archiviazione in Azure Data Lake non è ancora supportata.
 
-1. Se si ha accesso a un cluster Spark per Azure HDInsight, generare un comando di configurazione di esecuzione HDInsight come illustrato qui. Fornire come parametri il nome del cluster HDInsight e il nome utente e la password di HDInsight. Usare il comando seguente:
+1. Se si ha accesso a un cluster Spark per Azure HDInsight, generare un comando di configurazione di esecuzione HDInsight come illustrato qui. Fornire come parametri il nome del cluster HDInsight e il nome utente e la password di HDInsight. 
+
+   Usare il comando seguente per creare una risorsa di calcolo di destinazione che fa riferimento a un cluster HDInsight:
 
    ```azurecli
-   REM creates a compute target that points to a HDInsight cluster
-   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <username> --password <password>
+   az ml computetarget attach cluster --name myhdi --address <cluster head node FQDN> --username <your-username> --password <your-password>
+   ```
 
-   REM prepares the HDInsight cluster
+   Per preparare il cluster HDInsight, eseguire questo comando:
+
+   ```
    az ml experiment prepare -c myhdi
    ```
 
-   Il nome FQDN del nodo head del cluster è in genere `<cluster_name>-ssh.azurehdinsight.net`.
+   Il nome FQDN del nodo head del cluster è in genere `<your_cluster_name>-ssh.azurehdinsight.net`.
 
    >[!NOTE]
-   >`username` è il nome utente SSH del cluster. Il valore predefinito è `sshuser` se non è stato modificato durante la configurazione di HDInsight. Il valore non è `admin`, che è l'altro utente creato durante la configurazione per consentire l'accesso al sito Web di amministrazione del cluster. 
+   >`username` è il nome utente SSH del cluster, definito durante la configurazione di HDInsight. Per impostazione predefinita, il valore è `sshuser`. Il valore non è `admin`, che è l'altro utente creato durante la configurazione per consentire l'accesso al sito Web di amministrazione del cluster. 
 
-2. Eseguire il comando seguente per eseguire lo script **iris_spark.py** nel cluster HDInsight:
+2. Eseguire lo script **iris_spark.py** nel cluster HDInsight con questo comando:
 
    ```azurecli
-   REM executes iris_spark on the HDInsight cluster
    az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
-   >Quando l'esecuzione avviene in un cluster HDInsight remoto, è anche possibile visualizzare i dettagli dell'esecuzione del processo YARN (Yet Another Resource Negotiator) in `https://<cluster_name>.azurehdinsight.net/yarnui` usando l'account utente `admin`.
+   >Quando l'esecuzione avviene in un cluster HDInsight remoto, è anche possibile visualizzare i dettagli dell'esecuzione del processo YARN (Yet Another Resource Negotiator) in `https://<your_cluster_name>.azurehdinsight.net/yarnui` usando l'account utente `admin`.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa seconda parte della serie di esercitazioni in tre parti si è appreso come usare i servizi di Azure Machine Learning per:
+In questa seconda parte della serie di esercitazioni in tre parti si è appreso come:
 > [!div class="checklist"]
-> * Usare Azure Machine Learning Workbench.
-> * Aprire script ed esaminare il codice.
-> * Eseguire script in un ambiente locale.
-> * Esaminare la cronologia di esecuzione.
-> * Eseguire script in un ambiente Docker locale.
-> * Eseguire script in una finestra dell'interfaccia della riga di comando di Azure locale.
-> * Eseguire script in un ambiente Docker remoto.
-> * Eseguire script in un ambiente HDInsight cloud.
+> * Aprire script ed esaminare il codice in Workbench
+> * Eseguire script in un ambiente locale
+> * Esaminare la cronologia di esecuzione
+> * Eseguire script in un ambiente Docker locale
 
-È ora possibile passare alla terza parte della serie. Ora che è stato creato il modello di regressione logistica, lo si distribuirà come servizio Web in tempo reale.
+È ora possibile passare alla terza parte di questa serie di esercitazioni, in cui viene distribuito il modello di regressione logistica creato come servizio Web in tempo reale.
 
 > [!div class="nextstepaction"]
-> [Esercitazione 3 - Classificazione del set di dati: Distribuire modelli](tutorial-classifying-iris-part-3.md)
+> [Esercitazione 3 - Distribuire modelli](tutorial-classifying-iris-part-3.md)

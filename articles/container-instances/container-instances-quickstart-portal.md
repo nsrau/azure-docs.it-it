@@ -1,21 +1,21 @@
 ---
 title: Avvio rapido - Creare il primo contenitore di 	Istanze di contenitore di Azure con il portale di Azure
-description: Distribuire e iniziare a usare Istanze di contenitore di Azure
+description: In questa guida introduttiva si userà il portale di Azure per distribuire un contenitore in Istanze di contenitore di Azure
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guida introduttiva: Creare il primo contenitore in Istanze di contenitore di Azure
 
 Istanze di contenitore di Azure semplifica la creazione e la gestione dei contenitori in Azure. In questo avvio rapido si crea un contenitore in Azure e lo si espone a Internet con un indirizzo IP pubblico. Questa operazione viene eseguita nel portale di Azure. Bastano pochi clic per visualizzare quanto segue nel browser:
 

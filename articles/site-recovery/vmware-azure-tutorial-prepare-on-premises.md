@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparare i server VMware locali per il ripristino di emergenza in Azure
 
@@ -59,34 +59,16 @@ Creare l'account come illustrato di seguito:
 3. Per installare nelle macchine virtuali Linux, preparare un account radice nel server Linux di origine.
 
 
-## <a name="check-vmware-server-requirements"></a>Controllare i requisiti dei server VMware
+## <a name="check-vmware-requirements"></a>Verificare i requisiti di VMware
 
-Assicurarsi che i server VMware soddisfino i requisiti seguenti.
+Assicurarsi che i server e le VM VMware siano conformi ai requisiti.
 
-**Componente** | **Requisito**
---- | ---
-**Server vCenter** | vCenter 6.5, 6.0 o 5.5
-**Host vSphere** | vSphere 6.5, 6.0 e 5.5
+1. [Verificare](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) i requisiti dei server VMware.
+2. Per Linux, [verificare](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) i requisiti per archiviazione e file system. 
+3. Verificare il supporto per [rete](vmware-physical-azure-support-matrix.md#network) e [archiviazione](vmware-physical-azure-support-matrix.md#storage) locale. 
+4. Controllare cosa è supportato per le [funzionalità di rete di Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), l'[archiviazione](vmware-physical-azure-support-matrix.md#azure-storage) e il [calcolo](vmware-physical-azure-support-matrix.md#azure-compute), dopo il failover.
+5. Le macchine virtuali locali replicate in Azure devono essere conformi ai [requisiti delle macchine virtuali di Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Controllare i requisiti delle macchine virtuali VMware
-
-Assicurarsi che la macchina virtuale soddisfi i requisiti di Azure elencati nella tabella seguente.
-
-**Requisito della macchina virtuale** | **Dettagli**
---- | ---
-**Dimensioni disco del sistema operativo** | Fino a 2048 GB.
-**Numero di dischi del sistema operativo** | 1
-**Numero di dischi dati** | 64 o un numero inferiore
-**Dimensioni dei dischi rigidi virtuali dei dischi dati** | Fino a 4095 GB
-**Schede di rete** | Sono supportate più schede
-**Disco rigido virtuale condiviso** | Non supportate
-**Disco FC** | Non supportate
-**Formato disco rigido** | VHD o VHDX.<br/><br/> Anche se VHDX al momento non è supportato in Azure, in Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
-**BitLocker** | Non supportati. Disabilitare prima di abilitare la replica per una macchina virtuale.
-**Nome VM** | Tra 1 e 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero.
-**Tipo di VM** | Generazione 1 - Linux o Windows<br/><br/>Generazione 2 - Solo Windows
-
-È anche necessario che la macchina virtuale esegua un sistema operativo supportato. Per un elenco completo delle versioni supportate, vedere [Matrice di supporto di VMware e server fisici](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
 

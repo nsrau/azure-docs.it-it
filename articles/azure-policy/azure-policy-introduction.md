@@ -1,20 +1,20 @@
 ---
 title: Panoramica di Criteri di Azure | Microsoft Docs
-description: "Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure."
+description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 01/17/2018
+ms.date: 03/14/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bb6f08e8e6252233c51c47c63ca0aec4636247dd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 72b3e46e4755d50589eeefeeb0478ab9af49e97b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -30,6 +30,9 @@ Per usare i criteri, l'utente deve essere autenticato tramite il controllo degli
 
 - Autorizzazione `Microsoft.Authorization/policydefinitions/write` per definire i criteri.
 - Autorizzazione `Microsoft.Authorization/policyassignments/write` per assegnare i criteri.
+- Autorizzazione `Microsoft.Authorization/policySetDefinitions/write` per definire un'iniziativa.
+- Autorizzazione `Microsoft.Authorization/policyassignments/write` per assegnare un'iniziativa.
+
 
 Queste autorizzazioni non sono incluse nel ruolo di **collaboratore**.
 

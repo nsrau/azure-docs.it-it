@@ -2,31 +2,25 @@
 title: Aumentare il numero di istanze di un database SQL di Azure | Documentazione Microsoft
 description: Come utilizzare ShardMapManager, libreria client dei database elastici
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 0e9d647a-9ba9-4875-aa22-662d01283439
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
-ms.author: ddove
-ms.openlocfilehash: fe4c8b7b2a9d199c85faf11fcd35382d586fc009
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 03/16/2018
+ms.author: sstein
+ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentare il numero di istanze dei database con il gestore delle mappe partizioni
 Per aumentare facilmente il numero di istanze dei database in SQL Azure, usare un gestore delle mappe partizioni. Il gestore delle mappe partizioni è un database speciale che gestisce le informazioni di mapping globale su tutte le partizioni (database) in un set di partizioni. I metadati consentono all'applicazione di connettersi al database corretto in base al valore della **chiave di partizionamento orizzontale**. Inoltre, ogni partizione nel set contiene le mappe che tengono traccia dei dati delle partizioni locali (i cosiddetti **shardlet**). 
 
 ![Gestione mappe partizioni](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Per gestire le mappe partizioni, è fondamentale comprenderne il processo di creazione. A questo scopo si usa la classe ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), disponibile nella [libreria client dei database elastici](sql-database-elastic-database-client-library.md).  
+Per gestire le mappe partizioni, è fondamentale comprenderne il processo di creazione. A questo scopo si usa la classe ShardMapManager ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager), disponibile nella [libreria client dei database elastici](sql-database-elastic-database-client-library.md).  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Mappe partizioni e mapping di partizioni
 Per ogni partizione, è necessario selezionare il tipo di mappa partizioni da creare. La scelta dipende dall'architettura del database: 
@@ -102,7 +96,7 @@ Un oggetto **ShardMapManager** viene creato con un criterio factory ([Java](/jav
 
 **Nota:** è sufficiente creare una sola istanza di **ShardMapManager** per ogni dominio app, nel codice di inizializzazione dell'applicazione. La creazione di istanze aggiuntive di ShardMapManager nello stesso dominio comporta un aumento dell'utilizzo della memoria e della CPU dell'applicazione. Un oggetto **ShardMapManager** può includere un numero qualsiasi di mappe partizioni. Anche se è possibile che una singola mappa partizioni sia sufficiente per molte applicazioni, in alcune situazioni vengono usati diversi set di database per schemi diversi o per finalità specifiche. In questi casi è preferibile usare più mappe partizioni. 
 
-Nel codice seguente un'applicazione prova ad aprire un oggetto **ShardMapManager** esistente con il metodo TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)).  Se gli oggetti che rappresentano un oggetto **ShardMapManager** globale non esistono ancora nel database, vengono creati dalla libreria client con il metodo CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
+Nel codice seguente un'applicazione prova ad aprire un oggetto **ShardMapManager** esistente con il metodo TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Se gli oggetti che rappresentano un oggetto **ShardMapManager** globale non esistono ancora nel database, vengono creati dalla libreria client con il metodo CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.

@@ -2,7 +2,7 @@
 title: Diagnosticare i problemi di prestazioni con Azure Application Insights | Microsoft Docs
 description: Esercitazione per il rilevamento e la diagnosi dei problemi di prestazioni in un'applicazione con Azure Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -41,7 +41,7 @@ Per completare questa esercitazione:
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identificare le operazioni del server con maggiori rallentamenti
-Application Insights raccoglie i dettagli sulle prestazioni per le diverse operazioni nell'applicazione.  Identificando le operazioni con la durata maggiore, è possibile diagnosticare potenziali problemi o supportare meglio le attività di sviluppo continuative per migliorare le prestazioni complessive dell'applicazione.
+Application Insights raccoglie i dettagli sulle prestazioni per le diverse operazioni nell'applicazione. Identificando le operazioni con la durata maggiore, è possibile diagnosticare potenziali problemi o supportare meglio le attività di sviluppo continuative per migliorare le prestazioni complessive dell'applicazione.
 
 1. Selezionare **Application Insights** e quindi selezionare la sottoscrizione in uso.  
 1. Per aprire il pannello **Prestazioni**, selezionare **Prestazioni** nel menu **Analisi** oppure fare clic sul grafico **Tempo di risposta del server**.

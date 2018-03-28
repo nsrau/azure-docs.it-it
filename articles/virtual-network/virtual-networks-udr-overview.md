@@ -5,8 +5,8 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -132,6 +132,9 @@ Se più route contengono lo stesso prefisso degli indirizzi, Azure seleziona il 
 1. Route definita dall'utente
 2. Route BGP
 3. La route di sistema
+
+> [!NOTE]
+> Le route di sistema per il traffico correlato alla rete virtuale, ai peering di rete virtuale o agli endpoint del servizio rete virtuale sono le route preferite anche se le route BGP sono più specifiche.
 
 Una tabella di route contiene ad esempio le route seguenti:
 

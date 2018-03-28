@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: a89048b0d49d5b3715931285accafda2406ab969
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 76f2666df76b802c175eadc38d2ac4100799ceae
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook di sicurezza nel Centro sicurezza di Azure (anteprima)
 Questo documento illustra come usare i playbook di sicurezza nel Centro sicurezza di Azure per rispondere ai problemi correlati alla sicurezza.

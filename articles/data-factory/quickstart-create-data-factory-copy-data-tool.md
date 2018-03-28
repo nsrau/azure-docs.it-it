@@ -1,8 +1,8 @@
 ---
 title: Copiare i dati usando lo strumento Copia dati di Azure | Microsoft Docs
-description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per copiare i dati da una cartella dell'archivio BLOB di Azure a un'altra cartella.
+description: Creare una data factory di Azure e quindi usare lo strumento Copia dati per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/16/2018
 ms.author: jingwang
-ms.openlocfilehash: aa9cdba4f4e891d5321eb8af6349d8b141faee03
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: d09422f31a2dda5e14fb891fa07f65fdcceb72c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Usare lo strumento Copia dati per copiare i dati 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -58,7 +58,7 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
 
 6. Selezionare **Aggiungi al dashboard**.     
 7. Selezionare **Create**.
-8. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying data factory** (Distribuzione della data factory): 
+8. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
 
     ![Riquadro "Deploying data factory" (Distribuzione della data factory)](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.

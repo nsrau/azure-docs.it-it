@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -30,10 +30,16 @@ Quando si verifica un problema, è possibile ottenere informazioni sullo stato d
    docker logs <container name>
    ```
 
-* Visualizzare i messaggi che transitano nell'hub di Edge e raccogliere informazioni dettagliate sugli aggiornamenti delle proprietà dei dispositivi con log dettagliati dei contenitori di runtime. Potrebbe essere necessario aggiungere l'opzione "--auto-cert-gen-force-no-passwords" se si stanno seguendo gli articoli introduttivi.
+* Visualizzare i messaggi che transitano nell'hub di Edge e raccogliere informazioni dettagliate sugli aggiornamenti delle proprietà dei dispositivi con log dettagliati dei contenitori di runtime.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* Visualizzare i log dettagliati dei comandi iotedgectl:
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * Se si verificano problemi di connettività, esaminare le variabili di ambiente del dispositivo Edge come la stringa di connessione del dispositivo:

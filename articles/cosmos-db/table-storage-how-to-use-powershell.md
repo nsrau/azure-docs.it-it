@@ -6,25 +6,22 @@ documentationcenter: storage
 author: robinsh
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 03/14/2018
 ms.author: robinsh
-ms.openlocfilehash: 15a4ed2370598cb98565c48b4563bee3a4445827
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c09809e9cf513dbb9420f675bbf431c176f740bd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell 
-
->[!NOTE]
->L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazione di tabelle, ad esempio distribuzione globale chiavi in mano, operazioni di lettura e scrittura a bassa latenza, indicizzazione secondaria automatica e velocità effettiva dedicata. Nella maggior parte dei casi i comandi di PowerShell descritti in questo articolo sono validi sia per l'API di tabella di Azure Cosmos DB che per Archiviazione tabelle di Azure. Tuttavia, in questo articolo si fa specifico riferimento ad Archiviazione tabelle di Azure. Se si usa l'API di tabella di Azure Cosmos DB, vedere [Operazioni dell'API di tabella di Azure Cosmos DB con Azure PowerShell](table-powershell.md).
->
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 Il servizio Archiviazione tabelle di Azure è un archivio dati NoSQL, che è possibile usare per archiviare ed eseguire query su grandi set di dati strutturati non relazionali. I componenti principali del servizio sono tabelle, entità e proprietà. una tabella è una raccolta di entità. Un'entità è un set di proprietà. Ogni entità può avere fino a 252 proprietà, che corrispondono tutte a coppie nome-valore. Questo articolo presuppone la conoscenza dei concetti relativi al servizio Archiviazione tabelle di Azure. Per informazioni dettagliate, vedere[Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Informazioni sul modello di dati del servizio tabelle) e [Introduzione all'archiviazione tabelle di Azure con .NET](table-storage-how-to-use-dotnet.md).
 
@@ -38,7 +35,7 @@ In questo articolo con procedure sono illustrate le operazioni più comuni del s
 > * Eliminare le entità di tabella
 > * Eliminare una tabella
 
-In questo articolo con procedure viene illustrato come creare un nuovo account di archiviazione in un nuovo gruppo di risorse in modo da semplificarne la rimozione al termine della procedura. Se lo si preferisce, è possibile usare un account di archiviazione esistente.
+In questo articolo con procedure viene illustrato come creare un nuovo account di archiviazione di Azure in un nuovo gruppo di risorse in modo da semplificarne la rimozione al termine della procedura. Se lo si preferisce, è possibile usare un account di archiviazione esistente.
 
 Questo esempio richiede il modulo Azure PowerShell 4.4.0 o versioni successive. In una finestra di PowerShell eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se non ci sono risultati, è necessario eseguire l'aggiornamento. Vedere in proposito come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
@@ -105,7 +102,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 Recuperare un elenco di tabelle nell'account di archiviazione con [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
-$storageTable = Get-AzureStorageTable –Context $ctx | select Name
+Get-AzureStorageTable –Context $ctx | select Name
 ```
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Recuperare un riferimento a una tabella specifica

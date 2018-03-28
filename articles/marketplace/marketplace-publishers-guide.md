@@ -2,23 +2,23 @@
 title: Guida alla pubblicazione per Azure Marketplace e AppSource
 description: Guida dettagliata ed elenchi di controllo per la pubblicazione destinati ai nuovi editori in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: d02d6e942dfc503dd87a8ebcb6e2ddcf6b6065c5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
@@ -238,7 +238,7 @@ Ogni cliente del contratto Enterprise Agreement può aggiungere Azure al proprio
 
 |**Requisito**  |**Dettagli**  |**Opzione di pubblicazione**  |
 |---------|---------|---------|
-|**Criteri di partecipazione**    | Per informazioni sui criteri di partecipazione ad Azure Marketplace, visitare [questa pagina] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Inserzione, Valutazione, Transazione        |
+|**Criteri di partecipazione**    | Esaminare i criteri di partecipazione ad Azure Marketplace [qui] (https://azure.microsoft.com/support/legal/marketplace/participation-policies/).       | Inserzione, Valutazione, Transazione        |
 |**Integrazione con Microsoft**    | Le offerte di Azure Marketplace dovrebbero sfruttare o estendere i servizi di Microsoft Azure, come Calcolo, Rete o Archiviazione, e allinearsi a una categoria esistente di Azure Marketplace, ad esempio Database, Sicurezza, Rete e così via. Per l'elenco completo, visitare [questa pagina](https://azuremarketplace.microsoft.com/marketplace/apps).        | Inserzione, Valutazione, Transazione        |
 |**Destinatari**    | Le offerte di Azure Marketplace devono essere destinate a professionisti IT, sviluppatori cloud o altri clienti con specifici ruoli tecnici.       |  Inserzione, Valutazione, Transazione 
 |**Gestione dei clienti potenziali**    | Per ricevere clienti potenziali da Marketplace, è necessario configurare il proprio sistema CRM (Marketo, Microsoft Dynamics o Salesforce) in modo da accettare i dati relativi ai clienti potenziali.        |   Inserzione, Valutazione, Transazione      |
@@ -260,7 +260,7 @@ Ogni cliente del contratto Enterprise Agreement può aggiungere Azure al proprio
 |**Requisito**  |**Dettagli** |**Opzione di pubblicazione**  |
 |---------|---------|---------|
 |**Fatturazione e misurazione**    |  La macchina virtuale deve supportare una fatturazione mensile di tipo Bring Your Own License o basata sull'utilizzo.       |    Transazione    |
-|**Disco rigido virtuale (VHD) compatibile con Azure**     |   Le macchine virtuali devono essere create in [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) o [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transazione      |
+|**Disco rigido virtuale (VHD) compatibile con Azure**     |   Le macchine virtuali devono essere compilate in [Windows] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) o [Linux] (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transazione      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Prerequisiti specifici per la pubblicazione di servizi di consulenza
 
@@ -268,7 +268,7 @@ Ogni cliente del contratto Enterprise Agreement può aggiungere Azure al proprio
 |**Requisiti** |**Dettagli**  |**Opzione di pubblicazione**  |
 |---------|---------|---------|
 |**Caratteristiche delle offerte di servizi**     | Il servizio di consulenza deve essere offerto con un ambito, una durata e un prezzo prestabiliti (o gratuitamente) e deve essere principalmente orientato alla prevendita. Deve inoltre essere limitato a un singolo cliente e fornito presso la sua sede.        |    Elenco     |
-|**Requisiti dei partner per i servizi di consulenza**    |   **Solo per AppSource**.  Dynamics 365 for Customer Engagement: [competenza Silver o Gold di Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 for Finance and Operations, Enterprise Edition: competenza Silver o Gold di [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e un fatturato minimo di 25.000 USD in Cloud Operations negli ultimi 12 mesi. Dynamics 365 for Finance and Operations, Business Edition: svolgere la funzione di [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) per almeno un cliente. Power BI: soddisfare i criteri di [Partner di soluzioni](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). PowerApps: avere pubblicato una soluzione in [Showcase dei partner] (https://powerapps.microsoft.com/en-us/partner-showcase/). |    Elenco     |
+|**Requisiti dei partner per i servizi di consulenza**    |   **Solo per AppSource**.  Dynamics 365 for Customer Engagement: [competenza Silver o Gold di Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). Dynamics 365 for Finance and Operations, Enterprise Edition: competenza Silver o Gold di [Enterprise Resource Planning] (https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e un fatturato minimo di 25.000 USD in Cloud Operations negli ultimi 12 mesi. Dynamics 365 for Finance and Operations, Business Edition: svolgere la funzione di [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) per almeno un cliente. Power BI: soddisfare i criteri di [Partner di soluzioni](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). PowerApps: avere pubblicato una soluzione in [Showcase dei partner] (https://powerapps.microsoft.com/en-us/partner-showcase/) |    Elenco     |
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione
 Azure Active Directory (AAD) è un servizio di gestione delle identità cloud che consente di eseguire l'autenticazione con un account Microsoft aziendale o dell'istituto di istruzione tramite i protocolli standard OAuth e OpenID Connect. Per altre informazioni su AAD, visitare [questa pagina](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
@@ -295,7 +295,7 @@ Se AAD è attualmente supportato dall'editore
 Se l'editore non ha familiarità con l'accesso SSO federato di AAD
 
 - Registrare l'applicazione nel portale di Azure
-- Sviluppare l'esperienza di accesso SSO con AAD tramite il protocollo [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) o [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
+- Sviluppare SSO con AAD tramite [OpenID Connect] (https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) o [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code)
 - Abilitare la funzionalità per il supporto multi-tenancy in AAD per ottenere l'esperienza di valutazione con un solo clic
 - Fare clic [qui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified) per altre informazioni
 
@@ -303,7 +303,7 @@ Applicazioni a tenant singolo:
 
 Per le applicazioni a tenant singolo sono disponibili più opzioni:
 
-- Aggiungere utenti alla directory come utenti guest usando [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- Aggiungere utenti alla directory come utenti guest tramite [Azure B2B] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - Effettuare manualmente il provisioning delle versioni di valutazione per i clienti tramite l'opzione "Desidero essere contattato"
 - Sviluppare una test drive per ogni cliente
 - Creare un'app demo di esempio multi-tenant con SSO
@@ -521,7 +521,7 @@ L'account aziendale può essere federato tramite [Azure Active Directory](https:
 
 È consigliabile creare un nuovo indirizzo di posta elettronica nel dominio **@outlook.com**. A tale scopo, seguire questa procedura:
 
-1. Passare a [https://signup.live.com/signup](https://signup.live.com/signup) e selezionare **Crea un nuovo indirizzo e-mail**.
+1. Andare a [https://signup.live.com/signup](https://signup.live.com/signup) e selezionare **Crea un nuovo indirizzo e-mail**.
 
 
 2. Creare il nuovo indirizzo di posta elettronica e immettere una password. In questo modo verranno creati un nuovo ID Microsoft e una nuova cassetta di posta elettronica nel servizio outlook.com. Continuare il processo di registrazione finché non viene creato l'account.
@@ -538,7 +538,7 @@ Al termine di quest'ultimo passaggio, tutte le comunicazioni o tutti i messaggi 
 ### <a name="instructions-on-how-to-register-in-the-development-center"></a>Istruzioni su come eseguire la registrazione in Developer Center
 
 1. Aprire una nuova sessione di navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
-2. Passare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) per registrarsi come venditore in Dev Center. Prima di procedere, leggere la seguente nota importante.
+2. Andare a [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) per registrarsi come venditore in Dev Center. Prima di procedere, leggere la seguente nota importante.
 
    ![Indirizzo di posta elettronica per Dev Center](./media/marketplace-publishers-guide/registerdevcenteremail.png)
 
@@ -548,7 +548,7 @@ Al termine di quest'ultimo passaggio, tutte le comunicazioni o tutti i messaggi 
    ![Informazioni sull'account](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)
    
    >[!WARNING]
-   >Paesi di origine della vendita: per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere [Criteri di partecipazione a Marketplace]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
+   >Paesi di origine della vendita: per vendere i propri servizi in Azure Marketplace, l'entità registrata deve trovarsi in uno dei paesi di origine della vendita approvati. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i [Criteri di partecipazione a Marketplace]https://azure.microsoft.com/support/legal/marketplace/participation-policies/.
 
 5. Selezionare **Azienda** per "Tipo di account" e fare clic sul pulsante **Avanti**.
 
@@ -614,7 +614,7 @@ Per pubblicare offerte commerciali per l'acquisto, è necessario aggiungere anch
 
 In caso di problemi con la registrazione in Developer Center, inoltrare un ticket di supporto come indicato di seguito:
 
-1. Passare alla pagina del supporto all'indirizzo https://developer.microsoft.com/windows/support
+1. Andare al collegamento per il supporto tecnico https://developer.microsoft.com/windows/support
 2. Nella sezione **Contattaci** fare clic sul pulsante **Invia una richiesta di assistenza**, come illustrato nella schermata seguente.
 3. Scegliere "Help with Dev Center" (Aiuto con Dev Center) come **Tipo di problema** e "Publish and manage apps" (Pubblicare e gestire le app) come **Categoria**. Fare quindi clic sul pulsante "Start email" (Inizia messaggio di posta elettronica).
 

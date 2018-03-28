@@ -1,11 +1,11 @@
 ---
-title: "Come usare un'identità del servizio gestito assegnata dall'utente per acquisire un token di accesso per una macchina virtuale."
-description: "Istruzioni dettagliate ed esempi per l'uso di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure per acquisire un token di accesso OAuth."
+title: Come usare un'identità del servizio gestito assegnata dall'utente per acquisire un token di accesso per una macchina virtuale.
+description: Istruzioni dettagliate ed esempi per l'uso di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure per acquisire un token di accesso OAuth.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Acquisire un token di accesso per l'identità del servizio gestito assegnata dall'utente per una macchina virtuale
 
@@ -26,9 +26,7 @@ ms.lasthandoff: 02/03/2018
 Questo articolo fornisce vari esempi di codice e script per l'acquisizione di token, oltre a indicazioni su argomenti importanti come la gestione degli errori HTTP e di scadenza dei token.
 
 ## <a name="prerequisites"></a>prerequisiti
-
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Se si prevede di usare gli esempi di Azure PowerShell presenti in questo articolo, assicurarsi di installare la versione più recente di [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +46,28 @@ Un'applicazione client può richiedere un [token di accesso solo app](~/articles
 
 ## <a name="get-a-token-using-http"></a>Ottenere un token tramite HTTP 
 
-L'interfaccia di base per l'acquisizione di un token di accesso è basata su REST, in modo che sia accessibile da qualsiasi applicazione client in esecuzione sulla macchina virtuale che può effettuare chiamate HTTP REST. Si tratta quindi di un meccanismo molto simile al modello di programmazione di Azure AD, tranne per il fatto che il client usa un endpoint localhost nella macchina virtuale (e non un endpoint di Azure AD).
+L'interfaccia di base per l'acquisizione di un token di accesso è basata su REST, in modo che sia accessibile da qualsiasi applicazione client in esecuzione sulla macchina virtuale che può effettuare chiamate HTTP REST. Si tratta quindi di un meccanismo molto simile al modello di programmazione di Azure AD, tranne per il fatto che il client usa un endpoint nella macchina virtuale (e non un endpoint di Azure AD).
 
-Richiesta di esempio:
+Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS):
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale per l'identità del servizio gestito (deprecazione imminente):
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | `GET` | Verbo HTTP, che indica che si vuole recuperare i dati dall'endpoint. In questo caso, un token di accesso OAuth. | 
-| `http://localhost:50342/oauth2/token` | Endpoint dell'identità del servizio gestito, dove 50342 è la porta predefinita ed è configurabile. |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | L'endpoint dell'identità del servizio gestito per il servizio metadati dell'istanza. |
+| `http://localhost:50342/oauth2/token` | L'endpoint dell'identità del servizio gestito per l'estensione della macchina virtuale, dove 50342 è la porta predefinita ed è configurabile. |
+| `api-version`  | Un parametro di stringa della query, che indica la versione dell'API per l'endpoint del servizio metadati dell'istanza.  |
 | `resource` | Parametro della stringa di query, che indica l'URI ID app della risorsa di destinazione. Viene visualizzato anche nell'attestazione `aud` (audience, destinatari) del token emesso. In questo esempio viene richiesto un token per accedere ad Azure Resource Manager, con l'URI di ID app https://management.azure.com/. |
-| `client_id` | Un parametro della stringa di query, che indica l'ID client (noto anche come ID app) dell'entità servizio che rappresenta l'identità del servizio gestito assegnata dall'utente. Questo valore viene restituito nella proprietà `clientId` durante la creazione di un'identità del servizio gestito assegnata dall'utente. Questo esempio richiede un token per l'ID client "712eac09-e943-418c-9be6-9fd5c91078bl". |
+| `client_id` |  Un parametro della stringa di query *facoltativo*, che indica l'ID client (noto anche come ID app) dell'entità servizio che rappresenta l'identità del servizio gestito assegnata da un utente. Se si usa invece un'identità del servizio gestito assegnata dal sistema, questo parametro non è necessario. Questo valore viene restituito nella proprietà `clientId` durante la creazione di un'identità del servizio gestito assegnata dall'utente. Questo esempio richiede un token per l'ID client "712eac09-e943-418c-9be6-9fd5c91078bl". |
 | `Metadata` | Campo di intestazione della richiesta HTTP, richiesto dall'identità del servizio gestito come mitigazione contro attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole.
 
 Risposta di esempio:
@@ -94,6 +99,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>Ottenere un token tramite CURL
 
 Assicurarsi di sostituire l'ID client (noto anche come ID app) dell'entità servizio dell'identità del servizio gestito assegnata dall'utente per il valore <MSI CLIENT ID> del parametro `client_id`. Questo valore viene restituito nella proprietà `clientId` durante la creazione di un'identità del servizio gestito assegnata dall'utente.
+  
+Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS):
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale per l'identità del servizio gestito (deprecazione imminente):
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +119,7 @@ Assicurarsi di sostituire l'ID client (noto anche come ID app) dell'entità serv
    Risposte di esempio:
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +127,7 @@ Assicurarsi di sostituire l'ID client (noto anche come ID app) dell'entità serv
 
 ## <a name="handling-token-expiration"></a>Gestione della scadenza di token
 
-Il sottosistema dell'identità del servizio gestito locale memorizza i token nella cache. È quindi possibile eseguire tutte le chiamate desiderate e una chiamata in transito ad Azure AD restituisce un risultato solo se:
+Il sottosistema dell'identità del servizio gestito memorizza i token nella cache. È quindi possibile eseguire tutte le chiamate desiderate e una chiamata in transito ad Azure AD restituisce un risultato solo se:
 - si verifica un mancato riscontro nella cache a causa dell'assenza di token nella cache
 - il token è scaduto
 
@@ -142,7 +157,7 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 | ----------- | ----- | ----------------- | -------- |
 | 400 - Richiesta non valida | invalid_resource | AADSTS50001: l'applicazione denominata *\<URI\>* non è stata trovata nel tenant denominato *\<TENANT-ID\>*. Questa situazione può verificarsi se l'applicazione non è stata installata dall'amministratore del tenant o non è consentita da uno degli utenti nel tenant. È possibile che la richiesta di autenticazione sia stata inviata al tenant sbagliato.\ | (Solo Linux) |
 | 400 - Richiesta non valida | bad_request_102 | L'intestazione dei metadati richiesta non è stata specificata. | Il campo di intestazione della richiesta `Metadata` non è presente nella richiesta oppure non è formattato correttamente. Il valore deve essere specificato come `true`, usando tutte lettere minuscole. Per un esempio, vedere la richiesta di esempio nella sezione [Ottenere un token tramite HTTP](#get-a-token-using-http).|
-| 401 - Non autorizzato | unknown_source | Origine sconosciuta *\<URI\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://localhost:50342/oauth2/token`. Per un esempio, vedere la richiesta di esempio nella sezione [Ottenere un token tramite HTTP](#get-a-token-using-http).|
+| 401 - Non autorizzato | unknown_source | Origine sconosciuta *\<URI\>* | Verificare che l'URI della richiesta HTTP GET sia formattato correttamente. La parte `scheme:host/resource-path` deve essere specificata come `http://169.254.169.254/metadata/identity/oath2/token` o `http://localhost:50342/oauth2/token`. Per un esempio, vedere la richiesta di esempio nella sezione [Ottenere un token tramite HTTP](#get-a-token-using-http).|
 |           | invalid_request | Nella richiesta manca un parametro obbligatorio oppure la richiesta include un valore di parametro non valido, contiene uno stesso parametro più volte o non è formata in modo corretto. |  |
 |           | unauthorized_client | Il client non è autorizzato a richiedere un token di accesso con questo metodo. | Questo problema viene generato da una richiesta che non usa un loopback locale per chiamare l'estensione o che è presente in una macchina virtuale in cui l'identità del servizio gestito non è configurata correttamente. Vedere [Configurare un'identità del servizio gestito della macchina virtuale tramite il portale di Azure](msi-qs-configure-portal-windows-vm.md) per informazioni sulla configurazione della macchina virtuale. |
 |           | access_denied | Il proprietario della risorsa o il server di autorizzazione ha rifiutato la richiesta. |  |

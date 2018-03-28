@@ -1,19 +1,19 @@
 ---
-title: Configurare Azure Active Directory Authentication Library - SQL | Microsoft Docs
+title: Configurare Azure Active Directory Authentication Library - SQL | Documentazione Microsoft
 description: Informazioni su come eseguire la connessione al database SQL, a Istanza gestita e a SQL Data Warehouse con l'autenticazione di Azure Active Directory, dopo aver configurato Azure AD.
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: 00b5be9863e2bff9e5b82845f99d6829e1bcdf13
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL, con Istanza gestita oppure con SQL Data Warehouse
 
@@ -132,7 +132,7 @@ Per eseguire il provisioning di un amministratore di Azure AD, eseguire i comand
 
 Cmdlet usati per il provisioning e la gestione dell'amministratore di Azure AD:
 
-| Nome del cmdlet | Descrizione |
+| Nome del cmdlet | DESCRIZIONE |
 | --- | --- |
 | [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Esegue il provisioning di un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. Deve far parte della sottoscrizione corrente. |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Rimuove un amministratore di Azure Active Directory per il server di Azure SQL o per Azure SQL Data Warehouse. |
@@ -193,7 +193,7 @@ Per altre informazioni sui comandi dell'interfaccia della riga di comando, veder
 ## <a name="configure-your-client-computers"></a>Configurare i computer client
 È necessario installare il software seguente in tutti i computer client da cui le applicazioni o gli utenti si connettono al database SQL di Azure o ad Azure SQL Data Warehouse con le identità di Azure AD:
 
-* .NET Framework 4.6 o versione successiva dalla pagina [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+* .NET Framework 4.6 o versioni successive da [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
 * Azure Active Directory Authentication Library per SQL Server (**ADALSQL.DLL**) è disponibile in più lingue (sia per x86 che per amd64) dall'Area download in [Microsoft Active Directory Authentication Library per Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 È possibile soddisfare questi requisiti tramite:

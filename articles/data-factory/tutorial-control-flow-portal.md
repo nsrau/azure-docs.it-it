@@ -1,8 +1,8 @@
 ---
 title: Diramazione in una pipeline di Azure Data Factory | Microsoft Docs
-description: "Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività."
+description: Informazioni su come controllare il flusso dei dati in Azure Data Factory con la diramazione e il concatenamento delle attività.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -309,7 +309,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
 3. Nella finestra **Pipeline Run** (Esecuzioni di pipeline) seguire questa procedura: 
 
     1. Immettere **adftutorial/dummy/input** per il parametro **sourceBlobContainer**. Assicurarsi che la cartella fittizia non esista nel contenitore adftutorial. 
-    2. Immettere **adftutorial/dummy/inputt** per il parametro **sinkBlobContainer**. 
+    2. Immettere **adftutorial/dummy/output** per il parametro **sinkBlobContainer**. 
     3. Immettere un **indirizzo di posta elettronica** per **receiver**. 
     4. Fare clic su **Fine**.
 

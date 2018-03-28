@@ -3,10 +3,10 @@ title: Creare un'app Ruby e distribuirla nel Servizio app in Linux | Microsoft D
 description: Informazioni su come creare app Ruby con il Servizio app in Linux.
 keywords: servizio app di azure, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Creare un'app Ruby nel Servizio app in Linux
 
@@ -58,7 +58,7 @@ Tramite il Web browser, passare a `http://localhost:3000` per testare l'app in l
 
 ## <a name="modify-app-to-display-welcome-message"></a>Modificare l'app per visualizzare il messaggio di benvenuto
 
-Modificare l'applicazione in modo da visualizzare un messaggio di benvenuto. Prima di tutto, è necessario configurare una route modificando il file *~/workspace/ruby-docs-hello-world/config/routes.rb* in modo da includere una route denominata `hello`.
+Modificare l'applicazione in modo da visualizzare un messaggio di benvenuto. Per prima cosa è necessario configurare una route modificando il file *~/workspace/ruby-docs-hello-world/config/routes.rb* in modo da includere una route denominata `hello`.
 
   ```ruby
   Rails.application.routes.draw do
@@ -88,37 +88,23 @@ Ora l'app è configurata. Tramite il Web browser, passare a `http://localhost:30
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Creare una app web Ruby in Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Deve essere presente un gruppo di risorse in cui includere gli asset necessari per l'app Web. Per creare un gruppo di risorse, usare il comando [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Creare un'app Web
 
-Usare il comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) per creare un piano di servizio app per l'app Web.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Eseguire quindi il comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) per creare l'app Web che usa il piano di servizio appena creato. Si noti che il runtime è impostato su `ruby|2.3`. Non dimenticare di sostituire `<app name>` con un nome univoco dell'app.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-L'output del comando visualizza informazioni sulla nuova app Web creata e sull'URL di distribuzione. L'output dovrebbe essere simile all'esempio seguente. Copiare l'URL, che dovrà essere usato più avanti in questa esercitazione.
+Passare al sito per visualizzare l'app Web con immagine incorporata appena creata. Sostituire _&lt;app name>_ con il nome dell'app Web.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Una volta creato l'app web, è disponibile una pagina **Panoramica** per la visualizzazione. Passare ad essa. Viene visualizzata la pagina iniziale seguente:
+Ecco l'aspetto che avrà la nuova app Web:
 
 ![Pagina iniziale](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Distribuire l'applicazione
 

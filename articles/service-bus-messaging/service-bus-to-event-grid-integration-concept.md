@@ -5,7 +5,7 @@ services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,40 +14,42 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8bd1c431788d78ae937cc047e82cb41504a19075
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi di Azure
+# <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
-Il bus di servizio Azure offre ora una nuova integrazione in Griglia di eventi di Azure. Il principale scenario abilitato da questa funzionalità è la possibilità, in caso di code e sottoscrizioni del bus di servizio con un volume ridotto di messaggi, di non avere un ricevitore che esegue costantemente il polling dei messaggi. Il bus di servizio può ora inviare eventi a Griglia di eventi di Azure quando una coda o una sottoscrizione contiene messaggi e non sono presenti ricevitori. È possibile creare sottoscrizioni di Griglia di eventi di Azure per gli spazi dei nomi del bus di servizio e quindi restare in ascolto di tali eventi e reagire a essi avviando un ricevitore. Questa funzionalità consente di usare il bus di servizio in modelli di programmazione reattivi.
+Il bus di servizio Azure offre ora una nuova integrazione in Griglia di eventi di Azure. Il principale scenario di questa funzionalità è la possibilità, in caso di code e sottoscrizioni del bus di servizio con un volume ridotto di messaggi, di non avere un ricevitore che esegue costantemente il polling dei messaggi. 
+
+Il bus di servizio può ora inviare eventi a Griglia di eventi quando una coda o una sottoscrizione contiene messaggi e non sono presenti ricevitori. È possibile creare sottoscrizioni di Griglia di eventi per gli spazi dei nomi del bus di servizio, restare in ascolto di tali eventi e quindi reagire a essi avviando un ricevitore. Questa funzionalità consente di usare il bus di servizio in modelli di programmazione reattivi.
 
 Per abilitare questa funzionalità, sono necessari gli elementi seguenti:
 
-* Spazio dei nomi Premium del bus di servizio di Azure con almeno una coda o un argomento del bus di servizio con almeno una sottoscrizione.
-* Accesso di tipo Collaboratore allo spazio dei nomi del bus di servizio di Azure.
-* Sottoscrizione di Griglia di eventi di Azure per lo spazio dei nomi del bus di servizio. Questa sottoscrizione riceve la notifica da Griglia di eventi di Azure che segnala la presenza di messaggi da prelevare. I sottoscrittori tipici, che elaborano quindi i messaggi, potrebbero essere app per la logica, funzioni di Azure o un webhook che contatta un'app Web. 
+* Spazio dei nomi Premium del bus di servizio con almeno una coda o un argomento del bus di servizio con almeno una sottoscrizione.
+* Accesso di tipo Collaboratore allo spazio dei nomi del bus di servizio.
+* Sottoscrizione di Griglia di eventi per lo spazio dei nomi del bus di servizio. Questa sottoscrizione riceve una notifica da Griglia di eventi che segnala la presenza di messaggi da prelevare. I sottoscrittori tipici potrebbero essere la funzionalità App per la logica di Servizio app di Azure, Funzioni di Azure o un webhook che contatta un'app Web. Il sottoscrittore elabora quindi i messaggi. 
 
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verificare di avere l'accesso di tipo Collaboratore
 
-Passare allo spazio dei nomi del bus di servizio e selezionare "Controllo di accesso (IAM)" come illustrato di seguito:
+Passare allo spazio dei nomi del bus di servizio e quindi selezionare **Controllo di accesso (IAM)** come illustrato qui:
 
 ![1][]
 
 ### <a name="events-and-event-schemas"></a>Eventi e schemi di eventi
 
-Il bus di servizio di Azure attualmente invia eventi per due scenari.
+Il bus di servizio attualmente invia eventi per due scenari:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Usa inoltre i [meccanismi di autenticazione](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) e la sicurezza standard di Griglia di eventi di Azure.
+Il bus di servizio usa inoltre i [meccanismi di autenticazione](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) e la sicurezza standard di Griglia di eventi.
 
-Per altri dettagli sugli schemi di eventi di Griglia di eventi, fare clic su [questo](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) collegamento.
+Per altre informazioni, vedere [Schemi di eventi di Griglia di eventi di Azure](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
 
 #### <a name="active-messages-available-event"></a>Evento per disponibilità di messaggi attivi
 
@@ -75,7 +77,7 @@ Di seguito è riportato lo schema per questo evento:
 }
 ```
 
-#### <a name="dead-lettered-messages-available-event"></a>Evento per disponibilità di messaggi inseriti nella coda di messaggi non recapitabili
+#### <a name="dead-letter-messages-available-event"></a>Evento per disponibilità di messaggi inseriti nella coda di messaggi non recapitabili
 
 Viene generato almeno un evento per ogni coda di messaggi non recapitabili che contiene messaggi e non ha alcun ricevitore attivo.
 
@@ -101,44 +103,49 @@ Di seguito è riportato lo schema per questo evento:
 }]
 ```
 
-### <a name="how-often-and-how-many-events-are-emitted"></a>Numero di eventi emessi e frequenza di emissione
+### <a name="how-many-events-are-emitted-and-how-often"></a>Numero di eventi emessi e frequenza di emissione
 
-Se si hanno più code/argomenti e sottoscrizioni nello spazio dei nomi, vengono generati almeno un evento per coda e un evento per sottoscrizione. Gli eventi vengono emessi immediatamente se arriva un nuovo messaggio e non sono presenti messaggi nell'entità del bus di servizio oppure ogni due minuti, a meno che il bus di servizio di Azure non rilevi un ricevitore attivo. L'esplorazione di messaggi non interrompe gli eventi.
+Se si hanno più code e argomenti o sottoscrizioni nello spazio dei nomi, vengono generati almeno un evento per coda e un evento per sottoscrizione. Gli eventi vengono emessi immediatamente se non sono presenti messaggi nell'entità del bus di servizio e arriva un nuovo messaggio oppure vengono emessi ogni due minuti a meno che il bus di servizio non rilevi un ricevitore attivo. L'esplorazione di messaggi non interrompe gli eventi.
 
-Per impostazione predefinita, il bus di servizio di Azure emette eventi per tutte le entità nello spazio dei nomi. Se si vogliono ottenere eventi solo per entità specifiche, vedere la sezione seguente sui filtri.
+Per impostazione predefinita, il bus di servizio emette eventi per tutte le entità nello spazio dei nomi. Se si vogliono ottenere eventi solo per entità specifiche, vedere la sezione successiva.
 
-### <a name="filtering-limiting-from-where-you-get-events"></a>Applicazione di filtri per limitare la provenienza degli eventi
+### <a name="use-filters-to-limit-where-you-get-events-from"></a>Usare i filtri per limitare le origini da cui è possibile ottenere gli eventi
 
-Se si vogliono ottenere eventi solo per una coda o una sottoscrizione nello spazio dei nomi, ad esempio, è possibile usare i filtri "Inizia con" o "Termina con" offerti da Griglia di eventi di Azure, che in alcune interfacce sono denominati filtri per "prefisso" e "suffisso". Se si vogliono ottenere eventi per più code e sottoscrizioni ma non per tutte, è possibile creare più sottoscrizioni di Griglia di eventi di Azure diverse e specificare un filtro per ognuna.
+Se si vogliono ottenere eventi solo da una coda o una sottoscrizione nello spazio dei nomi, ad esempio, è possibile usare i filtri *Inizia con* o *Termina con* offerti da Griglia di eventi, che in alcune interfacce sono denominati filtri per *prefisso* e *suffisso*. Se si vogliono ottenere eventi per più code e sottoscrizioni ma non per tutte, è possibile creare più sottoscrizioni di Griglia di eventi e specificare un filtro per ognuna.
 
-## <a name="how-to-create-azure-event-grid-subscriptions-for-service-bus-namespaces"></a>Come creare sottoscrizioni di Griglia di eventi di Azure per gli spazi dei nomi del bus di servizio
+## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Creare sottoscrizioni di Griglia di eventi per gli spazi dei nomi del bus di servizio
 
-Per creare sottoscrizioni di Griglia di eventi per gli spazi dei nomi del bus di servizio sono disponibili tre diversi modi.
+È possibile creare sottoscrizioni di Griglia di eventi per gli spazi dei nomi del bus di servizio in tre diversi modi:
 
-* [Il portale di Azure](#portal-instructions)
-* [Interfaccia della riga di comando di Azure](#azure-cli-instructions)
-* [PowerShell](#powershell-instructions)
+* Nel [portale di Azure](#portal-instructions)
+* Nell'[interfaccia della riga di comando di Azure](#azure-cli-instructions)
+* In [PowerShell](#powershell-instructions)
 
-## <a name="portal-instructions"></a>Istruzioni per il portale
+## <a name="azure-portal-instructions"></a>Istruzioni del portale di Azure
 
-Per creare una nuova sottoscrizione di Griglia di eventi di Azure, passare allo spazio dei nomi nel portale di Azure e selezionare il pannello Griglia di eventi. Fare clic su "+ Sottoscrizione di eventi". Di seguito è illustrato uno spazio dei nomi che ha già alcune sottoscrizioni di Griglia di eventi.
+Per creare una nuova sottoscrizione di Griglia di eventi, seguire questa procedura:
+1. Nel portale di Azure passare allo spazio dei nomi.
+2. Nel riquadro a sinistra selezionare **Griglia eventi**. 
+3. Selezionare **Sottoscrizione di eventi**.  
 
-![20][]
+   L'immagine seguente mostra uno spazio dei nomi con alcune sottoscrizioni di Griglia di eventi:
 
-Lo screenshot seguente mostra un esempio di come creare una sottoscrizione per una funzione di Azure o un webhook senza filtri specifici:
+   ![20][]
 
-![21][]
+   L'immagine seguente mostra come sottoscrivere una funzione o un webhook senza filtri specifici:
+
+   ![21][]
 
 ## <a name="azure-cli-instructions"></a>Istruzioni per l'interfaccia della riga di comando di Azure
 
-Verificare prima di tutto che sia installata almeno la versione 2.0 dell'interfaccia della riga di comando di Azure. È possibile scaricare il programma di installazione qui. Premere quindi "Windows + X" e aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è anche possibile usare una shell dei comandi nel portale di Azure.
+Verificare prima di tutto che sia installata l'interfaccia della riga di comando di Azure versione 2.0 o successiva. [Scaricare il programma di installazione](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
 Eseguire questo codice:
 
-```PowerShell
+```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -147,9 +154,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Istruzioni per PowerShell
 
-Verificare che sia installato Azure PowerShell, disponibile qui. Premere quindi "Windows + X" e aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è anche possibile usare una shell dei comandi nel portale di Azure.
+Verificare che sia installato Azure PowerShell, [Scaricare il programma di installazione](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
-```PowerShell
+```PowerShell-interactive
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
@@ -167,11 +174,11 @@ A questo punto è possibile esplorare le altre opzioni di configurazione oppure 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esempi](service-bus-to-event-grid-integration-example.md) relativi al bus di servizio e Griglia di eventi.
-* Altre informazioni su [Griglia di eventi di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Ottenere [esempi](service-bus-to-event-grid-integration-example.md) relativi al bus di servizio e Griglia di eventi.
+* Altre informazioni su [Griglia di eventi](https://docs.microsoft.com/en-us/azure/azure-functions/).
 * Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Altre informazioni su [App per la logica di Azure](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Altre informazioni sul [bus di servizio di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Altre informazioni su [App per la logica](https://docs.microsoft.com/en-us/azure/logic-apps/).
+* Altre informazioni sul [bus di servizio](https://docs.microsoft.com/en-us/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

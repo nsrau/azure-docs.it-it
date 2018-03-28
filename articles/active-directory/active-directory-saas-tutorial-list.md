@@ -15,11 +15,11 @@ ms.date: 03/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: b67535377f8fa8f7b45f6d848689a9a86656bb97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7b7655464f26b5bb8c002b53318b5bdb8d109409
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integrazione dell’applicazione SaaS con Azure Active Directory
 
@@ -94,7 +94,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](active-directory-saas-boomi-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-box-tutorial.png)| [Box](active-directory-saas-box-tutorial.md)|[Box - Provisioning utente](active-directory-saas-box-userprovisioning-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](active-directory-saas-boxcryptor-tutorial.md)|
-| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](active-directory-saas-bpmonline-tutorial.md)|
+| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpm’online](active-directory-saas-bpmonline-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](active-directory-saas-bridge-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace by Desire2Learn](active-directory-saas-brightspace-desire2learn-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](active-directory-saas-bynder-tutorial.md)|
@@ -211,7 +211,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-imagerelay-tutorial.png)| [Image Relay](active-directory-saas-imagerelay-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-imageworks-tutorial.png)| [IMAGE WORKS](active-directory-saas-imageworks-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [IMPAC Risk Manager](active-directory-saas-impacriskmanager-tutorial.md)|
-| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor Retail â Information Management](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
+| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Infor Retail - Information Management](active-directory-saas-inforretailinformationmanagement-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-inkling-tutorial.png)| [Inkling](active-directory-saas-inkling-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](active-directory-saas-innotas-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-insidertrack-tutorial.png)| [Insider Track](active-directory-saas-insidertrack-tutorial.md)|
@@ -471,7 +471,7 @@ Per un elenco completo delle app SaaS già integrate in Azure AD, vedere il [Mar
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-yardione-tutorial.png)| [YardiOne]( active-directory-saas-yardione-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx Interactive Guides](active-directory-saas-yonyx-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-youearnedit-tutorial.png)| [YouEarnedIt](active-directory-saas-youearnedit-tutorial.md)|
-| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|
+| ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](active-directory-saas-zendesk-tutorial.md)|[Zendesk - Provisioning utenti](active-directory-saas-zendesk-provisioning-tutorial.md)
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zivver-tutorial.png)| [ZIVVER](active-directory-saas-zivver-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoho-mail-tutorial.png)| [Zoho](active-directory-saas-zoho-mail-tutorial.md)|
 | ![Logo](./media/active-directory-saas-tutorial-list/active-directory-saas-zoom-tutorial.png)| [Zoom](active-directory-saas-zoom-tutorial.md)|

@@ -5,8 +5,8 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: Funzioni di Azure, funzioni, elaborazione eventi, calcolo, architettura senza server
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creare la prima funzione con Visual Studio
 
@@ -37,11 +37,13 @@ Questo argomento include [un video](#watch-the-video) che illustra gli stessi pa
 
 Per completare questa esercitazione:
 
-* Installare [Visual Studio 2017 versione 15.4](https://www.visualstudio.com/vs/) o una versione successiva, incluso il carico di lavoro di **Sviluppo di Azure**.
+* Installare [Visual Studio 2017 versione 15.5](https://www.visualstudio.com/vs/) o successiva, includendo il carico di lavoro **Sviluppo di Azure**.
 
     ![Installare Visual Studio 2017 con il carico di lavoro Sviluppo di Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Assicurarsi di aver eseguito l'aggiornamento alla versione più recente di Funzioni di Azure e di Strumenti per processi Web. A questo scopo, controllare **Aggiornamenti** > **Visual Studio Marketplace** in **Estensioni e aggiornamenti**.
+    Se Visual Studio è già stato installato, verificare di aver installato eventuali aggiornamenti in sospeso. 
+
+* Se il carico di lavoro Sviluppo di Azure è già stato installato con Visual Studio 2017 versione 15.4 o precedente, potrebbe essere necessario anche [aggiornare gli strumenti per Funzioni di Azure](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -53,7 +55,7 @@ Visual Studio crea un progetto e all'interno di esso una classe che contiene il 
 
 ![File di codice della funzione](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
 
-Ora che è stato creato il progetto di funzione e una funzione attivata tramite HTTP, è possibile testare la funzione nel computer locale.
+Ora che è stato creato il progetto di funzione con una funzione attivata tramite HTTP, è possibile testare la funzione nel computer locale.
 
 ## <a name="test-the-function-locally"></a>Testare la funzione in locale
 

@@ -7,30 +7,30 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Python
 
-Questa guida introduttiva spiega come usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
+In questa guida rapida si apprende a usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva: 
 * Installare [Python](https://www.python.org/downloads/)
-* Scaricare e installare [Azure Storage SDK per Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* Scaricare e installare [Azure Storage SDK per Python](storage-python-how-to-use-blob-storage.md). 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
-L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usata in questa guida introduttiva è un'applicazione Python di base.  
+L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usata in questa guida rapida è un'applicazione Python di base.  
 
 Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. 
 
@@ -99,7 +99,7 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 ```
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida introduttiva.  
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida rapida.  
 
 Per caricare un file in un BLOB, ottenere il percorso completo del file unendo il nome della directory e il nome del file nell'unità locale. È quindi possibile caricare il file nel percorso desiderato usando il metodo **create\_blob\_from\_path**. 
 
@@ -152,7 +152,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
-Se i BLOB caricati in questa guida introduttiva non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob**.
+Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob**.
 
 ```python
 # Clean up resources. This includes the container and the temp files
@@ -160,13 +160,24 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Risorse per lo sviluppo di applicazioni Python con BLOB
+
+Per lo sviluppo Python con Archiviazione BLOB, vedere le risorse aggiuntive seguenti:
+
+### <a name="binaries-and-source-code"></a>File binari e codice sorgente
+
+- Visualizzare, scaricare e installare il [codice sorgente della libreria client Python](https://github.com/Azure/azure-storage-python) per Archiviazione di Azure su GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client
+
+- Vedere le [informazioni di riferimento sulle API per Python](https://docs.microsoft.com/python/api/overview/azure/storage) per altre informazioni sulla libreria client Python.
+- Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) scritti con la libreria client per Python.
 
 ## <a name="next-steps"></a>Passaggi successivi
  
-In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Python. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
+In questa guida rapida è stato descritto il trasferimento di file tra il disco locale e un'Archiviazione BLOB di Azure con Python. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](./storage-python-how-to-use-blob-storage.md)
  
-
 Per altre informazioni su Azure Storage Explorer e i BLOB, vedere [Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

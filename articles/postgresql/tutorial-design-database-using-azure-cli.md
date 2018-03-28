@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Progettare la prima istanza di Database di Azure per PostgreSQL con l''interfaccia della riga di comando di Azure'
+title: "Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure"
 description: Questa esercitazione illustra come creare e configurare il primo server Database di Azure per PostgreSQL ed eseguire query con l'interfaccia della riga di comando di Azure.
 services: postgresql
 author: rachel-msft
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Esercitazione: Progettare la prima istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
 > [!div class="checklist"]
 > * Creare un database di Azure per il server PostgreSQL
@@ -32,7 +32,7 @@ In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 Se si dispone di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui la risorsa esiste o per cui è configurata. Selezionare un ID di sottoscrizione specifico sotto l'account tramite il comando [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
@@ -79,7 +79,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver -
 ```
 
 > [!IMPORTANT]
-> L'account di accesso amministratore server e la password qui specificati sono necessari per accedere al server e ai relativi database più avanti in questa guida introduttiva. Prendere nota di queste informazioni per usarle in seguito.
+> L'account di accesso amministratore server e la password qui specificati sono necessari per accedere al server e ai relativi database più avanti in questa guida di avvio rapido. Prendere nota di queste informazioni per usarle in seguito.
 
 Per impostazione predefinita, il database **postgres** viene creato al di sotto del server. Il database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) è un database predefinito che può essere usato da utenti, utilità e applicazioni di terze parti. 
 
@@ -163,9 +163,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Creare tabelle nel database
-Dopo aver appreso come connettersi al Database di Azure per PostgreSQL, si può passare al completamento di alcune attività di base.
+Dopo aver appreso come connettersi al Database di Azure per PostgreSQL, si possono completare alcune attività di base:
 
-In primo luogo, è possibile creare una tabella e caricarla con alcuni dati. Creare una tabella che tenga traccia delle informazioni riguardanti l'inventario:
+In primo luogo, creare una tabella e caricarvi alcuni dati. Creare ad esempio una tabella che tenga traccia delle informazioni riguardanti l'inventario:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +180,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-table"></a>Caricare i dati nella tabella
-Ora che abbiamo una tabella, possiamo inserire alcuni dati al suo interno. Nella finestra del prompt dei comandi aperta, eseguire la query seguente per inserire alcune righe di dati:
+Ora che è stata creata una tabella, inserirvi alcuni dati. Nella finestra del prompt dei comandi aperta, eseguire la query seguente per inserire alcune righe di dati:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

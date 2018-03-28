@@ -2,10 +2,11 @@
 title: Ripetere il training di un servizio Web classico | Documentazione Microsoft
 description: Informazioni su come ripetere il training di un modello a livello di codice e aggiornare il servizio Web per l'uso del modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: raymondlaghaeian
-editor: 
+documentationcenter: ''
+author: aashishb
+ms.author: aashishb
+manager: hjerez
+editor: ''
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl
-ms.openlocfilehash: a0ec3191448362f8bf98ca6b5133d173735046ed
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7adc5995b830d049c8dd6412415bd5987e60fe08
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Ripetere il training di un servizio Web classico
 Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
@@ -68,7 +68,7 @@ Per recuperare l'URL del percorso:
 2. Fare clic sul collegamento Aggiorna risorsa.
 3. Copiare l'URL POST della richiesta PATCH. Ad esempio: 
    
-     PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     URL DELLA PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Ora è possibile usare il modello con training per aggiornare l'endpoint dei punteggi creato prima.
 

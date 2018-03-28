@@ -1,32 +1,32 @@
 ---
-title: 'Azure Cosmos DB: introduzione all''API SQL con l''esercitazione per .NET Core | Microsoft Docs'
+title: "Azure Cosmos DB: introduzione all'API SQL con l'esercitazione per .NET Core | Microsoft Docs"
 description: Esercitazione che consente di creare un database online e un'applicazione console in C# usando Azure Cosmos DB SQL API .NET Core SDK.
 services: cosmos-db
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 0b19071bf871029b488b26d3f125d08d7d2a2dd4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 90b720c174ab5730237f27d5ebb253976a70b071
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: introduzione all'API SQL e a .NET Core
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js per MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [C++](sql-api-cpp-get-started.md)
 >  
@@ -63,13 +63,13 @@ Ecco come procedere.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)] 
+* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione gratuita [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Se si sta sviluppando un'app della piattaforma UWP (Universal Windows Platform), è necessario usare **Visual Studio 2017 con versione 15.4** o successiva. Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
     * Se si usa MacOS o Linux è possibile sviluppare app .NET Core dalla riga di comando installando [.NET Core SDK](https://www.microsoft.com/net/core#macos) per la piattaforma scelta. 
     * Se si usa Windows, è possibile sviluppare app .NET Core dalla riga di comando installando [.NET Core SDK](https://www.microsoft.com/net/core#windows). 
     * È possibile usare il proprio editor o scaricare [Visual Studio Code](https://code.visualstudio.com/), gratuito e utilizzabile in Windows, Linux e MacOS. 
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
-Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali](local-emulator.md) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
+Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è possibile ignorare questo passaggio e passare a [Configurare la soluzione Visual Studio](#SetupVS). Se si usa l'emulatore di Azure Cosmos DB, seguire i passaggi descritti nell'articolo [Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali](local-emulator.md) per configurare l'emulatore e proseguire con il passaggio [Configurare la soluzione di Visual Studio](#SetupVS).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -125,7 +125,7 @@ Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su *
 
 Copiare l'URI dal portale e incollarlo in `<your endpoint URI>` nel file program.cs. Copiare quindi la CHIAVE PRIMARIA dal portale e incollarla in `<your key>`. Se si usa l'emulatore Azure Cosmos DB, usare `https://localhost:8081` come endpoint e la chiave di autorizzazione ben definita di [Come sviluppare usando l'emulatore Azure Cosmos DB](local-emulator.md). Assicurarsi di rimuovere < e > lasciando le virgolette doppie che racchiudono l'endpoint e la chiave.
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account Azure Cosmos DB, con l'hub ATTIVO evidenziato, il pulsante CHIAVI evidenziato nella pagina dell'account Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nella pagina Chiavi][keys]
+![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console C#. Mostra un account di Azure Cosmos DB, con l'hub ATTIVO evidenziato, il pulsante CHIAVI evidenziato nella pagina dell'account di Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nella pagina Chiavi][keys]
 
 Per avviare l'applicazione introduttiva, si creerà una nuova istanza di **DocumentClient**.
 
@@ -218,7 +218,7 @@ Copiare e incollare il codice seguente nel metodo **GetStartedDemo** sotto il co
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -318,7 +318,7 @@ Inserire anche due documenti, relativi rispettivamente alla famiglia Andersen e 
 Copiare e incollare il codice riportato dopo `// ADD THIS PART TO YOUR CODE` nel metodo **GetStartedDemo** sotto il codice di creazione della raccolta di documenti.
 
 ```csharp
-await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
@@ -464,15 +464,8 @@ Copiare e incollare il metodo **ReplaceFamilyDocument** sotto il metodo **Execut
 // ADD THIS PART TO YOUR CODE
 private async Task ReplaceFamilyDocument(string databaseName, string collectionName, string familyName, Family updatedFamily)
 {
-    try
-    {
-        await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
-        this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, familyName), updatedFamily);
+    this.WriteToConsoleAndPromptToContinue("Replaced Family {0}", familyName);
 }
 ```
 
@@ -505,15 +498,8 @@ Copiare e incollare il metodo **DeleteFamilyDocument** sotto il metodo **Replace
 // ADD THIS PART TO YOUR CODE
 private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
 {
-    try
-    {
-        await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-        Console.WriteLine("Deleted Family {0}", documentName);
-    }
-    catch (DocumentClientException de)
-    {
-        throw;
-    }
+    await this.client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+    Console.WriteLine("Deleted Family {0}", documentName);
 }
 ```
 

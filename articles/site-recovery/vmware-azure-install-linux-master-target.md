@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -41,7 +41,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
 
 Creare il server di destinazione master in base alle linee guida per il ridimensionamento seguenti:
 - **RAM**: almeno 6 GB
-- **Dimensioni disco sistema operativo**: almeno 100 GB (per installare CentOS6.6)
+- **Dimensioni disco sistema operativo**: almeno 100 GB (per installare il sistema operativo)
 - **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
 - **Core CPU**: almeno 4 core
 
@@ -112,24 +112,31 @@ Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il 
 
 1.  Selezionare **Yes** (Sì) per scrivere le modifiche su disco e premere **Invio**.
 
-1.  Nella selezione per la configurazione del proxy selezionare l'opzione predefinita, selezionare **Continue** (Continua) e premere **Invio**.
+    ![Selezionare l'opzione predefinita](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Selezionare l'opzione predefinita](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  Nella selezione per la configurazione del proxy selezionare l'opzione predefinita, selezionare **Continue** (Continua) e premere **Invio**.
+     
+     ![Selezionare la modalità di gestione degli aggiornamenti](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti) nella selezione per la gestione degli aggiornamenti del sistema e premere **Invio**.
 
-     ![Selezionare la modalità di gestione degli aggiornamenti](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Selezionare la modalità di gestione degli aggiornamenti](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Dato che il server di destinazione master per Azure Site Recovery richiede una versione molto specifica di Ubuntu, è necessario assicurarsi che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale. Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master. Assicurarsi di selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti).
 
 1.  Selezionare le opzioni predefinite. Per usare connessioni openSSH per SSH, selezionare l'opzione **OpenSSH server** (Server OpenSSH) e selezionare **Continue** (Continua).
 
-    ![Selezionare il software](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Selezionare il software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. Nella selezione per l'installazione del caricatore di avvio GRUB selezionare **Yes** (Sì) e premere **Invio**.
+     
+    ![Programma di installazione di avvio GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Selezionare il dispositivo appropriato per l'installazione del caricatore di avvio (preferibilmente **/dev/sda**) e premere **Invio**.
+     
+    ![Selezionare il dispositivo appropriato](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Selezionare **Continue** (Continua) e premere **Invio** per completare l'installazione.
 
@@ -154,7 +161,7 @@ Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il 
 
 4. Nel riquadro a sinistra, selezionare **Advanced** > **General** (Avanzate - Generale, quindi selezionare il pulsante **Configuration Parameters** (Parametri di configurazione) nella parte inferiore destra della schermata.
 
-    ![Scheda Opzioni](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Aprire il parametro di configurazione.](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     L'opzione **Configuration Parameters** (Parametri di configurazione) è disponibile solo quando il computer è in esecuzione. Per attivare la scheda, arrestare la macchina virtuale.
 
@@ -168,7 +175,7 @@ Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il 
 
     - Nella colonna del nome, aggiungere **disk.EnableUUID**, quindi impostare il valore su **TRUE**.
 
-    ![Controllare se esiste già una riga con il valore disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Controllare se esiste già una riga con il valore disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Disabilitare gli aggiornamenti del kernel
 
@@ -244,7 +251,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Creazione di un file system nell'unità](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Creazione di un file system nell'unità](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Dopo aver creato il file system, montare il disco di conservazione.
 
@@ -252,7 +259,6 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Montaggio del disco di conservazione](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Creare la voce **fstab** per montare l'unità di conservazione a ogni avvio del sistema.
     

@@ -7,19 +7,19 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Java
 
-Questa guida introduttiva spiega come usare Java per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
+Questa guida rapida mostra come usare Java per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
 
-L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilizzata in questa guida introduttiva è un'applicazione console di base. 
+L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-java-quickstart) utilizzata in questa guida rapida è un'applicazione console di base. 
 
 Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. 
 
@@ -130,7 +130,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di accodamento e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequentemente e vengono usati in questa guida introduttiva. 
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di accodamento e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequentemente e vengono usati in questa guida rapida. 
 
 Per caricare un file in un BLOB, ottenere un riferimento al BLOB nel contenitore di destinazione. Dopo aver creato il riferimento al BLOB, è possibile caricarvi i dati con [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). Questa operazione consente di creare il BLOB se non esiste o di sovrascriverlo se esiste già.
 
@@ -184,7 +184,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
 
-Se i BLOB caricati in questa guida introduttiva non sono più necessari, è possibile eliminare l'intero contenitore usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Questa procedura elimina anche i file nel contenitore.
+Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Questa procedura elimina anche i file nel contenitore.
 
 ```java
 try {
@@ -203,9 +203,22 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Risorse per lo sviluppo di applicazioni Java con BLOB
+
+Per lo sviluppo Java con Archiviazione BLOB, vedere le risorse aggiuntive seguenti:
+
+### <a name="binaries-and-source-code"></a>File binari e codice sorgente
+
+- Visualizzare e scaricare il [codice sorgente della libreria client Java](https://github.com/Azure/azure-storage-java) per Archiviazione di Azure su GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client
+
+- Per altre informazioni sulla libreria client Java, vedere le [informazioni di riferimento sulle API Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage).
+- Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) scritti con la libreria client Java.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Java. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
+In questa guida rapida è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Java. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](storage-java-how-to-use-blob-storage.md)

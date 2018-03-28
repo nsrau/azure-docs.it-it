@@ -1,8 +1,8 @@
 ---
-title: "Dashboard di Power BI sull'integrità dei veicoli e sulle abitudini di guida - Azure | Microsoft Docs"
-description: "Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida."
+title: Dashboard di Power BI sull'integrità dei veicoli e sulle abitudini di guida - Azure | Microsoft Docs
+description: Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo
 Questo menu contiene i collegamenti alle sezioni dello studio: 
@@ -42,7 +42,7 @@ Come parte del modello di soluzione per l'analisi dei dati di telemetria del vei
 * **Azure HDInsight** trasforma i dati su larga scala.
 * **Azure Data Factory** gestisce l'orchestrazione, la pianificazione, la gestione delle risorse e il monitoraggio della pipeline di elaborazione batch.
 
-**Power BI** offre alla soluzione un dashboard completo per la visualizzazione di dati in tempo reale e di analisi predittiva. 
+**Power BI** offre alla soluzione un dashboard completo per la visualizzazione di dati e di analisi predittive. 
 
 La soluzione usa due origini dati diverse:
 
@@ -101,7 +101,7 @@ Questa soluzione include tre report in tempo reale:
 * Veicoli che richiedono manutenzione
 * Statistiche sull'integrità dei veicoli
 
-È possibile configurare tutti e tre i report in tempo reale o interrompere la procedura dopo ogni fase e passare alla sezione successiva di configurazione dei report in batch. È consigliabile creare tutti e tre i report per visualizzare le informazioni dettagliate complete del percorso in tempo reale della soluzione.  
+È possibile configurare tutti e tre i report o interrompere la procedura dopo ogni fase e passare alla sezione successiva di configurazione dei report in batch. È consigliabile creare tutti e tre i report per visualizzare le informazioni dettagliate complete del percorso in tempo reale della soluzione.  
 
 ### <a name="vehicles-in-operation-report"></a>Report Veicoli operativi
 1. Fare doppio clic su **Pagina 1** e rinominarla **Veicoli operativi**.
@@ -160,7 +160,7 @@ Questa soluzione include tre report in tempo reale:
 
     ![Dashboard con visualizzazioni](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-Il report in tempo reale "Veicoli operativi" è stato configurato correttamente. È possibile creare il report in tempo reale successivo o interrompere la procedura e configurare il dashboard. 
+Il report "Veicoli operativi" è stato configurato correttamente. È possibile creare il report in tempo reale successivo o interrompere la procedura e configurare il dashboard. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Report Veicoli che richiedono manutenzione
 
@@ -198,7 +198,7 @@ Il report in tempo reale "Veicoli operativi" è stato configurato correttamente.
 
 6. Nella scheda **Campi** trascinare **Model** nell'area **Asse**. Trascinare **vin** nell'area **Valore**. Ordinare quindi la visualizzazione in base a **Conteggio di vin**. Modificare il campo **Titolo** del grafico in **Veicoli che richiedono manutenzione in base al modello**. 
 
-7. Nella sezione **Campi** ![Campi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) della scheda **Visualizzazioni** trascinare **vin** in **Saturazione colore**.
+7. Nella sezione **Campi** ![Immagine di Campi](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) della scheda **Visualizzazioni** trascinare **vin** in **Saturazione colore**.
 
     ![Saturazione colore](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -333,7 +333,7 @@ Il dashboard in tempo reale è stato creato correttamente. Continuando a eseguir
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Configurare il dashboard di elaborazione batch di Power BI
 > [!NOTE]
-> Occorrono circa due ore dal completamento della distribuzione perché la pipeline di elaborazione batch end-to-end completi l'esecuzione ed elabori un anno di dati generati. Attendere il completamento prima di procedere con i passaggi seguenti. 
+> Occorrono circa due ore dal completamento della distribuzione perché la pipeline di elaborazione batch end-to-end completi l'esecuzione ed elabori un anno di dati generati. Attendere il completamento prima di procedere con i passaggi seguenti:
 > 
 > 
 

@@ -2,7 +2,7 @@
 title: Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud | Documentazione Microsoft
 description: Informazioni per la scelta tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud per l'hosting di applicazioni Web.
 services: app-service\web, virtual-machines, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
 ## <a name="overview"></a>Panoramica
@@ -49,7 +49,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Hosting del livello Web o dei servizi Web di un'architettura multilivello |X |X |X |X | |
 | Hosting del livello intermedio di un'architettura multilivello |X |X |X |X |App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. |
 | Supporto integrato di MySQL distribuito come servizio |X |X | | | |
-| Supporto per ASP.NET, ASP classico, Node.js, PHP, Python |X |X |X |X |Service Fabric supporta la creazione di un front-end Web con [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) oppure consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Supporto per ASP.NET, ASP classico, Node.js, PHP, Python |X |X |X |X |Service Fabric supporta la creazione di un front-end Web con [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) oppure consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come [eseguibile guest](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Scalabilità orizzontale a più istanze senza ridistribuzione |X |X |X |X |Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware. |
 | Supporto per SSL |X |X |X |X |Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integrazione di Visual Studio |X |X |X |X | |
@@ -59,7 +59,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Supporto per [Gestione traffico di Azure](/azure/traffic-manager/) |X |X |X |X | |
 | Monitoraggio integrato degli endpoint |X |X |X | | |
 | Accesso al server tramite Desktop remoto | |X |X |X | |
-| Installazione di qualsiasi MSI personalizzato | |X |X |X |Service Fabric consente di ospitare qualsiasi file eseguibile come [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md) o di installare qualsiasi app nelle macchine virtuali. |
+| Installazione di qualsiasi MSI personalizzato | |X |X |X |Service Fabric consente di ospitare qualsiasi file eseguibile come [eseguibile guest](../service-fabric/service-fabric-guest-executables-introduction.md) o di installare qualsiasi app nelle macchine virtuali. |
 | Possibilità di definire/eseguire le attività di avvio | |X |X |X | |
 | Possibilità di essere in ascolto di eventi ETW | |X |X |X | |
 
@@ -156,7 +156,7 @@ I servizi Web basati su HTTP consentono di supportare una vasta gamma di client,
 * Utilizzare il sito pubblicato per fornire API REST per qualsiasi client HTTP, compresi quelli mobili.
 
 > [!NOTE]
-> Per iniziare a usare Azure App Service prima di registrare un account, andare a la pagina all'indirizzo <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare immediatamente e gratuitamente un'app iniziale temporanea in Azure App Service. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account, visitare la pagina <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare subito gratuitamente un'app di base temporanea nel servizio app di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 

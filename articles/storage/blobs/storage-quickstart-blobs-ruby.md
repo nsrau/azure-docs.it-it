@@ -7,19 +7,19 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Ruby
 
-Questa guida introduttiva spiega come usare Ruby per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
+Questa guida rapida mostra come usare Ruby per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva: 
 * Installare [Ruby](https://www.ruby-lang.org/en/downloads/)
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
-L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) usata in questa guida introduttiva è un'applicazione Ruby di base.  
+L'[applicazione di esempio](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) usata in questa guida rapida è un'applicazione Ruby di base.  
 
 Usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. 
 
@@ -111,7 +111,7 @@ blob_client.set_container_acl(container_name, "container")
 
 ### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida introduttiva.  
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequente e vengono usati in questa guida rapida.  
 
 Per caricare un file in un BLOB, ottenere il percorso completo del file unendo il nome della directory e il nome del file nell'unità locale. È quindi possibile caricare il file nel percorso desiderato usando il metodo **create\_block\_blob()**. 
 
@@ -169,7 +169,7 @@ File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
 ### <a name="clean-up-resources"></a>Pulire le risorse
-Se i BLOB caricati in questa guida introduttiva non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container()**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob()**.
+Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando il metodo **delete\_container()**. È possibile eliminare anche i file creati se non sono più necessari usando il metodo **delete\_blob()**.
 
 ```ruby
 # Clean up resources. This includes the container and the temp files
@@ -177,10 +177,16 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Risorse per lo sviluppo di applicazioni Ruby con BLOB
+
+Per lo sviluppo Ruby con Archiviazione BLOB, vedere le risorse aggiuntive seguenti:
+
+- Visualizzare e scaricare il [codice sorgente della libreria client Ruby](https://github.com/Azure/azure-storage-ruby) per Archiviazione di Azure su GitHub.
+- Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) scritti con la libreria client Ruby.
 
 ## <a name="next-steps"></a>Passaggi successivi
  
-In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Ruby. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
+In questa guida rapida è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Ruby. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](./storage-ruby-how-to-use-blob-storage.md)

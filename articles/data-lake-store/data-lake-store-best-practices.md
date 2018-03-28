@@ -2,7 +2,7 @@
 title: Procedure consigliate per l'uso di Azure Data Lake Store | Microsoft Docs
 description: Informazioni sulle procedure consigliate per l'inserimento dati, la sicurezza dei dati e le prestazioni in relazione all'uso di Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Panoramica di Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Procedure consigliate per l'uso di Azure Data Lake Store
 Questo articolo illustra le procedure consigliate e alcune considerazioni per l'uso di Azure Data Lake Store. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Store. Prima di Data Lake Store, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Store rimuove la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Ci sono tuttavia alcune considerazioni illustrate in questo articolo che aiutano a ottenere prestazioni ottimali con Data Lake Store. 
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
@@ -96,7 +96,7 @@ Per garantire la resilienza dei dati con Data Lake Store, è consigliabile abili
 Di seguito sono illustrate le tre principali opzioni consigliate per l'orchestrazione della replica tra gli account Data Lake Store e le principali differenze tra di esse.
 
 
-|  |Distcp  |Azure Data Factory  |AdlCopy  |
+|  |Distcp  |Data factory di Azure  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limiti di scalabilità**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
 |**Supporto per la copia delta**     |   Sì      | No          | No          |
@@ -139,7 +139,7 @@ Se il log shipping di Data Lake Store non è attivato, Azure HDInsight consente 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Una volta eseguita questa impostazione e riavviati i nodi, i dati di diagnostica di Data Lake Store vengono scritti nei log YARN nei nodi (/tmp/<user>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o le limitazioni (codice di errore HTTP 429). Le stesse informazioni possono essere monitorate anche in OMS o in qualunque strumento che consenta il log shipping nel pannello [Diagnostica](data-lake-store-diagnostic-logs.md) dell'account Data Lake Store. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Store per ottenere visibilità operativa e semplificare il debug.
+Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, i dati di diagnostica di Data Lake Store vengono scritti nei log YARN nei nodi (/tmp/<user>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o le limitazioni (codice errore HTTP 429). Le stesse informazioni possono essere monitorate anche in OMS o in qualunque strumento che consenta il log shipping nel pannello [Diagnostica](data-lake-store-diagnostic-logs.md) dell'account Data Lake Store. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Store per ottenere visibilità operativa e semplificare il debug.
 
 ### <a name="run-synthetic-transactions"></a>Eseguire transazioni sintetiche 
 
@@ -155,7 +155,7 @@ Nei carichi di lavoro IoT può esserci una notevole quantità di dati trasmessa 
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-I dati di telemetria per gli atterraggi relativi a un motore di un aereo nel Regno Unito potrebbero ad esempio essere simili a quanto segue: 
+I dati di telemetria per gli atterraggi relativi a un motore di un aereo nel Regno Unito potrebbero ad esempio essere simili alla struttura seguente: 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ C'è un motivo importante per inserire la data alla fine della struttura di cart
 
 ### <a name="batch-jobs-structure"></a>Struttura dei processi batch 
 
-Da un punto di vista generale, un approccio comune nell'elaborazione batch consiste nel trasmette i dati a una cartella "in ingresso". Una volta che i dati sono stati elaborati, è quindi possibile inserire i nuovi dati in una cartella "in uscita" per l'uso da parte dei processi downstream. Ciò avviene talvolta per i processi che richiedono l'elaborazione sui singoli file e potrebbero non richiedere l'elaborazione parallela elevata (Massively Parallel Processing, MPP) su set di dati di grandi dimensioni. Analogamente alla struttura IoT consigliata in precedenza, una buona struttura di directory ha cartelle di livello padre per elementi come le aree e gli ambiti (ad esempio organizzazione, prodotto/produttore). In questo modo, è più facile proteggere i dati nell'organizzazione e gestirli nei carichi di lavoro. Considerare inoltre data e ora nella struttura per consentire una migliore organizzazione, ricerche con filtri, sicurezza e automazione nell'elaborazione. Il livello di granularità per la struttura di data è determinato dall'intervallo con cui i dati vengono caricati o elaborati, ad esempio ogni ora, ogni giorno o anche ogni mese. 
+Da un punto di vista generale, un approccio comune nell'elaborazione batch consiste nel trasmette i dati a una cartella "in ingresso". Una volta che i dati sono stati elaborati, è quindi possibile inserire i nuovi dati in una cartella "in uscita" per l'uso da parte dei processi downstream. Questa struttura di directory viene talvolta usata per i processi che richiedono l'elaborazione sui singoli file e potrebbero non richiedere l'elaborazione parallela elevata (Massively Parallel Processing, MPP) su set di dati di grandi dimensioni. Analogamente alla struttura IoT consigliata in precedenza, una buona struttura di directory ha cartelle di livello padre per elementi come le aree e gli ambiti (ad esempio organizzazione, prodotto/produttore). Questa struttura consente di proteggere i dati nell'organizzazione e di gestirli meglio nei carichi di lavoro. Considerare inoltre data e ora nella struttura per consentire una migliore organizzazione, ricerche con filtri, sicurezza e automazione nell'elaborazione. Il livello di granularità per la struttura di data è determinato dall'intervallo con cui i dati vengono caricati o elaborati, ad esempio ogni ora, ogni giorno o anche ogni mese. 
 
 Talvolta l'elaborazione di file ha esito negativo a causa del danneggiamento dei dati o di formati imprevisti. In questi casi, può essere utile la presenza di una cartella **/bad** nella struttura di directory, dove spostare i file per un'ulteriore analisi. Il processo batch può anche gestire la creazione di report o le notifiche per i file nella cartella *bad*, per gli interventi manuali. Si consideri la struttura di modelli seguente: 
 
@@ -171,7 +171,7 @@ Talvolta l'elaborazione di file ha esito negativo a causa del danneggiamento dei
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Una società di marketing riceve ad esempio estratti giornalieri di dati degli aggiornamenti dei clienti dai committenti in America del Nord, che prima e dopo l'elaborazione possono essere come segue: 
+Una società di marketing riceve ad esempio estratti giornalieri di dati degli aggiornamenti dei clienti dai committenti in America del Nord, che prima e dopo l'elaborazione possono essere come il frammento seguente: 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 

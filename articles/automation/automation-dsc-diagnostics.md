@@ -1,23 +1,20 @@
 ---
-title: Inoltrare i dati dei report di Automation DSC per Azure a Log Analytics di OMS | Microsoft Docs
-description: "Questo articolo illustra come inviare i dati di report di configurazione dello stato desiderato (DSC, Desired State Configuration) a Log Analytics di Microsoft Operations Management Suite per fornire informazioni e funzionalità di gestione aggiuntive."
+title: Inoltrare i dati dei report di Automation DSC per Azure in Log Analytics
+description: Questo articolo illustra come inviare i dati di report DSC (Desired State Configuration) a Log Analytics per fornire informazioni e funzionalità di gestione aggiuntive.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Inoltrare i dati dei report di Automation DSC per Azure a Log Analytics di OMS
 
