@@ -1,23 +1,23 @@
 ---
-title: Esercitazione sulla distribuzione di un modello per i servizi di Azure Machine Learning (anteprima) | Microsoft Docs
-description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. Questa terza parte illustra il modello di distribuzione.
+title: Esercitazione sulla distribuzione di un modello per i servizi di Azure Machine Learning
+description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning end-to-end. Questa terza parte illustra il modello di distribuzione.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Esercitazione: Classificare i dati Iris - Parte 3: Distribuire un modello
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Esercitazione 3: Classificare i dati Iris - Distribuire un modello
 Azure Machine Learning (anteprima) è una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
 Questa esercitazione è la **terza di una serie in tre parti**. In questa parte dell'esercitazione si usa Machine Learning (anteprima) per:
@@ -30,17 +30,15 @@ Questa esercitazione è la **terza di una serie in tre parti**. In questa parte 
 > * Eseguire il servizio Web in tempo reale.
 > * Esaminare i dati del BLOB di output. 
 
-Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/iris_flower_data_set). Gli screenshot sono specifici di Windows, ma l'esperienza in Mac OS è quasi identica.
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set). 
 
 ## <a name="prerequisites"></a>prerequisiti
-Completare le prime due parti di questa serie di esercitazioni:
 
-   * Seguire l'[esercitazione sulla preparazione dei dati](tutorial-classifying-iris-part-1.md) per creare le risorse di Machine Learning e installare l'applicazione Azure Machine Learning Workbench.
-   * Seguire l'[esercitazione sulla creazione di un modello](tutorial-classifying-iris-part-2.md) per creare un modello di regressione logistica in Machine Learning.
-
-È necessario un motore Docker installato e in esecuzione nell'ambiente locale. In alternativa, è possibile eseguire la distribuzione in un cluster del servizio contenitore di Azure in Azure.
+Per completare questa esercitazione, sono necessari:
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+- Un account di Sperimentazione e Azure Machine Learning Workbench installato come illustrato in questa [guida introduttiva](quickstart-installation.md)
+- Il modello di classificazione dalla [Parte 2 dell'esercitazione](tutorial-classifying-iris-part-2.md)
+- Un motore Docker installato e in esecuzione localmente
 
 ## <a name="download-the-model-pickle-file"></a>Scaricare il file pickle del modello
 Nella parte precedente dell'esercitazione, lo script **iris_sklearn.py** è stato eseguito in locale in Machine Learning Workbench. Tale azione ha serializzato il modello di regressione logistica usando il diffuso pacchetto di serializzazione degli oggetti Python [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -91,7 +89,7 @@ Per distribuire il servizio Web insieme al file di modello, è necessario anche 
 
 4. Per ottenere il file di schema, eseguire lo script. Selezionare l'ambiente **local** (locale) e lo script **score_iris.py** nella barra dei comandi e quindi fare clic su **Run** (Esegui). 
 
-5. Questo script crea un file JSON nella sezione **Outputs**, in cui viene acquisito lo schema di dati di input richiesto dal modello.
+   Questo script crea un file JSON nella sezione **Outputs**, in cui viene acquisito lo schema di dati di input richiesto dal modello.
 
 6. Si noti il riquadro **Jobs** (Processi) sul lato destro del riquadro **Project Dashboard** (Dashboard progetto). Attendere che per il processo **score_iris.py** più recente venga visualizzato lo stato **Completed** (Completato) in verde. Fare quindi clic sul collegamento ipertestuale **score_iris.py** per l'esecuzione più recente del processo per visualizzare i dettagli dell'esecuzione. 
 
@@ -128,7 +126,10 @@ Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Doc
 È possibile usare la _modalità locale_ a scopo di sviluppo e test. Per completare la procedura seguente per rendere operativo il modello, il motore Docker deve essere eseguito in locale. È possibile usare il flag `-h` al termine di ogni comando per visualizzare il messaggio della Guida corrispondente.
 
 >[!NOTE]
->Se il motore Docker non è disponibile in locale, è comunque possibile procedere creando un cluster in Azure per la distribuzione. Assicurarsi di eliminare il cluster al termine dell'esercitazione per non sostenere continui addebiti.
+>Se il motore Docker non è disponibile in locale, è comunque possibile procedere creando un cluster in Azure per la distribuzione. È possibile conservare il cluster per usarlo in futuro oppure eliminarlo dopo l'esercitazione, per non sostenere continui addebiti.
+
+>[!NOTE]
+>I servizi Web distribuiti localmente non vengono visualizzati nell'elenco di servizi del portale di Azure. Verranno eseguiti in Docker nel computer locale.
 
 1. Aprire l'interfaccia della riga di comando.
    In Machine Learning Workbench scegliere **Open Command Prompt** (Apri prompt dei comandi) dal menu **File**.

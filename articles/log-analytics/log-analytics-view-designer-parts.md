@@ -1,24 +1,24 @@
 ---
 title: Guida di riferimento per le parti di Progettazione viste in Azure Log Analytics | Microsoft Docs
-description: "Progettazione viste di Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate."
+description: Progettazione viste di Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
-editor: 
+manager: carmonm
+editor: ''
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -28,21 +28,19 @@ Per altre informazioni su Progettazione viste, vedere:
 * [Progettazione viste](log-analytics-view-designer.md): offre una panoramica di Progettazione viste e delle procedure per la creazione e la modifica di viste personalizzate.
 * [Informazioni di riferimento sul riquadro](log-analytics-view-designer-tiles.md): offre informazioni di riferimento sulle impostazioni relative a ogni riquadro disponibile nelle viste personalizzate.
 
->[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query in tutte le viste devono essere scritte nel [nuovo linguaggio di query](https://go.microsoft.com/fwlink/?linkid=856078). Tutte le viste create prima dell'aggiornamento dell'area di lavoro vengono convertite automaticamente.
 
 I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabella seguente:
 
 | Tipo di vista | DESCRIZIONE |
 |:--- |:--- |
 | [Elenco di query](#list-of-queries-part) |Visualizza l'elenco delle query di ricerca log. È possibile selezionare ogni query per visualizzarne i risultati. |
-| [Numero ed elenco](#number-amp-list-part) |L'intestazione presenta un singolo numero che mostra il conteggio dei record risultanti da una query di ricerca log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Due numeri ed elenco](#two-numbers-amp-list-part) |L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di ricerca log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Grafico ad anello ed elenco](#donut-amp-list-part) |L'intestazione presenta un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali. |
-| [Due sequenze temporali ed elenco](#two-timelines-amp-list-part) |L'intestazione presenta i risultati di due query di log nel corso del tempo sotto forma di istogrammi, con un callout in cui viene visualizzato un singolo numero che riepiloga una colonna di valori in una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Numero ed elenco](#number-and-list-part) |L'intestazione presenta un singolo numero che mostra il conteggio dei record risultanti da una query di ricerca log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Due numeri ed elenco](#two-numbers-and-list-part) |L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di ricerca log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Grafico ad anello ed elenco](#donut-and-list-part) |L'intestazione presenta un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali. |
+| [Due sequenze temporali ed elenco](#two-timelines-and-list-part) |L'intestazione presenta i risultati di due query di log nel corso del tempo sotto forma di istogrammi, con un callout in cui viene visualizzato un singolo numero che riepiloga una colonna di valori in una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Informazioni](#information-part) |L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visualizza uno o più elementi con titolo e testo statici. |
-| [Grafico a linee, callout ed elenco](#line-chart-callout-amp-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Grafico a linee ed elenco](#line-chart-amp-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Grafico a linee, callout ed elenco](#line-chart-callout-and-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Grafico a linee ed elenco](#line-chart-and-list-part) |L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Parte relativa allo stack dei grafici a linee](#stack-of-line-charts-part) |Visualizza tre grafici a linee separati con più serie provenienti da una query di log nel corso del tempo. |
 
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
@@ -77,14 +75,15 @@ L'intestazione presenta un singolo numero che mostra il conteggio dei record ris
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Titolo** | |
 | Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
-| Query |Query da eseguire per l'intestazione. Viene visualizzato il conteggio dei record restituiti dalla query. |
+| Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** | |
 | Query |Query da eseguire per l'elenco. Vengono visualizzate le prime due proprietà per i primi dieci record nei risultati. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando `Sort` nella query per ordinare i record nell'elenco. Per eseguire la query e restituire tutti i record, è possibile selezionare **Visualizza tutto**. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Query di navigazione |Query da eseguire quando si seleziona un elemento nell'elenco. Per altre informazioni, vedere [Impostazioni comuni](#navigation-query). |
+| Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
@@ -103,9 +102,11 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
+| **Navigazione nel titolo** | |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Titolo** | |
 | Legenda |Testo che viene visualizzato nella parte superiore dell'intestazione. |
-| Query |Query da eseguire per l'intestazione. Viene visualizzato il conteggio dei record restituiti dalla query. |
+| Query |Query da eseguire per l'intestazione. Viene visualizzato il numero di record restituiti dalla query. |
 | **Elenco** | |
 | Query |Query da eseguire per l'elenco. Vengono visualizzate le prime due proprietà per i primi dieci record nei risultati. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Le barre vengono create automaticamente in base al valore relativo della colonna numerica.<br><br>Usare il comando `Sort` nella query per ordinare i record nell'elenco. Per eseguire la query e restituire tutti i record, è possibile selezionare **Visualizza tutto**. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
@@ -113,7 +114,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Query di navigazione |Query da eseguire quando si seleziona un elemento nell'elenco. Per altre informazioni, vedere [Impostazioni comuni](#navigation-query). |
+| Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
@@ -133,10 +134,11 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
-| Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
+| Title |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Anello** | |
 | Query |Query da eseguire per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Anello** |**> Centro** |
 | Text |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: aggiunge i valori di tutti i record.</li><li>Percentuale: rapporto tra i record restituiti in base ai valori in **Valori dei risultati usati nell'operazione relativa al centro** e il totale dei record nella query.</li></ul> |
@@ -147,13 +149,13 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 | Valore campo |Digitare il nome di un campo da visualizzare con un colore diverso, se incluso nell'anello. |
 | Colore |Selezionare il colore da assegnare al campo univoco. |
 | **Elenco** | |
-| Query |Query da eseguire per l'elenco. Viene visualizzato il conteggio dei record restituiti dalla query. |
+| Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Query di navigazione |Query da eseguire quando si seleziona un elemento nell'elenco. Per altre informazioni, vedere [Impostazioni comuni](#navigation-query). |
+| Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
@@ -172,18 +174,20 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
+| **Navigazione nel titolo** | |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Primo grafico<br>Secondo grafico** | |
 | Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
 | Colore |Colore da usare per le colonne della serie. |
 | Query |Query da eseguire per la prima serie. Il numero di record in ogni intervallo di tempo viene rappresentato dalle colonne del grafico. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Somma: somma dei valori di tutti i record.</li><li>Media: media dei valori di tutti i record.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Primo esempio: valore del primo intervallo incluso nel grafico.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li></ul> |
 | **Elenco** | |
-| Query |Query da eseguire per l'elenco. Viene visualizzato il conteggio dei record restituiti dalla query. |
+| Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Query di navigazione |Query da eseguire quando si seleziona un elemento nell'elenco. Per altre informazioni, vedere [Impostazioni comuni](#navigation-query). |
+| Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
@@ -224,26 +228,27 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
-| Title |Testo che viene visualizzato nella parte superiore dell'intestazione. |
+| Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Grafico a linee** |**> Callout** |
-| Titolo del callout |Testo che viene visualizzato sopra il valore di callout. |
+| Titolo del callout |Testo che viene visualizzato sopra il valore del callout. |
 | Nome della serie |Il valore della proprietà per la serie da usare per il valore di callout. Se non viene fornita alcuna serie, vengono usati tutti i record prodotti dalla query. |
 | Operazione |Operazione da eseguire sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li><li>Min: valore minimo derivante dagli intervalli inclusi nel grafico.</li><li>Somma: somma dei valori di tutti i record.</li></ul> |
 | **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
-| Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo di *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo di *Unità corrente* al tipo di *Converti in*. |
-| Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo di *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo di *Unità*. |
+| Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
+| Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
 | **Elenco** | |
-| Query |Query da eseguire per l'elenco. Viene visualizzato il conteggio dei record restituiti dalla query. |
+| Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Query di navigazione |Query da eseguire quando si seleziona un elemento nell'elenco. Per altre informazioni, vedere [Impostazioni comuni](#navigation-query). |
+| Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
@@ -267,18 +272,19 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
-| Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo di *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo di *Unità corrente* al tipo di *Converti in*. |
-| Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo di *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo di *Unità*. |
+| Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
+| Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
 | **Elenco** | |
-| Query |Query da eseguire per l'elenco. Viene visualizzato il conteggio dei record restituiti dalla query. |
+| Query |Query da eseguire per l'elenco. Viene visualizzato il numero di record restituiti dalla query. |
 | Nascondi grafico |Selezionare questo collegamento per disabilitare il grafico a destra della colonna numerica. |
 | Abilita grafici sparkline |Selezionare questo collegamento per visualizzare un grafico sparkline al posto di una barra orizzontale. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Colore |Colore delle barre o dei grafici sparkline. |
 | Operazione |Operazione da eseguire per il grafico sparkline. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
 | Separatore di nome e valore |Delimitatore di singoli caratteri da usare per analizzare la proprietà di testo in più valori. Per altre informazioni, vedere [Impostazioni comuni](#sparklines). |
-| Query di navigazione |Query da eseguire quando si seleziona un elemento nell'elenco. Per altre informazioni, vedere [Impostazioni comuni](#navigation-query). |
+| Navigazione click-through | Azione intrapresa quando si fa clic su un elemento nell'elenco.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Elenco** |**> Titoli di colonna** |
 | NOME |Testo che viene visualizzato nella parte superiore della prima colonna. |
 | Valore |Testo che viene visualizzato nella parte superiore della seconda colonna. |
@@ -297,14 +303,15 @@ Lo stack presenta tre grafici a linee separati con più serie provenienti da una
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | **Grafico 1<br>Grafico 2<br>Grafico 3** |**&gt; Header** (Intestazione) |
-| Titolo |Testo che viene visualizzato nella parte superiore del grafico. |
+| Title |Testo che viene visualizzato nella parte superiore del grafico. |
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore del grafico. |
 | **Grafico 1<br>Grafico 2<br>Grafico 3** |**Grafico a linee** |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
+| Navigazione click-through | Azione intrapresa quando si fa clic sull'intestazione.  Per altre informazioni, vedere [Impostazioni comuni](#click-through-navigation). |
 | **Grafico** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
-| Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo di *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo di *Unità corrente* al tipo di *Converti in*. |
-| Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo di *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo di *Unità*. |
+| Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
+| Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
 
 ## <a name="common-settings"></a>Impostazioni comuni
 Le sezioni seguenti descrivono le impostazioni comuni a più parti di visualizzazione.
@@ -314,10 +321,18 @@ Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare
 
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
-### <a name="navigation-query"></a>Query di navigazione
-La query di navigazione è la query da eseguire quando si seleziona un elemento nell'elenco. Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.
+### <a name="click-through-navigation"></a>Navigazione click-through
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nel [portale per la ricerca log](log-analytics-log-search-portals.md#log-search) o verrà avviata un'altra visualizzazione.
 
-Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*.
+La tabella seguente illustra le impostazioni relative alla navigazione click-through.
+
+| Impostazione           | DESCRIZIONE |
+|:--|:--|
+| Ricerca log (automatica) | Ricerca log da eseguire quando si seleziona un elemento intestazione.  Si tratta della stessa ricerca log su cui si basa l'elemento.
+| Ricerca log        | Ricerca log da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*. |
+| Visualizza              | Visualizzazione da aprire quando si seleziona un elemento intestazione o un elemento in un elenco.  Selezionare il nome di una visualizzazione nell'area di lavoro nella casella **Nome visualizzazione**. |
+
+
 
 ### <a name="sparklines"></a>Grafici sparkline
 Un grafico sparkline è un grafico a linee di piccole dimensioni che mostra le variazioni nel tempo del valore di una voce di elenco. Per le parti di visualizzazione con un elenco è possibile scegliere se visualizzare una barra orizzontale con indicato il valore relativo di una colonna numerica oppure un grafico sparkline con indicate le variazioni del valore nel tempo.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Come usare PerfInsights 
 
@@ -238,11 +238,11 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     >
     >Se l'opzione relativa alla durata **/d** non è specificata, PerfInsights chiederà all'utente di riprodurre il problema durante l'esecuzione dello scenario di analisi della macchina virtuale lenta, di quello di File di Azure e di quello personalizzato. 
 
-Al termine delle operazioni o delle tracce, viene visualizzato un nuovo file in D:\\log\_collection o nell'unità temporanea. Il nome del file è **CollectedData\_aaaa-MM-gg\_hh\_mm\_ss.zip.** È possibile inviare il file all'agente di supporto per l'analisi oppure aprire il report all'interno del file zip per esaminare i risultati e i consigli.
+Al termine delle operazioni o delle tracce, viene visualizzato un nuovo file nella stessa cartella di PerfInsights. Il nome del file è **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip.** È possibile inviare il file all'agente di supporto per l'analisi oppure aprire il report all'interno del file zip per esaminare i risultati e i consigli.
 
 ## <a name="review-the-diagnostics-report"></a>Esaminare il rapporto di diagnostica
 
-Nel file **CollectedData\_aaaa-MM-gg\_hh\_mm\_ss.zip,** è possibile trovare un report HTML che elenca in dettaglio i risultati di PerfInsights. Per esaminare il report, espandere il file **CollectedData\_aaaa-MM-gg\_hh\_mm\_ss.zip** e quindi aprire il file **PerfInsights Report.html**.
+Nel file **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip** è possibile trovare un report HTML che elenca in dettaglio i risultati di PerfInsights. Per esaminare il report, espandere il file **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip** e quindi aprire il file **PerfInsights Report.html**.
 
 Selezionare la scheda **Risultati**.
 
@@ -307,4 +307,4 @@ Lo screenshot seguente mostra un messaggio simile a quello che l'utente potrebbe
 
 Seguire le istruzioni nel messaggio per accedere all'area di lavoro di trasferimento del file. Per maggiore sicurezza, l'utente dovrà cambiare la password al primo uso.
 
-Dopo aver effettuato l'accesso, verrà visualizzata una finestra di dialogo per caricare il file **CollectedData\_aaaa-MM-gg\_hh\_mm\_ss.zip** raccolto da PerfInsights.
+Dopo aver effettuato l'accesso, verrà visualizzata una finestra di dialogo per caricare il file **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip** raccolto da PerfInsights.

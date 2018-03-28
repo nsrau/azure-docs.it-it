@@ -2,23 +2,23 @@
 title: 'Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione nel servizio di sincronizzazione Azure AD Connect | Documentazione Microsoft'
 description: Fornisce informazioni dettagliate su come apportare modifiche alla configurazione nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
-ms.openlocfilehash: e97d3e3e35ee87864c5d38e75e08e62088e25fdb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -245,7 +245,7 @@ Per impostazione predefinita, l'attributo UserType non viene importato nello spa
  1. Passare alla scheda **Connettori** in Synchronization Service Manager.
  2. Fare clic con il pulsante destro del mouse su **Azure AD Connector** e selezionare **Proprietà**.
  3. Nella finestra di dialogo popup passare alla scheda **Seleziona attributi**.
- 4. Assicurarsi che l'attributo PreferredDataLocation sia selezionato nell'elenco degli attributi.
+ 4. Assicurarsi che l'attributo UserType sia selezionato nell'elenco degli attributi.
  5. Fare clic su **OK** per salvare.
 
 ![Aggiungere l'attributo di origine allo schema di AD Connector](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -293,7 +293,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
 ![Creare una regola di sincronizzazione in ingresso](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>Passaggio 5: Creare una regola di sincronizzazione in uscita per trasmettere il valore dell'attributo da Azure AD
-La regola di sincronizzazione in uscita consente la trasmissione del valore dell'attributo dal metaverse all'attributo PreferredDataLocation in Azure AD:
+La regola di sincronizzazione in uscita consente la trasmissione del valore dell'attributo dal metaverse all'attributo UserType in Azure AD:
 
 1. Passare all'editor delle regole di sincronizzazione.
 2. Impostare il filtro di ricerca **Direzione** da **In uscita**.

@@ -2,10 +2,10 @@
 title: Come aggiungere una sottoscrizione di Azure esistente alla directory di Azure AD | Microsoft Docs
 description: Come aggiungere una sottoscrizione esistente alla directory di Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory
 
@@ -34,6 +34,7 @@ Tutti gli utenti dispongono di una singola home directory che li autentica, ma p
 
 * È necessario accedere con l'account con accesso di proprietario di controllo degli accessi in base al ruolo alla sottoscrizione.
 * È necessario eseguire l'accesso con un account che esiste sia nella directory corrente a cui è associata la sottoscrizione che nella directory a cui la si vuole aggiungere. Per altre informazioni su come ottenere l'accesso a un'altra directory, vedere [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md).
+* Questa funzionalità non è disponibile per sottoscrizioni CSP (MS-AZR-0145P, MS-AZR-0146P e MS-AZR-159P) e Microsoft Imagine (MS-AZR-0144P).
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Per associare una sottoscrizione esistente alla directory di Azure AD
 

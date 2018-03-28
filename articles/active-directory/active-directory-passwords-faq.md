@@ -3,11 +3,11 @@ title: Domande frequenti sulla reimpostazione della password self-service - Azur
 description: Domande frequenti su sulla reimpostazione della password self-service di Azure AD
 services: active-directory
 keywords: gestione delle password in Active Directory, gestione delle password, reimpostazione della password self-service di Azure AD
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -269,7 +269,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: Per quali tipi di account funziona il writeback delle password?**
 
-  > **R:** Il writeback delle password funziona per gli utenti federati e con sincronizzazione dell'hash delle password.
+  > **R:** il writeback delle password funziona per gli account utente sincronizzati da Active Directory locale ad Azure AD, inclusi gli utenti federati, con hash delle password sincronizzati e con autenticazione pass-through.
   >
   >
 * **D: Il writeback delle password applica i criteri di password del dominio?**

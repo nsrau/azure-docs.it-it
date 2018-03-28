@@ -1,24 +1,18 @@
 ---
-title: "Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) | Microsoft Docs"
+title: Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima)
 description: Questa soluzione di gestione di VM avvia e arresta le macchine virtuali di Azure Resource Manager in base a una pianificazione e le monitora in modo attivo da Log Analytics.
 services: automation
-documentationCenter: 
-authors: eslesar
-manager: carmonm
-editor: 
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 12/18/2017
-ms.author: magoedte
-ms.openlocfilehash: 7ffd424de2a7224b5ac50fa228289c5397092b2e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+manager: carmonm
+ms.openlocfilehash: ec15859a92527c4e084075b40d3439d7a19fea1a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
@@ -129,7 +123,7 @@ Non è consigliabile abilitare tutte le pianificazioni, perché potrebbe verific
 
 Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività all'account di Automazione e quindi configurare le variabili per personalizzarla.
 
-1. Nel portale di Azure fare clic su **Crea una risorsa**.<br> ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)<br>  
+1. Nel portale di Azure fare clic su **Crea una risorsa**.<br> ![Portale di Azure](media/automation-solution-vm-management/azure-portal-01.png)<br>  
 2. Nel riquadro Marketplace digitare una parola chiave, ad esempio **Avvio** o **Avvio/Arresto**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. In alternativa, è possibile digitare una o più parole chiave contenute nel nome completo della soluzione e quindi premere INVIO.  Selezionare **Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima)** dai risultati della ricerca.  
 3. Nel riquadro **Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima)** per la soluzione selezionata, esaminare le informazioni di riepilogo e quindi fare clic su **Crea**.  
 4. Viene visualizzato il riquadro **Aggiungi soluzione**. Viene richiesto di configurare la soluzione prima di importarla nella sottoscrizione di Automazione.<br><br> ![Pannello Aggiungi soluzione di Virtual Machine Management](media/automation-solution-vm-management/azure-portal-add-solution-01.png)<br><br>

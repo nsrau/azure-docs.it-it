@@ -3,10 +3,10 @@ title: Creare il primo flusso di lavoro automatizzato - App per la logica di Azu
 description: Questa guida introduttiva spiega come automatizzare il primo flusso di lavoro con App per la logica di Azure per scenari di integrazione di sistemi e di Enterprise Application Integration (EAI) che integrano sistemi e servizi cloud.
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
 keywords: flusso di lavoro, servizi cloud, integrazione di sistemi, enterprise application integration, EAI
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro dell'app per la logica - Portale di Azure
 
@@ -60,6 +60,8 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
    ![Scegliere il modello App per la logica vuota](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) che attiva il flusso di lavoro quando nel feed RSS è presente un nuovo elemento. Ogni app per la logica deve essere avviata con un trigger, che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che si avvia ed esegue il flusso di lavoro.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Controllare il feed RSS con un trigger
 
@@ -144,7 +146,7 @@ Aggiungere ora un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concep
       ![Aggiungere il contenuto per il corpo del messaggio di posta elettronica](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Impostazione | DESCRIZIONE | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Titolo feed** | Titolo dell'elemento | 
       | **Data di pubblicazione del feed** | Data e ora di pubblicazione dell'elemento | 
       | **Collegamento al feed primario** | URL dell'elemento | 
@@ -156,15 +158,16 @@ Testare quindi l'app per la logica.
 
 ## <a name="run-your-logic-app"></a>Eseguire l'app per la logica
 
-Per avviare manualmente l'app per la logica, sulla barra degli strumenti della finestra di progettazione scegliere **Esegui**. In alternativa, attendere l'esecuzione dell'app per la logica in base alla pianificazione specificata (ogni minuto). Se il feed RSS include nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni nuovo elemento. Se però il feed non contiene nuovi elementi, l'app per la logica ignora l'attivazione del trigger e attende l'intervallo successivo prima di eseguire di nuovo il controllo. 
+Per avviare manualmente l'app per la logica, sulla barra degli strumenti della finestra di progettazione scegliere **Esegui**. In alternativa, attendere che l'app per la logica controlli il feed RSS in base alla pianificazione specificata (ogni minuto). Se il feed RSS include nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni nuovo elemento. In caso contrario, l'app per la logica attende l'intervallo successivo prima di controllare di nuovo. 
 
-Ecco ad esempio un messaggio di posta elettronica di esempio inviato dall'app per la logica:
+Ecco un esempio di messaggio di posta elettronica inviato dall'app per la logica. Se non si riceve alcun messaggio di posta elettronica, controllare la cartella della posta indesiderata.
 
 ![Messaggio di posta elettronica inviato per un nuovo elemento del feed RSS](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Se non si riceve alcun messaggio di posta elettronica, controllare la cartella della posta indesiderata. Il filtro della posta indesiderata potrebbe reindirizzare questi tipi di messaggi di posta elettronica. 
+Da un punto di vista tecnico, quando il trigger controlla il feed RSS e trova nuovi elementi, il trigger viene attivato e il motore di App per la logica crea un'istanza del flusso di lavoro dell'app per la logica che esegue le azioni del flusso di lavoro.
+Se il trigger non trova nuovi elementi, non viene attivato e non crea un'istanza del flusso di lavoro.
 
-La prima app per la logica è stata creata ed eseguita.
+Si è così completata la creazione ed esecuzione della prima app per la logica nel portale di Azure.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

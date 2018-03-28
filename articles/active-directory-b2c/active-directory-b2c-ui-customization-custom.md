@@ -2,7 +2,7 @@
 title: Personalizzare un'interfaccia utente tramite criteri personalizzati - Azure AD B2C | Microsoft Docs
 description: Informazioni sulla personalizzazione di un'interfaccia utente con l'uso di criteri personalizzati in Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato
 
@@ -118,7 +118,7 @@ Configurare l'archivio BLOB per la condivisione di risorse tra le origini (CORS)
 
 Verificare che tutte le operazioni preliminari siano state completate seguendo questa procedura:
 
-1. Passare al sito Web [test-cors.org](http://test-cors.org/) e quindi incollare l'URL nella casella **Remote URL** (URL remoto).
+1. Passare al sito Web [www.test-cors.org](http://www.test-cors.org/) e quindi incollare l'URL nella casella **Remote URL** (URL remoto).
 2. Fare clic su **Send Request** (Invia richiesta).  
     Se si riceve un messaggio d'errore, verificare che le [impostazioni CORS](#configure-cors) siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.
 
@@ -149,7 +149,7 @@ Sotto il tag *\<TrustFrameworkPolicy\>* di primo livello dovrebbe essere present
 2. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>riferimento
 
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
 

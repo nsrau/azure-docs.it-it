@@ -1,8 +1,8 @@
 ---
 title: Trasformare dati usando Hive nella rete virtuale di Azure | Microsoft Docs
-description: "Questa esercitazione offre istruzioni dettagliate per la trasformazione dei dati tramite l'attività Hive in Azure Data Factory."
+description: Questa esercitazione offre istruzioni dettagliate per la trasformazione dei dati tramite l'attività Hive in Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Data Factory che trasforma i dati con un'attività Hive in un cluster HDInsight che si trova in una rete virtuale di Azure. In questa esercitazione vengono completati i passaggi seguenti:
@@ -114,7 +114,7 @@ Dato che il cluster Hadoop si trova all'interno di una rete virtuale, è necessa
 2. Nella finestra **Integration Runtime Setup** (Configurazione runtime di integrazione) selezionare l'opzione **Perform data movement and dispatch activities to external computes** (Eseguire attività di invio e spostamento dati in servizi di calcolo esterni) e fare clic su **Avanti**. 
 
    ![Selezionare l'opzione per l'esecuzione di attività di invio e spostamento dati](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Selezionare **Public Network** (Rete pubblica) e fare clic su **Avanti**.
+3. Selezionare **Private Network** (Rete privata) e fare clic su **Avanti**.
     
    ![Selezionare una rete privata](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Immettere **MySelfHostedIR** per **Nome**, e fare clic su **Avanti**. 

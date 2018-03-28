@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Service Fabric in Azure | Microsoft Docs
-description: "Panoramica di Service Fabric, in cui le applicazioni sono costituite da numerosi microservizi per assicurare scalabilità e resilienza. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud."
+description: Panoramica di Service Fabric, in cui le applicazioni sono costituite da numerosi microservizi per assicurare scalabilità e resilienza. Service Fabric è una piattaforma di sistemi distribuiti che consente di creare applicazioni scalabili, affidabili e facilmente gestibili per il cloud.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -15,18 +15,17 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: aab15e6981e4f5f3c69ea6a85995fd2db69ff8b8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d5bd75dfff87e73fa4104901c1c0ac0989b1e3bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-service-fabric"></a>Panoramica di Azure Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la disposizione in pacchetti, la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. Service Fabric fa fronte anche alle principali problematiche correlate allo sviluppo e alla gestione di applicazioni cloud native. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità. Service Fabric rappresenta la piattaforma di prossima generazione per la creazione e la gestione di applicazioni cloud di classe enterprise di primo livello eseguite in contenitori.
 
-Questo breve video presenta Service Fabric e i microservizi: <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Questo breve video presenta Service Fabric e i microservizi:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="applications-composed-of-microservices"></a>Applicazioni costituite da microservizi 
 Service Fabric consente di creare e gestire applicazioni scalabili e affidabili costituite da microservizi eseguiti a densità elevata in un pool condiviso di computer, denominato cluster. Offre un runtime sofisticato e leggero per la creazione di microservizi scalabili e distribuiti, con e senza stato, eseguiti in contenitori. Fornisce inoltre una gamma completa di funzionalità di gestione per il provisioning, la distribuzione, il monitoraggio, l'aggiornamento, l'esecuzione di patch e l'eliminazione di applicazioni distribuite, tra cui servizi di contenitori.
@@ -42,7 +41,7 @@ Service Fabric offre funzionalità complete di gestione del ciclo di vita e del 
 Per altre informazioni sull'approccio basato su microservizi, leggere [Perché usare un approccio basato su microservizi per la compilazione delle applicazioni?](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>Orchestrazione e distribuzione di contenitori
-Service Fabric è un [agente di orchestrazione dei contenitori](service-fabric-cluster-resource-manager-introduction.md) che distribuisce microservizi in un cluster di computer. I microservizi possono essere distribuiti in molti modi, ad esempio usando i [modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) o [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) oppure distribuendo [un codice a propria scelta](service-fabric-deploy-existing-app.md). Un aspetto importante è che è possibile combinare sia i servizi in processi che i servizi in contenitori nella stessa applicazione. Se si vuole semplicemente [distribuire e gestire i contenitori](service-fabric-containers-overview.md), Service Fabric è la scelta ideale come agente di orchestrazione dei contenitori.
+Service Fabric è un [agente di orchestrazione dei contenitori](service-fabric-cluster-resource-manager-introduction.md) che distribuisce microservizi in un cluster di computer. I microservizi possono essere distribuiti in molti modi, ad esempio usando i [modelli di programmazione di Service Fabric](service-fabric-choose-framework.md) o [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) oppure distribuendo [un codice a propria scelta](service-fabric-guest-executables-introduction.md). Un aspetto importante è che è possibile combinare sia i servizi in processi che i servizi in contenitori nella stessa applicazione. Se si vuole semplicemente [distribuire e gestire i contenitori](service-fabric-containers-overview.md), Service Fabric è la scelta ideale come agente di orchestrazione dei contenitori.
 
 ## <a name="any-os-any-cloud"></a>Qualsiasi sistema operativo, qualsiasi ambiente cloud
 Service Fabric può essere eseguito ovunque. È possibile creare cluster di Service Fabric in molti ambienti, tra cui Azure o in locale, in Windows Server o su Linux, nonché in altri cloud pubblici. L'ambiente di sviluppo nell'SDK, inoltre, è **identico** all'ambiente di produzione, senza alcun emulatore. In altre parole, i componenti in esecuzione nel cluster di sviluppo locale vengono distribuiti anche nei cluster presenti in altri ambienti.

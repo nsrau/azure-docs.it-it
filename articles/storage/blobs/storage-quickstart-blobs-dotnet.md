@@ -7,13 +7,13 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET
 
@@ -21,7 +21,7 @@ In questa guida introduttiva si apprenderà a usare la libreria client .NET per 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva, per prima cosa creare un account di archiviazione di Azure nel [portale di Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Per informazioni sulla creazione dell'account, vedere [Creare un account di archiviazione](../common/storage-quickstart-create-account.md).
 
@@ -253,13 +253,13 @@ Per lo sviluppo .NET con archivi BLOB, vedere le risorse aggiuntive seguenti:
 
 ### <a name="binaries-and-source-code"></a>File binari e codice sorgente
 
-- Scaricare il pacchetto NuGet per l'ultima versione della [libreria client di archiviazione per .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- Visualizzare il [codice sorgente della libreria client di archiviazione per .NET](https://github.com/Azure/azure-storage-net) in GitHub.
+- Scaricare il pacchetto NuGet per la versione più recente della [libreria client .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) per Archiviazione di Azure. 
+- Visualizzare il [codice sorgente della libreria client .NET](https://github.com/Azure/azure-storage-net) in GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Informazioni di riferimento ed esempi relativi alla libreria client
 
-- Per altre informazioni sulla libreria client, vedere le [informazioni di riferimento sulle API di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
-- Esplorare gli [esempi per l'archivio BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) scritti con la libreria client di archiviazione per .NET.
+- Per altre informazioni sulla libreria client .NET, vedere le [informazioni di riferimento sulle API .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- Esplorare gli [esempi per Archiviazione BLOB](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) scritti con la libreria client .NET.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

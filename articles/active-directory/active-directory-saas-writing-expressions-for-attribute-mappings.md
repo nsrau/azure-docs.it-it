@@ -1,8 +1,8 @@
 ---
-title: Scrittura di espressioni per il mapping degli attributi in Azure Active Directory | Microsoft Docs
+title: Scrittura di espressioni per il mapping degli attributi in Azure Active Directory | Documentazione Microsoft
 description: Informazioni su come usare i mapping di espressioni per trasformare i valori degli attributi in un formato accettabile durante il provisioning automatizzato di oggetti SaaS in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning in un'applicazione SaaS, come mapping degli attributi è possibile specificare il mapping di espressioni. Per questo tipo di mapping è necessario scrivere un'espressione analoga a uno script, che permette di trasformare i dati utente in formati più idonei all'applicazione SaaS.
@@ -46,10 +46,10 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **suffix** |Obbligatorio |string |Stringa da aggiungere alla fine del valore di origine. |
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -59,11 +59,11 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-| **inputFormat** |Obbligatorio |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obbligatorio |string |Formato della data di output. |
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obbligatoria |string |Formato della data di output. |
 
 - - -
 ### <a name="join"></a>Join
@@ -75,10 +75,10 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **separator** |Obbligatorio |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
-| **source1 … sourceN ** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
+| **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+| **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -88,11 +88,11 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |string |Corrisponde in genere al nome dell'attributo. |
-| **start** |Obbligatorio |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-| **length** |Obbligatorio |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+| **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
+| **start** |Obbligatoria |numero intero |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+| **length** |Obbligatoria |numero intero |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 - - -
 ### <a name="not"></a>not
@@ -102,13 +102,13 @@ Se uno dei valori di origine è un attributo con più valori, verranno aggiunti 
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+| **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 - - -
 ### <a name="replace"></a>Replace
-**Funzione:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Funzione:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descrizione:**<br>
 Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seconda dei parametri forniti:
@@ -119,19 +119,19 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 * Se vengono forniti **oldValue** e **template**:
   
   * Sostituisce tutte le occorrenze di **oldValue** in **template** con il valore **source**
-* Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**:
+* Se vengono forniti **regexPattern**, **regexGroupName** e **replacementValue**:
   
   * Sostituisce tutti i valori corrispondenti a oldValueRegexPattern nella stringa source con replacementValue.
-* Se vengono forniti **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**:
+* Se vengono forniti **regexPattern**, **regexGroupName** e **replacementPropertyName**:
   
-  * Se è presente un valore per **source**, verrà restituito **source**
-  * Se non sono presenti valori per **source**, verranno usati **oldValueRegexPattern** e **oldValueRegexGroupName** per estrarre il valore di sostituzione dalla proprietà con **replacementPropertyName**. Il valore di sostituzione viene restituito come risultato.
+  * Se **source** non ha alcun valore, viene restituito **source**
+  * Se **source** ha un valore, usa **regexPattern** e **regexGroupName** per estrarre il valore di sostituzione dalla proprietà con **replacementPropertyName**. Il valore di sostituzione viene restituito come risultato.
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+| **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
 | **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
 | **regexPattern** |Facoltativo |string |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa replacementPropertyName, corrisponde al modello usato per estrarre il valore dalla proprietà di sostituzione. |
 | **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa replacementPropertyName, il valore di questo gruppo verrà estratto come replacementValue dalla proprietà di sostituzione. |
@@ -147,9 +147,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obbligatorio |string |Oggetto **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]**. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -159,9 +159,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |string |**source** da aggiornare. |
+| **source** |Obbligatoria |string |**source** da aggiornare. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -171,12 +171,12 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-| Nome | Obbligatorio/Ripetuto | Tipo | Note |
+| NOME | Obbligatorio/Ripetuto | type | Note |
 | --- | --- | --- | --- |
-| **source** |Obbligatorio |string |**Source** da aggiornare. |
+| **source** |Obbligatoria |string |**Source** da aggiornare. |
 | **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-| **key** |Obbligatorio |string |Parametro **key** con cui confrontare il valore di **source**. |
-| **value** |Obbligatorio |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+| **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
+| **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ## <a name="examples"></a>Esempi
 ### <a name="strip-known-domain-name"></a>Rimuovere un nome di dominio noto
@@ -213,6 +213,17 @@ Occorre generare un alias utente contenente le prime tre lettere del nome e le p
 * **INPUT** (givenName): "John"
 * **INPUT** (surname): "Doe"
 * **OUTPUT**: "JohDoe"
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Rimuovere i segni diacritici da una stringa e convertire i caratteri in caratteri minuscoli
+È necessario rimuovere i caratteri speciali da una stringa e convertire i caratteri maiuscoli in caratteri minuscoli.
+
+**Espressione:** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Input/output di esempio:** <br>
+
+* **INPUT** (givenName): "Zoë"
+* **OUTPUT**: "zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Eseguire l'output della data come stringa in un formato specifico
 Occorre inviare date a un'applicazione SaaS in un formato specifico, <br>

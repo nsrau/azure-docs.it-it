@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -139,7 +139,7 @@ Convertire/salvare il certificato SSL come file con estensione pfx. Il file con 
 
 Se si vuole creare un certificato autofirmato, è possibile usare i comandi di PowerShell indicati di seguito. Assicurarsi di usare il nome di dominio del proprio ambiente del servizio app ILB anziché *internal.contoso.com*: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ Per caricare i propri certificati e testare l'accesso:
 
     b. Per testare la pubblicazione della distribuzione Web o l'accesso alla console avanzata, creare un record per _mytestapp.scm.ilbase.com_.
 
-7. Usare un browser su tale macchina virtuale e passare a http://mytestapp.ilbase.com. In alternativa, passare a qualunque sia il nome dell'app Web con il dominio.
+7. Usando un browser nella macchina virtuale, passare a http://mytestapp.ilbase.com. In alternativa, passare a qualunque sia il nome dell'app Web con il dominio.
 
-8. Usare un browser in questa macchina virtuale e passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
+8. Usando un browser nella macchina virtuale, passare a https://mytestapp.ilbase.com. Se si usa un certificato autofirmato, accettare la mancanza di sicurezza.
 
     L'indirizzo IP per il bilanciamento del carico interno è riportato in **Indirizzi IP**. Questo elenco include anche gli indirizzi IP usati dall'indirizzo VIP esterno e per il traffico di gestione in ingresso.
 

@@ -1,8 +1,20 @@
- ---
-title: Codici di errore SQL - errore di connessione database | Microsoft Docs description: 'Informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. ' keywords: sql error code,access sql,database connection error,sql error codes services: sql-database documentationcenter: '' author: stevestein manager: jhubbard editor: ''
-
-ms.assetid: 2a23e4ca-ea93-4990-855a-1f9f05548202 ms.service: sql-database ms.custom: develop apps ms.workload: "Active" ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 09/28/2017 ms.author: sstein
-
+---
+title: 'Codici di errore SQL: errore di connessione del database | Documentazione Microsoft'
+description: 'Informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. '
+keywords: codice di errore sql, accesso sql, errore di connessione del database, codici di errore sql
+services: sql-database
+author: stevestein
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: article
+ms.date: 09/28/2017
+ms.author: sstein
+ms.openlocfilehash: 5031ab1ec8c7b42c65fb35e47c32d10ff2898501
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
 
@@ -93,7 +105,7 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool ela
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. |Limite di spazio del pool elastico in MB. |Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. |Prendere in considerazione l’aumento delle DTU del pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre la memoria utilizzata dai singoli database all'interno del pool elastico o rimuovere i database dal pool elastico. |
-| 10929 |EX_USER |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per assistenza, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) . In caso contrario, riprovare più tardi. |Numero minimo DTU per database. Numero massimo DTU per database |Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro o rimuovere i database dal pool elastico. |
+| 10929 |EX_USER |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per assistenza, vedere [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). In caso contrario, riprovare più tardi. |Numero minimo DTU per database. Numero massimo DTU per database |Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro o rimuovere i database dal pool elastico. |
 | 40844 |EX_USER |Il database '%ls' sul Server '%ls' è un database versione '%ls' in un pool elastico e non può avere una relazione di copia continua. |nome database, versione database, nome server |Viene emesso un comando StartDatabaseCopy per un database non premium in un pool elastico. |Presto disponibile |
 | 40857 |EX_USER |Pool elastico non trovato per il server: '%ls', nome del pool elastico: '%ls'. |nome del server; nome del pool elastico |Il pool elastico specificato non esiste nel server specificato. |Fornire un nome pool elastico valido. |
 | 40858 |EX_USER |Il pool elastico '%ls' esiste già nel server: '%ls' |nome del pool elastico, nome del server |Il pool elastico specificato esiste già nel server logico specificato. |Fornire un nuovo nome pool elastico. |

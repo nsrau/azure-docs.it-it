@@ -2,18 +2,18 @@
 title: Modulo C# per Azure IoT Edge | Microsoft Docs
 description: Creare un modulo per IoT Edge con codice C# e distribuirlo in un dispositivo perimetrale
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: v-jamebr
-ms.date: 11/15/2017
+ms.author: kgremban
+ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fd46bb662af72ece799bb545d06d76f9e54ee62c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 605f0cfe34e4fda14030bb38686095882846c7c0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Sviluppare e distribuire un modulo C# per IoT Edge in un dispositivo simulato - Anteprima
 
@@ -48,7 +48,7 @@ In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studi
 3. Selezionare **Create**.
 4. Dopo aver creato il registro di sistema del contenitore, accedervi e selezionare **Chiavi di accesso**. 
 5. Impostare **Utente amministratore** su **Abilita**.
-6. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Questi valori verranno usati più avanti nell'esercitazione. 
+6. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Questi valori verranno usati più avanti nel corso dell'esercitazione, per pubblicare l'immagine Docker nel Registro di sistema e per aggiungere le credenziali del registro al runtime di Edge. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo di IoT Edge
 La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET Core 2.0 tramite Visual Studio Code e l'estensione Azure IoT Edge.
@@ -227,15 +227,14 @@ La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET 
 2. Fare clic con il pulsante destro del mouse sul file **Dockerfile** e scegliere **Build IoT Edge module Docker image** (Compila l'immagine Docker per il modulo di IoT Edge). 
 3. Nella finestra **Selezione cartella** passare o immettere `./bin/Debug/netcoreapp2.0/publish`. Fare clic su **Select Folder as EXE_DIR** (Selezionare la cartella EXE_DIR).
 4. Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Ad esempio: `<your container registry address>/filtermodule:latest`. L'indirizzo del registro di sistema del contenitore è lo stesso del server di accesso copiato dal registro di sistema. Deve essere nel formato `<your container registry name>.azurecr.io`.
-5. Accedere a Docker immettendo il comando seguente nel terminale integrato di Visual Studio Code: 
+5. Accedere a Docker usando il nome utente, la password e il server di accesso copiati quando è stato creato il registro contenitori di Azure. Immettere il comando seguente nel terminale integrato di Visual Studio Code: 
      
    ```csh/sh
-   docker login -u <username> -p <password> <Login server>
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-        
-   Usare il nome utente, la password e il server di accesso copiati quando è stato creato il registro di sistema del contenitore di Azure.
 
-3. Eseguire il push dell'immagine nel repository di Docker. Selezionare **Visualizza** > **Riquadro comandi** e cercare il comando di menu **Edge: Push IoT Edge module Docker image**(Edge: esegui il push dell'immagine Docker per il modulo di IoT Edge). Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Specificare lo stesso nome di immagine usato nel passaggio 4.
+6. Effettuare il push dell'immagine nel registro contenitori. Selezionare **Visualizza** > **Riquadro comandi** e cercare il comando di menu **Edge: Push IoT Edge module Docker image**(Edge: esegui il push dell'immagine Docker per il modulo di IoT Edge). Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Specificare lo stesso nome di immagine usato nel passaggio 4.
+7. Per visualizzare l'immagine nel portale di Azure, passare al registro contenitori di Azure e selezionare **Repository**. Dovrebbe essere elencata la voce **filtermodule**.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Aggiungere le credenziali del registro al runtime di Edge
 Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale, in modo da consentire al runtime l'accesso per il pull del contenitore. 

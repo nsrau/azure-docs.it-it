@@ -1,113 +1,135 @@
 ---
-title: Modifiche apportate a un progetto WebApi quando ci si connette ad Azure AD | Documentazione Microsoft
-description: L'articolo descrive l'impatto della connessione ad Azure AD con Visual Studio su un progetto Web Api
+title: Modifiche apportate a un progetto WebAPI quando ci si connette ad Azure AD | Microsoft Docs
+description: L'articolo descrive l'impatto della connessione ad Azure AD con Visual Studio su un progetto WebAPI
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 8a0f6e1838bcc550829c0da92dc224e1df859e9c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 140f555d28c4d5a923b9c255d8e61d7aea9bb23f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto WebApi (servizio connesso a Visual Studio Azure Active Directory)?
+# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Cosa è successo a un progetto WebAPI (servizio connesso di Visual Studio Azure Active Directory)?
+
 > [!div class="op_single_selector"]
-> * [Per iniziare](vs-active-directory-webapi-getting-started.md)
-> * [Risultati](vs-active-directory-webapi-what-happened.md)
-> 
-> 
+> - [Per iniziare](vs-active-directory-webapi-getting-started.md)
+> - [Risultati](vs-active-directory-webapi-what-happened.md)
 
-## <a name="references-have-been-added"></a>Sono stati aggiunti riferimenti
-### <a name="nuget-package-references"></a>Riferimenti al pacchetto NuGet
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+Questo articolo identifica le modifiche esatte apportate ai progetti WebAPI ASP.NET, applicazione a pagina singola ASP.NET e API di Azure ASP.NET quando si aggiunge il [servizio connesso di Active Directory tramite Visual Studio](vs-active-directory-add-connected-service.md). Vale anche per i progetti di servizio mobile di Azure ASP.NET in Visual Studio 2015.
 
-### <a name="net-references"></a>Riferimenti a .NET
-* `Microsoft.Owin`
-* `Microsoft.Owin.Host.SystemWeb`
-* `Microsoft.Owin.Security`
-* `Microsoft.Owin.Security.ActiveDirectory`
-* `Microsoft.Owin.Security.Jwt`
-* `Microsoft.Owin.Security.OAuth`
-* `Owin`
-* `System.IdentityModel.Tokens.Jwt`
+Per informazioni sull'uso del servizio connesso, vedere l'[introduzione](vs-active-directory-webapi-getting-started.md).
 
-## <a name="code-changes"></a>Modifiche al codice
-### <a name="code-files-were-added-to-your-project"></a>Sono stati aggiunti file di codice al progetto
-Al progetto è stata aggiunta una classe di avvio di autenticazione **App_Start/Startup.Auth.cs** contenente la logica di avvio per l'autenticazione di Azure AD.
+## <a name="added-references"></a>Riferimenti aggiunti
 
-### <a name="startup-code-was-added-to-your-project"></a>È stato aggiunto un codice di avvio al progetto
-Se nel progetto è già presente una classe Startup, il metodo **Configuration** è stato aggiornato includendo una chiamata a `ConfigureAuth(app)`. In caso contrario, una classe Startup è stata aggiunta al progetto.
+Interessa il file di progetto (riferimenti *.NET) e `packages.config` (riferimenti NuGet).
 
-### <a name="your-appconfig-or-webconfig-file-has-new-configuration-values"></a>Il file app.config o web.config include nuovi valori di configurazione.
-Sono state aggiunte le voci di configurazione seguenti.
+| type | riferimento |
+| --- | --- |
+| .NET; NuGet | Microsoft.Owin |
+| .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
+| .NET; NuGet | Microsoft.Owin.Security |
+| .NET; NuGet | Microsoft.Owin.Security.ActiveDirectory |
+| .NET; NuGet | Microsoft.Owin.Security.Jwt |
+| .NET; NuGet | Microsoft.Owin.Security.OAuth |
+| .NET; NuGet | Owin |
+| .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 
-```
+Riferimenti aggiuntivi se è stata selezionata l'opzione **Lettura dati directory**:
+
+| type | riferimento |
+| --- | --- |
+| .NET; NuGet | EntityFramework |
+| .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
+| .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
+| .NET; NuGet | Microsoft.Data.Edm |
+| .NET; NuGet | Microsoft.Data.OData |
+| .NET; NuGet | Microsoft.Data.Services.Client |
+| .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(solo Visual Studio 2015) |
+| .NET; NuGet | System.Spatial |
+
+I seguenti riferimenti vengono rimossi (solo 4 progetti ASP.NET, come in Visual Studio 2015):
+
+| type | Riferimenti |
+| --- | --- |
+| .NET; NuGet | Microsoft.AspNet.Identity.Core |
+| .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
+| .NET; NuGet | Microsoft.AspNet.Identity.Owin |
+
+## <a name="project-file-changes"></a>Modifiche al file di progetto
+
+- Impostare la proprietà `IISExpressSSLPort` su un numero distinto.
+- Impostare la proprietà `WebProject_DirectoryAccessLevelKey` su 0 o 1 se è stata selezionata l'opzione **Lettura dati directory**.
+- Impostare la proprietà `IISUrl` su `https://localhost:<port>/` dove `<port>` corrisponde al valore `IISExpressSSLPort`.
+
+## <a name="webconfig-or-appconfig-changes"></a>modifiche apportate al file web.config o app.config
+
+- Sono state aggiunte le seguenti voci di configurazione:
+
+    ```xml
     <appSettings>
-            <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-            <add key="ida:Tenant" value="Your selected Azure AD Tenant" />
-            <add key="ida:Audience" value="The App ID Uri from the wizard" />
-    </appSettings>`
-```
+        <add key="ida:ClientId" value="<ClientId from the new Azure AD app>" />
+        <add key="ida:Tenant" value="<your selected Azure domain>" />
+        <add key="ida:Audience" value="<your selected domain + / + project name>" />
+    </appSettings>
+    ```
 
-### <a name="an-azure-ad-app-was-created"></a>È stata creata un'app Azure AD
-Un'app Azure AD è stata creata nella directory selezionata nella procedura guidata.
+- Solo Visual Studio 2017: è stata aggiunta anche la voce seguente in `<appSettings>`"
 
-[Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+    ```xml
+    <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
+    ```
 
-## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Se è stata selezionata l'opzione *Disabilitare l'autenticazione dell'account utente*, quali altre modifiche sono state apportate al progetto?
-Sono stati rimossi i riferimenti del pacchetto NuGet, i file sono stati rimossi e viene eseguito il backup. A seconda dello stato del progetto, è necessario rimuovere riferimenti aggiuntivi o i file manualmente o modificare codice in modo appropriato.
+- Sono stati aggiunti elementi `<dependentAssembly>` nel nodo `<runtime><assemblyBinding>` per `System.IdentityModel.Tokens.Jwt`.
 
-### <a name="nuget-package-references-removed-for-those-present"></a>Riferimenti del pacchetto NuGet rimossi (per coloro che sono presenti)
-* `Microsoft.AspNet.Identity.Core`
-* `Microsoft.AspNet.Identity.EntityFramework`
-* `Microsoft.AspNet.Identity.Owin`
+- Se è stata selezionata l'opzione **Lettura dati directory**, aggiungere la seguente voce di configurazione in `<appSettings>`:
 
-### <a name="code-files-backed-up-and-removed-for-those-present"></a>È stato eseguito il backup dei file di codice e sono stati rimossi (per quelli presenti)
-Per ognuno dei seguenti file è stato eseguito il backup e rimosso dal progetto. I File di backup si trovano in una cartella 'Backup' alla radice della directory del progetto.
+    ```xml
+    <add key="ida:Password" value="<Your Azure AD app's new password>" />
+    ```
 
-* `App_Start\IdentityConfig.cs`
-* `Controllers\AccountController.cs`
-* `Controllers\ManageController.cs`
-* `Models\IdentityModels.cs`
-* `Providers\ApplicationOAuthProvider.cs`
+## <a name="code-changes-and-additions"></a>Aggiunte e modifiche al codice
 
-### <a name="code-files-backed-up-for-those-present"></a>Backup dei file di codice (per coloro che presenti)
-Per ognuno dei seguenti file è stato eseguito il backup prima della sostituzione. I File di backup si trovano in una cartella 'Backup' alla radice della directory del progetto.
+- È stato aggiunto l'attributo `[Authorize]` a `Controllers/ValueController.cs` e ad altri controller esistenti.
 
-* `Startup.cs`
-* `App_Start\Startup.Auth.cs`
+- È stata aggiunta o modificata in base alle esigenze una classe di avvio dell'autenticazione denominata `App_Start/Startup.Auth.cs`, contenente la logica di avvio per l'autenticazione di Azure AD. Se è stata selezionata l'opzione **Lettura dati directory**, questo file contiene anche il codice per ricevere un codice OAuth scambiarlo con un token di accesso.
 
-## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Quali modifiche aggiuntive sono state apportate al progetto dopo aver selezionato *Leggi i dati della directory*?
-### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Sono state apportate altre modifiche al file app.config o web.config
-Sono state aggiunte le voci di configurazione aggiuntive seguenti.
+- (Solo Visual Studio 2015 con l'app ASP.NET 4) è stato rimosso `App_Start/IdentityConfig.cs` ed sono stati aggiunti `Controllers/AccountController.cs`, `Models/IdentityModel.cs` e `Providers/ApplicationAuthProvider.cs`.
 
-```
-    <appSettings>
-        <add key="ida:Password" value="Your Azure AD App's new password" />
-    </appSettings>`
-```
+- È stato aggiunto `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) o `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contenente le informazioni usate da Visual Studio per tenere traccia dell'aggiunta del servizio connesso.
 
-### <a name="your-azure-active-directory-app-was-updated"></a>È stata aggiornata l'app Azure Active Directory
-L'app Azure Active Directory è stata aggiornata per includere l'autorizzazione *Leggi i dati della directory* ed è stata creata una chiave aggiuntiva che è stata quindi usata come *ida:Password* nel file `web.config`.
+### <a name="file-backup-visual-studio-2015"></a>Backup di file (Visual Studio 2015)
+
+Quando si aggiunge il servizio connesso, Visual Studio 2015 esegue il backup dei file modificati e rimossi. Tutti i file interessati vengono salvati nella cartella `Backup/AzureAD`. Visual Studio 2017 non crea backup.
+
+- `Startup.cs`
+- `App_Start\IdentityConfig.cs`
+- `App_Start\Startup.Auth.cs`
+- `Controllers\AccountController.cs`
+- `Controllers\ManageController.cs`
+- `Models\IdentityModels.cs`
+- `Models\ApplicationOAuthProvider.cs`
+
+## <a name="changes-on-azure"></a>Modifiche in Azure
+
+- È stata creata un'applicazione Azure AD nel dominio selezionato durante l'aggiunta del servizio connesso.
+- È stata aggiornata l'app per includere l'autorizzazione **Lettura dati directory** se è stata selezionata l'opzione corrispondente.
+
+[Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Altre informazioni su Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
+- [Scenari di autenticazione per Azure Active Directory](active-directory-authentication-scenarios.md)
+- [Aggiungere l'accesso con Microsoft a un'app Web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Creare un'app Web con .NET e l'API SQL | Microsoft Docs"
-description: Presenta un esempio di codice .NET che permette di connettersi all'API SQL di Azure Cosmos DB ed eseguire query su di essa
+title: Creare un'app Web .NET con Azure Cosmos DB usando l'API SQL | Microsoft Docs
+description: In questa guida introduttiva si useranno l'API SQL di Azure Cosmos DB e il portale di Azure per creare un'app Web .NET
 services: cosmos-db
 documentationcenter: ''
 author: mimig1
@@ -15,13 +15,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/15/2017
 ms.author: mimig
-ms.openlocfilehash: b5ab66371b47bdd0f3bd7a4c9e86e419efebe902
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: eb361ce596cbb95e01e7dbd82001bd089d51d70e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app Web per le API SQL con .NET e il portale di Azure
+# <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Guida introduttiva: Creare un'app Web .NET con Azure Cosmos DB usando l'API SQL e il portale di Azure
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 

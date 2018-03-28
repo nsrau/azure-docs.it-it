@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurare Log Analytics di Operations Management Suite per un cluster
 
@@ -48,7 +48,7 @@ Se si usa Windows, continuare con i passaggi seguenti per connettere OMS all'acc
 >[!NOTE]
 >L'abilitazione di questa esperienza per i cluster Linux non è ancora disponibile. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>Aggiungere l'agente di OMS al cluster 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Connettere l'area di lavoro di OMS al cluster 
 
 1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfOMSWorkspace\>** e andare alla relativa pagina di panoramica. Da qui, è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere al portale OMS.
 

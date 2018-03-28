@@ -1,23 +1,23 @@
 ---
 title: Informazioni sulla messaggistica da cloud a dispositivo dell'hub IoT di Azure | Microsoft Docs
-description: 'Guida per gli sviluppatori: come usare la messaggistica da cloud a dispositivo con l''hub IoT. Include informazioni sul ciclo di vita del messaggio e sulle opzioni di configurazione.'
+description: "Guida per gli sviluppatori: come usare la messaggistica da cloud a dispositivo con l'hub IoT. Include informazioni sul ciclo di vita del messaggio e sulle opzioni di configurazione."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Inviare messaggi da cloud a dispositivo dall'hub IoT
 
@@ -81,11 +81,11 @@ Durante l'invio di messaggi da cloud a dispositivo, il servizio può richiedere 
 
 Se la proprietà **Ack** è impostata su **full** e non si riceve un messaggio con commenti, significa che il messaggio è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il periodo di scadenza massimo è di due giorni ed è quindi disponibile un tempo sufficiente per ripristinare il servizio in caso di errore.
 
-Come illustrato nella sezione [Endpoint][lnk-endpoints], l'hub IoT recapita commenti sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/feedback**). La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita dei messaggi][lnk-lifecycle]. Quando è possibile, i commenti sui messaggio vengono riuniti in batch in un unico messaggio con il formato seguente:
+Come illustrato nella sezione [Endpoint][lnk-endpoints], l'hub IoT recapita commenti sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/feedback**). La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo. Quando è possibile, i commenti sui messaggio vengono riuniti in batch in un unico messaggio con il formato seguente:
 
 | Proprietà     | DESCRIZIONE |
 | ------------ | ----------- |
-| EnqueuedTime | Timestamp che indica quando è stato creato il messaggio. |
+| EnqueuedTime | Timestamp che indica quando è stato ricevuto il messaggio di commenti dall'hub. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ Il corpo è una matrice serializzata con JSON dei record, ognuno con le propriet
 
 | Proprietà           | DESCRIZIONE |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
+| EnqueuedTimeUtc    | Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, l'hub ha ricevuto il messaggio di commenti o il messaggio originale è scaduto. |
 | OriginalMessageId  | **MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | StatusCode         | Stringa obbligatoria. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 'Operazione riuscita' <br/> 'Scaduto' <br/> 'Numero di distribuzioni superato' <br/> 'Rifiutato' <br/> 'Eliminato definitivamente' |
 | DESCRIZIONE        | Valori stringa per **StatusCode**. |

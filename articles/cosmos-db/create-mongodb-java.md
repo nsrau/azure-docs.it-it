@@ -1,25 +1,25 @@
 ---
-title: 'Azure Cosmos DB: Creare un''app console con Java e l''API MongoDB | Microsoft Docs'
+title: "Azure Cosmos DB: Creare un'app console con Java e l'API MongoDB | Microsoft Docs"
 description: Presenta un esempio di codice Java che permette di connettersi all'API MongoDB di Azure Cosmos DB ed eseguire query su di essa
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 199ea35d7df405ebc148185094a6865a1c373941
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un'app console API MongoDB con Java e il portale di Azure
 
@@ -58,11 +58,11 @@ Clonare ora un'app per le API MongoDB da GitHub, impostare la stringa di conness
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Aprire quindi il file della soluzione in Visual Studio. 
+3. Aprire quindi il codice nell'editor preferito. 
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file `Program.cs`. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Ecco una breve panoramica delle operazioni da eseguire nell'app. Aprire il file `Program.java`. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
 * Viene inizializzato DocumentClient.
 

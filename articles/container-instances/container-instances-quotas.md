@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 008b07402cb0b937174488982cac64811baa5d5d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 28177e17a15c5e3b92b9af52e05fa2f8e95db95f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di contenitore di Azure
 
@@ -29,9 +29,9 @@ Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti 
 | Località | OS | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
 | Europa occidentale, Stati Uniti occidentali, Stati Uniti orientali | Linux | 4 | 14 |
-| Asia sudorientale  | Linux | 1 | 1,5 |
+| Stati Uniti occidentali 2, Asia sud-orientale | Linux | 2 | 7 |
 | Europa occidentale, Stati Uniti occidentali, Stati Uniti orientali | Windows | 4 | 14 |
-| Asia sudorientale  | Windows | 2 | 3,5 |
+| Stati Uniti occidentali 2, Asia sud-orientale | Windows | 2 | 3,5 |
 
 La disponibilità di Istanze di contenitore con questi limiti di risorse dipende dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di memoria e CPU inferiori oppure provare a eseguire la distribuzione in un secondo momento.
 

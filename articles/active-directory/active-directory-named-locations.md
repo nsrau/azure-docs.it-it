@@ -1,8 +1,8 @@
 ---
-title: "Località denominate in Azure Active Directory | Microsoft Docs"
-description: "Informazioni sulle località denominate e le modalità di configurazione."
+title: Configurare località denominate in Azure Active Directory | Microsoft Docs
+description: Informazioni su come configurare località denominate.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f80cde24edcbec68309ba033d4da16ee97b731
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="named-locations-in-azure-active-directory"></a>Località denominate in Azure Active Directory
+# <a name="configure-named-locations-in-azure-active-directory"></a>Configurare località denominate in Azure Active Directory
 
 Con le località denominate è possibile etichettare gli intervalli di indirizzi IP attendibili all'interno dell'organizzazione. Azure Active Directory usa le località denominate nel contesto seguente:
 
@@ -89,22 +89,14 @@ Questo articolo descrive come configurare le località denominate nell'ambiente 
 
 
 
-## <a name="what-you-should-know"></a>Informazioni utili
-
-**Aggiornamenti in blocco**: quando si creano o si aggiornano le località denominate, per aggiornamenti in blocco è possibile caricare o scaricare un file CSV con gli intervalli IP. Un caricamento aggiunge gli intervalli IP nel file all'elenco invece di sovrascrivere l'elenco.
-
-![Collegamenti Carica e Scarica](./media/active-directory-named-locations/09.png)
-
-
-**Limitazioni**: è possibile definire un massimo di 60 località denominate, ognuna con un intervallo IP assegnato. Se si configura una sola località denominata, è possibile definire fino a 500 intervalli IP per tale località.
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su:
+Per altre informazioni, vedere:
 
-- **Eventi di rischio**, vedere [Eventi di rischio di Azure Active Directory](active-directory-reporting-risk-events.md).
+- [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 
-- **Accesso condizionale**, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- [Condizioni della posizione nell'accesso condizionale di Azure Active Directory](active-directory-conditional-access-locations.md)
 
-- **Report degli accessi a rischio**, vedere [Report degli accessi a rischio nel portale di Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  
+- [Eventi di rischio di Azure Active Directory](active-directory-reporting-risk-events.md)
+
+- [Report degli accessi a rischio nel portale di Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)  
