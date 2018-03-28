@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: e082b9014e3734b554d3dae1cf8aecbaed65a28a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 30bbe7442cac96a1dcf6959cac2abedd61454a29
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Scegliere tra i servizi di Azure che recapitano messaggi
 
@@ -30,18 +30,22 @@ Nonostante alcune analogie, ogni servizio è progettato per determinati scenari.
 
 ### <a name="event"></a>Event
 
-Un evento è una notifica leggera di un'azione o di una modifica di stato. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai sottoscrittori che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi attivano in genere gestori di eventi per agire in tempo reale.
+Un evento è una notifica leggera di una condizione o di una modifica di stato. L'autore dell'evento non ha aspettative su come viene gestito l'evento. Il consumer dell'evento decide come procedere con la notifica. Gli eventi possono essere unità separate o fare parte di una serie.
+
+Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi separati sono ideali per le soluzioni senza server che devono essere ridimensionate.
+
+Gli eventi di una serie segnalano una condizione e sono analizzabili. Gli eventi sono ordinati nel tempo e intercorrelati. Il consumer ha bisogno della serie sequenziata di eventi per analizzare che cosa è accaduto.
 
 ### <a name="message"></a>Message
 
-I messaggi sono dati non elaborati generati da un servizio da utilizzare o archiviare altrove. Il messaggio contiene i dati che hanno attivato la pipeline del messaggio. Questo messaggio può essere costituito ad esempio da un ordine di e-commerce o da dati di telemetria utente. Diversamente da una notifica degli eventi, l'autore di un messaggio può prevedere una risposta. Un messaggio contiene ad esempio i dati non elaborati, ma prevede che la parte successiva del sistema crei un file da tali dati.
+I messaggi sono dati non elaborati generati da un servizio da utilizzare o archiviare altrove. Il messaggio contiene i dati che hanno attivato la pipeline del messaggio. L'autore del messaggio ha un'aspettativa su come il consumer gestisce il messaggio. Esiste un contratto tra le due parti. L'autore, ad esempio, invia un messaggio con i dati non elaborati e prevede che il consumer crei un file da tali dati e al termine invii una risposta.
 
 ## <a name="comparison-of-services"></a>Confronto dei servizi
 
 | Service | Scopo | type | Quando usare le autorizzazioni |
 | ------- | ------- | ---- | ----------- |
-| Griglia di eventi | Programmazione reattiva | Distribuzione di eventi | Reazione alle modifiche di stato |
-| Hub eventi | Pipeline di Big Data | Streaming di eventi | Flusso dei dati di telemetria e distribuiti |
+| Griglia di eventi | Programmazione reattiva | Distribuzione di eventi (separati) | Reazione alle modifiche di stato |
+| Hub eventi | Pipeline di Big Data | Streaming di eventi (serie) | Flusso dei dati di telemetria e distribuiti |
 | Bus di servizio | Messaggistica aziendale di alto valore | Message | Elaborazione di ordini e transazioni finanziarie |
 
 ### <a name="event-grid"></a>Griglia di eventi

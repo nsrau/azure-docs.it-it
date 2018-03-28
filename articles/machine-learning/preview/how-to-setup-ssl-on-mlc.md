@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Abilitare SSL in un cluster di calcolo di Azure Machine Learning 
 
@@ -31,7 +31,7 @@ Queste istruzioni consentono di configurare SSL per chiamate del punteggio in un
 
 Dopo aver completato i prerequisiti, saranno disponibili due file:
 
-* Un file per il certificato, ad esempio `cert.pem`
+* Un file per il certificato, ad esempio `cert.pem`. Assicurarsi che il file contenga la catena di certificati completa.
 * Un file per la chiave, ad esempio `key.pem`
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Eseguire il mapping del CNAME e dell'indirizzo IP
 
-Creare un mapping tra il CNAME scelto nella sezione dei prerequisiti e l'indirizzo IP del front-end in tempo reale. Per trovare l'indirizzo IP del front-end, eseguire il comando seguente. Nell'output viene visualizzato un campo denominato "publicIpAddress" contenente l'indirizzo IP del front-end del cluster in tempo reale. Fare riferimento alle istruzioni fornite dal provider DNS per configurare un record CNAME.
+Creare un mapping tra il CNAME scelto nella sezione dei prerequisiti e l'indirizzo IP del front-end in tempo reale. Per trovare l'indirizzo IP del front-end, eseguire il comando seguente. Nell'output viene visualizzato un campo denominato "publicIpAddress" contenente l'indirizzo IP del front-end del cluster in tempo reale. Fare riferimento alle istruzioni del provider DNS per configurare un record dal nome di dominio completo usato in CNAME all'indirizzo IP pubblico.
 
 
 

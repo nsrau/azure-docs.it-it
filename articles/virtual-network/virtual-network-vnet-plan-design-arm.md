@@ -1,6 +1,6 @@
 ---
 title: Guida alla progettazione e alla pianificazione di una rete virtuale di Azure | Documentazione Microsoft
-description: "Informazioni su come pianificare e progettare reti virtuali in Azure in base ai requisiti di isolamento, connettività e località."
+description: Informazioni su come pianificare e progettare reti virtuali in Azure in base ai requisiti di isolamento, connettività e località.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Pianificare e progettare reti virtuali di Azure
 Creare una rete virtuale a scopi sperimentali è abbastanza semplice, ma è probabile che si distribuiscano più reti virtuali nel corso del tempo per supportare le esigenze di produzione dell'organizzazione. Con una pianificazione e una progettazione adeguate è possibile distribuire reti virtuali e connettere le risorse necessarie in modo più efficace. Se non si ha familiarità con le reti virtuali, è consigliabile [acquisire informazioni sulle reti virtuali](virtual-networks-overview.md) e su [come distribuirne](quick-create-portal.md) una prima di procedere.
@@ -248,7 +248,7 @@ I requisiti seguenti sono correlati al controllo dell'accesso:
 In base a tali requisiti, è possibile aggiungere utenti del team responsabile della rete al ruolo incorporato di **collaboratore di rete** in ogni sottoscrizione e creare un ruolo personalizzato per gli sviluppatori di applicazioni in ogni sottoscrizione, assegnando loro le autorizzazioni per aggiungere VM a subnet esistenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire una rete virtuale](virtual-networks-create-vnet-arm-template-click.md) in base a uno scenario.
+* [Distribuire una rete virtuale](quick-create-portal.md).
 * Comprendere come [bilanciare il carico](../load-balancer/load-balancer-overview.md) delle VM IaaS e [gestire il routing in più aree di Azure](../traffic-manager/traffic-manager-overview.md).
-* Altre informazioni sui [gruppi di sicurezza di rete e su come pianificare e progettare](virtual-networks-nsg.md) una soluzione per gruppi di sicurezza di rete.
+* Vedere altre informazioni sui [gruppi di sicurezza di rete](security-overview.md) e la soluzione NSG.
 * Altre informazioni sulle [opzioni di connettività cross-premise e della rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

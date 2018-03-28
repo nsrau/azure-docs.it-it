@@ -104,7 +104,7 @@ Per recuperare le entità con un filtro personalizzato, usare **Get-AzureStorage
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Questa query recupera un record.
@@ -180,7 +180,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 Per eliminare tutte le entità della tabella, recuperarle e inviare tramite pipe i risultati al cmdlet di rimozione. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

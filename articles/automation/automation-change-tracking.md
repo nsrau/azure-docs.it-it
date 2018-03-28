@@ -1,27 +1,23 @@
 ---
-title: Rilevare le modifiche con Automazione di Azure | Microsoft Docs
+title: Rilevare le modifiche con Automazione di Azure
 description: La soluzione Rilevamento modifiche consente di identificare le modifiche al software e al servizio Windows che si verificano nell'ambiente in uso.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: f8040d5d-3c89-4f0c-8520-751c00251cb7
 ms.service: automation
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c5f354c3e63856474e46e2b6928af829604e15
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 06034a87d6015a057c01c2bc87ae4db9fba1269a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
 Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file di Windows e Linux, alle chiavi del Registro di sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
@@ -57,8 +53,8 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 |Group     | Nome del gruppo per il raggruppamento logico dei file.        |
 |Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "/etc/*.conf"       |
 |Tipo di percorso     | Tipo di elemento da rilevare, i valori possibili sono File e Directory.        |
-|Ricorsione     | Determina se viene usata la ricorsione durante la ricerca dell'elemento da rilevare.        |
-|Usa Sudo     | Questa impostazione determina se viene usato sudo durante il controllo dell'elemento.         |
+|Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
+|Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
 |Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento.<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento.<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del contenuto restituito.     |
 
 > [!NOTE]
@@ -77,7 +73,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 |Attivato     | Determina se l'impostazione viene applicata.        |
 |Item Name     | Nome descrittivo del file da rilevare.        |
 |Group     | Nome del gruppo per il raggruppamento logico dei file.        |
-|Immettere il percorso     | Percorso in cui cercare il file. Ad esempio: "c:\temp\myfile.txt"       |
+|Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"       |
 
 ### <a name="configure-windows-registry-keys-to-track"></a>Configurare le chiavi del Registro di Sistema di Windows da rilevare
 

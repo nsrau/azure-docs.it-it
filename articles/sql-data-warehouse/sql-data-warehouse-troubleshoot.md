@@ -5,21 +5,20 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
 Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.
@@ -27,8 +26,8 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 ## <a name="connecting"></a>Connessione
 | Problema | Risoluzione |
 |:--- |:--- |
-| Accesso non riuscito per l'utente 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Errore: 18456) |Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere questo problema specificare che l'SQL Data Warehouse a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per altri dettagli, vedere l'articolo [Panoramica della sicurezza][Security overview]. |
-| L'entità server "MyUserName" non può accedere al database "master" nel contesto di sicurezza corrente. Impossibile aprire il database predefinito dell'utente. Accesso non riuscito. Accesso non riuscito per l'utente 'MyUserName'. (Microsoft SQL Server, Errore: 916) |Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere questo problema specificare che l'SQL Data Warehouse a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per altri dettagli, vedere l'articolo [Panoramica della sicurezza][Security overview]. |
+| Accesso non riuscito per l'utente 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Errore: 18456) |Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere questo problema specificare l'istanza di SQL Data Warehouse a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per altri dettagli, vedere l'articolo [Panoramica della sicurezza][Security overview]. |
+| L'entità server "MyUserName" non può accedere al database "master" nel contesto di sicurezza corrente. Impossibile aprire il database predefinito dell'utente. Accesso non riuscito. Accesso non riuscito per l'utente 'MyUserName'. (Microsoft SQL Server, Errore: 916) |Questo errore si verifica quando un utente AAD tenta di connettersi al database master, ma non dispone di un utente nel database master.  Per risolvere questo problema specificare l'istanza di SQL Data Warehouse a cui si desidera connettersi al momento della connessione o aggiungere l'utente al database master.  Per altri dettagli, vedere l'articolo [Panoramica della sicurezza][Security overview]. |
 | Errore CTAIP |Questo errore può verificarsi quando è stato creato un account di accesso nel database master di SQL Server, ma non nel database di SQL Data Warehouse.  Se si verifica questo errore, vedere l'articolo [Panoramica della sicurezza][Security overview].  Questo articolo illustra come creare un account di accesso e un utente in un database master e come creare un utente nel database di SQL Data Warehouse. |
 | Blocco da parte del firewall |I database SQL di Azure sono protetti da firewall a livello di server e di database per garantire che solo gli indirizzi IP noti accedano a un database. I firewall sono protetti per impostazione predefinita, il che significa che è necessario abilitare in modo esplicito un indirizzo IP o un intervallo di indirizzi prima di potersi connettere.  Per configurare il firewall per l'accesso, seguire la procedura descritta in [Configurare l'accesso al firewall del server per l'indirizzo IP del client][Configure server firewall access for your client IP] nella [Procedura di configurazione del provisioning][Provisioning instructions]. |
 | Impossibile connettersi con lo strumento o il driver |Per eseguire query sui dati in SQL Data Warehouse, è consigliabile usare [SSMS][SSMS], [SSDT per Visual Studio][SSDT for Visual Studio] o [sqlcmd][sqlcmd]. Per altre informazioni sui driver e sulla connessione a SQL Data Warehouse, vedere gli articoli [Driver per Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] e [Connettersi ad Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse]. |
@@ -60,7 +59,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 ## <a name="polybase"></a>PolyBase
 | Problema | Risoluzione |
 |:--- |:--- |
-| Caricamento non riuscito a causa di un elevato numero di righe |Attualmente PolyBase non supporta un elevato numero di righe.  Ciò significa che se la tabella contiene VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX), le tabelle esterne non possono essere usate per caricare i dati.  Il caricamento di un elevato numero di righe è attualmente supportato solo attraverso Data Factory di Azure (con BCP), analisi di flusso di Azure, SSIS, BCP o la classe .NET SQLBulkCopy. Il supporto di un elevato numero di righe in PolyBase verrà aggiunto in una versione futura. |
+| Caricamento non riuscito a causa di un elevato numero di righe |Attualmente PolyBase non supporta un elevato numero di righe.  Ciò significa che se la tabella contiene VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX), le tabelle esterne non possono essere usate per caricare i dati.  Il caricamento di un elevato numero di righe è attualmente supportato solo attraverso Azure Data Factory (con BCP), Analisi di flusso di Azure, SSIS, BCP o la classe .NET SQLBulkCopy. Il supporto di un elevato numero di righe in PolyBase verrà aggiunto in una versione futura. |
 | Esito negativo del caricamento bcp della tabella con tipo di dati MAX |Esiste un problema noto che richiede che venga inserito VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX) alla fine della tabella in alcuni scenari.  Provare a spostare le colonne MAX alla fine della tabella. |
 
 ## <a name="differences-from-sql-database"></a>Differenze rispetto al database SQL
@@ -74,7 +73,7 @@ Questo argomento elenca alcune delle domande più comuni per la risoluzione dei 
 | Le UDF non supportano istruzioni SELECT |Si tratta di una limitazione corrente delle UDF.  Per conoscere la sintassi supportata, vedere [CREATE FUNCTION][CREATE FUNCTION]. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se non si riesce a trovare una soluzione al problema precedente, ecco alcune altre risorse che è possibile provare.
+Se non si riesce a trovare una soluzione al problema, ecco alcune altre risorse che è possibile provare.
 
 * [Blog]
 * [Richieste di funzionalità]
@@ -113,7 +112,7 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

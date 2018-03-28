@@ -2,10 +2,10 @@
 title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
 Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni flusso di autenticazione. Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -90,13 +90,13 @@ I token di aggiornamento sono token di sicurezza che l'app può usare per acquis
 
 Si tratta di token a più risorse,  ossia un token di aggiornamento ricevuto durante una richiesta di token per una risorsa può essere riscattato per i token di accesso che fanno riferimento a una risorsa completamente diversa. A tale scopo, impostare il parametro `resource` nella richiesta sulla risorsa di destinazione.
 
-I token di aggiornamento sono completamente opachi per l'app. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito.  I token di aggiornamento possono essere annullati in qualsiasi momento per vari motivi.  L'unico modo per l'app di sapere se un token di aggiornamento è valido è provare a riscattarlo inviando una richiesta di token all'endpoint di token di Azure AD.
+I token di aggiornamento sono completamente opachi per l'app. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito.  I token di aggiornamento possono essere invalidati in qualsiasi momento per svariati motivi. Per informazioni su questi motivi, vedere [Revoca dei token](#token-revocation).  L'unico modo per l'app di sapere se un token di aggiornamento è valido è provare a riscattarlo inviando una richiesta di token all'endpoint di token di Azure AD.
 
 Quando si riscattano i token di aggiornamento per un nuovo token di accesso, viene visualizzato un nuovo token di aggiornamento nella risposta del token.  È consigliabile salvare il token di aggiornamento appena generato sostituendo quello usato nella richiesta.  In questo modo, il token di aggiornamento rimarrà valido più a lungo possibile.
 
 ## <a name="validating-tokens"></a>Convalida dei token
 
-Per convalidare un id_token o un access_token, l'app deve convalidarne la firma e le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova in [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Il middleware di Azure AD dispone di funzionalità incorporate per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne uno nel linguaggio di interesse. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida JWT manuale](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Per convalidare un id_token o un access_token, l'app deve convalidarne la firma e le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova all'indirizzo [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Il middleware di Azure AD dispone di funzionalità incorporate per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne uno nel linguaggio di interesse. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida JWT manuale](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Sono disponibili librerie ed esempi di codice che illustrano come gestire facilmente la convalida dei token. Le informazioni seguenti vengono fornite a titolo esemplificativo per chi vuole comprenderne il processo sottostante.  Sono disponibili anche numerose librerie open source di terze parti per la convalida dei token JWT. Esiste almeno un'opzione per ogni piattaforma e linguaggio disponibili. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md).
 
@@ -146,6 +146,24 @@ Quando l'applicazione riceve un token (id_token all'accesso dell'utente o un tok
 * E altro ancora...
 
 Per un elenco completo delle convalide di attestazione che l'app deve eseguire per i token ID, vedere le [specifiche di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Per informazioni dettagliate sui valori previsti per tali attestazioni, vedere la [sezione Token ID](#id-tokens) precedente.
+
+## <a name="token-revocation"></a>Revoca dei token
+
+I token di aggiornamento possono essere invalidati in qualsiasi momento per vari motivi.  Questi motivi appartengono a due categorie: timeout e revoca. 
+* Timeout dei token
+  * MaxInactiveTime: se il token di aggiornamento non è stato usato entro il tempo specificato da MaxInactiveTime, non è più valido. 
+  * MaxSessionAge: se il parametro MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor è stato impostato su un valore diverso da quello predefinito (Until-revoked), sarà necessaria una nuova autenticazione allo scadere del tempo impostato in MaxAgeSession*.  
+  * Esempi:
+    * Il tenant ha un parametro MaxInactiveTime impostato su cinque giorni, ma l'utente è andato in vacanza per una settimana e di conseguenza AAD non ha riscontrato una nuova richiesta di token da parte dell'utente per sette giorni.  Alla successiva richiesta di un token, l'utente noterà che il token di aggiornamento è stato revocato e dovrà immettere di nuovo le credenziali. 
+    * Nel caso di un'applicazione riservata, MaxAgeSessionSingleFactor è impostato su un giorno.  Se un utente accede il lunedì, il martedì successivo (dopo che sono trascorse 25 ore) dovrà autenticarsi di nuovo.  
+* Revoca
+  * Modifica volontaria della password: se un utente modifica la propria password, potrebbe doversi autenticare di nuovo in alcune delle applicazioni, a seconda del modo in cui è stato ottenuto il token.  Vedere le note riportate di seguito per informazioni sulle eccezioni. 
+  * Modifica involontaria della password: se un amministratore impone a un utente di modificare la password o la reimposta, i token dell'utente vengono invalidati se sono stati ottenuti tramite la password.  Vedere le note riportate di seguito per informazioni sulle eccezioni. 
+  * Violazione della sicurezza: in caso di una violazione della sicurezza, ad esempio la violazione dell'archivio locale delle password, l'amministratore può revocare tutti i token di aggiornamento attualmente rilasciati.  Questa operazione obbliga gli utenti ad autenticarsi di nuovo. 
+
+Note: 
+
+Se per ottenere il token è stato usato un metodo di autenticazione diverso dalle password, ad esempio Windows Hello, l'app Authenticator o dati biometrici come il viso o le impronte digitali, la modifica della password dell'utente non obbliga l'utente ad autenticarsi di nuovo, ma l'app Authenticator dell'utente deve invece eseguire una nuova autenticazione.  Il motivo è che l'input di autenticazione scelto per l'utente, ad esempio il viso, non è stato modificato e di conseguenza può essere usato di nuovo per l'autenticazione.
 
 ## <a name="sample-tokens"></a>Token di esempio
 

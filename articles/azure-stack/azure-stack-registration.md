@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro dello Stack di Azure con Azure
 La registrazione [Azure Stack](azure-stack-poc.md) con Azure consente di scaricare gli elementi di marketplace da Azure e per impostare i dati di commerce segnalazioni a Microsoft. Dopo la registrazione dello Stack di Azure, viene segnalato l'utilizzo per Azure commerce ed è possibile visualizzare la sottoscrizione usata per la registrazione. 
@@ -58,7 +58,7 @@ Ambienti connessi possono accedere a internet e Azure. Per questi ambienti, è n
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Registrare il provider di risorse di Azure Stack
 Per registrare il provider di risorse dello Stack di Azure con Azure, avviare Powershell ISE come amministratore e utilizzare i seguenti comandi di PowerShell. Questi comandi verranno:
-- Richiedere di eseguire l'accesso come proprietario della sottoscrizione di Azure per essere utilizzato e impostare il `EnvironmentName` parametro **cloud**.
+- Richiedere all'utente di accedere come proprietario della sottoscrizione di Azure per essere utilizzato e impostare il **EnvironmentName** parametro **cloud**.
 - Registrare il provider di risorse di Azure **Microsoft.AzureStack**.
 
 1. Aggiungere l'account di Azure che consente di registrare dello Stack di Azure. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account amministratore globale di Azure e potrebbe essere necessario utilizzare 2-factor authentication in base alla configurazione del tuo account.
@@ -95,7 +95,7 @@ PowerShell per eseguire:
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |Parametro|DESCRIZIONE|
 |-----|-----|
-|CloudAdminCredential|Oggetto PowerShell che contiene informazioni sulle credenziali (nome utente e password) per il proprietario della sottoscrizione di Azure.|
+|CloudAdminCredential|Oggetto PowerShell che contiene informazioni sulle credenziali (nome utente e password) utilizzate per accedere all'endpoint con privilegi.|
 |PrivilegedEndpoint|Una preconfigurato PowerShell console remota che fornisce le funzionalità, ad esempio la raccolta di log e di post-attività di distribuzione. Per ulteriori informazioni, vedere il [utilizzando l'endpoint con privilegi](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) articolo.|
 |BillingModel|Il modello di fatturazione che usa la sottoscrizione. I valori per questo parametro consentiti sono: capacità, PayAsYouUse e sviluppo.|
 
@@ -114,7 +114,7 @@ Seguire le stesse istruzioni usate per la registrazione con il modello di fattur
 PowerShell per eseguire:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `

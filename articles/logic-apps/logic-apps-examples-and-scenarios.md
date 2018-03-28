@@ -4,8 +4,8 @@ description: Altre informazioni sulle app per la logica con esempi, scenari, ese
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
 
@@ -81,7 +81,7 @@ Le app per la logica includono funzionalità sofisticate per il flusso di contro
 
 È possibile sviluppare e distribuire interamente app per la logica con Visual Studio, Visual Studio Team Services o qualsiasi altro strumento di controllo del codice sorgente e compilazione automatica. Per supportare la distribuzione per i flussi di lavoro e le connessioni dipendenti in un modello di risorse, le app per la logica usano i modelli di distribuzione delle risorse di Azure. Gli strumenti di Visual Studio generano automaticamente questi modelli, che è possibile archiviare per il controllo del codice sorgente finalizzato al controllo delle versioni.
 
-* [Compilare e distribuire app per la logica in Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Creare e distribuire app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Attivare il monitoraggio, la registrazione e gli avvisi per le app per la logica esistenti](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Creare un modello di distribuzione automatizzato](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Le app per la logica includono funzionalità sofisticate per il flusso di contro
 
 * [Funzionamento delle espressioni del flusso di lavoro nelle app per la logica](../logic-apps/logic-apps-author-definitions.md)
 * [Gestire i tipi di contenuto non JSON](../logic-apps/logic-apps-content-type.md), come `application/xml`, `application/octet-stream` e `multipart/formdata`
-* [Riferimento: Azure Logic Apps workflow definition language](http://aka.ms/logicappsdocs) (Linguaggio di definizione del flusso di lavoro delle app per la logica di Azure)
+* [Schema del linguaggio di definizione del flusso di lavoro per App per la logica di Azure](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Altre integrazioni e funzionalità
 

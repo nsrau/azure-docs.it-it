@@ -2,10 +2,10 @@
 title: Usare il connettore Slack nelle app per la logica di Azure | Microsoft Docs
 description: Connettersi a Slack nelle app per la logica
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 73c512c70f1c135bd791d93cecc42bd6f4c06b3d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Introduzione al connettore Slack
 Slack è uno strumento di comunicazione del team, che riunisce tutte le comunicazioni del team in un'unica posizione immediatamente disponibile e individuabile in qualsiasi luogo. 
@@ -33,7 +33,7 @@ Per usare il connettore Slack, creare prima una **connessione** , quindi specifi
 | --- | --- | --- |
 | token |Sì |Fornire le credenziali di Slack |
 
-Seguire questi passaggi per accedere a Slack e completare la configurazione della **connessione** Slack nell'app per la logica:
+Accedere a Slack usando i passaggi seguenti e completare la configurazione della **connessione** Slack nell'app per la logica:
 
 1. Selezionare **Ricorrenza**
 2. Selezionare una **frequenza** e immettere un **intervallo**
@@ -47,9 +47,9 @@ Seguire questi passaggi per accedere a Slack e completare la configurazione dell
    ![Configurare Slack][3]  
 8. Si verrà reindirizzati alla pagina di accesso dell'organizzazione. **Autorizzare** l'interazione di Slack con l'app per la logica:      
    ![Configurare Slack][5] 
-9. Al termine dell'autenticazione si verrà reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Recupera tutti i messaggi** . Aggiungere altri trigger e azioni necessari.  
+9. Al termine dell'autorizzazione si viene reindirizzati all'app per la logica per completarla tramite la configurazione della sezione **Slack - Recupera tutti i messaggi**. Aggiungere altri trigger e azioni necessari.  
    ![Configurare Slack][6]
-10. Salvare il lavoro selezionando **Salva** nella barra dei menu visualizzata in alto.
+10. Salvare il lavoro scegliendo **Salva** dal menu (in alto).
 
 ## <a name="connector-specific-details"></a>Dettagli specifici del connettore
 

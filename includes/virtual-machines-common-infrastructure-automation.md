@@ -14,7 +14,7 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) è un motore di automazione per la gestione della configurazione, la creazione di macchine virtuali e la distribuzione di applicazioni. Ansible usa un modello senza agente, in genere con chiavi SSH, per autenticare e gestire i computer di destinazione. Le attività di configurazione vengono definite nei runbook, con alcuni moduli Ansible disponibili per eseguire attività specifiche. Per altre informazioni, vedere [How Ansible works](https://www.ansible.com/how-ansible-works) (Funzionamento di Ansible).
+[Ansible](https://www.ansible.com/) è un motore di automazione per la gestione della configurazione, la creazione di macchine virtuali e la distribuzione di applicazioni. Ansible usa un modello senza agente, in genere con chiavi SSH, per autenticare e gestire i computer di destinazione. Le attività di configurazione vengono definite nei playbook, con alcuni moduli Ansible disponibili per eseguire attività specifiche. Per altre informazioni, vedere [How Ansible works](https://www.ansible.com/how-ansible-works) (Funzionamento di Ansible).
 
 È possibile passare agli argomenti seguenti:
 
@@ -103,7 +103,7 @@ Gli script possono essere scaricati da una risorsa di archiviazione di Azure o d
 
 
 ## <a name="azure-automation"></a>Automazione di Azure
-[Automazione di Azure](https://azure.microsoft.com/services/automation/) usa runbook per elaborare un set di attività nelle macchine virtuali come destinazione. Automazione di Azure viene usato per gestire le macchine virtuali esistenti anziché per creare un'infrastruttura. È possibile eseguire Automazione di Azure su macchine virtuali sia Linux sia Windows, nonché su macchine virtuali o fisiche locali con un ruolo di lavoro ibrido per runbook. I runbook possono essere archiviati in un repository di controllo del codice sorgente come GitHub. Questi runbook possono quindi essere eseguiti manualmente o in base a una pianificazione definita.
+[Automazione di Azure](https://azure.microsoft.com/services/automation/) usa runbook per elaborare un set di attività nelle macchine virtuali come destinazione. Automazione di Azure viene usato per gestire le macchine virtuali esistenti anziché per creare un'infrastruttura. È possibile eseguire Automazione di Azure su macchine virtuali sia Linux sia Windows, nonché su macchine virtuali o computer fisici locali con un ruolo di lavoro ibrido per runbook. I runbook possono essere archiviati in un repository di controllo del codice sorgente come GitHub. Questi runbook possono quindi essere eseguiti manualmente o in base a una pianificazione definita.
 
 Automazione di Azure fornisce anche un servizio DSC (Desired State Configuration) che permette di creare le definizioni per la configurazione di un set specifico di macchine virtuali. DSC assicura quindi che la configurazione necessaria venga applicata e che la macchina virtuale resti coerente. Azure Automation DSC viene eseguito su computer Windows e Linux.
 

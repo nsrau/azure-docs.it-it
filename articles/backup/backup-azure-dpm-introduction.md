@@ -2,10 +2,10 @@
 title: Usare DPM per il backup dei carichi di lavoro nel portale di Azure | Documentazione Microsoft
 description: Introduzione al backup dei server DPM di Azure usando il servizio Backup di Azure
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
+editor: ''
 keywords: System Center Data Protection Manager, data protection manager, backup di dpm
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparazione del backup dei carichi di lavoro in Azure con DPM
 > [!div class="op_single_selector"]
@@ -43,21 +43,23 @@ Questo articolo offre un'introduzione all'uso del servizio Backup di Microsoft A
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) esegue il backup dei dati di file e applicazioni. Altre informazioni sui carichi di lavoro supportati sono disponibili [qui](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). I dati sottoposti a backup su DPM possono essere archiviati su nastro, disco oppure sottoposti a backup in Azure usando il servizio Backup di Microsoft Azure. DPM interagisce con Backup di Azure nei modi seguenti:
 
 * **DPM distribuito come server fisico o come macchina virtuale locale** : se DPM è distribuito come server fisico o come macchina virtuale Hyper-V locale, è possibile eseguire il backup dei dati in un insieme di credenziali dei servizi di ripristino oltre al backup su disco e su nastro.
-* **DPM distribuito come macchina virtuale di Azure** : a partire dalla versione di System Center 2012 R2 con aggiornamento 3, DPM può essere distribuito come macchina virtuale di Azure. Se DPM è distribuito come macchina virtuale di Azure, è possibile eseguire il backup dei dati sui dischi di Azure allegati alla macchina virtuale Azure di DPM oppure è possibile eseguire l'offload dell'archiviazione dei dati eseguendo il backup su un insieme di credenziali dei servizi di ripristino.
+* **DPM distribuito come macchina virtuale di Azure**: a partire dalla versione di System Center 2012 R2 con aggiornamento 3, è possibile distribuire DPM in una macchina virtuale di Azure. Se DPM è distribuito come macchina virtuale di Azure, è possibile eseguire il backup dei dati nei dischi di Azure associati alla VM oppure è possibile eseguire l'offload della risorsa di archiviazione dei dati eseguendo il backup in un insieme di credenziali di Servizi di ripristino.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Perché eseguire il backup da DPM in Azure
-Di seguito sono elencati i vantaggi aziendali derivanti dall'uso del servizio Backup di Azure per eseguire il backup dei server DPM:
+## <a name="why-back-up-dpm-to-azure"></a>Perché eseguire il backup di DPM in Azure
+Di seguito sono elencati i vantaggi aziendali derivanti dal backup dei server DPM in Azure:
 
-* Per la distribuzione DPM locale è possibile usare Azure come alternativa alla distribuzione a lungo termine su nastro.
-* Per le distribuzioni DPM in Azure, Backup di Azure consente di eseguire l'offload dell'archiviazione dal disco di Azure e aumentare le prestazioni archiviando i dati meno recenti in un insieme di credenziali dei servizi di ripristino e i dati nuovi sul disco.
+* Per la distribuzione DPM locale, usare Azure come alternativa alla distribuzione a lungo termine su nastro.
+* Per la distribuzione di DPM in una macchina virtuale in Azure, eseguire l'offload della risorsa di archiviazione dal disco di Azure. L'archiviazione dei dati meno recenti nell'insieme di credenziali di Servizi di ripristino consente di aumentare le prestazioni dell'azienda archiviando i nuovi dati su disco.
 
 ## <a name="prerequisites"></a>prerequisiti
 Di seguito viene descritto come preparare il servizio Backup di Azure all'esecuzione del backup dei dati DPM:
 
 1. **Creare un insieme di credenziali di Servizi di ripristino** : creare un insieme di credenziali nel portale di Azure.
-2. **Scaricare le credenziali dell'insieme di credenziali** : scaricare le credenziali usate per registrare il server DPM nell'insieme di credenziali dei servizi di ripristino.
-3. **Installare l'agente di Backup di Azure** : da Backup di Azure, installare l'agente in ogni server DPM.
-4. **Registrare il server** registrare il server DPM nell'insieme di credenziali dei servizi di ripristino.
+2. **Scaricare le credenziali dell'insieme di credenziali**: scaricare le credenziali usate per registrare il server DPM con l'insieme di credenziali di Servizi di ripristino.
+3. **Installare l'agente di Backup di Azure**: installare l'agente in ogni server DPM.
+4. **Registrare il server**: registrare il server DPM con l'insieme di credenziali di Servizi di ripristino.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Definizioni chiave
 Ecco alcune definizioni chiave del backup in Azure per DPM:
@@ -81,7 +83,7 @@ Per creare un insieme di credenziali dei servizi di ripristino:
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    Verrà visualizzato il pannello degli insiemi di credenziali dei servizi di ripristino, in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
+    Verrà visualizzato il menu degli insiemi di credenziali di Servizi di ripristino, in cui viene richiesto di specificare **Nome**, **Sottoscrizione**, **Gruppo di risorse** e **Località**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. Nel campo **Nome**digitare un nome descrittivo per identificare l'insieme di credenziali. Il nome deve essere univoco per la sottoscrizione di Azure. Digitare un nome che contenga tra i 2 e i 50 caratteri. Deve iniziare con una lettera e può contenere solo lettere, numeri e trattini.
@@ -96,8 +98,8 @@ L'opzione della replica di archiviazione consente di scegliere tra l'archiviazio
 
 Per modificare le impostazioni di replica di archiviazione:
 
-1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il pannello Impostazioni. Se il pannello **Impostazioni** non si apre, fare clic su **Tutte le impostazioni** nel dashboard dell'insieme di credenziali.
-2. Nel pannello **Impostazioni** fare clic su **Infrastruttura di backup** > **Configurazione backup** per aprire il pannello **Configurazione backup**. Nel pannello **Configurazione backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
+1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il menu Impostazioni. Se il menu **Impostazioni** non si apre, fare clic su **Tutte le impostazioni** nel dashboard dell'insieme di credenziali.
+2. Nel menu **Impostazioni** fare clic su **Infrastruttura di backup** > **Configurazione di backup** per aprire il menu **Configurazione di backup**. Nel menu **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -112,9 +114,9 @@ Il file delle credenziali di insieme viene scaricato dal portale di Azure tramit
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Aprire l'insieme di credenziali di Servizi di ripristino a cui si vuole registrare la macchina DPM.
-3. Per impostazione predefinita si apre il pannello Impostazioni. Se non si apre, fare clic su **Impostazioni** nel dashboard dell'insieme di credenziali per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
+3. Per impostazione predefinita si apre il menu Impostazioni. Se non si apre, fare clic su **Impostazioni** nel dashboard dell'insieme di credenziali per aprire il menu delle impostazioni. Nel menu Impostazioni fare clic su **Proprietà**.
 
-    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Nella pagina delle proprietà fare clic su **Scarica** in **Credenziali di backup**. Il portale genera il file delle credenziali di insieme, che diventa disponibile per il download.
 
     ![Download](./media/backup-azure-dpm-introduction/vault-credentials.png)
@@ -130,9 +132,9 @@ Il portale genererà una credenziale di insieme usando una combinazione del nome
 Dopo aver creato l'insieme di credenziali di Backup di Azure, è necessario installare un agente su tutti i computer Windows (Windows Server, client Windows, server System Center Data Protection Manager o computer del server di Backup di Azure) per eseguire il backup dei dati e delle applicazioni in Azure.
 
 1. Aprire l'insieme di credenziali di Servizi di ripristino a cui si vuole registrare la macchina DPM.
-2. Per impostazione predefinita si apre il pannello Impostazioni. Se non viene visualizzato, fare clic su **Impostazioni** per aprire il pannello delle impostazioni. Nel pannello Impostazioni fare clic su **Proprietà**.
+2. Per impostazione predefinita si apre il menu Impostazioni. Se non viene visualizzato, fare clic su **Impostazioni** per aprire il menu delle impostazioni. Nel menu Impostazioni fare clic su **Proprietà**.
 
-    ![Pannello dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Menu dell'insieme di credenziali aperto](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Nella pagina Impostazioni fare clic su **Scarica** in **Agente di Backup di Azure**.
 
     ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)

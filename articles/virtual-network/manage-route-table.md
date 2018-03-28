@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -40,7 +40,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 1. Nell'angolo superiore sinistro del portale selezionare **+ Crea una risorsa**.
 2. Selezionare **Rete** e quindi **Tabella di route**.
-3. Immettere un **Nome** per la tabella di route, selezionare **Sottoscrizione**, creare un nuovo **Gruppo di risorse** o selezionare un gruppo di risorse esistente, selezionare una **Località** e quindi scegliere **Crea**. L'opzione **Disabilita propagazione route BGP** impedisce la propagazione di route locali in una rete virtuale di Azure tramite BGP. Se la rete virtuale non è connessa a un gateway di rete di Azure (VPN o ExpressRoute), lasciare l'opzione impostata su *Disabilitato*. 
+3. Immettere un **Nome** per la tabella di route, selezionare **Sottoscrizione**, creare un nuovo **Gruppo di risorse** o selezionare un gruppo di risorse esistente, selezionare una **Località** e quindi scegliere **Crea**. L'opzione **Disabilita propagazione route BGP** impedisce la propagazione di route locali tramite BGP alle interfacce di rete nelle subnet a cui la tabella di route è associata. Se la rete virtuale non è connessa a un gateway di rete di Azure (VPN o ExpressRoute), lasciare l'opzione impostata su *Disabilitato*.
 
 **Comandi**
 

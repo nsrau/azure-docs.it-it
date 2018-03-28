@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: b40858640d10e5661be420976520774bd50837cb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 
@@ -81,6 +81,7 @@ Per specificare la chiave da un URI, seguire questi passaggi:
 
     ![Screenshot del portale che visualizza l'opzione di crittografia Immettere l'URI della chiave](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+
 #### <a name="specify-a-key-from-a-key-vault"></a>Specificare una chiave da un insieme di credenziali delle chiavi 
 
 Per specificare la chiave da un insieme di credenziali delle chiavi, seguire questi passaggi:
@@ -96,6 +97,17 @@ Se l'account di archiviazione non ha accesso all'insieme di credenziali delle ch
 ![Screenshot del portale che visualizza l'accesso negato all'insieme di credenziali delle chiavi](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 È anche possibile concedere l'accesso tramite il portale di Azure passando ad Azure Key Vault nel portale e attivando l'accesso all'account di archiviazione.
+
+
+È possibile associare la chiave precedente con un account di archiviazione esistente usando i comandi di PowerShell seguenti:
+```powershell
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+```
+
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passaggio 5: Copiare i dati nell'account di archiviazione
 
@@ -113,7 +125,7 @@ R: Sì, la crittografia SSE con chiavi gestite da Microsoft e chiavi gestite dal
 
 **D: È possibile creare nuovi account di archiviazione con la crittografia SSE con chiavi gestite dal cliente abilitata usando Azure PowerShell e l'interfaccia della riga di comando di Azure?**
 
-R: Sì.
+A: Sì.
 
 **D: Qual è il costo aggiuntivo del servizio Archiviazione di Azure se si usano chiavi gestite dal cliente con la crittografia SSE?**
 
@@ -135,7 +147,7 @@ R: No. Quando si crea l'account di archiviazione, per la crittografia SSE sono d
 
 R: No, non è possibile disabilitarla. La crittografia è abilitata per impostazione predefinita per tutti i servizi di archiviazione BLOB, file, tabelle e code. È tuttavia possibile passare dall'uso di chiavi gestite da Microsoft all'uso di chiavi gestite dal cliente e viceversa.
 
-**D: La crittografia SSE è abilitata per impostazione predefinita quando si crea un nuovo account di archiviazione?**
+**D: La funzionalità Crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un nuovo account di archiviazione?**
 
 R: La crittografia SSE è abilitata per impostazione predefinita per tutti gli account di archiviazione e per tutti i servizi di archiviazione BLOB, file, tabelle e code.
 

@@ -2,23 +2,23 @@
 title: Favorire la crescita del business con Azure Marketplace
 description: Guida dettagliata ed elenchi di controllo per la pubblicazione destinati ai nuovi editori in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Favorire la crescita del business con Azure Marketplace
 
@@ -114,7 +114,7 @@ Indipendentemente dal livello di maturità dell'offerta e dagli obiettivi dell'o
 - Rimanere concentrati sull'obiettivo
 - Definire un set di strategie di marketing integrate allineate all'obiettivo
 
-I nuovi editori di Azure Marketplace possono usufruire gratuitamente di alcuni vantaggi offerti dai servizi GTM di Marketplace. È opportuno valutare attentamente in che modo sfruttare tali vantaggi nell'ambito della strategia della campagna. Comunicare al team di marketing Microsoft gli obiettivi della propria campagna nel Marketplace e la reazione che si desidera suscitare negli utenti. Sarà così possibile ottenere aiuto per personalizzare il materiale disponibile in base al proprio piano.
+I nuovi editori di Azure Marketplace possono usufruire gratuitamente di alcuni vantaggi offerti dai servizi GTM di Marketplace. È opportuno valutare attentamente in che modo sfruttare tali vantaggi nell'ambito della strategia della campagna. Comunicare al team di marketing Microsoft gli obiettivi della propria campagna nel Marketplace e la reazione che si desidera suscitare negli utenti. si potrà ottenere aiuto per personalizzare il materiale disponibile in base al proprio piano.
 
 Per altre informazioni sulla creazione delle campagne e sulle procedure di marketing consigliate, vedere [Smart Partner Marketing](https://partner.microsoft.com/en-US/smart-partner-marketing), un programma di Microsoft Partner Network.
 
@@ -129,13 +129,14 @@ Per trarre il massimo vantaggio da queste attività, è consigliabile avere già
 >[!NOTE]
 >Per i membri di Microsoft Partner Network è disponibile il catalogo OCP (One Commercial Partner Catalog). 
 
-![Vantaggi dei servizi GTM del Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Vantaggi dei servizi GTM del Marketplace](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Per assistenza, visitare [Microsoft Go To Market](https://www.microsoftgotomarket.com). In questo sito sono disponibili modelli, contenuti Web, materiali di formazione e strumenti per promuovere il business.
 
 #### <a name="enable-lead-sharing"></a>Abilitare la condivisione di clienti potenziali
 
-Accertarsi che per la propria offerta nel Marketplace sia abilitata la condivisione di clienti potenziali in modo da ricevere le informazioni di contatto dei clienti del Marketplace. I clienti potenziali costituiscono la base per estendere il raggio d'azione di campagne di generazione della domanda e iniziative di vendita del proprio personale addetto alle vendite sul campo e per ottenere maggiori informazioni sui risultati ottenuti dall'offerta. 
+Accertarsi che per la propria offerta in Marketplace sia abilitata la condivisione di clienti potenziali in modo da ricevere le informazioni di contatto dei clienti di Marketplace. I clienti potenziali costituiscono la base per estendere il raggio d'azione di campagne di generazione della domanda e iniziative di vendita del proprio personale addetto alle vendite sul campo e per ottenere maggiori informazioni sui risultati ottenuti dall'offerta. 
 
 Le procedure consigliate per sfruttare i dati sui clienti potenziali includono:
 

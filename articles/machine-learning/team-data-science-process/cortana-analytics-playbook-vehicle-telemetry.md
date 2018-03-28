@@ -1,8 +1,8 @@
 ---
-title: "Previsione dell'integrità dei veicoli e abitudini di guida - Azure | Documentazione Microsoft"
-description: "Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida."
+title: Previsione dell'integrità dei veicoli e abitudini di guida - Azure | Documentazione Microsoft
+description: Usare le funzionalità di Cortana Intelligence per ottenere informazioni dettagliate predittive e in tempo reale sullo stato di integrità del veicolo e sulle abitudini di guida.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 8584cade8e12b4f06ae455227e702844a06f512a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 02b3e0e0808cb9a1a8a2186b1abe6da7dd13e56e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Studio della soluzione di analisi dei dati di telemetria del veicolo
 Questo menu contiene i collegamenti alle sezioni dello studio: 
@@ -26,9 +26,9 @@ Questo menu contiene i collegamenti alle sezioni dello studio:
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Panoramica
-I super computer sono usciti dai laboratori e ora sono parcheggiati in garage! Questi automobili all'avanguardia contengono una miriade di sensori, che forniscono agli utenti la possibilità di tenere traccia di milioni di eventi al secondo e monitorarli. Entro il 2020, la maggior parte di questi veicoli sarà connessa a Internet. Sarà così possibile attingere a questa grande quantità di dati per offrire maggiore sicurezza, affidabilità e una migliore esperienza di guida. Grazie a Cortana Intelligence, Microsoft trasforma questo sogno in realtà.
+I supercomputer non sono più usati solo nei laboratori, ma sono nei nostri garage. Ora si trovano nelle automobili all'avanguardia che contengono una miriade di sensori. Questi sensori consentono di tenere traccia e di monitorare milioni di eventi al secondo. Entro il 2020, la maggior parte di questi veicoli sarà connessa a Internet. Si attingerà così a questa grande quantità di dati per offrire maggiore sicurezza, affidabilità e quindi una migliore esperienza di guida. Grazie a Cortana Intelligence, Microsoft trasforma questo sogno in realtà.
 
-Cortana Intelligence è una famiglia di prodotti di analisi avanzata e Big Data completamente gestita che consente di trasformare i dati in azioni intelligenti. Il modello di soluzione per l'analisi dei dati di telemetria del veicolo di Cortana Intelligence mostra come le concessionarie, i produttori di automobili e le compagnie assicurative possono ottenere informazioni predittive in tempo reale sullo stato di integrità dei veicoli e sulle abitudini di guida. 
+Cortana Intelligence è una famiglia di prodotti di analisi avanzata e Big Data completamente gestita che consente di trasformare i dati in azioni intelligenti. Il modello di soluzione per l'analisi dei dati di telemetria del veicolo di Cortana Intelligence mostra come le concessionarie, i produttori di automobili e le compagnie assicurative possono ottenere informazioni predittive in tempo reale sullo stato di integrità dei veicoli e sulle abitudini di guida.
 
 La soluzione viene implementata come un [modello di architettura lambda](https://en.wikipedia.org/wiki/Lambda_architecture), che mostra tutto il potenziale della piattaforma Cortana Intelligence per l'elaborazione batch e in tempo reale.
 
@@ -38,7 +38,7 @@ L'architettura della soluzione di analisi dei dati di telemetria del veicolo è 
 ![Diagramma dell'architettura della soluzione](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 
 
-Questa soluzione include i componenti di Cortana Intelligence seguenti e ne illustra l'integrazione end-to-end:
+Questa soluzione include i componenti di Cortana Intelligence seguenti e ne illustra l'integrazione:
 
 * **Hub eventi di Azure** inserisce milioni di eventi di telemetria del veicolo in Azure.
 * **Analisi di flusso di Azure** fornisce informazioni dettagliate in tempo reale sull'integrità del veicolo e salva i dati in modo permanente in un archivio a lungo termine per un'analisi batch avanzata.

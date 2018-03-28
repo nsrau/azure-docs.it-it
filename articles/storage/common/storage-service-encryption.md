@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -62,17 +62,13 @@ R: La funzionalità Crittografia del servizio di archiviazione viene abilitata p
 
 R: Non sono previsti costi aggiuntivi.
 
-**D: Chi gestisce le chiavi di crittografia?**
-
-R: Le chiavi sono gestite da Microsoft.
-
 **D: È possibile usare le proprie chiavi di crittografia?**
 
-R: Attualmente non è possibile.
+R: Sì, è possibile usare le proprie chiavi di crittografia. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **D: È possibile revocare l'accesso alle chiavi di crittografia?**
 
-R: Attualmente non è possibile. Le chiavi sono gestite completamente da Microsoft.
+R: Sì, se si [usano le proprie chiavi di crittografia](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
 
 **D: Crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un account di archiviazione?**
 

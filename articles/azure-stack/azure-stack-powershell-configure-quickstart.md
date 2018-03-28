@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7725c5a9a7b6359257efadcc46366a7a360ec69c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Diventare operativi con PowerShell nello Stack di Azure
 
@@ -174,6 +174,9 @@ Dopo aver configurato PowerShell, è possibile testare la configurazione tramite
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Per specificare un gruppo di risorse, è necessario disporre di un gruppo di risorse nella sottoscrizione. Per ulteriori informazioni sulle sottoscrizioni, vedere [Panoramica su piani, offerta, quote e sottoscrizione](azure-stack-plan-offer-quota-overview.md)
+
 Dopo aver creato il gruppo di risorse, il **lo stato di Provisioning** è impostata su **Succeeded**.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -181,10 +184,3 @@ Dopo aver creato il gruppo di risorse, il **lo stato di Provisioning** è impost
 * [Installare e configurare CLI](azure-stack-connect-cli.md)
 
 * [Sviluppare modelli](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

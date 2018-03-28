@@ -2,11 +2,11 @@
 title: Analisi del sentiment tramite tecniche di apprendimento avanzato con Azure Machine Learning | Microsoft Docs
 description: Come eseguire l'analisi del sentiment tramite tecniche di apprendimento avanzato con Azure Machine Learning Workbench.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: miprasad
 manager: kristin.tolle
 editor: miprasad
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analisi del sentiment tramite tecniche di apprendimento avanzato con Azure Machine Learning
 
 L'analisi del sentiment è un'attività ben nota negli scenari di elaborazione del linguaggio naturale. Dato un set di testi, l'obiettivo è determinare la valutazione del testo. L'obiettivo di questa soluzione è di usare le tecniche di apprendimento avanzato per la previsione del sentiment nelle recensioni cinematografiche.
 
-La soluzione si trova in https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
+La soluzione si trova all'indirizzo https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>Collegamento al repository GitHub delle raccolte
 
@@ -37,7 +37,7 @@ Seguire questo collegamento al repository GitHub pubblico:
 
 L'incredibile aumento dei dati e la diffusione dei dispositivi mobili hanno offerto ai clienti molte opportunità per esprimere i propri sentimenti e stati d'animo su qualsiasi elemento in ogni momento. Questa opinione o "sentiment" viene spesso generato tramite canali social sotto forma di recensioni, chat, condivisioni, Mi piace, tweet e così via. Questa valutazione può essere preziosa per le aziende che vogliono migliorare i propri prodotti e servizi, prendere decisioni più informate e promuovere al meglio i marchi.
 
-Per ottenere valore dall'analisi del sentiment, le aziende devono poter eseguire il data mining di vasti archivi di dati di social networking non strutturati per ricavare informazioni di utilità pratica. In questo esempio si svilupperanno modelli di apprendimento avanzato per l'esecuzione dell'analisi del sentiment di un insieme di recensioni cinematografiche con Azure Machine Learning Workbench
+Per ottenere valore dall'analisi del sentiment, le aziende devono poter eseguire il data mining di vasti archivi di dati di social networking non strutturati per ricavare informazioni di utilità pratica. In questo esempio vengono sviluppati modelli di apprendimento avanzato per l'esecuzione dell'analisi del sentiment di un insieme di recensioni cinematografiche con Azure Machine Learning Workbench
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -69,7 +69,7 @@ L'ordine delle esercitazioni pratiche per l'esecuzione della soluzione è il seg
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | "data/sampleReviews.txt" |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | "SentimentExtraction.py" |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | "Operaionalization" |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | "Operaionalization" |
 
 ## <a name="conclusion"></a>Conclusioni
 

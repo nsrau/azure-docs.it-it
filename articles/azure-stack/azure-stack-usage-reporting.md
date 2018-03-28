@@ -2,23 +2,23 @@
 title: Report di dati di utilizzo dello Stack di Azure in Azure | Documenti Microsoft
 description: Informazioni su come impostare i dati di utilizzo reporting nello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Report di dati di utilizzo dello Stack di Azure in Azure 
 
@@ -27,7 +27,7 @@ Dati di utilizzo, denominati anche i dati relativi al consumo, rappresentano la 
 Sistemi a più nodi di Azure Stack che utilizzano il modello di fatturazione in base al consumo devono segnalare i dati di utilizzo in Azure a scopo di fatturazione.  Gli operatori di Azure Stack devono configurare l'istanza di Azure Stack ai dati di utilizzo di report in Azure.
 
 > [!NOTE]
-> Report di dati di utilizzo è necessario per gli utenti a più nodi di Azure Stack che acquistano una licenza in base al modello di pagamento come-di-uso. È facoltativo per i clienti che acquistano una licenza in base al modello di capacità (vedere il [come acquistare pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Per gli utenti di Azure Stack Development Kit, gli operatori di Azure Stack possono segnalare i dati di utilizzo e testare la funzionalità. Tuttavia, gli utenti non verrà addebitati alcun utilizzo che comportano. 
+> Report di dati di utilizzo è necessario per gli utenti a più nodi di Azure Stack che acquistano una licenza in base al modello di pagamento come-di-uso. È facoltativo per i clienti che acquistano una licenza in base al modello di capacità (vedere la [come acquistare pagina](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Per gli utenti di Azure Stack Development Kit, gli operatori di Azure Stack possono segnalare i dati di utilizzo e testare la funzionalità. Tuttavia, gli utenti non verrà addebitati alcun utilizzo che comportano. 
 
 
 ![flusso di fatturazione](media/azure-stack-usage-reporting/billing-flow.png)
@@ -76,7 +76,7 @@ Utilizzo delle risorse è gratuito per Azure Stack Development Kit. Mentre per i
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Gli utenti vengono addebitati per l'infrastruttura di macchine virtuali?
 
-N. Dati di utilizzo per alcuni provider di risorse macchine virtuali di Azure Stack viene segnalati in Azure, ma non sono previsti costi per queste macchine virtuali, né per le macchine virtuali create durante la distribuzione abilitare l'infrastruttura di Azure Stack.  
+di serie Dati di utilizzo per alcuni provider di risorse macchine virtuali di Azure Stack viene segnalati in Azure, ma non sono previsti costi per queste macchine virtuali, né per le macchine virtuali create durante la distribuzione abilitare l'infrastruttura di Azure Stack.  
 
 Gli utenti vengono addebitati solo per le macchine virtuali che vengono eseguiti in sottoscrizioni tenant. Tutti i carichi di lavoro deve essere distribuiti in sottoscrizioni tenant ai fini della conformità con le condizioni di licenza dello Stack di Azure.
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Visualizzare un elenco dei criteri SSL predefiniti
 
-Il gateway applicazione include 3 criteri predefiniti utilizzabili. Il cmdlet `Get-AzureRmApplicationGatewaySslPredefinedPolicy` recupera tali criteri. Ognuno include versioni del protocollo e pacchetti di crittografia abilitati diversi. Questi criteri predefiniti possono essere usati per configurare rapidamente i criteri SSL nel gateway applicazione. Per impostazione predefinita, se non vengono definiti criteri SSL specifici è selezionato il criterio **AppGwSslPolicy20170401**.
+Il gateway applicazione include 3 criteri predefiniti utilizzabili. Il cmdlet `Get-AzureRmApplicationGatewaySslPredefinedPolicy` recupera tali criteri. Ognuno include versioni del protocollo e pacchetti di crittografia abilitati diversi. Questi criteri predefiniti possono essere usati per configurare rapidamente i criteri SSL nel gateway applicazione. Per impostazione predefinita, se non vengono definiti criteri SSL specifici è selezionato il criterio **AppGwSslPolicy20150501**.
 
 Di seguito è riportato un esempio dell'esecuzione di `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

@@ -11,7 +11,7 @@
 
 <sup>1</sup>Sono inclusi gli account di archiviazione Standard e Premium. Se sono necessari più di 200 account di archiviazione, inviare una richiesta tramite il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà il caso aziendale e potrà approvare fino a un massimo di 250 account di archiviazione. 
 
-<sup>2</sup>Per superare i limiti degli account di archiviazione standard in termini di capacità, ingresso/uscita e frequenza delle richieste, inviare una richiesta tramite il [supporto tecnico di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà la richiesta e potrà approvare limiti più elevati caso per caso.
+<sup>2</sup> Se è necessario espandere i limiti dell'account di archiviazione, contattare il [supporto di Azure](https://azure.microsoft.com/support/faq/). Il team di Archiviazione di Azure esaminerà la richiesta e potrà approvare limiti più elevati caso per caso. Gli account di archiviazione per utilizzo generico e BLOB supportano entrambi capacità incrementate, dati in ingresso/uscita e velocità della richiesta in base alla richiesta. Per i nuovi valori massimi per gli account di archiviazione BLOB, vedere [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) (Annuncio di account di archiviazione di dimensioni maggiori a scalabilità più elevata).
 
 <sup>3</sup> Limitato solo dai valori massimi per il traffico in ingresso/uscita dell'account. Il *traffico in ingresso* indica tutti i dati (richieste) inviati a un account di archiviazione. *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.  
 

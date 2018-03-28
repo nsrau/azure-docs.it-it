@@ -1,5 +1,5 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: muralikk
 manager: syadav
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati in Archiviazione di Azure
 Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazione/Esportazione di Azure per trasferire in modo sicuro grandi quantità di dati in Archiviazione di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati da Archiviazione di Azure a unità disco rigido per la spedizione al sito locale. È possibile importare i dati da un'unica unità disco SATA interna ad Archiviazione BLOB di Azure o a File di Azure. 
@@ -29,7 +29,7 @@ Seguire la procedura seguente se è necessario importare i dati sul disco in Arc
 2.  In base alle dimensioni totali dei dati, procurare il numero necessario di unità SSD da 2,5 pollici o dischi rigidi SATA II/III da 2,5 o 3,5 pollici.
 3.  Collegare i dischi rigidi a un computer Windows usando direttamente SATA o gli adattatori USB esterni.
 1.  Creare un singolo volume NTFS in ogni disco rigido e assegnare una lettera di unità al volume. Nessun punto di montaggio.
-2.  Per abilitare la crittografia nel computer Windows, è necessario abilitare la crittografia BitLocker sul volume NTFS. Per eseguire questa operazione, seguire le istruzioni riportate nell'articolo all'indirizzo https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Per abilitare la crittografia nel computer Windows, è necessario abilitare la crittografia BitLocker sul volume NTFS. Usare le istruzioni in https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 3.  Copiare tutti i dati nei volumi NTFS crittografati sui dischi usando le funzionalità di copia e incolla o di trascinamento, oppure usare uno strumento come Robocopy.
 7.  Scaricare WAImportExport V1 da https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Decomprimere il file nella cartella waimportexportv1 predefinita. Ad esempio, C:\WaImportExportV1  
@@ -37,7 +37,7 @@ Seguire la procedura seguente se è necessario importare i dati sul disco in Arc
 10. Copiare la riga di comando seguente in un editor di testo e modificarla per creare una riga di comando:
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     Queste opzioni della riga di comando sono descritte nella tabella seguente:
@@ -47,16 +47,16 @@ Seguire la procedura seguente se è necessario importare i dati sul disco in Arc
     |/j:     |Nome del file journal, con estensione jrn. Viene generato un file journal per ogni unità. È consigliabile usare il numero di serie del disco come nome del file journal.         |
     |/sk:     |Chiave dell'account di Archiviazione di Azure.         |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
-    |/bk:     |Chiave di BitLocker per l'unità.         |
+    |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio, `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure         |
-
+    |/skipwrite:     |Opzione che specifica che non ci sono nuovi dati da copiare e che occorre preparare i dati esistenti sul disco         |
 1. Ripetere il passaggio 10 per tutti i dischi da spedire.
 2. Ogni volta che viene eseguita la riga di comando, viene creato un file journal con il nome fornito con il parametro /j:.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Passaggio 2: creare un processo di importazione nel portale di Azure.
 
-1. Accedere a https://portal.azure.com/. In Altri servizi -> ARCHIVIAZIONE -> "Processi di importazione/esportazione" fare clic su **Crea Processi di importazione/esportazione**.
+1. Accedere a https://portal.azure.com/. In Altri servizi -> ARCHIVIAZIONE -> "Processi di importazione/esportazione" fare clic su **Crea processo di importazione/esportazione**.
 
 2. Nella sezione Informazioni di base selezionare "Importa in Azure", immettere una stringa per il nome del processo, selezionare una sottoscrizione e immettere o selezionare un gruppo di risorse. Immettere un nome descrittivo per il processo di importazione. Il nome immesso può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura, deve iniziare con una lettera e non può contenere spazi. Il nome scelto viene usato per tenere traccia dei processi mentre sono in corso e dopo che sono stati completati.
 

@@ -4,9 +4,9 @@ description: Introduzione all'estensione Funzioni permanenti per Funzioni di Azu
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b5269bb51c787c927b4224b3520d5514b6d24501
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Panoramica di Funzioni permanenti (anteprima)
 
@@ -153,44 +153,43 @@ public static async Task<HttpResponseMessage> Run(
 
 Il parametro `starter` di [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) è un valore proveniente dal binding di output `orchestrationClient`, incluso nell'estensione Funzioni permanenti. Fornisce metodi per avviare istanze di una funzione di orchestrazione, inviarle eventi, terminarla o eseguire query su istanze della funzione di orchestrazione nuove o esistenti. Nell'esempio precedente, una funzione attivata tramite HTTP accetta un valore `functionName` dall'URL in ingresso e lo passa a [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Questa API di binding restituisce quindi una risposta che contiene un'intestazione `Location` e ulteriori informazioni sull'istanza, che in seguito possono essere usate per cercare lo stato dell'istanza avviata o terminarla.
 
-## <a name="pattern-4-stateful-singletons"></a>Modello 4: Singleton con stato
+## <a name="pattern-4-monitoring"></a>Modello 4: Monitoraggio
 
-La maggior parte delle funzioni ha un inizio e una fine espliciti e non interagisce direttamente con origini evento esterne. Tuttavia, le orchestrazioni supportano un modello [singleton con stato](durable-functions-singletons.md) che consente loro di fungere da [attori](https://en.wikipedia.org/wiki/Actor_model) affidabili nell'elaborazione distribuita.
+Il modello di monitoraggio fa riferimento a un processo *ricorrente* flessibile in un flusso di lavoro, ad esempio il polling finché vengono soddisfatte determinate condizioni. Un normale trigger timer può essere applicato a un semplice scenario, ad esempio un processo di pulizia periodico, ma l'intervallo è statico e la gestione delle durate delle istanze diventa complessa. Funzioni durevoli abilita gli intervalli di ricorrenza flessibili, la gestione delle durate delle attività e la possibilità di creare più processi di monitoraggio da una singola orchestrazione.
 
-Il diagramma seguente illustra una funzione che viene eseguita in un ciclo infinito durante l'elaborazione degli eventi ricevuti da origini esterne.
+Un esempio può essere l'inversione dello scenario API HTTP asincrono precedente. Invece di esporre un endpoint per un client esterno per monitorare un'operazione con esecuzione prolungata, il monitoraggio con esecuzione prolungata utilizza un endpoint esterno, in attesa di un cambiamento di stato.
 
-![Diagramma Singleton con stato](media/durable-functions-overview/stateful-singleton.png)
+![Diagramma di monitoraggio](media/durable-functions-overview/monitor.png)
 
-Anche se Funzioni permanenti non è un'implementazione del modello basato su attori, le funzioni di orchestrazione presentano molte delle stesse caratteristiche di runtime. Sono ad esempio a esecuzione prolungata (potenzialmente a ciclo infinito), con stato, affidabili, a thread singolo, con trasparenza di posizione e indirizzabili a livello globale. Questo rende le funzioni di orchestrazione utili per gli scenari di tipo "attore".
-
-Le funzioni ordinarie sono senza stato e pertanto non adatte per implementare un modello singleton con stato. L'estensione Funzioni permanenti, tuttavia, rende il modello singleton con stato relativamente semplice da implementare. Il codice seguente è una funzione di orchestrazione semplice che implementa un contatore.
+Usando Funzioni durevoli, in poche righe di codice si possono creare più monitoraggi che osservano gli endpoint arbitrari. I monitoraggi possono terminare l'esecuzione quando una condizione viene soddisfatta oppure essere terminati da [DurableOrchestrationClient](durable-functions-instance-management.md) e l'intervallo di attesa può essere modificato in base ad alcune condizioni (ad esempio, il backoff esponenziale). Il codice seguente implementa un monitoraggio di base.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
 {
-    int counterState = ctx.GetInput<int>();
-
-    string operation = await ctx.WaitForExternalEvent<string>("operation");
-    if (operation == "incr")
+    int jobId = ctx.GetInput<int>();
+    int pollingInterval = GetPollingInterval();
+    DateTime expiryTime = GetExpiryTime();
+    
+    while (ctx.CurrentUtcDateTime < expiryTime) 
     {
-        counterState++;
-    }
-    else if (operation == "decr")
-    {
-        counterState--;
+        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        if (jobStatus == "Completed")
+        {
+            // Perform action when condition met
+            await ctx.CallActivityAsync("SendAlert", machineId);
+            break;
+        }
+
+        // Orchestration will sleep until this time
+        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await ctx.CreateTimer(nextCheck, CancellationToken.None);
     }
 
-    ctx.ContinueAsNew(counterState);
+    // Perform further work here, or let the orchestration end
 }
 ```
 
-Questo codice rappresenta una "orchestrazione eterna" &mdash; ovvero che inizia e non termina mai. Esegue i passaggi seguenti:
-
-* Inizia con un valore di input in `counterState`.
-* Attende per un periodo illimitato un messaggio denominato `operation`.
-* Esegue logica per aggiornare il proprio stato locale.
-* Riavvia se stessa chiamando `ctx.ContinueAsNew`.
-* Di nuovo attende per un periodo illimitato l'operazione successiva.
+Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole viene usato per controllare l'intervallo di polling. Possono quindi essere eseguite ulteriori attività oppure l'orchestrazione può terminare. Quando `ctx.CurrentUtcDateTime` supera `expiryTime`, il monitoraggio termina.
 
 ## <a name="pattern-5-human-interaction"></a>Modello 5: Interazione umana
 
@@ -229,7 +228,7 @@ Il timer permanente viene creato chiamando `ctx.CreateTimer`. La notifica viene 
 
 ## <a name="the-technology"></a>La tecnologia
 
-L'estensione Funzioni permanenti è basata su [Durable Task Framework](https://github.com/Azure/durabletask), una libreria open source su GitHub per la creazione di orchestrazioni di attività permanenti. Così come Funzioni di Azure è l'evoluzione senza server di Processi Web di Azure, Funzioni permanenti è l'evoluzione senza server di Durable Task Framework. Durable Task Framework è molto usato in Microsoft e all'esterno anche per automatizzare i processi cruciali. È una scelta ideale per l'ambiente senza server di Funzioni di Azure.
+L'estensione Funzioni durevoli è basata su [Durable Task Framework](https://github.com/Azure/durabletask), una libreria open source su GitHub per la creazione di orchestrazioni di attività durevoli. Così come Funzioni di Azure è l'evoluzione senza server di Processi Web di Azure, Funzioni permanenti è l'evoluzione senza server di Durable Task Framework. Durable Task Framework è molto usato in Microsoft e all'esterno anche per automatizzare i processi cruciali. È una scelta ideale per l'ambiente senza server di Funzioni di Azure.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Origine eventi, impostazione di checkpoint e riesecuzione
 
