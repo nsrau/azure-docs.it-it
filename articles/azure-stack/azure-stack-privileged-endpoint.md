@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizzo di un endpoint con privilegi nello Stack di Azure
 
@@ -76,6 +76,8 @@ Prima di iniziare questa procedura per un sistema integrato, verificare che sia 
 
       - **Nome utente**: specificare l'account CloudAdmin, nel formato  **&lt; *dominio Azure Stack*&gt;\accountname**. (Per ASDK, è il nome utente **azurestack\accountname**.) 
       - **Password**: immettere la stessa password fornita durante l'installazione per l'account di amministratore di dominio AzureStackAdmin.
+    > [!NOTE]
+    > Se non si riesce a connettersi all'endpoint ERCS, provare a passaggi uno e due con l'indirizzo IP di una VM ERCS a cui non sono stati già tentativo di connessione.
     
 3.  Dopo la connessione, la richiesta verrà visualizzata l'indicazione **[*nome indirizzo IP o VM ERCS*]: PS >** o **[azs ercs01]: PS >**, a seconda dell'ambiente. A questo punto, eseguire `Get-Command` per visualizzare l'elenco dei cmdlet disponibili.
 

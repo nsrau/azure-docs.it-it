@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione dei set di scalabilità di macchine virtuali
+metadata:
+  title: I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.
+  services: virtual-machine-scale-sets
+  author: carolz
+  manager: czeumault
+  ms.service: virtual-machine-scale-sets
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/14/2018
+  ms.author: carolz
+  ms.openlocfilehash: ea8437adf7224c4605f31ccdea281669b89bb7c9
+  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/28/2018
+abstract:
+  description: I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.
+sections:
+- title: Guide introduttive
+  items:
+  - type: paragraph
+    text: Informazioni su come distribuire un server Web in un set di scalabilità di macchine virtuali.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+      text: Portale di Azure
+      href: /azure/virtual-machine-scale-sets/quick-create-portal
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure 2.0
+      href: /azure/virtual-machine-scale-sets/quick-create-cli
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/virtual-machine-scale-sets/quick-create-powershell
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come distribuire, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali in Azure.
+  - type: list
+    style: ordered
+    items:
+    - html: Creare e gestire un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">interfaccia della riga di comando di Azure 2.0</a> o con <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure PowerShell</a>
+    - html: Usare dischi dati con l'<a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">interfaccia della riga di comando di Azure 2.0</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure PowerShell</a>
+    - html: Usare un'immagine di macchina virtuale personalizzata con l'<a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">interfaccia della riga di comando di Azure 2.0</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure PowerShell</a>
+    - html: Distribuire app in un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">interfaccia della riga di comando di Azure 2.0</a> o con <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a>
+    - html: Ridimensionare automaticamente un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">interfaccia della riga di comando di Azure 2.0</a> o con <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure PowerShell</a>
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Distribuzioni di esempio per set di scalabilità di macchine virtuali.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Interfaccia della riga di comando di Azure 2.0</a>
+    - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>

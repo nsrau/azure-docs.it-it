@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 39a82486b485a761f03244cf8d49f9c79ed9b2f7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per lo Stack di Azure
 
@@ -217,7 +217,7 @@ Stack di Microsoft Azure supporta le seguenti macchine virtuali di Azure Marketp
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Con tecnologia HDP 2,5 piattaforma open source di 100% per Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![KEMP LoadMaster carico del servizio di bilanciamento ADC contenuto commutatore](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster carico del servizio di bilanciamento ADC contenuto commutatore](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Bilanciamento del carico di livello 4-7 applicazione recapito Controller (ADC), opzione di contenuto e gestione traffico. | KEMP Technologies Inc. |
 | ![NooBaa ibrido AWS S3 compatibile - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [Compatibe NooBaa ibrida AWS S3 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Servizio di archiviazione compatibili S3 che si estende su pubblico e capacità risorse locali. | NooBaa |
-| ![Firewall applicazione PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall applicazione PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.pta) | Firewall applicazione PT rileva vulnerabilità note & sconosciuta e impedisce gli attacchi sulle App web. <b>Scaricare entrambi gli elementi Marketplace PT.</b> | Tecnologie positivo |
+| ![Firewall applicazione PT](media/azure-stack-marketplace-azure-items/pt.png) | [Firewall applicazione PT](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | Firewall applicazione PT rileva vulnerabilità note & sconosciuta e impedisce gli attacchi sulle App web. <b>Scaricare entrambi gli elementi Marketplace PT.</b> | Tecnologie positivo |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise consente di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. <b>Scaricare entrambi gli elementi Puppet Marketplace.</b> | Puppet |
 | ![Proxy gestione 3.0 SUSE (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [Proxy gestione 3.0 SUSE (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | Gestione dell'infrastruttura di open source Best-in-class. | SUSE |
 | ![Strumento Software ZeroDown](media/azure-stack-marketplace-azure-items/zerodown.png) | [Strumento Software ZeroDown ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | V 7.1 strumento Software ZeroDown - eseguire la migrazione + a disponibilità elevata. | Software ZeroDown |

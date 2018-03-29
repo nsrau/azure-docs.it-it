@@ -45,8 +45,8 @@ Il valore dell'attributo deve rispettare le regole seguenti:
 * Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * Deve essere globalmente univoco
 * Deve essere una stringa, un valore intero o un numero binario
-* Non deve essere basato sul nome dell'utente
-* Non devono fare distinzione tra maiuscole e minuscole e devono evitare valori che possono variare in base alle maiuscole/minuscole
+* Non deve essere basato sul nome dell'utente, poiché il nome può cambiare
+* Non deve fare distinzione tra maiuscole e minuscole e devono evitare valori che possono variare in base alle maiuscole/minuscole
 * Deve essere assegnato quando viene creato l'oggetto
 
 Se l'attributo sourceAnchor selezionato non è di tipo stringa, Azure AD Connect usa Base64Encode per il valore dell'attributo per assicurare che non vengano visualizzati caratteri speciali. Se si usa un altro server federativo, assicurarsi che il server sia in grado di applicare Base64Encode all'attributo.

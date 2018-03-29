@@ -391,7 +391,7 @@
           href: odbc-driver.md
         - name: Usare Spring Boot Starter con le API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -445,3 +445,5 @@
       href: faq.md
     - name: La coerenza dei dati spiegata attraverso il baseball
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Risolvere i problemi di Azure Cosmos DB
+      href: troubleshoot-azure-cosmosdb.md

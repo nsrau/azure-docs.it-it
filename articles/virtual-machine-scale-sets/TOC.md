@@ -1,15 +1,38 @@
-# [Documentazione sui set di scalabilità di macchine virtuali](index.md)
+# [Documentazione sui set di scalabilità di macchine virtuali](index.yml)
 
 # Panoramica
-## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
+## [Informazioni sui set di scalabilità di macchine virtuali](overview.md)
 
-# Attività iniziali
-## [Creare nel portale di Azure](virtual-machine-scale-sets-create-portal.md)
-## [Creare con l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Creare con Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Guide introduttive
+## [Creare nel portale di Azure](quick-create-portal.md)
+## [Creare con l'interfaccia della riga di comando di Azure 2.0](quick-create-cli.md)
+## [Creare con Azure PowerShell](quick-create-powershell.md)
 ## Creare con un modello
-### [Set di scalabilità Linux](virtual-machine-scale-sets-create-template-linux.md)
-### [Set di scalabilità Windows](virtual-machine-scale-sets-create-template-windows.md)
+### [Set di scalabilità Linux](quick-create-template-linux.md)
+### [Set di scalabilità Windows](quick-create-template-windows.md)
+
+# Esercitazioni
+## 1 - Creare/gestire set di scalabilità
+### [Interfaccia della riga di comando di Azure 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Usare dischi dati
+### [Interfaccia della riga di comando di Azure 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Usare un'immagine di macchina virtuale personalizzata
+### [Interfaccia della riga di comando di Azure 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Distribuire le app in un set di scalabilità
+### [Interfaccia della riga di comando di Azure 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Modello](tutorial-install-apps-template.md)
+## 5 - Ridimensionare automaticamente un set di scalabilità
+### [Interfaccia della riga di comando di Azure 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Modello](tutorial-autoscale-template.md)
+
+# Esempi
+## [Interfaccia della riga di comando di Azure 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -24,12 +47,9 @@
 
 ## Distribuire
 ### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Usare le zone di disponibilità](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Ridimensionare automaticamente un set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Usare il portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Usare Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Scalabilità automatica avanzata](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applicazioni nei set di scalabilità](virtual-machine-scale-sets-deploy-app.md)
 ### [Usare dischi di dati con set di scalabilità](virtual-machine-scale-sets-attached-disks.md)
@@ -57,7 +77,7 @@
 ## Domande frequenti
 ### [Domande frequenti sui set di scalabilità](virtual-machine-scale-sets-faq.md)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
