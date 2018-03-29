@@ -5,9 +5,9 @@ services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5cd486d9953979fe8aa9c8354c5fad5a9e11af1e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Creare, modificare o eliminare un peering reti virtuali
 
@@ -140,11 +140,11 @@ Per far comunicare le reti virtuali non sempre, ma solo in alcuni casi, invece d
     - VirtualNetwork2 e VirtualNetwork3
 
   Non vengono stabiliti peering tra la VirtualNetwork1 e la VirtualNetwork3 tramite la VirtualNetwork2. Se si desidera creare un peering delle reti virtuali tra VirtualNetwork1 e VirtualNetwork3, è necessario creare un peering tra VirtualNetwork1 e VirtualNetwork3.
-- Non è possibile risolvere i nomi nelle reti virtuali con peering usando la risoluzione dei nomi di Azure predefinita. Per risolvere i nomi in altre reti virtuali, è necessario usare un server DNS personalizzato. Per informazioni su come configurare il server DNS, vedere l'articolo [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+- Non è possibile risolvere i nomi nelle reti virtuali con peering usando la risoluzione dei nomi di Azure predefinita. Per risolvere i nomi in altre reti virtuali, è necessario usare un server DNS personalizzato. Per informazioni su come configurare il server DNS, vedere l'articolo [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Le risorse in entrambe le reti virtuali del peering possono comunicare tra loro con la stessa larghezza di banda e latenza che userebbero se fossero nella stessa rete virtuale. Ogni dimensione di macchina virtuale presenta tuttavia una specifica larghezza di banda di rete massima. Per altre informazioni sulla larghezza di banda di rete massima per le diverse dimensioni delle macchine virtuali, vedere gli articoli sulle dimensioni delle macchine virtuali [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - È possibile eseguire il peering delle reti virtuali distribuite tramite Resource Manager, che sono nella stessa sottoscrizione o in sottoscrizioni diverse.
 - È possibile eseguire il peering di reti virtuali distribuite tramite modelli di distribuzione diversi, che si trovano nella stessa sottoscrizione o in sottoscrizioni differenti. 
-- Le sottoscrizione in cui si trovano entrambe le reti virtuali devono essere associate allo stesso tenant di Azure Active Directory. Se non si ha già un tenant di AD, è possibile [crearne uno](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch) rapidamente. È possibile usare un [Gateway VPN ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) per connettere due reti virtuali esistenti in diverse sottoscrizioni associate a tenant differenti di Active Directory.
+- Le sottoscrizione in cui si trovano entrambe le reti virtuali devono essere associate allo stesso tenant di Azure Active Directory. Se non si ha già un tenant di AD, è possibile [crearne uno](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json##create-a-new-azure-ad-tenant) rapidamente. È possibile usare un [Gateway VPN ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) per connettere due reti virtuali esistenti in diverse sottoscrizioni associate a tenant differenti di Active Directory.
 - È possibile eseguire il peering di una rete virtuale a un'altra rete virtuale e anche connettere una rete virtuale a un'altra con un gateway di rete virtuale di Azure. Quando le reti virtuali vengono connesse sia tramite il peering che tramite un gateway, il traffico tra le reti virtuali segue la configurazione del peering invece che il gateway.
 - È previsto un importo minimo per il traffico in ingresso e in uscita che usa un peering di rete virtuale. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 

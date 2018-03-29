@@ -4,7 +4,7 @@ description: Panoramica degli strumenti della macchina virtuale per data science
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9ce99577d57179e641b86385fd1b543e327d7474
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: gokuma
+ms.openlocfilehash: 2ae304a33f13b7bf911e4c90e7d09a9c0fa8ffa4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conoscere la macchina virtuale per data science
 

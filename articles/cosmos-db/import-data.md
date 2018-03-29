@@ -16,15 +16,13 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Utilità di migrazione dati
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Questa esercitazione fornisce istruzioni sull'uso dell'Utilità di migrazione dati di Azure Cosmos DB, che consente di importare dati da diverse origini nelle raccolte e nelle tabelle di Azure Cosmos DB. È possibile eseguire l'importazione da file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure, Amazon DynamoDB e anche da raccolte di API SQL di Azure Cosmos DB ed eseguire la migrazione dei dati in raccolte e tabelle da usare con Azure Cosmos DB. L'utilità di migrazione dati può essere usata anche per la migrazione da una raccolta con singola partizione a una raccolta con più partizioni per l'API SQL.
 

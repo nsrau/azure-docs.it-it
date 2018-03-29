@@ -2,7 +2,7 @@
 title: Analizzare ed elaborare documenti JSON con Apache Hive in HDInsight di Azure | Microsoft Docs
 description: Informazioni su come usare e analizzare i documenti JSON tramite apache Hive in HDInsight di Azure
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -15,49 +15,52 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 04c3a8262e52a630012a0a70e4b1ccb0ade76449
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Elaborare e analizzare documenti JSON tramite apache Hive in HDInsight di Azure
 
 Informazioni su come elaborare e analizzare i file JavaScript Object Notation (JSON) tramite Apache Hive in HDInsight di Azure. Questa esercitazione usa il seguente documento JSON:
 
+```json
+{
+  "StudentId": "trgfg-5454-fdfdg-4346",
+  "Grade": 7,
+  "StudentDetails": [
     {
-        "StudentId": "trgfg-5454-fdfdg-4346",
-        "Grade": 7,
-        "StudentDetails": [
-            {
-                "FirstName": "Peggy",
-                "LastName": "Williams",
-                "YearJoined": 2012
-            }
-        ],
-        "StudentClassCollection": [
-            {
-                "ClassId": "89084343",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "High",
-                "Score": 93,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78547522",
-                "ClassParticipation": "NotSatisfied",
-                "ClassParticipationRank": "None",
-                "Score": 74,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78675563",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "Low",
-                "Score": 83,
-                "PerformedActivity": true
-                    ]
+      "FirstName": "Peggy",
+      "LastName": "Williams",
+      "YearJoined": 2012
     }
+  ],
+  "StudentClassCollection": [
+    {
+      "ClassId": "89084343",
+      "ClassParticipation": "Satisfied",
+      "ClassParticipationRank": "High",
+      "Score": 93,
+      "PerformedActivity": false
+    },
+    {
+      "ClassId": "78547522",
+      "ClassParticipation": "NotSatisfied",
+      "ClassParticipationRank": "None",
+      "Score": 74,
+      "PerformedActivity": false
+    },
+    {
+      "ClassId": "78675563",
+      "ClassParticipation": "Satisfied",
+      "ClassParticipationRank": "Low",
+      "Score": 83,
+      "PerformedActivity": true
+    }
+  ]
+}
+```
 
 Il file è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Per altre informazioni su come usare l'archivio BLOB di Azure con HDInsight, vedere [Usare un archivio BLOB di Azure compatibile con Hadoop Distributed File System con Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). È possibile copiare il file nel contenitore predefinito del cluster.
 
@@ -66,22 +69,24 @@ In questa esercitazione viene usata la console di Hive. Per istruzioni su come a
 ## <a name="flatten-json-documents"></a>Rendere flat i documenti JSON
 I metodi elencati nella sezione seguente presuppongono che il documento JSON sia composto da una singola riga. È quindi necessario rendere flat il documento JSON in una stringa. Se il documento JSON è già flat, è possibile saltare questo passaggio e passare alla sezione successiva relativa all'analisi dei dati JSON. Per rendere flat il documento JSON, eseguire lo script seguente:
 
-    DROP TABLE IF EXISTS StudentsRaw;
-    CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
+```sql
+DROP TABLE IF EXISTS StudentsRaw;
+CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
 
-    DROP TABLE IF EXISTS StudentsOneLine;
-    CREATE EXTERNAL TABLE StudentsOneLine
-    (
-      json_body string
-    )
-    STORED AS TEXTFILE LOCATION '/json/students';
+DROP TABLE IF EXISTS StudentsOneLine;
+CREATE EXTERNAL TABLE StudentsOneLine
+(
+  json_body string
+)
+STORED AS TEXTFILE LOCATION '/json/students';
 
-    INSERT OVERWRITE TABLE StudentsOneLine
-    SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
-          FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
-          GROUP BY INPUT__FILE__NAME;
+INSERT OVERWRITE TABLE StudentsOneLine
+SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
+      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
+      GROUP BY INPUT__FILE__NAME;
 
-    SELECT * FROM StudentsOneLine
+SELECT * FROM StudentsOneLine
+```
 
 Il file JSON non elaborato è disponibile in **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabella Hive **StudentsRaw** punta al documento JSON non elaborato che non è reso flat.
 
@@ -108,10 +113,12 @@ Hive offre una funzione definita dall'utente predefinita denominata [get_json_ob
 
 La query seguente restituisce il nome e il cognome di ogni studente:
 
-    SELECT
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
-    FROM StudentsOneLine;
+```sql
+SELECT
+  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
+  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
+FROM StudentsOneLine;
+```
 
 Questo è l'output ottenuto quando si esegue la query nella finestra della console:
 
@@ -127,10 +134,12 @@ Il wiki relativo a Hive consiglia quindi di usare json_tuple, come illustrato pi
 ### <a name="use-the-jsontuple-udf"></a>Usare la funzione definita dall'utente json_tuple
 L'altra funzione definita dall'utente disponibile in Hive è denominata [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) e offre prestazioni migliori rispetto a [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Questo metodo accetta un insieme di chiavi e una stringa JSON e restituisce una tupla di valori tramite una funzione. La query seguente restituisce l'ID dello studente e il livello dal documento JSON:
 
-    SELECT q1.StudentId, q1.Grade
-      FROM StudentsOneLine jt
-      LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
-        AS StudentId, Grade;
+```sql
+SELECT q1.StudentId, q1.Grade
+FROM StudentsOneLine jt
+LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
+  AS StudentId, Grade;
+```
 
 Output dello script nella console di Hive:
 

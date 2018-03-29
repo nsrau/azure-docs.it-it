@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure da Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -31,7 +31,7 @@ Questo articolo mostra come eseguire scenari comuni usando il servizio di archiv
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Configurare l'applicazione per l'accesso ad Archiviazione di Azure
+## <a name="configure-your-application-to-access-azure-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione di Azure
 Per usare Archiviazione di Azure, è necessario disporre di Azure Storage SDK per Node.js, in cui è incluso un set di pratiche librerie che comunicano con i servizi di archiviazione REST.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Usare Node Package Manager (NPM) per installare il pacchetto
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 ```
 
 Se si osserva l'oggetto `continuationToken`, si troveranno proprietà come `nextPartitionKey`, `nextRowKey` e `targetLocation` che possono essere usate per eseguire l'iterazione di tutti i risultati.
-
-È inoltre disponibile un esempio di continuazione (continuationsample.js) nel [repository azure-storage-node](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) su GitHub. 
 
 ## <a name="work-with-shared-access-signatures"></a>Usare le firme di accesso condiviso di Azure
 Le firme di accesso condiviso rappresentano un modo sicuro per fornire accesso granulare alle tabelle senza specificare il nome o le chiavi dell'account di archiviazione. Le firme di accesso condiviso vengono spesso usate per fornire accesso limitato ai dati, ad esempio per consentire a un'app per dispositivi mobili di eseguire query sui record.

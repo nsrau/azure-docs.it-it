@@ -1,9 +1,9 @@
 ---
-title: "Archiviare il registro attività di Azure | Microsoft Docs"
-description: "Informazioni su come archiviare il log attività di Azure per la conservazione a lungo termine in un account di archiviazione."
+title: Archiviare il registro attività di Azure | Microsoft Docs
+description: Informazioni su come archiviare il log attività di Azure per la conservazione a lungo termine in un account di archiviazione.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiviare il log attività di Azure
 In questo articolo viene illustrato come è possibile usare il Portale di Azure, i cmdlet di PowerShell o l'interfaccia della riga di comando multipiattaforma per archiviare il [**registro attività di Azure**](monitoring-overview-activity-logs.md) in un account di archiviazione. Questa opzione è utile per conservare il log attività per più di 90 giorni (con il controllo completo sui criteri di conservazione) per il controllo, l'analisi statica o il backup. Se è necessario conservare gli eventi per non più di 90 giorni, non è necessario configurare l'archiviazione in un account di archiviazione, perché gli eventi del log attività vengono conservati nella piattaforma Azure per 90 giorni senza abilitare l'archiviazione.
@@ -164,7 +164,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Stream the Activity Log to Event Hubs (Trasmettere il log attività a Hub eventi)](monitoring-stream-activity-logs-event-hubs.md)
 * [Read more about the Activity Log (Altre informazioni sul log attività)](monitoring-overview-activity-logs.md)
 

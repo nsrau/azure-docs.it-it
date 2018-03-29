@@ -3,7 +3,7 @@ title: Abilitare automaticamente le impostazioni di diagnostica con un modello d
 description: Informazioni su come usare un modello di Resource Manager per creare impostazioni di diagnostica che permettono di trasmettere i log di diagnostica a Hub eventi o di memorizzarli in un account di archiviazione.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/26/2018
 ms.author: johnkem
-ms.openlocfilehash: ce61e50d5c00ef44b8eba562928d383510d4ccf4
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 80f427d5acb884be1752f470e2a9d9d04eee5518
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
@@ -46,7 +46,7 @@ Per le risorse non di calcolo, è necessario eseguire due operazioni:
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {
@@ -139,7 +139,7 @@ Di seguito è riportato un esempio completo che crea un'app per la logica e abil
     "settingName": {
       "type": "string",
       "metadata": {
-        "description": "Name of the setting."
+        "description": "Name of the setting. Name for the diagnostic setting resource. Eg. 'archiveToStorage' or 'forSecurityTeam'."
       }
     },
     "storageAccountName": {

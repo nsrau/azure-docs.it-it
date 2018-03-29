@@ -1,23 +1,23 @@
 ---
-title: "Attività del responsabile di progetto nel processo di data science per i team - Azure | Microsoft Docs"
-description: "Descrizione delle attività del responsabile di un progetto di data science in team."
-documentationcenter: 
+title: Attività del responsabile di progetto nel processo di data science per i team - Azure | Microsoft Docs
+description: Descrizione delle attività del responsabile di un progetto di data science in team.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Attività del responsabile di progetto
 

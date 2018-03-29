@@ -1,13 +1,13 @@
 ---
-title: "Analisi di flusso di Azure: informazioni sulle unità di streaming e su come modificarle | Microsoft Docs"
+title: 'Analisi di flusso di Azure: informazioni sulle unità di streaming e su come modificarle | Microsoft Docs'
 description: Informazioni sui fattori che hanno impatto sulle prestazioni in Analisi di flusso di Azure.
-keywords: "unità di streaming, prestazioni delle query"
+keywords: unità di streaming, prestazioni delle query
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -88,18 +88,18 @@ Le dimensioni dello stato di un join temporale sono proporzionali al numero di e
 
 Il numero di eventi senza corrispondenza nel join influisce sull'utilizzo della memoria per la query. La query seguente cerca le impressioni di annunci che generano clic:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria consumata è proporzionale alle dimensioni della finestra e alla frequenza degli eventi. 
 
 Per risolvere questo problema, inviare gli eventi a Hub eventi partizionandoli in base alle chiavi di join (l'ID in questo caso) e scalare orizzontalmente la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **PARTITION BY**, come mostrato di seguito:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta le dimensioni dello stato mantenuto nell'intervallo di join. 

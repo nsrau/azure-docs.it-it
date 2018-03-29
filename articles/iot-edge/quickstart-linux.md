@@ -1,19 +1,19 @@
 ---
 title: Guida introduttiva per Azure IoT Edge e Linux | Microsoft Docs
-description: "È possibile provare Azure IoT Edge tramite l'esecuzione di analisi in un dispositivo perimetrale simulato"
+description: È possibile provare Azure IoT Edge tramite l'esecuzione di analisi in un dispositivo perimetrale simulato
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Guida introduttiva: distribuire il primo modulo di IoT Edge in un dispositivo Linux o Mac - anteprima
 
@@ -76,7 +76,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configurare il runtime con la stringa di connessione al dispositivo IoT Edge dalla sezione precedente:
 ```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Avviare il runtime:

@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 3b8049515f753cbcf8ca068c1790f716f02d30b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="noconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale senza connessione gateway
 
 #### <a name="to-add-additional-address-prefixes"></a>Per aggiungere altri prefissi degli indirizzi:

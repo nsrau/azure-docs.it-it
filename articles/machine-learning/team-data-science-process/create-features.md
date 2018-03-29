@@ -1,8 +1,8 @@
 ---
-title: "Progettazione di funzionalità nell'analisi scientifica dei dati | Documentazione Microsoft"
-description: "Illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning."
+title: Progettazione di funzionalità nell'analisi scientifica dei dati | Documentazione Microsoft
+description: Illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
 Questo articolo illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Gli esempi utilizzati per illustrare questo processo sono tratti da Azure Machine Learning Studio. 
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
-**Questo** menu fornisce collegamenti ad articoli che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+**Questo**menu fornisce collegamenti ad articoli che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 La progettazione di funzionalità tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati che contribuiscono a semplificare il processo di apprendimento. La progettazione e la selezione delle funzionalità sono parti del processo TDSP descritto in [Informazioni sul Processo di analisi scientifica dei dati per i team](overview.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo TDSP. 
 

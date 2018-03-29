@@ -1,8 +1,8 @@
 ---
 title: API di rilevamento delle anomalie di Machine Learning | Microsoft Docs
-description: "API di rilevamento delle anomalie è un esempio compilato con Microsoft Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo."
+description: API di rilevamento delle anomalie è un esempio compilato con Microsoft Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok;rotimpe
-ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: alok
+ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
 ## <a name="overview"></a>Panoramica

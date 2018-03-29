@@ -1,13 +1,13 @@
 ---
-title: "Creare un set di scalabilità di Azure che usa le zone di disponibilità (Anteprima) | Microsoft Docs"
-description: "Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano le zone di disponibilità per aumentare la ridondanza in caso di interruzioni"
+title: Creare un set di scalabilità di Azure che usa le zone di disponibilità (Anteprima) | Microsoft Docs
+description: Informazioni su come creare set di scalabilità di macchine virtuali di Azure che usano le zone di disponibilità per aumentare la ridondanza in caso di interruzioni
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità (Anteprima)
 Per proteggere i set di scalabilità di macchine virtuali dagli errori che possono verificarsi a livello di data center, è possibile creare un set di scalabilità tra le zone di disponibilità. Le aree di Azure che supportano le zone di disponibilità includono almeno tre zone distinte, ognuna dotata di risorse di alimentazione, di rete e di raffreddamento indipendenti. Per ulteriori informazioni, vedere [Overview of Availability Zones](../availability-zones/az-overview.md) (Panoramica delle zone di disponibilità in Azure).
@@ -34,14 +34,14 @@ Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le 
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-overview.md#regions-that-support-availability-zones). È anche necessario eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
-- [Azure portal](#use-the-azure-portal)
+- [Portale di Azure](#use-the-azure-portal)
 - [Interfaccia della riga di comando di Azure 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
 
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
-La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](virtual-machine-scale-sets-create-portal.md). Assicurarsi di aver eseguito la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). Quando si seleziona un'area di Azure supportata, è possibile creare un set di scalabilità in una delle zone disponibili, come illustrato nell'esempio seguente:
+La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-portal.md). Assicurarsi di aver eseguito la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). Quando si seleziona un'area di Azure supportata, è possibile creare un set di scalabilità in una delle zone disponibili, come illustrato nell'esempio seguente:
 
 ![Creare un set di scalabilità in una sola zona di disponibilità](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ Il set di scalabilità e le risorse di supporto, ad esempio Azure Load Balancer 
 
 
 ## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
-La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](virtual-machine-scale-sets-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll).
+La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll).
 
 Aggiungere il parametro `--zones` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*. L'esempio seguente crea un set di scalabilità a zona singola denominato *myScaleSet* nella zona *1*:
 
@@ -114,7 +114,7 @@ Le operazioni da eseguire per creare e configurare tutte le macchine virtuali e 
 
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
-La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](virtual-machine-scale-sets-create-powershell.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). Aggiungere il parametro `-Zone` al comando [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*. 
+La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-powershell.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). Aggiungere il parametro `-Zone` al comando [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*. 
 
 L'esempio seguente crea una configurazione di un set di scalabilità a zona singola denominata *vmssConfig* nella zona *1* dell'area *East US 2*:
 
@@ -178,7 +178,7 @@ Per un esempio completo di un set di scalabilità con ridondanza della zona e de
 
 
 ## <a name="use-azure-resource-manager-templates"></a>Usare i modelli di Gestione risorse di Azure
-La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](virtual-machine-scale-sets-create-template-linux.md) o [Windows](virtual-machine-scale-sets-create-template-windows.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). Aggiungere la proprietà `zones` al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets* nel modello e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*.
+La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata ed eseguire la [registrazione per l'anteprima delle zone di disponibilità](http://aka.ms/azenroll). Aggiungere la proprietà `zones` al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets* nel modello e specificare quale zona usare, ad esempio la zona *1*, *2* o *3*.
 
 L'esempio seguente crea un set di scalabilità a zona singola per Linux denominato *myScaleSet* nella zona *1* dell'area *East US 2*:
 

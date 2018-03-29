@@ -4,7 +4,7 @@ description: Strumenti per machine learning e data science
 keywords: strumenti di analisi scientifica dei dati, macchina virtuale per l'analisi scientifica dei dati, strumenti per l'analisi scientifica dei dati, analisi scientifica dei dati per Linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 1897f793b5907a304af0859a1ab321a06d1ce808
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: gokuma
+ms.openlocfilehash: f8d7fff30d5f5289c362d78ad89027b8141bbbe6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
 La macchina virtuale per data science offre un ampio set di strumenti e librerie per machine learning disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 

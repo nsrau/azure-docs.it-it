@@ -1,8 +1,8 @@
 ---
 title: 'Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end | Documentazione Microsoft'
-description: "Come usare Azure Data Lake per eseguire attività di esplorazione di dati e di classificazione binaria su un set di dati."
+description: Come usare Azure Data Lake per eseguire attività di esplorazione di dati e di classificazione binaria su un set di dati.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
 Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](http://aka.ms/datascienceprocess), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.

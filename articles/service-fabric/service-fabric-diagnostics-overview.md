@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -86,7 +86,7 @@ La piattaforma Service Fabric include un modello di integrità che fornisce repo
 
 ![Dashboard dell'integrità di SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-I report di integrità più recenti possono essere visualizzati in SFX, ma ogni report è disponibile anche come evento. Gli eventi di integrità possono essere raccolti tramite il canale operativo (vedere [Aggregazione di eventi con Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)) e archiviati in OMS Log Analytics per consentire l'impostazione di avvisi e l'esecuzione di query in futuro. In questo modo, è possibile anche rilevare eventuali problemi che possono incidere sulla disponibilità dell'applicazione ed è per questo che si consiglia di impostare avvisi per gli scenari di errore appropriati (avvisi personalizzati tramite OMS).
+I report di integrità più recenti possono essere visualizzati in SFX, ma ogni report è disponibile anche come evento. Gli eventi di integrità possono essere raccolti tramite il canale operativo (vedere [Aggregazione di eventi con Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) e archiviati in OMS Log Analytics per consentire l'impostazione di avvisi e l'esecuzione di query in futuro. In questo modo, è possibile anche rilevare eventuali problemi che possono incidere sulla disponibilità dell'applicazione ed è per questo che si consiglia di impostare avvisi per gli scenari di errore appropriati (avvisi personalizzati tramite OMS).
 
 ## <a name="monitoring-workflow"></a>Flusso di lavoro di monitoraggio 
 
