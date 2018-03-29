@@ -1,24 +1,24 @@
 ---
 title: Fase di comprensione del business del clic di vita del processo di data science per i team - Azure | Microsoft Docs
-description: "Obiettivi, attività e risultati finali per la fase di comprensione del business dei progetti di data science"
+description: Obiettivi, attività e risultati finali per la fase di comprensione del business dei progetti di data science
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 82784cbfd5f12297c376a395b54a817a2ae915a5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: daaaccaeac196b5f4651183173c8e83085d5184d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="business-understanding"></a>Informazioni commerciali
 

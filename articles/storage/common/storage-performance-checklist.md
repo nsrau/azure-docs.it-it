@@ -1,10 +1,10 @@
 ---
-title: "Elenco di controllo di prestazioni e scalabilità per Archiviazione di Azure | Microsoft Docs"
+title: Elenco di controllo di prestazioni e scalabilità per Archiviazione di Azure | Microsoft Docs
 description: Un elenco di controllo delle procedure consolidate per l'utilizzo dell'archiviazione di Azure nello sviluppo di applicazioni ad elevate prestazioni.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica

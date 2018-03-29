@@ -3,8 +3,8 @@ title: Crittografia lato client con .NET per Archiviazione di Microsoft Azure | 
 description: La libreria client di archiviazione di Azure per .NET offre supporto per la crittografia lato client e l'integrazione con l'insieme di credenziali chiave di Azure per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: becfccca-510a-479e-a798-2044becd9a64
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: tamram
-ms.openlocfilehash: 6b26261994bd1e64bf998cf3838ec9e52f844e54
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: cshoe
+ms.openlocfilehash: 723ef31c0247d2b2b5e546b4e4fb3d91a516773c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Crittografia lato client e Insieme di credenziali chiave Azure per Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

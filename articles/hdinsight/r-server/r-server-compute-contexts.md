@@ -2,8 +2,8 @@
 title: Opzioni del contesto di calcolo per R Server in HDInsight - Azure | Documentazione Microsoft
 description: Informazioni sulle diverse opzioni del contesto di calcolo disponibili per gli utenti con R Server in HDInsight
 services: HDInsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 0deb0b1c-4094-459b-94fc-ec9b774c1f8a
@@ -13,13 +13,13 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/19/2017
-ms.author: bradsev
-ms.openlocfilehash: 8bc7767d9903761f3338b7825185171aad74de78
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 03/22/2018
+ms.author: nitinme
+ms.openlocfilehash: 7d10f58c345eff334f40c0ec64d7b9427d6a70e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opzioni del contesto di calcolo per R Server su HDInsight (anteprima)
 

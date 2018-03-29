@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorare e diagnosticare l'elaborazione della richiesta nel proxy inverso
 
 A partire da Service Fabric versione 5.7 è possibile raccogliere gli eventi del proxy inverso. Gli eventi sono disponibili in due canali: un canale contenente solo gli eventi con esito negativo dell'elaborazione della richiesta nel proxy inverso e il secondo canale contenente gli eventi dettagliati con le voci relative alle richieste con esito positivo e negativo.
 
-Leggere [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) (Raccogliere gli eventi del proxy inverso) per abilitare la raccolta di eventi da questi canali in locale e nei cluster di Azure Service Fabric.
+Leggere [Collect reverse proxy events](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) (Raccogliere gli eventi del proxy inverso) per abilitare la raccolta di eventi da questi canali in locale e nei cluster di Azure Service Fabric.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Eseguire la risoluzione dei problemi usando i log di diagnostica
 Di seguito sono riportati alcuni esempi su come interpretare i log di potenziali errori comuni:

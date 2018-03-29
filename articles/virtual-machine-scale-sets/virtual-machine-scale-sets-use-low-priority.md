@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Macchine virtuali con priorità bassa nei set di scalabilità (anteprima)
 
@@ -48,7 +48,7 @@ Per distribuire macchine virtuali con priorità bassa nei set di scalabilità, �
 
 ## <a name="use-the-azure-cli-20"></a>Usare l'interfaccia della riga di comando di Azure 2.0
 
-La procedura per creare un set di scalabilità con macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](virtual-machine-scale-sets-create-cli.md). Basta aggiungere il parametro "--Priority" alla chiamata dell'interfaccia della riga di comando e impostarlo su *Low* come illustrato nell'esempio seguente:
+La procedura per creare un set di scalabilità con macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Basta aggiungere il parametro "--Priority" alla chiamata dell'interfaccia della riga di comando e impostarlo su *Low* come illustrato nell'esempio seguente:
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
 
-La procedura per creare un set di scalabilità con macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](virtual-machine-scale-sets-create-powershell.md).
+La procedura per creare un set di scalabilità con macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-powershell.md).
 Basta aggiungere il parametro "--Priority" a [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e impostarlo su *Low* come illustrato nell'esempio seguente:
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Usare i modelli di Azure Resource Manager
 
-La procedura per creare un set di scalabilità che usa macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](virtual-machine-scale-sets-create-template-linux.md) o [Windows](virtual-machine-scale-sets-create-template-windows.md). Aggiungere la proprietà "priority" al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* nel modello e specificare *Low* come valore. Usare l'API versione *2017-10-30-preview* o successiva. 
+La procedura per creare un set di scalabilità che usa macchine virtuali con priorità bassa è identica a quella descritta in dettaglio nell'articolo introduttivo per [Linux](quick-create-template-linux.md) o [Windows](quick-create-template-windows.md). Aggiungere la proprietà "priority" al tipo di risorsa *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* nel modello e specificare *Low* come valore. Usare l'API versione *2017-10-30-preview* o successiva. 
 
 Per impostare i criteri di rimozione per l'eliminazione, aggiungere il parametro "evictionPolicy" e impostarlo su *delete*.
 
