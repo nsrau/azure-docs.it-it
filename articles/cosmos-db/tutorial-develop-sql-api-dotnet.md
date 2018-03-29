@@ -1,30 +1,28 @@
 ---
-title: 'Azure Cosmos DB: Sviluppare con l''API SQL in .NET | Microsoft Docs'
+title: "Azure Cosmos DB: Sviluppare con l'API SQL in .NET | Microsoft Docs"
 description: Informazioni su come sviluppare con l'API SQL di Azure Cosmos DB usando .NET
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB: Sviluppare con l'API SQL in .NET
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 

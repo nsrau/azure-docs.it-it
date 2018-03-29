@@ -1,19 +1,19 @@
 ---
-title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con l''interfaccia della riga di comando di Azure | Microsoft Docs'
+title: "Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs"
 description: In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per creare un account di archiviazione e un contenitore. Si usa quindi l'interfaccia della riga di comando per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
-ms.author: tamram
-ms.openlocfilehash: 2c567f06ca501799c895448c54955c8858705611
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: rogarana
+ms.openlocfilehash: 673392f393d3fb5d7351c0b4ad4782179a99da2a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
@@ -103,7 +103,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando le risorse del gruppo risorse non sono più necessarie, incluso l'account di archiviazione creato in questa guida introduttiva, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group#az_group_delete).
+Quando le risorse del gruppo risorse non sono più necessarie, incluso l'account di archiviazione creato in questa Guida rapida, è possibile eliminare il gruppo di risorse con il comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -111,7 +111,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato descritto il trasferimento di file tra il disco locale e un contenitore di Archiviazione BLOB di Azure. Per altre informazioni sull'uso dei BLOB in Archiviazione di Azure, continuare con l'esercitazione per l'uso dell'archiviazione BLOB di Azure.
+In questa Guida rapida è stato descritto il trasferimento di file tra il disco locale e un contenitore nell'archiviazione BLOB di Azure. Per altre informazioni sull'uso dei BLOB in Archiviazione di Azure, continuare con l'esercitazione per l'uso dell'archiviazione BLOB di Azure.
 
 > [!div class="nextstepaction"]
 > [Procedura: Operazioni di archiviazione BLOB con l'interfaccia della riga di comando di Azure](storage-how-to-use-blobs-cli.md)

@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: f93a7c2fe75a643553a4dd5a8ccfcea975b336bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/23/2018
+---
 1. Nel lato sinistro della pagina del portale fare clic su **+** e digitare 'Gateway di rete virtuale' nella casella di ricerca. In **Risultati** individuare e selezionare **Gateway di rete virtuale**.
 2. Nella parte inferiore della pagina "Gateway di rete virtuale" fare clic su **Crea**. Verrà visualizzata la pagina **Crea gateway di rete virtuale**.
 

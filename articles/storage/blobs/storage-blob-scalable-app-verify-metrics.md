@@ -1,26 +1,21 @@
 ---
-title: "Verificare le metriche di velocità effettiva e latenza per un account di archiviazione nel portale di Azure | Microsoft Docs"
-description: "Informazioni su come verificare le metriche di velocità effettiva e latenza per un account di archiviazione nel portale."
+title: Verificare le metriche di velocità effettiva e latenza per un account di archiviazione nel portale di Azure | Microsoft Docs
+description: Informazioni su come verificare le metriche di velocità effettiva e latenza per un account di archiviazione nel portale.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: b3102bd4e40e10fe88c12295794da37e359c56f1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-=======
-ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
->>>>>>> e9608243da864c46ce93986fe11980d2656272ea
+ms.openlocfilehash: e498e44fcda6877aa69ec763e46e7ae7879e5aa9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificare le metriche di velocità effettiva e latenza per un account di archiviazione
 

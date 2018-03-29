@@ -1,11 +1,11 @@
 ---
-title: Account e autorizzazioni di Azure AD Connect | Microsoft Docs
-description: "Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie."
+title: Account e autorizzazioni di Azure AD Connect | Documentazione Microsoft
+description: Questo argomento descrive gli account usati e creati nonché le autorizzazioni necessarie.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
@@ -118,7 +118,7 @@ Se si usano le impostazioni personalizzate, l'utente è responsabile della creaz
 ### <a name="azure-ad-connect-sync-service-account"></a>Account del servizio di sincronizzazione Azure AD Connect
 Il servizio di sincronizzazione può essere eseguito con account diversi, ad esempio con un **account del servizio virtuale** (VSA), un **account del servizio gestito del gruppo** (gMSA/sMSA) o un normale account utente. Le opzioni supportate sono state modificate con il rilascio di aprile 2017 di Connect se si esegue una nuova installazione. Se si esegue un aggiornamento da una versione precedente di Azure AD Connect, tali opzioni non sono disponibili.
 
-| Tipo di account | Opzione di installazione | Descrizione |
+| Tipo di account | Opzione di installazione | DESCRIZIONE |
 | --- | --- | --- |
 | [Account del servizio virtuale](#virtual-service-account) | Rapida e personalizzata, aprile 2017 e versioni successive | Questa è l'opzione usata per tutte le installazioni rapide, ad eccezione delle installazioni in un controller di dominio. Per l'installazione personalizzata è l'opzione predefinita, a meno che non si usi un'altra opzione. |
 | [Account del servizio gestito del gruppo](#group-managed-service-account) | Personalizzata, aprile 2017 e versioni successive | Se si usa un server SQL remoto, è consigliabile usare un account del servizio gestito del gruppo. |

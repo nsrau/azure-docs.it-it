@@ -1,11 +1,11 @@
 ---
-title: "Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni | Microsoft Docs"
-description: "Usare hub eventi e app per la logica per raccogliere dati dal log attività di Azure ed eseguirne l'invio a un'area di lavoro di Azure Log Analytics in un altro tenant."
+title: Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni | Microsoft Docs
+description: Usare hub eventi e app per la logica per raccogliere dati dal log attività di Azure ed eseguirne l'invio a un'area di lavoro di Azure Log Analytics in un altro tenant.
 services: log-analytics, logic-apps, event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 89c62563b9772fa07d63a24b4aa20857b0143f85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni
 
@@ -113,7 +113,7 @@ Prima di creare l'app per la logica, verificare di disporre delle informazioni s
 - ID dell'area di lavoro di Log Analytics
 - Chiave condivisa di Log Analytics
 
-Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i passaggi in [Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione](../connectors/connectors-create-api-azure-event-hubs.md#check-event-hubs-namespace-permissions-and-find-the-connection-string).
+Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i passaggi in [Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Creare una nuova app per la logica vuota

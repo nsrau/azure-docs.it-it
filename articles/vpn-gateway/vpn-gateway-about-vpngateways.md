@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-vpn-gateway"></a>Informazioni sul gateway VPN
 
@@ -77,7 +77,7 @@ Usare i diagrammi e le descrizioni per selezionare la topologia di connessione p
 
 ### <a name="S2S"></a>Da sito a sito
 
-Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride. Una connessione da sito a sito richiede un dispositivo VPN in locale con un indirizzo IP pubblico assegnato e non situato dietro una NAT. Per informazioni sulla selezione di un dispositivo VPN, vedere [Domande frequenti sul gateway VPN - Dispositivi VPN](/vpn-gateway-vpn-faq.md#s2s).
+Una connessione gateway VPN da sito a sito (S2S) avviene tramite un tunnel VPN IPsec/IKE (IKEv1 o IKEv2). Le connessioni S2S possono essere usate per le configurazioni cross-premise e ibride. Una connessione da sito a sito richiede un dispositivo VPN in locale con un indirizzo IP pubblico assegnato e non situato dietro una NAT. Per informazioni sulla selezione di un dispositivo VPN, vedere [Domande frequenti sul gateway VPN - Dispositivi VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Esempio di connessione gateway VPN di Azure da sito a sito](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
