@@ -1,6 +1,6 @@
 ---
-title: "Applicare la disponibilità elevata ai dati delle applicazioni in Azure | Microsoft Docs"
-description: "Usare l'archiviazione con ridondanza geografica e accesso in lettura per applicare la disponibilità elevata ai dati delle applicazioni"
+title: Applicare la disponibilità elevata ai dati delle applicazioni in Azure | Microsoft Docs
+description: Usare l'archiviazione con ridondanza geografica e accesso in lettura per applicare la disponibilità elevata ai dati delle applicazioni
 services: storage
 author: tamram
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
@@ -43,7 +43,7 @@ Per completare questa esercitazione:
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
 * Installare [Python](https://www.python.org/downloads/)
-* Scaricare e installare [Azure Storage SDK per Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)
+* Scaricare e installare [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)
 * (Facoltativo) Scaricare e installare [Fiddler](https://www.telerik.com/download/fiddler)
 
 ---

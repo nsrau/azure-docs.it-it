@@ -1,3 +1,19 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a1fa4d58cefa82e70c036d697957254531042b9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/23/2018
+---
 1. Nel [portale](http://portal.azure.com) passare alla rete virtuale di Resource Manager per cui si vuole creare un gateway di rete virtuale.
 2. Nella sezione **Impostazioni** della pagina della rete virtuale fare clic su **Subnet** per espandere la pagina Subnet.
 3. Nella pagina **Subnet** fare clic su **+Subnet del gateway** per aprire la pagina **Aggiungi subnet**.

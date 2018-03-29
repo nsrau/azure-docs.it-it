@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 in Azure Resource Manager mediante l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Interfaccia della riga di comando di Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modello](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP, UDP). I servizi id bilanciamento del carico offrono disponibilità elevata distribuendo il traffico in ingresso tra istanze del servizio integre in servizi cloud o macchine virtuali in un set di bilanciamento del carico. I servizi di bilanciamento del carico possono anche presentare tali servizi su più porte, più indirizzi IP o entrambi.
 

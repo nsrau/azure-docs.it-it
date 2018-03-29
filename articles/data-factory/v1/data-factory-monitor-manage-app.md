@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni su come [monitorare e gestire le pipeline di Data Factory nella versione 2](../monitor-visually.md).
 
-Questo articolo descrive come usare l'app di monitoraggio e gestione per monitorare, gestire ed eseguire il debug delle pipeline di Data Factory. L'articolo contiene anche informazioni su come creare avvisi per ricevere notifiche relative agli errori. Per un'introduzione all'uso dell'applicazione, vedere il video seguente:
+Questo articolo descrive come usare l'app di monitoraggio e gestione per monitorare, gestire ed eseguire il debug delle pipeline di Data Factory. Per un'introduzione all'uso dell'applicazione, vedere il video seguente:
 
 > [!NOTE]
 > L'interfaccia utente visualizzata nel video potrebbe non corrispondere esattamente a ciò che viene visualizzato nel portale. L'interfaccia visualizzata nel video è di poco precedente, ma i concetti rimangono invariati. 
@@ -296,42 +296,3 @@ Selezionare una finestra attività, fare clic sulla freccia giù del primo pulsa
 È possibile selezionare più due o più pipeline utilizzando il tasto CTRL. È possibile utilizzare i pulsanti della barra dei comandi (che vengono evidenziati nel rettangolo rosso nella figura seguente) per sospendere o riprendere le pipeline.
 
 ![Sospensione/ripresa nella barra dei comandi](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Creare avvisi
-La pagina **Avvisi** consente di creare nuovi avvisi e di visualizzare, modificare o eliminare quelli esistenti. Permette anche di abilitare o disabilitare un avviso. Fare clic sulla scheda **Avvisi** per visualizzare la pagina.
-
-![Scheda Alerts](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Per creare un avviso
-1. Fare clic su **Aggiungi avviso** per aggiungere un avviso. Verrà visualizzata la pagina **Dettagli**.
-
-    ![Creazione di avvisi: pagina Details](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Specificare il **nome** e la **descrizione** dell'avviso e fare clic su **Avanti**. Viene visualizzata la pagina **Filtri** .
-
-    ![Creazione di avvisi: pagina Filters](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Selezionare l'**evento**, lo **stato** e lo **stato secondario** (facoltativo) per cui si vuole creare un avviso dal servizio Data Factory e fare clic su **Avanti**. Dovrebbe essere visualizzata la pagina **Destinatari** .
-
-    ![Creazione di avvisi: pagina Recipients](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Selezionare l'opzione **Email subscription admins** (Invia email agli amministratori della sottoscrizione) e/o immettere un valore per l'**email degli amministratori aggiuntivi**, quindi fare clic su **Fine**. L'avviso verrà visualizzato nell'elenco.
-
-    ![Elenco degli avvisi](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-Nell'elenco degli avvisi, usare i pulsanti associati a un avviso per modificare, eliminare, disabilitare o abilitare l'avviso.
-
-### <a name="eventstatussubstatus"></a>Evento, stato e stato secondario
-La tabella seguente fornisce l'elenco di eventi, stati e stati secondari disponibili.
-
-| Nome evento | Status | Stato secondario |
-| --- | --- | --- |
-| Esecuzione attività avviata |Started |Avvio in corso |
-| Esecuzione attività terminata |Succeeded |Succeeded |
-| Esecuzione attività terminata |Operazione non riuscita |Allocazione risorse non riuscita<br/><br/>Esecuzione non riuscita<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abbandonato |
-| Creazione cluster HDI su richiesta avviata |Started |-|
-| Creazione cluster HDI su richiesta completata |Succeeded |-|
-| Cluster HDI su richiesta eliminato |Succeeded |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Modificare, eliminare o disabilitare un avviso
-
-Utilizzare i pulsanti seguenti (evidenziati in rosso) per modificare, eliminare o disabilitare un avviso.
-
-![Pulsanti degli avvisi](./media/data-factory-monitor-manage-app/AlertButtons.png)

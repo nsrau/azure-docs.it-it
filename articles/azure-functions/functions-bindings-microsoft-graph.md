@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: d774f0ca644793235a8c423b052b559d26e289c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2de80760484ae1869b340898ea1e5f740fbc2883
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
 
@@ -1284,11 +1284,11 @@ Il file *function.json* definisce un trigger HTTP con un'associazione di output 
       "direction": "in"
     },
     {
-      "type": "graphwebhook",
+      "type": "graphWebhookSubscription",
       "name": "clientState",
       "direction": "out",
       "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
+      "subscriptionResource": "me/mailFolders('Inbox')/messages",
       "changeTypes": [
         "created"
       ],
@@ -1333,11 +1333,11 @@ Il file *function.json* definisce un trigger HTTP con un'associazione di output 
       "direction": "in"
     },
     {
-      "type": "graphwebhook",
+      "type": "graphWebhookSubscription",
       "name": "clientState",
       "direction": "out",
       "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
+      "subscriptionResource": "me/mailFolders('Inbox')/messages",
       "changeTypes": [
         "created"
       ],

@@ -1,11 +1,11 @@
 ---
-title: "Funzionalità e configurazione del Servizio di sincronizzazione Azure AD Connect | Documentazione Microsoft"
-description: "Descrive le funzionalità sul lato del servizio per il Servizio di sincronizzazione Azure AD Connect."
+title: Funzionalità e configurazione del Servizio di sincronizzazione Azure AD Connect | Documentazione Microsoft
+description: Descrive le funzionalità sul lato del servizio per il Servizio di sincronizzazione Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funzionalità del servizio di sincronizzazione Azure AD Connect
 La funzionalità di sincronizzazione di Azure AD Connect include due componenti:
@@ -56,7 +56,7 @@ Le impostazioni seguenti vengono configurate da Azure AD Connect e non possono e
 | DeviceWriteback |[Azure AD Connect: abilitazione del writeback dei dispositivi](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Servizio di sincronizzazione Azure AD Connect: estensioni della directory](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Consente di mettere in quarantena un attributo quando è un duplicato di un altro oggetto, invece di causare l'errore dell'intero oggetto durante l'esportazione. |
-| PasswordSync |[Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[Implementazione della sincronizzazione password con il servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Anteprima: Writeback dei gruppi](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Attualmente non è supportata. |
 

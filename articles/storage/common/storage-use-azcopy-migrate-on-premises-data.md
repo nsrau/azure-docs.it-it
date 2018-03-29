@@ -2,19 +2,19 @@
 title: Eseguire la migrazione di dati locali in Archiviazione di Azure tramite AzCopy| Microsoft Docs
 description: Usare AzCopy per migrare o copiare dati da o verso BLOB, tabelle e contenuto di file. Migrare facilmente dati dalla risorsa di archiviazione locale ad Archiviazione di Azure.
 services: storage
-author: ruthogunnnaike
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: rogarana
+ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Modificare i dati a scopo di test.
 > * Creare un'attività pianificata o un processo cron per identificare nuovi file da caricare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, scaricare la versione più recente di AzCopy su [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) o [Windows](http://aka.ms/downloadazcopy). 
 

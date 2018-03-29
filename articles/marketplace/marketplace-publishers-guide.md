@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
@@ -308,7 +308,7 @@ Per le applicazioni a tenant singolo sono disponibili più opzioni:
 - Sviluppare una test drive per ogni cliente
 - Creare un'app demo di esempio multi-tenant con SSO
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processi di pubblicazione per prodotto per Office, Dynamics e Power BI
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Processi di pubblicazione per prodotto per Office, Dynamics e Power BI
 Per le app AppSource che estendono Office, Dynamics e Power BI, è possibile acquisire altre informazioni sui requisiti specifici nella documentazione del prodotto in questa sezione. 
 
 

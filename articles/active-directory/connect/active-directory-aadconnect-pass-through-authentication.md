@@ -2,8 +2,8 @@
 title: 'Azure AD Connect: autenticazione pass-through | Documentazione Microsoft'
 description: Questo articolo descrive l'autenticazione pass-through di Azure Active Directory (Azure AD) e come consenta gli accessi ad Azure AD tramite la convalida delle password degli utenti in Active Directory locale.
 services: active-directory
-keywords: "cos'è l'autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On"
-documentationcenter: 
+keywords: cos'è l'autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Accesso utente con l'autenticazione pass-through di Azure Active Directory
 
@@ -28,7 +28,7 @@ L'autenticazione pass-through di Azure Active Directory (Azure AD) consente agli
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash delle password di Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), che offre alle organizzazioni gli stessi vantaggi dell'autenticazione cloud. Tuttavia, i criteri di conformità e sicurezza in alcune organizzazioni non consentono di inviare le password degli utenti, anche in un formato hash, al di fuori dei limiti interni. L'autenticazione pass-through è la soluzione ideale per tali organizzazioni.
+Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash delle password di Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), che offre alle organizzazioni gli stessi vantaggi dell'autenticazione cloud. Tuttavia, i criteri di conformità e sicurezza in alcune organizzazioni non consentono di inviare le password degli utenti, anche in un formato hash, al di fuori dei limiti interni. L'autenticazione pass-through è la soluzione ideale per tali organizzazioni.
 
 ![Autenticazione pass-through di Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

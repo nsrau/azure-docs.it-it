@@ -2,18 +2,18 @@
 title: 'Guida introduttiva di Azure: Caricare, scaricare ed elencare BLOB in Archiviazione di Azure con Azure PowerShell | Microsoft Docs'
 description: In questa guida introduttiva si usa Azure PowerShell per creare un account di archiviazione e un contenitore. Si usa quindi PowerShell per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
-ms.author: tamram
-ms.openlocfilehash: 1ffed1eea8d159ccd05331d741624d8bc9e84b50
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: rogarana
+ms.openlocfilehash: 29eb69f95680babfc1004d483a6a1c2bc44edda8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure PowerShell
 

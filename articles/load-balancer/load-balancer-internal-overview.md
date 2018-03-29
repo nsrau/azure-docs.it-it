@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Panoramica del bilanciamento del carico interno di Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Il bilanciamento del carico interno (ILB) di Azure indirizza il traffico alle risorse che si trovano all'interno di un servizio cloud o che usano una VPN per accedere all'infrastruttura di Azure. In questo senso il bilanciamento del carico interno è diverso da un bilanciamento del carico con connessione a Internet. L'infrastruttura di Azure limita l'accesso agli indirizzi IP virtuali (VIP) con carico bilanciato di un servizio cloud o a una rete virtuale. Gli indirizzi VIP e le reti virtuali non sono mai esposti direttamente a un endpoint di Internet. Le applicazioni line-of-business interne vengono eseguite in Azure e sono accessibili dall'interno di Azure o da risorse locali.
 

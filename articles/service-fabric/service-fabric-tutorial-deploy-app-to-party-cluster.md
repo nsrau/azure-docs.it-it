@@ -5,21 +5,21 @@ services: service-fabric
 documentationcenter: .net
 -author: mikkelhegn
 -manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2018
-ms.author: mikkelhegn
+ms.date: 02/23/2018
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d8f8d903046f1d471f7abbe08a957b81522e391
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione in un cluster di Service Fabric in Azure
 Questa esercitazione è la seconda parte di una serie e illustra come distribuire un'applicazione di Azure Service Fabric in un nuovo cluster in Azure direttamente da Visual Studio.
@@ -65,7 +65,6 @@ In questa esercitazione si seguirà la procedura per creare un cluster da Visual
 > Molti servizi usano il proxy inverso per comunicare tra loro. Nei cluster creati da Visual Studio e nei party cluster, il proxy inverso è abilitato per impostazione predefinita.  Se si usa un cluster esistente, è necessario [abilitare il proxy inverso nel cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Distribuire l'app nel cluster di Service Fabric
-
 1. Fare clic con il pulsante destro del mouse sul progetto di applicazione in Esplora soluzioni e scegliere **Pubblica**.
 
 2. Accedere con l'account Azure per poter avere accesso alle sottoscrizioni. Se si usa un party cluster, questo passaggio è facoltativo.
